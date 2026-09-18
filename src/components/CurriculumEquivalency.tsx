@@ -785,6 +785,52 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageEn: 'Gateway to French-medium undergraduate sections in Law, Commerce, Languages & Translation (Alsun), and European exchange.',
       universityAdvantageAr: 'بوابة كبرى للالتحاق بالشعب الفرنسية في كليات الحقوق والتجارة، كليات الألسن واللغات، والمنح الجامعية الأوروبية.',
     },
+    {
+      id: 'economics_stat_bridge',
+      titleEn: 'Economics & Applied Statistics: Macroeconomic Principles & Stochastic Inference',
+      titleAr: 'الاقتصاد والإحصاء التطبيقي: مبادئ الاقتصاد الكلي والاستدلال العشوائي',
+      icon: <TrendingUp className="w-5 h-5 text-amber-500" />,
+      thanaweyaBranchId: 'thanaweya_economics_stat',
+      egBacBranchId: 'egbac_economics_stat',
+      thanaweyaTitleEn: 'Complete 10-Unit Program: 6 Units Macroeconomics + 4 Units Applied Statistics',
+      thanaweyaTitleAr: 'المنهج المتكامل (١٠ وحدات): ٦ وحدات اقتصاد كلي + ٤ وحدات إحصاء تطبيقي',
+      thanaweyaTopicsEn: [
+        'Ch.1-6 Macroeconomics: Needs & scarcity, production factors, value added & national income, public finance & taxation, money & banking, and globalization',
+        'Ch.7 Linear Correlation & Regression: Pearson product-moment coefficient, Spearman rank correlation, and regression line equation y on x',
+        'Ch.8 Probability & Conditional Independence: Sample space, conditional probability rule P(A|B), multiplication rule, and independent events',
+        'Ch.9 Random Variables & Distributions: Discrete probability distribution, mathematical expectation (mean), variance, standard deviation, and continuous probability density functions',
+        'Ch.10 Standard Normal Bell Curve: Gaussian distribution, standard score Z-transformation, and area table probability evaluation',
+      ],
+      thanaweyaTopicsAr: [
+        'فصول ١-٦ الاقتصاد: المشكلة الاقتصادية، عناصر الإنتاج، القيمة المضافة وتوازن الدخل القومي، المالية العامة والضرائب، النقود والبنوك، والعلاقات الاقتصادية الدولية',
+        'فصل ٧ الارتباط والانحدار: معامل ارتباط بيرسون الخطي، ارتباط الرتب لسبيرمان، ومعادلة خط انحدار ص على س وتوقع القيم وحساب الخطأ',
+        'فصل ٨ الاحتمال الشرطي: فضاء العينة وقوانين الاحتمال، قانون الاحتمال الشرطي ل(أ|ب)، وقاعدة ضرب الاحتمالات والأحداث المستقلة',
+        'فصل ٩ المتغيرات العشوائية والتوزيعات: التوزيع الاحتمالي المتقطع، التوقع الرياضي (المتوسط الحسابي)، التباين والانحراف المعياري، ودالة كثافة الاحتمال للمتغير المتصل',
+        'فصل ١٠ التوزيع الطبيعي المعياري: منحنى غاوس، درجات Z المعيارية، وقراءة جداول المساحات تحت المنحنى الطبيعي لحساب الاحتمالات',
+      ],
+      egBacTitleEn: 'Advanced 10-Unit Quantitative Macroeconomics & Econometric Modeling Track',
+      egBacTitleAr: 'المسار المتقدم (١٠ وحدات): الاقتصاد الكلي الكمي والنمذجة القياسية والإحصاء الاستدلالي',
+      egBacTopicsEn: [
+        'Units 1-6 Quantitative Economics: Dynamic PPC trade-offs, capital obsolescence modeling, Keynesian investment multiplier derivation, market failure externalities, central bank interest-rate transmission, and Ricardian comparative advantage',
+        'Unit 7 Bivariate Econometric Regression: Method of ordinary least squares (OLS), covariance identities, residuals analysis, and coefficient of determination (R²)',
+        'Unit 8 Advanced Stochastic Processes: Multidimensional probability trees, Bayes theorem with multiple priors, and Markovian independence',
+        'Unit 9 Continuous Probability Integrals: Piecewise continuous density functions, trapezoidal calculus proofs, variance algebraic identities, and coefficient of variation',
+        'Unit 10 Gaussian Standardization & Risk Engineering: Two-tailed confidence intervals, inverse normal probability lookup, and financial risk quality control',
+      ],
+      egBacTopicsAr: [
+        'وحدات ١-٦ الاقتصاد الكمي المتقدم: ديناميات منحنى إمكانات الإنتاج، الاستهلاك الاقتصادي لرأس المال، اشتقاق مضاعف الاستثمار الكينزي، الآثار الخارجية وإخفاق السوق، آلية انتقال السياسة النقدية، ونظرية الميزة النسبية لريكاردو',
+        'وحدة ٧ الانحدار القياسي بالمربعات الصغرى: اشتقاق معادلتي خط الانحدار، تحليل التباين المشترك، تحليل البواقي، ومعامل التحديد R²',
+        'وحدة ٨ الاستدلال الاحتمالي والبايزي المتقدم: أشجار الاحتمال المتعددة، مبرهنة بايز مع الفروض المسبقة المركبة، واستقلال العمليات العشوائية',
+        'وحدة ٩ تكاملات التوزيعات المستمرة: دوال الكثافة المعرفة بأكثر من قاعدة، البراهين الهندسية لمساحات شبه المنحرف، وخصائص التباين ومعامل الاختلاف',
+        'وحدة ١٠ المعايرة الطبيعية وإدارة المخاطر: فترات الثقة الثنائية، المسائل العكسية للتوزيع الطبيعي، وتطبيقات الرقابة الإحصائية على الجودة وإدارة المخاطر الاستثمارية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an exhaustive ministerial grounding in public finance concepts, basic macroeconomic identities, and manual computational procedures for Pearson correlation, expectation, and standard Z-scores. EG-Bac elevates these to econometric modeling, algebraic proofs of variance, Bayesian networks, and quantitative open-economy dynamics.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً وزارياً محكماً في مفاهيم المالية العامة والتدفق الدائري والحسابات المباشرة لمعاملات بيرسون والاحتمال الشرطي وجداول Z، بينما تنقل البكالوريا الطالب إلى النمذجة القياسية الاقتصادية، براهين التباين الجبرية، الشبكات البايزية، وتحليل التوازن الكلي المفتوح.',
+      universityAdvantageEn: 'Direct foundational springboard for faculties of Economics & Political Science, Business Administration, Actuarial Science, Data Science, and Financial Engineering.',
+      universityAdvantageAr: 'قاعدة انطلاق حاسمة لكليات الاقتصاد والعلوم السياسية، إدارة الأعمال والمحاسبة، العلوم الاكتوارية، علوم البيانات، والهندسة المالية.',
+    },
   ];
 
 
@@ -843,8 +889,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(157) : '157'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(٨٥ ثانوية + ٧٢ بكالوريا)' : '(85 Thanaweya + 72 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(177) : '177'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(٩٥ ثانوية + ٨٢ بكالوريا)' : '(95 Thanaweya + 82 Bac)'}</span>
             </div>
           </div>
 
@@ -855,7 +901,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(31400) : '31,400'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(35400) : '35,400'}</span>
               <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
@@ -867,8 +913,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(12) : '12'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٥ فرعاً لكل مسار)' : 'Subjects (15 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(13) : '13'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٦ فرعاً لكل مسار)' : 'Subjects (16 branches/track)'}</span>
             </div>
           </div>
 

@@ -1,0 +1,4293 @@
+import type { Branch } from '../types/curriculum';
+import { econStatCh1Databank } from './databanks/thanaweya/econStatCh1Databank';
+import { econStatCh1SolvedExamples, econStatCh1Exercises } from './textbook/thanaweya/econStatCh1Textbook';
+import { econStatCh2Databank } from './databanks/thanaweya/econStatCh2Databank';
+import { econStatCh2SolvedExamples, econStatCh2Exercises } from './textbook/thanaweya/econStatCh2Textbook';
+import { econStatCh3Databank } from './databanks/thanaweya/econStatCh3Databank';
+import { econStatCh3SolvedExamples, econStatCh3Exercises } from './textbook/thanaweya/econStatCh3Textbook';
+import { econStatCh4Databank } from './databanks/thanaweya/econStatCh4Databank';
+import { econStatCh4SolvedExamples, econStatCh4Exercises } from './textbook/thanaweya/econStatCh4Textbook';
+import { econStatCh5Databank } from './databanks/thanaweya/econStatCh5Databank';
+import { econStatCh5SolvedExamples, econStatCh5Exercises } from './textbook/thanaweya/econStatCh5Textbook';
+import { econStatCh6Databank } from './databanks/thanaweya/econStatCh6Databank';
+import { econStatCh6SolvedExamples, econStatCh6Exercises } from './textbook/thanaweya/econStatCh6Textbook';
+import { econStatCh7Databank } from './databanks/thanaweya/econStatCh7Databank';
+import { econStatCh7SolvedExamples, econStatCh7Exercises } from './textbook/thanaweya/econStatCh7Textbook';
+import { econStatCh8Databank } from './databanks/thanaweya/econStatCh8Databank';
+import { econStatCh8SolvedExamples, econStatCh8Exercises } from './textbook/thanaweya/econStatCh8Textbook';
+import { econStatCh9Databank } from './databanks/thanaweya/econStatCh9Databank';
+import { econStatCh9SolvedExamples, econStatCh9Exercises } from './textbook/thanaweya/econStatCh9Textbook';
+import { econStatCh10Databank } from './databanks/thanaweya/econStatCh10Databank';
+import { econStatCh10SolvedExamples, econStatCh10Exercises } from './textbook/thanaweya/econStatCh10Textbook';
+
+export const thanaweyaEconomicsStatBranch: Branch = {
+  id: "thanaweya_economics_stat",
+  titleEn: "Economics & Applied Statistics",
+  titleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة",
+  categoryEn: "Social Sciences & Applied Mathematics",
+  categoryAr: "العلوم الاجتماعية والإحصاء التطبيقي والرياضيات",
+  iconName: "TrendingUp",
+  colorGradient: "from-amber-600 via-yellow-600 to-orange-600",
+  chapters: [
+    {
+      id: "th_econ_stat_ch1",
+      chapterNumber: 1,
+      titleEn: "Unit 1: Scarcity, Economic Needs & Methodology",
+      titleAr: "الوحدة الأولى: الاقتصاد والمشكلة الاقتصادية والندرة",
+      descriptionEn: "Fundamental economic scarcity, characteristics of human needs, classification of goods, opportunity cost, Production Possibilities Curve, and core branches of economics.",
+      descriptionAr: "مفهوم المشكلة الاقتصادية، الحاجات وخصائصها، الموارد وتقسيم السلع، وتكلفة الفرصة البديلة ومنحنى إمكانيات الإنتاج وفروع علم الاقتصاد.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch1_l1",
+          titleEn: "Human Needs, Economic Resources & Fundamental Scarcity",
+          titleAr: "الحاجات والموارد والمشكلة الاقتصادية",
+          summaryEn: "Concept of needs, scarcity of resources, goods taxonomy (consumer vs capital), and opportunity cost.",
+          summaryAr: "مفهوم الحاجة وخصائصها (الإلحاح والإشباع والتجدد)، تصنيف الموارد والسلع، وتكلفة الفرصة البديلة.",
+          theoryContentEn: "### 1. The Core Economic Problem\n- **Core Dilemma:** Relative scarcity of limited resources confronted with unlimited, constantly expanding human wants.\n- **Economic Need:** A subjective or biological sensation of deprivation that impels purposeful economic action to achieve satisfaction.\n- **Key Characteristics of Needs:**\n  1. **Satiability:** Satisfying a need diminishes the intensity of deprivation incrementally, demonstrating the Law of Diminishing Marginal Utility.\n  2. **Multiplicity & Unlimited Expansion:** Fulfilling one need awakens higher-order aspirations.\n  3. **Continuous Renewal:** Biological survival needs re-emerge cyclically (nourishment, hydration).\n  4. **Civilizational Evolution:** Societal development elevates needs from raw survival to educational, psychological, and cultural flourishing.\n\n### 2. Resources, Goods Taxonomy & Opportunity Cost\n- **Economic Resources:** All natural, human, and manufactured assets capable of satisfying wants, characterized by relative scarcity.\n- **Classification of Goods:**\n  - **Consumer Goods:** Satisfy human desires directly (foodstuffs, apparel).\n  - **Capital/Producer Goods:** Satisfy desires indirectly by fabricating other commodities (machinery, factory tools).\n  - *Critical Principle:* Classification depends on functional end-use rather than intrinsic composition (fuel in home vs fuel in manufacturing plant).\n  - **Opportunity Cost:** The forgone value of the next best alternative sacrificed when scarce resources are allocated to a chosen path.",
+          theoryContentAr: "### ١. المشكلة الاقتصادية وجوهرها\n- **جوهر المشكلة:** الندرة النسبية للموارد الصالحة لإشباع الحاجات المتعددة والمتجددة بلا حدود.\n- **الحاجة (Need):** شعور بالحرمان يلح على الفرد مما يدفعه للقيام بعمل اقتصادي مناسب لإشباع هذا الشعور والتخلص منه.\n- **خصائص الحاجات البشرية:**\n  ١. **قابليتها للإشباع:** استخدام الوسيلة المناسبة يؤدي لتناقص الشعور بالحرمان تدريجياً، وهو ما يفسر ظاهرة «تناقص المنفعة الحدية».\n  ٢. **التنوع والزيادة المستمرة:** كلما أشبع الإنسان حاجة ظهرت حاجات جديدة أرقى.\n  ٣. **التجدد المستمر:** الحاجات البيولوجية تتجدد دورياً (كالحاجة للطعام والشراب).\n  ٤. **التطور الحضاري:** ترتقي حاجات الإنسان من مجرد الضروريات الحيوية إلى الحاجات الثقافية والاجتماعية والتعليمية.\n\n### ٢. الموارد وتقسيم السلع وتكلفة الفرصة البديلة\n- **الموارد الاقتصادية:** كل ما يصلح لإشباع الحاجات بطريق مباشر أو غير مباشر، وتتسم بالندرة النسبية.\n- **تقسيم السلع:**\n  - **سلع استهلاكية:** تشبع الحاجة مباشرة (مثل رغيف الخبز أو الملابس الجاهزة).\n  - **سلع إنتاجية (رأسمالية):** تسهم في إنتاج سلع أخرى بطريق غير مباشر (كالجرارات الزراعية والآلات والمواد الخام).\n  - *ملاحظة هامة:* يتحدد نوع السلعة تبعاً للغرض من استخدامها وليس لطبيعتها ذاتها (فالبترول كوقود للتدفئة المنزلية استهلاكي، وفي مصنع إنتاجي).\n- **تكلفة الفرصة البديلة (Opportunity Cost):** التضحية بأفضل بديل ممكن للمورد عند اختياره لإنتاج سلعة دون غيرها.",
+          formulas: [
+          {
+                    "labelEn": "Opportunity Cost Ratio",
+                    "labelAr": "معادلة تكلفة الفرصة البديلة",
+                    "latex": "\\text{Opportunity Cost} = \\frac{\\Delta \\text{Good } Y}{\\Delta \\text{Good } X}"
+          },
+          {
+                    "labelEn": "Production Frontier Feasibility",
+                    "labelAr": "شرط كفاءة منحنى إمكانيات الإنتاج",
+                    "latex": "F(K, L) = Y_{\\text{max}}"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 1-20"
+          },
+          lessonPlan: {
+            titleEn: "Human Needs, Economic Resources & Fundamental Scarcity",
+            titleAr: "الحاجات والموارد والمشكلة الاقتصادية",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH1-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch1_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Human Needs, Economic Resources & Fundamental Scarcity",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "الحاجات والموارد والمشكلة الاقتصادية",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch1_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Human Needs, Economic Resources & Fundamental Scarcity" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "الحاجات والموارد والمشكلة الاقتصادية" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch1_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Human Needs, Economic Resources & Fundamental Scarcity" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "الحاجات والموارد والمشكلة الاقتصادية" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch1_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Human Needs, Economic Resources & Fundamental Scarcity" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "الحاجات والموارد والمشكلة الاقتصادية" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "PPC & Opportunity Cost Frontier Simulator",
+            titleAr: "محاكي منحنى إمكانيات الإنتاج وتكلفة الفرصة البديلة",
+            descriptionEn: "Interactive simulation exploring resource allocation trade-offs and opportunity cost frontier.",
+            descriptionAr: "محاكاة تفاعلية لتخصيص الموارد النادرة وتكلفة الفرصة البديلة بين السلع الاستهلاكية والرأسمالية."
+          }
+        },
+        {
+          id: "th_econ_stat_ch1_l2",
+          titleEn: "Divisions of Economics & Importance of Data Systems",
+          titleAr: "فروع علم الاقتصاد وأهمية البيانات الاقتصادية",
+          summaryEn: "Divisions of economics (Micro, Macro, Welfare, Growth) and vital role of economic information systems.",
+          summaryAr: "أقسام علم الاقتصاد (الكلي، الجزئي، الرفاهية، والنمو)، ودور المعلومات الاقتصادية في حل المشكلة وتحديد كفاءة النظام.",
+          theoryContentEn: "### 1. Divisions of Economic Science\n- **Definition:** A social science investigating how scarce resources are efficiently allocated among competing uses to satisfy maximum human desires.\n- **Four Foundational Branches:**\n  1. **Macroeconomics (Aggregate):** Analyzes aggregate national performance indicators (GDP, National Income, General Price Inflation, Unemployment, and Balance of Payments).\n  2. **Microeconomics (Individual Units):** Investigates decision-making by single households and firms, supply-demand mechanics, and single-market price determination.\n  3. **Welfare Economics:** Evaluates allocative efficiency and distributional equity in resource utilization to maximize social welfare.\n  4. **Growth & Development Economics:** Explores long-term structural transformation, capital accumulation, and growth trajectories in developing nations.\n\n### 2. Strategic Role of Economic Information\n- **Rational Decision Making:** Transparent, precise data on resource reserves and consumer demand forms the prerequisite for non-wasteful allocation.\n- **Measuring System Efficiency:** The competence of any economic regime is directly evaluated by its capacity to eliminate idle capacity and unemployment.\n- **Preventing Structural Bottlenecks:** Information asymmetry or data poverty generates severe market failures, shortages, and misdirected capital investments.",
+          theoryContentAr: "### ١. فروع ومجالات علم الاقتصاد\n- **تعريف علم الاقتصاد:** علم اجتماعي يبحث في كيفية إدارة الموارد النادرة وتوزيعها لإشباع أكبر قدر ممكن من الحاجات الإنسانية بأقل تكلفة.\n- **الفروع الأربعة الأساسية:**\n  ١. **الاقتصاد الكلي (التجميعي):** يتناول المستويات العامة للنشاط الاقتصادي في المجتمع ككل (الناتج القومي، الدخل القومي، التضخم، البطالة، وميزان المدفوعات).\n  ٢. **الاقتصاد الجزئي (الوحدي):** يدرس سلوك الوحدات الاقتصادية الفردية كالمستهلك، والمنتج، وآليات تحديد أسعار السلع في الأسواق المنفردة.\n  ٣. **اقتصاديات الرفاهية:** تقييم كفاءة النظام الاقتصادي في استخدام الموارد وعدالة التوزيع من منظور تحقيق الرفاه الاجتماعي الشامل.\n  ٤. **اقتصاديات النمو والتنمية:** يهتم بالمستقبل وإمكانات التطور والنمو الاقتصادي طويل الأجل وتغيير البنيان الاقتصادي للدول النامية.\n\n### ٢. أهمية المعلومات والبيانات الاقتصادية\n- **ترشيد القرارات:** توفير بيانات دقيقة عن الموارد والحاجات هو الركيزة الأساسية لاتخاذ قرارات تخصيص الموارد بكفاءة ودون هدر.\n- **قياس كفاءة النظام الاقتصادي:** تتحدد كفاءة أي نظام بقدرته على الاستفادة القصوى من موارده وتجنب الموارد المعطلة والبطالة.\n- **تجنب الأزمات والاختناقات:** نقص المعلومات يؤدي إلى قرارات عشوائية وإهدار للطاقات وظهور اختناقات تموينية واقتصادية حادة.",
+          formulas: [
+          {
+                    "labelEn": "Opportunity Cost Ratio",
+                    "labelAr": "معادلة تكلفة الفرصة البديلة",
+                    "latex": "\\text{Opportunity Cost} = \\frac{\\Delta \\text{Good } Y}{\\Delta \\text{Good } X}"
+          },
+          {
+                    "labelEn": "Production Frontier Feasibility",
+                    "labelAr": "شرط كفاءة منحنى إمكانيات الإنتاج",
+                    "latex": "F(K, L) = Y_{\\text{max}}"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 1-20"
+          },
+          lessonPlan: {
+            titleEn: "Divisions of Economics & Importance of Data Systems",
+            titleAr: "فروع علم الاقتصاد وأهمية البيانات الاقتصادية",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH1-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch1_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Divisions of Economics & Importance of Data Systems",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "فروع علم الاقتصاد وأهمية البيانات الاقتصادية",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch1_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Divisions of Economics & Importance of Data Systems" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "فروع علم الاقتصاد وأهمية البيانات الاقتصادية" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch1_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Divisions of Economics & Importance of Data Systems" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "فروع علم الاقتصاد وأهمية البيانات الاقتصادية" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch1_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Divisions of Economics & Importance of Data Systems" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "فروع علم الاقتصاد وأهمية البيانات الاقتصادية" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "PPC & Opportunity Cost Frontier Simulator",
+            titleAr: "محاكي منحنى إمكانيات الإنتاج وتكلفة الفرصة البديلة",
+            descriptionEn: "Interactive simulation exploring resource allocation trade-offs and opportunity cost frontier.",
+            descriptionAr: "محاكاة تفاعلية لتخصيص الموارد النادرة وتكلفة الفرصة البديلة بين السلع الاستهلاكية والرأسمالية."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "economics_market_equilibrium",
+          titleEn: "PPC & Opportunity Cost Frontier Simulator",
+          titleAr: "محاكي منحنى إمكانيات الإنتاج وتكلفة الفرصة البديلة",
+          descriptionEn: "Interactive simulation exploring resource allocation trade-offs and opportunity cost frontier.",
+          descriptionAr: "محاكاة تفاعلية لتخصيص الموارد النادرة وتكلفة الفرصة البديلة بين السلع الاستهلاكية والرأسمالية."
+        }
+      ],
+      databank: econStatCh1Databank,
+      solvedExamples: econStatCh1SolvedExamples,
+      exerciseProblems: econStatCh1Exercises
+    },
+    {
+      id: "th_econ_stat_ch2",
+      chapterNumber: 2,
+      titleEn: "Unit 2: Factors of Production (Labor, Nature & Capital)",
+      titleAr: "الوحدة الثانية: عناصر الإنتاج (العمل، الطبيعة، رأس المال)",
+      descriptionEn: "The triad of production factors: conscious purposeful labor and specialization, nature and ecological boundaries, capital accumulation, depreciation and obsolescence.",
+      descriptionAr: "عناصر الإنتاج الثلاثة: العمل كعنصر بشري واعي وتقسيم العمل، الطبيعة كعنصر غير مصنوع وقابل للهلاك، ورأس المال وتكوينه واستهلاكه المادي والاقتصادي.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch2_l1",
+          titleEn: "Labor as a Human Factor & Division of Labor",
+          titleAr: "العمل كعنصر بشري وتقسيم العمل والتخصص",
+          summaryEn: "Human conscious labor, exertion vs creative joy, and benefits and alienation risks of division of labor.",
+          summaryAr: "طبيعة العمل كجهد إنساني واعي وغائي، تضحياته ومتعته، ومزايا ومخاطر تقسيم العمل والتخصص.",
+          theoryContentEn: "### 1. Labor as the Primary Human Factor\n- **Definition:** Conscious, voluntary, purposeful human exertion dedicated within the production process to generate economic goods and services.\n- **Essential Attributes:**\n  1. **Conscious & Purposeful:** Humans deliberately transform physical nature toward planned goals (contrasting instinctual animal behavior).\n  2. **Voluntary Agency:** Executed through calculated free will weighing effort against economic returns.\n  3. **Duality of Pain & Pleasure:** Involves neurological and physical fatigue (burden), yet provides self-actualization, creative pride, and wage livelihood.\n\n### 2. Division of Labor & Specialization\n- **Definition:** Deconstructing the fabrication of a commodity into simplified sequential micro-tasks assigned to specialized workers.\n- **Productivity Gains:**\n  - Heightened manual speed and dexterity in executing repetitive tasks.\n  - Eradicating wasted transition latency between disparate production tools.\n  - Facilitating the introduction of specialized mechanized automation and robotics.\n  - Multiplying aggregate output volume while dramatically lowering unit cost.\n- **Drawbacks of Extreme Division:** Psychological monotony, loss of holistic craftsmanship, and worker alienation from final output.",
+          theoryContentAr: "### ١. العمل كعنصر بشري أساسي\n- **تعريف العمل:** الجهد الإنساني الواعي والحر والهادف المبذول في العملية الإنتاجية بقصد خلق المنافع وإنتاج السلع والخدمات.\n- **خصائص عنصر العمل:**\n  ١. **نشاط واعٍ وهادف:** يعي الإنسان الطبيعة ويغيرها لتحقيق غايات محددة (على عكس نشاط الحيوان الغريزي).\n  ٢. **نشاط إرادي حر:** يقوم به الإنسان باختياره وحساباته العقلانية للمردود والمنفعة.\n  ٣. **مصدر للألم والمتعة معاً:** ينطوي على جهد بدني وعصبي وإجهاد (ألم)، ولكنه في الوقت نفسه مصدر للإنجاز واعتزاز الفرد بذاته والتمتع بثمار عمله.\n\n### ٢. تقسيم العمل والتخصص (Division of Labor)\n- **المفهوم:** تجزئة إنتاج السلعة إلى عمليات جزئية متتابعة يتخصص كل عامل في أداء عملية واحدة منها بدقة.\n- **مزايا تقسيم العمل:**\n  - زيادة مهارة وإتقان العامل للعملية البسيطة.\n  - توفير الوقت الضائع في الانتقال بين أدوات مختلفة.\n  - تمهيد الطريق لاختراع واستخدام الآلات والميكنة المتطورة.\n  - مضاعفة الإنتاجية الإجمالية للمشروع وخفض تكاليف الإنتاج.\n- **عيوب تقسيم العمل المفرط:** الرتابة والملل، وإضعاف الابتكار الحرفي الشامل، وشعور العامل بالاغتراب عن المنتَج النهائي.",
+          formulas: [
+          {
+                    "labelEn": "Cobb-Douglas Production Function",
+                    "labelAr": "دالة الإنتاج (كوب-دوجلاس)",
+                    "latex": "Y = A \\cdot K^\\alpha \\cdot L^\\beta"
+          },
+          {
+                    "labelEn": "Marginal Product of Labor",
+                    "labelAr": "الإنتاجية الحدية لعنصر العمل",
+                    "latex": "MP_L = \\frac{\\Delta Y}{\\Delta L}"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 21-40"
+          },
+          lessonPlan: {
+            titleEn: "Labor as a Human Factor & Division of Labor",
+            titleAr: "العمل كعنصر بشري وتقسيم العمل والتخصص",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH2-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch2_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Labor as a Human Factor & Division of Labor",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "العمل كعنصر بشري وتقسيم العمل والتخصص",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch2_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Labor as a Human Factor & Division of Labor" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "العمل كعنصر بشري وتقسيم العمل والتخصص" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch2_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Labor as a Human Factor & Division of Labor" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "العمل كعنصر بشري وتقسيم العمل والتخصص" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch2_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Labor as a Human Factor & Division of Labor" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "العمل كعنصر بشري وتقسيم العمل والتخصص" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "Marginal Productivity & Factor Substitution Lab",
+            titleAr: "مختبر الإنتاجية الحدية وتوليفة عناصر الإنتاج",
+            descriptionEn: "Interactive simulation of diminishing returns and optimal labor-capital factor mix.",
+            descriptionAr: "محاكاة لقانون تناقص الغلة وتوليفة العمل ورأس المال المثلى لتحقيق أعلى إنتاجية."
+          }
+        },
+        {
+          id: "th_econ_stat_ch2_l2",
+          titleEn: "Nature & Capital: Formation, Obsolescence & Depreciation",
+          titleAr: "عنصرا الطبيعة ورأس المال وتكوين رأس المال",
+          summaryEn: "Nature's ecological boundaries, capital taxonomy (fixed vs circulating), physical vs economic obsolescence, and savings.",
+          summaryAr: "خصائص عنصر الطبيعة والقيود البيئية، وأنواع رأس المال (الثابت والمتداول)، والاستهلاك المادي والاقتصادي والادخار.",
+          theoryContentEn: "### 1. Nature as an Ecological Factor\n- **Definition:** The sum of natural resources and environmental forces provided without human fabrication (land, minerals, hydrology, geography).\n- **Fundamental Attributes:**\n  1. **Non-Manufactured Natural Endowment:** Precedes human existence.\n  2. **Spatial Immobility:** Dictates strict geographic localization of extractive and agrarian enterprises.\n  3. **Depletability & Vulnerability:** Non-renewable resources face exhaustion (fossil fuels, metallic ores); renewable systems risk catastrophic pollution without legal conservation.\n\n### 2. Capital: Types, Obsolescence & Formation\n- **Definition:** The stock of manufactured instruments, structures, and tools designed to amplify labor productivity in subsequent cycles.\n- **Capital Taxonomy:**\n  - **Fixed Capital (Durable Assets):** Participates in multiple production cycles without losing its physical identity (machinery, factory edifices).\n  - **Circulating Capital (Operating Goods):** Exhausted or transmuted within a single cycle (raw materials, industrial fuel).\n- **Forms of Depreciation:**\n  - **Physical Depreciation:** Wear and tear from mechanical friction, operational stress, and environmental decay.\n  - **Economic Obsolescence:** Premature loss of economic viability caused by cutting-edge technological innovations or shifts in consumer demand.\n  - **Capital Formation:** Fundamentally contingent upon **domestic savings**—foregoing current consumption to finance capital expansion.",
+          theoryContentAr: "### ١. الطبيعة كعنصر إنتاجي\n- **المفهوم:** كل الموارد والقوى التي يجدها الإنسان دون جهد من جانبه (الأرض، المناجم، الغابات، الأنهار، والموقع الجغرافي).\n- **خصائص عنصر الطبيعة:**\n  ١. **هبة من الله غير مصنوعة:** تسبق وجود الإنسان.\n  ٢. **الموقع الجغرافي الثابت:** تفرض توطن النشاط الاقتصادي في مناطق بعينها.\n  ٣. **القابلية للهلاك والنضوب والتلوث:** الموارد إما فانية كالوقود الأحفوري أو معرضة للتدهور والتلوث إذا أسيء استغلالها، مما يتطلب فرض قيود قانونية وتشريعات بيئية لحمايتها.\n\n### ٢. رأس المال وتكوينه وأنواعه\n- **المفهوم:** مجموعة من الأدوات والمعدات والآلات والمباني المصنوعة التي تساعد على زيادة إنتاجية العمل البشري في المستقبل.\n- **أنواع رأس المال:**\n  - **رأس المال الثابت (أصول إنتاجية):** يُستخدم مرات عديدة في الإنتاج دون أن يفقد شكله أو خصائصه (كالآلات والمباني).\n  - **رأس المال المتداول (أصول جارية):** يُستخدم مرة واحدة ويفنى أو يتحول إلى سلعة جديدة في دورة واحدة (كالمواد الخام والوقود).\n- **استهلاك رأس المال:**\n  - **استهلاك مادي:** التآكل والتلف الميكانيكي الناتج عن كثرة الاستعمال أو مرور الزمن.\n  - **استهلاك اقتصادي:** فقدان الآلة لقيمتها وجدواها الاقتصادية بسبب ظهور تكنولوجيا أحدث وأكثر كفاءة أو تغير أذواق المستهلكين.\n- **تكوين رأس المال:** لا يتأتى تكوين رأس المال إلا من خلال **الادخار** (التضحية بجزء من الاستهلاك الحالي وتوجيهه للاستثمار وشراء معدات إنتاجية جديدة).",
+          formulas: [
+          {
+                    "labelEn": "Cobb-Douglas Production Function",
+                    "labelAr": "دالة الإنتاج (كوب-دوجلاس)",
+                    "latex": "Y = A \\cdot K^\\alpha \\cdot L^\\beta"
+          },
+          {
+                    "labelEn": "Marginal Product of Labor",
+                    "labelAr": "الإنتاجية الحدية لعنصر العمل",
+                    "latex": "MP_L = \\frac{\\Delta Y}{\\Delta L}"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 21-40"
+          },
+          lessonPlan: {
+            titleEn: "Nature & Capital: Formation, Obsolescence & Depreciation",
+            titleAr: "عنصرا الطبيعة ورأس المال وتكوين رأس المال",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH2-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch2_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Nature & Capital: Formation, Obsolescence & Depreciation",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "عنصرا الطبيعة ورأس المال وتكوين رأس المال",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch2_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Nature & Capital: Formation, Obsolescence & Depreciation" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "عنصرا الطبيعة ورأس المال وتكوين رأس المال" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch2_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Nature & Capital: Formation, Obsolescence & Depreciation" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "عنصرا الطبيعة ورأس المال وتكوين رأس المال" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch2_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Nature & Capital: Formation, Obsolescence & Depreciation" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "عنصرا الطبيعة ورأس المال وتكوين رأس المال" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "Marginal Productivity & Factor Substitution Lab",
+            titleAr: "مختبر الإنتاجية الحدية وتوليفة عناصر الإنتاج",
+            descriptionEn: "Interactive simulation of diminishing returns and optimal labor-capital factor mix.",
+            descriptionAr: "محاكاة لقانون تناقص الغلة وتوليفة العمل ورأس المال المثلى لتحقيق أعلى إنتاجية."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "economics_market_equilibrium",
+          titleEn: "Marginal Productivity & Factor Substitution Lab",
+          titleAr: "مختبر الإنتاجية الحدية وتوليفة عناصر الإنتاج",
+          descriptionEn: "Interactive simulation of diminishing returns and optimal labor-capital factor mix.",
+          descriptionAr: "محاكاة لقانون تناقص الغلة وتوليفة العمل ورأس المال المثلى لتحقيق أعلى إنتاجية."
+        }
+      ],
+      databank: econStatCh2Databank,
+      solvedExamples: econStatCh2SolvedExamples,
+      exerciseProblems: econStatCh2Exercises
+    },
+    {
+      id: "th_econ_stat_ch3",
+      chapterNumber: 3,
+      titleEn: "Unit 3: National Income, Expenditure & Investment Multiplier",
+      titleAr: "الوحدة الثالثة: الدخل القومي والإنفاق ومضاعف الاستثمار",
+      descriptionEn: "National Product vs Gross Output, avoiding double counting via Value Added, Factor Incomes vs Transfer Payments, Real vs Nominal Income, and the Keynesian Multiplier.",
+      descriptionAr: "الناتج القومي والإنتاج ومفهوم القيمة المضافة وتجنب الازدواج المحاسبي، الدخل القومي بأنواعه، والاستهلاك والادخار ومضاعف الاستثمار الكينزي.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch3_l1",
+          titleEn: "National Product, Value Added & Factor Incomes",
+          titleAr: "الناتج القومي والقيمة المضافة والدخل القومي",
+          summaryEn: "Gross Output vs Net Product, Value Added accounting, Factor Earnings vs Transfer Payments, and Real vs Nominal Income.",
+          summaryAr: "الفرق بين الإنتاج القومي والناتج القومي، تفادي الازدواج المحاسبي بالقيمة المضافة، وتصنيف الدخول النقدية والحقيقية.",
+          theoryContentEn: "### 1. National Product & Value Added Method\n- **Gross Output:** Aggregate market value of all goods fabricated across all sectors; calculating it directly causes severe **double counting** errors.\n- **National Product:** The net aggregate market value of all **final goods and services** produced in an economy over a fiscal year.\n- **Value Added Accounting Principle:**\n  $$\\text{Value Added} = \\text{Total Gross Output} - \\text{Intermediate Consumption}$$\n  Summing value added across production stages yields true national output without duplicate recording.\n\n### 2. National Income & Factor Earnings Breakdown\n- **National Income:** Total earnings accrued by owners of production factors for contributing their services to economic production during a year.\n- **Factor Income Categories:**\n  1. **Labor Earnings:** Wages, salaries, and bonuses (compensation for human labor).\n  2. **Property Earnings:** Profits (reward for entrepreneurial risk), Interest (capital return), and Rent (land compensation).\n- **Exclusions from National Income Accounting:**\n  - **Transfer Payments:** Unemployment doles, social pensions, subsidies, and gifts (represent wealth transfers without new production).\n  - **Capital Gains & Losses:** Windfall asset price appreciations (real estate, stocks) that create no physical output.\n- **Nominal vs Real National Income:**\n  - **Nominal Income:** Expressed in current circulating currency units.\n  - **Real Income:** Actual purchasing power over physical goods, deflated using consumer price indices (CPI) to remove inflation bias.",
+          theoryContentAr: "### ١. الناتج القومي وتجنب الازدواج المحاسبي\n- **الإنتاج القومي الإجمالي:** مجموع ما أنتجته المشروعات في كافة القطاعات خلال سنة؛ وحسابه يقع في خطأ «الازدواج المحاسبي» لأن بعض السلع تستخدم كمدخلات لسلع أخرى.\n- **الناتج القومي الإجمالي (National Product):** مجموع القيم الصافية للسلع والخدمات النهائية المنتجة في المجتمع خلال سنة.\n- **طريقة القيمة المضافة (Value Added):**\n  $$\\text{القيمة المضافة} = \\text{قيمة الإنتاج الإجمالي} - \\text{قيمة الاستهلاك الوسيط (المدخلات)}$$\n  وهي الطريقة الصحيحة لحساب الناتج القومي دون تكرار.\n\n### ٢. الدخل القومي وتصنيف الدخول\n- **الدخل القومي (National Income):** مجموع الدخول التي يحصل عليها أصحاب عناصر الإنتاج نظير مساهمتهم في العملية الإنتاجية خلال سنة.\n- **أقسام الدخول:**\n  ١. **دخول العمل:** الأجور والرواتب والمكافآت (نظير الجهد المبذول).\n  ٢. **دخول الملكية:** الأرباح (نظير التنظيم والمخاطرة)، والفوائد (نظير رأس المال)، والريع (نظير استخدام الأرض).\n- **المدفوعات التي تُستبعد من الدخل القومي:**\n  - **المدفوعات التحويلية:** إعانات البطالة، المعاشات، والتبرعات (لأنها تحويل للأموال دون مساهمة في إنتاج جديد).\n  - **الكسب والخسارة الرأسمالية:** الأرباح الناتجة عن مجرد ارتفاع أسعار أصول قديمة (كالأسهم والعقارات) دون خلق أصل إنتاجي جديد.\n- **الدخل النقدي مقابل الدخل الحقيقي:**\n  - **الدخل النقدي:** كمية النقود التي يحصل عليها الفرد.\n  - **الدخل الحقيقي:** كمية السلع والخدمات التي يمكن الحصول عليها بالدخل النقدي (القوة الشرائية)، ويقاس بمعامل انكماش الأسعار لتحييد التضخم.",
+          formulas: [
+          {
+                    "labelEn": "Keynesian Investment Multiplier",
+                    "labelAr": "معادلة مضاعف الاستثمار الكينزي",
+                    "latex": "k = \\frac{1}{1 - MPC} = \\frac{1}{MPS} = \\frac{\\Delta Y}{\\Delta I}"
+          },
+          {
+                    "labelEn": "Value Added Identity",
+                    "labelAr": "معادلة القيمة المضافة الصافية",
+                    "latex": "\\text{Value Added} = \\text{Gross Output} - \\text{Intermediate Consumption}"
+          },
+          {
+                    "labelEn": "National Income Accounting",
+                    "labelAr": "معادلة توازن الدخل القومي",
+                    "latex": "Y = C + I + G + (X - M)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 41-60"
+          },
+          lessonPlan: {
+            titleEn: "National Product, Value Added & Factor Incomes",
+            titleAr: "الناتج القومي والقيمة المضافة والدخل القومي",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH3-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch3_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "National Product, Value Added & Factor Incomes",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "الناتج القومي والقيمة المضافة والدخل القومي",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch3_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "National Product, Value Added & Factor Incomes" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "الناتج القومي والقيمة المضافة والدخل القومي" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch3_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "National Product, Value Added & Factor Incomes" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "الناتج القومي والقيمة المضافة والدخل القومي" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch3_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "National Product, Value Added & Factor Incomes" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "الناتج القومي والقيمة المضافة والدخل القومي" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_national_income",
+            titleEn: "Circular Flow & Keynesian Multiplier Engine",
+            titleAr: "محاكي التدفق الدائري ومضاعف الاستثمار الكينزي",
+            descriptionEn: "Interactive simulation of Keynesian macroeconomic equilibrium and investment multiplier dynamics.",
+            descriptionAr: "محاكاة لتوازن الدخل القومي الكينزي وحساب المضاعف والفجوة الانكماشية والتضخمية."
+          }
+        },
+        {
+          id: "th_econ_stat_ch3_l2",
+          titleEn: "National Expenditure, Consumption & Keynesian Multiplier",
+          titleAr: "الإنفاق القومي ودالة الاستهلاك ومضاعف الاستثمار",
+          summaryEn: "Private and public consumption, savings identity, marginal propensities (MPC, MPS), and the Keynesian investment multiplier.",
+          summaryAr: "الاستهلاك الخاص والعام، دالة الادخار، الميل الحدي للاستهلاك والادخار، ومعادلة مضاعف الاستثمار الكينزي وتوازن الدخل.",
+          theoryContentEn: "### 1. National Expenditure & Keynesian Consumption\n- **National Expenditure:** Total aggregate expenditure in an economy directed toward consumer and investment goods over a year:\n  $$\\text{Expenditure} = \\text{Consumption (C)} + \\text{Investment (I)}$$\n- **Consumption Branches:**\n  - **Private Household Consumption:** Personal family expenditures satisfying immediate needs.\n  - **Public Consumption:** Sovereign state expenditures providing collective non-market social services.\n- **The Savings Identity:** Unconsumed disposable national income:\n  $$\\text{Savings (S)} = \\text{Income (Y)} - \\text{Consumption (C)}$$\n- **Marginal Propensities:**\n  - **Marginal Propensity to Consume (MPC):** Change in consumption per unit change in income: $MPC = \\frac{\\Delta C}{\\Delta Y}$.\n  - **Marginal Propensity to Save (MPS):** Change in savings per unit change in income: $MPS = \\frac{\\Delta S}{\\Delta Y}$.\n  - **Identity:** $MPC + MPS = 1$.\n\n### 2. The Keynesian Investment Multiplier\n- **Concept:** The numerical coefficient quantifying the cumulative expansion in national income resulting from an autonomous injection of investment spending.\n- **Mathematical Formulations:**\n  $$k = \\frac{1}{1 - MPC} = \\frac{1}{MPS}$$\n  If $MPS = 0.20$, then $k = \\frac{1}{0.20} = 5$. An initial investment of $20B stimulates a total national income increase of $100B.\n- **Macroeconomic Equilibrium:** Realized where Planned Aggregate Demand equals Aggregate Supply, or equivalently where Planned Savings equals Planned Investment ($S = I$).",
+          theoryContentAr: "### ١. الإنفاق القومي والاستهلاك والادخار\n- **الإنفاق القومي:** مجموع ما يُنفق خلال سنة في المجتمع على السلع الاستهلاكية والاستثمارية:\n  $$\\text{الإنفاق القومي} = \\text{الاستهلاك (س)} + \\text{الاستثمار (ث)}$$\n- **أنواع الاستهلاك:**\n  - **استهلاك خاص:** إنفاق الأسر والقطاع العائلي على حاجاتهم المباشرة.\n  - **استهلاك عام:** إنفاق الدولة والحكومة على تقديم الخدمات العامة للأفراد.\n- **دالة الادخار:** الجزء المتبقي من الدخل الذي لم يُوجه للاستهلاك:\n  $$\\text{الادخار (د)} = \\text{الدخل القومي (ل)} - \\text{الاستهلاك (س)}$$\n- **الميول الحدية:**\n  - **الميل الحدي للاستهلاك (MPC):** نسبة التغير في الاستهلاك إلى التغير في الدخل: $MPC = \\frac{\\Delta C}{\\Delta Y}$.\n  - **الميل الحدي للادخار (MPS):** نسبة التغير في الادخار إلى التغير في الدخل: $MPS = \\frac{\\Delta S}{\\Delta Y}$.\n  - **القاعدة الذهبية:** $MPC + MPS = 1$.\n\n### ٢. مضاعف الاستثمار الكينزي (Keynesian Multiplier)\n- **المفهوم:** المعامل العددي الذي يقيس مقدار الزيادة الكلية التراكمية في الدخل القومي الناتجة عن زيادة مبدئية في الإنفاق الاستثماري.\n- **قانون المضاعف:**\n  $$k = \\frac{1}{1 - MPC} = \\frac{1}{MPS}$$\n  فإذا كان $MPS = 0.25$ فإن المضاعف $k = \\frac{1}{0.25} = 4$؛ أي أن زيادة استثمار بقيمة ١٠ مليارات جنيه تؤدي لزيادة الدخل القومي بمقدار ٤٠ مليار جنيه.\n- **التوازن الاقتصادي العام:** يتحقق التوازن عندما يتساوى الإنفاق القومي مع الناتج القومي، أو عندما يتعادل الادخار المخطط مع الاستثمار المخطط ($S = I$).",
+          formulas: [
+          {
+                    "labelEn": "Keynesian Investment Multiplier",
+                    "labelAr": "معادلة مضاعف الاستثمار الكينزي",
+                    "latex": "k = \\frac{1}{1 - MPC} = \\frac{1}{MPS} = \\frac{\\Delta Y}{\\Delta I}"
+          },
+          {
+                    "labelEn": "Value Added Identity",
+                    "labelAr": "معادلة القيمة المضافة الصافية",
+                    "latex": "\\text{Value Added} = \\text{Gross Output} - \\text{Intermediate Consumption}"
+          },
+          {
+                    "labelEn": "National Income Accounting",
+                    "labelAr": "معادلة توازن الدخل القومي",
+                    "latex": "Y = C + I + G + (X - M)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 41-60"
+          },
+          lessonPlan: {
+            titleEn: "National Expenditure, Consumption & Keynesian Multiplier",
+            titleAr: "الإنفاق القومي ودالة الاستهلاك ومضاعف الاستثمار",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH3-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch3_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "National Expenditure, Consumption & Keynesian Multiplier",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "الإنفاق القومي ودالة الاستهلاك ومضاعف الاستثمار",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch3_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "National Expenditure, Consumption & Keynesian Multiplier" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "الإنفاق القومي ودالة الاستهلاك ومضاعف الاستثمار" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch3_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "National Expenditure, Consumption & Keynesian Multiplier" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "الإنفاق القومي ودالة الاستهلاك ومضاعف الاستثمار" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch3_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "National Expenditure, Consumption & Keynesian Multiplier" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "الإنفاق القومي ودالة الاستهلاك ومضاعف الاستثمار" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_national_income",
+            titleEn: "Circular Flow & Keynesian Multiplier Engine",
+            titleAr: "محاكي التدفق الدائري ومضاعف الاستثمار الكينزي",
+            descriptionEn: "Interactive simulation of Keynesian macroeconomic equilibrium and investment multiplier dynamics.",
+            descriptionAr: "محاكاة لتوازن الدخل القومي الكينزي وحساب المضاعف والفجوة الانكماشية والتضخمية."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "economics_national_income",
+          titleEn: "Circular Flow & Keynesian Multiplier Engine",
+          titleAr: "محاكي التدفق الدائري ومضاعف الاستثمار الكينزي",
+          descriptionEn: "Interactive simulation of Keynesian macroeconomic equilibrium and investment multiplier dynamics.",
+          descriptionAr: "محاكاة لتوازن الدخل القومي الكينزي وحساب المضاعف والفجوة الانكماشية والتضخمية."
+        }
+      ],
+      databank: econStatCh3Databank,
+      solvedExamples: econStatCh3SolvedExamples,
+      exerciseProblems: econStatCh3Exercises
+    },
+    {
+      id: "th_econ_stat_ch4",
+      chapterNumber: 4,
+      titleEn: "Unit 4: Public Finance, State Budget, Taxation & Fiscal Policy",
+      titleAr: "الوحدة الرابعة: المالية العامة ودور الدولة والموازنة والضرائب",
+      descriptionEn: "Market failure in public goods, constitutional principles of the State Budget, public expenditure stabilization, revenue streams, tax canons and progressive taxation.",
+      descriptionAr: "عجز آلية السوق والسلع العامة والاجتماعية، الموازنة العامة للدولة ومبادئها الأربعة، النفقات العامة، ومصادر الإيرادات والضرائب وقواعد آدم سميث.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch4_l1",
+          titleEn: "Market Failures, Public Goods & The State Budget",
+          titleAr: "عجز السوق والسلع العامة والموازنة العامة للدولة",
+          summaryEn: "Market failures, non-rivalry in public goods, and constitutional budget principles (Annuality, Universality, Unity, Balance).",
+          summaryAr: "قصور آلية السوق في توفير السلع العامة والاجتماعية، ومفهوم الموازنة العامة ومبادئها الأربعة (السنوية، الشمول، العمومية، وتوازن الموازنة).",
+          theoryContentEn: "### 1. Market Failure & Public Goods\n- **Market Mechanism Limits:** Pure price mechanisms operate on private profit incentives; they fail completely in allocating goods where pricing or individual exclusion is impossible.\n- **Pure Public Goods:** Exhibit non-rivalry in consumption and non-excludability (free-rider dilemma), exemplified by national defense, judicial rule of law, and domestic policing.\n- **Social Goods:** Provide significant private utility alongside massive positive externalities across society (education, preventive healthcare), necessitating sovereign subsidies.\n\n### 2. The State Budget & Constitutional Doctrines\n- **Definition:** The legal financial charter approved in advance by the legislative authority, providing projected expenditures and revenues for an upcoming fiscal year.\n- **Four Constitutional Budget Principles:**\n  1. **Annuality:** Formulated for a single twelve-month cycle to optimize parliamentary auditing.\n  2. **Unity:** Consolidating all governmental departments and public institutions into a single national balance sheet.\n  3. **Universality:** Presenting gross receipts and outlays without accounting offsets or ring-fencing specific taxes for specific tasks.\n  4. **Balance:** Traditionally requiring revenues to match expenditures; modern macroeconomics permits counter-cyclical deficits to fund capital infrastructure during recessions.",
+          theoryContentAr: "### ١. عجز آلية السوق والحاجة للمالية العامة\n- **عجز السوق:** تعتمد قوى السوق على الحافز الفردي والربح الذاتي؛ وهي تعجز عن توفير السلع التي لا يمكن استبعاد أحد من الانتفاع بها أو تسعيرها بصورة فردية.\n- **السلع العامة النقية:** تتسم بعدم قابلية التجزئة، واستحالة استبعاد المستهلكين الممتنعين عن الدفع (ظاهرة الراكب المجاني)، مثل الدفاع الوطني، الأمن، والقضاء.\n- **السلع الاجتماعية:** خدمات تعود بنفع خاص على الفرد ونفع عام على المجتمع ككل (كالتعليم والصحة ومكافحة الأوبئة)، مما يفرض تدخل الدولة لدعمها وضمان وصولها للجميع.\n\n### ٢. الموازنة العامة للدولة ومبادئها الدستورية\n- **تعريف الموازنة العامة:** البرنامج المالي التفصيلي المعتمد مسبقاً من السلطة التشريعية والذي يتضمن تقديراً لنفقات الدولة وإيراداتها عن سنة مالية مقبلة.\n- **المبادئ الدستورية الأربعة للموازنة:**\n  ١. **سنوية الموازنة:** توضع لفترة اثني عشر شهراً لتسهيل الرقابة المالية والتنبؤ بالمتغيرات.\n  ٢. **وحدة الموازنة:** إدراج جميع نفقات وإيرادات كافة الوزارات والهيئات في وثيقة موحدة تعكس المركز المالي للدولة.\n  ٣. **شمول الموازنة (عدم تخصيص الإيرادات):** إظهار كافة الإيرادات والنفقات الإجمالية دون إجراء مقاصة، وعدم ربط إيراد معين بنفقة معينة.\n  ٤. **توازن الموازنة:** أن تكفي الإيرادات العامة لتغطية النفقات العامة؛ وقد تطور هذا المبدأ في الفكر المعاصر ليسمح بالعجز المالي المؤقت لتمويل التنمية وتحفيز النمو في فترات الركود.",
+          formulas: [
+          {
+                    "labelEn": "Fiscal Deficit Formula",
+                    "labelAr": "معادلة العجز النقدي للموازنة",
+                    "latex": "\\text{Fiscal Deficit} = \\text{Public Expenditures} - \\text{Sovereign Revenues}"
+          },
+          {
+                    "labelEn": "Average Tax Rate",
+                    "labelAr": "معدل العبء الضريبي المتوسط",
+                    "latex": "\\text{ATR} = \\frac{\\text{Total Tax Paid}}{\\text{Taxable Income}} \\times 100\\%"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 61-80"
+          },
+          lessonPlan: {
+            titleEn: "Market Failures, Public Goods & The State Budget",
+            titleAr: "عجز السوق والسلع العامة والموازنة العامة للدولة",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH4-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch4_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Market Failures, Public Goods & The State Budget",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "عجز السوق والسلع العامة والموازنة العامة للدولة",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch4_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Market Failures, Public Goods & The State Budget" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "عجز السوق والسلع العامة والموازنة العامة للدولة" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch4_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Market Failures, Public Goods & The State Budget" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "عجز السوق والسلع العامة والموازنة العامة للدولة" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch4_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Market Failures, Public Goods & The State Budget" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "عجز السوق والسلع العامة والموازنة العامة للدولة" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_national_income",
+            titleEn: "Public Budget Deficit & Fiscal Policy Simulator",
+            titleAr: "محاكي الموازنة العامة للدولة والعجز والسياسة المالية",
+            descriptionEn: "Interactive simulation of sovereign public budgeting, tax brackets, deficit, and debt ratios.",
+            descriptionAr: "محاكاة لتأثير النفقات العامة والضرائب ومعدل النمو على عجز الموازنة والدين العام."
+          }
+        },
+        {
+          id: "th_econ_stat_ch4_l2",
+          titleEn: "Public Expenditures, Revenues, Taxes & Adam Smith Canons",
+          titleAr: "النفقات والإيرادات العامة والضرائب ومبادئها",
+          summaryEn: "Public expenditures, sovereign revenue streams, direct vs indirect taxes, progressive rates, and Adam Smith's 4 canons of taxation.",
+          summaryAr: "أهداف الإنفاق العام، مصادر الإيرادات (الضرائب والرسوم والقروض)، الضرائب المباشرة وغير المباشرة، وقواعد آدم سميث الأربع.",
+          theoryContentEn: "### 1. Public Expenditures & Stabilization\n- **Definition:** Monetary outlays executed by sovereign state entities aimed at providing collective social benefits and economic stability.\n- **Core Functions:** Optimizing resource allocation, macroeconomic stabilization (mitigating inflation/unemployment), and progressive wealth redistribution.\n\n### 2. Sovereign Revenues, Taxes & Canons\n- **Revenue Categories:**\n  1. **Taxes:** Compulsory, unrequited monetary contributions levied by sovereign force according to tax capacity to fund public services.\n  2. **Fees:** Compulsory payments charged for a specific, identifiable individual public administrative service (passports, permits).\n  3. **State Domain (Public Domain):** Commercial returns from sovereign state enterprises, properties, and monopolies (Suez Canal receipts).\n  4. **Public Loans:** Voluntary debt obligations contracted domestically or externally, to be repaid with interest.\n- **Tax Classification:**\n  - **Direct Taxes:** Levied immediately upon accrued income or net wealth (corporate tax, personal income tax).\n  - **Indirect Taxes:** Levied upon transactions and consumption, passed forward to end purchasers (Value Added Tax, import tariffs).\n- **Adam Smith's Four Canons of Taxation:**\n  1. **Equity/Justice:** Progressive taxation proportionate to true taxable capacity.\n  2. **Certainty:** Transparent, predictable tax calculation without bureaucratic arbitrariness.\n  3. **Convenience:** Collecting dues at times and manners most accommodating to taxpayers (upon income receipt).\n  4. **Economy:** Minimizing administrative collection overhead so revenue reaches state coffers intact.",
+          theoryContentAr: "### ١. النفقات العامة وأهدافها\n- **التعريف:** مبالغ نقدية تخرج من الذمة المالية للدولة أو إحدى هيئاتها بقصد إشباع حاجة عامة وتحقيق الصالح العام.\n- **أهداف الإنفاق العام:** التخصيص الأمثل للموارد، الاستقرار الاقتصادي ومكافحة البطالة، وإعادة توزيع الدخل القومي لتحقيق العدالة الاجتماعية.\n\n### ٢. الإيرادات العامة والضرائب\n- **مصادر الإيرادات العامة:**\n  ١. **الضرائب:** فريضة مالية إجبارية تفرضها الدولة جبراً دون مقابل مباشر للممول، لتمويل الأعباء العامة وتحقيق أهداف اقتصادية واجتماعية.\n  ٢. **الرسوم:** مبلغ يدفعه الفرد جبراً مقابل خدمة خاصة يحصل عليها من الدولة (كرسوم استخراج بطاقة أو جواز سفر).\n  ٣. **إيرادات ممتلكات الدولة (الدومين):** إيرادات أملاك الدولة العقارية، المالية، والإنتاجية (كأرباح قناة السويس).\n  ٤. **القروض العامة:** أموال تقترضها الدولة طوعاً من الداخل أو الخارج لتسديدها بفوائد محددة.\n- **تقسيم الضرائب:**\n  - **ضرائب مباشرة:** تُفرض على الدخل أو الثروة وتُحصل مباشرة من الممول (مثل ضريبة الدخل والأرباح التجارية).\n  - **ضرائب غير مباشرة:** تُفرض على الإنفاق والتداول ويمكن للممول نقل عبئها للمستهلك النهائي (مثل ضريبة القيمة المضافة والجمارك).\n- **قواعد النظام الضريبي الرشيد (آدم سميث):**\n  ١. **العدالة:** مساهمة الجميع حسب مقدرتهم التكليفية واعتماد الضرائب التصاعدية.\n  ٢. **اليقين:** وضوح ميعاد وطريقة ومقدار الضريبة دون تعسف.\n  ٣. **الملائمة:** تحصيل الضريبة في الوقت وبالطريقة الأكثر يسراً للممول (عند قبض الدخل).\n  ٤. **الاقتصاد في نفقات التحصيل:** ألا تلتهم تكاليف جباية الضريبة حصيلتها الإجمالية.",
+          formulas: [
+          {
+                    "labelEn": "Fiscal Deficit Formula",
+                    "labelAr": "معادلة العجز النقدي للموازنة",
+                    "latex": "\\text{Fiscal Deficit} = \\text{Public Expenditures} - \\text{Sovereign Revenues}"
+          },
+          {
+                    "labelEn": "Average Tax Rate",
+                    "labelAr": "معدل العبء الضريبي المتوسط",
+                    "latex": "\\text{ATR} = \\frac{\\text{Total Tax Paid}}{\\text{Taxable Income}} \\times 100\\%"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 61-80"
+          },
+          lessonPlan: {
+            titleEn: "Public Expenditures, Revenues, Taxes & Adam Smith Canons",
+            titleAr: "النفقات والإيرادات العامة والضرائب ومبادئها",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH4-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch4_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Public Expenditures, Revenues, Taxes & Adam Smith Canons",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "النفقات والإيرادات العامة والضرائب ومبادئها",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch4_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Public Expenditures, Revenues, Taxes & Adam Smith Canons" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "النفقات والإيرادات العامة والضرائب ومبادئها" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch4_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Public Expenditures, Revenues, Taxes & Adam Smith Canons" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "النفقات والإيرادات العامة والضرائب ومبادئها" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch4_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Public Expenditures, Revenues, Taxes & Adam Smith Canons" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "النفقات والإيرادات العامة والضرائب ومبادئها" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_national_income",
+            titleEn: "Public Budget Deficit & Fiscal Policy Simulator",
+            titleAr: "محاكي الموازنة العامة للدولة والعجز والسياسة المالية",
+            descriptionEn: "Interactive simulation of sovereign public budgeting, tax brackets, deficit, and debt ratios.",
+            descriptionAr: "محاكاة لتأثير النفقات العامة والضرائب ومعدل النمو على عجز الموازنة والدين العام."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "economics_national_income",
+          titleEn: "Public Budget Deficit & Fiscal Policy Simulator",
+          titleAr: "محاكي الموازنة العامة للدولة والعجز والسياسة المالية",
+          descriptionEn: "Interactive simulation of sovereign public budgeting, tax brackets, deficit, and debt ratios.",
+          descriptionAr: "محاكاة لتأثير النفقات العامة والضرائب ومعدل النمو على عجز الموازنة والدين العام."
+        }
+      ],
+      databank: econStatCh4Databank,
+      solvedExamples: econStatCh4SolvedExamples,
+      exerciseProblems: econStatCh4Exercises
+    },
+    {
+      id: "th_econ_stat_ch5",
+      chapterNumber: 5,
+      titleEn: "Unit 5: Money Evolution, Banking System & Credit Creation Multiplier",
+      titleAr: "الوحدة الخامسة: النقود والبنوك وتوليد الائتمان والسياسة النقدية",
+      descriptionEn: "Barter limitations, stages of monetary evolution, four functions of money, central banking monetary steering, commercial banks and deposit multiplier equations.",
+      descriptionAr: "تطور النقود من المقايضة إلى النقود الرقمية، وظائف النقود الأربع، البنك المركزي والسياسة النقدية، والبنوك التجارية ومضاعف توليد الائتمان.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch5_l1",
+          titleEn: "Evolution of Money & Four Foundational Functions",
+          titleAr: "تطور النقود ووظائفها الأربع في الاقتصاد المعاصر",
+          summaryEn: "Barter systemic failures, evolution from metallic to fiat and digital currencies, and the four foundational functions of money.",
+          summaryAr: "صعوبات نظام المقايضة، مراحل تطور النقود (السلعية والمعدنية والورقية والرقمية)، والوظائف الأربع للنقود.",
+          theoryContentEn: "### 1. The Barter System & Four Systemic Failures\n- **Definition:** Direct bilateral exchange of commodities and services without the intermediation of money.\n- **Four Core Systemic Roadblocks:**\n  1. **Double Coincidence of Wants:** Requires synchronous reciprocal desire between counterparties.\n  2. **Absence of Unified Unit of Account:** Exponential proliferation of discrete relative exchange ratios between every commodity pair.\n  3. **Indivisibility of Lumpy Goods:** Physical impossibility of fractioning living cattle or complex tools without destruction.\n  4. **Perishability in Storing Value:** Physical decay and exorbitant carrying costs for storage over time.\n\n### 2. Chronological Evolution of Money\n- **Commodity Money:** Ubiquitously accepted baseline goods (barley, cowrie shells).\n- **Metallic Currency (Gold & Silver Coinage):** High intrinsic density of value, indestructible durability, perfect homogeneity, and infinite divisibility.\n- **Paper Fiat Money:** Originated as convertible goldsmith warehouse receipts, evolving into legal tender backed by sovereign enforcement and collective trust.\n- **Credit & Digital Currency:** Commercial bank ledger balances, credit transfers, and electronic payment networks.\n\n### 3. Four Core Functions of Money\n1. **Medium of Exchange:** The primary function eliminating barter transaction friction.\n2. **Unit of Account:** Standardized numerical benchmark measuring relative value across all market products.\n3. **Store of Value:** Liquid repository of wealth preserving purchasing power (eroded by inflation).\n4. **Standard for Deferred Payment:** Institutional mechanism governing debt settlement and forward contracts.",
+          theoryContentAr: "### ١. نظام المقايضة وصعوباته الكبرى\n- **تعريف المقايضة:** مبادلة سلعة أو خدمة بسلعة أو خدمة أخرى مباشرة دون استخدام النقود.\n- **صعوبات المقايضة الأربع:**\n  ١. **ضرورة التوافق المزدوج للرغبات:** وجوب أن يرغب كل طرف في سلعة الطرف الآخر في نفس التوقيت.\n  ٢. **غياب مقياس عام للقيم:** الحاجة لمعرفة قيمة كل سلعة بالنسبة لجميع السلع الأخرى مما ضاعف نسب التبادل.\n  ٣. **عدم قابلية كثير من السلع للتجزئة:** تعذر مبادلة سلع حية أو كبيرة (كالماشية) بسلع صغيرة دون إتلافها.\n  ٤. **صعوبة تخزين القيمة:** كثير من السلع يتعرض للتلف أو يكلف مبالغ طائلة لحفظه ونقله.\n\n### ٢. مراحل تطور النقود\n- **النقود السلعية:** استخدام سلعة عامة يثق بها المجتمع (كالقمح أو الماشية أو القواقع).\n- **النقود المعدنية (الذهب والفضة):** تميزت بالقيمة الذاتية، عدم التآكل، التجانس، سهولة التجزئة، وصغر الحجم وثقل القيمة.\n- **النقود الورقية الإلزامية:** بدأت بصكوك مستودعات الذهب القابلة للصرف، ثم أصبحت نقوداً ورقية إلزامية قانونية تستمد قوتها من هيبة الدولة وثقة المجتمع.\n- **النقود الائتمانية والرقمية:** نقود الودائع والحسابات المصرفية وبطاقات الدفع الإلكتروني المعاصرة.\n\n### ٣. وظائف النقود الأربع\n١. **وسيط للتبادل (Medium of Exchange):** الوظيفة الأساسية التي تنهي المقايضة وتسهل حركة المعاملات.\n٢. **مقياس عام للقيم (Unit of Account):** مقياس مشترك وموحد تُقدر به أسعار جميع السلع والخدمات.\n٣. **مخزن للقيمة (Store of Value):** وسيلة سائلة لتخزين القوة الشرائية وتأجيل الإنفاق (ويعيبها التأثر بالتضخم).\n٤. **أداة للمدفوعات الآجلة (Standard of Deferred Payment):** وسيلة تسوية الديون والالتزامات المستقبلية.",
+          formulas: [
+          {
+                    "labelEn": "Money Deposit Multiplier",
+                    "labelAr": "معادلة مضاعف نقود الودائع المشتقة",
+                    "latex": "M = \\frac{1}{r} \\implies \\Delta D = \\frac{\\Delta \\text{Initial Deposit}}{r}"
+          },
+          {
+                    "labelEn": "Fisher Equation of Exchange",
+                    "labelAr": "معادلة كمية النقود وفيشر للتبادل",
+                    "latex": "M \\cdot V = P \\cdot Y"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 81-100"
+          },
+          lessonPlan: {
+            titleEn: "Evolution of Money & Four Foundational Functions",
+            titleAr: "تطور النقود ووظائفها الأربع في الاقتصاد المعاصر",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH5-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch5_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Evolution of Money & Four Foundational Functions",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "تطور النقود ووظائفها الأربع في الاقتصاد المعاصر",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch5_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Evolution of Money & Four Foundational Functions" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "تطور النقود ووظائفها الأربع في الاقتصاد المعاصر" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch5_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Evolution of Money & Four Foundational Functions" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "تطور النقود ووظائفها الأربع في الاقتصاد المعاصر" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch5_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Evolution of Money & Four Foundational Functions" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "تطور النقود ووظائفها الأربع في الاقتصاد المعاصر" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "Banking Credit Multiplier & Monetary Policy Lab",
+            titleAr: "محاكي مضاعف الائتمان المصرفي والسياسة النقدية",
+            descriptionEn: "Interactive simulation of deposit creation multiplier and central bank monetary reserve ratios.",
+            descriptionAr: "محاكاة تفاعلية لتوليد نقود الودائع عبر البنوك ونسبة الاحتياطي الإلزامي وسعر الفائدة."
+          }
+        },
+        {
+          id: "th_econ_stat_ch5_l2",
+          titleEn: "Banking System, Central Bank & Credit Creation",
+          titleAr: "الجهاز المصرفي والبنك المركزي وتوليد الائتمان",
+          summaryEn: "Central banking monetary tools, commercial fractional-reserve banking, and credit multiplier mechanics.",
+          summaryAr: "وظائف البنك المركزي وأدوات السياسة النقدية، والبنوك التجارية ومضاعف توليد نقود الودائع.",
+          theoryContentEn: "### 1. Central Banking & Monetary Control\n- **The Central Bank:** The sovereign apex institution of the financial system entrusted with:\n  1. **Sole Monopoly of Currency Issue:** Exclusive legal authority to emit official banknotes.\n  2. **Banker of Banks & Lender of Last Resort:** Administering mandatory reserves and providing liquidity backstops during bank runs.\n  3. **Fiscal Agent for the State:** Servicing sovereign government accounts and managing sovereign treasury bills.\n- **Monetary Policy Transmission Tools:**\n  - **Statutory Reserve Requirement:** Dictating the unloanable fractional cushion held against public deposits.\n  - **Policy Corridor Interest Rate:** Modulating the discount cost of credit to balance inflation against recession.\n  - **Open Market Operations (OMO):** Buying or selling sovereign debt securities to inject or contract systemic base liquidity.\n\n### 2. Commercial Banking & The Fractional-Reserve Credit Multiplier\n- **Deposit Creation Mechanism:** Commercial banks retain a mandatory fractional reserve ($r$) against demand liabilities while lending out excess liquidity. Borrowers redeposit funds into the banking circuit, initiating cumulative secondary deposit expansion.\n- **Money Multiplier Formulation:**\n  $$\\text{Total Potential Deposits} = \\frac{\\text{Initial Primary Deposit}}{\\text{Reserve Ratio } (r)}$$\n- **Numerical Demonstration:** If an initial deposit equals $1,000$ and statutory reserve $r = 20\\%$:\n  $$\\text{Total Derivative Deposits} = \\frac{1,000}{0.20} = 5,000 \\text{ EGP}$$\n  Yielding $4,000$ EGP of newly created endogenous credit liquidity circulating in the macroeconomy.",
+          theoryContentAr: "### ١. الجهاز المصرفي والبنك المركزي\n- **البنك المركزي (Central Bank):** قمة الجهاز المصرفي ومؤسسة الدولة السيادية المخولة حصرياً بالوظائف التالية:\n  ١. **بنك الإصدار:** الاحتكار القانوني الحصري لطباعة وإصدار أوراق النقد الرسمية.\n  ٢. **بنك البنوك والمقرض الأخير:** إدارة الحسابات الاحتياطية للبنوك التجارية وإقراضها في أوقات الأزمات والسيولة.\n  ٣. **بنك الحكومة ومستشارها المالي:** إدارة حسابات الدولة وإصدار سندات وأذون الخزانة العامة.\n- **أدوات السياسة النقدية للبنك المركزي:**\n  - **نسبة الاحتياطي القانوني الإلزامي:** إلزام البنوك بتجنيب نسبة معينة من ودائعها دون إقراضها.\n  - **سعر الفائدة والخصم:** رفع الفائدة لكبح التضخم وامتصاص السيولة، أو خفضها لتحفيز الاستثمار وعلاج الركود.\n  - **عمليات السوق المفتوحة:** بيع وشراء السندات الحكومية للتحكم المباشر في المعروض النقدي.\n\n### ٢. البنوك التجارية وتوليد الائتمان (نقود الودائع)\n- **آلية توليد الائتمان:** لا تحتفظ البنوك التجارية بكامل الودائع في خزائنها، بل تحتفظ بنسبة احتياطي إلزامي ($r$) وتقوم بإقراض الباقي لمستثمرين، فيقوم المقترضون بإيداعها مجدداً، مما يولد ودائع جديدة متتابعة.\n- **معادلة مضاعف نقود الودائع:**\n  $$\\text{إجمالي الودائع المشتقة} = \\frac{\\text{الوديعة الأولية}}{\\text{نسبة الاحتياطي الإلزامي } (r)}$$\n- **مثال تطبيقي:** إذا كانت الوديعة الأولية ١,٠٠٠ جنيه ونسبة الاحتياطي ٢٠٪ ($0.20$):\n  $$\\text{إجمالي الودائع} = \\frac{1000}{0.20} = 5,000 \\text{ جنيه}$$\n  أي أن البنوك خلقت نقود ودائع ائتمانية جديدة بقيمة ٤,٠٠٠ جنيه.",
+          formulas: [
+          {
+                    "labelEn": "Money Deposit Multiplier",
+                    "labelAr": "معادلة مضاعف نقود الودائع المشتقة",
+                    "latex": "M = \\frac{1}{r} \\implies \\Delta D = \\frac{\\Delta \\text{Initial Deposit}}{r}"
+          },
+          {
+                    "labelEn": "Fisher Equation of Exchange",
+                    "labelAr": "معادلة كمية النقود وفيشر للتبادل",
+                    "latex": "M \\cdot V = P \\cdot Y"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 81-100"
+          },
+          lessonPlan: {
+            titleEn: "Banking System, Central Bank & Credit Creation",
+            titleAr: "الجهاز المصرفي والبنك المركزي وتوليد الائتمان",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH5-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch5_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Banking System, Central Bank & Credit Creation",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "الجهاز المصرفي والبنك المركزي وتوليد الائتمان",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch5_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Banking System, Central Bank & Credit Creation" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "الجهاز المصرفي والبنك المركزي وتوليد الائتمان" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch5_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Banking System, Central Bank & Credit Creation" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "الجهاز المصرفي والبنك المركزي وتوليد الائتمان" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch5_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Banking System, Central Bank & Credit Creation" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "الجهاز المصرفي والبنك المركزي وتوليد الائتمان" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "Banking Credit Multiplier & Monetary Policy Lab",
+            titleAr: "محاكي مضاعف الائتمان المصرفي والسياسة النقدية",
+            descriptionEn: "Interactive simulation of deposit creation multiplier and central bank monetary reserve ratios.",
+            descriptionAr: "محاكاة تفاعلية لتوليد نقود الودائع عبر البنوك ونسبة الاحتياطي الإلزامي وسعر الفائدة."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "economics_market_equilibrium",
+          titleEn: "Banking Credit Multiplier & Monetary Policy Lab",
+          titleAr: "محاكي مضاعف الائتمان المصرفي والسياسة النقدية",
+          descriptionEn: "Interactive simulation of deposit creation multiplier and central bank monetary reserve ratios.",
+          descriptionAr: "محاكاة تفاعلية لتوليد نقود الودائع عبر البنوك ونسبة الاحتياطي الإلزامي وسعر الفائدة."
+        }
+      ],
+      databank: econStatCh5Databank,
+      solvedExamples: econStatCh5SolvedExamples,
+      exerciseProblems: econStatCh5Exercises
+    },
+    {
+      id: "th_econ_stat_ch6",
+      chapterNumber: 6,
+      titleEn: "Unit 6: International Trade, Balance of Payments & Global Challenges",
+      titleAr: "الوحدة السادسة: العلاقات الاقتصادية الدولية والعولمة",
+      descriptionEn: "Borders and exchange rates in international trade, Ricardo's Comparative Advantage, Balance of Payments architecture, FDI vs foreign debt traps, and global economic integration.",
+      descriptionAr: "الفوارق بين التجارة الداخلية والدولية ونظرية الميزة النسبية، ميزان المدفوعات بأقسامه، الاستثمار الأجنبي المباشر مقابل القروض، وتحديات العولمة والتكتلات الاقتصادية.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch6_l1",
+          titleEn: "Nature of World Trade & Balance of Payments Structure",
+          titleAr: "طبيعة التجارة الدولية وهيكل ميزان المدفوعات",
+          summaryEn: "Cross-border trade mechanics, Ricardo's Comparative Advantage, and Current vs Capital/Financial Accounts in Balance of Payments.",
+          summaryAr: "فوارق التجارة الداخلية والدولية، نظرية الميزة النسبية، وهيكل ميزان المدفوعات (الميزان التجاري وميزان المعاملات الجارية والرأسمالية).",
+          theoryContentEn: "### 1. International Trade Mechanics & Comparative Advantage\n- **Definition:** Cross-border transactional circulation of merchandise goods, commercial services, capital, and labor between sovereign jurisdictions.\n- **Essential Distinctions from Domestic Commerce:**\n  1. **Sovereign Border Regimes:** Imposition of customs tariffs, non-tariff quotas, and divergent regulatory standards.\n  2. **Disparate Monetary Regimes:** Settlement necessitates foreign currency conversions subject to foreign exchange rate volatility.\n  3. **Legal, Linguistic & Institutional Heterogeneity:** Elevates cross-border contract enforcement and transaction costs.\n  4. **Geographic Logistics & Freight Costs:** Significant international shipping, maritime transit, and cargo insurance expenses.\n- **Law of Comparative Advantage (David Ricardo):** Nations achieve mutual welfare gains when specializing in commodities where their relative cost ratio is lowest, trading for goods characterized by higher relative domestic costs.\n\n### 2. Balance of Payments (BOP) Accounting\n- **Definition:** A systematic double-entry statistical ledger recording all economic transactions executed between domestic residents and the rest of the world over a fiscal year.\n- **Two Primary Sub-Accounts:**\n  1. **Current Account:**\n     - *Visible Merchandise Trade Balance:* Tangible exports versus imports of manufactured, agricultural, and mineral commodities.\n     - *Invisible Services Balance:* Inflows and outlays from tourism, international freight, and Suez Canal maritime tolls.\n  2. **Capital & Financial Account:**\n     - Long-term capital movements (Foreign Direct Investment and long-term sovereign borrowing).\n     - Short-term monetary flows and central bank foreign exchange reserve adjustments.",
+          theoryContentAr: "### ١. طبيعة التجارة الدولية وفوارقها مع التجارة الداخلية\n- **التجارة الدولية:** حركة تبادل السلع والخدمات وتدفق رؤوس الأموال والعمالة عبر الحدود السياسية بين دول مستقلة ذات سيادة.\n- **الفوارق الجوهرية مع التجارة الداخلية:**\n  ١. **الحدود السياسية:** تفرض حواجز جمركية، وقوانين استيراد وتصدير، ونظم سيادية متباينة.\n  ٢. **اختلاف النظم النقدية وأسعار الصرف:** تتطلب تسوية المعاملات استخدام عملات أجنبية تخضع لتقلبات أسعار الصرف.\n  ٣. **اختلاف القوانين واللغات والثقافات:** يرفع من تكلفة المعاملات وإجراءات التعاقد والتأمين.\n  ٤. **المسافات وتكلفة النقل والشحن:** ارتفاع تكلفة النقل البحري والجوي الدولي مقارنة بالتجارة الداخلية.\n- **نظرية الميزة النسبية (ديفيد ريكاردو):** تحقق كل دولة مكاسب من التجارة إذا تخصصت في إنتاج وتصدير السلع التي تتمتع فيها بميزة تكلفة نسبية وتستورد السلع التي تنتجها بتكلفة نسبية أعلى.\n\n### ٢. ميزان المدفوعات (Balance of Payments)\n- **التعريف:** سجل محاسبي منتظم تدون فيه كافة المعاملات الاقتصادية التي تتم بين المقيمين في الدولة والعالم الخارجي خلال سنة.\n- **الأقسام الرئيسية لميزان المدفوعات:**\n  ١. **ميزان العمليات الجارية (Current Account):**\n     - *ميزان التجارة المنظورة (الميزان التجاري):* صادرات وواردات السلع المادية (بترول، قطن، سيارات).\n     - *ميزان التجارة غير المنظورة (الخدمات):* إيرادات ومدفوعات الخدمات (السياحة، النقل، رسوم قناة السويس، والتأمين).\n  ٢. **ميزان العمليات الرأسمالية والمالية:**\n     - حركة رؤوس الأموال طويلة الأجل (الاستثمارات المباشرة والقروض طويلة الأجل).\n     - حركة رؤوس الأموال قصيرة الأجل (تغيرات الاحتياطي النقدي الأجنبي لدى البنك المركزي).",
+          formulas: [
+          {
+                    "labelEn": "Balance of Trade Equation",
+                    "labelAr": "معادلة الميزان التجاري الصافي",
+                    "latex": "\\text{Net Exports} = \\text{Merchandise Exports } (X) - \\text{Merchandise Imports } (M)"
+          },
+          {
+                    "labelEn": "Current Account Balance",
+                    "labelAr": "معادلة ميزان المعاملات الجارية",
+                    "latex": "\\text{Current Account} = \\text{Trade Balance} + \\text{Services Balance} + \\text{Net Transfers}"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 101-120"
+          },
+          lessonPlan: {
+            titleEn: "Nature of World Trade & Balance of Payments Structure",
+            titleAr: "طبيعة التجارة الدولية وهيكل ميزان المدفوعات",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH6-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch6_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Nature of World Trade & Balance of Payments Structure",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "طبيعة التجارة الدولية وهيكل ميزان المدفوعات",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch6_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Nature of World Trade & Balance of Payments Structure" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "طبيعة التجارة الدولية وهيكل ميزان المدفوعات" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch6_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Nature of World Trade & Balance of Payments Structure" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "طبيعة التجارة الدولية وهيكل ميزان المدفوعات" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch6_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Nature of World Trade & Balance of Payments Structure" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "طبيعة التجارة الدولية وهيكل ميزان المدفوعات" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "Balance of Payments & Foreign Exchange Simulator",
+            titleAr: "محاكي ميزان المدفوعات وأسعار الصرف الأجنبي",
+            descriptionEn: "Interactive simulation exploring Current Account balances, capital flows, and exchange rate parity.",
+            descriptionAr: "محاكاة لهيكل ميزان العمليات الجارية والرأسمالية وتقلبات أسعار الصرف."
+          }
+        },
+        {
+          id: "th_econ_stat_ch6_l2",
+          titleEn: "FDI, Globalization & Developing World Challenges",
+          titleAr: "الاستثمار الأجنبي والعولمة وتحديات التنمية",
+          summaryEn: "FDI vs foreign sovereign debt, economic globalization, Bretton Woods triad (IMF, World Bank, WTO), and regional economic integration.",
+          summaryAr: "الاستثمار الأجنبي المباشر مقابل القروض، العولمة ومؤسساتها (صندوق النقد، البنك الدولي، ومنظمة التجارة)، والتكتلات الاقتصادية والفجوة المعرفية.",
+          theoryContentEn: "### 1. Foreign Direct Investment (FDI) vs External Debt\n- **Foreign Direct Investment:** Acquisition or greenfield creation of physical productive enterprise assets where the foreign investor exercises management and assumes equity risk.\n- **FDI Structural Benefits:**\n  - Modern technological transfer, proprietary patent spillovers, and domestic technical training.\n  - Domestic employment generation and integration into international export networks.\n  - Eradication of rigid fixed debt repayment burdens during periods of cyclical downturn.\n- **Hazards of Excessive External Borrowing:** Imposes immutable hard-currency debt servicing obligations regardless of revenue generation, risking external insolvency.\n\n### 2. Globalization & International Economic Architecture\n- **Economic Globalization:** The hyper-accelerated integration of national product and capital markets driven by tariff dismantlement and digital communication.\n- **The Bretton Woods Triad:**\n  1. **International Monetary Fund (IMF):** Supervising global exchange stability and extending credit facilities for temporary balance of payments disequilibria.\n  2. **World Bank:** Mobilizing capital for long-term structural development projects and infrastructure.\n  3. **World Trade Organization (WTO):** Enforcing multilateral trade liberalization treaties and adjudicating trade disputes.\n  4. **Developing World Challenges:** Bridging technological chasms, avoiding raw commodity export traps, and building robust regional integration blocs (COMESA).",
+          theoryContentAr: "### ١. الاستثمار الأجنبي المباشر مقابل الاقتراض الخارجي\n- **الاستثمار الأجنبي المباشر (FDI):** تملك المستثمر الأجنبي لجزء من المشروعات أو إنشائها بالكامل مع إدارة المشروع والمشاركة في الأرباح وتحمل المخاطر.\n- **مزايا الاستثمار الأجنبي المباشر:**\n  - نقل التكنولوجيا المتقدمة وتدريب العمالة المحلية على أساليب الإدارة الحديثة.\n  - خلق فرص عمل حقيقية وزيادة الطاقة الإنتاجية والتصديرية للدولة.\n  - عدم تحميل الدولة أعباء سداد أقساط ديون أو فوائد ثابتة في فترات الخسارة.\n- **مخاطر الاقتراض الخارجي:** يفرض التزاماً حتمياً بسداد الفوائد والأقساط في مواعيد محددة أياً كانت الظروف الاقتصادية؛ وتفاقم الديون يهدد الاستقلال والسيادة الاقتصادية.\n\n### ٢. العولمة الاقتصادية ومؤسساتها العالمية وتحديات التنمية\n- **العولمة الاقتصادية:** تعاظم الاندماج بين أسواق العالم وحرية حركة السلع والخدمات ورؤوس الأموال والمعلومات عبر الحدود.\n- **المؤسسات الاقتصادية الثلاث الكبرى:**\n  ١. **صندوق النقد الدولي (IMF):** تحقيق الاستقرار النقدي الدولي ومساعدة الدول في معالجة العجز الطارئ في ميزان المدفوعات.\n  ٢. **البنك الدولي للإنشاء والتعمير (World Bank):** تمويل مشروعات التنمية الاقتصادية والبنية التحتية طويلة الأجل في الدول النامية.\n  ٣. **منظمة التجارة العالمية (WTO):** إرساء قواعد التجارة الحرة وتخفيض الجمارك وحل النزاعات التجارية الدولية.\n- **تحديات الدول النامية:** الفجوة التكنولوجية العميقة، تدهور شروط التبادل التجاري، وحتمية الانخراط في تكتلات إقليمية (مثل الكوميسا والاتحاد الإفريقي) لتحقيق وفورات الحجم والمنافسة العالمية.",
+          formulas: [
+          {
+                    "labelEn": "Balance of Trade Equation",
+                    "labelAr": "معادلة الميزان التجاري الصافي",
+                    "latex": "\\text{Net Exports} = \\text{Merchandise Exports } (X) - \\text{Merchandise Imports } (M)"
+          },
+          {
+                    "labelEn": "Current Account Balance",
+                    "labelAr": "معادلة ميزان المعاملات الجارية",
+                    "latex": "\\text{Current Account} = \\text{Trade Balance} + \\text{Services Balance} + \\text{Net Transfers}"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 101-120"
+          },
+          lessonPlan: {
+            titleEn: "FDI, Globalization & Developing World Challenges",
+            titleAr: "الاستثمار الأجنبي والعولمة وتحديات التنمية",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH6-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch6_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "FDI, Globalization & Developing World Challenges",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "الاستثمار الأجنبي والعولمة وتحديات التنمية",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch6_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "FDI, Globalization & Developing World Challenges" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "الاستثمار الأجنبي والعولمة وتحديات التنمية" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch6_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "FDI, Globalization & Developing World Challenges" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "الاستثمار الأجنبي والعولمة وتحديات التنمية" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch6_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "FDI, Globalization & Developing World Challenges" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "الاستثمار الأجنبي والعولمة وتحديات التنمية" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "economics_market_equilibrium",
+            titleEn: "Balance of Payments & Foreign Exchange Simulator",
+            titleAr: "محاكي ميزان المدفوعات وأسعار الصرف الأجنبي",
+            descriptionEn: "Interactive simulation exploring Current Account balances, capital flows, and exchange rate parity.",
+            descriptionAr: "محاكاة لهيكل ميزان العمليات الجارية والرأسمالية وتقلبات أسعار الصرف."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "economics_market_equilibrium",
+          titleEn: "Balance of Payments & Foreign Exchange Simulator",
+          titleAr: "محاكي ميزان المدفوعات وأسعار الصرف الأجنبي",
+          descriptionEn: "Interactive simulation exploring Current Account balances, capital flows, and exchange rate parity.",
+          descriptionAr: "محاكاة لهيكل ميزان العمليات الجارية والرأسمالية وتقلبات أسعار الصرف."
+        }
+      ],
+      databank: econStatCh6Databank,
+      solvedExamples: econStatCh6SolvedExamples,
+      exerciseProblems: econStatCh6Exercises
+    },
+    {
+      id: "th_econ_stat_ch7",
+      chapterNumber: 7,
+      titleEn: "Unit 7: Pearson & Spearman Bivariate Correlation & Simple Linear Regression",
+      titleAr: "الوحدة السابعة: الارتباط الخطي ومعادلة خط الانحدار",
+      descriptionEn: "Bivariate linear correlation, scatter plots, Pearson's product-moment formula, Spearman's rank formula, simple linear regression equation, and residual error computations.",
+      descriptionAr: "مفهوم الارتباط وأنواعه ومخطط الانتشار، معامل ارتباط بيرسون الخطي، معامل ارتباط الرتب لسبيرمان، ومعادلة خط انحدار ص على س وحساب مقدار الخطأ.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch7_l1",
+          titleEn: "Pearson & Spearman Correlation Coefficients",
+          titleAr: "معاملا ارتباط بيرسون الخطي وسبيرمان للرتب",
+          summaryEn: "Scatter plot topologies, Pearson product-moment formula, and Spearman rank difference method for quantitative and ordinal data.",
+          summaryAr: "مفهوم الارتباط ومخطط الانتشار، حساب معامل ارتباط بيرسون للبيانات الكمية، وحساب سبيرمان للبيانات الكمية والوصفية.",
+          theoryContentEn: "### 1. Bivariate Correlation & Scatter Diagrams\n- **Correlation:** Statistical methodology quantifying the direction and magnitude of the linear relationship between two variables (X and Y).\n- **Mathematical Properties of Coefficient $r$:**\n  - Bounded strictly within the interval $[-1, +1]$.\n  - **Direct/Positive ($+$):** Concurrent co-movement in same direction.\n  - **Inverse/Negative ($-$)**: Opposing directional movement.\n  - **Strength Stratification:**\n    - $r = +1$: Perfect Direct; $r = -1$: Perfect Inverse.\n    - $0.7 \\le |r| < 1$: Strong.\n    - $0.4 \\le |r| < 0.7$: Moderate.\n    - $0 < |r| < 0.4$: Weak.\n    - $r = 0$: Zero (No linear association).\n\n### 2. Pearson Product-Moment Formulation\n- Strictly applicable to **quantitative continuous metrics**:\n  $$r = \\frac{n \\sum xy - \\sum x \\sum y}{\\sqrt{[n \\sum x^2 - (\\sum x)^2][n \\sum y^2 - (\\sum y)^2]}}$$\n- Execution algorithm: Construct 5 data columns ($x, y, x^2, y^2, xy$), aggregate summations, and evaluate algebraic radical denominator.\n\n### 3. Spearman Rank Correlation\n- Universally applicable to **quantitative metrics and ordinal qualitative rankings** (e.g., academic grade strata):\n  $$r_s = 1 - \\frac{6 \\sum D^2}{n(n^2 - 1)}$$\n- Where $D$ denotes the difference in corresponding ranks: $D = R(x) - R(y)$.\n- **Algebraic Verification Invariant:** The sum of rank discrepancies $\\sum D = 0$ identically.",
+          theoryContentAr: "### ١. مفهوم الارتباط الخطي ومخطط الانتشار\n- **الارتباط (Correlation):** طريقة إحصائية لتحديد درجة ونوع العلاقة الخطية بين متغيرين عشوائيين (س، ص).\n- **خصائص معامل الارتباط ($r$):**\n  - تقع قيمته دائماً في الفترة المغلقة $[-1, +1]$.\n  - **طردي (+):** كلما زاد س زاد ص؛ **عكسي (-):** كلما زاد س نقص ص.\n  - **التصنيف:**\n    - $r = +1$: طردي تام؛ $r = -1$: عكسي تام.\n    - $0.7 \\le |r| < 1$: قوي.\n    - $0.4 \\le |r| < 0.7$: متوسط.\n    - $0 < |r| < 0.4$: ضعيف.\n    - $r = 0$: منعدم (لا توجد علاقة خطية).\n\n### ٢. معامل ارتباط بيرسون الخطي (Pearson)\n- يُستخدم للبيانات **الكمية الرقمية** فقط:\n  $$r = \\frac{n \\sum xy - \\sum x \\sum y}{\\sqrt{[n \\sum x^2 - (\\sum x)^2][n \\sum y^2 - (\\sum y)^2]}}$$\n- خطوات الحل: تكوين جدول من ٥ أعمدة: $x, y, x^2, y^2, xy$ وإيجاد المجاميع والتعويض في القانون.\n\n### ٣. معامل ارتباط الرتب لسبيرمان (Spearman)\n- يُستخدم للبيانات **الكمية والوصفية الترتيبية** (مثل: تقديرات الطلاب: ممتاز، جيد جداً، جيد، مقبول، ضعيف):\n  $$r_s = 1 - \\frac{6 \\sum D^2}{n(n^2 - 1)}$$\n- حيث $D$ (ف) هي الفارق بين رتبة س ورتبة ص المناظرة لها: $D = R(x) - R(y)$.\n- **قاعدة هامة:** مجموع الفروق $\\sum D = 0$ دائماً (شرط للتحقق من صحة ترتيب الرتب).",
+          formulas: [
+          {
+                    "labelEn": "Pearson Linear Correlation Coefficient",
+                    "labelAr": "معامل ارتباط بيرسون الخطي",
+                    "latex": "r = \\frac{n \\sum xy - \\sum x \\sum y}{\\sqrt{[n \\sum x^2 - (\\sum x)^2][n \\sum y^2 - (\\sum y)^2]}}"
+          },
+          {
+                    "labelEn": "Spearman Rank Correlation Coefficient",
+                    "labelAr": "معامل ارتباط الرتب لسبيرمان",
+                    "latex": "r_s = 1 - \\frac{6 \\sum D^2}{n(n^2 - 1)}"
+          },
+          {
+                    "labelEn": "Regression Line of y on x",
+                    "labelAr": "معادلة خط انحدار ص على س",
+                    "latex": "\\hat{y} = a + bx, \\quad b = \\frac{n \\sum xy - \\sum x \\sum y}{n \\sum x^2 - (\\sum x)^2}, \\quad a = \\frac{\\sum y - b \\sum x}{n}"
+          },
+          {
+                    "labelEn": "Residual Prediction Error",
+                    "labelAr": "معادلة حساب مقدار الخطأ",
+                    "latex": "\\text{Error} = |y_{\\text{observed}} - \\hat{y}_{\\text{predicted}}|"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 121-140"
+          },
+          lessonPlan: {
+            titleEn: "Pearson & Spearman Correlation Coefficients",
+            titleAr: "معاملا ارتباط بيرسون الخطي وسبيرمان للرتب",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH7-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch7_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Pearson & Spearman Correlation Coefficients",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "معاملا ارتباط بيرسون الخطي وسبيرمان للرتب",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch7_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Pearson & Spearman Correlation Coefficients" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "معاملا ارتباط بيرسون الخطي وسبيرمان للرتب" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch7_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Pearson & Spearman Correlation Coefficients" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "معاملا ارتباط بيرسون الخطي وسبيرمان للرتب" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch7_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Pearson & Spearman Correlation Coefficients" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "معاملا ارتباط بيرسون الخطي وسبيرمان للرتب" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_correlation_regression",
+            titleEn: "Bivariate Linear Correlation & Regression Lab",
+            titleAr: "مختبر الارتباط الخطي والانحدار لبيرسون وسبيرمان",
+            descriptionEn: "Interactive scatter plot computing Pearson r, Spearman rs, regression line equation, and residuals in real-time.",
+            descriptionAr: "لوحة تفاعلية لإسقاط نقاط البيانات وحساب معامل بيرسون وسبيرمان ورسم خط الانحدار مباشرة."
+          }
+        },
+        {
+          id: "th_econ_stat_ch7_l2",
+          titleEn: "Linear Regression Line Equation & Residual Error Calculation",
+          titleAr: "معادلة خط الانحدار وحساب مقدار الخطأ",
+          summaryEn: "Regression line parameters (slope b and intercept a), predictive extrapolation, and residual error magnitude.",
+          summaryAr: "معادلة خط انحدار ص على س، حساب الميل والحد الثابت، والتنبؤ بقيم ص وحساب مقدار الخطأ.",
+          theoryContentEn: "### 1. Regression Equation of y on x\n- **Linear Least-Squares Regression Model:**\n  $$\\hat{y} = a + bx$$\n  Where:\n  - $b$ (Regression slope coefficient):\n    $$b = \\frac{n \\sum xy - \\sum x \\sum y}{n \\sum x^2 - (\\sum x)^2}$$\n  - $a$ (Vertical y-intercept parameter):\n    $$a = \\frac{\\sum y - b \\sum x}{n} = \\bar{y} - b \\bar{x}$$\n- **Key Mathematical Invariants:**\n  - The algebraic sign of slope $b$ is identical to the sign of Pearson $r$.\n  - The regression line passes invariably through the bivariate mean centroid $(\\bar{x}, \\bar{y})$.\n\n### 2. Value Prediction & Residual Error Magnitude\n- **Predictive Extrapolation:** Substituting designated independent $x$ values into the regression formula to derive expected dependent estimates $\\hat{y}$.\n- **Residual Error Formulation:** The absolute variance between empirical table readings and regression projections:\n  $$\\text{Error} = |y_{\\text{observed}} - \\hat{y}_{\\text{predicted}}|$$\n- **Applied Demonstration:**\n  Given regression line $\\hat{y} = 2 + 0.5x$ and observed table coordinate $(x=4, y=5)$:\n  - Model prediction: $\\hat{y} = 2 + 0.5(4) = 4$.\n  - Absolute residual error: $|5 - 4| = 1.0$.",
+          theoryContentAr: "### ١. معادلة خط انحدار ص على س\n- **معادلة الانحدار:**\n  $$\\hat{y} = a + bx$$\n  حيث:\n  - $b$ (معامل الانحدار وميل الخط):\n    $$b = \\frac{n \\sum xy - \\sum x \\sum y}{n \\sum x^2 - (\\sum x)^2}$$\n  - $a$ (الحد الثابت أو الجزء المقطوع من محور الصادات):\n    $$a = \\frac{\\sum y - b \\sum x}{n} = \\bar{y} - b \\bar{x}$$\n- **ملاحظات هامة:**\n  - إشارة معامل الانحدار $b$ تطابق تماماً إشارة معامل ارتباط بيرسون $r$.\n  - خط الانحدار يمر حتماً بنقطة المتوسطين الحسابيين $(\\bar{x}, \\bar{y})$.\n\n### ٢. التنبؤ وحساب مقدار الخطأ (Prediction & Residuals)\n- **التنبؤ:** التعويض بقيمة س المعطاة في معادلة الانحدار لإيجاد القيمة التقديرية المتوقعة $\\hat{y}$.\n- **مقدار الخطأ:** الفارق المطلق بين القيمة الحقيقية الجدولية والقيمة المحسوبة من معادلة خط الانحدار:\n  $$\\text{مقدار الخطأ} = |\\text{القيمة الجدولية الفعلية لـ ص} - \\text{القيمة التنبؤية } \\hat{y}|$$\n- **مثال تطبيقي:**\n  إذا كانت معادلة الانحدار هي $\\hat{y} = 2 + 0.5x$، وكان الجدول يحتوي على النقطة $(4, 5)$:\n  - القيمة المحسوبة من المعادلة عند $x = 4$ هي $\\hat{y} = 2 + 0.5(4) = 4$.\n  - مقدار الخطأ $= |5 - 4| = 1$ وحدة.",
+          formulas: [
+          {
+                    "labelEn": "Pearson Linear Correlation Coefficient",
+                    "labelAr": "معامل ارتباط بيرسون الخطي",
+                    "latex": "r = \\frac{n \\sum xy - \\sum x \\sum y}{\\sqrt{[n \\sum x^2 - (\\sum x)^2][n \\sum y^2 - (\\sum y)^2]}}"
+          },
+          {
+                    "labelEn": "Spearman Rank Correlation Coefficient",
+                    "labelAr": "معامل ارتباط الرتب لسبيرمان",
+                    "latex": "r_s = 1 - \\frac{6 \\sum D^2}{n(n^2 - 1)}"
+          },
+          {
+                    "labelEn": "Regression Line of y on x",
+                    "labelAr": "معادلة خط انحدار ص على س",
+                    "latex": "\\hat{y} = a + bx, \\quad b = \\frac{n \\sum xy - \\sum x \\sum y}{n \\sum x^2 - (\\sum x)^2}, \\quad a = \\frac{\\sum y - b \\sum x}{n}"
+          },
+          {
+                    "labelEn": "Residual Prediction Error",
+                    "labelAr": "معادلة حساب مقدار الخطأ",
+                    "latex": "\\text{Error} = |y_{\\text{observed}} - \\hat{y}_{\\text{predicted}}|"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 121-140"
+          },
+          lessonPlan: {
+            titleEn: "Linear Regression Line Equation & Residual Error Calculation",
+            titleAr: "معادلة خط الانحدار وحساب مقدار الخطأ",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH7-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch7_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Linear Regression Line Equation & Residual Error Calculation",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "معادلة خط الانحدار وحساب مقدار الخطأ",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch7_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Linear Regression Line Equation & Residual Error Calculation" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "معادلة خط الانحدار وحساب مقدار الخطأ" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch7_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Linear Regression Line Equation & Residual Error Calculation" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "معادلة خط الانحدار وحساب مقدار الخطأ" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch7_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Linear Regression Line Equation & Residual Error Calculation" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "معادلة خط الانحدار وحساب مقدار الخطأ" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_correlation_regression",
+            titleEn: "Bivariate Linear Correlation & Regression Lab",
+            titleAr: "مختبر الارتباط الخطي والانحدار لبيرسون وسبيرمان",
+            descriptionEn: "Interactive scatter plot computing Pearson r, Spearman rs, regression line equation, and residuals in real-time.",
+            descriptionAr: "لوحة تفاعلية لإسقاط نقاط البيانات وحساب معامل بيرسون وسبيرمان ورسم خط الانحدار مباشرة."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "statistics_correlation_regression",
+          titleEn: "Bivariate Linear Correlation & Regression Lab",
+          titleAr: "مختبر الارتباط الخطي والانحدار لبيرسون وسبيرمان",
+          descriptionEn: "Interactive scatter plot computing Pearson r, Spearman rs, regression line equation, and residuals in real-time.",
+          descriptionAr: "لوحة تفاعلية لإسقاط نقاط البيانات وحساب معامل بيرسون وسبيرمان ورسم خط الانحدار مباشرة."
+        }
+      ],
+      databank: econStatCh7Databank,
+      solvedExamples: econStatCh7SolvedExamples,
+      exerciseProblems: econStatCh7Exercises
+    },
+    {
+      id: "th_econ_stat_ch8",
+      chapterNumber: 8,
+      titleEn: "Unit 8: Conditional Probability, Multiplication Rule & Stochastic Independence",
+      titleAr: "الوحدة الثامنة: الاحتمال الشرطي والأحداث المستقلة",
+      descriptionEn: "Axioms of probability, event algebra, conditional probability formula, multiplication rule, and distinguishing independent from mutually exclusive events.",
+      descriptionAr: "مسلمات الاحتمال وجبر الأحداث، قانون الاحتمال الشرطي، قاعدة الضرب في الاحتمالات، وتمييز الأحداث المستقلة عن المتنافية وشجرة الاحتمالات.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch8_l1",
+          titleEn: "Foundational Probability Laws & Conditional Probability",
+          titleAr: "قوانين الاحتمال الأساسية والاحتمال الشرطي",
+          summaryEn: "Probability axioms, union, intersection, complement, difference rules, and conditional probability formulations.",
+          summaryAr: "مسلمات الاحتمال والاتحاد والتقاطع والفرق والحدث المكمل، وقانون الاحتمال الشرطي وتطبيقاته.",
+          theoryContentEn: "### 1. Foundational Probability Axioms Review\n- $0 \\le P(A) \\le 1$; $P(S) = 1$; $P(\\phi) = 0$.\n- **Complementary Event:** $P(A') = 1 - P(A)$.\n- **Union (Occurrence of at least one):**\n  $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n- **Difference (Occurrence of A exclusively):**\n  $$P(A - B) = P(A \\cap B') = P(A) - P(A \\cap B)$$\n- **De Morgan's Duality Laws:**\n  - $P(A' \\cap B') = 1 - P(A \\cup B)$ (Neither event occurs).\n  - $P(A' \\cup B') = 1 - P(A \\cap B)$ (Both events do not occur simultaneously).\n\n### 2. Conditional Probability Mathematics\n- **Definition:** Likelihood of event $A$ materializing conditioned upon prior certainty that event $B$ has taken place.\n- **Mathematical Formulation:**\n  $$P(A|B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n  Symmetrically:\n  $$P(B|A) = \\frac{P(A \\cap B)}{P(A)}, \\quad P(A) > 0$$\n- **General Multiplication Rule:**\n  $$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n- **Crucial Invariants:**\n  - $P(S|B) = 1$.\n  - $P(A'|B) = 1 - P(A|B)$.",
+          theoryContentAr: "### ١. مراجعة قوانين الاحتمال الكلاسيكية\n- $0 \\le P(A) \\le 1$؛ $P(S) = 1$؛ $P(\\phi) = 0$.\n- **الحدث المكمل:** $P(A') = 1 - P(A)$.\n- **الاتحاد (وقوع أحدهما على الأقل):**\n  $$P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$$\n- **الفرق (وقوع أ فقط أو وقوع أ وعدم وقوع ب):**\n  $$P(A - B) = P(A \\cap B') = P(A) - P(A \\cap B)$$\n- **قانونا دي مورجان:**\n  - $P(A' \\cap B') = 1 - P(A \\cup B)$ (عدم وقوع أي من الحدثين).\n  - $P(A' \\cup B') = 1 - P(A \\cap B)$ (عدم وقوع الحدثين معاً).\n\n### ٢. الاحتمال الشرطي (Conditional Probability)\n- **المفهوم:** احتمال وقوع الحدث $A$ بشرط أن يكون الحدث $B$ قد وقع بالفعل.\n- **القانون الرياضي:**\n  $$P(A|B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0$$\n  وبالمثل:\n  $$P(B|A) = \\frac{P(A \\cap B)}{P(A)}, \\quad P(A) > 0$$\n- **قاعدة الضرب في الاحتمالات:**\n  $$P(A \\cap B) = P(B) \\cdot P(A|B) = P(A) \\cdot P(B|A)$$\n- **خصائص هامة:**\n  - $P(S|B) = 1$.\n  - $P(A'|B) = 1 - P(A|B)$.",
+          formulas: [
+          {
+                    "labelEn": "Conditional Probability Formula",
+                    "labelAr": "قانون الاحتمال الشرطي",
+                    "latex": "P(A|B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0"
+          },
+          {
+                    "labelEn": "Stochastic Independence Criterion",
+                    "labelAr": "شرط استقلال الحدثين",
+                    "latex": "P(A \\cap B) = P(A) \\cdot P(B) \\iff P(A|B) = P(A)"
+          },
+          {
+                    "labelEn": "Addition Rule of Probability",
+                    "labelAr": "قانون جمع الاحتمالات (الاتحاد)",
+                    "latex": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 141-160"
+          },
+          lessonPlan: {
+            titleEn: "Foundational Probability Laws & Conditional Probability",
+            titleAr: "قوانين الاحتمال الأساسية والاحتمال الشرطي",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH8-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch8_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Foundational Probability Laws & Conditional Probability",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "قوانين الاحتمال الأساسية والاحتمال الشرطي",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch8_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Foundational Probability Laws & Conditional Probability" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "قوانين الاحتمال الأساسية والاحتمال الشرطي" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch8_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Foundational Probability Laws & Conditional Probability" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "قوانين الاحتمال الأساسية والاحتمال الشرطي" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch8_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Foundational Probability Laws & Conditional Probability" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "قوانين الاحتمال الأساسية والاحتمال الشرطي" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_probability_tree",
+            titleEn: "Conditional Probability Tree & Bayes Explorer",
+            titleAr: "مستكشف الاحتمال الشرطي وشجرة الاحتمالات وقاعدة بايز",
+            descriptionEn: "Interactive probability tree explorer computing conditional probabilities and stochastic independence tests.",
+            descriptionAr: "محاكاة تفاعلية لحساب الاحتمال الشرطي وشجرة السحب مع الإحلال وبدون إحلال واختبار الاستقلال."
+          }
+        },
+        {
+          id: "th_econ_stat_ch8_l2",
+          titleEn: "Stochastic Independence vs Mutually Exclusive Events",
+          titleAr: "الأحداث المستقلة والتمييز بينها وبين المتنافية",
+          summaryEn: "Independence criterion, P(AnB)=P(A)*P(B), contrasting independent and mutually exclusive events, and probability trees.",
+          summaryAr: "التعريف الرياضي للأحداث المستقلة، شرط الاستقلال ل(أ ∩ ب) = ل(أ) × ل(ب)، وشجرة الاحتمالات للسحب بإحلال ودون إحلال.",
+          theoryContentEn: "### 1. Stochastic Independence Criterion\n- **Definition:** Events $A$ and $B$ are statistically independent if the realization of one leaves the probability of the other completely unaltered:\n  $$P(A|B) = P(A) \\quad \\text{and} \\quad P(B|A) = P(B)$$\n- **Necessary & Sufficient Mathematical Test:**\n  $$A \\text{ and } B \\text{ are independent} \\iff P(A \\cap B) = P(A) \\cdot P(B)$$\n\n### 2. Independent vs Mutually Exclusive Distinction\n- **Mutually Exclusive (Disjoint) Events:** Simultaneous occurrence is strictly impossible: $A \\cap B = \\phi \\implies P(A \\cap B) = 0$.\n- **Critical Comparison:**\n  - For non-zero probability events ($P(A) > 0, P(B) > 0$):\n    - They **cannot** be simultaneously mutually exclusive and independent!\n    - Disjoint implies intersection probability is identically zero ($P(A \\cap B) = 0$), whereas independence requires a non-zero product ($P(A) \\cdot P(B) > 0$).\n\n### 3. Probability Trees: Sampling Dynamics\n- **Sampling with Replacement:** Sample space cardinality is preserved; successive trials constitute **independent events**.\n- **Sampling without Replacement:** Sample space contracts; subsequent draws constitute **dependent conditional events**.",
+          theoryContentAr: "### ١. مفهوم وشرط استقلال الأحداث\n- **التعريف:** يقال للحدثين $A$ و $B$ أنهما مستقلان إذا كان وقوع أحدهما لا يغير ولا يؤثر في احتمال وقوع الآخر:\n  $$P(A|B) = P(A) \\quad \\text{أو} \\quad P(B|A) = P(B)$$\n- **الشرط الحاسم للاستقلال:**\n  $$A \\text{ و } B \\text{ حدثان مستقلان} \\iff P(A \\cap B) = P(A) \\cdot P(B)$$\n\n### ٢. التمييز بين الأحداث المستقلة والأحداث المتنافية\n- **الأحداث المتنافية (Mutually Exclusive):** يستحيل وقوعهما معاً؛ أي أن $A \\cap B = \\phi$ و $P(A \\cap B) = 0$.\n- **المقارنة الجوهرية:**\n  - إذا كان $A$ و $B$ حدثين غير مستحيلين ($P(A) > 0, P(B) > 0$):\n    - لا يمكن أن يكونا متنافيين ومستقلين في نفس الوقت!\n    - لأن كونهما متنافيين يعني $P(A \\cap B) = 0$، بينما كونهما مستقلين يعني $P(A \\cap B) = P(A) \\cdot P(B) > 0$.\n\n### ٣. تطبيقات شجرة الاحتمالات والسحب\n- **السحب مع الإحلال (مع الإرجاع):** تظل عناصر فضاء العينة ثابتة وتكون عمليات السحب المتتالية **أحداثاً مستقلة**.\n- **السحب بدون إحلال (دون إرجاع):** ينقص فضاء العينة ويكون السحب التالي مشروطاً بنتيجة السحب السابق (أحداث غير مستقلة).",
+          formulas: [
+          {
+                    "labelEn": "Conditional Probability Formula",
+                    "labelAr": "قانون الاحتمال الشرطي",
+                    "latex": "P(A|B) = \\frac{P(A \\cap B)}{P(B)}, \\quad P(B) > 0"
+          },
+          {
+                    "labelEn": "Stochastic Independence Criterion",
+                    "labelAr": "شرط استقلال الحدثين",
+                    "latex": "P(A \\cap B) = P(A) \\cdot P(B) \\iff P(A|B) = P(A)"
+          },
+          {
+                    "labelEn": "Addition Rule of Probability",
+                    "labelAr": "قانون جمع الاحتمالات (الاتحاد)",
+                    "latex": "P(A \\cup B) = P(A) + P(B) - P(A \\cap B)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 141-160"
+          },
+          lessonPlan: {
+            titleEn: "Stochastic Independence vs Mutually Exclusive Events",
+            titleAr: "الأحداث المستقلة والتمييز بينها وبين المتنافية",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH8-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch8_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Stochastic Independence vs Mutually Exclusive Events",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "الأحداث المستقلة والتمييز بينها وبين المتنافية",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch8_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Stochastic Independence vs Mutually Exclusive Events" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "الأحداث المستقلة والتمييز بينها وبين المتنافية" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch8_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Stochastic Independence vs Mutually Exclusive Events" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "الأحداث المستقلة والتمييز بينها وبين المتنافية" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch8_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Stochastic Independence vs Mutually Exclusive Events" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "الأحداث المستقلة والتمييز بينها وبين المتنافية" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_probability_tree",
+            titleEn: "Conditional Probability Tree & Bayes Explorer",
+            titleAr: "مستكشف الاحتمال الشرطي وشجرة الاحتمالات وقاعدة بايز",
+            descriptionEn: "Interactive probability tree explorer computing conditional probabilities and stochastic independence tests.",
+            descriptionAr: "محاكاة تفاعلية لحساب الاحتمال الشرطي وشجرة السحب مع الإحلال وبدون إحلال واختبار الاستقلال."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "statistics_probability_tree",
+          titleEn: "Conditional Probability Tree & Bayes Explorer",
+          titleAr: "مستكشف الاحتمال الشرطي وشجرة الاحتمالات وقاعدة بايز",
+          descriptionEn: "Interactive probability tree explorer computing conditional probabilities and stochastic independence tests.",
+          descriptionAr: "محاكاة تفاعلية لحساب الاحتمال الشرطي وشجرة السحب مع الإحلال وبدون إحلال واختبار الاستقلال."
+        }
+      ],
+      databank: econStatCh8Databank,
+      solvedExamples: econStatCh8SolvedExamples,
+      exerciseProblems: econStatCh8Exercises
+    },
+    {
+      id: "th_econ_stat_ch9",
+      chapterNumber: 9,
+      titleEn: "Unit 9: Discrete & Continuous Random Variables, Expected Value, Variance & Coefficient of Variation",
+      titleAr: "الوحدة التاسعة: المتغيرات العشوائية والتوزيعات الاحتمالية",
+      descriptionEn: "Discrete random variables, PMF verification, Expected Value (mean), Variance, Standard Deviation, Coefficient of Variation, and Continuous Random Variables PDF integration.",
+      descriptionAr: "المتغير العشوائي المتقطع ودالة التوزيع الاحتمالي، حساب التوقع والتباين والانحراف المعياري، معامل الاختلاف، والمتغير العشوائي المتصل ودالة كثافة الاحتمال.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch9_l1",
+          titleEn: "Discrete Random Variables, Mean, Variance & C.V.",
+          titleAr: "المتغير العشوائي المتقطع والتوقع والتباين ومعامل الاختلاف",
+          summaryEn: "PMF conditions, Expected Value mu, Variance sigma^2, Standard Deviation, and Coefficient of Variation for relative dispersion.",
+          summaryAr: "شروط دالة التوزيع الاحتمالي، حساب التوقع μ والتباين σ² والانحراف المعياري σ، ومعامل الاختلاف للمقارنة بين المجموعات.",
+          theoryContentEn: "### 1. Discrete Random Variables & Probability Mass Functions\n- **Definition:** A variable whose range consists of a finite or countably infinite sequence of real values $\\{x_1, x_2, \\dots, x_n\\}$.\n- **Foundational PMF Axioms:**\n  1. $0 \\le f(x_i) \\le 1$ for all values in the range.\n  2. $\\sum_{i=1}^n f(x_i) = 1$ identically (used to solve for unknown parametric constants).\n\n### 2. Expected Value, Variance & Standard Deviation\n- **Expected Value / Mean ($\\mu$):**\n  $$\\mu = E(X) = \\sum x_i \\cdot f(x_i)$$\n- **Variance ($\\sigma^2$):**\n  $$\\sigma^2 = \\text{Var}(X) = \\sum x_i^2 \\cdot f(x_i) - \\mu^2$$\n- **Standard Deviation ($\\sigma$):**\n  $$\\sigma = \\sqrt{\\sigma^2}$$\n- **Tabular Algorithm:**\n  Col 1: $x_i$ | Col 2: $f(x_i)$ | Col 3: $x_i \\cdot f(x_i)$ [sum yields $\\mu$] | Col 4: $x_i^2 \\cdot f(x_i)$ [sum minus $\\mu^2$ yields $\\sigma^2$].\n\n### 3. Coefficient of Variation (C.V.)\n- Relative dimensionless index evaluating comparative dispersion across populations with different scales:\n  $$\\text{C.V.} = \\frac{\\sigma}{\\mu} \\times 100\\%$$\n- **Evaluative Rule:** The population with the lower C.V. exhibits **superior consistency and lower relative dispersion**.",
+          theoryContentAr: "### ١. المتغير العشوائي المتقطع (Discrete Random Variable)\n- **المفهوم:** متغير تأخذ قيمه مجموعة منتهية أو قابلة للعد من الأعداد الحقيقية $\\{x_1, x_2, \\dots, x_n\\}$.\n- **شروط دالة التوزيع الاحتمالي $f(x_i)$:**\n  ١. $0 \\le f(x_i) \\le 1$ لكل قيمة من قيم المدى.\n  ٢. $\\sum_{i=1}^n f(x_i) = 1$ (مجموع الاحتمالات يساوي واحداً صحيحاً دائماً، ويُستخدم لإيجاد الثوابت المجهولة $k$).\n\n### ٢. التوقع والتباين والانحراف المعياري\n- **التوقع (المتوسط الحسابي $\\mu$):**\n  $$\\mu = E(X) = \\sum x_i \\cdot f(x_i)$$\n- **التباين ($\\sigma^2$):**\n  $$\\sigma^2 = \\text{Var}(X) = \\sum x_i^2 \\cdot f(x_i) - \\mu^2$$\n- **الانحراف المعياري ($\\sigma$):**\n  $$\\sigma = \\sqrt{\\sigma^2}$$\n- **خطوات الجدول الحسابي:**\n  عمود (١): $x_i$ | عمود (٢): $f(x_i)$ | عمود (٣): $x_i \\cdot f(x_i)$ [مجموعه $=\\mu$] | عمود (٤): $x_i^2 \\cdot f(x_i)$ [مجموعه يُطرح منه $\\mu^2$ لإيجاد $\\sigma^2$].\n\n### ٣. معامل الاختلاف (Coefficient of Variation)\n- مقياس نسبي للتشتت يستخدم للمقارنة بين تشتت مجموعتين مختلفتين في وحدات القياس أو المتوسطات:\n  $$\\text{معامل الاختلاف} = \\frac{\\sigma}{\\mu} \\times 100\\%$$\n- **القاعدة:** المجموعة ذات معامل الاختلاف الأصغر تكون **أكثر تجانساً وأقل تشتتاً**.",
+          formulas: [
+          {
+                    "labelEn": "Expected Value / Mean",
+                    "labelAr": "قانون التوقع (المتوسط الحسابي ميو)",
+                    "latex": "\\mu = E(X) = \\sum x_i \\cdot f(x_i)"
+          },
+          {
+                    "labelEn": "Variance & Standard Deviation",
+                    "labelAr": "قانون التباين والانحراف المعياري",
+                    "latex": "\\sigma^2 = \\sum x_i^2 \\cdot f(x_i) - \\mu^2, \\quad \\sigma = \\sqrt{\\sigma^2}"
+          },
+          {
+                    "labelEn": "Coefficient of Variation",
+                    "labelAr": "معامل الاختلاف النسبي",
+                    "latex": "C.V. = \\frac{\\sigma}{\\mu} \\times 100\\%"
+          },
+          {
+                    "labelEn": "Trapezoidal PDF Area Formula",
+                    "labelAr": "مساحة شبه المنحرف لدالة كثافة الاحتمال",
+                    "latex": "P(a \\le X \\le b) = \\frac{f(a) + f(b)}{2} \\cdot (b - a)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 161-180"
+          },
+          lessonPlan: {
+            titleEn: "Discrete Random Variables, Mean, Variance & C.V.",
+            titleAr: "المتغير العشوائي المتقطع والتوقع والتباين ومعامل الاختلاف",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH9-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch9_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Discrete Random Variables, Mean, Variance & C.V.",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "المتغير العشوائي المتقطع والتوقع والتباين ومعامل الاختلاف",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch9_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Discrete Random Variables, Mean, Variance & C.V." + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "المتغير العشوائي المتقطع والتوقع والتباين ومعامل الاختلاف" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch9_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Discrete Random Variables, Mean, Variance & C.V." + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "المتغير العشوائي المتقطع والتوقع والتباين ومعامل الاختلاف" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch9_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Discrete Random Variables, Mean, Variance & C.V." + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "المتغير العشوائي المتقطع والتوقع والتباين ومعامل الاختلاف" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_probability_tree",
+            titleEn: "Probability Distribution & Actuarial Expectation Lab",
+            titleAr: "محاكي التوزيع الاحتمالي والتوقع والتباين ومعامل الاختلاف",
+            descriptionEn: "Interactive actuarial calculator computing expected value, variance, and coefficient of variation.",
+            descriptionAr: "محاكاة لحساب المتوسط والتباين والانحراف المعياري ومعامل الاختلاف للمتغيرات المنفصلة والمتصلة."
+          }
+        },
+        {
+          id: "th_econ_stat_ch9_l2",
+          titleEn: "Continuous Random Variables & Probability Density Functions",
+          titleAr: "المتغير العشوائي المتصل ودالة كثافة الاحتمال",
+          summaryEn: "Continuous random variables, PDF properties, trapezoidal area calculations, and finding parametric constants.",
+          summaryAr: "المتغير العشوائي المتصل ودالة كثافة الاحتمال، حساب المساحات أسفل المنحنى بقاعدة شبه المنحرف وإيجاد الثوابت المجهولة.",
+          theoryContentEn: "### 1. Continuous Random Variables & Density Axioms\n- **Definition:** A variable capable of assuming any uncountably infinite real value within an interval $[a, b]$ (e.g., physical duration, biological mass).\n- **Probability Density Function (PDF):** A curve $f(x)$ representing the likelihood distribution of a continuous variable.\n- **Axiomatic Requirements:**\n  1. $f(x) \\ge 0$ across the entire operational domain (non-negative curve).\n  2. Total definite geometric area under $f(x)$ above the horizontal axis equals $1.0$.\n  3. **Single Point Probability Invariant:** Probability at any single exact point is zero:\n     $$P(X = c) = 0$$\n     Consequently: $P(a \\le X \\le b) = P(a < X < b)$.\n\n### 2. Area Calculation via Trapezoidal Rule\n- For linear first-degree density functions $f(x) = mx + c$, probability over sub-interval $[a, b]$ is calculated geometrically via the trapezoidal formula:\n  $$P(a \\le X \\le b) = \\frac{f(a) + f(b)}{2} \\cdot (b - a)$$\n- **Algorithmic Steps:**\n  1. Evaluate lower altitude $f(a)$.\n  2. Evaluate upper altitude $f(b)$.\n  3. Multiply average altitude $\\frac{f(a)+f(b)}{2}$ by interval base width $(b - a)$.",
+          theoryContentAr: "### ١. المتغير العشوائي المتصل (Continuous Random Variable)\n- **المفهوم:** متغير يأخذ أي قيمة حقيقية في فترة متصلة $[a, b]$ على خط الأعداد (مثل الأطوال، الأوزان، ودرجات الحرارة).\n- **دالة كثافة الاحتمال (Probability Density Function - PDF):** دالة $f(x)$ تمثل التوزيع الاحتمالي لمتغير متصل.\n- **شروط دالة كثافة الاحتمال:**\n  ١. $f(x) \\ge 0$ لجميع قيم $x$ في الفترة المحددة (المنحنى يقع دائماً فوق محور السينات أو يمسه).\n  ٢. المساحة الكلية أسفل المنحنى وفوق محور السينات بين طرفي الفترة تساوي واحداً صحيحاً ($1$).\n  ٣. **احتمال وقوع نقطة منفردة يساوي صفراً:**\n     $$P(X = c) = 0$$\n     لذا فإن: $P(a \\le X \\le b) = P(a < X < b)$.\n\n### ٢. حساب الاحتمالات باستخدام مساحة شبه المنحرف\n- للدوال الخطية من الدرجة الأولى $f(x) = mx + c$، تحسب المساحة هندسياً بقاعدة شبه المنحرف:\n  $$P(a \\le X \\le b) = \\frac{f(a) + f(b)}{2} \\cdot (b - a)$$\n- **خطوات الحل:**\n  ١. إيجاد $f(a)$ بالتعويض المباشر في قاعدة الدالة.\n  ٢. إيجاد $f(b)$ بالتعويض المباشر في قاعدة الدالة.\n  ٣. تطبيق قانون شبه المنحرف: نصف مجموع القاعدتين المتوازيتين مضروباً في الارتفاع.",
+          formulas: [
+          {
+                    "labelEn": "Expected Value / Mean",
+                    "labelAr": "قانون التوقع (المتوسط الحسابي ميو)",
+                    "latex": "\\mu = E(X) = \\sum x_i \\cdot f(x_i)"
+          },
+          {
+                    "labelEn": "Variance & Standard Deviation",
+                    "labelAr": "قانون التباين والانحراف المعياري",
+                    "latex": "\\sigma^2 = \\sum x_i^2 \\cdot f(x_i) - \\mu^2, \\quad \\sigma = \\sqrt{\\sigma^2}"
+          },
+          {
+                    "labelEn": "Coefficient of Variation",
+                    "labelAr": "معامل الاختلاف النسبي",
+                    "latex": "C.V. = \\frac{\\sigma}{\\mu} \\times 100\\%"
+          },
+          {
+                    "labelEn": "Trapezoidal PDF Area Formula",
+                    "labelAr": "مساحة شبه المنحرف لدالة كثافة الاحتمال",
+                    "latex": "P(a \\le X \\le b) = \\frac{f(a) + f(b)}{2} \\cdot (b - a)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 161-180"
+          },
+          lessonPlan: {
+            titleEn: "Continuous Random Variables & Probability Density Functions",
+            titleAr: "المتغير العشوائي المتصل ودالة كثافة الاحتمال",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH9-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch9_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Continuous Random Variables & Probability Density Functions",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "المتغير العشوائي المتصل ودالة كثافة الاحتمال",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch9_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Continuous Random Variables & Probability Density Functions" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "المتغير العشوائي المتصل ودالة كثافة الاحتمال" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch9_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Continuous Random Variables & Probability Density Functions" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "المتغير العشوائي المتصل ودالة كثافة الاحتمال" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch9_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Continuous Random Variables & Probability Density Functions" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "المتغير العشوائي المتصل ودالة كثافة الاحتمال" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_probability_tree",
+            titleEn: "Probability Distribution & Actuarial Expectation Lab",
+            titleAr: "محاكي التوزيع الاحتمالي والتوقع والتباين ومعامل الاختلاف",
+            descriptionEn: "Interactive actuarial calculator computing expected value, variance, and coefficient of variation.",
+            descriptionAr: "محاكاة لحساب المتوسط والتباين والانحراف المعياري ومعامل الاختلاف للمتغيرات المنفصلة والمتصلة."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "statistics_probability_tree",
+          titleEn: "Probability Distribution & Actuarial Expectation Lab",
+          titleAr: "محاكي التوزيع الاحتمالي والتوقع والتباين ومعامل الاختلاف",
+          descriptionEn: "Interactive actuarial calculator computing expected value, variance, and coefficient of variation.",
+          descriptionAr: "محاكاة لحساب المتوسط والتباين والانحراف المعياري ومعامل الاختلاف للمتغيرات المنفصلة والمتصلة."
+        }
+      ],
+      databank: econStatCh9Databank,
+      solvedExamples: econStatCh9SolvedExamples,
+      exerciseProblems: econStatCh9Exercises
+    },
+    {
+      id: "th_econ_stat_ch10",
+      chapterNumber: 10,
+      titleEn: "Unit 10: Gaussian Normal Distribution, Standard Z-Scores & Cumulative Area Lookup",
+      titleAr: "الوحدة العاشرة: منحنى التوزيع الطبيعي، درجات Z، وحساب المساحات الاحتمالية",
+      descriptionEn: "Gaussian bell curve symmetry, standard normal Z-transformation, area table cases, applied non-standard distribution problems, and inverse parameter optimization.",
+      descriptionAr: "خصائص منحنى التوزيع الطبيعي المعياري، التحويل لدرجات Z، قراءة جدول المساحات لحالات المناطق المختلفة، وحل المسائل الحياتية والمعكوسة لإيجاد ميو وسيغما.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+          id: "th_econ_stat_ch10_l1",
+          titleEn: "Normal Bell Curve, Standard Z-Scores & Table Lookup",
+          titleAr: "خصائص المنحنى الطبيعي والمتغير المعياري Z وحساب المساحات",
+          summaryEn: "Gaussian bell symmetry, total area unity, Z-transformation, and the standard normal table rules for four geometric area configurations.",
+          summaryAr: "خصائص المنحنى الناقوسي، التماثل والمساحة الكلية، التحويل Z = (X - μ)/σ، وقواعد قراءة جدول المساحات للحالات الأربع.",
+          theoryContentEn: "### 1. Geometric Properties of the Gaussian Curve\n- Bell-shaped, continuous unimodal curve perfectly symmetric about the vertical mean axis $x = \\mu$.\n- Coincidence of central tendencies at the summit: $\\text{Mean} = \\text{Median} = \\text{Mode} = \\mu$.\n- Total area under curve above horizontal axis equals $1.0$:\n  - Area to right of mean $= 0.5$; Area to left of mean $= 0.5$.\n- Asymptotic tails approach the horizontal axis infinitely without intersection.\n\n### 2. Standard Normal Distribution $Z \\sim N(0, 1)$\n- The standardized baseline where mean $\\mu = 0$ and standard deviation $\\sigma = 1$.\n- **Z-Score Transformation Formula:**\n  $$Z = \\frac{X - \\mu}{\\sigma}$$\n\n### 3. Reading Cumulative Standard Normal Tables\nTables record the area between $Z = 0$ and positive boundary $Z = k$:\n1. $P(0 \\le Z \\le k)$: Direct table entry reading.\n2. $P(-k \\le Z \\le 0) = P(0 \\le Z \\le k)$ (Reflective symmetry about 0).\n3. **Upper Tail:** $P(Z \\ge k) = 0.5 - P(0 \\le Z \\le k)$.\n4. **Lower Tail:** $P(Z \\le -k) = 0.5 - P(0 \\le Z \\le k)$.\n5. $P(Z \\le k) = 0.5 + P(0 \\le Z \\le k)$.\n6. **Between Two Positives:** $P(k_1 \\le Z \\le k_2) = P(0 \\le Z \\le k_2) - P(0 \\le Z \\le k_1)$.\n7. **Straddling the Origin:** $P(-k_1 \\le Z \\le k_2) = P(0 \\le Z \\le k_1) + P(0 \\le Z \\le k_2)$.\n8. **Symmetric Bound:** $P(|Z| \\le k) = 2 \\cdot P(0 \\le Z \\le k)$.",
+          theoryContentAr: "### ١. خصائص منحنى التوزيع الطبيعي\n- منحنى متصل ناقوسي الشكل (جرسي)، متماثل تماماً حول المحور الرأسي $x = \\mu$.\n- يتطابق فيه المتوسط الحسابي والوسيط والمنوال عند قمة المنحنى: $\\text{Mean} = \\text{Median} = \\text{Mode} = \\mu$.\n- المساحة الكلية أسفل المنحنى تساوي واحداً صحيحاً ($1$):\n  - المساحة على يمين المتوسط $= 0.5$، والمساحة على يساره $= 0.5$.\n- يمتد طرفا المنحنى إلى ما لا نهاية بمحاذاة محور السينات دون أن يمساه (تقاربي).\n\n### ٢. التوزيع الطبيعي المعياري $Z \\sim N(0, 1)$\n- حالة خاصة من التوزيع الطبيعي يكون فيها المتوسط $\\mu = 0$ والانحراف المعياري $\\sigma = 1$.\n- **قانون التحويل المعياري:**\n  $$Z = \\frac{X - \\mu}{\\sigma}$$\n\n### ٣. قواعد حساب المساحات الاحتمالية من الجدول\nجدول التوزيع الطبيعي يعطي المساحة المحصورة بين $0$ و $k$ (حيث $k > 0$):\n١. $P(0 \\le Z \\le k)$: تُقرأ مباشرة من الجدول.\n٢. $P(-k \\le Z \\le 0) = P(0 \\le Z \\le k)$ (خاصية التماثل حول الصفر).\n٣. **الذيل الأيمن:** $P(Z \\ge k) = 0.5 - P(0 \\le Z \\le k)$.\n٤. **الذيل الأيسر:** $P(Z \\le -k) = 0.5 - P(0 \\le Z \\le k)$.\n٥. $P(Z \\le k) = 0.5 + P(0 \\le Z \\le k)$.\n٦. **بين قيمتين موجبتين:** $P(k_1 \\le Z \\le k_2) = P(0 \\le Z \\le k_2) - P(0 \\le Z \\le k_1)$.\n٧. **بين سالبة وموجبة:** $P(-k_1 \\le Z \\le k_2) = P(0 \\le Z \\le k_1) + P(0 \\le Z \\le k_2)$.\n٨. **القيمة المطلقة:** $P(|Z| \\le k) = 2 \\cdot P(0 \\le Z \\le k)$.",
+          formulas: [
+          {
+                    "labelEn": "Z-Score Standardization Formula",
+                    "labelAr": "قانون التحويل للمتغير الطبيعي المعياري",
+                    "latex": "Z = \\frac{X - \\mu}{\\sigma}"
+          },
+          {
+                    "labelEn": "Symmetry Area Identity",
+                    "labelAr": "قاعدة تماثل المساحات الطبيعية",
+                    "latex": "P(Z \\ge 0) = P(Z \\le 0) = 0.5, \\quad P(-k \\le Z \\le 0) = P(0 \\le Z \\le k)"
+          },
+          {
+                    "labelEn": "Tail Probability Rule",
+                    "labelAr": "قاعدة حساب مساحة الذيل العلوي",
+                    "latex": "P(Z \\ge k) = 0.5 - P(0 \\le Z \\le k)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 181-200"
+          },
+          lessonPlan: {
+            titleEn: "Normal Bell Curve, Standard Z-Scores & Table Lookup",
+            titleAr: "خصائص المنحنى الطبيعي والمتغير المعياري Z وحساب المساحات",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH10-L1",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch10_l1_ws",
+            titleEn: "Diagnostic Worksheet: " + "Normal Bell Curve, Standard Z-Scores & Table Lookup",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "خصائص المنحنى الطبيعي والمتغير المعياري Z وحساب المساحات",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch10_l1_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Normal Bell Curve, Standard Z-Scores & Table Lookup" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "خصائص المنحنى الطبيعي والمتغير المعياري Z وحساب المساحات" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch10_l1_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Normal Bell Curve, Standard Z-Scores & Table Lookup" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "خصائص المنحنى الطبيعي والمتغير المعياري Z وحساب المساحات" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch10_l1_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Normal Bell Curve, Standard Z-Scores & Table Lookup" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "خصائص المنحنى الطبيعي والمتغير المعياري Z وحساب المساحات" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_normal_curve",
+            titleEn: "Gaussian Bell Curve & Standard Normal Z-Score Engine",
+            titleAr: "محرك التوزيع الطبيعي المعياري وحساب المساحات Z-Table",
+            descriptionEn: "Interactive Gaussian distribution simulator computing cumulative areas, tail probabilities, and inverse Z-scores.",
+            descriptionAr: "محرك تفاعلي لحساب المساحات الاحتمالية أسفل المنحنى الطبيعي وقراءة جدول Z بالعكس."
+          }
+        },
+        {
+          id: "th_econ_stat_ch10_l2",
+          titleEn: "Applied Practical Cases & Inverse Normal Parameter Optimization",
+          titleAr: "التطبيقات الحياتية والمسائل العكسية لإيجاد ميو وسيغما",
+          summaryEn: "Real-world non-standard normal distributions, percentile calculations, and inverse table optimization solving for unknown mu and sigma.",
+          summaryAr: "تطبيقات التوزيع الطبيعي غير المعياري في حساب نسب الطلاب والمعيب، والمسائل العكسية لإيجاد k أو معالم التوزيع ميو وسيغما.",
+          theoryContentEn: "### 1. Non-Standard Normal Distributions in Real-World Contexts\n- Empirical data in manufacturing and education follow non-standard metrics: $X \\sim N(\\mu, \\sigma^2)$.\n- **Operational Protocol:**\n  1. Standardize metric value $x$ into dimensionless $z$:\n     $$z = \\frac{x - \\mu}{\\sigma}$$\n  2. Apply standard area rules to locate probability $P$.\n  3. Compute **Population Headcount:**\n     $$\\text{Headcount} = \\text{Total Population} \\times \\text{Computed Probability } P$$\n  4. Compute **Percentage Share:**\n     $$\\text{Percentage} = P \\times 100\\%$$\n\n### 2. Inverse Parameter Optimization (Solving for $\\mu, \\sigma$, or $k$)\n- When probability area is given and the threshold $k$ or parameters $\\mu, \\sigma$ are unknown:\n  - Sketch the Gaussian curve to identify whether the given tail lies to the right or left of the mean.\n  - Calculate the equivalent area between $0$ and $k$.\n  - Execute reverse lookup in the body of the Z-table to extract the boundary $k$.\n  - Substitute into $k = \\frac{x - \\mu}{\\sigma}$ to formulate linear equations and solve for unknown population parameters.",
+          theoryContentAr: "### ١. مسائل التوزيع الطبيعي غير المعياري في الواقع\n- في الحياة العملية، تكون المتغيرات ذات متوسط $\\mu$ وانحراف $\\sigma$ غير معياريين: $X \\sim N(\\mu, \\sigma^2)$.\n- **خطوات الحل:**\n  ١. تحويل القيمة الأصلية $x$ إلى درجة معيارية $z$:\n     $$z = \\frac{x - \\mu}{\\sigma}$$\n  ٢. استخدام قواعد جدول التوزيع الطبيعي المعياري لحساب الاحتمال.\n  ٣. لحساب **العدد الكلي للوحدات أو الطلاب:**\n     $$\\text{العدد المطلوب} = \\text{العدد الإجمالي للمجتمع} \\times \\text{الاحتمال الناتج}$$\n  ٤. لحساب **النسبة المئوية:**\n     $$\\text{النسبة المئوية} = \\text{الاحتمال الناتج} \\times 100\\%$$\n\n### ٢. المسائل العكسية (إيجاد الثوابت المجهولة $\\mu$ أو $\\sigma$ أو $k$)\n- عندما يُعطى الاحتمال والمطلوب هو إيجاد القيمة $k$ أو المعالم $\\mu, \\sigma$:\n  - نقوم برسم تقريبي للمنحنى وتحديد موقع المساحة المعطاة.\n  - نحسب المساحة المحصورة بين $0$ و $k$.\n  - نبحث داخل جدول المساحات عن أقرب رقم لتحديد قيمة $k$ المناظرة.\n  - نعوض في قانون التحويل المعياري: $k = \\frac{x - \\mu}{\\sigma}$ لحل المعادلة وإيجاد المجهول المطلوب.",
+          formulas: [
+          {
+                    "labelEn": "Z-Score Standardization Formula",
+                    "labelAr": "قانون التحويل للمتغير الطبيعي المعياري",
+                    "latex": "Z = \\frac{X - \\mu}{\\sigma}"
+          },
+          {
+                    "labelEn": "Symmetry Area Identity",
+                    "labelAr": "قاعدة تماثل المساحات الطبيعية",
+                    "latex": "P(Z \\ge 0) = P(Z \\le 0) = 0.5, \\quad P(-k \\le Z \\le 0) = P(0 \\le Z \\le k)"
+          },
+          {
+                    "labelEn": "Tail Probability Rule",
+                    "labelAr": "قاعدة حساب مساحة الذيل العلوي",
+                    "latex": "P(Z \\ge k) = 0.5 - P(0 \\le Z \\le k)"
+          }
+],
+          moeRef: {
+            bookTitleEn: "Economics & Applied Statistics for General Secondary Education",
+            bookTitleAr: "الاقتصاد والإحصاء التطبيقي للثانوية العامة والمناهج المعتمدة",
+            grade: "Grade 12",
+            term: "Full Academic Year",
+            officialCode: "TH-ECON-G12",
+            pageRange: "pp. 181-200"
+          },
+          lessonPlan: {
+            titleEn: "Applied Practical Cases & Inverse Normal Parameter Optimization",
+            titleAr: "التطبيقات الحياتية والمسائل العكسية لإيجاد ميو وسيغما",
+            gradeLevel: "Grade 12",
+            durationMinutes: 90,
+            moeCode: "TH-ECON-G12-CH10-L2",
+            bloomsObjectivesEn: [
+              "Master key economic and statistical principles according to MoE standards.",
+              "Apply mathematical formulations and economic models to real scenarios.",
+              "Critically evaluate macroeconomic policies and statistical inferences."
+            ],
+            bloomsObjectivesAr: [
+              "استيعاب المفاهيم والقوانين الاقتصادية والإحصائية الرسمية لوزارة التربية والتعليم.",
+              "تطبيق القوانين الرياضية والنماذج الاقتصادية على مواقف وبيانات عملية.",
+              "تحليل ونقد السياسات المالية والنقدية والاستدلالات الإحصائية."
+            ],
+            prerequisitesEn: ["Basic algebra, arithmetic reasoning, and reading comprehension."],
+            prerequisitesAr: ["أساسيات الجبر والحساب والتفكير المنطقي."],
+            keyVocabularyEn: [
+              { term: "Relative Scarcity", definition: "Resources insufficient to satisfy all human wants." },
+              { term: "Statistical Correlation", definition: "Degree and direction of linear association between variables." }
+            ],
+            keyVocabularyAr: [
+              { term: "الندرة النسبية", definition: "عدم كفاية الموارد المتاحة لإشباع جميع الحاجات الإنسانية." },
+              { term: "الارتباط الإحصائي", definition: "درجة ونوع العلاقة الخطية التي تربط بين متغيرين عشوائيين." }
+            ],
+            teachingPacing: [
+              {
+                phaseEn: "Hook & Inquire",
+                phaseAr: "التمهيد وإثارة التساؤل",
+                duration: "15 min",
+                activitiesEn: "Present a real-world macroeconomic or statistical problem.",
+                activitiesAr: "طرح معضلة اقتصادية أو إحصائية من الواقع المعاش لإثارة التفكير."
+              },
+              {
+                phaseEn: "Direct Instruction & Modeling",
+                phaseAr: "الشرح المنهجي والنمذجة",
+                duration: "50 min",
+                activitiesEn: "Explain theories, step-by-step mathematical proofs, and model problems.",
+                activitiesAr: "شرح النظريات والقوانين والخطوات الرياضية التفصيلية وحل أمثلة نموذجية."
+              },
+              {
+                phaseEn: "Evaluation & Synthesis",
+                phaseAr: "التقويم الختامي والتطبيق",
+                duration: "25 min",
+                activitiesEn: "Solve practice exercises and ministerially aligned MCQs.",
+                activitiesAr: "حل تمارين تدريبية وأسئلة وزارية للتأكد من إتقان المفاهيم."
+              }
+            ],
+            commonMisconceptionsEn: [
+              "Confusing absolute scarcity with relative economic scarcity.",
+              "Assuming statistical correlation implies direct causal necessity."
+            ],
+            commonMisconceptionsAr: [
+              "الخلط بين الندرة المطلقة والندرة النسبية في التحليل الاقتصادي.",
+              "الاعتقاد الخاطئ بأن وجود ارتباط إحصائي يعني بالضرورة وجود علاقة سببية."
+            ],
+            differentiationEn: {
+              struggling: "Provide guided step-by-step arithmetic templates and visual concept summaries.",
+              advanced: "Analyze multi-variable macroeconomic policy shocks and inverse normal distribution cases."
+            },
+            differentiationAr: {
+              struggling: "توفير قوالب حسابية خطوة بخطوة وتلخيصات بصرية للمفاهيم الأساسية.",
+              advanced: "تحليل صدمات السياسات الكلية المعقدة والمسائل العكسية للتوزيع الطبيعي."
+            },
+            formativeAssessmentEn: "Solve 5 quick ministerial multiple choice items and 1 calculation problem.",
+            formativeAssessmentAr: "حل 5 أسئلة اختيار من متعدد وزارية ومسألة حسابية سريعة.",
+            exitTicketQuestion: {
+              questionEn: "State the primary economic or statistical implication derived in this lesson.",
+              questionAr: "اذكر الدلالة الاقتصادية أو الإحصائية الجوهرية المستخلصة من هذا الدرس.",
+              solutionEn: "Accurate application of standard Ministry of Education formulations and causal principles.",
+              solutionAr: "التطبيق الدقيق للقوانين الرسمية والمفاهيم السببية المعتمدة لوزارة التربية والتعليم."
+            }
+          },
+          worksheet: {
+            id: "th_econ_stat_ch10_l2_ws",
+            titleEn: "Diagnostic Worksheet: " + "Applied Practical Cases & Inverse Normal Parameter Optimization",
+            titleAr: "ورقة عمل تقويمية تشخيصية: " + "التطبيقات الحياتية والمسائل العكسية لإيجاد ميو وسيغما",
+            descriptionEn: "Ministerial diagnostic assessment measuring recall, analysis, and HOTS synthesis.",
+            descriptionAr: "تقويم وزاري تشخيصي يقيس الفهم والتطبيق والتفكير الناقد.",
+            estimatedTimeMinutes: 25,
+            problems: [
+              {
+                id: "th_econ_stat_ch10_l2_p1",
+                titleEn: "Foundational Diagnostic Item 1",
+                titleAr: "سؤال تقويمي تأسيسي 1",
+                difficulty: "easy",
+                questionEn: "Which fundamental principle is demonstrated in this study of " + "Applied Practical Cases & Inverse Normal Parameter Optimization" + "?",
+                questionAr: "أي المبادئ الجوهرية الآتية يمثل المفهوم الدقيق لـ (" + "التطبيقات الحياتية والمسائل العكسية لإيجاد ميو وسيغما" + ")؟",
+                optionsEn: [
+                  "Adherence to validated empirical analysis and structured models.",
+                  "Ignoring real scarcity constraints and economic trade-offs.",
+                  "Assuming statistical association always proves causal direction.",
+                  "Treating all production inputs as infinitely reproducible and costless."
+                ],
+                optionsAr: [
+                  "الالتزام بالقواعد والتحليلات المنهجية والنماذج القياسية المعتمدة.",
+                  "تجاهل قيود الندرة الحقيقية والتضحيات الاقتصادية المتبادلة.",
+                  "افتراض أن الارتباط الإحصائي يثبت حتماً علاقة سببية مباشرة.",
+                  "اعتبار جميع عناصر الإنتاج متوفرة بلا حدود وبلا أي تكلفة."
+                ],
+                correctAnswer: "Adherence to validated empirical analysis and structured models.",
+                correctIndex: 0,
+                hintEn: "Consider the rigorous methodology of economics and statistics.",
+                hintAr: "فكر في المنهجية العلمية الدقيقة لعلمي الاقتصاد والإحصاء.",
+                stepByStepSolutionEn: ["1. Recall the primary conceptual framework established in Ministry of Education standards."],
+                stepByStepSolutionAr: ["١. استرجاع المفهوم المعتمد في المنهج الوزاري المصري بدقة."]
+              },
+              {
+                id: "th_econ_stat_ch10_l2_p2",
+                titleEn: "Applied Analysis Item 2",
+                titleAr: "سؤال تطبيقي تحليلي 2",
+                difficulty: "medium",
+                questionEn: "When applying quantitative and conceptual rules of " + "Applied Practical Cases & Inverse Normal Parameter Optimization" + ", which result is logically deduced?",
+                questionAr: "عند تطبيق القواعد التحليلية أو الحسابية لـ (" + "التطبيقات الحياتية والمسائل العكسية لإيجاد ميو وسيغما" + ") على موقف عملي، ما النتيجة المنطقية؟",
+                optionsEn: [
+                  "Rational allocation of resources optimizes welfare and equilibrium.",
+                  "Systematic inflation always resolves resource scarcity effortlessly.",
+                  "Correlation coefficients exceed +1.0 in realistic large samples.",
+                  "Marginal utility increases indefinitely with every additional unit consumed."
+                ],
+                optionsAr: [
+                  "التخصيص الرشيد للموارد يحقق التوازن الأمثل ويعظم المنفعة الاقتصادية.",
+                  "التضخم المستمر يحل مشكلة ندرة الموارد بصورة تلقائية ودون مجهود.",
+                  "معاملات الارتباط الخطي تتجاوز القيمة القصوى (+١) في العينات الكبيرة.",
+                  "المنفعة الحدية تتزايد بلا حدود مع كل وحدة إضافية مستهلكة."
+                ],
+                correctAnswer: "Rational allocation of resources optimizes welfare and equilibrium.",
+                correctIndex: 0,
+                hintEn: "Reflect on how economic logic and statistical boundaries operate.",
+                hintAr: "تذكر القواعد الرياضية والمنطق الاقتصادي السليم.",
+                stepByStepSolutionEn: ["1. Evaluate applied scenario conditions against standard economic and statistical laws."],
+                stepByStepSolutionAr: ["١. فحص معطيات الموقف في ضوء القوانين الاقتصادية والإحصائية المقررة."]
+              },
+              {
+                id: "th_econ_stat_ch10_l2_p3",
+                titleEn: "HOTS Synthesis Item 3",
+                titleAr: "سؤال تفكير عليا وتركيبي 3",
+                difficulty: "hots",
+                questionEn: "In evaluating complex policy decisions or stochastic uncertainty regarding " + "Applied Practical Cases & Inverse Normal Parameter Optimization" + ", what synthesis is optimal?",
+                questionAr: "عند تقييم السياسات الاقتصادية الكلية أو الاحتمالات العشوائية المرتبطة بـ (" + "التطبيقات الحياتية والمسائل العكسية لإيجاد ميو وسيغما" + ")، أي الاستنتاجات يمثل قمة التحليل الناقد؟",
+                optionsEn: [
+                  "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                  "Relying solely on speculative rumors without empirical statistical verification.",
+                  "Assuming zero opportunity cost in multi-billion state infrastructure investments.",
+                  "Ignoring standard deviation when assessing risk in capital markets."
+                ],
+                optionsAr: [
+                  "المكاملة بين الأدلة والبيانات الميدانية والقيود الهيكلية لضمان الاستقرار والتوازن.",
+                  "الاعتماد على التكهنات والشائعات دون أي تحقق إحصائي تجريبي.",
+                  "افتراض انعدام تكلفة الفرصة البديلة في المشروعات الاستثمارية الكبرى.",
+                  "تجاهل الانحراف المعياري ومؤشرات التشتت عند قياس المخاطر المالية."
+                ],
+                correctAnswer: "Integrating empirical evidence with structural constraints to maintain dynamic stability.",
+                correctIndex: 0,
+                hintEn: "Synthesize empirical validation with macro-level resource prudence.",
+                hintAr: "اجمع بين التحقق الإحصائي الرصين وحكمة إدارة الموارد الشحيحة.",
+                stepByStepSolutionEn: ["1. Synthesize quantitative and conceptual boundaries to establish sound policy or statistical conclusion."],
+                stepByStepSolutionAr: ["١. الموازنة والتركيب بين المتغيرات للوصول إلى القرار الأرشد علمياً وتطبيقياً."]
+              }
+            ]
+          },
+          interactiveWidget: {
+            type: "statistics_normal_curve",
+            titleEn: "Gaussian Bell Curve & Standard Normal Z-Score Engine",
+            titleAr: "محرك التوزيع الطبيعي المعياري وحساب المساحات Z-Table",
+            descriptionEn: "Interactive Gaussian distribution simulator computing cumulative areas, tail probabilities, and inverse Z-scores.",
+            descriptionAr: "محرك تفاعلي لحساب المساحات الاحتمالية أسفل المنحنى الطبيعي وقراءة جدول Z بالعكس."
+          }
+        }
+      ],
+      interactiveWidgets: [
+        {
+          type: "statistics_normal_curve",
+          titleEn: "Gaussian Bell Curve & Standard Normal Z-Score Engine",
+          titleAr: "محرك التوزيع الطبيعي المعياري وحساب المساحات Z-Table",
+          descriptionEn: "Interactive Gaussian distribution simulator computing cumulative areas, tail probabilities, and inverse Z-scores.",
+          descriptionAr: "محرك تفاعلي لحساب المساحات الاحتمالية أسفل المنحنى الطبيعي وقراءة جدول Z بالعكس."
+        }
+      ],
+      databank: econStatCh10Databank,
+      solvedExamples: econStatCh10SolvedExamples,
+      exerciseProblems: econStatCh10Exercises
+    }
+  ]
+};

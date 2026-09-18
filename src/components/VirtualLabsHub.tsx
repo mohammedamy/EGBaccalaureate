@@ -15,6 +15,7 @@ import {
   Globe,
   Mountain,
   Brain,
+  TrendingUp,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
@@ -25,6 +26,7 @@ import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { LogicStudio } from './labs/LogicStudio';
 import { PsychologyStudio } from './labs/PsychologyStudio';
+import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
@@ -41,7 +43,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -64,6 +66,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'psychology') return 'psychology';
     if (selectedSubject === 'history') return 'history';
     if (selectedSubject === 'geography') return 'geography';
+    if (selectedSubject === 'economics_stat') return 'economics_stat';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
     return 'math';
   };
@@ -86,6 +89,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'geology') setActiveLab('geology');
     else if (selectedSubject === 'philosophy') setActiveLab('philosophy');
     else if (selectedSubject === 'psychology') setActiveLab('psychology');
+    else if (selectedSubject === 'economics_stat') setActiveLab('economics_stat');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -338,6 +342,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
         ? 'استوديو علم النفس والاجتماع: محاكي نظريات التعلم، استبقاء الذاكرة، مصفوفة كيرت ليفين، والحيل الدفاعية وديناميات المجتمع'
         : 'Psychology & Sociology Studio: Learning theory paradigms, memory retention, Kurt Lewin conflict matrix, defense mechanisms & collective dynamics',
     },
+    {
+      id: 'economics_stat' as LabId,
+      titleEn: 'Economics & Applied Statistics Studio',
+      titleAr: 'استوديو الاقتصاد والإحصاء التطبيقي',
+      subtitleEn: 'Market Equilibrium, Keynesian Multiplier, Pearson Correlation & Normal Curve',
+      subtitleAr: 'توازن السوق والمرونة، مضاعف الاستثمار الكينزي، ارتباط بيرسون والتوزيع الطبيعي المعياري',
+      icon: TrendingUp,
+      color: 'amber',
+      badge: '📈 Econ & Stats Studio',
+      gradient: 'from-amber-600 via-orange-600 to-yellow-600',
+      activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
+      tagline: isArabic
+        ? 'استوديو الاقتصاد والإحصاء التطبيقي: محاكي توازن السوق ومرونة الطلب، التدفق الدائري ومضاعف الاستثمار الكينزي، معامل ارتباط بيرسون وسبيرمان، شجرة الاحتمالات وبايرز، ومحاكي منحنى التوزيع الطبيعي المعياري Z-Score'
+        : 'Economics & Applied Statistics Studio: Market equilibrium & elasticity simulator, circular flow & Keynesian multiplier, Pearson & Spearman correlation lab, conditional probability & Bayes explorer, and Gaussian normal curve & standard Z-score engine',
+    },
   ];
 
   return (
@@ -360,7 +379,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 <span>{isArabic ? 'المختبرات العلمية والرياضية المعتمدة' : 'Official Virtual Science Laboratories'}</span>
               </span>
               <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
-                6 Specialized Labs & Studios
+                11 Specialized Labs & Studios
               </span>
             </div>
 
@@ -785,6 +804,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Economics & Applied Statistics Studio */}
+        {activeLab === 'economics_stat' && (
+          <div className="space-y-4">
+            <EconomicsStatisticsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -793,7 +823,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -808,7 +838,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

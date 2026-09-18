@@ -89,13 +89,39 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
     };
   }
 
-  // 2. Mathematics Branches (Calculus, Statics, Dynamics, Algebra & Geometry): 20 Questions, 30 Marks, 2 Hours per branch
+  // 2. Economics & Applied Statistics (40 Questions, 50 Marks, 3 Hours)
+  if (
+    normSubject === 'economics_stat' ||
+    normSubject.includes('econ') ||
+    normSubject.includes('اقتصاد') ||
+    normSubject.includes('إحصاء') ||
+    normSubject.includes('احصاء') ||
+    normBranch.includes('econ') ||
+    normBranch.includes('اقتصاد') ||
+    normBranch.includes('إحصاء') ||
+    normBranch.includes('احصاء')
+  ) {
+    return {
+      subjectId: 'economics_stat',
+      totalQuestions: 40,
+      totalMarks: 50,
+      durationMinutes: 180,
+      section1Count: 30, // 30 * 1 = 30 marks
+      section2Count: 10, // 10 * 2 = 20 marks (Total: 50 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة الاقتصاد والإحصاء التطبيقي',
+      titleEn: 'Official Thanawya Amma Examination - Economics & Applied Statistics',
+      descAr: '٤٠ سؤالاً (٣٠ سؤالاً بدرجة واحدة + ١٠ أسئلة بدرجتين) بإجمالي ٥٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '40 questions (30 items @ 1 mark + 10 items @ 2 marks) totaling 50 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  // 3. Mathematics Branches (Calculus, Statics, Dynamics, Algebra & Geometry): 20 Questions, 30 Marks, 2 Hours per branch
   const isSpecificMathBranch =
     normBranch !== 'all' &&
     (normBranch.includes('calc') ||
       normBranch.includes('تف Do') ||
       normBranch.includes('تفاضل') ||
-      normBranch.includes('stat') ||
+      (normBranch.includes('stat') && !normBranch.includes('econ')) ||
       normBranch.includes('استاتيكا') ||
       normBranch.includes('dynam') ||
       normBranch.includes('ديناميكا') ||

@@ -28,6 +28,7 @@ import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { LogicStudio } from './labs/LogicStudio';
 import { PsychologyStudio } from './labs/PsychologyStudio';
+import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -370,6 +371,29 @@ export const LessonView: React.FC<Props> = ({
               }
             />
           );
+        case 'economics_market_equilibrium':
+        case 'economics_national_income':
+        case 'statistics_correlation_regression':
+        case 'statistics_probability_tree':
+        case 'statistics_normal_curve':
+          return (
+            <EconomicsStatisticsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'economics_market_equilibrium'
+                  ? 'market_equilibrium'
+                  : lesson.interactiveWidget.type === 'economics_national_income'
+                  ? 'national_income'
+                  : lesson.interactiveWidget.type === 'statistics_correlation_regression'
+                  ? 'correlation_regression'
+                  : lesson.interactiveWidget.type === 'statistics_probability_tree'
+                  ? 'probability_tree'
+                  : 'normal_distribution'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -526,6 +550,29 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'sociology_social_processes'
                   ? 'social_processes'
                   : 'culture_extremism'
+              }
+            />
+          );
+        case 'economics_market_equilibrium':
+        case 'economics_national_income':
+        case 'statistics_correlation_regression':
+        case 'statistics_probability_tree':
+        case 'statistics_normal_curve':
+          return (
+            <EconomicsStatisticsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'economics_market_equilibrium'
+                  ? 'market_equilibrium'
+                  : lesson.interactiveWidget.type === 'economics_national_income'
+                  ? 'national_income'
+                  : lesson.interactiveWidget.type === 'statistics_correlation_regression'
+                  ? 'correlation_regression'
+                  : lesson.interactiveWidget.type === 'statistics_probability_tree'
+                  ? 'probability_tree'
+                  : 'normal_distribution'
               }
             />
           );

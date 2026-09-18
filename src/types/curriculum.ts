@@ -18,6 +18,7 @@ export type BranchId =
   | 'thanaweya_geology'
   | 'thanaweya_philosophy'
   | 'thanaweya_psychology'
+  | 'thanaweya_economics_stat'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -32,7 +33,8 @@ export type BranchId =
   | 'egbac_geography'
   | 'egbac_geology'
   | 'egbac_philosophy'
-  | 'egbac_psychology';
+  | 'egbac_psychology'
+  | 'egbac_economics_stat';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -148,6 +150,8 @@ export interface SolvedProblem {
   teacherTipEn?: string;
   teacherTipAr?: string;
   diagramType?: DiagramType;
+  explanationEn?: string;
+  explanationAr?: string;
 }
 
 export interface ExerciseProblem {
@@ -168,6 +172,8 @@ export interface ExerciseProblem {
   teacherTipEn?: string;
   teacherTipAr?: string;
   diagramType?: DiagramType;
+  explanationEn?: string;
+  explanationAr?: string;
 }
 
 export interface Worksheet {
@@ -236,7 +242,12 @@ export type InteractiveWidgetType =
   | 'psychology_memory_retention'
   | 'psychology_conflict_matrix'
   | 'sociology_social_processes'
-  | 'sociology_culture_extremism';
+  | 'sociology_culture_extremism'
+  | 'economics_market_equilibrium'
+  | 'economics_national_income'
+  | 'statistics_correlation_regression'
+  | 'statistics_probability_tree'
+  | 'statistics_normal_curve';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

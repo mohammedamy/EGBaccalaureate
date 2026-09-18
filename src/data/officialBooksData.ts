@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -2071,6 +2071,134 @@ export const officialBooksList: OfficialBook[] = [
       'استراتيجيات التحصين متعددة التخصصات لتفكيك التطرف عبر الأبعاد المعرفية والوجدانية والمجتمعية'
     ],
   },
+
+  // 21. Thanaweya Economics & Applied Statistics
+  {
+    id: 'th-econ-stat-g12',
+    curriculum: 'thanaweya',
+    category: 'economics_stat',
+    subjectId: 'economics_stat',
+    branchId: 'thanaweya_economics_stat',
+    code: 'TH-ECON-STAT-G12',
+    titleEn: 'Economics & Applied Statistics',
+    titleAr: 'الاقتصاد والإحصاء التطبيقي',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 38,
+    fileSize: '3.8 MB',
+    compendiumTitleEn: 'Official Economics & Applied Statistics Formula Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم المعتمد وقوانين الاقتصاد والإحصاء',
+    filename: 'thanaweya-economics-statistics.pdf',
+    downloadUrl: './books/thanaweya-economics-statistics.pdf',
+    fullTextbookPages: 240,
+    fullTextbookSize: '26.8 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-amber-600 via-orange-600 to-yellow-700',
+    accentColor: '#f59e0b',
+    chapters: [
+      { id: 'econ-ch1', titleEn: 'Ch 1: The Economic Problem & Scarcity', titleAr: 'الفصل الأول: الاقتصاد والمشكلة الاقتصادية', pageRange: 'pp. 1-24', topicsCount: 8 },
+      { id: 'econ-ch2', titleEn: 'Ch 2: Factors of Production & Capital Formation', titleAr: 'الفصل الثاني: عناصر الإنتاج وتكوين رأس المال', pageRange: 'pp. 25-48', topicsCount: 8 },
+      { id: 'econ-ch3', titleEn: 'Ch 3: National Income & Economic Growth', titleAr: 'الفصل الثالث: الدخل القومي والنمو الاقتصادي', pageRange: 'pp. 49-74', topicsCount: 8 },
+      { id: 'econ-ch4', titleEn: 'Ch 4: Public Finance & Fiscal Policy', titleAr: 'الفصل الرابع: المالية العامة والسياسة المالية', pageRange: 'pp. 75-100', topicsCount: 8 },
+      { id: 'econ-ch5', titleEn: 'Ch 5: Money, Banking & Monetary Systems', titleAr: 'الفصل الخامس: النقود والبنوك والنظام النقدي', pageRange: 'pp. 101-126', topicsCount: 8 },
+      { id: 'econ-ch6', titleEn: 'Ch 6: International Economic Relations & Globalization', titleAr: 'الفصل السادس: العلاقات الاقتصادية الدولية والعولمة', pageRange: 'pp. 127-152', topicsCount: 8 },
+      { id: 'stat-ch7', titleEn: 'Ch 7: Linear Correlation & Regression Analysis', titleAr: 'الفصل السابع: الارتباط الخطي والانحدار', pageRange: 'pp. 153-174', topicsCount: 8 },
+      { id: 'stat-ch8', titleEn: 'Ch 8: Conditional Probability & Independent Events', titleAr: 'الفصل الثامن: الاحتمال الشرطي والأحداث المستقلة', pageRange: 'pp. 175-196', topicsCount: 8 },
+      { id: 'stat-ch9', titleEn: 'Ch 9: Random Variables & Probability Distributions', titleAr: 'الفصل التاسع: المتغيرات العشوائية والتوزيعات الاحتمالية', pageRange: 'pp. 197-218', topicsCount: 8 },
+      { id: 'stat-ch10', titleEn: 'Ch 10: Standard Normal Distribution & Z-Scores', titleAr: 'الفصل العاشر: التوزيع الطبيعي المعياري وحساب المساحات', pageRange: 'pp. 219-240', topicsCount: 8 }
+    ],
+    descriptionEn: 'The official Ministry of Education textbook for Grade 12 Economics and Applied Statistics, presenting rigorous coverage of scarcity, market mechanisms, macroeconomic income loops, public budgeting, monetary policy, and foundational applied statistics (Pearson, Spearman, Bayes theorem, and standard Gaussian distributions).',
+    descriptionAr: 'الكتاب الرسمي المعتمد من وزارة التربية والتعليم لطلاب الثانوية العامة، شاملاً المشكلة الاقتصادية وتكلفة الفرصة البديلة، عناصر الإنتاج والدخل القومي، المالية العامة والضرائب، النقود والبنوك، بالإضافة لأبواب الإحصاء التطبيقي الأربعة: الارتباط والانحدار، الاحتمال الشرطي، المتغيرات العشوائية المتقطعة والمتصلة، والتوزيع الطبيعي المعياري.',
+    highlightsEn: [
+      'Microeconomic scarcity, opportunity cost, and production possibility boundaries',
+      'Keynesian national income accounting: Output, Expenditure, and Value-Added streams',
+      'Fiscal budgeting mechanisms, state debt, tax classification, and market failures',
+      'Monetary aggregates (M1, M2), central banking reserve ratios, and credit creation',
+      'Pearson product-moment and Spearman rank correlation coefficients with line of best fit',
+      'Conditional probability axioms, Bayes tree diagrams, and mutual independence criteria',
+      'Discrete and continuous probability density functions with expected value and variance',
+      'Gaussian bell curve transformations to standard Z-scores and empirical probability tables'
+    ],
+    highlightsAr: [
+      'المشكلة الاقتصادية والندرة وتكلفة الفرصة البديلة ومنحنى إمكانيات الإنتاج',
+      'حسابات الدخل القومي والناتج القومي والإنفاق القومي وطرق تجنب الازدواج المحاسبي',
+      'الموازنة العامة للدولة، الضرائب التنازلية والتصاعدية، وعلاج عجز الموازنة',
+      'وظائف النقود والكتلة النقدية وسياسات البنك المركزي والائتمان المصرفي',
+      'معامل ارتباط بيرسون الخطي ومعامل سبيرمان للرتب ومعادلة خط انحدار ص على س',
+      'قوانين الاحتمال الشرطي والأحداث المستقلة وشجرة الاحتمالات البيانية',
+      'المتغيرات العشوائية المتقطعة والمتصلة وحساب التوقع والتباين والانحراف المعياري',
+      'منحنى التوزيع الطبيعي المعياري وتحويل الدرجات الخام إلى Z-scores واستخدام الجداول الإحصائية'
+    ]
+  },
+
+  // 22. EG-Bac Applied Economics & Quantitative Statistics
+  {
+    id: 'egbac-econ-stat-g12',
+    curriculum: 'egbac',
+    category: 'economics_stat',
+    subjectId: 'economics_stat',
+    branchId: 'egbac_economics_stat',
+    code: 'EGBAC-ECON-STAT-G12',
+    titleEn: 'Applied Economics & Quantitative Statistics',
+    titleAr: 'الاقتصاد التطبيقي والإحصاء الكمي المعاصر',
+    subtitleEn: 'New Egyptian Baccalaureate Educational Framework (EG-Bac Track) - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Social Sciences & Quantitative Reasoning)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية (شعبة العلوم الاجتماعية والإحصاء الكمي)',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 44,
+    fileSize: '4.2 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Quantitative Macroeconomics & Applied Statistics Compendium',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في الاقتصاد الكلي الكمي والإحصاء التطبيقي',
+    filename: 'egbac-economics-statistics.pdf',
+    downloadUrl: '/books/egbac-economics-statistics.pdf',
+    fullTextbookPages: 260,
+    fullTextbookSize: '29.5 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/economics/',
+    coverGradient: 'from-amber-700 via-yellow-700 to-orange-800',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'ch1', titleEn: 'Unit 1: Scarcity, Economic Needs & Methodology', titleAr: 'الوحدة الأولى: الاقتصاد والمشكلة الاقتصادية والندرة', pageRange: 'pp. 1-26', topicsCount: 14 },
+      { id: 'ch2', titleEn: 'Unit 2: Factors of Production & Capital Accumulation', titleAr: 'الوحدة الثانية: عناصر الإنتاج وتراكم رأس المال', pageRange: 'pp. 27-52', topicsCount: 14 },
+      { id: 'ch3', titleEn: 'Unit 3: National Income, Product & Macroeconomic Equilibrium', titleAr: 'الوحدة الثالثة: الدخل القومي والناتج والتوازن الكلي', pageRange: 'pp. 53-78', topicsCount: 15 },
+      { id: 'ch4', titleEn: 'Unit 4: Public Finance, Taxation & Fiscal Policy', titleAr: 'الوحدة الرابعة: المالية العامة والضرائب والسياسة المالية', pageRange: 'pp. 79-104', topicsCount: 14 },
+      { id: 'ch5', titleEn: 'Unit 5: Money, Modern Banking & Monetary Systems', titleAr: 'الوحدة الخامسة: النقود والبنوك الحديثة والأنظمة النقدية', pageRange: 'pp. 105-130', topicsCount: 14 },
+      { id: 'ch6', titleEn: 'Unit 6: International Economic Relations & Global Trade', titleAr: 'الوحدة السادسة: العلاقات الاقتصادية الدولية والتجارة العالمية', pageRange: 'pp. 131-156', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Unit 7: Linear Correlation & Least-Squares Regression', titleAr: 'الوحدة السابعة: الارتباط الخطي وانحدار المربعات الصغرى', pageRange: 'pp. 157-182', topicsCount: 14 },
+      { id: 'ch8', titleEn: 'Unit 8: Conditional Probability, Bayes Theorem & Independence', titleAr: 'الوحدة الثامنة: الاحتمال الشرطي ونظرية بايز والاستقلال', pageRange: 'pp. 183-208', topicsCount: 14 },
+      { id: 'ch9', titleEn: 'Unit 9: Random Variables & Probability Distributions', titleAr: 'الوحدة التاسعة: المتغيرات العشوائية والتوزيعات الاحتمالية', pageRange: 'pp. 209-234', topicsCount: 14 },
+      { id: 'ch10', titleEn: 'Unit 10: Gaussian Normal Curve & Standard Z-Transformations', titleAr: 'الوحدة العاشرة: منحنى التوزيع الطبيعي والتحويلات المعيارية', pageRange: 'pp. 235-260', topicsCount: 15 }
+    ],
+    descriptionEn: 'Collegiate-level macroeconomic modelling and applied quantitative statistics tailored for the New Egyptian Baccalaureate, integrating econometric regression, multi-sector circular flows, Keynesian multipliers, monetary transmission mechanisms, and Gaussian continuous distribution calculus.',
+    descriptionAr: 'منهج البكالوريا المصرية المتقدم: يجمع بين التحليل الاقتصادي الكلي والنمذجة الرياضية والقياس الإحصائي، متضمناً دوال الطلب والعرض الكلي، مضاعف الاستثمار الكينزي، السياسات النقدية الرقمية، ونماذج الانحدار الخطي والتوزيعات الاحتمالية المستمرة ونظرية بايز.',
+    highlightsEn: [
+      'Marginal rate of transformation and mathematical production frontier optimization',
+      'Keynesian consumption and savings functions with investment multiplier calculus',
+      'Laffer curve analysis, progressive taxation models, and fiscal debt sustainability',
+      'Central bank quantitative easing, repo rates, and monetary transmission channels',
+      'Least-squares linear regression slope, intercept, and error variance formulation',
+      'Bayesian probability updating with tree-based sequential decision models',
+      'Probability density integration, expected values, and cumulative distribution functions',
+      'Standard Gaussian Z-score area calculations and confidence interval estimation'
+    ],
+    highlightsAr: [
+      'معدل التحويل الحدي والأمثلية الرياضية على منحنى إمكانات الإنتاج',
+      'دوال الاستهلاك والادخار الكينزية وحساب مضاعف الاستثمار الرياضي',
+      'تحليل منحنى لافر ونماذج الضرائب التصاعدية واستدامة الدين العام المالي',
+      'آليات التيسير الكمي للبنوك المركزية وأسعار الفائدة وقنوات انتقال السياسة النقدية',
+      'صيغ انحدار المربعات الصغرى وحساب الميل والجزء المقطوع وتباين الخطأ العشوائي',
+      'تحديث الاحتمالات بنظرية بايز ونماذج اتخاذ القرار المتتابعة عبر شجرة الاحتمالات',
+      'تكامل دوال الكثافة الاحتمالية وحساب القيم المتوقعة ودوال التوزيع التراكمية',
+      'حساب المساحات تحت المنحنى الطبيعي المعياري وتقدير فترات الثقة الإحصائية'
+    ]
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -2104,6 +2232,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_philosophy' && (b.branchId === 'egbac_philosophy' || b.id === 'egbac-philosophy-g12')) return true;
     if (branchId === 'thanaweya_psychology' && (b.branchId === 'thanaweya_psychology' || b.id === 'th-psychology-g12')) return true;
     if (branchId === 'egbac_psychology' && (b.branchId === 'egbac_psychology' || b.id === 'egbac-psychology-g12')) return true;
+    if (branchId === 'thanaweya_economics_stat' && (b.branchId === 'thanaweya_economics_stat' || b.id === 'th-econ-stat-g12')) return true;
+    if (branchId === 'egbac_economics_stat' && (b.branchId === 'egbac_economics_stat' || b.id === 'egbac-econ-stat-g12')) return true;
     return false;
   });
 }
@@ -2113,7 +2243,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

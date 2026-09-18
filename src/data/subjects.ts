@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -275,6 +275,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_psychology'],
       egbac: ['egbac_psychology'],
+    },
+  },
+  {
+    id: 'economics_stat',
+    titleEn: 'Economics & Statistics',
+    titleAr: 'الاقتصاد والإحصاء',
+    shortTitleEn: 'Econ & Stat',
+    shortTitleAr: 'اقتصاد وإحصاء',
+    emoji: '📊',
+    iconName: 'TrendingUp',
+    badgeColor: 'amber',
+    gradient: 'from-amber-600 via-yellow-600 to-orange-600',
+    lightBg: 'bg-amber-50 text-amber-900 border-amber-200',
+    darkBg: 'bg-amber-950/70 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Essential Mandatory Subject: Scarcity & The Economic Problem, Factors of Production, National Income, Public Finance & State Budget, Money & Banking, International Relations, Pearson & Spearman Correlation, Conditional Probability, Random Variables, and Standard Normal Distribution',
+    descriptionAr: 'المادة العامة الإجبارية لكافة الشعب: المشكلة الاقتصادية والندرة، عناصر الإنتاج، الدخل القومي والإنفاق ومضاعف الاستثمار، المالية العامة والضرائب، النقود والجهاز المصرفي، العلاقات الاقتصادية الدولية، الارتباط الخطي ومعادلة الانحدار، الاحتمال الشرطي، المتغيرات العشوائية والتوزيع الطبيعي المعياري',
+    branchIds: {
+      thanaweya: ['thanaweya_economics_stat'],
+      egbac: ['egbac_economics_stat'],
     },
   },
 ];

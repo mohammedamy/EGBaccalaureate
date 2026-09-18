@@ -14,13 +14,14 @@ import { thanaweyaGeographyBranch } from './thanaweyaGeography';
 import { thanaweyaGeologyBranch } from './thanaweyaGeology';
 import { thanaweyaPhilosophyBranch } from './thanaweyaPhilosophy';
 import { thanaweyaPsychologyBranch } from './thanaweyaPsychology';
+import { thanaweyaEconomicsStatBranch } from './thanaweyaEconomicsStat';
 
 export const thanaweyaCurriculum: Curriculum = {
   id: 'thanaweya',
   nameEn: 'Egyptian General Secondary (Thanaweya Amma)',
-  nameAr: 'الثانوية العامة المصرية (الرياضيات والعلوم واللغات والعلوم الإنسانية)',
-  subtitleEn: 'Grade 12 Standardized Ministry of Education Curricula (Pure & Applied Math, Physics, Chemistry, Biology, English, French, Arabic, History, Geography, Geology, Philosophy & Logic, Psychology & Sociology)',
-  subtitleAr: 'الصف الثالث الثانوي - الصفوف الإتمامية بوزارة التربية والتعليم والتعليم الفني — فروع الرياضيات والعلوم التجريبية واللغات والتاريخ والجغرافيا والجيولوجيا والفلسفة والمنطق وعلم النفس والاجتماع',
+  nameAr: 'الثانوية العامة المصرية (الرياضيات والعلوم واللغات والعلوم الإنسانية والاقتصاد والإحصاء)',
+  subtitleEn: 'Grade 12 Standardized Ministry of Education Curricula (Pure & Applied Math, Physics, Chemistry, Biology, English, French, Arabic, History, Geography, Geology, Philosophy & Logic, Psychology & Sociology, Economics & Statistics)',
+  subtitleAr: 'الصف الثالث الثانوي - الصفوف الإتمامية بوزارة التربية والتعليم والتعليم الفني — فروع الرياضيات والعلوم التجريبية واللغات والتاريخ والجغرافيا والجيولوجيا والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء',
   moeOfficialBaselineEn: 'Egyptian MoE General Secondary Education Specifications 2025/2026',
   moeOfficialBaselineAr: 'مواصفات المناهج الرسمية الصادرة عن وزارة التربية والتعليم المصرية 2025/2026',
   branches: [
@@ -39,6 +40,7 @@ export const thanaweyaCurriculum: Curriculum = {
     thanaweyaGeologyBranch,
     thanaweyaPhilosophyBranch,
     thanaweyaPsychologyBranch,
+    thanaweyaEconomicsStatBranch,
   ],
 };
 

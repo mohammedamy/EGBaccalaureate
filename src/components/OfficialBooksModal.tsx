@@ -242,6 +242,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <option value="geography">{isArabic ? '🌍 الجغرافيا السياسية' : '🌍 Political Geography'} ({officialBooksList.filter(b => b.subjectId === 'geography').length})</option>
                 <option value="philosophy">{isArabic ? '🧠 الفلسفة والمنطق' : '🧠 Philosophy & Logic'} ({officialBooksList.filter(b => b.subjectId === 'philosophy').length})</option>
                 <option value="psychology">{isArabic ? '👥 علم النفس والاجتماع' : '👥 Psychology & Sociology'} ({officialBooksList.filter(b => b.subjectId === 'psychology').length})</option>
+                <option value="economics_stat">{isArabic ? '📈 الاقتصاد والإحصاء التطبيقي' : '📈 Economics & Applied Statistics'} ({officialBooksList.filter(b => b.subjectId === 'economics_stat').length})</option>
               </select>
             </div>
 

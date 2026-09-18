@@ -14,6 +14,7 @@ export type SubjectCategory =
   | 'geography'
   | 'philosophy'
   | 'psychology'
+  | 'economics_stat'
   | 'arabic'
   | 'languages';
 
@@ -46,7 +47,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -67,6 +68,26 @@ export function classifySubjectCategory(
   subjectOrBranchId: string = ''
 ): SubjectCategory {
   const text = `${branchTitleAr} ${branchTitleEn} ${chapterTitleAr} ${subjectOrBranchId}`.toLowerCase();
+
+  if (
+    text.includes('اقتصاد') ||
+    text.includes('economic') ||
+    text.includes('إحصاء') ||
+    text.includes('احصاء') ||
+    text.includes('statistic') ||
+    text.includes('pearson') ||
+    text.includes('spearman') ||
+    text.includes('توزيع طبيعي') ||
+    text.includes('normal distribution') ||
+    text.includes('z-score') ||
+    text.includes('كينز') ||
+    text.includes('keynes') ||
+    text.includes('مضاعف الاستثمار') ||
+    text.includes('توازن السوق') ||
+    text.includes('مرونة الطلب')
+  ) {
+    return 'economics_stat';
+  }
 
   if (text.includes('فلسف') || text.includes('philosoph') || text.includes('منطق') || text.includes('logic') || text.includes('بيوتيق')) {
     return 'philosophy';
@@ -406,9 +427,21 @@ export function getMasteryRadarData(
     { key: 'languages', ar: 'اللغات الأجنبية', en: 'Languages', color: '#8B5CF6' },
   ];
 
+  const all13Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all12Dimensions,
+    { key: 'economics_stat', ar: 'الاقتصاد والإحصاء', en: 'Economics & Statistics', color: '#F59E0B' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all13'
+      ? all13Dimensions
       : mode === 'all12'
       ? all12Dimensions
       : mode === 'all11'

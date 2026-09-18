@@ -357,6 +357,10 @@ export const MinisterialExamSimulationModal: React.FC<Props> = ({
       detectedSubjectId = 'french';
       detectedBranchAr = 'اللغة الأجنبية الثانية - المواد العامة';
       detectedBranchEn = 'Second Foreign Language Division';
+    } else if (lowerSubj.includes('econ') || lowerSubj.includes('اقتصاد') || lowerSubj.includes('إحصاء') || lowerSubj.includes('احصاء')) {
+      detectedSubjectId = 'economics_stat';
+      detectedBranchAr = 'المواد العامة المشتركة لجميع الشعب (الاقتصاد والإحصاء التطبيقي)';
+      detectedBranchEn = 'General Core Division (Economics & Applied Statistics)';
     } else if (lowerSubj.includes('math') || lowerSubj.includes('رياض') || lowerSubj.includes('algebra') || lowerSubj.includes('calculus')) {
       detectedSubjectId = 'pure_mathematics';
       detectedBranchAr = 'شعبة الرياضيات (علمي رياضة)';

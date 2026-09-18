@@ -123,14 +123,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 3,
     categoryEn: 'Smart Search & Indexing',
     categoryAr: 'البحث الشامل والاستكشاف الفوري',
-    titleEn: 'Instant Universal Search Across 31,400+ Questions',
-    titleAr: 'البحث الفوري الذكي في جميع الـ ٣١,٤٠٠ مسألة و ١٥٧ فصلاً',
+    titleEn: 'Instant Universal Search Across 35,400+ Questions',
+    titleAr: 'البحث الفوري الذكي في جميع الـ ٣٥,٤٠٠ مسألة و ١٧٧ فصلاً',
     taglineEn: 'Find any theorem, law, formula, or problem in milliseconds',
     taglineAr: 'ابحث عن أي قانون أو تعريف أو مسألة في أجزاء من الثانية',
     descriptionEn:
-      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 31,400+ problems, 157 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
+      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 35,400+ problems, 177 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
     descriptionAr:
-      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ٣١,٤٠٠+ مسألة، و١٥٧ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
+      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ٣٥,٤٠٠+ مسألة، و١٧٧ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
     highlightsEn: [
       'Keyboard shortcut: ⌘K / Ctrl+K accessible from all views',
       'Filters by track (Thanaweya / EG-Bac) and item category',
@@ -184,14 +184,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 5,
     categoryEn: 'Examination Engine',
     categoryAr: 'بنك الأسئلة ومولد الامتحانات الذكي',
-    titleEn: '31,400+ Problems & Automated Exam Simulator',
-    titleAr: 'بنك ٣١,٤٠٠+ مسألة ومولد الامتحانات المؤتمت',
+    titleEn: '35,400+ Problems & Automated Exam Simulator',
+    titleAr: 'بنك ٣٥,٤٠٠+ مسألة ومولد الامتحانات المؤتمت',
     taglineEn: 'Customizable timed exams with instant grading & diagnostic feedback',
     taglineAr: 'امتحانات إلكترونية محددة بزمن مع تصحيح فوري وتحليل تفصيلي للإجابات',
     descriptionEn:
-      'Challenge yourself with the complete 31,400+ problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
+      'Challenge yourself with the complete 35,400+ problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
     descriptionAr:
-      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ٣١,٤٠٠+ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
+      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ٣٥,٤٠٠+ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
     highlightsEn: [
       'Generate online timed quizzes or printable paper exam forms',
       'Targeted topic selection: select specific branches, chapters, or difficulty',

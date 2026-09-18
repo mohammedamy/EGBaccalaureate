@@ -80,6 +80,13 @@ export default defineConfig({
             { name: 'curriculum-psychology', test: /src\/data\/(thanaweya|egBac)Psychology/, priority: 20 },
             { name: 'psychology-studio', test: /PsychologyStudio/, priority: 30 },
 
+            // Economics & Applied Statistics Databanks & Curriculum
+            { name: 'databank-econstat-thanaweya', test: /databanks\/thanaweya\/econStat/, priority: 30 },
+            { name: 'databank-econstat-egbac', test: /databanks\/egbac\/egBacEconStat/, priority: 30 },
+            { name: 'textbook-econstat', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*econStat/i, priority: 30 },
+            { name: 'curriculum-econstat', test: /src\/data\/(thanaweya|egBac)EconomicsStat/, priority: 20 },
+            { name: 'econstat-studio', test: /EconomicsStatisticsStudio/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },
