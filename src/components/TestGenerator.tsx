@@ -40,6 +40,7 @@ import {
   ChevronUp,
   BookMarked,
   TrendingUp,
+  ShieldCheck,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -85,6 +86,7 @@ import {
 } from '../services/certificateRegistryService';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { DiagnosticDrillModal } from './DiagnosticDrillModal';
+import { MinisterialExamSimulationModal } from './MinisterialExamSimulationModal';
 import {
   getProgressiveHintsForQuestion,
   computeDiagnosticDrillResult,
@@ -191,6 +193,7 @@ export const TestGenerator: React.FC<Props> = ({
   const [blueprintMode, setBlueprintMode] = useState<BlueprintMode>(initialBlueprint || 'all');
   const [showDiagnosticDrillModal, setShowDiagnosticDrillModal] = useState<boolean>(false);
   const [diagnosticDrillResult, setDiagnosticDrillResult] = useState<DiagnosticDrillResult | null>(null);
+  const [showMinisterialExamModal, setShowMinisterialExamModal] = useState<boolean>(false);
 
   // Sync initialBlueprint and initialQuestionCount when prop updates
   useEffect(() => {
@@ -2174,7 +2177,7 @@ export const TestGenerator: React.FC<Props> = ({
             </select>
           </div>
 
-          <div className="flex items-end">
+          <div className="flex flex-col gap-2 items-stretch">
             <button
               onClick={handleStartExam}
               disabled={availablePoolCount === 0}
@@ -2187,6 +2190,20 @@ export const TestGenerator: React.FC<Props> = ({
               <RefreshCw className="w-4 h-4" />
               <span>{t.generateTest}</span>
             </button>
+
+            {blueprintMode === 'official_thanawya_mock' && (
+              <button
+                onClick={() => {
+                  const qs = generateQuestions();
+                  setActiveQuestions(qs);
+                  setShowMinisterialExamModal(true);
+                }}
+                className="w-full font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 shadow-lg shadow-amber-500/20 cursor-pointer"
+              >
+                <ShieldCheck className="w-4 h-4" />
+                <span>{lang === 'ar' ? 'بدء محاكاة اللجنة الوزارية الرسمية (3 ساعات)' : 'Launch 3-Hour Ministerial Exam Simulation'}</span>
+              </button>
+            )}
           </div>
         </div>
           </>
@@ -4197,6 +4214,18 @@ export const TestGenerator: React.FC<Props> = ({
             handleStartExam();
           }}
           onReviewSolutions={() => setShowDiagnosticDrillModal(false)}
+        />
+      )}
+
+      {/* Official Ministerial Exam Simulation Modal */}
+      {showMinisterialExamModal && (
+        <MinisterialExamSimulationModal
+          isOpen={showMinisterialExamModal}
+          onClose={() => setShowMinisterialExamModal(false)}
+          questions={activeQuestions.length > 0 ? activeQuestions : generateQuestions()}
+          subjectName={selectedSubject === 'all' ? (lang === 'ar' ? 'امتحان الثانوية العامة الشامل' : 'Comprehensive Ministerial Exam') : selectedSubject}
+          lang={lang}
+          onOpenDesmos={() => onOpenDesmos?.('scientific')}
         />
       )}
     </div>

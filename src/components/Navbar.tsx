@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -32,6 +32,7 @@ interface Props {
   onOpenEnglishAudioLab?: () => void;
   onOpenFrenchListening?: () => void;
   onOpenArabicGrammar?: () => void;
+  onOpenAccessibility?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -61,6 +62,7 @@ export const Navbar: React.FC<Props> = ({
   onOpenEnglishAudioLab,
   onOpenFrenchListening,
   onOpenArabicGrammar,
+  onOpenAccessibility,
   selectedSubject = 'all',
   onSubjectChange,
   curriculumData,
@@ -204,6 +206,18 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-amber-400',
       onClick: () => {
         onOpenArabicGrammar();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenAccessibility && {
+      id: 'accessibility',
+      label: isArabic ? 'إعدادات الوصول الشامل والمعايرة' : 'Universal Accessibility & Visual Settings',
+      desc: isArabic ? 'تخصيص حجم الخط وتكبير المعادلات وتقليل الحركة' : 'Font size, KaTeX magnification & high contrast calibration',
+      shortcut: '⌥U',
+      icon: Sliders,
+      color: 'text-cyan-400',
+      onClick: () => {
+        onOpenAccessibility();
         setIsToolsOpen(false);
       },
     },
@@ -755,6 +769,25 @@ export const Navbar: React.FC<Props> = ({
                   <BookOpen className="w-3 h-3 text-amber-400 shrink-0" />
                   <span className="hidden xl:inline">{isArabic ? 'معمل النحو' : 'Arabic Studio'}</span>
                   <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥A</kbd>
+                </button>
+              )}
+
+              {/* Accessibility & Visual Calibration Suite Trigger */}
+              {onOpenAccessibility && (
+                <button
+                  onClick={onOpenAccessibility}
+                  className={`flex items-center gap-1 xl:gap-1.5 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer ${
+                    isHighContrast
+                      ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
+                      : isLight
+                      ? 'bg-sky-50 hover:bg-sky-100 text-sky-800 border-sky-300'
+                      : 'bg-sky-950/70 hover:bg-sky-900 text-sky-300 border-sky-700/60'
+                  }`}
+                  title={isArabic ? 'إعدادات الوصول الشامل والمعايرة (Alt+U / ⌥U)' : 'Accessibility & Visual Calibration (Alt+U / ⌥U)'}
+                >
+                  <Sliders className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <span className="hidden xl:inline">{isArabic ? 'إمكانية الوصول' : 'Accessibility'}</span>
+                  <kbd className="hidden 2xl:inline text-[9px] font-mono px-1 py-0.2 bg-black/30 rounded border border-white/20">⌥U</kbd>
                 </button>
               )}
 

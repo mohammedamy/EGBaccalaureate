@@ -16,6 +16,7 @@ import { InteractiveWorkEnergyLab } from './InteractiveWorkEnergyLab';
 import { InteractiveTitrationStudio } from './InteractiveTitrationStudio';
 import { InteractivePhotoelectricStudio } from './InteractivePhotoelectricStudio';
 import { InteractiveGeneticsStudio } from './InteractiveGeneticsStudio';
+import { Interactive3DInductionStudio } from './Interactive3DInductionStudio';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
@@ -235,6 +236,9 @@ export const LessonView: React.FC<Props> = ({
           return <InteractivePhotoelectricStudio lang={lang} theme={theme} />;
         case 'genetics_punnett':
           return <InteractiveGeneticsStudio lang={lang} theme={theme} />;
+        case 'induction_3d':
+        case 'dynamo_3d':
+          return <Interactive3DInductionStudio lang={lang} theme={theme} isFullscreen={false} />;
         case 'english_dictionary':
         case 'english_translation':
         case 'english_grammar_lab':
@@ -291,6 +295,9 @@ export const LessonView: React.FC<Props> = ({
           return <InteractivePhotoelectricStudio lang={lang} theme={theme} isFullscreen={true} />;
         case 'genetics_punnett':
           return <InteractiveGeneticsStudio lang={lang} theme={theme} isFullscreen={true} />;
+        case 'induction_3d':
+        case 'dynamo_3d':
+          return <Interactive3DInductionStudio lang={lang} theme={theme} isFullscreen={true} />;
         case 'english_dictionary':
         case 'english_translation':
         case 'english_grammar_lab':

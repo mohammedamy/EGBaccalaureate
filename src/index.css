@@ -81,6 +81,37 @@
   [dir="ltr"] {
     font-family: var(--font-en);
   }
+
+  /* Universal Accessibility & Visual Calibration Suite */
+  html[data-math-scale="115"] .katex {
+    font-size: 1.15em !important;
+  }
+  html[data-math-scale="130"] .katex {
+    font-size: 1.3em !important;
+  }
+  html[data-math-scale="150"] .katex {
+    font-size: 1.5em !important;
+  }
+
+  html[data-reduced-motion="true"] *,
+  html[data-reduced-motion="true"] *::before,
+  html[data-reduced-motion="true"] *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html[data-focus-rings="true"] *:focus-visible {
+    outline: 3px solid #06b6d4 !important;
+    outline-offset: 3px !important;
+  }
+
+  html[data-reading-guide="true"] p,
+  html[data-reading-guide="true"] li {
+    line-height: 1.85 !important;
+    letter-spacing: 0.02em !important;
+  }
 }
 
 /* Mobile Ergonomics, Touch Feedback & Safe Areas */

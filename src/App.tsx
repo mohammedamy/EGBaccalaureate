@@ -27,6 +27,7 @@ import { EnglishDictionaryModal } from './components/EnglishDictionaryModal';
 import { EnglishAudioLabModal } from './components/EnglishAudioLabModal';
 import { FrenchListeningStationModal } from './components/FrenchListeningStationModal';
 import { ArabicGrammarModal } from './components/ArabicGrammarModal';
+import { AccessibilitySettingsModal } from './components/AccessibilitySettingsModal';
 import { registerServiceWorker } from './core/pwa/pwaManager';
 
 export const App: React.FC = () => {
@@ -139,6 +140,7 @@ export const App: React.FC = () => {
   const [isEnglishAudioLabOpen, setIsEnglishAudioLabOpen] = useState<boolean>(false);
   const [isFrenchListeningOpen, setIsFrenchListeningOpen] = useState<boolean>(false);
   const [isArabicGrammarOpen, setIsArabicGrammarOpen] = useState<boolean>(false);
+  const [isAccessibilityOpen, setIsAccessibilityOpen] = useState<boolean>(false);
   const [targetOfficialBookId, setTargetOfficialBookId] = useState<string | undefined>(undefined);
   const [desmosMode, setDesmosMode] = useState<DesmosMode>('2d');
   const [desmosLayout, setDesmosLayout] = useState<DesmosLayout>('floating');
@@ -307,6 +309,20 @@ export const App: React.FC = () => {
     localStorage.setItem('egbac_font_size', fontSize);
   }, [fontSize]);
 
+  // Sync saved accessibility preferences on startup
+  useEffect(() => {
+    try {
+      const mathScale = localStorage.getItem('egbac_math_scale') || '100';
+      document.documentElement.setAttribute('data-math-scale', mathScale);
+      const reducedMotion = localStorage.getItem('egbac_reduced_motion') === 'true';
+      document.documentElement.setAttribute('data-reduced-motion', String(reducedMotion));
+      const focusRings = localStorage.getItem('egbac_focus_rings') === 'true';
+      document.documentElement.setAttribute('data-focus-rings', String(focusRings));
+      const readingGuide = localStorage.getItem('egbac_reading_guide') === 'true';
+      document.documentElement.setAttribute('data-reading-guide', String(readingGuide));
+    } catch {}
+  }, []);
+
   // Sync selected branch when curriculum switches
   useEffect(() => {
     const data = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
@@ -367,6 +383,10 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsArabicGrammarOpen((prev) => !prev);
       }
+      if (e.altKey && (e.key === 'u' || e.key === 'U' || e.code === 'KeyU')) {
+        e.preventDefault();
+        setIsAccessibilityOpen((prev) => !prev);
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -406,6 +426,13 @@ export const App: React.FC = () => {
     const handleOpenArabic = () => setIsArabicGrammarOpen(true);
     window.addEventListener('open-arabic-grammar-lab', handleOpenArabic);
     return () => window.removeEventListener('open-arabic-grammar-lab', handleOpenArabic);
+  }, []);
+
+  // Event listener for opening Universal Accessibility & Display Calibration from anywhere in the app
+  useEffect(() => {
+    const handleOpenA11y = () => setIsAccessibilityOpen(true);
+    window.addEventListener('open-accessibility-settings', handleOpenA11y);
+    return () => window.removeEventListener('open-accessibility-settings', handleOpenA11y);
   }, []);
 
   // Event listener for opening Certificate Verification Portal from anywhere in the app
@@ -511,6 +538,7 @@ export const App: React.FC = () => {
         onOpenEnglishAudioLab={() => setIsEnglishAudioLabOpen(true)}
         onOpenFrenchListening={() => setIsFrenchListeningOpen(true)}
         onOpenArabicGrammar={() => setIsArabicGrammarOpen(true)}
+        onOpenAccessibility={() => setIsAccessibilityOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -643,6 +671,17 @@ export const App: React.FC = () => {
           onClose={() => setIsArabicGrammarOpen(false)}
           lang={lang}
           theme={theme}
+        />
+
+        {/* Global Universal Accessibility & Visual Calibration Suite Modal */}
+        <AccessibilitySettingsModal
+          isOpen={isAccessibilityOpen}
+          onClose={() => setIsAccessibilityOpen(false)}
+          lang={lang}
+          theme={theme}
+          onThemeChange={setTheme}
+          fontSize={fontSize}
+          onFontSizeChange={setFontSize}
         />
 
         {/* Interactive Site Navigation Tutorial Modal (PCs, Mobiles, Tablets, Smartboards) */}

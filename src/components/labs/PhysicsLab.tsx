@@ -18,12 +18,14 @@ import { OpticsBenchLab } from './OpticsBenchLab';
 import { CircuitsLab } from './CircuitsLab';
 import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
 import { Interactive3DAtomStudio } from '../Interactive3DAtomStudio';
+import { Interactive3DInductionStudio } from '../Interactive3DInductionStudio';
 
 export type PhysicsTab =
   | 'circuits'
   | 'optics'
   | 'magnetism'
   | 'dynamo'
+  | 'induction_3d'
   | 'resonance'
   | 'photoelectric'
   | 'atomic_lasers'
@@ -131,6 +133,9 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
               </option>
               <option value="dynamo" className="bg-slate-900 text-white">
                 🔄 {isArabic ? 'الدينامو والحث الكهرومغناطيسي' : 'AC Dynamo & Induction'}
+              </option>
+              <option value="induction_3d" className="bg-slate-900 text-white">
+                🌀 {isArabic ? 'استوديو الحث والدينامو 3D' : '3D Induction & Dynamo Studio'}
               </option>
               <option value="resonance" className="bg-slate-900 text-white">
                 〰️ {isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}
@@ -249,6 +254,16 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
       {activeTab === 'dynamo' && (
         <div className="mt-6">
           <DynamoInductionLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: 3D ELECTROMAGNETIC INDUCTION & DYNAMO STUDIO */}
+      {activeTab === 'induction_3d' && (
+        <div className="mt-6">
+          <Interactive3DInductionStudio
+            lang={lang}
+            theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+          />
         </div>
       )}
 
