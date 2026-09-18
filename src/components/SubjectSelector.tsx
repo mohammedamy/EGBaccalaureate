@@ -42,9 +42,17 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const activeItemRef = useRef<HTMLButtonElement>(null);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
+
+  // Scroll active subject into view when opened
+  useEffect(() => {
+    if (isOpen && activeItemRef.current) {
+      activeItemRef.current.scrollIntoView({ block: 'nearest' });
+    }
+  }, [isOpen]);
 
   // Close on outside click
   useEffect(() => {
@@ -172,7 +180,7 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
           aria-orientation="vertical"
           className={`absolute ${
             isArabic ? 'right-0' : 'left-0'
-          } mt-2 w-72 sm:w-80 rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 ${
+          } mt-2 w-72 sm:w-80 max-w-[calc(100vw-1.5rem)] max-h-[min(78vh,520px)] flex flex-col rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 ${
             isContrast
               ? 'bg-black border-2 border-yellow-400 text-white shadow-cyan-950/40'
               : isLight
@@ -180,8 +188,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
               : 'bg-slate-950/95 border-slate-800 text-slate-100 shadow-2xl shadow-black/80'
           }`}
         >
-          {/* Menu Header */}
-          <div className="px-3 py-2 border-b flex items-center justify-between border-slate-200 dark:border-slate-800/80">
+          {/* Menu Header (Fixed at top) */}
+          <div className="px-3 py-2 border-b flex items-center justify-between border-slate-200 dark:border-slate-800/80 shrink-0">
             <div>
               <p className="text-xs font-black tracking-tight">
                 {isArabic ? 'المادة الدراسية' : 'Select Subject Track'}
@@ -191,7 +199,7 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
               </p>
             </div>
             <span
-              className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+              className={`text-[10px] font-bold px-2 py-0.5 rounded-full border shrink-0 ${
                 isContrast
                   ? 'bg-yellow-400 text-black font-black border-yellow-300'
                   : isLight
@@ -203,9 +211,11 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
             </span>
           </div>
 
-          {/* Option: All Subjects */}
-          <div className="pt-1.5 pb-1">
+          {/* Scrollable Container for All Subjects + Divider + Subject List */}
+          <div className="flex-1 overflow-y-auto overscroll-contain pr-1 pl-1 py-1 space-y-1" style={{ WebkitOverflowScrolling: 'touch' }}>
+            {/* Option: All Subjects */}
             <button
+              ref={selectedSubject === 'all' ? activeItemRef : null}
               type="button"
               onClick={() => {
                 onSelectSubject('all');
@@ -255,12 +265,10 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
                 <Check className={`w-4 h-4 shrink-0 ${isContrast ? 'text-black' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
               )}
             </button>
-          </div>
 
-          <div className="my-1 border-t border-slate-200 dark:border-slate-800/80" />
+            <div className="my-1 border-t border-slate-200 dark:border-slate-800/80" />
 
-          {/* 4 Subjects List */}
-          <div className="space-y-1">
+            {/* Core Subjects List */}
             {SUBJECTS.map((subject: SubjectDefinition) => {
               const isSelected = selectedSubject === subject.id;
               const stats = getSubjectStats(curriculum, subject.id);
@@ -269,6 +277,7 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
               return (
                 <button
                   key={subject.id}
+                  ref={isSelected ? activeItemRef : null}
                   type="button"
                   onClick={() => {
                     onSelectSubject(subject.id);
@@ -329,13 +338,13 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
             })}
           </div>
 
-          {/* Menu Footer: Future Subjects Indicator */}
-          <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-800/80 px-2 py-1 flex items-center justify-between text-[10px]">
+          {/* Menu Footer: Future Subjects Indicator (Fixed at bottom) */}
+          <div className="shrink-0 mt-2 pt-2 border-t border-slate-200 dark:border-slate-800/80 px-2 py-1 flex items-center justify-between text-[10px]">
             <span className={`flex items-center gap-1 font-medium ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
               <span>{isArabic ? 'مهيأ لإضافة مواد جديدة مستقبلاً' : 'Future subjects ready'}</span>
             </span>
-            <span className="font-mono text-[9px] opacity-60">4 Tracks</span>
+            <span className="font-mono text-[9px] opacity-60">{SUBJECTS.length} {isArabic ? 'مسارات' : 'Tracks'}</span>
           </div>
         </div>
       )}

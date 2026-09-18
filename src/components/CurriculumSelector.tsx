@@ -140,7 +140,7 @@ export const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
           aria-orientation="vertical"
           className={`absolute ${
             isArabic ? 'right-0' : 'left-0'
-          } mt-2 w-72 sm:w-80 rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 ${
+          } mt-2 w-72 sm:w-80 max-w-[calc(100vw-1.5rem)] max-h-[min(78vh,520px)] flex flex-col rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 ${
             isContrast
               ? 'bg-black border-2 border-cyan-400 text-white shadow-cyan-950/40'
               : isLight
@@ -148,8 +148,8 @@ export const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
               : 'bg-slate-950/95 border-slate-800 text-slate-100 shadow-2xl shadow-black/80'
           }`}
         >
-          {/* Menu Header */}
-          <div className="px-3 py-2 border-b flex items-center justify-between border-slate-200 dark:border-slate-800/80">
+          {/* Menu Header (Fixed at top) */}
+          <div className="px-3 py-2 border-b flex items-center justify-between border-slate-200 dark:border-slate-800/80 shrink-0">
             <div>
               <p className="text-xs font-black tracking-tight flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
@@ -161,8 +161,8 @@ export const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
             </div>
           </div>
 
-          {/* Options List */}
-          <div className="py-1.5 space-y-1">
+          {/* Options List (Scrollable) */}
+          <div className="flex-1 overflow-y-auto overscroll-contain pr-1 pl-1 py-1 space-y-1" style={{ WebkitOverflowScrolling: 'touch' }}>
             {tracks.map((track) => {
               const isSelected = track.id === curriculum;
               const TrackIcon = track.icon;

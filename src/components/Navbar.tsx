@@ -7,6 +7,7 @@ import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
 import { CurriculumSelector } from './CurriculumSelector';
+import { toHindiDigits } from '../utils/arabicNumerals';
 
 interface Props {
   lang: Language;
@@ -325,7 +326,7 @@ export const Navbar: React.FC<Props> = ({
             <span className={`inline-block w-2 h-2 rounded-full shrink-0 animate-pulse ${
               isHighContrast ? 'bg-cyan-400' : 'bg-emerald-500'
             }`}></span>
-            <span className={`font-semibold shrink-0 text-[10px] sm:text-[11px] ${
+            <span className={`font-semibold truncate min-w-0 max-w-[130px] xs:max-w-[200px] sm:max-w-none text-[10px] sm:text-[11px] ${
               isHighContrast ? 'text-cyan-300 font-black' : isLight ? 'text-emerald-700' : 'text-emerald-400'
             }`}>{t.moeBadge}</span>
             <span className={`hidden lg:inline ${
@@ -529,8 +530,8 @@ export const Navbar: React.FC<Props> = ({
               )}
             </div>
 
-            {/* Quick Tools Dropdown (Shows on < xl screens normally, or < 2xl when large/xlarge font size is in use) */}
-            <div ref={toolsRef} className={`relative inline-block text-left ${isLargeOrXLarge ? '2xl:hidden' : 'xl:hidden'}`}>
+            {/* Quick Tools Dropdown (Shows on < min-[1750px] screens, or always when large/xlarge font size is in use) */}
+            <div ref={toolsRef} className={`relative inline-block text-left ${isLargeOrXLarge ? 'min-[1800px]:hidden' : 'min-[1750px]:hidden'}`}>
               <button
                 type="button"
                 onClick={() => {
@@ -558,7 +559,7 @@ export const Navbar: React.FC<Props> = ({
                     ? 'bg-indigo-200/70 text-indigo-800'
                     : 'bg-indigo-900/60 text-indigo-300'
                 }`}>
-                  {isArabic ? '٦' : '6'}
+                  {isArabic ? toHindiDigits(quickTools.length) : quickTools.length}
                 </span>
                 <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${isToolsOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -566,7 +567,7 @@ export const Navbar: React.FC<Props> = ({
               {isToolsOpen && (
                 <div
                   role="menu"
-                  className={`absolute ${isArabic ? 'left-0' : 'right-0'} mt-1.5 w-64 rounded-xl p-1.5 shadow-xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-[80vh] overflow-y-auto ${
+                  className={`absolute ${isArabic ? 'left-0' : 'right-0'} mt-1.5 w-64 sm:w-72 max-w-[calc(100vw-1.5rem)] rounded-xl p-1.5 shadow-xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-100 max-h-[min(80vh,540px)] overflow-y-auto ${
                     isHighContrast
                       ? 'bg-black border-2 border-cyan-400 text-white'
                       : isLight
@@ -576,7 +577,7 @@ export const Navbar: React.FC<Props> = ({
                 >
                   <div className="px-2.5 py-1 text-[10px] font-bold text-slate-400 border-b border-slate-200 dark:border-slate-800 mb-1 flex items-center justify-between">
                     <span>{isArabic ? 'الأدوات والمراجع التفاعلية' : 'Tools & Quick References'}</span>
-                    <span className="text-[9px] font-mono opacity-70">{quickTools.length} {isArabic ? 'أدوات' : 'tools'}</span>
+                    <span className="text-[9px] font-mono opacity-70">{isArabic ? `${toHindiDigits(quickTools.length)} أدوات` : `${quickTools.length} tools`}</span>
                   </div>
                   <div className="space-y-0.5">
                     {quickTools.map((tool) => {
@@ -619,8 +620,8 @@ export const Navbar: React.FC<Props> = ({
               )}
             </div>
 
-            {/* Desktop Individual Quick Tools (Shown on wide screens: xl+ normally, 2xl+ when large/xlarge font) */}
-            <div className={`items-center gap-1 xl:gap-1.5 ${isLargeOrXLarge ? 'hidden 2xl:flex' : 'hidden xl:flex'}`}>
+            {/* Desktop Individual Quick Tools (Shown on wide screens: 1750px+ normally, 1800px+ when large/xlarge font) */}
+            <div className={`items-center gap-1 xl:gap-1.5 ${isLargeOrXLarge ? 'hidden min-[1800px]:flex' : 'hidden min-[1750px]:flex'}`}>
               {/* Formula Handbook Trigger */}
               {onOpenFormulaHandbook && (
                 <button
@@ -903,7 +904,7 @@ export const Navbar: React.FC<Props> = ({
           </div>
 
           {/* Controls: Subject Selector & Curriculum Switcher - Both as Dropdown Menus */}
-          <div className={`flex flex-wrap sm:flex-nowrap items-stretch sm:items-center justify-end gap-2 shrink-0 w-full ${isLargeOrXLarge ? '2xl:w-auto' : 'xl:w-auto'} min-w-0`}>
+          <div className={`flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 shrink-0 w-full ${isLargeOrXLarge ? '2xl:w-auto' : 'xl:w-auto'} min-w-0`}>
             {curriculumData && onSubjectChange && (
               <SubjectSelector
                 selectedSubject={selectedSubject || 'all'}
