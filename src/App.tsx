@@ -92,12 +92,21 @@ export const App: React.FC = () => {
       else if (hash === 'chemistry' || hash === 'chem') subject = 'chemistry';
       else if (hash === 'biology' || hash === 'bio') subject = 'biology';
       else if (hash === 'math' || hash === 'mathematics') subject = 'mathematics';
+      else if (hash === 'history' || hash === 'hist') subject = 'history';
+      else if (hash === 'arabic' || hash === 'ar') subject = 'arabic';
+      else if (hash === 'english' || hash === 'en' || hash === 'eng') subject = 'english';
+      else if (hash === 'french' || hash === 'fr') subject = 'french';
       else if (hash === 'all') subject = 'all';
       else if (hash === 'labs' || hash === 'interactive') tab = 'interactive';
       else if (hash === 'physics-lab') { subject = 'physics'; tab = 'interactive'; }
       else if (hash === 'chemistry-lab') { subject = 'chemistry'; tab = 'interactive'; }
       else if (hash === 'biology-lab') { subject = 'biology'; tab = 'interactive'; }
       else if (hash === 'math-lab') { subject = 'mathematics'; tab = 'interactive'; }
+      else if (hash === 'history-lab' || hash === 'timeline-lab') { subject = 'history'; tab = 'interactive'; }
+      else if (hash === 'arabic-lab' || hash === 'grammar-lab') { subject = 'arabic'; tab = 'interactive'; }
+      else if (hash === 'english-lab' || hash === 'audio-lab') { subject = 'english'; tab = 'interactive'; }
+      else if (hash === 'french-lab' || hash === 'listening-lab') { subject = 'french'; tab = 'interactive'; }
+      else if (hash === 'analytics' || hash === 'student-analytics' || hash === 'mastery' || hash === 'radar' || hash === 'predictive') tab = 'analytics';
       else if (hash === 'theory') tab = 'theory';
       else if (hash === 'tests' || hash === 'exams' || hash === 'testgenerator') tab = 'testGenerator';
       else if (hash === 'past-papers' || hash === 'pastpapers' || hash === 'official-exams' || hash === 'past-exam-papers') {

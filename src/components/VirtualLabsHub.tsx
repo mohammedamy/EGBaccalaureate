@@ -10,11 +10,17 @@ import {
   FileSpreadsheet,
   ChevronDown,
   Printer,
+  Compass,
+  Headphones,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab, type ChemTab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
+import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
+import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
+import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
+import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
@@ -27,7 +33,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'history' | 'languages';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -45,6 +51,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'physics') return 'physics';
     if (selectedSubject === 'chemistry') return 'chemistry';
     if (selectedSubject === 'biology') return 'biology';
+    if (selectedSubject === 'history') return 'history';
+    if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
     return 'math';
   };
 
@@ -53,6 +61,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
+  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic'>('english');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
@@ -63,6 +72,13 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'chemistry') setActiveLab('chemistry');
     else if (selectedSubject === 'biology') setActiveLab('biology');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
+    else if (selectedSubject === 'history') setActiveLab('history');
+    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') {
+      setActiveLab('languages');
+      if (selectedSubject === 'arabic') setActiveLangSubLab('arabic');
+      else if (selectedSubject === 'french') setActiveLangSubLab('french');
+      else if (selectedSubject === 'english') setActiveLangSubLab('english');
+    }
   }, [selectedSubject]);
 
   // Compute contextual experiment ID matching the current sub-lab tab
@@ -216,6 +232,36 @@ export const VirtualLabsHub: React.FC<Props> = ({
         ? 'استوديو تفكك DNA عند 100°م والتحام tRNA وتكثيف الكروماتين 100,000x، وأطلس العظام والمناعة'
         : '3D DNA 100°C denaturation & hybridization, tRNA codon recognition, 100,000x chromatin compaction & immunity',
     },
+    {
+      id: 'history' as LabId,
+      titleEn: 'History Studio',
+      titleAr: 'استوديو التاريخ',
+      subtitleEn: 'Timeline, Strategic Maps Theater, Treaties Vault & HOTS Causality',
+      subtitleAr: 'الخط الزمني، مسرح العمليات والخرائط، أرشيف المعاهدات، ومحلل الأسباب',
+      icon: Compass,
+      color: 'amber',
+      badge: '🗺️ Strategic Maps & Timeline',
+      gradient: 'from-amber-600 via-orange-600 to-yellow-600',
+      activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
+      tagline: isArabic
+        ? 'استوديو تاريخ مصر التفاعلي: خرائط معارك وتمركزات عسكرية، نصوص المعاهدات، ومحلل الأسباب والنتائج'
+        : 'Interactive Egyptian History Studio: Strategic battle theater maps, primary treaties archive & causal chains',
+    },
+    {
+      id: 'languages' as LabId,
+      titleEn: 'Languages & Audio',
+      titleAr: 'مختبر اللغات والصوتيات',
+      subtitleEn: 'English Listening & Phonetics, French Audio Station & Arabic Grammar',
+      subtitleAr: 'صوتيات واستماع الإنجليزية، محطة الاستماع الفرنسية، واستوديو النحو والبلاغة',
+      icon: Headphones,
+      color: 'violet',
+      badge: '🎧 Audio Labs & Grammar',
+      gradient: 'from-violet-600 via-purple-600 to-indigo-600',
+      activeBg: 'bg-violet-600 text-white shadow-violet-600/30',
+      tagline: isArabic
+        ? 'مختبر اللغات المتقدم: استماع وتدريب صوتي تفاعلي للإنجليزية والفرنسية، ومحلل الإعراب والبلاغة العربية'
+        : 'Advanced Languages Lab: Interactive English & French listening audio stations and Arabic grammar & rhetoric analyzer',
+    },
   ];
 
   return (
@@ -238,7 +284,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 <span>{isArabic ? 'المختبرات العلمية والرياضية المعتمدة' : 'Official Virtual Science Laboratories'}</span>
               </span>
               <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
-                4 Specialized Labs
+                6 Specialized Labs & Studios
               </span>
             </div>
 
@@ -287,8 +333,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* 4 Laboratory Selector Navigation Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
+      {/* 6 Laboratory Selector Navigation Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
         {LABS.map((lab) => {
           const isSelected = activeLab === lab.id;
           const Icon = lab.icon;
@@ -547,6 +593,78 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} onTabChange={setActiveBioTab} />
           </div>
         )}
+
+        {/* History Studio */}
+        {activeLab === 'history' && (
+          <div className="space-y-4">
+            <HistoryTimelineStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
+
+        {/* Languages & Phonetics Studio */}
+        {activeLab === 'languages' && (
+          <div className="space-y-4">
+            {/* Languages Sub-Studio Selector */}
+            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-1">
+                <Headphones className="w-4 h-4 text-violet-400" />
+                <span>{isArabic ? 'المحطة الصوتية واللغوية المتخصصة:' : 'Language & Audio Station:'}</span>
+              </span>
+
+              <div className="flex items-center gap-2 flex-wrap">
+                {[
+                  { id: 'english', labelAr: '🇬🇧 صوتيات واستماع الإنجليزية', labelEn: '🇬🇧 English Audio & Phonetics', color: 'from-blue-600 to-indigo-600' },
+                  { id: 'french', labelAr: '🇫🇷 محطة الاستماع الفرنسية', labelEn: '🇫🇷 French Audio Station', color: 'from-cyan-600 to-blue-600' },
+                  { id: 'arabic', labelAr: '🇪🇬 استوديو النحو والبلاغة العربية', labelEn: '🇪🇬 Arabic Grammar & Rhetoric', color: 'from-emerald-600 to-teal-600' },
+                ].map((station) => {
+                  const isSelected = activeLangSubLab === station.id;
+                  return (
+                    <button
+                      key={station.id}
+                      type="button"
+                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic')}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                        isSelected
+                          ? `bg-gradient-to-r ${station.color} text-white shadow-md shadow-indigo-600/30`
+                          : isLight
+                          ? 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+                          : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
+                      }`}
+                    >
+                      {isArabic ? station.labelAr : station.labelEn}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {activeLangSubLab === 'english' && (
+              <EnglishAudioPhoneticsStudio
+                lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+                isFullscreen={false}
+              />
+            )}
+
+            {activeLangSubLab === 'french' && (
+              <FrenchAudioStudio
+                lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+                isFullscreen={false}
+              />
+            )}
+
+            {activeLangSubLab === 'arabic' && (
+              <ArabicGrammarStudio
+                lang={lang}
+              />
+            )}
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -555,7 +673,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -570,7 +688,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={activeLab as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );
