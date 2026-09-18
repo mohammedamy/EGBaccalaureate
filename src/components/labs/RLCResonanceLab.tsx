@@ -259,7 +259,7 @@ const RLC_LAB_DEFINITION: LabDefinition<RLCParams, RLCState> = {
     yUnit: 'A',
     recommendedPointsCount: 7,
   },
-  supportedInstruments: ['multimeter', 'oscilloscope', 'stopwatch', 'scratchpad'],
+  supportedInstruments: ['function_generator', 'oscilloscope', 'multimeter', 'stopwatch', 'scratchpad'],
 };
 
 export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {

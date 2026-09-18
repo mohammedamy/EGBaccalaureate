@@ -83,6 +83,13 @@ import {
   generateCertificateVerificationHash,
   getDistinctionTierFromPct,
 } from '../services/certificateRegistryService';
+import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
+import { DiagnosticDrillModal } from './DiagnosticDrillModal';
+import {
+  getProgressiveHintsForQuestion,
+  computeDiagnosticDrillResult,
+  type DiagnosticDrillResult,
+} from '../services/aiStudyHintService';
 
 export type BlueprintMode =
   | 'all'
@@ -90,6 +97,7 @@ export type BlueprintMode =
   | 'hots_challenge'
   | 'foundational'
   | 'diagnostic_benchmark'
+  | 'quick_diagnostic_drill'
   | 'official_thanawya_mock'
   | 'official_past_papers';
 
@@ -181,6 +189,8 @@ export const TestGenerator: React.FC<Props> = ({
 
   // Blueprint and HOTS distribution settings
   const [blueprintMode, setBlueprintMode] = useState<BlueprintMode>(initialBlueprint || 'all');
+  const [showDiagnosticDrillModal, setShowDiagnosticDrillModal] = useState<boolean>(false);
+  const [diagnosticDrillResult, setDiagnosticDrillResult] = useState<DiagnosticDrillResult | null>(null);
 
   // Sync initialBlueprint and initialQuestionCount when prop updates
   useEffect(() => {
@@ -192,6 +202,10 @@ export const TestGenerator: React.FC<Props> = ({
         setSelectedChapter('all');
         setQuestionCount(20);
         setDurationPreset(30);
+      } else if (initialBlueprint === 'quick_diagnostic_drill') {
+        setQuestionCount(10);
+        setDurationPreset(10);
+        setIsTimed(true);
       }
     }
   }, [initialBlueprint]);
@@ -211,11 +225,13 @@ export const TestGenerator: React.FC<Props> = ({
       setIsTimed(true);
     } else if (blueprintMode === 'official_past_papers') {
       const paper = getPastExamPaperById(selectedPastPaperId);
-      if (paper) {
-        setQuestionCount(paper.totalQuestions);
-        setDurationPreset(paper.durationMinutes);
-        setIsTimed(true);
-      }
+      setQuestionCount(paper ? paper.totalQuestions : 46);
+      setDurationPreset(paper ? paper.durationMinutes : 180);
+      setIsTimed(true);
+    } else if (blueprintMode === 'quick_diagnostic_drill') {
+      setQuestionCount(10);
+      setDurationPreset(10);
+      setIsTimed(true);
     }
   }, [blueprintMode, selectedSubject, selectedBranch, selectedPastPaperId]);
 
@@ -280,6 +296,7 @@ export const TestGenerator: React.FC<Props> = ({
   // Real-time calculation of available questions matching user filters and blueprint
   const availablePoolCount = useMemo(() => {
     if (blueprintMode === 'diagnostic_benchmark') return 20;
+    if (blueprintMode === 'quick_diagnostic_drill') return 10;
     if (blueprintMode === 'official_thanawya_mock') {
       const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
       return cfg.totalQuestions;
@@ -442,6 +459,8 @@ export const TestGenerator: React.FC<Props> = ({
             correctIndex: prob.correctIndex,
             explanationEn: prob.stepByStepSolutionEn,
             explanationAr: prob.stepByStepSolutionAr,
+            hintsEn: prob.hintEn ? [prob.hintEn] : undefined,
+            hintsAr: prob.hintAr ? [prob.hintAr] : undefined,
             chapterId: ch.id,
             chapterTitleEn: ch.titleEn,
             chapterTitleAr: ch.titleAr,
@@ -452,6 +471,27 @@ export const TestGenerator: React.FC<Props> = ({
         });
       });
     });
+
+    // If blueprint is quick_diagnostic_drill: select 10 balanced sprint questions (3 easy, 4 med, 3 hots)
+    if (blueprintMode === 'quick_diagnostic_drill') {
+      const easyPool = pool.filter((q) => q.difficulty === 'easy');
+      const medPool = pool.filter((q) => q.difficulty === 'medium' || q.difficulty === 'exam_standard');
+      const hotsPool = pool.filter((q) => q.difficulty === 'hots');
+
+      const selected: GeneratedQuestion[] = [
+        ...shuffle(easyPool).slice(0, 3),
+        ...shuffle(medPool).slice(0, 4),
+        ...shuffle(hotsPool).slice(0, 3),
+      ];
+
+      if (selected.length < 10) {
+        const selectedIds = new Set(selected.map((s) => s.id));
+        const remainder = shuffle(pool.filter((q) => !selectedIds.has(q.id)));
+        selected.push(...remainder.slice(0, 10 - selected.length));
+      }
+
+      return shuffle(selected).slice(0, Math.min(10, selected.length));
+    }
 
     // If blueprint is ministry_standard: select 30% easy, 40% medium, 30% hots
     if (blueprintMode === 'ministry_standard') {
@@ -504,7 +544,9 @@ export const TestGenerator: React.FC<Props> = ({
 
     // Calculate time
     let allocatedMinutes = 20;
-    if (durationPreset === 'auto') {
+    if (blueprintMode === 'quick_diagnostic_drill') {
+      allocatedMinutes = 10;
+    } else if (durationPreset === 'auto') {
       allocatedMinutes = Math.max(5, qList.length * 2); // 2 minutes per question default
     } else {
       allocatedMinutes = durationPreset;
@@ -528,7 +570,19 @@ export const TestGenerator: React.FC<Props> = ({
     });
     setScore(currentScore);
     setIsSubmitted(true);
-    setTimeTakenSeconds(totalTimeSeconds - timeRemaining);
+    const elapsedSec = totalTimeSeconds - timeRemaining;
+    setTimeTakenSeconds(elapsedSec);
+
+    // If Quick Diagnostic Drill, compute speed & pace analytics and open modal
+    if (blueprintMode === 'quick_diagnostic_drill') {
+      const drillReport = computeDiagnosticDrillResult(
+        activeQuestions,
+        userAnswers,
+        elapsedSec
+      );
+      setDiagnosticDrillResult(drillReport);
+      setShowDiagnosticDrillModal(true);
+    }
 
     // Auto-record mistakes to Mistake Notebook
     const mistakeResult = recordQuizMistakes(activeQuestions, userAnswers, currentCurriculum);
@@ -1636,6 +1690,25 @@ export const TestGenerator: React.FC<Props> = ({
           </div>
         )}
 
+        {/* Quick Diagnostic Drill Info Banner */}
+        {blueprintMode === 'quick_diagnostic_drill' && (
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/60 via-teal-950/60 to-cyan-950/60 border border-emerald-500/40 text-emerald-200 text-xs flex items-start gap-3 shadow-lg">
+            <Zap className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <div className="font-extrabold text-white text-sm">
+                {lang === 'ar'
+                  ? '⚡ تدريب تشخيصي مكثف وسريع (10 أسئلة - 10 دقائق)'
+                  : '⚡ Quick Timed Diagnostic Drill (10 Questions - 10 Minutes)'}
+              </div>
+              <p className="text-slate-300 leading-relaxed text-xs">
+                {lang === 'ar'
+                  ? 'نمط تدريبي سريع مصمم لقياس سرعة اتخاذ القرار تحت ضغط الوقت (معدل دقيقة واحدة لكل سؤال). يحلل الأداء فور الانتهاء ويعرض مؤشر السرعة (Pace Rating) وتوصيات فورية لمعالجة الثغرات.'
+                  : 'A rapid sprint drill engineered to assess real-time decision making under exam time pressure (target: 60s/Q). Instant analytics report pacing, accuracy, and targeted remedial advice.'}
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Official Thanawya Mock Info Banner */}
         {blueprintMode === 'official_thanawya_mock' && (
           <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 border-2 border-amber-500/50 text-amber-200 text-xs flex items-start gap-3 shadow-lg">
@@ -1942,6 +2015,10 @@ export const TestGenerator: React.FC<Props> = ({
                   setSelectedChapter('all');
                   setQuestionCount(20);
                   setDurationPreset(30);
+                } else if (val === 'quick_diagnostic_drill') {
+                  setQuestionCount(10);
+                  setDurationPreset(10);
+                  setIsTimed(true);
                 } else if (val === 'official_thanawya_mock') {
                   const cfg = getOfficialMockConfig(selectedSubject, selectedBranch);
                   setQuestionCount(cfg.totalQuestions);
@@ -1952,6 +2029,11 @@ export const TestGenerator: React.FC<Props> = ({
               className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500"
             >
               <option value="all">{lang === 'ar' ? 'تحديد حر للمستوى' : 'Custom Level Selection'}</option>
+              <option value="quick_diagnostic_drill">
+                {lang === 'ar'
+                  ? '⚡ تدريب تشخيصي مكثف وسريع (١٠ أسئلة - ١٠ دقائق - تقرير السرعة والدقة)'
+                  : '⚡ Quick Timed Diagnostic Drill (10 Qs - 10 Mins - Speed & Pace Report)'}
+              </option>
               <option value="official_past_papers">
                 {lang === 'ar'
                   ? '📜 امتحانات الثانوية العامة الرسمية للسنوات السابقة (2021 - 2025 دور أول وثانٍ ونماذج)'
@@ -1993,6 +2075,8 @@ export const TestGenerator: React.FC<Props> = ({
                 <option value="all">
                   {blueprintMode === 'diagnostic_benchmark'
                     ? (lang === 'ar' ? 'متوازن للرادار (٥ سهل، ١٠ متوسط، ٥ عليا)' : 'Radar Balanced (5 Easy, 10 Med, 5 HOTS)')
+                    : blueprintMode === 'quick_diagnostic_drill'
+                    ? (lang === 'ar' ? 'تشخيص سريع متوازن (٣ سهل، ٤ متوسط، ٣ عليا)' : 'Diagnostic Sprint (3 Easy, 4 Med, 3 HOTS)')
                     : blueprintMode === 'official_thanawya_mock'
                     ? (lang === 'ar'
                         ? `توزيع وزاري رسمي (${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).section1Count)} درجة + ${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).section2Count)} درجتين)`
@@ -2019,10 +2103,10 @@ export const TestGenerator: React.FC<Props> = ({
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">{t.numQuestions}</label>
             <select
               value={questionCount}
-              disabled={blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' || blueprintMode === 'official_past_papers'}
+              disabled={blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' || blueprintMode === 'official_past_papers' || blueprintMode === 'quick_diagnostic_drill'}
               onChange={(e) => setQuestionCount(Number(e.target.value))}
               className={`w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 ${
-                blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' || blueprintMode === 'official_past_papers' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
+                blueprintMode === 'diagnostic_benchmark' || blueprintMode === 'official_thanawya_mock' || blueprintMode === 'official_past_papers' || blueprintMode === 'quick_diagnostic_drill' ? 'opacity-60 cursor-not-allowed bg-slate-900' : ''
               }`}
             >
               {blueprintMode === 'official_past_papers' ? (
@@ -2040,6 +2124,8 @@ export const TestGenerator: React.FC<Props> = ({
                     ? `${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions)} سؤالاً (${toHindiDigits(getOfficialMockConfig(selectedSubject, selectedBranch).totalMarks)} درجة وزاري)`
                     : `${getOfficialMockConfig(selectedSubject, selectedBranch).totalQuestions} Qs (${getOfficialMockConfig(selectedSubject, selectedBranch).totalMarks} Marks Official)`}
                 </option>
+              ) : blueprintMode === 'quick_diagnostic_drill' ? (
+                <option value={10}>{lang === 'ar' ? '١٠ أسئلة (تدريب سرعة ١٠ دقائق)' : '10 Questions (10-Min Sprint)'}</option>
               ) : blueprintMode === 'diagnostic_benchmark' ? (
                 <option value={20}>{lang === 'ar' ? '٢٠ سؤالاً (معياري للرادار)' : '20 Questions (Radar Standard)'}</option>
               ) : (
@@ -3916,6 +4002,13 @@ export const TestGenerator: React.FC<Props> = ({
                       {/* Official Textbook Diagram */}
                       {q.diagramType && <TextbookDiagram type={q.diagramType} lang={lang} />}
 
+                      {/* Progressive AI KaTeX Study Hint Drawer */}
+                      <ProgressiveHintDrawer
+                        hints={getProgressiveHintsForQuestion(q)}
+                        lang={lang}
+                        isHots={q.difficulty === 'hots'}
+                      />
+
                       {/* 4 Interactive Options */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                         {(lang === 'ar' ? q.optionsAr : q.optionsEn).map((opt, optIdx) => {
@@ -3962,22 +4055,47 @@ export const TestGenerator: React.FC<Props> = ({
                         })}
                       </div>
 
-                      {/* Step-by-Step Solution Breakdown on Submission */}
+                      {/* Step-by-Step KaTeX Solution Breakdown on Submission */}
                       {isSubmitted && (
-                        <div className="mt-4 pt-4 border-t border-slate-800/80 space-y-2.5 text-xs bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                          <div className="flex items-center gap-2">
-                            <Sparkles className="w-4 h-4 text-amber-400" />
-                            <span className="font-bold text-amber-400 uppercase tracking-wider">
-                              {t.stepByStepSolution}
+                        <div className="mt-4 pt-4 border-t border-slate-800/80 space-y-3 text-xs bg-slate-900/80 p-4 rounded-xl border border-slate-800">
+                          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                            <div className="flex items-center gap-2">
+                              <Sparkles className="w-4 h-4 text-amber-400" />
+                              <span className="font-extrabold text-amber-400 uppercase tracking-wider text-xs">
+                                {t.stepByStepSolution}
+                              </span>
+                            </div>
+                            <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
+                              {lang === 'ar'
+                                ? `الاختيار المعتمد: (${['أ', 'ب', 'ج', 'د'][q.correctIndex]})`
+                                : `Correct: (${String.fromCharCode(65 + q.correctIndex)})`}
                             </span>
                           </div>
+
                           <div className="space-y-2 pt-1">
                             {(lang === 'ar' ? q.explanationAr : q.explanationEn).map((step, sIdx) => (
-                              <div key={sIdx} className="text-slate-300 pl-3 rtl:pr-3 border-l-2 rtl:border-r-2 rtl:border-l-0 border-indigo-500/40">
+                              <div key={sIdx} className="text-slate-200 pl-3 rtl:pr-3 border-l-2 rtl:border-r-2 rtl:border-l-0 border-indigo-500/50 py-1 space-y-1 bg-slate-950/40 rounded-r-lg rtl:rounded-l-lg rtl:rounded-r-none p-2">
+                                <span className="text-[10px] font-bold text-indigo-400 block uppercase tracking-wider">
+                                  {lang === 'ar' ? `المرحلة (${toHindiDigits(sIdx + 1)})` : `Step ${sIdx + 1}`}
+                                </span>
                                 <MathRenderer math={step} lang={lang} />
                               </div>
                             ))}
                           </div>
+
+                          {/* Exclusive HOTS Synthesis & Pitfall Dissection */}
+                          {q.difficulty === 'hots' && (
+                            <div className="p-3 rounded-lg bg-rose-950/20 border border-rose-500/30 text-[11px] text-rose-200 space-y-1 mt-2">
+                              <span className="font-black text-rose-400 block">
+                                {lang === 'ar' ? '🔍 تحليل الفكرة العليا وفخاخ الخيارات المضللة (HOTS Analysis):' : '🔍 HOTS Synthesis & Distractor Dissection:'}
+                              </span>
+                              <p className="text-slate-300 leading-relaxed">
+                                {lang === 'ar'
+                                  ? 'يتطلب هذا السؤال الربط المتوازي بين المفاهيم وعزل المتغيرات بحذر. تم تصميم الخيارات المضللة لمحاكاة أخطاء شائعة كنسيان التربيع أو استخدام الزاوية مع السطح بدلاً من العمودي.'
+                                  : 'This high-order thinking problem tests interdependent variables and careful algebraic isolation. Distractors simulate standard traps such as omitting power terms or misidentifying complementary angles.'}
+                              </p>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -4066,6 +4184,20 @@ export const TestGenerator: React.FC<Props> = ({
             <MathScratchpad lang={lang} />
           </div>
         </div>
+      )}
+
+      {/* Quick Diagnostic Drill Modal */}
+      {showDiagnosticDrillModal && diagnosticDrillResult && (
+        <DiagnosticDrillModal
+          result={diagnosticDrillResult}
+          lang={lang}
+          onClose={() => setShowDiagnosticDrillModal(false)}
+          onRetake={() => {
+            setShowDiagnosticDrillModal(false);
+            handleStartExam();
+          }}
+          onReviewSolutions={() => setShowDiagnosticDrillModal(false)}
+        />
       )}
     </div>
   );

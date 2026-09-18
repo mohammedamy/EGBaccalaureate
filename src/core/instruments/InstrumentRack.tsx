@@ -5,6 +5,9 @@ import {
   Target,
   Clock,
   Edit3,
+  Waves,
+  Compass,
+  Binary,
   X,
   Minimize2,
   Maximize2,
@@ -13,6 +16,9 @@ import {
 } from 'lucide-react';
 import { DigitalMultimeter, type DMMReading } from './DigitalMultimeter';
 import { DualTraceOscilloscope, type WaveformSignal } from './DualTraceOscilloscope';
+import { FunctionGenerator } from './FunctionGenerator';
+import { OpticalSpectrometer } from './OpticalSpectrometer';
+import { LogicAnalyzer } from './LogicAnalyzer';
 import { MicrometerCaliper } from './MicrometerCaliper';
 import { LabStopwatch } from '../labs/controls/LabStopwatch';
 import { MathScratchpad } from '../math/MathScratchpad';
@@ -33,7 +39,16 @@ interface InstrumentRackProps {
 
 export const InstrumentRack: React.FC<InstrumentRackProps> = ({
   lang,
-  supportedInstruments = ['multimeter', 'oscilloscope', 'micrometer', 'stopwatch', 'scratchpad'],
+  supportedInstruments = [
+    'multimeter',
+    'oscilloscope',
+    'function_generator',
+    'spectrometer',
+    'logic_analyzer',
+    'micrometer',
+    'stopwatch',
+    'scratchpad',
+  ],
   activeInstruments,
   onToggleInstrument,
   onCloseInstrument,
@@ -56,6 +71,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
   const isAr = lang === 'ar';
   const [minimized, setMinimized] = useState<Set<LabInstrumentType>>(new Set());
   const [isBarExpanded, setIsBarExpanded] = useState<boolean>(true);
+  const [funcGenSignal, setFuncGenSignal] = useState<WaveformSignal | null>(null);
 
   const toggleMinimize = (type: LabInstrumentType) => {
     setMinimized((prev) => {
@@ -84,6 +100,24 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
       labelAr: 'الأوسيلوسكوب ثنائي القناة',
       icon: Activity,
       color: 'text-cyan-400 border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20',
+    },
+    function_generator: {
+      labelEn: 'DDS Function Generator',
+      labelAr: 'مولد الإشارات الرقمي (DDS)',
+      icon: Waves,
+      color: 'text-violet-400 border-violet-500/40 bg-violet-500/10 hover:bg-violet-500/20',
+    },
+    spectrometer: {
+      labelEn: 'Optical Spectrometer',
+      labelAr: 'المطياف البصري (Vernier)',
+      icon: Compass,
+      color: 'text-fuchsia-400 border-fuchsia-500/40 bg-fuchsia-500/10 hover:bg-fuchsia-500/20',
+    },
+    logic_analyzer: {
+      labelEn: 'Logic Analyzer & Bus',
+      labelAr: 'محلل المنطق الرقمي والناقل',
+      icon: Binary,
+      color: 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20',
     },
     micrometer: {
       labelEn: 'Micrometer Caliper',
@@ -201,10 +235,41 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
           {activeInstruments.has('oscilloscope') && (
             <div className="col-span-full w-full">
               <DualTraceOscilloscope
-                channel1Signal={oscilloscopeCh1}
+                channel1Signal={funcGenSignal ?? oscilloscopeCh1}
                 channel2Signal={oscilloscopeCh2}
                 lang={lang}
                 onClose={() => onCloseInstrument('oscilloscope')}
+              />
+            </div>
+          )}
+
+          {/* DDS Function Generator - Spans Full Width */}
+          {activeInstruments.has('function_generator') && (
+            <div className="col-span-full w-full">
+              <FunctionGenerator
+                lang={lang}
+                onClose={() => onCloseInstrument('function_generator')}
+                onSignalOutput={(sig) => setFuncGenSignal(sig)}
+              />
+            </div>
+          )}
+
+          {/* Optical Spectrometer - Spans Full Width */}
+          {activeInstruments.has('spectrometer') && (
+            <div className="col-span-full w-full">
+              <OpticalSpectrometer
+                lang={lang}
+                onClose={() => onCloseInstrument('spectrometer')}
+              />
+            </div>
+          )}
+
+          {/* 8-Channel Logic Analyzer & Bus - Spans Full Width */}
+          {activeInstruments.has('logic_analyzer') && (
+            <div className="col-span-full w-full">
+              <LogicAnalyzer
+                lang={lang}
+                onClose={() => onCloseInstrument('logic_analyzer')}
               />
             </div>
           )}

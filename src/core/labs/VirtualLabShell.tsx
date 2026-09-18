@@ -765,7 +765,16 @@ export const VirtualLabShell = <
 
             {/* Docked Instrument Rack */}
             {definition.supportedInstruments && lab.instruments.activeInstruments.size > 0 && (
-              <div className={`shrink-0 overflow-y-auto ${lab.instruments.activeInstruments.has('oscilloscope') ? 'max-h-[36rem] lg:max-h-[44rem]' : 'max-h-52'}`}>
+              <div
+                className={`shrink-0 overflow-y-auto ${
+                  lab.instruments.activeInstruments.has('oscilloscope') ||
+                  lab.instruments.activeInstruments.has('function_generator') ||
+                  lab.instruments.activeInstruments.has('spectrometer') ||
+                  lab.instruments.activeInstruments.has('logic_analyzer')
+                    ? 'max-h-[38rem] lg:max-h-[46rem]'
+                    : 'max-h-52'
+                }`}
+              >
                 <InstrumentRack
                   lang={lang}
                   supportedInstruments={definition.supportedInstruments}

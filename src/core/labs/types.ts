@@ -13,7 +13,10 @@ export type LabInstrumentType =
   | 'oscilloscope'
   | 'micrometer'
   | 'stopwatch'
-  | 'scratchpad';
+  | 'scratchpad'
+  | 'function_generator'
+  | 'spectrometer'
+  | 'logic_analyzer';
 
 export type TelemetryStatus = 'normal' | 'optimal' | 'warning' | 'alert';
 

@@ -523,7 +523,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
       },
     ],
     poePrompts: OPTICS_POE_PROMPTS,
-    supportedInstruments: ['multimeter', 'oscilloscope', 'scratchpad'],
+    supportedInstruments: ['spectrometer', 'multimeter', 'oscilloscope', 'scratchpad'],
     notebookConfig: {
       xLabelEn: "Screen Distance (D) / Angle sin(θ₁)",
       xLabelAr: 'بعد الحائل (D) / جيب زاوية السقوط sin(θ₁)',

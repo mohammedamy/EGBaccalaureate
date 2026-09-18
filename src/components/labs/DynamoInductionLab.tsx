@@ -247,7 +247,7 @@ const DYNAMO_LAB_DEFINITION: LabDefinition<DynamoParams, DynamoState> = {
     yUnit: 'V',
     recommendedPointsCount: 5,
   },
-  supportedInstruments: ['multimeter', 'oscilloscope', 'stopwatch', 'scratchpad'],
+  supportedInstruments: ['function_generator', 'oscilloscope', 'multimeter', 'stopwatch', 'scratchpad'],
 };
 
 export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {

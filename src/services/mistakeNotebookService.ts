@@ -13,6 +13,8 @@ export interface GeneratedQuestion {
   correctIndex: number;
   explanationEn: string[];
   explanationAr: string[];
+  hintsEn?: string[];
+  hintsAr?: string[];
   chapterId: string;
   chapterTitleEn: string;
   chapterTitleAr: string;
