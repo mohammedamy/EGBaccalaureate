@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -170,6 +170,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_arabic'],
       egbac: ['egbac_arabic'],
+    },
+  },
+  {
+    id: 'history',
+    titleEn: 'Modern & Contemporary Egyptian History',
+    titleAr: 'تاريخ مصر الحديث والمعاصر',
+    shortTitleEn: 'History',
+    shortTitleAr: 'تاريخ',
+    emoji: '🏛️',
+    iconName: 'Landmark',
+    badgeColor: 'amber',
+    gradient: 'from-amber-700 via-yellow-700 to-stone-800',
+    lightBg: 'bg-amber-50 text-amber-900 border-amber-200',
+    darkBg: 'bg-stone-950/80 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'National Core Subject: Modern & Contemporary History of Egypt, Arab Geopolitics, National Revolutions, and World Treaties',
+    descriptionAr: 'المادة القومية الكبرى: تاريخ مصر الحديث والمعاصر، الحملة الفرنسية، عهد محمد علي، الثورات الوطنية، الصراع العربي الإسرائيلي، وثورتا ٢٥ يناير و٣٠ يونيو',
+    branchIds: {
+      thanaweya: ['thanaweya_history'],
+      egbac: ['egbac_history'],
     },
   },
 ];

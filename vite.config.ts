@@ -54,6 +54,12 @@ export default defineConfig({
             { name: 'databank-thanaweya-arabic-1', test: /databanks\/thanaweya\/arabicCh[1-2]Databank/, priority: 30 },
             { name: 'databank-thanaweya-arabic-2', test: /databanks\/thanaweya\/arabicCh[3-4]Databank/, priority: 30 },
 
+            // History Databanks & Curriculum
+            { name: 'databank-history', test: /databanks\/(thanaweya|egbac)\/.*history/i, priority: 30 },
+            { name: 'textbook-thanaweya-history', test: /src\/data\/textbook\/thanaweya\/history/, priority: 30 },
+            { name: 'curriculum-history', test: /src\/data\/(thanaweya|egBac)History/, priority: 20 },
+            { name: 'history-studio', test: /HistoryTimelineStudio|historyTimelineLabData/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'languages' | 'arabic' | 'english' | 'french';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'languages' | 'arabic' | 'english' | 'french' | 'history';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -1528,6 +1528,114 @@ export const officialBooksList: OfficialBook[] = [
     ],
   },
 
+  // 17. Thanaweya Modern & Contemporary Egyptian History
+  {
+    id: 'th-history-g12',
+    curriculum: 'thanaweya',
+    category: 'history',
+    subjectId: 'history',
+    branchId: 'thanaweya_history',
+    code: 'TH-HIST-G12',
+    titleEn: 'Modern & Contemporary Egyptian History',
+    titleAr: 'تاريخ مصر الحديث والمعاصر',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 38,
+    fileSize: '3.8 MB',
+    compendiumTitleEn: 'Modern & Contemporary Egyptian History Concept & Timeline Compendium',
+    compendiumTitleAr: 'ملخص المفاهيم والخرائط الزمنية والمعاهدات الرسمية - تاريخ مصر الحديث والمعاصر',
+    filename: 'thanaweya-history.pdf',
+    downloadUrl: '/books/thanaweya-history.pdf',
+    fullTextbookPages: 254,
+    fullTextbookSize: '34.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/thanaweya/history/',
+    coverGradient: 'from-amber-800 via-yellow-800 to-stone-900',
+    accentColor: '#b45309',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: The French Expedition to Egypt and Levant (1798–1801)', titleAr: 'الفصل الأول: الحملة الفرنسية على مصر والشام (1798–1801م)', pageRange: 'pp. 1-32', topicsCount: 18 },
+      { id: 'ch2', titleEn: 'Ch 2: Building the Modern Egyptian State (1805–1879)', titleAr: 'الفصل الثاني: بناء الدولة الحديثة في عهد محمد علي وخلفائه', pageRange: 'pp. 33-88', topicsCount: 24 },
+      { id: 'ch3', titleEn: 'Ch 3: Egypt from Urabi Revolution to WWI (1879–1914)', titleAr: 'الفصل الثالث: مصر منذ الثورة العرابية حتى الحرب العالمية الأولى', pageRange: 'pp. 89-130', topicsCount: 20 },
+      { id: 'ch4', titleEn: 'Ch 4: From 1919 Revolution to July 23, 1952 Revolution', titleAr: 'الفصل الرابع: مصر بعد الحرب العالمية الأولى وثورة 1919 حتى ثورة 23 يوليو 1952', pageRange: 'pp. 131-174', topicsCount: 22 },
+      { id: 'ch5', titleEn: 'Ch 5: Colonial Expansion in Arab Countries before WWI', titleAr: 'الفصل الخامس: التوسع الاستعماري في البلاد العربية قبل الحرب العالمية الأولى', pageRange: 'pp. 175-204', topicsCount: 16 },
+      { id: 'ch6', titleEn: 'Ch 6: Arab Countries After WWI (Mandates & Treaties)', titleAr: 'الفصل السادس: البلاد العربية بعد الحرب العالمية الأولى', pageRange: 'pp. 205-226', topicsCount: 14 },
+      { id: 'ch7', titleEn: 'Ch 7: Egypt & Contemporary Arab Causes: 1973 October War', titleAr: 'الفصل السابع: مصر وقضايا العالم العربي المعاصر وحرب أكتوبر 1973', pageRange: 'pp. 227-248', topicsCount: 16 },
+      { id: 'ch8', titleEn: 'Ch 8: January 25, 2011 and June 30, 2013 Revolutions', titleAr: 'الفصل الثامن: ثورتا 25 يناير 2011م و30 يونيو 2013م', pageRange: 'pp. 249-254', topicsCount: 8 },
+    ],
+    descriptionEn: 'The primary national curriculum textbook covering the French expedition, Muhammad Ali\'s modern renaissance, national struggles, regional geopolitics, and revolutionary milestones.',
+    descriptionAr: 'كتاب الوزارة المعتمد لمادة التاريخ: يغطي الحملة الفرنسية، بناء مصر الحديثة وتجربة محمد علي، الثورة العرابية والاحتلال البريطاني، ثورة 1919، كفاح حركات التحرر العربية، الصراع العربي الإسرائيلي وملحمة أكتوبر 1973، وثورتي 25 يناير و30 يونيو.',
+    highlightsEn: [
+      'Comprehensive chronological timelines of key treaties, battles, and diplomatic accords',
+      'In-depth cause-and-effect analysis for all historical turning points and imperialist conflicts',
+      'High-yield comparative matrices between historical regimes, constitutions, and treaties',
+      'Full coverage of the Rosetta Stone decoding, Institut d\'Égypte, and modern military institutions',
+    ],
+    highlightsAr: [
+      'جداول مقارنة شاملة للاتفاقيات والمعاهدات والفرمانات العثمانية والتحالفات الدولية',
+      'تحليل عميق لأسباب ونتائج الثورات الشعبية ومقاومة الصعيد والإسكندرية والقاهرة',
+      'خرائط جيوسياسية معتمدة لحملة نابليون، توسعات محمد علي، ومسرح عمليات حرب أكتوبر 1973',
+      'أسئلة ومفاهيم الربط والتحليل ونواتج التعلم الوزارية العليا لنظام الامتحانات الحديث',
+    ],
+  },
+
+  // 18. EG-Bac Advanced Egyptian & Global Contemporary History
+  {
+    id: 'egbac-history-g12',
+    curriculum: 'egbac',
+    category: 'history',
+    subjectId: 'history',
+    branchId: 'egbac_history',
+    code: 'EGBAC-HIST-G12',
+    titleEn: 'Advanced Egyptian & Global Contemporary History',
+    titleAr: 'التاريخ الوطني المعاصر والجيوسياسية المتقدمة',
+    subtitleEn: 'New Egyptian Baccalaureate Framework (EG-Bac Track) - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Humanities & Geopolitics)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 42,
+    fileSize: '4.1 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Geopolitics, Revolutions & Modern History Guide',
+    compendiumTitleAr: 'دليل البكالوريا المصرية في الجيوسياسية والتحولات الاستراتيجية وتاريخ مصر المعاصر',
+    filename: 'egbac-history.pdf',
+    downloadUrl: '/books/egbac-history.pdf',
+    fullTextbookPages: 268,
+    fullTextbookSize: '37.5 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/history/',
+    coverGradient: 'from-stone-900 via-amber-900 to-yellow-950',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: The French Expedition: Geopolitics & Mediterranean Strategy', titleAr: 'الفصل الأول: الحملة الفرنسية والجيوسياسية المتوسطية', pageRange: 'pp. 1-34', topicsCount: 18 },
+      { id: 'ch2', titleEn: 'Ch 2: Muhammad Ali Statehood, Monopoly & Industrial Monopoly', titleAr: 'الفصل الثاني: الدولة القومية الحديثة ونظام الاحتكار والتوسع الإقليمي', pageRange: 'pp. 35-94', topicsCount: 24 },
+      { id: 'ch3', titleEn: 'Ch 3: The Urabi Uprising, Financial Dual Control & British Hegemony', titleAr: 'الفصل الثالث: الثورة العرابية، المراقبة الثنائية، والهيمنة البريطانية', pageRange: 'pp. 95-138', topicsCount: 20 },
+      { id: 'ch4', titleEn: 'Ch 4: 1919 National Revolution, Constitutionalism & 1952 Free Officers', titleAr: 'الفصل الرابع: ثورة 1919 والمد الدستوري حتى ثورة 23 يوليو 1952', pageRange: 'pp. 139-184', topicsCount: 22 },
+      { id: 'ch5', titleEn: 'Ch 5: Imperialism & Decolonization in North Africa (Maghreb & Libya)', titleAr: 'الفصل الخامس: التنافس الاستعماري وحركات التحرر في المغرب العربي وليبيا', pageRange: 'pp. 185-216', topicsCount: 16 },
+      { id: 'ch6', titleEn: 'Ch 6: Post-WWI Mandate Geopolitics, Sykes-Picot & Arab Destinies', titleAr: 'الفصل السادس: نظام الانتداب، سايكس بيكو، وتشكلات المشرق العربي', pageRange: 'pp. 217-238', topicsCount: 14 },
+      { id: 'ch7', titleEn: 'Ch 7: Arab-Israeli Conflict, Strategic Deterrence & October 1973', titleAr: 'الفصل السابع: الصراع العربي الإسرائيلي والاستراتيجية العسكرية في أكتوبر 1973', pageRange: 'pp. 239-262', topicsCount: 16 },
+      { id: 'ch8', titleEn: 'Ch 8: Contemporary Transitions: 2011 & 2013 Revolutions & Modern State', titleAr: 'الفصل الثامن: التحولات المعاصرة: ثورتا 2011 و2013 وإعادة بناء الدولة', pageRange: 'pp. 263-268', topicsCount: 8 },
+    ],
+    descriptionEn: 'Advanced analytical historiography analyzing global colonial competition, socio-economic models, Mediterranean geopolitics, military strategy, and modern state resilience.',
+    descriptionAr: 'المنهج التحليلي المتقدم للبكالوريا: استيعاب التحولات الجيوسياسية، نظريات العلاقات الدولية وتوازن القوى في الشرق الأوسط، والاستراتيجية العسكرية في ملحمة العبور 1973، وقراءة التاريخ برؤية نقدية معاصرة.',
+    highlightsEn: [
+      'Advanced historiographical source analysis and evaluation of colonial archives',
+      'Geopolitical maps dissecting Anglo-French rivalries, trade routes, and strategic straits',
+      'Economic structural modeling: Ottoman Iltizam vs Muhammad Ali Monopoly vs 1883 Open Market',
+      'Military doctrine and combined-arms strategic analysis of the October 1973 War',
+    ],
+    highlightsAr: [
+      'تحليل الوثائق التاريخية والنصوص الأرشيفية ونقد المصادر الأولية والثانوية',
+      'دراسة جيوسياسية للممرات الاستراتيجية (قناة السويس، مضيق باب المندب، جبل طارق)',
+      'التحليل الاقتصادي الهيكلي لنظام الالتزام العثماني مقابل الاحتكار واقتصاد السوق المفتوح',
+      'التخطيط العملياتي والاستراتيجي للعبور وخط بارليف وتحطيم نظرية الأمن الإسرائيلي',
+    ],
+  },
+
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -1551,6 +1659,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_english' && (b.branchId === 'egbac_english' || b.id === 'egbac-english-g12')) return true;
     if (branchId === 'thanaweya_french' && (b.branchId === 'thanaweya_french' || b.id === 'th-french-g12')) return true;
     if (branchId === 'egbac_french' && (b.branchId === 'egbac_french' || b.id === 'egbac-french-g12')) return true;
+    if (branchId === 'thanaweya_history' && (b.branchId === 'thanaweya_history' || b.id === 'th-history-g12')) return true;
+    if (branchId === 'egbac_history' && (b.branchId === 'egbac_history' || b.id === 'egbac-history-g12')) return true;
     return false;
   });
 }
@@ -1560,7 +1670,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }
@@ -1574,3 +1684,4 @@ export function getBookDownloadUrl(book?: OfficialBook | { downloadUrl?: string 
   const cleanUrl = url.startsWith("./") ? url.slice(2) : url.startsWith("/") ? url.slice(1) : url;
   return cleanBase + cleanUrl;
 }
+

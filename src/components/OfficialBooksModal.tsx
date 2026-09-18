@@ -43,7 +43,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
   const t = translations[lang];
 
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [filterSubject, setFilterSubject] = useState<'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french'>('all');
+  const [filterSubject, setFilterSubject] = useState<'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history'>('all');
   const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium'>('all');
   const [expandedChaptersBookId, setExpandedChaptersBookId] = useState<string | null>(initialBookId || null);
   const [showWafModal, setShowWafModal] = useState<OfficialBook | null>(null);
@@ -223,6 +223,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <option value="arabic">{isArabic ? '📜 اللغة العربية' : '📜 Arabic'} ({officialBooksList.filter(b => b.subjectId === 'arabic').length})</option>
                 <option value="english">{isArabic ? '🌍 اللغة الإنجليزية' : '🌍 English'} ({officialBooksList.filter(b => b.subjectId === 'english').length})</option>
                 <option value="french">{isArabic ? '🇫🇷 اللغة الفرنسية' : '🇫🇷 French'} ({officialBooksList.filter(b => b.subjectId === 'french').length})</option>
+                <option value="history">{isArabic ? '🏛️ تاريخ مصر' : '🏛️ Egyptian History'} ({officialBooksList.filter(b => b.subjectId === 'history').length})</option>
               </select>
             </div>
 

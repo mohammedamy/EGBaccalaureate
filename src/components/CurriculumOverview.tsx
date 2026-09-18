@@ -25,6 +25,7 @@ import {
   Download,
   Check,
   ChevronDown,
+  Landmark,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import {
@@ -103,6 +104,8 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <FlaskConical className="w-5 h-5" />;
       case 'Dna':
         return <Dna className="w-5 h-5" />;
+      case 'Landmark':
+        return <Landmark className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }

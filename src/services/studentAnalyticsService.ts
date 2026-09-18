@@ -3,13 +3,23 @@ import type { GeneratedQuestion } from './mistakeNotebookService';
 
 export const STUDENT_ANALYTICS_STORAGE_KEY = 'egbac_student_analytics_v1';
 
+export type SubjectCategory =
+  | 'pure_math'
+  | 'applied_math'
+  | 'physics'
+  | 'chemistry'
+  | 'biology'
+  | 'history'
+  | 'arabic'
+  | 'languages';
+
 export interface ChapterPerformanceRecord {
   chapterId: string;
   chapterTitleEn: string;
   chapterTitleAr: string;
   branchTitleEn: string;
   branchTitleAr: string;
-  subjectCategory: 'pure_math' | 'applied_math' | 'physics' | 'chemistry' | 'biology';
+  subjectCategory: SubjectCategory;
   attempted: number;
   correct: number;
   timeSpentSec: number;
@@ -32,8 +42,10 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
+export type RadarTrackMode = 'stem5' | 'humanities' | 'all8';
+
 export interface MasteryRadarPoint {
-  dimensionKey: 'pure_math' | 'applied_math' | 'physics' | 'chemistry' | 'biology';
+  dimensionKey: SubjectCategory;
   labelAr: string;
   labelEn: string;
   scorePct: number; // 0 - 100
@@ -49,9 +61,25 @@ export function classifySubjectCategory(
   branchTitleEn: string = '',
   chapterTitleAr: string = '',
   subjectOrBranchId: string = ''
-): 'pure_math' | 'applied_math' | 'physics' | 'chemistry' | 'biology' {
+): SubjectCategory {
   const text = `${branchTitleAr} ${branchTitleEn} ${chapterTitleAr} ${subjectOrBranchId}`.toLowerCase();
 
+  if (text.includes('تاريخ') || text.includes('history')) {
+    return 'history';
+  }
+  if (text.includes('عربي') || text.includes('arabic') || text.includes('نحو') || text.includes('بلاغة')) {
+    return 'arabic';
+  }
+  if (
+    text.includes('english') ||
+    text.includes('إنجليز') ||
+    text.includes('french') ||
+    text.includes('فرنس') ||
+    text.includes('لغة أجنبية') ||
+    text.includes('language')
+  ) {
+    return 'languages';
+  }
   if (text.includes('فيزياء') || text.includes('physic') || text.includes('كهربية') || text.includes('كولدج')) {
     return 'physics';
   }
@@ -221,13 +249,17 @@ export function getReadinessScore(state?: StudentAnalyticsState): number {
 }
 
 /**
- * Calculate the 5-point Mastery Radar data for SVG polygon visualization.
+ * Calculate Mastery Radar data for SVG polygon visualization.
+ * Defaults to 'stem5' for 100% backward compatibility with existing tests.
  */
-export function getMasteryRadarData(state?: StudentAnalyticsState): MasteryRadarPoint[] {
+export function getMasteryRadarData(
+  state?: StudentAnalyticsState,
+  mode: RadarTrackMode = 'stem5'
+): MasteryRadarPoint[] {
   const data = state || getStudentAnalytics();
 
-  const dimensions: Array<{
-    key: 'pure_math' | 'applied_math' | 'physics' | 'chemistry' | 'biology';
+  const stemDimensions: Array<{
+    key: SubjectCategory;
     ar: string;
     en: string;
     color: string;
@@ -239,11 +271,46 @@ export function getMasteryRadarData(state?: StudentAnalyticsState): MasteryRadar
     { key: 'biology', ar: 'الأحياء', en: 'Biology', color: '#F43F5E' },
   ];
 
+  const humanitiesDimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    { key: 'history', ar: 'تاريخ مصر', en: 'Egyptian History', color: '#F59E0B' },
+    { key: 'arabic', ar: 'اللغة العربية', en: 'Arabic Language', color: '#10B981' },
+    { key: 'languages', ar: 'اللغات الأجنبية', en: 'Foreign Languages', color: '#3B82F6' },
+    { key: 'applied_math', ar: 'الإحصاء التطبيقي', en: 'Applied Statistics', color: '#8B5CF6' },
+  ];
+
+  const all8Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    { key: 'pure_math', ar: 'الرياضيات البحتة', en: 'Pure Math', color: '#6366F1' },
+    { key: 'applied_math', ar: 'الرياضيات التطبيقية', en: 'Applied Math', color: '#3B82F6' },
+    { key: 'physics', ar: 'الفيزياء', en: 'Physics', color: '#06B6D4' },
+    { key: 'chemistry', ar: 'الكيمياء', en: 'Chemistry', color: '#10B981' },
+    { key: 'biology', ar: 'الأحياء', en: 'Biology', color: '#F43F5E' },
+    { key: 'history', ar: 'تاريخ مصر', en: 'History', color: '#F59E0B' },
+    { key: 'arabic', ar: 'اللغة العربية', en: 'Arabic', color: '#059669' },
+    { key: 'languages', ar: 'اللغات الأجنبية', en: 'Languages', color: '#8B5CF6' },
+  ];
+
+  const dimensions =
+    mode === 'humanities'
+      ? humanitiesDimensions
+      : mode === 'all8'
+      ? all8Dimensions
+      : stemDimensions;
+
   return dimensions.map((dim) => {
     let attempted = 0;
     let correct = 0;
 
-    Object.values(data.chapters).forEach((ch) => {
+    Object.values(data?.chapters || {}).forEach((ch) => {
       if (ch.subjectCategory === dim.key) {
         attempted += ch.attempted;
         correct += ch.correct;
@@ -264,6 +331,83 @@ export function getMasteryRadarData(state?: StudentAnalyticsState): MasteryRadar
   });
 }
 
+export interface PredictiveScoreReport {
+  predictedTotalMarks: number; // e.g. 385.5 out of 410
+  predictedPercentage: number; // e.g. 94.0%
+  confidenceLevel: 'high' | 'moderate' | 'preliminary';
+  universityTrackTierAr: string;
+  universityTrackTierEn: string;
+  targetFacultyRecommendationsAr: string[];
+  targetFacultyRecommendationsEn: string[];
+}
+
+/**
+ * Predicts total Thanawya Amma score out of 410 marks based on accuracy, HOTS performance, and practice volume.
+ */
+export function getPredictiveScore(state?: StudentAnalyticsState): PredictiveScoreReport {
+  const data = state || getStudentAnalytics();
+  const totalAttempted = data.totalAttempted;
+
+  if (totalAttempted === 0) {
+    return {
+      predictedTotalMarks: 0,
+      predictedPercentage: 0,
+      confidenceLevel: 'preliminary',
+      universityTrackTierAr: 'لم تبدأ الاختبارات بعد - يرجى حل أسئلة لبدء التحليل التنبؤي الذكي',
+      universityTrackTierEn: 'No attempts yet - complete practice questions to initialize AI predictions',
+      targetFacultyRecommendationsAr: ['كليات القمة بانتظار بدء تدريبك الأكاديمي'],
+      targetFacultyRecommendationsEn: ['Top faculties awaiting your practice data'],
+    };
+  }
+
+  const accuracyPct = data.totalCorrect / data.totalAttempted;
+  const hotsTotal = data.cognitive.hots.attempted;
+  const hotsCorrect = data.cognitive.hots.correct;
+  const hotsRate = hotsTotal > 0 ? hotsCorrect / hotsTotal : accuracyPct * 0.8;
+
+  // Composite predictive percentage (70% accuracy, 20% HOTS competence, 10% volume bonus)
+  const volumeBonus = Math.min(1.0, totalAttempted / 120) * 0.10;
+  const rawPercentage = (accuracyPct * 0.70 + hotsRate * 0.20 + volumeBonus) * 100;
+  const predictedPercentage = Math.round(Math.min(100, Math.max(30, rawPercentage)) * 10) / 10;
+  const predictedTotalMarks = Math.round((predictedPercentage / 100) * 410 * 10) / 10;
+
+  let confidenceLevel: 'high' | 'moderate' | 'preliminary' = 'preliminary';
+  if (totalAttempted >= 60) confidenceLevel = 'high';
+  else if (totalAttempted >= 20) confidenceLevel = 'moderate';
+
+  let tierAr = 'المستوى العام - بحاجة لزيادة وتيرة التدريب وحل أسئلة المستويات العليا';
+  let tierEn = 'General Pass Tier - Needs More Structured Practice & HOTS Drills';
+  let facultiesAr = ['كليات التجارة والآداب والحقوق والخدمة الاجتماعية'];
+  let facultiesEn = ['Commerce, Arts, Law, and Social Work Faculties'];
+
+  if (predictedPercentage >= 92) {
+    tierAr = 'أوائل الجمهورية وكليات القطاع الطبي والهندسي المرموقة 🏆';
+    tierEn = 'National Republic Honors - Medical & Elite Engineering 🏆';
+    facultiesAr = ['الطب البشري', 'طب وجراحة الفم والأسنان', 'الهندسة والتكنولوجيا', 'الحاسبات والذكاء الاصطناعي'];
+    facultiesEn = ['Faculty of Medicine', 'Oral & Dental Surgery', 'Faculty of Engineering', 'AI & Computer Science'];
+  } else if (predictedPercentage >= 82) {
+    tierAr = 'قطاع التكنولوجيا والعلوم المتقدمة والصيدلة والاقتصاد 🌟';
+    tierEn = 'Distinction Tier - Technology, Sciences & Economics 🌟';
+    facultiesAr = ['الهندسة', 'الحاسبات والمعلومات', 'الصيدلة', 'العلاج الطبيعي', 'الاقتصاد والعلوم السياسية'];
+    facultiesEn = ['Engineering', 'Computer Science & Informatics', 'Pharmacy', 'Physical Therapy', 'Economics & Political Science'];
+  } else if (predictedPercentage >= 70) {
+    tierAr = 'قطاع العلوم والإعلام واللغات والترجمة التطبيقية 🎯';
+    tierEn = 'Merit Tier - Applied Sciences, Media & Languages 🎯';
+    facultiesAr = ['العلوم', 'الإعلام وتكنولوجيا الاتصال', 'الألسن واللغات والترجمة', 'الفنون التطبيقية'];
+    facultiesEn = ['Faculty of Science', 'Mass Communication', 'Languages & Translation (Al-Alsun)', 'Applied Arts'];
+  }
+
+  return {
+    predictedTotalMarks,
+    predictedPercentage,
+    confidenceLevel,
+    universityTrackTierAr: tierAr,
+    universityTrackTierEn: tierEn,
+    targetFacultyRecommendationsAr: facultiesAr,
+    targetFacultyRecommendationsEn: facultiesEn,
+  };
+}
+
 /**
  * Return the top weakest chapters that need immediate revision (lowest accuracy with at least 1 attempt, or chapters with high error count).
  */
@@ -272,7 +416,7 @@ export function getWeakestChapters(
   limit: number = 3
 ): ChapterPerformanceRecord[] {
   const data = state || getStudentAnalytics();
-  const list = Object.values(data.chapters).filter((ch) => ch.attempted >= 2);
+  const list = Object.values(data?.chapters || {}).filter((ch) => ch.attempted >= 2);
 
   // Sort by lowest accuracy percentage, then by highest error count
   list.sort((a, b) => {
@@ -368,7 +512,9 @@ export function generateDiagnosticBenchmarkQuestions(
           diagramType: prob.diagramType,
         };
 
-        pools[cat][normalizedDiff].push(q);
+        if (cat in pools) {
+          pools[cat as BranchCategory][normalizedDiff].push(q);
+        }
       };
 
       if (ch.databank) {

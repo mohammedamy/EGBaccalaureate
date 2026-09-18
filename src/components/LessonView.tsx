@@ -23,6 +23,7 @@ import { BiologyLab, type BioTab } from './labs/BiologyLab';
 import { EnglishLessonInteractiveWidget } from './EnglishLessonInteractiveWidget';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
+import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -266,6 +267,14 @@ export const LessonView: React.FC<Props> = ({
           return (
             <ArabicGrammarStudio />
           );
+        case 'history_timeline_lab':
+          return (
+            <HistoryTimelineStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -325,6 +334,14 @@ export const LessonView: React.FC<Props> = ({
         case 'arabic_rhetoric_lab':
           return (
             <ArabicGrammarStudio />
+          );
+        case 'history_timeline_lab':
+          return (
+            <HistoryTimelineStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
           );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} isFullscreen={true} />;

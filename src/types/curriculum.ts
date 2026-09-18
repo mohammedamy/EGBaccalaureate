@@ -13,6 +13,7 @@ export type BranchId =
   | 'thanaweya_english'
   | 'thanaweya_french'
   | 'thanaweya_arabic'
+  | 'thanaweya_history'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -22,7 +23,8 @@ export type BranchId =
   | 'egbac_biology'
   | 'egbac_english'
   | 'egbac_french'
-  | 'egbac_arabic';
+  | 'egbac_arabic'
+  | 'egbac_history';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 

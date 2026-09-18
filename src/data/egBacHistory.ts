@@ -1,0 +1,5486 @@
+import type { Branch } from '../types/curriculum';
+import { historyCh1Databank } from './databanks/thanaweya/historyCh1Databank';
+import { historyCh2Databank } from './databanks/thanaweya/historyCh2Databank';
+import { historyCh3Databank } from './databanks/thanaweya/historyCh3Databank';
+import { historyCh4Databank } from './databanks/thanaweya/historyCh4Databank';
+import { historyCh5Databank } from './databanks/thanaweya/historyCh5Databank';
+import { historyCh6Databank } from './databanks/thanaweya/historyCh6Databank';
+import { historyCh7Databank } from './databanks/thanaweya/historyCh7Databank';
+import { historyCh8Databank } from './databanks/thanaweya/historyCh8Databank';
+import { egBacHistoryCh1SolvedExamples, egBacHistoryCh1Exercises } from './textbook/egbac/egBacHistoryCh1Textbook';
+import { egBacHistoryCh2SolvedExamples, egBacHistoryCh2Exercises } from './textbook/egbac/egBacHistoryCh2Textbook';
+import { egBacHistoryCh3SolvedExamples, egBacHistoryCh3Exercises } from './textbook/egbac/egBacHistoryCh3Textbook';
+import { egBacHistoryCh4SolvedExamples, egBacHistoryCh4Exercises } from './textbook/egbac/egBacHistoryCh4Textbook';
+import { egBacHistoryCh5SolvedExamples, egBacHistoryCh5Exercises } from './textbook/egbac/egBacHistoryCh5Textbook';
+import { egBacHistoryCh6SolvedExamples, egBacHistoryCh6Exercises } from './textbook/egbac/egBacHistoryCh6Textbook';
+import { egBacHistoryCh7SolvedExamples, egBacHistoryCh7Exercises } from './textbook/egbac/egBacHistoryCh7Textbook';
+import { egBacHistoryCh8SolvedExamples, egBacHistoryCh8Exercises } from './textbook/egbac/egBacHistoryCh8Textbook';
+
+export const egBacHistoryBranch: Branch = {
+  id: "egbac_history",
+  titleEn: "Advanced Egyptian & Global Contemporary History",
+  titleAr: "التاريخ الوطني المعاصر والجيوسياسية المتقدمة",
+  categoryEn: "Humanities & Social Studies",
+  categoryAr: "العلوم الإنسانية والاجتماعية",
+  iconName: "Landmark",
+  colorGradient: "from-stone-900 via-amber-900 to-yellow-950",
+  chapters: [
+    {
+      ...{
+  "id": "th_hist_ch1",
+  "chapterNumber": 1,
+  "titleEn": "Unit 1: The French Expedition: Geopolitics & Mediterranean Strategy",
+  "titleAr": "الفصل الأول: الحملة الفرنسية والجيوسياسية المتوسطية",
+  "descriptionEn": "Advanced historiographical and geopolitical analysis of the French Expedition, Mediterranean naval balance, mercantilist colonial policies, and the birth of modern Egyptian political identity.",
+  "descriptionAr": "التحليل الجيوسياسي والوثائقي المتقدم للحملة الفرنسية والتوازن البحري المتوسطي والسياسات الاستعمارية ونشأة الوعي القومي المصري الحديث.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "th_hist_ch1_l1",
+      "titleEn": "Conditions in France and Egypt Prior to the Expedition (1789–1798)",
+      "titleAr": "الظروف التي سبقت مجيء الحملة الفرنسية وأحوال المجتمعين الفرنسي والمصري",
+      "summaryEn": "Analysis of the French Revolution (1789), Anglo-French imperial rivalry, motives for invading Egypt, and the economic, political, and social conditions of Egypt under Ottoman-Mamluk rule.",
+      "summaryAr": "تحليل الثورة الفرنسية (1789م)، والتنافس الاستعماري الإنجليزي الفرنسي، ودوافع احتلال مصر لقطع طريق الهند، ودراسة الأوضاع السياسية والاقتصادية (الالتزام، طوائف الحرف) والاجتماعية بمصر العثمانية.",
+      "theoryContentEn": "### 1. The French Revolution (1789) & European Coalitions\n- **Historical Milestone:** The first bourgeois social revolution in modern Europe, led by the middle class (bourgeoisie) allied with the working classes, resulting in the storming of the Bastille, execution of King Louis XVI, abolition of feudalism, and declaration of the French Republic.\n- **European Royalist Hostility:** European monarchies (led by Great Britain) perceived the French Revolution as a mortal threat to their absolutist thrones. They formed military coalitions to crush the Republic and prevent the export of revolutionary principles.\n- **Anglo-French Imperial Rivalry:** Anglo-French rivalry spanned the 17th and 18th centuries (Seven Years' War 1756–1763), where France lost major colonies in India and North America.\n\n### 2. French Motives for the Expedition to Egypt (1798)\n1. **Naval Stalemate:** French armies were supreme on European land, but Britain's Royal Navy dominated the English Channel, ruling out a direct invasion of Britain.\n2. **Geopolitical Diversion:** Occupy Egypt to cut Britain's vital maritime communication lifeline to its primary colony in India.\n3. **Imperial Empire:** Establish a French colonial empire in the East to compensate for territories lost in the Americas.\n4. **Commercial Transit:** Facilitate French trade to the East without paying heavy tolls or navigating the treacherous, British-controlled Cape of Good Hope.\n\n### 3. Conditions of Egyptian Society Under Ottoman Rule\n- **The Political System:**\n  - *The Governor (Wali):* Appointed by the Sultan for short tenures (1 to 3 years), leading to corruption and short-term exploitation.\n  - *The Diwan:* Held supervisory authority over the Wali, possessing the power to depose him.\n  - *Mamluk Beys:* Entrusted with regional provincial administration (Shaykh al-Balad).\n  - *Ali Bey al-Kabir's Movement (1768):* Exploited the Ottoman-Russian War to depose the Wali, annex the Hejaz, and mint coins in his name, before being betrayed and overthrown by his commander Muhammad Bey Abu al-Dhahab.\n- **Economic Conditions:**\n  - *Agriculture:* Land was state-owned under *Haqq al-Intifa'* (usufruct right). Taxes were collected via the exploitative *Iltizam* (tax-farming) system by Multazims, who extorted arbitrary surcharges (*Itawat*) and received tax-exempt estates (*Al-Usya*), causing peasants to abandon their lands.\n  - *Industry:* Handcrafted guilds (*Tawa'if al-Hiraf*) under a *Shaykh al-Ta'ifa*, completely isolated from European mechanized machinery.\n  - *Domestic Trade:* Plagued by insecure roads, nomadic Bedouin raids, shifting currency values, and inconsistent regional weights and measures.\n  - *Foreign Trade:* Diverted away from Egypt after the Portuguese discovery of the Cape of Good Hope (1498); foreign merchants dominated local trade due to Ottoman Capitulations.\n- **Social Structure:**\n  - *Rulers:* Ottoman Turks and Mamluks living in complete isolation and holding monopolistic political power.\n  - *Ruled:* Middle tier of Ulama, merchants, and notables; mass majority of peasants and craftsmen suffering poverty, ignorance, and intellectual stagnation.",
+      "theoryContentAr": "### ١. الثورة الفرنسية (1789م) والتنافس الاستعماري الأوروبي\n- **طبيعة الثورة الفرنسية:** أول ثورة برجوازية اجتماعية في تاريخ أوروبا الحديث؛ قادتها الطبقة الوسطى (البرجوازية) بالتحالف مع طبقة العمال، وأسفرت عن إسقاط سجن الباستيل، وإلغاء النظام الملكي الإقطاعي، وإعدام الملك لويس السادس عشر، وإعلان الجمهورية.\n- **تحالف ملوك أوروبا ضد الثورة:** أدرك ملوك أوروبا خطورة مبادئ الثورة على عروشهم، فشكلوا تحالفات عسكرية متتابعة بزعامة **إنجلترا** للقضاء على الثورة وإعادة الملكية ومنع تسرب مبادئها خارج حدود فرنسا.\n- **التنافس الاستعماري:** امتداد للصراع الإنجليزي الفرنسي منذ القرن السابع عشر وحتى القرن الثامن عشر؛ حيث خسرت فرنسا معظم مستعمراتها في الهند وأمريكا الشمالية.\n\n### ٢. دوافع إرسال الحملة الفرنسية إلى مصر (1798م)\n١. **استحالة ضرب إنجلترا في عقر دارها:** لتفوق الأسطول الإنجليزي الكاسح في بحر المانش، مما دفع حكومة الإدارة الفرنسية بقيادة نابليون بونابرت للبحث عن ميدان بديل.\n٢. **قطع طريق مواصلات بريطانيا إلى الهند:** توجيه ضربة استراتيجية كبرى للتجارة الإمبراطورية البريطانية باحتلال موقع مصر الاستراتيجي.\n٣. **بناء إمبراطورية فرنسية في الشرق:** تعويض فرنسا عن مستعمراتها المفقودة في العالم الجديد.\n٤. **تسهيل التجارة الفرنسية:** تأمين مرور تجارة فرنسا مع الشرق عبر البحرين المتوسط والأحمر وتفادي طريق رأس الرجاء الصالح الذي تسيطر عليه بريطانيا.\n\n### ٣. أحوال المجتمع المصري قُبيل مجيء الحملة\n- **الحالة السياسية:**\n  - انقسم الحكم العثماني لثلاث سلطات تراقب بعضها: الوالي (نائب السلطان ومدة حكمه قصيرة من سنة لثلاث سنوات)، الديوان (يراقب الوالي وله حق عزله)، وبكوات المماليك (إدارة الأقاليم وحفظ الأمن).\n  - *حركة علي بك الكبير الاستقلالية (1768م):* استغل حرب الدولة العثمانية مع روسيا، فعزل الوالي وامتنع عن دفع الخراج وسك النقود باسمه وأخضع الحجاز، لكن حركته فشلت بسبب خيانة نائبه محمد بك أبو الذهب الذي انحاز للسلطان.\n- **الحالة الاقتصادية:**\n  - *الزراعة:* ملكية الرقبة للسلطان العثماني (حق الانتفاع)، وجباية الضرائب عبر **نظام الالتزام**؛ حيث تعسف الملتزم وفرض إتاوات، ومُنح أرض الوسية معفاة من الضرائب، مما أدى لإهمال الفلاحين للأرض وتدهور الري.\n  - *الصناعة:* يدوية بسيطة لم تصل للآلية، ونُظمت عبر **طوائف الحرف** تحت إشراف شيخ الطائفة لجمع الضرائب وتحديد الإنتاج.\n  - *التجارة الداخلية:* متدهورة بسبب غارات بدو الصحراء، وعدم استقرار قيمة العملة، واختلاف المكاييل والموازين.\n  - *التجارة الخارجية:* تدهورت منذ تحول طريق التجارة إلى رأس الرجاء الصالح 1498م، وسيطر التجار الأجانب بفضل الامتيازات الأجنبية.\n- **الحالة الاجتماعية:**\n  - مجتمع طبقي صارم: طبقة الحكام (أتراك ومماليك في عزلة تامة)، وطبقة المحكومين (طبقة وسطى من العلماء والتجار، وعامة الشعب من الفلاحين والحرفيين)، مع سيادة الجهل والخرافات واقتصار التعليم على الأزهر.",
+      "formulas": [
+        {
+          "labelEn": "Geopolitical Imperial Redirection",
+          "labelAr": "معادلة التحول الاستراتيجي الجيوسياسي الفرنسي",
+          "latex": "\\text{تفوق الأسطول الإنجليزي في المانش} \\implies \\text{صعوبة الغزو المباشر} \\implies \\text{ضرب مصالح إنجلترا في مصر}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH1-L1",
+        "pageRange": "pp. 5-14"
+      },
+      "lessonPlan": {
+        "titleEn": "Geopolitical Preconditions: French Revolution & Ottoman Egyptian Society",
+        "titleAr": "الظروف الجيوسياسية الممهدة: الثورة الفرنسية وواقع المجتمع المصري العثماني",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-101",
+        "bloomsObjectivesEn": [
+          "Analyze why France shifted its imperial campaign toward Egypt rather than striking Great Britain directly.",
+          "Compare the socio-economic structure of revolutionary republican France with feudal Ottoman Egypt under Iltizam.",
+          "Evaluate the consequences of Ali Bey al-Kabir's separatist movement on Ottoman-Mamluk power dynamics."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الأسباب الجيوسياسية التي دفعت فرنسا لاحتلال مصر عام 1798م بدلاً من غزو بريطانيا مباشرة.",
+          "المقارنة بين الأوضاع الاقتصادية والاجتماعية في فرنسا الجمهورية البرجوازية ومصر العثمانية الإقطاعية تحت نظام الالتزام.",
+          "تقويم نتائج حركة علي بك الكبير الاستقلالية عام 1768م وأثر خيانة أبو الذهب على استقرار الحكم."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of European geography and Mediterranean trade routes.",
+          "Familiarity with the Ottoman administrative conquest of the Arab world (1517)."
+        ],
+        "prerequisitesAr": [
+          "معرفة جغرافيا حوض البحر المتوسط وطرق التجارة الدولية.",
+          "الإلمام بطبيعة الحكم العثماني لمصر منذ معركة الريدانية 1517م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Iltizam",
+            "definition": "Ottoman tax-farming concession granting collectors rights to extract taxes in return for advance payment."
+          },
+          {
+            "term": "Al-Usya",
+            "definition": "Tax-exempt private agricultural land granted to the Multazim by the Ottoman state."
+          },
+          {
+            "term": "Haqq al-Intifa'",
+            "definition": "Usufruct land system where legal ownership belonged to the Sultan and peasants had no selling rights."
+          },
+          {
+            "term": "Tawa'if al-Hiraf",
+            "definition": "Handicraft guild system organizing Egyptian artisan production under a hereditary Shaykh."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "نظام الالتزام",
+            "definition": "نظام جباية عثماني يدفع بموجبه الملتزم الضرائب مقدماً للسلطان ثم يجمعها مضاعفة من الفلاحين."
+          },
+          {
+            "term": "أرض الوسية",
+            "definition": "أرض زراعية معفاة من الضرائب تمنحها الدولة العثمانية للملتزم نظير قيامه بجباية الضرائب."
+          },
+          {
+            "term": "حق الانتفاع",
+            "definition": "نظام ملكية زراعية تكون فيه الأرض ملكاً للسلطان والدولة، ويزرعها الفلاح دون حق البيع أو التوريث."
+          },
+          {
+            "term": "طوائف الحرف",
+            "definition": "تنظيم نقابي حرفي صناعي لكل مهنة يمثل همزة الوصل مع الحكومة لجمع الضرائب وتحديد الإنتاج."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation & Hook",
+            "phaseAr": "التهيئة والدافعية",
+            "duration": "15 min",
+            "activitiesEn": "Display European coalition map and analyze British naval supremacy in the English Channel.",
+            "activitiesAr": "عرض خريطة التحالفات الأوروبية ومناقشة تفوق بريطانيا البحري وتداعياته على قرار نابليون."
+          },
+          {
+            "phaseEn": "Direct Instruction",
+            "phaseAr": "الشرح الاستراتيجي",
+            "duration": "35 min",
+            "activitiesEn": "Deconstruct Ottoman administrative institutions, Iltizam abuses, and Ali Bey al-Kabir's movement.",
+            "activitiesAr": "تفكيك بنية الحكم العثماني، ومساوئ نظام الالتزام، وتحليل حركة علي بك الكبير."
+          },
+          {
+            "phaseEn": "Analytical Comparison",
+            "phaseAr": "المقارنة والتحليل",
+            "duration": "25 min",
+            "activitiesEn": "Students construct a comparative matrix contrasting French republican society with Ottoman Egyptian society.",
+            "activitiesAr": "بناء جدول مقارنة حضاري بين المجتمع الفرنسي الرأسمالي الثوري والمجتمع المصري الإقطاعي الراكد."
+          },
+          {
+            "phaseEn": "Plenary Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Execute 5 ministerial MCQs focusing on cause-and-effect exam traps.",
+            "activitiesAr": "حل 5 أسئلة نواتج تعلم وزارية عليا حول أسباب الحملة وتدهور التجارة."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing France invaded Egypt purely for religious crusader motives, rather than geopolitical rivalry with Britain.",
+          "Confusing Haqq al-Intifa' (peasant usufruct) with Al-Usya (Multazim's tax-exempt private land grant)."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن الحملة الفرنسية كانت حملة صليبية دينية، بينما الحقيقة أنها كانت صراعاً استعمارياً جيوسياسياً مع بريطانيا.",
+          "الخلط بين حق الانتفاع (المخصص للفلاح بدون ملكية رقبة) وأرض الوسية (الممنوحة للملتزم ومعفاة من الضرائب)."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze French colonial documentation against contemporary Egyptian historical chronicles (e.g., Al-Jabarti) to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين يوميات الجبرتي والوثائق الرسمية للحملة الفرنسية لاستنباط الانحيازات التاريخية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "What was the fundamental geopolitical factor driving the French expedition to Egypt rather than a direct invasion of Britain?",
+          "questionAr": "ما العامل الجيوسياسي الجوهري الذي دفع فرنسا لإرسال حملتها لاحتلال مصر بدلاً من الغزو المباشر للأراضي الإنجليزية؟",
+          "solutionEn": "British naval supremacy in the English Channel prevented a direct amphibious invasion, prompting France to strike Britain's imperial communications and commerce to India via Egypt.",
+          "solutionAr": "التفوق الكاسح للأسطول الإنجليزي في بحر المانش حال دون الغزو المباشر، فكان البديل ضرب مصالح بريطانيا الاقتصادية وقطع مواصلاتها مع الهند عبر مصر."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch1_ws1",
+        "titleEn": "Worksheet 1.1: Conditions in France and Egypt Prior to the Expedition (1789–1798)",
+        "titleAr": "ورقة عمل ١-1: الظروف التي سبقت مجيء الحملة الفرنسية وأحوال المجتمعين الفرنسي والمصري",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 1.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 1.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian History Interactive Chronology Studio",
+        "titleAr": "معمل الخريطة الزمنية التفاعلية لتاريخ مصر الحديث",
+        "descriptionEn": "Interactive timeline simulator exploring battles, treaties, and geopolitical power transitions.",
+        "descriptionAr": "محاكي الخرائط والخطوط الزمنية التفاعلية لتحليل معارك ومعاهدات الحملة الفرنسية والتحولات الاستراتيجية."
+      }
+    },
+    {
+      "id": "th_hist_ch1_l2",
+      "titleEn": "Landing of the French Expedition and Egyptian National Resistance (1798–1800)",
+      "titleAr": "نزول الحملة الفرنسية وملاحم المقاومة الشعبية والمعارك العسكرية",
+      "summaryEn": "Alexandria's defense under Muhammad Kurayyim, Mamluk defeats at Shubra Khit and Imbaba, British victory at Abukir Bay, Upper Egypt's 10-month guerrilla resistance, and the First Cairo Revolt.",
+      "summaryAr": "مقاومة الإسكندرية واستشهاد محمد كُريّم، معركتا شبراخيت وإمبابة وفشل المماليك، موقعة أبي قير البحرية وبداية النهاية للحملة، ملحمة مقاومة أهل الصعيد لعشرة أشهر، وثورة القاهرة الأولى.",
+      "theoryContentEn": "### 1. Landing at Alexandria & Muhammad Kurayyim's Heroism\n- **Napoleon's Propaganda Proclamation (June 1798):** Distributed to deceive Egyptians; claimed devotion to Islam and the Prophet, promised liberation from Mamluk tyranny, and announced governance by merit. Yet it contained a brutal contradiction: threatening to incinerate any village offering armed resistance.\n- **Alexandria Resistance:** Led by Governor Muhammad Kurayyim with local citizens; Mamluks were caught unprepared due to internal infighting. Kurayyim resisted bravely, was captured, and executed by firing squad in Cairo (September 1798).\n\n### 2. Mamluk Military Confrontations: Shubra Khit & Imbaba\n- **Battle of Shubra Khit (July 1798, Beheira):** First clash between French infantry and Mamluk cavalry under Murad Bey. Defeated due to modern French firearms, Murad retreated to defend Cairo.\n- **Battle of the Pyramids / Imbaba (July 1798):** Decisive French victory. Murad Bey fled to Upper Egypt, while Ibrahim Bey and the Ottoman Wali fled to Syria, leaving Cairo in a total political vacuum.\n\n### 3. The Naval Battle of Abukir Bay (August 1798) - The Turning Point\n- **British Admiral Horatio Nelson** destroyed the anchored French fleet at Abukir Bay near Alexandria.\n- **Catastrophic Strategic Consequences:**\n  1. Complete severance of maritime communications between the French army in Egypt and France.\n  2. Extinguished French ambitions of Mediterranean naval dominance.\n  3. Trapped French troops in Egypt as an isolated land force without reinforcements.\n  4. Forced Napoleon to impose heavy taxes on Egyptians, directly igniting the First Cairo Revolt.\n\n### 4. Resistance of Upper Egypt (Al-Sa'id) - The 10-Month Epic\n- **Persistence Factors:**\n  1. *Elongated Geography:* The Nile Valley stretches over hundreds of kilometers south to Aswan.\n  2. *Guerrilla Tactics:* Inhabitants avoided open battles, using hit-and-run tactics.\n  3. *Mamluk Alliance:* Remnants of Murad Bey's cavalry joined the local fighters.\n  4. *Arab Solidarity:* Volunteer Arab fighters crossed the Red Sea from the Arabian Peninsula to join the resistance.\n\n### 5. The First Cairo Revolt (October 1798)\n- **Headquarters:** Al-Azhar Mosque under leadership of scholars and merchants.\n- **Events & Outrage:** Triggered by house searches, gate demolitions, and heavy taxes; General Dupuy, French governor of Cairo, was killed.\n- **Brutal Suppression:** Napoleon bombarded Al-Azhar with artillery from the Citadel, desecrated the sanctuary by riding horses into the mosque, and executed key religious leaders.",
+      "theoryContentAr": "### ١. نزول الإسكندرية واستشهاد محمد كُريّم\n- **منشور نابليون (يونيو 1798م):** خطابه المليء بالتناقض؛ ادعى فيه احترام الدين الإسلامي والنبي محمد، والتحالف مع السلطان العثماني لتخليص المصريين من ظلم المماليك، وأعلن مبدأ المساواة في تولي الوظائف، لكنه هدد بحرق أي قرية تقاوم الحملة.\n- **مقاومة الإسكندرية:** تصدى أهالي الإسكندرية بقيادة حاكمها الزعيم الوطني **محمد كُريّم** للحملة ببسالة؛ حيث كان المماليك غارقين في نزاعاتهم الداخلية وتناسوا تحصين الحدود. اعتُقل كُريّم وأُعدم رمياً بالرصاص في القاهرة في سبتمبر 1798م.\n\n### ٢. معارك المماليك: شبراخيت وإمبابة\n- **معركة شبراخيت (يوليو 1798م بالبحيرة):** أول مواجهة عسكرية بين فرسان المماليك بقيادة مراد بك والجيش الفرنسي؛ هُزم المماليك بفارق السلاح والتنظيم وتراجعوا جنوباً للدفاع عن القاهرة.\n- **معركة إمبابة (الأهرام - يوليو 1798م):** هزيمة ساحقة للمماليك؛ فر **مراد بك** إلى الصعيد، وفر **إبراهيم بك** ومعه الوالي العثماني إلى بلاد الشام، فدخل نابليون القاهرة دون مقاومة.\n\n### ٣. موقعة أبي قير البحرية (أغسطس 1798م) - بداية النهاية للحملة\n- دمر الأسطول الإنجليزي بقيادة الأميرال **هوراشيو نيلسون** الأسطول الفرنسي في خليج أبي قير.\n- **النتائج الاستراتيجية الفاصلة:**\n  ١. قطع صلة الحملة والجيش الفرنسي في مصر بفرنسا تماماً.\n  ٢. القضاء على آمال فرنسا في بسط سيادتها على حوض البحر المتوسط.\n  ٣. حرمان الجيش الفرنسي من الإمدادات وجعله محاصراً في أرض مصر.\n  ٤. لجوء نابليون لفرض ضرائب باهظة على المصريين لتمويل قواته، مما فجر الثورات ضده.\n\n### ٤. ملحمة صمود أهالي الصعيد (عشرة أشهر)\n- **أسباب طول واستبسال مقاومة الصعيد:**\n  ١. طول الوادي وامتداده الجغرافي جنوباً لمئات الكيلومترات مما أنهك القوات الفرنسية.\n  ٢. اتباع أهالي الصعيد أسلوب **حرب المناوشات والمعارك المتفرقة** وتفادي المواجهات المفتوحة.\n  ٣. انضمام فلول فرسان المماليك بقيادة مراد بك إلى المقاومة الشعبية.\n  ٤. وصول إمدادات وقوات متطوعة مجاهدة من **شبه الجزيرة العربية** عبر البحر الأحمر في أروع صور **التضامن العربي**.\n\n### ٥. ثورة القاهرة الأولى (أكتوبر 1798م)\n- **مركز القيادة:** الجامع الأزهر الشريف بقيادة علمائه وتجاره.\n- **الأسباب والأحداث:** فرض الضرائب الفادحة وتفتيش البيوت وهدم بوابات الحارات؛ وقُتل حاكم القاهرة الفرنسي الجنرال ديبوي.\n- **القمع الوحشي:** قصف نابليون الأزهر الشريف بالمدفعية من القلعة، واقتحم جنوده المسجد بالخيول منتهكين حرمته، وأُعدم كبار مشايخ وقادة الثورة.",
+      "formulas": [
+        {
+          "labelEn": "Abukir Bay Domino Effect",
+          "labelAr": "سلسلة التداعيات الاستراتيجية لموقعة أبي قير البحرية",
+          "latex": "\\text{تحطيم الأسطول} \\implies \\text{حصار بحري بريطاني} \\implies \\text{فرض ضرائب بالقاهرة} \\implies \\text{ثورة القاهرة الأولى}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH1-L2",
+        "pageRange": "pp. 15-26"
+      },
+      "lessonPlan": {
+        "titleEn": "Landing, Early Military Confrontations, and Popular Revolts",
+        "titleAr": "الإنزال العسكري والمواجهات الميدانية وتفجر الثورات الشعبية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-102",
+        "bloomsObjectivesEn": [
+          "Explain why the Battle of Abukir Bay is regarded as the strategic turning point of the French Expedition.",
+          "Analyze the military and geographical factors that enabled Upper Egypt to resist for 10 months.",
+          "Contrast Napoleon's proclamation rhetoric with the reality of Al-Azhar's desecration during the First Cairo Revolt."
+        ],
+        "bloomsObjectivesAr": [
+          "تفسير اعتبار موقعة أبي قير البحرية نقطة التحول الاستراتيجية التي حكمت على الحملة بالفشل.",
+          "تحليل العوامل الجغرافية والعسكرية والتضامنية التي مكنت أهل الصعيد من الصمود 10 أشهر.",
+          "المقارنة النقدية بين ادعاءات منشور نابليون واقتحام جنوده للأزهر الشريف بالخيول."
+        ],
+        "prerequisitesEn": [
+          "Understanding the Battle of the Pyramids and Mediterranean geography."
+        ],
+        "prerequisitesAr": [
+          "استيعاب خريطة معارك الحملة وتداعيات الوجود البريطاني في البحر المتوسط."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Abukir Bay",
+            "definition": "Naval battle in August 1798 where Nelson destroyed the French Mediterranean fleet."
+          },
+          {
+            "term": "Guerrilla Warfare",
+            "definition": "Asymmetric hit-and-run military tactics adopted by Upper Egyptian fighters."
+          },
+          {
+            "term": "Arab Solidarity",
+            "definition": "Volunteers crossing the Red Sea from Arabia to assist Upper Egyptians against French forces."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "موقعة أبي قير البحرية",
+            "definition": "معركة بحرية حاسمة دمر فيها نيلسون الأسطول الفرنسي وحاصر الحملة في مصر."
+          },
+          {
+            "term": "حرب المناوشات",
+            "definition": "تكتيك عسكري يعتمد على الهجمات المباغتة الخاطفة وتفادي المعارك المفتوحة في الصعيد."
+          },
+          {
+            "term": "التضامن العربي",
+            "definition": "انضمام متطوعين من الجزيرة العربية عبر البحر الأحمر لمساندة مقاومة الصعيد ضد الفرنسيين."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Analyze Nelson's ambush in Abukir Bay using animated map graphics.",
+            "activitiesAr": "عرض خريطة معركة أبي قير البحرية وتحليل تداعيات غرق الأسطول."
+          },
+          {
+            "phaseEn": "Direct Instruction",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "40 min",
+            "activitiesEn": "Detail the chronological resistance: Alexandria, Shubra Khit, Imbaba, Upper Egypt, and Cairo I.",
+            "activitiesAr": "شرح تسلسل المقاومة من الإسكندرية حتى ثورة القاهرة الأولى وصمود الصعيد."
+          },
+          {
+            "phaseEn": "Source Criticism",
+            "phaseAr": "نقد الوثائق",
+            "duration": "25 min",
+            "activitiesEn": "Critique Napoleon's 1798 Proclamation against his bombardment of Al-Azhar.",
+            "activitiesAr": "قراءة نقدية لمنشور نابليون ومقارنته بإعدام محمد كُريّم وقصف الأزهر."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Assess students on ministerial exam traps regarding Murad Bey and Upper Egypt.",
+            "activitiesAr": "إجراء اختبار سريع من 5 أسئلة وزارية حول أسباب صمود الصعيد وثورة القاهرة."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming Mamluks won at Shubra Khit due to cavalry bravery."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن المماليك استطاعوا الصمود بفضل شجاعة فرسانهم متجاهلين الفارق التقني للأسلحة."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze French colonial documentation against contemporary Egyptian historical chronicles (e.g., Al-Jabarti) to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين يوميات الجبرتي والوثائق الرسمية للحملة الفرنسية لاستنباط الانحيازات التاريخية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why is the Battle of Abukir Bay considered the decisive strategic turning point of the French presence in Egypt?",
+          "questionAr": "لماذا تُعد معركة أبي قير البحرية نقطة التحول الاستراتيجية الفاصلة في مصير الحملة الفرنسية بمصر؟",
+          "solutionEn": "Nelson's destruction of the French fleet severed supply lines to France, trapped the army in Egypt, destroyed French Mediterranean naval hegemony, and forced Napoleon into heavy domestic taxation that provoked revolts.",
+          "solutionAr": "تحطيم الأسطول الفرنسي قطع كل صلات الحملة بفرنسا وحرمها من الإمدادات، وأنهى سيادة فرنسا البحرية في المتوسط، وفرض حصاراً بريطانياً ألجأ نابليون للضرائب التي فجرت الثورات."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch1_ws2",
+        "titleEn": "Worksheet 1.2: Landing of the French Expedition and Egyptian National Resistance (1798–1800)",
+        "titleAr": "ورقة عمل ١-2: نزول الحملة الفرنسية وملاحم المقاومة الشعبية والمعارك العسكرية",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 2.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian History Interactive Chronology Studio",
+        "titleAr": "معمل الخريطة الزمنية التفاعلية لتاريخ مصر الحديث",
+        "descriptionEn": "Interactive timeline simulator exploring battles, treaties, and geopolitical power transitions.",
+        "descriptionAr": "محاكي الخرائط والخطوط الزمنية التفاعلية لتحليل معارك ومعاهدات الحملة الفرنسية والتحولات الاستراتيجية."
+      }
+    },
+    {
+      "id": "th_hist_ch1_l3",
+      "titleEn": "The Evacuation & Multi-dimensional Impact of the French Presence (1800–1801)",
+      "titleAr": "جلاء الحملة الفرنسية والآثار السياسية والاقتصادية والقضائية والفكرية الشاملة",
+      "summaryEn": "Kléber's command, Treaty of El Arish, British refusal, Second Cairo Revolt, Menou's reforms, final evacuation in 1801, and the political (Diwans), judicial, economic, and scientific (Rosetta Stone, Description de l'Égypte) legacies.",
+      "summaryAr": "قيادة كليبر، معاهدة العريش وفشلها، ثورة القاهرة الثانية، خطة مينو ومشروعه العام، الجلاء النهائي 1801م، والآثار السياسية (الدواوين)، والقضائية، والاقتصادية، والعلمية (حجر رشيد، وصف مصر) ويقظة الوعي القومي.",
+      "theoryContentEn": "### 1. Napoleon's Levant Campaign (1799)\n- Motivated by a tripartite alliance (Ottoman, British, Russian) intending to attack Egypt simultaneously by land from Syria and sea from Rhodes.\n- Napoleon captured El-Arish, Gaza, and Jaffa, but failed at the coastal fortress of **Acre (Akka)** due to the valor of Ahmad Pasha al-Jazzar and British naval support under Sir Sidney Smith.\n\n### 2. General Kléber's Realism & Treaty of El Arish (1800)\n- Napoleon left Egypt secretly for France in August 1799. Kléber assumed command and deemed staying impossible due to diminishing troops, renewed Mamluk resistance, and the British naval blockade.\n- **Treaty of El Arish (January 1800):** Agreed with the Ottomans to evacuate French troops with their weapons at Ottoman expense.\n- **British Sabotage:** The British government insisted that French forces surrender unconditionally as prisoners of war. Kléber indignantly refused, attacked the Ottoman army at Heliopolis, and drove them back toward Syria.\n\n### 3. The Second Cairo Revolt (March–April 1800)\n- Led by Sayyid **Omar Makram** in the Bulaq neighborhood; suppressed brutally by Kléber with artillery.\n- Kléber struck a deal with **Murad Bey** to govern Upper Egypt under French suzerainty.\n- **Kléber's Assassination (June 1800):** Killed in Cairo by Syrian Azharite student Suleiman al-Halabi.\n\n### 4. General Menou & The Final Evacuation (September 1801)\n- **Menou's Grand Project (1801):** Menou converted to Islam and planned permanent French colonization; designed reforms in agriculture, taxation, and specialized trade courts.\n- **The Evacuation:** In March 1801, a British fleet joined by an Ottoman army and Mamluk leaders landed at Abu Qir, compelling the French to surrender and evacuate Egypt in September 1801.\n\n### 5. Multi-dimensional Impacts of the French Expedition\n1. **Political (The Diwans):** Napoleon created Cairo Diwan, Provincial Diwans, and the General Diwan (*Al-Diwan al-Amm*) under Shaykh **Abdullah al-Sharqawi**; trained Egyptian notables in consultative governance (*Shura*).\n2. **Judicial & Public Health:**\n   - *Judiciary:* Napoleon Egyptianized the courts, removing Turkish judges and setting litigation fees at 2%. Menou abolished the blood money (*Diya*) principle and established courts for each minority.\n   - *Health:* Established health quarantine centers in Cairo, Alexandria, Damietta, and Rosetta.\n3. **Scientific & Cultural (The Most Lasting Legacy):**\n   - **Institut d'Égypte:** Established laboratories and scientific journals; served as a cultural window to modern sciences.\n   - **The Rosetta Stone:** Discovered in 1799, deciphered by **Champollion** in 1822, unlocking 3,000 years of ancient Egyptian hieroglyphic history.\n   - **Description de l'Égypte:** The first comprehensive encyclopedic survey of Egyptian geography, society, and antiquities.\n   - **Suez Canal Project:** First engineering study to connect the Mediterranean and Red Seas.\n   - **National Consciousness:** The experience of governance in Diwans cultivated political agency, leading directly to the 1805 national revolution electing **Muhammad Ali** at Bayt al-Qadi.",
+      "theoryContentAr": "### ١. حملة نابليون على الشام (1799م)\n- تحالفت الدولة العثمانية مع إنجلترا وروسيا لإخراج الفرنسيين عبر حملتين (برية من الشام وبحرية من رودس).\n- خرج نابليون للشام لمباغتة الجيش العثماني، لكنه **فشل في اقتحام عكا** بفضل استبسال حاكمها **أحمد باشا الجزار** ومساندة الأسطول البريطاني بقيادة سير سدني سميث بالمؤن والذخائر بحراً.\n\n### ٢. عهد كليبر ومعاهدة العريش (1800م)\n- غادر نابليون سراً لفرنسا، وتولى **كليبر** الذي رأى استحالة بقاء الحملة لنقص الجند وحصار الإنجليز وتجدد ثورات المصريين ومقاومة المماليك.\n- **معاهدة العريش (يناير 1800م):** اتفق مع العثمانيين على الخروج بكامل جنوده وسلاحه على نفقة الدولة العثمانية.\n- **تعنت إنجلترا:** رفضت حكومة لندن المعاهدة وطلبت استسلام الفرنسيين كأسرى حرب؛ فرفض كليبر وقاتل القوات العثمانية في معركة عين شمس وهزمها وطردها للشام.\n\n### ٣. ثورة القاهرة الثانية (مارس–أبريل 1800م)\n- اشتعلت الثورة بزعامة السيد **عمر مكرم** في حي بولاق؛ أخمدها كليبر بالقوة والمدفعية، واتفق مع **مراد بك** على أن يحكم الصعيد تحت السيادة الفرنسية.\n- **اغتيال كليبر:** في يونيو 1800م اغتاله البطل السوري الأزهري سليمان الحلبي.\n\n### ٤. عهد مينو والجلاء النهائي (سبتمبر 1801م)\n- **المشروع العام 1801م:** أراد مينو الاستيطان الدائم، فأشهر إسلامه ووضع خطة إصلاحية للزراعة والصناعة والقضاء.\n- **الجلاء:** وصل أسطول إنجليزي مدعوماً بجيش عثماني وزعماء المماليك في فبراير 1801م، فاستسلم الفرنسيون وخرجوا من مصر في سبتمبر 1801م.\n\n### ٥. الآثار الشاملة للحملة الفرنسية على مصر\n١. **الآثار السياسية (الدواوين):** أنشأ نابليون ديوان القاهرة، ودواوين الأقاليم، والديوان العام برئاسة الشيخ **عبد الله الشرقاوي**؛ لتدريب الأعيان على مجالس الشورى وتداول الرأي.\n٢. **الآثار القضائية والصحية:**\n   - *القضاء:* تمصير القضاء وعزل القضاة الأتراك في عهد نابليون، وتحديد رسوم التقاضي بـ 2%. وألغى مينو مبدأ الدية وأنشأ محكمة لكل طائفة.\n   - *الصحة:* إنشاء محاجر صحية في القاهرة والإسكندرية ودمياط ورشيد.\n٣. **الآثار الفكرية والعلمية (أبرز الآثار وأخلدها):**\n   - **المجمع العلمي المصري:** نافذة أطل منها المصريون على العلوم الأوروبية؛ وأصدر جريدتين فرنسيتين، وأصدر مينو جريدة **التنبيه** باللغة العربية.\n   - **حجر رشيد:** عُثر عليه عام 1799م، وفك رموزه العالم الفرنسي **شامبليون** عام 1822م مما فتح تاريخ مصر القديم وقراءة الهيروغليفية.\n   - **كتاب وصف مصر:** أول موسوعة علمية جغرافية وتاريخية واجتماعية شاملة لمصر.\n   - **مشروع حفر قناة السويس:** أول دراسة هندسية لربط البحرين.\n   - **نمو الوعي القومي والسياسي:** قادت تجربة المشاركة في الدواوين إلى ثورة الشعب عام 1805م واجتماع دار المحكمة في 13 مايو لعزل خورشيد وتولية **محمد علي** بشروط الأمة.",
+      "formulas": [
+        {
+          "labelEn": "Sovereignty of the People Genesis",
+          "labelAr": "معادلة نشوء الوعي السياسي وتولية محمد علي",
+          "latex": "\\text{المشاركة في الدواوين} + \\text{مقاومة المحتل} \\implies \\text{يقظة الوعي القومي} \\implies \\text{اجتماع دار المحكمة 1805م}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH1-L3",
+        "pageRange": "pp. 27-38"
+      },
+      "lessonPlan": {
+        "titleEn": "Evacuation Realities, Intellectual Legacies, and National Consciousness",
+        "titleAr": "مسارات الجلاء والآثار الفكرية والحضارية ويقظة الوعي القومي",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-103",
+        "bloomsObjectivesEn": [
+          "Contrast Kléber's evacuation diplomacy in the Treaty of El Arish with Menou's colonization strategy under the Grand Project.",
+          "Evaluate the judicial reforms instituted by Napoleon and Menou regarding litigation fees and blood money.",
+          "Synthesize how the scientific achievements (Rosetta Stone, Institut d'Égypte) and political Diwans laid the cornerstone for the popular assembly of May 13, 1805."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة التحليلية بين دبلوماسية كليبر في معاهدة العريش ورؤية مينو الاستيطانية في المشروع العام.",
+          "تقويم الإصلاحات القضائية لنابليون ومينو من حيث رسوم التقاضي وإلغاء الدية والمحاكم الطائفية.",
+          "تركيب العلاقة السببية بين إنجازات الحملة الفكرية وتجربة الدواوين ويقظة الوعي الوطني المؤدية لثورة مايو 1805م."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the First Cairo Revolt and French military leaders."
+        ],
+        "prerequisitesAr": [
+          "استيعاب تتابع قادة الحملة الفرنسية (نابليون، كليبر، مينو)."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Treaty of El Arish",
+            "definition": "Agreement in Jan 1800 between Kléber and Ottomans, ruined by British demands for unconditional surrender."
+          },
+          {
+            "term": "General Diwan",
+            "definition": "Supreme consultative body created by Napoleon, presided over by Shaykh Abdullah al-Sharqawi."
+          },
+          {
+            "term": "Rosetta Stone",
+            "definition": "Bilingual trilingual stela discovered in 1799, deciphered by Champollion in 1822 to unlock Hieroglyphs."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "معاهدة العريش",
+            "definition": "معاهدة يناير 1800م بين كليبر والدولة العثمانية للخروج بسلاحهم وأجهضها التعنت الإنجليزي."
+          },
+          {
+            "term": "الديوان العام",
+            "definition": "سلطة استشارية عليا أسسها نابليون ورأسها الشيخ عبد الله الشرقاوي لتدريب الأعيان على الشورى."
+          },
+          {
+            "term": "حجر رشيد",
+            "definition": "حجر أثري عثر عليه 1799م وفك شامبليون رموزه 1822م فكشف أسرار الحضارة المصرية القديمة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Review & Connect",
+            "phaseAr": "الربط والتمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Debate why Kléber wished to evacuate while Menou wished to stay.",
+            "activitiesAr": "مناظرة طلابية: لماذا أراد كليبر الرحيل بينما أصر مينو على البقاء والاستيطان؟"
+          },
+          {
+            "phaseEn": "Core Concept Analysis",
+            "phaseAr": "التحليل المفاهيمي",
+            "duration": "45 min",
+            "activitiesEn": "Analyze the 4 major intellectual achievements and the Diwan system.",
+            "activitiesAr": "شرح الأعمال الكبرى لعلماء الحملة (حجر رشيد، وصف مصر، القناة) ونظام الدواوين."
+          },
+          {
+            "phaseEn": "Historical Causation Link",
+            "phaseAr": "الربط السببي التاريخي",
+            "duration": "20 min",
+            "activitiesEn": "Trace how political training in Diwans enabled the May 13, 1805 revolution at Bayt al-Qadi.",
+            "activitiesAr": "تتبع مسار انتقال الخبرة السياسية من الدواوين إلى ثورة الشعب وتولية محمد علي 1805م."
+          },
+          {
+            "phaseEn": "Final Formative Drill",
+            "phaseAr": "التقويم النهائي",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 high-order synthesis questions on the long-term impacts of the expedition.",
+            "activitiesAr": "حل 5 أسئلة استنتاجية عليا حول الآثار الفكرية والسياسية للحملة."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Thinking the Suez Canal was actually opened during the French Expedition."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن قناة السويس حُفرت وافتُتحت بالفعل أثناء الحملة الفرنسية."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze French colonial documentation against contemporary Egyptian historical chronicles (e.g., Al-Jabarti) to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين يوميات الجبرتي والوثائق الرسمية للحملة الفرنسية لاستنباط الانحيازات التاريخية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "How did Egyptian participation in the advisory Diwans directly cultivate the political consciousness that led to the election of Muhammad Ali in 1805?",
+          "questionAr": "كيف ساهمت مشاركة زعماء الشعب في الدواوين في بلورة الوعي السياسي الوطني الذي توج بثورة مايو 1805م واختيار محمد علي؟",
+          "solutionEn": "Experience in consultative deliberation trained Egyptian scholars and notables in administrative governance and civic agency, culminating in their realization of popular sovereignty at the May 1805 assembly in Bayt al-Qadi.",
+          "solutionAr": "أكسبت تجربة الدواوين العلماء والأعيان خبرة الممارسة السياسية والشورى، مما رسخ مبدأ أن الأمة مصدر السلطات وتجلى في فرض إرادتهم بدار المحكمة في 13 مايو 1805م."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch1_ws3",
+        "titleEn": "Worksheet 1.3: The Evacuation & Multi-dimensional Impact of the French Presence (1800–1801)",
+        "titleAr": "ورقة عمل ١-3: جلاء الحملة الفرنسية والآثار السياسية والاقتصادية والقضائية والفكرية الشاملة",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 3.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 3.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian History Interactive Chronology Studio",
+        "titleAr": "معمل الخريطة الزمنية التفاعلية لتاريخ مصر الحديث",
+        "descriptionEn": "Interactive timeline simulator exploring battles, treaties, and geopolitical power transitions.",
+        "descriptionAr": "محاكي الخرائط والخطوط الزمنية التفاعلية لتحليل معارك ومعاهدات الحملة الفرنسية والتحولات الاستراتيجية."
+      }
+    }
+  ]
+},
+      databank: historyCh1Databank,
+      solvedExamples: egBacHistoryCh1SolvedExamples,
+      exerciseProblems: egBacHistoryCh1Exercises
+    },
+    {
+      ...{
+  "id": "th_hist_ch2",
+  "chapterNumber": 2,
+  "titleEn": "Unit 2: Modern Statecraft, Monopoly & Geopolitics (Muhammad Ali to Ismail)",
+  "titleAr": "الفصل الثاني: هندسة الدولة الحديثة واقتصاد الاحتكار والجيوسياسية الإمبراطورية",
+  "descriptionEn": "Advanced analysis of state capitalism, military conscription, industrial autarky, the Arab League geopolitics, the Treaty of London, and 19th-century imperial European intervention.",
+  "descriptionAr": "التحليل الاستراتيجي المتقدم لرأسمالية الدولة، وبناء الجيوش الوطنية، واقتصاد الاحتكار، وتوازنات القوى الإقليمية، ومعاهدة لندن 1840م، والتغلغل الاستعماري الأوروبي.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "th_hist_ch2_l1",
+      "titleEn": "The Struggle for Power & Consolidation of Rule (1801–1811)",
+      "titleAr": "الصراع على السلطة وتوطيد أركان الحكم وانفراد محمد علي (1801–1811م)",
+      "summaryEn": "Tripartite post-evacuation vacuum, the rise of Popular Leadership, May 13 1805 historic social contract at Bayt al-Qadi, surviving the 1806 Salonica transfer, defeating the 1807 Fraser Expedition, political maneuvering against Omar Makram (1809), and the 1811 Citadel Massacre.",
+      "summaryAr": "فراغ السلطة بعد جلاء الفرنسيين، صعود الزعامة الشعبية، العقد الاجتماعي التاريخي بدار المحكمة 1805م، إفشال فرمان سالونيك 1806م، دحر حملة فريزر في رشيد والحماد 1807م، التخلص من الزعامة الشعبية ونفي عمر مكرم 1809م، ومذبحة القلعة 1811م.",
+      "theoryContentEn": "### 1. The Post-Evacuation Power Vacuum (1801–1805)\n- Following the French withdrawal in 1801, three rival factions struggled for control:\n  1. **The Ottomans:** Sought to restore direct centralized administration and eliminate Mamluk influence.\n  2. **The Mamluks:** Aimed to reclaim their historic supremacy with British diplomatic assistance.\n  3. **Great Britain:** Hesitated to evacuate Alexandria, seeking maritime naval outposts on Egypt's Mediterranean and Red Sea coasts to safeguard its imperial route to India (withdrew in 1803 under Treaty of Amiens).\n- **Emergence of the Fourth Force (Popular Leadership):** Forged through participation in French Diwans and armed revolts; led by Sayyid **Omar Makram**, Shaykh Abdullah al-Sharqawi, and merchant notables.\n\n### 2. The Historic Revolution of May 13, 1805 (Bayt al-Qadi)\n- Khurshid Pasha's despotic rule and his unruly mercenaries (*Al-Dulah*) provoked widespread outrage.\n- Egyptian popular leaders convened at **Dar al-Mahkama (Bayt al-Qadi)** on May 13, 1805.\n- **The Historic Decision:** They deposed Khurshid Pasha and appointed **Muhammad Ali** under a pioneering constitutional condition: *\"To govern with justice and make no decision without our consultation; if you violate this, we shall depose you.\"*\n- Sultan Selim III officially ratified the popular will by imperial firman on July 9, 1805.\n\n### 3. Overcoming Domestic and International Crises (1806–1811)\n1. **The Salonica Transfer Firman (1806):** Britain pressured the Sultan to issue a firman transferring Muhammad Ali to Salonica and appointing Mousa Pasha. Popular leadership rallied, forced the Sultan to revoke the decree, and retained Muhammad Ali.\n2. **The Fraser Military Expedition (March 1807):** Britain sent an expeditionary fleet to depose Muhammad Ali and install Mamluk leader Al-Alfi. While Muhammad Ali was fighting Mamluks in Upper Egypt, Omar Makram mobilized the heroic civilian defense of **Rosetta (Rashid)** and **Al-Hammad**, defeating British troops and forcing Fraser to evacuate Alexandria.\n3. **Elimination of Popular Leadership (1809):** Fearing Omar Makram's charismatic stature, Muhammad Ali exploited personal rivalries among Azharite scholars. During the 1808 low Nile crisis, he imposed exceptional levies on Multazim lands, outmaneuvered the Ulama morally before the public, stripped Omar Makram of the Naqib al-Ashraf title, and exiled him to Damietta (1809).\n4. **The Citadel Massacre (March 1, 1811):** Commissioned by the Sultan to suppress the Wahhabi movement in Arabia, Muhammad Ali feared leaving Cairo with Mamluks behind. He trapped nearly 500 Mamluk beys in the Citadel's narrow defile following a farewell banquet for his son Tusun, eliminating Mamluk power forever.",
+      "theoryContentAr": "### ١. الفراغ السياسي والصراع الثلاثي على السلطة (1801–1805م)\n- بعد جلاء الفرنسيين عام 1801م تنازعت ثلاث قوى على حكم مصر:\n  ١. **العثمانيون:** رغبوا في إعادة بسط سيطرتهم المباشرة وتعيين ولاة من إسطنبول والتخلص من المماليك.\n  ٢. **المماليك:** طمعوا في استعادة حكمهم للبلاد واستعانوا بالإنجليز لاستعادة نفوذهم.\n  ٣. **إنجلترا:** تباطأت في إجلاء قواتها من الإسكندرية لتأمين طريق مواصلاتها إلى الهند عبر السيطرة على موانئ البحرين المتوسط والأحمر (خرجت عام 1803م بموجب صلح إميان).\n- **ظهور القوة الرابعة (الزعامة الشعبية):** تبلورت من قاع المجتمع المصري بفضل تجربة الدواوين ومقاومة الحملة الفرنسية، بقيادة السيد **عمر مكرم** وعلماء الأزهر ونقباء الحرف والتجار.\n\n### ٢. ثورة 13 مايو 1805م التاريخية بدار المحكمة\n- تصاعد السخط الشعبي ضد مظالم الوالي خورشيد باشا ومفاسد جنوده المرتزقة (الدولاة).\n- اجتمع زعماء الشعب في **دار المحكمة (بيت القاضي)** في 13 مايو 1805م.\n- **القرار الدستوري الأول:** قرروا عزل خورشيد باشا وتعيين **محمد علي** حاكماً على مصر بشروط الأمة: *«أن يسير بالعدل، وألا يبرم أمراً إلا بمشورتهم، وإن خالف ذلك عزلوه»*.\n- أصدر السلطان العثماني سليم الثالث فرماناً في 9 يوليو 1805م بالرضوخ لإرادة الشعب وتثبيت محمد علي.\n\n### ٣. مواجهة الأخطار وتوطيد أركان الحكم (1806–1811م)\n١. **محاولة نقله إلى سالونيك (1806م):** ضغطت بريطانيا على السلطان لعزل محمد علي وتعيين موسى باشا أو محمد بك الألفي؛ فتصدت الزعامة الشعبية وأجبرت السلطان على تثبيت محمد علي مقابل 4000 كيس نقود.\n٢. **حملة فريزر الإنجليزية (مارس 1807م):** أرسلت إنجلترا جيشاً لاحتلال مصر؛ وكان محمد علي في الصعيد يحارب المماليك، فتولى عمر مكرم قيادة التعبئة الشعبية واستبسل أهالي **رشيد والحماد** في حرب شوارع كبدت الإنجليز خسائر فادحة وأجبرت فريزر على طلب الصلح والجلاء.\n٣. **القضاء على الزعامة الشعبية (1809م):** خشي محمد علي من تعاظم مكانة عمر مكرم وشروطه المقيدة لحكمه؛ فاستغل أزمة انخفاض فيضان النيل 1808م وفرض ضرائب على أطيان الملتزمين وأحرج العلماء، ثم استغل غيرة بعض المشايخ من عمر مكرم، فعزله من نقابة الأشراف ونفاه إلى دمياط 1809م.\n٤. **مذبحة القلعة (أول مارس 1811م):** كلفه السلطان بقيادة حملة لإخماد الحركة الوهابية في الحجاز بقيادة ابنه طوسون؛ فخشي غدر المماليك وانقضاضهم على الحكم في غياب الجيش. دبر حفل القلعة الشهير وأطبق على أمرائهم في ممر القلعة الضيق وتخلص منهم نهائياً، لينفرد بحكم مصر دون منازع.",
+      "formulas": [
+        {
+          "labelEn": "Popular Sovereignty Equation",
+          "labelAr": "معادلة نشوء السيادة الشعبية والشرعية الدستورية",
+          "latex": "\\text{مظالم خورشيد} + \\text{يقظة الزعامة الشعبية} \\implies \\text{اجتماع دار المحكمة 1805م} \\implies \\text{تولية محمد علي بشروط الأمة}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH2-L1",
+        "pageRange": "pp. 41-52"
+      },
+      "lessonPlan": {
+        "titleEn": "Consolidation of Power & Elimination of Rival Competitors",
+        "titleAr": "توطيد السلطة والانفراد بالحكم وإقصاء القوى المنافسة",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-201",
+        "bloomsObjectivesEn": [
+          "Explain how the Bayt al-Qadi assembly laid the foundation for constitutional popular sovereignty.",
+          "Analyze why the Battle of Rosetta and Hammad succeeded without direct military intervention by Muhammad Ali.",
+          "Critique Muhammad Ali's political maneuvers leading to the exile of Omar Makram and the Citadel Massacre."
+        ],
+        "bloomsObjectivesAr": [
+          "تفسير كيف وضع اجتماع دار المحكمة حجر الأساس للسيادة الشعبية والشرعية الدستورية.",
+          "تحليل أسباب انتصار المقاومة الشعبية في رشيد والحماد دون مساعدة مباشرة من جيش محمد علي.",
+          "نقد وتقويم الدوافع السياسية لمحمد علي في التخلص من الزعامة الشعبية ومذبحة القلعة."
+        ],
+        "prerequisitesEn": [
+          "Understanding the impact of the French Diwans on Egyptian national awareness."
+        ],
+        "prerequisitesAr": [
+          "استيعاب دور الدواوين في عهد الحملة الفرنسية في بلورة الوعي السياسي الوطني."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Bayt al-Qadi",
+            "definition": "Judicial headquarters in Cairo where the historic May 13, 1805 constitutional assembly took place."
+          },
+          {
+            "term": "Naqib al-Ashraf",
+            "definition": "High hereditary leadership of Prophet Muhammad's descendants in Egypt, held by Omar Makram."
+          },
+          {
+            "term": "Citadel Massacre",
+            "definition": "March 1, 1811 ambuscade eradicating Mamluk power in Egypt."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "دار المحكمة (بيت القاضي)",
+            "definition": "المقر القضائي الشرعي الذي شهد ولادة أول صك دستوري شعبي في 13 مايو 1805م."
+          },
+          {
+            "term": "نقيب الأشراف",
+            "definition": "زعيم وممثل الأشراف في مصر وكان يشغلها الزعيم الوطني السيد عمر مكرم."
+          },
+          {
+            "term": "مذبحة القلعة",
+            "definition": "كمين دبره محمد علي في أول مارس 1811م للتخلص نهائياً من أمراء المماليك والانفراد بالحكم."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the 1801 power vacuum map and review tripartite conflicts.",
+            "activitiesAr": "عرض خريطة القوى المتصارعة على حكم مصر بعد جلاء الفرنسيين."
+          },
+          {
+            "phaseEn": "Source Analysis",
+            "phaseAr": "تحليل الوثائق",
+            "duration": "40 min",
+            "activitiesEn": "Analyze the constitutional text of May 13, 1805 and the role of Omar Makram.",
+            "activitiesAr": "قراءة وتحليل نص وثيقة تولية محمد علي بدار المحكمة وشروط الزعامة الشعبية."
+          },
+          {
+            "phaseEn": "Critical Debate",
+            "phaseAr": "المناقشة النقدية",
+            "duration": "25 min",
+            "activitiesEn": "Debate the morality vs. statecraft realism of the 1809 exile and 1811 Citadel massacre.",
+            "activitiesAr": "مناظرة طلابية حول الانفراد بالحكم: هل كان ضرورة لبناء الدولة أم تنكراً للشرعية الشعبية؟"
+          },
+          {
+            "phaseEn": "Formative Check",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam traps on Fraser's defeat and Omar Makram's exile.",
+            "activitiesAr": "حل 5 أسئلة وزارية عليا حول أسباب هزيمة فريزر وتكتيكات الاستفراد بالسلطة."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Muhammad Ali arrived in Egypt as a declared enemy of the Ottomans."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن محمد علي جاء لمصر كحاكم معادٍ للدولة العثمانية منذ البداية."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic correspondence between Muhammad Ali, Palmerston, and Metternich to evaluate 19th-century realpolitik."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم واستيعاب الدروس.",
+          "advanced": "تحليل المراسلات الدبلوماسية المتبادلة بين محمد علي وبالمرستون ومترنيخ لاستنباط أبعاد التوازن الدولي ولعبة الأمم."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did Muhammad Ali eliminate the Popular Leadership despite arriving to power via their revolutionary social contract?",
+          "questionAr": "لماذا انقلب محمد علي على الزعامة الشعبية وتخلص منها رغم وصوله للحكم بفضل عقدهم الاجتماعي الشعبي؟",
+          "solutionEn": "Because genuine constitutional oversight and Omar Makram's moral authority conflicted fundamentally with his autocratic ambition of centralized state-building.",
+          "solutionAr": "لأن الرقابة الدستورية والشعبية والالتزام بمشورة العلماء تعارضت تماماً مع رغبته في الانفراد المطلق وتأسيس حكم مركزي لبناء الدولة."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch2_ws1",
+        "titleEn": "Worksheet 2.1: The Struggle for Power & Consolidation of Rule (1801–1811)",
+        "titleAr": "ورقة عمل ٢-1: الصراع على السلطة وتوطيد أركان الحكم وانفراد محمد علي (1801–1811م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.1.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس ٢-1.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian State Interactive Architecture Studio",
+        "titleAr": "معمل المحاكاة التفاعلية لبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Interactive statecraft simulator exploring monopoly economics, military conscription, and imperial diplomacy.",
+        "descriptionAr": "محاكي تفاعلي لإدارة نظام الاحتكار وتطور التجنيد العسكري ومسارات التوسع والاتفاقيات الدولية."
+      }
+    },
+    {
+      "id": "th_hist_ch2_l2",
+      "titleEn": "The Economic Monopoly (Ihtikar) System across Agriculture, Industry & Trade",
+      "titleAr": "نظام الاحتكار وتطبيقه في الزراعة والصناعة والتجارة والنقل",
+      "summaryEn": "Abolition of Iltizam, confiscation of Usya lands, hydraulic engineering (Delta Barrages & Mahmudiyya Canal), long-staple cotton, compulsory child apprentice factories, domestic and foreign trade monopoly, merchant fleet, and clearing Red Sea piracy.",
+      "summaryAr": "إلغاء الالتزام ومصادرة أراضي الوسية، مشروعات الري الكبرى (القناطر الخيرية وترعة المحمودية)، زراعة القطن طويل التيلة، مصانع الدولة وجمع الصبية، احتكار تجارة الواردات والصادرات، وبناء الأسطول التجاري وتطهير البحر الأحمر من القراصنة.",
+      "theoryContentEn": "### 1. The Philosophy of the Monopoly (Ihtikar) System\n- **Definition:** The state, embodied in Muhammad Ali, directs the entire economy: dictating what crops to sow, what commodities to manufacture, fixing purchase prices from producers, and setting selling prices in markets.\n- **Strategic Goal:** Achieve domestic self-sufficiency, generate a substantial export surplus, and avoid foreign financial dependency to fund military expansion.\n\n### 2. Agricultural Revolution\n- **Abolition of Iltizam (1808–1814):** Confiscated Multazim estates (*Al-Usya*) and transferred agricultural revenues directly to the state treasury.\n- **Hydraulic Modernization:**\n  - Constructed the **Delta Barrages (Al-Qanatir al-Khayriyya)** north of Cairo, raising water levels and converting Lower Egypt from seasonal basin irrigation to year-round perennial irrigation.\n  - Dug major canals, including the **Mahmudiyya Canal**, linking the Nile to Alexandria.\n- **Crop Innovations:** Introduced **long-staple cotton** (Jumel cotton in 1821), which became Egypt's primary export crop on global commodity markets.\n\n### 3. State Industrialization\n- **Factories as Vocational Schools:** Built state factories for textiles, sugar, paper, tanning, and armaments.\n- **Child Labor Apprentice System:** Compelled Shaykhs al-Harat to gather boys from neighborhoods to work as apprentices, cultivating a trained national technical workforce.\n- **Monopoly over Artisans:** The state supplied craftsmen with raw materials at state-determined rates and bought finished products at fixed prices, retaining profits.\n\n### 4. Domestic & Foreign Trade & Infrastructure\n- **Internal Trade Monopoly:** Private grain and cotton merchants were banned; the state purchased all crops and stored them in state granaries (*Shoun*).\n- **Foreign Trade Monopoly:** Direct state sales to foreign merchants at home or exports through state agents abroad.\n- **Maritime Transportation:** Constructed commercial fleets in the Mediterranean and Red Seas; restored Alexandria port; eradicated piracy in the Red Sea, persuading the British East India Company to route shipping through Egypt.",
+      "theoryContentAr": "### ١. فلسفة ومفهوم نظام الاحتكار\n- **التعريف:** أن تقوم الدولة ممثلة في محمد علي بتوجيه الاقتصاد القومي، بتحديد نوع الغلات التي تُزرع، ونوع المصنوعات التي تُنتج، وتحديد أثمان شرائها من المنتجين وأثمان بيعها في الأسواق.\n- **الهدف الاستراتيجي:** بناء اقتصاد وطني قوي يحقق فائضاً كبيراً للتصدير ويحد من الواردات لتمويل مشروعات بناء الجيش والأسطول دون استدانة من الخارج.\n\n### ٢. النهضة الزراعية\n- **إلغاء نظام الالتزام (1808–1814م):** مصادرة أراضي الوسية وضمها لأراضي الدولة، وإخضاع الفلاحين للإشراف الحكومي المباشر وتزويدهم بمستلزمات الإنتاج.\n- **مشروعات الري الكبرى:**\n  - بناء **القناطر الخيرية** في رأس الدلتا، مما رفع منسوب مياه النيل وحول أراضي الوجه البحري من «ري الحياض» الموسمي إلى «الري الدائم».\n  - حفر ترعة **المحمودية** لربط نهر النيل بميناء الإسكندرية لخدمة الملاحة والتجارة.\n- **إدخال نباتات ومحاصيل جديدة:** التوسع الهائل في زراعة **القطن طويل التيلة**، وإدخال أشجار التوت لتربية ديدان القز وأشجار النيلة الهندية.\n\n### ٣. النهضة الصناعية\n- **بناء المصانع الكبرى:** إنشاء مصانع الغزل والنسيج، والأسلحة، والبارود، والسكر، والورق، ودباغة الجلود لتلبية احتياجات الجيش.\n- **جمع الصبية للتتلمذ الصناعي:** إجبار مشايخ الحارات على جمع الصبية للعمل في المصانع الحكومية بأجور رمزية، فتحولت المصانع إلى مدارس مهنية لتخريج عمالة وطنية مدربة.\n- **احتكار الحرف:** إمداد الصناع بالمواد الخام بالثمن الذي تحدده الحكومة وشراء المنتجات بالثمن المحدد لضمان تحقيق أرباح تصب في خزينة الدولة.\n\n### ٤. التجارة والنقل والمواصلات\n- **احتكار التجارة الداخلية:** منع كبار التجار المحليين من تداول المحاصيل مباشرة، وجمع الحبوب في الشون الحكومية وتحديد أسعار بيعها للمواطنين.\n- **احتكار التجارة الخارجية:** قيام الحكومة بالبيع المباشر للتجار الأجانب في مصر، أو التصدير في الموانئ الأوروبية عبر وكلاء الحكومة.\n- **تطوير شبكة المواصلات:** بناء أسطول تجاري في البحرين الأحمر والمتوسط، تمهيد الطرق البرية، وتطهير البحر الأحمر من القراصنة مما شجع شركة الهند الشرقية الإنجليزية على تفضيل طريق مصر.",
+      "formulas": [
+        {
+          "labelEn": "Monopoly Economic Formula",
+          "labelAr": "معادلة الاكتفاء الذاتي وبناء القوة الذاتية",
+          "latex": "\\text{احتكار المدخلات} + \\text{تحديد أسعار الشراء والبيع} \\implies \\text{تعظيم الصادرات} - \\text{تقليص الواردات} \\implies \\text{تمويل الجيش}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH2-L2",
+        "pageRange": "pp. 53-66"
+      },
+      "lessonPlan": {
+        "titleEn": "The Monopoly Economic System & Modern Infrastructure",
+        "titleAr": "نظام الاحتكار الاقتصادي ومشروعات البنية التحتية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-202",
+        "bloomsObjectivesEn": [
+          "Analyze the structural mechanisms of Monopoly across agriculture, industry, and foreign commerce.",
+          "Assess how the Delta Barrages permanently transformed Egypt's agricultural output.",
+          "Explain the strategic commercial consequences of clearing piracy from the Red Sea."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل آليات تطبيق نظام الاحتكار في مجالات الزراعة والصناعة والتجارة الخارجية.",
+          "تقويم الأثر الاقتصادي والمائي لتحويل أراضي الدلتا إلى الري الدائم بالقناطر الخيرية.",
+          "تفسير الأثر الاستراتيجي الدولي لتطهير البحر الأحمر من القراصنة على خطوط التجارة البريطانية."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the Ottoman Iltizam tax farming system."
+        ],
+        "prerequisitesAr": [
+          "فهم مساوئ نظام الالتزام العثماني في العهد السابق."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Ihtikar (Monopoly)",
+            "definition": "State planned economy controlling production and monopolizing trade."
+          },
+          {
+            "term": "Delta Barrages",
+            "definition": "Hydraulic barrages at Delta apex enabling perennial irrigation."
+          },
+          {
+            "term": "Long-staple Cotton",
+            "definition": "High-grade cash crop revolutionizing Egyptian exports."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "نظام الاحتكار",
+            "definition": "توجيه الدولة للاقتصاد وتحديد الغلات والمصنوعات وأسعار البيع والشراء."
+          },
+          {
+            "term": "القناطر الخيرية",
+            "definition": "مشروع ري عظيم في رأس الدلتا حوّل أراضي الوجه البحري للري الدائم."
+          },
+          {
+            "term": "القطن طويل التيلة",
+            "definition": "محصول استراتيجي نقدي أدخله محمد علي نافس به أجود أقطان العالم."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Examine Muhammad Ali's quote on strong export nations.",
+            "activitiesAr": "مناقشة مقولة محمد علي: «الدولة القوية هي التي تزيد صادراتها على وارداتها»."
+          },
+          {
+            "phaseEn": "Instruction",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Deconstruct agricultural irrigation, factory workshops, and trade monopolies.",
+            "activitiesAr": "شرح مشروعات الري والزراعة، جمع الصبية للمصانع، واحتكار التجارة الخارجية."
+          },
+          {
+            "phaseEn": "Data Evaluation",
+            "phaseAr": "تقييم البيانات",
+            "duration": "20 min",
+            "activitiesEn": "Analyze production and export growth charts under Monopoly.",
+            "activitiesAr": "تحليل مؤشرات نمو صادرات القطن والمنسوجات المصرية وأثرها على ميزان المدفوعات."
+          },
+          {
+            "phaseEn": "Assessment",
+            "phaseAr": "التقويم",
+            "duration": "15 min",
+            "activitiesEn": "Complete 5 ministerial MCQs evaluating the economic rationale of Monopoly.",
+            "activitiesAr": "حل 5 أسئلة وزارية عليا حول أسباب تطبيق الاحتكار ونتائجه الهيكلية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Monopoly aimed at consumer welfare rather than military state-building."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن نظام الاحتكار كان يستهدف رفاهية المواطن وليس بناء قوة الدولة العسكرية."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic correspondence between Muhammad Ali, Palmerston, and Metternich to evaluate 19th-century realpolitik."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم واستيعاب الدروس.",
+          "advanced": "تحليل المراسلات الدبلوماسية المتبادلة بين محمد علي وبالمرستون ومترنيخ لاستنباط أبعاد التوازن الدولي ولعبة الأمم."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "What was the fundamental geopolitical goal behind implementing the state Monopoly system in agriculture and industry?",
+          "questionAr": "ما الهدف الجيوسياسي الأسمى الذي سعى محمد علي لتحقيقه من وراء تطبيق نظام الاحتكار في الاقتصاد؟",
+          "solutionEn": "To achieve complete self-sufficiency, generate a large export surplus, avoid foreign debt, and directly fund the military-industrial complex.",
+          "solutionAr": "لتحقيق الاكتفاء الذاتي وتعظيم الصادرات والحد من الواردات لتمويل الجيش والأسطول دون استدانة أو خضوع للدول الكبرى."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch2_ws2",
+        "titleEn": "Worksheet 2.2: The Economic Monopoly (Ihtikar) System across Agriculture, Industry & Trade",
+        "titleAr": "ورقة عمل ٢-2: نظام الاحتكار وتطبيقه في الزراعة والصناعة والتجارة والنقل",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.2.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس ٢-2.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian State Interactive Architecture Studio",
+        "titleAr": "معمل المحاكاة التفاعلية لبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Interactive statecraft simulator exploring monopoly economics, military conscription, and imperial diplomacy.",
+        "descriptionAr": "محاكي تفاعلي لإدارة نظام الاحتكار وتطور التجنيد العسكري ومسارات التوسع والاتفاقيات الدولية."
+      }
+    },
+    {
+      "id": "th_hist_ch2_l3",
+      "titleEn": "Social Restructuring & Educational Modernization (Tahtawi & Al-Alsun)",
+      "titleAr": "التحولات الاجتماعية والنهضة التعليمية والثقافية (البعثات ومدرسة الألسن)",
+      "summaryEn": "Decline of Mamluks, Multazims, traditional Ulama, and merchant guilds; rise of Muhammad Ali's dynasty, A'yan landowners, and industrial laborers; educational missions to France/Italy (Rifa'a al-Tahtawi), founding the School of Languages (Al-Alsun 1836), and cultural dualism.",
+      "summaryAr": "تدهور المماليك والملتزمين والعلماء وكبار التجار (المحروقي) وصعود أسرة محمد علي والأعيان وعمال المصانع، البعثات التعليمية إلى باريس (الطهطاوي)، تأسيس مدرسة الألسن 1836م، وتعمق ازدواجية الفكر والثقافة.",
+      "theoryContentEn": "### 1. Transformation of Egyptian Social Structure\n- **Declining & Vanishing Classes:**\n  1. *Mamluk Ruling Elite:* Eradicated; replaced by Muhammad Ali's family and Turkish-Circassian aristocrats.\n  2. *The Ulama & Popular Leaders:* Marginalized after Omar Makram's exile; leadership shifted to graduates of modern secular schools.\n  3. *The Multazim Class:* Abolished when the state assumed direct control of agricultural lands.\n  4. *Local Merchant Guilds:* Ruined by the state trade monopoly; prominent local merchants (e.g., Ahmad al-Mahruqi) vanished, replaced by foreign merchant houses and state agents.\n- **Emerging & Rising Classes:**\n  1. *Muhammad Ali's Dynasty & Turkish Notables:* Formed the ruling administrative and military echelon.\n  2. *Rural Notables (Al-A'yan):* Landowners of large and medium estates; gained social prominence and later dominated consultative councils.\n  3. *Industrial Working Class:* Workers in state factories, retaining traditional guild connections for local crafts.\n  4. *Bedouin Shaykhs:* Integrated into civil society after being granted large land grants (*Iba'adiyyat*).\n\n### 2. Educational Renaissance & Student Missions\n- **Applied Educational Strategy:** Education was subordinated to state building and military requirements.\n- **Foreign Student Missions (1813–1847):** Sent to Italy, France, and England to study military engineering, shipbuilding, navigation, mechanics, and medicine.\n- **Rifa'a Rafi' al-Tahtawi (1826):** Sent as religious Imam of the grand mission to Paris; learned French, studied European political enlightenment, authored *Takhlis al-Ibriz fi Talkhis Bariz*, and advocated modern translation.\n\n### 3. Higher Schools & The School of Languages (Al-Alsun)\n- Established specialized colleges: Medicine, Veterinary, Engineering (*Muhandiskhana*), Agriculture, and Artillery.\n- **School of Languages (Al-Alsun, 1836):** Proposed by Tahtawi to systemize translating European scientific treatises into Arabic, serving as the bridge between Western knowledge and Egyptian administration.\n\n### 4. Deepening Cultural Dualism (Izdawajiyyat al-Fikr wal-Thaqafa)\n- Establishing civil, secular technical schools alongside traditional religious Al-Azhar kuttabs created two parallel worldviews.\n- This cultural dualism originated with the French Expedition and became deeply entrenched under Muhammad Ali, shaping modern Egyptian intellectual debates.",
+      "theoryContentAr": "### ١. التحولات الجذرية في البناء الاجتماعي المصري\n- **طبقات تدهورت وتلاشت مكانتها:**\n  ١. **المماليك:** انتهى نفوذهم كطبقة حاكمة وحلت محلهم أسرة محمد علي وكبار الموظفين الأتراك والشركس.\n  ٢. **علماء الأزهر والزعامات الشعبية:** تراجع نفوذهم بعد نفي عمر مكرم وانتقلت القيادة الفكرية لخريجي المدارس الحديثة.\n  ٣. **الملتزمون:** تلاشت طبقتهم تماماً بعد إلغاء نظام الالتزام وبسط الدولة سيطرتها على الأطيان.\n  ٤. **كبار التجار المحليين:** تدهورت مكانتهم بسبب احتكار الحكومة للتجارة واختفى أسماء كبار التجار (مثل أحمد المحروقي) وحل محلهم الوكلاء الأجانب.\n- **طبقات ظهرت وصعد نجمها:**\n  ١. **أسرة محمد علي والعناصر التركية:** شكلت قمة الهرم الاجتماعي في الحكم والجيش.\n  ٢. **طبقة الأعيان:** كبار ومتوسطو ملاك الأراضي الزراعية الذين تعاظم نفوذهم وتولوا إدارة المجالس النيابية لاحقاً.\n  ٣. **طبقة عمال المصانع:** شريحة جديدة ظهرت في المدن مع استمرار طوائف الحرف للصناعات اليدوية.\n  ٤. **شيوخ البدو:** تحولوا من قاطعي طرق إلى ملاك أراضٍ مستقرين بعد منحهم أراضي الإبعاديات وتوطينهم.\n\n### ٢. النهضة التعليمية وحركة البعثات الكبرى\n- **الارتباط بالمشروع القومي:** التعليم في فكر محمد علي لم يكن ترفاً بل أداة لبناء القوة العسكرية والاقتصادية.\n- **البعثات الخارجية (1813–1847م):** إرسال الطلاب لإيطاليا وفرنسا وإنجلترا لدراسة الهندسة والمدفعية وبناء السفن والطب والميكانيكا.\n- **دور الشيخ رفاعة رافع الطهطاوي:** خرج إماماً لأكبر بعثة إلى باريس عام 1826م، فتعلم الفرنسية ودرس الثقافة الغربية، وألّف كتاب «تخليص الإبريز في تلخيص باريز» واقترح تأسيس مدرسة الألسن.\n\n### ٣. إنشاء المدارس العليا ومدرسة الألسن\n- تأسيس المدارس العليا المدنية: المهندسخانة، الطب البشري، الصيدلة، البيطرة، الزراعة، ومدرسة المحاسبة.\n- **مدرسة الألسن (1836م):** أسسها رفاعة الطهطاوي لتدريس اللغات الأوروبية ونقل العلوم الغربية وترجمة الكتب الأجنبية إلى العربية ورفد دواوين الدولة بالمترجمين.\n\n### ٤. ترسيخ ازدواجية الفكر والثقافة\n- أدى إنشاء مدارس مدنية حديثة إلى جانب التعليم الديني الأزهري إلى ظهور تيارين فكريين في المجتمع (ديني محافظ مقابل مدني حداثي).\n- بدأت جذور هذه الازدواجية أيام الحملة الفرنسية وتعمقت في عهد محمد علي لتظل سمة بارزة في الحياة الفكرية المعاصرة.",
+      "formulas": [
+        {
+          "labelEn": "Social Structure Power Shift",
+          "labelAr": "معادلة التحول في ميزان القوى الاجتماعية",
+          "latex": "\\Delta \\text{النفوذ} = (\\text{المماليك} + \\text{الملتزمون} + \\text{التجار}) \\downarrow \\quad \\Longleftrightarrow \\quad (\\text{أسرة الوالي} + \\text{الأعيان} + \\text{المتعلمون}) \\uparrow"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH2-L3",
+        "pageRange": "pp. 67-78"
+      },
+      "lessonPlan": {
+        "titleEn": "Social Stratification & Educational Modernization",
+        "titleAr": "البناء الطبقي الاجتماعي والنهضة التعليمية والفكرية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-203",
+        "bloomsObjectivesEn": [
+          "Contrast the declining socio-economic classes with the rising classes under Monopoly.",
+          "Assess the role of Rifa'a al-Tahtawi and the School of Languages in technology transfer.",
+          "Explain the historical origins and long-term consequences of intellectual dualism in Egypt."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة بين الطبقات الاجتماعية المتدهورة والطبقات الصاعدة في ظل نظام الاحتكار.",
+          "تقويم دور رفاعة الطهطاوي ومدرسة الألسن في حركة الترجمة والتنوير الحضاري.",
+          "تفسير الجذور التاريخية لظاهرة ازدواجية الفكر والثقافة وتداعياتها الفكرية المعاصرة."
+        ],
+        "prerequisitesEn": [
+          "Understanding the educational role of Al-Azhar prior to the 19th century."
+        ],
+        "prerequisitesAr": [
+          "معرفة طبيعة التعليم الديني في الأزهر والكتاتيب قبل عصر محمد علي."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Al-A'yan",
+            "definition": "Rural notable class of large and medium landholders."
+          },
+          {
+            "term": "School of Languages (Al-Alsun)",
+            "definition": "Pioneering translation institute founded in 1836 by Tahtawi."
+          },
+          {
+            "term": "Cultural Dualism",
+            "definition": "Coexistence of traditional religious and modern secular worldviews."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "طبقة الأعيان",
+            "definition": "كبار ومتوسطو ملاك الأراضي الزراعية الذين صعد دورهم السياسي والاجتماعي."
+          },
+          {
+            "term": "مدرسة الألسن",
+            "definition": "مؤسسة الترجمة الرائدة التي أنشأها الطهطاوي عام 1836م لنقل علوم الغرب."
+          },
+          {
+            "term": "ازدواجية الفكر والثقافة",
+            "definition": "وجود مسارين متوازيين للتعليم والثقافة (ديني تقليدي ومدني حداثي)."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Compare images of Mamluk beys with graduates of the School of Languages.",
+            "activitiesAr": "مقارنة صور قادة المماليك القدامى بصور خريجي مدرسة الألسن والبعثات."
+          },
+          {
+            "phaseEn": "Instruction",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Analyze social mobility shifts, student missions to Paris, and educational dualism.",
+            "activitiesAr": "شرح تدهور المماليك والملتزمين، وصعود الأعيان، وإنجازات رفاعة الطهطاوي."
+          },
+          {
+            "phaseEn": "Debate",
+            "phaseAr": "المناظرة الفكرية",
+            "duration": "20 min",
+            "activitiesEn": "Debate the positive and negative aspects of cultural dualism in Egyptian society.",
+            "activitiesAr": "حوار نقدي حول ظاهرة ازدواجية الفكر: هل أثرت المجتمع أم عمقت الانقسام؟"
+          },
+          {
+            "phaseEn": "Assessment",
+            "phaseAr": "التقويم",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 high-order exam questions on social classes and translation institutes.",
+            "activitiesAr": "حل 5 أسئلة وزارية عليا حول تحولات المجتمع والنهضة الثقافية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing traditional Ulama maintained their political primacy after 1809."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن علماء الأزهر احتفظوا بنفوذهم السياسي الواسع بعد عزل عمر مكرم."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic correspondence between Muhammad Ali, Palmerston, and Metternich to evaluate 19th-century realpolitik."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم واستيعاب الدروس.",
+          "advanced": "تحليل المراسلات الدبلوماسية المتبادلة بين محمد علي وبالمرستون ومترنيخ لاستنباط أبعاد التوازن الدولي ولعبة الأمم."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "How did educational missions and the School of Languages contribute to technology and science transfer to Egypt?",
+          "questionAr": "كيف ساهمت البعثات التعليمية ومدرسة الألسن في النقل التكنولوجي والعلمي الحديث لبناء الدولة؟",
+          "solutionEn": "They trained specialized bilingual cadres who institutionalized the translation of European engineering, medical, and military treatises into Arabic.",
+          "solutionAr": "لأنها خرّجت كوادر متخصصة وضعت الترجمة في إطار مؤسسي لنقل العلوم التطبيقية والهندسية والعسكرية للغة العربية."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch2_ws3",
+        "titleEn": "Worksheet 2.3: Social Restructuring & Educational Modernization (Tahtawi & Al-Alsun)",
+        "titleAr": "ورقة عمل ٢-3: التحولات الاجتماعية والنهضة التعليمية والثقافية (البعثات ومدرسة الألسن)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.3.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس ٢-3.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian State Interactive Architecture Studio",
+        "titleAr": "معمل المحاكاة التفاعلية لبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Interactive statecraft simulator exploring monopoly economics, military conscription, and imperial diplomacy.",
+        "descriptionAr": "محاكي تفاعلي لإدارة نظام الاحتكار وتطور التجنيد العسكري ومسارات التوسع والاتفاقيات الدولية."
+      }
+    },
+    {
+      "id": "th_hist_ch2_l4",
+      "titleEn": "Administrative, Judicial, and Military Construction (Army & Navy)",
+      "titleAr": "البناء الإداري والتنظيم القضائي وتأسيس الجيش والأسطول النظامي",
+      "summaryEn": "7 Mudiriyyat provinces, Diwan al-Aali, Majlis al-Mashura, Al-Qanun al-Asasi (1837), Jam'iyyat al-Haqqaniyya (1842), Commercial Council, Aswan Officers Military Academy (Colonel Sève), 1824 Egyptian fallahin conscription, Alexandria and Bulaq naval arsenals, and armaments factories.",
+      "summaryAr": "تقسيم مصر إلى 7 مديريات، القانون الأساسي 1837م وتنظيم الدواوين السبعة، جمعية الحقانية ومحاربة الفساد، المدرسة الحربية بأسوان (الكولونيل سيف)، تجنيد الفلاحين 1824م، وترسانتا الإسكندرية وبولاق ومصانع الأسلحة والبارود.",
+      "theoryContentEn": "### 1. Administrative Re-Organization\n- **7 Equal Provinces (Mudiriyyat):** Divided Egypt into 7 administrative provinces of equal financial and fiscal burdens, subdivided into Centers (*Marakiz*), Districts (*Aqsām*), and Villages (*Nawāhi*).\n- **Egyptianization of Civil Service:** Key administrative positions were initially monopolized by Turks/Circassians; following the 1840 Treaty of London, civil posts were progressively Egyptianized until nearly all administrative functions (except senior military ranks) were held by native Egyptians by the 1870s.\n\n### 2. Consultative Councils & The Organic Law (1837)\n- **Centralized Autocracy:** Councils were consultative, not legislative, functioning to execute the Pasha's will.\n  - *Diwan al-Aali (Privy Council):* Executive coordination body headed by the Pasha's deputy.\n  - *Majlis al-Mashura (Consultative Council, 1829):* Composed of senior civil servants, Ulama, and provincial notables, meeting annually to discuss education, administration, and public works.\n  - *Al-Majlis al-Aali (High Council, 1834):* Precursor to a modern cabinet of ministers.\n- **The Organic Law (Al-Qanun al-Asasi, 1837):** First administrative statute reorganizing government into seven specialized Diwans (Ministries): War (*Jihadiyya*), Internal Affairs (*Khidiwi*), Revenue, Maritime, Schools, Foreign Trade, and Industry.\n\n### 3. Judicial System Evolution\n- **Diwan al-Khidiwi:** Exercised judicial authority over civil and criminal misdemeanors.\n- **Jam'iyyat al-Haqqaniyya (1842):** Supreme tribunal authorized to prosecute high-ranking state officials and fight corruption.\n- **Commercial Council (Majlis al-Tijara):** Specialized court resolving disputes between local merchants and European foreigners, incorporating foreign legal representatives.\n\n### 4. Creation of the Modern Armed Forces\n- **Military Officer Academy at Aswan (1820):** Established under French Colonel Joseph Sève (**Soliman Pasha al-Faransawi**) to train professional officers according to European tactics.\n- **Conscription Transitions:**\n  - Attempted training Mamluk sons (1815) -> mutiny ensued.\n  - Conscripted Sudanese troops (1820) -> decimated by disease and climate shock.\n  - **Conscripting Egyptian Fallahin (1824):** A revolutionary breakthrough; Egyptian peasant soldiers demonstrated extraordinary discipline, endurance, and valor in Morea and the Levant.\n- **Naval Arsenal & Armaments:**\n  - Established shipyards at Bulaq (1810) and the grand **Alexandria Naval Shipyard** to build frigates and warships.\n  - Built cannon foundries at the Citadel, gunpowder mills at Rawda and Hawd al-Marsoud, achieving full domestic armaments self-sufficiency.",
+      "theoryContentAr": "### ١. التنظيم الإداري للدولة المصرية\n- **تقسيم مصر إلى 7 مديريات:** قسّم محمد علي مصر إلى 7 مديريات متساوية الأعباء المالية يرأس كل منها «مدير»، وقُسمت المديريات إلى مراكز وأقسام ونواحٍ وقرى تحت إشراف العمد والمشايخ.\n- **تمصير الوظائف الإدارية:** احتكر الأتراك والشركس الوظائف الإدارية والعسكرية العليا في البداية؛ ومع ضعف نفوذ محمد علي بعد معاهدة لندن 1840م بدأت سياسة «تمصير الوظائف الصغرى»، واكتمل تمصير الجهاز الإداري بالكامل (ما عدا رتب الجيش العليا) في عهد إسماعيل.\n\n### ٢. الدواوين والمجالس والقانون الأساسي (1837م)\n- **طبيعة الحكم:** حكم فردي مطلق مركزي؛ وكانت المجالس استشارية تنفذ إرادة محمد علي:\n  - *الديوان العالي (ديوان الخديوي):* يرأسه نائب الوالي ويشرف على تسيير الشؤون العامة.\n  - *مجلس المشورة (1829م):* يضم كبار الموظفين والعلماء والأعيان، وينعقد مرة سنوياً لاستشارته في مسائل التعليم والإدارة والأشغال.\n  - *المجلس العالي (1834م):* يماثل مجلس الوزراء الحالي ويضم نظار الدواوين واثنين من الأعيان عن كل مديرية.\n- **القانون الأساسي (1837م):** أول قانون إداري ينظم الدواوين الحكومية ويحدد اختصاصاتها في 7 دواوين: ديوان الإيرادات، الجهادية، البحرية، المدارس، التجارة المصرية، الفابريقات (المصانع)، والديوان الخديوي.\n\n### ٣. تطور الهيكل القضائي\n- **ديوان الخديوي:** تولى مهام قضائية وفصل في القضايا الجنائية والمدنية.\n- **جمعية الحقانية (1842م):** محكمة عليا لمحاكمة كبار موظفي الدولة والوزراء ومحاربة الفساد والرشوة.\n- **مجلس التجارة:** محكمة تجارية متخصصة للفصل في النزاعات بين المصريين والأجانب، وضمت في عضويتها ممثلين عن القنصليات الأجنبية.\n\n### ٤. بناء الجيش والأسطول النظامي الحديث\n- **المدرسة الحربية بأسوان (1820م):** تأسيس أول مدرسة عسكرية نظامية لتخريج الضباط على النمط الأوروبي الحديث بإشراف الكولونيل الفرنسي **جوزيف سيف (سليمان باشا الفرنساوي)**.\n- **مراحل تطور التجنيد:**\n  ١. محاولة تدريب المماليك والألبان (1815م) -> فشلت بسبب التمرد ومحاولة اغتيال الوالي.\n  ٢. تجنيد السودانيين (1820م) -> فشلت لوفاة معظمهم بسبب عدم ملاءمة المناخ والأمراض.\n  ٣. **تجنيد الفلاحين المصريين (1824م):** التحول التاريخي الأعظم؛ أثبت الجندي المصري كفاءة قتالية مذهلة وانضباطاً حديدياً في معارك المورة باليونان وحروب الشام.\n- **الأسطول الحربي ومصانع السلاح:**\n  - إنشاء ترسانة بولاق ثم ترسانة **الإسكندرية البحرية** الكبرى لبناء السفن الحربية والفرقاطات.\n  - إنشاء مصانع صب المدافع بالقلعة، ومصانع البارود في الحوض المرصود وجزيرة الروضة، لتحقيق الاستقلال التام في تصنيع السلاح.",
+      "formulas": [
+        {
+          "labelEn": "Modern Armed Forces Construction Formula",
+          "labelAr": "معادلة بناء الجيش النظامي المستقل",
+          "latex": "\\text{المدرسة الحربية بأسوان} + \\text{تجنيد الفلاحين 1824م} + \\text{ترسانة الإسكندرية} \\implies \\text{الجيش النظامي القومي}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH2-L4",
+        "pageRange": "pp. 79-92"
+      },
+      "lessonPlan": {
+        "titleEn": "Administrative Organization, Judiciary, and Military Construction",
+        "titleAr": "التنظيم الإداري والهيكل القضائي وتأسيس القوة العسكرية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-204",
+        "bloomsObjectivesEn": [
+          "Analyze the executive structure introduced by the 1837 Organic Law.",
+          "Assess the anti-corruption role of Jam'iyyat al-Haqqaniyya in 19th-century Egypt.",
+          "Explain why conscripting native Egyptian fallahin in 1824 was the decisive turning point in military building."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الهيكل الإداري للحكومة بموجب القانون الأساسي عام 1837م.",
+          "تقويم دور جمعية الحقانية في محاربة الفساد المالي ومحاكمة كبار الموظفين.",
+          "تفسير الأهمية التاريخية لتحول محمد علي لتجنيد الفلاحين المصريين عام 1824م."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with mercenary troop rebellions in Ottoman history."
+        ],
+        "prerequisitesAr": [
+          "معرفة طبيعة تمرد المرتزقة والإنكشارية في التاريخ العثماني."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Organic Law (1837)",
+            "definition": "Administrative constitution establishing the 7 governmental Diwans."
+          },
+          {
+            "term": "Jam'iyyat al-Haqqaniyya",
+            "definition": "Supreme judicial body prosecuting corrupt government officials."
+          },
+          {
+            "term": "Soliman Pasha al-Faransawi",
+            "definition": "Colonel Joseph Sève, French officer who trained the modern Egyptian army."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "القانون الأساسي 1837م",
+            "definition": "دستور إداري حكومي حدد الدواوين السبعة واختصاصاتها بدقة."
+          },
+          {
+            "term": "جمعية الحقانية",
+            "definition": "هيئة قضائية عليا لمحاسبة كبار رجال الدولة ومحاربة الرشوة والفساد."
+          },
+          {
+            "term": "سليمان باشا الفرنساوي",
+            "definition": "الكولونيل جوزيف سيف الذي أسس المدرسة الحربية ودرب الجيش المصري الحديث."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the 7 Mudiriyyat map of Egypt.",
+            "activitiesAr": "عرض خريطة المديريات السبع وتوزيع السلطات الإدارية."
+          },
+          {
+            "phaseEn": "Instruction",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Explain the Organic Law of 1837, judicial councils, and military recruitment phases.",
+            "activitiesAr": "شرح القانون الأساسي 1837م، المحاكم وتطورها، ومراحل بناء الجيش والأسطول."
+          },
+          {
+            "phaseEn": "Group Work",
+            "phaseAr": "العمل الجماعي",
+            "duration": "20 min",
+            "activitiesEn": "Construct a comparative table contrasting Mamluk, Sudanese, and Fallahin conscription.",
+            "activitiesAr": "بناء جدول مقارنة تحليلي بين تجارب تجنيد المماليك والسودانيين والفلاحين."
+          },
+          {
+            "phaseEn": "Assessment",
+            "phaseAr": "التقويم",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam traps on the Organic Law and Aswan academy.",
+            "activitiesAr": "حل 5 أسئلة وزارية عليا حول التنظيم الإداري والعسكري."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Majlis al-Mashura was an elected democratic parliament."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن مجلس المشورة كان برلماناً ديمقراطياً منتخباً يمتلك سلطة التشريع."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic correspondence between Muhammad Ali, Palmerston, and Metternich to evaluate 19th-century realpolitik."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم واستيعاب الدروس.",
+          "advanced": "تحليل المراسلات الدبلوماسية المتبادلة بين محمد علي وبالمرستون ومترنيخ لاستنباط أبعاد التوازن الدولي ولعبة الأمم."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did Muhammad Ali's decision to draft native Egyptian fallahin in 1824 represent a revolutionary military departure?",
+          "questionAr": "لماذا مثّل قرار تجنيد الفلاحين المصريين عام 1824م نقطة تحول ثورية في تاريخ الجيش المصري؟",
+          "solutionEn": "Because native Egyptians had been excluded from bearing arms since antiquity; conscripting them created an egalitarian, unified national armed force.",
+          "solutionAr": "لأن المصريين حُرموا من الجندية لقرون طويلة واعتمد الحكام على المرتزقة؛ فصهر التجنيد الفلاحين في جيش وطني دافع عن استقلال البلاد."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch2_ws4",
+        "titleEn": "Worksheet 2.4: Administrative, Judicial, and Military Construction (Army & Navy)",
+        "titleAr": "ورقة عمل ٢-4: البناء الإداري والتنظيم القضائي وتأسيس الجيش والأسطول النظامي",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.4.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس ٢-4.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian State Interactive Architecture Studio",
+        "titleAr": "معمل المحاكاة التفاعلية لبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Interactive statecraft simulator exploring monopoly economics, military conscription, and imperial diplomacy.",
+        "descriptionAr": "محاكي تفاعلي لإدارة نظام الاحتكار وتطور التجنيد العسكري ومسارات التوسع والاتفاقيات الدولية."
+      }
+    },
+    {
+      "id": "th_hist_ch2_l5",
+      "titleEn": "Foreign Wars & The Rise of the Egyptian Empire (1811–1839)",
+      "titleAr": "الحروب الخارجية وتكوين الرابطة العربية والإمبراطورية المصرية (1811–1839م)",
+      "summaryEn": "Wars for the Sultan: Arab Peninsula / Wahhabi War (1811–1819) and Morea / Greek War (1821–1828); Wars of autonomous expansion: Conquest of Sudan (1820–1822), First & Second Levant Wars (1831–1839), Kutahya Convention (1833), Hunkar Iskelesi treaty, and the victory at Nezib (1839).",
+      "summaryAr": "الحروب استجابة لأوامر السلطان: حرب الحجاز الوهابية (1811–1819م) وحرب اليونان والمورة (1821–1828م) ونيل كريت؛ حروب الرابطة العربية: فتح السودان (1820–1822م)، وحربا الشام (1831–1839م)، اتفاقية كوتاهية، معاهدة خنكار إسكله سي، ومعركة نزيب وسحق الجيش العثماني.",
+      "theoryContentEn": "### 1. Dual Nature of Muhammad Ali's Foreign Wars\n- Muhammad Ali's external wars fall into two distinct strategic categories:\n  1. **Wars in Service of the Sultan:** The Arabian Peninsula / Wahhabi Wars (1811–1819) and the Morea / Greek War (1821–1828).\n  2. **Wars for Egyptian Autonomous Expansion (The Arab League):** The Conquest of Sudan (1820–1822) and the Levant Campaigns (1831–1839).\n\n### 2. Wars in Service of the Sultan\n- **The Arabian Peninsula Campaign (1811–1819):**\n  - Directed against the First Saudi state (Wahhabi movement) by order of Sultan Mahmud II.\n  - *Outcomes:* Elevated Muhammad Ali from a provincial wali to an independent Islamic regional power; secured the Holy Sanctuary in Mecca and Hejaz governorship for Ibrahim Pasha.\n- **The Morea (Greek) War (1821–1828):**\n  - Egyptian army and navy intervened to suppress Greek independence fighters on behalf of the Sultan.\n  - *Outcomes:* Despite the sinking of the Egyptian fleet at **Navarino (1827)** by British-French-Russian fleets, Egypt secured the annexation of **Crete**, gained international diplomatic standing by negotiating directly with European powers, and solidified the ambition of breaking away from Ottoman vassalage.\n\n### 3. Wars of Autonomous Ambition & The Arab League\n- **The Conquest of Sudan (1820–1822):**\n  - *Motives:* Pursuing Mamluk fugitives in Dongola, securing Egypt's southern strategic depth, discovering gold and minerals, recruiting Sudanese soldiers, and exploring Nile headwaters.\n  - *Achievements:* Unified the Nile Valley under a Governor-General (*Hukumdār*); founded **Khartoum (1830)**; mapped geographic Nile sources.\n- **The First Levant War (1831–1833):**\n  - *Declared Pretext:* Demanding the Wali of Acre return 6,000 fugitive Egyptian peasants avoiding taxes and conscription.\n  - *Real Strategic Motives:* Completing the **Arab League (Al-Rabita al-Arabiyya)** encompassing Egypt, Sudan, Levant, and Hejaz to counter the Ottoman League; securing Egypt's northeastern border.\n  - *Triumphs:* Ibrahim Pasha captured Acre, Damascus, and Homs, crossed into Anatolia, and crushed the Ottoman army at the **Battle of Konya (1832)**, threatening Istanbul.\n  - **Kutahya Convention (May 1833):** The Sultan conceded rule over Egypt, Crete, Levant, Hejaz, and granted Ibrahim Pasha governance of Adana.\n\n### 4. European Alarm & The Battle of Nezib (1839)\n- **Treaty of Hunkar Iskelesi (July 1833):** Secret defensive-offensive pact between the Ottoman Empire and Russia against Egypt.\n- **Battle of Nezib / Nisibis (June 1839):** The Ottoman army attempted to recapture Syria; Ibrahim Pasha annihilated Ottoman forces north of Aleppo.\n- **Defection of the Ottoman Fleet:** The Ottoman Admiral surrendered the entire imperial fleet to Muhammad Ali in Alexandria, leaving the Ottoman Sultanate totally defenseless and triggering direct European intervention.",
+      "theoryContentAr": "### ١. التصنيف الاستراتيجي لحروب محمد علي الخارجية\n- انقسمت الحروب إلى مسارين استراتيجيين متباينين:\n  ١. **حروب خاضها استجابة لأوامر السلطان:** حرب شبه الجزيرة العربية (1811–1819م) وحرب اليونان والمورة (1821–1828م).\n  ٢. **حروب خاضها لصالحه وبناء «الرابطة العربية»:** فتح السودان (1820–1822م) وحربا بلاد الشام الأولى والثانية (1831–1839م).\n\n### ٢. الحروب استجابة لأوامر السلطان العثماني\n- **حرب شبه الجزيرة العربية (1811–1819م):**\n  - خاضها بأمر السلطان محمود الثاني للقضاء على الدولة السعودية الأولى (الحركة الوهابية).\n  - *النتائج:* تحول محمد علي من والٍ تابع إلى حاكم مستقل ذي نفوذ إسلامي عالمي؛ ومُنح مشيخة الحرم المكي الشريف، وتولى ابنه إبراهيم باشا ولاية الحجاز.\n- **حرب اليونان (المورة 1821–1828م):**\n  - قاد الجيش والأسطول لإخماد ثورة اليونانيين المطالبين بالاستقلال عن الدولة العثمانية.\n  - *النتائج:* رغم غرق الأسطول في معركة **نافارين البحرية (1827م)**، إلا أن مصر اكتسبت خبرات عسكرية كبرى، ومُنح محمد علي جزيرة **كريت**، وتفاوضت معه الدول الأوروبية مباشرة لعقد اتفاقية الجلاء دون الرجوع للسلطان مما رفع مكانة مصر الدولية وأشعل فكرة الانفصال والاستقلال.\n\n### ٣. حروب الرابطة العربية والامتداد الحيوي\n- **فتح السودان (1820–1822م):**\n  - *الأهداف:* مطاردة فلول المماليك بدنقلة، تأمين الامتداد الحيوي والعمق الاستراتيجي لمصر جنوباً، اكتشاف مناجم الذهب، وتجنيد السودانيين، واكتشاف منابع مياه النيل.\n  - *الإنجازات:* توحيد وادي النيل سياسياً وإدارياً وتعيين حاكمدار للسودان، تأسيس مدينة **الخرطوم (1830م)** كعاصمة موحدة، وتسيير حملات كشفية لمنابع النيل الاستوائية.\n- **حرب الشام الأولى (1831–1833م):**\n  - *الذريعة المعلنة:* مطالبة والي عكا بإرجاع 6 آلاف فلاح مصري فروا تهرباً من الضرائب والخدمة العسكرية.\n  - *الدوافع الحقيقية:* تحقيق **الرابطة العربية** (مصر، السودان، الشام، الحجاز) لمواجهة الرابطة العثمانية وتأمين الحدود الشمالية الشرقية.\n  - *الانتصارات:* سحق إبراهيم باشا الحصون واقتحم عكا ودمشق وحمص، وتوغل في آسيا الصغرى وهزم الجيش العثماني في **معركة قونية (1832م)** وأصبح على مقربة من إسطنبول.\n  - **اتفاقية كوتاهية (مايو 1833م):** اضطر السلطان للصلح وبسط نفوذ محمد علي على مصر وكريت والشام والحجاز وأدنة.\n\n### ٤. الذعر الأوروبي ومعركة نزيب (1839م)\n- **معاهدة خنكار إسكله سي (يوليو 1833م):** حلف دفاعي هجومي سري بين الدولة العثمانية وروسيا لمواجهة محمد علي عسكرياً في المستقبل.\n- **معركة نزيب (نصيبين - يونيو 1839م):** هاجم الجيش العثماني القوات المصرية لاستعادة الشام، فسحق إبراهيم باشا القوات العثمانية شمال حلب سحقاً تاماً.\n- **تسليم الأسطول العثماني:** سلم قائد الأسطول العثماني أسطوله بالكامل لمحمد علي في الإسكندرية، فأصبح السلطان بلا جيش وبلا أسطول، مما أثار الذعر الاستعماري في أوروبا وأشعل الأزمة الدولية.",
+      "formulas": [
+        {
+          "labelEn": "Arab League vs Ottoman Empire Collision",
+          "labelAr": "معادلة الصدام الإمبراطوري وبناء الرابطة العربية",
+          "latex": "\\text{الرابطة العربية (مصر + السودان + الشام + الحجاز)} \\iff \\text{الرابطة العثمانية} \\implies \\text{معركة نزيب 1839م}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH2-L5",
+        "pageRange": "pp. 93-108"
+      },
+      "lessonPlan": {
+        "titleEn": "Foreign Wars & The Rise of the Egyptian Empire",
+        "titleAr": "الحروب الخارجية وصعود الإمبراطورية المصرية والرابطة العربية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-205",
+        "bloomsObjectivesEn": [
+          "Contrast the objectives of the wars fought for the Sultan with those fought for autonomous Arab expansion.",
+          "Analyze why the Battle of Nezib was perceived as a catastrophic threat to European balance of power.",
+          "Evaluate the strategic gains achieved through the conquest of Sudan."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة المنهجية بين حروب محمد علي استجابة للسلطان وحروبه التوسعية لبناء الرابطة العربية.",
+          "تحليل أسباب اعتبار معركة نزيب خطراً داهماً يهدد التوازن الدولي الأوروبي.",
+          "تقويم المكتسبات الاستراتيجية والجيوسياسية المترتبة على فتح السودان وتوحيد وادي النيل."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with 19th-century European balance of power dynamics."
+        ],
+        "prerequisitesAr": [
+          "فهم سياسات التوازن الدولي الأوروبي ومفهوم رجل أوروبا المريض."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Kutahya Convention",
+            "definition": "1833 armistice expanding Egyptian rule across Syria, Crete, and Adana."
+          },
+          {
+            "term": "Battle of Nezib (1839)",
+            "definition": "Decisive clash near Syrian border where Egyptian forces crushed the Ottoman army."
+          },
+          {
+            "term": "Treaty of Hunkar Iskelesi",
+            "definition": "Secret 1833 Russo-Ottoman mutual defense alliance against Egypt."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "اتفاقية كوتاهية 1833م",
+            "definition": "صلح فرض فيه محمد علي نفوذه على الشام وأدنة وكريت والحجاز."
+          },
+          {
+            "term": "معركة نزيب 1839م",
+            "definition": "معركة حاسمة شمال حلب دمر فيها إبراهيم باشا الجيش العثماني وسلّم الأسطول نفسه."
+          },
+          {
+            "term": "معاهدة خنكار إسكله سي",
+            "definition": "اتفاق سري دفاعي هجومي بين روسيا والسلطان العثماني لمواجهة خطر محمد علي."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Display the map of the Egyptian Empire at its zenith in 1839.",
+            "activitiesAr": "عرض خريطة أقصى اتساع للإمبراطورية المصرية عام 1839م ومناقشة موقعها."
+          },
+          {
+            "phaseEn": "Instruction",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Detail campaigns in Arabia, Morea, Sudan, and the Levant up to the Battle of Nezib.",
+            "activitiesAr": "شرح حروب الحجاز واليونان والسودان وحرب الشام ونتائج معركة نزيب."
+          },
+          {
+            "phaseEn": "Geopolitical Analysis",
+            "phaseAr": "التحليل الاستراتيجي",
+            "duration": "20 min",
+            "activitiesEn": "Analyze why Great Britain could not permit the collapse of the Ottoman Empire.",
+            "activitiesAr": "تحليل المصالح البريطانية في بقاء الدولة العثمانية عازلاً ضد التمدد الروسي والمصري."
+          },
+          {
+            "phaseEn": "Assessment",
+            "phaseAr": "التقويم",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial MCQs on Kutahya, Hunkar Iskelesi, and Nezib.",
+            "activitiesAr": "حل 5 أسئلة وزارية عليا حول تداعيات حروب الشام والتحالفات الدولية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming Muhammad Ali conquered the Levant purely to recover 6,000 peasants."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن حرب الشام كانت بسبب 6 آلاف فلاح فقط وليس لبناء الرابطة العربية وتأمين الحدود."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic correspondence between Muhammad Ali, Palmerston, and Metternich to evaluate 19th-century realpolitik."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم واستيعاب الدروس.",
+          "advanced": "تحليل المراسلات الدبلوماسية المتبادلة بين محمد علي وبالمرستون ومترنيخ لاستنباط أبعاد التوازن الدولي ولعبة الأمم."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did the complete triumph at Nezib in 1839 prove to be a strategic catastrophe that doomed the Egyptian empire?",
+          "questionAr": "لماذا تحول الانتصار الساحق في معركة نزيب عام 1839م إلى كارثة استراتيجية عجلت بتدمير الإمبراطورية المصرية؟",
+          "solutionEn": "Because annihilating the Ottoman army crossed the red line of European balance of power, forcing rival great powers to unite to preserve the Ottoman buffer.",
+          "solutionAr": "لأن سحق الجيش العثماني هدد بسقوط الدولة العثمانية وخلل التوازن الدولي، مما أجبر الدول الكبرى على التوحد لحماية رجل أوروبا المريض."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch2_ws5",
+        "titleEn": "Worksheet 2.5: Foreign Wars & The Rise of the Egyptian Empire (1811–1839)",
+        "titleAr": "ورقة عمل ٢-5: الحروب الخارجية وتكوين الرابطة العربية والإمبراطورية المصرية (1811–1839م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.5.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس ٢-5.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian State Interactive Architecture Studio",
+        "titleAr": "معمل المحاكاة التفاعلية لبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Interactive statecraft simulator exploring monopoly economics, military conscription, and imperial diplomacy.",
+        "descriptionAr": "محاكي تفاعلي لإدارة نظام الاحتكار وتطور التجنيد العسكري ومسارات التوسع والاتفاقيات الدولية."
+      }
+    },
+    {
+      "id": "th_hist_ch2_l6",
+      "titleEn": "The Treaty of London (1840), Collapse of Monopoly & Reign of Ismail (1840–1879)",
+      "titleAr": "تسوية لندن 1840م وسقوط الاحتكار وعصر خلفاء محمد علي حتى إسماعيل (1840–1879م)",
+      "summaryEn": "Treaty of Balta Liman (1838), European coalition & Treaty of London (1840), 1841 Firmans (18,000 army cap), open-door market and decline of industries, Said Pasha's military conscription equality and Suez Canal concession (1854/1856), Khedive Ismail's cultural/urban renaissance, Majlis Shura al-Nuwwab (1866), Muqabala Law (1871), 1875 East African expansion (Ethiopian War), and debt pretext for European intervention.",
+      "summaryAr": "معاهدة بلطة ليمان 1838م، تسوية لندن 1840م وفرمانا 1841م (قيد 18 ألف جندي)، تدهور الصناعة وسقوط الاحتكار، عصر سعيد باشا (عدالة التجنيد وامتياز قناة السويس)، نهضة الخديوي إسماعيل العمرانية والثقافية، مجلس شورى النواب 1866م، قانون المقابلة 1871م، حرب الحبشة 1875م وتطويق شرق إفريقيا، والتدخل الأوروبي وصندوق الدين وعزله 1879م.",
+      "theoryContentEn": "### 1. The Treaty of Balta Liman (1838) & The Treaty of London (1840)\n- **Balta Liman Commercial Treaty (1838):** Signed between Britain and the Ottoman Sultan to abolish the state Monopoly system in Ottoman dominions and open domestic markets to British industrial goods; Muhammad Ali resisted implementation until military coercion forced him.\n- **The Treaty of London (July 15, 1840):** Great Britain, Russia, Austria, and Prussia formed a coalition with the Sultan against Muhammad Ali.\n  - *Territorial Clauses:* Granted hereditary rule over Egypt and lifetime governance of Southern Syria (Acre); failure to accept within 10 days forfeited Syria; failure within 20 days authorized military deposition.\n  - *Economic & Sovereignty Clauses:* All imperial treaties (notably Balta Liman) applied in Egypt; Egyptian armed forces subordinated as part of the Sultan's army; tribute paid to Istanbul.\n  - *French Abandonment:* France initially backed Muhammad Ali, but abandoned him when faced with European war, forcing him to accept terms.\n\n### 2. The Imperial Firmans of February & June 1841\n- Decreed that Egyptian heirs receive investiture firmans from the Sultan.\n- Restricted the Egyptian peacetime army to **18,000 troops**.\n- Prohibited building warships without explicit Sultanic permission.\n- Required minting coins and collecting taxes in the Sultan's name, with 25% of annual revenues remitted to Istanbul.\n\n### 3. Economic and Social Consequences of the Collapse of Monopoly\n- **Inundation of Foreign Goods:** British manufactured goods flooded markets; state factories closed, leading to industrial stagnation.\n- **Agricultural Privatization:** Land tenure shifted from state usufruct to private ownership.\n- **The Muqabala Law (1871):** Issued by Ismail to raise emergency funds for loan debts; exempt landowners who paid 6 years of taxes in advance from half of future taxes and granted them full legal title.\n\n### 4. The Eras of Abbas I, Said, and Khedive Ismail (1848–1879)\n- **Abbas I (1848–1854):** Stagnation; closed schools and factories; restricted the army.\n- **Said Pasha (1854–1863):**\n  - Military Conscription Reform: Made military service compulsory, equal across social classes, and limited to one year, instilling popular pride in the military.\n  - **The Suez Canal Concession (1854 & 1856):** Granted to Ferdinand de Lesseps on terms highly prejudicial to Egyptian sovereignty (loss of 80% Egyptian manual labor, 15% net profits, 44% company shares).\n- **Khedive Ismail's Renaissance & Ambition (1863–1879):**\n  - *Cultural & Urban Modernization:* Expanded public education (established the first girls' school, Al-Saniyya 1873); built modern Cairo, the Opera House, and bridges; established **Majlis Shura al-Nuwwab (1866)**.\n  - *African Empire:* Expanded into the Horn of Africa (Somalia, Eritrea, Sudan) encircling the Red Sea.\n  - *The Ethiopian War (1875):* Ended in military setback and 3 million pounds loss; European powers panicked at Ismail's imperial resurgence.\n  - *Foreign Debt Pretext:* Britain and France utilized financial debt as a pretext to intervene, creating the **Cave Mission (1875)**, **Caisse de la Dette (1876)**, and Dual Control, culminating in Sultan Abdulhamid II deposing Ismail in 1879.",
+      "theoryContentAr": "### ١. معاهدة بلطة ليمان (1838م) وتسوية لندن الدولية (1840م)\n- **معاهدة بلطة ليمان التجارية (1838م):** وقعتها بريطانيا مع السلطان لإلغاء نظام الاحتكار وفتح أسواق الشرق أمام طفرة الثورة الصناعية الإنجليزية؛ رفضها محمد علي لحماية صناعته ثم أُجبر على تطبيقها بعد تسوية لندن.\n- **معاهدة لندن (15 يوليو 1840م):** تحالف أوروبي خماسي (إنجلترا، روسيا، النمسا، بروسيا مع السلطان) لإخضاع محمد علي.\n  - *الشروط الإقليمية:* إعطاء محمد علي وخلفائه حكم مصر وراثياً، وحكم جنوب الشام (عكا) طوال حياته؛ وإذا رفض خلال 10 أيام يُحرم من الشام، وإذا رفض خلال 20 يوماً يحق للتحالف عزله بالقوة.\n  - *الشروط السيادية والاقتصادية:* تطبيق كافة المعاهدات العثمانية وفي مقدمتها بلطة ليمان (سقوط الاحتكار)، ويُعد الجيش والأسطول جزءاً من قوات السلطان، ودفع جزية سنوية.\n  - *الموقف الفرنسي:* حرضت فرنسا محمد علي على الرفض في البداية ثم تخلت عنه خشية خوض حرب أوروبية شاملة، فاضطر لقبول شروط التسوية.\n\n### ٢. فرمانا فبراير ويونيو 1841م\n- إصدار فرمان التولية لأبناء محمد علي من إسطنبول مباشرة.\n- **تحديد الجيش بـ 18 ألف جندي** فقط في وقت السلم، وحظر بناء سفن حربية إلا بإذن السلطان.\n- صك العملة وجباية الضرائب باسم السلطان وإرسال ربع إيرادات مصر السنوية للباب العالي.\n\n### ٣. الآثار الاقتصادية والاجتماعية لسقوط الاحتكار\n- **سيادة مناخ الباب المفتوح:** تدفق البضائع الأجنبية الرخيصة وإغلاق المصانع الحكومية وتدهور الصناعات الحربية واليدوية.\n- **تطور الملكية الزراعية:** تحول الأرض من حق انتفاع إلى ملكية فردية تورث وتباع.\n- **قانون المقابلة (1871م):** أصدره الخديوي إسماعيل لجمع سيولة عاجلة لسداد ديون البنوك الأوروبية؛ حيث أُعفي من يدفع 6 أمثال الضريبة مقدماً من نصف الضريبة مستقبلاً ونال الملكية التامة للأرض.\n\n### ٤. عهود عباس وسعيد والخديوي إسماعيل (1848–1879م)\n- **عباس حلمي الأول (1848–1854م):** مرحلة جمود وإغلاق للمدارس والمصانع وتخفيض الجيش.\n- **سعيد باشا (1854–1863م):**\n  - إصلاح التجنيد: جعله إجبارياً وقصير المدة لسنة واحدة ومتساوياً لجميع الطبقات مما أزال الشعور بظلم الجندية.\n  - **امتياز قناة السويس (1854 و1856م):** منحه للمهندس دي لسبس بشروط مجحفة للغاية (تقديم 4/5 العمال من المصريين مجاناً كعمل سخرة، و15% فقط من الأرباح لمصر، وامتلاك 44% من الأسهم).\n- **عصر الخديوي إسماعيل (1863–1879م) - النهضة والتدخل الأجنبي:**\n  - *النهضة التعليمية والعمرانية:* التوسع في التعليم وإنشاء أول مدرسة لتعليم البنات (السنية 1873م)، تخطيط القاهرة الحديثة وبناء دار الأوبرا والكباري، وإنشاء **مجلس شورى النواب (1866م)**.\n  - *التوسع الإمبراطوري في شرق إفريقيا:* بسط السيطرة على سواحل البحر الأحمر والقرن الإفريقي (إريتريا والصومال وأوغندا).\n  - *حرب الحبشة (1875م):* خسرت مصر 3 ملايين جنيه وتكبد الجيش خسائر؛ ونبهت هذه الحملة دول أوروبا لخطر تجدد إمبراطورية محمد علي.\n  - *ذريعة الديون والتدخل الأجنبي:* استغلت بريطانيا وأوروبا الأزمة المالية للتدخل؛ فأرسلت **بعثة كيف (1875م)** وأنشئ **صندوق الدين (1876م)** والمراقبة الثنائية، وانتهت بعزل إسماعيل بفرمان سلطاني عام 1879م وتولية ابنه توفيق.",
+      "formulas": [
+        {
+          "labelEn": "1875 Colonial Intervention Trigger",
+          "labelAr": "معادلة التدخل الاستعماري الأوروبي عام 1875م",
+          "latex": "\\text{توسع إسماعيل في شرق إفريقيا وحرب الحبشة (1875م)} \\implies \\text{ذعر إنجلترا وأوروبا} \\implies \\text{توظيف الديون للتدخل والعزل}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH2-L6",
+        "pageRange": "pp. 109-126"
+      },
+      "lessonPlan": {
+        "titleEn": "Treaty of London, Collapse of Monopoly, and the Reign of Ismail",
+        "titleAr": "تسوية لندن وسقوط الاحتكار وعصر الخديوي إسماعيل",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-206",
+        "bloomsObjectivesEn": [
+          "Contrast the economic climate under Monopoly with the open-door policy after Balta Liman.",
+          "Analyze why the year 1875 is regarded as the geopolitical turning point of European intervention in Egypt.",
+          "Critique the terms of the Suez Canal concession granted by Said Pasha to Ferdinand de Lesseps."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة الاقتصادية بين مناخ الاحتكار وسياسة الباب المفتوح عقب تطبيق بلطة ليمان.",
+          "تحليل لماذا يُعد عام 1875م نقطة التحول الجيوسياسية الحاسمة للتدخل الأوروبي في شؤون مصر.",
+          "نقد الشروط المجحفة لامتياز حفر قناة السويس الممنوح من سعيد باشا لفرديناند دي لسبس."
+        ],
+        "prerequisitesEn": [
+          "Understanding the Battle of Nezib and the concept of balance of power."
+        ],
+        "prerequisitesAr": [
+          "استيعاب نتائج معركة نزيب ومفهوم التوازن الدولي الأوروبي."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Treaty of London (1840)",
+            "definition": "International pact dismantling the Egyptian empire and curbing Muhammad Ali."
+          },
+          {
+            "term": "Muqabala Law (1871)",
+            "definition": "Fiscal law granting permanent tax discounts in return for 6-year tax advances."
+          },
+          {
+            "term": "Caisse de la Dette (1876)",
+            "definition": "Foreign financial commission managing Egyptian treasury revenues for debt repayment."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "معاهدة تسوية لندن 1840م",
+            "definition": "تسوية دولية فرضت تفكيك الإمبراطورية المصرية وتقييد حكم محمد علي في مصر."
+          },
+          {
+            "term": "قانون المقابلة 1871م",
+            "definition": "قانون مالي منح إعفاء نصف الضريبة وملكية تامة للأرض مقابل سداد 6 أمثالها مقدماً."
+          },
+          {
+            "term": "صندوق الدين 1876م",
+            "definition": "هيئة رقابة مالية أوروبية مثلت حكومة داخل حكومة لاستلام إيرادات الدولة لسداد الديون."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Orientation",
+            "phaseAr": "التمهيد",
+            "duration": "10 min",
+            "activitiesEn": "Debate why France abandoned Muhammad Ali in the 1840 crisis.",
+            "activitiesAr": "مناقشة تخلي فرنسا عن محمد علي في أزمة 1840م خوفاً من الحرب الأوروبية."
+          },
+          {
+            "phaseEn": "Instruction",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Deconstruct Treaty of London, 1841 Firmans, Muqabala law, and Ismail's 1875 campaign.",
+            "activitiesAr": "شرح بنود معاهدة لندن وفرماني 1841م، سقوط الاحتكار، وتوسع إسماعيل في إفريقيا 1875م."
+          },
+          {
+            "phaseEn": "Debate",
+            "phaseAr": "التحليل النقدي",
+            "duration": "20 min",
+            "activitiesEn": "Debate whether financial debt was the real cause or merely a pretext for intervention in 1875.",
+            "activitiesAr": "حوار تحليلي: هل كانت الديون سبباً حقيقياً للتدخل أم مجرد لافتة لإجهاض مشروع إسماعيل التوسعي؟"
+          },
+          {
+            "phaseEn": "Assessment",
+            "phaseAr": "التقويم",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 high-order synthesis questions on the transition from Muhammad Ali to Ismail.",
+            "activitiesAr": "حل 5 أسئلة وزارية استنتاجية حول تداعيات تسوية لندن وعهود الخلفاء."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming foreign intervention in 1875 began solely because of financial insolvency."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن التدخل الأوروبي في عهد إسماعيل حدث بسبب الديون فقط متجاهلين التوسع في إفريقيا."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic correspondence between Muhammad Ali, Palmerston, and Metternich to evaluate 19th-century realpolitik."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم واستيعاب الدروس.",
+          "advanced": "تحليل المراسلات الدبلوماسية المتبادلة بين محمد علي وبالمرستون ومترنيخ لاستنباط أبعاد التوازن الدولي ولعبة الأمم."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did European financial intervention erupt aggressively in 1875 rather than earlier in Ismail's reign?",
+          "questionAr": "لماذا تفجر التدخل الاستعماري الأوروبي ضد إسماعيل بشراسة عام 1875م تحديداً دون غيره من الأعوام السابقة؟",
+          "solutionEn": "Because Ismail's military campaigns into East Africa and the Red Sea basin threatened European imperial ambitions and British routes to India.",
+          "solutionAr": "لأن حملات إسماعيل التوسعية في القرن الإفريقي وحوض البحر الأحمر أحيت شبح محمد علي وهددت النفوذ الاستعماري الأوروبي في القارة."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch2_ws6",
+        "titleEn": "Worksheet 2.6: The Treaty of London (1840), Collapse of Monopoly & Reign of Ismail (1840–1879)",
+        "titleAr": "ورقة عمل ٢-6: تسوية لندن 1840م وسقوط الاحتكار وعصر خلفاء محمد علي حتى إسماعيل (1840–1879م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.6.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس ٢-6.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Modern Egyptian State Interactive Architecture Studio",
+        "titleAr": "معمل المحاكاة التفاعلية لبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Interactive statecraft simulator exploring monopoly economics, military conscription, and imperial diplomacy.",
+        "descriptionAr": "محاكي تفاعلي لإدارة نظام الاحتكار وتطور التجنيد العسكري ومسارات التوسع والاتفاقيات الدولية."
+      }
+    }
+  ]
+},
+      databank: historyCh2Databank,
+      solvedExamples: egBacHistoryCh2SolvedExamples,
+      exerciseProblems: egBacHistoryCh2Exercises
+    },
+    {
+      ...{
+  "id": "th_hist_ch3",
+  "chapterNumber": 3,
+  "titleEn": "Unit 3: Imperial Hegemony, Sovereign Debt & The Orabi Constitutional Struggle",
+  "titleAr": "الفصل الثالث: الهيمنة الاستعمارية، أزمة الديون السيادية، والنضال الدستوري العرابي",
+  "descriptionEn": "Advanced geopolitical analysis of sovereign debt as an instrument of empire, the Orabi civil-military coalition, the Constantinople Conference loophole, Dufferin's covert governance framework, and the diplomatic evolution from Fashoda to Denshawai.",
+  "descriptionAr": "التحليل الجيوسياسي المتقدم لتوظيف الديون كأداة استعمارية، والتحالف العسكري المدني للثورة العرابية، ومناورات مؤتمر الآستانة، ومنظومة الحكم غير المباشر لدفرين، والتطور الدبلوماسي من فاشودة حتى دنشواي وميلاد الحركة العمالية.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "th_hist_ch3_l1",
+      "titleEn": "The Financial Crisis & Autocratic Reaction under Khedive Tawfiq (1879–1881)",
+      "titleAr": "الأزمة المالية والتدخل الأجنبي والاستبداد الخديوي المشترك (1879–1881م)",
+      "summaryEn": "The deposition of Ismail, the Sultan's August 1879 firman, Khedive Tawfiq's autocracy, the dismissal of Sherif Pasha, Riaz Pasha's reactionary cabinet, reinstatement of Dual Control, the sale of Egypt's 15% Suez Canal profits, the abolition of the Muqabala Law, and the Law of Liquidation (1880).",
+      "summaryAr": "عزل إسماعيل وفرمان أغسطس 1879م، استبداد الخديوي توفيق وعزل شريف باشا، وزارة رياض باشا ورجعية الحكم، توسيع صلاحيات المراقبة الثنائية وبيع حصة أرباح قناة السويس (15%)، إلغاء قانون المقابلة، وصدور قانون التصفية 1880م وقواعد تجميد ميزانية الدولة.",
+      "theoryContentEn": "### 1. The Deposition of Khedive Ismail & The Sultan's Firman (August 1879)\n- **European Intervention:** In June 1879, Great Britain and France pressured Ottoman Sultan Abdulhamid II to depose Khedive Ismail after he dismissed foreign ministers and adopted a national constitution.\n- **The August 7, 1879 Firman:** The Sultan sought to curtail the extensive privileges granted to Egypt under Ismail's firmans (1866–1873):\n  1. Compulsory submission of all international treaties to the Porte prior to ratification.\n  2. Restricting the peacetime Egyptian army to a maximum of 18,000 soldiers.\n  3. Prohibiting new foreign loans without the Sultan's prior approval, unless intended to consolidate old debts.\n- **Anglo-French Veto:** Britain and France intervened to veto the Sultan's firman—not to defend Egyptian autonomy, but to prevent the Sultan from exercising real authority over Egypt that could challenge European imperial dominance.\n\n### 2. Khedive Tawfiq's Autocracy & Riaz Pasha's Reactionary Cabinet\n- **Dismissal of Sherif Pasha (August 1879):** Tawfiq shared his father's autocratic instincts. He dismissed Muhammad Sherif Pasha's constitutional ministry because Sherif insisted on a representative parliament, which Tawfiq viewed as an infringement on his divine royal prerogative.\n- **The Ministry of Riaz Pasha (September 1879):**\n  - Tawfiq unconstitutionally headed the cabinet himself until appointing Riaz Pasha.\n  - Riaz was a staunch defender of absolutism, fiercely hostile to constitutionalism, suppressed political newspapers, and completely subjugated governance to the European consuls.\n\n### 3. Reinstatement & Dictatorial Expansion of Dual Control\n- In November 1879, the British and French financial controllers returned with unprecedented executive powers:\n  1. The right to attend all Egyptian cabinet meetings.\n  2. Full access to all state financial records, revenues, and expenditures.\n  3. Immunity from dismissal without the explicit approval of their respective home governments.\n- **Catastrophic Consequences of Dual Control:**\n  1. *Sale of Suez Canal Profits (January 1880):* Egypt's remaining 15% share in the net profits of the Suez Canal was sold to a French banking syndicate (*Crédit Foncier*) for 22 million francs to pay off floating debts. This left Egypt with zero shares and zero profits in the canal.\n  2. *Abolition of the Muqabala Law (January 1880):* Cancelled the 1871 law to claim full land tax for debt repayment, infuriating the landowning *A'yan* class who had borrowed heavily to pay six years of taxes upfront.\n\n### 4. The Commission of Liquidation & The Law of Liquidation (July 1880)\n- Composed of representatives from Great Britain, France, Germany, Austria, and Italy.\n- **Key Provisions of the Law of Liquidation (1880):**\n  1. Over half of Egypt's annual state revenues were permanently allocated to servicing foreign public debt.\n  2. State expenditure was capped at less than 50% of annual revenue, starving public infrastructure, schools, and military salaries.\n  3. Placed the personal estates of Khedive Ismail (*Al-Da'ira al-Saniyya*) and the royal family (*Al-Domaines*) under international mortgage administration as collateral for foreign loans.\n- This law formed the legal and financial straightjacket of Egypt for 24 years until 1904.",
+      "theoryContentAr": "### ١. عزل الخديوي إسماعيل وفرمان أغسطس 1879م\n- **عزل إسماعيل:** في يونيو 1879م، ضغطت إنجلترا وفرنسا على السلطان العثماني عبد الحميد الثاني لعزل إسماعيل بعد انحيازه للحركة الوطنية وإقصائه للوزيرين الأوروبيين وإصدار اللائحة الوطنية.\n- **فرمان 7 أغسطس 1879م:** استغل السلطان العثماني الفرصة لسحب المزايا الخديوية التي نالها إسماعيل في فرمانات (1866 - 1873م)، وتضمن:\n  ١. وجوب إبلاغ الباب العالي بنصوص المعاهدات التي تنوي مصر توقيعها مقدماً.\n  ٢. تحديد عدد الجيش المصري وقت السلم بحيث لا يزيد على 18 ألف جندي.\n  ٣. حظر عقد أي قروض جديدة إلا بموافقة السلطان أو لتسوية الديون القديمة.\n- **موقف إنجلترا وفرنسا من الفرمان:** اعترضت الدولتان وطلبتا من السلطان عدم سحب المزايا الخديوية؛ ليس حباً في مصر أو استقلالها، بل لمنع طغيان نفوذ السلطان على الخديوي بما يعطل مصالحهما ومخططاتهما الاستعمارية.\n\n### ٢. استبداد الخديوي توفيق ووزارة رياض باشا الرجعية\n- **التخلص من وزارة شريف باشا (أغسطس 1879م):** كان الخديوي توفيق مستبداً كارهاً للحياة النيابية والدستور؛ فعزل وزارة محمد شريف باشا الدستورية لتمسك الأخير بمجلس النواب وتطبيق الدستور الذي يحد من السلطة المطلقة للخديوي.\n- **وزارة رياض باشا (سبتمبر 1879م):**\n  - تولى توفيق رئاسة الوزارة بنفسه بالمخالفة للمرسوم الخديوي لعام 1878م حتى عاد رياض باشا من أوروبا.\n  - كان رياض باشا نصيراً للحكم الاستبدادي المطلق، خاضعاً للنفوذ الأوروبي، معادياً للدستور، فعطل الصحف الوطنية واضطهد الأحرار والمطالبين بالإصلاح.\n\n### ٣. إعادة تنظيم المراقبة الثنائية وتداعياتها الكارثية\n- أعاد رياض باشا تنظيم المراقبة الثنائية في نوفمبر 1879م ومنح المراقبين (البريطاني والفرنسي) نفوذاً واسعاً يفوق سلطة الوزراء:\n  ١. حضور جلسات مجلس الوزراء والاطلاع على كافة القرارات المالية.\n  ٢. التفتيش على إيرادات ومصروفات الدولة.\n  ٣. تحصين المراقبين ضد العزل؛ فلا يجوز عزلهما إلا بموافقة حكومتيهما.\n- **الآثار الكارثية للمراقبة الثنائية:**\n  ١. **بيع حصة مصر في أرباح قناة السويس (15%):** في يناير 1880م، تم بيعها لاتحاد مالي بباريس لوفاء ديون الحكومة، فأصبحت مصر لا تملك أي سهم أو ربح في القناة بعد بيع إسماعيل لأسهم مصر (44%) لإنجلترا عام 1875م.\n  ٢. **إلغاء قانون المقابلة (يناير 1880م):** لتمكين الحكومة من جباية الضريبة كاملة لسداد الديون، مما أغضب طبقة الأعيان وملاك الأراضي الذين استدانوا لدفع ستة أمثال الضريبة مقدماً للحصول على الملكية التامة والإعفاء من نصف الضريبة.\n\n### ٤. لجنة التصفية وقانون التصفية (يوليو 1880م)\n- تألفت من ممثلي الدول الدائنة (إنجلترا، فرنسا، ألمانيا، النمسا، وإيطاليا) لبحث مالية مصر.\n- **أخطر بنود قانون التصفية (1880م):**\n  ١. تخصيص أكثر من نصف إيرادات مصر السنوية لحساب سداد الديون العامة.\n  ٢. قصر نفقات الحكومة على أقل من نصف الدخل السنوي، مما حرم الشعب من الخدمات والتعليم وتسبب في انهيار المرافق وتأخر رواتب الموظفين والضباط.\n  ٣. وضع أطيان الخديوي إسماعيل (**الدائرة السنية**) وأملاك الأسرة المالكة (**الدومين**) تحت إدارة دولية كضمان مالي لسداد الديون.\n- ظل هذا القانون البغيض هو الدستور المالي الأساسي الحاكم لمصر لمدة 24 عاماً كاملة حتى توقيع الوفاق الودي عام 1904م.",
+      "formulas": [
+        {
+          "labelEn": "Fiscal Annexation Equation",
+          "labelAr": "معادلة مصادرة السيادة المالية الوطنية",
+          "latex": "\\text{إعادة المراقبة الثنائية} + \\text{إلغاء قانون المقابلة} + \\text{قانون التصفية 1880م} \\implies \\text{سلب أكثر من نصف إيرادات مصر} \\implies \\text{انفجار الثورة العرابية}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH3-L1",
+        "pageRange": "pp. 55-63"
+      },
+      "lessonPlan": {
+        "titleEn": "Fiscal Encroachment, Khedivial Reaction & The Genesis of the Crisis",
+        "titleAr": "الأزمة المالية والاستبداد المشترك وجذور الحركة الوطنية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-301",
+        "bloomsObjectivesEn": [
+          "Analyze why Great Britain and France opposed the Sultan's August 1879 Firman.",
+          "Evaluate the socio-economic repercussions of the abolition of the Muqabala Law on the landowning A'yan class.",
+          "Critique the Law of Liquidation (1880) as a deliberate structural impediment to Egyptian state development."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الدوافع الحقيقية وراء اعتراض إنجلترا وفرنسا على فرمان السلطان العثماني الصادر في أغسطس 1879م.",
+          "تقويم الآثار الاقتصادية والاجتماعية لإلغاء قانون المقابلة على طبقة الأعيان وتحولهم لصفوف المعارضة الوطنية.",
+          "نقد بنود قانون التصفية 1880م كأداة استعمارية لتجميد التنمية وتجويع الشعب ومصادرة أكثر من نصف الميزانية."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with Ismail's financial borrowing and the Suez Canal sale in 1875."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أزمة ديون الخديوي إسماعيل وبيع أسهم القناة لإنجلترا عام 1875م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Law of Liquidation (1880)",
+            "definition": "Colonial fiscal charter allocating >50% of Egyptian revenue to foreign creditors."
+          },
+          {
+            "term": "Dual Control",
+            "definition": "Anglo-French financial controllers with ministerial powers over Egyptian revenue and spending."
+          },
+          {
+            "term": "Muqabala Law",
+            "definition": "1871 law granting perpetual tax relief and ownership for advance payment of 6 years tax, revoked in 1880."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "قانون التصفية",
+            "definition": "قانون استعماري صدر 1880م خصص أكثر من نصف إيرادات مصر لسداد الديون وظل سارياً حتى 1904م."
+          },
+          {
+            "term": "المراقبة الثنائية",
+            "definition": "مراقبان (إنجليزي وفرنسي) أدارا مالية مصر بصلاحيات فاقت الوزراء في عهد وزارة رياض باشا."
+          },
+          {
+            "term": "قانون المقابلة",
+            "definition": "قانون 1871م ألغاه رياض عام 1880م فحرم الأعيان من ملكياتهم المستقرة وأشعل غضبهم ضد الحكومة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Historical Inquiry",
+            "phaseAr": "التهيئة والتحفيز",
+            "duration": "10 min",
+            "activitiesEn": "Ask students: How does a country lose 100% of a canal dug on its own soil?",
+            "activitiesAr": "طرح تساؤل استنكاري: كيف خسرت مصر 100% من أرباح وأسهم قناة السويس التي حُفرت بدماء أبنائها؟"
+          },
+          {
+            "phaseEn": "Structural Analysis of Debt Laws",
+            "phaseAr": "التحليل المؤسسي",
+            "duration": "45 min",
+            "activitiesEn": "Deconstruct the 1880 Law of Liquidation and the Riaz-Dual Control dictatorship.",
+            "activitiesAr": "تفكيك نصوص قانون التصفية وإلغاء المقابلة ودور المراقبة الثنائية في تجريد الدولة من سيادتها."
+          },
+          {
+            "phaseEn": "Class Grievance Mapping",
+            "phaseAr": "رسم خرائط السخط الطبقي",
+            "duration": "20 min",
+            "activitiesEn": "Categorize the discontent of A'yan, intellectuals, and military officers.",
+            "activitiesAr": "تصنيف قوى المعارضة الثلاث: الأعيان (المقابلة)، المثقفين (الدستور)، والضباط (الترقيات والرواتب)."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Complete ministerial MCQ drill on the causes of the 1881 crisis.",
+            "activitiesAr": "إجراء اختبار تقويمي تفاعلي من 5 أسئلة مستويات عليا حول تداعيات الأزمة المالية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming Egypt owned shares in the Suez Canal when Britain invaded in 1882."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن مصر كانت تمتلك أي أسهم أو أرباح في قناة السويس عشية الاحتلال البريطاني عام 1882م."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic cables and British parliamentary transcripts against Egyptian nationalist press accounts to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين محاضر البرلمان البريطاني ومقالات جريدتي اللواء والمؤيد لاستنباط الانحيازات الاستعمارية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did Great Britain and France oppose the Ottoman Sultan's August 1879 Firman?",
+          "questionAr": "لماذا اعترضت إنجلترا وفرنسا على فرمان السلطان العثماني الصادر في أغسطس 1879م؟",
+          "solutionEn": "To prevent the Ottoman Sultan from regaining sovereign authority over the Khedive, which would have restricted European financial and imperial hegemony.",
+          "solutionAr": "لمنع السلطان من استعادة سلطته الفعلية على الخديوي، مما قد يعطل النفوذ والمصالح الاستعمارية للدولتين في مصر."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch3_ws1",
+        "titleEn": "Worksheet 3.1: The Financial Crisis & Autocratic Reaction under Khedive Tawfiq (1879–1881)",
+        "titleAr": "ورقة عمل ٣-1: الأزمة المالية والتدخل الأجنبي والاستبداد الخديوي المشترك (1879–1881م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 1.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 1.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Orabi Era & National Movement Simulator 3.1",
+        "titleAr": "معمل المحاكاة التفاعلي للثورة العرابية والحركة الوطنية ٣-1",
+        "descriptionEn": "Interactive chronological simulator exploring the political and military turning points of Lesson 3.1.",
+        "descriptionAr": "محاكي تفاعلي لاستكشاف المحطات السياسية والعسكرية المفصلية للدرس ٣-1."
+      }
+    },
+    {
+      "id": "th_hist_ch3_l2",
+      "titleEn": "The Orabi Revolt: Catalysts, Pretexts, and Military Mobilization (1881)",
+      "titleAr": "الثورة العرابية: أسبابها، ومظالم الضباط، وتلاحم الحركة الوطنية (1881م)",
+      "summaryEn": "Sociological roots of discontent, secret societies (Helwan Society and Young Egypt), military grievances under Osman Rifqi, the Incident of Qasr al-Nil (Jan-Feb 1881), the May 1881 demands, and the historic Second Abdeen Manifestation (September 9, 1881).",
+      "summaryAr": "عوامل تذمر الأمة، الجمعيات الوطنية السرية (حلوان ومصر الفتاة)، اضطهاد الضباط المصريين بقيادة عثمان رفقي، حادثة قصر النيل وعابدين الأولى (فبراير 1881م)، مطالب مايو العسكرية والسياسية، ومظاهرة عابدين الكبرى (9 سبتمبر 1881م) وتحقيق أهداف الشعب.",
+      "theoryContentEn": "### 1. Sociological Roots of the National Awakening\n- **The Landowners (A'yan):** Enraged by the repeal of the Muqabala Law and exclusion from political participation.\n- **The Intellectual Elite:** Frustrated by Riaz Pasha's absolutism, suppression of newspapers, and absence of constitutional parliamentary life.\n- **Secret Patriotic Societies:**\n  1. *Helwan Society (The Secret National Party - 1879):* Authored manifestos demanding the return of Khedivial lands, consolidating public debt into a single 4% loan, abolishing international railway control, and establishing a national supervisory council.\n  2. *Young Egypt Society (Misr al-Fatah - Alexandria 1879):* Demanded civil liberties and constitutional representation through its independent newspaper.\n\n### 2. The Military Catalyst & Osman Rifqi's Injustices\n- **Why Did Military Officers Lead the Movement?**\n  - The army was the only organized, disciplined national body capable of confronting executive tyranny.\n  - Egyptian officers were sons of rural fallahin, directly experiencing the pain, debt, and humiliation inflicted on their families.\n- **Grievances under War Minister Osman Rifqi Pasha (Circassian):**\n  1. Limiting military promotions exclusively to Turco-Circassian officers under the July 1880 decree.\n  2. Arbitrary forced retirement of Egyptian officers to save government funds without alternative civil posts.\n  3. Humiliating Egyptian officers by employing them in menial civilian domestic labor (e.g., digging agricultural canals for royal estates).\n- **The Direct Spark (January 1881):** War Minister Osman Rifqi arbitrarily transferred Colonel **Abdel-Aal Hilmi** from the combat command of the Tora Artillery Regiment to a minor desk post in the War Ministry.\n\n### 3. The First Abdeen Incident (January–February 1881)\n- Ahmed Orabi, Ali Fahmy, and Abdel-Aal Hilmi convened at Orabi's house in mid-January 1881, signing a petition to Prime Minister Riaz demanding the dismissal of Osman Rifqi.\n- **The Trap at Qasr al-Nil:** The government arrested the three colonels on January 31, 1881, putting them on trial for mutiny at the Qasr al-Nil barracks.\n- **The Rescue & March on Abdeen:** Regiments from Tora and Abdeen, led by junior Egyptian officers, broke into the court; the judges fled through windows. The armed soldiers marched to Abdeen Palace.\n- **Khedivial Capitulation:** Forced by the armed show of force, Khedive Tawfiq dismissed Osman Rifqi and appointed nationalist champion **Mahmoud Sami al-Baroudi** as Minister of War (February 1881).\n\n### 4. Expansion of Demands & The Manifestation of Abdeen (Sept 9, 1881)\n- **May 1881 Demands (Civil-Military Synthesis):**\n  1. Increase the army size to 18,000 men (as specified in the 1841 firman; current strength was only 12,000).\n  2. Construct new fortifications along coastal frontiers.\n  3. Convene the Chamber of Deputies (Majlis al-Nuwwab) with sovereign legislative authority.\n- **The Grand Manifestation of September 9, 1881:**\n  - Orabi led regular army regiments and thousands of Egyptian citizens to Abdeen Palace Square.\n  - Orabi presented the three non-negotiable national demands:\n    1. Dismissal of the reactionary Riaz Pasha ministry.\n    2. Convocation of an elected Chamber of Deputies.\n    3. Increasing the national army strength to 18,000 soldiers.\n  - **The Immortal Dialogue:** When Tawfiq claimed that Egyptians were mere inherited chattels, Orabi boldly proclaimed: *\"God created us free; we were not created as heritage or chattels, and by God we shall never be enslaved after this day!\"*\n  - Tawfiq surrendered, dismissed Riaz Pasha, and appointed **Muhammad Sherif Pasha** to form a constitutional ministry.",
+      "theoryContentAr": "### ١. العوامل الاجتماعية والفكرية لتذمر الأمة\n- **طبقة الأعيان وملاك الأراضي:** اشتعل غضبهم بسبب إلغاء قانون المقابلة، وحرمانهم من المشاركة في الحياة النيابية والسياسية.\n- **المثقفون والمتعلمون:** استاؤوا من استبداد رياض باشا، وتكميم الصحافة الوطنية، وحرمان البلاد من الدستور والحريات.\n- **الجمعيات السرية الوطنية:**\n  ١. **جمعية حلوان (الحزب الوطني السري - أواخر 1879م):** أصدرت بيانات وطنية طالبت بإعادة أطيان الدائرة السنية والدومين للحكومة، وتوحيد الديون في دين واحد بفائدة 4% فقط، وإلغاء تخصيص إيرادات السكك الحديدية للديون، وتشكيل إدارة وطنية للمراقبة المالية.\n  ٢. **جمعية مصر الفتاة (الإسكندرية 1879م):** أصدرت جريدة تطالب الخديوي بالحريات العامة والحياة النيابية والدستور.\n\n### ٢. المظالم العسكرية وسخط الضباط المصريين\n- **لماذا كان ضباط الجيش طليعة الثورة؟**\n  - الجيش هو القوة الوطنية المنظمة القادرة على كسر شوكة الاستبداد الخديوي ومواجهة القهر.\n  - ضباط الجيش من أبناء الفلاحين المصريين، عانوا من نفس المظالم والفقر الذي يعانيه آباؤهم في الريف.\n- **مظالم الضباط في عهد وزير الحربية عثمان رفقي (الشركسي):**\n  ١. قصر الترقية العسكرية على العناصر الشراكسة والأتراك بموجب مرسوم يوليو 1880م.\n  ٢. إحالة الضباط المصريين للتقاعد (الاستيداع) تعسفياً توفيراً للنفقات دون توفير وظائف بديلة.\n  ٣. سوء المعاملة واستخدام الجنود والضباط المصريين في أعمال السخرة (حفر الترع الخاصة بأملاك الأسرة المالكة).\n- **السبب المباشر للثورة (يناير 1881م):** أصدر عثمان رفقي قراراً تعسفياً بنقل الأميرالاي **عبد العال حلمي** من قيادة آلاي طرة لديوان الوزارة وتعيين ضابط شركسي بدلاً منه، وهو ما اعتبر إهانة وتجريداً للضباط الوطنيين من قياداتهم الميدانية.\n\n### ٣. حادثة قصر النيل ومظاهرة عابدين الأولى (فبراير 1881م)\n- اجتمع أحمد عرابي وعلي فهمي وعبد العال حلمي في منتصف يناير 1881م وكتبوا عريضة تطالب رئيس الوزراء رياض باشا بعزل عثمان رفقي.\n- **مؤامرة قصر النيل:** دبرت الحكومة مكيدة للقبض على الضباط الثلاثة في 31 يناير 1881م ومحاكمتهم عسكرياً في ثكنات قصر النيل.\n- **الإنقاذ والزحف على عابدين:** اقتحم جنود آلاي طرة قاعة المحكمة العسكرية، فهرب القضاة، وقاد عرابي وزملاؤه الجنود في مظاهرة مسلحة نحو قصر عابدين.\n- **استجابة الخديوي:** اضطر الخديوي توفيق لعزل عثمان رفقي وتعيين الشاعر الوطني **محمود سامي البارودي** وزيراً للحربية، فشعر الضباط بقوتهم وثقة الشعب فيهم.\n\n### ٤. تطور المطالب ومظاهرة عابدين الكبرى (9 سبتمبر 1881م)\n- **مطالب مايو 1881م (اندماج الحركة العسكرية بالمدنية):**\n  ١. زيادة عدد الجيش إلى 18 ألف جندي وفق فرمان 1841م (حيث انخفض إلى 12 ألفاً فقط).\n  ٢. بناء قلاع وحصون حربية جديدة لحماية السواحل.\n  ٣. إنشاء مجلس نواب وطني يمارس التشريع والرقابة نيابة عن الأمة.\n- **مظاهرة عابدين الكبرى (9 سبتمبر 1881م):**\n  - قاد عرابي آلايات الجيش وآلافاً مؤلفة من الشعب المصري واحتشدوا في ساحة عابدين وقدموا المطالب الثلاثة:\n    ١. عزل وزارة رياض باشا المستبدة.\n    ٢. تشكيل مجلس النواب على النسق الأوروبي.\n    ٣. زيادة عدد الجيش المصري إلى 18 ألف جندي.\n  - **الحوار التاريخي الخالد:** عندما قال توفيق: «كل هذه الطلبات لا حق لكم فيها، وما أنتم إلا عبيد إحساناتنا ورثنا هذه البلاد عن آبائنا»، رد عرابي بصلابة: *«لقد خلقنا الله أحراراً ولم يخلقنا تراثاً أو عقاراً، فوالله الذي لا إله إلا هو لا نُوَرَّث ولا نُستعبَد بعد اليوم»*.\n  - اضطر الخديوي للرضوخ بناءً على نصيحة قناصل الدولتين، فعزل رياض باشا وكلف الزعيم الدستوري **محمد شريف باشا** بتشكيل الوزارة.",
+      "formulas": [
+        {
+          "labelEn": "Orabi Revolt Escalation Mechanics",
+          "labelAr": "معادلة تحول وتطور المطالب الوطنية في الثورة العرابية",
+          "latex": "\\text{مظالم عثمان رفقي} \\implies \\text{مطالب فئوية (فبراير 1881م)} \\implies \\text{مطالب مايو العسكرية والسياسية} \\implies \\text{مظاهرة 9 سبتمبر 1881م الشاملة}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH3-L2",
+        "pageRange": "pp. 64-73"
+      },
+      "lessonPlan": {
+        "titleEn": "Military Grievances, Civil Alliance & The Triumphs of 1881",
+        "titleAr": "المظالم العسكرية والتحالف الشعبي وملاحم عابدين الدستورية",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-302",
+        "bloomsObjectivesEn": [
+          "Contrast the corporate military demands of February 1881 with the comprehensive national demands of September 1881.",
+          "Analyze the sociological reasons why the regular army became the spearhead of the Egyptian constitutional movement.",
+          "Evaluate the philosophical significance of Ahmed Orabi's declaration of human dignity at Abdeen Square."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة التحليلية بين المطالب العسكرية الفئوية في فبراير 1881م والمطالب الوطنية الشاملة في 9 سبتمبر 1881م.",
+          "استنتاج الأسباب السوسيولوجية والتنظيمية التي جعلت ضباط الجيش طليعة الحركة الوطنية الدستورية المصرية.",
+          "تقويم الدلالات الفلسفية والإنسانية لرد عرابي الخالد في ساحة عابدين حول الحرية والكرامة الإنسانية."
+        ],
+        "prerequisitesEn": [
+          "Understanding the socioeconomic discontent caused by Dual Control and the Law of Liquidation."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أسباب سخط الأعيان والمثقفين من استبداد رياض باشا وقانون التصفية."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "First Abdeen Incident",
+            "definition": "Feb 1881 armed rescue of Orabi at Qasr al-Nil resulting in dismissal of Osman Rifqi."
+          },
+          {
+            "term": "Second Abdeen Manifestation",
+            "definition": "Sept 9, 1881 popular gathering forcing Tawfiq to dismiss Riaz and form parliament."
+          },
+          {
+            "term": "Helwan Society",
+            "definition": "Clandestine nationalist organization authoring fiscal rescue manifestos in late 1879."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "حادثة عابدين الأولى",
+            "definition": "تحرك عسكري في فبراير 1881م أنقذ عرابي بقصر النيل وأسفر عن عزل عثمان رفقي وتعيين البارودي."
+          },
+          {
+            "term": "مظاهرة عابدين الكبرى",
+            "definition": "ملحمة 9 سبتمبر 1881م التي حشدت الجيش والشعب وفرضت عزل رياض وإقامة مجلس النواب."
+          },
+          {
+            "term": "جمعية حلوان",
+            "definition": "أول تنظيم وطني سياسي سري أواخر 1879م وضع خطة متكاملة لتسوية الديون وحماية أراضي الدولة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Historical Empathy Simulation",
+            "phaseAr": "التمهيد والدراما التاريخية",
+            "duration": "10 min",
+            "activitiesEn": "Roleplay the Abdeen dialogue between Khedive Tawfiq and Ahmed Orabi.",
+            "activitiesAr": "محاكاة درامية للحوار الخالد بين الخديوي توفيق وأحمد عرابي في ساحة عابدين."
+          },
+          {
+            "phaseEn": "Comparative Demand Analysis",
+            "phaseAr": "التحليل المقارن للمطالب",
+            "duration": "45 min",
+            "activitiesEn": "Compare the petitions of January, May, and September 1881 using comparative tables.",
+            "activitiesAr": "مقارنة منهجية لمطالب الضباط: يناير (فئوية)، مايو (عسكرية وسياسية)، سبتمبر (وطنية شاملة)."
+          },
+          {
+            "phaseEn": "Sociological Reflection",
+            "phaseAr": "الربط السوسيولوجي",
+            "duration": "20 min",
+            "activitiesEn": "Discuss why fallahin officers were natural leaders for the whole Egyptian nation.",
+            "activitiesAr": "مناقشة أسباب تلاحم الفلاحين مع الضباط لكونهم نسيجاً واحداً من تراب الريف المصري."
+          },
+          {
+            "phaseEn": "Exit Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 analytical questions on the turning points of the 1881 national movement.",
+            "activitiesAr": "حل 5 أسئلة استنتاجية حول محطات التحول في مسار الثورة العرابية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming Orabi sought to declare a military dictatorship and overthrow the Khedivate in 1881."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن عرابي كان يسعى لانقلاب عسكري أو إعلان نفسه حاكماً لمصر عام 1881م."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic cables and British parliamentary transcripts against Egyptian nationalist press accounts to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين محاضر البرلمان البريطاني ومقالات جريدتي اللواء والمؤيد لاستنباط الانحيازات الاستعمارية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "What was the significance of the shift from corporate demands in February 1881 to political demands in September 1881?",
+          "questionAr": "ما دلالة تحول مطالب حركة عرابي من مطالب فئوية في فبراير 1881م إلى مطالب وطنية عامة في سبتمبر 1881م؟",
+          "solutionEn": "It signaled the maturation of the revolt from a narrow military grievance into a broad popular revolution demanding constitutional democracy and national sovereignty.",
+          "solutionAr": "عكست نضج الحركة وتحولها من مجرد تظلم عسكري لضباط الجيش إلى ثورة شعبية شاملة تطالب بالدستور والبرلمان وحرية الأمة."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch3_ws2",
+        "titleEn": "Worksheet 3.2: The Orabi Revolt: Catalysts, Pretexts, and Military Mobilization (1881)",
+        "titleAr": "ورقة عمل ٣-2: الثورة العرابية: أسبابها، ومظالم الضباط، وتلاحم الحركة الوطنية (1881م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 2.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 2.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Orabi Era & National Movement Simulator 3.2",
+        "titleAr": "معمل المحاكاة التفاعلي للثورة العرابية والحركة الوطنية ٣-2",
+        "descriptionEn": "Interactive chronological simulator exploring the political and military turning points of Lesson 3.2.",
+        "descriptionAr": "محاكي تفاعلي لاستكشاف المحطات السياسية والعسكرية المفصلية للدرس ٣-2."
+      }
+    },
+    {
+      "id": "th_hist_ch3_l3",
+      "titleEn": "Escalation, Imperial Plots & The British Occupation of Egypt (1882)",
+      "titleAr": "التدخل الأجنبي السافر واحتلال إنجلترا لمصر (1882م)",
+      "summaryEn": "The First and Second Joint Notes, the budget dispute, Sherif's resignation, the Baroudi Revolution Ministry, Circassian officers plot, Alexandria riots, the Constantinople Conference and the British loophole, the naval bombardment of Alexandria, Kafr El-Dawar defense, De Lesseps' betrayal at Suez, the Battle of Tell El-Kebir, and factors behind the revolt's defeat.",
+      "summaryAr": "المذكرتان المشتركتان الأولى والثانية، أزمة الميزانية واستقالة شريف، وزارة الثورة للبارودي، مؤامرة الشراكسة، مذبحة الإسكندرية المدبرة، مؤتمر الآستانة وميثاق النزاهة، ضرب الإسكندرية بالمدافع، صمود كفر الدوار، خيانة دي لسبس لحيادية القناة، ملحمة التل الكبير وسقوط القاهرة، والتحليل الشامل لأسباب إخفاق الثورة.",
+      "theoryContentEn": "### 1. Imperial Hostility to Democracy: The Joint Notes (1882)\n- **The First Joint Note (January 7, 1882):**\n  - Britain and France intervened following the election of the Chamber of Deputies, declaring overt hostility to parliamentary constitutionalism and threatening military intervention to protect the Khedive's autocracy.\n  - *National Reaction:* Unified the deputies and military in defense of the constitution.\n- **The Budget Dispute & Fall of Sherif Pasha:**\n  - Foreign consuls demanded that the parliament be prohibited from discussing the national budget.\n  - Sherif Pasha proposed postponing the budget debate to deprive European powers of an excuse for military invasion.\n  - Orabi and the deputies insisted on parliament's constitutional prerogative over non-debt expenditures.\n  - Sherif resigned in February 1882 to avoid a rift, leading to the formation of the **Ministry of the Revolution** headed by **Mahmoud Sami al-Baroudi**, with Orabi as Minister of War.\n- **The Second Joint Note (May 25, 1882):**\n  - Accompanied by Anglo-French naval fleets off Alexandria, demanding the resignation of the Baroudi ministry and the exile of Ahmed Orabi abroad.\n  - Tawfiq accepted the ultimatum; Baroudi resigned in protest, but Orabi remained War Minister by unanimous national and military insistence.\n\n### 2. British Pretexts & The Road to Invasion\n- **The Orchestrated Alexandria Riots (June 11, 1882):**\n  - An intentional bloody street skirmish provoked by a British-protected Maltese subject against an Egyptian carriage driver, escalating into sectarian chaos.\n  - *Imperial Goal:* Fabricate an excuse to show the world that Egypt was in anarchy and unable to protect foreign nationals.\n- **The Constantinople Conference (June 1882):**\n  - France convened European ambassadors at the Italian Embassy in Istanbul to prevent Britain from occupying Egypt alone.\n  - The powers signed the **Charter of Integrity** (*Mithaq al-Nazaha*), pledging not to seize Egyptian territory unilaterally.\n  - British ambassador **Lord Dufferin** added the cunning escape clause: *\"...unless in case of extreme necessity.\"*\n\n### 3. The Military Campaign & The British Occupation\n- **Naval Bombardment of Alexandria (July 11, 1882):** British Admiral **Beauchamp Seymour** sent an ultimatum demanding the surrender of Alexandria's coastal fortifications, then bombarded the city for hours, landing troops and destroying forts.\n- **Tawfiq's Betrayal:** Tawfiq placed himself under British naval protection at Ras El-Tin Palace, dismissing Orabi from the War Ministry. The Cairo Council of State declared Orabi the national defender and stripped Tawfiq of executive legitimacy.\n- **The Battle of Kafr El-Dawar (July 1882):** Egyptian forces led by Orabi fortified defense lines at Kafr El-Dawar, inflicting a decisive tactical defeat on British General **Garnet Wolseley**, forcing the British to abandon the northern Delta route to Cairo.\n- **The Betrayal of Ferdinand de Lesseps (August 1882):**\n  - Wolseley shifted his axis of invasion to the Suez Canal.\n  - Orabi prepared to obstruct the canal, but De Lesseps guaranteed absolute neutrality on his personal honor, assuring Orabi that no British warship would enter.\n  - De Lesseps colluded with the British navy, allowing their ironclads to occupy Ismailia without a shot fired.\n- **The Battle of Tell El-Kebir (September 13, 1882):**\n  - The British launched a surprise dawn attack on Orabi's fortified camp at Tell El-Kebir.\n  - Despite heroic resistance (epitomized by the martyrdom of officer **Muhammad Ebeid**), the Egyptian army was defeated.\n  - On September 14, 1882, British forces entered Cairo, occupied the Citadel, and began 74 years of colonial occupation.\n\n### 4. Comprehensive Analysis: Why Did the Orabi Revolt Fail?\n1. **Ideological Fracture:** Conflict between allegiance to Khedive Tawfiq (seen as the legitimate ruler) and allegiance to Orabi as national defender, causing hesitation among conservative forces.\n2. **The Ottoman Firman of Rebellion (Isyan):** Issued by Sultan Abdulhamid II on September 9, 1882 under British pressure, declaring Orabi a rebel and causing deep religious and moral demoralization.\n3. **Crushing Military Imbalance:** British modern technological, naval, and logistical supremacy compared to the exhausted Egyptian forces.\n4. **Treason within Egyptian Ranks:** Betrayal by defeatist officers, Khedivial loyalists, and desert Bedouin guides.\n5. **Naïve Trust in De Lesseps:** Believing colonial promises regarding the neutrality of the Suez Canal.\n6. **International Reactionary Consensus:** 19th-century European monarchies unified in crushing all nationalist, democratic, and anti-imperialist revolutions.",
+      "theoryContentAr": "### ١. العداء الاستعماري للديمقراطية: المذكرتان المشتركتان (1882م)\n- **المذكرة المشتركة الأولى (7 يناير 1882م):**\n  - أرسلتها إنجلترا وفرنسا فور افتتاح مجلس النواب المصري، معلنتين رفضهما الصريح للحياة النيابية والدستور وتأييدهما المطلق لسلطة الخديوي.\n  - *الموقف الوطني:* أصر النواب والعرابيون على التمسك بالحياة النيابية والدستور.\n- **أزمة مناقشة الميزانية واستقالة شريف باشا:**\n  - تمسك قنصلا الدولتين بعدم مناقشة البرلمان للميزانية بدعوى مساسها بالديون.\n  - رأى شريف باشا بحنكته الدبلوماسية تأجيل مناقشة الميزانية لتفويت الفرصة على التدخل العسكري الأوروبي.\n  - تمسك عرابي والنواب بحق البرلمان الأصيل في مناقشة الميزانية المخصصة للخدمات والمصالح الوطنية.\n  - استقال شريف باشا حرصاً على وحدة الصف، فتشكلت **وزارة الثورة** برئاسة **محمود سامي البارودي** وعُين أحمد عرابي وزيراً للحربية، وأصدرت دستور 1882م.\n- **المذكرة المشتركة الثانية (25 مايو 1882م):**\n  - رافقتها قطع حربية إنجليزية وفرنسية بميناء الإسكندرية، وطالبت باستقالة وزارة البارودي ونفي أحمد عرابي خارج مصر.\n  - قبل الخديوي توفيق المذكرة رضوخاً للأجانب، فاستقال البارودي احتجاجاً على خيانة السيادة الوطنية، بينما تمسك الشعب والجيش بعرابي وزيراً للحربية وأقسم الجميع قسم الدفاع عن الوطن.\n\n### ٢. الذرائع البريطانية ومؤامرة الغزو\n- **مذبحة الإسكندرية المدبرة (11 يونيو 1882م):**\n  - شجار مدبر افتعله رجل مالطي من رعايا بريطانيا مع حوذي (مكاري) مصري حول الأجرة، تطور لصدام دامٍ في شوارع المدينة.\n  - *الهدف الاستعماري:* اختلاق فوضى أمنية لادعاء انهيار الأمن وعدم قدرة الحكومة المصرية على حماية الأجانب تبريراً للتدخل.\n- **مؤتمر الآستانة (يونيو 1882م):**\n  - دعت فرنسا لعقده بمقر السفارة الإيطالية في إسطنبول لقطع الطريق على انفراد إنجلترا باحتلال مصر.\n  - وقع السفراء **ميثاق النزاهة** وتعهدوا بألا تنفرد أي دولة بعمل عسكري أو تحتل أي جزء من أراضي مصر.\n  - أضاف السفير البريطاني **اللورد دافرين** بذكاء استعماري ماكر عبارة: *«إلا إذا حدث ما يؤدي إلى ذلك»*، وكانت هذه الثغرة ذريعة بريطانيا لضرب الإسكندرية.\n\n### ٣. الغزو العسكري والاحتلال البريطاني لمصر\n- **ضرب الإسكندرية بالمدافع (11 يوليو 1882م):** وجه الأدميرال الإنجليزي **بوشامب سيمور** إنذاراً كاذباً بتسليم قلاع وحصون الإسكندرية بدعوى تسليحها، ثم فتح نيران مدافعه لتدك الحصون والمدينة وتقتحمها القوات المحتلة.\n- **خيانة الخديوي توفيق:** انحاز توفيق للإنجليز واستقبلهم في قصر رأس التين، وأصدر أمراً بعزل عرابي؛ فاجتمع المجلس العرفي بالقاهرة وقرر نزع الشرعية عن الخديوي وإعلان عرابي حامياً لحمى الديار المصرية.\n- **صمود معركة كفر الدوار (يوليو 1882م):** حفر الجيش المصري بقيادة عرابي خنادق وتحصينات منيعة في كفر الدوار، وألحق بالجيش البريطاني بقيادة الجنرال **ولسلي** هزيمة ساحقة أوقفت تقدمه من الشمال.\n- **خيانة فرديناند دي لسبس وانتهاك حيادية القناة (أغسطس 1882م):**\n  - غير ولسلي خطته العسكرية للالتفاف عبر قناة السويس لاقتحام القاهرة من الشرق.\n  - أعد عرابي خطة لردم القناة وتعطيل الملاحة حماية للجبهة الشرقية، لكن دي لسبس خدعه وأقسم له بشرفه على حيادية القناة التامة وعدم السماح بدخول أي بارجة حربية.\n  - تواطأ دي لسبس مع الأسطول البريطاني، فدخلت البوارج واحتلت الإسماعيلية دون مقاومة.\n- **معركة التل الكبير وسقوط القاهرة (13 سبتمبر 1882م):**\n  - شن الجيش الإنجليزي هجوماً مباغتاً فجر 13 سبتمبر 1882م على معسكر الجيش المصري بالتل الكبير.\n  - استبسل المقاتلون وقدموا ملاحم بطولية أبرزها ملحمة استشهاد الضابط **محمد عبيد** مع معظم أفراد كتيبته متمسكاً بمدفعه حتى الرمق الأخير.\n  - هُزم الجيش المصري، وفي 14 سبتمبر 1882م دخلت القوات البريطانية القاهرة واحتلت القلعة، ليبدأ أطول وأقسى احتلال في تاريخ مصر المعاصر.\n\n### ٤. التحليل الشامل: أسباب إخفاق الثورة العرابية\n١. **انقسام صفوف الأمة:** الصراع بين معسكر الخديوي توفيق (بصفته ولي الأمر الشرعي) ومعسكر عرابي الوطني، مما أحدث بلبلة فكرية وتخاذلاً لدى المحافظين.\n٢. **فرمان العصيان العثماني:** أصدره السلطان عبد الحميد الثاني في 9 سبتمبر 1882م بضغط إنجليزي لضرب الروح المعنوية وتجريد عرابي من الغطاء الديني.\n٣. **التفوق العسكري الكاسح لبريطانيا:** تفوق الإنجليز تسليحاً ومعدات ودعماً بحرياً ولوجستياً مقارنة بموارد مصر المحدودة.\n٤. **الخيانة في صفوف المصريين:** تخاذل بعض الضباط وخيانة بعض شيوخ البدو الذين أرشدوا الإنجليز لمواقع الجيش وثغرات التحصينات بالتل الكبير.\n٥. **الثقة الساذجة في وعود دي لسبس:** الركون لوعود الأجانب بحيادية القناة وتأجيل ردمها مما فتح الباب لاختراق الجبهة الشرقية.\n٦. **الظروف الدولية المعادية للثورات:** وقوف القوى الاستعمارية الأوروبية صفاً واحداً ضد أي ثورة وطنية تسعى للتحرر أو تغيير الأنظمة الملكية في العالم.",
+      "formulas": [
+        {
+          "labelEn": "Tell El-Kebir Defeat Diagnostic",
+          "labelAr": "معادلة أسباب إخفاق الثورة العرابية وسقوط القاهرة",
+          "latex": "\\text{فرمان العصيان العثماني} + \\text{خيانة دي لسبس للقناة} + \\text{انقسام صفوف الأمة} + \\text{التفوق التسليحي البريطاني} \\implies \\text{سقوط التل الكبير والاحتلال 1882م}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH3-L3",
+        "pageRange": "pp. 74-85"
+      },
+      "lessonPlan": {
+        "titleEn": "Imperial Warfare, Foreign Collusion & The Fall of Cairo",
+        "titleAr": "العدوان الاستعماري والمؤامرات الدولية وسقوط القاهرة",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-303",
+        "bloomsObjectivesEn": [
+          "Critique the diplomatic maneuvering of Great Britain at the Constantinople Conference regarding the 'extreme necessity' clause.",
+          "Assess the tactical impact of Ferdinand de Lesseps' deception on the military vulnerability of the eastern Delta border.",
+          "Synthesize the internal and external variables that caused the catastrophic collapse at Tell El-Kebir."
+        ],
+        "bloomsObjectivesAr": [
+          "نقد المناورة الدبلوماسية الإنجليزية في مؤتمر الآستانة وتوظيف عبارة «إلا إذا حدث ما يؤدي إلى ذلك».",
+          "تقويم الأثر التكتيكي العسكري لخيانة دي لسبس في انكشاف الجبهة الشرقية للجيش المصري.",
+          "تركيب العوامل الداخلية والخارجية التي أدت لهزيمة التل الكبير وسقوط العاصمة في قبضة الاحتلال."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the Second Abdeen Manifestation and Sherif Pasha's cabinet."
+        ],
+        "prerequisitesAr": [
+          "استيعاب نتائج مظاهرة عابدين الثانية وتشكيل وزارة شريف باشا."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Charter of Integrity",
+            "definition": "Constantinople 1882 pledge by European powers not to intervene unilaterally in Egypt."
+          },
+          {
+            "term": "Battle of Kafr El-Dawar",
+            "definition": "Decisive Egyptian tactical victory repelling British northern advance in July 1882."
+          },
+          {
+            "term": "Tell El-Kebir",
+            "definition": "Sept 13, 1882 dawn battle where British broke Egyptian defenses leading to the occupation of Cairo."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "ميثاق النزاهة",
+            "definition": "ميثاق وقعته الدول الكبرى في مؤتمر الآستانة 1882م نسفه السفير البريطاني بثغرة الضرورة القصوى."
+          },
+          {
+            "term": "معركة كفر الدوار",
+            "definition": "صمود بطولي للجيش المصري في يوليو 1882م صد الإنجليز وأجبرهم على الالتفاف لقناة السويس."
+          },
+          {
+            "term": "معركة التل الكبير",
+            "definition": "معركة فجر 13 سبتمبر 1882م التي حسمت مصير الغزو البريطاني وأسفرت عن احتلال القاهرة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Geopolitical Contextualization",
+            "phaseAr": "التهيئة الجيوسياسية",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the map of British naval movements from Alexandria to Ismailia.",
+            "activitiesAr": "دراسة الخريطة العسكرية لتحركات الأسطول الإنجليزي من الإسكندرية لقناة السويس."
+          },
+          {
+            "phaseEn": "Battlefield & Diplomatic Deconstruction",
+            "phaseAr": "التفكيك الدبلوماسي والعسكري",
+            "duration": "45 min",
+            "activitiesEn": "Trace the Constantinople conference, Seymour's bombardment, and the De Lesseps betrayal.",
+            "activitiesAr": "تتبع أحداث مؤتمر الآستانة، وضرب الإسكندرية، وخيانة دي لسبس لحيادية القناة."
+          },
+          {
+            "phaseEn": "Diagnostic Debate on Failure Factors",
+            "phaseAr": "مناظرة تشخيص أسباب الفشل",
+            "duration": "20 min",
+            "activitiesEn": "Debate: Was the defeat primarily caused by internal divisions or external military disparity?",
+            "activitiesAr": "مناظرة طلابية: هل كان سبب السقوط الأساسي هو انقسام الجبهة الداخلية أم التفوق العسكري الإنجليزي؟"
+          },
+          {
+            "phaseEn": "Exit Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 high-order synthesis questions on the 1882 military campaign.",
+            "activitiesAr": "حل 5 أسئلة استنتاجية حول أسباب الهزيمة ودروس معركة التل الكبير."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing that the British invasion met with zero armed resistance from the Egyptian population."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن القوات الإنجليزية احتلت مصر دون مقاومة عسكرية شرسة في الإسكندرية وكفر الدوار والتل الكبير."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic cables and British parliamentary transcripts against Egyptian nationalist press accounts to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين محاضر البرلمان البريطاني ومقالات جريدتي اللواء والمؤيد لاستنباط الانحيازات الاستعمارية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "How did British delegate Lord Dufferin neutralize the Charter of Integrity at the 1882 Constantinople Conference?",
+          "questionAr": "كيف نجح المندوب البريطاني اللورد دافرين في تفريغ ميثاق النزاهة من مضمونه بمؤتمر الآستانة 1882م؟",
+          "solutionEn": "By adding the escape phrase '...unless in case of extreme necessity', which Britain used to justify its unilateral bombardment of Alexandria.",
+          "solutionAr": "بإضافة عبارة «إلا إذا حدث ما يؤدي إلى ذلك»، والتي اتخذتها إنجلترا ذريعة جاهزة لضرب الإسكندرية والاحتلال المنفرد."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch3_ws3",
+        "titleEn": "Worksheet 3.3: Escalation, Imperial Plots & The British Occupation of Egypt (1882)",
+        "titleAr": "ورقة عمل ٣-3: التدخل الأجنبي السافر واحتلال إنجلترا لمصر (1882م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 3.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 3.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Orabi Era & National Movement Simulator 3.3",
+        "titleAr": "معمل المحاكاة التفاعلي للثورة العرابية والحركة الوطنية ٣-3",
+        "descriptionEn": "Interactive chronological simulator exploring the political and military turning points of Lesson 3.3.",
+        "descriptionAr": "محاكي تفاعلي لاستكشاف المحطات السياسية والعسكرية المفصلية للدرس ٣-3."
+      }
+    },
+    {
+      "id": "th_hist_ch3_l4",
+      "titleEn": "The Nature of British Imperial Rule: Administrative, Economic & Educational Policies (1882–1892)",
+      "titleAr": "أحوال مصر تحت نير الاحتلال البريطاني: السياسات الإدارية والاقتصادية والتعليمية (1882–1892م)",
+      "summaryEn": "Lord Dufferin's Basic Law (1883), dual sovereignty (nominal vs. actual), Sir Evelyn Baring (Lord Cromer), the policy of Anglicization, disbanding the national army, distortion of agriculture (the cotton monoculture), destruction of Egyptian domestic manufacturing, foreign mortgage banks and forced land sales, and Douglas Dunlop's restrictive educational regime.",
+      "summaryAr": "القانون الأساسي للورد دافرين 1883م، ازدواجية السلطة الشرعية والفعلية، قبضة اللورد كرومر، سياسة النجلزة، تسريح الجيش الوطني، تطويع الزراعة لخدمة مصانع لانكشير ومخاطر الاعتماد على القطن، تدمير الصناعة الوطنية بالضرائب الاحتكارية، البيوع الجبرية والهلاك الزراعي، وسياسة دوجلاس دانلوب لتدمير التعليم.",
+      "theoryContentEn": "### 1. The Political & Administrative Architecture: Dufferin's Basic Law (1883)\n- Following the occupation, the British government dispatched **Lord Dufferin** (British Ambassador to Constantinople) to organize the colonial administration of Egypt.\n- **Key Principles of the 1883 Basic Law (Al-Qanun al-Asasi):**\n  1. *No Direct Annexation:* Great Britain avoided direct formal annexation to prevent a European diplomatic backlash, especially from France.\n  2. *Dual Sovereignty:*\n     - **Nominal Sovereignty (Al-Sulta al-Shar'iyya):** Retained by Khedive Tawfiq and the ministers, under the ceremonial suzerainty of the Ottoman Sultan.\n     - **Actual Executive Power (Al-Sulta al-Fi'liyya):** Monopolized entirely by the British Consul-General, who held absolute veto authority through British 'advisors' in every ministry.\n  3. *Preservation of Ottoman Suzerainty:* Egypt continued to pay annual tribute and maintain nominal Ottoman allegiance.\n  4. *Dissolution of the National Army:* Disbanded the Egyptian revolutionary army, forming a tiny subordinate force under a British Commander-in-Chief (*The Sirdar*).\n  5. *Abolition of the Elected Parliament:* Dissolved the 1881 Chamber of Deputies, creating decorative, powerless advisory bodies: the Legislative Council (*Majlis Shura al-Qawanin*), the General Assembly (*Al-Jam'iyya al-Umumiyya*), and Provincial Councils.\n  6. *Policy of Anglicization (Al-Najlaza):* Systematically replacing Egyptian directors and clerks with British officials in all critical ministries.\n- **Lord Cromer (Sir Evelyn Baring):** Served as the first and most dictatorial British Consul-General from September 1883 until 1907.\n\n### 2. Economic Exploitation: The Agricultural Trap\n- **Hyper-Focus on Cotton:**\n  - The British administration subordinated Egyptian agriculture to the needs of the textile mills in Lancashire.\n  - Expanded irrigation projects (Delta Barrages renovation, Zifta Barrage, Aswan Dam construction in 1902) exclusively to maximize raw cotton yields.\n  - *Dangers of Monoculture:* Sacrificing wheat and grain crops exposed Egypt to catastrophic food insecurity and complete dependency on foreign grain imports.\n- **Empowerment of the Landowning A'yan:**\n  - British authorities patronized the landowners to create a loyal rural political constituency, granting them seats on Provincial Councils and the Legislative Council.\n  - The 1896 Village Mayor Law (*Qanun al-Umad*) mandated that candidates for mayor (*Umda*) or deputy (*Shaykh al-Balad*) must own at least 10 feddans of agricultural land.\n- **Foreign Capital Infiltration & Forced Sales (Al-Buyu' al-Jabriyya):**\n  - Proliferation of foreign mortgage banks lending to impoverished peasants at usurious interest rates.\n  - Inability to repay led to *Al-Buyu' al-Jabriyya aw al-Halakiyya* (forced judicial land seizures), transferring thousands of feddans from native fallahin to foreign financial corporations until the British enacted the Five Feddan Law in 1912.\n\n### 3. Deliberate De-industrialization & Destruction of Domestic Crafts\n- The British administration systematically sabotaged Egyptian domestic manufacturing through punitive taxation:\n  1. *Excise Duty on Cotton Textiles (8%):* Equal to the import tariff, rendering local cloth non-competitive against Lancashire imports.\n  2. *Consumption Tax on Local Sugar:* Imposed taxes equalizing its market price with imported European sugar.\n  3. *Export Duty on Egyptian Goods (1.25%):* Caused Egyptian manufactured items to languish unsold in foreign markets.\n  4. *Tax on Industrial Machinery:* Imposed import tariffs matching those on consumer luxury goods, stunting factory mechanization.\n  5. *Closing State Weapons Arsenals:* Shut down military factories, reducing the Egyptian army to complete dependency on British arms suppliers.\n- *Lord Cromer's Arrogant Boast (1905 Report):* Proudly reported to London that European manufactured goods had completely supplanted Egyptian handicrafts in domestic markets.\n\n### 4. Educational Regression under Douglas Dunlop\n- British educational advisor **Douglas Dunlop** instituted a deliberately restrictive educational regime:\n  1. Drastically slashing the state education budget, turning schools from free public institutions into expensive, elitist academies.\n  2. Limiting the purpose of schooling to graduating docile, submissive bureaucratic clerks to perform low-level civil service paperwork.\n  3. Enforcing English as the medium of scientific and administrative instruction, suffocating Arabic cultural pride.\n  4. Repressing critical thinking, civic initiative, and patriotic sentiment among students.",
+      "theoryContentAr": "### ١. الهيكل السياسي والإداري: القانون الأساسي للورد دافرين (1883م)\n- بعد استقرار الاحتلال، أرسلت حكومة لندن **اللورد دافرين** (سفير بريطانيا بالآستانة) لوضع الخطوط العريضة للحكم الاستعماري في مصر.\n- **المبادئ الجوهرية للقانون الأساسي (1883م):**\n  ١. **ألا تتولى إنجلترا حكم مصر مباشرة:** تجنباً لإثارة غضب الدول الأوروبية الكبرى وخاصة فرنسا، ومنعاً لفتح المسألة الشرقية.\n  ٢. **ازدواجية السلطة:**\n     - **سلطة شرعية صورية:** في يد الخديوي توفيق والوزراء تحت السيادة الاسمية للسلطان العثماني.\n     - **سلطة فعلية حقيقية:** يمارسها المعتمد البريطاني في الخفاء من خلال وضع «مستشارين» إنجليز في كافة الوزارات لا يُرد لهم أمر.\n  ٣. **بقاء تبعية مصر للدولة العثمانية:** استمرار دفع الجزية السنوية وعدم المساس بالسيادة الشرعية للسلطان منعاً لإثارة أزمة دولية.\n  ٤. **تسريح الجيش المصري:** حل الجيش الوطني العرابي وتشكيل جيش صغير خاضع للقيادة البريطانية برئاسة ضابط إنجليزي (**السردار**).\n  ٥. **إلغاء مجلس النواب المنتخب:** حل مجلس نواب الثورة، وتأسيس مجالس نيابية استشارية صورية لا سلطة لها: **مجلس شورى القوانين**، و**الجمعية العمومية**، ومجالس المديريات.\n  ٦. **سياسة النجلزة:** طبع الإدارة المصرية بالطابع الإنجليزي وإحلال الموظفين الإنجليز محل المصريين في الجيش والمالية والتعليم والقضاء.\n- **اللورد كرومر (إيفلين بارنج):** أول وأخطر معتمد بريطاني في مصر، حكم البلاد بقبضة حديدية مطلقة من سبتمبر 1883م حتى استقالته عام 1907م.\n\n### ٢. السياسة الاقتصادية: فخ الزراعة وتطويع الاقتصاد\n- **التركيز المطلق على محصول القطن:**\n  - وجهت سلطات الاحتلال جهودها للزراعة لتوفير المادة الخام لمصانع الغزل والنسيج في لانكشير ببريطانيا، وجعل مصر سوقاً استهلاكية للسلع الإنجليزية.\n  - تحسين شبكات الري والصرف (إصلاح القناطر الخيرية، وإنشاء قناطر زفتى وأسيوط وإسنا، وتأسيس خزان أسوان عام 1902م).\n  - *مخاطر أحادية المحصول:* أدى التوسع في القطن على حساب الحبوب الغذائية (كالقمح) إلى تعريض مصر لخطر المجاعة والاعتماد التام على استيراد الغذاء من الخارج.\n- **تعاظم دور طبقة الأعيان:**\n  - اعتمد الإنجليز على الأعيان لضمان استقرار الريف، وفتحوا لهم باب المشاركة في المجالس النيابية الاستشارية ومجالس المديريات.\n  - صدر **قانون العمد (1896م)** الذي اشترط فيمن يترشح لمنصب العمدة أو شيخ البلد أن يكون مالكاً لعشرة أفدنة على الأقل من الأراضي الزراعية.\n- **الاستثمارات الأجنبية والبيوع الجبرية (الهلاكية):**\n  - تدفقت البنوك العقارية وشركات الائتمان الأجنبية التي أقرضت صغار الفلاحين بفوائد ربوية باهظة.\n  - عجز الفلاحون عن السداد، فتدخلت المحاكم المختلطة لانتزاع أراضيهم وبيعها جبرياً للمرابين والبنوك الأجنبية فيما عُرف بـ **«البيوع الجبرية أو الهلاكية»**، حتى صدر قانون خمسة أفدنة عام 1912م.\n\n### ٣. تدمير الصناعة الوطنية ومحاربة الإنتاج المحلي\n- حاربت سلطات الاحتلال الصناعة المصرية لمنع أي منافسة للمنتجات البريطانية عبر فرض ضرائب جائرة:\n  ١. **ضريبة 8% على المنسوجات القطنية المحلية:** تعادل الرسوم الجمركية على الواردات، فارتفع سعرها وكسدت وأغلقت معظم مصانع النسيج.\n  ٢. **ضريبة استهلاك على السكر المحلي:** ساوى سعره في السوق بسعر السكر المستورد من الخارج.\n  ٣. **رسوم 1.25% على الصادرات الصناعية المصرية:** جعلت السلع المصنعة محلياً غير قادرة على المنافسة في الأسواق الدولية.\n  ٤. **ضريبة على الآلات الصناعية المستوردة:** فرض رسوم توازي رسوم استيراد السلع الاستهلاكية الترفيهية مما عطل ميكنة المصانع.\n  ٥. **إغلاق مصانع الأسلحة والذخيرة:** بيع معداتها وإغلاقها، وأصبح الجيش المصري يعتمد تماماً على شراء سلاحه من بريطانيا.\n- *تقرير كرومر عام 1905م:* تبجح اللورد كرومر في تقريره السنوي إلى برلمان لندن بأن «المتاجر في القاهرة أصبحت تبيع المنسوجات والسلع الإنجليزية فقط واختفت الصناعات اليدوية المحلية».\n\n### ٤. تخريب وتجميد التعليم في عهد دوجلاس دانلوب\n- فرض المستشار الإنجليزي **دوجلاس دانلوب** سياسة تعليمية رجعية قاسية استهدفت:\n  ١. حرمان الغالبية العظمى من التعليم بجعله بمصروفات دراسية باهظة بعد أن كان مجانياً في عهد إسماعيل.\n  ٢. قصر أهداف التعليم على تخريج كتبة وموظفين بيروقراطيين خاضعين لإدارة المصالح الحكومية.\n  ٣. فرض اللغة الإنجليزية كلغة وحيدة لتدريس العلوم والمعارف لإضعاف الانتماء القومي والاعتزاز باللغة العربية.\n  ٤. إماتة روح الابتكار والبحث العلمي، وتنشئة الطلاب على الخضوع والاستسلام وروح العجز أمام المحتل.",
+      "formulas": [
+        {
+          "labelEn": "Colonial Economic Extraction Law",
+          "labelAr": "معادلة السيطرة الاقتصادية والاستنزاف الاستعماري",
+          "latex": "\\text{إهمال الصناعة (ضرائب 8\\%)} + \\text{أحادية زراعة القطن} + \\text{البيوع الجبرية العقارية} \\implies \\text{تبعية اقتصادية مطلقة لبريطانيا}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH3-L4",
+        "pageRange": "pp. 86-97"
+      },
+      "lessonPlan": {
+        "titleEn": "Colonial Statecraft: Dufferin's Framework, Economic Subordination & Dunlop",
+        "titleAr": "هندسة الهيمنة الاستعمارية: القانون الأساسي وتدمير الصناعة وتجهيل التعليم",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-304",
+        "bloomsObjectivesEn": [
+          "Contrast nominal versus actual sovereignty under Lord Dufferin's Basic Law of 1883.",
+          "Analyze the deliberate colonial policy of de-industrialization and evaluate Cromer's 1905 annual report.",
+          "Critique Douglas Dunlop's pedagogical philosophy and its impact on the suppression of Egyptian national leadership."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة والتحليل بين السلطة الشرعية الصورية والسلطة الفعلية الحقيقية في القانون الأساسي 1883م.",
+          "تحليل السياسة الاستعمارية الممنهجة لتدمير الصناعة ونقد تقرير اللورد كرومر لعام 1905م.",
+          "نقد الفلسفة التربوية للمستشار الإنجليزي دانلوب وتداعياتها في محاربة الوعي القومي وإماتة روح الابتكار."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the British military occupation of Cairo in September 1882."
+        ],
+        "prerequisitesAr": [
+          "استيعاب نتائج معركة التل الكبير واحتلال القاهرة عام 1882م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Dufferin's Basic Law (1883)",
+            "definition": "Charter establishing British indirect rule while preserving nominal Ottoman sovereignty."
+          },
+          {
+            "term": "Policy of Anglicization",
+            "definition": "Replacing Egyptian administrators with British colonial civil servants."
+          },
+          {
+            "term": "Forced Sales (Buyu' Jabriyya)",
+            "definition": "Foreclosures on peasant lands by foreign mortgage banks due to unpaid loans."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "القانون الأساسي 1883م",
+            "definition": "دستور الاحتلال الذي وضعه دافرين ليحكم مصر بالسلطة الفعلية غير المباشرة تحت ستار السيادة العثمانية."
+          },
+          {
+            "term": "سياسة النجلزة",
+            "definition": "إحلال الإنجليز محل الكوادر والقيادات المصرية في جميع إدارات ومفاصل الدولة."
+          },
+          {
+            "term": "البيوع الجبرية (الهلاكية)",
+            "definition": "انتزاع البنوك الأجنبية لأراضي الفلاحين وبيعها بالمزاد لتعثرهم في سداد أقساط الديون الربوية."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Source Document Analysis",
+            "phaseAr": "تحليل الوثائق التاريخية",
+            "duration": "10 min",
+            "activitiesEn": "Analyze Lord Cromer's 1905 report on the death of Egyptian textile crafts.",
+            "activitiesAr": "قراءة نقدية لتقرير اللورد كرومر لعام 1905م وتبجحه بسيادة المنتجات الإنجليزية."
+          },
+          {
+            "phaseEn": "Economic & Political Architecture",
+            "phaseAr": "تفكيك البنية الاقتصادية والإدارية",
+            "duration": "45 min",
+            "activitiesEn": "Break down Dufferin's Basic Law, the 8% textile tax, and cotton monoculture.",
+            "activitiesAr": "شرح بنود القانون الأساسي، وازدواجية السلطة، والضرائب الأربع المدمرة للصناعة."
+          },
+          {
+            "phaseEn": "Educational Regression Discussion",
+            "phaseAr": "مناقشة التجهيل والتعليم",
+            "duration": "20 min",
+            "activitiesEn": "Compare Muhammad Ali's and Ismail's educational visions with Douglas Dunlop's system.",
+            "activitiesAr": "مقارنة فكرية بين نهضة التعليم في عهدي محمد علي وإسماعيل وسياسة الإخضاع لدانلوب."
+          },
+          {
+            "phaseEn": "Formative Verification Drill",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems on the administrative and economic aspects of occupation.",
+            "activitiesAr": "حل 5 أسئلة استنتاجية حول الآثار الاقتصادية والإدارية للاحتلال البريطاني."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Confusing Muhammad Ali's Organic Law (1837) with Dufferin's Basic Law (1883) because both share the Arabic title 'Al-Qanun al-Asasi'."
+        ],
+        "commonMisconceptionsAr": [
+          "الخلط بين القانون الأساسي 1837م لمحمد علي (تنظيم الدواوين) والقانون الأساسي 1883م للورد دافرين (تنظيم الاحتلال)."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic cables and British parliamentary transcripts against Egyptian nationalist press accounts to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين محاضر البرلمان البريطاني ومقالات جريدتي اللواء والمؤيد لاستنباط الانحيازات الاستعمارية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "What was the structural impact of the 8% excise duty imposed by Cromer on Egyptian domestic cotton textiles?",
+          "questionAr": "ما الأثر الهيكلي المدمر لضريبة الاستهلاك (8%) التي فرضها كرومر على المنسوجات القطنية المصنوعة محلياً بمصر؟",
+          "solutionEn": "It made Egyptian cloth more expensive than imported Lancashire textiles, destroying local factories and converting Egypt into a captive consumer market.",
+          "solutionAr": "أدت لرفع تكلفة المنتج الوطني وحرمانه من ميزة المنافسة أمام المنسوجات الإنجليزية، مما أدى لإفلاس المصانع المصرية وإغلاقها."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch3_ws4",
+        "titleEn": "Worksheet 3.4: The Nature of British Imperial Rule: Administrative, Economic & Educational Policies (1882–1892)",
+        "titleAr": "ورقة عمل ٣-4: أحوال مصر تحت نير الاحتلال البريطاني: السياسات الإدارية والاقتصادية والتعليمية (1882–1892م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 4.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 4.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Orabi Era & National Movement Simulator 3.4",
+        "titleAr": "معمل المحاكاة التفاعلي للثورة العرابية والحركة الوطنية ٣-4",
+        "descriptionEn": "Interactive chronological simulator exploring the political and military turning points of Lesson 3.4.",
+        "descriptionAr": "محاكي تفاعلي لاستكشاف المحطات السياسية والعسكرية المفصلية للدرس ٣-4."
+      }
+    },
+    {
+      "id": "th_hist_ch3_l5",
+      "titleEn": "Nationalist Resurgence: Mustafa Kamel and Muhammad Farid (1892–1914)",
+      "titleAr": "يقظة الحركة الوطنية: كفاح مصطفى كامل ومحمد فريد ضد الاحتلال (1892–1914م)",
+      "summaryEn": "The decade of dormancy (1882–1892), Khedive Abbas Hilmi II's initial defiance, the rise of Mustafa Kamel, French alliance (Juliette Adam), the Fashoda Incident (1898) and its psychological fallout, the 1899 Sudan Condominium, founding of Al-Liwaa (1900), the Entente Cordiale (1904), the Denshawai Tragedy (1906), Cromer's resignation, founding of the National Party (1907), Muhammad Farid's leadership (trade unionism, night schools), Gorst's conciliation vs. Kitchener's Iron Fist, and Farid's exile.",
+      "summaryAr": "مرحلة الخمود (1882–1892م)، اعتلاء عباس حلمي الثاني وتحديه لكرومر، صعود الزعيم مصطفى كامل، صالونات باريس وجولييت آدم، انتكاسة فاشودة 1898م، معاهدة الحكم الثنائي للسودان 1899م، تأسيس جريدة اللواء 1900م، صفقة الوفاق الودي 1904م وتخلي فرنسا، مأساة دنشواي 1906م وسقوط كرومر، تأسيس الحزب الوطني، كفاح محمد فريد وتأسيس النقابات ومدارس الشعب، سياسة جورست التوفيقية والقبضة الحديدية لكيتشنر، ونفي فريد ووفاته.",
+      "theoryContentEn": "### 1. The Decade of Dormancy (1882–1892) & National Regeneration\n- Following the defeat of the Orabi revolt, Egypt entered a decade of national quiescence (*Khumood*) due to:\n  1. Exile and imprisonment of revolutionary leaders.\n  2. Absolute submission of Khedive Tawfiq to British directives.\n  3. Co-optation of many former patriots who turned to private business or collaboration.\n- **Early Signs of Resistance:**\n  - *The Society of Vengeance (Jam'iyyat al-Intiqam 1883):* Secret assassination cell, dismantled by the British.\n  - *Al-Urwa al-Wuthqa (Paris 1884):* Anti-imperialist journal founded by **Jamal al-Din al-Afghani** and **Muhammad Abduh**.\n  - *Al-Mu'ayyad (1889):* Nationalist newspaper championing the Islamic Ottoman Caliphate.\n\n### 2. Abbas Hilmi II's Defiance & The Emergence of Mustafa Kamel\n- In January 1892, young Khedive **Abbas Hilmi II** ascended the throne, determined to exercise real sovereign authority:\n  - In January 1893, he dismissed pro-British Prime Minister Mustafa Fahmy and appointed Hussein Fakhry.\n  - Lord Cromer issued an imperial ultimatum backed by London; a face-saving compromise was reached by appointing Riaz Pasha.\n  - Abbas realized he could not defeat Britain alone, turning to secretly sponsor the young nationalist leader **Mustafa Kamel**.\n- **Mustafa Kamel's Diplomatic Strategy (Three Pillars):**\n  1. *Coordinating with Khedive Abbas Hilmi II:* To avoid the fatal rift that split Orabi and Tawfiq.\n  2. *Coordinating with the Ottoman Empire:* Proposing in 1897 that the Sultan withdraw troops from Greece if Britain evacuated Egypt.\n  3. *Harnessing French Support:* Befriending French politicians, writers, and literary figure **Madame Juliette Adam**, addressing European parliaments and publishing in Parisian newspapers.\n\n### 3. Geopolitical Fractures: Fashoda (1898) & The Entente Cordiale (1904)\n- **The Fashoda Incident (1898):**\n  - French troops under Marchand and British troops under Kitchener confronted each other at Fashoda on the White Nile in Southern Sudan.\n  - Egyptian patriots hoped for war to expel Britain. Instead, France negotiated a peaceful diplomatic withdrawal to secure British support against Germany.\n  - *Psychological Impact:* Abbas Hilmi II succumbed to despair, abandoned resistance, reconciled with Cromer, and visited London.\n  - *Mustafa Kamel's Defiance:* Proclaimed his famous maxim: *\"No despair with life, and no life with despair!\"*\n- **The Anglo-Egyptian Condominium Agreement (1899):** Britain forced Egypt to sign a joint rule agreement over Sudan, raising the British flag south of the 22nd parallel to legally counter French ambitions.\n- **Founding of Al-Liwaa (1900):** Mustafa Kamel established the daily newspaper *Al-Liwaa* to educate the public and champion the Islamic League.\n- **The Entente Cordiale (April 1904):**\n  - Britain and France signed an imperial alliance: Britain received a free hand in Egypt, and France received a free hand in Morocco.\n  - France completely abandoned Mustafa Kamel, ending Egyptian reliance on European diplomacy.\n\n### 4. The Denshawai Tragedy (1906) & The Downfall of Lord Cromer\n- **The Incident (June 1906):** British officers hunting pigeons in Denshawai village (Menoufia) accidentally shot a peasant woman and set fire to a grain threshing floor. While fleeing angry villagers, an officer died of heatstroke.\n- **Cromer's Brutal Kangaroo Court:** Formed an extraordinary military tribunal presided over by Boutros Ghali, sentencing four villagers to be hanged, sentencing others to life imprisonment, and publicly flogging dozens before their weeping families.\n- **Mustafa Kamel's Counter-Offensive:**\n  - Traveled across Europe, writing passionate articles in the French and British press (e.g., *Le Figaro*) exposing Cromer's atrocities.\n  - British public opinion and parliament were deeply shaken.\n  - To defuse the crisis, the British government recalled **Lord Cromer in 1907**, forcing his resignation after 24 years of absolute rule.\n- **Founding the National Party (December 1907):** Mustafa Kamel officially constituted the National Party (*Al-Hizb al-Watani*). He died in February 1908 at the young age of 34, mourned by the entire nation.\n\n### 5. Muhammad Farid: Labor Mobilization & Confronting Kitchener's Iron Fist\n- **Muhammad Farid's Democratic Struggle:**\n  - Succeeded Mustafa Kamel in 1908 amid intensely hostile circumstances (Abbas Hilmi II had reconciled with Britain).\n  - *Grassroots Expansion:* Founded the first manual workers' trade union (1909) and opened free night schools (*Madaris al-Sha'b*) to educate adult laborers and peasants.\n- **Defeating the Suez Canal Extension Project (1910):** Mobilized public opinion and the General Assembly to reject the British company's project to extend the canal concession by 40 years (from 1968 to 2008).\n- **British Colonial Governors (1907–1914):**\n  - *Sir Eldon Gorst (1907–1911):* Practiced conciliation with Abbas Hilmi II, expanded Provincial Councils, and initiated gradual Egyptianization of minor posts to weaken the National Party.\n  - *Lord Kitchener (1911–1914):* Returned to the aggressive 'Iron Fist' policy (*Al-Qabda al-Hadidiyya*), reviving Anglicization and hunting down National Party activists.\n- **Imprisonment and Exile of Muhammad Farid:**\n  - Imprisoned for writing a patriotic poem preface; left Egypt in 1912 to continue the struggle in European congresses.\n  - Exhausted his entire fortune on the national cause, dying in poverty in Berlin in November 1919.",
+      "theoryContentAr": "### ١. مرحلة الخمود (1882–1892م) ويقظة الأمل\n- دخلت مصر بعد هزيمة الثورة العرابية في مرحلة ركود وجمود وطني استمرت قرابة عشر سنوات للأسباب الآتية:\n  ١. نفي زعماء الثورة العرابية لجزيرة سيلان وسجن الآخرين وتجريدهم من رتبهم وأموالهم.\n  ٢. خضوع الخديوي توفيق التام للاحتلال الإنجليزي واعتقاده بأنهم حماة عرشه.\n  ٣. تحول بعض الوطنيين السابقين لمهادنة المحتل أو الانشغال بالمصالح الاقتصادية الخاصة.\n- **المظاهر الوطنية الأولى للمقاومة:**\n  - **جمعية الانتقام السرية (1883م):** استهدفت اغتيال جنود وضباط الاحتلال، وقبض على أعضائها سريعاً.\n  - **جريدة العروة الوثقى (باريس 1884م):** أصدرها جمال الدين الأفغاني والشيخ محمد عبده لمهاجمة الاستعمار الإنجليزي.\n  - **جريدة المؤيد (1889م):** أسسها الشيخ علي يوسف في إطار حركة الجامعة الإسلامية والتأييد للسلطان العثماني.\n\n### ٢. اعتلاء عباس حلمي الثاني وتحديه لكرومر وظهور مصطفى كامل\n- تولى الخديوي الشاب **عباس حلمي الثاني** الحكم في يناير 1892م متحمساً لممارسة سلطاته الشرعية وكسر قبضة الاحتلال:\n  - أقال رئيس الوزراء مصطفى فهمي (الموالي للإنجليز) وعين حسين فخري في يناير 1893م دون إذن كرومر.\n  - غضب اللورد كرومر وأرسل برقية احتجاج شديدة اللهجة للندن؛ فتم التوصل لحل وسط باستقالة فخري وتعيين رياض باشا.\n  - أدرك عباس حلمي الثاني صعوبة الصدام المباشر مع بريطانيا، فتحالف سراً مع الحركة الوطنية وتيار الشباب بزعامة **مصطفى كامل**.\n- **خطة مصطفى كامل الوطنية (المثلث الاستراتيجي):**\n  ١. **التنسيق مع الخديوي عباس حلمي الثاني:** لتفادي الخلاف الذي وقع سابقاً بين عرابي وتوفيق.\n  ٢. **التنسيق مع السلطة الشرعية (السلطان العثماني):** اقترح عام 1897م جلاء الجيش العثماني عن اليونان مقابل جلاء بريطانيا عن مصر.\n  ٣. **استغلال التنافس الأوروبي (فرنسا):** توثيق الصلة بالساسة والمثقفين الفرنسيين مثل الأديبة **جولييت آدم**، والكتابة في صحف باريس وإلقاء الخطب في المحافل الأوروبية.\n\n### ٣. الصدمات الجيوسياسية: فاشودة (1898م) والوفاق الودي (1904م)\n- **حادثة فاشودة (1898م):**\n  - واجهت القوات الفرنسية بقيادة مارشان القوات الإنجليزية بقيادة كيتشنر في فاشودة بجنوب السودان.\n  - تفاءل المصريون بقرب اندلاع حرب تجبر إنجلترا على الجلاء، لكن فرنسا انسحبت سلمياً لعقد صفقة استعمارية والتفرغ لمواجهة ألمانيا.\n  - *الأثر النفسي:* أصيب الخديوي عباس حلمي الثاني باليأس وتحول من تحدي الاحتلال إلى مسالمة ومهادنة اللورد كرومر وزيارة لندن.\n  - *صمود مصطفى كامل:* لم يستسلم مصطفى كامل وأطلق شعاره الخالد: *«لا يأس مع الحياة ولا حياة مع اليأس»*.\n- **اتفاقية الحكم الثنائي للسودان (يناير 1899م):** أرغمت بريطانيا مصر على توقيعها لتمكين إنجلترا من المشاركة الرسمية في حكم السودان ومواجهة الأطماع الفرنسية باسم الشراكة.\n- **تأسيس جريدة اللواء (1900م):** أصدر مصطفى كامل جريدة اللواء لتكون منبراً للدفاع عن القضية الوطنية ونشر التعليم والجامعة الإسلامية.\n- **الوفاق الودي (إبريل 1904م):**\n  - صفقة استعمارية كبرى بين إنجلترا وفرنسا: إطلاق يد إنجلترا في مصر مقابل إطلاق يد فرنسا في مراكش (المغرب).\n  - تخلت فرنسا نهائياً عن دعم مصطفى كامل والحركة الوطنية المصرية، فانكشفت الجبهة الخارجية واشتدت غطرسة اللورد كرومر.\n\n### ٤. مأساة دنشواي (1906م) وسقوط اللورد كرومر\n- **الواقعة (يونيو 1906م):** كان ضباط إنجليز يصيدون الحمام في قرية دنشواي بالمنوفية، فأصابت رصاصاتهم فلاحة مصرية واشتعلت النيران في أجران القمح؛ طاردهم الفلاحون، وأصيب ضابط إنجليزي بضربة شمس ومات أثناء هربه.\n- **المحكمة المخصوصة الباطشة:** شكل كرومر محكمة عسكرية جائرة برئاسة بطرس غالي، وأصدرت أحكاماً إرهابية بإعدام 4 فلاحين شنقاً والأشغال الشاقة المؤبدة لآخرين والجلد العلني القاسي أمام الأهالي.\n- **الهجوم الدبلوماسي لمصطفى كامل:**\n  - استغل مصطفى كامل الحدث وكتب مقالات نارية في كبرى صحف أوروبا (مثل لوفيجارو) فضح فيها الوحشية الإنجليزية.\n  - أثارت حملته غضب البرلمان والرأي العام البريطاني؛ ولتهدئة العاصفة، اضطرت الحكومة البريطانية لعزل **اللورد كرومر عام 1907م** واستقالته بعد 24 عاماً من الاستبداد.\n- **تأسيس الحزب الوطني (ديسمبر 1907م):** أسس مصطفى كامل الحزب الوطني وأصدر طبعتين إنجليزية وفرنسية لجريدة اللواء، وتوفي في فبراير 1908م عن عمر 34 عاماً في جنازة مهيبة.\n\n### ٥. كفاح محمد فريد وتوسيع قاعدة النضال في عهد القبضة الحديدية\n- **نضال محمد فريد الشامل:**\n  - تولى رئاسة الحزب الوطني عام 1908م في مناخ محبط (انقلاب الخديوي عباس لمهادنة الإنجليز).\n  - *ضم العمال والكادحين:* أسس أول نقابة لعمال الصنائع اليدوية عام 1909م، وأنشأ **مدارس الشعب الليلية** لتعليم العمال والفلاحين القراءة والكتابة مجاناً.\n- **إسقاط مشروع مد امتياز قناة السويس (1910م):**\n  - طلبت الشركة مد الامتياز 40 سنة تنتهي 2008م بموافقة حكومة بطرس غالي.\n  - حصل فريد على نسخة من المشروع ونشرها في جريدة اللواء، وقاد ثورة رأي عام أجبرت الجمعية العمومية على رفض المشروع وإسقاطه نهائياً.\n- **المعتمدون البريطانيون (1907–1914م):**\n  - **السير إلدون جورست (1907–1911م):** اتبع سياسة الوفاق والتفاهم مع الخديوي وتوسيع صلاحيات مجالس المديريات وتمصير الوظائف لإضعاف الحزب الوطني.\n  - **اللورد كيتشنر (1911–1914م):** أعاد سياسة **القبضة الحديدية** والنجلزة، وطارد قيادات الحزب الوطني وأعاد سلطات الأمن العام الباطشة.\n- **سجن ونفي محمد فريد:** سجن فريد عام 1911م بسبب كتابة مقدمة ديوان شعر وطني، ثم هاجر عام 1912م وواصل نضاله في المؤتمرات الدولية حتى مات فقيراً ببرلين في نوفمبر 1919م بعد أن أنفق كل ثروته على الوطن.",
+      "formulas": [
+        {
+          "labelEn": "National Resurgence Trajectory",
+          "labelAr": "معادلة تحولات الكفاح الوطني من دنشواي إلى الوعي الجماهيري",
+          "latex": "\\text{مأساة دنشواي 1906م} + \\text{حملة مصطفى كامل الدولية} \\implies \\text{استقالة كرومر 1907م} \\implies \\text{تأسيس الحزب الوطني ونقابات محمد فريد}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Modern & Contemporary Egyptian History (Grade 12)",
+        "bookTitleAr": "تاريخ مصر الحديث والمعاصر - الصف الثالث الثانوي",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH3-L5",
+        "pageRange": "pp. 98-112"
+      },
+      "lessonPlan": {
+        "titleEn": "National Awakening: Mustafa Kamel's Diplomacy, Denshawai & Muhammad Farid",
+        "titleAr": "يقظة الأمة: دبلوماسية مصطفى كامل، صدمة دنشواي، ونضال محمد فريد العمالي",
+        "gradeLevel": "Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-TH-HIST-PLAN-305",
+        "bloomsObjectivesEn": [
+          "Synthesize how Mustafa Kamel adapted his strategy following the diplomatic betrayal of the 1904 Entente Cordiale.",
+          "Evaluate the journalistic and political methods used by Mustafa Kamel to force the resignation of Lord Cromer following the Denshawai Incident.",
+          "Analyze Muhammad Farid's pioneering role in establishing Egyptian trade unionism and night schools."
+        ],
+        "bloomsObjectivesAr": [
+          "تركيب واستنتاج كيفية تعديل مصطفى كامل لاستراتيجيته الوطنية عقب الغدر الدبلوماسي للوفاق الودي عام 1904م.",
+          "تقويم الأدوات الدبلوماسية والصحفية التي استخدمها مصطفى كامل لإجبار الحكومة البريطانية على عزل اللورد كرومر بعد دنشواي.",
+          "تحليل دور المناضل محمد فريد في توسيع القاعدة الاجتماعية للحركة الوطنية بإنشاء النقابات العمالية ومدارس الشعب الليلية."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the administrative setup of British occupation under Lord Cromer."
+        ],
+        "prerequisitesAr": [
+          "استيعاب سياسات اللورد كرومر الاستبدادية والقانون الأساسي لعام 1883م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Entente Cordiale (1904)",
+            "definition": "Imperial bargain giving Britain free hand in Egypt in exchange for French control over Morocco."
+          },
+          {
+            "term": "Denshawai Incident (1906)",
+            "definition": "Colonial tragedy leading to kangaroo executions, triggering Cromer's forced resignation."
+          },
+          {
+            "term": "Night Schools (Madaris al-Sha'b)",
+            "definition": "Free adult literacy centers founded by Muhammad Farid for workers and peasants."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "الوفاق الودي 1904م",
+            "definition": "صفقة استعمارية بين إنجلترا وفرنسا تخلت فيها باريس عن دعم مصر مقابل بسط نفوذها على المغرب."
+          },
+          {
+            "term": "حادثة دنشواي 1906م",
+            "definition": "مأساة ارتكب فيها كرومر مذبحة قضائية بالشنق والجلد، وفجر استغلالها الإعلامي إقالته التاريخية."
+          },
+          {
+            "term": "مدارس الشعب الليلية",
+            "definition": "مدارس مجانية أنشأها محمد فريد لتعليم العمال والفلاحين القراءة والوعي الوطني بعد العمل."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Primary Source Document Analysis",
+            "phaseAr": "تحليل الوثائق التاريخية",
+            "duration": "10 min",
+            "activitiesEn": "Analyze Mustafa Kamel's famous speech published in Le Figaro in 1906.",
+            "activitiesAr": "قراءة نقدية لمقتطفات من مقال مصطفى كامل في جريدة لوفيجارو الفرنسية عقب دنشواي."
+          },
+          {
+            "phaseEn": "Comparative Leadership Analysis",
+            "phaseAr": "التحليل المقارن للقيادة",
+            "duration": "45 min",
+            "activitiesEn": "Compare the methods of Mustafa Kamel (international diplomacy) with Muhammad Farid (grassroots unionism).",
+            "activitiesAr": "مقارنة منهجية بين كفاح مصطفى كامل (الدبلوماسية والصحافة) ومحمد فريد (العمل الميداني والنقابي)."
+          },
+          {
+            "phaseEn": "The 1910 Canal Victory Debate",
+            "phaseAr": "معركة إسقاط مد امتياز القناة",
+            "duration": "20 min",
+            "activitiesEn": "Analyze how Muhammad Farid saved the Suez Canal from 40 additional years of colonial exploitation.",
+            "activitiesAr": "مناقشة ملحمة محمد فريد في حماية القناة من التمديد حتى 2008م وأثر الرأي العام في حسم المعركة."
+          },
+          {
+            "phaseEn": "Formative Verification Drill",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Complete 5 ministerial synthesis questions on the 1892–1914 national awakening.",
+            "activitiesAr": "حل 5 أسئلة مستويات عليا حول مسارات الحركة الوطنية من عباس حلمي إلى محمد فريد."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing that Lord Cromer resigned voluntarily for health reasons rather than being forced out by the Denshawai campaign."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن اللورد كرومر استقال طواعية لأسباب صحية وليس نتيجة للضغط الشعبي والدولي بعد دنشواي."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological graphic organizers and keyword mapping for historical cause-and-effect relationships.",
+          "advanced": "Analyze diplomatic cables and British parliamentary transcripts against Egyptian nationalist press accounts to evaluate historical bias."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخططات ورسوم بيانية زمنية مبسطة وجداول سببية لربط الأحداث بالنتائج لتيسير الفهم.",
+          "advanced": "مقارنة نقدية بين محاضر البرلمان البريطاني ومقالات جريدتي اللواء والمؤيد لاستنباط الانحيازات الاستعمارية ونواتج التعلم المركبة."
+        },
+        "formativeAssessmentEn": "Targeted ministerial standard MCQs assessing high-order historical reasoning, geopolitical causation, and primary source critique.",
+        "formativeAssessmentAr": "أسئلة اختيار من متعدد متوافقة مع مواصفات المركز القومي للامتحانات تقيس الفهم والتحليل والربط بين المتغيرات الدولية والداخلية.",
+        "exitTicketQuestion": {
+          "questionEn": "How did the 1904 Entente Cordiale transform Mustafa Kamel's nationalist diplomatic strategy?",
+          "questionAr": "كيف غيّر توقيع «الوفاق الودي» عام 1904م استراتيجية الكفاح الدبلوماسي لمصطفى كامل؟",
+          "solutionEn": "It deprived him of French support, leading him to abandon reliance on foreign powers, focus on domestic mass mobilization, and establish the National Party.",
+          "solutionAr": "حرمته من المساندة الفرنسية، فأيقن حتمية الاعتماد على وعي الشعب المصري وتوثيق الصلة بالدولة العثمانية وتأسيس الحزب الوطني."
+        }
+      },
+      "worksheet": {
+        "id": "th_hist_ch3_ws5",
+        "titleEn": "Worksheet 3.5: Nationalist Resurgence: Mustafa Kamel and Muhammad Farid (1892–1914)",
+        "titleAr": "ورقة عمل ٣-5: يقظة الحركة الوطنية: كفاح مصطفى كامل ومحمد فريد ضد الاحتلال (1892–1914م)",
+        "descriptionEn": "Ministerial historical analysis and primary source critique for Lesson 5.",
+        "descriptionAr": "تدريبات تحليل الوثائق التاريخية ونواتج التعلم الوزارية المعتمدة للدرس 5.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Orabi Era & National Movement Simulator 3.5",
+        "titleAr": "معمل المحاكاة التفاعلي للثورة العرابية والحركة الوطنية ٣-5",
+        "descriptionEn": "Interactive chronological simulator exploring the political and military turning points of Lesson 3.5.",
+        "descriptionAr": "محاكي تفاعلي لاستكشاف المحطات السياسية والعسكرية المفصلية للدرس ٣-5."
+      }
+    }
+  ]
+},
+      databank: historyCh3Databank,
+      solvedExamples: egBacHistoryCh3SolvedExamples,
+      exerciseProblems: egBacHistoryCh3Exercises
+    },
+            {
+  "id": "th_hist_ch4",
+  "chapterNumber": 4,
+  "titleEn": "Unit 4: Constitutional Nationalism, Sovereign Crises & The July 23 Revolution",
+  "titleAr": "الفصل الرابع: النضال الدستوري القومي، أزمات السيادة، وثورة 23 يوليو 1952م",
+  "descriptionEn": "Comprehensive historiographical exploration of post-WWI Egyptian statehood, the 1919 National Revolution, constitutional monarchy tensions, WWII imperial pressures, and the revolutionary transformation of July 23, 1952.",
+  "descriptionAr": "دراسة نقدية معمقة لمسار الدولة المصرية الحديثة بعد الحرب العالمية الأولى، ملحمة ثورة 1919م، تناقضات الحكم الملكي الدستوري، أزمات الحرب الثانية، ومسار التحرر الوطني مع ثورة 23 يوليو 1952م.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "th_hist_ch4_l1",
+      "titleEn": "World War I, The British Protectorate & The 1919 National Movement & Constitutional Transformation",
+      "titleAr": "مصر أثناء الحرب العالمية الأولى، إعلان الحماية وثورة 1919م والتحولات الدستورية الحديثة",
+      "summaryEn": "WWI conditions in Egypt, declaration of the British Protectorate (1914), deposition of Abbas Hilmi II, President Wilson's principles, emergence of secular Egyptian territorial nationalism, formation of the Wafd delegation under Saad Zaghloul, the Wingate confrontation, power-of-attorney campaign, arrest/exile to Malta, and the comprehensive 1919 popular revolution (national unity of Crescent and Cross, women's movement, and rural communication sabotage).",
+      "summaryAr": "أحوال مصر أثناء الحرب العالمية الأولى، إعلان الحماية البريطانية 1914م، عزل عباس حلمي الثاني وتعيين حسين كامل بلقب سلطان، مبادئ ويلسون وسقوط الجامعة الإسلامية وظهور القومية المصرية، تشكيل الوفد برئاسة سعد زغلول ومقابلة وينجت وجمع التوكيلات، نفي سعد لمالطا وانفجار ثورة 1919م الشعبية العارمة (التلاحم الديني، مشاركة المرأة، قطع السكك الحديدية وإعلان جمهورية زفتى).",
+      "theoryContentEn": "### 1. Egypt During World War I (1914–1918)\n- **Severance of Ottoman Ties:** When the Ottoman Empire joined Germany and the Central Powers against Britain in November 1914, Britain took drastic unilateral steps in Egypt:\n  1. Ended nominal Ottoman suzerainty and officially declared the **British Protectorate** over Egypt (December 18, 1914).\n  2. Deposed Khedive Abbas Hilmi II and appointed his uncle **Hussein Kamel** as the first ruler with the title of **Sultan** (1914–1917), followed upon his death by Sultan **Ahmed Fuad I**.\n  3. Imposed martial law, strict press censorship, and suspended meetings of the Legislative Assembly.\n- **Wartime Economic Exploitation:**\n  - Commandeered wheat, barley, and cattle at nominal fixed prices.\n  - Placed price ceilings on Egyptian cotton while European prices soared.\n  - Conscripted over 100,000 peasants into the **Egyptian Labour Corps (Firaq al-Ummal)** to dig trenches and transport ammunition in Sinai, Palestine, and France.\n  - Enormous price inflation devastated the Egyptian lower and middle classes, generating massive anti-British hostility.\n\n### 2. The Geopolitical Paradigm Shift: Birth of Egyptian Territorial Nationalism\n- **Before WWI:** Egyptian national leaders (Mustafa Kamel, Muhammad Farid) advocated liberation from Britain while maintaining nominal allegiance to the Ottoman Caliphate (Pan-Islamism) to prevent religious fragmentation of the Islamic world.\n- **After WWI:**\n  1. The Ottoman Empire was decisively defeated and dismembered.\n  2. The concept of the Pan-Islamic Caliphate collapsed.\n  3. Egyptians embraced **Territorial Egyptian Nationalism (Al-Qawmiya Al-Misriya)**: seeking independence as an autonomous, sovereign nation-state whose borders and identity were rooted in Egypt's unique civilization, without external religious allegiance.\n- **Wilson's Fourteen Points (1918):**\n  - Proclaimed the **Right of Nations to Self-Determination**.\n  - Proposed the establishment of the **League of Nations** to peacefully resolve territorial disputes.\n  - These ideals inspired Egyptian leaders to organize for the Paris Peace Conference.\n\n### 3. The Egyptian Wafd & The Wingate Confrontation (November 1918)\n- On November 13, 1918 (two days after the armistice), **Saad Zaghloul**, **Ali Shaarawi**, and **Abdel Aziz Fahmy** met High Commissioner **Sir Reginald Wingate**.\n- They demanded:\n  1. Immediate termination of the British Protectorate.\n  2. Abolition of martial law and press censorship.\n  3. Permission to travel to London and the Paris Peace Conference to present Egypt's independence claim.\n- **Wingate's Objection:** He rejected their request, arguing that the three leaders held no official legal standing or mandate to represent the Egyptian people.\n- **The National Mandate Campaign (Tawkīlāt):**\n  - Saad Zaghloul responded by establishing the **Egyptian Delegation (Al-Wafd al-Misri)** and circulating petitions across the nation.\n  - Millions of Egyptians from all social classes signed the proxy authorizations, declaring the Wafd the sole legitimate voice of the nation.\n  - British authorities grew terrified of this organized popular mandate.\n\n### 4. Outbreak of the 1919 Revolution\n- **The Spark:** On March 8, 1919, British forces arrested Saad Zaghloul, Ismail Sidqi, Mohamed Mahmoud, and Hamad El-Bassel, exiling them to the island of **Malta**.\n- **The Nationwide Uprising:**\n  - **Cairo:** Students from Al-Azhar, Law, Medicine, and Engineering schools struck, followed by railway workers, tram drivers, and civil servants.\n  - **The Countryside:** Peasants derailed supply trains, severed telegraph cables, attacked British garrisons, and burned tax registries. In Gharbia, lawyer Youssef El-Gendy proclaimed the **Republic of Zifta**.\n  - **Religious Brotherhood (Unity of Crescent and Cross):** Copts and Muslims demonstrated side by side under the flag showing the Crescent embracing the Cross. Priest Fr. Sergius delivered fiery nationalist sermons from the minbar of Al-Azhar, while Muslim scholars preached in churches.\n  - **The Women's Movement:** Over 300 Egyptian women marched publicly for the first time in modern history, led by figures like **Safiya Zaghloul** (Mother of the Egyptians) and **Hoda Shaarawi**, facing British bullets and building street barricades.\n- **British Concession:** Britain realized military force could not suppress a unified nation. General **Edmund Allenby** was appointed High Commissioner, Saad Zaghloul and his companions were released from Malta, and permission was granted for the delegation to travel to Paris.",
+      "theoryContentAr": "### ١. أحوال مصر أثناء الحرب العالمية الأولى (1914–1918م)\n- **إنهاء التبعية العثمانية:** عندما دخلت الدولة العثمانية الحرب في نوفمبر 1914م متحالفة مع ألمانيا ضد بريطانيا، اتخذت سلطات الاحتلال إجراءات حاسمة:\n  ١. إنهاء السيادة العثمانية الاسمية وإعلان **الحماية البريطانية** على مصر في 18 ديسمبر 1914م.\n  ٢. عزل الخديوي عباس حلمي الثاني وتعيين عمه **حسين كامل** بلقب **سلطان** (1914–1917م)، وخلفه أخوه السلطان **أحمد فؤاد الأول**.\n  ٣. إعلان الأحكام العرفية، وفرض رقابة صارمة على الصحف، وتعطيل جلسات الجمعية التشريعية.\n- **الاستنزاف الاقتصادي والاستغلال العسكري:**\n  - الاستيلاء على الحبوب والمواشي بأبخس الأثمان لتغذية جيوش الحلفاء.\n  - فرض أسعار جبرية متدنية على القطن المصري مع منع تصديره للأسواق الحرة.\n  - تجنيد أكثر من 100 ألف فلاح مصري قسراً في **فرقة العمال (السخرة)** لحفر الخنادق ومد خطوط السكك الحديدية في سيناء وفلسطين وأوروبا.\n  - اشتعال أزمة غلاء فاحشة وتضخم نقدي أثقل كاهل الشعب وعمّق الغضب القومي ضد المحتل.\n\n### ٢. التحول الأيديولوجي الجذري: ولادة القومية المصرية الخالصة\n- **قبل الحرب العالمية الأولى:** كانت الحركة الوطنية (مصطفى كامل ومحمد فريد) تنادي بالجلاء مع التمسك بالسيادة العثمانية وفكرة «الجامعة الإسلامية» لمنع تفتت العالم الإسلامي.\n- **عقب الحرب العالمية الأولى:**\n  ١. هزيمة الدولة العثمانية وتفكك ممتلكاتها وسقوط فكرة الجامعة الإسلامية.\n  ٢. بلورة مفهوم **«القومية المصرية الحديثة»**: إدراك الشعب المصري أنه لم يعد مرتبطاً بأي سيادة خارجية، ووجوب النضال لتأسيس دولة قومية مستقلة لأبناء وادي النيل دون تمييز ديني أو عرقي.\n- **مبادئ الرئيس الأمريكي ويلسون (1918م):**\n  - إعلان **حق تقرير المصير** لكافة الشعوب المستعمرة.\n  - تأسيس **عصبة الأمم** لحل النزاعات الدولية سلمياً دون حروب، مما أعطى الوطنيين أملاً قانونياً في نيل الاستقلال.\n\n### ٣. تشكيل الوفد المصري ومقابلة وينجت (نوفمبر 1918م)\n- في 13 نوفمبر 1918م (بعد يومين من الهدنة)، توجه **سعد زغلول** و**علي شعراوي** و**عبد العزيز فهمي** لمقابلة المعتمد البريطاني **السير ريجنالد وينجت**.\n- طالب الوفد بـ: إلغاء الحماية البريطانية، وإنهاء الأحكام العرفية، والسماح لهم بالسفر لمؤتمر الصلح بباريس.\n- **اعتراض وينجت:** تساءل وينجت باستنكار: «بأي صفة تتحدثون باسم الشعب المصري وأنتم لا تمثلون إلا أنفسكم؟».\n- **حركة التوكيلات التاريخية:**\n  - أطلق سعد زغلول حركة جمع «التوكيلات» الشعبية لتفويض الوفد بالتحدث باسم الأمة.\n  - أقبل الشعب بكافة طوائفه وفئاته بحماس أذهل سلطات الاحتلال، فتحول الوفد إلى ممثل شرعي لا يقبل التشكيك للأمة المصرية.\n\n### ٤. اشتعال ثورة 1919م الشعبية الشاملة\n- **الشرارة:** في 8 مارس 1919م، اعتقلت سلطات الاحتلال سعد زغلول وإسماعيل صدقي ومحمد محمود وحمد الباسل، ونفتهم إلى جزيرة **مالطا**.\n- **المظاهر الثورية الكبرى:**\n  - **العاصمة:** إضراب طلبة الأزهر والجامعة والحقوق والطب، وانضمام عمال السكك الحديدية والترام والمحامين والموظفين.\n  - **الأقاليم والفلاحون:** قطع الفلاحون خطوط السكك الحديدية وأسلاك التلغراف والهاتف لعزل القوات البريطانية ومهاجمة مراكز الشرطة، وإعلان **«جمهورية زفتى»** بقيادة يوسف الجندي.\n  - **التلاحم الوطني والوحدة الدينية:** تعانق الهلال والصليب في علم الثورة، وخطب القساوسة (مثل القمص سرجيوس) في الجامع الأزهر، وتحدث علماء الأزهر في الكنائس، مسقطين الفتنة الطائفية إلى الأبد.\n  - **المشاركة النسائية التاريخية:** خروج مظاهرات نسائية حاشدة تضم أكثر من 300 سيدة بقيادة **صفية زغلول** (أم المصريين) و**هدى شعراوي**، وقطع الطرق وبناء المتاريس.\n- **تراجع الاحتلال:** أدركت بريطانيا خطورة الموقف، فعزلت وينجت وعينت الجنرال **إدموند اللنبي**، وأفرجت عن سعد زغلول وسمحت للوفد بالسفر لباريس.",
+      "formulas": [
+        {
+          "labelEn": "Nationalist Identity Paradigm Shift",
+          "labelAr": "معادلة التحول الأيديولوجي للقومية المصرية",
+          "latex": "\\text{هزيمة العثمانيين} + \\text{سقوط الجامعة الإسلامية} + \\text{مبادئ ويلسون} \\implies \\text{يقظة القومية المصرية المستقلة}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian Historiography & Modern Geopolitics (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر الحديث والجيوسياسة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH4-L1",
+        "pageRange": "pp. 72-81"
+      },
+      "worksheet": {
+        "id": "th_hist_ch4_ws1",
+        "titleEn": "Worksheet 4.1: The 1919 National Revolution & Societal Cohesion",
+        "titleAr": "ورقة عمل ٤-١: ثورة 1919م القومية وملحمة التلاحم الشعبي",
+        "descriptionEn": "Analytical assessment evaluating the causes, sociological breakthroughs, and organizational mechanics of the 1919 Revolution.",
+        "descriptionAr": "تدريبات تقويمية نقدية تستهدف تفكيك أسباب الثورة ودور حركة التوكيلات والتحولات السوسيولوجية الكبرى.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "1919 Revolution Interactive Mobilization Map",
+        "titleAr": "خريطة التحركات التفاعلية لثورة 1919م",
+        "descriptionEn": "Interactive historical map charting the spread of strikes, railway sabotage, and the Republic of Zifta in March 1919.",
+        "descriptionAr": "معمل خرائط زمني تفاعلي لتتبع خطوط الإضرابات، قطع السكك الحديدية، ومراكز المقاومة في القاهرة والأقاليم."
+      },
+      "lessonPlan": {
+        "titleEn": "World War I, The British Protectorate & The 1919 National Revolution",
+        "titleAr": "مصر في الحرب العالمية الأولى وقيام ثورة 1919م الشعبية",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-401",
+        "bloomsObjectivesEn": [
+          "Analyze why Great Britain severed Ottoman sovereignty and declared a Protectorate in 1914.",
+          "Critique how Wilson's Fourteen Points catalyzed Egyptian territorial nationalism.",
+          "Evaluate the socio-political role of women and Christian-Muslim unity during the 1919 Revolution."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الدوافع البريطانية لإنهاء التبعية العثمانية وفرض الحماية في 18 ديسمبر 1914م.",
+          "نقد دور مبادئ ويلسون وسقوط الجامعة الإسلامية في بلورة فكرة القومية المصرية الحديثة.",
+          "تقويم الدلالات السوسيولوجية والسياسية لمشاركة المرأة وتعانق الهلال والصليب في ثورة 1919م."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of Chapter 3 events leading up to WWI (Dunlop, Cromer, and Mustafa Kamel)."
+        ],
+        "prerequisitesAr": [
+          "استيعاب تداعيات الاحتلال البريطاني وسياسات كرومر وكفاح محمد فريد حتى 1914م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "British Protectorate (1914)",
+            "definition": "Direct colonial subordination severing ties to the Ottoman Empire."
+          },
+          {
+            "term": "Self-Determination",
+            "definition": "Wilsonian principle stating colonized peoples have the right to determine their own sovereignty."
+          },
+          {
+            "term": "The Wafd (Delegation)",
+            "definition": "National political organization authorized by popular power-of-attorney to demand independence."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "الحماية البريطانية",
+            "definition": "إعلان رسمي استعماري أنهى التبعية الاسمية للعثمانيين وأخضع مصر للإمبراطورية البريطانية."
+          },
+          {
+            "term": "حق تقرير المصير",
+            "definition": "أحد مبادئ الرئيس ويلسون الأربعة عشر الذي يعطي كل شعب الحق في اختيار مصيره ونظام حكمه."
+          },
+          {
+            "term": "الوفد المصري",
+            "definition": "هيئة سياسية شعبية فوضها الشعب المصري عبر التوكيلات لتمثيل الأمة والمطالبة بالجلاء التام."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Historical Inquiry",
+            "phaseAr": "التهيئة والتحفيز",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the photo of the 1919 banner with the Crescent embracing the Cross.",
+            "activitiesAr": "عرض صورة علم ثورة 1919م ومناقشة كيف وحد النضال الوطني الأقباط والمسلمين والمرأة."
+          },
+          {
+            "phaseEn": "Structural Analysis of WWI Impact",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Detail the 1914 Protectorate, economic extraction, Wilson's points, and the Wingate meeting.",
+            "activitiesAr": "شرح تداعيات فرض الحماية واستنزاف الفلاحين ومبادئ ويلسون وتوكيلات الوفد ونفي سعد لمالطا."
+          },
+          {
+            "phaseEn": "Sociological Case Studies",
+            "phaseAr": "دراسة الحالات الاجتماعية",
+            "duration": "20 min",
+            "activitiesEn": "Explore the Republic of Zifta and women's pioneering political marches.",
+            "activitiesAr": "تحليل تجربة جمهورية زفتى وخروج هدى شعراوي وصفية زغلول في المظاهرات الحاشدة."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Complete 5 ministerial-style HOTS MCQs on the 1919 Revolution.",
+            "activitiesAr": "حل أسئلة تقويمية تحاكي نظام امتحانات الثانوية العامة في تحليل الوحدة الوطنية وثورة 1919م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing the 1919 Revolution was merely a religious riot rather than a secular national independence movement."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن ثورة 1919م كانت حركة دينية وليست أول ثورة قومية وطنية في تاريخ مصر المعاصر."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured timeline organizers mapping WWI economic hardships directly to revolutionary mobilization.",
+          "advanced": "Evaluate primary British diplomatic telegrams between Wingate and Balfour analyzing the fear of Egyptian self-determination."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخطط زمني مبسط يربط بين إجراءات بريطانيا الاستنزافية في الحرب واشتعال الثورة لتسهيل الاستيعاب.",
+          "advanced": "تحليل نصوص مذكرات اللورد وينجت السرية لتقويم الرؤية الاستعمارية البريطانية لحركة التوكيلات الشعبية."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and source analysis evaluating the national unity of the 1919 Revolution.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد أسباب الثورة ودلالات تعانق الهلال والصليب ومشاركة المرأة.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did the 1919 Revolution mark the birth of modern secular Egyptian nationalism?",
+          "questionAr": "لماذا مثلت ثورة 1919م شهادة ميلاد القومية المصرية الحديثة؟",
+          "solutionEn": "Because it discarded allegiance to an external Ottoman Islamic Caliphate, demanding sovereignty for a unified Egyptian nation encompassing all citizens regardless of religion.",
+          "solutionAr": "لأنها أسقطت فكرة التبعية للجامعة الإسلامية العثمانية، ونادت بسيادة واستقلال الأمة المصرية كدولة قومية موحدة تضم كافة أبنائها دون تفرقة دينية."
+        }
+      }
+    },
+    {
+      "id": "th_hist_ch4_l2",
+      "titleEn": "Anglo-Egyptian Negotiations, The 1922 Declaration & The 1923 Constitution",
+      "titleAr": "مراحل المفاوضات المصرية البريطانية، تصريح 28 فبراير 1922م ودستور 1923م",
+      "summaryEn": "Saad Zaghloul's mission to Paris, the Milner Commission and Central Wafd boycott (Abdel Rahman Fahmy), Saad-Milner negotiations, the Declaration of February 28, 1922 with its Four Reservations, drafting the 1923 Constitution, Article 23 (Nation is source of powers) vs royal prerogatives, parliamentary victory of the Wafd in 1924, Saad's 'People's Ministry', assassination of Sir Lee Stack, and minority dictatorial ministries (Ismail Sedky's 1930 coup).",
+      "summaryAr": "مؤتمر الصلح وخيبة الأمل في باريس، لجنة ملنر ومقاطعة الشعب بتوجيهات عبد الرحمن فهمي، مفاوضات سعد-ملنر، تصريح 28 فبراير 1922م ومكاسبه والتحفظات الأربعة، لجنة الثلاثين ودستور 1923م وتناقض نصوصه (المادة 23 وسلطات الملك)، فوز الوفد وتشكيل «وزارة الشعب» 1924م، مقتل السير لي ستاك وانتكاسة الحركة الوطنية واستقالة سعد، وعهد وزارات الأقلية وانقلاب إسماعيل صدقي ودستور 1930م.",
+      "theoryContentEn": "### 1. The Paris Peace Conference Betrayal & The Milner Commission\n- **Disillusionment in Paris (1919):** Upon reaching Paris, Saad Zaghloul and the Wafd were stunned when President Woodrow Wilson and European powers recognized the British Protectorate. Saad remained in Paris appealing to European parliaments.\n- **The Milner Commission (December 1919):** Britain dispatched Lord Milner to convince Egyptians to accept the Protectorate.\n- **The Central Wafd Boycott:**\n  - Through secret letters between Saad Zaghloul in Paris and **Abdel Rahman Fahmy** (Secretary of the Central Wafd Committee in Cairo), a unanimous popular boycott was organized.\n  - Slogan: *\"Negotiating directly with Milner means forfeiting the national mandate granted to the Wafd.\"*\n  - Milner found no one willing to speak to him, forcing him to negotiate with Saad Zaghloul in London (1920).\n- **Failure of Saad-Milner Talks:** Saad insisted on genuine independence; Britain insisted on retaining military bases and foreign supervision. Saad was subsequently exiled to **Seychelles** in December 1921.\n\n### 2. The Unilateral Declaration of February 28, 1922\n- Issued unilaterally by Britain on February 28, 1922:\n  1. **Positive Gains:** Terminated the Protectorate; abolished martial law; recognized Egypt as an independent sovereign state; elevated Sultan Fuad to **King Fuad I** (March 1922); restored the Egyptian Ministry of Foreign Affairs; paved the way for a constitution.\n  2. **The Four Reservations (Al-Tahaffuzāt al-Arba'a):**\n     - *Securing British imperial communications in Egypt* (justifying British garrisons along the Suez Canal).\n     - *Defending Egypt against any foreign aggression* (justifying limiting the Egyptian army).\n     - *Protecting foreign interests and minorities* (justifying intervention in internal administration and justice).\n     - *The Question of the Sudan* (deferring Sudanese sovereignty to separate negotiations, severing the Nile Valley).\n- As a result, independence was flawed and incomplete.\n\n### 3. The 1923 Constitution: Democracy Shackled by Royal Power\n- Drafted by the \"Committee of Thirty\" chaired by Abdel Khaliq Sarwat.\n- **Democratic Features:**\n  - **Article 23:** *\"The Nation is the source of all powers (Al-Umma Masdar al-Sultāt).\"*\n  - Separation of executive, legislative, and judicial powers.\n  - Extensive civil liberties: freedom of speech, belief, press, assembly, and inviolability of property.\n- **Autocratic Flaws:**\n  - King Fuad insisted on royal prerogatives that crippled the parliament.\n  - The King possessed the absolute power to dissolve the Chamber of Deputies, dismiss popular cabinets, and indefinitely delay elections.\n  - This dualism allowed the Palace to repeatedly install \"Minority Cabinets\" against the popular will.\n\n### 4. Saad Zaghloul's People's Ministry (1924) & The Lee Stack Setback\n- **Electoral Landslide:** In January 1924, the Wafd won 90% of parliamentary seats, and Saad Zaghloul formed the first constitutional government: **The People's Ministry (Wizārat al-Sha'b)**.\n- **Reforms:**\n  1. Sold state-owned agricultural lands on easy terms to small peasants.\n  2. Enacted compulsory free elementary education for boys and girls.\n  3. Raised the Ministry of Education budget.\n  4. Aggressively Egyptianized civil service administration and separated the Egyptian Pound from the British Sterling.\n- **The Assassination of Sir Lee Stack (November 1924):**\n  - Extreme nationalists shot Sir Lee Stack, Sirdar of the Egyptian Army and Governor-General of Sudan, in Cairo.\n  - High Commissioner Lord Allenby delivered a brutal ultimatum: £500,000 indemnity, withdrawal of all Egyptian troops from Sudan, and surrender of Alexandria customs.\n  - Saad accepted the fine but refused to withdraw troops from Sudan, resigning in protest.\n  - Ahmed Ziwar Pasha accepted all British terms, dividing Egypt and Sudan.\n\n### 5. The Era of Minority Ministries & Ismail Sedky's 1930 Dictatorship\n- For years, minority cabinets ruled without parliamentary backing (Mohamed Mahmoud's \"Iron Hand\" 1928).\n- In June 1930, **Ismail Sedky Pasha** dissolved parliament, abolished the 1923 Constitution, and promulgated the authoritarian **1930 Constitution**, granting King Fuad absolute despotic power.\n- The nation erupted in strikes until the 1923 Constitution was finally restored in 1935.",
+      "theoryContentAr": "### ١. صدمة مؤتمر الصلح بباريس ولجنة ملنر\n- **خيبة الأمل بباريس (1919م):** صُدم الوفد المصري برئاسة سعد زغلول فور وصولهم باعتراف الرئيس الأمريكي ويلسون والدول الكبرى بالحماية البريطانية، فقرر سعد البقاء بباريس لمخاطبة برلمانات أوروبا.\n- **لجنة ملنر (ديسمبر 1919م):** أرسلت إنجلترا اللورد ملنر لإقناع الشعب المصري بقبول الحماية.\n- **المقاطعة الشعبية الحديدية:**\n  - أدار سعد زغلول من باريس سراً مع **عبد الرحمن فهمي** (سكرتير لجنة الوفد المركزية بالقاهرة) حملة مقاطعة شاملة.\n  - كان الشعار: *«التفاوض مع ملنر يعني إسقاط التوكيل الممنوح للوفد»*.\n  - قاطع الشعب اللجنة تماماً، فأدرك ملنر أن الشعب لن يقبل بديلاً عن الوفد، واضطر للتفاوض مع سعد في لندن (1920م).\n- **فشل محادثات سعد-ملنر:** تمسك سعد بالاستقلال التام، بينما أصرت بريطانيا على منح استقلال صوري مع بقاء قواتها، فنُفي سعد لجزيرة **سيشل** في ديسمبر 1921م.\n\n### ٢. تصريح 28 فبراير 1922م ومأزق التحفظات الأربعة\n- أصدرت بريطانيا التصريح من طرف واحد في 28 فبراير 1922م:\n  ١. **المكاسب الإيجابية:** إنهاء الحماية البريطانية، إلغاء الأحكام العرفية، الاعتراف بمصر دولة مستقلة ذات سيادة، إعلان السلطان فؤاد **الملك فؤاد الأول** (مارس 1922م)، استعادة وزارة الخارجية، وفتح الباب لوضع دستور.\n  ٢. **التحفظات الأربعة (السلبيات الاستعمارية):**\n     - *تأمين مواصلات الإمبراطورية البريطانية في مصر* (تبرير بقاء القوات الإنجليزية في القناة).\n     - *الدفاع عن مصر ضد أي اعتداء أجنبي* (تبرير حرمان مصر من بناء جيش وطني قوي).\n     - *حماية المصالح الأجنبية وحماية الأقليات* (تبرير التدخل في الشؤون الداخلية والقضاء).\n     - *قضية السودان* (إرجاء وضع السودان للمفاوضات، وفصله عن السيادة المصرية).\n- لذلك وُصف التصريح بأنه منح «استقلالاً منقوصاً».\n\n### ٣. دستور 1923م: تناقض الليبرالية واستبداد العرش\n- وضعته «لجنة الثلاثين» برئاسة عبد الخالق ثروت.\n- **المبادئ الليبرالية والديمقراطية:**\n  - **المادة 23:** *«الأمة مصدر السلطات»*.\n  - الفصل بين السلطات الثلاث (التشريعية، التنفيذية، القضائية).\n  - إقرار الحريات العامة: حرية الرأي، الصحافة، الاعتقاد، الاجتماع، وحرمة المنازل والملكية.\n- **الثغرات الأوتوقراطية والاستبدادية:**\n  - انتزع الملك فؤاد لنفسه صلاحيات واسعة تجعله سلطة فوق الأمة.\n  - أعطى الدستور الملك حق حل البرلمان دون إبداء أسباب، وإقالة الوزارات المنتخبة، وتأجيل الانتخابات.\n  - مكّن هذا الخلل القصر من إجهاض إرادة الشعب وفرض «وزارات الأقلية» الموالية للمستعمر.\n\n### ٤. وزارة الشعب لسعد زغلول (1924م) وانتكاسة اغتيال لي ستاك\n- **اكتساح الوفد:** فاز الوفد بـ 90% من مقاعد البرلمان وشكل سعد زغلول أول حكومة دستورية باسم **«وزارة الشعب»** في يناير 1924م.\n- **الإنجازات الكبرى:**\n  ١. بيع أراضي الحكومة لصغار الفلاحين بأسعار رمزية وأقساط ميسرة.\n  ٢. إقرار مجانية التعليم وإلزاميته للبنين والبنات ومضاعفة ميزانية المعارف.\n  ٣. تمصير الوظائف وفصل العملة المصرية عن الجنيه الإسترليني.\n  ٤. التمسك بوحدة وادي النيل ورفض شروط ماكدونالد البريطاني.\n- **مقتل السير لي ستاك (نوفمبر 1924م):**\n  - اغتال متطرفون السير لي ستاك سردار الجيش المصري وحاكم السودان العام بالقاهرة.\n  - استغل اللنبي الحادث ووجه إنذاراً متعسفاً: سحب الجيش المصري من السودان، دفع 500 ألف جنيه، واحتلال جمارك الإسكندرية.\n  - وافق سعد على التعويض ورفض رفضاً قاطعاً سحب الجيش من السودان وقدم استقالته.\n  - قبل أحمد زيور باشا الإنذار كاملاً، مما فصم عرى الوحدة بين مصر والسودان.\n\n### ٥. عهد وزارات الأقلية وانقلاب إسماعيل صدقي (1930م)\n- توالت وزارات الأقلية المعطلة للحياة النيابية (محمد محمود باشا وسياسة «القبضة الحديدية» 1928م).\n- في يونيو 1930م، شكل **إسماعيل صدقي باشا** وزارته وألغى دستور 1923م وأصدر **دستور 1930م** الديكتاتوري الذي منح الملك سلطات شبه مطلقة وجرد الشعب من حقوقه.\n- ثار الشعب المصري ضد الاستبداد في مظاهرات دموية حتى اضطر الملك لإلغاء دستور 1930م وإعادة دستور 1923م عام 1935م.",
+      "formulas": [
+        {
+          "labelEn": "The 1923 Constitutional Contradiction",
+          "labelAr": "معادلة التناقض البنيوي لدستور 1923م",
+          "latex": "\\text{المادة 23 (الأمة مصدر السلطات)} \\iff \\text{الصلاحيات الملكية المطلقة (حل البرلمان)} \\implies \\text{هيمنة وزارات الأقلية}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian Historiography & Modern Geopolitics (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر الحديث والجيوسياسة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH4-L2",
+        "pageRange": "pp. 82-93"
+      },
+      "worksheet": {
+        "id": "th_hist_ch4_ws2",
+        "titleEn": "Worksheet 4.2: Constitutional Monarchy & Diplomatic Negotiations",
+        "titleAr": "ورقة عمل ٤-٢: المفاوضات الدبلوماسية وثغرات دستور 1923م",
+        "descriptionEn": "Evaluative exercises examining the Four Reservations of 1922 and the constitutional tug-of-war between Parliament and the Palace.",
+        "descriptionAr": "تدريبات تحليلية لتقويم التحفظات الأربعة وتداعيات اغتيال السردار لي ستاك وانقلاب إسماعيل صدقي.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Constitutional Tug-of-War Simulator (1923–1936)",
+        "titleAr": "محاكي الصراع الدستوري بين البرلمان والقصر (1923–1936م)",
+        "descriptionEn": "Interactive timeline simulating the rise and fall of ministries, royal dissolutions of parliament, and the 1930 constitutional crisis.",
+        "descriptionAr": "معمل محاكاة تفاعلي لاستكشاف الصراع السياسي بين وزارات الأغلبية الوفدية وتدخلات القصر الملكي لفرض وزارات الأقلية."
+      },
+      "lessonPlan": {
+        "titleEn": "Anglo-Egyptian Negotiations, The 1922 Declaration & The 1923 Constitution",
+        "titleAr": "المفاوضات المصرية البريطانية ودستور 1923م وانتكاسة لي ستاك",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-402",
+        "bloomsObjectivesEn": [
+          "Evaluate how the Four Reservations in the 1922 Declaration hollowed out Egyptian sovereignty.",
+          "Critique the internal constitutional dialectic between Article 23 and royal prerogatives in the 1923 Constitution.",
+          "Assess the achievements of Saad Zaghloul's People's Ministry and the catastrophic fallout of Sir Lee Stack's assassination."
+        ],
+        "bloomsObjectivesAr": [
+          "تقويم أثر التحفظات الأربعة في تصريح 28 فبراير 1922م على تقييد الاستقلال الوطني.",
+          "نقد التناقض الجوهري في نصوص دستور 1923م بين مبدأ الأمة مصدر السلطات وصلاحيات الملك المطلقة.",
+          "تقييم إنجازات وزارة الشعب لسعد زغلول عام 1924م وتداعيات اغتيال السردار لي ستاك وفصل السودان."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the 1919 Revolution and the establishment of the Wafd."
+        ],
+        "prerequisitesAr": [
+          "استيعاب مخرجات ثورة 1919م وتفويض الشعب للوفد المصري."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Four Reservations",
+            "definition": "British unilateral restrictions in the 1922 Declaration preserving military control and Sudan."
+          },
+          {
+            "term": "Article 23",
+            "definition": "Constitutional principle stating the nation is the source of all powers."
+          },
+          {
+            "term": "Minority Ministries",
+            "definition": "Cabinets installed by the Palace lacking parliamentary majorities to crush popular democracy."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "التحفظات الأربعة",
+            "definition": "قيود بريطانية في تصريح 1922 عطلت الاستقلال: تأمين المواصلات، الدفاع، حماية الأقليات، والسودان."
+          },
+          {
+            "term": "المادة 23",
+            "definition": "النص الدستوري الأساسي في دستور 1923م الذي أقر بأن الأمة هي مصدر السلطات."
+          },
+          {
+            "term": "وزارات الأقلية",
+            "definition": "حكومات كلفها القصر دون سند برلماني لقمع الأغلبية الوفدية وتعطيل الحريات الدستورية."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Historical Inquiry",
+            "phaseAr": "التهيئة والتحفيز",
+            "duration": "10 min",
+            "activitiesEn": "Debate: Can independence be genuine when foreign military bases remain on your soil?",
+            "activitiesAr": "مناقشة إشكالية: هل يُعد الاستقلال حقيقياً في ظل بقاء قواعد عسكرية للمحتل على أرض الوطن؟"
+          },
+          {
+            "phaseEn": "Deconstructing the 1922 Declaration & 1923 Constitution",
+            "phaseAr": "التحليل المؤسسي",
+            "duration": "45 min",
+            "activitiesEn": "Analyze the Four Reservations, Article 23, and the People's Ministry.",
+            "activitiesAr": "تفكيك التحفظات الأربعة، وتحليل ثغرات دستور 1923م، واستعراض إصلاحات وزارة الشعب لسعد زغلول."
+          },
+          {
+            "phaseEn": "Causality & Setbacks",
+            "phaseAr": "تحليل النكسات السياسية",
+            "duration": "20 min",
+            "activitiesEn": "Trace the impact of Sir Lee Stack's assassination on Sudan and the rise of Ismail Sedky.",
+            "activitiesAr": "دراسة التداعيات الخطيرة لمقتل السردار لي ستاك وانقلاب إسماعيل صدقي ودستور 1930م."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Administer ministerial MCQ drill evaluating constitutional contradictions.",
+            "activitiesAr": "اختبار قصير يقيس مهارات الربط والتحليل التاريخي لنصوص دستور 1923م والتحفظات الأربعة."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming the 1922 Declaration gave Egypt full international sovereignty."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن تصريح 28 فبراير منح مصر استقلالاً كاملاً غير مشروط."
+        ],
+        "differentiationEn": {
+          "struggling": "Use comparative Venn diagrams contrasting the national gains of the 1922 Declaration with the limiting impact of the Four Reservations.",
+          "advanced": "Critically evaluate the British legal memorandum explaining why King Fuad was granted sweeping powers to dissolve parliament in the 1923 Constitution."
+        },
+        "differentiationAr": {
+          "struggling": "استخدام مخططات فين المقارنة لتبسيط الفارق بين الاستقلال الشكلي وتأثير التحفظات الأربعة المقيدة للسيادة.",
+          "advanced": "تحليل قانوني معمق للمذكرات التفسيرية للجنة الثلاثين ودوافع انتزاع الملك لصلاحيات حل البرلمان وإقالة الوزارات."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and document-based inquiry analyzing constitutional articles and minority cabinet actions.",
+        "formativeAssessmentAr": "أسئلة تقويمية موضوعية ومقالية تقيس قدرة الطالب على نقد ازدواجية دستور 1923م ودوافع حل وزارة الشعب لسعد زغلول.",
+        "exitTicketQuestion": {
+          "questionEn": "How did the Four Reservations in the 1922 Declaration render Egyptian independence incomplete?",
+          "questionAr": "كيف جردت التحفظات الأربعة في تصريح 28 فبراير 1922م استقلال مصر من مضمونه الفعلي؟",
+          "solutionEn": "By maintaining British military garrisons along the Suez Canal, controlling foreign policy and defense, preserving internal judicial intervention under the guise of protecting minorities, and detaching Sudan.",
+          "solutionAr": "لأنها بررت بقاء القوات البريطانية لتأمين المواصلات، وحرمت مصر من جيش قوي بحجة الدفاع عنها، وأباحت التدخل الداخلي بحجة حماية الأقليات، وعزلت السودان."
+        }
+      }
+    },
+    {
+      "id": "th_hist_ch4_l3",
+      "titleEn": "The 1936 Anglo-Egyptian Treaty, Farouk's Reign & World War II Turning Points",
+      "titleAr": "معاهدة 1936م، عهد الملك فاروق وتداعيات الحرب العالمية الثانية",
+      "summaryEn": "International crisis in East Africa (Italian invasion of Ethiopia 1935), the 1936 Anglo-Egyptian Treaty (gains and limitations), Montreux Conference (1937) abolishing Foreign Capitulations, ascension of young King Farouk, rise of new political forces (Muslim Brotherhood and Young Egypt), outbreak of WWII, Rommel's North Africa campaign, and the February 4, 1942 tank ultimatum at Abdeen Palace.",
+      "summaryAr": "توتر الموقف الدولي وغزو إيطاليا للحبشة 1935م، عقد معاهدة 1936م بين النحاس وبريطانيا ومزاياها، مؤتمر مونترو 1937م وإلغاء الامتيازات الأجنبية والمحاكم المختلطة، تولي الملك فاروق وصعود قوى سياسية جديدة (الإخوان المسلمون ومصر الفتاة)، اندلاع الحرب العالمية الثانية واقتراب روميل من العلمين، وحادث 4 فبراير 1942م ومحاصرة الدبابات لقصر عابدين لفرض النحاس.",
+      "theoryContentEn": "### 1. The 1936 Anglo-Egyptian Treaty\n- **Regional Trigger:** In 1935, Fascist Italy invaded and annexed **Ethiopia (Abyssinia)**, stationing troops along Sudan's borders. Fearing a World War on two fronts with Egypt in revolt, Britain agreed to negotiate with a unified Egyptian national front.\n- **Key Terms of the Treaty (Signed August 1936 by Mustafa El-Nahas Pasha):**\n  1. Termination of military occupation in all Egyptian cities; British troops restricted to the **Suez Canal Zone** (limited to 10,000 soldiers and 400 pilots) until the Egyptian army could defend it.\n  2. Egypt gained full control over its internal security and police forces.\n  3. British assistance for Egypt to join the **League of Nations** (admitted in 1937 as an independent sovereign state).\n  4. British assistance in abolishing the **Foreign Capitulations (Imtiyāzāt)** at an international conference.\n  5. Return of the Egyptian army to Sudan and mutual recognition of the 1899 Condominium.\n  6. Duration fixed at 20 years; British High Commissioner replaced by an Ambassador.\n- **The Montreux Conference (Switzerland, April–May 1937):**\n  - Successfully abolished foreign capitulations, consular courts, and commercial exemptions.\n  - A 12-year transitional period established the full integration of foreign residents under Egyptian law and national taxation by October 1949.\n\n### 2. The Internal Political Arena Post-1936\n- **Accession of King Farouk I (1936–1937):** Upon coming of age, young Farouk was initially popular, but fell under the sway of reactionary royal advisors (Ali Maher Pasha). In December 1937, Farouk dismissed El-Nahas's Wafd cabinet, returning to autocratic minority rule.\n- **Rise of New Ideological Factions:**\n  - **The Muslim Brotherhood (Al-Ikhwan al-Muslimun - founded 1928 by Hassan al-Banna):** Advocated for Islamic statehood, opposing liberal democracy.\n  - **Young Egypt (Misr al-Fatah - founded 1933 by Ahmed Hussein):** Adopted fascist-inspired paramilitary uniforms (Green Shirts), ultranationalism, and loyalty to the King.\n  - Both groups clashed violently with the Wafd's paramilitary youth wing (Blue Shirts).\n\n### 3. Egypt During World War II & The Battle of El-Alamein\n- When WWII erupted in September 1939, Britain pressured Prime Minister Ali Maher to declare war on Germany. Maher refused, declaring Egypt non-belligerent while placing ports and railways at Britain's disposal.\n- Britain forced Farouk to dismiss Maher in June 1940.\n- In 1942, German Field Marshal **Erwin Rommel's** Afrika Korps swept through Libya, capturing Tobruk and advancing to **El-Alamein**, just 100 km west of Alexandria.\n- In Cairo, anti-British sentiment flared; demonstrators marched toward Abdeen Palace chanting: *\"Forward Rommel! (Ila al-amam ya Rommel!)\"*, with secret royal encouragement.\n\n### 4. The Incident of February 4, 1942: Siege of Abdeen Palace\n- Terrified of Axis advance and palace subversion, British Ambassador **Sir Miles Lampson** delivered a written ultimatum to King Farouk: appoint a majority Wafd government under **Mustafa El-Nahas** by 6:00 PM or abdicate the throne.\n- When Farouk hesitated, British tanks, armored cars, and infantry encircled Abdeen Palace, smashed the gates, and Lampson confronted the King with an abdication paper.\n- Royal advisor Hassanein Pasha persuaded Farouk to submit. El-Nahas accepted the premiership.\n- **Profound Historical Repercussions:**\n  1. King Farouk's royal dignity was irreparably shattered in the eyes of the army and people.\n  2. The Wafd Party's patriotic reputation was tarnished; it was perceived as accepting office behind British imperial bayonets.\n  3. Disillusioned young army officers concluded that traditional politics had completely failed, directly accelerating the underground formation of the **Free Officers Movement**.",
+      "theoryContentAr": "### ١. معاهدة 1936م بين الاستقلال المقيد ومكاسب مونترو\n- **المتغيرات الإقليمية الضاغطة:** غزو إيطاليا الفاشية للحبشة (إثيوبيا) عام 1935م واحتلالها، مما هدد منابع النيل ومستعمرات بريطانيا في شرق إفريقيا، فبادرت إنجلترا بالتفاوض مع وفد وطني موحد لتأمين الجبهة المصرية.\n- **أهم نصوص المعاهدة (وقّعها مصطفى النحاس باشا في لندن في أغسطس 1936م):**\n  ١. إنهاء احتلال مصر عسكرياً، وسحب القوات البريطانية من المدن إلى **منطقة قناة السويس** فقط (10 آلاف جندي و400 طيار).\n  ٢. حرية مصر في عقد المعاهدات السياسية بشرط ألا تتعارض مع نصوص المعاهدة.\n  ٣. مساعدة بريطانيا لمصر في الانضمام إلى **عصبة الأمم** كدولة مستقلة ذات سيادة (تحقق عام 1937م).\n  ٤. مساعدة بريطانيا لمصر في إلغاء **الامتيازات الأجنبية** والمحاكم المختلطة.\n  ٥. عودة الجيش المصري للسودان واعتراف بريطانيا بإدارته المشتركة وفق اتفاقية 1899م.\n  ٦. مدة المعاهدة 20 عاماً، وتحول لقب المعتمد البريطاني إلى **سفير**.\n- **مؤتمر مونترو بسويسرا (أبريل–مايو 1937م):**\n  - تحقيق أعظم نصر دبلوماسي بإلغاء الامتيازات الأجنبية القضائية والمالية، وإخضاع الأجانب للتشريعات والضرائب المصرية.\n  - تحديد فترة انتقالية مدتها 12 سنة انتهت بإلغاء المحاكم المختلطة نهائياً عام 1949م وتوحيد القضاء.\n\n### ٢. المتغيرات السياسية الداخلية وصعود القوى الجديدة\n- **اعتلاء الملك فاروق العرش (1936–1937م):** تولى فاروق الحكم صغيراً وحظي بشعبية مبكرة، لكنه سرعان ما تحالف مع قوى الردة الاستبدادية بزعامة علي ماهر باشا (رئيس الديوان الملكي)، فأقال وزارة الوفد في ديسمبر 1937م وعاد لحكم وزارات الأقلية.\n- **ظهور قوى سياسية وأيديولوجية جديدة:**\n  - **الإخوان المسلمون (تأسست 1928م بقيادة حسن البنا):** نادت بالدولة الإسلامية ورفضت الديمقراطية النيابية الليبرالية.\n  - **مصر الفتاة (تأسست 1933م بقيادة أحمد حسين):** تبنت فكراً شبه فاشي (أصحاب القمصان الخضراء) وموالاة القصر.\n  - تصاعد الصدام في الشارع بين القوى الجديدة وشباب الوفد (القمصان الزرقاء).\n\n### ٣. مصر في الحرب العالمية الثانية ومعركة العلمين (1939–1942م)\n- اندلعت الحرب في سبتمبر 1939م؛ فرفض رئيس الوزراء علي ماهر إعلان الحرب على ألمانيا تجنيباً لمصر ويلات الدمار، فاكتفى بقطع العلاقات الدبلوماسية، مما أغضب بريطانيا وأجبرت الملك على إقالته.\n- تقدمت قوات المحور بقيادة الجنرال الألماني **إرفين روميل (ثعلب الصحراء)** في شمال إفريقيا عام 1942م واحتلت طبرق واقتربت من **العلمين** على بعد 100 كم من الإسكندرية.\n- اشتعل الشارع المصري وتصاعدت المشاعر المعادية للمحتل، وخرجت مظاهرات القصر تهتف: *«إلى الأمام يا روميل!»* أملاً في الخلاص من الإنجليز.\n\n### ٤. حادث 4 فبراير 1942م ومحاصرة قصر عابدين بالدبابات\n- خشيت بريطانيا من طعنة عسكرية في الظهر، فوجه السفير البريطاني **مايلز لامبسون** إنذاراً للملك فاروق: إقالة حكومة حسين سري وتكليف حكومة وفدية برئاسة **مصطفى النحاس** في موعد أقصاه السادسة مساءً أو التنازل عن العرش.\n- ماطل الملك، فحاصرت الدبابات والمصفحات البريطانية قصر عابدين واقتحمت البوابات، ودخل لامبسون شاهراً وثيقة التنازل عن العرش.\n- تدخل أحمد حسنين باشا مستشار الملك ونصحه بالقبول، فكلف النحاس بالوزارة تفادياً لعزله.\n- **التداعيات التاريخية الكبرى:**\n  ١. اهتزاز هيبة الملك فاروق تماماً في نظر الشعب والجيش.\n  ٢. تشويه السمعة الوطنية لحزب الوفد الذي قبل الحكم تحت حماية الدبابات وحراب المحتل.\n  ٣. غضب ضباط الجيش الشبان وتيقنهم من عجز النظام الملكي والأحزاب التقليدية، مما سرع بتشكيل **تنظيم الضباط الأحرار**.",
+      "formulas": [
+        {
+          "labelEn": "Imperial Crisis Equation (1936–1942)",
+          "labelAr": "معادلة الصراع الاستعماري في مصر",
+          "latex": "\\text{غزو إيطاليا للحبشة} \\implies \\text{معاهدة 1936 ومؤتمر مونترو} \\implies \\text{حادث 4 فبراير 1942} \\implies \\text{سقوط شرعية النظام الملكي}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian Historiography & Modern Geopolitics (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر الحديث والجيوسياسة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH4-L3",
+        "pageRange": "pp. 94-105"
+      },
+      "worksheet": {
+        "id": "th_hist_ch4_ws3",
+        "titleEn": "Worksheet 4.3: The 1936 Treaty & The 1942 Imperial Ultimatum",
+        "titleAr": "ورقة عمل ٤-٣: معاهدة 1936م ومأساة حادث 4 فبراير 1942م",
+        "descriptionEn": "Evaluative worksheets analyzing the diplomatic provisions of Montreux and the strategic fallout of the 4th of February tank siege.",
+        "descriptionAr": "تدريبات تقويمية لاستيعاب مكاسب مؤتمر مونترو وتأثير حادث 4 فبراير في تمهيد الطريق لتنظيم الضباط الأحرار.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Battle of El-Alamein & 1942 Crisis Simulator",
+        "titleAr": "محاكي معركة العلمين وأزمة 4 فبراير 1942م",
+        "descriptionEn": "Interactive simulation mapping Rommel's advance in North Africa and the geopolitical crisis at Abdeen Palace.",
+        "descriptionAr": "محاكاة تاريخية تفاعلية لمسار هجوم روميل نحو العلمين وانعكاساته على حصار قصر عابدين بالدبابات البريطانية."
+      },
+      "lessonPlan": {
+        "titleEn": "The 1936 Anglo-Egyptian Treaty, Farouk's Reign & WWII Turning Points",
+        "titleAr": "معاهدة 1936م وأزمة الحرب العالمية الثانية وحادث 4 فبراير",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-403",
+        "bloomsObjectivesEn": [
+          "Analyze the regional motivations behind the 1936 Anglo-Egyptian Treaty.",
+          "Critique the legal and economic significance of the Montreux Conference (1937).",
+          "Evaluate how the February 4, 1942 incident destroyed monarchical prestige and sparked the Free Officers Movement."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الدوافع الإقليمية البريطانية لعقد معاهدة 1936م في ضوء غزو إيطاليا للحبشة.",
+          "نقد الأهمية السيادية والقضائية لمؤتمر مونترو 1937م في إلغاء الامتيازات الأجنبية.",
+          "تقويم أثر حادث 4 فبراير 1942م في تدمير شرعية القصر وإسقاط شعبية الوفد وإشعال غضب ضباط الجيش."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the 1923 Constitution and minority cabinet era."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أزمة دستور 1923م وعصر وزارات الأقلية الاستبدادية."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Montreux Conference (1937)",
+            "definition": "International summit that abolished foreign judicial and financial privileges in Egypt."
+          },
+          {
+            "term": "February 4, 1942 Incident",
+            "definition": "British military encirclement of Abdeen Palace forcing King Farouk to appoint El-Nahas."
+          },
+          {
+            "term": "Battle of El-Alamein",
+            "definition": "Decisive 1942 Allied victory in the Western Desert halting German-Italian advance on Egypt."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "مؤتمر مونترو 1937م",
+            "definition": "مؤتمر دولي ألغى الامتيازات الأجنبية والمحاكم المختلطة في مصر وأعاد السيادة القضائية."
+          },
+          {
+            "term": "حادث 4 فبراير 1942م",
+            "definition": "محاصرة الدبابات البريطانية لقصر عابدين لإجبار فاروق على تكليف النحاس بالوزارة أو التنازل عن العرش."
+          },
+          {
+            "term": "معركة العلمين",
+            "definition": "معركة حاسمة بالصحراء الغربية عام 1942م أوقفت تقدم روميل ومنعت سقوط مصر في قبضة المحور."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Historical Inquiry",
+            "phaseAr": "التهيئة والتحفيز",
+            "duration": "10 min",
+            "activitiesEn": "Discuss: How can an imperial ally force a sovereign King to change his prime minister with tanks?",
+            "activitiesAr": "طرح تساؤل استنكاري: كيف يمكن لدولة حليفة أن تحاصر قصر الملك بالدبابات لتفرض عليه رئيس وزراء بالقوة؟"
+          },
+          {
+            "phaseEn": "Analysis of 1936 Treaty & Montreux",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Deconstruct the provisions of the 1936 Treaty and the abolition of Capitulations at Montreux.",
+            "activitiesAr": "شرح بنود معاهدة 1936م ومكتسبات مؤتمر مونترو وصعود القوى الأيديولوجية الجديدة."
+          },
+          {
+            "phaseEn": "The 1942 Abdeen Crisis Analysis",
+            "phaseAr": "تحليل الأزمة السياسية",
+            "duration": "20 min",
+            "activitiesEn": "Evaluate the long-term repercussions of the February 4, 1942 incident on Egyptian national politics.",
+            "activitiesAr": "تحليل تداعيات حادث 4 فبراير 1942م على تآكل شرعية الملك والوفد وبدء التمرد داخل الجيش."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Administer ministerial MCQ drill on WWII and the 1936 treaty.",
+            "activitiesAr": "حل تدريبات امتحانية متقدمة في قياس نواتج التعلم لحرب الصحراء الغربية وأزمة 1942م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming El-Nahas demanded British tanks to enter power; in reality, Britain acted unilaterally to safeguard its military supply lines."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن النحاس هو من استدعى الدبابات البريطانية؛ فالإنجليز تحركوا لحماية مصالحهم الحربية بعد تقدم روميل."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide guided thematic charts summarizing the regional military conditions (Italy in Ethiopia) that compelled Britain to sign the 1936 Treaty.",
+          "advanced": "Conduct a historiographical evaluation of how the February 4, 1942 Abdeen siege altered the institutional psychology of junior Egyptian army officers."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جداول استرشادية توضح الربط المباشر بين الغزو الإيطالي للحبشة ومسارعة بريطانيا لعقد معاهدة 1936م.",
+          "advanced": "دراسة نقدية تاريخية لتأثير حادث 4 فبراير 1942م في تحول عقيدة ضباط الجيش من الولاء للعرش إلى التمرد الثوري."
+        },
+        "formativeAssessmentEn": "Source analysis and high-order reasoning items comparing the 1936 Treaty gains with the 1942 sovereignty violation.",
+        "formativeAssessmentAr": "أسئلة نواتج تعلم تقيس المقارنة بين مكاسب مؤتمر مونترو 1937م وتداعيات حصار قصر عابدين بالدبابات البريطانية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did the February 4, 1942 incident prove catastrophic for both King Farouk and the Wafd Party?",
+          "questionAr": "لماذا مثل حادث 4 فبراير 1942م نكسة كبرى لكل من شعبية الملك فاروق وحزب الوفد؟",
+          "solutionEn": "Because King Farouk surrendered completely under foreign military coercion, destroying royal prestige, while the Wafd assumed power protected by British imperial tanks, destroying its nationalist credibility.",
+          "solutionAr": "لأن الملك فاروق ركع أمام التهديد العسكري الأجنبي ففقد هيبته أمام الجيش والشعب، بينما قبل الوفد تشكيل الوزارة على أسنة رماح دبابات المحتل ففقد رصيده الوطني."
+        }
+      }
+    },
+    {
+      "id": "th_hist_ch4_l4",
+      "titleEn": "Armed Liberation Struggle, The 1948 Palestine War & The Ismailia Police Epic",
+      "titleAr": "الكفاح المسلح، حرب فلسطين 1948م، إلغاء المعاهدة وملحمة الإسماعيلية",
+      "summaryEn": "Post-WWII negotiations, Nokrashy Pasha at the UN Security Council (1947), the 1948 Palestine War catastrophe and defective weapons scandal, the return of the Wafd in 1950, El-Nahas's abrogation of the 1936 Treaty (October 1951), guerrilla fedayeen warfare in the Suez Canal Zone, the Battle of Ismailia (January 25, 1952), the Cairo Fire (January 26, 1952), and the terminal crisis of the monarchy.",
+      "summaryAr": "المفاوضات بعد الحرب العالمية وعرض النقراشي للقضية على مجلس الأمن 1947م، مأساة حرب فلسطين 1948م وفضيحة الأسلحة الفاسدة وصمود الفالوجا، عودة الوفد 1950م وإلغاء معاهدة 1936م في أكتوبر 1951م، اشتعال الكفاح الفدائي المسلح بالقناة، ملحمة صمود الشرطة بالإسماعيلية 25 يناير 1952م، حريق القاهرة 26 يناير 1952م ودخول البلاد في نفق الانهيار النهائي.",
+      "theoryContentEn": "### 1. Diplomatic Impasse & UN Security Council (1947)\n- After WWII, all Egyptian parties united around two non-negotiable demands: Complete British military evacuation (Al-Jala') and the unity of the Nile Valley (Egypt and Sudan).\n- Negotiations (e.g., Sedky-Bevin talks in London, 1946) collapsed because Britain refused to recognize Egyptian sovereignty over Sudan.\n- In August 1947, Prime Minister **Mahmoud Fahmy El-Nokrashy Pasha** brought Egypt's case before the **UN Security Council** in Lake Success, NY.\n- The Security Council failed to issue a resolution and left the case suspended, illustrating the futility of peaceful diplomatic appeals to imperialist-dominated bodies.\n\n### 2. The 1948 Palestine War Catastrophe & Its Domestic Impact\n- In November 1947, the UN General Assembly voted to partition Palestine (Resolution 181).\n- In May 1948, following the end of the British Mandate, Arab armies (Egypt, Jordan, Syria, Iraq) entered Palestine.\n- **Root Causes of Defeat:**\n  1. Arab states lacked a unified military command, strategic coordination, or sufficient training.\n  2. The Arab league accepted the First Truce (June 1948), enabling Zionist forces to smuggle heavy weaponry from Europe and reorganize.\n  3. **The Defective Weapons Scandal (Al-Asliha al-Fasida):** Corrupt palace cliques purchased faulty arms and ammunition, profiting from deals that cost Egyptian soldiers their lives.\n- **The Pocket of Fallujah:** Egyptian battalions held out with legendary tenacity under siege in Fallujah. Officers like **Gamal Abdel Nasser** concluded that liberation must begin in Cairo by toppling the corrupt regime.\n\n### 3. Abrogation of the 1936 Treaty (October 1951) & Armed Canal Resistance\n- In January 1950, the Wafd won the elections, and Mustafa El-Nahas returned to power.\n- Negotiations with Britain deadlocked once more.\n- On **October 8, 1951**, El-Nahas made his historic declaration to Parliament:\n  > *\"For Egypt's sake I signed the 1936 Treaty, and for Egypt's sake I ask you today to abrogate it.\"*\n- Parliament voted unanimously to abrogate both the 1936 Treaty and the 1899 Sudan agreements.\n- **Immediate Consequences:**\n  1. British troops in the Canal Zone legally became an illegal foreign occupation force.\n  2. Over 80,000 Egyptian workers walked out of British military depots and camps.\n  3. Egyptian youth and university students formed **Fedayeen Battalions (Kata'ib al-Fida'iyyin)** to launch armed raids against British installations, ammunition dumps, and railways.\n  4. Minister of Interior **Fouad Serageldin** ordered the Egyptian auxiliary police to covertly supply and protect the fedayeen.\n\n### 4. The Epic Battle of Ismailia (January 25, 1952)\n- British forces suffered heavy losses from fedayeen strikes assisted by the police.\n- On the morning of **January 25, 1952**, British Commander General George Erskine surrounded the Ismailia Governorate building and Police Barracks with Centurion tanks, armored vehicles, and 7,000 troops.\n- The British demanded the police hand over their rifles and surrender.\n- Serageldin ordered the Egyptian police to resist to the last man.\n- In an epic, mismatched clash, Egyptian policemen armed only with bolt-action rifles fought tanks for hours: **50 policemen were martyred** and over 80 wounded.\n- Even the British commander, stunned by their valor, ordered his troops to present a guard of honor to the Egyptian martyrs as they were carried out.\n- January 25 was officially designated as **Egypt's National Police Day**.\n\n### 5. The Cairo Fire (January 26, 1952) & The Countdown to Revolution\n- On the morning of January 26, massive demonstrations flooded Cairo chanting against British barbarism in Ismailia.\n- Mysteriously, coordinated fires broke out across Cairo's downtown commercial center: over 700 cinemas, banks, department stores (Cicurel, Sednaoui), hotels (Shepheard's), and foreign clubs were incinerated within hours.\n- King Farouk exploited the chaos to dismiss El-Nahas, declare martial law, and install four rapid minority cabinets in six months (Ali Maher, Naguib El-Hilali, Hussein Serry).\n- The state was in complete political paralysis, setting the stage for military intervention.",
+      "theoryContentAr": "### ١. الجمود الدبلوماسي وعرض القضية على مجلس الأمن (1947م)\n- بعد الحرب العالمية الثانية، أجمعت القوى الوطنية على مطلبين غير قابلين للتنازل: الجلاء التام للقوات البريطانية، ووحدة وادي النيل (مصر والسودان).\n- تعثرت المفاوضات مع بريطانيا (مثل مفاوضات صدقي-بيفن 1946م) بسبب إصرار لندن على فصل السودان عن مصر.\n- في أغسطس 1947م، لجأ رئيس الوزراء **محمود فهمي النقراشي باشا** إلى **مجلس الأمن** بنيويورك لعرض قضية استقلال مصر والسودان.\n- فشل مجلس الأمن في إصدار قرار حاسم وترك القضية معلقة، مما برهن للشعب المصري على عجز الرهان على الدبلوماسية الدولية في مواجهة الاستعمار.\n\n### ٢. كارثة حرب فلسطين 1948م ونكبة الأسلحة الفاسدة\n- في نوفمبر 1947م، أصدرت الأمم المتحدة قرار تقسيم فلسطين (قرار 181).\n- في 15 مايو 1948م، دخلت الجيوش العربية (مصر، الأردن، سوريا، العراق) فلسطين عقب إنهاء الانتداب البريطاني.\n- **أسباب الهزيمة المأساوية:**\n  ١. عدم استعداد الجيوش العربية للحرب، وغياب خطة عسكرية موحدة أو قيادة عمليات مشتركة.\n  ٢. قبول الهدنة الأولى (يونيو 1948م) التي مكنت العصابات الصهيونية من جلب أسلحة ثقيلة من أوروبا وإعادة تنظيم صفوفها.\n  ٣. **فضيحة الأسلحة الفاسدة:** تورط حاشية الملك فاروق في صفقات سلاح فاسدة لا تصلح للقتال لتحقيق أرباح مالية قذرة على حساب دماء الجنود.\n- **صمود حصار الفالوجا:** صمدت الكتيبة المصرية في جيب الفالوجا بقيادة ضباط بواسل منهم **جمال عبد الناصر**، وتيقن الضباط أن المعركة الحقيقية لتحرير فلسطين تبدأ من القاهرة بالقضاء على الفساد والعمالة.\n\n### ٣. إلغاء معاهدة 1936م (أكتوبر 1951م) وانفجار الكفاح الفدائي\n- في يناير 1950م، عاد الوفد للحكم باكتساح شعبي وتولى مصطفى النحاس رئاسة الوزارة.\n- بعد فشل محادثات تعديل المعاهدة، ألقى النحاس بيانه التاريخي أمام البرلمان في **8 أكتوبر 1951م**:\n  > *«من أجل مصر وقّعت معاهدة 1936، ومن أجل مصر أطالبكم اليوم بإلغائها!»*\n- ألغى البرلمان المعاهدة واتفاقيتي 1899م الخاصتين بالسودان.\n- **النتائج الثورية المباشرة:**\n  ١. تجريد القوات البريطانية بالقناة من أي شرعية قانونية لبقائها، واعتبارها قوات احتلال معادية.\n  ٢. انسحاب أكثر من 80 ألف عامل مصري من معسكرات الجيش البريطاني وتجويع قواعدهم لوجستياً.\n  ٣. تشكيل **كتائب الفدائيين** من شباب الجامعات والعمال لمهاجمة معسكرات ومخازن ذخيرة الاحتلال في مدن القناة.\n  ٤. أمر وزير الداخلية **فؤاد سراج الدين** ضباط الشرطة وبلوكات النظام بمساعدة الفدائيين وتسليحهم سراً.\n\n### ٤. ملحمة الصمود البطولي في الإسماعيلية (25 يناير 1952م)\n- بعد تصاعد خسائر المحتل، قرر القائد البريطاني الجنرال جورج إرسكين توجيه ضربة انتقامية لرجال الشرطة الداعمين للمقاومة.\n- في صباح **25 يناير 1952م**، حاصرت الدبابات والمصفحات البريطانية وقوة من 7 آلاف جندي مبنى محافظة الإسماعيلية وثكنات بلوكات النظام.\n- وجهت بريطانيا إنذاراً بتسليم أسلحة الشرطة وإخلاء المبنى والاستسلام.\n- رفض وزير الداخلية فؤاد سراج الدين الاستسلام وأمر رجاله بالصمود والمقاومة حتى آخر رصاصة.\n- دارت معركة ملحمية غير متكافئة بالبنادق العادية ضد المدافع والدبابات: **استشهد 50 شرطياً** وجُرح أكثر من 80 بطلاً بعد نفاد الذخيرة.\n- أذهلت شجاعتهم القوات البريطانية نفسها؛ فأدى القائد البريطاني التحية العسكرية لجثامين الشهداء تقديراً لبسالتهم النادرة.\n- خُلد هذا اليوم التاريخي المجيد ليكون **عيداً قومياً للشرطة المصرية**.\n\n### ٥. حريق القاهرة (26 يناير 1952م) ودخول مرحلة السقوط\n- في اليوم التالي (السبت الأسود 26 يناير 1952م)، خرجت مظاهرات الغضب بالقاهرة تندد بمذبحة الإسماعيلية.\n- اندلعت حرائق مدبرة ومنسقة التهمت قلب العاصمة التجاري في ساعات: احترق أكثر من 700 منشأة تشمل كبرى المتاجر (شيكوريل، صيدناوي)، والبنوك، ودور السينما، وفندق شبرد الشهير.\n- استغل الملك فاروق الفوضى؛ فأقال حكومة النحاس وفرض الأحكام العرفية، وتوالت 4 وزارات أقلية متخبطة في 6 أشهر فقط (علي ماهر، الهلالي، سري).\n- شُلّت الدولة تماماً وباتت تنتظر الضربة القاضية لإنهاء النظام الفاسد.",
+      "formulas": [
+        {
+          "labelEn": "The Revolutionary Countdown Sequence",
+          "labelAr": "معادلة العد التنازلي للثورة",
+          "latex": "\\text{إلغاء المعاهدة} \\implies \\text{الكفاح الفدائي} \\implies \\text{ملحمة الإسماعيلية 25 يناير} \\implies \\text{حريق القاهرة 26 يناير} \\implies \\text{ثورة 23 يوليو}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian Historiography & Modern Geopolitics (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر الحديث والجيوسياسة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH4-L4",
+        "pageRange": "pp. 106-117"
+      },
+      "worksheet": {
+        "id": "th_hist_ch4_ws4",
+        "titleEn": "Worksheet 4.4: Armed Canal Resistance & The Ismailia Epic",
+        "titleAr": "ورقة عمل ٤-٤: الكفاح الفدائي وملحمة صمود الشرطة في الإسماعيلية",
+        "descriptionEn": "Evaluative exercises examining the causes of the 1948 Palestine defeat, fedayeen warfare in the Canal Zone, and the Battle of Ismailia.",
+        "descriptionAr": "تدريبات تحليلية لتقويم نكبة فلسطين وفضيحة الأسلحة الفاسدة وتداعيات إلغاء معاهدة 1936م ومعركة 25 يناير المجيدة.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Ismailia Police Battle & Canal Fedayeen Map",
+        "titleAr": "معمل معركة الإسماعيلية ومواقع العمليات الفدائية 1951–1952م",
+        "descriptionEn": "Interactive map tracing fedayeen sabotage strikes against British bases and the defensive lines at the Ismailia Governorate.",
+        "descriptionAr": "محاكاة تاريخية تفاعلية لمواقع الاشتباكات الفدائية في القناة وحصار الدبابات البريطانية لمبنى محافظة الإسماعيلية."
+      },
+      "lessonPlan": {
+        "titleEn": "Armed Liberation Struggle, The 1948 Palestine War & The Ismailia Police Epic",
+        "titleAr": "حرب فلسطين 1948م، إلغاء معاهدة 1936م وملحمة الإسماعيلية",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-404",
+        "bloomsObjectivesEn": [
+          "Analyze the causes and domestic political repercussions of the 1948 Palestine defeat.",
+          "Evaluate the strategic significance of abrogating the 1936 Treaty in October 1951.",
+          "Assess how the Battle of Ismailia and the Cairo Fire accelerated the countdown to the July 23 Revolution."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل أسباب هزيمة حرب فلسطين 1948م ودور فضيحة الأسلحة الفاسدة في تبلور تنظيم الضباط الأحرار.",
+          "تقويم الأثر الاستراتيجي لإلغاء معاهدة 1936م في إطلاق الكفاح المسلح وضرب معسكرات الإنجليز.",
+          "تقييم الدلالات الوطنية لمعركة الإسماعيلية 25 يناير ودور حريق القاهرة في انهيار النظام الملكي."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the 1936 Treaty and the WWII crisis."
+        ],
+        "prerequisitesAr": [
+          "استيعاب بنود معاهدة 1936م وتداعيات حادث 4 فبراير 1942م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Siege of Fallujah",
+            "definition": "Heroic pocket where Egyptian troops resisted Zionist forces, inspiring the Free Officers."
+          },
+          {
+            "term": "Abrogation of 1936 Treaty",
+            "definition": "Parliamentary declaration in Oct 1951 transforming British troops into an illegal occupying army."
+          },
+          {
+            "term": "Battle of Ismailia (Jan 25, 1952)",
+            "definition": "Heroic defense by Egyptian police against British tanks, now commemorated as Police Day."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "حصار الفالوجا",
+            "definition": "ملحمة صمود القوات المصرية بفلسطين عام 1948م التي بلورت فكر الضباط الأحرار لإنقاذ الوطن."
+          },
+          {
+            "term": "إلغاء معاهدة 1936م",
+            "definition": "قرار مصطفى النحاس التاريخي في أكتوبر 1951م الذي حول الوجود الإنجليزي لاحتلال غير شرعي."
+          },
+          {
+            "term": "معركة الإسماعيلية 1952م",
+            "definition": "صمود باسيل لرجال الشرطة المصرية ضد الدبابات البريطانية، أصبح عيداً قومياً للشرطة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Historical Inquiry",
+            "phaseAr": "التهيئة والتحفيز",
+            "duration": "10 min",
+            "activitiesEn": "Analyze why Egypt celebrates National Police Day on January 25.",
+            "activitiesAr": "مناقشة دلالة احتفال مصر بعيد الشرطة في 25 يناير تخليداً لصمود شهداء الإسماعيلية ضد الاحتلال."
+          },
+          {
+            "phaseEn": "Palestine War & Treaty Abrogation",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Examine the 1948 Palestine War, defective weapons scandal, and the abrogation of the 1936 Treaty.",
+            "activitiesAr": "شرح نكبة فلسطين وحصار الفالوجا وإلغاء معاهدة 1936م وبدء حرب العصابات الفدائية في القناة."
+          },
+          {
+            "phaseEn": "The Ismailia Epic & Cairo Fire",
+            "phaseAr": "تحليل الأحداث الحاسمة",
+            "duration": "20 min",
+            "activitiesEn": "Deconstruct the January 25 battle and the January 26 Cairo Fire.",
+            "activitiesAr": "تفصيل معركة الإسماعيلية البطولية وتداعيات حريق القاهرة وسقوط شرعية الأحزاب والقصر."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Administer ministerial MCQ drill on the causes of the July 23 countdown.",
+            "activitiesAr": "حل أسئلة بنك الأسئلة الوزارية حول ملحمة الإسماعيلية وتسلسل أحداث ثورة 1952م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming the Cairo Fire was carried out by the Free Officers; in reality, it was a chaotic crisis that prompted them to act earlier."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن الضباط الأحرار هم من أحرقوا القاهرة؛ بينما كان الحريق مؤشراً على الفوضى التي دفعتهم لتبكير الثورة."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide step-by-step causal chain flowcharts linking the abrogation of the 1936 treaty directly to the Ismailia battle and Cairo Fire.",
+          "advanced": "Evaluate primary telegrams exchanged between Minister Fouad Serageldin and the Ismailia police garrison analyzing operational resistance decisions."
+        },
+        "differentiationAr": {
+          "struggling": "استخدام مخطط تسلسل سببي مبسط يربط إلغاء معاهدة 1936م بالكفاح الفدائي ثم معركة الإسماعيلية وحريق القاهرة.",
+          "advanced": "قراءة نقدية لبرقيات وزير الداخلية فؤاد سراج الدين مع قيادة بلوكات النظام بالإسماعيلية لتقويم قرار الصمود حتى الاستشهاد."
+        },
+        "formativeAssessmentEn": "Ministerial-style HOTS MCQs evaluating the sequence of events from Palestine 1948 to January 1952.",
+        "formativeAssessmentAr": "تدريبات قياس نواتج التعلم الوزارية لتتبع الترابط السببي بين حرب فلسطين ومأساة الأسلحة الفاسدة وملحمة الإسماعيلية.",
+        "exitTicketQuestion": {
+          "questionEn": "Why is January 25 officially commemorated as Egypt's National Police Day?",
+          "questionAr": "لماذا خلدت مصر يوم 25 يناير ليكون عيداً قومياً للشرطة المصرية؟",
+          "solutionEn": "In tribute to the Egyptian police officers in Ismailia who heroically refused to surrender their weapons to 7,000 British troops and Centurion tanks, fighting until 50 were martyred.",
+          "solutionAr": "تخليداً لملحمة صمود رجال الشرطة المصرية في مبنى محافظة الإسماعيلية الذين رفضوا تسليم أسلحتهم لـ 7 آلاف جندي ودبابات الإنجليز، واستشهد منهم 50 بطلاً بعد نفاد الذخيرة."
+        }
+      }
+    },
+    {
+      "id": "th_hist_ch4_l5",
+      "titleEn": "The July 23, 1952 Revolution: Principles, Execution & Transformative Achievements",
+      "titleAr": "ثورة 23 يوليو 1952م: التنظيم، المبادئ الستة، والتحولات الكبرى",
+      "summaryEn": "Formation of the Free Officers Movement under Gamal Abdel Nasser, the Officers Club elections (Dec 1951), bringing forward the revolution timetable, execution on July 23, 1952, First Communiqué read by Anwar El-Sadat, departure of King Farouk, the Six Principles, political achievements (abolishing monarchy, 1954 Evacuation Agreement, 1956 Suez Canal nationalization), economic achievements (Agrarian Reform, High Dam, industrialization), social achievements (free education, labor laws), and Arab/international leadership (Algerian support, Non-Aligned Movement at Bandung 1955).",
+      "summaryAr": "تأسيس تنظيم الضباط الأحرار بزعامة جمال عبد الناصر، انتخابات نادي الضباط (ديسمبر 1951م)، تبكير موعد الثورة، تحرك فجر 23 يوليو 1952م والبيان الأول بصوت السادات، رحيل فاروق، المبادئ الستة للثورة، الإنجازات السياسية (إلغاء الملكية وإعلان الجمهورية، اتفاقية الجلاء 1954م، تأميم قناة السويس 1956م)، الإنجازات الاقتصادية (الإصلاح الزراعي، السد العالي، التصنيع)، الإنجازات الاجتماعية (مجانية التعليم، قوانين العمل)، والدور العربي والدولي (مساندة ثورة الجزائر، مؤتمر باندونج 1955م وحركة عدم الانحياز).",
+      "theoryContentEn": "### 1. The Free Officers Movement: Genesis & Underground Organization\n- **Origins:** Founded in September 1949 by Lieutenant Colonel **Gamal Abdel Nasser** following the trauma of the 1948 Palestine defeat and the defective weapons scandal.\n- **Operating Rules:** Egyptian military laws strictly prohibited armed forces officers from political activity. Hence, the movement operated in deep secrecy.\n- **Key Leadership:** Gamal Abdel Nasser, Abdel Hakim Amer, Anwar El-Sadat, Kamal El-Din Hussein, Khaled Mohieddin, Abdel Latif Boghdadi, and Zakaria Mohieddin. They selected veteran Major General **Mohamed Naguib** to be the public face of the revolution due to his integrity and widespread military popularity.\n- **Litmus Test: The Officers Club Election (December 31, 1951):**\n  - The Free Officers ran Mohamed Naguib against King Farouk's candidate, Major General Hussein Serry Amer.\n  - Naguib and the Free Officers won an overwhelming landslide victory, proving that the King had lost all loyalty and control over the army.\n\n### 2. Execution of the Revolution (July 23, 1952)\n- **Timetable Acceleration:**\n  - Originally scheduled for 1955 to build network strength.\n  - Moved to November 1952 after the Cairo Fire (Jan 1952).\n  - Moved forward to the night of July 22–23, 1952, after military intelligence discovered that newly appointed War Minister Ismail Shireen had orders to arrest the officers.\n- **The Takeover:**\n  - Free Officer units bloodlessly seized the Army Headquarters in Abbasiya, Cairo Radio, and key communication nodes before dawn.\n  - At 7:30 AM, **Anwar El-Sadat** read the First Communiqué over Cairo Radio on behalf of General Mohamed Naguib.\n- **Departure of King Farouk (July 26, 1952):**\n  - Farouk signed his formal abdication in favor of his infant son, Ahmed Fuad II, at Ras El-Tin Palace in Alexandria.\n  - Farouk sailed into exile aboard the royal yacht *El-Mahrousa* at 6:00 PM, receiving a 21-gun military salute.\n\n### 3. The Six Principles of the Revolution\n1. **Eradicate Imperialism** and its Egyptian collaborators.\n2. **Eradicate Feudalism (Iqta')**.\n3. **Eradicate Monopolies** and the domination of capital over governance.\n4. **Establish Social Justice**.\n5. **Establish a Strong National Army**.\n6. **Establish a Sound Democratic Life**.\n\n### 4. Transformative Achievements of the Revolution\n- **A. Political Achievements:**\n  1. Abolished the 1923 Constitution (December 1952).\n  2. Dissolved corrupt political parties and confiscated their funds (January 1953).\n  3. **Abolished the Monarchy & Proclaimed the Republic (June 18, 1953):** Ending the 148-year rule of the Muhammad Ali dynasty; Mohamed Naguib became the first President.\n  4. **The Evacuation Agreement (October 19, 1954):** Britain agreed to evacuate all forces within 20 months. On **June 18, 1956**, the last British soldier left Port Said, ending 74 years of occupation (National Evacuation Day).\n  5. **Nationalization of the Suez Canal (July 26, 1956):** Restored full national ownership of Egypt's vital waterway to fund the Aswan High Dam.\n- **B. Economic Achievements:**\n  1. **Agrarian Reform Law (September 9, 1952):** Capped landownership at 200 feddans, eradicating the feudal landlord class and distributing land to fellahin.\n  2. **The Aswan High Dam (Al-Sadd al-Aali):** Constructed between 1960 and 1970 to permanently protect Egypt from high Nile floods and droughts while generating massive hydroelectric power.\n  3. **Industrialization:** Built heavy industrial hubs (Helwan Iron and Steel Complex, Kima fertilizers in Aswan), developed electrical power generation, and extracted petroleum.\n  4. **Egyptianization (Tamseer):** Nationalized foreign banks, insurance houses, and commercial agencies after the 1956 Tripartite Aggression.\n- **C. Social Achievements:**\n  1. Realized free education at all stages (primary, secondary, and university).\n  2. Issued labor laws capping daily work hours at 7 hours, establishing minimum wages, workers' profit-sharing (25%), and board representation.\n  3. Established social security pensions for widows, orphans, and retirees.\n  4. Granted women the constitutional right to vote and run for parliamentary office (1956 Constitution).\n- **D. Arab & International Leadership:**\n  1. **Pan-Arab Liberation:** Financed, armed, and backed liberation struggles across the Arab world, most notably the **Algerian Revolution (November 1954)** against French colonization, leading to the 1956 Tripartite Aggression against Egypt. Supported revolutions in Yemen, Iraq, and the Gulf.\n  2. **Decolonization in Africa:** Supported independence movements across Kenya, Congo, and Ghana.\n  3. **Non-Aligned Movement:** Co-founded the **Non-Aligned Movement (Harakat 'Adam al-Inhiyaz)** at the **Bandung Conference (Indonesia, 1955)** alongside India (Nehru) and Yugoslavia (Tito), rejecting alignment with either the Western (US) or Eastern (Soviet) Cold War blocs.",
+      "theoryContentAr": "### ١. تنظيم الضباط الأحرار: النشأة والعمل السري\n- **التأسيس:** أسسه الصاغ (المقدم) **جمال عبد الناصر** في سبتمبر 1949م عقب صدمة نكبة فلسطين 1948م وفضيحة الأسلحة الفاسدة.\n- **طبيعة التنظيم:** نظراً لحظر القوانين العسكرية اشتغال ضباط الجيش بالسياسة، عمل التنظيم في سرية بالغة وخلايا عنقودية محكمة.\n- **القيادة التاريخية:** ضم عبد الناصر، عبد الحكيم عامر، أنور السادات، كمال الدين حسين، خالد محيي الدين، وصلاح سالم. واختار الضباط اللواء **محمد نجيب** ليكون واجهة للثورة لسمعته العسكرية الناصعة وشعبيته الكاسحة.\n- **انتخابات نادي الضباط (ديسمبر 1951م):**\n  - خاض الضباط الأحرار الانتخابات بقائمة يرأسها محمد نجيب ضد مرشح الملك اللواء حسين سري عامر.\n  - اكتسح نجيب وقائمة الأحرار الانتخابات، مما برهن على خروج الجيش نهائياً من قبضة القصر وانحيازه لإرادة الأمة.\n\n### ٢. قيام الثورة (23 يوليو 1952م) ورحيل الملك\n- **تبكير موعد الثورة:**\n  - كان الموعد الأصلي عام 1955م لاكتمال بناء الخلايا العسكرية.\n  - قُدم الموعد إلى نوفمبر 1952م عقب حريق القاهرة (يناير 1952م).\n  - بُكّر بالموعد أخيراً إلى ليلة **22–23 يوليو 1952م** بعد تعيين إسماعيل شيرين وزيراً للحربية بهدف اعتقال الضباط الأحرار وتصفية التنظيم.\n- **التحرك العسكري الخاطف:**\n  - سيطرت قوات الثورة سلمياً على دار الإذاعة وقيادة الجيش والمرافق الحيوية بالقاهرة قبل الفجر.\n  - في السابعة والنصف صباحاً، أذاع **محمد أنور السادات** البيان الأول التاريخي للثورة باسم اللواء محمد نجيب.\n- **مغادرة الملك فاروق (26 يوليو 1952م):**\n  - أُرغم فاروق على التنازل عن العرش لابنه الرضيع أحمد فؤاد الثاني ومغادرة البلاد قبل السادسة مساءً.\n  - غادر فاروق من قصر رأس التين بالإسكندرية على متن اليخت الملكي «المحروسة» بعد إطلاق 21 طلقة تحية وداع.\n\n### ٣. المبادئ الستة الحاكمة لثورة 23 يوليو\n١. **القضاء على الاستعمار** وأعوانه من الخونة.\n٢. **القضاء على الإقطاع**.\n٣. **القضاء على الاحتكار** وسيطرة رأس المال على الحكم.\n٤. **إقامة عدالة اجتماعية**.\n٥. **إقامة جيش وطني قوي**.\n٦. **إقامة حياة ديمقراطية سليمة**.\n\n### ٤. الإنجازات الكبرى للثورة\n- **أ. الإنجازات السياسية:**\n  ١. إلغاء دستور 1923م في ديسمبر 1952م.\n  ٢. حل كافة الأحزاب السياسية ومصادرة أموالها للشعب في يناير 1953م.\n  ٣. **إلغاء الملكية وإعلان قيام الجمهورية (18 يونيو 1953م):** إنهاء حكم أسرة محمد علي بعد 148 عاماً، وتعيين اللواء محمد نجيب أول رئيس للجمهورية.\n  ٤. **توقيع اتفاقية الجلاء (19 أكتوبر 1954م):** جلاء القوات البريطانية بالكامل خلال 20 شهراً؛ ورحل آخر جندي إنجليزي في **18 يونيو 1956م** بعد 74 عاماً من الاحتلال (عيد الجلاء).\n  ٥. **تأميم شركة قناة السويس (26 يوليو 1956م):** استعادة القناة شركة مساهمة مصرية لتمويل بناء السد العالي.\n- **ب. الإنجازات الاقتصادية:**\n  ١. **قانون الإصلاح الزراعي الأول (9 سبتمبر 1952م):** تحديد الملكية بـ 200 فدان ومصادرة الزيادة وتوزيعها على صغار الفلاحين، مما دمر الإقطاع.\n  ٢. **بناء السد العالي (1960–1970م):** حماية مصر من الفيضانات العالية والجفاف، وتوليد طاقة كهرومائية عملاقة.\n  ٣. **التصنيع الشامل:** بناء مصنع الحديد والصلب بحلوان، ومصنع الأسمدة (كيما) بأسوان، وتكرير البترول وإنشاء المصانع الحربية.\n  ٤. **التمصير:** تمصير البنوك والشركات وشركات التأمين الأجنبية عقب العدوان الثلاثي 1956م.\n- **ج. الإنجازات الاجتماعية:**\n  ١. إقرار مجانية التعليم في كافة مراحله بما فيها التعليم الجامعي.\n  ٢. إصدار قوانين العمل: تحديد ساعات العمل بـ 7 ساعات يومياً، اشتراك العمال في مجالس الإدارات والأرباح (25%)، والتأمينات والمعاشات.\n  ٣. منح المرأة المصرية حق الانتخاب والترشح للبرلمان في دستور 1956م.\n- **د. الإنجازات العربية والدولية:**\n  ١. **مساندة الثورات العربية:** دعم وتسليح **ثورة الجزائر (نوفمبر 1954م)** حتى الاستقلال (1962م)، مما دفع فرنسا للمشاركة في العدوان الثلاثي 1956م، ودعم ثورات اليمن والعراق والسودان والخليج.\n  ٢. **التحرر الإفريقي:** مساندة حركات التحرر في كينيا والكونغو وغانا وتصفية الاستعمار الإفريقي.\n  ٣. **حركة عدم الانحياز:** تأسيس الحركة في **مؤتمر باندونج بإندونيسيا (1955م)** بريادة مصر (عبد الناصر)، الهند (نهرو)، ويوغوسلافيا (تيتو)، ورفض الانضمام للأحلاف العسكرية الغربية (مثل حلف بغداد 1955م).",
+      "formulas": [
+        {
+          "labelEn": "The Revolutionary Transformation Equation",
+          "labelAr": "معادلة التحول الشامل لثورة 23 يوليو",
+          "latex": "\\text{إسقاط الملكية} + \\text{الجلاء 1956} + \\text{تأميم القناة} + \\text{الإصلاح الزراعي} \\implies \\text{السيادة الوطنية الكاملة}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian Historiography & Modern Geopolitics (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر الحديث والجيوسياسة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH4-L5",
+        "pageRange": "pp. 118-132"
+      },
+      "worksheet": {
+        "id": "th_hist_ch4_ws5",
+        "titleEn": "Worksheet 4.5: The July 23 Revolution & Decolonization",
+        "titleAr": "ورقة عمل ٤-٥: ثورة 23 يوليو 1952م والسيادة الوطنية",
+        "descriptionEn": "Analytical assessment deconstructing the Six Principles, agrarian reform, High Dam, canal nationalization, and non-alignment.",
+        "descriptionAr": "تدريبات تقويمية نقدية تستهدف استيعاب المبادئ الستة، الإصلاح الزراعي، تأميم القناة، ودور مصر القيادي في عدم الانحياز.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "July 23 Revolution Achievements Simulator",
+        "titleAr": "معمل محاكاة إنجازات ثورة 23 يوليو 1952م",
+        "descriptionEn": "Interactive simulator exploring political, economic, social, and global milestones of the 1952 Revolution.",
+        "descriptionAr": "محاكاة تفاعلية لاستكشاف الإنجازات السياسية والاجتماعية والاقتصادية للثورة وتأميم قناة السويس وحركة عدم الانحياز."
+      },
+      "lessonPlan": {
+        "titleEn": "The July 23, 1952 Revolution: Principles, Execution & Transformative Achievements",
+        "titleAr": "ثورة 23 يوليو 1952م: المبادئ الستة، والتحولات الكبرى، والإنجازات",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-405",
+        "bloomsObjectivesEn": [
+          "Analyze the underlying factors that prompted the formation of the Free Officers Movement.",
+          "Critique the socio-economic transformations enacted by the Agrarian Reform Law and industrialization.",
+          "Evaluate Egypt's international leadership in co-founding the Non-Aligned Movement at Bandung (1955)."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل العوامل الحتمية التي أدت لتأسيس تنظيم الضباط الأحرار بقيادة جمال عبد الناصر.",
+          "نقد التحولات الاقتصادية والاجتماعية الكبرى لقوانين الإصلاح الزراعي وبناء السد العالي وتأميم القناة.",
+          "تقويم ريادة مصر القومية والدولية في مساندة ثورة الجزائر وتأسيس حركة عدم الانحياز بمؤتمر باندونج 1955م."
+        ],
+        "prerequisitesEn": [
+          "Familiarity with the Battle of Ismailia and the Cairo Fire."
+        ],
+        "prerequisitesAr": [
+          "استيعاب ملحمة الإسماعيلية في 25 يناير 1952م وأزمة حريق القاهرة."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Free Officers Movement",
+            "definition": "Underground nationalist army organization founded by Nasser in 1949 that launched the 1952 Revolution."
+          },
+          {
+            "term": "Agrarian Reform Law",
+            "definition": "Historic 1952 legislation capping landownership and ending feudalism in Egypt."
+          },
+          {
+            "term": "Non-Aligned Movement",
+            "definition": "Global coalition of developing nations refusing allegiance to Cold War Western or Eastern blocs."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "تنظيم الضباط الأحرار",
+            "definition": "تنظيم وطني سري داخل الجيش أسسه عبد الناصر 1949م لإنقاذ الوطن من الاحتلال والفساد."
+          },
+          {
+            "term": "قانون الإصلاح الزراعي",
+            "definition": "تشريع رائد صدر في سبتمبر 1952م حدد الملكية الزراعية وقضى نهائياً على الإقطاع."
+          },
+          {
+            "term": "حركة عدم الانحياز",
+            "definition": "حركة دولية أُسست في باندونج 1955م بريادة مصر والهند ويوغوسلافيا لرفض الأحلاف العسكرية والتبعية."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Historical Inquiry",
+            "phaseAr": "التهيئة والتحفيز",
+            "duration": "10 min",
+            "activitiesEn": "Play/read Anwar El-Sadat's broadcast of the First Communiqué of July 23, 1952.",
+            "activitiesAr": "الاستماع للتسجيل الصوتي أو قراءة نص البيان الأول للثورة بصوت أنور السادات ومناقشة أهدافه."
+          },
+          {
+            "phaseEn": "Origins & Six Principles",
+            "phaseAr": "الشرح المنهجي",
+            "duration": "45 min",
+            "activitiesEn": "Detail the formation of the Free Officers, timetable acceleration, and the Six Principles.",
+            "activitiesAr": "شرح نشأة تنظيم الضباط الأحرار، انتخابات نادي الضباط، وتفصيل المبادئ الستة الحاكمة للثورة."
+          },
+          {
+            "phaseEn": "Transformative Achievements",
+            "phaseAr": "تحليل المكتسبات الوطنية",
+            "duration": "20 min",
+            "activitiesEn": "Categorize political, economic, social, and Arab/international achievements.",
+            "activitiesAr": "تصنيف إنجازات الثورة: إعلان الجمهورية، الجلاء، تأميم القناة، السد العالي، دعم الجزائر، وعدم الانحياز."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Administer ministerial MCQ drill on the July 23 Revolution achievements.",
+            "activitiesAr": "حل أسئلة بنك الأسئلة للمستويات العليا تحاكي امتحانات الثانوية العامة في إنجازات ثورة يوليو."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing the revolution was merely a military coup d'état; it transformed into a comprehensive popular social revolution supported by the masses."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن حركة الجيش كانت مجرد انقلاب عسكري؛ بل تحولت لثورة شعبية شاملة حظيت بالتأييد الجماهيري الكاسح."
+        ],
+        "differentiationEn": {
+          "struggling": "Organize the achievements of the 1952 Revolution into a clear four-quadrant matrix: Political, Economic, Social, and International.",
+          "advanced": "Analyze the geopolitical consequences of Egypt's leadership at the 1955 Bandung Conference on Cold War diplomacy and the 1956 Tripartite Aggression."
+        },
+        "differentiationAr": {
+          "struggling": "استخدام مصفوفة رباعية ملونة لتصنيف إنجازات الثورة بدقة: سياسية، اقتصادية، اجتماعية، وعربية/دولية لتثبيت الاستيعاب.",
+          "advanced": "تحليل جيوسياسي لدور مصر في تأسيس حركة عدم الانحياز بباندونج ودعم ثورة الجزائر وانعكاس ذلك على اشتعال العدوان الثلاثي 1956م."
+        },
+        "formativeAssessmentEn": "High-order conceptual test matching the Six Principles to specific legislative and economic acts of the revolution.",
+        "formativeAssessmentAr": "اختبار نواتج تعلم يربط بين المبادئ الستة للثورة والقرارات التشريعية والاقتصادية المنفذة لها كالإصلاح الزراعي والجلاء وتأميم القناة.",
+        "exitTicketQuestion": {
+          "questionEn": "How did the 1952 Agrarian Reform Law achieve both social justice and the eradication of feudalism?",
+          "questionAr": "كيف حقق قانون الإصلاح الزراعي لعام 1952م مبدأي القضاء على الإقطاع وإقامة العدالة الاجتماعية معاً؟",
+          "solutionEn": "By capping large estates at 200 feddans, confiscating surplus land from wealthy oligarchs, and redistributing parcels directly to impoverished fellahin.",
+          "solutionAr": "عبر تحديد سقف الملكية الزراعية بـ 200 فدان، ومصادرة الأراضي الزائدة من كبار الملاك المحتكرين، وتوزيعها ملكاً لصغار الفلاحين المعدمين."
+        }
+      }
+    }
+  ],
+      databank: historyCh4Databank,
+      solvedExamples: egBacHistoryCh4SolvedExamples,
+      exerciseProblems: egBacHistoryCh4Exercises
+    },
+{
+  "id": "th_hist_ch5",
+  "chapterNumber": 5,
+  "titleEn": "Unit 5: Colonial Expansion in Arab Countries before WWI (Arabian Gulf, South Arabia, Algeria, Tunisia, Morocco, Libya)",
+  "titleAr": "الفصل الخامس: التوسع الاستعماري في البلاد العربية قبل الحرب العالمية الأولى",
+  "descriptionEn": "British hegemony over the Arabian Gulf and South Arabia (Perim Island, General Treaty of 1820, Aden 1839), French colonization of Algeria (1830) and the 132-year liberation struggle to the Evian Accords (1962), French protectorate over Tunisia (1881) and the Berlin Congress, colonial partition of Morocco (Agadir crisis 1911, Khattabi's Rif Republic, Mohammed V), and Italian invasion of Libya (1911), Fascist terror, and Omar al-Mukhtar's epic martyrdom.",
+  "descriptionAr": "السيطرة البريطانية على الخليج وجنوب الجزيرة (احتلال بريم، معاهدة الصلح العامة 1820م، احتلال عدن 1839م)، استعمار فرنسا للجزائر 1830م وكفاح الشعب الجزائري وثورة أول نوفمبر 1954م حتى الاستقلال 1962م، حماية فرنسا على تونس 1881م ومؤتمر برلين، استعمار المغرب وأزمة أغادير 1911م وثورة الخطابي ونفي السلطان محمد الخامس، والغزو الإيطالي لليبيا 1911م وبطش الفاشية وجهاد واستشهاد أسد الصحراء عمر المختار حتى الاستقلال الموحد 1951م.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "egbac_hist_ch5_l1",
+      "titleEn": "EG-Bac Seminar: British Hegemony over the Arabian Gulf and South Arabia (1798–1839)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: السيطرة البريطانية على الخليج العربي وجنوب الجزيرة العربية (1798–1839م)",
+      "summaryEn": "Strategic British reactions to the French expedition in Egypt, treaty with the Sultan of Oman (1798), military occupation of Perim Island (1799) to seal Bab al-Mandab, containment of Muhammad Ali's expansion after the fall of the First Saudi State (1818), imposition of the General Maritime Treaty of 1820 on Gulf sheikhdoms under the guise of combating piracy and slave trade, secret 1899 protectorate over Kuwait to thwart the Berlin-Baghdad-Kazima railway, and the military occupation of Aden (1839) following Egyptian troops reaching Yemen.",
+      "summaryAr": "ردود الفعل الاستراتيجية لبريطانيا إزاء الحملة الفرنسية على مصر، معاهدة سلطان عُمان (1798م)، احتلال جزيرة بريم (1799م) لإغلاق باب المندب، محاصرة توسعات محمد علي بعد إسقاط الدولة السعودية الأولى (1818م)، فرض معاهدة الصلح العامة (1820م) على شيوخ الخليج بذريعة محاربة القرصنة وتجارة الرقيق، اتفاقية الحماية السرية على الكويت (1899م) لإحباط سكة حديد برلين - بغداد، واحتلال عدن عسكرياً (1839م) إثر وصول جيش محمد علي لليمن.",
+      "theoryContentEn": "### 1. British Strategic Containment of the French Expedition (1798–1802)\n- **Impact of Napoleon's Invasion of Egypt (1798):**\n  - Britain realized that French presence in Egypt was a direct threat to the British East India Company's trade route to **India**.\n  - Britain acted immediately to control the strategic maritime choke points leading to the Indian Ocean:\n    1. **Treaty with the Sultan of Oman (October 1798):** Obligated the Sultan to expel all French and Dutch subjects and forbid the establishment of any French agency or commercial factory.\n    2. **Military Occupation of Perim Island (May 1799):** Located right inside the **Bab al-Mandab strait**, Britain occupied this barren volcanic rock to seal the Red Sea against any French naval sortie toward India.\n    3. **Withdrawal and Treaty with Lahej (1801–1802):** Following the French evacuation from Egypt in 1801, Britain evacuated Perim but concluded a commercial and military agreement with the Sultan of Lahej and Aden in 1802 to station troops if necessary.\n\n### 2. Countering Muhammad Ali's Expansion in the Persian Gulf (1818–1820)\n- **The Threat of Egyptian Troops on the Gulf Shores:**\n  - In 1818, Ibrahim Pasha destroyed Diriyah, ending the First Saudi State on behalf of the Ottoman Sultan.\n  - Egyptian troops reached the shores of the Persian Gulf at al-Hasa and Qatif.\n  - Britain was terrified that Muhammad Ali would establish a unified Arab maritime power dominating the Persian Gulf.\n- **The Pretext of Combating Maritime Piracy:**\n  - Britain accused the Arab tribes of the lower Gulf (the Qawasim of Ras Al-Khaimah) of maritime piracy and slave trading.\n  - In 1819–1820, a British naval squadron bombarded Ras Al-Khaimah.\n- **The General Maritime Treaty of 1820:**\n  - Signed in January 1820 between Britain and the sheikhs of the Gulf (Trucial Coast / Emirates).\n  - Outlawed maritime warfare, piracy, and the Indian Ocean slave trade.\n  - Enabled Britain to act as the permanent **supreme arbitrator** in all inter-tribal maritime disputes.\n  - Over subsequent decades, these treaties were renewed and deepened into formal **Perpetual Maritime Truces (1853)** and **Exclusive Agreements (1892)**, transforming the Gulf sheikhdoms into British protectorates where local rulers could not cede territory or conduct foreign relations except through Great Britain.\n\n### 3. Blocking the German Railway Concession: Kuwait (1899)\n- In the late 19th century, Imperial Germany formed an economic alliance with the Ottoman Empire to construct the **Berlin-Baghdad railway**, intending to extend it to **Kazima** in Kuwait on the Arabian Gulf.\n- Britain moved swiftly: in **January 1899**, it signed a secret agreement with **Sheikh Mubarak Al-Sabah** of Kuwait.\n- Under this agreement, Britain granted protection to Kuwait in return for the Sheikh pledging not to cede, lease, or mortgage any territory to any foreign power without prior British consent, effectively killing the German railway terminus.\n\n### 4. British Military Occupation of Aden (1839)\n- **Muhammad Ali's Advance into Yemen (1837):**\n  - In 1837, Muhammad Ali's armies marched into Yemen at the request of the Ottoman Sultan to restore order.\n  - The prospect of Egyptian control over both the northern Red Sea (Suez) and southern Red Sea (Yemen and Bab al-Mandab) prompted British panic.\n- **The Incident of the Plundered Ship:**\n  - In 1837, a British merchant ship flying the British flag ran aground off Aden and was plundered by local inhabitants.\n  - Britain used this incident as an ultimatum, demanding compensation and military cession of the port.\n- **Capture and Fortress Colonization (January 1839):**\n  - Captain Haines led a British naval bombardment, capturing Aden in January 1839.\n  - Britain imposed an agreement on the Sultan of Lahej, transforming Aden into a permanent British coaling station, fortress, and naval outpost guarding the route to Bombay.",
+      "theoryContentAr": "### ١. محاصرة بريطانيا لآثار الحملة الفرنسية (1798–1802م)\n- **خطورة الوجود الفرنسي في مصر:** أدركت إنجلترا أن غزو نابليون لمصر لم يكن إلا تهديداً قاتلاً لدرة التاج البريطاني: **الهند**.\n- **التحركات البريطانية السريعة لتأمين الممرات البحرية:**\n  ١. **معاهدة مع سلطان عُمان (أكتوبر 1798م):** تعهد فيها السلطان بطرد جميع الرعايا الفرنسيين والهولنديين ومنع إنشاء أي وكالة تجارية لهما.\n  ٢. **احتلال جزيرة بريم عسكرياً (مايو 1799م):** تقع الجزيرة في قلب **مضيق باب المندب**؛ احتلتها بريطانيا لقطع طريق البحر الأحمر بإحكام أمام أي تحرك بحري فرنسي نحو الهند.\n  ٣. **الجلاء ومعاهدة لحج (1801–1802م):** بعد خروج الفرنسيين من مصر عام 1801م تركت بريطانيا جزيرة بريم، وعقدت اتفاقية تجارية وعسكرية مع سلطان لحج وعدن عام 1802م للبقاء على مقربة من الممر المائي.\n\n### ٢. مواجهة توسعات محمد علي في الخليج العربي (1818–1820م)\n- **وصول الجيش المصري لساحل الخليج:** بعد نجاح إبراهيم باشا في إسقاط الدرعية عاصمة الدولة السعودية الأولى 1818م، تقدمت قوات محمد علي ووصلت إلى سواحل الخليج العربي في الأحساء والقطيف.\n- **فزع بريطانيا وذريعة القرصنة:**\n  - خشيت بريطانيا من قيام دولة عربية موحدة قوية تنافس سيادتها على المحيط الهندي.\n  - اتخذت بريطانيا من محاربة القرصنة البحرية (الموجهة ضد قبائل القواسم في رأس الخيمة) ومنع تجارة الرقيق ذريعة للتدخل العسكري.\n- **معاهدة الصلح العامة (يناير 1820م):**\n  - فرضتها بريطانيا على كافة شيوخ إمارات الخليج العربي.\n  - نصت على تجريم القرصنة البحرية وتجارة الرقيق، وأعطت لبريطانيا الحق في التفتيش والتحكيم في كافة الخلافات والنزاعات القبلية.\n  - تجددت المعاهدة لاحقاً وتطورت إلى «معاهدة الهدنة الدائمة 1853م» و«اتفاقيات الحماية 1892م»، مما حول الخليج العربي إلى بحيرة نفوذ بريطانية خالصة.\n\n### ٣. إحباط مشروع سكة حديد برلين - بغداد: الكويت (1899م)\n- في أواخر القرن التاسع عشر، تحالفت ألمانيا مع الدولة العثمانية لمد خط سكة حديد **برلين – بغداد** وصولاً إلى **كاظمة** في الكويت على الخليج العربي.\n- أحبطت بريطانيا هذا التمدد الألماني الاستراتيجي في **يناير 1899م** بعقد اتفاقية حماية سرية مع **الشيخ مبارك الصباح** حاكم الكويت، تعهد فيها بعدم التنازل أو بيع أو رهن أي شبر من أراضيه لأي دولة أجنبية دون إذن لندن.\n\n### ٤. احتلال بريطانيا لمدينة عدن عسكرياً (1839م)\n- **ظهور محمد علي في اليمن (1837م):** تحركت قوات محمد علي إلى اليمن بتكليف من السلطان العثماني؛ فارتعدت فرائص بريطانيا من إحكام مصر قبضتها على مدخلي البحر الأحمر شمالاً وجنوباً.\n- **ذريعة السفينة المنهوبة:** استغلت بريطانيا حادث اعتداء بعض أهالي عدن على سفينة تجارية إنجليزية ترفع العلم البريطاني عام 1837م وطالبت بتعويضات تعجيزية.\n- **الاستيلاء العسكري (يناير 1839م):** هاجمت القوات البحرية البريطانية عدن بقيادة الكابتن هينز واحتلتها بالقوة العسكرية وحولتها إلى قاعدة حربية ومستودع فحم لحماية الملاحة نحو بومباي بالهند.",
+      "formulas": [
+        {
+          "labelEn": "Naval Choke Point Equation",
+          "labelAr": "معادلة السيطرة على المضايق البحرية",
+          "latex": "\\text{حملة نابليون على مصر} \\implies \\text{احتلال جزيرة بريم 1799} \\implies \\text{إغلاق باب المندب أمام فرنسا}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian & Arab Historiography (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر والبلاد العربية الحديث - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH5-L1",
+        "pageRange": "pp. 102–109"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch5_ws1",
+        "titleEn": "EG-Bac Analytical Seminar 5.1: British Imperial Geopolitics in the Gulf & South Arabia",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٥-١: الجيوسياسة الإمبريالية لبريطانيا في الخليج وجنوب الجزيرة",
+        "descriptionEn": "Source analysis, map reading, and historical synthesis on British maritime treaties, Perim Island, the 1820 General Maritime Treaty, and the occupation of Aden.",
+        "descriptionAr": "تحليل وثائق وقراءة خرائط وربط تاريخي حول المعاهدات البحرية البريطانية، احتلال بريم، معاهدة الصلح العامة 1820م، واحتلال عدن.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_map_lab",
+        "titleEn": "British Maritime Hegemony Map (1798–1839)",
+        "titleAr": "خريطة السيطرة البحرية البريطانية في الخليج وجنوب الجزيرة",
+        "descriptionEn": "Interactive map charting British strategic choke points: Perim, Oman, Aden, and the Trucial Coast.",
+        "descriptionAr": "معمل تفاعلي لتتبع الممرات البحرية الاستراتيجية لبريطانيا: جزيرة بريم، عُمان، عدن، وإمارات الخليج العربي."
+      },
+      "lessonPlan": {
+        "titleEn": "British Hegemony over the Arabian Gulf and South Arabia",
+        "titleAr": "السيطرة البريطانية على الخليج العربي وجنوب الجزيرة العربية",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-501",
+        "bloomsObjectivesEn": [
+          "Analyze why Britain occupied Perim Island in 1799 and seized Aden in 1839.",
+          "Critique how Britain utilized anti-piracy pretexts to dominate the Gulf in the 1820 General Maritime Treaty.",
+          "Evaluate the geopolitical motives behind the 1899 secret protectorate over Kuwait against German railway expansion."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل دوافع بريطانيا لاحتلال جزيرة بريم عام 1799م والاستيلاء على عدن عام 1839م.",
+          "نقد توظيف بريطانيا لذريعة محاربة القرصنة لفرض معاهدة الصلح العامة 1820م وبسط نفوذها في الخليج.",
+          "تقويم الدوافع الجيوسياسية لمعاهدة الحماية السرية على الكويت 1899م لإحباط التمدد السككي الألماني."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of Napoleon's expedition to Egypt and Muhammad Ali's Arabian campaigns (Chapters 1 & 2)."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أثر الحملة الفرنسية على مصر وتوسعات محمد علي في الجزيرة العربية (الفصلان الأول والثاني)."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Bab al-Mandab",
+            "definition": "Strategic strait connecting the Red Sea to the Gulf of Aden and the Indian Ocean."
+          },
+          {
+            "term": "General Maritime Treaty (1820)",
+            "definition": "Pact forced by Britain upon Gulf rulers establishing British naval hegemony under the pretext of anti-piracy."
+          },
+          {
+            "term": "Exclusive Agreement (1899)",
+            "definition": "Secret treaty between Britain and Kuwait barring foreign powers from establishing a railway terminal on the Gulf."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "مضيق باب المندب",
+            "definition": "الممر المائي الاستراتيجي الحاكم الرابط بين البحر الأحمر وبحر العرب والمحيط الهندي."
+          },
+          {
+            "term": "معاهدة الصلح العامة 1820م",
+            "definition": "معاهدة فرضتها إنجلترا على شيوخ الخليج العربي لتكريس هيمنتها البحرية والتحكيم الداخلي بذريعة مكافحة القرصنة."
+          },
+          {
+            "term": "اتفاقية الحماية 1899م",
+            "definition": "معاهدة سرية بين بريطانيا والكويت منعت ألمانيا والدولة العثمانية من مد سكة حديد برلين - بغداد إلى الخليج."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Geopolitical Geography",
+            "phaseAr": "التهيئة والتحفيز الجغرافي",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the Red Sea-Indian Ocean maritime choke points on a physical map.",
+            "activitiesAr": "عرض خريطة بحرية لمضيق باب المندب والخليج ومناقشة أهمية موقع الهند في الاستراتيجية البريطانية."
+          },
+          {
+            "phaseEn": "British Strategic Countermeasures (1798–1820)",
+            "phaseAr": "الشرح المنهجي لمواجهة نابليون ومحمد علي",
+            "duration": "45 min",
+            "activitiesEn": "Detail the Oman treaty, Perim occupation, and 1820 General Maritime Treaty.",
+            "activitiesAr": "شرح معاهدة عُمان واحتلال جزيرة بريم وفرض معاهدة 1820م لمواجهة جيش محمد علي في الخليج."
+          },
+          {
+            "phaseEn": "Aden 1839 & Kuwait 1899 Analysis",
+            "phaseAr": "تحليل احتلال عدن وحماية الكويت",
+            "duration": "20 min",
+            "activitiesEn": "Compare the 1837 Yemen expedition with the German Berlin-Baghdad project.",
+            "activitiesAr": "المقارنة بين استيلاء بريطانيا على عدن 1839م لإيقاف محمد علي وإحباط مشروع سكة حديد برلين - بغداد 1899م."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Complete 5 ministerial-standard MCQs evaluating British imperial strategy.",
+            "activitiesAr": "حل أسئلة تقويمية تحاكي امتحانات الثانوية العامة في تحليل السياسة البريطانية في شبه الجزيرة العربية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Britain intervened in the Gulf purely out of humanitarian concern to eradicate slave trading and piracy."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن التدخل البريطاني كان بدافع إنساني بحت لإنهاء تجارة الرقيق والقرصنة دون دوافع استعمارية خفية."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide graphic organizers linking British naval actions directly to the threat of rival powers (Napoleon, Muhammad Ali, Germany).",
+          "advanced": "Evaluate the long-term legal evolution of the 1820 General Maritime Treaty into modern Gulf state protectorate boundaries."
+        },
+        "differentiationAr": {
+          "struggling": "تنظيم جدول ربط مباشر بين كل تحرك بريطاني في الخليج والخصم الذي استهدفته (نابليون، محمد علي، ألمانيا).",
+          "advanced": "تحليل التطور القانوني والسياسي لمعاهدة الصلح العامة 1820م وصولاً لتشكيل إمارات الساحل المتصالح وحدودها."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and source analysis evaluating British maritime hegemony.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد الذرائع البريطانية وتحليل السيطرة الإمبريالية في الخليج وجنوب الجزيرة.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did Britain rush to sign a protection agreement with Kuwait in 1899?",
+          "questionAr": "لماذا سارعت بريطانيا بتوقيع اتفاقية حماية مع حاكم الكويت عام 1899م؟",
+          "solutionEn": "To block the extension of the German-Ottoman Berlin-Baghdad railway to Kazima on the Persian Gulf.",
+          "solutionAr": "لمنع مد خط سكة حديد برلين - بغداد الألماني العثماني إلى كاظمة على الخليج العربي."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch5_l2",
+      "titleEn": "EG-Bac Seminar: French Colonization of Algeria: Settler Colonialism & National Liberation (1830–1962)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: استعمار فرنسا للجزائر: الاستعمار الاستيطاني وثورة التحرير الكبرى (1830–1962م)",
+      "summaryEn": "Historical Franco-Algerian grain debts, the Fly Whisk Incident (1827), French naval blockade, military invasion of 1830 under Charles X, heroic resistance of Emir Abdelkader El Djezairi (Desmichels and Tafna treaties, bombardment of Tangier 1844), implementation of brutal settler colonialism (Crémieux Decree 1870, Code de l'Indigénat), political currents between the world wars (Ulema Association of Ben Badis, Integration movement of Ferhat Abbas, Star of North Africa of Messali Hadj), May 8, 1945 massacres, the 1954 Algerian Revolution backed by Cairo, Tripartite Aggression (1956), Charles de Gaulle's 1959 self-determination proposal, OAS terror, and the Evian Accords achieving independence (1962).",
+      "summaryAr": "ديون القمح الجزائري لفرنسا، حادثة المروحة الشهيرة 1827م، الحصار البحري وغزو 1830م بقيادة شارل العاشر، مقاومة الأمير عبد القادر الجزائري ومعاهدتي دي ميشيل والتافنة وقصف طنجة 1844م، تطبيق الاستعمار الاستيطاني ومصادرة الأراضي ومرسوم كريميو 1870م وقانون الأهالي، التيارات الوطنية بين الحربين (علماء المسلمين لابن باديس، الاندماج لفرحات عباس، ونجم شمال إفريقيا لمصالي الحاج)، مذابح 8 مايو 1945م، تفجير ثورة أول نوفمبر 1954م من القاهرة، العدوان الثلاثي 1956م، مبادرة ديجول لتقرير المصير 1959م، إرهاب منظمة الجيش السري، واتفاقيات إيفيان واستقلال الجزائر 1962م.",
+      "theoryContentEn": "### 1. Pretexts and Motivations Behind the 1830 Invasion\n- **The Algerian Wheat Debt:** During the British blockade against Napoleonic France, Algeria supplied France with wheat on credit. By 1820, debts reached 24 million francs. A French commission unilaterally slashed the debt to 7 million francs and delayed repayment.\n- **The Fly Whisk Incident (Hadithat al-Mirwaha, April 1827):** During an audience, French Consul Pierre Deval insulted Dey Hussein regarding unpaid debts. Dey Hussein gestured at or tapped him with a fly whisk (feather fan).\n- **French Retaliation:** France demanded apologies, cessation of privateering, and exemptions. When Dey Hussein refused, France instituted a 3-year naval blockade and launched an expedition in June 1830, capturing Algiers in July 1830. Charles X used the conquest to distract from his domestic constitutional crisis.\n\n### 2. Emir Abdelkader El Djezairi's Resistance (1830–1847)\n- Abdelkader established his capital at Mascara and inflicted severe defeats on French forces.\n- **Treaty of Desmichels (1834):** France recognized him as Emir of Western Algeria to gain time.\n- **Treaty of Tafna (1837):** Concluded after renewed Algerian victories, granting him rule over western and central territories.\n- **French Violation & Moroccan Betrayal:** France breached the treaty by capturing Constantine (1837). Abdelkader used Moroccan border areas as a supply base. In 1844, French warships bombarded the Moroccan port of **Tangier** and won the Battle of Isly, compelling Sultan Abd al-Rahman to cease aiding Abdelkader. Isolated, Abdelkader surrendered in 1847 and was exiled.\n\n### 3. The Mechanism of French Settler Colonialism (Al-Isti'mār Al-Istitānī)\n- Declared Algeria an inseparable province of France (*Algérie française*).\n- Confiscated fertile lands and granted them to European immigrants (*colons*).\n- **Crémieux Decree (1870):** Conferred automatic French citizenship upon Algerian Jews and European settlers.\n- **Code de l'Indigénat (1881):** Deprived Algerian Muslims of political rights, subjecting them to arbitrary arrest, travel permits, and heavy punitive taxation.\n\n### 4. 20th-Century National Movements (Between the World Wars)\n1. **Association of Algerian Muslim Ulema (1931):** Founded by **Abdelhamid Ben Badis** and **Bachir El Ibrahimi**. Motto: *'Islam is our religion, Arabic is our language, Algeria is our homeland'*. Countered cultural and linguistic assimilation (*Francisation*).\n2. **Integration Movement (Al-Indimāj):** Led by French-educated pharmacist **Ferhat Abbas**, advocating Algerian assimilation with equal French rights. France rejected genuine political equality.\n3. **Star of North Africa / Algerian People's Party (1926/1937):** Led by **Messali Hadj**, firmly demanding total, unconditional independence.\n- **May 8, 1945 Massacres:** When Algerians demonstrated peacefully demanding promised freedom after WWII, French troops killed over 45,000 citizens, proving that independence could only be achieved through armed struggle.\n\n### 5. The Algerian Revolution (1954–1962) and Egyptian Support\n- **November 1, 1954:** The National Liberation Front (FLN) launched the armed revolution, broadcast to the world from Cairo's *Voice of the Arabs*.\n- **Egyptian Role:** Gamal Abdel Nasser provided weapons, training, funds, and international diplomacy. France joined the **Tripartite Aggression (1956)** against Egypt primarily to eliminate Nasser's support for Algeria.\n- **Charles de Gaulle's 1959 Plan:** Offered three choices: (1) Total integration, (2) Autonomy linked to France, or (3) Total independence.\n- **Settler Backlash:** Extremist officers and colons formed the **Secret Army Organization (OAS)**, terrorizing Algerians.\n- **Victory:** The FLN persevered, concluding the **Evian Accords (March 1962)**. A national referendum yielded over 99% for independence, proclaimed on July 5, 1962, after 1.5 million martyrs.",
+      "theoryContentAr": "### ١. ديون القمح وذريعة الاحتلال الفرنسي (1830م)\n- **ديون القمح الجزائري:** أثناء الحصار الاقتصادي البريطاني على فرنسا أيام نابليون، كانت الجزائر تمد فرنسا بالقمح سلفاً. تراكمت الديون لتبلغ 24 مليون فرنك، فماطلت باريس وخفضتها لجنة فرنسية تعسفياً إلى 7 ملايين فرنك فقط.\n- **حادثة المروحة (أبريل 1827م):** احتدم النقاش بين الداي حسين والقنصل الفرنسي «دوفال» لتعالي الأخير ومماطلته، فأشار الداي بمروحة ريش كانت بيده طالباً منه الخروج.\n- **الحصار والغزو:** اعتبرت فرنسا الحادث مساساً بكرامتها، ففرضت حصاراً بحرياً لثلاث سنوات وطالبت بإنهاء القرصنة وإلغاء الرسوم، ثم أرسلت حملة عسكرية احتلت مدينة الجزائر في يوليو 1830م لإلهاء الشعب الفرنسي عن أزمة الملك المستبد شارل العاشر.\n\n### ٢. جهاد الأمير عبد القادر الجزائري (1830–1847م)\n- أسس عاصمته في «معسكر» وقاد حرب عصابات منظمة كبدت الفرنسيين خسائر فادحة.\n- **معاهدة دي ميشيل (1834م):** اضطرت فرنسا للاعتراف به حاكماً على الغرب الجزائري لمهادنته وتنظيم صفوفها.\n- **معاهدة التافنة (1837م):** بعد تجدد المعارك وانتصار الأمير، اعترفت له فرنسا بنفوذ أوسع في الغرب والوسط.\n- **نقض العهود وقصف طنجة:** نقضت فرنسا التافنة باحتلال قسنطينة (1837م)، ولما كان الأمير يعتمد على مؤازرة سلطان المغرب عبد الرحمن كقاعدة خلفية، قام الأسطول الفرنسي بضرب **ميناء طنجة** عام 1844م وانتصر في معركة إيسلي، مما أجبر سلطان المغرب على التخلي عن الأمير، فاستسلم عام 1847م ونُفي للشام.\n\n### ٣. الاستعمار الاستيطاني الفرنسي (الفرنسة والأنديجينات)\n- أعلنت فرنسا أن الجزائر قطعة لا تتجزأ من فرنسا، وصادرت الأراضي الخصبة ومنحتها للمستوطنين الأوروبيين.\n- **مرسوم كريميو (1870م):** منح الجنسية الفرنسية ليهود الجزائر وللمستوطنين الأوروبيين لعزلهم عن المجتمع الجزائري.\n- **قانون الأهالي (الأنديجينات 1881م):** فرض عقوبات استثنائية وحرم الجزائريين المسلمين من الحقوق السياسية وأخضعهم للمحاكم العرفية والضرائب الباهظة.\n\n### ٤. الحركات الوطنية بين الحربين العالميتين\n١. **جماعة علماء المسلمين الجزائريين (1931م):** بقيادة **عبد الحميد بن باديس** و**البشير الإبراهيمي**، وشعارها: *«الإسلام ديننا، والعربية لغتنا، والجزائر وطننا»*، لحماية الهوية العربية الإسلامية من الفرنسة.\n٢. **تيار الاندماج:** بقيادة الصيدلي **فرحات عباس**، ودعا لإدماج الجزائر مع فرنسا كمواطنين متساوين، ولكن فرنسا رفضت منحهم حقوقاً متساوية مع الأوروبيين.\n٣. **نجم شمال إفريقيا / حزب الشعب:** بزعامة **مصالي الحاج**، وتمسك بهدف واضح لا مساومة فيه: الاستقلال التام وطرد الاستعمار.\n- **مذابح 8 مايو 1945م:** خرج الجزائريون يحتفلون بنهاية الحرب العالمية الثانية مطالبين بالاستقلال، فارتكبت القوات الفرنسية مجزرة راح ضحيتها 45 ألف شهيد، مما رسخ قناعة أن ما أُخذ بالقوة لا يُسترد إلا بالقوة.\n\n### ٥. ثورة الجزائر الكبرى (1954–1962م) والدور المصري\n- **أول نوفمبر 1954م:** أطلقت جبهة التحرير الوطني الثورة الجزائرية المسلحة، وأُعلن بيانها الأول من القاهرة عبر إذاعة صوت العرب.\n- **الدور المصري التاريخي:** ساند جمال عبد الناصر الثورة بالسلاح والمال والدبلوماسية، مما دفع فرنسا للاشتراك في **العدوان الثلاثي (1956م)** على مصر لإسقاط ناصر وتصفية قضية الجزائر.\n- **مشروع ديجول (1959م):** بعد سقوط الجمهورية الرابعة ومجيء شارل ديجول، عرض ثلاثة خيارات: الاندماج، أو الحكم الذاتي، أو الاستقلال التام.\n- **إرهاب المستوطنين:** شكل غلاة الضباط والمستوطنون **منظمة الجيش السري (OAS)** لارتكاب المذابح ضد الجزائريين لمنع الاستقلال.\n- **النصر والحرية:** تمسكت الثورة بموقفها، وانتهت المفاوضات بـ **اتفاقيات إيفيان (مارس 1962م)** والاستفتاء الشعبي الكاسح، ونالت الجزائر استقلالها التام في 5 يوليو 1962م بعد تقديم مليون ونصف مليون شهيد.",
+      "formulas": [
+        {
+          "labelEn": "Settler Colonial Apartheid Equation",
+          "labelAr": "معادلة الاستعمار الاستيطاني الفرنسي في الجزائر",
+          "latex": "\\text{مرسوم كريميو 1870} + \\text{مصادرة الأراضي} + \\text{قانون الأهالي} \\implies \\text{الاستعمار الاستيطاني}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian & Arab Historiography (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر والبلاد العربية الحديث - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH5-L2",
+        "pageRange": "pp. 110–121"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch5_ws2",
+        "titleEn": "EG-Bac Analytical Seminar 5.2: The Algerian Epic: Settler Colonialism & Armed Liberation",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٥-٢: ملحمة الجزائر: الاستعمار الاستيطاني وثورة التحرير الكبرى",
+        "descriptionEn": "Critical analysis of French settlement colonialism, the Ulema Association, the May 8, 1945 massacres, Cairo's role, and the 1962 Evian Accords.",
+        "descriptionAr": "تحليل نقدي لآليات الاستعمار الاستيطاني، جمعية علماء المسلمين، مذابح 8 مايو 1945م، دور القاهرة المحوري، واتفاقيات إيفيان 1962م.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "Algerian Liberation Struggle Interactive Timeline (1830–1962)",
+        "titleAr": "الخط الزمني التفاعلي لملحمة تحرير الجزائر",
+        "descriptionEn": "Interactive timeline charting Emir Abdelkader's campaigns, 1945 massacres, FLN revolution, and 1962 Evian Accords.",
+        "descriptionAr": "معمل زمني تفاعلي لتتبع مراحل جهاد عبد القادر الجزائري، مذابح 1945م، ثورة 1954م، واتفاقيات إيفيان."
+      },
+      "lessonPlan": {
+        "titleEn": "French Colonization of Algeria: Settler Colonialism & National Liberation",
+        "titleAr": "استعمار فرنسا للجزائر: الاستعمار الاستيطاني وثورة التحرير الكبرى",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-502",
+        "bloomsObjectivesEn": [
+          "Contrast the economic and political pretexts of the 1830 French invasion of Algeria.",
+          "Critique French settler colonialism and the legal framework of the Code de l'Indigénat.",
+          "Evaluate the strategic impact of Egyptian support on the 1954 Algerian Revolution and the 1956 Suez War."
+        ],
+        "bloomsObjectivesAr": [
+          "المقارنة بين الذرائع الظاهرية والدوافع الاقتصادية والسياسية الحقيقية لاحتلال فرنسا للجزائر 1830م.",
+          "نقد آليات الاستعمار الاستيطاني الفرنسي ومنظومة التمييز العنصري في قانون الأهالي ومرسوم كريميو.",
+          "تقويم الأثر الاستراتيجي للدعم المصري لثورة الجزائر 1954م في اندلاع العدوان الثلاثي 1956م."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of the French Revolution, Napoleonic Wars, and Egyptian foreign policy under Nasser."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أبعاد الثورة الفرنسية وحصار نابليون والسياسة التحررية لثورة 23 يوليو بمصر."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Settler Colonialism",
+            "definition": "Colonial model seeking to replace the indigenous population with foreign settlers through land dispossession and legal apartheid."
+          },
+          {
+            "term": "Code de l'Indigénat",
+            "definition": "Draconian legal code denying Algerian Muslims civil rights and subjecting them to arbitrary punishment."
+          },
+          {
+            "term": "Evian Accords (1962)",
+            "definition": "Historic peace treaties ending 132 years of French colonization and recognizing full Algerian independence."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "الاستعمار الاستيطاني",
+            "definition": "نمط استعماري يستهدف إحلال المستوطنين الأجانب محل السكان الأصليين عبر مصادرة الأراضي والتمييز القانوني."
+          },
+          {
+            "term": "قانون الأهالي (الأنديجينات)",
+            "definition": "تشريع استعماري استثنائي جائر حرم المسلمين الجزائريين من حقوق المواطنة وفرض عليهم عقوبات عرفية."
+          },
+          {
+            "term": "اتفاقيات إيفيان 1962م",
+            "definition": "معاهدات السلام التاريخية التي أنهت 132 عاماً من الاستعمار الفرنسي وأعلنت استقلال الجزائر التام."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Primary Source Analysis",
+            "phaseAr": "التهيئة وتحليل الوثائق",
+            "duration": "10 min",
+            "activitiesEn": "Examine the Fly Whisk Incident engraving and debate whether a fan can cause a war.",
+            "activitiesAr": "عرض رسم تاريخي لحادثة المروحة ومناقشة الفرق بين الذريعة الشكلية والدافع الاستعماري الحقيقي."
+          },
+          {
+            "phaseEn": "Abdelkader's Resistance & Settler Apartheid",
+            "phaseAr": "الشرح المنهجي لكفاح عبد القادر والاستيطان",
+            "duration": "45 min",
+            "activitiesEn": "Detail Mascara, Tafna, Tangier bombardment, and Indigénat.",
+            "activitiesAr": "شرح معاهدتي دي ميشيل والتافنة وقصف طنجة ومصادرة الأراضي ومرسوم كريميو وقانون الأهالي."
+          },
+          {
+            "phaseEn": "The 1954 Revolution & Nasser's Support",
+            "phaseAr": "تحليل ثورة 1954م ودور القاهرة",
+            "duration": "20 min",
+            "activitiesEn": "Analyze the FLN proclamation broadcast from Cairo and the 1956 Suez crisis.",
+            "activitiesAr": "دراسة إعلان الثورة من إذاعة صوت العرب بالقاهرة وتفسير اشتراك فرنسا في العدوان الثلاثي 1956م."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 ministerial-format questions on Algerian national movements.",
+            "activitiesAr": "حل تدريبات تقويمية تحاكي امتحانات الثانوية العامة حول التيارات الوطنية وثورة الجزائر الكبرى."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming Ferhat Abbas's integration movement aimed to surrender Algerian land, rather than demanding full equal citizenship rights which France refused."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن تيار الاندماج لفرحات عباس كان خيانة وطنية، بينما كان يطالب بمساواة الجزائريين بالمواطنين الفرنسيين في الحقوق وهو ما رفضته باريس."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide a 3-column table comparing the Ulema Association, Integration Movement, and Star of North Africa.",
+          "advanced": "Analyze the constitutional crisis of the French Fourth Republic caused by the Algerian War, leading to De Gaulle's Fifth Republic."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جدول مقارنة ثلاثي بين جمعية علماء المسلمين، تيار الاندماج، ونجم شمال إفريقيا لتبسيط الفروق.",
+          "advanced": "تحليل أزمة سقوط الجمهورية الفرنسية الرابعة وصعود ديجول وتأسيس الجمهورية الخامسة تحت وطأة حرب التحرير الجزائرية."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and essay questions on Algerian settler colonialism and revolution.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد الاستعمار الاستيطاني ومقارنة التيارات الوطنية وتفسير الدور المصري.",
+        "exitTicketQuestion": {
+          "questionEn": "What was France's primary motivation for joining Britain and Israel in the 1956 Tripartite Aggression against Egypt?",
+          "questionAr": "ما الدافع الأساسي لمشاركة فرنسا في العدوان الثلاثي 1956م ضد مصر؟",
+          "solutionEn": "To crush Gamal Abdel Nasser's regime because Egyptian military, financial, and media backing was the lifeblood of the Algerian Revolution.",
+          "solutionAr": "لإسقاط نظام جمال عبد الناصر بسبب الدعم العسكري والمالي والإعلامي المصري الكاسح للثورة الجزائرية."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch5_l3",
+      "titleEn": "EG-Bac Seminar: French Colonization of Tunisia: Modernization Traps & The Berlin Congress (1881–1956)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: استعمار فرنسا لتونس: فخ التحديث ومؤتمر برلين حتى الاستقلال (1881–1956م)",
+      "summaryEn": "Tunisian modernization initiatives under the Beys (Ahd al-Aman 1857, Constitution of 1861), foreign loans and the 1869 International Financial Commission, Anglo-French-Italian rivalry, the Russo-Turkish War (1877) and Treaty of San Stefano, Bismarck's Congress of Berlin (1878) where Britain grabbed Cyprus and yielded Tunisia to France, leaving Italy enraged and isolated, French military invasion of 1881 (Bardo and La Marsa treaties), national resistance of the Constitutional Destour Party (Thaalbi) and Neo-Destour Party (Bourguiba's 'take and demand more' pragmatism), and full independence in 1956 followed by the Bizerte evacuation (1963).",
+      "summaryAr": "محاولات التحديث في عهد البايات (عهد الأمان 1857م ودستور 1861م)، فخ القروض الأجنبية واللجنة المالية الدولية 1869م، التنافس الفرنسي البريطاني الإيطالي، الحرب الروسية العثمانية ومعاهدة سان ستيفانو، مؤتمر برلين 1878م برعاية بسمارك واقتناص إنجلترا لقبرص وتنازلها عن تونس لفرنسا وغضب إيطاليا، الغزو العسكري الفرنسي 1881م ومعاهدتي باردو والمرسى، كفاح الحزب الدستوري بزعامة الثعالبي والدستور الجديد بزعامة الحبيب بورقيبة (سياسة خذ وطالب)، والاستقلال التام 1956م وجلاء بنزرت 1963م.",
+      "theoryContentEn": "### 1. Modernization and the Debt Trap in Tunisia\n- **The Modernization Drive of the Beys:**\n  - **Muhammad Bey (1855–1859):** Issued the **Fundamental Covenant (Ahd al-Aman)** in 1857, guaranteeing equality of all residents (Muslims, non-Muslims, and foreigners) before the law.\n  - **Muhammad al-Sadiq Bey (1859–1882):** Promulgated the first written Arab Constitution in 1861, modernizing the judiciary, telegraphs, and public utilities.\n- **The Debt Entanglement:**\n  - European powers (France, Britain, and Italy) competed aggressively to obtain infrastructure concessions (railways, ports, telegraph lines).\n  - High-interest foreign loans pushed the Beylicate into bankruptcy.\n  - In **1869**, European creditors formed an **International Financial Commission** (representing France, Britain, and Italy) to supervise state revenues and debt repayment, mimicking the debt control regime established in Egypt.\n\n### 2. The International Bargain: The Congress of Berlin (1878)\n- **The San Stefano Crisis:** In 1877–1878, Russia defeated the Ottoman Empire and imposed the **Treaty of San Stefano**, creating a massive Bulgarian satellite state that threatened the European balance of power.\n- **Bismarck's Intervention:** German Chancellor Otto von Bismarck convened the **Congress of Berlin (1878)** to resolve the crisis peacefully at Ottoman expense.\n- **The Secret Deals:**\n  1. Britain secretly signed an agreement with the Sultan to occupy **Cyprus** in exchange for pledging to defend Ottoman lands against Russia.\n  2. France furiously protested Britain's unilateral gain in Cyprus.\n  3. Britain mollified France by agreeing that France could have a free hand to conquer **Tunisia**.\n  4. Italy, which had significant commercial, demographic, and geographical interests in Tunisia, was ignored and left empty-handed.\n- **Consequence:** Italy felt betrayed by France and Britain; in **1882**, Italy joined Germany and Austria-Hungary in the **Triple Alliance**.\n\n### 3. French Invasion and the Protectorate (1881–1883)\n- In April 1881, France used the pretext of border raids by Tunisian Kroumir tribes into Algerian territory to launch an armed invasion.\n- Forced Muhammad al-Sadiq Bey to sign the **Treaty of Bardo (May 1881)**, surrendering foreign policy and military control to France.\n- Strengthened in 1883 by the **Convention of La Marsa**, giving the French Resident-General supreme administrative authority over finance, justice, and government.\n\n### 4. The National Liberation Movement\n- **The Young Tunisians & Constitutional Destour Party (1920):** Led by Sheikh **Abdelaziz Thaalbi**, demanding a democratic constitutional government while asserting Arab-Islamic identity.\n- **The Neo-Destour Party (1934):** Founded by **Habib Bourguiba**, advocating modern grassroots organizing, labor union mobilization, and pragmatic phased diplomacy (*'take and demand more'*).\n- **Post-WWII Escalation:** In 1946, French forces raided a national congress and arrested leaders, igniting popular guerrilla warfare.\n- **Independence:** France, overwhelmed by defeat in Indochina (Dien Bien Phu 1954) and the raging revolution in Algeria, conceded internal autonomy in 1955 and recognized Tunisia's full independence in **March 1956**, evacuating the naval base at **Bizerte** in 1963.",
+      "theoryContentAr": "### ١. محاولات التحديث وفخ الديون الأجنبية في تونس\n- **رغبة البايات في التحديث والتطوير:**\n  - **الباي محمد (1855–1859م):** أصدر **«عهد الأمان»** عام 1857م، وأقر المساواة التامة بين الرعايا المسلمين وغير المسلمين والأجانب أمام القانون.\n  - **الباي محمد الصادق (1859–1882م):** أصدر أول دستور تونسي عام 1861م، وأنشأ السكك الحديدية والتلغراف ووسع الموانئ.\n- **التورط في شباك القروض والاستثمارات الأجنبية:**\n  - تسابقت الشركات الاستعمارية من فرنسا وإنجلترا وإيطاليا لكسب امتيازات البنية التحتية.\n  - اقترضت تونس بشروط مجحفة وفوائد باهظة حتى أعلنت إفلاسها المالي.\n  - في عام **1869م**، فرضت الدول الثلاث **«لجنة مالية دولية»** للسيطرة على إيرادات الدولة وسداد الديون، في تكرار دقيق للسيناريو الاستعماري الذي طُبق في مصر.\n\n### ٢. الصفقات الاستعمارية في مؤتمر برلين (1878م)\n- **أزمة سان ستيفانو:** انتصرت روسيا على الدولة العثمانية وفرضت معاهدة «سان ستيفانو» 1878م وأنشأت دولة بلغاريا الكبرى لتكون مخلب قط لها، فاختل التوازن الدولي الأوروبي.\n- **دعوة بسمارك للمؤتمر:** دعا المستشار الألماني «بسمارك» لمؤتمر برلين لتسوية النزاع على حساب «رجل أوروبا المريض» (الدولة العثمانية).\n- **المساومات والصفقات السرية:**\n  ١. اقتنصت بريطانيا جزيرة **قبرص** من السلطان العثماني مقابل وعد بحماية أملاكه.\n  ٢. غضبت فرنسا من انفراد إنجلترا بقبرص، فوافقتها إنجلترا فوراً على احتلال **تونس** لإرضائها.\n  ٣. خرجت إيطاليا – صاحبة المصالح والجالية الكبرى في تونس – غاضبة ومحبطة وخالية الوفاض.\n- **النتيجة الجيوسياسية:** انضمت إيطاليا عام **1882م** إلى الحلف المعادي لفرنسا (الحلف الثلاثي مع ألمانيا والنمسا).\n\n### ٣. الغزو الفرنسي وفرض الحماية (1881–1883م)\n- استغلت فرنسا مناوشات قبائل الخمير التونسية على الحدود الجزائرية عام 1881م ذريعة لاجتياح تونس عسكرياً.\n- أجبرت الباي محمد الصادق على توقيع **معاهدة باردو (مايو 1881م)** متنازلاً عن الشؤون الخارجية والأمنية.\n- دعمت سيطرتها بـ **اتفاقية المرسى (1883م)** التي وضعت كافة السلطات المالية والإدارية والقضائية في يد المقيم العام الفرنسي.\n\n### ٤. كفاح الحركة الوطنية حتى الاستقلال\n- **حزب الدستور القديم (1920م):** أسسه الشيخ **عبد العزيز الثعالبي** وطالب بدستور وطني وبرلمان مع الحفاظ على الجامعة الإسلامية.\n- **حزب الدستور الجديد (1934م):** تزعمه **الحبيب بورقيبة**، وتميز بالجمع بين الثقافة الفرنسية والعروبة، واعتمد سياسة المراحل الواقعية المرنة *(«خذ وطالب»)* مع تحريك الجماهير والعمال.\n- **تصاعد المقاومة:** بعد الحرب العالمية الثانية هاجمت فرنسا المؤتمر الوطني 1946م واعتقلت الزعماء، فاندلعت المقاومة المسلحة وتضامن الرأي العام الدولي.\n- **الاستقلال:** اضطرت فرنسا تحت وطأة هزيمتها في فيتنام (ديان بيان فو 1954م) واشتعال ثورة الجزائر إلى منح تونس الحكم الذاتي 1955م ثم إعلان الاستقلال التام في **مارس 1956م**، وتم جلاء آخر القوات الفرنسية عن قاعدة **بنزرت** البحرية 1963م.",
+      "formulas": [
+        {
+          "labelEn": "The Berlin Congress Colonial Compensation Balance",
+          "labelAr": "معادلة توازن المصالح في مؤتمر برلين 1878م",
+          "latex": "\\text{سان ستيفانو} \\implies \\text{إنجلترا تأخذ قبرص} + \\text{فرنسا تنفرد بتونس} \\implies \\text{انضمام إيطاليا للحلف الثلاثي 1882}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian & Arab Historiography (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر والبلاد العربية الحديث - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH5-L3",
+        "pageRange": "pp. 122–129"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch5_ws3",
+        "titleEn": "EG-Bac Analytical Seminar 5.3: Tunisia: The Debt Trap, Berlin Congress & Bourguiba's Diplomacy",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٥-٣: تونس: فخ الديون، مؤتمر برلين، ودبلوماسية بورقيبة المرحلية",
+        "descriptionEn": "Evaluating modernization traps under the Beys, Bismarck's European balance-of-power diplomacy, and Bourguiba's pragmatic statecraft.",
+        "descriptionAr": "تقييم فخ التحديث في عهد البايات، دبلوماسية توازن القوى لبسمارك في مؤتمر برلين، وبراعة بورقيبة الدبلوماسية المرحلية.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_diplomacy_lab",
+        "titleEn": "Berlin Congress (1878) Diplomatic Simulation",
+        "titleAr": "محاكاة دبلوماسية لمساومات مؤتمر برلين 1878م",
+        "descriptionEn": "Interactive simulation charting the colonial horse-trading over Cyprus, Tunisia, and the realignment of Italy.",
+        "descriptionAr": "معمل دبلوماسي تفاعلي لتتبع مساومات الدول الكبرى واقتسام قبرص وتونس وتحول الموقف الإيطالي."
+      },
+      "lessonPlan": {
+        "titleEn": "French Colonization of Tunisia: Modernization Traps & The Berlin Congress",
+        "titleAr": "استعمار فرنسا لتونس: فخ التحديث ومؤتمر برلين حتى الاستقلال",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-503",
+        "bloomsObjectivesEn": [
+          "Analyze the structural similarities between the debt crises of Tunisia (1869) and Egypt (1876).",
+          "Critique the diplomatic horse-trading of Otto von Bismarck at the 1878 Congress of Berlin.",
+          "Evaluate Habib Bourguiba's phased negotiation strategy ('take and demand more') in securing independence."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل أوجه الشبه الهيكلية بين أزمة الديون في تونس (1869م) وأزمة الديون بمصر في عهد إسماعيل (1876م).",
+          "نقد مساومات المستشار الألماني بسمارك في مؤتمر برلين 1878م على حساب الدولة العثمانية.",
+          "تقويم استراتيجية الحبيب بورقيبة الدبلوماسية المرحلية («خذ وطالب») في انتزاع الاستقلال التام."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of the Eastern Question and Khedive Ismail's financial collapse in Chapter 3."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أبعاد المسألة الشرقية والتدخل الأجنبي وصندوق الدين بمصر (الفصل الثالث)."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Ahd al-Aman (1857)",
+            "definition": "Fundamental Covenant issued by Muhammad Bey establishing legal equality for all Tunisian residents."
+          },
+          {
+            "term": "Congress of Berlin (1878)",
+            "definition": "European diplomatic summit chaired by Bismarck partitioning Ottoman spheres of influence."
+          },
+          {
+            "term": "Neo-Destour",
+            "definition": "Modern nationalist party founded by Bourguiba combining mass agitation with pragmatic diplomacy."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "عهد الأمان 1857م",
+            "definition": "وثيقة دستورية أصدرها الباي محمد أقرت المساواة التامة بين التونسيين والأجانب أمام القانون."
+          },
+          {
+            "term": "مؤتمر برلين 1878م",
+            "definition": "مؤتمر دبلوماسي أوروبي برعاية بسمارك سُوّيت فيه أزمة سان ستيفانو على حساب الدولة العثمانية."
+          },
+          {
+            "term": "حزب الدستور الجديد",
+            "definition": "حزب وطني حديث أسسه الحبيب بورقيبة 1934م تبنى سياسة المراحل والتحريك الجماهيري حتى الاستقلال."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Financial Parallels",
+            "phaseAr": "التهيئة والتماثل التاريخي",
+            "duration": "10 min",
+            "activitiesEn": "Compare Tunisia's Ahd al-Aman with Egypt's modernization under Ismail.",
+            "activitiesAr": "عرض مقارنة بين فخ تحديث البايات وتحديث إسماعيل وكيف قادت القروض لضياع الاستقلال."
+          },
+          {
+            "phaseEn": "The Berlin Congress Diplomatic Auction",
+            "phaseAr": "الشرح المنهجي لمؤتمر برلين",
+            "duration": "45 min",
+            "activitiesEn": "Detail San Stefano, Bismarck's role, Cyprus, Tunisia, and Italy's alienation.",
+            "activitiesAr": "شرح معاهدة سان ستيفانو، ومساومات بسمارك، واستيلاء إنجلترا على قبرص وتنازلها عن تونس لفرنسا."
+          },
+          {
+            "phaseEn": "Bourguiba's Statecraft & Decolonization",
+            "phaseAr": "تحليل سياسة بورقيبة والاستقلال",
+            "duration": "20 min",
+            "activitiesEn": "Evaluate the Neo-Destour's 'take and demand more' pragmatism vs armed struggle.",
+            "activitiesAr": "مناقشة فاعلية سياسة المراحل للحبيب بورقيبة بالمقارنة مع الكفاح المسلح العنيف في الجزائر."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Complete 5 ministerial-standard questions on Tunisian decolonization.",
+            "activitiesAr": "حل تدريبات تقويمية تحاكي امتحانات الثانوية العامة في تحليل مؤتمر برلين والقضية التونسية."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming Italy opposed the Berlin Congress out of sympathy for the Ottomans, rather than disappointment over not getting Tunisia."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن معارضة إيطاليا كانت دفاعاً عن تونس، بينما كان غضبها نابعاً من حرمانها من الاستيلاء عليها لصالح فرنسا."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide a flowchart mapping: San Stefano -> Berlin Congress -> Cyprus to UK -> Tunisia to France -> Italy to Triple Alliance.",
+          "advanced": "Evaluate the diplomatic balance-of-power theory of Bismarck and its role in accelerating the alliance blocs that triggered WWI."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخطط تدفق بصري يوضح مسار الصفقات: سان ستيفانو -> مؤتمر برلين -> قبرص لبريطانيا -> تونس لفرنسا -> إيطاليا للحلف الثلاثي.",
+          "advanced": "تحليل نظرية توازن القوى الدبلوماسية عند بسمارك ودورها في تسريع تشكيل الأحلاف العسكرية الكبرى التي فجرت الحرب العالمية الأولى."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and document evaluation on the Congress of Berlin and Tunisian independence.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد مساومات مؤتمر برلين وتحليل عبقرية بورقيبة الدبلوماسية.",
+        "exitTicketQuestion": {
+          "questionEn": "Which European power left the 1878 Congress of Berlin deeply humiliated, and which alliance did it subsequently join in 1882?",
+          "questionAr": "أي دولة أوروبية خرجت من مؤتمر برلين 1878م غاضبة وخالية الوفاض، وما الحلف الذي انضمت إليه عام 1882م؟",
+          "solutionEn": "Italy; it joined the Triple Alliance with Germany and Austria-Hungary against France.",
+          "solutionAr": "إيطاليا؛ وانضمت عام 1882م إلى الحلف الثلاثي مع ألمانيا والنمسا لمعاداة فرنسا."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch5_l4",
+      "titleEn": "EG-Bac Seminar: Colonial Partition of Morocco: From the Agadir Crisis to Independence (1912–1956)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: استعمار المغرب (مراكش): من أزمة أغادير حتى الاستقلال ووحدة التراب (1912–1956م)",
+      "summaryEn": "Moroccan historical independence from the Ottoman Empire, the Battle of Wadi al-Makhazin (1578), the Madrid Conference (1880) and foreign protégés, bilateral colonial bargains (Italy 1902, Britain's Entente Cordiale 1904, Spain 1904), German opposition under Kaiser Wilhelm II (Algeciras Conference 1906, Agadir Gunboat Crisis 1911, German concession in French Congo), Treaty of Fez (1912) and partition into French, Spanish (Rif), and International (Tangier) zones, resistance of Abdelkrim El Khattabi (Battle of Annual 1921), failure of the Berber Dahir (1930), exile of Sultan Mohammed V (1953), El Glaoui's reconciliation, and the triumph of national independence in 1956.",
+      "summaryAr": "استقلال المغرب التاريخي عن الدولة العثمانية، معركة وادي المخازن 1578م، مؤتمر مدريد 1880م ونظام الحماية الفردية، الصفقات الاستعمارية الثنائية (إيطاليا 1902م، الوفاق الودي 1904م، إسبانيا 1904م)، المعارضة الألمانية بقيادة القيصر فيلهلم الثاني (مؤتمر الجزيرة الخضراء 1906م، أزمة أغادير 1911م والتنازل عن الكونغو الفرنسي)، معاهدة فاس 1912م وتقسيم المغرب لثلاث مناطق نفوذ (فرنسية، وإسبانية بالريف، وطنجة الدولية)، ثورة عبد الكريم الخطابي ومعركة أنوال 1921م، إحباط الظهير البربري 1930م، نفي السلطان محمد الخامس 1953م، انضمام الباشا الجلاوي للثورة، وإعلان الاستقلال التام 1956م.",
+      "theoryContentEn": "### 1. Morocco's Historical Isolation and Early Penetration\n- **Battle of Wadi al-Makhazin (1578):** The Saadian Sultanate crushed King Sebastian of Portugal, ending Portugal's crusading ambitions and preserving Moroccan sovereignty outside Ottoman control, though Spain retained Ceuta and Melilla.\n- **Madrid Conference (1880):** Convened to address the foreign 'protégé' system (*al-himāyah al-fardiyah*), where European consulates granted citizenship/protection to Moroccan merchants, exempting them from Sultanic taxes and laws.\n\n### 2. French Bilateral Colonial Bargains (1902–1904)\n- **1902 with Italy:** France recognized Italy's ambitions in Libya in exchange for Italy accepting French hegemony in Morocco.\n- **1904 Entente Cordiale with Britain:** Britain gained a free hand in Egypt while France gained a free hand in Morocco.\n- **1904 with Spain:** Spain was assigned the northern Rif and southern Saharan zones.\n\n### 3. German Counter-Strikes: Algeciras and Agadir\n- **Kaiser Wilhelm II's Outrage:** Germany was excluded from North African partitions.\n- **Algeciras Conference (1906):** Convened at Germany's demand to protect Moroccan independence. However, Britain stood solidly beside France, leaving Germany diplomatically isolated (supported only by Austria-Hungary).\n- **Agadir Gunboat Crisis (July 1911):** France sent troops to Fez. Germany dispatched the gunboat *SMS Panther* to the Atlantic port of Agadir to assert its claims.\n- **The Bargain:** Britain mobilized diplomatically against German naval expansion. France agreed to cede a 275,000 km² strip of **French Congo** to Germany. In return, Germany recognized French control over Morocco.\n\n### 4. Partition and the Treaty of Fez (1912)\n- In March 1912, France imposed the **Treaty of Fez** on Sultan Abd al-Hafid, establishing the French Protectorate.\n- Morocco was carved into three distinct colonial jurisdictions:\n  1. **French Protectorate:** Central Morocco (Rabat, Casablanca, Fez).\n  2. **Spanish Protectorate:** The northern **Rif** and southern strip (Tarfaya/Ifni).\n  3. **International Zone:** The port city of **Tangier**, internationalized to safeguard British naval communications opposite Gibraltar.\n\n### 5. National Armed Resistance & Independence\n- **Muhammad Abdelkrim El Khattabi in the Rif (1921–1926):** Khattabi crushed the Spanish army at the **Battle of Annual (1921)**. Fearing his success would spread to French Morocco, France and Spain formed a joint military coalition led by Marshal Pétain, deploying chemical gas to force Khattabi's surrender in 1926.\n- **The Berber Dahir (1930):** France enacted a decree subjecting Berbers to customary tribal law rather than Islamic Sharia, aiming to split Arabs and Berbers. Moroccans united in massive protests, destroying the colonial plot.\n- **Sultan Mohammed V and the Istiqlal Party:** Sultan Mohammed V demanded independence in his **Tangier Speech (1947)**. France deposed and exiled him in 1953.\n- **Reconciliation and Triumph:** Berber leader **Thami El Glaoui** denounced the puppet sultan and demanded Mohammed V's return. Faced with fierce urban guerrilla warfare (*Fedayeen*), France returned Sultan Mohammed V in triumph (November 1955) and annulled the protectorate in **March 1956**, followed by the abolition of the Spanish protectorate in the north and the international regime in Tangier.",
+      "theoryContentAr": "### ١. الاستقلال التاريخي للمغرب وبدايات الاختراق\n- **معركة وادي المخازن (1578م):** انتصر السعديون بقيادة عبد الملك السعدي وأحمد المنصور على ملك البرتغال سبستيان في معركة الملوك الثلاثة؛ سقطت قوة البرتغال وصان المغرب استقلاله عن الدولة العثمانية، مع بقاء مدينتي سبتة ومليلة تحت السيطرة الإسبانية.\n- **مؤتمر مدريد (1880م):** عُقد لبحث مشكلة «الحماية الفردية»، حيث منحت القنصليات الأوروبية بطاقات حماية لبعض المغاربة واليهود لإعفائهم من الضرائب والخضوع للقضاء الوطني، مما أضعف هيبة السلطان.\n\n### ٢. صفقات المساومة الاستعمارية لفرنسا (1902–1904م)\n- **اتفاق 1902م مع إيطاليا:** وافقت فرنسا على احتلال إيطاليا لليبيا مقابل موافقة إيطاليا على انفراد فرنسا بالمغرب.\n- **الوفاق الودي 1904م مع إنجلترا:** أطلقت إنجلترا يد فرنسا في المغرب مقابل إطلاق فرنسا يد إنجلترا في مصر.\n- **اتفاق 1904م مع إسبانيا:** ترضية إسبانيا بمنحها منطقة الريف في الشمال والشريط الصحراوي في الجنوب.\n\n### ٣. رد الفعل الألماني: مؤتمر الجزيرة الخضراء وأزمة أغادير\n- **غضب القيصر فيلهلم الثاني:** احتجت ألمانيا على تجاهلها وتهميش مصالحها الاقتصادية في شمال إفريقيا.\n- **مؤتمر الجزيرة الخضراء (1906م):** دعا إليه قيصر ألمانيا للحفاظ على استقلال المغرب، ولكن إنجلترا وقفت بصلابة مع فرنسا، فخرجت ألمانيا معزولة دبلوماسياً ولم يساندها سوى النمسا.\n- **أزمة أغادير والمدمرة «بانثر» (1911م):** أرسلت فرنسا قواتها لفاس، فردت ألمانيا بإرسال السفينة الحربية «بانثر» إلى ميناء أغادير لحماية مصالحها.\n- **التسوية الاستعمارية:** هددت بريطانيا بالتدخل لحماية فرنسا؛ وانتهت الأزمة بتنازل فرنسا لألمانيا عن قطعة من **الكونغو الفرنسي**، مقابل اعتراف برلين بالحماية الفرنسية على المغرب.\n\n### ٤. معاهدة فاس (1912م) وتقسيم المغرب\n- فرضت فرنسا **معاهدة فاس (مارس 1912م)** على السلطان عبد الحفيظ.\n- قُسم المغرب إلى ثلاث مناطق نفوذ استعماري:\n  ١. **منطقة نفوذ فرنسية:** وسط المغرب (الرباط، فاس، الدار البيضاء).\n  ٢. **منطقة نفوذ إسبانية:** شمال المغرب في **الريف** والشريط الصحراوي بالجنوب.\n  ٣. **منطقة طنجة الدولية:** وُضعت تحت إدارة دولية لضمان أمن الملاحة البريطانية عند مضيق جبل طارق.\n\n### ٥. المقاومة الوطنية والوحدة والتحرر\n- **جهاد محمد عبد الكريم الخطابي (1921–1926م):** قاد الخطابي ثورة الريف وسحق الجيش الإسباني في معركة **أنوال (1921م)**؛ فتحالفت فرنسا وإسبانيا عسكرياً بقيادة المارشال بيتان واستخدمت أحدث الأسلحة والغازات السامة، مما اضطر الخطابي للاستسلام 1926م حقناً للدماء.\n- **إسقاط الظهير البربري (1930م):** أصدرت فرنسا مرسوماً يقضي بإخضاع البربر للمحاكم العرفية بدلاً من الشريعة الإسلامية؛ فثار الشعب المغربي موحداً وأسقط المؤامرة.\n- **السلطان محمد الخامس وحزب الاستقلال:** طالب السلطان بالاستقلال في خطاب طنجة 1947م؛ فعزلته فرنسا ونفته عام 1953م وعينت ابن عرفة سلطاناً شكلياً.\n- **النصر والعودة المظفرة:** تراجع زعيم قبائل البربر **الباشا الجلاوي** وأعلن ولاءه للسلطان الشرعي؛ واشتعلت العمليات الفدائية فاضطرت فرنسا لإعادة محمد الخامس في نوفمبر 1955م وإلغاء الحماية في **مارس 1956م**، كما ألغت إسبانيا حمايتها على الريف وأُلغي النظام الدولي في طنجة واستعاد المغرب وحدته.",
+      "formulas": [
+        {
+          "labelEn": "Moroccan Colonial Partition Equation",
+          "labelAr": "معادلة صفقات تقسيم المغرب 1902–1912م",
+          "latex": "\\text{ليبيا لإيطاليا} + \\text{مصر لإنجلترا} + \\text{الريف لإسبانيا} + \\text{الكونغو لألمانيا} \\implies \\text{الحماية الفرنسية على المغرب}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian & Arab Historiography (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر والبلاد العربية الحديث - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH5-L4",
+        "pageRange": "pp. 130–139"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch5_ws4",
+        "titleEn": "EG-Bac Analytical Seminar 5.4: Colonial Partition of Morocco & National Resilience",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٥-٤: التقسيم الاستعماري للمغرب وصمود الحركة الوطنية",
+        "descriptionEn": "Investigating colonial bargains (1902–1904), the Agadir crisis, Khattabi's guerrilla tactics at Annual, and the collapse of the Berber Dahir.",
+        "descriptionAr": "دراسة الصفقات الاستعمارية، أزمة أغادير، تكتيكات حرب العصابات للخطابي في معركة أنوال، وإسقاط مؤامرة الظهير البربري.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_partition_map",
+        "titleEn": "Colonial Partition Map of Morocco (1912)",
+        "titleAr": "خريطة تقسيم المغرب بين فرنسا وإسبانيا والنظام الدولي",
+        "descriptionEn": "Interactive map detailing the partition of Morocco into French zone, Spanish Rif, and International Tangier.",
+        "descriptionAr": "معمل خرائط تفاعلي لتوضيح تقسيم المغرب إلى منطقة الحماية الفرنسية، والحماية الإسبانية، والمنطقة الدولية بطنجة."
+      },
+      "lessonPlan": {
+        "titleEn": "Colonial Partition of Morocco: From the Agadir Crisis to Independence",
+        "titleAr": "استعمار المغرب: من أزمة أغادير حتى الاستقلال ووحدة التراب",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-504",
+        "bloomsObjectivesEn": [
+          "Analyze the network of bilateral colonial bargains France concluded between 1902 and 1904 to isolate Morocco.",
+          "Critique German diplomacy in the 1906 Algeciras Conference and the 1911 Agadir Crisis.",
+          "Evaluate how Moroccan national solidarity thwarted the 1930 Berber Dahir and reversed the 1953 exile of Sultan Mohammed V."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل شبكة الصفقات الاستعمارية الثنائية التي أبرمتها فرنسا بين 1902 و1904م للانفراد بالمغرب.",
+          "نقد الموقف الدبلوماسي الألماني في مؤتمر الجزيرة الخضراء 1906م وأزمة أغادير 1911م.",
+          "تقويم دور التلاحم الوطني المغربي في إسقاط الظهير البربري 1930م وإنهاء نفي السلطان محمد الخامس 1955م."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of the Entente Cordiale (1904) in Egypt and the European alliance systems."
+        ],
+        "prerequisitesAr": [
+          "استيعاب تداعيات الوفاق الودي 1904م على الحركة الوطنية بمصر (الفصل الثالث)."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Entente Cordiale (1904)",
+            "definition": "Pact between Britain and France granting Britain Egypt and France Morocco."
+          },
+          {
+            "term": "Agadir Crisis (1911)",
+            "definition": "Gunboat crisis triggered by Germany sending SMS Panther to Morocco, resolved by ceding part of French Congo."
+          },
+          {
+            "term": "Berber Dahir (1930)",
+            "definition": "French colonial decree attempting to separate Berbers from Arabs by abolishing Islamic Sharia courts in Berber areas."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "الوفاق الودي 1904م",
+            "definition": "اتفاق تاريخي أطلقت فيه إنجلترا يد فرنسا في المغرب مقابل إطلاق يد إنجلترا في مصر."
+          },
+          {
+            "term": "أزمة أغادير 1911م",
+            "definition": "أزمة عسكرية أرسلت فيها ألمانيا المدمرة «بانثر» لأغادير، وانتهت بتنازل فرنسا عن جزء من الكونغو لألمانيا."
+          },
+          {
+            "term": "الظهير البربري 1930م",
+            "definition": "مرسوم استعماري فرنسي حاول شق الصف الوطني بإخضاع البربر للأعراف القبلية بعيداً عن الشريعة الإسلامية."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Geopolitical Bargaining",
+            "phaseAr": "التهيئة ومساومات القوى الكبرى",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the cartoon of Britain and France trading Egypt for Morocco.",
+            "activitiesAr": "عرض كاريكاتير تاريخي يصور صفقة تبادل مصر والمغرب بين إنجلترا وفرنسا في الوفاق الودي 1904م."
+          },
+          {
+            "phaseEn": "Algeciras, Agadir & Partition",
+            "phaseAr": "الشرح المنهجي للأزمات والتقسيم",
+            "duration": "45 min",
+            "activitiesEn": "Detail Wilhelm II's defiance, Agadir resolution, and the 1912 three-zone partition.",
+            "activitiesAr": "شرح مؤتمر الجزيرة الخضراء وأزمة أغادير ومعاهدة فاس 1912م وتقسيم المغرب بين فرنسا وإسبانيا وطنجة."
+          },
+          {
+            "phaseEn": "Rif Republic & The Berber Dahir",
+            "phaseAr": "تحليل حرب الريف والظهير البربري",
+            "duration": "20 min",
+            "activitiesEn": "Examine Khattabi's tactics at Annual and how the Berber Dahir united all Moroccans.",
+            "activitiesAr": "دراسة خطة الخطابي في معركة أنوال وتفسير كيف انقلب الظهير البربري إلى عامل لتوحيد الشعب المغربي."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 ministerial-format MCQs on Moroccan resistance and independence.",
+            "activitiesAr": "حل تدريبات تقويمية تحاكي امتحانات الثانوية العامة في تحليل تاريخ المغرب وحركات التحرر."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Tangier was granted to Spain, when it was actually placed under an International Administration to protect British navigation at Gibraltar."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن طنجة خضعت لإسبانيا، بينما وُضعت تحت نظام دولي خاص بإصرار بريطانيا لحماية مضيق جبل طارق."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide a color-coded map showing Morocco's 3 distinct zones (French, Spanish, International).",
+          "advanced": "Evaluate the tactical military doctrine of Abdelkrim El Khattabi and its influence on later anti-colonial guerrilla movements."
+        },
+        "differentiationAr": {
+          "struggling": "توفير خريطة ملونة توضح مناطق النفوذ الثلاث (الفرنسية، الإسبانية، وطنجة الدولية) لتبسيط الفهم المكاني.",
+          "advanced": "تقييم النظرية العسكرية لحرب العصابات عند محمد عبد الكريم الخطابي وتأثيرها على حركات التحرر العالمية."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and source analysis evaluating Moroccan partition and national unity.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد الصفقات الاستعمارية وتفكيك تداعيات الظهير البربري.",
+        "exitTicketQuestion": {
+          "questionEn": "How was the 1911 Agadir Crisis between Germany and France resolved?",
+          "questionAr": "كيف سُوّيت أزمة أغادير الدبلوماسية 1911م بين فرنسا وألمانيا؟",
+          "solutionEn": "France ceded a territory of the French Congo to Germany in exchange for German recognition of France's protectorate over Morocco.",
+          "solutionAr": "تنازلت فرنسا لألمانيا عن قطعة من مستعمرة الكونغو الفرنسي مقابل اعتراف ألمانيا بالحماية الفرنسية على المغرب."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch5_l5",
+      "titleEn": "EG-Bac Seminar: Italian Colonization of Libya: Fascist Brutality & The Jihad of Omar al-Mukhtar (1911–1951)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: استعمار إيطاليا لليبيا: الفاشية وبطش جراتسياني وجهاد عمر المختار (1911–1951م)",
+      "summaryEn": "Italian motivations for colonizing Libya (prestige of unified Italy, revival of the Roman Empire, Mediterranean balance of power), bilateral imperialist bargains (1902 with France, 1902 with Britain, 1909 Racconigi Bargain with Russia), peaceful economic penetration via the Banco di Roma and missionary schools, the 1911 invasion, Treaty of Ouchy-Lausanne (1912), Senussi resistance, the rise of Mussolini's Fascism (1922) and brutal reconquest, the epic 20-year guerrilla jihad of Sheikh Omar al-Mukhtar (Lion of the Desert), General Graziani's barbaric barbed-wire wall along the Egyptian border (300 km) and desert concentration camps, the capture and public hanging of Omar al-Mukhtar (1931), WWII North African campaigns, defeat of the Axis, Egypt's historic defense of Libyan territorial unity at the UN, and independence of the United Kingdom of Libya under King Idris al-Senussi (1951).",
+      "summaryAr": "دوافع إيطاليا لاحتلال ليبيا (مكانة الدولة الموحدة، إحياء الإمبراطورية الرومانية، وحفظ التوازن بالبحر المتوسط)، الصفقات الاستعمارية (1902م مع فرنسا وإنجلترا، وراكونيجي 1909م مع روسيا)، التغلغل الاقتصادي والثقافي السلمي عبر بنك روما والمدارس، غزو 1911م ومعاهدة أوشي لوزان 1912م، حركة المقاومة السنوسية، صعود الفاشية بقيادة موسوليني 1922م وسياسة البطش، ملحمة جهاد أسد الصحراء الشيخ عمر المختار، فظائع السفاح جراتسياني والأسلاك الشائكة على حدود مصر (300 كم) ومعتقلات الإبادة الصحراوية، أسر وإعدام عمر المختار 1931م، معارك الحرب العالمية الثانية وهزيمة المحور، دور مصر الدبلوماسي التاريخي في الأمم المتحدة لإنقاذ ليبيا من التقسيم، واستقلال المملكة الليبية المتحدة عام 1951م بقيادة الملك إدريس السنوسي.",
+      "theoryContentEn": "### 1. Italian Colonial Ambitions and Diplomatic Bargains\n- **Motivations:**\n  - Following the Italian Risorgimento (unification 1861–1870), Italy sought imperial prestige to match Britain and France.\n  - After losing Tunisia to France in 1881, Italy was determined to seize Libya (Tripolitania and Cyrenaica)—the last uncolonized North African coastline.\n  - Italian nationalists declared the Mediterranean *'Mare Nostrum'* (Our Sea) and viewed Libya as an agricultural outlet for impoverished southern Italian emigrants.\n- **The Web of Imperialist Bargains:**\n  1. **1902 with France:** Italy accepted French dominance in Morocco in exchange for France allowing Italy a free hand in Libya.\n  2. **1902 with Great Britain:** Mutual recognition of British influence in Egypt and Italian influence in Libya.\n  3. **1909 Racconigi Bargain with Russia:** Italy supported Russian passage through the Bosphorus/Dardanelles straits in return for Russia supporting Italian ambitions in Tripoli.\n\n### 2. 'Peaceful Penetration' (At-Tasallul Al-Silmī) and Invasion (1911)\n- Before landing troops, Italy laid economic and cultural foundations:\n  - Opened widespread branches of the **Banco di Roma** to monopolize commercial credit and land mortgages.\n  - Established Catholic missionary schools, orphanages, and Italian hospital networks.\n  - Sponsored archaeological missions claiming Roman ancestral ownership.\n- **Invasion (September 1911):** Italy issued an ultimatum to the Ottoman Empire and landed naval forces in Tripoli, Benghazi, Derna, and Tobruk.\n- **Treaty of Ouchy-Lausanne (1912):** Facing the Balkan Wars in Europe, the Ottoman Empire signed peace, withdrawing its formal troops and leaving Libyan tribes to fight alone.\n\n### 3. Rise of Fascism (1922) and the Struggle with the Senussi\n- In 1922, **Benito Mussolini** and his Fascist Party took power in Rome, declaring that Libya was an integral shore of Italy and ordering the ruthless subjugation of the interior.\n- Emir **Muhammad Idris al-Senussi** led political resistance; following escalating Fascist crackdowns, he moved to Egypt to lead political advocacy.\n\n### 4. Omar al-Mukhtar: The Lion of the Desert (1923–1931)\n- Sheikh **Omar al-Mukhtar**, a 70-year-old Quranic teacher and Senussi leader, commanded the guerrilla war in the **Jabal al-Akhdar** (Green Mountain).\n- Mukhtar deployed brilliant hit-and-run mobile cavalry tactics, ambushing Italian columns and supply lines for nearly a decade.\n- **General Rodolfo Graziani's Scorched-Earth Policies (1930–1931):**\n  1. Built a continuous **300-kilometer barbed-wire barrier** along the Egyptian border (from the Mediterranean to Jaghbub), cutting off all food, weapons, and volunteers from Egypt.\n  2. Forcibly deported over 100,000 Libyan Bedouins into desert **concentration camps** (El Agheila, Soluch), where tens of thousands perished.\n  3. Conducted mass public hangings, poison gas bombings, and wholesale cattle slaughters.\n- **Capture and Martyrdom (September 1931):** Wounded when his horse was shot, Omar al-Mukhtar was captured. Following a sham military trial, he was publicly hanged in Soluch on September 16, 1931, cementing his legacy as an immortal symbol of Arab anti-imperialist resistance.\n\n### 5. WWII, The Egyptian Diplomatic Crusade, and Libyan Independence (1951)\n- During World War II, Libyan nationalists allied with Great Britain to liberate their country from Axis forces.\n- Following the defeat of Italy and Germany (1943), British forces occupied Cyrenaica and Tripolitania, while French forces occupied Fezzan.\n- **The Bevin-Sforza Partition Scheme (1949):** Britain and France plotted to divide Libya into separate imperial spheres of influence.\n- **Egypt's Decisive Defense:** The Egyptian delegation at the United Nations fought vigorously to preserve Libyan territorial integrity, rejecting all partition plans.\n- **UN Resolution 289 (1949):** The UN voted for a unified, sovereign Libyan state.\n- **Independence (December 24, 1951):** The United Kingdom of Libya declared full independence under King **Idris I al-Senussi**.",
+      "theoryContentAr": "### ١. دوافع الاستعمار الإيطالي وشبكة الصفقات الاستعمارية\n- **دوافع الغزو:**\n  - بعد اكتمال الوحدة الإيطالية (1870م)، سعت روما لبناء إمبراطورية استعمارية كبرى لحفظ كرامتها ومضاهاة إنجلترا وفرنسا.\n  - بعد ضياع تونس في مؤتمر برلين 1881م، رأت إيطاليا أن ليبيا (طرابلس وبرقة) هي الرقعة الوحيدة المتبقية غير المستعمرة في شمال إفريقيا.\n  - روج القوميون الإيطاليون لفكرة إحياء الإمبراطورية الرومانية القديمة واعتبروا البحر المتوسط بحيرة إيطالية («بحرنا» / Mare Nostrum)، واعتبار ليبيا متنفساً للمهاجرين الإيطاليين الفقراء.\n- **شبكة الصفقات الاستعمارية الدولية:**\n  ١. **مع فرنسا (1902م):** إطلاق يد إيطاليا في ليبيا مقابل إطلاق يد فرنسا في المغرب.\n  ٢. **مع إنجلترا (1902م):** تفاهم متبادل باعتراف إيطاليا بنفوذ بريطانيا في مصر مقابل اعتراف بريطانيا بنفوذ إيطاليا في ليبيا.\n  ٣. **صفقة راكونيجي مع روسيا (1909م):** وافقت إيطاليا على تحكم روسيا في مضايق البوسفور والدردنيل مقابل موافقة روسيا على انفراد إيطاليا بطرابلس.\n\n### ٢. التغلغل السلمي والاقتصادي والغزو العسكري (1911م)\n- مهدت إيطاليا لغزوها بـ «التسلل السلمي والاقتصادي»:\n  - إنشاء فروع لـ **بنك روما (Banco di Roma)** للسيطرة على حركة الاستثمار والائتمان والرهون العقارية.\n  - تأسيس المدارس الإرسالية الكاثوليكية والمستشفيات، وإرسال البعثات التبشيرية والأثرية.\n- **الغزو العسكري (سبتمبر 1911م):** وجهت إيطاليا إنذاراً للدولة العثمانية وبدأت قصف وإنزال قواتها في طرابلس وبنغازي ودرنة وطبرق.\n- **معاهدة أوشي لوزان (1912م):** اضطرت الدولة العثمانية للانسحاب من ليبيا وعقد الصلح مع إيطاليا بسبب اندلاع حرب البلقان في أوروبا، تاركة الشعب الليبي يواجه الغزو بمفرده.\n\n### ٣. صعود الفاشية (1922م) والمواجهة مع الحركة السنوسية\n- بوصول **بينيتو موسوليني** والحزب الفاشي لحكم إيطاليا عام 1922م، أعلن أن ليبيا جزء لا يتجزأ من إيطاليا، وبدأ سياسة حربية شرسة لإخضاع القبائل.\n- قاد الأمير **محمد إدريس السنوسي** المقاومة؛ ومع اشتداد بطش الفاشيين انتقل إلى مصر عام 1923م ليقود العمل السياسي من هناك.\n\n### ٤. جهاد أسد الصحراء: الشيخ عمر المختار (1923–1931م)\n- قاد الشيخ المجاهد **عمر المختار** (وهو في السبعين من عمره) حركة المقاومة الوطنية في **الجبل الأخضر** ببرقة.\n- أدار حرب عصابات بالغة الدقة والبراعة، ملحقاً هزائم متتالية بالقوات الإيطالية على مدار نحو عشر سنوات.\n- **وحشية السفاح رودولفو جراتسياني (1930–1931م):**\n  ١. إنشاء **خط من الأسلاك الشائكة بطول 300 كم** بمحاذاة الحدود المصرية لعزل المقاومة عن الدعم والمؤن المصرية.\n  ٢. حشر أكثر من 100 ألف مدني ليبي في **معتقلات جماعية صحراوية** رهيبة (العقيلة، سلوق، سيدي أحمد) مات فيها عشرات الآلاف.\n  ٣. استخدام الطائرات والغازات السامة، وحرق المحاصيل وإبادة الماشية.\n- **الأسر والاستشهاد (سبتمبر 1931م):** أُصيب فرس الشيخ وسقط أسيراً، وحوكم محاكمة عسكرية صورية ظالمة، وأُعدم شنقاً في بلدة «سلوق» في 16 سبتمبر 1931م أمام أهالي بلدته، ليتحول استشهاده إلى شعلة خالدة في الوجدان الإنساني.\n\n### ٥. الحرب العالمية الثانية والدور المصري واستقلال ليبيا (1951م)\n- تحالف الليبيون مع بريطانيا في الحرب العالمية الثانية لطرد قوات المحور (إيطاليا وألمانيا).\n- بهزيمة المحور (1943م)، خضعت برقة وطرابلس للإدارة الإنجليزية وخضعت فزان للإدارة الفرنسية.\n- **مشروع بيفن - سفورزا لتقسيم ليبيا (1949م):** سعت إنجلترا وفرنسا لتقسيم ليبيا إلى ثلاث مناطق نفوذ استعمارية.\n- **الموقف الدبلوماسي المصري الحاسم:** خاضت مصر معركة دبلوماسية تاريخية في الأمم المتحدة ورفضت أي تقسيم للتراب الليبي، ودعمت وحدة أراضيه.\n- **قرار الأمم المتحدة رقم 289 (1949م):** نص على استقلال ليبيا دولة واحدة موحدة، وأُعلن قيام **المملكة الليبية المتحدة** رسمياً في 24 ديسمبر 1951م وتتويج الملك **محمد إدريس السنوسي** ملكاً عليها.",
+      "formulas": [
+        {
+          "labelEn": "Graziani's Scorched-Earth Siege Equation",
+          "labelAr": "معادلة حصار جراتسياني للمقاومة الليبية",
+          "latex": "\\text{الأسلاك الشائكة 300 كم} + \\text{المعتقلات الصحراوية} + \\text{حرق المحاصيل} \\implies \\text{عزل المقاومة وأسر عمر المختار}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Egyptian & Arab Historiography (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر والبلاد العربية الحديث - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH5-L5",
+        "pageRange": "pp. 140–149"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch5_ws5",
+        "titleEn": "EG-Bac Analytical Seminar 5.5: Italian Imperialism in Libya & Omar al-Mukhtar's Jihad",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٥-٥: الاستعمار الإيطالي في ليبيا وملحمة جهاد عمر المختار",
+        "descriptionEn": "Analytical assessment of Italian economic penetration, Fascist atrocities under Graziani, Omar al-Mukhtar's martyrdom, and Egypt's role in Libyan independence.",
+        "descriptionAr": "تقييم تحليلي للتغلغل الاقتصادي الإيطالي، فظائع الفاشية بقيادة جراتسياني، استشهاد عمر المختار، ودور مصر في صون وحدة واستقلال ليبيا.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_resistance_lab",
+        "titleEn": "Omar al-Mukhtar's Desert Battles Interactive Map",
+        "titleAr": "خريطة معارك جهاد الشيخ عمر المختار في الجبل الأخضر",
+        "descriptionEn": "Interactive map charting Omar al-Mukhtar's guerrilla ambushes in Cyrenaica and Graziani's barbed-wire barrier.",
+        "descriptionAr": "معمل تفاعلي لتتبع معارك أسد الصحراء في الجبل الأخضر ببرقة وخط الأسلاك الشائكة الإيطالي."
+      },
+      "lessonPlan": {
+        "titleEn": "Italian Colonization of Libya: Fascist Brutality & The Jihad of Omar al-Mukhtar",
+        "titleAr": "استعمار إيطاليا لليبيا: الفاشية وبطش جراتسياني وجهاد عمر المختار",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-505",
+        "bloomsObjectivesEn": [
+          "Analyze Italy's imperial motives and peaceful economic penetration through the Banco di Roma.",
+          "Critique General Graziani's barbaric counter-insurgency policies including the 300-km barbed wire barrier.",
+          "Evaluate the decisive diplomatic role of Egypt at the United Nations in preventing the partition of Libya."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الدوافع الاستعمارية لإيطاليا وأسلوب التغلغل الاقتصادي السلمي عبر بنك روما والمدارس.",
+          "نقد السياسات العسكرية الفاشية الوحشية لجراتسياني وإقامة جدار الأسلاك الشائكة ومعتقلات الإبادة.",
+          "تقويم الموقف الدبلوماسي التاريخي لمصر في الأمم المتحدة لمنع تقسيم ليبيا والحفاظ على وحدتها."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of the Scramble for Africa, Italian unification, and WWI alliances."
+        ],
+        "prerequisitesAr": [
+          "استيعاب تداعيات التنافس الاستعماري على إفريقيا ومؤتمر برلين وأثر الحربين العالميتين."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Peaceful Penetration",
+            "definition": "Pre-invasion strategy using financial institutions (Banco di Roma) and cultural missions to establish colonial control."
+          },
+          {
+            "term": "Fascism",
+            "definition": "Aggressive Italian totalitarian regime under Mussolini seeking to recreate the ancient Roman Mediterranean empire."
+          },
+          {
+            "term": "Bevin-Sforza Plan",
+            "definition": "Anglo-French partition project for post-WWII Libya defeated by Egyptian diplomatic resistance at the UN."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "التغلغل السلمي",
+            "definition": "أسلوب استعماري يسبق الغزو العسكري عبر البنوك (بنك روما) والمدارس التبشيرية والمصالح الاقتصادية."
+          },
+          {
+            "term": "الفاشية",
+            "definition": "نظام سياسي ديكتاتوري استبدادي بقيادة موسوليني في إيطاليا سعى لإحياء مجد الإمبراطورية الرومانية بالقوة العسكرية."
+          },
+          {
+            "term": "مشروع بيفن - سفورزا",
+            "definition": "مشروع أنجلو-فرنسي لتقسيم ليبيا بعد الحرب العالمية الثانية أحبطته الدبلوماسية المصرية في الأمم المتحدة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Photographic Analysis",
+            "phaseAr": "التهيئة والتحليل الصوري",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the photograph of Omar al-Mukhtar in chains facing his Italian captors.",
+            "activitiesAr": "عرض صورة الشيخ عمر المختار مكبلاً بالأغلال أمام محاكمته الصورية ومناقشة هيبة الحق في وجه الطغيان."
+          },
+          {
+            "phaseEn": "Economic Penetration & Fascist Brutality",
+            "phaseAr": "الشرح المنهجي للغزو والبطش الفاشي",
+            "duration": "45 min",
+            "activitiesEn": "Detail the Banco di Roma, 1911 war, Mussolini's ascension, Graziani's barbed wire and camps.",
+            "activitiesAr": "شرح دور بنك روما والغزو العسكري وسياسة الفاشية والأسلاك الشائكة على حدود مصر ومعتقلات الإبادة."
+          },
+          {
+            "phaseEn": "Martyrdom & Egypt's UN Defense of Unity",
+            "phaseAr": "تحليل الاستشهاد والدور المصري بالأمم المتحدة",
+            "duration": "20 min",
+            "activitiesEn": "Analyze the impact of Mukhtar's execution and Egypt's defeat of the Bevin-Sforza partition plan.",
+            "activitiesAr": "بيان تداعيات استشهاد أسد الصحراء ودور الدبلوماسية المصرية في صون وحدة ليبيا واستقلالها 1951م."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 ministerial-standard MCQs on Libyan colonial history.",
+            "activitiesAr": "حل تدريبات تقويمية تحاكي امتحانات الثانوية العامة في تحليل جهاد عمر المختار والدور المصري."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Italy conquered Libya for rich petroleum deposits, which were only discovered decades after WWII in the late 1950s."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن إيطاليا احتلت ليبيا لثرواتها البترولية، بينما لم يُكتشف البترول إلا بعد انتهاء الاستعمار في أواخر الخمسينيات."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide an infographic contrasting the geography of Graziani's border wire with Egypt and the location of concentration camps.",
+          "advanced": "Evaluate the legal debate in the UN General Assembly surrounding Resolution 289 and the defeat of the Bevin-Sforza partition plan."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم إنفوجرافيك يوضح مسار الأسلاك الشائكة على طول الحدود المصرية ومواقع المعتقلات لتسهيل التصور المكاني.",
+          "advanced": "تحليل المداولات القانونية والدبلوماسية في الجمعية العامة للأمم المتحدة التي أدت لصدور القرار 289 وإسقاط مشروع بيفن - سفورزا."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs and document evaluation on Omar al-Mukhtar and Libyan independence.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد فظائع الفاشية وتقويم الدور الدبلوماسي لمصر في نيل ليبيا استقلالها الموحد.",
+        "exitTicketQuestion": {
+          "questionEn": "What decisive defensive measure did General Graziani take along the Egyptian border to isolate Omar al-Mukhtar's fighters?",
+          "questionAr": "ما الإجراء الحاسم الذي اتخذه الجنرال جراتسياني على طول الحدود المصرية لعزل مقاتلي عمر المختار؟",
+          "solutionEn": "He constructed a continuous 300-kilometer barbed-wire barrier from the Mediterranean to the southern desert to cut off all supplies and volunteers from Egypt.",
+          "solutionAr": "أنشأ سياجاً من الأسلاك الشائكة بطول 300 كم لعزل المقاومة تماماً عن أي إمدادات أو نجدة قادمة من مصر."
+        }
+      }
+    }
+  ],
+      databank: historyCh5Databank,
+      solvedExamples: egBacHistoryCh5SolvedExamples,
+      exerciseProblems: egBacHistoryCh5Exercises
+    },
+    {
+  "id": "th_hist_ch6",
+  "chapterNumber": 6,
+  "titleEn": "Unit 6: Arab Countries After WWI (The Arab Revolt, Mandates & Treaties)",
+  "titleAr": "الفصل السادس: البلاد العربية بعد الحرب العالمية الأولى (الثورة العربية، الانتداب، التحرر)",
+  "descriptionEn": "Fall of the Ottoman Empire, the Great Arab Revolt (1916) led by Sharif Hussein of Mecca, McMahon correspondence, imperialist conspiracies (Sykes-Picot Agreement 1916, San Remo Conference 1920), French mandate over Syria and Lebanon (Sultan al-Atrash 1925 revolt), British mandate over Iraq (1920 Great Iraqi Revolution and Anglo-Iraqi treaties), and the unification of Saudi Arabia under King Abdulaziz Al Saud to the 1934 Treaty of Taif.",
+  "descriptionAr": "سقوط الدولة العثمانية وإعلان الثورة العربية الكبرى 1916م للشريف حسين، مراسلات حسين - مكماهون، مؤامرات سايكس بيكو 1916م ومؤتمر سان ريمو 1920م، الانتداب الفرنسي على سوريا ولبنان وثورة 1925م الكبرى، والانتداب البريطاني على العراق وثورة العشرين 1920م والمعاهدات حتى ثورة 1958م، وتوحيد المملكة العربية السعودية بقيادة الملك عبد العزيز آل سعود حتى معاهدة الطائف 1934م.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "egbac_hist_ch6_l1",
+      "titleEn": "EG-Bac Seminar: The Great Arab Revolt (1916): Damascus Protocol, McMahon Correspondence & The Preemptive Spark",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: الثورة العربية الكبرى 1916م: ميثاق دمشق، مراسلات حسين - مكماهون، وإعلان الثورة",
+      "summaryEn": "Ottoman entry into WWI under Enver and Djemal Pasha, Sultan Mehmed V's proclamation of Islamic Jihad (Nafir Amm) provoking British imperial terror over Egypt and India, Sharif Hussein bin Ali's geopolitical aspirations, the 1915 Damascus Protocol drafted by Al-Fatat and Al-Ahd secret societies, the evasive McMahon-Hussein correspondence rejecting Arab borders, Jamal Pasha the Butcher's horrific purges and public executions in Beirut and Damascus, and Sharif Hussein's preemptive firing of the first rifle shot of the Great Arab Revolt from Mecca on June 10, 1916.",
+      "summaryAr": "دخول الدولة العثمانية الحرب العالمية الأولى بتأثير أنور وجمال باشا، إعلان السلطان للجهاد المقدس (النفير العام) والفزع الاستعماري البريطاني في مصر والهند، طموحات الشريف حسين بن علي القومية، ميثاق دمشق 1915م لجمعيتي الفتاة والعهد، مراسلات الحسين - مكماهون ومراوغات الإنجليز لرفض حدود الدولة العربية، محاكمات وإعدامات جمال باشا السفاح للأحرار في بيروت ودمشق، وإطلاق الشريف حسين للرصاصة الأولى للثورة العربية الكبرى من مكة المكرمة في 10 يونيو 1916م دفاعاً عن النفس.",
+      "theoryContentEn": "### 1. Ottoman Entry into World War I & The Declaration of Holy Jihad (November 1914)\n- **Alliances & War Entry:** In October 1914, two German warships (*Goeben* and *Breslau*), flying Ottoman flags, bombarded Russian Black Sea ports (Odessa and Sevastopol), dragging the Ottoman Empire into WWI alongside Germany and Austria-Hungary.\n- **The Proclamation of Jihad (Al-Nafīr Al-ʿĀmm):** In November 1914, the Ottoman Sultan-Caliph declared Holy Jihad against Britain, France, and Russia.\n- **British Strategic Panic:** Britain was gripped by profound panic because it ruled over **50 million Indian Muslims** and controlled Egypt and the Suez Canal. A universal Islamic uprising had the potential to shatter the British Empire from within.\n- **British Counter-Strategy:** To neutralize the Sultan's religious prestige, Britain sought an Islamic figure of eminent religious authority and Hashemite prophetic lineage to challenge Ottoman legitimacy: **Sharif Hussein bin Ali**, the Emir of Mecca.\n\n### 2. Sharif Hussein's Ambitions & The Damascus Protocol (1915)\n- Sharif Hussein harbored deep-seated aspirations to establish an independent Arab state embracing the Arabian Peninsula, Syria, and Iraq, and to assume the Islamic Caliphate.\n- His son, **Prince Faisal bin Hussein**, traveled to Damascus in 1915 and allied with secret Arab nationalist organizations (**Al-Fatat** and **Al-ʿAhd**).\n- **The Damascus Protocol (Mīthāq Dimashq 1915):** The nationalist leaders drew up a charter outlining Arab conditions for entering an alliance with Britain:\n  - Total British recognition of an independent Arab state bounded by:\n    - **North:** Mersin, Adana, to the 37th parallel (encompassing Cilicia and border Syrian provinces).\n    - **East:** The Persian frontier to the Arabian Gulf.\n    - **South:** The Indian Ocean (excluding Aden).\n    - **West:** The Red Sea and the Mediterranean Sea.\n  - Mutual defensive alliance and the abolishment of foreign capitulations.\n\n### 3. The McMahon-Hussein Correspondence (July 1915 – March 1916)\n- Sharif Hussein submitted the territorial boundaries of the Damascus Protocol to **Sir Henry McMahon**, British High Commissioner in Egypt.\n- **McMahon's Calculated Rejections and Pretexts:**\n  1. **Coastal Syria Exclusion:** McMahon insisted that Mersin, Alexandretta, and parts of Syria lying west of Damascus, Homs, Hama, and Aleppo (modern Lebanon and the Syrian coast) *\"cannot be said to be purely Arab, and should be excluded from the boundaries\"* because they fell under the imperial interests of Britain's ally, **France**.\n  2. **Southern Iraq Exclusion:** Britain insisted on direct colonial administrative control over the provinces of **Basra and Baghdad**, offering Hussein financial compensation.\n  3. **Persian Gulf Treaties:** Britain excluded the Arabian Gulf emirates, citing pre-existing exclusive protectorate treaties signed between 1820 and 1899.\n  4. **Southern Arabian Exclusion:** Britain excluded **Aden** as a sovereign British military fortress.\n- Despite McMahon's evasions, Sharif Hussein postponed resolving the border dispute until the war's conclusion, naively trusting British verbal promises of post-war liberation.\n\n### 4. Jamal Pasha the Butcher & The Preemptive Spark of the Revolt (June 1916)\n- **Jamal Pasha's Defeat at Suez:** Ottoman Minister of Marine **Jamal Pasha** led the Fourth Army to attack the Suez Canal in early 1915. Defeated by British defenses, he blamed Arab soldiers and leaders for treachery.\n- **Seizure of Incriminating Documents:** Ottoman forces raided French consulates in Beirut and Damascus, uncovering letters and membership lists of nationalist leaders communicating with European consuls.\n- **The Executions of May 6, 1916:** Jamal Pasha established a supreme military tribunal at Aley (Mount Lebanon), handing down death sentences. Prominent Arab intellectuals, journalists, and deputies were hanged in public squares in Damascus (Marjeh Square) and Beirut (now Martyrs' Square).\n- **The Immediate Trigger:** Jamal Pasha dispatched a crack Ottoman division under **Wahib Pasha** to Hijaz with orders to depose and execute Sharif Hussein.\n- **The Preemptive Shot:** Realizing that hesitation meant certain death on Jamal Pasha's gallows, Sharif Hussein seized the initiative. On **June 10, 1916**, he fired the first rifle shot from his palace balcony in Mecca, proclaiming the **Great Arab Revolt**.\n\n### 5. Military Campaigns & Liberation of the Levant (1916–1918)\n- Arab forces under Hussein's sons (**Ali, Abdullah, Faisal, and Zeid**), assisted by British liaison officer **T.E. Lawrence**, scored rapid victories:\n  - Liberated Mecca, Jeddah, Taif, and coastal Hijazi ports, isolating the Ottoman garrison in Medina under Fakhri Pasha.\n  - **Capture of Aqaba (July 1917):** Arab forces made an audacious desert march, capturing the fortified Red Sea port of Aqaba and securing British maritime supply lines for General Allenby's Palestine campaign.\n  - **The Liberation of Damascus (October 1918):** Prince Faisal's Northern Arab Army swept through Transjordan, severed the Hijaz Railway, routed Ottoman rear guards, and triumphantly liberated **Damascus, Homs, Hama, and Aleppo** before the Armistice of Mudros (October 30, 1918).",
+      "theoryContentAr": "### ١. دخول الدولة العثمانية الحرب العالمية الأولى وإعلان الجهاد المقدس (نوفمبر 1914م)\n- **دخول الحرب:** في أكتوبر 1914م، قامت قطعتان حربيتان ألمانيتان (*غوبن* و*برسلاو*) ترفعان العلم العثماني بقصف الموانئ الروسية في البحر الأسود (أوديسا وسيفاستوبول)، فدخلت الدولة العثمانية الحرب رسمياً بجانب معسكر الوسط (ألمانيا والنمسا والمجر).\n- **إعلان الجهاد المقدس (النفير العام):** في نوفمبر 1914م، أصدر السلطان العثماني (بصفته خليفة المسلمين) فتوى إعلان الجهاد المقدس ضد دول الحلفاء (بريطانيا وفرنسا وروسيا).\n- **الفزع الإمبريالي البريطاني:** أصاب إعلان الجهاد بريطانيا برعب استراتيجي عميق؛ لكونها تحكم إمبراطورية تضم ما يزيد على **50 مليون مسلم في الهند**، فضلاً عن وجودها العسكري في مصر وسيطرتها على قناة السويس؛ فخافت من انفجار تمرد إسلامي عالمي يعصف بمصالحها.\n- **البحث عن زعيم إسلامي بديل:** لإسقاط الشرعية الدينية عن دعوة السلطان، بحثت بريطانيا عن شخصية إسلامية هاشمية تتمتع برمزية دينية وشرعية مقدسة؛ فوقع اختيارها على **الشريف حسين بن علي** أمير مكة المكرمة.\n\n### ٢. طموحات الشريف حسين وميثاق دمشق (1915م)\n- تطلعت طموحات الشريف حسين لإقامة دولة عربية كبرى تضم شبه الجزيرة العربية وبلاد الشام والعراق، وأن يُنادى به خليفة للمسلمين بدلاً من السلطان العثماني.\n- أرسل الشريف حسين ابنه **الأمير فيصل** لدمشق عام 1915م لتقصي الموقف العربي، فاتصل بالجمعيات الوطنية السرية (**جمعية الفتاة** و**جمعية العهد**).\n- **ميثاق دمشق (1915م):** وضعت القيادات الوطنية ميثاقاً قومياً حدد شروط العرب للتحالف مع بريطانيا وإعلان الثورة:\n  - اعتراف بريطانيا باستقلال دولة عربية كاملة السيادة بحدودها الطبيعية:\n    - **شمالاً:** خط مرسين وأطنة حتى خط عرض 37 شمالاً (شاملاً كيليكيا والولايات السورية).\n    - **شرقاً:** حدود إيران حتى الخليج العربي.\n    - **جنوباً:** المحيط الهندي (باستثناء عدن المحتلة).\n    - **غرباً:** البحر الأحمر والبحر المتوسط.\n  - عقد تحالف دفاعي بين بريطانيا والدولة العربية وإلغاء الامتيازات الأجنبية.\n\n### ٣. مراسلات الحسين - مكماهون ومراوغات الإنجليز (يوليو 1915 – مارس 1916م)\n- تبادل الشريف حسين الخطابات مع **السير هنري مكماهون** المندوب السامي البريطاني في مصر مقدماً حدود ميثاق دمشق كأساس للثورة.\n- **مراوغات واستثناءات مكماهون الاستعمارية:**\n  ١. **استثناء غرب بلاد الشام:** ادعى مكماهون أن أجزاء الشام الواقعة غرب دمشق وحمص وحماة وحلب (أي الساحل السوري ولبنان) *\"لا يمكن القول إنها عربية خالصة\"*، ولذلك يجب استثناؤها لوجود مصالح لحليفتها **فرنسا**.\n  ٢. **استثناء ولايتي البصرة وبغداد:** تمسكت بريطانيا بوضعهما تحت الإدارة البريطانية المباشرة لتأمين خطوط مواصلاتها للهند مقابل تعويض مالي.\n  ٣. **استثناء مشيخات الخليج العربي:** رفضت بريطانيا شمولها بالدولة العربية؛ لارتباطها باتفاقيات حماية ومعاهدات صلح مع التاج البريطاني منذ 1820م.\n  ٤. **استثناء عدن:** بصفتها قاعدة استراتيجية محتلة بريطانياً منذ 1839م.\n- ورغم هذه المراوغات التي أفرغت الدولة من معناها، أرجأ الشريف حسين حسم مسألة الحدود لما بعد نهاية الحرب، معولاً بحسن نية ساذج على الوعود الشفهية لبريطانيا بمكافأة العرب على وقفتهم.\n\n### ٤. بطش جمال باشا السفاح وإعلان الثورة كدفاع عن النفس (يونيو 1916م)\n- **هزيمة حملة ترعة السويس:** قاد **جمال باشا** (وزير البحرية وقائد الجيش الرابع العثماني) حملة فاشلة لاقتحام قناة السويس مطلع 1915م؛ فحمل العرب وزر الهزيمة واتهمهم بالخيانة.\n- **اكتشاف وثائق القنصليات:** عثرت القوات التركية على وثائق ومراسلات تدين زعماء الحركة الوطنية في القنصليتين الفرنسيتين ببيروت ودمشق.\n- **مشانق 6 مايو 1916م:** شكل جمال باشا محكمة عسكرية عرفية في «عاليه» بجبل لبنان، وأصدر أحكاماً بالإعدام شنقاً على خيرة مفكري ونواب وأعيان الشام في ساحتي المرجة بدمشق والشهداء ببيروت.\n- **الدافع المباشر للثورة:** أرسل جمال باشا فرقة عسكرية عثمانية بقيادة **وهيب باشا** للحجاز بحجة التوجه لليمن، وكان هدفها الحقيقي عزل الشريف حسين والقبض عليه وإعدامه مع أبنائه.\n- **إطلاق الثورة:** أدرك الشريف حسين أن التردد يعني الموت المحتوم على مشانق الأتراك؛ فبادر بالتحرك الاستباقي وفي **10 يونيو 1916م** أطلق الرصاصة الأولى للثورة العربية الكبرى من شرفة قصره بمكة المكرمة.\n\n### ٥. العمليات العسكرية للثورة وتحرير الشام (1916–1918م)\n- قاد أبناء الشريف حسين (**علي وعبد الله وفيصل وزيد**) العمليات بمساعدة ضباط الارتباط البريطانيين (وعلى رأسهم توماس إدوارد لورنس):\n  - تم تحرير مكة وجدة والطائف وموانئ ينبع والوجه، ومحاصرة حامية المدينة المنورة بقيادة فخري باشا.\n  - **معركة العقبة (يوليو 1917م):** قامت القوات العربية بزحف صحراوي التفافي بقيادة عودة أبو تايه، وحررت ميناء العقبة الاستراتيجي في البحر الأحمر، مما أمن قاعدة إمداد بحرية لجيش أللنبي في فلسطين.\n  - **تحرير دمشق (أكتوبر 1918م):** تقدمت قوات الجيش العربي الشمالي بقيادة الأمير فيصل، وقطعت سكة حديد الحجاز، وطردت القوات العثمانية ودخلت **دمشق وحمص وحماة وحلب**، ورفعت راية الثورة العربية قبل توقيع هدنة مودروس (30 أكتوبر 1918م).",
+      "formulas": [
+        {
+          "labelEn": "The Arab Revolt Geopolitical Paradox",
+          "labelAr": "معادلة المفارقة الجيوسياسية للثورة العربية الكبرى",
+          "latex": "\\text{ميثاق دمشق 1915} \\implies \\text{خداع مكماهون} + \\text{إعدامات جمال باشا} \\implies \\text{الثورة العربية 1916} \\implies \\text{خيانة سايكس بيكو}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of the Arab East After WWI (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ المشرق العربي بعد الحرب العالمية الأولى - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH6-L1",
+        "pageRange": "pp. 150–159"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch6_ws1",
+        "titleEn": "EG-Bac Analytical Seminar 6.1: The Great Arab Revolt & McMahon Correspondence",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٦-١: الثورة العربية الكبرى ومراسلات حسين - مكماهون",
+        "descriptionEn": "Source critique, cartographic analysis, and causal evaluation of the Damascus Protocol, McMahon's letters, and Jamal Pasha's trials.",
+        "descriptionAr": "نقد وثائق تاريخية، قراءة خرائط الحدود، وتقييم سببي لميثاق دمشق ومراوغات مكماهون ومحاكمات جمال باشا السفاح.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_revolt_map",
+        "titleEn": "Great Arab Revolt Campaign Map (1916–1918)",
+        "titleAr": "خريطة مسار معارك الثورة العربية الكبرى (1916–1918م)",
+        "descriptionEn": "Interactive military map charting the Arab Revolt from Mecca through the Hijaz Railway, Aqaba, to Damascus.",
+        "descriptionAr": "معمل خرائط تفاعلي لتتبع مسار قوات الثورة من مكة وجدة وسكة حديد الحجاز حتى تحرير العقبة ودمشق."
+      },
+      "lessonPlan": {
+        "titleEn": "The Great Arab Revolt (1916): Damascus Protocol & McMahon Correspondence",
+        "titleAr": "الثورة العربية الكبرى: ميثاق دمشق ومراسلات مكماهون وإعلان الثورة",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-601",
+        "bloomsObjectivesEn": [
+          "Analyze why the Ottoman Jihad declaration caused strategic panic in Great Britain.",
+          "Critique Sir Henry McMahon's systematic exclusions of Arab territory in his correspondence with Sharif Hussein.",
+          "Evaluate the urgent catalysts that compelled Sharif Hussein to declare the Arab Revolt preemptively in June 1916."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل أسباب الفزع الاستراتيجي البريطاني من إعلان السلطان العثماني للجهاد المقدس.",
+          "نقد استثناءات مكماهون الجغرافية للحدود العربية ومقارنتها بميثاق دمشق 1915م.",
+          "تقويم الدوافع الحتمية التي جعلت إعلان الشريف حسين للثورة في يونيو 1916م عملاً استباقياً للدفاع عن النفس."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of WWI alliances and Ottoman administrative history in the Levant."
+        ],
+        "prerequisitesAr": [
+          "استيعاب أبعاد تحالفات الحرب العالمية الأولى وأحوال الولايات العربية العثمانية قبيل 1914م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Damascus Protocol (1915)",
+            "definition": "Charter produced by Al-Fatat and Al-Ahd secret societies outlining borders of an independent Arab state."
+          },
+          {
+            "term": "Nafir Amm (Jihad)",
+            "definition": "Ottoman decree summoning all Muslims worldwide to wage holy war against the Entente."
+          },
+          {
+            "term": "Preemptive Rebellion",
+            "definition": "Sharif Hussein's declaration of revolt to avoid deposition and execution by Jamal Pasha and Wahib Pasha."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "ميثاق دمشق 1915م",
+            "definition": "وثيقة قومية وضعتها جمعيتا الفتاة والعهد حددت شروط العرب والحدود الجغرافية للاستقلال."
+          },
+          {
+            "term": "النفير العام (الجهاد المقدس)",
+            "definition": "مرسوم ديني أصدره شيخ الإسلام والسلطان العثماني لاستنفار مسلمي العالم ضد الحلفاء."
+          },
+          {
+            "term": "الثورة الاستباقية",
+            "definition": "إعلان الشريف حسين للحرب على الأتراك لحماية نفسه بعد اكتشاف وثائق الوطنيين وإرسال وهيب باشا لعزله."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Map Inquiry",
+            "phaseAr": "التهيئة والتحفيز الخرائطي",
+            "duration": "10 min",
+            "activitiesEn": "Compare the Damascus Protocol map with the Sykes-Picot partition map.",
+            "activitiesAr": "عرض خريطة حدود ميثاق دمشق ومقارنتها بخريطة التقسيم الاستعماري لإبراز حجم الخداع الإنجليزي."
+          },
+          {
+            "phaseEn": "Jihad Proclamation & McMahon Evasions",
+            "phaseAr": "الشرح المنهجي لإعلان الجهاد ومراسلات مكماهون",
+            "duration": "45 min",
+            "activitiesEn": "Detail British fear of pan-Islamism, McMahon's letters, and territorial exclusions.",
+            "activitiesAr": "شرح فزع بريطانيا من الجهاد الإسلامي ومراسلات مكماهون والذرائع الواهية لاستبعاد الشام والعراق."
+          },
+          {
+            "phaseEn": "Jamal Pasha's Terror & The Preemptive Spark",
+            "phaseAr": "تحليل إعدامات السفاح وانطلاق الثورة",
+            "duration": "20 min",
+            "activitiesEn": "Analyze Jamal Pasha's trials, Martyrs' Day, Wahib Pasha's force, and the June 10 shot.",
+            "activitiesAr": "دراسة محاكمات عاليه وإعدامات 6 مايو وإرسال وهيب باشا وإطلاق الرصاصة الأولى بمكة."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Answer 5 ministerial-standard MCQs on the 1916 Arab Revolt.",
+            "activitiesAr": "حل تدريبات تقويمية تحاكي امتحانات الثانوية العامة في تحليل دوافع ونتائج الثورة العربية الكبرى."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Sharif Hussein rebelled purely out of imperial greed, rather than being trapped between immediate execution by Jamal Pasha and an unpromising alliance with Britain."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن الشريف حسين تمرد طمعاً شخصياً فقط، متجاهلين أنه كان محاصراً بخطر الإعدام المحتوم بعد افتضاح الوثائق وإرسال وهيب باشا لخلعه."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide side-by-side comparison tables of what Sharif Hussein asked for vs what McMahon granted.",
+          "advanced": "Evaluate the primary diplomatic cables of Mark Sykes analyzing British calculations between Hashemite promises and French alliances."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جدول مقارنة مبسط يوضح ما طلبه الشريف حسين في ميثاق دمشق في مقابل ما رفضه مكماهون لتسهيل الفهم.",
+          "advanced": "تحليل نصوص البرقيات السرية لوزارة الخارجية البريطانية التي ناقشت كيفية الموازنة بين وعود الشريف حسين ومطامع فرنسا الاستعمارية."
+        },
+        "formativeAssessmentEn": "Ministerial MCQs evaluating the Arab Revolt, Damascus Protocol, and British deception.",
+        "formativeAssessmentAr": "أسئلة موضوعية ومقالية تقيس قدرة الطالب على نقد مراوغات مكماهون وتفسير اضطرار الشريف حسين لإعلان الثورة.",
+        "exitTicketQuestion": {
+          "questionEn": "Why was the capture of Aqaba in July 1917 a decisive operational breakthrough for the Arab Revolt?",
+          "questionAr": "لماذا مثلت السيطرة على ميناء العقبة في يوليو 1917م نقطة تحول استراتيجية حاسمة للثورة العربية؟",
+          "solutionEn": "It provided a deep-water naval supply port linking the Arab army to the British fleet and protected General Allenby's flank in Palestine.",
+          "solutionAr": "لأنها أمنت قاعدة إمداد بحرية للثوار عبر الأسطول الإنجليزي، وحمت الجناح الأيمن لجيش أللنبي في فلسطين وفتحت الطريق نحو دمشق."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch6_l2",
+      "titleEn": "EG-Bac Seminar: Imperial Partition Conspiracies: Sykes-Picot Agreement (1916) & San Remo Conference (1920)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: مؤامرات التقسيم الاستعماري: اتفاقية سايكس بيكو 1916م ومؤتمر سان ريمو 1920م",
+      "summaryEn": "Tripartite secret diplomacy between Britain, France, and Tsarist Russia, terms of the Sykes-Picot Agreement (1916) partitioning the Fertile Crescent, Bolshevik exposure of the secret pact in 1917, San Remo Conference in Italy (April 1920) revising the partition into British (Iraq, Palestine) and French (Syria, Lebanon) Mandates, League of Nations Article 22, and the tragic Battle of Maysalun (July 24, 1920) where Minister of War Yusuf al-'Azma achieved immortal martyrdom resisting General Gouraud's French tanks.",
+      "summaryAr": "المفاوضات الاستعمارية السرية الثلاثية بين إنجلترا وفرنسا وروسيا القيصرية، بنود اتفاقية سايكس بيكو 1916م لتقسيم الهلال الخصيب، فضح الثورة البلشفية للوثائق السرية 1917م، مؤتمر سان ريمو بإيطاليا (أبريل 1920م) وإعادة اقتسام الانتداب (العراق وفلسطين لإنجلترا، وسوريا ولبنان لفرنسا)، المادة 22 من ميثاق عصبة الأمم، ومعركة ميسلون الخالدة (24 يوليو 1920م) واستشهاد وزير الحربية يوسف العظمة في مواجهة دبابات الجنرال غورو.",
+      "theoryContentEn": "### 1. The Sykes-Picot Conspiracy (May 1916)\n- **The Secret Negotiations:** While Britain encouraged Sharif Hussein to fight the Ottomans, British diplomat **Sir Mark Sykes** and French diplomat **François Georges-Picot** held secret talks in London and Petrograd (with Russian Foreign Minister Sazonov).\n- **The Partition Map (1916):**\n  1. **Direct French Rule (Blue Zone):** The Mediterranean coast of Syria (Alexandretta, Latakia, Tripoli, Beirut, Sidon) and Cilicia.\n  2. **Indirect French Influence (Zone A):** Syrian interior (Damascus, Homs, Hama, Aleppo) and northern Iraq (**Mosul**).\n  3. **Direct British Rule (Red Zone):** Southern Mesopotamia (Basra and Baghdad) plus the strategic ports of **Haifa** and **Acre** on the Mediterranean.\n  4. **Indirect British Influence (Zone B):** Transjordan and the desert region stretching from Palestine to Iraq.\n  5. **International Zone (Brown Zone):** Palestine, designated for international administration to appease Russian Orthodox and Christian claims.\n- **Tsarist Russia's Share:** Russia was promised Constantinople (Istanbul), the Bosphorus/Dardanelles straits, and parts of Turkish Armenia.\n\n### 2. The Bolshevik Exposure (November 1917)\n- Following the Russian October Revolution, Vladimir Lenin ordered the publication of all secret Tsarist diplomatic treaties.\n- The publication of Sykes-Picot exposed British and French deceit, proving to the Arab people that their lands had been partitioned while they were fighting as Allies.\n\n### 3. The San Remo Conference (April 1920)\n- **Need for Revision:** After WWI, Tsarist Russia was gone, the Bolsheviks renounced imperial conquests, and British forces occupied Palestine and Syria.\n- **The San Remo Settlement (Italy, April 1920):**\n  - Allied prime ministers revised Sykes-Picot to reflect physical military control on the ground:\n  - **Syria and Lebanon:** Placed entirely under the **French Mandate** (abolishing the Arab Kingdom of Syria).\n  - **Iraq:** Placed entirely under the **British Mandate**, including oil-rich **Mosul** (ceded by France in exchange for a 23.75% stake in the Turkish Petroleum Company).\n  - **Palestine:** Placed entirely under the **British Mandate**, with explicit instructions to enforce the **Balfour Declaration** (establishing a national home for the Jewish people).\n- **The Mandate Cloak (Article 22):** The League of Nations sanctified this imperialist partition as 'Class A Mandates', claiming colonized peoples required European 'tutelage'.\n\n### 4. The Battle of Maysalun & Destruction of Syrian Independence (July 24, 1920)\n- The Syrian National Congress had proclaimed Syria an independent constitutional monarchy in March 1920 under King Faisal bin Hussein.\n- Following San Remo, French General **Henri Gouraud** delivered an ultimatum demanding the dissolution of the Syrian national army and immediate acceptance of the French mandate.\n- Syrian Minister of War **Yusuf al-'Azma** refused to surrender without a fight. He gathered a small contingent of regular troops and civilian volunteers and met Gouraud's modern mechanized army at the **Maysalun Pass** west of Damascus on July 24, 1920.\n- Outgunned by French tanks and aircraft, Yusuf al-'Azma was martyred on the battlefield.\n- General Gouraud occupied Damascus the next day, entered the Umayyad Mosque, and famously proclaimed by Saladin's tomb: *\"Awake, Saladin, for we have returned!\"* King Faisal was deposed, ending independent Syrian sovereignty.",
+      "theoryContentAr": "### ١. مؤامرة اتفاقية سايكس بيكو (مايو 1916م)\n- **المفاوضات السرية:** بينما كان الشريف حسين يقاتل في الصحراء، كان الدبلوماسي البريطاني **مارك سايكس** والدبلوماسي الفرنسي **فرانسوا جورج بيكو** يقتسمان المشرق العربي بموافقة روسيا القيصرية (وزير الخارجية سازانوف).\n- **بنود تقسيم سايكس بيكو 1916م:**\n  ١. **حكم فرنسي مباشر (المنطقة الزرقاء):** ساحل الشام (مرسين، الإسكندرونة، اللاذقية، طرابلس، بيروت، صيدا) وإقليم كيليكيا.\n  ٢. **نفوذ فرنسي غير مباشر (المنطقة أ):** داخل بلاد الشام (دمشق، حمص، حماة، حلب) والموصل شمال العراق.\n  ٣. **حكم بريطاني مباشر (المنطقة الحمراء):** ولايتي البصرة وبغداد في العراق، ومينائي **حيفا** و**عكا** في فلسطين.\n  ٤. **نفوذ بريطاني غير مباشر (المنطقة ب):** جنوب الشام (شرق الأردن) وبادية الشام حتى حدود فارس.\n  ٥. **منطقة دولية (المنطقة السمراء):** فلسطين، توضع تحت إدارة دولية لمراعاة المصالح الدينية والروسية.\n- **نصيب روسيا القيصرية:** وُعدت باقتطاع القسطنطينية (إسطنبول) ومضيقي البوسفور والدردنيل وأجزاء من أرمينيا.\n\n### ٢. الفضيحة البلشفية للوثائق السرية (نوفمبر 1917م)\n- بعد قيام الثورة البلشفية في روسيا وانسحابها من الحرب، نشر لينين وثائق المعاهدات الاستعمارية السرية من أرشيف القيصر.\n- أحدث نشر سايكس بيكو صدمة مروعة للعرب، وفضح خيانة الحلفاء للشريف حسين ووثق اقتسامهم للبلاد العربية بينما كانت دماء شهدائها تسيل في الميدان.\n\n### ٣. مؤتمر سان ريمو وتعديل سايكس بيكو (أبريل 1920م)\n- **دواعي التعديل:** بسقوط روسيا القيصرية وهيمنة الجيش البريطاني على الأرض في الشام والعراق، دعا الحلفاء لمؤتمر «سان ريمو» بإيطاليا في أبريل 1920م لإعادة اقتسام الغنائم.\n- **قرارات مؤتمر سان ريمو 1920م:**\n  - وضع **سوريا ولبنان** بالكامل تحت **الانتداب الفرنسي**.\n  - وضع **العراق** بأكمله (بما في ذلك الموصل النفطية) تحت **الانتداب البريطاني**.\n  - وضع **فلسطين** بالكامل تحت **الانتداب البريطاني** مع الالتزام بتنفيذ «وعد بلفور» لإقامة وطن قومي لليهود.\n- **ستار الانتداب (المادة 22):** شرعنت عصبة الأمم هذا التقسيم الاستعماري بادعاء أن شعوب الهلال الخصيب تحتاج إلى «وصاية وأمانة حضارية» تديرها دول متقدمة حتى تقوى على حكم نفسها.\n\n### ٤. ملحمة معركة ميسلون وسقوط المملكة السورية (24 يوليو 1920م)\n- كان المؤتمر السوري العام قد أعلن استقلال سوريا الطبيعية ملكية دستورية في مارس 1920م ونصب فيصل بن الحسين ملكاً عليها.\n- بعد سان ريمو، وجه الجنرال الفرنسي **هنري غورو** إنذاراً عسكرياً تعجيزياً لحل الجيش السوري وقبول الانتداب.\n- رفض وزير الحربية الوطني البطل **يوسف العظمة** الاستسلام دون قتال، رافضاً أن يسجل التاريخ دخول فرنسا دمشق دون مقاومة؛ فخرج بجيش قليل العتاد ومتطوعين إلى **ممر ميسلون** غرب دمشق في 24 يوليو 1920م.\n- واجه العظمة دبابات وطائرات غورو واستشهد في أرض المعركة مقبلاً غير مدبر.\n- دخل غورو دمشق، وتوجه لقبر صلاح الدين الأيوبي بالمسجد الأموي وقال عبارته الشهيرة: *«ها قد عدنا يا صلاح الدين!»*، وأُسقطت المملكة السورية ونُفي الملك فيصل خارج البلاد.",
+      "formulas": [
+        {
+          "labelEn": "Mandate Transformation Formula",
+          "labelAr": "معادلة تحول الانتداب الاستعماري",
+          "latex": "\\text{سايكس بيكو 1916} \\xrightarrow{\\text{مؤتمر سان ريمو 1920}} \\text{انتداب فرنسا على سوريا ولبنان} + \\text{انتداب بريطانيا على العراق وفلسطين}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of the Arab East After WWI (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ المشرق العربي بعد الحرب العالمية الأولى - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH6-L2",
+        "pageRange": "pp. 160–168"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch6_ws2",
+        "titleEn": "EG-Bac Analytical Seminar 6.2: Imperial Conspiracies: Sykes-Picot & San Remo",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٦-٢: مؤامرات التقسيم: سايكس بيكو وسان ريمو",
+        "descriptionEn": "Cartographic comparison, declassified Bolshevik disclosures, League of Nations Article 22, and the martyrdom of Yusuf al-'Azma at Maysalun.",
+        "descriptionAr": "مقارنة خرائط النفوذ، كشف الوثائق البلشفية، المادة 22 للانتداب، واستشهاد يوسف العظمة في ميسلون.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_mandate_comparison",
+        "titleEn": "Sykes-Picot vs. San Remo Map Explorer",
+        "titleAr": "مستكشف خرائط التقسيم: سايكس بيكو مقابل سان ريمو",
+        "descriptionEn": "Interactive geographic comparison comparing the 1916 secret zones with the 1920 League of Nations mandates.",
+        "descriptionAr": "معمل مقارنة خرائط تفاعلي يكشف كيف اقتسمت بريطانيا وفرنسا أراضي الهلال الخصيب وغيرت بنود الاتفاقيات."
+      },
+      "lessonPlan": {
+        "titleEn": "Imperial Partition Conspiracies: Sykes-Picot Agreement (1916) & San Remo Conference (1920)",
+        "titleAr": "مؤامرات التقسيم الاستعماري: اتفاقية سايكس بيكو 1916م ومؤتمر سان ريمو 1920م",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-602",
+        "bloomsObjectivesEn": [
+          "Analyze the geopolitical division of the Fertile Crescent in the secret Sykes-Picot Agreement (1916).",
+          "Evaluate why the 1920 San Remo Conference amended the Sykes-Picot map regarding Mosul and Palestine.",
+          "Critique the ideological rationale of League of Nations Mandates under Article 22 as imperialist tutelage.",
+          "Assess the heroism and martyrdom of Yusuf al-'Azma at the Battle of Maysalun in defense of Syrian sovereignty."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل التقسيم الجيوسياسي للهلال الخصيب في اتفاقية سايكس بيكو السرية 1916م.",
+          "تقويم أسباب تعديل مؤتمر سان ريمو 1920م لبنود سايكس بيكو ونقل الموصل وفلسطين للانتداب البريطاني.",
+          "نقد الذرائع الاستعمارية في المادة 22 من ميثاق عصبة الأمم لتبرير الانتداب والوصاية على الشعوب.",
+          "استخلاص الدروس الوطنية من ملحمة واستشهاد يوسف العظمة في معركة ميسلون دفاعاً عن استقلال سوريا."
+        ],
+        "prerequisitesEn": [
+          "Understanding the Great Arab Revolt and WWI secret diplomacy in the Ottoman Empire."
+        ],
+        "prerequisitesAr": [
+          "استيعاب مجريات الثورة العربية الكبرى والدبلوماسية السرية لدول الوفاق في الحرب العالمية الأولى."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Sykes-Picot Agreement (1916)",
+            "definition": "Secret tripartite pact between Britain, France, and Tsarist Russia partitioning Arab provinces of the Ottoman Empire."
+          },
+          {
+            "term": "San Remo Conference (1920)",
+            "definition": "Allied conference in Italy modifying Sykes-Picot and placing Syria/Lebanon under French Mandate and Iraq/Palestine under British Mandate."
+          },
+          {
+            "term": "Battle of Maysalun (1920)",
+            "definition": "Heroic stand by Syrian Minister of War Yusuf al-'Azma against General Gouraud's invading French forces west of Damascus."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "اتفاقية سايكس بيكو 1916م",
+            "definition": "معاهدة سرية ثلاثية بين بريطانيا وفرنسا وروسيا القيصرية لاقتسام الولايات العربية التابعة للدولة العثمانية."
+          },
+          {
+            "term": "مؤتمر سان ريمو 1920م",
+            "definition": "مؤتمر عقده الحلفاء بإيطاليا لتعديل سايكس بيكو وفرض الانتداب البريطاني على العراق وفلسطين والفرنسي على سوريا ولبنان."
+          },
+          {
+            "term": "معركة ميسلون 1920م",
+            "definition": "ملحمة بطولية خاضها وزير الحربية السوري يوسف العظمة بمتطوعين لوقف الغزو الفرنسي بقيادة غورو قرب دمشق."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Map Discovery",
+            "phaseAr": "التهيئة والتحفيز الخرائطي",
+            "duration": "10 min",
+            "activitiesEn": "Display the original Sykes-Picot color-coded map and analyze the 'Brown Zone' for Palestine.",
+            "activitiesAr": "عرض خريطة سايكس بيكو الملونة ومناقشة أسباب وضع فلسطين في منطقة دولية سمراء."
+          },
+          {
+            "phaseEn": "Bolshevik Leak & San Remo Amendments",
+            "phaseAr": "الشرح المنهجي للتسريب البلشفي وسان ريمو",
+            "duration": "45 min",
+            "activitiesEn": "Detail Lenin's publication of secret treaties and explain why France traded Mosul for oil shares.",
+            "activitiesAr": "توضيح تداعيات فضح البلاشفة للوثائق ومقايضة فرنسا للموصل النفطية بحصة في شركة نفط العراق."
+          },
+          {
+            "phaseEn": "Maysalun Epic & Gouraud's Ultimatum",
+            "phaseAr": "تحليل إنذار غورو وملحمة ميسلون",
+            "duration": "20 min",
+            "activitiesEn": "Analyze Yusuf al-'Azma's heroic refusal to surrender without armed sacrifice at the Maysalun Pass.",
+            "activitiesAr": "شرح إنذار الجنرال غورو ووقفة البطل يوسف العظمة الخالدة في ممر ميسلون واستشهاده."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve ministerial questions contrasting Sykes-Picot and San Remo terms.",
+            "activitiesAr": "حل تدريبات وزارية تقارن بين نصوص سايكس بيكو وقرارات مؤتمر سان ريمو."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming San Remo was a completely different agreement rather than an imperialist update adapting Sykes-Picot to post-war realities on the ground."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن مؤتمر سان ريمو ألغى مؤامرة سايكس بيكو، بينما هو في الحقيقة إعادة توزيع استعماري للغنائم على ضوء موازين القوى بعد الحرب."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide side-by-side color charts comparing 1916 zones with 1920 mandates.",
+          "advanced": "Critique the legal mechanisms of Article 22 of the League of Nations Covenant and how the Mandate concept reconciled Wilsonian idealism with imperialism."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جدول ملون مبسط يقارن بين مناطق 1916م ومناطق انتداب 1920م لتيسير الاستيعاب.",
+          "advanced": "دراسة نقدية للمادة 22 من ميثاق عصبة الأمم وكيف طوعت الدول الاستعمارية مصطلح الانتداب ليتماشى شكلياً مع مبادئ ويلسون."
+        },
+        "formativeAssessmentEn": "Source analysis: Read General Gouraud's declaration at Saladin's tomb and evaluate the ideological motives of European mandate powers.",
+        "formativeAssessmentAr": "تحليل نص تاريخي: قراءة عبارة غورو عند قبر صلاح الدين الأيوبي وتقويم البعد الديني والتاريخي للاستعمار الأوروبي في الشام.",
+        "exitTicketQuestion": {
+          "questionEn": "Who was the Syrian Minister of War martyred at the Battle of Maysalun in July 1920?",
+          "questionAr": "من هو وزير الحربية السوري البطل الذي استشهد في معركة ميسلون في يوليو 1920م؟",
+          "solutionEn": "General Yusuf al-'Azma.",
+          "solutionAr": "البطل يوسف العظمة."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch6_l3",
+      "titleEn": "EG-Bac Seminar: The French Mandate over Syria and Lebanon: Colonial Fragmentation, The 1925 Great Revolution & Independence",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: الانتداب الفرنسي على سوريا ولبنان: التفتيت الاستعماري، الثورة السورية الكبرى 1925م والجلاء",
+      "summaryEn": "French colonial divide-and-rule tactics in the Levant: territorial fragmentation into 4 sectarian mini-states, creation of Greater Lebanon at Syria's expense, monetary subjugation to the French franc, the 1925 Great Syrian Revolution led by Sultan Pasha al-Atrash, the bombardment of Damascus (Al-Hariqa), the 1936 Franco-Syrian Draft Treaty and its rejection by Paris, the 1939 cession of the Sanjak of Alexandretta to Turkey, WWII clashes, and the final French evacuation on April 17, 1946.",
+      "summaryAr": "سياسة «فرق تسد» الاستعمارية الفرنسية في المشرق: تمزيق سوريا لأربع دويلات طائفية، إعلان دولة لبنان الكبير وسلخ موانئ وسهول سوريا، التبعية المالية للفرنك الفرنسي، الثورة السورية الكبرى 1925م بقيادة سلطان باشا الأطرش، قصف دمشق وحرق حي الحريقة، مشروع معاهدة 1936م ورفض البرلمان الفرنسي، التنازل عن لواء الإسكندرونة السوري لتركيا 1939م، أحداث الحرب العالمية الثانية، والجلاء التام في 17 أبريل 1946م.",
+      "theoryContentEn": "### 1. French Colonial Policies in Syria and Lebanon\n- **Territorial Fragmentation:** To destroy Syrian national cohesion, France partitioned Syria into four separate sectarian statelets:\n  1. **State of Damascus**\n  2. **State of Aleppo**\n  3. **State of the Alawites (Latakia)**\n  4. **State of Jabal al-Druze**\n- **Creation of Greater Lebanon (September 1, 1920):** France severed coastal ports (Beirut, Tripoli, Sidon, Tyre) and the fertile Bekaa Valley from Syria and annexed them to Mount Lebanon, constructing a state designed to ensure Maronite Christian predominance allied with France.\n- **Economic & Monetary Subjugation:** Established the *Banque de Syrie et du Liban* and tied Syrian-Lebanese currency directly to the French franc. Whenever the French franc depreciated in Europe, Syrian purchasing power collapsed. French corporations monopolized public utilities and railways.\n- **Cultural Assimilation:** Imposed French as the primary administrative and judicial language and altered educational curricula.\n\n### 2. The Great Syrian Revolution (1925–1927)\n- **The Spark:** General Sarrail and French officers in Jabal al-Druze mistreated local chieftains, arrested their delegates, and disarmed the population.\n- **Leadership:** **Sultan Pasha al-Atrash** launched the revolution in July 1925, scoring a legendary victory over French forces at the **Battle of Al-Mazra'a**.\n- **Nationwide Engulfment:** The revolution spread to Damascus under **Dr. Abd al-Rahman Shahbandar**, Hama, Homs, and Jabal al-Zawiya.\n- **French Brutality:** France retaliated by shelling civilian neighborhoods in Damascus with artillery and aircraft, incinerating the historic Sidi Amoud quarter (thereafter named **Al-Hariqa**).\n- **Political Outcome:** French military terrorism provoked global outrage. France was compelled to adopt a diplomatic posture: recalling General Sarrail, allowing elections for a **Constituent Assembly (1928)**, which drafted a republican constitution in 1930 that France watered down with reservation clauses.\n\n### 3. The 1936 Franco-Syrian Treaty and Its Rejection\n- Following a 50-day national general strike in 1936, France invited a Syrian delegation led by **Hashim al-Atassi** to Paris.\n- A draft treaty was agreed upon granting Syria phased independence over 25 years, while maintaining French military bases and air transit rights (modeled after the 1930 Anglo-Iraqi treaty).\n- The Syrian Parliament ratified the treaty and elected Hashim al-Atassi President.\n- **French Intransigence:** The French Chamber of Deputies refused to ratify the treaty, arguing that colonial surrender would weaken France against Nazi Germany. France suspended the Syrian constitution and returned to direct autocratic rule.\n\n### 4. The Loss of the Sanjak of Alexandretta (1939)\n- On the eve of World War II, France bribed the Republic of Turkey to ensure its benevolent neutrality.\n- In violation of League of Nations mandate terms protecting territorial integrity, France separated the **Sanjak of Alexandretta (Hatay)** from Syria, allowing Turkish troops to occupy it in 1938 and formally annex it in 1939.\n\n### 5. Decolonization and Final Evacuation (1945–1946)\n- During WWII, Free French and British forces liberated Syria and Lebanon from Vichy control (1941), promising independence.\n- In 1943, national elections brought **Shukri al-Quwatli** to the presidency of Syria and **Bchara El Khoury** to Lebanon.\n- In May 1945, French troops opened fire on the Syrian Parliament building in Damascus, slaughtering the police garrison.\n- Backed by Egypt, the Arab League, and the newly created UN Security Council, Syria and Lebanon demanded immediate evacuation.\n- France withdrew its last soldiers on **April 17, 1946** (celebrated as Syria's National Evacuation Day), and completed the evacuation of Lebanon in December 1946.",
+      "theoryContentAr": "### ١. سياسات الاستعمار الفرنسي في سوريا ولبنان\n- **التفتيت الإقليمي والطائفي:** لتمزيق وحدة الشعب السوري، قامت فرنسا بتجزئة البلاد إلى أربع دويلات طائفية مستقلة:\n  ١. **دولة دمشق**\n  ٢. **دولة حلب**\n  ٣. **دولة العلويين (اللاذقية)**\n  ٤. **دولة جبل الدروز**\n- **إعلان لبنان الكبير (أول سبتمبر 1920م):** سلخت فرنسا موانئ بيروت وطرابلس وصيدا وصور وسهل البقاع من سوريا وضمتها لجبل لبنان لضمان أغلبية مسيحية موالية لفرنسا وتوفير متنفس بحري وزراعي لها.\n- **السيطرة المالية والاقتصادية:** ربطت العملة السورية واللبنانية بـ «الفرنك الفرنسي» عبر بنك سوريا ولبنان؛ فإذا انخفض الفرنك اهتز الاقتصاد السوري، واحتكرت الشركات الفرنسية المرافق والموانئ والسكك الحديدية.\n- **الفرنسة الثقافية:** فرض اللغة الفرنسية في المصالح الحكومية والمحاكم والمناهج التعليمية لطمس الهوية العربية.\n\n### ٢. الثورة السورية الكبرى (1925–1927م)\n- **الأسباب المباشرة:** غطرسة المستشار الفرنسي الكابتن كاربييه في جبل الدروز، وإهانته للزعماء واعتقال وفدهم وتجريد الأهالي من السلاح بالقوة.\n- **القيادة والمعارك:** فجر **سلطان باشا الأطرش** الثورة في يوليو 1925م وحقق انتصاراً كاسحاً على الجيش الفرنسي في معركة **«المزرعة»**.\n- **امتداد الثورة:** شملت الثورة دمشق بقيادة الدكتور **عبد الرحمن الشهبندر**، وامتدت إلى حماة وحلب والنبك وجبل الزاوية.\n- **الوحشية الفرنسية (حي الحريقة):** أمطرت المدفعية والطائرات الفرنسية أحياء دمشق القديمة بالقنابل ودمرت حي سيدي عامود فاحترق تماماً (وسمي بحي الحريقة الشهير).\n- **المكاسب السياسية:** أثارت المذابح الرأي العام الدولي؛ فاضطرت فرنسا لتهدئة الأوضاع وعزلت الجنرال ساراي ووافقت على انتخابات الجمعية التأسيسية التي وضعت دستور 1930م، رغم محاولات فرنسا تعطيله.\n\n### ٣. مشروع معاهدة 1936م الفرنسية السورية\n- بعد الإضراب الستيني الكبير في سوريا عام 1936م، دعت فرنسا وفداً وطنياً برئاسة **هاشم الأتاسي** لباريس.\n- تم الاتفاق على مشروع معاهدة يمنح سوريا استقلالاً تدريجياً خلال 25 عاماً مع احتفاظ فرنسا بقواعد عسكرية وخطوط مواصلات (على غرار معاهدة 1930م بالعراق).\n- صدق البرلمان السوري على المعاهدة وانتخب هاشم الأتاسي رئيساً للجمهورية.\n- **الرفض الفرنسي:** رفضت الجمعية الوطنية بباريس التصديق على المعاهدة، معتبرة التنازل عن سوريا خروجاً على عظمة الإمبراطورية في مواجهة ألمانيا النازية، وعادت لحكم البلاد استبدادياً بالقرارات العرفية.\n\n### ٤. سلخ لواء الإسكندرونة السوري (1939م)\n- مع اقتراب الحرب العالمية الثانية، سعت فرنسا لاسترضاء تركيا لضمان حيادها في الحرب.\n- في انتهاك صارخ لميثاق الانتداب، سلخت فرنسا **لواء الإسكندرونة** السوري وسمحت بدخول القوات التركية إليه عام 1938م، ثم أعلنت تركيا ضمه رسمياً في عام 1939م وتسميته «هاتاي».\n\n### ٥. ملحمة الاستقلال والجلاء التام (1945–1946م)\n- في الحرب العالمية الثانية، سيطرت قوات فرنسا الحرة والبريطانيون على الشام وطردوا قوات فيشي الموالية لهتلر (1941م).\n- في عام 1943م، أجريت انتخابات برلمانية وفاز الزعيم الوطني **شكري القوتلي** برئاسة سوريا وفاز **بشارة الخوري** برئاسة لبنان.\n- في مايو 1945م ارتكبت فرنسا مذبحة دمشق بقصف البرلمان السوري لرفض حاميته أداء التحية للعلم الفرنسي.\n- تضامنت مصر والجامعة العربية ومجلس الأمن الدولي للضغط على باريس.\n- اضطرت فرنسا للجلاء الشامل عن سوريا في **17 أبريل 1946م** (عيد الجلاء الوطني)، واكتمل جلاء قواتها عن لبنان في ديسمبر 1946م.",
+      "formulas": [
+        {
+          "labelEn": "Colonial Divide & Conquer Equation",
+          "labelAr": "معادلة التفتيت الطائفي والانفجار الثوري",
+          "latex": "\\text{تمزيق سوريا (4 دويلات)} + \\text{سرقة لواء الإسكندرونة 1939} \\implies \\text{الثورة السورية الكبرى 1925} \\implies \\text{جلاء 17 أبريل 1946}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of the Arab East After WWI (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ المشرق العربي بعد الحرب العالمية الأولى - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH6-L3",
+        "pageRange": "pp. 169–178"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch6_ws3",
+        "titleEn": "EG-Bac Analytical Seminar 6.3: French Mandate in the Levant & Syrian Liberation",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٦-٣: الانتداب الفرنسي في الشام وملحمة التحرر السوري",
+        "descriptionEn": "Sectarian partition, the 1925 Great Syrian Revolution of Sultan al-Atrash, the 1936 Treaty negotiations, and the 1946 Evacuation.",
+        "descriptionAr": "التفتيت الطائفي لسوريا، الثورة السورية الكبرى 1925م بقيادة سلطان الأطرش، مشروع معاهدة 1936م، ومعارك الجلاء 1946م.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_syria_map",
+        "titleEn": "Interactive Map: Partition of Syria & Revolution Epicenters",
+        "titleAr": "خريطة تفاعلية: تمزيق سوريا وبؤر الثورة السورية الكبرى",
+        "descriptionEn": "Explore the 4 sectarian states, the creation of Greater Lebanon, and the spread of the 1925 revolution from Jabal al-Druze to Damascus.",
+        "descriptionAr": "معمل خرائط تفاعلي يستعرض الدويلات الطائفية وإعلان دولة لبنان الكبير وامتداد الثورة السورية الكبرى وقصف حي الحريقة."
+      },
+      "lessonPlan": {
+        "titleEn": "The French Mandate over Syria and Lebanon: Colonial Fragmentation, The 1925 Great Revolution & Independence",
+        "titleAr": "الانتداب الفرنسي على سوريا ولبنان: التفتيت الاستعماري، الثورة السورية الكبرى 1925م والجلاء",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-603",
+        "bloomsObjectivesEn": [
+          "Analyze French colonial divide-and-rule policies in fragmenting Syria into sectarian mini-states and creating Greater Lebanon.",
+          "Evaluate the economic and monetary subjugation of the Syrian-Lebanese economy to the French franc.",
+          "Critique the causes, military leadership, and nationwide impact of the 1925 Great Syrian Revolution led by Sultan Pasha al-Atrash.",
+          "Explain the geopolitical circumstances surrounding the 1939 cession of the Sanjak of Alexandretta to Turkey.",
+          "Assess the diplomatic and popular struggle leading to the final evacuation of French troops on April 17, 1946."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل سياسة فرنسا الاستعمارية في تمزيق سوريا لأربع دويلات طائفية وإعلان دولة لبنان الكبير على حساب الأراضي السورية.",
+          "تقويم مظاهر السيطرة الاقتصادية والنقدية وربط العملة السورية واللبنانية بالفرنك الفرنسي.",
+          "نقد أسباب وانتصارات الثورة السورية الكبرى 1925م بقيادة سلطان باشا الأطرش وبشاعة قصف دمشق وإحراق حي الحريقة.",
+          "تفسير دوافع فرنسا الاستعمارية لسلخ لواء الإسكندرونة السوري ومنحه لتركيا عام 1939م لضمان حيادها في الحرب العالمية الثانية.",
+          "تقويم الكفاح الوطني والدعم العربي والدولي الذي توج بالجلاء التام لفرنسا في 17 أبريل 1946م."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of the Sykes-Picot Agreement and San Remo Conference mandate terms."
+        ],
+        "prerequisitesAr": [
+          "استيعاب مخرجات مؤتمر سان ريمو 1920م وفرض الانتداب الفرنسي على سوريا ولبنان."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Greater Lebanon (1920)",
+            "definition": "State proclaimed by General Gouraud severing Beirut, Tripoli, Sidon, Tyre, and the Bekaa from Syria to establish Maronite dominance."
+          },
+          {
+            "term": "Great Syrian Revolution (1925)",
+            "definition": "Nationwide armed uprising sparked by Sultan Pasha al-Atrash in Jabal al-Druze against French colonial abuses."
+          },
+          {
+            "term": "Sanjak of Alexandretta (1939)",
+            "definition": "Historic Syrian coastal territory ceded by France to Turkey in 1939 to secure Turkish neutrality in WWII."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "دولة لبنان الكبير 1920م",
+            "definition": "كيان أعلنه غورو بعد سلخ موانئ بيروت وطرابلس وصيدا وصور وسهل البقاع من سوريا لضمان أغلبية موالية لفرنسا."
+          },
+          {
+            "term": "الثورة السورية الكبرى 1925م",
+            "definition": "ثورة مسلحة شاملة أطلقها سلطان باشا الأطرش من جبل الدروز وامتدت لدمشق وسائر المدن ضد طغيان المستشارين الفرنسيين."
+          },
+          {
+            "term": "لواء الإسكندرونة 1939م",
+            "definition": "إقليم سوري استراتيجي سلخته فرنسا في انتهاك لصك الانتداب وقدمته رشوة لتركيا لضمان حيادها قبيل الحرب العالمية الثانية."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Visual Investigation",
+            "phaseAr": "التهيئة واستكشاف التفتيت الطائفي",
+            "duration": "10 min",
+            "activitiesEn": "Analyze a historical map of the 4 sectarian states and discuss why colonial powers exploit sectarianism.",
+            "activitiesAr": "عرض خريطة الدويلات الأربع التي أنشأتها فرنسا ومناقشة خطر اللعب على الأوتار الطائفية."
+          },
+          {
+            "phaseEn": "Colonial Policies & Economic Subjugation",
+            "phaseAr": "الشرح المنهجي لسياسات الفرنسة والربط بالفرنك",
+            "duration": "40 min",
+            "activitiesEn": "Explain the creation of Greater Lebanon, monetary link to the franc, and judicial abuses.",
+            "activitiesAr": "شرح ضم الموانئ للبنان الكبير وربط الاقتصاد بالفرنك الفرنسي ومصادرة الحريات."
+          },
+          {
+            "phaseEn": "1925 Revolution & Burning of Al-Hariqa",
+            "phaseAr": "تحليل معارك الثورة وقصف دمشق",
+            "duration": "25 min",
+            "activitiesEn": "Detail Sultan al-Atrash's victories at Al-Mazra'a, Shahbandar's leadership, and French shelling of Damascus.",
+            "activitiesAr": "تتبع انتصارات سلطان الأطرش ومعركة المزرعة وبطولات الشهبندر ووحشية قصف حي سيدي عامود (الحريقة)."
+          },
+          {
+            "phaseEn": "Alexandretta Cession & Evacuation",
+            "phaseAr": "معاهدة 1936 وسلخ الإسكندرونة والجلاء",
+            "duration": "15 min",
+            "activitiesEn": "Evaluate the 1936 treaty rejection, 1939 loss of Alexandretta, and the April 17, 1946 Evacuation.",
+            "activitiesAr": "دراسة فشل معاهدة 1936م وسلخ الإسكندرونة وملحمة البرلمان 1945م حتى جلاء 17 أبريل 1946م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Greater Lebanon always existed within its modern borders rather than being artificially enlarged by France in 1920 at the expense of Syrian territory."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن دولة لبنان الكبير كانت موجودة بحدودها الحالية تاريخياً، متجاهلين أن فرنسا اقتطعت موانئ وسهول سوريا وضمتها لجبل لبنان عام 1920م."
+        ],
+        "differentiationEn": {
+          "struggling": "Create a flowchart tracing the timeline of the Great Syrian Revolution from Jabal Druze to the bombardment of Damascus.",
+          "advanced": "Critique the diplomatic context of the 1939 cession of Alexandretta to Turkey as an appeasement strategy on the eve of WWII."
+        },
+        "differentiationAr": {
+          "struggling": "إعداد مخطط تدفق زمني يتتبع مسار الثورة السورية الكبرى من جبل الدروز حتى قصف دمشق وإحراق حي الحريقة.",
+          "advanced": "تقويم الظروف الجيوسياسية لسلخ لواء الإسكندرونة 1939م ورشوة تركيا بالأراضي السورية لضمان حيادها في الحرب العالمية الثانية."
+        },
+        "formativeAssessmentEn": "Socratic inquiry: Why did France fragment Syria into four sectarian statelets, and why did this policy ultimately fail to stop national independence?",
+        "formativeAssessmentAr": "حوار سقراطي: لماذا مزقت فرنسا سوريا إلى أربع دويلات طائفية، ولماذا فشلت هذه السياسة أمام وعي وصمود الشعب السوري؟",
+        "exitTicketQuestion": {
+          "questionEn": "When did the last French soldier evacuate Syrian soil (celebrated as Syria's National Evacuation Day)?",
+          "questionAr": "متى تم الجلاء الكامل لآخر جندي فرنسي عن التراب السوري (عيد الجلاء الوطني)؟",
+          "solutionEn": "April 17, 1946.",
+          "solutionAr": "17 أبريل 1946م."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch6_l4",
+      "titleEn": "EG-Bac Seminar: The British Mandate over Iraq: The 1920 Revolution, Anglo-Iraqi Treaties & The 1958 Republic",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: الانتداب البريطاني على العراق: ثورة العشرين والمعاهدات حتى ثورة 14 تموز 1958م",
+      "summaryEn": "British occupation of Mesopotamia (General Maude's entry to Baghdad 1917), the San Remo Mandate declaration, the 1920 Great Iraqi Revolution (Thawrat al-Ishrin) inspired by Egypt's 1919 uprising, clerical fatwas of Najaf and Karbala, coronation of King Faisal I (1921), Anglo-Iraqi Treaties of 1922 and 1930 (League of Nations membership with Habbaniyah and Shaibah airbases), the Rashid Ali al-Gaylani 1941 revolt, the Portsmouth Treaty and Al-Wathbah uprising (1948), the Baghdad Pact (1955) vs Nasser's non-alignment, and the July 14, 1958 Revolution of Abd al-Karim Qasim establishing the Republic.",
+      "summaryAr": "احتلال بريطانيا لبلاد الرافدين ودخول الجنرال مود لبغداد 1917م، فرض الانتداب في سان ريمو، اشتعال ثورة العشرين العراقية الكبرى 1920م متأثرة بثورة 1919م بمصر وفتاوى المرجعيات الدينية، تتويج الملك فيصل الأول 1921م، معاهدتا 1922 و1930م (دخول عصبة الأمم مع بقاء قاعدتي الحبانية والشعيبة)، حركة رشيد عالي الكيلاني 1941م، معاهدة بورتسموث وانتفاضة الوثبة 1948م، حلف بغداد 1955م في مواجهة عدم الانحياز لناصر، وتفجير ثورة 14 تموز 1958م وإعلان الجمهورية العراقية.",
+      "theoryContentEn": "### 1. British Invasion of Iraq & The San Remo Betrayal\n- **Military Invasion:** In 1914, British forces landed in Basra to secure Anglo-Persian oil fields. In March 1917, General Stanley Maude entered Baghdad declaring: *\"Our armies do not come into your cities and lands as conquerors or enemies, but as liberators.\"*\n- **Imposition of the Mandate (1920):** In April 1920, the San Remo Conference placed Iraq under British Mandate, replacing Ottoman rule with direct British military tyranny under civil commissioner Arnold Wilson.\n\n### 2. The 1920 Great Iraqi Revolution (Thawrat al-ʿIshrīn)\n- **Catalysts:**\n  1. The imposition of the British Mandate instead of promised independence.\n  2. The immense inspirational impact of **Egypt's 1919 Revolution** led by Saad Zaghloul, demonstrating that imperial Britain could be shaken by mass civil and armed resistance.\n  3. Authoritative fatwas issued by supreme Shi'i and Sunni religious authorities (**Marja'iyya**) in Najaf and Karbala declaring armed jihad against British occupiers obligatory.\n- **Outbreak & Course:** Sparked in June 1920 in the **Middle Euphrates** (Rumaytha) when tribes liberated local leader Shaalan Abu al-Chon. The rebellion swept across Iraq, cutting British supply lines and inflicting heavy casualties on British garrisons.\n- **British Strategic Pivot:** Realizing that direct colonial administration was militarily unsustainable and economically ruinous, Britain decided to adopt an indirect form of rule:\n  - Recalled Sir Arnold Wilson and sent **Sir Percy Cox**.\n  - Established a provisional Arab government under **Abd al-Rahman al-Gillani**.\n  - At the **1921 Cairo Conference**, Winston Churchill arranged the coronation of **Prince Faisal bin Hussein** as King of Iraq (August 1921) after his expulsion from Syria.\n\n### 3. The Anglo-Iraqi Treaties: From Subjugation to Nominal Independence\n- **The 1922 Anglo-Iraqi Treaty:** Britain forced King Faisal to sign a treaty formalizing British control over foreign policy, military defense, and British advisors.\n- **The 1930 Anglo-Iraqi Treaty:** Signed between British High Commissioner Sir Francis Humphrys and Prime Minister **Nuri al-Said**:\n  - **Nominal Independence:** Britain terminated the Mandate and supported Iraq's admission into the **League of Nations in 1932** as an independent sovereign state (the first Arab nation admitted).\n  - **Imperialist Military Conditions:**\n    1. A 25-year mutual military alliance.\n    2. Britain retained sovereign possession of two strategic military airbases: **Al-Habbaniyah** (west of Baghdad) and **Al-Shaibah** (near Basra).\n    3. Unrestricted British rights to transit troops, communications, and railways across Iraqi territory in wartime.\n\n### 4. Nationalist Resurgence: From Gaylani to the 1958 Revolution\n- **The 1941 May Movement (Rashid Ali al-Gaylani Revolt):** In April 1941, patriotic officers (**The Golden Square**) and Prime Minister Rashid Ali al-Gaylani seized power, opposing British troop deployments. British forces invaded Iraq, bombarded Baghdad, defeated the nationalist army, and restored the pro-British monarchy under Regent Abd al-Ilah.\n- **The Portsmouth Treaty & Al-Wathbah Uprising (1948):** Prime Minister Salih Jabr negotiated a treaty renewing British military privileges. A violent nationwide uprising (**Al-Wathbah**) forced the government to repudiate the treaty.\n- **The Baghdad Pact (1955):** Prime Minister **Nuri al-Said** aligned Iraq with Britain, Turkey, Iran, and Pakistan in a pro-Western Cold War military alliance. Egyptian President **Gamal Abdel Nasser** fiercely campaigned against the pact, advocating Positive Neutrality and Arab collective defense.\n- **The July 14, 1958 Revolution:** Free Officers led by Brigadier General **Abd al-Karim Qasim** and Colonel **Abd al-Salam Aref** overthrew the Hashemite monarchy, assassinated Nuri al-Said, withdrew from the Baghdad Pact, and proclaimed the **Republic of Iraq**.",
+      "theoryContentAr": "### ١. الغزو البريطاني لبلاد الرافدين وخيانة سان ريمو\n- **الغزو العسكري:** نزلت القوات البريطانية في الفاو والبصرة عام 1914م لحماية آبار النفط، وفي مارس 1917م دخل الجنرال ستانلي مود بغداد معلناً عبارته الشهيرة: *«إن جيوشنا لم تدخل مدنكم وأراضيكم كغزاة أو أعداء، بل كمحررين»*.\n- **فرض الانتداب (1920م):** في أبريل 1920م، أقر مؤتمر سان ريمو وضع العراق تحت الانتداب البريطاني؛ فاستبدل العراقيون الحكم العثماني بحكم عسكري بريطاني مباشر ومتغطرس بقيادة السير أرنولد ويلسون.\n\n### ٢. ثورة العشرين العراقية الكبرى (1920م)\n- **عوامل الاشتعال:**\n  ١. صدمة فرض الانتداب بدلاً من الاستقلال الموعود.\n  ٢. التأثر الشديد بـ **ثورة 1919م في مصر** بقيادة سعد زغلول، والتي ألهمت الشعب العراقي بأن القوة الاستعمارية يمكن كسرها بالصمود الشعبي.\n  ٣. فتاوى المرجعيات الدينية في النجف الأشرف وكربلاء وبغداد التي أوجبت الجهاد المسلح ضد المحتل الإنجليزي.\n- **انطلاق المعارك:** تفجرت الثورة في يونيو 1920م من **الفرات الأوسط** (حادثة الرميثة وإطلاق سراح الشيخ شعلان أبو الجون)، وسرعان ما امتدت لبغداد وديالى والشمال، وحاصرت الحاميات الإنجليزية وكبدت المحتل خسائر فادحة.\n- **تراجع بريطانيا وتغيير السياسة:** أدركت لندن استحالة الاستمرار في الحكم العسكري المباشر؛ فقررت التهدئة الدبلوماسية:\n  - عزل ويلسون وإرسال السير **بيرسي كوكس**.\n  - تشكيل حكومة وطنية مؤقتة برئاسة عبد الرحمن الكيلاني (نقيب أشراف بغداد).\n  - في **مؤتمر القاهرة (1921م)** بقيادة تشرشل، رُشح **الأمير فيصل بن الحسين** ملكاً على العراق لامتصاص النقمة، وتوج رسمياً في أغسطس 1921م.\n\n### ٣. المعاهدات الإنجليزية العراقية: من التبعية إلى الاستقلال المقيد\n- **معاهدة 1922م:** فرضتها بريطانيا لتثبيت سلطة مستشاريها والسيطرة على السياسة الخارجية والدفاعية للعراق.\n- **معاهدة 1930م:** عقدها رئيس الوزراء العراقي **نوري السعيد** مع السفير البريطاني:\n  - **الاستقلال الشكلي:** إنهاء الانتداب البريطاني ودخول العراق **عصبة الأمم عام 1932م** كدولة مستقلة ذات سيادة (أول دولة عربية تنضم للعصبة).\n  - **القيود الاستعمارية:**\n    ١. عقد تحالف عسكري لمدة 25 عاماً.\n    ٢. احتفاظ بريطانيا بقاعدتين جويتين استراتيجيتين هما: **الحبانية** (غرب بغداد) و**الشعيبة** (قرب البصرة).\n    ٣. منح القوات البريطانية حق استخدام كافة الأراضي والمياه والسكك الحديدية وخطوط المواصلات العراقية في حالة الحرب.\n\n### ٤. مسيرة الكفاح الوطني: من حركة الكيلاني إلى جمهورية 1958م\n- **حركة رشيد عالي الكيلاني (1941م):** تحرك الضباط الوطنيون («المربع الذهبي») ورئيس الوزراء رشيد عالي الكيلاني لمقاومة النفوذ الإنجليزي في الحرب العالمية الثانية. تدخل الجيش البريطاني بقوة السلاح، وقصف بغداد، وأعاد الوصي عبد الإله الموالي لبريطانيا.\n- **معاهدة بورتسموث وانتفاضة الوثبة (1948م):** وقع رئيس الوزراء صالح جبر معاهدة جديدة مع بريطانيا؛ فاشتعلت انتفاضة شعبية عارمة سُميت «انتفاضة الوثبة» اضطرت الحكومة لإلغاء المعاهدة.\n- **حلف بغداد (1955م):** تورط رئيس الوزراء **نوري السعيد** في إدخال العراق في حلف عسكري موالٍ للغرب ضم بريطانيا وتركيا وإيران وباكستان. تصدى له الرئيس **جمال عبد الناصر** بقوة عبر صوت العرب ودعا للحياد الإيجابي ورفض الأحلاف الأجنبية.\n- **ثورة 14 تموز 1958م:** تحرك الضباط الأحرار بقيادة الزعيم **عبد الكريم قاسم** والعقيد **عبد السلام عارف**، وأسقطوا النظام الملكي، وقضوا على نوري السعيد، وانسحبوا من حلف بغداد، وأعلنوا قيام **الجمهورية العراقية** المستقلة.",
+      "formulas": [
+        {
+          "labelEn": "Iraqi Liberation Trajectory",
+          "labelAr": "معادلة مسار التحرر الوطني العراقي",
+          "latex": "\\text{ثورة العشرين 1920} \\implies \\text{معاهدة 1930 (استقلال مقيد وقواعد جوية)} \\xrightarrow{\\text{حلف بغداد 1955}} \\text{ثورة 14 تموز 1958 (إعلان الجمهورية)}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of the Arab East After WWI (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ المشرق العربي بعد الحرب العالمية الأولى - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH6-L4",
+        "pageRange": "pp. 179–188"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch6_ws4",
+        "titleEn": "EG-Bac Analytical Seminar 6.4: The Iraqi National Struggle: From 1920 Revolution to 1958 Republic",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٦-٤: كفاح العراق الوطني: من ثورة العشرين إلى جمهورية 1958م",
+        "descriptionEn": "Document inquiry comparing Anglo-Iraqi treaties, the role of religious Marja'iyya, and anti-Pact mobilization.",
+        "descriptionAr": "دراسة وثائقية لمعاهدات العراق وبريطانيا، ودور المرجعية الدينية، ومقاومة حلف بغداد حتى إسقاط الملكية.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_iraq_timeline",
+        "titleEn": "Iraq Mandate & Decolonization Timeline",
+        "titleAr": "خط زمني تفاعلي: انتداب العراق وثوراته حتى الجمهورية",
+        "descriptionEn": "Interactive historical timeline from General Maude's entry to Baghdad (1917) to the 1958 Revolution.",
+        "descriptionAr": "معمل زمني تفاعلي يتتبع مراحل الاحتلال والانتداب والمعاهدات والثورات في تاريخ العراق الحديث."
+      },
+      "lessonPlan": {
+        "titleEn": "The British Mandate over Iraq: The 1920 Revolution, Anglo-Iraqi Treaties & The 1958 Republic",
+        "titleAr": "الانتداب البريطاني على العراق: ثورة العشرين والمعاهدات حتى ثورة 14 تموز 1958م",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-604",
+        "bloomsObjectivesEn": [
+          "Analyze the catalysts and nationwide mobilization of the 1920 Great Iraqi Revolution and its link to Egypt's 1919 Revolution.",
+          "Evaluate Britain's strategic concessions: coronating King Faisal I and negotiating the 1922 and 1930 Treaties.",
+          "Critique the military limitations imposed on Iraqi independence under the 1930 Anglo-Iraqi Treaty (airbases at Habbaniyah and Shaibah).",
+          "Examine the 1941 national revolt of Rashid Ali al-Gaylani and British armed re-occupation.",
+          "Assess the diplomatic clash between Nuri al-Said's Baghdad Pact (1955) and Gamal Abdel Nasser's Non-Aligned movement, culminating in the July 14, 1958 Revolution."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل دوافع اشتعال ثورة العشرين العراقية الكبرى عام 1920م وتأثرها بفتاوى المراجع وثورة 1919م في مصر.",
+          "تقويم المناورة السياسية لبريطانيا بتغيير سياستها وتتويج الملك فيصل الأول بن الحسين ملكاً على العراق.",
+          "نقد القيود الاستعمارية التي كبلت استقلال العراق في معاهدة 1930م واحتفاظ إنجلترا بقاعدتي الحبانية والشعيبة الجويتين.",
+          "تحليل حركة رشيد عالي الكيلاني والضباط الوطنيين عام 1941م وإعادة الاحتلال العسكري البريطاني.",
+          "تقويم الصراع بين سياسة نوري السعيد في حلف بغداد 1955م وسياسة عدم الانحياز لمصر، حتى تفجير ثورة 14 تموز 1958م وإعلان الجمهورية."
+        ],
+        "prerequisitesEn": [
+          "Understanding San Remo mandate decisions and British imperial communications in the Persian Gulf."
+        ],
+        "prerequisitesAr": [
+          "استيعاب قرارات مؤتمر سان ريمو وأهمية العراق الاستراتيجية والنفطية للإمبراطورية البريطانية."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Thawrat al-Ishrin (1920)",
+            "definition": "Great Iraqi national revolution erupting in the Middle Euphrates and Baghdad against British mandatory rule."
+          },
+          {
+            "term": "1930 Anglo-Iraqi Treaty",
+            "definition": "Treaty granting nominal independence and League of Nations membership while keeping British airbases at Habbaniyah and Shaibah."
+          },
+          {
+            "term": "Baghdad Pact (1955)",
+            "definition": "Pro-Western Cold War military alliance between Britain, Iraq, Turkey, Iran, and Pakistan fiercely opposed by Nasser."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "ثورة العشرين 1920م",
+            "definition": "ثورة وطنية مسلحة كبرى انطلقت من الفرات الأوسط وبغداد بفتاوى علماء الدين للتخلص من الانتداب البريطاني."
+          },
+          {
+            "term": "معاهدة 1930م البريطانية العراقية",
+            "definition": "معاهدة منحت العراق استقلالاً شكلياً وعضوية عصبة الأمم مع بقاء القوات الجوية البريطانية في الحبانية والشعيبة وحرية المواصلات."
+          },
+          {
+            "term": "حلف بغداد 1955م",
+            "definition": "حلف عسكري موالٍ للغرب ضم العراق وتركيا وإيران وباكستان وبريطانيا، عارضه جمال عبد الناصر بشدة وتمسك بعدم الانحياز."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Comparative Inquiry",
+            "phaseAr": "التهيئة والربط التاريخي",
+            "duration": "10 min",
+            "activitiesEn": "Compare the role of religious institutions in Egypt's 1919 Revolution (Al-Azhar) and Iraq's 1920 Revolution (Najaf & Karbala).",
+            "activitiesAr": "مقارنة دور المرجعيات الدينية في ثورة 1919م بمصر (الأزهر الشريف) وثورة العشرين بالعراق (النجف وكربلاء)."
+          },
+          {
+            "phaseEn": "Thawrat al-Ishrin & Coronation of Faisal",
+            "phaseAr": "الشرح المنهجي لثورة العشرين وتتويج فيصل",
+            "duration": "40 min",
+            "activitiesEn": "Detail the outbreak of the revolution, British military setbacks, and Percy Cox's maneuver installing Faisal I.",
+            "activitiesAr": "شرح معارك الفرات الأوسط وخسائر بريطانيا ومناورة بيرسي كوكس بترشيح فيصل الأول لامتصاص الغضب."
+          },
+          {
+            "phaseEn": "Treaties of 1922 & 1930 and Gaylani Revolt",
+            "phaseAr": "معاهدات الاستقلال الشكلي وحركة الكيلاني",
+            "duration": "25 min",
+            "activitiesEn": "Analyze the military clauses of the 1930 treaty, the 1941 Rashid Ali revolt, and the 1948 Portsmouth treaty failure.",
+            "activitiesAr": "نقد معاهدة 1930م وقاعدتي الحبانية والشعيبة، وحركة الكيلاني 1941م، وسقوط معاهدة بورتسموث في انتفاضة الوثبة 1948م."
+          },
+          {
+            "phaseEn": "Baghdad Pact & The 1958 Revolution",
+            "phaseAr": "حلف بغداد وثورة 14 تموز 1958م",
+            "duration": "15 min",
+            "activitiesEn": "Evaluate Nuri al-Said's alliance with the West, Nasser's media counter-offensive, and Qasim's 1958 republican revolution.",
+            "activitiesAr": "تقويم دور حلف بغداد والصراع مع القاهرة، حتى تحرك الجيش بقيادة عبد الكريم قاسم وإعلان الجمهورية 1958م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming the 1930 Anglo-Iraqi Treaty gave Iraq full sovereignty, ignoring that British airbases and transport concessions maintained effective military control."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن معاهدة 1930م منحت العراق استقلالاً كاملاً، متجاهلين احتفاظ بريطانيا بقواعد جوية حيوية وحق استخدام الأراضي في حالة الحرب."
+        ],
+        "differentiationEn": {
+          "struggling": "Use graphic organizers to compare the 1920 Iraqi Revolution with the 1919 Egyptian Revolution in terms of causes, leadership, and outcomes.",
+          "advanced": "Analyze the foreign policy doctrine of Nuri al-Said regarding the 1955 Baghdad Pact and contrast it with Nasser's Positive Neutrality."
+        },
+        "differentiationAr": {
+          "struggling": "تنظيم جدول مقارنة بين ثورة العشرين بالعراق وثورة 1919م بمصر من حيث الأسباب ودور القيادة الشعبية والنتائج السياسية.",
+          "advanced": "تحليل استراتيجية نوري السعيد في حلف بغداد 1955م ونقد تداعياتها مقارنة بنظرية الحياد الإيجابي والدفاع العربي المشترك لجمال عبد الناصر."
+        },
+        "formativeAssessmentEn": "Document evaluation: Compare the military clauses of the 1930 Anglo-Iraqi Treaty with the 1936 Anglo-Egyptian Treaty.",
+        "formativeAssessmentAr": "تحليل وثائق: مقارنة نصوص البنود العسكرية في معاهدة 1930م بالعراق ومعاهدة 1936م بمصر وإبراز وحدة القالب الاستعماري البريطاني.",
+        "exitTicketQuestion": {
+          "questionEn": "Which British airbases were retained under the 1930 Anglo-Iraqi Treaty?",
+          "questionAr": "ما القاعدتان الجويتان اللتان احتفظت بهما بريطانيا في العراق بموجب معاهدة 1930م؟",
+          "solutionEn": "Al-Habbaniyah and Al-Shaibah.",
+          "solutionAr": "قاعدتا «الحبانية» (غرب بغداد) و«الشعيبة» (قرب البصرة)."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch6_l5",
+      "titleEn": "EG-Bac Seminar: Saudi Unification of the Arabian Peninsula: Fall of Hijaz & The 1934 Treaty of Taif",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: توحيد الدولة السعودية في شبه الجزيرة: سقوط الحجاز ومعاهدة الطائف 1934م",
+      "summaryEn": "King Abdulaziz Al Saud's 30-year state-building campaign from the recapture of Riyadh (1902), the Battle of Turaba (1919) destroying Prince Abdullah's Hashemite army, the fall of Ha'il and end of the Al Rashid dynasty (1921), annexation of Asir (1920–1926), conquest of the Hijaz (1924–1925), abdication and exile of Sharif Hussein, coronation of Abdulaziz as King of Hijaz (1926), official proclamation of the Kingdom of Saudi Arabia in September 1932, and the 1934 Saudi-Yemeni War concluding with the historic Treaty of Taif.",
+      "summaryAr": "ملحمة توحيد الجزيرة العربية بقيادة الملك عبد العزيز آل سعود بدءاً من استرداد الرياض 1902م، معركة تربة الفاصلة 1919م وسحق الجيش الهاشمي، إسقاط إمارة آل رشيد في حائل 1921م، ضم عسير 1926م، ضم الحجاز واستسلام جدة ومكة وتنازل ونفي الشريف حسين (1924–1925م)، إعلان قيام المملكة العربية السعودية في 23 سبتمبر 1932م، وحرب اليمن وتوقيع معاهدة الطائف التاريخية 1934م وتثبيت الحدود.",
+      "theoryContentEn": "### 1. The Revival of Saudi Statehood (1902–1919)\n- **Recapture of Riyadh (January 1902):** The young Abdulaziz Al Saud launched a daring mission from Kuwait, storming the Masmak fortress, recapturing Riyadh, and inaugurating the Third Saudi State.\n- **Consolidation of Najd & Al-Hasa (1913):** Expelled Ottoman garrisons from Al-Hasa on the Persian Gulf.\n- **The Treaty of Darin (1915):** Britain recognized Abdulaziz as ruler of Najd and Al-Hasa, but Abdulaziz maintained strict neutrality during WWI, refusing to squander his forces on British imperial fronts.\n\n### 2. Clashes with the Hashemites & The Battle of Turaba (May 1919)\n- Following WWI, Sharif Hussein sought to expand his Hashemite kingdom into Najd.\n- In May 1919, Prince Abdullah bin Hussein occupied the strategic border oasis of **Turaba**.\n- Abdulaziz dispatched his elite warriors (**The Ikhwan**), who launched a surprise night attack, annihilating Abdullah's army. Prince Abdullah barely escaped with his life.\n- **Significance:** The Battle of Turaba permanently broke the military strength of the Kingdom of Hijaz, exposing Hashemite vulnerability.\n\n### 3. The Fall of Ha'il and Annexation of Asir (1921–1926)\n- **Elimination of the House of Rashid (1921):** Abdulaziz besieged the fortified city of **Ha'il**, ending the rival Emirate of Jabal Shammar. Abdulaziz assumed the title of *'Sultan of Najd and its Dependencies'*.\n- **Annexation of Asir:** In 1920, Saudi forces subdued Upper Asir. In 1926, the Treaty of Mecca established a protectorate over the Idrisi Emirate of Asir, fully annexing it into the state by 1930.\n\n### 4. The Conquest of Hijaz (1924–1925)\n- In 1924, following Mustafa Kemal Atatürk's formal abolition of the Ottoman Caliphate in Turkey, Sharif Hussein unilaterally declared himself Caliph of all Muslims, alienating regional and international opinion.\n- Saudi forces advanced into Hijaz, capturing Taif and entering Mecca peacefully as Hussein's forces withdrew.\n- Hijazi notables forced Sharif Hussein to abdicate in favor of his son, **Ali bin Hussein**, and exiled Hussein to Aqaba (later to Cyprus).\n- Saudi troops placed the port of **Jeddah** under a strict siege for over a year.\n- In December 1925, King Ali surrendered Jeddah and departed for Iraq.\n- In January 1926, the citizens, ulema, and notables of Mecca assembled in the Grand Mosque, pledging allegiance to Abdulaziz as **King of the Hijaz and Sultan of Najd and its Dependencies**.\n\n### 5. Proclamation of the Kingdom & The Treaty of Taif (1932–1934)\n- **Proclamation of the Kingdom of Saudi Arabia:** On **September 23, 1932**, a royal decree unified all realms under the name **The Kingdom of Saudi Arabia** (*Al-Mamlaka Al-Arabiya Al-Saudiya*).\n- **The Saudi-Yemeni Border War (1934):**\n  - Dispute over the borders of Asir, Jizan, and Najran with Imam Yahya of Yemen.\n  - Saudi forces led by Crown Prince Saud and Prince Faisal scored swift victories, capturing the Yemeni port of Hodeidah.\n- **The Treaty of Taif (May 1934):**\n  - Demonstrating extraordinary statesmanship, King Abdulaziz refrained from annexing Yemeni lands.\n  - Saudi forces completely evacuated Hodeidah and occupied Yemeni territories.\n  - Confirmed the permanent sovereignty of Saudi Arabia over **Asir, Jizan, and Najran**.\n  - Codified eternal peace, non-aggression, and Islamic fraternity between Saudi Arabia and Yemen.",
+      "theoryContentAr": "### ١. انطلاق ملحمة التوحيد واسترداد الرياض (1902–1919م)\n- **استرداد الرياض (يناير 1902م):** انطلق الملك الشاب عبد العزيز آل سعود في ملحمة بطولية من الكويت، واقتحم قصر المصمك واستعاد عاصمة آبائه وأجداده الرياض، معلناً قيام الدولة السعودية الثالثة.\n- **استرداد الأحساء (1913م):** طرد الحاميات العثمانية وبسط نفوذه على ساحل الخليج العربي.\n- **معاهدة دارين (1915م):** عقدت بريطانيا اتفاقية دارين مع عبد العزيز معترفة بسيادته على نجد والأحساء، لكنه حافظ على حنكته ورفض التورط في الحرب العالمية لصالح بريطانيا لحفظ قواته.\n\n### ٢. المواجهة مع الهاشميين ومعركة تربة الفاصلة (مايو 1919م)\n- تطلع الشريف حسين بعد الحرب لمد سلطانه الهاشمي لداخل نجد.\n- في مايو 1919م زحف الأمير عبد الله بن الحسين بقوات الحجاز واحتل واحة **«تربة»** الحدودية.\n- أرسل عبد العزيز قوات «الإخوان» التي شنت هجوماً ليلياً مباغتاً ساحقاً أباد معظم الجيش الهاشمي ونجا الأمير عبد الله بصعوبة.\n- **الأهمية التاريخية:** كسرت معركة تربة القوة العسكرية للهاشميين وأثبتت عجز الحجاز عن الصمود بمفرده.\n\n### ٣. إسقاط إمارة آل رشيد في حائل وضم عسير (1921–1926م)\n- **سقوط حائل (1921م):** حاصر عبد العزيز مدينة حائل معقل آل رشيد حتى استسلمت، منهياً إمارة جبل شمر، ولقب نفسه بـ *«سلطان نجد وملحقاتها»*.\n- **ضم عسير:** سيطرت القوات السعودية على عسير، وفُرضت معاهدة مكة 1926م على إمارة الأدارسة ثم دُمج إقليم عسير كاملاً في الدولة.\n\n### ٤. ضم الحجاز وسقوط الهاشميين (1924–1925م)\n- في 1924م، عقب إلغاء أتاتورك للخلافة بتركيا، تسرع الشريف حسين وأعلن نفسه خليفة للمسلمين، مما أثار معارضة إسلامية واسعة.\n- تقدمت القوات السعودية ودخلت الطائف ومكة المكرمة بسلام دون قتال بعد انسحاب الشريف.\n- أجبر أعيان الحجاز الشريف حسين على التنازل عن العرش لابنه **علي بن الحسين** ونُفي الشريف لقبرص.\n- حاصرت القوات السعودية مدينة **جدة** لأكثر من عام حتى استسلم الملك علي في ديسمبر 1925م وغادر للعراق.\n- في يناير 1926م بايعه أعيان وعلماء الحجاز في المسجد الحرام **ملكاً على الحجاز وسلطاناً لنجد وملحقاتها**.\n\n### ٥. إعلان تأسيس المملكة ومعاهدة الطائف مع اليمن (1932–1934م)\n- **إعلان قيام المملكة العربية السعودية:** في **23 سبتمبر 1932م**، صدر المرسوم الملكي التاريخي بتوحيد كافة الأقاليم تحت اسم **المملكة العربية السعودية**.\n- **حرب اليمن (1934م):** نشب نزاع حدودي مع الإمام يحيى حميد الدين إمام اليمن حول أقاليم عسير ونجران، وحققت القوات السعودية تقدماً سريعاً بقيادة الأمير فيصل ودخلت الحديدة.\n- **معاهدة الطائف (مايو 1934م):** ضرب الملك عبد العزيز مثلاً نادراً في الحكمة السياسية والترفع؛ فانسحب من الحديدة والأراضي اليمنية، واعترف باستقلال اليمن، وثبتت المعاهدة تبعية **عسير وجازان ونجران** للمملكة مع إرساء روابط الإخاء وحسن الجوار.",
+      "formulas": [
+        {
+          "labelEn": "Saudi Statehood Unification Steps",
+          "labelAr": "معادلة مراحل التوحيد وبناء الدولة السعودية",
+          "latex": "\\text{استرداد الرياض 1902} + \\text{تربة 1919} + \\text{حائل 1921} + \\text{الحجاز 1925} \\implies \\text{المملكة العربية السعودية 1932} + \\text{معاهدة الطائف 1934}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of the Arab East After WWI (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ المشرق العربي بعد الحرب العالمية الأولى - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH6-L5",
+        "pageRange": "pp. 189–198"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch6_ws5",
+        "titleEn": "EG-Bac Analytical Seminar 6.5: The Unification of Saudi Arabia & The Treaty of Taif",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٦-٥: توحيد المملكة العربية السعودية ومعاهدة الطائف",
+        "descriptionEn": "Cartographic timeline, military tactics of the Ikhwan, and analysis of King Abdulaziz's diplomatic statecraft.",
+        "descriptionAr": "قراءة خرائط التوحيد، تحليل التكتيكات العسكرية لجيش الإخوان، وتقييم الحكمة الدبلوماسية للملك عبد العزيز في معاهدة الطائف.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_saudi_unification",
+        "titleEn": "Saudi Unification Interactive Campaign Map",
+        "titleAr": "خريطة تفاعلية: مسيرة توحيد الجزيرة العربية للملك عبد العزيز",
+        "descriptionEn": "Interactive map tracing King Abdulaziz's 30-year campaigns from Riyadh (1902) to Asir, Hijaz, and Taif.",
+        "descriptionAr": "معمل خرائط تفاعلي يتتبع مراحل توحيد شبه الجزيرة من الرياض وحائل وعسير والحجاز حتى معاهدة الطائف 1934م."
+      },
+      "lessonPlan": {
+        "titleEn": "Saudi Unification of the Arabian Peninsula: Fall of Hijaz & The 1934 Treaty of Taif",
+        "titleAr": "توحيد الدولة السعودية في شبه الجزيرة: سقوط الحجاز ومعاهدة الطائف 1934م",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-605",
+        "bloomsObjectivesEn": [
+          "Trace King Abdulaziz Al Saud's systematic 30-year state-building campaign from the recapture of Riyadh (1902).",
+          "Analyze the decisive military significance of the Battle of Turaba (1919) in breaking Hashemite supremacy.",
+          "Evaluate the geopolitical steps eliminating the rival Emirate of Jabal Shammar (Ha'il) and annexing Asir.",
+          "Critique the circumstances surrounding the collapse of the Kingdom of Hijaz, Sharif Hussein's abdication, and Abdulaziz's coronation in Mecca.",
+          "Assess King Abdulaziz's diplomatic restraint in concluding the 1934 Treaty of Taif with Imam Yahya of Yemen."
+        ],
+        "bloomsObjectivesAr": [
+          "تتبع المراحل التاريخية لتوحيد الدولة السعودية الحديثة بقيادة الملك عبد العزيز بدءاً من استرداد الرياض 1902م.",
+          "تحليل الأهمية العسكرية لمعركة «تربة» 1919م وكسر شوكة الجيش الهاشمي في شبه الجزيرة.",
+          "تقويم الخطوات السياسية والعسكرية لإسقاط إمارة آل رشيد في حائل 1921م وضم إقليم عسير.",
+          "نقد الظروف والملابسات التي أدت لسقوط مملكة الحجاز وتنازل الشريف حسين ومبايعة الملك عبد العزيز في مكة المكرمة.",
+          "تقويم الحكمة الدبلوماسية والترفع السياسي للملك عبد العزيز في توقيع معاهدة الطائف 1934م وتثبيت حدود اليمن وعسير وجازان ونجران."
+        ],
+        "prerequisitesEn": [
+          "Understanding the geography of the Arabian Peninsula and the outcome of the Great Arab Revolt."
+        ],
+        "prerequisitesAr": [
+          "استيعاب جغرافيا الجزيرة العربية ومآلات الثورة العربية الكبرى وانهيار النفوذ العثماني."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Battle of Turaba (1919)",
+            "definition": "Crucial engagement where Saudi forces decisively defeated the Hashemite army led by Prince Abdullah bin Hussein."
+          },
+          {
+            "term": "Treaty of Mecca (1926)",
+            "definition": "Agreement placing the Idrisi Emirate of Asir under Saudi protection prior to full incorporation."
+          },
+          {
+            "term": "Treaty of Taif (1934)",
+            "definition": "Historic peace and border agreement between Saudi Arabia and Yemen confirming Saudi sovereignty over Asir, Jizan, and Najran."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "معركة تربة 1919م",
+            "definition": "معركة فاصلة سحقت فيها القوات السعودية الجيش الهاشمي بقيادة الأمير عبد الله، وكانت بداية النهاية لحكم الشريف حسين."
+          },
+          {
+            "term": "معاهدة مكة 1926م",
+            "definition": "اتفاقية وضعت إمارة الأدارسة في عسير تحت الحماية السعودية تمهيداً لدمجها النهائي في كيان الدولة."
+          },
+          {
+            "term": "معاهدة الطائف 1934م",
+            "definition": "معاهدة تاريخية للسلام وحسن الجوار بين السعودية واليمن ثبتت الحدود وتبعية عسير وجازان ونجران للمملكة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Masmak Fortress Epic",
+            "phaseAr": "التهيئة واسترداد الرياض",
+            "duration": "10 min",
+            "activitiesEn": "Discuss the daring raid on Masmak Fortress in 1902 and the concept of state restoration.",
+            "activitiesAr": "عرض قصة اقتحام قصر المصمك في يناير 1902م ومفهوم استرداد ملك الآباء والأجداد."
+          },
+          {
+            "phaseEn": "Battle of Turaba & Fall of Ha'il",
+            "phaseAr": "معركة تربة وإسقاط آل رشيد في حائل",
+            "duration": "40 min",
+            "activitiesEn": "Detail the clash with Prince Abdullah at Turaba (1919) and the siege of Ha'il (1921).",
+            "activitiesAr": "شرح معركة تربة وكسر قوة الهاشميين، ثم حصار حائل وإنهاء إمارة آل رشيد وتلقب عبد العزيز بسلطان نجد."
+          },
+          {
+            "phaseEn": "Conquest of Hijaz & Coronation",
+            "phaseAr": "ضم الحجاز وسقوط الهاشميين",
+            "duration": "25 min",
+            "activitiesEn": "Analyze Hussein's caliphate claim, the entry into Mecca, the siege of Jeddah, and coronation in 1926.",
+            "activitiesAr": "تتبع إعلان الشريف حسين للخلافة ورفض المسلمين، ودخول مكة المكرمة، واستسلام جدة، ومبايعة الملك عبد العزيز في الحرم المكي."
+          },
+          {
+            "phaseEn": "Proclamation of Kingdom & Treaty of Taif",
+            "phaseAr": "إعلان تأسيس المملكة ومعاهدة الطائف",
+            "duration": "15 min",
+            "activitiesEn": "Explain the royal decree of Sept 23, 1932, the 1934 Yemen war, and the peace terms of Taif.",
+            "activitiesAr": "شرح المرسوم الملكي بتوحيد المملكة في 23 سبتمبر 1932م، وحرب اليمن 1934م، ونصوص معاهدة الطائف للسلام والحدود."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Assuming the Kingdom of Saudi Arabia was created in a single step, rather than a deliberate 30-year phased unification campaign."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن توحيد المملكة تم دفعة واحدة، بينما كان مساراً شاقاً استغرق أكثر من ثلاثين عاماً من البناء العسكري والدبلوماسي المتدرج."
+        ],
+        "differentiationEn": {
+          "struggling": "Construct a chronological sequence map of King Abdulaziz's unification from Riyadh (1902) to the proclamation of the Kingdom (1932).",
+          "advanced": "Evaluate the strategic restraint of King Abdulaziz in the 1934 Treaty of Taif and discuss how moderation transformed a military rival into an enduring ally."
+        },
+        "differentiationAr": {
+          "struggling": "رسم خط زمني متسلسل لخطوات توحيد المملكة العربية السعودية من الرياض 1902م حتى إعلان المملكة 1932م لتسهيل الحفظ والتتابع.",
+          "advanced": "تقويم الحكمة السياسية والترفع للملك عبد العزيز في معاهدة الطائف 1934م وتحويل الخصم إلى شقيق مسالم."
+        },
+        "formativeAssessmentEn": "Map analysis: Trace the borders established by the 1934 Treaty of Taif and explain the strategic significance of Asir, Jizan, and Najran.",
+        "formativeAssessmentAr": "تحليل خريطة: تتبع ترسيم الحدود في معاهدة الطائف 1934م وبيان الأهمية الجيوسياسية لأقاليم عسير وجازان ونجران.",
+        "exitTicketQuestion": {
+          "questionEn": "What was the landmark battle in May 1919 where Saudi forces shattered Hashemite military power?",
+          "questionAr": "ما المعركة التاريخية الفاصلة في مايو 1919م التي حطمت فيها القوات السعودية قوة الهاشميين العسكرية؟",
+          "solutionEn": "The Battle of Turaba.",
+          "solutionAr": "معركة «تربة»."
+        }
+      }
+    }
+  ],
+      databank: historyCh6Databank,
+      solvedExamples: egBacHistoryCh6SolvedExamples,
+      exerciseProblems: egBacHistoryCh6Exercises
+    },
+    {
+  "id": "th_hist_ch7",
+  "chapterNumber": 7,
+  "titleEn": "Unit 7: Egypt & Contemporary Arab Causes: Arab-Israeli Conflict & 1973 October War",
+  "titleAr": "الفصل السابع: مصر وقضايا العالم العربي المعاصر (الصراع العربي الإسرائيلي وحرب أكتوبر 1973م)",
+  "descriptionEn": "The Arab League (Alexandria Protocol 1944 and Pact 1945), Palestinian Cause (Balfour Declaration 1917, 1936 Great Revolt, 1947 UN Partition), 1948 Palestine War, 1956 Tripartite Aggression, June 5, 1967 War and UN Resolution 242, War of Attrition (1967–1970), the glorious October 6, 1973 War (air strike, Bar-Lev Line breach, strategic military lessons), Camp David Accords (1978), 1979 Peace Treaty, and Taba arbitration (1989).",
+  "descriptionAr": "جامعة الدول العربية (بروتوكول الإسكندرية وميثاق 1945م)، تطور القضية الفلسطينية (وعد بلفور 1917م، الثورة الكبرى 1936م، قرار التقسيم 1947م)، حرب 1948م، العدوان الثلاثي 1956م، عدوان 5 يونيو 1967م وقرار 242، حرب الاستنزاف (1967–1970م)، ملحمة حرب أكتوبر 1973م واقتحام خط بارليف والدروس العسكرية، ومبادرة السلام وكامب ديفيد 1978م واسترداد طابا 1989م.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "egbac_hist_ch7_l1",
+      "titleEn": "EG-Bac Seminar: Arab Nationalism & The Arab League: Alexandria Protocol (1944) & League Charter (1945)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: القومية العربية وتأسيس جامعة الدول العربية: بروتوكول الإسكندرية 1944م وميثاق الجامعة 1945م",
+      "summaryEn": "Factors reviving modern Arab nationalism (language, history, culture, common destiny), British Foreign Secretary Anthony Eden's declarations (1941 and 1943) seeking Arab wartime alignment, Egyptian Prime Minister Mustafa el-Nahhas Pasha's diplomatic leadership, the Alexandria Consultations and the October 1944 Alexandria Protocol proposing binding Council decisions, compromises in the final Cairo Charter of March 1945 establishing the unanimity principle (Article 7), and the 1950 Joint Defense and Economic Cooperation Treaty.",
+      "summaryAr": "عوامل إحياء القومية العربية في التاريخ المعاصر (اللغة والتاريخ والتراث ووحدة المصير)، تصريحا وزير خارجية بريطانيا أنتوني إيدن 1941 و1943م لاستمالة العرب أثناء الحرب العالمية الثانية، قيادة رئيس وزراء مصر مصطفى النحاس باشا للمشاورات القومية، بروتوكول الإسكندرية في أكتوبر 1944م الذي نص على إلزامية القرارات، التنازلات وتحفظات الحكام في ميثاق القاهرة النهائي مارس 1945م وقاعدة الإجماع الملزم (المادة 7)، ومعاهدة الدفاع المشترك والتعاون الاقتصادي 1950م.",
+      "theoryContentEn": "### 1. Factors Reviving Modern Arab Nationalism\n- **Common Heritage:** Arab nations share an organic cultural unity anchored by the **Arabic language**, shared historical experience, Islamic civilization, and geographically contiguous territories stretching from the Atlantic Ocean to the Arabian Gulf.\n- **Imperialist Fragmentation:** European colonial powers attempted to dissolve Arab unity through territorial partition, customs barriers, citizenship divisions, and fostering regionalist and sectarian loyalties.\n- **Modern Catalysts of Revival:** Expansion of mass education, print journalism, modern transport, shared educational curricula, and the universal threat posed by Zionist colonial settlement in Palestine re-awakened pan-Arab solidarity.\n\n### 2. British Policy & The Anthony Eden Declarations (1941 & 1943)\n- **Wartime Realpolitik:** During World War II, Great Britain faced German and Italian threats in the Mediterranean and North Africa.\n- **Eden's Statements:** In May 1941 (Mansion House speech) and February 1943 (House of Commons), British Foreign Secretary **Anthony Eden** stated that His Majesty's Government looked with sympathy upon any cultural, economic, or political step toward Arab unity that enjoyed Arab agreement.\n- **British Imperial Motivations:**\n  1. Appeasing Arab public opinion to prevent sympathy with the Axis powers.\n  2. Securing vital oil pipelines and air/naval transport routes across the Arab East.\n  3. Channeling Arab unity aspirations into a moderate regional bloc aligned with London.\n\n### 3. Egyptian Initiative & The Alexandria Protocol (October 1944)\n- Egyptian Prime Minister **Mustafa el-Nahhas Pasha** responded proactively, holding bilateral preparatory talks in Cairo with delegates from Syria, Lebanon, Iraq, Transjordan, Saudi Arabia, and Yemen.\n- **The Alexandria Conference (September–October 1944):** Representatives met at Antoniadis Palace in Alexandria and signed the historic **Alexandria Protocol** on October 7, 1944.\n- **Key Provisions of the Alexandria Protocol:**\n  - Establishment of the **League of Arab States** (*Jāmiʿat al-Duwal al-ʿArabiyya*).\n  - The Council's decisions would be **binding on all member states** that agreed to adhere to the League.\n  - Prohibiting the use of force to resolve disputes between member states.\n  - Recognition of the independence of Lebanon within its existing borders.\n  - Special declaration regarding **Palestine**: declaring it a foundational pillar of the Arab world whose rights and independence must be preserved without prejudicing Arab sovereignty.\n\n### 4. The 1945 Charter of the League of Arab States\n- In March 1945, Arab delegates assembled in Cairo to formalize the charter. Royal reservations (notably from Saudi Arabia and Yemen) and British behind-the-scenes pressure watered down the Alexandria Protocol.\n- **The Cairo Charter (March 22, 1945):** Signed by Egypt, Syria, Lebanon, Iraq, Transjordan, Saudi Arabia, and Yemen (7 founding states).\n- **Critical Structural Weaknesses of the 1945 Pact:**\n  1. **The Unanimity Rule (Article 7):** Decisions taken by **unanimous vote** were binding on all members; however, decisions taken by **majority vote** were binding *only upon the states that voted in favor*. This legal loophole paralyzed Arab collective action, giving any single dissenting regime a de facto veto.\n  2. **Voluntary Execution:** The League lacked an executive enforcement arm or permanent military peacekeeping force.\n  3. **Preservation of Fragmentation:** It recognized existing colonial borders as sacrosanct, prioritizing regime survival over genuine federal integration.\n\n### 5. The Joint Defense Treaty (June 1950)\n- Following the catastrophic defeat in the 1948 Palestine War, the Arab League realized its military impotence.\n- In June 1950, signatories concluded the **Joint Defense and Economic Cooperation Treaty** (modeled on NATO Article 5): declaring that any armed aggression against any member state is considered aggression against all, mandating immediate collective military assistance.\n- However, inter-Arab Cold War divisions and political rivalries between Hashemites and Egyptian-Saudi alliances prevented its permanent operationalization.",
+      "theoryContentAr": "### ١. عوامل إحياء القومية العربية في العصر الحديث\n- **الروابط العضوية المشتركة:** ترتبط الأمة العربية برباط وجداني وحضاري وثيق يرتكز على **اللغة العربية** الواحدة، والتاريخ والمصير المشترك، والامتداد الجغرافي الطبيعي من المحيط الأطلسي إلى الخليج العربي.\n- **سياسة التفتيت الاستعماري:** عمل الاستعمار الأوروبي على تفتيت الوطن العربي بخلق حواجز جمركية، وجنسيات متباينة، وإثارة النعرات الطائفية والإقليمية والعرقية.\n- **عوامل اليقظة القومية:** أدى انتشار التعليم، والصحافة، والمواصلات الحديثة، والمناهج المشتركة، وتعاظم الخطر الصهيوني في فلسطين إلى يقظة قومية شاملة فرضت ضرورة العمل العربي المشترك.\n\n### ٢. السياسة البريطانية وتصريحا أنتوني إيدن (1941 و1943م)\n- **دوافع بريطانيا الاستعمارية:** أثناء الحرب العالمية الثانية واشتعال معارك العلمين، سعت بريطانيا لتأمين ظهرها ومصالحها في الشرق الأوسط.\n- **تصريحا إيدن:** في مايو 1941م وفبراير 1943م، أعلن وزير خارجية بريطانيا **أنتوني إيدن** تأييد بلاده لأي خطوة يتفق عليها العرب لتعزيز وحدتهم الثقافية والاقتصادية والسياسية.\n- **الأهداف البريطانية الحقيقية:** استرضاء الشعوب العربية، وقطع الطريق على الدعاية النازية لدول المحور، وضمان تدفق النفط العربي وتأمين خطوط المواصلات الإمبراطورية للهند.\n\n### ٣. المبادرة المصرية وتوقيع بروتوكول الإسكندرية (أكتوبر 1944م)\n- تلقف رئيس وزراء مصر وزعيم الوفد **مصطفى النحاس باشا** الفرصة، ودعا رؤساء الحكومات العربية لمشاورات تمهيدية بالقاهرة في 1943م.\n- **مؤتمر الإسكندرية (سبتمبر – أكتوبر 1944م):** اجتمع ممثلو الدول العربية بقصر أنطونيادس بالإسكندرية ووقعوا **«بروتوكول الإسكندرية»** في 7 أكتوبر 1944م.\n- **أهم بنود بروتوكول الإسكندرية:**\n  - تأسيس **جامعة الدول العربية** من الدول المستقلة الراغبة في الانضمام.\n  - تكون قرارات مجلس الجامعة **ملزمة لجميع الدول التي تقبلها**.\n  - حظر استخدام القوة لفض المنازعات بين الدول الأعضاء.\n  - احترام استقلال وسيادة لبنان بحدوده الحالية.\n  - إفراد ملحق خاص بـ **فلسطين**: التأكيد على أنها ركن أساسي من بلاد العرب ولا يجوز المساس بحقوقها واستقلالها دون إضرار بالسلم.\n\n### ٤. ميثاق جامعة الدول العربية (القاهرة، مارس 1945م)\n- في مارس 1945م، عقد المؤتمر التأسيسي بالقاهرة لصياغة الميثاق النهائي. وتدخلت التحفظات الإقليمية والمصالح الأسرية وضغوط الإنجليز لتخفيف صرامة بروتوكول الإسكندرية.\n- وقعت على الميثاق 7 دول مؤسسة: مصر، وسوريا، ولبنان، والعراق، وشرق الأردن، والسعودية، واليمن.\n- **الثغرات الهيكلية ونقاط الضعف في الميثاق:**\n  ١. **قاعدة الإجماع الملزم (المادة 7):** نص الميثاق على أن القرارات الصادرة بالإجماع تكون ملزمة لجميع الدول، أما القرارات الصادرة بالأغلبية فلا تلزم إلا الدول التي قبلتها فقط! مما جعل من حق أي دولة تعطيل القرارات المصيرية.\n  ٢. **غياب القوة التنفيذية:** افتقر الميثاق لوجود جيش عربي دائم أو قوة ردع ملزمة لتنفيذ القرارات.\n  ٣. **تكريس القطرية:** نص على احترام أنظمة الحكم القائمة والحدود المصطنعة التي وضعها الاستعمار، مفضلاً السيادة القطرية على الوحدة الاندماجية الحقيقية.\n\n### ٥. معاهدة الدفاع المشترك والتعاون الاقتصادي (يونيو 1950م)\n- بعد صدمة الهزيمة في حرب فلسطين 1948م وتكشف عجز التنسيق العسكري العربي، دعت مصر لإبرام معاهدة أمن جماعي.\n- في يونيو 1950م، وُقعت معاهدة الدفاع المشترك ونصت على أن أي عدوان مسلح على أي دولة عضو يعتبر عدواناً على الجميع وتلتزم الدول بتقديم العون العسكري الفوري.\n- ولكن حالت الخلافات البينية والمنافسات السياسية دون تفعيل القيادة العسكرية الموحدة المنصوص عليها عملياً.",
+      "formulas": [
+        {
+          "labelEn": "Arab League Institutional Equation",
+          "labelAr": "معادلة فاعلية ميثاق جامعة الدول العربية",
+          "latex": "\\text{بروتوكول الإسكندرية 1944 (قرارات ملزمة)} \\xrightarrow{\\text{تحفظات الحكام}} \\text{ميثاق 1945 (قاعدة الإجماع)} \\implies \\text{عجز القرار الجماعي في حرب 1948}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt & Arab Contemporary Causes (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر والقضايا العربية - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH7-L1",
+        "pageRange": "pp. 200–209"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch7_ws1",
+        "titleEn": "EG-Bac Analytical Seminar 7.1: The Arab League & Arab Collective Security",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٧-١: تأسيس جامعة الدول العربية ومنظومة الأمن الجماعي",
+        "descriptionEn": "Comparative document study of the Alexandria Protocol vs. Cairo Charter, voting loopholes, and the 1950 Joint Defense Treaty.",
+        "descriptionAr": "مقارنة وثائقية بين بروتوكول الإسكندرية وميثاق القاهرة 1945م، تحليل ثغرة الإجماع، وتقييم معاهدة الدفاع المشترك 1950م.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_arab_league",
+        "titleEn": "Arab League Formation Interactive Charter Explorer",
+        "titleAr": "مستكشف وثائق تأسيس جامعة الدول العربية التفاعلي",
+        "descriptionEn": "Interactive document analyzer comparing the drafts of Nahhas Pasha, the 1944 Alexandria Protocol, and the 1945 Charter clauses.",
+        "descriptionAr": "معمل وثائق تفاعلي يقارن نصوص مشاورات النحاس باشا، بنود بروتوكول الإسكندرية، ومواد ميثاق الجامعة وثغرة التصويت."
+      },
+      "lessonPlan": {
+        "titleEn": "Arab Nationalism & The Arab League: Alexandria Protocol (1944) & League Charter (1945)",
+        "titleAr": "القومية العربية وتأسيس جامعة الدول العربية: بروتوكول الإسكندرية وميثاق الجامعة",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-701",
+        "bloomsObjectivesEn": [
+          "Analyze the motives behind Anthony Eden's 1941 and 1943 declarations regarding Arab unity.",
+          "Critique the structural compromises between the 1944 Alexandria Protocol and the 1945 Cairo Charter.",
+          "Evaluate how Article 7's unanimity clause paralyzed Arab League decision-making during crises.",
+          "Assess Egypt's leadership role under Mustafa el-Nahhas Pasha in institutionalizing Arab multilateral diplomacy."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الدوافع الاستعمارية لبريطانيا في تصريحي أنتوني إيدن 1941 و1943م لدعم الوحدة العربية.",
+          "المقارنة النقدية بين نصوص بروتوكول الإسكندرية 1944م والميثاق النهائي لجامعة الدول العربية 1945م.",
+          "تقويم أثر المادة السابعة واشتراط الإجماع في إضعاف القرارات العربية وشل منظومة الدفاع المشترك.",
+          "تقدير الدور التاريخي والريادي لمصر بقيادة مصطفى النحاس باشا في إرساء أول منظومة إقليمية عربية متعددة الأطراف."
+        ],
+        "prerequisitesEn": [
+          "Understanding the impact of WWI mandates and the interwar independence struggles across the Arab world."
+        ],
+        "prerequisitesAr": [
+          "استيعاب تداعيات الانتداب والتحولات الاستقلالية للأقطار العربية بين الحربين العالميتين."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Alexandria Protocol (1944)",
+            "definition": "Pact drafted by Arab leaders in Alexandria setting up the Arab League with binding Council resolutions."
+          },
+          {
+            "term": "Unanimity Principle (Article 7)",
+            "definition": "Charter clause stating that only unanimous decisions bind all members, while majority decisions bind only consenting states."
+          },
+          {
+            "term": "Joint Defense Treaty (1950)",
+            "definition": "Collective security treaty declaring armed aggression against one Arab League member an attack on all."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "بروتوكول الإسكندرية 1944م",
+            "definition": "وثيقة تأسيسية صاغها زعماء العرب بالإسكندرية أرست قواعد الجامعة وجعلت قراراتها ملزمة للكافة."
+          },
+          {
+            "term": "قاعدة الإجماع (المادة 7)",
+            "definition": "بند بميثاق 1945م ينص على أن قرارات الإجماع فقط ملزمة للجميع، وقرارات الأغلبية تلزم من يقبلها فقط."
+          },
+          {
+            "term": "معاهدة الدفاع المشترك 1950م",
+            "definition": "معاهدة أمن جماعي أقرتها الجامعة اعتبرت العدوان على أي دولة عربية عدواناً على كافة الدول الموقعة."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Source Discovery",
+            "phaseAr": "التهيئة ونقد تصريحات إيدن",
+            "duration": "10 min",
+            "activitiesEn": "Analyze Anthony Eden's speech excerpts and discuss why wartime powers offer alliances.",
+            "activitiesAr": "قراءة فقرات من خطاب إيدن بمجلس العموم واستنتاج دوافع بريطانيا المصلحية خلف مساندة الوحدة العربية."
+          },
+          {
+            "phaseEn": "Alexandria Protocol vs Cairo Charter",
+            "phaseAr": "الشرح المنهجي والمقارنة الوثائقية",
+            "duration": "45 min",
+            "activitiesEn": "Detailed comparative matrix of Protocol clauses vs Charter articles, focusing on binding power.",
+            "activitiesAr": "تحليل جدول المقارنة بين بروتوكول الإسكندرية وميثاق 1945م وتفكيك أسباب تخفيف الرابطة القومية."
+          },
+          {
+            "phaseEn": "Structural Flaws & The 1950 Treaty",
+            "phaseAr": "تحليل الثغرات ومعاهدة الدفاع 1950م",
+            "duration": "20 min",
+            "activitiesEn": "Evaluate the consequences of the unanimity rule in 1948 and analyze the 1950 Joint Defense pact.",
+            "activitiesAr": "دراسة أثر قاعدة الإجماع في نكبة فلسطين 1948م ومناقشة محاولة تصحيح المسار في معاهدة الدفاع المشترك 1950م."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems on the Arab League founding documents.",
+            "activitiesAr": "حل تدريبات تطبيقية تحاكي امتحانات الثانوية العامة في تحليل ميثاق الجامعة والبروتوكول."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing the Arab League was originally designed as a toothless organization, whereas the Alexandria Protocol intended it to have binding legislative force before regional rulers diluted it."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن الجامعة أُنشئت ضعيفة عمداً منذ البداية، بينما كان بروتوكول الإسكندرية يستهدف وحدة ملزمة وقوية لولا تراجع الحكام في صياغة ميثاق القاهرة."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide side-by-side charts contrasting Alexandria Protocol clauses with 1945 Charter articles.",
+          "advanced": "Evaluate primary cables of Nahhas Pasha's meetings with Nuri al-Said regarding the Greater Syria vs Fertile Crescent federation models."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جدول مقارنة ثنائي مبسط يوضح الفروق بين بروتوكول الإسكندرية وميثاق الجامعة لتسهيل الاستيعاب.",
+          "advanced": "تحليل الوثائق السرية لمحاضر جلسات النحاس باشا ونوري السعيد لمناقشة مشروعي «الهلال الخصيب» و«سوريا الكبرى» وموقف مصر المتوازن."
+        },
+        "formativeAssessmentEn": "Class debate: Did the 1945 Arab League Pact succeed in creating a viable regional system, or did it institutionalize Arab division under the guise of unity?",
+        "formativeAssessmentAr": "مناظرة صفية: هل نجح ميثاق جامعة الدول العربية في تأسيس إطار إقليمي فاعل، أم كرس التجزئة العربية تحت ستار الوحدة الرمزية؟",
+        "exitTicketQuestion": {
+          "questionEn": "Why did majority decisions fail to bind all member states under the 1945 Arab League Pact?",
+          "questionAr": "لماذا لم تكن قرارات الأغلبية ملزمة لجميع الدول الأعضاء في ميثاق جامعة الدول العربية 1945م؟",
+          "solutionEn": "Because Article 7 stipulated that majority decisions were binding only upon those member states that voted to accept them.",
+          "solutionAr": "لأن المادة السابعة نصت صراحة على أن قرارات الأغلبية لا تلزم إلا الدول التي قبلتها وصوتت لصالحها فقط."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch7_l2",
+      "titleEn": "EG-Bac Seminar: The Palestine Cause Under the British Mandate: Balfour Declaration, 1936 Great Revolt & Peel Commission",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: القضية الفلسطينية تحت الانتداب البريطاني: وعد بلفور، الثورة الكبرى 1936م، ولجنة بيل 1937م",
+      "summaryEn": "The Zionist movement (Herzl, Basel Congress 1897), the Balfour Declaration (November 2, 1917), League of Nations Mandate terms, the Churchill White Paper (1922) setting economic absorptive capacity, the 1929 Al-Buraq Uprising, Passfield White Paper (1930) and the 'Black Letter' retreat, the 1936–1939 Great Palestinian Revolt (six-month general strike and armed warfare), the Peel Commission partition report (1937), the Bludan Conference, the 1939 MacDonald White Paper, and the Biltmore Conference (1942).",
+      "summaryAr": "نشأة الحركة الصهيونية ومؤتمر بازل 1897م، وعد بلفور 2 نوفمبر 1917م وتناقضاته، صك الانتداب ومساندة الهجرة والاستيطان، الكتاب الأبيض الأول 1922م (تشرشل) ومفهوم الطاقة الاستيعابية، ثورة البراق 1929م، الكتاب الأبيض الثاني 1930م (باسفيلد) وتراجع ماكدونالد (الكتاب الأسود 1931م)، الثورة العربية الكبرى في فلسطين 1936–1939م (الإضراب الستيني والعمل المسلح)، تقرير لجنة بيل الملكية للتقسيم 1937م ومؤتمر بلودان، الكتاب الأبيض الثالث 1939م، ومؤتمر بلتيمور بنيويورك 1942م.",
+      "theoryContentEn": "### 1. Origins of Zionist Colonization & The Balfour Declaration (1917)\n- **The First Zionist Congress (Basel, 1897):** Led by **Theodor Herzl**, resolving to establish a home for the Jewish people in Palestine guaranteed by public international law.\n- **The Balfour Declaration (November 2, 1917):** British Foreign Secretary **Arthur Balfour** wrote to Zionist financier **Lord Walter Rothschild**, declaring: *\"His Majesty's Government view with favour the establishment in Palestine of a national home for the Jewish people...\"*\n- **The Historical Paradox:** A promise by Britain (who did not own Palestine) to European Zionists (who held no legal sovereignty), ignoring that Arabs constituted **over 90% of the population** and owned **97% of the land**, reducing them dismissively to 'existing non-Jewish communities'.\n\n### 2. The British Mandate & The 1920s Policy Documents\n- **San Remo Conference (1920):** Placed Palestine under British Mandate with mandatory duty to enforce the Balfour Declaration.\n- **Sir Herbert Samuel:** First British High Commissioner in Palestine, an ardent Zionist who facilitated Jewish land purchases and mass immigration.\n- **The White Paper of 1922 (Churchill White Paper):**\n  - Clarified that the national home was to be built *'in Palestine'* rather than turning all Palestine into a Jewish state.\n  - Linked Jewish immigration to the **'economic absorptive capacity'** of the country, enabling hundreds of thousands of immigrants to flood the cities.\n\n### 3. The 1929 Al-Buraq Uprising & The Passfield Reversal\n- **The Incident:** In August 1929, Zionist militants staged an aggressive rally at the **Al-Buraq Wall** (Western Wall of Al-Aqsa Mosque), claiming ownership over the Muslim holy site.\n- **Nationwide Explosion:** Clashes erupted across Jerusalem, Hebron, Safed, and Jaffa, leaving hundreds dead.\n- **The White Paper of 1930 (Passfield):** Critiqued unrestricted Jewish immigration and warned that landlessness among Arab peasantry was reaching crisis levels.\n- **The Zionist Backlash & 'Black Letter' (1931):** Chaim Weizmann pressured Prime Minister Ramsay MacDonald, who issued a public letter reversing Passfield's restrictions and reopening the floodgates of immigration.\n\n### 4. The 1936–1939 Great Palestinian Revolt\n- **Catalysts:** The rise of Nazism in Germany accelerated European Jewish immigration into Palestine (over 60,000 in 1935 alone), alongside the martyrdom of Sheikh **Izz ad-Din al-Qassam** in November 1935.\n- **The Six-Month General Strike (1936):** Formed the **Higher Arab Committee** under Mufti **Haj Amin al-Husseini**, demanding:\n  1. Complete halt to Jewish immigration.\n  2. Prohibition of land transfers from Arabs to Jews.\n  3. Establishment of an independent national government.\n  - Palestinians maintained a general civil strike for **178 days** (the longest general strike in Arab history).\n- **Armed Guerrilla Phase (1937–1939):** When British forces responded with collective punishment, dynamiting houses, and emergency courts, the rebellion escalated into armed guerrilla war across rural Palestine.\n\n### 5. The Peel Royal Commission Partition Plan (1937)\n- In July 1937, the Peel Commission declared the Mandate unworkable and recommended partitioning Palestine:\n  1. A **Jewish State** on 20% of the land (encompassing the most fertile Galilee and coastal agricultural plains).\n  2. An **Arab State** annexed to Transjordan.\n  3. A **British Mandate Zone** preserving Jerusalem, Bethlehem, and a corridor to Jaffa.\n  4. Compulsory transfer of Arab populations out of the proposed Jewish state.\n- **Arab Rejection:** Arab leaders meeting at the **Bludan Conference (Syria, Sept 1937)** firmly rejected partition, affirming that Palestine was an indivisible Arab homeland.\n\n### 6. The 1939 White Paper & Shift to American Patronage (Biltmore 1942)\n- **The White Paper of May 1939:** Facing impending war with Nazi Germany, Britain appeased Arabs by proposing to limit immigration to 75,000 over 5 years and promising an independent state in 10 years.\n- **Zionist Shift to the US:** Realizing Britain was exhausted, David Ben-Gurion convened the **Biltmore Conference** in New York in May 1942, securing American bipartisan support to demand a Jewish Commonwealth and an autonomous Jewish military army.",
+      "theoryContentAr": "### ١. جذور الاستعمار الصهيوني ووعد بلفور المشؤوم (1917م)\n- **المؤتمر الصهيوني الأول (بازل، سويسرا 1897م):** بزعامة **تيودور هرتزل**، والذي أقر خطة إقامة «وطن قومي للشعب اليهودي في فلسطين يضمنه القانون العام».\n- **وعد بلفور (2 نوفمبر 1917م):** خطاب وجهه وزير خارجية بريطانيا **آرثر بلفور** للملياردير الصهيوني **اللورد روتشيلد** يعلن فيه عطف وتأييد بريطانيا لإنشاء «وطن قومي للشعب اليهودي في فلسطين».\n- **المفارقة التاريخية والظلم الفادح:** وعد ممن لا يملك لمن لا يستحق؛ حيث كان عرب فلسطين يشكلون **أكثر من 90% من السكان** ويمتلكون **97% من الأراضي**، ومع ذلك جُرّدوا من هويتهم الوطنية واختزلهم الوعد في عبارة مهينة: «الطوائف غير اليهودية المقيمة».\n\n### ٢. فرض الانتداب والسياسة البريطانية في العشرينيات\n- **مؤتمر سان ريمو (1920م):** وضع فلسطين تحت الانتداب البريطاني مع التزام صريح بتنفيذ وعد بلفور.\n- **هربرت صموئيل:** أول مندوب سامٍ بريطاني في فلسطين (يهودي صهيوني)، أصدر تشريعات لتسهيل بيع الأراضي وتدفق المهاجرين.\n- **الكتاب الأبيض الأول (كتاب تشرشل، يونيو 1922م):**\n  - زعم أن الوطن القومي سيقام «في فلسطين» وليس تحويل كل فلسطين لدولة يهودية.\n  - قيد الهجرة بمعيار مخادع هو **«القدرة الاستيعابية الاقتصادية للبلاد»**، مما فتح الباب لموجات استيطانية متلاحقة.\n\n### ٣. ثورة البراق (1929م) وتراجع ماكدونالد\n- **السبب المباشر:** في أغسطس 1929م، نظم غلاة الصهاينة مظاهرة استفزازية عند **حائط البراق** (الجدار الغربي للمسجد الأقصى والوقف الإسلامي الخالد) مدعين ملكيته.\n- **الانتفاضة الشعبية:** اشتعلت مواجهات دامية في القدس والخليل وصفد ويافا، واستشهد مئات الفلسطينيين دفاعاً عن مقدساتهم.\n- **الكتاب الأبيض الثاني (كتاب باسفيلد، 1930م):** انتقد التوسع في الهجرة وحذر من خطر بطالة الفلاحين العرب وفقدانهم لأراضيهم.\n- **الكتاب الأسود (1931م):** هاجمت المنظمات الصهيونية بزعامة حاييم وايزمان الحكومة البريطانية، فرضخ رئيس الوزراء ماكدونالد وأصدر خطاباً ألغى فيه كل قيود كتاب باسفيلد وأعاد فتح باب الهجرة وشراء الأراضي بلا ضوابط.\n\n### ٤. الثورة العربية الكبرى في فلسطين (1936–1939م)\n- **أسباب الانفجار:** تدفق عشرات الآلاف من المهاجرين الفارين من اضطهاد هتلر في ألمانيا (أكثر من 60 ألفاً في عام 1935 وحده)، واستشهاد الشيخ المجاهد **عز الدين القسام** في يعبد (نوفمبر 1935م).\n- **الإضراب العام الشامل (1936م):** تشكلت **اللجنة العربية العليا** بقيادة مفتي القدس **الحاج أمين الحسيني**، وطالبت بـ:\n  ١. وقف فوري لهجرة اليهود.\n  ٢. منع انتقال الأراضي من العرب لليهود.\n  ٣. إقامة حكومة وطنية مسؤولة أمام برلمان نيابي.\n  - خاض شعب فلسطين أطول إضراب عام في التاريخ العربي الحديث استمر **178 يوماً (ستة أشهر متصلة)** وشل كافة المرافق.\n- **المرحلة المسلحة (1937–1939م):** عقب لجوء بريطانيا للعنف ونسف المنازل، تحولت الحركة لثورة مسلحة شاملة خاضت معارك حرب عصابات بطولية في الجبال والأرياف.\n\n### ٥. مشروع لجنة بيل الملكية للتقسيم (1937م) ومؤتمر بلودان\n- في يوليو 1937م، أعلنت لجنة بيل استحالة التوفيق بين العرب واليهود واقترحت أول مشروع لتقسيم فلسطين:\n  ١. **دولة يهودية** تضم 20% من الأرض (أخصب السهول الزراعية في الساحل والجليل ومرج بن عامر).\n  ٢. **دولة عربية** تلحق بإمارة شرق الأردن.\n  ٣. **منطقة انتداب بريطانية** تشمل القدس وبيت لحم وممراً للبحر.\n  ٤. تهجير قسري (ترانسفير) للسكان العرب من أراضي الدولة اليهودية المقترحة.\n- **الرفض العربي ومؤتمر بلودان:** اجتمع أحرار العرب في **مؤتمر بلودان بسوريا (سبتمبر 1937م)** ورفضوا التقسيم رفضاً قاطعاً متمسكين بعروبة فلسطين ووحدة ترابها، فاستأنف الثوار الكفاح المسلح.\n\n### ٦. الكتاب الأبيض الثالث (1939م) ومؤتمر بلتيمور (1942م)\n- **الكتاب الأبيض لعام 1939م:** مع اقتراب الحرب العالمية الثانية وخوف بريطانيا من ثورة العرب، أصدرت كتاباً مهادناً حدد الهجرة بـ 75 ألفاً ووعد باستقلال فلسطين خلال 10 سنوات.\n- **مؤتمر بلتيمور (نيويورك، مايو 1942م):** أدركت الصهيونية تراجع بريطانيا؛ فنقلت ثقلها إلى الولايات المتحدة، وعقدت مؤتمر بلتيمور بحضور بن غوريون والسياسيين الأمريكيين، مطالبة بإلغاء قيود الهجرة وإقامة «دولة كومنولث يهودية» وإنشاء جيش يهودي مستقل.",
+      "formulas": [
+        {
+          "labelEn": "Mandate Demography Equation",
+          "labelAr": "معادلة الانتداب والتغيير الديموغرافي في فلسطين",
+          "latex": "\\text{وعد بلفور 1917} + \\text{الانتداب 1920} \\implies \\text{هجرة صهيونية كبرى} \\implies \\text{ثورة 1936} \\implies \\text{مشروع لجنة بيل 1937}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt & Arab Contemporary Causes (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر والقضايا العربية - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH7-L2",
+        "pageRange": "pp. 210–221"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch7_ws2",
+        "titleEn": "EG-Bac Analytical Seminar 7.2: Palestine Under the Mandate & The 1936 Revolt",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٧-٢: القضية الفلسطينية تحت الانتداب والثورة الكبرى 1936م",
+        "descriptionEn": "Source analysis of the Balfour Declaration, Churchill White Paper, Buraq Uprising, and the 1937 Peel partition map.",
+        "descriptionAr": "تحليل نصوص وعد بلفور، تقييم الكتاب الأبيض 1922م، ثورة البراق، ونقد خريطة تقسيم لجنة بيل 1937م ومؤتمر بلتيمور.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_palestine_mandate",
+        "titleEn": "Palestine Mandate Land & Demographic Explorer",
+        "titleAr": "مستكشف ديموغرافيا وأراضي فلسطين تحت الانتداب التفاعلي",
+        "descriptionEn": "Interactive map tracing Jewish land acquisitions, immigration waves, the 1936 strike centers, and the Peel Partition proposal.",
+        "descriptionAr": "معمل خرائط تفاعلي يتتبع موجات الهجرة الصهيونية، مراكز إضراب 1936م، ومقارنة خرائط تقسيم لجنة بيل 1937م وقرار 181 لعام 1947م."
+      },
+      "lessonPlan": {
+        "titleEn": "The Palestine Cause Under the British Mandate: Balfour Declaration, 1936 Revolt & Peel Commission",
+        "titleAr": "القضية الفلسطينية تحت الانتداب البريطاني: وعد بلفور والثورة الكبرى ولجنة بيل",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-702",
+        "bloomsObjectivesEn": [
+          "Analyze the legal and political contradictions embedded in the 1917 Balfour Declaration.",
+          "Critique British White Papers (1922, 1930, 1939) as instruments of colonial appeasement.",
+          "Evaluate the methods, nationwide impact, and armed transition of the 1936–1939 Great Palestinian Revolt.",
+          "Contrast the Peel Commission Partition Plan (1937) with indigenous Arab demographic rights."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل التناقضات القانونية والتاريخية في نص وعد بلفور وتجاهل الأغلبية العربية الفلسطينية.",
+          "نقد الكتب البيضاء البريطانية (1922 و1930 و1939م) وتفسير تقلباتها وفق المصالح الاستعمارية.",
+          "تقويم أساليب المقاومة في ثورة 1936م (الإضراب الستيني الشامل ثم التحول للكفاح المسلح).",
+          "مقارنة خريطة تقسيم لجنة بيل 1937م بالحقوق الديموغرافية والملكية التاريخية لأراضي فلسطين."
+        ],
+        "prerequisitesEn": [
+          "Understanding the Sykes-Picot Agreement and San Remo mandate distribution in the Levant."
+        ],
+        "prerequisitesAr": [
+          "استيعاب بنود اتفاقية سايكس بيكو ومخرجات مؤتمر سان ريمو بشأن بلاد الشام وفلسطين."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Balfour Declaration (1917)",
+            "definition": "British pledge to establish a national home for the Jewish people in Palestine."
+          },
+          {
+            "term": "Peel Commission (1937)",
+            "definition": "British royal commission that first recommended partitioning Palestine into Arab and Jewish states."
+          },
+          {
+            "term": "Biltmore Conference (1942)",
+            "definition": "Zionist conference in New York demanding a Jewish Commonwealth, shifting strategic reliance to the US."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "وعد بلفور 1917م",
+            "definition": "تعهد بريطاني بإنشاء وطن قومي للشعب اليهودي في فلسطين على حساب الأغلبية العربية."
+          },
+          {
+            "term": "لجنة بيل الملكية 1937م",
+            "definition": "لجنة تحقيق بريطانية أوصت لأول مرة بتقسيم فلسطين إلى دولتين عربية ويهودية مع تدويل القدس."
+          },
+          {
+            "term": "مؤتمر بلتيمور 1942م",
+            "definition": "مؤتمر صهيوني عُقد بنيويورك أعلن المطالبة بدولة صريحة وجيش يهودي ونقل الرعاية لأمريكا."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Textual Critique",
+            "phaseAr": "التهيئة والتحليل النصي لوعد بلفور",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the exact phrase: 'existing non-Jewish communities' and discuss diplomatic erasure of identity.",
+            "activitiesAr": "قراءة النص الحرفي لوعد بلفور ومناقشة كيف محا الخطاب الهوية الوطنية لـ 90% من سكان البلاد."
+          },
+          {
+            "phaseEn": "White Papers & Demographic Influx",
+            "phaseAr": "الشرح المنهجي للكتب البيضاء والهجرة",
+            "duration": "45 min",
+            "activitiesEn": "Detail Churchill's 1922 paper, Passfield's 1930 retreat, and the impact of Hitler's rise on mass migration.",
+            "activitiesAr": "شرح تقلبات الكتب البيضاء وتوظيف مصطلح الطاقة الاستيعابية وتصاعد موجات الهجرة في الثلاثينيات."
+          },
+          {
+            "phaseEn": "The 1936 Revolt & Peel Partition",
+            "phaseAr": "تحليل الثورة الكبرى ولجنة بيل 1937م",
+            "duration": "20 min",
+            "activitiesEn": "Evaluate the 178-day strike, guerrilla tactics, and Lord Peel's partition maps.",
+            "activitiesAr": "دراسة الإضراب الستيني التاريخي وبطولات الفدائيين ونقد مشروع التقسيم الصادر عن لجنة بيل."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems contrasting the Peel Plan and Biltmore resolutions.",
+            "activitiesAr": "حل تدريبات موضوعية ومقالية تقارن بين مشروع بيل ومؤتمر بلتيمور والكتاب الأبيض 1939م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Jewish immigration was primarily legal and peaceful, ignoring that armed Zionist underground militias (Haganah, Irgun, Stern) terrorized Arab villages and British personnel alike."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن الاستيطان الصهيوني كان سلمياً، متجاهلين أن العصابات الصهيونية المسلحة (الهاجاناه وإرجون وشتيرن) مارست الإرهاب والتهجير المنظم بحماية الانتداب."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide visual timelines of British White Papers from 1922 to 1939 indicating the British stance on immigration in each.",
+          "advanced": "Examine diplomatic cables between David Ben-Gurion and US Senator Robert Wagner leading up to the 1942 Biltmore Declaration."
+        },
+        "differentiationAr": {
+          "struggling": "رسم خط زمني مرئي للكتب البيضاء الثلاثة (1922، 1930، 1939م) لتلخيص موقف بريطانيا من الهجرة والأراضي في كل منها.",
+          "advanced": "تحليل المراسلات السرية بين بن غوريون والساسة الأمريكيين التي كشفت عن مقايضة الأصوات الانتخابية في نيويورك بتبني قيام الكيان الصهيوني."
+        },
+        "formativeAssessmentEn": "Source evaluation: Read David Ben-Gurion's speech at the 1942 Biltmore Conference and analyze how Zionism shifted patrons from the British Empire to the United States.",
+        "formativeAssessmentAr": "تحليل وثيقة: قراءة مقتطفات من خطاب بن غوريون في مؤتمر بلتيمور 1942م وتفسير انتقال رعاية الحركة الصهيونية من لندن إلى واشنطن.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did Palestinian Arabs reject the 1937 Peel Commission partition proposal?",
+          "questionAr": "لماذا رفض عرب فلسطين بالإجماع مشروع تقسيم لجنة بيل عام 1937م؟",
+          "solutionEn": "Because it gave the Jewish minority the fertile coastal and Galilee regions, dispossessed Arab villagers, and created a foreign state on indigenous Arab soil.",
+          "solutionAr": "لأنه سلب أخصب السهول الزراعية في الساحل ومرج بن عامر والجليل ومنحها للأقلية الصهيونية وشرعن طرد العرب من قراهم."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch7_l3",
+      "titleEn": "EG-Bac Seminar: The 1948 Palestine War & The 1956 Tripartite Aggression on Egypt",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: حرب فلسطين 1948م والعدوان الثلاثي على مصر 1956م",
+      "summaryEn": "The end of the British Mandate (May 14, 1948), the entry of Arab regular armies, initial Arab advances, the UN First Truce (June 1948) enabling Zionist re-armament from Czechoslovakia, the defeat and the Nakba (expulsion of 750,000 Palestinians), the corrupt arms scandal in Egypt catalyzing the July 1952 Revolution, President Nasser's nationalization of the Suez Canal Company (July 26, 1956), the secret Sèvres Protocol conspiracy between Britain, France, and Israel, heroic civilian resistance in Port Said, the Soviet ultimatum, and the withdrawal of the aggressors on December 23, 1956.",
+      "summaryAr": "إنهاء الانتداب البريطاني في 14 مايو 1948م، دخول الجيوش العربية غير المستعدة والانتصارات الأولى، فرض الهدنة الأولى في يونيو 1948م وتدفق السلاح التشيكي للصهاينة، وقوع الهزيمة والنكبة الكبرى وتشريد شعب فلسطين، فضيحة الأسلحة الفاسدة وتفجير ثورة يوليو 1952م، تأميم جمال عبد الناصر لقناة السويس في 26 يوليو 1956م، مؤامرة بروتوكول سيفر السرية بين بريطانيا وفرنسا وإسرائيل، ملحمة المقاومة الشعبية في بورسعيد، الإنذار السوفيتي، وجلاء المعتدين في 23 ديسمبر 1956م (عيد النصر).",
+      "theoryContentEn": "### 1. The 1948 Palestine War & The Catastrophe (Al-Nakba)\n- **Termination of Mandate:** At midnight on May 14, 1948, Britain evacuated Palestine; David Ben-Gurion immediately proclaimed the State of Israel, recognized within hours by the United States and the Soviet Union.\n- **Entry of Arab Armies (May 15, 1948):** Egyptian, Jordanian, Syrian, and Iraqi regular forces entered Palestine. Despite initial advances reaching the outskirts of Jerusalem and Tel Aviv, Arab armies lacked a unified command, unified strategic plan, or adequate ammunition.\n- **The Turning Point (The First Truce, June 1948):**\n  - Britain and the US pushed a 4-week UN truce through the Security Council.\n  - Arab states strictly respected the ceasefire and embargo.\n  - Zionist forces systematically violated the truce, importing massive consignments of heavy artillery, combat tanks, and fighter planes from Czechoslovakia.\n- **The Defeat & Nakba:** Resuming combat in July with overwhelming numerical and firepower superiority, Israeli forces shattered the fragmented Arab armies, encircled the Egyptian garrison in the **Faluja Pocket**, seized **78% of Palestine's territory**, and forcibly expelled over **750,000 Palestinians** from their ancestral towns and villages.\n- **Rhodes Armistice Agreements (1949):** Egypt, Jordan, Lebanon, and Syria signed separate armistice treaties under UN mediator Ralph Bunche. Gaza was placed under Egyptian administration, and the West Bank was united with Jordan.\n\n### 2. The Free Officers & Nationalization of the Suez Canal (1956)\n- **The Corrupt Arms Scandal:** Defective weaponry supplied to Egyptian soldiers in 1948 by corrupt royal courtiers generated immense fury, convincing officers led by **Gamal Abdel Nasser** that domestic liberation was the prerequisite to foreign defense.\n- **The July 23, 1952 Revolution:** Overthrew King Farouk, abolished the monarchy, expelled British occupation forces (October 1954 Evacuation Treaty), and adopted an independent anti-imperialist foreign policy (Bandung Non-Aligned Movement 1955).\n- **The High Dam Catalyst:** In July 1956, the US and Britain abruptly withdrew their financial loan offers to fund the **Aswan High Dam** to punish Egypt for buying Soviet-bloc arms and recognizing Communist China.\n- **Nationalization (July 26, 1956):** In a historic speech in Alexandria, Nasser declared the nationalization of the maritime Suez Canal Company, reclaiming all assets and revenues to finance the construction of the High Dam.\n\n### 3. The 1956 Tripartite Aggression & The Sèvres Conspiracy\n- **The Triple Coalition:**\n  1. **Britain:** Desired to regain imperial control over the strategic Suez Canal and topple Nasser.\n  2. **France:** Determined to crush Egyptian support for the Algerian Armed Revolution.\n  3. **Israel:** Eager to break the Egyptian naval blockade of the Straits of Tiran, destroy the newly acquired Soviet weaponry of the Egyptian military, and expand its territory.\n- **The Sèvres Protocol (October 22–24, 1956):** Secret meeting at Villa Sèvres near Paris coordinating the aggression:\n  - Israel attacks Sinai on October 29, advancing toward the canal.\n  - Britain and France issue a staged ultimatum demanding both armies withdraw 10 miles from the canal.\n  - Upon Egypt's inevitable refusal to abandon its sovereign territory, Anglo-French forces bomb airfields and land paratroopers to occupy the Canal Zone.\n\n### 4. Operational Resistance & Failure of the Aggression\n- **Nasser's Tactical Counter-Move:** Realizing the Anglo-French plan to trap the Egyptian Army in Sinai, Nasser ordered an immediate, organized military withdrawal from Sinai to west of the canal, preserving the army intact to defend the homeland.\n- **The Epic of Port Said:** Anglo-French forces landed in Port Said on November 5, encountering ferocious urban guerrilla resistance by armed civilians, soldiers, and police. Daring operations (kidnapping Lieutenant Moorhouse, assassinating intelligence director John Williams) trapped the invaders in the ruins of the city.\n- **Decisive International Intervention:**\n  1. **The Soviet Ultimatum (November 5, 1956):** Premier Bulganin issued an ultimatum threatening rocket strikes on London, Paris, and Tel Aviv.\n  2. **American Pressure:** President Dwight Eisenhower condemned the colonial aggression, refusing to back the collapsing British pound sterling.\n  3. **UN General Assembly:** Condemned the attack and organized the first United Nations Emergency Force (UNEF).\n- **Victory Day (December 23, 1956):** Anglo-French forces evacuated Port Said in disgrace, celebrated annually as Egypt's National Victory Day. Israel was forced to withdraw from Sinai and Gaza in March 1957.",
+      "theoryContentAr": "### ١. حرب فلسطين (1948م) وكارثة النكبة الكبرى\n- **إنهاء الانتداب وإعلان إسرائيل:** في منتصف ليل 14 مايو 1948م، أنهت بريطانيا انتدابها وانسحبت من فلسطين؛ فأعلن ديفيد بن غوريون قيام «دولة إسرائيل»، واعترفت بها الولايات المتحدة والاتحاد السوفيتي بعد ساعات.\n- **دخول الجيوش العربية (15 مايو 1948م):** دخلت قوات من مصر وسوريا والأردن والعراق أرض فلسطين لإنقاذها. ورغم الانتصارات الأولية واقتراب الجيوش من تل أبيب والقدس، كانت الجيوش تفتقر للقيادة الموحدة، والخطة العسكرية المشتركة، والذخائر الكافية.\n- **المنعطف الحاسم (الهدنة الأولى، يونيو 1948م):**\n  - فرض مجلس الأمن هدنة لأربعة أسابيع، والتزمت بها الدول العربية التزاماً حرفياً فتوقفت عن القتال والتعزيزات.\n  - خرق الصهاينة الهدنة، وتدفقت عليهم آلاف الأطنان من الأسلحة والدبابات والطائرات الحربية الحديثة من تشيكوسلوفاكيا بإشراف غربي.\n- **الهزيمة ووقوع النكبة:** مع استئناف القتال في يوليو 1948م، انقلبت موازين القوى لصالح الصهاينة؛ فهُزمت الجيوش العربية، وحُوصر الجيش المصري في **جيب الفلوجة**، واستولى الصهاينة على **78% من مساحة فلسطين**، وارتكبوا المذابح وهجروا قسرياً **أكثر من 750 ألف فلسطيني** من أراضيهم وقراهم ليصبحوا لاجئين.\n- **هدنة رودس (1949م):** وقعت الدول العربية اتفاقيات هدنة منفصلة مع إسرائيل بجزيرة رودس، ووُضع قطاع غزة تحت الإدارة المصرية، وضُمت الضفة الغربية للأردن.\n\n### ٢. ثورة يوليو وتأميم شركة قناة السويس (1956م)\n- **قضية الأسلحة الفاسدة:** كشفت الحرب عن تورط رجال القصر الملكي في صفقات ذخائر معيبة تسببت في استشهاد الجنود؛ فاستقر يقين الضباط الأحرار بقيادة **جمال عبد الناصر** على أن «العدو الحقيقي في القاهرة».\n- **ثورة 23 يوليو 1952م:** أسقطت الملكية، وطردت الاحتلال البريطاني (اتفاقية الجلاء أكتوبر 1954م)، وانتهجت سياسة تحررية عالمية (مؤتمر باندونغ والحياد الإيجابي 1955م).\n- **أزمة تمويل السد العالي:** في يوليو 1956م، سحبت الولايات المتحدة والبنك الدولي وبريطانيا عروض تمويل **السد العالي** بأسلوب مهين لمعاقبة مصر على استقلال قرارها وصفقة الأسلحة التشيكية.\n- **قرار التأميم التاريخي (26 يوليو 1956م):** أعلن الرئيس جمال عبد الناصر في ميدان المنشية بالإسكندرية تأميم الشركة العالمية لقناة السويس شركة مساهمة مصرية واستعادة كافة حقوق الوطن وأمواله لبناء السد العالي.\n\n### ٣. مؤامرة سيفر والعدوان الثلاثي (1956م)\n- **تحالف قوى الاستعمار:**\n  ١. **بريطانيا:** لاستعادة السيطرة على قناة السويس المؤممة وإسقاط ناصر.\n  ٢. **فرنسا:** لتدمير الدعم العسكري والسياسي والإعلامي الهائل الذي تقدمه مصر لثورة الجزائر المسلحة.\n  ٣. **إسرائيل:** لفك الحصار البحري عن خليج العقبة وتدمير أسلحة الجيش المصري واحتلال سيناء.\n- **مؤامرة بروتوكول سيفر (22–24 أكتوبر 1956م):** اجتمع أطراف العدوان سراً بضواحي باريس ونسقوا الخطة:\n  - تهاجم إسرائيل سيناء في 29 أكتوبر وتتقدم صوب القناة.\n  - توجه بريطانيا وفرنسا إنذاراً مسرحياً لمصر وإسرائيل بوقف القتال والانسحاب 10 أميال شرق وغرب القناة.\n  - ترفض مصر بطبيعة الحال إخلاء أراضيها؛ فتقوم القوات البريطانية والفرنسية بإنزال مظلي لاحتلال بورسعيد والإسماعيلية والسويس.\n\n### ٤. الملحمة الشعبية وفشل العدوان\n- **القرار العسكري الواعي:** أدرك عبد الناصر خطة التطويق؛ فأصدر أوامره الفورية بسحب القوات المصرية من سيناء إلى غرب القناة، مما حرم المعتدين من إبادة الجيش في الصحراء وركز القوة في المدن.\n- **صمود بورسعيد الباسل:** نزل الغزاة بورسعيد في 5 نوفمبر؛ فواجهوا ملحمة شعبية فدائية خاضها الأهالي والجنود (خطف الملازم مورهاوس واغتيال جون ويليامز)، مما عطل تقدمهم.\n- **العوامل الدولية الحاسمة:**\n  ١. **الإنذار السوفيتي (5 نوفمبر 1956م):** وجه بولغانين إنذاراً شديد اللهجة بالتدخل العسكري واستخدام الصواريخ لضرب لندن وباريس.\n  ٢. **الموقف الأمريكي:** عارض أيزنهاور استخدام القوة وهدد بقطع المعونات وترك الجنيه الإسترليني ينهار.\n  ٣. **الأمم المتحدة وتضامن الشعوب العربية:** تفجير الفدائيين لأنابيب البترول العربي، وصدور قرارات الجمعية العامة للأمم المتحدة بوقف إطلاق النار وتشكيل قوات الطوارئ الدولية (UNEF).\n- **عيد النصر (23 ديسمبر 1956م):** اضطرت بريطانيا وفرنسا لسحب قواتهما نهائياً من بورسعيد وسط خزي استعماري تاريخي، واضطرت إسرائيل للانسحاب من سيناء وغزة في مارس 1957م.",
+      "formulas": [
+        {
+          "labelEn": "Imperial Retaliation Equation",
+          "labelAr": "معادلة تأميم القناة وإفشال العدوان الثلاثي",
+          "latex": "\\text{تأميم قناة السويس 1956} + \\text{دعم ثورة الجزائر} \\implies \\text{مؤامرة سيفر الثلاثية} \\implies \\text{صمود بورسعيد} + \\text{الإنذار الروسي} \\implies \\text{جلاء المعتدين}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt & Arab Contemporary Causes (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر والقضايا العربية - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH7-L3",
+        "pageRange": "pp. 222–234"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch7_ws3",
+        "titleEn": "EG-Bac Analytical Seminar 7.3: The 1948 Nakba & The 1956 Suez War",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٧-٣: نكبة فلسطين 1948م والعدوان الثلاثي 1956م",
+        "descriptionEn": "Comparative analysis of the 1948 truce deception, the Sèvres Protocol conspiracy, Port Said resistance, and Soviet/US interventions.",
+        "descriptionAr": "تحليل سببي لخدعة هدنة 1948م، مؤامرة بروتوكول سيفر 1956م، ملحمة بورسعيد الفدائية، وأثر الإنذار السوفيتي والضغط الأمريكي.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_suez_war",
+        "titleEn": "1956 Tripartite Aggression & Port Said Resistance Map",
+        "titleAr": "خريطة تفاعلية: مسار معارك العدوان الثلاثي وصمود بورسعيد",
+        "descriptionEn": "Interactive military operations map charting Israeli thrust into Sinai, Anglo-French landings at Port Said, and civilian guerrilla ambushes.",
+        "descriptionAr": "معمل خرائط عسكري يرصد خطة مؤامرة سيفر، إنزال قوات المظلات في بورسعيد، وتكتيكات المقاومة الشعبية وتفجير خطوط البترول."
+      },
+      "lessonPlan": {
+        "titleEn": "The 1948 Palestine War & The 1956 Tripartite Aggression on Egypt",
+        "titleAr": "حرب فلسطين 1948م والعدوان الثلاثي على مصر 1956م",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-703",
+        "bloomsObjectivesEn": [
+          "Analyze how the June 1948 UN truce enabled Zionist militias to achieve military superiority and cause the Nakba.",
+          "Evaluate the causal chain linking the 1948 corrupt arms scandal to the outbreak of the July 23, 1952 Revolution.",
+          "Critique the secret imperialist motivations of Britain, France, and Israel codified in the 1956 Sèvres Protocol.",
+          "Assess the military, civilian, and international factors that caused the total failure of the Tripartite Aggression."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل دور الهدنة الأولى لمجلس الأمن في يونيو 1948م في انقلاب الموازين العسكرية وحدوث النكبة.",
+          "تقويم العلاقة السببية بين فضيحة الأسلحة الفاسدة في حرب 1948م وتفجير ثورة 23 يوليو 1952م بمصر.",
+          "نقد الدوافع الاستعمارية التآمرية المشتركة في بروتوكول سيفر السري بين لندن وباريس وتل أبيب عام 1956م.",
+          "تقويم تضافر المقاومة الشعبية ببورسعيد، والقرار العسكري بالانسحاب من سيناء، والإنذار السوفيتي في إفشال العدوان."
+        ],
+        "prerequisitesEn": [
+          "Understanding the UN Partition Plan 181 and the decolonization movement following World War II."
+        ],
+        "prerequisitesAr": [
+          "استيعاب قرار تقسيم فلسطين 1947م وأبعاد حركة التحرر الوطني والمد الثوري بعد الحرب العالمية الثانية."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Al-Nakba (1948)",
+            "definition": "The catastrophe involving the destruction of Palestinian society and forced expulsion of over 750,000 Arabs."
+          },
+          {
+            "term": "Sèvres Protocol (1956)",
+            "definition": "Secret tripartite agreement between Britain, France, and Israel planning the military invasion of Egypt."
+          },
+          {
+            "term": "Victory Day (Dec 23, 1956)",
+            "definition": "Annual Egyptian national holiday celebrating the final withdrawal of Anglo-French forces from Port Said."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "النكبة (1948م)",
+            "definition": "الكارثة الإنسانية الكبرى بتدمير المجتمع الفلسطيني وتهجير 750 ألف لاجئ واحتلال 78% من أرض فلسطين."
+          },
+          {
+            "term": "بروتوكول سيفر (1956م)",
+            "definition": "اتفاقية سرية ثلاثية في فرنسا دبرت غزو سيناء وإنزال القوات البريطانية والفرنسية لاحتلال القناة."
+          },
+          {
+            "term": "عيد النصر (23 ديسمبر)",
+            "definition": "عيد قومي مصري سنوي يحتفل بجلاء آخر جندي بريطاني وفرنسي عن أرض بورسعيد الباسلة عام 1956م."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Map Inquiry",
+            "phaseAr": "التهيئة واستكشاف خريطة النكبة",
+            "duration": "10 min",
+            "activitiesEn": "Compare the 1947 UN Partition map with the 1949 Armistice boundaries.",
+            "activitiesAr": "عرض خريطة قرار التقسيم 181 ومقارنتها بخريطة هدنة رودس 1949م لإبراز حجم التوسع الاستيطاني."
+          },
+          {
+            "phaseEn": "1948 War Truce & Free Officers",
+            "phaseAr": "الشرح المنهجي لهدنة 1948م وثورة يوليو",
+            "duration": "40 min",
+            "activitiesEn": "Detail the breach of the first truce, Czech weapons, corrupt arms scandal, and Nasser's realization in Faluja.",
+            "activitiesAr": "شرح خرق الصهاينة للهدنة بالسلاح التشيكي، وفضيحة الأسلحة الفاسدة وتأثير حصار الفلوجة في ميلاد ثورة يوليو."
+          },
+          {
+            "phaseEn": "Nationalization & The Sèvres Conspiracy",
+            "phaseAr": "تأميم القناة ومؤامرة سيفر 1956م",
+            "duration": "25 min",
+            "activitiesEn": "Analyze the High Dam withdrawal, July 26 nationalization speech, and the triangular conspiracy at Sèvres.",
+            "activitiesAr": "تتبع أزمة تمويل السد العالي، خطاب المنشية لتأميم القناة، وسيناريو مؤامرة سيفر الثلاثية."
+          },
+          {
+            "phaseEn": "Port Said Epic & International Collapse",
+            "phaseAr": "صمود بورسعيد والإنذار السوفيتي والجلاء",
+            "duration": "15 min",
+            "activitiesEn": "Examine Moorhouse kidnapping, urban resistance, the Soviet rocket ultimatum, and December 23 Victory Day.",
+            "activitiesAr": "دراسة بطولات فدائيي بورسعيد، الإنذار السوفيتي، الضغط الأمريكي، والانسحاب المذل للغزاة في 23 ديسمبر 1956م."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Britain and France intervened in 1956 as neutral peacekeepers, when the declassified Sèvres Protocol proved they had pre-planned the entire military assault in secret collusion with Israel."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بدعوى بريطانيا وفرنسا التدخل كقوات سلام لحماية القناة، بينما كشفت وثائق سيفر السرية أنهما دبرتا سيناريو العدوان مع إسرائيل مسبقاً بدقة متناهية."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured chronological flowcharts linking the High Dam cancellation -> Suez nationalization -> Sèvres Protocol -> Port Said victory.",
+          "advanced": "Evaluate declassified transcripts of Soviet Premier Bulganin's communications with British Prime Minister Anthony Eden on November 5, 1956."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخطط تدفق زمني سببي مبسط: سحب تمويل السد العالي -> قرار التأميم -> مؤامرة سيفر -> صمود بورسعيد -> الجلاء وعيد النصر.",
+          "advanced": "تحليل نصوص البرقيات الدبلوماسية المتبادلة بين موسكو ولندن في 5 نوفمبر 1956م وبيان أثر تهديد الصواريخ النووية في إرباك القيادة الإنجليزية."
+        },
+        "formativeAssessmentEn": "Source analysis: Contrast Anthony Eden's public parliamentary statement on the Suez Canal with the secret text of the Sèvres Protocol.",
+        "formativeAssessmentAr": "تحليل وثائق: مقارنة بيان إيدن العلني في البرلمان البريطاني حول حماية الملاحة بالنص السري لبروتوكول سيفر لإثبات الخداع الاستعماري.",
+        "exitTicketQuestion": {
+          "questionEn": "Why did President Gamal Abdel Nasser order Egyptian forces to withdraw from Sinai west of the Suez Canal during the 1956 war?",
+          "questionAr": "لماذا أصدر الرئيس جمال عبد الناصر أوامره للجيش المصري بالانسحاب الفوري من سيناء إلى غرب القناة في حرب 1956م؟",
+          "solutionEn": "To prevent the Egyptian army from being encircled and destroyed in the Sinai desert between advancing Israeli forces and landed Anglo-French troops.",
+          "solutionAr": "لتفويت الفرصة على خطة تطويق وإبادة الجيش المصري في صحراء سيناء بين القوات الإسرائيلية المتقدمة وقوات الإنزال الإنجليزية والفرنسية."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch7_l4",
+      "titleEn": "EG-Bac Seminar: The June 1967 Aggression, Rebuilding the Egyptian Military & The War of Attrition (1967–1970)",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: عدوان 5 يونيو 1967م، إعادة بناء القوات المسلحة، وحرب الاستنزاف (1967–1970م)",
+      "summaryEn": "Pretexts of the June 5, 1967 aggression (Straits of Tiran closure, UNEF withdrawal, mutual defense pact with Syria), the devastating preemptive Israeli air strike on airfields, loss of Sinai, Golan Heights, West Bank, Gaza, and East Jerusalem, UN Resolution 242 (Nov 1967), the Khartoum Summit (Three No's), the three phases of Egyptian military resurgence: Steadfastness (Battle of Ras al-Eish July 1967, sinking of destroyer Eilat October 1967), Active Defense, and the War of Attrition (1969–1970) featuring the SAM air defense missile wall, commando raids across the canal, martyrdom of Chief of Staff Abdel Moneim Riad, and acceptance of the Rogers Plan.",
+      "summaryAr": "مقدمات وذرائع عدوان 5 يونيو 1967م (إغلاق خليج العقبة، طلب سحب قوات الطوارئ، معاهدة الدفاع المشترك مع سوريا)، الضربة الجوية الإسرائيلية المباغتة للمطارات، احتلال سيناء والجولان والضفة وغزة والقدس، قرار مجلس الأمن 242 (نوفمبر 1967م)، مؤتمر قمة الخرطوم (اللاءات الثلاث)، مراحل الصمود وإعادة البناء للقوات المسلحة: الصمود (معركة رأس العش يوليو 1967م، إغراق المدمرة إيلات أكتوبر 1967م)، الدفاع النشط، وحرب الاستنزاف (1969–1970م) وتشييد حائط صواريخ الدفاع الجوي (سام)، عبور الفدائيين للقناة، استشهاد الفريق عبد المنعم رياض، وقبول مبادرة روجرز.",
+      "theoryContentEn": "### 1. The Pretexts & Trajectory of the June 5, 1967 Aggression\n- **The Escalation:** In May 1967, false reports of Israeli troop concentrations on the Syrian border prompted Egypt to activate its Mutual Defense Treaty with Syria.\n- **Egyptian Sovereign Measures:**\n  1. Demanded the withdrawal of the UN Emergency Force (UNEF) from Sinai and Sharm el-Sheikh.\n  2. Closed the **Straits of Tiran** to Israeli navigation, blockading the Gulf of Aqaba.\n- **The Preemptive Strike (June 5, 1967):** At 7:45 AM, the Israeli Air Force executed Operation Focus, flying low under radar coverage to bomb 25 Egyptian military airfields.\n- **The Catastrophic Setback (Al-Naksah):**\n  - Over 85% of Egyptian combat aircraft were destroyed on the runways without taking flight.\n  - Denied air cover, Egyptian divisions in Sinai were exposed to merciless aerial bombardment and chaotic retreat orders.\n  - Israel occupied the entire **Sinai Peninsula** up to the eastern bank of the Suez Canal, the **Golan Heights** in Syria, and the **West Bank, Gaza Strip, and East Jerusalem** in Palestine.\n\n### 2. The Diplomatic Arena: Khartoum & UN Resolution 242\n- **The Khartoum Arab Summit (August 1967):** Arab leaders proclaimed the historic **Three No's**: *'No peace with Israel, no recognition of Israel, no negotiations with Israel'*, establishing financial subsidies to support frontline states.\n- **UN Security Council Resolution 242 (November 22, 1967):**\n  - Stated the principle of the 'inadmissibility of the acquisition of territory by war'.\n  - Required the termination of all claims of belligerency and respect for sovereignty.\n  - Guaranteed freedom of navigation through international waterways.\n  - **The Deliberate Ambiguity:** The English version demanded withdrawal from *'territories occupied'* (omitting the definite article 'the'), allowing Israel to stall and claim it was not obligated to withdraw from all territories, whereas the French version mandated withdrawal from *'des territoires occupés'*.\n\n### 3. Rebuilding the Egyptian Armed Forces (1967–1969)\n- Nasser declared: *\"What was taken by force can only be restored by force.\"*\n- A total overhaul of military leadership: thousands of university graduates were drafted into combat battalions, intensive scientific training began, and the Soviet Union supplied advanced fighters (MiG-21) and SAM air defense missiles.\n- **Phase 1: Steadfastness (Al-Sumūd):**\n  1. **Battle of Ras al-Eish (July 1, 1967):** A small Egyptian Commando platoon halted and destroyed an advancing Israeli armored column south of Port Fouad, keeping Port Fouad the only un-occupied slice of Sinai.\n  2. **Sinking of the Destroyer Eilat (October 21, 1967):** Egyptian missile boats launched guided anti-ship missiles, sinking Israel's flagship destroyer in world naval warfare's first missile duel, celebrated as Egyptian Navy Day.\n  3. Destruction of the Israeli landing craft at the Battle of Shadwan Island.\n\n### 4. The War of Attrition (1969–1970)\n- In March 1969, Egypt transitioned to active attrition (*Harb al-Istinzāf*), aiming to bleed Israeli military personnel and destroy the fortifications of the Bar Lev Line.\n- **Artillery Offensive & Commando Incursions:** Daily artillery bombardments across the canal and daring nocturnal crossings by Egyptian commandos (Group 39 Combat) capturing Israeli prisoners.\n- **Martyrdom of General Abdel Moneim Riad (March 9, 1969):** The Chief of Staff was martyred by enemy artillery while inspecting forward frontline trenches in Ismailia, celebrated annually as Egyptian **Martyr's Day**.\n- **Building the SAM Missile Wall:** Under daily Israeli Phantom strikes, Egyptian military engineers constructed concrete bunkers and deployed **SAM-2 and SAM-3 missile batteries** along the western bank.\n- **Week of the Phantoms (June–July 1970):** The completed missile wall shot down numerous modern Israeli Phantoms and Skyhawks, extending a 15-km protective air umbrella east of the canal.\n- **The Rogers Plan:** To halt the slaughter of its air force, Israel accepted the US-sponsored Rogers Plan for a temporary ceasefire in August 1970. Nasser accepted it tactically to finalize the forward deployment of the missile wall without interruption.",
+      "theoryContentAr": "### ١. مقدمات وعدوان 5 يونيو 1967م (النكسة)\n- **التصعيد العسكري:** في مايو 1967م، حشدت إسرائيل قواتها على الحدود السورية؛ ففعلت مصر اتفاقية الدفاع المشترك مع سوريا.\n- **الإجراءات السيادية المصرية:**\n  ١. طلبت مصر سحب قوات الطوارئ الدولية (UNEF) من سيناء وشرم الشيخ.\n  ٢. أغلقت مصر **مضيق تيران** وخليج العقبة أمام الملاحة الإسرائيلية لإحكام الحصار الاقتصادي.\n- **الضربة الجوية الغادرة (5 يونيو 1967م):** في تمام الساعة 7:45 صباحاً، نفذ الطيران الإسرائيلي خطة مباغتة، محلقاً بارتفاع شديد الانخفاض تحت الرادار عبر البحر المتوسط، وقصف 25 مطاراً عسكرياً مصرياً.\n- **تداعيات النكسة المؤلمة:**\n  - دُمرت أكثر من 85% من طائرات القوات الجوية المصرية وهي رابضة على ممرات الهبوط.\n  - أصبحت القوات البرية في سيناء مكشوفة تماماً للقصف الجوي، وصدر قرار الانسحاب العشوائي غير المنظم.\n  - احتلت إسرائيل **شبه جزيرة سيناء بالكامل** حتى الضفة الشرقية لقناة السويس، و**هضبة الجولان** في سوريا، و**الضفة الغربية وقطاع غزة والقدس الشرقية** في فلسطين.\n\n### ٢. الموقف السياسي: قمة الخرطوم وقرار مجلس الأمن 242\n- **قمة الخرطوم (أغسطس 1967م):** رفعت القمة شعار الصمود والتحدي وأعلنت **اللاءات الثلاث**: *«لا صلح، لا اعتراف، لا تفاوض مع إسرائيل»*، وقررت دول النفط دعم دول المواجهة مالياً.\n- **قرار مجلس الأمن رقم 242 (22 نوفمبر 1967م):**\n  - أكد على مبدأ عدم جواز الاستيلاء على أراضي الغير بالقوة.\n  - إنهاء حالة الحرب واحترام سيادة دول المنطقة.\n  - ضمان حرية الملاحة في الممرات الدولية.\n  - **الثغرة الاستعمارية الخبيثة:** تلاعبت بريطانيا بصياغة القرار؛ فنص بالإنجليزية على الانسحاب من «أراضٍ احتلت» (territories) دون أداة التعريف، مما استغلته إسرائيل للمماطلة والادعاء بعدم إلزامها بالانسحاب من كافة الأراضي المحتلة.\n\n### ٣. ملحمة الصمود وإعادة بناء الجيش (1967–1969م)\n- أعلن عبد الناصر المبدأ القومي: *«ما أُخذ بالقوة لا يُسترد بغير القوة»*.\n- بدأت مرحلة إعادة البناء الشامل: تطهير القيادات، تجنيد المؤهلات العليا والجامعيين لبناء جيش علمي حديث، والتدريب الشاق، وتدفق السلاح السوفيتي المتطور.\n- **مرحلة الصمود والدفاع النشط:**\n  ١. **معركة رأس العش (أول يوليو 1967م):** صمدت فصيلة صاعقة مصرية ودمرت رتلاً مدرعاً إسرائيلياً حاول احتلال بورفؤاد، فظلت بورفؤاد الجزء الوحيد غير المحتل من سيناء.\n  ٢. **إغراق المدمرة إيلات (21 أكتوبر 1967م):** أطلقت لنشات الصواريخ المصرية صواريخ سطح - سطح موجهة فأغرقت أكبر مدمرات العدو، في أول نصر صاروخي بحري في التاريخ، واتُخذ عيداً للقوات البحرية.\n  ٣. إسقاط طائرات العدو، والاشتباك البطولي في معركة جزيرة شدوان بالبحر الأحمر.\n\n### ٤. حرب الاستنزاف المجيدة (1969–1970م)\n- في مارس 1969م، أعلنت مصر خوض «حرب الاستنزاف» لنقل المعركة للعدو وتكبيده خسائر فادحة واستنزاف طاقته البشرية والاقتصادية.\n- **القصف المدفعي والعبور الفدائي:** دكت المدفعية المصرية خط بارليف يومياً، وعبرت مجموعات الصاعقة (المجموعة 39 قتال) القناة وأسرت جنوداً ودمرت التحصينات.\n- **استشهاد الفريق عبد المنعم رياض (9 مارس 1969م):** استشهد رئيس أركان حرب القوات المسلحة وسط جنوده بالخطوط الأمامية بالإسماعيلية أثناء معركة مدفعية ضارية، وخُلد يوم استشهاده **عيداً وطنياً للشهيد**.\n- **بناء حائط صواريخ الدفاع الجوي:** معجزة هندسية وعسكرية تحت القصف؛ شيد المهندسون قواعد خرسانية لشبكات **صواريخ سام 2 وسام 3** غرب القناة.\n- **أسبوع تساقط الفانتوم (يونيو – يوليو 1970م):** حصدت الصواريخ المصرية عشرات الطائرات الإسرائيلية الحديثة، وفرضت شبكة حماية تمتد 15 كم شرق القناة.\n- **مبادرة روجرز:** سارعت واشنطن لتقديم مبادرة روجرز لوقف إطلاق النار لإنقاذ سلاح الجو الإسرائيلي؛ وقبلها عبد الناصر تكتيكياً لاستكمال حائط الصواريخ وتركيبه على حافة القناة تمهيداً لحرب العبور.",
+      "formulas": [
+        {
+          "labelEn": "Rebuild and Attrition Trajectory",
+          "labelAr": "معادلة الصمود والاستنزاف وبناء حائط الصواريخ",
+          "latex": "\\text{نكسة يونيو 1967} \\implies \\text{الصمود (رأس العش وإغراق إيلات)} \\implies \\text{حرب الاستنزاف} + \\text{حائط الصواريخ سام} \\implies \\text{التمهيد لنصر أكتوبر}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt & Arab Contemporary Causes (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر والقضايا العربية - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH7-L4",
+        "pageRange": "pp. 235–246"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch7_ws4",
+        "titleEn": "EG-Bac Analytical Seminar 7.4: The War of Attrition & The Air Defense Missile Wall",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٧-٤: حرب الاستنزاف وبناء حائط صواريخ الدفاع الجوي",
+        "descriptionEn": "Evaluation of the 1967 air strike, the 3 No's of Khartoum, Resolution 242 wording, and the strategic heroism of the War of Attrition.",
+        "descriptionAr": "تحليل أسباب نكسة يونيو 1967م، مخرجات قمة الخرطوم، ثغرة قرار 242، ومراحل حرب الاستنزاف حتى إنجاز حائط الصواريخ.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_attrition_map",
+        "titleEn": "War of Attrition Suez Frontline Simulator",
+        "titleAr": "محاكاة معارك خط القناة وحرب الاستنزاف التفاعلية",
+        "descriptionEn": "Interactive frontline simulator exploring the Battle of Ras al-Eish, missile boat trajectories sinking Eilat, and the SAM missile wall radar envelope.",
+        "descriptionAr": "معمل تفاعلي يرصد مواقع معركة رأس العش، إحداثيات إغراق المدمرة إيلات، وتغطية شبكة حائط صواريخ الدفاع الجوي لشرق القناة."
+      },
+      "lessonPlan": {
+        "titleEn": "The June 1967 Aggression, Rebuilding the Military & The War of Attrition (1967–1970)",
+        "titleAr": "عدوان 5 يونيو 1967م، إعادة بناء القوات المسلحة، وحرب الاستنزاف",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-704",
+        "bloomsObjectivesEn": [
+          "Critique the operational factors that allowed the Israeli Air Force to incapacitate Egyptian airfields on June 5, 1967.",
+          "Analyze the deliberate linguistic ambiguity in UN Security Council Resolution 242 regarding territorial withdrawal.",
+          "Examine the military significance of the Battle of Ras al-Eish and the sinking of the destroyer Eilat in restoring morale.",
+          "Evaluate how the SAM missile wall built during the War of Attrition created the operational umbrella for the October 1973 crossing."
+        ],
+        "bloomsObjectivesAr": [
+          "نقد العوامل التكتيكية والمفاجأة التي مكنت طيران العدو من ضرب المطارات المصرية صباح 5 يونيو 1967م.",
+          "تحليل الثغرة اللغوية المتعمدة في النص الإنجليزي لقرار مجلس الأمن 242 وتوظيف إسرائيل لها للتهرب من الانسحاب.",
+          "استخلاص الأثر المعنوي والعسكري لمعركة رأس العش وإغراق المدمرة إيلات في تدشين مرحلة الصمود والكرامة.",
+          "تقويم الدور الاستراتيجي الحاسم لحائط صواريخ الدفاع الجوي كغطاء حماية مهد لمعركة العبور في حرب أكتوبر 1973م."
+        ],
+        "prerequisitesEn": [
+          "Knowledge of the 1956 Suez War outcomes and the political dynamics of Arab nationalism."
+        ],
+        "prerequisitesAr": [
+          "استيعاب نتائج العدوان الثلاثي 1956م وأدوار القوى العظمى في الشرق الأوسط."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Al-Naksah (June 1967)",
+            "definition": "The military setback where Israel occupied Sinai, Golan, West Bank, Gaza, and East Jerusalem."
+          },
+          {
+            "term": "War of Attrition (1969–1970)",
+            "definition": "Two-year campaign of artillery duels, commando raids, and missile warfare bleeding Israeli forces along the Suez Canal."
+          },
+          {
+            "term": "SAM Missile Wall",
+            "definition": "Dense network of Soviet-built surface-to-air missile batteries denying Israel air superiority over the canal."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "النكسة (يونيو 1967م)",
+            "definition": "العدوان الإسرائيلي المباغت الذي أسفر عن احتلال سيناء والجولان والضفة والقطاع والقدس الشرقية."
+          },
+          {
+            "term": "حرب الاستنزاف (1969–1970م)",
+            "definition": "حرب ضروس خاضتها مصر على خط القناة لاستنزاف طاقات العدو البشرية والعسكرية وتدمير تحصيناته."
+          },
+          {
+            "term": "حائط الصواريخ",
+            "definition": "شبكة دفاع جوي متطورة من صواريخ (سام) شيدها الجيش المصري غرب القناة وحرمت الطيران الإسرائيلي من الاقتراب."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Setback Analysis",
+            "phaseAr": "التهيئة وتحليل صدمة النكسة",
+            "duration": "10 min",
+            "activitiesEn": "Analyze the aerial strike map of June 5 and discuss why air superiority dictates modern land warfare.",
+            "activitiesAr": "عرض خريطة مسارات الضربة الجوية لصباح 5 يونيو واستنتاج أثر حرمان القوات البرية من الغطاء الجوي."
+          },
+          {
+            "phaseEn": "Khartoum 3 No's & Resolution 242",
+            "phaseAr": "الشرح المنهجي: قمة الخرطوم والقرار 242",
+            "duration": "40 min",
+            "activitiesEn": "Evaluate the Khartoum solidarity funds and compare the English and French syntax of Resolution 242.",
+            "activitiesAr": "شرح اللاءات الثلاث ودعم دول الخليج ومقارنة صياغة القرار 242 وبيان حيل التلاعب اللغوي الإسرائيلي."
+          },
+          {
+            "phaseEn": "Ras al-Eish to Eilat & Missile Wall",
+            "phaseAr": "ملحمة الصمود وحائط الصواريخ",
+            "duration": "25 min",
+            "activitiesEn": "Detail the commando heroics at Ras al-Eish, Styx missile attack on Eilat, and the construction of SAM bases.",
+            "activitiesAr": "تتبع معركة رأس العش وبطولات الصاعقة، إغراق إيلات، استشهاد عبد المنعم رياض، وأسبوع تساقط الفانتوم."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems on the War of Attrition and Resolution 242.",
+            "activitiesAr": "حل تدريبات موضوعية وتطبيقية تحاكي امتحانات الثانوية العامة في تحليل حرب الاستنزاف والقرار 242."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Egypt was passive between June 1967 and October 1973, ignoring that the fierce War of Attrition shattered the myth of Israeli invulnerability and pioneered modern missile tactics."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن مصر استكانت للهزيمة بين 1967 و1973م، متجاهلين أن حرب الاستنزاف الضارية كانت الميدان الحقيقي الذي صقل المقاتل المصري ودمر خط بارليف مبكراً."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide structured summaries of the three phases: Steadfastness -> Active Defense -> Active Attrition.",
+          "advanced": "Evaluate declassified Soviet-Egyptian military agreements regarding the deployment of SAM-3 Pechora systems and operational air defense doctrines."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جدول ملخص للمراحل الثلاث: الصمود (1967م) -> الدفاع النشط (1968م) -> الاستنزاف وبناء حائط الصواريخ (1969–1970م).",
+          "advanced": "تحليل نصوص الاتفاقيات العسكرية السرية بين القاهرة وموسكو حول استيراد منظومات (سام 3 وبيتشورا) وتكتيكات الدفاع الجوي المتحرك."
+        },
+        "formativeAssessmentEn": "Socratic questioning: Why did Egypt accept the Rogers Plan in August 1970 despite being in the midst of a successful War of Attrition?",
+        "formativeAssessmentAr": "حوار سقراطي: لماذا وافق الرئيس جمال عبد الناصر على مبادرة روجرز في أغسطس 1970م رغم انتصارات حرب الاستنزاف؟",
+        "exitTicketQuestion": {
+          "questionEn": "Why was the sinking of the Israeli destroyer Eilat on October 21, 1967 considered a turning point in world naval history?",
+          "questionAr": "لماذا اعتبر إغراق المدمرة الإسرائيلية إيلات في 21 أكتوبر 1967م منعطفاً في تاريخ الحروب البحرية العالمية؟",
+          "solutionEn": "Because it was the first time in military history that guided surface-to-surface anti-ship missiles fired from small missile boats destroyed a major warship.",
+          "solutionAr": "لأنها كانت أول معركة بحرية في التاريخ تنجح فيها لنشات صواريخ صغيرة في إغراق مدمرة حربية عملاقة بصواريخ سطح - سطح موجهة."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch7_l5",
+      "titleEn": "EG-Bac Seminar: The Glorious October 1973 War: Crossing the Canal, Demolishing the Bar Lev Line & Military Doctrines",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: حرب أكتوبر المجيدة 1973م: العبور العظيم، تحطيم خط بارليف، وسقوط نظريات الأمن الإسرائيلية",
+      "summaryEn": "Coordination between President Anwar Sadat and Syrian President Hafez al-Assad, the Supreme Military Command under Field Marshal Ahmed Ismail, the Master Strategic Deception Plan, the detailed operational timing plan ('Al-Kashkool' of General Al-Gamasy), opening airstrike under Air Marshal Hosni Mubarak, crossing the canal and scaling the ramparts (Operation Badr), Baqi Zaki Yousef's water cannon innovation opening 81 breaches, erecting 10 pontoon bridges, Chief of Staff Saad El-Shazly's tactical guidance, destroying the Bar Lev forts, the Arab oil embargo weapon led by King Faisal, African diplomatic severance of ties with Israel, and the destruction of the Israeli security doctrine.",
+      "summaryAr": "التنسيق الاستراتيجي بين الرئيسين أنور السادات وحافظ الأسد، القيادة العسكرية الموحدة بقيادة المشير أحمد إسماعيل، خطة الخداع الاستراتيجي الشامل، دراسة أنسب توقيتات الهجوم («كشكول الجمسي»)، الضربة الجوية المركزة بقيادة اللواء طيار محمد حسني مبارك، ملحمة العبور واقتحام الساتر الترابي (عملية بدر)، عبقرية فكرة مضخات المياه للواء باقي زكي يوسف وفتح 81 ثغرة، نصب 10 كباري ثقيلة وعشرات المعابر، التوجيه 41 لرئيس الأركان الفريق سعد الدين الشاذلي، إسقاط حصون خط بارليف، سلاح النفط العربي بقيادة الملك فيصل، قطع 22 دولة أفريقية علاقاتها بإسرائيل، وسقوط أسطورة الجيش الذي لا يُقهر ونظرية الأمن الإسرائيلي.",
+      "theoryContentEn": "### 1. Preparation & Strategic Deception for the October War\n- **The Leadership Coalition:** President **Mohamed Anwar Sadat** forged a joint war plan with Syrian President **Hafez al-Assad**.\n- **Unified Military Command:** War Minister **Field Marshal Ahmed Ismail Ali** held supreme command over both the Egyptian and Syrian battlefronts.\n- **The Master Strategic Deception Plan:**\n  - Egypt orchestrated an elaborate, multi-layered deception campaign:\n  - Announcing demobilization of 20,000 reservists days before the war.\n  - Announcing that senior military officers were scheduled for Umrah pilgrimage in Mecca.\n  - Allowing soldiers on the canal bank to fish, stroll without helmets, and eat sugarcane in full view of Israeli observation towers.\n  - Staging over 20 deceptive mobilization drills over two years, dulling Israeli intelligence alarms.\n- **Selection of Zero Hour ('Al-Kashkool'):** Major General **Mohamed Abdel Ghani al-Gamasy** studied the tides, moon phases, and Israeli religious holidays, compiling the findings in his notebook (*Kashkool al-Jamasy*). Zero hour was set for **2:00 PM on Saturday, October 6, 1973** (Yom Kippur / 10th of Ramadan), a timing completely unorthodox for military offensives.\n\n### 2. Operation Badr: The Great Crossing (October 6, 1973)\n- **The Opening Air Strike:** At 2:00 PM, over **220 Egyptian combat aircraft** commanded by Air Marshal **Mohamed Hosni Mubarak** crossed the canal at low altitudes, destroying Israeli command headquarters at Umm Khsheib, airbases, radar installations, and Hawk missile batteries in Sinai.\n- **The Artillery Barrage:** Over **2,000 artillery pieces** launched a thunderous 53-minute bombardment, firing 10,500 shells in the first minute alone.\n- **The Water Cannon Engineering Miracle:**\n  - The Bar Lev Line featured a colossal sand rampart 20–22 meters high inclined at 45 degrees, equipped with napalm nozzles to set the canal on fire.\n  - Egyptian engineer **Baqi Zaki Yousef** devised the brilliant idea of using high-pressure water pumps.\n  - Underwater commandos sabotaged the napalm pipes the night before.\n  - Egyptian engineers operated 350 high-pressure water pumps, washing away **3 million cubic meters of sand** and breaching **81 gaps** in the barrier within hours.\n- **Erecting the Bridges:** Military engineers laid **10 heavy pontoon bridges**, **10 pedestrian bridges**, and dozens of ferries under continuous artillery bombardment.\n- **Triumph of the Crossing:** Chief of Staff **General Saad El-Shazly** authored Directive 41, orchestrating the rapid crossing of **80,000 soldiers** and **1,000 tanks** into Sinai. The Bar Lev Line's invincible forts fell within 6 hours.\n\n### 3. Arab Collective Solidarity on the Global Stage\n- **The Syrian Front:** Syrian armed forces launched a synchronized assault across the Golan Heights, breaching the Purple Line and capturing Mount Hermon observation posts, forcing Israel to divide its forces.\n- **The Arab Oil Weapon:**\n  - On October 17, Arab oil ministers meeting in Kuwait resolved to slash production by 5% monthly.\n  - When US President Nixon launched an emergency $2.2 billion military airlift (Operation Nickel Grass) to save Israel, King **Faisal bin Abdulaziz Al Saud** announced a **total embargo on oil exports to the US and the Netherlands**.\n  - This sent shockwaves through Western stock markets, quadrupled global crude oil prices, and forced European nations to issue declarations affirming Palestinian rights.\n- **African Diplomatic Embargo:** Egypt's persistent diplomatic outreach led **22 African nations** to sever all diplomatic ties with Israel, demonstrating total Third World isolation of the Zionist entity.\n\n### 4. Strategic Lessons & Collapse of the Israeli Security Doctrine\n1. **Destruction of the 'Invincible Army' Myth:** The war shattered Israeli psychological supremacy and demonstrated that Arab soldiers, armed with scientific discipline and courage, could decisively outfight Israeli elite forces.\n2. **Collapse of Natural/Artificial Barriers:** Proved that static defense lines (the Bar Lev Line) cannot withstand coordinated combined-arms assaults.\n3. **Neutralization of the Israeli Air Force:** Egypt's SAM missile umbrella proved that ground-based air defenses could deny modern Western air forces freedom of action over the battlefield.\n4. **End of the 'No Peace, No War' Stagnation:** The war transformed Middle Eastern geopolitics, forcing the US and international community to abandon diplomatic indifference and pursue comprehensive peace negotiations.",
+      "theoryContentAr": "### ١. الإعداد والتخطيط والخداع الاستراتيجي لحرب أكتوبر\n- **التحالف والتنسيق الموحد:** نسق الرئيس **محمد أنور السادات** مع الرئيس السوري **حافظ الأسد** في سرية تامة لخوض حرب تحرير مشتركة على جبهتين.\n- **القيادة العامة الموحدة:** تولى وزير الحربية **المشير أحمد إسماعيل علي** منصب القائد العام الموحد للجبهتين المصرية والسورية.\n- **خطة الخداع الاستراتيجي الكبرى:**\n  - نفذت المخابرات والقوات المسلحة المصرية خطة خداع فذة شلت عقول المخابرات الإسرائيلية والأمريكية:\n  - تسريح 20 ألف جندي احتياط قبل الحرب بأيام.\n  - الإعلان بالصحف عن فتح باب العمرة لضباط القوات المسلحة.\n  - وقوف الجنود على حافة القناة بملابس خفيفة يصطادون الأسماك ويمتصون القصب ويتحركون باسترخاء أمام نقاط المراقبة الإسرائيلية.\n  - تكرار مناورات التعبئة لأكثر من 20 مرة حتى ظن العدو أن حشد القوات تدريب دوري لا خطورة منه.\n- **كشكول الجمسي واختيار ساعة الصفر:** عكف رئيس هيئة العمليات اللواء **محمد عبد الغني الجمسي** على دراسة حركة المد والجزر بالقناة، وساعات ضوء القمر، والأعياد اليهودية (عيد الغفران)، ودونها في كشكول شهير (*كشكول الجمسي*). واستقر القرار على اختيار يوم **السبت 6 أكتوبر 1973م (10 رمضان 1393هـ) في تمام الساعة 2:00 ظهراً** في توقيت غير مسبوق في تاريخ الحروب الحديثة.\n\n### ٢. عملية بدر: ملحمة العبور التاريخية (6 أكتوبر 1973م)\n- **الضربة الجوية الافتتاحية المركزة:** في تمام الساعة 2:00 ظهراً، انطلقت أكثر من **220 طائرة مقاتلة** بقيادة قائد القوات الجوية اللواء طيار **محمد حسني مبارك** على ارتفاعات منخفضة؛ فضربت مراكز القيادة والسيطرة الإسرائيلية (أم خشيب)، وقواعد صواريخ الهوك، والمطارات، ومحطات الرادار في سيناء، معلنة بدء العبور بنجاح بنسبة 95%.\n- **التمهيد النيراني للمدفعية:** أطلقت أكثر من **2000 فوهة مدفع** حممها على خط بارليف في قصف مدفعي هو الأضخم منذ الحرب العالمية الثانية (10500 قذيفة في الدقيقة الأولى).\n- **معجزة تجريف الساتر الترابي بمضخات المياه:**\n  - أقام العدو ساتراً ترابياً بارتفاع 20–22 متراً وبزاوية ميل 45 درجة، وزوده بأنابيب النابالم الحارق لإشعال القناة.\n  - في ليلة 6 أكتوبر، قامت الضفادع البشرية بسد فتحات النابالم تحت الماء بخلطة كيميائية خاصة.\n  - ابتكر اللواء مهندس **باقي زكي يوسف** فكرة استخدام مضخات مياه الضغط العالي المقتبسة من بناء السد العالي.\n  - شغل المهندسون 350 مضخة مياه، فجرفت **3 ملايين متر مكعب من الرمال** وفتحت **81 ثغرة** في الساتر الترابي في ساعات قياسية.\n- **نصب الكباري والعبور العظيم:** أنجز سلاح المهندسين نصب **10 كباري ثقيلة** و**10 كباري مشاة** وعشرات المعديات تحت القصف. ووضع رئيس الأركان الفريق **سعد الدين الشاذلي** أدق التفاصيل العملياتية في «التوجيه 41»، ليعبر **80 ألف جندي** و**1000 دبابة** ويسقط خط بارليف الحصين في 6 ساعات فقط!\n\n### ٣. التضامن العربي التاريخي وسلاح النفط\n- **الجبهة السورية:** شنت القوات السورية هجوماً كاسحاً في نفس اللحظة واخترقت خط ألون في الجولان وحررت مرصد جبل الشيخ، مشتتة القوة الإسرائيلية.\n- **سلاح النفط العربي:**\n  - في 17 أكتوبر، قرر وزراء البترول العرب بالكويت خفض الإنتاج 5% شهرياً ورفع الأسعار.\n  - إثر إعلان أمريكا تدشين جسر جوي لنجدة إسرائيل، أعلن الملك **فيصل بن عبد العزيز آل سعود** الحظر الشامل لشحنات البترول إلى الولايات المتحدة وهولندا.\n  - أحدث الحظر زلزالاً اقتصادياً وطوابير وقود وتضخماً خانقاً في الغرب، مجبراً الدول الأوروبية واليابان على تأييد الحقوق العربية.\n- **المقاطعة الدبلوماسية الأفريقية:** أثمر الجهد الدبلوماسي عن إعلان **22 دولة أفريقية** قطع علاقاتها الدبلوماسية بإسرائيل، لتنضم لـ 9 دول سبقتها، مما فرض عزلة دولية شاملة على تل أبيب.\n\n### ٤. الدروس المستفادة وسقوط نظرية الأمن الإسرائيلية\n١. **سقوط أسطورة الجيش الذي لا يُقهر:** تحطمت الهيبة العسكرية الإسرائيلية، وثبت أن الجندي العربي بالعلم والإيمان والتخطيط قادر على قهر أعتى الترسانات.\n٢. **سقوط نظرية الخطوط الدفاعية الحصينة:** أثبت العبور أن الموانع المائية والتحصينات الهندسية (خط بارليف) تسقط أمام الهجوم المشترك المخطط بدقة.\n٣. **تحييد الذراع الطولى للطيران:** أثبتت شبكة صواريخ الدفاع الجوي قدرتها على كسر تفوق سلاح الجو الغربي وتوفير مظلة حماية متكاملة.\n٤. **إنهاء حالة «اللا حرب واللا سلم»:** قلبت الحرب موازين السياسة الدولية رأساً على عقب، وأجبرت واشنطن والعالم على التحرك الجاد لحل الصراع العربي الإسرائيلي.",
+      "formulas": [
+        {
+          "labelEn": "Operation Badr Crossing Formula",
+          "labelAr": "معادلة عبور القناة وقهر الساتر الترابي",
+          "latex": "\\text{الضربة الجوية} + \\text{مضخات المياه (باقي زكي)} + \\text{10 كباري ثقيلة} \\implies \\text{سقوط خط بارليف} + \\text{تحطيم نظرية الأمن الإسرائيلي}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt & Arab Contemporary Causes (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر والقضايا العربية - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH7-L5",
+        "pageRange": "pp. 247–260"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch7_ws5",
+        "titleEn": "EG-Bac Analytical Seminar 7.5: Operation Badr & The October 1973 Military Triumph",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٧-٥: ملحمة العبور في عملية بدر وسقوط خط بارليف 1973م",
+        "descriptionEn": "Strategic deception analysis, water cannon engineering breakthrough, bridge assembly timelines, and critique of the collapsed Israeli security doctrine.",
+        "descriptionAr": "تحليل خطة الخداع الاستراتيجي، عبقرية فكرة مضخات المياه، مراحل نصب الكباري، ونقد ركائز نظرية الأمن الإسرائيلية المتهاوية.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_october_war",
+        "titleEn": "October 1973 Operation Badr Tactical Map",
+        "titleAr": "خريطة عمليات حرب أكتوبر التكتيكية التفاعلية (عملية بدر)",
+        "descriptionEn": "Interactive military battle map displaying the 2:00 PM air strike vectors, artillery saturation, pontoon bridge sectors, and tank bridgeheads in Sinai.",
+        "descriptionAr": "معمل تكتيكي تفاعلي يوضح مسارات الضربة الجوية بالساعة 2:00 ظهراً، قطاعات نصب الكباري العشر، ورؤوس كباري الجيوش الميدانية بشرق القناة."
+      },
+      "lessonPlan": {
+        "titleEn": "The Glorious October 1973 War: Crossing the Canal & Military Doctrines",
+        "titleAr": "حرب أكتوبر المجيدة 1973م: العبور العظيم، تحطيم خط بارليف، والدروس المستفادة",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-705",
+        "bloomsObjectivesEn": [
+          "Analyze the multi-layered components of the Egyptian Master Strategic Deception Plan.",
+          "Critique how Major General Baqi Zaki Yousef's water cannon innovation solved the sand rampart obstacle.",
+          "Evaluate the strategic impact of the Arab oil embargo led by King Faisal on Western diplomatic postures.",
+          "Synthesize the lasting military lessons that redefined 20th-century international warfare doctrines."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل الأبعاد العسكرية والإعلامية والتكتيكية لخطة الخداع الاستراتيجي المصرية وتضليل العدو.",
+          "تقويم العبقرية الهندسية للواء باقي زكي يوسف في توظيف مضخات المياه لإسقاط الساتر الترابي في ساعات.",
+          "تقدير الدور القومي الحاسم لسلاح النفط العربي بقيادة الملك فيصل بن عبد العزيز في إرباك الاقتصاد الغربي.",
+          "استخلاص الدروس العسكرية المستفادة من حرب أكتوبر التي غيرت مفاهيم الحروب الدفاعية ونظريات الأمن العالمي."
+        ],
+        "prerequisitesEn": [
+          "Understanding the War of Attrition milestones, the SAM missile wall construction, and Resolution 242."
+        ],
+        "prerequisitesAr": [
+          "استيعاب إنجازات حرب الاستنزاف وبناء حائط الصواريخ وتداعيات قرار مجلس الأمن 242."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Operation Badr (1973)",
+            "definition": "The military code name for the Egyptian assault crossing of the Suez Canal on October 6, 1973."
+          },
+          {
+            "term": "Bar Lev Line",
+            "definition": "A chain of fortified concrete bunkers and a 20-meter sand rampart erected by Israel along the canal."
+          },
+          {
+            "term": "Strategic Deception Plan",
+            "definition": "Coordinated Egyptian campaign misleading Israeli intelligence regarding mobilization and attack timing."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "عملية بدر (1973م)",
+            "definition": "الاسم الكودي العسكري لعملية اقتحام قناة السويس وعبور الجيش المصري لسيناء في 6 أكتوبر 1973م."
+          },
+          {
+            "term": "خط بارليف",
+            "definition": "الخط الدفاعي الخرساني الحصين المدعم بساتر ترابي بارتفاع 20 متراً وأنابيب نابالم على طول القناة."
+          },
+          {
+            "term": "الخداع الاستراتيجي",
+            "definition": "منظومة تدابير عسكرية وسياسية وإعلامية محكمة ضللت المخابرات الإسرائيلية حتى انطلاق الهجوم في 2:00 ظهراً."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Zero Hour Investigation",
+            "phaseAr": "التهيئة واستكشاف كشكول الجمسي",
+            "duration": "10 min",
+            "activitiesEn": "Analyze why 2:00 PM on Yom Kippur / 10th of Ramadan was the optimal strategic moment.",
+            "activitiesAr": "عرض صفحات كشكول الجمسي ومناقشة أسباب اختيار الساعة 2:00 ظهراً ويوم عيد الغفران لمباغتة العدو."
+          },
+          {
+            "phaseEn": "Operation Badr & The Water Cannons",
+            "phaseAr": "الشرح المنهجي: ملحمة العبور ومضخات المياه",
+            "duration": "45 min",
+            "activitiesEn": "Detail the 220-jet air strike, Baqi Zaki's water pumps, pontoon bridge construction, and Directive 41.",
+            "activitiesAr": "شرح الضربة الجوية الافتتاحية، فكرة باقي زكي يوسف، التوجيه 41 للشاذلي، ونصب الكباري وسقوط حصون بارليف."
+          },
+          {
+            "phaseEn": "Arab Oil Weapon & Doctrine Collapse",
+            "phaseAr": "سلاح النفط وسقوط نظرية الأمن",
+            "duration": "20 min",
+            "activitiesEn": "Examine King Faisal's oil embargo, African diplomatic boycott, and the collapse of the 'invincible army' myth.",
+            "activitiesAr": "دراسة شجاعة الملك فيصل في قطع البترول، المقاطعة الأفريقية، وسقوط ركائز نظرية الردع والتفوق الجوي المعادي."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems on the October War strategic lessons.",
+            "activitiesAr": "حل تدريبات تطبيقية وزارية تقيس استيعاب أسباب النصر والدروس المستفادة من حرب أكتوبر."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing the Bar Lev Line was just an ordinary ditch, when it was in reality an internationally recognized mega-fortress considered by military experts to be impregnable without nuclear force."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن خط بارليف كان مجرد ساتر ترابي بسيط، بينما كان أضخم خط دفاعي خرساني مصفح في العصر الحديث زوده العدو بأنابيب نابالم ومصاطب دبابات حصينة."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide visual operational timelines breaking down the first 6 hours of the crossing: Airstrike -> Artillery -> Water Cannons -> Pontoon Bridges.",
+          "advanced": "Analyze General Saad El-Shazly's Directive 41 detailing the micro-tactics of anti-tank Sagger teams repulsing Israeli armored counter-attacks."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخطط زمني مرئي للساعات الست الأولى: الضربة الجوية -> التمهيد المدفعي -> مضخات المياه -> نصب الكباري -> رفع العلم.",
+          "advanced": "تحليل نصوص «التوجيه 41» لرئيس الأركان سعد الدين الشاذلي وتكتيكات فرق صائدي الدبابات بصواريخ مالوتكا في سحق هجمات المدرعات المضادة."
+        },
+        "formativeAssessmentEn": "Class debate: How did the October 1973 War transform the global strategic balance and force the United States to abandon its policy of freezing the conflict?",
+        "formativeAssessmentAr": "مناظرة صفية: كيف غيرت حرب أكتوبر 1973م موازين القوى العالمية وأجبرت واشنطن على التخلي عن سياسة تجميد الصراع والانخراط في صنع السلام؟",
+        "exitTicketQuestion": {
+          "questionEn": "Who was the Egyptian engineer officer who devised the idea of using high-pressure water cannons to breach the sand rampart of the Bar Lev Line?",
+          "questionAr": "من هو الضابط المهندس المصري صاحب فكرة استخدام مضخات مياه الضغط العالي لتجريف الساتر الترابي لخط بارليف؟",
+          "solutionEn": "Major General Baqi Zaki Yousef.",
+          "solutionAr": "اللواء مهندس باقي زكي يوسف."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch7_l6",
+      "titleEn": "EG-Bac Seminar: The Path to Peace: Sadat's Jerusalem Initiative, Camp David, Peace Treaty & Taba International Arbitration",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: طريق السلام: مبادرة السادات التاريخية، اتفاقيات كامب ديفيد، معاهدة السلام، والتحكيم الدولي في طابا",
+      "summaryEn": "President Sadat's historic address to the Egyptian People's Assembly declaring readiness to visit the Knesset (November 1977), his historic visit to Jerusalem on November 19, 1977, the Camp David Summit hosted by Jimmy Carter (September 1978) signing two peace frameworks, the Egyptian-Israeli Peace Treaty in Washington (March 26, 1979) establishing full Israeli withdrawal from Sinai, the phased evacuation completed on April 25, 1982 (Sinai Liberation Day), the dispute over Boundary Marker 91 at Taba, invocation of Article 7 for international arbitration in Geneva, the Higher National Committee's cartographic victory, and the raising of the Egyptian flag over Taba on March 19, 1989.",
+      "summaryAr": "خطاب الرئيس السادات التاريخي في مجلس الشعب وإعلان استعداده لزيارة الكنيست (نوفمبر 1977م)، زيارة القدس التاريخية في 19 نوفمبر 1977م، مؤتمر كامب ديفيد برعاية الرئيس الأمريكي جيمي كارتر (سبتمبر 1978م) وتوقيع إطاري السلام، معاهدة السلام المصرية الإسرائيلية بواشنطن (26 مارس 1979م) والانسحاب الكامل من سيناء، اكتمال الجلاء في 25 أبريل 1982م (عيد تحرير سيناء)، النزاع حول العلامة الحدودية رقم 91 بطابا، تفعيل المادة 7 واللجوء لهيئة التحكيم الدولية بجنيف، معركة الوثائق والخرائط للجنة القومية العليا، ورفع العلم المصري في طابا في 19 مارس 1989م استرداداً لآخر شبر من تراب الوطن.",
+      "theoryContentEn": "### 1. Sadat's Historic Initiative to Visit Jerusalem (November 1977)\n- **Breaking the Psychological Barrier:** Following the 1973 victory, President Anwar Sadat sought to break the psychological wall of mistrust preventing direct diplomacy.\n- **The Knesset Address:** On November 19, 1977, Sadat landed at Ben Gurion Airport and addressed the Israeli Knesset in Jerusalem.\n- **Sadat's Core Principles:**\n  1. Ending the state of war and securing mutual peace based on justice.\n  2. Full Israeli withdrawal from all Arab territories occupied in June 1967 (Sinai, Golan, West Bank, Gaza, East Jerusalem).\n  3. Achievement of the fundamental national rights of the Palestinian people, including self-determination and independent statehood.\n  4. Security guarantees for all states in the region.\n\n### 2. The Camp David Accords (September 1978)\n- US President **Jimmy Carter** invited Sadat and Israeli Prime Minister **Menachem Begin** to the presidential retreat at Camp David, Maryland.\n- After 12 days of intensive mediation, two framework agreements were signed on September 17, 1978:\n  1. **Framework for the Conclusion of a Peace Treaty between Egypt and Israel:** Mandating total Israeli military and civilian evacuation of the Sinai Peninsula and the restoration of full Egyptian sovereignty.\n  2. **Framework for Peace in the Middle East:** Outlining a phased 5-year transitional regime of full autonomy for the Palestinian inhabitants of the West Bank and Gaza Strip.\n\n### 3. The Egyptian-Israeli Peace Treaty (March 26, 1979)\n- Signed on the White House lawn in Washington by Sadat, Begin, and Carter.\n- **Key Clauses:**\n  1. Termination of the state of war and establishment of peaceful bilateral relations.\n  2. Full Israeli withdrawal from Sinai to the international frontier between Egypt and Mandatory Palestine.\n  3. Demilitarized and limited-armament security zones across Sinai and along the Israeli border (Zones A, B, C, and D) monitored by Multinational Force and Observers (MFO).\n  4. Freedom of navigation for Israeli ships through the Suez Canal and Straits of Tiran.\n  5. Commencement of negotiations on Palestinian self-government.\n\n### 4. Sinai Liberation (April 25, 1982) & The Taba Crisis\n- **Phased Withdrawal:** Israel executed scheduled withdrawals between 1979 and 1982, dismantling airbases and settlements (e.g., Yamit).\n- **Sinai Liberation Day (April 25, 1982):** The Egyptian flag was raised over all of Sinai, celebrated annually as an official public holiday.\n- **The Taba Enclave Conflict:** Israel refused to evacuate the 1-square-kilometer coastal enclave of **Taba** on the Gulf of Aqaba, claiming dispute over the exact location of **Boundary Pillar 91**.\n\n### 5. The Taba International Arbitration Victory (1986–1989)\n- **Egyptian Refusal to Compromise:** Egypt rejected Israeli proposals for condominium or lease agreements, insisting on strict territorial sovereignty under Article 7 of the Peace Treaty (stipulating international arbitration if bilateral talks fail).\n- **Arbitration Agreement (September 1986):** Both states submitted the dispute to an international arbitral tribunal in Geneva, Switzerland.\n- **The Battle of Documents:** The Higher National Committee for Taba (comprising international legal scholars, diplomats, historians, and geographers) presented incontrovertible historical documentation:\n  - The **1906 Ottoman-Egyptian Border Demarcation Agreement** and original surveying maps.\n  - Testimonies of local Bedouin elders and British military cartography proving that Boundary Pillar 91 stood atop the granite cliffs overlooking the gulf.\n- **The Unanimous Ruling (September 29, 1988):** The tribunal ruled unanimously in favor of Egypt's border demarcation.\n- **Hoisting the Flag (March 19, 1989):** President Hosni Mubarak hoisted the Egyptian national flag over Taba, concluding the final border dispute and recovering the last inch of national soil.",
+      "theoryContentAr": "### ١. مبادرة السادات التاريخية لزيارة القدس (نوفمبر 1977م)\n- **كسر الحاجز النفسي:** بعد استرداد الكرامة العسكرية في حرب أكتوبر 1973م، اتجه الرئيس أنور السادات لخوض معركة السلام لكسر جدار الشك وعدم الثقة.\n- **خطاب مجلس الشعب:** في نوفمبر 1977م، أعلن السادات أمام البرلمان المصري استعداده للذهاب إلى آخر العالم وحتى الكنيست الإسرائيلي لحقن دماء أبنائه.\n- **خطاب الكنيست (19 نوفمبر 1977م):** توجه السادات للقدس وخاطب الكنيست بحزم معلناً أسس السلام العادل والشامل:\n  ١. إنهاء حالة الحرب وإقامة سلام قائم على العدل.\n  ٢. الانسحاب الإسرائيلي الكامل من كافة الأراضي العربية المحتلة عام 1967م (سيناء، الجولان، الضفة، القطاع، والقدس الشرقية).\n  ٣. الاعتراف بالحقوق المشروعة للشعب الفلسطيني في تقرير مصيره وإقامة دولته المستقلة.\n  ٤. توفير ضمانات أمن متبادلة لكافة دول المنطقة.\n\n### ٢. اتفاقيات كامب ديفيد (سبتمبر 1978م)\n- وجه الرئيس الأمريكي **جيمي كارتر** دعوة للسادات ورئيس وزراء إسرائيل **مناحم بيجن** لمنتجع كامب ديفيد بولاية ماريلاند.\n- بعد مفاوضات شاقة استمرت 12 يوماً، تم توقيع إطارين للسلام في 17 سبتمبر 1978م:\n  ١. **إطار لعقد معاهدة سلام بين مصر وإسرائيل:** يقضي بانسحاب إسرائيل الكامل من سيناء واستعادة السيادة الوطنية المصرية عليها.\n  ٢. **إطار عام للسلام في الشرق الأوسط:** تضمن إجراء مفاوضات تمهيدية لمنح الفلسطينيين في الضفة الغربية وقطاع غزة حكماً ذاتياً كاملاً لمرحلة انتقالية مدتها خمس سنوات.\n\n### ٣. معاهدة السلام المصرية الإسرائيلية (واشنطن، 26 مارس 1979م)\n- وُقعت المعاهدة في حديقة البيت الأبيض برعاية كارتر استناداً لقرار مجلس الأمن 242.\n- **أهم نصوص وبنود المعاهدة:**\n  ١. إنهاء حالة الحرب وإقامة علاقات ودية ودبلوماسية طبيعية بين البلدين.\n  ٢. انسحاب إسرائيل الكامل من شبه جزيرة سيناء حتى خط الحدود الدولية لمصر مع فلسطين.\n  ٣. تقسيم سيناء والحدود الإسرائيلية إلى مناطق أمنية محددة التسلح والقوات (المناطق أ، ب، ج، د) مع نشر قوات طوارئ ومراقبين دوليين (MFO).\n  ٤. ضمان حرية الملاحة للسفن في قناة السويس وخليج العقبة ومضيق تيران.\n  ٥. البدء في مفاوضات الحكم الذاتي للضفة الغربية وقطاع غزة.\n\n### ٤. تحرير سيناء (25 أبريل 1982م) وتفجر أزمة طابا\n- **الانسحاب المتدرج:** تم جلاء القوات الإسرائيلية عن سيناء على مراحل زمنية وتفكيك القواعد والمستوطنات (مثل مستوطنة ياميت).\n- **عيد تحرير سيناء (25 أبريل 1982م):** رُفع العلم المصري على كامل أرجاء سيناء، وأصبح عيداً قومياً مقدساً.\n- **أزمة جيب طابا:** ماطلت إسرائيل في إخلاء منطقة **طابا** الساحلية الاستراتيجية في خليج العقبة (مساحتها كيلومتر مربع واحد) وادعت كذباً أن موقع **العلامة الحدودية رقم 91** يقع داخل الأراضي التي تسيطر عليها.\n\n### ٥. ملحمة التحكيم الدولي واسترداد طابا (1986–1989م)\n- **الموقف المصري الحاسم:** رفضت مصر أي مساومة أو اقتسام لطابا، وتمسكت باللجوء للتحكيم الدولي الملزم إعمالاً لنص المادة السابعة من معاهدة السلام.\n- **مشارطة التحكيم (سبتمبر 1986م):** اتفقت مصر وإسرائيل على إحالة النزاع لهيئة تحكيم دولية مشكلة من 5 قضاة دوليين بجنيف في سويسرا.\n- **معركة الوثائق والخرائط التاريخية:** شُكلت اللجنة القومية العليا لطابا من خيرة فقهاء القانون الدولي والمؤرخين والمساحين والدبلوماسيين، وقدموا أدلة قاطعة شملت:\n  - وثائق وخرائط **اتفاقية الحدود العثمانية المصرية لعام 1906م**.\n  - شهادات شيوخ قبائل سيناء ووثائق مصلحة المساحة المصرية والخرائط العسكرية البريطانية التي أثبتت وجود العلامة 91 فوق هضبة رأس طابا المشرفة على الخليج.\n- **حكم التحكيم التاريخي (29 سبتمبر 1988م):** أصدرت هيئة التحكيم الدولية بجنيف حكمها التاريخي بالإجماع بأحقية مصر الكاملة في طابا وتثبيت موقع العلامة 91.\n- **رفع العلم المصري (19 مارس 1989م):** رفع الرئيس محمد حسني مبارك العلم المصري في طابا، ليعود آخر شبر من أرض سيناء للسيادة الوطنية دون التفريط في ذرة تراب واحدة.",
+      "formulas": [
+        {
+          "labelEn": "Peace & Complete Liberation Equation",
+          "labelAr": "معادلة تحرير الأرض بالسلام والتحكيم الدولي",
+          "latex": "\\text{مبادرة القدس 1977} + \\text{معاهدة السلام 1979} \\implies \\text{تحرير سيناء 1982} + \\text{التحكيم الدولي بجنيف} \\implies \\text{رفع علم مصر في طابا 1989}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt & Arab Contemporary Causes (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر والقضايا العربية - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH7-L6",
+        "pageRange": "pp. 261–272"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch7_ws6",
+        "titleEn": "EG-Bac Analytical Seminar 7.6: Camp David, Sinai Liberation & The Taba Arbitration",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٧-٦: معاهدة السلام وتحرير سيناء وملحمة استرداد طابا",
+        "descriptionEn": "Textual evaluation of Sadat's Knesset speech, Camp David frameworks, Article 7 arbitration, and the 1906 boundary evidence in Taba.",
+        "descriptionAr": "تحليل خطاب السادات بالقدس، بنود معاهدة السلام 1979م، ترسيم الحدود، ودور وثائق 1906م في انتصار التحكيم الدولي بطابا.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_taba_arbitration",
+        "titleEn": "Taba Border Demarcation & Arbitration Map",
+        "titleAr": "خريطة التحكيم الدولي وترسيم حدود طابا التفاعلية",
+        "descriptionEn": "Interactive cartography tool mapping the 1906 border pillars, Boundary Marker 91 dispute, and the Geneva arbitral tribunal line.",
+        "descriptionAr": "معمل خرائط تفاعلي يقارن مواقع العلامات الحدودية لعام 1906م، موقع العلامة 91 المتنازع عليها، وحكم هيئة التحكيم بجنيف."
+      },
+      "lessonPlan": {
+        "titleEn": "The Path to Peace: Sadat's Initiative, Camp David & Taba Arbitration",
+        "titleAr": "طريق السلام: مبادرة السادات، كامب ديفيد، معاهدة السلام، والتحكيم الدولي في طابا",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-706",
+        "bloomsObjectivesEn": [
+          "Analyze President Anwar Sadat's strategic motivations in launching the November 1977 Jerusalem peace initiative.",
+          "Critique the terms of the 1978 Camp David Accords and the 1979 Egyptian-Israeli Peace Treaty.",
+          "Evaluate how Egypt utilized Article 7 of the Peace Treaty to achieve binding international arbitration over Taba.",
+          "Assess the role of historical documentation and cartography in securing Egypt's legal victory in Geneva (1988–1989)."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل دوافع الرئيس أنور السادات في إطلاق مبادرته التاريخية لزيارة القدس عام 1977م لكسر الجمود الدبلوماسي.",
+          "نقد بنود اتفاقيات كامب ديفيد 1978م ومعاهدة السلام 1979م وشروط نزع وتحديد السلاح في سيناء.",
+          "تقويم نجاح الدبلوماسية المصرية في تفعيل المادة السابعة من معاهدة السلام للجوء للتحكيم الدولي الملزم في طابا.",
+          "تقدير دور الوثائق التاريخية والخرائط المساحية لعام 1906م في حسم معركة طابا القضائية ورفع العلم المصري في مارس 1989م."
+        ],
+        "prerequisitesEn": [
+          "Understanding the military outcome and strategic shifts resulting from the October 1973 War."
+        ],
+        "prerequisitesAr": [
+          "استيعاب موازين القوى والانتصارات العسكرية الميدانية التي أفرزتها حرب أكتوبر 1973م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Camp David Accords (1978)",
+            "definition": "Framework agreements negotiated between Sadat and Begin hosted by Carter setting terms for peace."
+          },
+          {
+            "term": "Boundary Pillar 91",
+            "definition": "The disputed granite border marker at Taba successfully proven to belong to sovereign Egyptian soil."
+          },
+          {
+            "term": "Taba Arbitration (1988)",
+            "definition": "Unanimous international court ruling in Geneva confirming Egypt's full sovereignty over Taba."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "اتفاقيات كامب ديفيد (1978م)",
+            "definition": "إطاران للسلام وُقعا بماريلاند بين السادات وبيجن برعاية كارتر مهدا لمعاهدة السلام واستعادة سيناء."
+          },
+          {
+            "term": "العلامة الحدودية رقم 91",
+            "definition": "عمود الحدود الجرانيتي المتنازع عليه في طابا والذي أثبتت الوثائق المصرية تبعيته التاريخية للوطن."
+          },
+          {
+            "term": "تحكيم طابا الدولي (1988م)",
+            "definition": "حكم قضائي صادر عن هيئة التحكيم الدولية بجنيف أقر السيادة المصرية الخالصة على طابا ورفض الادعاءات الإسرائيلية."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Knesset Address",
+            "phaseAr": "التهيئة ومبادرة زيارة القدس",
+            "duration": "10 min",
+            "activitiesEn": "Analyze excerpts of Sadat's speech in the Knesset regarding justice and Palestinian rights.",
+            "activitiesAr": "قراءة فقرات من خطاب السادات بالكنيست ومناقشة كيف خاض معركة السلام بنفس جسارة معركة الحرب."
+          },
+          {
+            "phaseEn": "Camp David & The 1979 Treaty",
+            "phaseAr": "الشرح المنهجي لكامب ديفيد ومعاهدة السلام",
+            "duration": "45 min",
+            "activitiesEn": "Detail the 2 Camp David frameworks, security zones A/B/C/D in Sinai, and April 25 Liberation Day.",
+            "activitiesAr": "شرح إطاري كامب ديفيد، نصوص معاهدة السلام 1979م، تقسيم المناطق الأمنية بسيناء، وعيد تحرير سيناء 1982م."
+          },
+          {
+            "phaseEn": "The Taba Arbitration Epic",
+            "phaseAr": "ملحمة التحكيم الدولي واسترداد طابا",
+            "duration": "20 min",
+            "activitiesEn": "Examine the 1906 border agreement, cartographic proofs before Geneva tribunal, and March 19, 1989 flag raising.",
+            "activitiesAr": "دراسة معركة الوثائق والخرائط للجنة طابا القومية، وحكم التحكيم بجنيف، ورفع العلم المصري في 19 مارس 1989م."
+          },
+          {
+            "phaseEn": "Formative Assessment",
+            "phaseAr": "التقويم الختامي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems on the peace process and Taba arbitration.",
+            "activitiesAr": "حل تدريبات تطبيقية وزارية تقيس استيعاب مراحل استرداد الأرض بالسلام والتحكيم الدولي."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing Egypt ceded its Palestinian commitments at Camp David, when President Sadat consistently insisted on the Palestinian autonomy framework, which stalled due to Israeli unilateral intransigence."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد بأن مصر تخلت عن القضية الفلسطينية في كامب ديفيد، متجاهلين أن السادات فرض إطاراً للحكم الذاتي الفلسطيني عطلته إسرائيل لاحقاً بتعنتها الأحادي."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide color-coded maps of Sinai illustrating the demilitarized zones A, B, C, and D alongside a timeline from 1977 to 1989.",
+          "advanced": "Examine the legal jurisprudence of the September 1988 Geneva Arbitral Award on Boundary Pillar 91 regarding evidential weight of historical boundary marks."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم خريطة ملونة مبسطة لسيناء توضح المناطق الأمنية (أ، ب، ج، د) مع جدول زمني لأهم المحطات من 1977 حتى 1989م.",
+          "advanced": "دراسة الحجج القانونية في حيثيات حكم هيئة التحكيم بجنيف لعام 1988م وكيف رجحت الخرائط المساحية لعام 1906م على الادعاءات الإسرائيلية."
+        },
+        "formativeAssessmentEn": "Document evaluation: Compare the map of the 1906 Ottoman-Egyptian border demarcation with the 1988 arbitral decision regarding Taba.",
+        "formativeAssessmentAr": "تحليل وثائقي: مقارنة خريطة ترسيم الحدود لعام 1906م بحكم هيئة التحكيم الدولية لعام 1988م لإبراز قوة الوثيقة التاريخية في استرداد الحقوق.",
+        "exitTicketQuestion": {
+          "questionEn": "On which date did Egypt celebrate the hoisting of the national flag over Taba, recovering the last inch of national territory?",
+          "questionAr": "في أي تاريخ احتفلت مصر برفع العلم الوطني خفاقاً فوق أرض طابا استرداداً لآخر شبر من ترابها؟",
+          "solutionEn": "March 19, 1989.",
+          "solutionAr": "19 مارس 1989م."
+        }
+      }
+    }
+  ],
+      databank: historyCh7Databank,
+      solvedExamples: egBacHistoryCh7SolvedExamples,
+      exerciseProblems: egBacHistoryCh7Exercises
+    },
+    {
+  "id": "th_hist_ch8",
+  "chapterNumber": 8,
+  "titleEn": "Unit 8: The January 25, 2011 and June 30, 2013 Revolutions",
+  "titleAr": "الفصل الثامن: ثورتا 25 يناير 2011م و30 يونيو 2013م",
+  "descriptionEn": "Causes and buildup of the January 25, 2011 Revolution (2010 parliamentary election rigging, emergency laws, economic deterioration), stepped down of President Mubarak, military council transitional management, the June 30, 2013 Revolution and armed forces statement, roadmap declaration, 2014 Constitution, presidential elections, and national stability and comprehensive development in contemporary Egypt.",
+  "descriptionAr": "مقدمات وأسباب ثورة 25 يناير 2011م (تزوير انتخابات 2010، قانون الطوارئ، تدهور الأوضاع)، تنحي الرئيس مبارك وإدارة المجلس الأعلى للقوات المسلحة، ثورة 30 يونيو 2013م الشعبية وبيان القوات المسلحة، خارطة الطريق وإقرار دستور 2014م، وبدء مرحلة الاستقرار والتنمية وبناء مصر الحديثة المعاصرة.",
+  "isFullyEquipped": true,
+  "lessons": [
+    {
+      "id": "egbac_hist_ch8_l1",
+      "titleEn": "EG-Bac Seminar: The January 25, 2011 Revolution: Roots, Escalation, The 18 Days & SCAF Governance",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: ثورة 25 يناير 2011م: الأسباب والمقدمات، ملحمة الـ 18 يوماً، وإدارة المجلس العسكري",
+      "summaryEn": "Underlying causes of the January 25, 2011 Revolution (continuous Emergency Law since 1981, 2010 parliamentary election rigging with 97% NDP monopoly, flawed privatization, youth unemployment, corruption), youth mobilization via social media, selection of Police Day (Jan 25), the Friday of Anger (Jan 28), the collapse of internal security and spontaneous creation of Popular Committees, the historic neutrality and protective shield of the Armed Forces, President Mubarak stepping down on February 11, and the transitional administration of the Supreme Council of the Armed Forces (SCAF).",
+      "summaryAr": "مقدمات وأسباب تفجر ثورة 25 يناير 2011م (استمرار قانون الطوارئ منذ 1981م، تزوير انتخابات مجلس الشعب 2010م واستحواذ الحزب الحاكم على 97% من المقاعد، الخصخصة غير المنضبطة وتفشي البطالة وتدهور الأوضاع المعيشية)، دور الشباب والتقنيات الرقمية وشبكات التواصل في الحشد والتنظيم، اختيار عيد الشرطة 25 يناير، أحداث جمعة الغضب 28 يناير وتفجر الفراغ الأمني، تأسيس اللجان الشعبية لحماية الأحياء والمنشآت، الموقف الوطني التاريخي المشرف للقوات المسلحة وتعهدها بحماية المتظاهرين، تنحي الرئيس حسني مبارك في 11 فبراير 2011م، وإدارة المجلس الأعلى للقوات المسلحة لشؤون البلاد في المرحلة الانتقالية.",
+      "theoryContentEn": "### 1. Underlying Roots & Precursors of the January 25 Revolution\n- **Political Stagnation & 30 Years of Emergency Law:** Following the 1981 assassination of President Anwar Sadat, the Emergency Law was declared and perpetually renewed every 2–3 years for three continuous decades under President Hosni Mubarak. This granted security forces unchecked powers to detain citizens without warrant, ban peaceful demonstrations, conduct arbitrary searches, and suppress political opposition.\n- **The November/December 2010 Parliamentary Elections:** The direct political catalyst. The ruling National Democratic Party (NDP) engaged in systemic fraud, sweeping roughly **97% of the People's Assembly seats**. This completely cleared the parliament of credible opposition parties, shutting down all legal constitutional safety valves for reform and convincing citizens that street action was the only viable path to change.\n- **Economic Deterioration & Flawed Privatization:** The haphazard sale of public sector industrial complexes at undervalue prices under structural adjustment programs created the notorious 'Early Retirement' crisis, forcing tens of thousands of workers into poverty while oligarchic monopolies flourished in essential commodities (steel, cement).\n- **Youth Unemployment & Social Inequality:** Over 25% of university graduates were unemployed, and poverty rates surged alongside skyrocketing food prices, giving rise to the iconic revolutionary demand: *\"Bread, Freedom, Social Justice, Human Dignity\"* (*'Aysh, Hurriyya, 'Adala Ijtima'iyya, Karama Insaniyya*).\n\n### 2. Digital Mobilization & Selection of Police Day (January 25, 2011)\n- **Youth Coalitions & Social Media:** Unlike historical uprisings organized by traditional political parties, the revolution was ignited by decentralized youth movements (e.g., the April 6 Youth Movement, 'We Are All Khaled Said' Facebook page). Social media (Facebook, Twitter) enabled rapid, horizontal mobilization that bypassed state censorship.\n- **Symbolism of January 25:** Youth deliberately selected **Police Day** (January 25)—which originally commemorated the heroism of Ismailiya police against British forces in 1952—to protest against police brutality, torture, and Emergency Law abuses.\n\n### 3. The Friday of Anger & Popular Committees (January 28, 2011)\n- **Friday of Anger (Jan 28):** Massive marches erupted from major mosques following Friday prayers across Cairo, Alexandria, Suez, and all governorates.\n- **Security Collapse & Prison Breaks:** Violent clashes led to the rapid withdrawal of internal police forces, triggering an acute security vacuum characterized by prison breaks and widespread looting.\n- **Civic Resilience - The Popular Committees (Al-Lijan Al-Sha'biya):** In an extraordinary display of civic awareness, Egyptian citizens organized neighborhood patrols armed with batons to guard homes, hospitals, and national treasures, forming human chains to defend the Egyptian Museum in Tahrir Square until military units arrived.\n\n### 4. The Historic Neutrality & Protective Shield of the Armed Forces\n- **Military Deployment (Jan 28 evening):** President Mubarak ordered Armed Forces units into the streets to restore public order and enforce a curfew.\n- **Patriotic Military Stance:** The General Command of the Armed Forces issued a historic communiqué recognizing that the people's demands were legitimate, affirming that the military had deployed to protect citizens and vital facilities, and pledging **never to use force or live ammunition against peaceful protesters**. This protective umbrella preserved the peaceful character of the revolution.\n\n### 5. Stepping Down of Hosni Mubarak & SCAF Transitional Governance\n- **The 18 Days Epic:** Protesters maintained an uninterrupted sit-in in Tahrir Square and nationwide for 18 days, resisting dispersal attempts.\n- **Resignation Announcement (February 11, 2011):** Vice President Omar Suleiman delivered a brief televised statement announcing that President Mubarak had stepped down, entrusting the administration of state affairs to the **Supreme Council of the Armed Forces (SCAF)** headed by Field Marshal Mohamed Hussein Tantawi.\n- **SCAF Transitional Roadmap:** SCAF dissolved the fraudulent 2010 parliament, suspended the 1971 Constitution, appointed a legal committee to draft constitutional amendments (limiting presidential tenure to two 4-year terms), and oversaw the March 19, 2011 constitutional referendum (passed with 77.2% approval).",
+      "theoryContentAr": "### ١. الأسباب والمقدمات الجوهرية لثورة 25 يناير 2011م\n- **الجمود السياسي واستمرار قانون الطوارئ:** فُرض قانون الطوارئ عقب اغتيال الرئيس أنور السادات في أكتوبر 1981م، وظل يجدد بصفة دورية طوال ثلاثة عقود في عهد الرئيس حسني مبارك، مما منح الأجهزة الأمنية صلاحيات مطلقة في الاعتقال الإداري والتفتيش دون إذن قضائي وتقييد الحريات والتظاهر السلمي.\n- **تزوير انتخابات مجلس الشعب 2010م:** الشرارة المباشرة والمفجر السياسي للثورة؛ حيث شهدت انتخابات نوفمبر وديسمبر 2010م تزويراً فاضحاً حصد به الحزب الوطني الديمقراطي الحاكم **نحو 97% من مقاعد البرلمان**، فخلا المجلس من أي معارضة حقيقية وأُغلقت صمامات الأمان السياسية السلمية للإصلاح.\n- **تدهور الأوضاع الاقتصادية والخصخصة غير المنضبطة:** بيع قلاع ومصانع القطاع العام بأسعار بخسة لرجال أعمال مقربين، وإحالة آلاف العمال لنظام 'المعاش المبكر' الإجباري، مع ظهور احتكارات كبرى في السلع الاستراتيجية كالحديد والأسمنت.\n- **تفاقم البطالة وتآكل العدالة الاجتماعية:** ارتفاع معدلات البطالة بين خريجي الجامعات وتدني الأجور وتزايد الفقر والغلاء، فتبلورت مطالب الشعب في الشعار الخالد: **«عيش، حرية، عدالة اجتماعية، كرامة إنسانية»**.\n\n### ٢. دور التقنيات الرقمية واختيار عيد الشرطة (25 يناير)\n- **الحركات الشبابية وشبكات التواصل:** قادت الثورة حركات شبابية وائتلافات وطنية (مثل حركة شباب 6 أبريل، وصفحة كلنا خالد سعيد على فيسبوك) استثمرت الفضاء الإلكتروني للتنسيق والحشد الأفقي متجاوزة قيود الأحزاب التقليدية والتعتيم الإعلامي.\n- **دلالة اختيار 25 يناير:** وقع الاختيار عمداً على **عيد الشرطة** (ذكرى صمود رجال الشرطة البواسل بالإسماعيلية عام 1952م ضد الاحتلال البريطاني) ليكون رسالة احتجاجية سلمية تطالب بإنهاء انتهاكات الطوارئ والتعذيب وإصلاح المنظومة الأمنية.\n\n### ٣. جمعة الغضب وملحمة اللجان الشعبية (28 يناير 2011م)\n- **جمعة الغضب (28 يناير):** انطلقت مسيرات مليونية هادرة من كبرى مساجد مصر عقب صلاة الجمعة بمختلف المحافظات واحتشدت بميدان التحرير.\n- **الانسحاب الأمني وتفجر الفراغ:** انهارت قوى الأمن الداخلي وانسحبت من الشوارع واقتُحمت السجون، فتفجر فراغ أمني مروع هدد بانتشار الفوضى والنهب.\n- **أصالة الشعب - اللجان الشعبية:** هب المواطنون والشباب عفوياً لتشكيل 'اللجان الشعبية' لحراسة مداخل الأحياء والممتلكات والمستشفيات، وسطروا ملحمة بحماية المتحف المصري بالتحرير بجدار بشري منيع.\n\n### ٤. الموقف الوطني والتاريخي المشرف للقوات المسلحة\n- **نزول الجيش للشارع (مساء 28 يناير):** أصدر الرئيس مبارك قراراً بنزول القوات المسلحة لحفظ الأمن وفرض حظر التجوال.\n- **انحياز الجيش لإرادة الشعب:** أصدرت القيادة العامة للقوات المسلحة بياناً تاريخياً أكدت فيه تفهمها الكامل للمطالب العادلة لأبناء الشعب، وتعهدت بعدم استخدام القوة أو إطلاق النار على المتظاهرين السلميين، فكان الجيش صمام الأمان والدرع الحامي للثورة.\n\n### ٥. تنحي الرئيس مبارك وإدارة المجلس العسكري للمرحلة الانتقالية\n- **صمود الـ 18 يوماً:** رابطت الملايين في ميدان التحرير وميادين مصر 18 يوماً متواصلة رافضة فض الاعتصام.\n- **بيان التنحي (11 فبراير 2011م):** أذاع اللواء عمر سليمان نائب رئيس الجمهورية بياناً مقتضباً أعلن فيه تخلي الرئيس حسني مبارك عن منصبه، وتكليف **المجلس الأعلى للقوات المسلحة** برئاسة المشير محمد حسين طنطاوي بإدارة شؤون البلاد.\n- **خارطة الطريق الانتقالية للمجلس العسكري:** عطل المجلس دستور 1971م، وحل مجلسي الشعب والشورى المزورين، وشكل لجنة لتعديل المواد الدستورية المقيدة لتحديد مدة الرئاسة بفترتين فقط (4 سنوات لكل فترة)، وطرحها للاستفتاء الشعبي في 19 مارس 2011م (وافق عليها 77.2% من الناخبين).",
+      "formulas": [
+        {
+          "labelEn": "Catalysts of the January 25 Revolution Chain",
+          "labelAr": "سلسلة محركات ومقدمات انفجار ثورة 25 يناير 2011م",
+          "latex": "\\text{قانون الطوارئ (30 عاماً)} + \\text{تزوير برلمان 2010 (97\\%)} + \\text{فساد الخصخصة والبطالة} \\implies \\text{ثورة 25 يناير}"
+        },
+        {
+          "labelEn": "Security Vacuum & Civic Defense Dynamic",
+          "labelAr": "معادلة تجاوز الفراغ الأمني بالوعي الشعبي والدرع العسكري",
+          "latex": "\\text{انسحاب الشرطة (28 يناير)} \\implies \\text{اللجان الشعبية} + \\text{حماية الجيش وعدم إطلاق النار} \\implies \\text{صون الدولة السلمي}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt: Contemporary Revolutions & State Rebuilding (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر: الثورات الشعبية وإعادة بناء الدولة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH8-L1",
+        "pageRange": "pp. 145-156"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch8_ws1",
+        "titleEn": "EG-Bac Analytical Seminar 8.1: Precursors, Digital Mobilization, and the 18 Days of January 25",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٨-1: مقدمات ثورة يناير، الحشد التكنولوجي، وملحمة الـ 18 يوماً",
+        "descriptionEn": "Analytical assessment on the political catalysts, popular committees, and military neutrality during the January 25 Revolution.",
+        "descriptionAr": "تدريبات تحليلية ونقدية لنواتج التعلم الوزارية المعتمدة لمقدمات ثورة يناير وموقف القوات المسلحة.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "January 25 Revolution Interactive Chronology Studio",
+        "titleAr": "استوديو الخط الزمني التفاعلي لثورة 25 يناير 2011م",
+        "descriptionEn": "Interactive day-by-day exploration of the 18 days from Police Day to Mubarak's stepped down and SCAF governance.",
+        "descriptionAr": "محاكي تفاعلي لأحداث الـ 18 يوماً الحاسمة من جمعة الغضب وحتى تنحي مبارك وإدارة المجلس العسكري."
+      },
+      "lessonPlan": {
+        "titleEn": "The January 25 Revolution: Precursors, The 18 Days, and SCAF Transitional Mandate",
+        "titleAr": "ثورة 25 يناير 2011م: المقدمات السياسية والملحمة الشعبية وإدارة المجلس العسكري",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-801",
+        "bloomsObjectivesEn": [
+          "Analyze why the 2010 parliamentary elections are regarded as the primary direct domestic catalyst for the January 25 Revolution.",
+          "Evaluate the societal role of Popular Committees in preventing lawlessness following the withdrawal of police on January 28.",
+          "Contrast the Egyptian Armed Forces' doctrine of civilian protection with regional military crackdowns."
+        ],
+        "bloomsObjectivesAr": [
+          "تحليل أسباب اعتبار انتخابات مجلس الشعب 2010م المفجر السياسي المباشر لثورة 25 يناير.",
+          "تقييم الدور الحضاري للجان الشعبية في حماية مقدرات الوطن عقب الانسحاب الأمني يوم جمعة الغضب.",
+          "المقارنة بين العقيدة الوطنية للجيش المصري في حماية الشعب وتصرفات جيوش إقليمية قمعت مواطنيها."
+        ],
+        "prerequisitesEn": [
+          "Understanding Egyptian socio-political developments under Mubarak's 30-year presidency."
+        ],
+        "prerequisitesAr": [
+          "استيعاب التطورات السياسية والاقتصادية والاجتماعية في مصر خلال العقود الثلاثة لعهد مبارك."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Emergency Law",
+            "definition": "Exceptional legislation continuously renewed from 1981 to 2011 granting wide powers of detention without trial."
+          },
+          {
+            "term": "Popular Committees (Al-Lijan Al-Sha'biya)",
+            "definition": "Spontaneous neighborhood citizen patrols formed on Jan 28, 2011, to safeguard homes and institutions from looters."
+          },
+          {
+            "term": "SCAF",
+            "definition": "Supreme Council of the Armed Forces, which administered Egypt's transitional governance following Mubarak's resignation."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "قانون الطوارئ",
+            "definition": "تشريع استثنائي فُرض وتجدد متواصلاً من 1981م إلى 2011م أتاح الاعتقال الإداري وتقييد الحريات."
+          },
+          {
+            "term": "اللجان الشعبية",
+            "definition": "تشكيلات أهلية عفوية أسسها المواطنون عقب انسحاب الشرطة يوم 28 يناير لحماية البيوت والمنشآت."
+          },
+          {
+            "term": "المجلس الأعلى للقوات المسلحة (SCAF)",
+            "definition": "قيادة الجيش العليا التي أدارت شؤون الدولة في المرحلة الانتقالية عقب تنحي الرئيس مبارك."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Visual Media",
+            "phaseAr": "التهيئة والدافعية",
+            "duration": "10 min",
+            "activitiesEn": "Analyze primary photos from Tahrir Square and discuss the significance of the slogan 'Bread, Freedom, Social Justice'.",
+            "activitiesAr": "عرض صور ووثائق ميدانية من ميدان التحرير ومناقشة الدلالات العميقة لشعار 'عيش، حرية، عدالة اجتماعية'."
+          },
+          {
+            "phaseEn": "Precursors & Mobilization",
+            "phaseAr": "الشرح التفاعلي للأسباب والمقدمات",
+            "duration": "40 min",
+            "activitiesEn": "Detail the 2010 election rigging (97%), 30 years of Emergency Law, privatization flaws, and social media organization.",
+            "activitiesAr": "شرح تزوير برلمان 2010م، آثار استمرار الطوارئ، الخصخصة والمعاش المبكر، ودور الشباب وشبكات التواصل."
+          },
+          {
+            "phaseEn": "The 18 Days & Armed Forces Shield",
+            "phaseAr": "ملحمة الـ 18 يوماً وموقف الجيش",
+            "duration": "25 min",
+            "activitiesEn": "Examine the events of Friday of Anger, popular committees, SCAF communiqués refusing to shoot, and Mubarak's resignation.",
+            "activitiesAr": "دراسة أحداث جمعة الغضب، اللجان الشعبية، بيانات القوات المسلحة بحماية الشعب، ولحظة إذاعة بيان التنحي."
+          },
+          {
+            "phaseEn": "Formative Assessment & Exit Ticket",
+            "phaseAr": "التقويم التكويني وبطاقة الخروج",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems assessing analytical mastery of the January 25 Revolution.",
+            "activitiesAr": "حل أسئلة امتحانات ثانوية عامة تقيس مهارات الفهم والتحليل لأسباب وأحداث ثورة يناير وموقف الجيش."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing the revolution was caused solely by social media, when social media was only an organizational tool for deep-seated socio-economic and political grievances."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن الثورة صُنعت فقط على فيسبوك وتويتر، متجاهلين أن التكنولوجيا كانت وسيلة تواصل لمظالم سياسية واقتصادية متراكمة لثلاثة عقود."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide a chronological visual chart contrasting the 2010 parliamentary election results with the demands of January 25.",
+          "advanced": "Analyze the constitutional legality and implications of transferring power to SCAF under the 1971 Constitution vs. revolutionary legitimacy."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم مخطط زمني بصري يبين العلاقة بين تزوير انتخابات 2010م وانفجار المظاهرات السلمية في 25 يناير.",
+          "advanced": "بحث الطبيعة الدستورية والقانونية لقرار تنحي مبارك وتسليم السلطة للمجلس العسكري مقارنة بمفاهيم الشرعية الثورية."
+        },
+        "formativeAssessmentEn": "Examine why the dissolution of the 2010 People's Assembly was the very first decree issued by SCAF.",
+        "formativeAssessmentAr": "بين بالدليل التاريخي لماذا كان قرار حل مجلس الشعب المزور لعام 2010م أول قرار دستوري أصدره المجلس العسكري.",
+        "exitTicketQuestion": {
+          "questionEn": "On which date did Vice President Omar Suleiman announce the stepped down of President Hosni Mubarak?",
+          "questionAr": "في أي تاريخ أعلن اللواء عمر سليمان نائب رئيس الجمهورية تنحي الرئيس حسني مبارك؟",
+          "solutionEn": "February 11, 2011.",
+          "solutionAr": "11 فبراير 2011م."
+        }
+      }
+    },
+    {
+      "id": "egbac_hist_ch8_l2",
+      "titleEn": "EG-Bac Seminar: The June 30, 2013 Revolution: Political Impasse, Armed Forces Statement, The Roadmap & The 2014 Constitution",
+      "titleAr": "حلقة البكالوريا المصرية المتقدمة: ثورة 30 يونيو 2013م: مظاهر الأزمة السياسية، حشود الميادين، بيان القوات المسلحة، خارطة الطريق ودستور 2014م",
+      "summaryEn": "The June 2012 presidential elections and Mohamed Morsi assuming the presidency, the controversial November 2012 Constitutional Declaration and Ittihadiya clashes, accumulating living crises (chronic fuel lines and rolling blackouts), the Tamarod petition movement gathering over 22 million signatures, tens of millions flooding public squares on June 30, 2013, the Armed Forces 48-hour ultimatum, the historic July 3 Roadmap announced by General Abdel Fattah El-Sisi with Al-Azhar, the Church, and youth leaders, interim presidency of Counselor Adly Mansour, drafting and 98.1% ratification of the 2014 Constitution, and the election of President Abdel Fattah El-Sisi inaugurating the New Republic and comprehensive national development.",
+      "summaryAr": "انتخابات الرئاسة في يونيو 2012م وتولي محمد مرسي، الإعلان الدستوري في نوفمبر 2012م وتأجيج الاستقطاب وأحداث قصر الاتحادية، تفاقم الأزمات المعيشية وانقطاع الكهرباء وطوابير الوقود، حركة تمرد الشعبية وتوقيعات سحب الثقة (أكثر من 22 مليون توقيع)، خروج عشرات الملايين في 30 يونيو 2013م في أكبر حشد جماهيري، بيان مهلة الـ 48 ساعة للقوات المسلحة لحقن الدماء، بيان 3 يوليو التاريخي وإعلان خارطة الطريق برئاسة الفريق أول عبد الفتاح السيسي وبمباركة الأزهر والكنيسة والشباب، تولي المستشار عدلي منصور الرئاسة المؤقتة، إقرار دستور 2014م بأغلبية 98.1%، وانتخاب الرئيس عبد الفتاح السيسي رئيساً للجمهورية وتدشين عصر الاستقرار والمشروعات القومية وبناء الدولة الحديثة.",
+      "theoryContentEn": "### 1. Transitional Governance & Deepening Polarization (2012–2013)\n- **The June 2012 Presidential Elections:** Following the transitional phase under SCAF, democratic elections culminated in a runoff between Mohamed Morsi (Freedom and Justice Party) and Ahmed Shafik. Morsi won by a narrow margin (51.7%) and assumed office on June 30, 2012.\n- **The November 2012 Constitutional Declaration:** On November 21, 2012, President Morsi issued a unilateral declaration that immunized presidential decisions against judicial challenge and shielded the Islamist-dominated Constituent Assembly and Shura Council from judicial dissolution.\n- **Societal Polarization & Ittihadiya Clashes:** Judges suspended court hearings, and secular, liberal, and leftist forces organized massive sit-ins around the Ittihadiya Presidential Palace. Clashes erupted in December 2012, entrenching severe ideological division across Egyptian society.\n\n### 2. Acute Living Hardships & The Tamarod Petition Movement\n- **Economic & Utility Crises:** The first half of 2013 witnessed severe shortages of foreign currency, causing debilitating shortages of gasoline and diesel. Miles-long lines formed at gas stations, while power plants shut down, inflicting hours of daily electricity blackouts across homes and businesses in extreme summer heat.\n- **The Tamarod (Rebellion) Campaign (May 2013):** Young Egyptian activists launched a peaceful petition campaign asking citizens: *\"Do you withdraw confidence from the President and demand early presidential elections?\"*\n- **Massive Signatures:** Over 22 million citizens signed the petition forms in public squares, markets, and universities, establishing an overwhelming peaceful popular mandate that called for nationwide protests on June 30, 2013.\n\n### 3. The Historic June 30, 2013 Mass Mobilization\n- **Unprecedented Crowd Numbers:** On June 30, 2013 (the one-year anniversary of presidential inauguration), tens of millions of citizens poured into Tahrir Square, Ittihadiya Palace, and every major square in all 27 governorates.\n- **Civic Character:** The mobilization united all strata of society: men, women, youth, peasants, and elders marched exclusively under the Egyptian national flag, demanding early presidential elections and preserving the sovereign identity of the civil state.\n\n### 4. The Armed Forces 48-Hour Ultimatum (July 1, 2013)\n- **Patriotic Military Responsibility:** Recognizing the extreme peril of civil war and social collapse, Defense Minister **General Abdel Fattah El-Sisi** broadcast an official statement on behalf of the Armed Forces on July 1, 2013.\n- **The 48-Hour Window:** The statement gave all political actors a final 48-hour deadline to respond to the people's will and reach a peaceful consensus.\n- **Presidency Intransigence:** In a late-night speech on July 2, the presidency rejected the ultimatum, insisting on narrow formal legitimacy without offering compromises or early elections, leaving the country on the precipice of armed conflict.\n\n### 5. The July 3, 2013 Roadmap, The 2014 Constitution & Contemporary State Building\n- **The Historic July 3 Assembly:** On the evening of July 3, 2013, General Abdel Fattah El-Sisi announced the **Roadmap** in a joint televised broadcast flanked by Grand Imam Dr. Ahmed El-Tayeb (Al-Azhar), Pope Tawadros II (Coptic Orthodox Church), Tamarod leaders, and national judicial and political figures.\n- **Key Provisions of the Roadmap:**\n  1. *Suspending the 2012 Constitution* temporarily.\n  2. *Appointing Counselor Adly Mansour*, Chief Justice of the Supreme Constitutional Court, as interim President of Egypt.\n  3. *Forming a non-partisan technocratic cabinet* to manage state administration.\n  4. *Establishing the Committee of Fifty* (chaired by Amr Moussa) representing diverse societal segments to draft a modern constitution.\n- **Ratification of the 2014 Constitution:** In January 2014, over 20 million citizens approved the new constitution by a **98.1% landslide**, codifying fundamental civil rights, citizenship equality, and women's empowerment.\n- **Presidential Elections (May 2014):** In free multi-candidate elections under full judicial supervision, **President Abdel Fattah El-Sisi** was elected with overwhelming popular support.\n- **The New Republic & Modern Development:** Egypt embarked on a comprehensive modernization drive: eradicating terrorism, restoring regional leadership in Africa and the Arab world, and launching transformative infrastructure megaprojects (New Suez Canal, National Road Grid, New Administrative Capital, modern energy grids), realizing the enduring aspirations of the Egyptian people.",
+      "theoryContentAr": "### ١. المرحلة الانتقالية وتصاعد الاستقطاب السياسي (2012–2013م)\n- **انتخابات الرئاسة 2012م:** عقب انتهاء المرحلة الانتقالية تحت إشراف المجلس العسكري، أُجريت انتخابات رئاسية أسفرت جولة إعادتها عن فوز مرشح حزب الحرية والعدالة الدكتور محمد مرسي بنسبة (51.7%) وتسلم السلطة في 30 يونيو 2012م.\n- **الإعلان الدستوري (21 نوفمبر 2012م):** أصدر رئيس الجمهورية إعلاناً دستورياً أحادياً حصن فيه قراراته وقوانينه ضد أي رقابة أو طعن قضائي، كما حصن الجمعية التأسيسية ومجلس الشورى من الحل القضائي.\n- **الاستقطاب وأحداث قصر الاتحادية:** احتج القضاة وعلقوا جلسات المحاكم، واعتصمت القوى الوطنية والمدنية أمام قصر الاتحادية بمصر الجديدة، وشهد محيط القصر اشتباكات دموية في ديسمبر 2012م عمقت الانقسام المجتمعي الحاد.\n\n### ٢. تفاقم الأزمات المعيشية وانطلاق حركة تمرد الشعبية\n- **الأزمات المعيشية الخانقة:** عانت مصر في النصف الأول من عام 2013م من تراجع الاحتياطي النقدي وتفجر أزمات حادة في الوقود، فاصطفت طوابير السولار والبنزين لكيلومترات، وانقطعت الكهرباء لساعات طويلة يومياً في ذروة الصيف، مما وحد المجتمع ضد سوء الإدارة.\n- **حركة تمرد (مايو 2013م):** أطلق شباب وطنيون حركة 'تمرد' لصياغة استمارة شعبية موحدة تسحب الثقة من رئيس الجمهورية وتطالب بانتخابات رئاسية مبكرة.\n- **حشد الملايين:** تفاعل الشعب المصري بجميع فئاته فوقع **أكثر من 22 مليون مواطن** على استمارات تمرد في الشوارع والمواصلات والجامعات، مشكلين تفويضاً شعبياً كاسحاً للدعوة لتظاهرات 30 يونيو 2013م.\n\n### ٣. ملحمة 30 يونيو 2013م وخروج الملايين\n- **الحشود المليونية غير المسبوقة:** في 30 يونيو 2013م، تزامناً مع مرور عام على تولي الرئيس منصبه، خرجت حشود شعبية قدرت بعشرات الملايين ملأت ميدان التحرير ومحيط الاتحادية وميادين كافة محافظات الجمهورية.\n- **الصورة الحضارية:** توحدت كافة فئات الشعب نساءً وشباباً وشيوخاً وعمالاً تحت راية العلم الوطني المصري حصراً، مطالبين بحماية الهوية الوطنية وإجراء انتخابات رئاسية مبكرة.\n\n### ٤. بيان مهلة الـ 48 ساعة للقوات المسلحة (1 يوليو 2013م)\n- **المسؤولية الوطنية للجيش المصري:** استشعاراً لخطورة انزلاق البلاد نحو الاقتتال الأهلي والفتنة، أذاع الفريق أول **عبد الفتاح السيسي** وزير الدفاع بياناً رسمياً في 1 يوليو 2013م باسم القوات المسلحة.\n- **مهلة الـ 48 ساعة:** أمهل البيان جميع القوى السياسية 48 ساعة للتوافق مع الإرادة الشعبية وحقن الدماء.\n- **تعنت مؤسسة الرئاسة:** في خطاب متأخر مساء 2 يوليو، رفضت الرئاسة الاستجابة للمهلة وتمسكت بالشرعية الشكلية دون تقديم حلول أو الدعوة لانتخابات مبكرة، مما جعل الصدام في الشارع وشيكاً.\n\n### ٥. خارطة طريق 3 يوليو، دستور 2014م، وبناء الدولة الحديثة\n- **البيان التاريخي في 3 يوليو 2013م:** ألقى الفريق أول عبد الفتاح السيسي البيان التاريخي بمشاركة فضيلة الإمام الأكبر شيخ الأزهر، وقداسة بابا الكنيسة، وممثلي شباب تمرد، والقوى القضائية والوطنية.\n- **بنود خارطة طريق 3 يوليو:**\n  ١. *تعطيل العمل بدستور 2012م مؤقتاً*.\n  ٢. *تولي رئيس المحكمة الدستورية العليا (المستشار عدلي منصور)* رئاسة الجمهورية مؤقتاً لحين إجراء انتخابات جديدة.\n  ٣. *تشكيل حكومة كفاءات وطنية مدنية*.\n  ٤. *تشكيل لجنة الخمسين* برئاسة عمرو موسى لصياغة تعديلات دستورية شاملة تعبر عن كل المصريين.\n- **إقرار دستور 2014م:** طُرح الدستور للاستفتاء العام في يناير 2014م ووافق عليه الشعب بنسبة **98.1% كاسحة**، مرسخاً مبادئ المواطنة والعدالة والحريات.\n- **الانتخابات الرئاسية (مايو 2014م):** أُجريت انتخابات رئاسية حرة وتعددية تحت إشراف قضائي كامل، وفاز **الرئيس عبد الفتاح السيسي** بثقة الشعب الكاسحة.\n- **الجمهورية الجديدة والتنمية الشاملة:** انطلقت مصر في معركة البناء والاستقرار؛ فدحرت الإرهاب، واستعادت مكانتها الريادية عربياً وأفريقياً، وشيدت المشروعات القومية العملاقة (قناة السويس الجديدة، الشبكة القومية للطرق، العاصمة الإدارية الجديدة، المدن الذكية، ومحطات الطاقة الحديثة) محققة طموحات الشعب المصري العظيم.",
+      "formulas": [
+        {
+          "labelEn": "June 30 Popular Mandate Equation",
+          "labelAr": "معادلة التفويض الشعبي لثورة 30 يونيو 2013م",
+          "latex": "\\text{استمارات تمرد (22 مليون)} + \\text{حشود 30 يونيو المليونية} \\implies \\text{مهلة الـ 48 ساعة للقوات المسلحة}"
+        },
+        {
+          "labelEn": "Roadmap to State Reconstruction",
+          "labelAr": "مسار بناء الدولة الحديثة ودستور 2014م",
+          "latex": "\\text{خارطة طريق 3 يوليو} \\implies \\text{دستور 2014 (98.1\\%)} \\implies \\text{انتخاب الرئيس السيسي} \\implies \\text{مشروعات الجمهورية الجديدة}"
+        }
+      ],
+      "moeRef": {
+        "bookTitleEn": "Advanced Historiography of Modern Egypt: Contemporary Revolutions & State Rebuilding (EG-Bac Grade 12)",
+        "bookTitleAr": "دراسات متقدمة في تاريخ مصر المعاصر: الثورات الشعبية وإعادة بناء الدولة - البكالوريا المصرية",
+        "grade": "Grade 12",
+        "term": "Full Year",
+        "officialCode": "MOE-TH-HIST-CH8-L2",
+        "pageRange": "pp. 157-170"
+      },
+      "worksheet": {
+        "id": "egbac_hist_ch8_ws2",
+        "titleEn": "EG-Bac Analytical Seminar 8.2: The June 30 Revolution, The Roadmap, and Contemporary State Building",
+        "titleAr": "حلقة نقاشية وتطبيق تحليلي ٨-2: ثورة 30 يونيو، خارطة الطريق، وبناء الدولة المصرية الحديثة",
+        "descriptionEn": "Analytical assessment on the causes of the June 30 Revolution, the military statement, the 2014 Constitution, and mega-projects.",
+        "descriptionAr": "تدريبات تحليلية ونقدية لنواتج التعلم الوزارية المعتمدة لثورة 30 يونيو وبنود خارطة الطريق وتأسيس الجمهورية الجديدة.",
+        "estimatedTimeMinutes": 30,
+        "problems": []
+      },
+      "interactiveWidget": {
+        "type": "history_timeline_lab",
+        "titleEn": "June 30 Revolution & Modern Era Interactive Studio",
+        "titleAr": "استوديو ثورة 30 يونيو والجمهورية الجديدة التفاعلي",
+        "descriptionEn": "Interactive simulation mapping the roadmap milestones from Tamarod signatures to the 2014 Constitution and national development.",
+        "descriptionAr": "محاكي الخرائط والخطوط الزمنية لتحليل مراحل خارطة الطريق واستحقاقات الدستور وبناء الدولة الحديثة."
+      },
+      "lessonPlan": {
+        "titleEn": "The June 30 Revolution: The Popular Will, The Roadmap, and State Modernization",
+        "titleAr": "ثورة 30 يونيو 2013م: الإرادة الشعبية، خارطة الطريق، وبناء الدولة الحديثة",
+        "gradeLevel": "EG-Bac Grade 12",
+        "durationMinutes": 90,
+        "moeCode": "MOE-EGBAC-HIST-PLAN-802",
+        "bloomsObjectivesEn": [
+          "Explain how the Tamarod campaign and utility crises precipitated the June 30 mass mobilization.",
+          "Analyze the constitutional and national significance of the Armed Forces 48-hour ultimatum.",
+          "Evaluate the key pillars of the July 3 Roadmap and the democratic ratification of the 2014 Constitution."
+        ],
+        "bloomsObjectivesAr": [
+          "تفسير كيف عجلت حركة تمرد والأزمات المعيشية بالاحتشاد الجماهيري الكاسح في 30 يونيو.",
+          "تحليل الدلالة الدستورية والوطنية لبيان مهلة الـ 48 ساعة الذي أصدرته القوات المسلحة.",
+          "تقييم بنود خارطة طريق 3 يوليو وأهمية الإقرار الشعبي لدستور 2014م بنسبة 98.1%."
+        ],
+        "prerequisitesEn": [
+          "Understanding the political dynamics following the January 25 Revolution and the 2012 presidential elections."
+        ],
+        "prerequisitesAr": [
+          "استيعاب التطورات السياسية التي أعقبت ثورة 25 يناير وانتخابات الرئاسة عام 2012م."
+        ],
+        "keyVocabularyEn": [
+          {
+            "term": "Tamarod Campaign",
+            "definition": "Grassroots youth petition initiative that gathered over 22 million signatures withdrawing confidence from the president."
+          },
+          {
+            "term": "48-Hour Ultimatum",
+            "definition": "Military statement on July 1, 2013, giving politicians a final deadline to reconcile and fulfill popular demands."
+          },
+          {
+            "term": "July 3 Roadmap",
+            "definition": "National consensus agreement suspending the 2012 Constitution, appointing Adly Mansour, and drafting the 2014 Constitution."
+          }
+        ],
+        "keyVocabularyAr": [
+          {
+            "term": "حركة تمرد",
+            "definition": "مبادرة شبابية شعبية جمعت أكثر من 22 مليون توقيع لسحب الثقة والمطالبة بانتخابات رئاسية مبكرة."
+          },
+          {
+            "term": "مهلة الـ 48 ساعة",
+            "definition": "بيان القوات المسلحة في 1 يوليو 2013م لمنح القوى السياسية فرصة أخيرة للتوافق مع الإرادة الشعبية."
+          },
+          {
+            "term": "خارطة طريق 3 يوليو",
+            "definition": "وثيقة التوافق الوطني التي عطلت دستور 2012م وكلفت رئيس المحكمة الدستورية بالرئاسة المؤقتة وصياغة دستور 2014م."
+          }
+        ],
+        "teachingPacing": [
+          {
+            "phaseEn": "Hook & Public Sentiment",
+            "phaseAr": "التهيئة والدافعية",
+            "duration": "10 min",
+            "activitiesEn": "Examine satellite imagery of June 30 rallies in Tahrir and discuss why popular sovereignty is the origin of legitimacy.",
+            "activitiesAr": "قراءة وتحليل صور الحشود المليونية لثورة 30 يونيو ومناقشة مفهوم الشرعية الشعبية كمصدر أسمى للسلطات."
+          },
+          {
+            "phaseEn": "Crises & The Tamarod Initiative",
+            "phaseAr": "الأزمات المعيشية وحركة تمرد",
+            "duration": "35 min",
+            "activitiesEn": "Explain the November 2012 decree, fuel lines, blackouts, Tamarod petition mechanics, and the June 30 mobilization.",
+            "activitiesAr": "شرح الإعلان الدستوري 2012م، أزمات الوقود والكهرباء، آليات حركة تمرد، وتدفق الملايين في 30 يونيو."
+          },
+          {
+            "phaseEn": "The 48h Ultimatum & July 3 Roadmap",
+            "phaseAr": "بيان الجيش وخارطة الطريق ودستور 2014م",
+            "duration": "30 min",
+            "activitiesEn": "Analyze the 48-hour ultimatum, the July 3 statement with religious leaders, Adly Mansour's presidency, and the 2014 Constitution.",
+            "activitiesAr": "تحليل مهلة الـ 48 ساعة، بيان 3 يوليو بمشاركة الأزهر والكنيسة، رئاسة المستشار عدلي منصور، وإقرار دستور 2014م."
+          },
+          {
+            "phaseEn": "Formative Assessment & Synthesis",
+            "phaseAr": "التقويم الختامي والربط المنهجي",
+            "duration": "15 min",
+            "activitiesEn": "Solve 5 ministerial exam problems synthesizing the achievements of the June 30 Revolution and modern state building.",
+            "activitiesAr": "حل أسئلة امتحانات ثانوية عامة تقيس استيعاب مكتسبات ثورة 30 يونيو وتأسيس الجمهورية الجديدة."
+          }
+        ],
+        "commonMisconceptionsEn": [
+          "Believing the July 3 Roadmap was a direct military takeover, when in reality it transferred executive leadership to the Chief Justice of the Supreme Constitutional Court and formed a civilian cabinet."
+        ],
+        "commonMisconceptionsAr": [
+          "الاعتقاد الخاطئ بأن بيان 3 يوليو كان انفراداً عسكرياً بالسلطة، متجاهلين إسناد الرئاسة المؤقتة لأعلى سلطة قضائية (رئيس المحكمة الدستورية العليا) وتشكيل حكومة كفاءات مدنية."
+        ],
+        "differentiationEn": {
+          "struggling": "Provide a comparative table comparing the 2012 Constitution controversy with the consensual 2014 Constitution ratified by 98.1%.",
+          "advanced": "Evaluate the legal philosophy behind invoking the Chief Justice of the Supreme Constitutional Court during exceptional state transitions."
+        },
+        "differentiationAr": {
+          "struggling": "تقديم جدول مقارنة مبسط بين الإعلان الدستوري 2012م ودستور 2014م التوافقي الذي نال 98.1%.",
+          "advanced": "دراسة الفلسفة الدستورية وراء تولي رئيس المحكمة الدستورية العليا مقاليد الرئاسة في المراحل الاستثنائية لصون دولة القانون."
+        },
+        "formativeAssessmentEn": "Explain why Counselor Adly Mansour was sworn in before the General Assembly of the Supreme Constitutional Court.",
+        "formativeAssessmentAr": "بين الدلالة الدستورية لأداء المستشار عدلي منصور اليمين الدستورية أمام الجمعية العمومية للمحكمة الدستورية العليا.",
+        "exitTicketQuestion": {
+          "questionEn": "What was the popular approval percentage for the 2014 Constitution in the national referendum?",
+          "questionAr": "ما النسبة المئوية للموافقة الشعبية على دستور 2014م في الاستفتاء العام؟",
+          "solutionEn": "98.1%.",
+          "solutionAr": "98.1%."
+        }
+      }
+    }
+  ],
+      databank: historyCh8Databank,
+      solvedExamples: egBacHistoryCh8SolvedExamples,
+      exerciseProblems: egBacHistoryCh8Exercises
+    }
+  ]
+};

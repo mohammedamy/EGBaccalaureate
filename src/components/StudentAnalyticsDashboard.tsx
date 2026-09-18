@@ -8,7 +8,9 @@ import {
   getMasteryRadarData,
   getWeakestChapters,
   resetStudentAnalytics,
+  getPredictiveScore,
   type StudentAnalyticsState,
+  type RadarTrackMode,
 } from '../services/studentAnalyticsService';
 import {
   evaluateBadges,
@@ -79,8 +81,11 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
     setRegisteredCertificates(getRegisteredCertificates());
   };
 
+  const [radarTrackMode, setRadarTrackMode] = useState<RadarTrackMode>('stem5');
+
   const readinessScore = useMemo(() => getReadinessScore(analyticsState), [analyticsState]);
-  const radarPoints = useMemo(() => getMasteryRadarData(analyticsState), [analyticsState]);
+  const radarPoints = useMemo(() => getMasteryRadarData(analyticsState, radarTrackMode), [analyticsState, radarTrackMode]);
+  const predictiveScore = useMemo(() => getPredictiveScore(analyticsState), [analyticsState]);
   const weakestChapters = useMemo(() => getWeakestChapters(analyticsState, 3), [analyticsState]);
 
   // Evaluate Achievement Badges
@@ -123,12 +128,12 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
     window.print();
   };
 
-  // SVG Radar Chart Math (Pentagon with 5 vertices)
+  // SVG Radar Chart Math (Dynamic polygon adapting to STEM, Humanities, or All-8)
   const radarSvg = useMemo(() => {
     const size = 360;
     const center = size / 2;
-    const radius = 120;
-    const numPoints = 5;
+    const numPoints = Math.max(3, radarPoints.length);
+    const radius = numPoints > 5 ? 105 : 120;
 
     // Angle offset so first point is at the very top (-90 degrees)
     const angleStep = (2 * Math.PI) / numPoints;
@@ -169,7 +174,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
     // Label positioning (slightly further than radius)
     const labels = radarPoints.map((pt, i) => {
       const angle = initialAngle + i * angleStep;
-      const labelRadius = radius + 34;
+      const labelRadius = radius + (numPoints > 5 ? 28 : 34);
       const x = center + labelRadius * Math.cos(angle);
       const y = center + labelRadius * Math.sin(angle);
       return {
@@ -393,6 +398,74 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             </span>
           </div>
         </div>
+
+        {/* AI Thanaweya Predictive Total Score & University Tier Card */}
+        <div className="mt-4 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-indigo-950/60 via-slate-900 to-amber-950/40 border border-indigo-500/30 shadow-2xl">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 font-black shadow-lg">
+                <Trophy className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+                    {isAr ? 'محرك التنبؤ الذكي لمجموع الثانوية العامة' : 'AI Thanaweya Score Predictor Engine'}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                    {isAr ? 'المقياس الرسمي: ٤١٠ درجة' : 'Official 410-Mark Standard'}
+                  </span>
+                </div>
+                <h3 className="text-base sm:text-lg font-black text-white">
+                  {isAr ? 'التوقع التراكمي لنتيجة مكتب التنسيق' : 'Projected Ministerial Score & University Admission Tier'}
+                </h3>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3 self-end md:self-auto">
+              <div className="text-right rtl:text-right">
+                <span className="text-[11px] text-slate-400 block">{isAr ? 'المجموع المتوقع' : 'Projected Score'}</span>
+                <span className="text-2xl sm:text-3xl font-black text-amber-400 font-mono">
+                  {isAr ? toHindiDigits(predictiveScore.predictedTotalMarks) : predictiveScore.predictedTotalMarks}
+                  <span className="text-sm text-slate-400 font-bold"> / {isAr ? '٤١٠' : '410'}</span>
+                </span>
+              </div>
+              <div className="h-10 w-px bg-slate-800 hidden sm:block" />
+              <div className="text-right rtl:text-right">
+                <span className="text-[11px] text-slate-400 block">{isAr ? 'النسبة المئوية' : 'Percentage'}</span>
+                <span className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">
+                  {isAr ? `${toHindiDigits(predictiveScore.predictedPercentage)}%` : `${predictiveScore.predictedPercentage}%`}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
+            <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+              <span className="text-slate-400 font-bold block mb-1">
+                {isAr ? 'الشريحة والتصنيف المتوقع:' : 'Predicted Admission Tier:'}
+              </span>
+              <p className="text-sm font-black text-indigo-300">
+                {isAr ? predictiveScore.universityTrackTierAr : predictiveScore.universityTrackTierEn}
+              </p>
+            </div>
+
+            <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80">
+              <span className="text-slate-400 font-bold block mb-1.5">
+                {isAr ? 'الكليات والقطاعات المستهدفة الموصى بها:' : 'Target Faculty Recommendations:'}
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {(isAr ? predictiveScore.targetFacultyRecommendationsAr : predictiveScore.targetFacultyRecommendationsEn).map((fac: string, idx: number) => (
+                  <span
+                    key={idx}
+                    className="px-2 py-0.5 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 text-[11px] font-medium"
+                  >
+                    {fac}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* First-Time Diagnostic Calibration Hero Card (When 0 Attempted) */}
@@ -456,14 +529,51 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left / Pentagon Mastery Radar (7 Cols) */}
         <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+          <div className="flex items-center justify-between border-b border-slate-800 pb-3 flex-wrap gap-2">
             <div className="flex items-center gap-2 text-slate-100 font-bold text-base sm:text-lg">
               <Target className="w-5 h-5 text-indigo-400" />
-              <span>{isAr ? 'رادار الإتقان الخماسي للمواد' : '5-Point Subject Mastery Radar'}</span>
+              <span>
+                {radarTrackMode === 'stem5'
+                  ? (isAr ? 'رادار الإتقان الخماسي (علمي)' : '5-Point STEM Mastery Radar')
+                  : radarTrackMode === 'humanities'
+                  ? (isAr ? 'رادار الإتقان الرباعي (أدبي)' : '4-Point Humanities Mastery Radar')
+                  : (isAr ? 'رادار الإتقان الشامل (٨ مواد)' : 'Comprehensive 8-Subject Mastery Radar')}
+              </span>
             </div>
-            <span className="text-xs text-slate-400">
-              {isAr ? 'تغطية الفروع العلمية والرياضية' : 'Curriculum Domain Distribution'}
-            </span>
+
+            {/* Radar Track Mode Selector */}
+            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+              <button
+                onClick={() => setRadarTrackMode('stem5')}
+                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                  radarTrackMode === 'stem5'
+                    ? 'bg-indigo-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isAr ? 'علمي (٥ مواد)' : 'STEM (5)'}
+              </button>
+              <button
+                onClick={() => setRadarTrackMode('humanities')}
+                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                  radarTrackMode === 'humanities'
+                    ? 'bg-amber-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isAr ? 'أدبي (٤ مواد)' : 'Humanities (4)'}
+              </button>
+              <button
+                onClick={() => setRadarTrackMode('all8')}
+                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                  radarTrackMode === 'all8'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {isAr ? 'الشامل (٨ مواد)' : 'All 8 Core'}
+              </button>
+            </div>
           </div>
 
           {/* Scalable Vector Graphics Pentagon Chart */}
@@ -549,7 +659,15 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             </svg>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-3 border-t border-slate-800 text-center">
+          <div
+            className={`grid gap-2 pt-3 border-t border-slate-800 text-center ${
+              radarPoints.length === 4
+                ? 'grid-cols-2 sm:grid-cols-4'
+                : radarPoints.length === 8
+                ? 'grid-cols-2 sm:grid-cols-4'
+                : 'grid-cols-2 sm:grid-cols-5'
+            }`}
+          >
             {radarPoints.map((pt) => (
               <div key={pt.dimensionKey} className="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
                 <span className="text-[10px] font-bold text-slate-400 block truncate">

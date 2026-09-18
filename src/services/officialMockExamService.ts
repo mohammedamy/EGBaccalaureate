@@ -137,7 +137,68 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
     };
   }
 
-  // 4. Default / Comprehensive All-Subjects Mock (50 Questions, 60 Marks, 3 Hours)
+  // 4. Humanities & Language Subjects: History, Arabic, English, French
+  if (normSubject === 'history' || normBranch.includes('history') || normBranch.includes('تاريخ')) {
+    return {
+      subjectId: 'history',
+      totalQuestions: 46,
+      totalMarks: 60,
+      durationMinutes: 180,
+      section1Count: 32, // 32 * 1 = 32 marks
+      section2Count: 14, // 14 * 2 = 28 marks (Total: 60 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة تاريخ مصر الحديث والمعاصر',
+      titleEn: 'Official Thanawya Amma Examination - Modern Egyptian History',
+      descAr: '٤٦ سؤالاً (٣٢ سؤالاً بدرجة واحدة + ١٤ سؤالاً بدرجتين) بإجمالي ٦٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '46 questions (32 items @ 1 mark + 14 items @ 2 marks) totaling 60 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (normSubject === 'arabic' || normBranch.includes('arabic') || normBranch.includes('عرب')) {
+    return {
+      subjectId: 'arabic',
+      totalQuestions: 55,
+      totalMarks: 80,
+      durationMinutes: 180,
+      section1Count: 30, // 30 * 1 = 30 marks
+      section2Count: 25, // 25 * 2 = 50 marks (Total: 80 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة اللغة العربية',
+      titleEn: 'Official Thanawya Amma Examination - Arabic Language & Literature',
+      descAr: '٥٥ سؤالاً (٣٠ سؤالاً بدرجة واحدة + ٢٥ سؤالاً بدرجتين) بإجمالي ٨٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '55 questions (30 items @ 1 mark + 25 items @ 2 marks) totaling 80 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (normSubject === 'english' || normBranch.includes('english') || normBranch.includes('إنجليز')) {
+    return {
+      subjectId: 'english',
+      totalQuestions: 37,
+      totalMarks: 50,
+      durationMinutes: 180,
+      section1Count: 24, // 24 * 1 = 24 marks
+      section2Count: 13, // 13 * 2 = 26 marks (Total: 50 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة اللغة الأجنبية الأولى (الإنجليزية)',
+      titleEn: 'Official Thanawya Amma Examination - English (First Foreign Language)',
+      descAr: '٣٧ سؤالاً (٢٤ سؤالاً بدرجة واحدة + ١٣ سؤالاً بدرجتين) بإجمالي ٥٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '37 questions (24 items @ 1 mark + 13 items @ 2 marks) totaling 50 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (normSubject === 'french' || normBranch.includes('french') || normBranch.includes('فرنس')) {
+    return {
+      subjectId: 'french',
+      totalQuestions: 31,
+      totalMarks: 40,
+      durationMinutes: 120,
+      section1Count: 22, // 22 * 1 = 22 marks
+      section2Count: 9,  // 9 * 2 = 18 marks (Total: 40 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة اللغة الأجنبية الثانية (الفرنسية)',
+      titleEn: 'Official Thanawya Amma Examination - French (Second Foreign Language)',
+      descAr: '٣١ سؤالاً (٢٢ سؤالاً بدرجة واحدة + ٩ أسئلة بدرجتين) بإجمالي ٤٠ درجة في ساعتين كاملتين بنظام البابل شيت الرسمي.',
+      descEn: '31 questions (22 items @ 1 mark + 9 items @ 2 marks) totaling 40 marks over 2 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  // 5. Default / Comprehensive All-Subjects Mock (50 Questions, 60 Marks, 3 Hours)
   return {
     subjectId: 'all',
     totalQuestions: 50,
@@ -441,4 +502,48 @@ export function computeOfficialExamScore(
     gradeColor,
     bloomDiagnostics,
   };
+}
+
+export type BookletModelCode = 'A' | 'B' | 'C' | 'D';
+
+export interface BookletModelInfo {
+  code: BookletModelCode;
+  nameAr: string;
+  nameEn: string;
+  color: string;
+  badgeBg: string;
+}
+
+export function getBookletModelDetails(model: BookletModelCode = 'A'): BookletModelInfo {
+  const models: Record<BookletModelCode, BookletModelInfo> = {
+    A: {
+      code: 'A',
+      nameAr: 'النموذج (أ)',
+      nameEn: 'Form (A)',
+      color: '#d97706',
+      badgeBg: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+    },
+    B: {
+      code: 'B',
+      nameAr: 'النموذج (ب)',
+      nameEn: 'Form (B)',
+      color: '#2563eb',
+      badgeBg: 'bg-blue-500/15 text-blue-400 border-blue-500/30',
+    },
+    C: {
+      code: 'C',
+      nameAr: 'النموذج (ج)',
+      nameEn: 'Form (C)',
+      color: '#059669',
+      badgeBg: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
+    },
+    D: {
+      code: 'D',
+      nameAr: 'النموذج (د)',
+      nameEn: 'Form (D)',
+      color: '#7c3aed',
+      badgeBg: 'bg-purple-500/15 text-purple-400 border-purple-500/30',
+    },
+  };
+  return models[model] || models.A;
 }

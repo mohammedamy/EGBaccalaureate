@@ -64,7 +64,9 @@ import {
   getOfficialMockConfig,
   generateOfficialMockQuestions,
   computeOfficialExamScore,
+  getBookletModelDetails,
   type OfficialScoreReport,
+  type BookletModelCode,
 } from '../services/officialMockExamService';
 import {
   getPastExamPapers,
@@ -194,6 +196,7 @@ export const TestGenerator: React.FC<Props> = ({
   const [showDiagnosticDrillModal, setShowDiagnosticDrillModal] = useState<boolean>(false);
   const [diagnosticDrillResult, setDiagnosticDrillResult] = useState<DiagnosticDrillResult | null>(null);
   const [showMinisterialExamModal, setShowMinisterialExamModal] = useState<boolean>(false);
+  const [selectedBookletModel, setSelectedBookletModel] = useState<BookletModelCode>('A');
 
   // Sync initialBlueprint and initialQuestionCount when prop updates
   useEffect(() => {
@@ -1251,7 +1254,11 @@ export const TestGenerator: React.FC<Props> = ({
       selectedSubject === 'calculus' ? 'الرياضيات البحتة (التفاضل والتكامل)' :
       selectedSubject === 'algebra_solid' ? 'الرياضيات البحتة (الجبر والهندسة الفراغية)' :
       selectedSubject === 'statics' ? 'الرياضيات التطبيقية (الاستاتيكا)' :
-      selectedSubject === 'dynamics' ? 'الرياضيات التطبيقية (الديناميكا)' : 'الرياضيات / العلوم';
+      selectedSubject === 'dynamics' ? 'الرياضيات التطبيقية (الديناميكا)' :
+      selectedSubject === 'history' ? 'التاريخ' :
+      selectedSubject === 'arabic' ? 'اللغة العربية' :
+      selectedSubject === 'english' ? 'اللغة الإنجليزية' :
+      selectedSubject === 'french' ? 'اللغة الفرنسية' : 'المواد العامة / العلوم والرياضيات';
 
     const subjectNameEn =
       selectedSubject === 'physics' ? 'Physics' :
@@ -1260,13 +1267,21 @@ export const TestGenerator: React.FC<Props> = ({
       selectedSubject === 'calculus' ? 'Pure Mathematics (Calculus)' :
       selectedSubject === 'algebra_solid' ? 'Pure Mathematics (Algebra & Solid Geometry)' :
       selectedSubject === 'statics' ? 'Applied Mathematics (Statics)' :
-      selectedSubject === 'dynamics' ? 'Applied Mathematics (Dynamics)' : 'Mathematics / Science';
+      selectedSubject === 'dynamics' ? 'Applied Mathematics (Dynamics)' :
+      selectedSubject === 'history' ? 'History' :
+      selectedSubject === 'arabic' ? 'Arabic Language' :
+      selectedSubject === 'english' ? 'English Language' :
+      selectedSubject === 'french' ? 'French Language' : 'Core & Science Curriculum';
 
     const branchNameAr =
+      selectedSubject === 'history' ? 'الشعبة الأدبية' :
+      ['arabic', 'english', 'french'].includes(selectedSubject) ? 'المواد العامة المشتركة' :
       selectedSubject === 'biology' ? 'شعبة علمي علوم' :
       ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'شعبة علمي رياضة' : 'الشعبة العلمية (علوم ورياضة)';
 
     const branchNameEn =
+      selectedSubject === 'history' ? 'Humanities Track' :
+      ['arabic', 'english', 'french'].includes(selectedSubject) ? 'Core Languages Division' :
       selectedSubject === 'biology' ? 'Science Track (Biology)' :
       ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'Mathematics Track' : 'Scientific Division';
 
@@ -1745,7 +1760,33 @@ export const TestGenerator: React.FC<Props> = ({
                     : `${cfg.titleEn}: ${cfg.descEn} Apportioned between Section 1 (${cfg.section1Count} items @ 1 mark) and Section 2 (${cfg.section2Count} items @ 2 marks).`;
                 })()}
               </p>
-              <div className="pt-1">
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                {/* Booklet Model Selector */}
+                <div className="flex items-center gap-1.5 bg-slate-950/70 p-1 rounded-xl border border-amber-500/25">
+                  <span className="text-[11px] font-bold text-slate-400 px-2">
+                    {lang === 'ar' ? 'كود البوكليت:' : 'Booklet Form:'}
+                  </span>
+                  {(['A', 'B', 'C', 'D'] as const).map((m) => {
+                    const info = getBookletModelDetails(m);
+                    const isSelected = selectedBookletModel === m;
+                    return (
+                      <button
+                        key={m}
+                        type="button"
+                        onClick={() => setSelectedBookletModel(m)}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-black transition-all cursor-pointer ${
+                          isSelected
+                            ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/30'
+                            : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
+                        }`}
+                        title={lang === 'ar' ? info.nameAr : info.nameEn}
+                      >
+                        {lang === 'ar' ? info.nameAr : info.nameEn}
+                      </button>
+                    );
+                  })}
+                </div>
+
                 <button
                   type="button"
                   onClick={() => {
@@ -2216,17 +2257,43 @@ export const TestGenerator: React.FC<Props> = ({
             </button>
 
             {blueprintMode === 'official_thanawya_mock' && (
-              <button
-                onClick={() => {
-                  const qs = generateQuestions();
-                  setActiveQuestions(qs);
-                  setShowMinisterialExamModal(true);
-                }}
-                className="w-full font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 shadow-lg shadow-amber-500/20 cursor-pointer"
-              >
-                <ShieldCheck className="w-4 h-4" />
-                <span>{lang === 'ar' ? 'بدء محاكاة اللجنة الوزارية الرسمية (3 ساعات)' : 'Launch 3-Hour Ministerial Exam Simulation'}</span>
-              </button>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between gap-1 bg-slate-950/70 p-1.5 rounded-xl border border-amber-500/30">
+                  <span className="text-[11px] font-bold text-slate-400 px-1">
+                    {lang === 'ar' ? 'كود النموذج:' : 'Booklet Form:'}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    {(['A', 'B', 'C', 'D'] as const).map((m) => {
+                      const isSelected = selectedBookletModel === m;
+                      return (
+                        <button
+                          key={m}
+                          type="button"
+                          onClick={() => setSelectedBookletModel(m)}
+                          className={`px-2.5 py-1 rounded-lg text-xs font-black transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/30'
+                              : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                          }`}
+                        >
+                          {lang === 'ar' ? (m === 'A' ? 'أ' : m === 'B' ? 'ب' : m === 'C' ? 'ج' : 'د') : m}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+                <button
+                  onClick={() => {
+                    const qs = generateQuestions();
+                    setActiveQuestions(qs);
+                    setShowMinisterialExamModal(true);
+                  }}
+                  className="w-full font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 transition-all bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 shadow-lg shadow-amber-500/20 cursor-pointer"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>{lang === 'ar' ? 'بدء محاكاة اللجنة الوزارية الرسمية (3 ساعات)' : 'Launch 3-Hour Ministerial Exam Simulation'}</span>
+                </button>
+              </div>
             )}
           </div>
         </div>
@@ -4250,6 +4317,8 @@ export const TestGenerator: React.FC<Props> = ({
           subjectName={selectedSubject === 'all' ? (lang === 'ar' ? 'امتحان الثانوية العامة الشامل' : 'Comprehensive Ministerial Exam') : selectedSubject}
           lang={lang}
           onOpenDesmos={() => onOpenDesmos?.('scientific')}
+          timeLimitMinutes={getOfficialMockConfig(selectedSubject, selectedBranch).durationMinutes}
+          initialBookletModel={selectedBookletModel}
         />
       )}
     </div>
