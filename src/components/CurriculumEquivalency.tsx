@@ -954,7 +954,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٢ مادة • ١٥ فرعاً • ٨٥ فصلاً' : 'National Standard Track • 12 Subjects • 15 Branches • 85 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٣ مادة • ١٦ فرعاً • ٩٥ فصلاً' : 'National Standard Track • 13 Subjects • 16 Branches • 95 Chapters'}
                 </p>
               </div>
             </div>
@@ -973,8 +973,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية والاجتماعية المتكاملة.'
-              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, and rich Humanities & Social disciplines.'}
+              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي.'
+              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, and Economics & Statistics.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -993,6 +993,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'اللغات: اللغة العربية، اللغة الإنجليزية، واللغة الفرنسية (١٤ فصلاً)' : 'Languages: Arabic Language, English, and French (14 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span>{isArabic ? 'العلوم التطبيقية والإحصاء: الاقتصاد الكلي والإحصاء التطبيقي (١٠ فصول)' : 'Applied Sciences & Statistics: Macroeconomics & Applied Statistics (10 Ch)'}</span>
             </div>
           </div>
         </div>
@@ -1017,7 +1021,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٢ مادة • ١٥ فرعاً • ٧٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 12 Subjects • 15 Branches • 72 Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٣ مادة • ١٦ فرعاً • ٨٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 13 Subjects • 16 Branches • 82 Chapters'}
                 </p>
               </div>
             </div>
@@ -1036,8 +1040,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والبيوتكنولوجيا الحديثة.'
-              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, and advanced biotechnology.'}
+              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي.'
+              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, and quantitative macroeconomics.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -1056,6 +1060,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'اللسانيات واللغات: اللسانيات العربية، الخطاب الأكاديمي الإنجليزي، واللغة الفرنسية (١٤ فصلاً)' : 'Linguistics & Languages: Arabic Linguistics, C1 Academic English, French Fluency (14 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+              <span>{isArabic ? 'الاقتصاد التطبيقي والإحصاء: الاقتصاد الكلي الكمي والإحصاء التطبيقي (١٠ فصول)' : 'Applied Economics & Statistics: Quantitative Macroeconomics & Applied Statistics (10 Ch)'}</span>
             </div>
           </div>
         </div>

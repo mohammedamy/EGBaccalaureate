@@ -533,8 +533,8 @@ export const SearchModal: React.FC<Props> = ({
             type="text"
             placeholder={
               isArabic
-                ? 'ابحث في ٢٥,٠٠٠ مسألة وقانون وفصل... (مثال: كيرشوف، بوين، موهس، طابا، بيز، DNA)'
-                : 'Search across 25,000 problems, theorems & lessons... (e.g. Kirchhoff, Bowen, Mohs, Taba, Bayes, DNA)'
+                ? 'ابحث في ٣٥,٤٠٠ مسألة وقانون وفصل... (مثال: كيرشوف، بوين، موهس، طابا، بايز، كينز، DNA)'
+                : 'Search across 35,400 problems, theorems & lessons... (e.g. Kirchhoff, Bowen, Mohs, Taba, Bayes, Keynes, DNA)'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -602,7 +602,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'الكل (١٢٥ فصلاً)' : 'All (125 Ch)'}
+                  {isArabic ? 'الكل (١٧٧ فصلاً)' : 'All (177 Ch)'}
                 </button>
                 <button
                   onClick={() => setTrackFilter('thanaweya')}
@@ -612,7 +612,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'ثانوية عامة (٦٩)' : 'Thanaweya (69)'}
+                  {isArabic ? 'ثانوية عامة (٩٥)' : 'Thanaweya (95)'}
                 </button>
                 <button
                   onClick={() => setTrackFilter('egbac')}
@@ -622,7 +622,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'بكالوريا STEM (٥٦)' : 'EG-Bac STEM (56)'}
+                  {isArabic ? 'بكالوريا مصرية (٨٢)' : 'EG-Bac (82)'}
                 </button>
               </div>
 
@@ -671,7 +671,7 @@ export const SearchModal: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Subject Selector Pills (All 9 Core Subjects) */}
+            {/* Subject Selector Pills (All 13 Core Subjects) */}
             <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-1 scrollbar-thin">
               <span className="text-slate-400 font-semibold shrink-0">
                 {isArabic ? 'المادة:' : 'Subject:'}
@@ -685,7 +685,7 @@ export const SearchModal: React.FC<Props> = ({
                     : 'text-slate-400 hover:text-slate-200 bg-slate-800/40'
                 }`}
               >
-                {isArabic ? 'جميع المواد (١٠)' : 'All 10 Subjects'}
+                {isArabic ? 'جميع المواد (١٣)' : 'All 13 Subjects'}
               </button>
 
               {SUBJECTS.map((sub) => {
@@ -774,8 +774,8 @@ export const SearchModal: React.FC<Props> = ({
                 </p>
                 <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
                   {isArabic
-                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٢٢,٢٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ١١١ فصلاً في ٩ مواد معتمدة.'
-                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 22,200 problems across 111 chapters in 9 accredited subjects.'}
+                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٣٥,٤٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ١٧٧ فصلاً في ١٣ مادة معتمدة.'
+                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 35,400 problems across 177 chapters in 13 accredited subjects.'}
                 </p>
               </div>
 
@@ -1015,8 +1015,8 @@ export const SearchModal: React.FC<Props> = ({
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
             <span className="font-medium">
               {isArabic
-                ? 'فهرس فوري لـ ١٢٥ فصلاً و ٢٥,٠٠٠ مسألة عبر ١٠ مواد أساسية'
-                : 'Live index of 125 chapters & 25,000 problems across 10 core subjects'}
+                ? 'فهرس فوري لـ ١٧٧ فصلاً و ٣٥,٤٠٠ مسألة عبر ١٣ مادة أساسية'
+                : 'Live index of 177 chapters & 35,400 problems across 13 core subjects'}
             </span>
           </div>
 

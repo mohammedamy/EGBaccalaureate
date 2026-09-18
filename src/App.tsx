@@ -617,19 +617,19 @@ export const App: React.FC = () => {
               <span className="font-medium text-xs sm:text-sm truncate">
                 <span className="inline sm:hidden">
                   {lang === 'ar'
-                    ? 'البحث الشامل في ٢٥,٠٠٠ مسألة...'
-                    : 'Universal Search across 25,000 problems...'}
+                    ? 'البحث الشامل في ٣٥,٤٠٠ مسألة...'
+                    : 'Universal Search across 35,400 problems...'}
                 </span>
                 <span className="hidden sm:inline">
                   {lang === 'ar'
-                    ? 'البحث الشامل في ٢٥,٠٠٠ مسألة وقانون وفصل عبر ١٠ مواد... (اضغط للبحث أو ⌘K)'
-                    : 'Universal Search across 25,000 problems, theorems & lessons across 10 subjects... (Click or ⌘K)'}
+                    ? 'البحث الشامل في ٣٥,٤٠٠ مسألة وقانون وفصل عبر ١٣ مادة... (اضغط للبحث أو ⌘K)'
+                    : 'Universal Search across 35,400 problems, theorems & lessons across 13 subjects... (Click or ⌘K)'}
                 </span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
               <span className="hidden md:inline-flex items-center px-2 py-0.5 text-[11px] font-semibold rounded-full bg-indigo-500/15 text-indigo-400 border border-indigo-500/30">
-                {lang === 'ar' ? '١٢٥ فصلاً • ٢٥,٠٠٠ مسألة' : '125 Ch • 25k Qs'}
+                {lang === 'ar' ? '١٧٧ فصلاً • ٣٥,٤٠٠ مسألة' : '177 Ch • 35.4k Qs'}
               </span>
               <kbd className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-mono rounded-md border font-semibold ${
                 theme === 'high-contrast'
