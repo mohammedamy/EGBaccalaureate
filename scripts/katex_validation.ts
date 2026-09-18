@@ -142,6 +142,7 @@ const regressionCases = [
   { name: 'Phys Q11 Opt C', input: '$-V_0$ to $+V_0$' },
   { name: 'Phys Q11 Opt D', input: '$0\\text{ V}$ to $2V_0$' },
   { name: 'Phys Q11 Stem', input: 'When a rheostat of total resistance $R_0$ is connected across a power supply $V_0$ as a potential divider, the output voltage taken from the sliding contact can be continuously varied from:' },
+  { name: 'Phys Opposing Batteries Stem', input: 'Two batteries $A$ ($V_{B1} = 24\\text{ V},\\, r_1 = 2\\,\\Omega$) and $B$ ($V_{B2} = 6\\text{ V},\\, r_2 = 1\\,\\Omega$) are connected with opposite polarities in a single loop containing an external resistor $R = 9\\,\\Omega$. Find the circuit current $I$ and the terminal voltage across each battery.' },
   { name: 'Bio Beta cells', input: 'Beta ($\\beta$) cells' },
   { name: 'Pure fraction', input: '\\frac{1}{2}' },
   { name: 'Force unit', input: '10\\text{ N}' },
@@ -162,6 +163,28 @@ for (const rc of regressionCases) {
     } catch (err: any) {
       errorsFound++;
       errorList.push(`[Regression] [${rc.name}] KaTeX Error on "${f.math}": ${err.message}`);
+    }
+  }
+}
+
+// 4. Verify MathRenderer delimiter splitting integrity on mixed prose
+console.log('Testing MathRenderer delimiter splitting integrity on mixed prose...');
+const delimiterTestSentence = 'Two batteries $A$ ($V_{B1} = 24\\text{ V},\\, r_1 = 2\\,\\Omega$) and $B$ ($V_{B2} = 6\\text{ V},\\, r_2 = 1\\,\\Omega$) are connected with opposite polarities in a single loop containing an external resistor $R = 9\\,\\Omega$. Find the circuit current $I$ and the terminal voltage across each battery.';
+const mathRendererParts = delimiterTestSentence.split(/(\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\))/g);
+for (const p of mathRendererParts) {
+  if (p.startsWith('$') && p.endsWith('$')) {
+    const inner = p.slice(1, -1);
+    totalFormulasTested++;
+    try {
+      katex.renderToString(inner, { throwOnError: true, displayMode: false });
+    } catch (err: any) {
+      errorsFound++;
+      errorList.push(`[Delimiter Split Error] Failed rendering math "${inner}": ${err.message}`);
+    }
+  } else {
+    if (p.includes('\\Omega') || p.includes('{B2}') || p.includes('{B1}')) {
+      errorsFound++;
+      errorList.push(`[Delimiter Inversion Error] Text segment contains leaked math tokens: "${p}"`);
     }
   }
 }

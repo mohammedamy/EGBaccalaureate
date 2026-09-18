@@ -286,26 +286,8 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
   // SCENARIO 2: Mixed Prose / Markdown Content (Headings, bullet points, text with embedded math)
   const renderMathAndText = (str: string): React.ReactNode => {
-    // 1. Pre-repair: fix common malformed delimiters in strings
-    // e.g. orphaned \beta$ -> $\beta$
-    let repairedStr = str.replace(
-      /(^|[^\$])(\\[a-zA-Z]+(?:\^\{[^{}]*\}|_[^{}]*\}|\^[0-9a-zA-Z]+|_[0-9a-zA-Z]+)?)\$/g,
-      (_m, p1, p2) => `${p1}$${p2}$`
-    );
-
-    // Auto-repair un-backslashed or un-delimited mathematical expressions (e.g. sum_{r=0}^{n} C(n,r) = 2^n)
-    repairedStr = repairedStr
-      .replace(/(^|[^\$\\])\b(sum|prod|int|lim)(_(?:\{[^}]*\}|[0-9a-zA-Z]))/g, (_m, p1, p2, p3) => `${p1}\\${p2}${p3}`)
-      .replace(
-        /(^|[^\$])(\\(?:sum|prod|int|lim)(?:_\{[^}]*\}|_[0-9a-zA-Z])?(?:\^\{[^}]*\}|\^[0-9a-zA-Z])?(?:\s+[a-zA-Z0-9_\^(){}\\+*\-\/,]+)*(?:\s*[=><]\s*[a-zA-Z0-9_\^(){}\\+*\-\/,]+)?)(?=$|[\s,;]+(?:using|where|and|or|if|with|in|when)\b|[\s,;]+[\u0600-\u06FF]|\)|$)/g,
-        (match, prefix, mathExpr) => {
-          if (!mathExpr || mathExpr.trim().length < 3) return match;
-          return `${prefix}$${mathExpr.trim()}$`;
-        }
-      );
-
-    // 2. Split by all standard math delimiters: $$...$$, $...$, \[...\], \(...\)
-    const parts = repairedStr.split(/(\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\))/g);
+    // Split by all standard math delimiters: $$...$$, $...$, \[...\], \(...\)
+    const parts = str.split(/(\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\))/g);
 
     return parts.map((part, pIdx) => {
       const isBlockMath =
@@ -327,8 +309,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
       const isInlineMath =
         (part.startsWith('$') && part.endsWith('$') && part.length >= 2) ||
-        (part.startsWith('\\(') && part.endsWith('\\)') && part.length >= 4) ||
-        (/^\s*\\[a-zA-Z]+/.test(part) && !/[\u0621-\u064A\u0671-\u06D3]/.test(part));
+        (part.startsWith('\\(') && part.endsWith('\\)') && part.length >= 4);
 
       if (isInlineMath) {
         const html = renderKaTeX(part, false);
@@ -361,7 +342,7 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
 
             // Check if this plain prose segment contains un-delimited LaTeX macros
             // e.g. \sqrt{...}, \frac{...}{...}, \alpha, \beta, \omega, ^\circ, etc.
-            const latexRegex = /(\\[a-zA-Z]+(?:\{[^{}]*\}|\[[^\]]*\])*(?:\^\{[^{}]*\}|\^[a-zA-Z0-9٠-٩\\]+)?(?:_\{[^{}]*\}|_[a-zA-Z0-9٠-٩]+)?|\^\\circ)/g;
+            const latexRegex = /(\\[a-zA-Z]+(?:\{[^{}]*\}|\[[^\]]*\])*(?:(?:\^\{[^{}]*\}|\^[a-zA-Z0-9٠-٩\\]+)|(?:_\{[^{}]*\}|_[a-zA-Z0-9٠-٩]+))*|\^\\circ)/g;
             if (latexRegex.test(cp)) {
               const subParts = cp.split(latexRegex);
               return (
