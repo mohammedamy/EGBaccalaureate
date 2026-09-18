@@ -34,6 +34,8 @@ interface Props {
   onOpenFrenchListening?: () => void;
   onOpenArabicGrammar?: () => void;
   onOpenAccessibility?: () => void;
+  onOpenExamSimulation?: () => void;
+  onOpenDiagnosticDrill?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -64,6 +66,8 @@ export const Navbar: React.FC<Props> = ({
   onOpenFrenchListening,
   onOpenArabicGrammar,
   onOpenAccessibility,
+  onOpenExamSimulation,
+  onOpenDiagnosticDrill,
   selectedSubject = 'all',
   onSubjectChange,
   curriculumData,
@@ -159,6 +163,30 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-amber-400',
       onClick: () => {
         onOpenCertificateVerification();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenExamSimulation && {
+      id: 'exam_simulation',
+      label: isArabic ? 'قاعة محاكاة الامتحان الوزاري (٣ ساعات وبابل شيت)' : 'Ministerial Exam Simulation Room (3-Hour)',
+      desc: isArabic ? 'محاكاة كاملة لظروف اللجنة الوزارية الرسمية وتنبيهات المراقب وبابل شيت OMR' : 'Authentic 3-hour exam hall with proctor alerts & OMR bubble sheet',
+      shortcut: '⌥E',
+      icon: ShieldCheck,
+      color: 'text-rose-400',
+      onClick: () => {
+        onOpenExamSimulation();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenDiagnosticDrill && {
+      id: 'diagnostic_drill',
+      label: isArabic ? 'تدريب المسح التشخيصي السريع (١٠ دقائق)' : 'Rapid Diagnostic Sprint Drill (10-Min)',
+      desc: isArabic ? 'تدريب ذكي سريع من ١٠ أسئلة لقياس معدل السرعة والدقة وتشخيص نقاط الضعف' : 'Rapid 10-question sprint drill measuring pacing, accuracy & learning gaps',
+      shortcut: '⌥S',
+      icon: Zap,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenDiagnosticDrill();
         setIsToolsOpen(false);
       },
     },

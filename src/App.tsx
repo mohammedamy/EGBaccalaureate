@@ -104,6 +104,14 @@ export const App: React.FC = () => {
         tab = 'testGenerator';
         blueprint = 'official_past_papers';
       }
+      else if (hash === 'exam-simulation' || hash === 'ministerial-simulation' || hash === 'ministerial-exam' || hash === 'simulation') {
+        tab = 'testGenerator';
+        blueprint = 'official_thanawya_mock';
+      }
+      else if (hash === 'drill' || hash === 'diagnostic-drill' || hash === 'sprint-drill') {
+        tab = 'testGenerator';
+        blueprint = 'quick_diagnostic_drill';
+      }
 
       if (!subject) {
         const saved = localStorage.getItem('egbac_selected_subject');
@@ -161,6 +169,26 @@ export const App: React.FC = () => {
     }
     setTestBlueprint('official_past_papers');
     setActiveTab('testGenerator');
+  };
+
+  const handleOpenExamSimulation = (subjectId?: string) => {
+    if (subjectId) {
+      setSelectedSubject(subjectId);
+      localStorage.setItem('egbac_selected_subject', subjectId);
+    }
+    setTestBlueprint('official_thanawya_mock');
+    setActiveTab('testGenerator');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenDiagnosticDrill = (subjectId?: string) => {
+    if (subjectId) {
+      setSelectedSubject(subjectId);
+      localStorage.setItem('egbac_selected_subject', subjectId);
+    }
+    setTestBlueprint('quick_diagnostic_drill');
+    setActiveTab('testGenerator');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleCloseCertificateVerification = () => {
@@ -387,6 +415,14 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsAccessibilityOpen((prev) => !prev);
       }
+      if (e.altKey && (e.key === 'e' || e.key === 'E' || e.code === 'KeyE')) {
+        e.preventDefault();
+        handleOpenExamSimulation();
+      }
+      if (e.altKey && (e.key === 's' || e.key === 'S' || e.code === 'KeyS')) {
+        e.preventDefault();
+        handleOpenDiagnosticDrill();
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -539,6 +575,8 @@ export const App: React.FC = () => {
         onOpenFrenchListening={() => setIsFrenchListeningOpen(true)}
         onOpenArabicGrammar={() => setIsArabicGrammarOpen(true)}
         onOpenAccessibility={() => setIsAccessibilityOpen(true)}
+        onOpenExamSimulation={handleOpenExamSimulation}
+        onOpenDiagnosticDrill={handleOpenDiagnosticDrill}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}

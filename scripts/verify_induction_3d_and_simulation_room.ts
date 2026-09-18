@@ -33,6 +33,7 @@ import {
   saveOfficialCertificate,
   getCertificateById,
 } from '../src/services/certificateRegistryService';
+import { getProgressiveHintsForQuestion } from '../src/services/aiStudyHintService';
 
 let passedTests = 0;
 let totalTests = 0;
@@ -240,6 +241,43 @@ console.log('\n👁️ === PART 5: UNIVERSAL ACCESSIBILITY & VISUAL CALIBRATION 
 
   assertClose(largeSize / baseSize, 1.156, 0.01, 'Large font is approximately +15% scale');
   assertClose(xlargeSize / baseSize, 1.312, 0.01, 'X-Large font is approximately +30% scale');
+}
+
+console.log('\n🧠 === PART 6: PROGRESSIVE HINTS & WORKSPACE SHORTCUTS SUITE ===');
+
+// Test 11: AI Progressive Hints derivation for LessonView solved problems
+{
+  const mockProblem = {
+    id: 'th_phys_ch3_hots_1',
+    questionEn: 'A rectangular coil rotates in a magnetic field. Find the induced EMF at t = 1/300 s.',
+    questionAr: 'ملف مستطيل يدور في مجال مغناطيسي. احسب القوة الدافعة الكهربية المستحثة عند اللحظة t = 1/300 ثانية.',
+    difficulty: 'hots',
+    optionsEn: ['50 V', '100 V', '50√3 V', '25 V'],
+    optionsAr: ['٥٠ فولت', '١٠٠ فولت', '٥٠ جذر ٣ فولت', '٢٥ فولت'],
+    correctIndex: 2,
+    explanationEn: [
+      'Governing equation: e.m.f.(t) = e.m.f._max * sin(omega * t)',
+      'omega = 2 * pi * f = 100 * pi rad/s. Angle theta = 100 * pi * (1/300) = pi / 3 = 60 degrees.',
+      'e.m.f. = 100 * sin(60) = 50 * sqrt(3) V.',
+    ],
+    explanationAr: [
+      'القانون الحاكم: e.m.f.(t) = e.m.f._max * sin(omega * t)',
+      'السرعة الزاوية omega = 2 * pi * f = 100 * pi راديان/ث. الزاوية theta = 60 درجة.',
+      'القوة الدافعة اللحظية = 100 * sin(60) = 50 * sqrt(3) فولت.',
+    ],
+    chapterId: 'th_phys_ch3',
+    chapterTitleEn: 'Electromagnetic Induction',
+    chapterTitleAr: 'الحث الكهرومغناطيسي',
+    branchTitleEn: 'Physics',
+    branchTitleAr: 'الفيزياء',
+  };
+
+  const hints = getProgressiveHintsForQuestion(mockProblem);
+  assert(hints.length === 3, 'Returns exactly 3 progressive tiers for problem');
+  assert(hints[0].iconType === 'law', 'Tier 1 correctly marked as law');
+  assert(hints[1].iconType === 'roadmap', 'Tier 2 correctly marked as roadmap');
+  assert(hints[2].iconType === 'trap', 'Tier 3 correctly marked as trap');
+  assert(hints[2].contentEn.includes('HOTS Note'), 'HOTS trap content includes special distractor alert');
 }
 
 console.log(`\n🎉 ALL ${totalTests} TESTS PASSED SUCCESSFULLY (${passedTests}/${totalTests})!`);

@@ -136,6 +136,8 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
     { key: '⌥F / Alt+F', descAr: 'استوديو الصوتيات والاستماع الفرنسي', descEn: 'French Audio, Nasal Vowels & Listening Studio' },
     { key: '⌥A / Alt+A', descAr: 'معمل النحو والإعراب والبلاغة والأفخاخ النحوية', descEn: 'Arabic Grammar, I\'rab Tokenizer & Rhetoric Studio' },
     { key: '⌥U / Alt+U', descAr: 'لوحة إعدادات الوصول الشامل والمعايرة الحالية', descEn: 'Open Universal Accessibility & Calibration Suite' },
+    { key: '⌥E / Alt+E', descAr: 'قاعة محاكاة الامتحان الوزاري الرسمي (٣ ساعات وبابل شيت)', descEn: 'Official 3-Hour Ministerial Exam Simulation Hall & OMR Sheet' },
+    { key: '⌥S / Alt+S', descAr: 'تدريب المسح التشخيصي السريع (١٠ دقائق) لقياس السرعة', descEn: '10-Minute Rapid Diagnostic Sprint Drill' },
     { key: '?', descAr: 'الجولة الإرشادية التفاعلية لشرح المنصة', descEn: 'Interactive Navigation & Feature Quick Tour' },
     { key: 'Esc', descAr: 'إغلاق أي نافذة منبثقة أو عودة للقائمة الرئيسية', descEn: 'Close active modal, palette, or simulation overlay' },
   ];

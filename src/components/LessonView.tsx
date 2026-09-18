@@ -24,6 +24,8 @@ import { EnglishLessonInteractiveWidget } from './EnglishLessonInteractiveWidget
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { TextbookDiagram } from './TextbookDiagram';
+import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
+import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
 import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
 import { getOfficialBookByBranch, getBookDownloadUrl } from '../data/officialBooksData';
@@ -492,6 +494,32 @@ export const LessonView: React.FC<Props> = ({
           <TextbookDiagram type={prob.diagramType} lang={lang} />
         )}
 
+        {/* Progressive AI KaTeX Study Hint Drawer */}
+        <div className="no-print">
+          <ProgressiveHintDrawer
+            hints={getProgressiveHintsForQuestion({
+              id: prob.id,
+              questionEn: prob.questionEn,
+              questionAr: prob.questionAr,
+              difficulty: prob.difficulty,
+              optionsEn: prob.optionsEn || [],
+              optionsAr: prob.optionsAr || [],
+              correctIndex: prob.correctIndex ?? 0,
+              explanationEn: prob.stepByStepSolutionEn || (prob.hintEn ? [prob.hintEn] : []),
+              explanationAr: prob.stepByStepSolutionAr || (prob.hintAr ? [prob.hintAr] : []),
+              chapterId: currentChapter?.id || '',
+              chapterTitleEn: currentChapter?.titleEn || '',
+              chapterTitleAr: currentChapter?.titleAr || '',
+              branchTitleEn: branch?.titleEn || '',
+              branchTitleAr: branch?.titleAr || '',
+              hintsEn: prob.hintEn ? [prob.hintEn] : undefined,
+              hintsAr: prob.hintAr ? [prob.hintAr] : undefined,
+            })}
+            lang={lang}
+            isHots={prob.difficulty === 'hots'}
+          />
+        </div>
+
         {options.length > 0 && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1 print-options-grid print-avoid-break">
             {options.map((opt, optIdx) => {
@@ -634,6 +662,25 @@ export const LessonView: React.FC<Props> = ({
               }`}>
                 <span className="font-bold">🎓 {t.teacherTips}: </span>
                 <MathRenderer math={lang === 'ar' ? prob.teacherTipAr : prob.teacherTipEn} lang={lang} />
+              </div>
+            )}
+
+            {/* Exclusive HOTS Synthesis & Pitfall Dissection */}
+            {prob.difficulty === 'hots' && (
+              <div className={`mt-3 p-3 rounded-xl border text-[11px] space-y-1.5 ${
+                isLight
+                  ? 'bg-rose-50 border-rose-200 text-rose-950'
+                  : 'bg-rose-950/25 border-rose-500/30 text-rose-200'
+              }`}>
+                <span className="font-black text-rose-600 dark:text-rose-400 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>{lang === 'ar' ? '🔍 تحليل الفكرة العليا وفخاخ الخيارات المضللة (HOTS Analysis):' : '🔍 HOTS Synthesis & Distractor Dissection:'}</span>
+                </span>
+                <p className={`leading-relaxed ${isLight ? 'text-rose-900' : 'text-slate-300'}`}>
+                  {lang === 'ar'
+                    ? (prob.teacherTipAr || 'تتطلب هذه المسألة الربط بين العلاقات الرياضية والقوانين الفيزيائية بعناية لتفادي الوقوع في خيارات التشتيت الناتجة عن عدم تحويل الوحدات أو إشارات الاتجاه.')
+                    : (prob.teacherTipEn || 'This problem tests high-order analytical synthesis. Verify consistent units, directional vector signs, and intermediate variable substitution before finalizing answers.')}
+                </p>
               </div>
             )}
           </div>

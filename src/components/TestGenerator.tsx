@@ -1708,6 +1708,16 @@ export const TestGenerator: React.FC<Props> = ({
                   ? 'نمط تدريبي سريع مصمم لقياس سرعة اتخاذ القرار تحت ضغط الوقت (معدل دقيقة واحدة لكل سؤال). يحلل الأداء فور الانتهاء ويعرض مؤشر السرعة (Pace Rating) وتوصيات فورية لمعالجة الثغرات.'
                   : 'A rapid sprint drill engineered to assess real-time decision making under exam time pressure (target: 60s/Q). Instant analytics report pacing, accuracy, and targeted remedial advice.'}
               </p>
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={handleStartExam}
+                  className="font-black py-2 px-4 rounded-xl text-xs flex items-center gap-2 transition-all bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 shadow-md shadow-emerald-500/25 hover:scale-[1.02] cursor-pointer"
+                >
+                  <Zap className="w-4 h-4" />
+                  <span>{lang === 'ar' ? 'بدء تدريب المسح التشخيصي الفوري (١٠ دقائق)' : 'Start 10-Min Diagnostic Drill'}</span>
+                </button>
+              </div>
             </div>
           </div>
         )}
@@ -1716,7 +1726,7 @@ export const TestGenerator: React.FC<Props> = ({
         {blueprintMode === 'official_thanawya_mock' && (
           <div className="p-4 rounded-2xl bg-gradient-to-r from-amber-950/60 via-slate-900 to-indigo-950/60 border-2 border-amber-500/50 text-amber-200 text-xs flex items-start gap-3 shadow-lg">
             <Award className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-            <div className="space-y-1">
+            <div className="space-y-2 flex-1">
               <div className="font-extrabold text-white text-sm flex items-center gap-2">
                 <span>
                   {lang === 'ar'
@@ -1735,6 +1745,20 @@ export const TestGenerator: React.FC<Props> = ({
                     : `${cfg.titleEn}: ${cfg.descEn} Apportioned between Section 1 (${cfg.section1Count} items @ 1 mark) and Section 2 (${cfg.section2Count} items @ 2 marks).`;
                 })()}
               </p>
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const qs = generateQuestions();
+                    setActiveQuestions(qs);
+                    setShowMinisterialExamModal(true);
+                  }}
+                  className="font-black py-2.5 px-5 rounded-xl text-xs flex items-center gap-2 transition-all bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-slate-950 shadow-lg shadow-amber-500/25 hover:scale-[1.02] cursor-pointer"
+                >
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>{lang === 'ar' ? 'دخول قاعة محاكاة الامتحان الوزاري (٣ ساعات وبابل شيت)' : 'Enter 3-Hour Ministerial Exam Simulation Hall'}</span>
+                </button>
+              </div>
             </div>
           </div>
         )}
