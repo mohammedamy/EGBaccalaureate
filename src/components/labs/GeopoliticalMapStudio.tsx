@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
+import { HighResMorphologyMap } from './maps/HighResMorphologyMap';
+import { HighResHotspotMap } from './maps/HighResHotspotMap';
+import { HighResBlocMap } from './maps/HighResBlocMap';
 import {
   Globe,
   Compass,
@@ -849,98 +852,21 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                     </div>
                   </div>
 
-                  {/* Visual Shape Geometry Representation */}
-                  <div className="p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden min-h-[220px]">
-                    <div className="absolute inset-0 bg-[radial-gradient(#14b8a6_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
+                  {/* Visual Shape Morphology Cartographic Map */}
+                  <div className="p-5 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 flex flex-col items-center justify-center relative overflow-hidden">
+                    <div className="w-full flex items-center justify-between text-xs text-slate-400 mb-3 px-1">
+                      <span className="font-bold flex items-center gap-1.5 text-teal-400">
+                        <Globe className="w-4 h-4" />
+                        <span>{isArabic ? 'الخريطة السياسية والمورفولوجية عالية الدقة' : 'High-Resolution Political Morphology Map'}</span>
+                      </span>
+                      <span className="text-[11px] font-mono text-slate-500 bg-slate-800/80 px-2.5 py-0.5 rounded-full border border-slate-700">
+                        {isArabic ? 'إسقاط كارتوجرافي جغرافي حقيقي' : 'Authentic Geodetic Boundary Vectors'}
+                      </span>
+                    </div>
 
-                    <svg className="w-48 h-48 relative z-10" viewBox="0 0 100 100">
-                      {selectedCountryPreset === 'egypt' && (
-                        // Square/Hexagonal compact
-                        <polygon
-                          points="20,20 80,20 85,75 25,75"
-                          fill="url(#tealGrad)"
-                          stroke="#14b8a6"
-                          strokeWidth="2.5"
-                          strokeDasharray="none"
-                        />
-                      )}
-                      {selectedCountryPreset === 'france' && (
-                        // Hexagonal compact
-                        <polygon
-                          points="50,15 80,35 80,70 50,88 20,70 20,35"
-                          fill="url(#tealGrad)"
-                          stroke="#14b8a6"
-                          strokeWidth="2.5"
-                        />
-                      )}
-                      {selectedCountryPreset === 'chile' && (
-                        // Long narrow strip
-                        <rect
-                          x="42"
-                          y="10"
-                          width="16"
-                          height="80"
-                          rx="4"
-                          fill="url(#tealGrad)"
-                          stroke="#14b8a6"
-                          strokeWidth="2.5"
-                        />
-                      )}
-                      {selectedCountryPreset === 'turkey' && (
-                        // Wide horizontal strip
-                        <rect
-                          x="10"
-                          y="40"
-                          width="80"
-                          height="22"
-                          rx="4"
-                          fill="url(#tealGrad)"
-                          stroke="#14b8a6"
-                          strokeWidth="2.5"
-                        />
-                      )}
-                      {selectedCountryPreset === 'congo' && (
-                        // Protruded shape
-                        <g>
-                          <polygon points="30,25 75,25 80,80 30,80" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                          <rect x="15" y="55" width="20" height="10" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                        </g>
-                      )}
-                      {selectedCountryPreset === 'afghanistan' && (
-                        // Protruded shape
-                        <g>
-                          <polygon points="25,30 65,30 70,75 20,75" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                          <polygon points="65,35 90,30 90,38 65,42" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                        </g>
-                      )}
-                      {selectedCountryPreset === 'lesotho' && (
-                        // Enclave
-                        <g>
-                          <circle cx="50" cy="50" r="40" fill="#334155" opacity="0.3" stroke="#64748b" strokeWidth="1.5" strokeDasharray="3 3" />
-                          <circle cx="50" cy="50" r="18" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                          <text x="50" y="85" fill="#94a3b8" fontSize="6" textAnchor="middle">
-                            South Africa Surround
-                          </text>
-                        </g>
-                      )}
-                      {selectedCountryPreset === 'japan' && (
-                        // Fragmented islands
-                        <g>
-                          <ellipse cx="65" cy="25" rx="14" ry="7" transform="rotate(30 65 25)" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                          <ellipse cx="50" cy="48" rx="20" ry="8" transform="rotate(45 50 48)" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                          <ellipse cx="32" cy="70" rx="9" ry="5" transform="rotate(20 32 70)" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                          <ellipse cx="25" cy="80" rx="10" ry="6" transform="rotate(30 25 80)" fill="url(#tealGrad)" stroke="#14b8a6" strokeWidth="2" />
-                        </g>
-                      )}
-                      <defs>
-                        <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#14b8a6" stopOpacity="0.4" />
-                          <stop offset="100%" stopColor="#059669" stopOpacity="0.8" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                    <HighResMorphologyMap countryKey={selectedCountryPreset} lang={lang} theme={theme} />
 
-                    <div className="text-xs text-slate-400 text-center mt-3 max-w-lg z-10">
+                    <div className="text-xs text-slate-400 text-center mt-3 max-w-lg z-10 leading-relaxed">
                       {isArabic
                         ? countryPresets[selectedCountryPreset].notesAr
                         : countryPresets[selectedCountryPreset].notesEn}
@@ -1450,6 +1376,20 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                   </div>
                 </div>
 
+                {/* Regional High-Res Hotspot Map */}
+                <div className="p-5 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800">
+                  <div className="flex items-center justify-between text-xs text-slate-400 mb-3 px-1">
+                    <span className="font-bold flex items-center gap-1.5 text-teal-400">
+                      <Compass className="w-4 h-4" />
+                      <span>{isArabic ? 'الخريطة الجيوسياسية الإقليمية لبؤرة النزاع' : 'Regional Geopolitical Conflict Map'}</span>
+                    </span>
+                    <span className="text-[11px] font-mono text-amber-400 bg-amber-950/40 px-2.5 py-0.5 rounded-full border border-amber-800/40">
+                      {isArabic ? 'إسقاط جغرافي دقيق لخطوط الهدنة والتحكيم' : 'Arbitration & Boundary Demarcation Layer'}
+                    </span>
+                  </div>
+                  <HighResHotspotMap hotspotKey={selectedHotspot} lang={lang} theme={theme} />
+                </div>
+
                 {/* Key Points & Analysis */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
                   <div className="lg:col-span-8 space-y-4">
@@ -1568,6 +1508,20 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                       {isArabic ? blocsData[selectedBloc].headquartersAr : blocsData[selectedBloc].headquartersEn}
                     </span>
                   </div>
+                </div>
+
+                {/* High-Res Cartographic Bloc Map */}
+                <div className="p-5 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800">
+                  <div className="flex items-center justify-between text-xs text-slate-400 mb-3 px-1">
+                    <span className="font-bold flex items-center gap-1.5 text-teal-400">
+                      <Globe className="w-4 h-4" />
+                      <span>{isArabic ? 'الخريطة الجغرافية للتكتل / الحلف والدول الأعضاء' : 'Geographic Bloc & Membership Scope Map'}</span>
+                    </span>
+                    <span className="text-[11px] font-mono text-teal-400 bg-teal-950/40 px-2.5 py-0.5 rounded-full border border-teal-800/40">
+                      {isArabic ? 'نطاق السيادة والتكامل الإقليمي' : 'Sovereign Scope & Regional Integration'}
+                    </span>
+                  </div>
+                  <HighResBlocMap blocKey={selectedBloc} lang={lang} theme={theme} />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
