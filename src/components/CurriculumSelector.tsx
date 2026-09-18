@@ -139,7 +139,7 @@ export const CurriculumSelector: React.FC<CurriculumSelectorProps> = ({
           role="menu"
           aria-orientation="vertical"
           className={`absolute ${
-            isArabic ? 'right-0' : 'left-0'
+            isArabic ? 'right-0 sm:left-0 sm:right-auto' : 'left-0 sm:right-0 sm:left-auto'
           } mt-2 w-72 sm:w-80 max-w-[calc(100vw-1.5rem)] max-h-[min(78vh,520px)] flex flex-col rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 ${
             isContrast
               ? 'bg-black border-2 border-cyan-400 text-white shadow-cyan-950/40'
