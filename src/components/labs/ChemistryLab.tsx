@@ -16,6 +16,7 @@ import { InteractiveTitrationStudio } from '../InteractiveTitrationStudio';
 import { ChemistryFlashcards } from './ChemistryFlashcards';
 import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
 import { Interactive3DMolecularStudio } from '../Interactive3DMolecularStudio';
+import { Interactive3DElectrochemStudio } from '../Interactive3DElectrochemStudio';
 
 export type ChemTab =
   | 'equilibrium'
@@ -23,6 +24,7 @@ export type ChemTab =
   | 'qualitative'
   | 'titration'
   | 'electrochemistry'
+  | 'electrochem_3d'
   | 'organic'
   | 'molecular_3d'
   | 'flashcards';
@@ -144,7 +146,10 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
                 💧 {isArabic ? 'معايرة الأحماض والقواعد و pH' : 'pH Curve & Titration'}
               </option>
               <option value="electrochemistry" className="bg-slate-900 text-white">
-                🔋 {isArabic ? 'الكيمياء الكهربية والخلايا الجلفانية' : 'Electrochemistry & Cells'}
+                🔋 {isArabic ? 'الكيمياء الكهربية والخلايا (2D)' : 'Electrochemistry & Cells (2D)'}
+              </option>
+              <option value="electrochem_3d" className="bg-slate-900 text-white">
+                ⚡ {isArabic ? 'مفاعل الخلايا ودانيال والقنطرة الملحية 3D' : '3D Electrochemical Cell & Daniell Reactor'}
               </option>
               <option value="organic" className="bg-slate-900 text-white">
                 ⚗️ {isArabic ? 'الكيمياء العضوية ومسارات التخليق' : 'Organic Synthetic Roadmaps'}
@@ -222,6 +227,17 @@ export const ChemistryLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab
       {activeTab === 'electrochemistry' && (
         <div className="mt-6">
           <ElectrochemistryLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: 3D ELECTROCHEMICAL CELL & DANIELL REACTOR STUDIO */}
+      {activeTab === 'electrochem_3d' && (
+        <div className="mt-6">
+          <Interactive3DElectrochemStudio
+            lang={lang}
+            theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+            isFullscreen={false}
+          />
         </div>
       )}
 

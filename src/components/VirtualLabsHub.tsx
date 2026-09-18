@@ -75,14 +75,16 @@ export const VirtualLabsHub: React.FC<Props> = ({
           return 'phys-exp-2';
         case 'dynamo':
         case 'magnetism':
+        case 'induction_3d':
           return 'phys-exp-3';
         case 'resonance':
+        case 'optics':
+        case 'optics_3d':
           return 'phys-exp-4';
         case 'electronics':
           return 'phys-exp-5';
         case 'atom_3d':
         case 'atomic_lasers':
-        case 'optics':
           return 'phys-exp-6';
         default:
           return 'phys-exp-1';
@@ -94,12 +96,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
           return 'chem-exp-1';
         case 'titration':
           return 'chem-exp-2';
+        case 'electrochemistry':
+        case 'electrochem_3d':
+          return 'chem-exp-3';
         case 'qualitative':
         case 'transition':
           return 'chem-exp-3';
-        case 'electrochemistry':
-          return 'chem-exp-4';
         case 'organic':
+          return 'chem-exp-4';
         case 'molecular_3d':
           return 'chem-exp-5';
         default:
@@ -424,7 +428,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 >
                   {[
                     { id: 'circuits' as PhysicsTab, emoji: '⚡', labelEn: 'DC Circuits & Kirchhoff', labelAr: 'دوائر أوم وكيرشوف' },
-                    { id: 'optics' as PhysicsTab, emoji: '🔬', labelEn: 'Optics & Young Interference', labelAr: 'البصريات وتجربة ينج' },
+                    { id: 'optics' as PhysicsTab, emoji: '🔬', labelEn: 'Optics & Young Interference (2D)', labelAr: 'البصريات وتجربة ينج (2D)' },
+                    { id: 'optics_3d' as PhysicsTab, emoji: '🌈', labelEn: '3D Optics & Prism Dispersion Studio', labelAr: 'استوديو المنشور وتشتت الضوء 3D' },
                     { id: 'magnetism' as PhysicsTab, emoji: '🧭', labelEn: 'Magnetism & Lorentz Force', labelAr: 'المغناطيسية ولورنتز' },
                     { id: 'dynamo' as PhysicsTab, emoji: '🔄', labelEn: 'AC Dynamo & Induction (2D)', labelAr: 'الدينامو والحث (2D)' },
                     { id: 'induction_3d' as PhysicsTab, emoji: '⚡', labelEn: '3D Electromagnetic Induction & Dynamo Studio', labelAr: 'استوديو الحث الكهرومغناطيسي والدينامو 3D' },
@@ -474,7 +479,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'transition' as ChemTab, emoji: '🔥', labelEn: 'Transition Elements & Iron', labelAr: 'العناصر الانتقالية والحديد' },
                     { id: 'qualitative' as ChemTab, emoji: '🧪', labelEn: 'Qualitative Analysis', labelAr: 'التحليل الوصفي والكواشف' },
                     { id: 'titration' as ChemTab, emoji: '💧', labelEn: 'Acid-Base Titration & pH Curve Studio', labelAr: 'استوديو معايرة الأحماض والقواعد ومنحنيات الـ pH' },
-                    { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry & Cells', labelAr: 'الكيمياء الكهربية والخلايا' },
+                    { id: 'electrochemistry' as ChemTab, emoji: '🔋', labelEn: 'Electrochemistry & Cells (2D)', labelAr: 'الكيمياء الكهربية والخلايا (2D)' },
+                    { id: 'electrochem_3d' as ChemTab, emoji: '⚡', labelEn: '3D Electrochemical Cell & Daniell Reactor', labelAr: 'مفاعل الخلايا ودانيال والقنطرة الملحية 3D' },
                     { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Synthetic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
                     { id: 'molecular_3d' as ChemTab, emoji: '🧬', labelEn: '3D Molecular Geometry & Metallurgy Alloys Studio', labelAr: 'استوديو الأشكال الجزيئية وسبائك الفلزات 3D' },
                     { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },

@@ -276,3 +276,8 @@ export function playTactileClick(): void {
     // Fail silently
   }
 }
+
+// Aliases for general science lab studio components
+export const playLabClickSound = playTactileClick;
+export const playLabSuccessSound = playSuccessFanfare;
+

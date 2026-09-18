@@ -19,10 +19,12 @@ import { CircuitsLab } from './CircuitsLab';
 import { PhysicsConstantsDrawer } from './PhysicsConstantsDrawer';
 import { Interactive3DAtomStudio } from '../Interactive3DAtomStudio';
 import { Interactive3DInductionStudio } from '../Interactive3DInductionStudio';
+import { Interactive3DOpticsPrismStudio } from '../Interactive3DOpticsPrismStudio';
 
 export type PhysicsTab =
   | 'circuits'
   | 'optics'
+  | 'optics_3d'
   | 'magnetism'
   | 'dynamo'
   | 'induction_3d'
@@ -126,7 +128,10 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
                 ⚡ {isArabic ? 'دوائر أوم وكيرشوف' : 'DC Circuits & Kirchhoff'}
               </option>
               <option value="optics" className="bg-slate-900 text-white">
-                🔬 {isArabic ? 'البصريات وتجربة ينج' : 'Optics & Ray-Tracing'}
+                🔬 {isArabic ? 'البصريات وتجربة ينج (2D)' : 'Optics & Ray-Tracing (2D)'}
+              </option>
+              <option value="optics_3d" className="bg-slate-900 text-white">
+                🌈 {isArabic ? 'استوديو المنشور وتشتت الضوء 3D' : '3D Optics & Prism Dispersion Studio'}
               </option>
               <option value="magnetism" className="bg-slate-900 text-white">
                 🧭 {isArabic ? 'المغناطيسية ولورنتز' : 'Magnetism & Lorentz'}
@@ -240,6 +245,17 @@ export const PhysicsLab: React.FC<Props> = ({ lang, theme = 'dark', initialTab =
       {activeTab === 'optics' && (
         <div className="mt-6">
           <OpticsBenchLab lang={lang} theme={theme} />
+        </div>
+      )}
+
+      {/* TAB: 3D OPTICS & PRISM DISPERSION STUDIO */}
+      {activeTab === 'optics_3d' && (
+        <div className="mt-6">
+          <Interactive3DOpticsPrismStudio
+            lang={lang}
+            theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+            isFullscreen={false}
+          />
         </div>
       )}
 
