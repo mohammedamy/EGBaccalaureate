@@ -19,6 +19,7 @@ import {
   Sparkles,
   BookOpen,
   Landmark,
+  Globe,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -101,6 +102,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <BookOpen className={className} />;
       case 'Landmark':
         return <Landmark className={className} />;
+      case 'Globe':
+        return <Globe className={className} />;
       default:
         return <Layers className={className} />;
     }

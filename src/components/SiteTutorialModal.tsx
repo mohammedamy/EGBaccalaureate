@@ -68,17 +68,17 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     taglineEn: 'Thanaweya Amma (General Secondary) & New Egyptian Baccalaureate (EG-Bac)',
     taglineAr: 'الثانوية العامة المصرية المعتمدة والبكالوريا المصرية الحديثة (EG-Bac)',
     descriptionEn:
-      'Seamlessly switch between the traditional Egyptian General Secondary (Thanaweya Amma) and the advanced STEM Egyptian Baccalaureate curriculum. Filter across all 7 accredited subjects (Mathematics, Physics, Chemistry, Biology, English, French, and Arabic) or view all tracks simultaneously.',
+      'Seamlessly switch between the traditional Egyptian General Secondary (Thanaweya Amma) and the advanced STEM Egyptian Baccalaureate curriculum. Filter across all 9 accredited subjects (Mathematics, Physics, Chemistry, Biology, History, Geography, Arabic, English, and French) or view all tracks simultaneously.',
     descriptionAr:
-      'تنقل بسلاسة بين منهج الثانوية العامة المصرية والمنهج المتقدم للبكالوريا المصرية (EG-Bac). يمكنك تصفية المحتوى حسب المواد الـ ٧ المعتمدة: الرياضيات، الفيزياء، الكيمياء، الأحياء، الإنجليزية، الفرنسية، واللغة العربية وآدابها، أو استعراض جميع المواد بضغطة واحدة.',
+      'تنقل بسلاسة بين منهج الثانوية العامة المصرية والمنهج المتقدم للبكالوريا المصرية (EG-Bac). يمكنك تصفية المحتوى حسب المواد الـ ٩ المعتمدة: الرياضيات، الفيزياء، الكيمياء، الأحياء، التاريخ، الجغرافيا السياسية، اللغة العربية، الإنجليزية، والفرنسية، أو استعراض جميع المواد بضغطة واحدة.',
     highlightsEn: [
       'Toggle tracks with 1-click at the top navigation bar',
-      'Unified subject filtering across all 7 subjects (Math, Physics, Chemistry, Biology, English, French, Arabic)',
+      'Unified subject filtering across all 9 subjects (Math, Physics, Chemistry, Biology, History, Geography, Arabic, English, French)',
       'Direct curriculum equivalence & bridging comparison map',
     ],
     highlightsAr: [
       'التبديل الفوري بين المسارات من شريط التنقل العلوي',
-      'تصفية موحدة للمواد الـ ٧ (رياضيات، فيزياء، كيمياء، أحياء، إنجليزي، فرنساوي، عربي)',
+      'تصفية موحدة للمواد الـ ٩ (رياضيات، فيزياء، كيمياء، أحياء، تاريخ، جغرافيا سياسية، عربي، إنجليزي، فرنساوي)',
       'خريطة مقارنة ومطابقة شاملة بين مساري الثانوية والبكالوريا',
     ],
     accentColor: '#38bdf8',
@@ -123,14 +123,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 3,
     categoryEn: 'Smart Search & Indexing',
     categoryAr: 'البحث الشامل والاستكشاف الفوري',
-    titleEn: 'Instant Universal Search Across 17,675+ Questions',
-    titleAr: 'البحث الفوري الذكي في جميع الـ ١٧,٦٧٥ مسألة و ١٠١ فصلاً',
+    titleEn: 'Instant Universal Search Across 22,200+ Questions',
+    titleAr: 'البحث الفوري الذكي في جميع الـ ٢٢,٢٠٠ مسألة و ١١١ فصلاً',
     taglineEn: 'Find any theorem, law, formula, or problem in milliseconds',
     taglineAr: 'ابحث عن أي قانون أو تعريف أو مسألة في أجزاء من الثانية',
     descriptionEn:
-      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 17,675+ databank problems, 101 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
+      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 22,200+ problems, 111 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
     descriptionAr:
-      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ١٧,٦٧٥+ مسألة، و١٠١ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
+      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ٢٢,٢٠٠+ مسألة، و١١١ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
     highlightsEn: [
       'Keyboard shortcut: ⌘K / Ctrl+K accessible from all views',
       'Filters by track (Thanaweya / EG-Bac) and item category',
@@ -184,14 +184,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 5,
     categoryEn: 'Examination Engine',
     categoryAr: 'بنك الأسئلة ومولد الامتحانات الذكي',
-    titleEn: '17,675+ Problems & Automated Exam Simulator',
-    titleAr: 'بنك ١٧,٦٧٥+ مسألة ومولد الامتحانات المؤتمت',
+    titleEn: '22,200+ Problems & Automated Exam Simulator',
+    titleAr: 'بنك ٢٢,٢٠٠+ مسألة ومولد الامتحانات المؤتمت',
     taglineEn: 'Customizable timed exams with instant grading & diagnostic feedback',
     taglineAr: 'امتحانات إلكترونية محددة بزمن مع تصحيح فوري وتحليل تفصيلي للإجابات',
     descriptionEn:
-      'Challenge yourself with the complete 17,675+ problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
+      'Challenge yourself with the complete 22,200+ problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
     descriptionAr:
-      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ١٧,٦٧٥+ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
+      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ٢٢,٢٠٠+ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
     highlightsEn: [
       'Generate online timed quizzes or printable paper exam forms',
       'Targeted topic selection: select specific branches, chapters, or difficulty',

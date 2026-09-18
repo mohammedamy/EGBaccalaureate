@@ -14,6 +14,7 @@ export type BranchId =
   | 'thanaweya_french'
   | 'thanaweya_arabic'
   | 'thanaweya_history'
+  | 'thanaweya_geography'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -24,7 +25,8 @@ export type BranchId =
   | 'egbac_english'
   | 'egbac_french'
   | 'egbac_arabic'
-  | 'egbac_history';
+  | 'egbac_history'
+  | 'egbac_geography';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -209,7 +211,11 @@ export type InteractiveWidgetType =
   | 'french_audio_lab'
   | 'french_grammar_lab'
   | 'arabic_grammar_lab'
-  | 'arabic_rhetoric_lab';
+  | 'arabic_rhetoric_lab'
+  | 'geopolitical_map'
+  | 'geopolitical_flashcards'
+  | 'boundary_dispute_simulator'
+  | 'economic_bloc_analyzer';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

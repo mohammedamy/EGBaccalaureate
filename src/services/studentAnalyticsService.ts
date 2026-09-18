@@ -10,6 +10,7 @@ export type SubjectCategory =
   | 'chemistry'
   | 'biology'
   | 'history'
+  | 'geography'
   | 'arabic'
   | 'languages';
 
@@ -42,7 +43,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'humanities' | 'all8';
+export type RadarTrackMode = 'stem5' | 'humanities' | 'all8' | 'all9';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -64,6 +65,9 @@ export function classifySubjectCategory(
 ): SubjectCategory {
   const text = `${branchTitleAr} ${branchTitleEn} ${chapterTitleAr} ${subjectOrBranchId}`.toLowerCase();
 
+  if (text.includes('جغراف') || text.includes('geograph') || text.includes('جيوبول') || text.includes('geopolitic')) {
+    return 'geography';
+  }
   if (text.includes('تاريخ') || text.includes('history')) {
     return 'history';
   }
@@ -278,6 +282,7 @@ export function getMasteryRadarData(
     color: string;
   }> = [
     { key: 'history', ar: 'تاريخ مصر', en: 'Egyptian History', color: '#F59E0B' },
+    { key: 'geography', ar: 'الجغرافيا السياسية', en: 'Political Geography', color: '#14B8A6' },
     { key: 'arabic', ar: 'اللغة العربية', en: 'Arabic Language', color: '#10B981' },
     { key: 'languages', ar: 'اللغات الأجنبية', en: 'Foreign Languages', color: '#3B82F6' },
     { key: 'applied_math', ar: 'الإحصاء التطبيقي', en: 'Applied Statistics', color: '#8B5CF6' },
@@ -299,9 +304,28 @@ export function getMasteryRadarData(
     { key: 'languages', ar: 'اللغات الأجنبية', en: 'Languages', color: '#8B5CF6' },
   ];
 
+  const all9Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    { key: 'pure_math', ar: 'الرياضيات البحتة', en: 'Pure Math', color: '#6366F1' },
+    { key: 'applied_math', ar: 'الرياضيات التطبيقية', en: 'Applied Math', color: '#3B82F6' },
+    { key: 'physics', ar: 'الفيزياء', en: 'Physics', color: '#06B6D4' },
+    { key: 'chemistry', ar: 'الكيمياء', en: 'Chemistry', color: '#10B981' },
+    { key: 'biology', ar: 'الأحياء', en: 'Biology', color: '#F43F5E' },
+    { key: 'history', ar: 'تاريخ مصر', en: 'History', color: '#F59E0B' },
+    { key: 'geography', ar: 'الجغرافيا السياسية', en: 'Geography', color: '#14B8A6' },
+    { key: 'arabic', ar: 'اللغة العربية', en: 'Arabic', color: '#059669' },
+    { key: 'languages', ar: 'اللغات الأجنبية', en: 'Languages', color: '#8B5CF6' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all9'
+      ? all9Dimensions
       : mode === 'all8'
       ? all8Dimensions
       : stemDimensions;

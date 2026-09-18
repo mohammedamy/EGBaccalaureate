@@ -93,6 +93,7 @@ export const App: React.FC = () => {
       else if (hash === 'biology' || hash === 'bio') subject = 'biology';
       else if (hash === 'math' || hash === 'mathematics') subject = 'mathematics';
       else if (hash === 'history' || hash === 'hist') subject = 'history';
+      else if (hash === 'geography' || hash === 'geo') subject = 'geography';
       else if (hash === 'arabic' || hash === 'ar') subject = 'arabic';
       else if (hash === 'english' || hash === 'en' || hash === 'eng') subject = 'english';
       else if (hash === 'french' || hash === 'fr') subject = 'french';
@@ -103,6 +104,7 @@ export const App: React.FC = () => {
       else if (hash === 'biology-lab') { subject = 'biology'; tab = 'interactive'; }
       else if (hash === 'math-lab') { subject = 'mathematics'; tab = 'interactive'; }
       else if (hash === 'history-lab' || hash === 'timeline-lab') { subject = 'history'; tab = 'interactive'; }
+      else if (hash === 'geography-lab' || hash === 'map-lab' || hash === 'geopolitical-lab') { subject = 'geography'; tab = 'interactive'; }
       else if (hash === 'arabic-lab' || hash === 'grammar-lab') { subject = 'arabic'; tab = 'interactive'; }
       else if (hash === 'english-lab' || hash === 'audio-lab') { subject = 'english'; tab = 'interactive'; }
       else if (hash === 'french-lab' || hash === 'listening-lab') { subject = 'french'; tab = 'interactive'; }
@@ -613,17 +615,20 @@ export const App: React.FC = () => {
               <span className="font-medium text-xs sm:text-sm truncate">
                 <span className="inline sm:hidden">
                   {lang === 'ar'
-                    ? 'البحث الشامل في ٦,٤٦٦ مسألة...'
-                    : 'Universal Search across 6,466 problems...'}
+                    ? 'البحث الشامل في ٢٢,٢٠٠ مسألة...'
+                    : 'Universal Search across 22,200 problems...'}
                 </span>
                 <span className="hidden sm:inline">
                   {lang === 'ar'
-                    ? 'البحث الشامل في ٦,٤٦٦ مسألة وقانون وفصل... (اضغط للبحث)'
-                    : 'Universal Search across 6,466 problems, theorems & lessons... (Click to search)'}
+                    ? 'البحث الشامل في ٢٢,٢٠٠ مسألة وقانون وفصل عبر ٩ مواد... (اضغط للبحث أو ⌘K)'
+                    : 'Universal Search across 22,200 problems, theorems & lessons across 9 subjects... (Click or ⌘K)'}
                 </span>
               </span>
             </div>
-            <div className="flex items-center gap-1.5 shrink-0">
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="hidden md:inline-flex items-center px-2 py-0.5 text-[11px] font-semibold rounded-full bg-indigo-500/15 text-indigo-400 border border-indigo-500/30">
+                {lang === 'ar' ? '١١١ فصلاً • ٢٢,٢٠٠ مسألة' : '111 Ch • 22.2k Qs'}
+              </span>
               <kbd className={`hidden sm:inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-mono rounded-md border font-semibold ${
                 theme === 'high-contrast'
                   ? 'bg-yellow-400 text-black border-yellow-300'

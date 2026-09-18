@@ -1256,6 +1256,7 @@ export const TestGenerator: React.FC<Props> = ({
       selectedSubject === 'statics' ? 'الرياضيات التطبيقية (الاستاتيكا)' :
       selectedSubject === 'dynamics' ? 'الرياضيات التطبيقية (الديناميكا)' :
       selectedSubject === 'history' ? 'التاريخ' :
+      selectedSubject === 'geography' ? 'الجغرافيا السياسية' :
       selectedSubject === 'arabic' ? 'اللغة العربية' :
       selectedSubject === 'english' ? 'اللغة الإنجليزية' :
       selectedSubject === 'french' ? 'اللغة الفرنسية' : 'المواد العامة / العلوم والرياضيات';
@@ -1269,18 +1270,19 @@ export const TestGenerator: React.FC<Props> = ({
       selectedSubject === 'statics' ? 'Applied Mathematics (Statics)' :
       selectedSubject === 'dynamics' ? 'Applied Mathematics (Dynamics)' :
       selectedSubject === 'history' ? 'History' :
+      selectedSubject === 'geography' ? 'Political Geography' :
       selectedSubject === 'arabic' ? 'Arabic Language' :
       selectedSubject === 'english' ? 'English Language' :
       selectedSubject === 'french' ? 'French Language' : 'Core & Science Curriculum';
 
     const branchNameAr =
-      selectedSubject === 'history' ? 'الشعبة الأدبية' :
+      ['history', 'geography'].includes(selectedSubject) ? 'الشعبة الأدبية' :
       ['arabic', 'english', 'french'].includes(selectedSubject) ? 'المواد العامة المشتركة' :
       selectedSubject === 'biology' ? 'شعبة علمي علوم' :
       ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'شعبة علمي رياضة' : 'الشعبة العلمية (علوم ورياضة)';
 
     const branchNameEn =
-      selectedSubject === 'history' ? 'Humanities Track' :
+      ['history', 'geography'].includes(selectedSubject) ? 'Humanities Track' :
       ['arabic', 'english', 'french'].includes(selectedSubject) ? 'Core Languages Division' :
       selectedSubject === 'biology' ? 'Science Track (Biology)' :
       ['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(selectedSubject) ? 'Mathematics Track' : 'Scientific Division';

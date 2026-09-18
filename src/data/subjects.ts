@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -191,6 +191,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_history'],
       egbac: ['egbac_history'],
+    },
+  },
+  {
+    id: 'geography',
+    titleEn: 'Political Geography & Geopolitics',
+    titleAr: 'الجغرافيا السياسية والدراسات الجيوسياسية',
+    shortTitleEn: 'Geography',
+    shortTitleAr: 'جغرافيا',
+    emoji: '🌍',
+    iconName: 'Globe',
+    badgeColor: 'teal',
+    gradient: 'from-teal-700 via-emerald-700 to-cyan-800',
+    lightBg: 'bg-teal-50 text-teal-900 border-teal-200',
+    darkBg: 'bg-teal-950/70 text-teal-200 border-teal-800/60',
+    borderColor: 'border-teal-500/50',
+    textColor: 'text-teal-400',
+    descriptionEn: 'National Core Subject: Political Geography, State Morphology & Power, International Boundaries, Global Blocs, Military Alliances & The New World Order',
+    descriptionAr: 'المادة القومية الكبرى: الجغرافيا السياسية، مقومات الدولة وقوتها، الحدود السياسية والنزاعات الدولية، التكتلات الاقتصادية والأحلاف العسكرية، والنظام العالمي الجديد',
+    branchIds: {
+      thanaweya: ['thanaweya_geography'],
+      egbac: ['egbac_geography'],
     },
   },
 ];

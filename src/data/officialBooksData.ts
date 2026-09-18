@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'languages' | 'arabic' | 'english' | 'french' | 'history';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history' | 'geography';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -1636,6 +1636,108 @@ export const officialBooksList: OfficialBook[] = [
     ],
   },
 
+  // 19. Thanaweya Political Geography & Geopolitics
+  {
+    id: 'th-geography-g12',
+    curriculum: 'thanaweya',
+    category: 'geography',
+    subjectId: 'geography',
+    branchId: 'thanaweya_geography',
+    code: 'TH-GEO-G12',
+    titleEn: 'Political Geography & Geopolitics',
+    titleAr: 'الجغرافيا السياسية والدراسات الجيوسياسية',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate - Humanities)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة - الشعبة الأدبية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 34,
+    fileSize: '3.4 MB',
+    compendiumTitleEn: 'Political Geography Concept, Maps & Geopolitical Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم والخرائط السياسية ونواتج التعلم - الجغرافيا السياسية',
+    filename: 'thanaweya-geography.pdf',
+    downloadUrl: '/books/thanaweya-geography.pdf',
+    fullTextbookPages: 196,
+    fullTextbookSize: '28.6 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/thanaweya/geography/',
+    coverGradient: 'from-teal-800 via-emerald-800 to-slate-900',
+    accentColor: '#0d9488',
+    chapters: [
+      { id: 'ch1', titleEn: 'Introduction: Introduction to Political Geography & Geospatial Tech', titleAr: 'الفصل التمهيدي: مدخل لدراسة الجغرافيا السياسية والتقنيات الحديثة', pageRange: 'pp. 1-24', topicsCount: 12 },
+      { id: 'ch2', titleEn: 'Unit 1: The State in Political Geography (Morphology, Population, Resources)', titleAr: 'الوحدة الأولى: الدولة في الجغرافيا السياسية (الشكل، السكان، والموارد)', pageRange: 'pp. 25-78', topicsCount: 22 },
+      { id: 'ch3', titleEn: 'Unit 2: Political Boundaries, Maritime Delimitations & Global Hotspots', titleAr: 'الوحدة الثانية: الحدود السياسية والمناطق المائية والمشكلات السياسية', pageRange: 'pp. 79-130', topicsCount: 20 },
+      { id: 'ch4', titleEn: 'Unit 3: Economic Blocs (EU, GCC, COMESA) & Military Alliances (NATO)', titleAr: 'الوحدة الثالثة: التكتلات الاقتصادية والأحلاف العسكرية', pageRange: 'pp. 131-164', topicsCount: 16 },
+      { id: 'ch5', titleEn: 'Unit 4: International Relations & The New World Order', titleAr: 'الوحدة الرابعة: العلاقات الدولية والنظام العالمي الجديد', pageRange: 'pp. 165-196', topicsCount: 14 },
+    ],
+    descriptionEn: 'The authoritative Ministry of Education curriculum textbook for Grade 12 Political Geography, covering geopolitical theory, state morphology, UNCLOS maritime zones, regional disputes, and globalization.',
+    descriptionAr: 'كتاب الوزارة المعتمد لمادة الجغرافيا السياسية: يتناول تطور الفكر الجغرافي ورواده، أشكال ومورفولوجيا الدول، المناطق المائية طبقاً لاتفاقية الأمم المتحدة، نزاعات سبتة ومليلية وكشمير وطابا، التكتلات الكبرى (الاتحاد الأوروبي والكوميسا ومجلس التعاون الخليجي)، وحلف الناتو والنظام العالمي الجديد.',
+    highlightsEn: [
+      'Comprehensive cartographic analysis and boundary evolution from colonial treaties to modern international borders',
+      'Full UNCLOS 1982 maritime delimitation breakdown: internal waters, territorial sea, contiguous zone, EEZ, and high seas',
+      'Detailed case studies on Taba international arbitration, Kashmir, Ceuta and Melilla, and Sahel pastoral disputes',
+      'Economic bloc comparison: European Union (Copenhagen criteria), COMESA (Egypt benefits), and GCC',
+    ],
+    highlightsAr: [
+      'تحليل كارتوجرافي متكامل لتشكل الخريطة السياسية العالمية ونشأة وتطور الحدود السياسية ومراحل تخطيطها',
+      'المناطق المائية وفق اتفاقية الأمم المتحدة 1982م وتطبيقات ترسيم الحدود البحرية المصرية وحقل ظهر',
+      'دراسة تفصيلية لنزاعات الحدود الشهيرة: التحكيم الدولي في طابا، كشمير، سبتة ومليلية، والرصيف القاري بين ليبيا وتونس',
+      'مقارنة معمقة للتكتلات الاقتصادية الكبرى: الاتحاد الأوروبي، الكوميسا وعوائدها لمصر، ومجلس التعاون الخليجي',
+    ],
+  },
+
+  // 20. EG-Bac Advanced Geopolitical Studies & World Geography
+  {
+    id: 'egbac-geography-g12',
+    curriculum: 'egbac',
+    category: 'geography',
+    subjectId: 'geography',
+    branchId: 'egbac_geography',
+    code: 'EGBAC-GEO-G12',
+    titleEn: 'Advanced Geopolitical Studies & World Geography',
+    titleAr: 'الدراسات الجيوسياسية المتقدمة وجغرافيا العالم',
+    subtitleEn: 'New Egyptian Baccalaureate Framework (EG-Bac Track) - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Humanities & Geopolitics)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 36,
+    fileSize: '3.6 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Geopolitics, Maritime Law & Global Order Guide',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في الدراسات الجيوسياسية وقانون البحار والنظام الدولي',
+    filename: 'egbac-geography.pdf',
+    downloadUrl: '/books/egbac-geography.pdf',
+    fullTextbookPages: 212,
+    fullTextbookSize: '31.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/geography/',
+    coverGradient: 'from-emerald-900 via-teal-900 to-cyan-950',
+    accentColor: '#14b8a6',
+    chapters: [
+      { id: 'ch1', titleEn: 'Ch 1: Advanced Spatial Analytics & Geographic Information Systems', titleAr: 'الفصل الأول: التحليل المكاني المتقدم ونظم المعلومات والاستشعار عن بعد', pageRange: 'pp. 1-26', topicsCount: 12 },
+      { id: 'ch2', titleEn: 'Ch 2: State Morphology, Demographics & Modern Geopolitical Power Index', titleAr: 'الفصل الثاني: مورفولوجيا الدولة ومؤشر الوزن الجيوسياسي والديموغرافي', pageRange: 'pp. 27-82', topicsCount: 22 },
+      { id: 'ch3', titleEn: 'Ch 3: Maritime Delimitation Law, Hydrocarbon Basins & Geopolitical Conflicts', titleAr: 'الفصل الثالث: قانون البحار الدولي وأحواض الطاقة وبؤر الصراع العالمي', pageRange: 'pp. 83-138', topicsCount: 20 },
+      { id: 'ch4', titleEn: 'Ch 4: Global Economic Integration & Collective Security Architectures', titleAr: 'الفصل الرابع: الاندماج الاقتصادي العالمي والأمن الجماعي (الناتو ووارسو)', pageRange: 'pp. 139-174', topicsCount: 16 },
+      { id: 'ch5', titleEn: 'Ch 5: Globalization Dynamics, Global Hegemony & Future World Order', titleAr: 'الفصل الخامس: ديناميكيات العولمة والنظام العالمي الجديد والتحولات القطبية', pageRange: 'pp. 175-212', topicsCount: 14 },
+    ],
+    descriptionEn: 'Advanced analytical syllabus focusing on geospatial intelligence (GIS/RS), mathematical compactness modeling, international maritime law, collective security, and multipolar world transitions.',
+    descriptionAr: 'منهج البكالوريا التحليلي المتقدم: يركز على الذكاء الجغرافي المكاني، النمذجة الرياضية لشكل الدولة ومؤشر الاندماج، القانون الدولي للبحار والنزاعات الهيدروكربونية، واستراتيجيات التكتلات والأمن الجماعي، ومستقبل التحول نحو عالم متعدد الأقطاب.',
+    highlightsEn: [
+      'Advanced GIS and satellite remote sensing case applications in border monitoring and resource management',
+      'Quantitative state power modeling: demographic-economic equations and territory morphology indexes',
+      'In-depth international law review of maritime jurisdictions, deep-sea mining, and sovereign shelf delimitations',
+      'Critical geopolitical analysis of multinational corporations, unipolar vs multipolar paradigms, and supply chain security',
+    ],
+    highlightsAr: [
+      'تطبيقات عملية للاستشعار عن بعد ونظم GIS في مراقبة الحدود وتأمين الممرات البحرية',
+      'نمذجة كمية لقوة الدولة وحساب مؤشر الاندماج ومعادلات التوازن السكاني الاقتصادي',
+      'دراسة نقدية لقانون البحار والتعدين في أعالي البحار وحصاد ثروات الجرف القاري',
+      'تحليل استراتيجي لمستقبل النظام الدولي والعولمة والشركات متعدية الجنسيات وصراع الطاقة والمياه',
+    ],
+  },
+
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -1661,6 +1763,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_french' && (b.branchId === 'egbac_french' || b.id === 'egbac-french-g12')) return true;
     if (branchId === 'thanaweya_history' && (b.branchId === 'thanaweya_history' || b.id === 'th-history-g12')) return true;
     if (branchId === 'egbac_history' && (b.branchId === 'egbac_history' || b.id === 'egbac-history-g12')) return true;
+    if (branchId === 'thanaweya_geography' && (b.branchId === 'thanaweya_geography' || b.id === 'th-geography-g12')) return true;
+    if (branchId === 'egbac_geography' && (b.branchId === 'egbac_geography' || b.id === 'egbac-geography-g12')) return true;
     return false;
   });
 }
@@ -1670,7 +1774,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'arabic' | 'english' | 'french' | 'history' | 'geography'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

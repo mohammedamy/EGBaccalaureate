@@ -1,0 +1,2464 @@
+import type { Branch } from '../types/curriculum';
+import { geoCh1Databank } from './databanks/thanaweya/geoCh1Databank';
+import { geoCh2Databank } from './databanks/thanaweya/geoCh2Databank';
+import { geoCh3Databank } from './databanks/thanaweya/geoCh3Databank';
+import { geoCh4Databank } from './databanks/thanaweya/geoCh4Databank';
+import { geoCh5Databank } from './databanks/thanaweya/geoCh5Databank';
+import { egBacGeoCh1SolvedExamples, egBacGeoCh1Exercises } from './textbook/egbac/egBacGeoCh1Textbook';
+import { egBacGeoCh2SolvedExamples, egBacGeoCh2Exercises } from './textbook/egbac/egBacGeoCh2Textbook';
+import { egBacGeoCh3SolvedExamples, egBacGeoCh3Exercises } from './textbook/egbac/egBacGeoCh3Textbook';
+import { egBacGeoCh4SolvedExamples, egBacGeoCh4Exercises } from './textbook/egbac/egBacGeoCh4Textbook';
+import { egBacGeoCh5SolvedExamples, egBacGeoCh5Exercises } from './textbook/egbac/egBacGeoCh5Textbook';
+
+export const egBacGeographyBranch: Branch = {
+  id: "egbac_geography",
+  titleEn: "Advanced Geopolitical Studies & World Geography",
+  titleAr: "الدراسات الجيوسياسية المتقدمة وجغرافيا العالم",
+  categoryEn: "Humanities & Social Studies",
+  categoryAr: "العلوم الإنسانية والاجتماعية",
+  iconName: "Globe",
+  colorGradient: "from-teal-700 via-emerald-700 to-cyan-800",
+  chapters: [
+    {
+      id: "egbac_geo_ch1",
+      chapterNumber: 1,
+      titleEn: "Unit 1: Introduction to Political Geography & Modern Geospatial Tech",
+      titleAr: "الفصل التمهيدي: مدخل لدراسة الجغرافيا السياسية والتقنيات الحديثة",
+      descriptionEn: "Theoretical foundations, classical and modern scholars (Aristotle, Ibn Khaldun, Ratzel, Kjellen), geopolitics vs. political geography, modern analytical fields, and geospatial technologies (Remote Sensing, GIS, GPS).",
+      descriptionAr: "المفاهيم التأسيسية، رواد الفكر الجغرافي (أرسطو، ابن خلدون، راتزل، كيلين)، الجيوبولتيك مقابل الجغرافيا السياسية، ومجالات الجغرافيا الحديثة ودور الاستشعار عن بعد ونظم المعلومات GIS.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+                "id": "egbac_geo_ch1_l1",
+                "titleEn": "Introduction to Political Geography, Historical Pioneers & Modern Technologies",
+                "titleAr": "المدخل لدراسة الجغرافيا السياسية وتطورها والتقنيات الحديثة",
+                "summaryEn": "Concept of political geography, contributions of Aristotle, Ibn Khaldun, Friedrich Ratzel, and Rudolf Kjellén (Geopolitics), static vs dynamic viewpoints, and the modern revolution in Remote Sensing, Information Tech, and GIS.",
+                "summaryAr": "مفهوم الجغرافيا السياسية وتطورها، وإسهامات أرسطو وابن خلدون وراتزل، ومفهوم الجيوبولتيك عند كيلين والفرق بينهما، ومجالات الجغرافيا الحديثة ودور الاستشعار عن بعد ونظم المعلومات GIS.",
+                "theoryContentEn": "### 1. Concept of Political Geography\n- **Definition:** A major branch of human geography that studies the geographic components (natural and human) of a state, its internal political organization, and its external international relations.\n- **Historical Evolution of Geographical Thought:**\n  1. **Aristotle (384–322 BC):** The foremost classical Greek philosopher who analyzed the 'Ideal State' in his classic work *Politics*. He identified five essential structural elements: population size, economic resources, capital city, military forces, and political boundaries. He posited that the power or vulnerability of a state is primarily determined by the demographic-to-economic resource ratio.\n  2. **Ibn Khaldun (1332–1406 AD):** The preeminent Arab-Muslim scholar who formulated the sociological foundation of the Arab political community in his celebrated *Muqaddimah*. He established the analytical framework based on the **Tribe and the City** (القبيلة والمدينة) and authored the **State Life Cycle** framework: Inception (نشأة), Stability/Youth (ثبات), Maturity/Strength (نضج), and Decay/Decline (اضمحلال).\n  3. **Friedrich Ratzel (1844–1904):** Universally acknowledged as the founding father of modern political geography. In 1897, he authored the first systematic textbook *Politische Geographie*. He conceptualized the state as a living organism governed by the biological laws of birth, growth, and death, demonstrating that the world's political map was formed as a direct result of ongoing struggle and conflict between states.\n  4. **Rudolf Kjellén (1864–1922):** The Swedish political scientist who coined the term **Geopolitics** (الجيوبولتيك) in 1899. He defined it as the study of the state's geographic, economic, and human factors to achieve two core objectives:\n     - *Internal Goal:* Fostering social harmony, cohesion, and national unity among the populace.\n     - *External Goal:* Territorial expansion to secure vital 'living space' (المجال الحيوي) at the expense of neighboring nations.\n\n### 2. Political Geography vs. Geopolitics\n- **Political Geography:** An objective, descriptive discipline that studies the state as an existing **static entity** in present reality as it actually is.\n- **Geopolitics:** A normative, prospective discipline that envisions what the state **ought to be in the future**, viewing it as an evolving **dynamic organism** that demands external expansion.\n- *Historical Distortion:* Prior to World War II, Nazi Germany conflated the two disciplines, exploiting Ratzel's concept of vital space to justify military aggression and colonial annexations.\n\n### 3. Fields of Modern Political Geography\n1. **The State as a Political Unit:** Analyzing physical and human components, administrative organization, and geopolitical stability.\n2. **Political Analysis of Power:** Examining the spatial, geographical, and strategic dimensions that govern competition between rival global powers.\n3. **The New World Order (النظام العالمي الجديد):** Studying the universalization of globalization, unipolar dominance, multinational corporations, regional trade blocs, international security treaties, and resource struggles.\n\n### 4. Modern Technologies and Political Geography\n- **Remote Sensing (RS):** Orbital satellite imaging and aerial photography providing real-time data for monitoring international boundaries, strategic maritime navigation straits, and military conflict perimeters.\n- **Information & Communication Technology:** High-speed data networks and satellite broadcasting turning the globe into a cohesive **Global Village** (قرية كونية) with instantaneous news dissemination.\n- **Geographic Information Systems (GIS):** Providing comprehensive, layered spatial databases and digital maps that support political and military leadership in sound geopolitical decision-making.",
+                "theoryContentAr": "### ١. مفهوم الجغرافيا السياسية وتطورها العلمي\n- **التعريف:** فرع من فروع الجغرافيا البشرية يهتم بدراسة المقومات الجغرافية (الطبيعية والبشرية) للدولة وتنظيمها الداخلي وتأثير ذلك في قوتها السياسية وعلاقاتها الدولية.\n- **رواد الفكر الجغرافي السياسي عبر العصور:**\n  ١. **أرسطو (384 - 322 ق.م):** أشهر فلاسفة الإغريق؛ تناول في مؤلفه «السياسة» بناء الدولة المثالية، وحدد عناصرها في خمسة مقومات: عدد السكان، الموارد الاقتصادية، العاصمة، الجيش، والحدود السياسية. واعتبر أن قوة الدولة تكمن في الميزان الدقيق بين عدد سكانها ومواردها الاقتصادية.\n  ٢. **ابن خلدون (1332 - 1406م):** مفكر عربي مسلم بارز وضع في مقدمته الشهيرة «مقدمة ابن خلدون» الإطار النظري للبناء السياسي العربي المعتمد على **القبيلة والمدينة**، وصاغ الإطار العام لدورة حياة الدولة المتمثلة في: النشأة، الثبات والشباب، النضج، والاضمحلال والسقوط.\n  ٣. **فريدريك راتزل (1844 - 1904م):** المؤسس الحقيقي للجغرافيا السياسية الحديثة، أصدر عام 1897م أول كتاب علمي يحمل اسمها، وشبّه الدولة بالكائن الحي تنطبق عليه قوانين الميلاد والنمو والوفاة، واعتبر أن الخريطة السياسية للعالم تشكلت بفعل الصراع والتدافع بين الدول.\n  ٤. **رودلف كيلين (1864 - 1922م):** عالم سويدي وضع مصطلح **الجيوبولتيك** عام 1899م، وعرّفه بأنه دراسة تأثير العوامل الجغرافية والاقتصادية والبشرية في قوة الدولة لتحقيق هدفين:\n     - *هدف داخلي:* تحقيق الوحدة والتجانس والتكامل بين أفراد الشعب.\n     - *هدف خارجي:* التوسع الإقليمي والحصول على المجال الحيوي على حساب الدول المجاورة.\n\n### ٢. الفارق بين الجغرافيا السياسية والجيوبولتيك\n- **الجغرافيا السياسية:** تدرس الكيان القائم للدولة في الواقع بموضوعية كما هو بالفعل كـ **كيان استاتيكي ثابت**.\n- **الجيوبولتيك:** يرسم تصوراً استشرافياً لما يجب أن تكون عليه الدولة في المستقبل كـ **كيان ديناميكي كائن حي** يبحث عن التوسع.\n- *الخلط الاستعماري:* استغلت ألمانيا النازية مفاهيم راتزل استغلالاً خاطئاً قبيل الحرب العالمية الثانية لتبرير غزو الدول المجاورة بزعم الحصول على المجال الحيوي.\n\n### ٣. مجالات الجغرافيا السياسية الحديثة\n١. **الدولة كوحدة سياسية:** دراسة مقوماتها الطبيعية والبشرية وسياساتها وعلاقاتها.\n٢. **التحليل السياسي للقوة:** دراسة الأبعاد الجغرافية للصراع والتنافس بين القوى الكبرى على مسرح السياسة العالمية.\n٣. **النظام العالمي الجديد والمتغيرات الإقليمية:** دراسة العولمة، والتكتلات الاقتصادية، والشركات متعددة الجنسيات، والأمن المائي والغذائي، والصراع على الطاقة.\n\n### ٤. دور التقنيات الحديثة في الجغرافيا السياسية\n- **الاستشعار عن بعد (Remote Sensing):** رصد وتأمين الحدود السياسية، ومراقبة الممرات الملاحية الدولية (المضايق والقنوات)، ومتابعة مناطق النزاعات العسكرية.\n- **تكنولوجيا المعلومات والاتصالات:** نقل الأحداث والبيانات لحظياً عبر الأقمار والإنترنت، محولةً العالم إلى **قرية كونية** واحدة.\n- **نظم المعلومات الجغرافية (GIS):** توفير قواعد بيانات إحصائية ورقمية مكانية دقيقة، وتوفير خرائط تفاعلية حديثة تدعم متخذي القرار السياسي والعسكري في اتخاذ القرارات السليمة.",
+                "formulas": [
+                        {
+                                "labelEn": "Aristotle's Ideal Demographic-Resource Ratio",
+                                "labelAr": "معادلة أرسطو للتوازن الديموغرافي الاقتصادي",
+                                "latex": "Power_{\\text{state}} \\propto \\frac{\\text{Resources}}{\\text{Population}} \\times \\text{Institutional Balance}"
+                        },
+                        {
+                                "labelEn": "Ibn Khaldun State Life Cycle",
+                                "labelAr": "دورة حياة الدولة عند ابن خلدون",
+                                "latex": "\\text{State} = \\text{Inception} \\longrightarrow \\text{Stability} \\longrightarrow \\text{Maturity} \\longrightarrow \\text{Decay}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH1-L1",
+                        "pageRange": "pp. 5-35"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Introduction to Political Geography, Historical Pioneers & Modern Technologies",
+                        "titleAr": "خطة الدرس المعتمدة: المدخل لدراسة الجغرافيا السياسية وتطورها والتقنيات الحديثة",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-1-1",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_1_1",
+                        "titleEn": "Standard Worksheet: Introduction to Political Geography, Historical Pioneers & Modern Technologies",
+                        "titleAr": "ورقة العمل التدريبية: المدخل لدراسة الجغرافيا السياسية وتطورها والتقنيات الحديثة",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 1, Lesson 1.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 1، الدرس 1.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_1_1_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Introduction to Political Geography, Historical Pioneers & Modern Technologies: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة المدخل لدراسة الجغرافيا السياسية وتطورها والتقنيات الحديثة: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "### 1. Concept of Political Geography\n- **Definition:** A major branch of human ...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "### ١. مفهوم الجغرافيا السياسية وتطورها العلمي\n- **التعريف:** فرع من فروع الجغرا...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "### 1. Concept of Political Geography\n- **Definition:** A major branch of human ...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Introduction to Political Geography, Historical Pioneers & Modern Technologies",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: المدخل لدراسة الجغرافيا السياسية وتطورها والتقنيات الحديثة",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        }
+],
+      databank: geoCh1Databank,
+      solvedExamples: egBacGeoCh1SolvedExamples,
+      exerciseProblems: egBacGeoCh1Exercises
+    },
+    {
+      id: "egbac_geo_ch2",
+      chapterNumber: 2,
+      titleEn: "Unit 2: The State in Political Geography — Structure, Morphology & Governance",
+      titleAr: "الوحدة الأولى: الدولة في الجغرافيا السياسية — البناء والمقومات وأنظمة الحكم",
+      descriptionEn: "State vs. Nation, unitary/federal/confederal models, capital city taxonomy and cores, physical power factors (location, area, shape, topography, climate), human power factors (demographics, economy, military), and political and electoral systems.",
+      descriptionAr: "الدولة والأمة، أشكال الدول ونظم الحكم، تصنيف العواصم وقلب الدولة، المقومات الطبيعية (الموقع والمساحة والشكل والتضاريس والمناخ)، المقومات البشرية (السكان والاقتصاد والجيش)، والأنظمة السياسية والانتخابية.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+                "id": "egbac_geo_ch2_l1",
+                "titleEn": "The State: Concept, Types, Capitals & Cores",
+                "titleAr": "الدولة: المفهوم والأنواع والعواصم وقلب الدولة",
+                "summaryEn": "Distinction between Nation and State, Unitary vs Federal vs Confederal systems, capital selection criteria, historical classifications, and functional core areas.",
+                "summaryAr": "الفرق بين الأمة والدولة، وأنواع الدول (وحدوية، فيدرالية، كونفدرالية)، ومعايير اختيار العاصمة وتصنيفاتها، ومناطق قلب الدولة ونواتها.",
+                "theoryContentEn": "State vs Nation: A state requires land, population, and sovereign political authority. A nation shares ethnic roots, language, and customs without requiring a sovereign government. Unitary states feature a single central parliament and government (France). Federal states divide power between central and regional governments (USA, Switzerland, Australia). Confederal unions are fragile treaty-based leagues. Capitals are chosen based on historical continuity (Cairo, Rome), transportation (Khartoum, Nouakchott), defense in depth (Ankara, Abuja), or ethnic sovereignty (Moscow).",
+                "theoryContentAr": "الدولة وحدة سياسية تشترط الأرض والشعب والسلطة السيادية. الأمة جماعة بشرية تجمعها أصل ولغة وتاريخ ولا تشترط سلطة حاكمة. الدول إما وحدوية مركزية (فرنسا)، أو فيدرالية بسلطتين (أمريكا وسويسرا وأستراليا)، أو كونفدرالية هشة قابلة للانفصال (الاتحاد الأوروبي). العواصم تُختار تاريخياً (القاهرة وروما)، أو لسهولة المواصلات (الخرطوم ونواكشوط)، أو للحماية والدفاع (أنقرة وأبوجا)، أو للسيادة القومية (موسكو).",
+                "formulas": [
+                        {
+                                "labelEn": "Sovereign Statehood Condition",
+                                "labelAr": "شرط السيادة الدستورية للدولة",
+                                "latex": "\\text{State} = \\text{Territory} + \\text{Population} + \\text{Sovereign Authority}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH2-L1",
+                        "pageRange": "pp. 25-55"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: The State: Concept, Types, Capitals & Cores",
+                        "titleAr": "خطة الدرس المعتمدة: الدولة: المفهوم والأنواع والعواصم وقلب الدولة",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-2-1",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_2_1",
+                        "titleEn": "Standard Worksheet: The State: Concept, Types, Capitals & Cores",
+                        "titleAr": "ورقة العمل التدريبية: الدولة: المفهوم والأنواع والعواصم وقلب الدولة",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 2, Lesson 1.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 2، الدرس 1.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_2_1_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding The State: Concept, Types, Capitals & Cores: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة الدولة: المفهوم والأنواع والعواصم وقلب الدولة: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "State vs Nation: A state requires land, population, and sovereign political auth...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "الدولة وحدة سياسية تشترط الأرض والشعب والسلطة السيادية. الأمة جماعة بشرية تجمعها...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "State vs Nation: A state requires land, population, and sovereign political auth...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: The State: Concept, Types, Capitals & Cores",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: الدولة: المفهوم والأنواع والعواصم وقلب الدولة",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch2_l2",
+                "titleEn": "Physical Factors of State Power: Location, Area, Shape, Relief & Climate",
+                "titleAr": "المقومات الطبيعية لقوة الدولة: الموقع والمساحة والشكل والتضاريس والمناخ",
+                "summaryEn": "Astronomical & geographic location, landlocked vs maritime states, strategic chokepoints, morphological compactness, defense in depth, and climatic resilience.",
+                "summaryAr": "الموقع الفلكي والجغرافي، الدول الحبيسة والبحرية، المضايق الاستراتيجية، الأشكال المندمجة والشريطية والمجزأة، والمساحة والتضاريس والمناخ والنبات.",
+                "theoryContentEn": "Compact shapes minimize boundary perimeter and maximize army mobility (Egypt, France). Elongated shapes may diversify climate (Chile, Italy) or limit climate variation (Turkey, Mongolia). Vast area enables defense in depth (Russia, China). Mountains provide defensive ramparts but risk isolation (Catalonia). Climatic diversity fosters self-sufficiency (USA).",
+                "theoryContentAr": "الشكل المندمج يوفر أقصر خط حدود وأعلى كفاءة إدارة وحركة للجيش (مصر وفرنسا). الشكل الشريطي الطولي ينوّع المناخ (تشيلي وإيطاليا) والعرضي لا ينوّع (تركيا ومنغوليا). المساحة الكبيرة تتيح الدفاع بالعمق (روسيا والصين). الجبال توفر الحصانة الدفاعية لكنها تشجع الانفصال (كتالونيا). التنوع المناخي يحقق التكامل والاكتفاء الذاتي (أمريكا).",
+                "formulas": [
+                        {
+                                "labelEn": "Compactness Shape Index",
+                                "labelAr": "مؤشر اندماج شكل الدولة",
+                                "latex": "S_{\\text{compact}} = \\frac{4 \\pi A}{P^2} \\le 1.0"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH2-L2",
+                        "pageRange": "pp. 30-60"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Physical Factors of State Power: Location, Area, Shape, Relief & Climate",
+                        "titleAr": "خطة الدرس المعتمدة: المقومات الطبيعية لقوة الدولة: الموقع والمساحة والشكل والتضاريس والمناخ",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-2-2",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_2_2",
+                        "titleEn": "Standard Worksheet: Physical Factors of State Power: Location, Area, Shape, Relief & Climate",
+                        "titleAr": "ورقة العمل التدريبية: المقومات الطبيعية لقوة الدولة: الموقع والمساحة والشكل والتضاريس والمناخ",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 2, Lesson 2.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 2، الدرس 2.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_2_2_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Physical Factors of State Power: Location, Area, Shape, Relief & Climate: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة المقومات الطبيعية لقوة الدولة: الموقع والمساحة والشكل والتضاريس والمناخ: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Compact shapes minimize boundary perimeter and maximize army mobility (Egypt, Fr...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "الشكل المندمج يوفر أقصر خط حدود وأعلى كفاءة إدارة وحركة للجيش (مصر وفرنسا). الشك...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Compact shapes minimize boundary perimeter and maximize army mobility (Egypt, Fr...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Physical Factors of State Power: Location, Area, Shape, Relief & Climate",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: المقومات الطبيعية لقوة الدولة: الموقع والمساحة والشكل والتضاريس والمناخ",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch2_l3",
+                "titleEn": "Human Factors of State Power: Demographics, Economy, Military & Organization",
+                "titleAr": "المقومات البشرية لقوة الدولة: السكان والاقتصاد والقوة العسكرية والتنظيمية",
+                "summaryEn": "Demographic pyramid and workforce, economic self-sufficiency in strategic crops, mining, strategic energy weapons, and military-intelligence readiness.",
+                "summaryAr": "الهرم السكاني ونسب الإعالة، الأمن الغذائي والمحاصيل الاستراتيجية (القمح والذرة)، البترول كسلاح استراتيجي (حرب أكتوبر 1973)، والقوة العسكرية والتنظيمية.",
+                "theoryContentEn": "Demographic scale provides labor and military manpower but demands food security. Strategic agricultural crops (wheat, rice, maize) free a nation from foreign political coercion. Arab oil was deployed as a decisive geopolitical weapon in October 1973. Military strength depends on troop discipline, high-tech weapon systems, military expenditure, and intelligence capabilities.",
+                "theoryContentAr": "الحجم السكاني يوفر الجيوش والعمالة لكنه يتطلب أمناً غذائياً. توفير الحبوب الاستراتيجية (القمح والأرز والذرة) يحرر القرار الوطني من الضغوط الخارجية. استخدم العرب البترول كسلاح سياسي حاسم في حرب أكتوبر 1973م. وتعتمد القوة العسكرية على كفاءة المقاتل والتطور التكنولوجي للمعدات والإنفاق الحربي والمخابرات.",
+                "formulas": [
+                        {
+                                "labelEn": "Demographic Dependency Ratio",
+                                "labelAr": "نسبة الإعالة الديموغرافية",
+                                "latex": "\\text{Dependency Ratio} = \\frac{\\text{Pop}_{<15} + \\text{Pop}_{>65}}{\\text{Pop}_{15-64}} \\times 100"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH2-L3",
+                        "pageRange": "pp. 35-65"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Human Factors of State Power: Demographics, Economy, Military & Organization",
+                        "titleAr": "خطة الدرس المعتمدة: المقومات البشرية لقوة الدولة: السكان والاقتصاد والقوة العسكرية والتنظيمية",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-2-3",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_2_3",
+                        "titleEn": "Standard Worksheet: Human Factors of State Power: Demographics, Economy, Military & Organization",
+                        "titleAr": "ورقة العمل التدريبية: المقومات البشرية لقوة الدولة: السكان والاقتصاد والقوة العسكرية والتنظيمية",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 2, Lesson 3.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 2، الدرس 3.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_2_3_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Human Factors of State Power: Demographics, Economy, Military & Organization: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة المقومات البشرية لقوة الدولة: السكان والاقتصاد والقوة العسكرية والتنظيمية: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Demographic scale provides labor and military manpower but demands food security...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "الحجم السكاني يوفر الجيوش والعمالة لكنه يتطلب أمناً غذائياً. توفير الحبوب الاستر...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Demographic scale provides labor and military manpower but demands food security...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Human Factors of State Power: Demographics, Economy, Military & Organization",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: المقومات البشرية لقوة الدولة: السكان والاقتصاد والقوة العسكرية والتنظيمية",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch2_l4",
+                "titleEn": "Political and Electoral Systems & Electoral Geography",
+                "titleAr": "النظام السياسي والانتخابي وجغرافية الانتخابات",
+                "summaryEn": "Social and institutional forms of the political system, separation of powers, Presidential vs Parliamentary vs Semi-Presidential systems, and André Siegfried's electoral school.",
+                "summaryAr": "النظام السياسي في صورته الاجتماعية والمؤسسية، ومبدأ الفصل بين السلطات، وأنظمة الحكم (رئاسي، برلماني، شبه رئاسي)، ونشأة جغرافية الانتخابات لزيجفريد.",
+                "theoryContentEn": "Political systems operate socially (managing community resources) and institutionally (legislative, executive, judicial). Governance forms: Presidential (USA: strict separation, President governs), Parliamentary (UK: Prime Minister governs with parliamentary confidence), Semi-Presidential (France: shared power). André Siegfried founded Electoral Geography to study spatial voting behavior across districts.",
+                "theoryContentAr": "النظام السياسي يعمل اجتماعياً (إدارة الموارد العامة) ومؤسسياً (تشريعية، تنفيذية، قضائية). أنظمة الحكم: رئاسي (أمريكا: فصل صارم والرئيس يسود ويحكم)، برلماني (بريطانيا: رئيس الوزراء يحكم والبرلمان مصدر السلطة)، شبه رئاسي (فرنسا: سلطة مشتركة). أسس أندريه زيجفريد جغرافية الانتخابات لدراسة التباين المكاني في التصويت وسلوك الناخبين.",
+                "formulas": [
+                        {
+                                "labelEn": "Electoral Spatial Voter Density",
+                                "labelAr": "كثافة التصويت المكانية بالدوائر",
+                                "latex": "\\text{Turnout Pct} = \\frac{\\text{Valid Votes Cast}}{\\text{Registered Voters in District}} \\times 100"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH2-L4",
+                        "pageRange": "pp. 40-70"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Political and Electoral Systems & Electoral Geography",
+                        "titleAr": "خطة الدرس المعتمدة: النظام السياسي والانتخابي وجغرافية الانتخابات",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-2-4",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_2_4",
+                        "titleEn": "Standard Worksheet: Political and Electoral Systems & Electoral Geography",
+                        "titleAr": "ورقة العمل التدريبية: النظام السياسي والانتخابي وجغرافية الانتخابات",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 2, Lesson 4.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 2، الدرس 4.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_2_4_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Political and Electoral Systems & Electoral Geography: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة النظام السياسي والانتخابي وجغرافية الانتخابات: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Political systems operate socially (managing community resources) and institutio...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "النظام السياسي يعمل اجتماعياً (إدارة الموارد العامة) ومؤسسياً (تشريعية، تنفيذية،...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Political systems operate socially (managing community resources) and institutio...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Political and Electoral Systems & Electoral Geography",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: النظام السياسي والانتخابي وجغرافية الانتخابات",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        }
+],
+      databank: geoCh2Databank,
+      solvedExamples: egBacGeoCh2SolvedExamples,
+      exerciseProblems: egBacGeoCh2Exercises
+    },
+    {
+      id: "egbac_geo_ch3",
+      chapterNumber: 3,
+      titleEn: "Unit 3: Political Boundaries & Contemporary Territorial Disputes",
+      titleAr: "الوحدة الثانية: الحدود السياسية والمشكلات السياسية المعاصرة",
+      descriptionEn: "Concept, evolution, stages and functions of boundaries, natural/mountain/river/maritime demarcations (UNCLOS zones), post-colonial disputes (Ceuta & Melilla, Kashmir, African pastoralists), international water rights, and minority & migration challenges.",
+      descriptionAr: "مفهوم ووظائف ومراحل تخطيط الحدود السياسية، أنواع الحدود الطبيعية والبشرية والمناطق المائية، مشكلات الاستعمار (سبتة ومليلة، كشمير، حركة الرعاة)، نزاعات المياه والجرف القاري، وقضايا الأقليات والهجرة الإجبارية وغير الشرعية.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+                "id": "egbac_geo_ch3_l1",
+                "titleEn": "Political Boundaries: Concept, Evolution, Delimitation Stages & Functions",
+                "titleAr": "الحدود السياسية: المفهوم والتطور ومراحل التخطيط والوظائف",
+                "summaryEn": "Frontiers vs Boundaries, historic causes of border emergence, 4-stage delimitation process, and the core functions of separation, defense, economic protection, and legal sovereignty.",
+                "summaryAr": "الفرق بين التخوم والحدود، عوامل نشأة الحدود (السكان، المعاهدات، تصفية الاستعمار، الحروب)، مراحل التخطيط الأربع، ووظائف الحدود وحماية الموارد وسيادة القانون.",
+                "theoryContentEn": "Boundaries replaced frontiers through treaties, population expansion, and decolonization. 4 stages: Definition (treaty), Delimitation (mapping), Demarcation (physical pillars on the ground), Management (customs and border control). Functions: Separation, Protection & Security (fall of secure boundary theory), Economic Protection (customs tariffs, anti-smuggling), and Legal/Political Sovereignty.",
+                "theoryContentAr": "حلت الحدود محل التخوم بزيادة السكان وتصفية الاستعمار والمعاهدات. تمر بأربع مراحل: التعريف (المعاهدة)، التحديد (الخرائط)، التعيين (الأسلاك والأعمدة على الطبيعة)، وإدارة الحد (الجمارك ومنافذ العبور). وظائفها: الفصل بين الدول، الحماية والأمن، الحماية الاقتصادية والجمارك، والوظيفة السياسية والقانونية.",
+                "formulas": [
+                        {
+                                "labelEn": "Boundary Delimitation Progression",
+                                "labelAr": "تتابع مراحل تخطيط الحد السياسي",
+                                "latex": "\\text{Definition} \\longrightarrow \\text{Mapping} \\longrightarrow \\text{Demarcation} \\longrightarrow \\text{Management}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH3-L1",
+                        "pageRange": "pp. 45-75"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Political Boundaries: Concept, Evolution, Delimitation Stages & Functions",
+                        "titleAr": "خطة الدرس المعتمدة: الحدود السياسية: المفهوم والتطور ومراحل التخطيط والوظائف",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-3-1",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_3_1",
+                        "titleEn": "Standard Worksheet: Political Boundaries: Concept, Evolution, Delimitation Stages & Functions",
+                        "titleAr": "ورقة العمل التدريبية: الحدود السياسية: المفهوم والتطور ومراحل التخطيط والوظائف",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 3, Lesson 1.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 3، الدرس 1.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_3_1_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Political Boundaries: Concept, Evolution, Delimitation Stages & Functions: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة الحدود السياسية: المفهوم والتطور ومراحل التخطيط والوظائف: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Boundaries replaced frontiers through treaties, population expansion, and decolo...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "حلت الحدود محل التخوم بزيادة السكان وتصفية الاستعمار والمعاهدات. تمر بأربع مراحل...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Boundaries replaced frontiers through treaties, population expansion, and decolo...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Political Boundaries: Concept, Evolution, Delimitation Stages & Functions",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: الحدود السياسية: المفهوم والتطور ومراحل التخطيط والوظائف",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch3_l2",
+                "titleEn": "Types of Political Boundaries: Natural, Geometric & Anthropomorphic",
+                "titleAr": "أنواع الحدود السياسية: الطبيعية والهندسية والأنثروبولوجية",
+                "summaryEn": "Mountain dividers, River thalwegs vs midlines, Lake Victoria unequal splits, UNCLOS maritime zones (Territorial, Contiguous, EEZ, Continental Shelf), geometric parallels, and linguistic borders.",
+                "summaryAr": "الحدود الجبلية (الأنديز والبرانس)، النهرية (الراين وريو جراندي وبوج)، البحيرية (فيكتوريا)، والأقسام البحرية (الإقليمية، التكميلية، الاقتصادية، الرصيف القاري)، والهندسية والأنثروبولوجية.",
+                "theoryContentEn": "Mountain boundaries (Pyrenees, Andes) follow water-divides or foot-slopes. Rivers demarcate via thalweg (Rhine) or midline (Rio Grande) or bank (Bug). Maritime zones: Internal Waters -> Baseline -> 12 nm Territorial Sea -> 24 nm Contiguous Zone -> 200 nm Exclusive Economic Zone -> Continental Shelf (up to 100 fathoms / 182 m). Geometric boundaries follow latitude/longitude (Egypt's southern 22°N and western 25°E borders). Anthropomorphic boundaries follow language (Central Europe post-WWI) or religion (India-Pakistan).",
+                "theoryContentAr": "الحدود الجبلية تتبع خط تقسيم المياه أو الأقدام (البرانس والأنديز). النهرية تتبع العمق الملاحي (الراين) أو المنتصف (ريو جراندي) أو إحدى الضفتين (بوج). المناطق البحرية: مياه داخلية، إقليمية (12 ميلاً)، تكميلية (24 ميلاً)، اقتصادية خالصة (200 ميل)، ورصيف قاري (حتى 100 قامة / 182م). الهندسية فلكية كحدود مصر الغربية (خط 25 شرقاً) والجنوبية (دائرة 22 شمالاً). والأنثروبولوجية تتبع اللغة أو الدين.",
+                "formulas": [
+                        {
+                                "labelEn": "UNCLOS Maritime Zoning Boundaries",
+                                "labelAr": "أبعاد المناطق البحرية وفق قانون البحار",
+                                "latex": "\\text{Territorial} \\le 12\\text{ nm}, \\quad \\text{Contiguous} \\le 24\\text{ nm}, \\quad \\text{EEZ} \\le 200\\text{ nm}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH3-L2",
+                        "pageRange": "pp. 50-80"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Types of Political Boundaries: Natural, Geometric & Anthropomorphic",
+                        "titleAr": "خطة الدرس المعتمدة: أنواع الحدود السياسية: الطبيعية والهندسية والأنثروبولوجية",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-3-2",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_3_2",
+                        "titleEn": "Standard Worksheet: Types of Political Boundaries: Natural, Geometric & Anthropomorphic",
+                        "titleAr": "ورقة العمل التدريبية: أنواع الحدود السياسية: الطبيعية والهندسية والأنثروبولوجية",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 3, Lesson 2.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 3، الدرس 2.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_3_2_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Types of Political Boundaries: Natural, Geometric & Anthropomorphic: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة أنواع الحدود السياسية: الطبيعية والهندسية والأنثروبولوجية: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Mountain boundaries (Pyrenees, Andes) follow water-divides or foot-slopes. River...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "الحدود الجبلية تتبع خط تقسيم المياه أو الأقدام (البرانس والأنديز). النهرية تتبع ...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Mountain boundaries (Pyrenees, Andes) follow water-divides or foot-slopes. River...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Types of Political Boundaries: Natural, Geometric & Anthropomorphic",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: أنواع الحدود السياسية: الطبيعية والهندسية والأنثروبولوجية",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch3_l3",
+                "titleEn": "Evolution of the Political World Map & Post-Colonial Border Disputes",
+                "titleAr": "تطور خريطة العالم السياسية والمشكلات المرتبطة بالاستعمار",
+                "summaryEn": "Dynamic map shifts, collapse of the Soviet Union into 15 states, Ceuta and Melilla dispute, Kashmir conflict, and Sahel pastoral agreements.",
+                "summaryAr": "تغيرات خريطة العالم السريعة وتفكك الاتحاد السوفيتي لـ 15 دولة، قضية سبتة ومليلة بين المغرب وإسبانيا، مشكلة كشمير واستفتاء الأمم المتحدة، وتنظيم حركة الرعاة في السافانا الإفريقية.",
+                "theoryContentEn": "The political map is characterized by constant change: USSR split into 15 states, Germany unified, Yemen merged. Colonial border disputes: Ceuta and Melilla (Morocco vs Spain since the 15th century), Kashmir (India vs Pakistan, UN 1949 ceasefire and plebiscite resolution), African Sahel pastoralists (borders bisecting grazing routes, droughts of the 1970s, ECOWAS agreements).",
+                "theoryContentAr": "تتميز خريطة العالم بالتغير المستمر: تفكك الاتحاد السوفيتي لـ 15 دولة، اندماج ألمانيا، وظهور قوى جديدة. مشكلات الاستعمار: سبتة ومليلة بين المغرب وإسبانيا، كشمير بين الهند وباكستان وتدخل الأمم المتحدة بوقف إطلاق النار والاستفتاء، وحركة الرعاة في السافانا الإفريقية واتفاقيات الإيكواس لتنظيم الرعي وتفادي الصراعات.",
+                "formulas": [
+                        {
+                                "labelEn": "Post-Soviet Map Fragmentation",
+                                "labelAr": "تفكك الاتحاد السوفيتي كارتوجرافياً",
+                                "latex": "\\text{USSR (1991)} \\implies 15\\text{ Sovereign States (Russia, Ukraine, Central Asia, Baltics)}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH3-L3",
+                        "pageRange": "pp. 55-85"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Evolution of the Political World Map & Post-Colonial Border Disputes",
+                        "titleAr": "خطة الدرس المعتمدة: تطور خريطة العالم السياسية والمشكلات المرتبطة بالاستعمار",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-3-3",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_3_3",
+                        "titleEn": "Standard Worksheet: Evolution of the Political World Map & Post-Colonial Border Disputes",
+                        "titleAr": "ورقة العمل التدريبية: تطور خريطة العالم السياسية والمشكلات المرتبطة بالاستعمار",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 3, Lesson 3.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 3، الدرس 3.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_3_3_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Evolution of the Political World Map & Post-Colonial Border Disputes: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة تطور خريطة العالم السياسية والمشكلات المرتبطة بالاستعمار: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "The political map is characterized by constant change: USSR split into 15 states...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "تتميز خريطة العالم بالتغير المستمر: تفكك الاتحاد السوفيتي لـ 15 دولة، اندماج ألم...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "The political map is characterized by constant change: USSR split into 15 states...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Evolution of the Political World Map & Post-Colonial Border Disputes",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: تطور خريطة العالم السياسية والمشكلات المرتبطة بالاستعمار",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch3_l4",
+                "titleEn": "Economic Dimensions of Political Disputes: Water & Energy Geopolitics",
+                "titleAr": "المشكلات الاقتصادية ذات البعد السياسي: المياه ومصادر الطاقة",
+                "summaryEn": "Water sharing in international rivers and marine shelves, Tunisia vs Libya ICJ ruling, and strategic petroleum conflicts from WWII to the modern era.",
+                "summaryAr": "نزاعات المياه الإقليمية والأنهار الدولية، حكم محكمة العدل بين ليبيا وتونس وتعديل زاوية الحد (26 و52 درجة) للجزر، والصراع على البترول وغزو القوقاز في الحرب العالمية الثانية.",
+                "theoryContentEn": "Water disputes occur in narrow straits, international rivers (navigation, electricity, water quotas under Paris 1856 & Barcelona 1921), and continental shelves. Tunisia vs Libya: the ICJ veered the line 26° then 52° accommodating Djerba and Kerkennah islands, awarding Tunisia vital oil rights. Energy conflicts: Coal enters world trade at only 10% (consumed in industrial origin), while oil and gas constitute over half of international commerce.",
+                "theoryContentAr": "تنشأ مشكلات المياه في المضايق والأنهار الدولية (الملاحة والكهرباء وحصص المياه وفق معاهدتي باريس وبرشلونة) والأرصفة القارية. نزاع تونس وليبيا: حكمت محكمة العدل بتعديل زاوية الحد 26 ثم 52 درجة مراعاة للجزر التونسية مما منح تونس حقول البترول والغاز. الفحم يسهم بـ 10% فقط في التجارة لاستهلاكه محلياً، بينما البترول والغاز يسهمان بنصف التجارة العالمية.",
+                "formulas": [
+                        {
+                                "labelEn": "ICJ Tunisia-Libya Continental Shelf Deflection",
+                                "labelAr": "زاوية انحراف حد الجرف القاري لمحكمة العدل",
+                                "latex": "\\theta_1 = 26^\\circ \\longrightarrow \\theta_2 = 52^\\circ \\quad (\\text{Accommodation of Djerba \\& Kerkennah})"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH3-L4",
+                        "pageRange": "pp. 60-90"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Economic Dimensions of Political Disputes: Water & Energy Geopolitics",
+                        "titleAr": "خطة الدرس المعتمدة: المشكلات الاقتصادية ذات البعد السياسي: المياه ومصادر الطاقة",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-3-4",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_3_4",
+                        "titleEn": "Standard Worksheet: Economic Dimensions of Political Disputes: Water & Energy Geopolitics",
+                        "titleAr": "ورقة العمل التدريبية: المشكلات الاقتصادية ذات البعد السياسي: المياه ومصادر الطاقة",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 3, Lesson 4.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 3، الدرس 4.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_3_4_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Economic Dimensions of Political Disputes: Water & Energy Geopolitics: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة المشكلات الاقتصادية ذات البعد السياسي: المياه ومصادر الطاقة: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Water disputes occur in narrow straits, international rivers (navigation, electr...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "تنشأ مشكلات المياه في المضايق والأنهار الدولية (الملاحة والكهرباء وحصص المياه وف...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Water disputes occur in narrow straits, international rivers (navigation, electr...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Economic Dimensions of Political Disputes: Water & Energy Geopolitics",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: المشكلات الاقتصادية ذات البعد السياسي: المياه ومصادر الطاقة",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch3_l5",
+                "titleEn": "Social Dimensions of Political Disputes: Minorities, Forced Migration & Illegal Immigration",
+                "titleAr": "المشكلات الاجتماعية ذات البعد السياسي: الأقليات والهجرة الإجبارية وغير الشرعية",
+                "summaryEn": "Classification of minorities (national, religious, linguistic, racial), spatial distribution risk, forced migration (Palestine, Nubia), and illegal migration impacts.",
+                "summaryAr": "تصنيف الأقليات (قومية، دينية، لغوية، عرقية)، أثر التوزيع الجغرافي للأقلية وخطر التكتل الطرفي (الباسك وتيمور)، الهجرة القسرية (فلسطين والنوبة)، وتداعيات الهجرة غير الشرعية.",
+                "theoryContentEn": "Minorities: National (post-Soviet/Yugoslav), Religious, Linguistic (Italy restricts Austrian German; Iraq permits Kurdish), Racial (segregation in US vs South Africa). Geographic distribution: clustered on borders threatens territorial integrity (Basques in Spain, East Timor in Indonesia); dispersed minorities assimilate peacefully. Migration: Forced/Involuntary (Palestine catastrophe; Nubian resettlement for Aswan High Dam) vs Illegal (demographic imbalance, security and informal economic distortions).",
+                "theoryContentAr": "الأقليات: قومية (تفكك السوفيت ويوغوسلافيا)، دينية، لغوية (إيطاليا تلزم بالإيطالية والعراق يسمح بالكردية)، عرقية والتفرقة العنصرية (أمريكا وجنوب إفريقيا). التوزيع الجغرافي: التكتل على الأطراف يشكل خطراً انفصالياً (الباسك في إسبانيا وتيمور بإندونيسيا)، والانتشار يذيب المطالب. الهجرة: إجبارية (نكبة فلسطين وتهجير النوبة لبناء السد العالي) وغير شرعية (خلل ديموغرافي وجرائم وأسواق موازية).",
+                "formulas": [
+                        {
+                                "labelEn": "Net Migration Balance Equation",
+                                "labelAr": "ميزان الهجرة وصافي التدفق السكاني",
+                                "latex": "\\text{Net Migration} = \\text{Immigration} - \\text{Emigration}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH3-L5",
+                        "pageRange": "pp. 65-95"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Social Dimensions of Political Disputes: Minorities, Forced Migration & Illegal Immigration",
+                        "titleAr": "خطة الدرس المعتمدة: المشكلات الاجتماعية ذات البعد السياسي: الأقليات والهجرة الإجبارية وغير الشرعية",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-3-5",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_3_5",
+                        "titleEn": "Standard Worksheet: Social Dimensions of Political Disputes: Minorities, Forced Migration & Illegal Immigration",
+                        "titleAr": "ورقة العمل التدريبية: المشكلات الاجتماعية ذات البعد السياسي: الأقليات والهجرة الإجبارية وغير الشرعية",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 3, Lesson 5.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 3، الدرس 5.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_3_5_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Social Dimensions of Political Disputes: Minorities, Forced Migration & Illegal Immigration: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة المشكلات الاجتماعية ذات البعد السياسي: الأقليات والهجرة الإجبارية وغير الشرعية: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Minorities: National (post-Soviet/Yugoslav), Religious, Linguistic (Italy restri...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "الأقليات: قومية (تفكك السوفيت ويوغوسلافيا)، دينية، لغوية (إيطاليا تلزم بالإيطالي...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Minorities: National (post-Soviet/Yugoslav), Religious, Linguistic (Italy restri...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Social Dimensions of Political Disputes: Minorities, Forced Migration & Illegal Immigration",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: المشكلات الاجتماعية ذات البعد السياسي: الأقليات والهجرة الإجبارية وغير الشرعية",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        }
+],
+      databank: geoCh3Databank,
+      solvedExamples: egBacGeoCh3SolvedExamples,
+      exerciseProblems: egBacGeoCh3Exercises
+    },
+    {
+      id: "egbac_geo_ch4",
+      chapterNumber: 4,
+      titleEn: "Unit 4: Global Economic Blocs & Collective Military Alliances",
+      titleAr: "الوحدة الثالثة: التكتلات الاقتصادية الكبرى والأحلاف العسكرية الجماعية",
+      descriptionEn: "Five stages of economic integration, physical and human prerequisites, deep case studies of the European Union, GCC, and COMESA, and the evolution of collective defense pacts (NATO founding and expansion vs. Warsaw Pact rise and collapse).",
+      descriptionAr: "المراحل الخمس للتكامل الاقتصادي ومقوماته، دراسة تفصيلية للاتحاد الأوروبي ومجلس التعاون لدول الخليج العربية والكوميسا، ونشأة وأهداف الأحلاف العسكرية (حلف الناتو وتوسعه مقابل صعود وانهيار حلف وارسو).",
+      isFullyEquipped: true,
+      lessons: [
+        {
+                "id": "egbac_geo_ch4_l1",
+                "titleEn": "Economic Blocs: Stages of Integration, Prerequisites & Case Studies (EU, GCC, COMESA)",
+                "titleAr": "التكتلات الاقتصادية: مراحل التكامل، المقومات، ونماذج عالمية (الاتحاد الأوروبي، التعاون الخليجي، الكوميسا)",
+                "summaryEn": "Five stages of economic integration, physical and human prerequisites, the European Union (Maastricht to Copenhagen), GCC structures, and Egypt's gains from COMESA.",
+                "summaryAr": "مراحل تكوين التكتلات الخمس (تجارة حرة، اتحاد جمركي، سوق مشتركة، وحدة اقتصادية، اندماج كامل)، مقومات التكتل، الاتحاد الأوروبي ومؤسساته، مجلس التعاون الخليجي، ومكاسب مصر في الكوميسا.",
+                "theoryContentEn": "Five integration stages: 1. Free Trade Area (zero tariffs), 2. Customs Union (common external tariff), 3. Common Market (factor mobility), 4. Economic Union (monetary/fiscal coordination), 5. Complete Economic Integration. Prerequisites: Geographic contiguity (EU, GCC, COMESA vs dispersed APEC), market size, infrastructure, and military backing. European Union: Maastricht 1991, Copenhagen 1993, institutions (Council, Commission, Parliament, Court). GCC (1981, Riyadh, Peninsula Shield). COMESA (21 nations, Egypt joined 1998, duty-free manufacturing export boost).",
+                "theoryContentAr": "مراحل التكتل: ١. منطقة التجارة الحرة، ٢. الاتحاد الجمركي، ٣. السوق المشتركة، ٤. الوحدة الاقتصادية وتوحيد العملة، ٥. الاندماج الكامل. المقومات: الاتصال الأرضي (الاتحاد الأوروبي والكوميسا والخليج بخلاف الأبيك)، حجم السوق، تنوع الموارد، والقوة العسكرية الرادعة. الاتحاد الأوروبي: معاهدة ماستريخت 1991م، شروط كوبنهاجن 1993م ومؤسساته الأربع. مجلس التعاون الخليجي (1981م بالرياض ودرع الجزيرة). الكوميسا (21 دولة، انضمت مصر 1998م لدعم صادراتها الصناعية).",
+                "formulas": [
+                        {
+                                "labelEn": "Five Tiers of Economic Integration",
+                                "labelAr": "المراحل الخمس للتكامل الاقتصادي",
+                                "latex": "\\text{Free Trade} \\longrightarrow \\text{Customs Union} \\longrightarrow \\text{Common Market} \\longrightarrow \\text{Economic Union} \\longrightarrow \\text{Full Integration}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH4-L1",
+                        "pageRange": "pp. 65-95"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Economic Blocs: Stages of Integration, Prerequisites & Case Studies (EU, GCC, COMESA)",
+                        "titleAr": "خطة الدرس المعتمدة: التكتلات الاقتصادية: مراحل التكامل، المقومات، ونماذج عالمية (الاتحاد الأوروبي، التعاون الخليجي، الكوميسا)",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-4-1",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_4_1",
+                        "titleEn": "Standard Worksheet: Economic Blocs: Stages of Integration, Prerequisites & Case Studies (EU, GCC, COMESA)",
+                        "titleAr": "ورقة العمل التدريبية: التكتلات الاقتصادية: مراحل التكامل، المقومات، ونماذج عالمية (الاتحاد الأوروبي، التعاون الخليجي، الكوميسا)",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 4, Lesson 1.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 4، الدرس 1.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_4_1_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Economic Blocs: Stages of Integration, Prerequisites & Case Studies (EU, GCC, COMESA): Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة التكتلات الاقتصادية: مراحل التكامل، المقومات، ونماذج عالمية (الاتحاد الأوروبي، التعاون الخليجي، الكوميسا): أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Five integration stages: 1. Free Trade Area (zero tariffs), 2. Customs Union (co...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "مراحل التكتل: ١. منطقة التجارة الحرة، ٢. الاتحاد الجمركي، ٣. السوق المشتركة، ٤. ...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Five integration stages: 1. Free Trade Area (zero tariffs), 2. Customs Union (co...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Economic Blocs: Stages of Integration, Prerequisites & Case Studies (EU, GCC, COMESA)",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: التكتلات الاقتصادية: مراحل التكامل، المقومات، ونماذج عالمية (الاتحاد الأوروبي، التعاون الخليجي، الكوميسا)",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch4_l2",
+                "titleEn": "Military Alliances: Objectives, NATO Evolution & The Demise of the Warsaw Pact",
+                "titleAr": "الأحلاف العسكرية: الأهداف، حلف شمال الأطلسي (الناتو)، وسقوط حلف وارسو",
+                "summaryEn": "Purposes of collective defense alliances, founding of NATO (1949) in Brussels, Warsaw Pact (1955), and the collapse of the Eastern bloc under Gorbachev's reforms.",
+                "summaryAr": "أهداف الأحلاف العسكرية (الردع وتوفير النفقات وتسوية النزاعات)، إنشاء الناتو عام 1949م ببروكسل وتوسعه، وتأسيس حلف وارسو عام 1955م وانهياره عام 1991م بفعل سياسات جورباتشوف.",
+                "theoryContentEn": "Military alliances date back to antiquity; multiplied post-WWII due to ideological Cold War polarization. Objectives: Deterrence, cost-sharing/force augmentation, peaceful dispute resolution among members. NATO: Founded in Washington 1949, Brussels HQ, after 1948 Berlin blockade; post-Cold War out-of-area operations (Balkans, Afghanistan) and eastward enlargement. Warsaw Pact: Founded 1955 in Poland reacting to West German NATO entry; dissolved in 1991 due to Gorbachev's Perestroika and Glasnost reforms, Albanian withdrawal (1968), and fall of communist regimes.",
+                "theoryContentAr": "الأحلاف معاهدات دفاع مشترك تزايدت في الحرب الباردة للصراع الأيديولوجي. أهدافها: ردع الأعداء، زيادة القوة وتوفير نفقات التسلح الفردي، وتسوية النزاعات سلمياً. الناتو: تأسس 1949م بواشنطن ومقره بروكسل إثر حصار برلين؛ وسّع مهامه خارج أراضيه لحفظ السلام وإدارة الأزمات في البوسنة وأفغانستان. وارسو: تأسس 1955م رداً على تسليح ألمانيا الغربية؛ وانهار 1991م بسياسات جورباتشوف (البيريسترويكا والجلاسنوست) وتفكك الاتحاد السوفيتي.",
+                "formulas": [
+                        {
+                                "labelEn": "Collective Defense Obligation (Article 5)",
+                                "labelAr": "مبدأ الدفاع الجماعي (المادة الخامسة بالناتو)",
+                                "latex": "\\text{Attack on Member } i \\implies \\text{Attack on All } N \\text{ Members}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH4-L2",
+                        "pageRange": "pp. 70-100"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Military Alliances: Objectives, NATO Evolution & The Demise of the Warsaw Pact",
+                        "titleAr": "خطة الدرس المعتمدة: الأحلاف العسكرية: الأهداف، حلف شمال الأطلسي (الناتو)، وسقوط حلف وارسو",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-4-2",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_4_2",
+                        "titleEn": "Standard Worksheet: Military Alliances: Objectives, NATO Evolution & The Demise of the Warsaw Pact",
+                        "titleAr": "ورقة العمل التدريبية: الأحلاف العسكرية: الأهداف، حلف شمال الأطلسي (الناتو)، وسقوط حلف وارسو",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 4, Lesson 2.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 4، الدرس 2.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_4_2_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Military Alliances: Objectives, NATO Evolution & The Demise of the Warsaw Pact: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة الأحلاف العسكرية: الأهداف، حلف شمال الأطلسي (الناتو)، وسقوط حلف وارسو: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Military alliances date back to antiquity; multiplied post-WWII due to ideologic...",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "الأحلاف معاهدات دفاع مشترك تزايدت في الحرب الباردة للصراع الأيديولوجي. أهدافها: ...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Military alliances date back to antiquity; multiplied post-WWII due to ideologic...",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Military Alliances: Objectives, NATO Evolution & The Demise of the Warsaw Pact",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: الأحلاف العسكرية: الأهداف، حلف شمال الأطلسي (الناتو)، وسقوط حلف وارسو",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        }
+],
+      databank: geoCh4Databank,
+      solvedExamples: egBacGeoCh4SolvedExamples,
+      exerciseProblems: egBacGeoCh4Exercises
+    },
+    {
+      id: "egbac_geo_ch5",
+      chapterNumber: 5,
+      titleEn: "Unit 5: International Relations & The Dynamics of The New World Order",
+      titleAr: "الوحدة الرابعة: العلاقات الدولية وديناميكيات النظام العالمي الجديد",
+      descriptionEn: "Historical evolution of international relations from Ramses II to Westphalia, determinants of global power, five peaceful conflict settlement mechanisms (the Taba arbitration triumph), and the characteristics, covert objectives, and resource scrambles of the unipolar New World Order.",
+      descriptionAr: "تطور العلاقات الدولية من معاهدة رمسيس الثاني وصلح وستفاليا، محددات وزن الدولة دولياً، طرق تسوية النزاعات سلمياً وملحمة استعادة طابا بالتحكيم، وخصائص وأهداف النظام العالمي الجديد والصراع على اليورانيوم وثروات العالم النامي.",
+      isFullyEquipped: true,
+      lessons: [
+        {
+                "id": "egbac_geo_ch5_l1",
+                "titleEn": "Evolution of International Relations, Power Determinants & Peaceful Dispute Settlement",
+                "titleAr": "تطور العلاقات الدولية، محددات قوة الدولة، وطرق تسوية المنازعات سلمياً",
+                "summaryEn": "Historical treaties from Ramses II to Westphalia, determinants of international weight (China's demographic seat), and 5 peaceful dispute methods (Taba arbitration).",
+                "summaryAr": "تطور العلاقات من معاهدة رمسيس الثاني والحيثيين (1278 ق.م) وصلح وستفاليا (1648م)، محددات وزن الدولة دولياً (الصين ومجلس الأمن)، والأساليب الخمسة لتسوية النزاعات كقضية طابا.",
+                "theoryContentEn": "Ancient relations: Ramses II and Hittites (1278 BC, oldest recorded peace pact). Westphalia 1648 established sovereign nation-states and formal embassies. Contemporary relations governed by international organizations (League of Nations -> United Nations). Determinants of international weight: Strategic location, Area, Demographic weight (China's permanent Security Council veto), Economy, and Military capability. 5 Peaceful Dispute Settlement Methods: Negotiations, Mediation, Good Offices, Conciliation, and Arbitration (binding court ruling, exemplary model of Egyptian cartographers restoring Taba in 1989).",
+                "theoryContentAr": "قديماً: معاهدة رمسيس الثاني والحيثيين عام 1278 ق.م (أقدم معاهدة مسجلة). صلح وستفاليا عام 1648م أسس الدولة القومية الحديثة والتمثيل الدبلوماسي. حديثاً: عصبة الأمم ثم الأمم المتحدة. محددات قوة الدولة دولياً: الموقع والمساحة والوزن الديموغرافي (الصين في مجلس الأمن) والقوة الاقتصادية والعسكرية. طرق تسوية المنازعات سلمياً: المفاوضات، الوساطة، المساعي الحميدة، التوفيق، والتحكيم الدولي الملزم (كنموذج استعادة طابا عام 1989م بالوثائق والخرائط).",
+                "formulas": [
+                        {
+                                "labelEn": "Peaceful Dispute Resolution Hierarchy",
+                                "labelAr": "تدرج وسائل التسوية السلمية للمنازعات",
+                                "latex": "\\text{Negotiation} \\longrightarrow \\text{Mediation} \\longrightarrow \\text{Good Offices} \\longrightarrow \\text{Conciliation} \\longrightarrow \\text{Binding Arbitration}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH5-L1",
+                        "pageRange": "pp. 85-115"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: Evolution of International Relations, Power Determinants & Peaceful Dispute Settlement",
+                        "titleAr": "خطة الدرس المعتمدة: تطور العلاقات الدولية، محددات قوة الدولة، وطرق تسوية المنازعات سلمياً",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-5-1",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_5_1",
+                        "titleEn": "Standard Worksheet: Evolution of International Relations, Power Determinants & Peaceful Dispute Settlement",
+                        "titleAr": "ورقة العمل التدريبية: تطور العلاقات الدولية، محددات قوة الدولة، وطرق تسوية المنازعات سلمياً",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 5, Lesson 1.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 5، الدرس 1.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_5_1_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding Evolution of International Relations, Power Determinants & Peaceful Dispute Settlement: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة تطور العلاقات الدولية، محددات قوة الدولة، وطرق تسوية المنازعات سلمياً: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Ancient relations: Ramses II and Hittites (1278 BC, oldest recorded peace pact)....",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "قديماً: معاهدة رمسيس الثاني والحيثيين عام 1278 ق.م (أقدم معاهدة مسجلة). صلح وستف...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Ancient relations: Ramses II and Hittites (1278 BC, oldest recorded peace pact)....",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: Evolution of International Relations, Power Determinants & Peaceful Dispute Settlement",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: تطور العلاقات الدولية، محددات قوة الدولة، وطرق تسوية المنازعات سلمياً",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        },
+        {
+                "id": "egbac_geo_ch5_l2",
+                "titleEn": "The New World Order: Concepts, Features, Covert Objectives & Geopolitical Repercussions",
+                "titleAr": "النظام العالمي الجديد: المفهوم والخصائص والأهداف وتداعياته على الدول النامية",
+                "summaryEn": "Evolution of the New World Order (Wilson, Gorbachev, Bush 1991), characteristics of unipolar dominance, covert resource hegemony, the African Uranium scramble, and the Non-Aligned Movement.",
+                "summaryAr": "مراحل ظهور المفهوم (ويلسون، جورباتشوف، إعلان جورج بوش الأب 1991م)، خصائص النظام وهيمنة القطب الواحد، الأهداف الخفية، الصراع على اليورانيوم وخامات إفريقيا، وحركة عدم الانحياز.",
+                "theoryContentEn": "Evolution: Wilson's 14 points (1918), Gorbachev's Cold War thaw, and George H.W. Bush's proclamation in 1991 during the Gulf War. Characteristics: Unipolar American hegemony, technological revolution, decline of developing nations' sovereignty before multinationals/IMF/World Bank, economic globalization. Overt goals: Disarmament, human rights. Covert goals: Hegemony over Third World natural resources, petroleum, and strategic nuclear minerals (African Uranium). Repercussions: Brain drain, widening North-South wealth divide, and the non-aligned struggle for a balanced multipolar world order.",
+                "theoryContentAr": "المراحل: مبادئ ويلسون الـ 14 (1918م)، انفتاح جورباتشوف، وإعلان جورج بوش الأب 1991م إبان حرب الخليج. الخصائص: انفراد القطب الواحد (أمريكا) بالقمة، الثورة التكنولوجية، تآكل سيادة الدول النامية لصالح الشركات متعددة الجنسيات والمؤسسات النقدية، والعولمة. الأهداف المعلنة: الديمقراطية وحقوق الإنسان؛ والخفية: الهيمنة على البترول والمواد الخام في العالم الثالث (اليورانيوم بإفريقيا). التداعيات: هجرة العقول، اتساع الفجوة بين الشمال الغني والجنوب الفقير، ودور حركة عدم الانحياز.",
+                "formulas": [
+                        {
+                                "labelEn": "Unipolar World Order Transition",
+                                "labelAr": "التحول نحو الأحادية القطبية",
+                                "latex": "\\text{Bipolarity (USA vs USSR)} \\xrightarrow{1991} \\text{Unipolar Hegemony (USA Dominance)}"
+                        }
+                ],
+                "moeRef": {
+                        "bookTitleEn": "Advanced Geopolitical Studies (Grade 12 EG-Bac)",
+                        "bookTitleAr": "الدراسات الجيوسياسية المتقدمة - البكالوريا المصرية",
+                        "grade": "Grade 12",
+                        "term": "Full Year",
+                        "officialCode": "MOE-EGBAC-GEO-CH5-L2",
+                        "pageRange": "pp. 90-120"
+                },
+                "lessonPlan": {
+                        "titleEn": "Official Lesson Plan: The New World Order: Concepts, Features, Covert Objectives & Geopolitical Repercussions",
+                        "titleAr": "خطة الدرس المعتمدة: النظام العالمي الجديد: المفهوم والخصائص والأهداف وتداعياته على الدول النامية",
+                        "gradeLevel": "Grade 12 (Secondary 3)",
+                        "durationMinutes": 90,
+                        "moeCode": "EGBAC-GEO-LP-5-2",
+                        "bloomsObjectivesEn": [
+                                "Knowledge & Recall: Define foundational geopolitical terms and historical milestones.",
+                                "Analysis: Contrast spatial and institutional determinants of state power and border stability.",
+                                "Evaluation & HOTS: Synthesize cartographic evidence, ICJ adjudications, and modern world order dynamics."
+                        ],
+                        "bloomsObjectivesAr": [
+                                "التذكر والمعرفة: استرجاع المفاهيم الجيوسياسية ونظريات الرواد والمصطلحات الدستورية والحدودية.",
+                                "التحليل والربط: مقارنة المقومات الطبيعية والبشرية وأشكال الدول وتحليل نماذج التكتلات والأحلاف.",
+                                "التقويم والتفكير الناقد: تقييم أثر المتغيرات العالمية والخرائط وأحكام التحكيم الدولي على سيادة الدول."
+                        ],
+                        "prerequisitesEn": [
+                                "World Physical Geography",
+                                "General Map Reading",
+                                "20th Century Modern History"
+                        ],
+                        "prerequisitesAr": [
+                                "مبادئ الجغرافيا الطبيعية",
+                                "قراءة الخرائط وتحديد الإحداثيات",
+                                "التاريخ الحديث للقرن العشرين"
+                        ],
+                        "keyVocabularyEn": [
+                                {
+                                        "term": "Political Geography",
+                                        "definition": "A branch of human geography studying state geographic components and international relations."
+                                },
+                                {
+                                        "term": "Geopolitics",
+                                        "definition": "Studying the geographical factors of state power to achieve internal unity and external expansion."
+                                }
+                        ],
+                        "keyVocabularyAr": [
+                                {
+                                        "term": "الجغرافيا السياسية",
+                                        "definition": "فرع من الجغرافيا البشرية يدرس المقومات الجغرافية للدولة وتنظيمها وقوتها وعلاقاتها الدولية."
+                                },
+                                {
+                                        "term": "الجيوبولتيك",
+                                        "definition": "دراسة تأثير العوامل الجغرافية في قوة الدولة لتحقيق الوحدة الداخلية والتوسع الخارجي."
+                                }
+                        ],
+                        "teachingPacing": [
+                                {
+                                        "phaseEn": "Warm-up & Map Inquiry",
+                                        "phaseAr": "التهيئة والتحفيز الكارتوجرافي",
+                                        "duration": "15 min",
+                                        "activitiesEn": "Review baseline map concepts and present thought-provoking ministerial dilemma.",
+                                        "activitiesAr": "استعراض خريطة تفاعلية وطرح سؤال تحفيزي حول معايير القوة والحدود السياسية."
+                                },
+                                {
+                                        "phaseEn": "Deep Theory & Case Modeling",
+                                        "phaseAr": "الشرح العميق والنمذجة التطبيقية",
+                                        "duration": "45 min",
+                                        "activitiesEn": "Analyze MoE textbook core content, formulas, and historical precedents.",
+                                        "activitiesAr": "شرح نواتج التعلم الوزارية بدقة واستعراض النماذج التطبيقية والخرائط والأحكام الدولية."
+                                },
+                                {
+                                        "phaseEn": "Guided Problem Solving & Exit Ticket",
+                                        "phaseAr": "التدريب الموجه وتذكرة الخروج",
+                                        "duration": "30 min",
+                                        "activitiesEn": "Solve high-yield ministerial MCQs, clarify misconceptions, and complete exit ticket.",
+                                        "activitiesAr": "حل أسئلة مستويات تفكير عليا بنظام البابل شيت ومناقشة البدائل وتصويب المفاهيم الشائعة."
+                                }
+                        ],
+                        "commonMisconceptionsEn": [
+                                "Confusing Political Geography (descriptive/static) with Geopolitics (normative/expansionist).",
+                                "Assuming that immense territorial area alone guarantees national power without adequate population and organization."
+                        ],
+                        "commonMisconceptionsAr": [
+                                "الخلط الشائع بين الجغرافيا السياسية (علم استاتيكي يدرس الواقع) وبين الجيوبولتيك (علم ديناميكي يطلب التوسع).",
+                                "الاعتقاد الخاطئ بأن المساحة الكبيرة للدولة تمنحها القوة تلقائياً دون الحاجة لسكان ينظمونها ويدافعون عنها."
+                        ],
+                        "differentiationEn": {
+                                "struggling": "Provide visual mnemonic maps, glossary flashcards, and step-by-step option elimination guides.",
+                                "advanced": "Assign comparative ICJ case analysis (Taba vs Tunisia/Libya) and UNCLOS boundary modeling."
+                        },
+                        "differentiationAr": {
+                                "struggling": "تقديم خرائط توضيحية مبسطة وبطاقات مفاهيم وتدريب الطالب على استراتيجية استبعاد البدائل غير الصحيحة.",
+                                "advanced": "تكليف الطالب بمقارنة تحليلية لأحكام القضاء الدولي (طابا والجرف القاري) ونمذجة مناطق قانون البحار."
+                        },
+                        "formativeAssessmentEn": "Real-time 4-option ministerial MCQ bubble sheet drill testing Bloom's level analysis.",
+                        "formativeAssessmentAr": "اختبار مرحلي تفاعلي من 4 أسئلة بابل شيت تقيس الفهم والتحليل وربط المتغيرات بالخريطة.",
+                        "exitTicketQuestion": {
+                                "questionEn": "What is the decisive criterion distinguishing a federal system from a confederal league in state sovereignty?",
+                                "questionAr": "ما هو المعيار الجوهري الفاصل بين النظام الفيدرالي والاتحاد الكونفدرالي في السيادة الدستورية؟",
+                                "solutionEn": "In federalism, sovereign affairs are centralized and unilateral secession is unconstitutional; in confederation, member states retain sovereign independence and the right to unilaterally withdraw.",
+                                "solutionAr": "في الفيدرالية تختص الحكومة المركزية بالأمور السيادية ويُحظر الانفصال، بينما في الكونفدرالية تحتفظ الدول بكامل سيادتها وحقها المطلق في الانفصال."
+                        }
+                },
+                "worksheet": {
+                        "id": "egbac_geo_ws_5_2",
+                        "titleEn": "Standard Worksheet: The New World Order: Concepts, Features, Covert Objectives & Geopolitical Repercussions",
+                        "titleAr": "ورقة العمل التدريبية: النظام العالمي الجديد: المفهوم والخصائص والأهداف وتداعياته على الدول النامية",
+                        "descriptionEn": "Structured practice problems covering ministerial learning objectives for Unit 5, Lesson 2.",
+                        "descriptionAr": "تدريبات تطبيقية شاملة وفق نواتج التعلم الوزارية المعتمدة للوحدة 5، الدرس 2.",
+                        "estimatedTimeMinutes": 25,
+                        "problems": [
+                                {
+                                        "id": "egbac_ws_p_5_2_1",
+                                        "titleEn": "Diagnostic Problem 1",
+                                        "titleAr": "السؤال التشخيصي الأول",
+                                        "difficulty": "easy",
+                                        "questionEn": "Regarding The New World Order: Concepts, Features, Covert Objectives & Geopolitical Repercussions: Which of the following statements represents an established geopolitical reality?",
+                                        "questionAr": "في ضوء دراسة النظام العالمي الجديد: المفهوم والخصائص والأهداف وتداعياته على الدول النامية: أي العبارات التالية تعبر عن حقيقة جيوسياسية مؤكدة؟",
+                                        "optionsEn": [
+                                                "Evolution: Wilson's 14 points (1918), Gorbachev's Cold War thaw, and George H.W....",
+                                                "Territorial borders are physically unchangeable natural phenomena.",
+                                                "All sovereign states have identical land areas and populations.",
+                                                "International law prohibits diplomatic treaties."
+                                        ],
+                                        "optionsAr": [
+                                                "المراحل: مبادئ ويلسون الـ 14 (1918م)، انفتاح جورباتشوف، وإعلان جورج بوش الأب 199...",
+                                                "الحدود السياسية ظواهر طبيعية غير قابلة للتغيير على الإطلاق.",
+                                                "كافة دول العالم متطابقة في المساحة والسكان والموارد.",
+                                                "القانون الدولي يحظر توقيع المعاهدات الدبلوماسية بين الدول."
+                                        ],
+                                        "correctAnswer": "Evolution: Wilson's 14 points (1918), Gorbachev's Cold War thaw, and George H.W....",
+                                        "correctIndex": 0,
+                                        "hintEn": "Review the core foundational principles presented in this lesson.",
+                                        "hintAr": "تذكر القواعد والمفاهيم الأساسية التي تم شرحها في هذا الدرس.",
+                                        "stepByStepSolutionEn": [
+                                                "1. Recall core theory.",
+                                                "2. Eliminate false generalizations.",
+                                                "3. Select verified MoE specification."
+                                        ],
+                                        "stepByStepSolutionAr": [
+                                                "١. استرجاع القاعدة النظرية للدرس.",
+                                                "٢. استبعاد البدائل غير المنطقية.",
+                                                "٣. تأكيد الإجابة المطابقة للمنهج الوزاري."
+                                        ]
+                                }
+                        ]
+                },
+                "interactiveWidget": {
+                        "type": "geopolitical_map",
+                        "titleEn": "Interactive Geopolitical Map Studio: The New World Order: Concepts, Features, Covert Objectives & Geopolitical Repercussions",
+                        "titleAr": "مختبر الخرائط الجيوسياسية التفاعلي: النظام العالمي الجديد: المفهوم والخصائص والأهداف وتداعياته على الدول النامية",
+                        "descriptionEn": "Explore interactive vector world maps, boundary dispute overlays, UNCLOS maritime zones, and economic bloc layers.",
+                        "descriptionAr": "استكشف خرائط العالم التفاعلية، وطبقات النزاعات الحدودية، والمناطق المائية لقانون البحار، وتوزيع التكتلات والأحلاف."
+                }
+        }
+],
+      databank: geoCh5Databank,
+      solvedExamples: egBacGeoCh5SolvedExamples,
+      exerciseProblems: egBacGeoCh5Exercises
+    }
+  ]
+};

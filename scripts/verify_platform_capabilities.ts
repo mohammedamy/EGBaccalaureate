@@ -26,6 +26,7 @@ const subjectsToTest = [
   { subject: 'mathematics', branch: 'pure_math', expectedQ: 20, expectedMarks: 30, expectedDuration: 120 },
   { subject: 'mathematics', branch: 'applied_math', expectedQ: 20, expectedMarks: 30, expectedDuration: 120 },
   { subject: 'history', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
+  { subject: 'geography', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'arabic', expectedQ: 55, expectedMarks: 80, expectedDuration: 180 },
   { subject: 'english', expectedQ: 37, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'french', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
@@ -174,14 +175,14 @@ console.log('  ✓ STEM 5 track mode verified: 5 dimensions');
 
 // Mode B: Humanities
 const radarHumanities = getMasteryRadarData(emptyState, 'humanities');
-assert.strictEqual(radarHumanities.length, 4, 'humanities radar must have exactly 4 dimensions');
+assert.strictEqual(radarHumanities.length, 5, 'humanities radar must have exactly 5 dimensions');
 assert.deepStrictEqual(
   radarHumanities.map((r) => r.dimensionKey),
-  ['history', 'arabic', 'languages', 'applied_math']
+  ['history', 'geography', 'arabic', 'languages', 'applied_math']
 );
-console.log('  ✓ Humanities track mode verified: 4 dimensions');
+console.log('  ✓ Humanities track mode verified: 5 dimensions');
 
-// Mode C: All 8 core subjects
+// Mode C: All 8 core subjects (legacy)
 const radarAll8 = getMasteryRadarData(emptyState, 'all8');
 assert.strictEqual(radarAll8.length, 8, 'all8 radar must have exactly 8 dimensions');
 assert.deepStrictEqual(
@@ -189,6 +190,15 @@ assert.deepStrictEqual(
   ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'history', 'arabic', 'languages']
 );
 console.log('  ✓ All 8 track mode verified: 8 dimensions');
+
+// Mode D: All 9 core subjects
+const radarAll9 = getMasteryRadarData(emptyState, 'all9');
+assert.strictEqual(radarAll9.length, 9, 'all9 radar must have exactly 9 dimensions');
+assert.deepStrictEqual(
+  radarAll9.map((r) => r.dimensionKey),
+  ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'history', 'geography', 'arabic', 'languages']
+);
+console.log('  ✓ All 9 track mode verified: 9 dimensions');
 
 // Default when parameter omitted (backward compatibility)
 const radarDefault = getMasteryRadarData(emptyState);

@@ -24,6 +24,7 @@ import { EnglishLessonInteractiveWidget } from './EnglishLessonInteractiveWidget
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { HistoryTimelineStudio } from './labs/HistoryTimelineStudio';
+import { GeopoliticalMapStudio } from './labs/GeopoliticalMapStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -275,6 +276,24 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={false}
             />
           );
+        case 'geopolitical_map':
+        case 'geopolitical_flashcards':
+        case 'boundary_dispute_simulator':
+        case 'economic_bloc_analyzer':
+          return (
+            <GeopoliticalMapStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'boundary_dispute_simulator'
+                  ? 'hotspots'
+                  : lesson.interactiveWidget.type === 'economic_bloc_analyzer'
+                  ? 'blocs'
+                  : 'morphology'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -341,6 +360,24 @@ export const LessonView: React.FC<Props> = ({
               lang={lang}
               theme={theme}
               isFullscreen={true}
+            />
+          );
+        case 'geopolitical_map':
+        case 'geopolitical_flashcards':
+        case 'boundary_dispute_simulator':
+        case 'economic_bloc_analyzer':
+          return (
+            <GeopoliticalMapStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'boundary_dispute_simulator'
+                  ? 'hotspots'
+                  : lesson.interactiveWidget.type === 'economic_bloc_analyzer'
+                  ? 'blocs'
+                  : 'morphology'
+              }
             />
           );
         default:
