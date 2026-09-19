@@ -32,6 +32,7 @@ import {
   Scale,
   Briefcase,
   Palette,
+  Music,
 } from 'lucide-react';
 
 
@@ -1320,6 +1321,48 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
         'تمنح الثانوية العامة تأسيساً فنياً وأكاديمياً متيناً في رسم المنظور الحر الهندسي، التظليل المجسم المتقن للظل والنور، التوافق اللوني المعماري، والتناسب الذهبي. بينما تنقل البكالوريا الطالب إلى عمق تاريخ العمارة وصون التراث، التصميم المستدام وحلول المناخ السلبية (المشربيات وملاقف الهواء المستلهمة من حسن فتحي)، الأطباق النجمية والمقرنصات الإسلامية المعقدة، والفن البارامتري الرقمي المعاصر.',
       universityAdvantageEn: 'Essential academic preparation and portfolio readiness for Faculties of Fine Arts (Architecture & Decor), Applied Arts, Architectural Engineering, Urban Planning, Graphic & Digital Design, and International Conservation Academies.',
       universityAdvantageAr: 'تأهيل أكاديمي محوري واجتياز اختبارات القدرات المؤهلة لكليات الفنون الجميلة (عمارة وديكور وفنون)، الفنون التطبيقية، الهندسة المعمارية، التخطيط العمراني، التصميم الجرافيكي والوسائط الرقمية، وأكاديميات الترميم والآثار الدولية.',
+    },
+    {
+      id: 'music_bridge',
+      titleEn: 'Music Theory, Arab Maqamat & World Musicology',
+      titleAr: 'التربية الموسيقية، المقامات العربية وعلم الموسيقى المقارن',
+      icon: <Music className="w-5 h-5 text-amber-400" />,
+      thanaweyaBranchId: 'thanaweya_music',
+      egBacBranchId: 'egbac_music',
+      thanaweyaTitleEn: 'Foundations of Music Theory, Maqamat & Rhythm (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'أسس النظريات الموسيقية والمقامات والإيقاع للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Staff Notation & Sight-Singing: Treble/Bass clefs, pitch acoustics, rhythmic meters, and Solfège sight-singing',
+        'Ch.2 Arab Maqamat & Microtonal Systems: 24-EDO quarter-tones, Rast, Bayati, Sikah, Hijaz families, and modulation',
+        'Ch.3 Rhythmic Cycles & Arab Iqa\'at: Dum/Tak percussion, Samai Thaqil, Masmudi, Wahda Kabira, and polyrhythms',
+        'Ch.4 Organology, Arab Heritage & Pioneers: Sayed Darwish, Om Kalthoum, Abdel Wahab, and traditional acoustic instruments',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ التدوين الموسيقي وقراءة الصولفيج: المفاتيح الموسيقية، فيزياء الترددات، الأوزان والضروب الإيقاعية، وقراءة النوتة غنائياً',
+        'فصل ٢ المقامات الموسيقية العربية والنظام الرباعي: الربع تون (٢٤ درجة متساوية)، فصائل الراست والبياتي والسيكاه والحجاز والتحويلات المقامية',
+        'فصل ٣ الإيقاعات والضروب الشرقية: نغمات الدم والتك والإس، إيقاعات السماعي الثقيل والمصمودي والوحدة الكبيرة، والبوليريثم',
+        'فصل ٤ الآلات الموسيقية ورواد النهضة الشرقية: تصنيف الآلات (أوتار ونفخ وإيقاع)، ريادة سيد درويش ومحمد عبد الوهاب وأم كلثوم ورياض السنباطي',
+      ],
+      egBacTitleEn: 'Advanced Polyphony, Form Analysis & Comparative Musicology (4 Modules)',
+      egBacTitleAr: 'البوليفونية المتقدمة، التحليل القالبي وعلم الموسيقى المقارن للبكالوريا (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Western Harmony & Counterpoint: 4-part SATB voice leading, harmonic cadences, secondary dominants, and species counterpoint',
+        'Mod.2 Musical Forms & Compositional Structures: Muwashshah, Longa, Bashraf, Tahmila, Sonata-Allegro, and Rondo forms',
+        'Mod.3 Comparative Musicology & World Traditions: Indian Ragas, Andalusian Nubat, African polyrhythms, and modal acoustics',
+        'Mod.4 Audio Synthesis, Acoustics & Digital Workstations: MIDI sequencing, Fourier harmonics, 24-EDO synthesis, and acoustic engineering',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ الهارموني الغربي وقواعد الكونتربوانت: توزيع الرباعي الصوتي SATB، القفلات الهارمونية، الدومينانت الثانوي، والكونتربوانت الصارم',
+        'وحدة ٢ القوالب الموسيقية والتحليل البنائي: الموشح الأندلسي، اللونجا، البشرف العثماني، التحميلة، قالب السوناتة والروندو الكلاسيكي',
+        'وحدة ٣ علم الموسيقى المقارن والأنثروبولوجيا النغمية: الراغات الهندية، النوبات الأندلسية، البوليريثم الإفريقي، والفيزياء الصوتية للمقامات العالمية',
+        'وحدة ٤ الهندسة الصوتية والإنتاج الموسيقي الرقمي: مصفوفات MIDI، تحليل فورييه التوافقي، التوليف الرقمي للربع تون، وهندسة الاستوديو الافتراضي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya develops deep practical and aural mastery in staff notation, 24-EDO microtonal Arab Maqamat, classic Iqa\'at, and Arab musical renaissance history. EG-Bac expands into 4-part SATB harmonic counterpoint, sophisticated modal and classical forms (Muwashshah to Sonata), global ethnomusicology, and modern digital acoustic synthesis.',
+      bridgeInsightAr:
+        'ترسخ الثانوية العامة إتقاناً سمعياً وعملياً دقيقاً لقراءة النوتة الموسيقية، نظام الربع تون الشرقي (٢٤ درجة متساوية)، المقامات الكبرى، الضروب الإيقاعية، وتاريخ رواد الموسيقى العربية. بينما تفتح البكالوريا آفاق التوزيع الهارموني الصارم للرباعي الصوتي SATB، تحليل القوالب الآلية والغنائية المعقدة كالموشح والسوناتة، دراسة الموسيقى المقارنة عالمياً، والإنتاج الصوتي والترددات الرقمية الحديثة.',
+      universityAdvantageEn: 'Direct accreditation and audition preparation for Faculties of Music Education (Helwan University), Higher Institute of Arabic Music (Academy of Arts), Cairo Conservatoire, Sound Engineering & Acoustic Architecture departments, and International Musicology Faculties.',
+      universityAdvantageAr: 'تأهيل أكاديمي واختباري مباشر لاجتياز اختبارات القدرات بكليات التربية الموسيقية (جامعة حلوان)، المعهد العالي للموسيقى العربية (أكاديمية الفنون)، الكونسرفتوار، أقسام الهندسة الصوتية والوسائط المتعددة، ومؤسسات البحث الموسيقي والموسيقى التصويرية الدولية.',
     },
   ];
 

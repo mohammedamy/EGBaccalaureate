@@ -3,10 +3,58 @@
 @import "katex/dist/katex.min.css";
 
 @layer base {
-  :root {
+  :root,
+  html.light {
     --font-ar: 'Cairo', 'Tajawal', system-ui, sans-serif;
-    --font-en: 'Outfit', 'Inter', system-ui, sans-serif;
+    --font-en: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+    --font-editorial: 'Newsreader', 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
     --font-quran: 'Amiri Quran', 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+
+    /* Light Mode Foundation (Editorial Scientific Focus) */
+    --canvas-bg: #FAFAFA;
+    --card-bg: #FFFFFF;
+    --card-border: #E2E8F0;
+    --hairpin: #CBD5E1;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-tertiary: #64748B;
+    --accent-prussian: #1D4ED8;
+    --accent-copper: #D97706;
+    --meter-bg: #F8FAFC;
+    --meter-border: #CBD5E1;
+    --meter-text: #0F172A;
+  }
+
+  html.dark {
+    /* Matte Lab Dark Foundation (Instrument/Workbench Style) */
+    --canvas-bg: #0D1117;
+    --card-bg: #161B22;
+    --card-border: #30363D;
+    --hairpin: #21262D;
+    --text-primary: #F0F6FC;
+    --text-secondary: #8B949E;
+    --text-tertiary: #6E7681;
+    --accent-prussian: #388BFD;
+    --accent-copper: #E3B341;
+    --meter-bg: #0B0E14;
+    --meter-border: #30363D;
+    --meter-text: #388BFD;
+  }
+
+  html.high-contrast {
+    --canvas-bg: #000000;
+    --card-bg: #000000;
+    --card-border: #FACC15;
+    --hairpin: #FACC15;
+    --text-primary: #FFFFFF;
+    --text-secondary: #FEF08A;
+    --text-tertiary: #E2E8F0;
+    --accent-prussian: #38BDF8;
+    --accent-copper: #FACC15;
+    --meter-bg: #000000;
+    --meter-border: #FACC15;
+    --meter-text: #FACC15;
   }
 
   .font-quran,
@@ -160,23 +208,53 @@ body {
   background: #475569;
 }
 
-/* Glassmorphism utility */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Editorial Scientific Workbench & Instrumentation Utilities */
+.tabular-mono,
+.telemetry-val,
+.metric-val,
+.digital-readout,
+.axis-label {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums lining-nums;
+  letter-spacing: -0.02em;
 }
 
-.glass-card {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.editorial-serif {
+  font-family: var(--font-editorial);
 }
 
-.glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.5);
+.workbench-deck {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+}
+
+.workbench-stage {
+  background-color: var(--canvas-bg);
+  border: 1px solid var(--card-border);
+  position: relative;
+}
+
+.workbench-tray {
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+}
+
+.instrument-readout {
+  background-color: var(--meter-bg);
+  border: 1px solid var(--meter-border);
+  color: var(--meter-text);
+  font-family: var(--font-mono);
+}
+
+/* Subtle editorial paper panel */
+.paper-panel {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+}
+
+.paper-panel:hover {
+  border-color: var(--hairpin);
 }
 
 /* BALANCED, HIGH-FIDELITY KATEX MATH STYLING - Clean, natural textbook scale */

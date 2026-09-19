@@ -92,24 +92,32 @@ export const PhysicsLab: React.FC<Props> = ({
       {/* TAB 2: PHOTOELECTRIC EFFECT */}
       {activeTab === 'photoelectric' && (
         <div className={inFullscreen ? 'flex-1 min-h-0 space-y-3' : 'mt-6 space-y-3'}>
-          <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-sm">
-            <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-              <span>☀️</span>
+          <div className={`flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-xl border ${
+            isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-[#161B22] border-[#30363D] shadow-xs'
+          }`}>
+            <span className={`text-xs font-semibold flex items-center gap-1.5 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+              <Zap className="w-3.5 h-3.5 text-blue-500" />
               <span>{isArabic ? 'بيئة الظاهرة الكهروضوئية ومعادلة أينشتاين:' : 'Photoelectric Effect & Einstein Equations:'}</span>
             </span>
-            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+            <div className={`flex items-center gap-1 p-1 rounded-lg border text-xs ${
+              isLight ? 'bg-slate-100 border-slate-200' : 'bg-[#0D1117] border-[#30363D]'
+            }`}>
               <button
                 onClick={() => setPhotoelectricView('studio')}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-                  photoelectricView === 'studio' ? 'bg-cyan-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                className={`px-3 py-1.5 rounded-md font-semibold transition-colors cursor-pointer ${
+                  photoelectricView === 'studio' 
+                    ? 'bg-blue-600 text-white shadow-xs' 
+                    : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {isArabic ? 'استوديو جهد الإيقاف وأينشتاين' : 'Einstein Stopping Potential Studio'}
               </button>
               <button
                 onClick={() => setPhotoelectricView('apparatus')}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
-                  photoelectricView === 'apparatus' ? 'bg-cyan-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
+                className={`px-3 py-1.5 rounded-md font-semibold transition-colors cursor-pointer ${
+                  photoelectricView === 'apparatus' 
+                    ? 'bg-blue-600 text-white shadow-xs' 
+                    : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {isArabic ? 'محاكي الخلية الكهروضوئية' : 'Photocell Apparatus Lab'}
@@ -214,41 +222,41 @@ export const PhysicsLab: React.FC<Props> = ({
 
   const subtabsOptions = (
     <>
-      <option value="circuits" className="bg-slate-900 text-white">
-        ⚡ {isArabic ? 'دوائر أوم وكيرشوف' : 'DC Circuits & Kirchhoff'}
+      <option value="circuits" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [01] {isArabic ? 'دوائر أوم وكيرشوف' : 'DC Circuits & Kirchhoff'}
       </option>
-      <option value="optics" className="bg-slate-900 text-white">
-        🔬 {isArabic ? 'البصريات وتجربة ينج (2D)' : 'Optics & Ray-Tracing (2D)'}
+      <option value="optics" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [02] {isArabic ? 'البصريات وتجربة ينج (2D)' : 'Optics & Ray-Tracing (2D)'}
       </option>
-      <option value="optics_3d" className="bg-slate-900 text-white">
-        🌈 {isArabic ? 'استوديو المنشور وتشتت الضوء 3D' : '3D Optics & Prism Dispersion Studio'}
+      <option value="optics_3d" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [03] {isArabic ? 'استوديو المنشور وتشتت الضوء 3D' : '3D Optics & Prism Dispersion Studio'}
       </option>
-      <option value="magnetism" className="bg-slate-900 text-white">
-        🧭 {isArabic ? 'المغناطيسية ولورنتز' : 'Magnetism & Lorentz'}
+      <option value="magnetism" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [04] {isArabic ? 'المغناطيسية ولورنتز' : 'Magnetism & Lorentz'}
       </option>
-      <option value="dynamo" className="bg-slate-900 text-white">
-        🔄 {isArabic ? 'الدينامو والحث الكهرومغناطيسي' : 'AC Dynamo & Induction'}
+      <option value="dynamo" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [05] {isArabic ? 'الدينامو والحث الكهرومغناطيسي' : 'AC Dynamo & Induction'}
       </option>
-      <option value="induction_3d" className="bg-slate-900 text-white">
-        🌀 {isArabic ? 'استوديو الحث والدينامو 3D' : '3D Induction & Dynamo Studio'}
+      <option value="induction_3d" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [06] {isArabic ? 'استوديو الحث والدينامو 3D' : '3D Induction & Dynamo Studio'}
       </option>
-      <option value="resonance" className="bg-slate-900 text-white">
-        〰️ {isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}
+      <option value="resonance" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [07] {isArabic ? 'دوائر الرنين المتردد RLC' : 'RLC Resonance & AC'}
       </option>
-      <option value="photoelectric" className="bg-slate-900 text-white">
-        ☀️ {isArabic ? 'الظاهرة الكهروضوئية والكم' : 'Photoelectric Effect'}
+      <option value="photoelectric" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [08] {isArabic ? 'الظاهرة الكهروضوئية وثابت بلانك' : 'Photoelectric Effect & Planck'}
       </option>
-      <option value="atomic_lasers" className="bg-slate-900 text-white">
-        ⚛️ {isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}
+      <option value="atomic_lasers" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [09] {isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}
       </option>
-      <option value="atom_3d" className="bg-slate-900 text-white">
-        🔮 {isArabic ? 'استوديو الذرة الكمية والليزر 3D' : '3D Quantum Atom Studio'}
+      <option value="atom_3d" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [10] {isArabic ? 'استوديو الذرة الكمية والليزر 3D' : '3D Quantum Atom Studio'}
       </option>
-      <option value="electronics" className="bg-slate-900 text-white">
-        🔌 {isArabic ? 'أشباه الموصلات والترانزستور وأشعة إكس' : 'Semiconductors & Coolidge X-Rays'}
+      <option value="electronics" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [11] {isArabic ? 'أشباه الموصلات والترانزستور وأشعة إكس' : 'Semiconductors & Coolidge Tube'}
       </option>
-      <option value="flashcards" className="bg-slate-900 text-white">
-        🗂️ {isArabic ? 'بطاقات الاستذكار' : 'Physics Flashcards'}
+      <option value="flashcards" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [12] {isArabic ? 'بطاقات الاستذكار الفيزيائي' : 'Physics Flashcards'}
       </option>
     </>
   );

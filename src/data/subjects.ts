@@ -25,7 +25,8 @@ export type SubjectId =
   | 'earth_space'
   | 'civics'
   | 'business_entrepreneurship'
-  | 'fine_arts_architecture';
+  | 'fine_arts_architecture'
+  | 'music_theory';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -34,7 +35,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -599,6 +600,29 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_fine_arts'],
       egbac: ['egbac_fine_arts'],
+    },
+  },
+
+  // 25. Music Theory & Arab/Western Musicology (التربية الموسيقية والنظريات الموسيقية)
+  {
+    id: 'music_theory',
+    titleEn: 'Music Theory & Arab/Western Musicology',
+    titleAr: 'التربية الموسيقية والنظريات الموسيقية',
+    shortTitleEn: 'Music Theory',
+    shortTitleAr: 'موسيقى ونظريات',
+    emoji: '🎵',
+    iconName: 'Music',
+    badgeColor: 'amber',
+    gradient: 'from-amber-600 via-purple-700 to-indigo-950',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-amber-950/80 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary music curriculum: Western acoustic fundamentals, staff notation & solfège, harmonic progressions & voice leading, Arab 24-quarter-tone equal temperament & Maqamat, classical Iqa\'at rhythms, organology, and historical analysis of Egyptian musical heritage.',
+    descriptionAr: 'المنهج الوزاري المعتمد للتربية الموسيقية والنظريات الموسيقية: الأسس الفيزيائية للصوت والتدوين الموسيقي الغربي والصولفيج، الهارموني والتآلفات والتصريف الصوتي، النظريات الموسيقية العربية والمقامية وسلم الربع تون (٢٤ درجة متساوية)، الإيقاعات والضروب العربية، تصنيف الآلات الموسيقية (الأورجانولوجي)، وتاريخ وتطور الموسيقى المصرية ورواد النهضة.',
+    branchIds: {
+      thanaweya: ['thanaweya_music'],
+      egbac: ['egbac_music'],
     },
   },
 ];

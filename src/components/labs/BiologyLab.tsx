@@ -154,7 +154,7 @@ export const BiologyLab: React.FC<Props> = ({
       {/* TAB: VIRTUAL COMPOUND MICROSCOPE */}
       {activeTab === 'microscope' && (
         <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
-          <VirtualMicroscope lang={lang} />
+          <VirtualMicroscope lang={lang} theme={theme} />
         </div>
       )}
 
@@ -182,12 +182,24 @@ export const BiologyLab: React.FC<Props> = ({
       {/* TAB 8: PUNNETT SQUARES & ABO BLOOD GROUPS */}
       {activeTab === 'genetics' && (
         <div className={inFullscreen ? 'flex-1 min-h-0 space-y-3' : 'mt-6 space-y-3'}>
-          <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-sm">
-            <span className="text-xs font-bold text-slate-300 flex items-center gap-1.5">
-              <span>🧬</span>
+          <div
+            className={`flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl border shadow-sm ${
+              isContrast
+                ? 'bg-black border-white text-white'
+                : isLight
+                ? 'bg-slate-50 border-slate-200 text-slate-800'
+                : 'bg-slate-900/90 border-slate-800 text-slate-300'
+            }`}
+          >
+            <span className="text-xs font-bold flex items-center gap-1.5">
+              <Dna className="w-4 h-4 text-rose-500" />
               <span>{isArabic ? 'بيئة الوراثة والمندلية وفصائل الدم:' : 'Genetics & Mendelian Heredity Environment:'}</span>
             </span>
-            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+            <div
+              className={`flex items-center gap-1 p-1 rounded-xl border text-xs ${
+                isLight ? 'bg-white border-slate-200' : 'bg-slate-950 border-slate-800'
+              }`}
+            >
               <button
                 onClick={() => setGeneticsView('studio')}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
@@ -238,40 +250,40 @@ export const BiologyLab: React.FC<Props> = ({
   const subtabsOptions = (
     <>
       <option value="skeleton" className="bg-slate-900 text-white">
-        🦴 {isArabic ? 'الهيكل العظمي البشري (٢٠٦ عظمة)' : 'Human Skeleton (206 Bones)'}
+        [01] {isArabic ? 'الهيكل العظمي البشري (٢٠٦ عظمة)' : 'Human Skeleton (206 Bones)'}
       </option>
       <option value="sarcomere" className="bg-slate-900 text-white">
-        💪 {isArabic ? 'انزلاق الخيوط وانقباض الساركومير' : 'Sarcomere Contraction'}
+        [02] {isArabic ? 'انزلاق الخيوط وانقباض الساركومير' : 'Sarcomere Contraction'}
       </option>
       <option value="dna" className="bg-slate-900 text-white">
-        🧬 {isArabic ? 'استوديو اللولب المزدوج وتضاعف DNA' : 'DNA Studio & Replication'}
+        [03] {isArabic ? 'استوديو اللولب المزدوج وتضاعف DNA' : 'DNA Studio & Replication'}
       </option>
       <option value="macromolecule_3d" className="bg-slate-900 text-white">
-        🔮 {isArabic ? 'استوديو DNA والنيوكليوسومات و tRNA ثلاثي الأبعاد' : '3D DNA & Nucleosome Studio'}
+        [04] {isArabic ? 'استوديو DNA والنيوكليوسومات و tRNA ثلاثي الأبعاد' : '3D DNA & Nucleosome Studio'}
       </option>
       <option value="plant" className="bg-slate-900 text-white">
-        🌿 {isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology & Support'}
+        [05] {isArabic ? 'دعامة النبات ومجهر الأنسجة' : 'Plant Histology & Support'}
       </option>
       <option value="microscope" className="bg-slate-900 text-white">
-        🔬 {isArabic ? 'المجهر الضوئي الافتراضي للشرائح' : 'Virtual Optical Microscope'}
+        [06] {isArabic ? 'المجهر الضوئي الافتراضي للشرائح' : 'Virtual Optical Microscope'}
       </option>
       <option value="endocrine" className="bg-slate-900 text-white">
-        💉 {isArabic ? 'جهاز الغدد الصماء والاتزان الهرموني' : 'Endocrine System & Hormones'}
+        [07] {isArabic ? 'جهاز الغدد الصماء والاتزان الهرموني' : 'Endocrine System & Hormones'}
       </option>
       <option value="menstrual" className="bg-slate-900 text-white">
-        🌸 {isArabic ? 'دورة الطمث ومراحل التبويض (٢٨ يوماً)' : 'Menstrual Cycle Simulation'}
+        [08] {isArabic ? 'دورة الطمث ومراحل التبويض (٢٨ يوماً)' : 'Menstrual Cycle Simulation'}
       </option>
       <option value="immunity" className="bg-slate-900 text-white">
-        🛡️ {isArabic ? 'الأجسام المضادة والمناعة التكيفية' : 'Immunology & IgG Antibodies'}
+        [09] {isArabic ? 'الأجسام المضادة والمناعة التكيفية' : 'Immunology & IgG Antibodies'}
       </option>
       <option value="genetics" className="bg-slate-900 text-white">
-        ✂️ {isArabic ? 'الوراثة ومربع بانيت وكريسبر' : 'Genetics & CRISPR Studio'}
+        [10] {isArabic ? 'الوراثة ومربع بانيت وكريسبر' : 'Genetics & CRISPR Studio'}
       </option>
       <option value="bioenergetics" className="bg-slate-900 text-white">
-        ⚡ {isArabic ? 'الطاقة الحيوية والتمثيل الغذائي وتكوين ATP' : 'Bioenergetics & ATP'}
+        [11] {isArabic ? 'الطاقة الحيوية والتمثيل الغذائي وتكوين ATP' : 'Bioenergetics & ATP'}
       </option>
       <option value="flashcards" className="bg-slate-900 text-white">
-        🗂️ {isArabic ? 'بطاقات الاستذكار السريع' : 'Active Flashcards'}
+        [12] {isArabic ? 'بطاقات الاستذكار السريع' : 'Active Flashcards'}
       </option>
     </>
   );

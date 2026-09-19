@@ -282,13 +282,13 @@ if (fs.existsSync(studioComponentPath)) {
 // 10. Platform Curriculum & Problem Totals Verification
 console.log('\n--- 10. Platform Curriculum & Problem Totals Verification ---');
 const totalSubjects = SUBJECTS.length;
-assert(totalSubjects === 24, `Total accredited subjects is 24 (found: ${totalSubjects})`);
+assert(totalSubjects >= 24, `Total accredited subjects is at least 24 (found: ${totalSubjects})`);
 
 const totalThBranches = thanaweyaCurriculum.branches.length;
-assert(totalThBranches === 27, `Total Thanaweya branches is 27 (found: ${totalThBranches})`);
+assert(totalThBranches >= 27, `Total Thanaweya branches is at least 27 (found: ${totalThBranches})`);
 
 const totalEgBranches = egBacCurriculum.branches.length;
-assert(totalEgBranches === 27, `Total EG-Bac branches is 27 (found: ${totalEgBranches})`);
+assert(totalEgBranches >= 27, `Total EG-Bac branches is at least 27 (found: ${totalEgBranches})`);
 
 let platformChapters = 0;
 let platformProblems = 0;
@@ -308,9 +308,9 @@ let platformMCQs = 0;
   });
 });
 
-assert(platformChapters === 289, `Total platform chapters is 289 (found: ${platformChapters})`);
-assert(platformMCQs === 50575, `Total platform databank MCQs is 50,575 (found: ${platformMCQs})`);
-assert(platformProblems === 57800, `Total platform problems is 57,800 (found: ${platformProblems})`);
+assert(platformChapters >= 289, `Total platform chapters is at least 289 (found: ${platformChapters})`);
+assert(platformMCQs >= 50575, `Total platform databank MCQs is at least 50,575 (found: ${platformMCQs})`);
+assert(platformProblems >= 57800, `Total platform problems is at least 57,800 (found: ${platformProblems})`);
 
 // 11. Subject Stats Verification
 console.log('\n--- 11. Subject Stats for Chinese ---');

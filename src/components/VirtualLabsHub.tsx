@@ -46,10 +46,11 @@ import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
 import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
+import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users, Scale, BookOpen, Church, Briefcase, Palette } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -59,7 +60,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -90,6 +91,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'christian_studies') return 'christian_studies';
     if (selectedSubject === 'business_entrepreneurship' || selectedSubject === 'business') return 'business';
     if (selectedSubject === 'fine_arts_architecture') return 'fine_arts';
+    if (selectedSubject === 'music_theory' || selectedSubject === 'music') return 'music';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
@@ -125,6 +127,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'christian_studies') setActiveLab('christian_studies');
     else if (selectedSubject === 'business_entrepreneurship' || selectedSubject === 'business') setActiveLab('business');
     else if (selectedSubject === 'fine_arts_architecture') setActiveLab('fine_arts');
+    else if (selectedSubject === 'music_theory' || selectedSubject === 'music') setActiveLab('music');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -239,7 +242,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'التفاضل، الفراغية، الأعداد المركبة وأرجاند، والميكانيكا',
       icon: Calculator,
       color: 'indigo',
-      badge: '⚙️ Statics & Complex',
+      badge: 'Statics & Analysis',
       gradient: 'from-blue-600 via-indigo-600 to-violet-600',
       activeBg: 'bg-indigo-600 text-white shadow-indigo-600/30',
       tagline: isArabic
@@ -254,7 +257,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'استوديو الذرة الكمية 3D، دوائر كيرشوف وأشباه الموصلات والليزر',
       icon: Atom,
       color: 'cyan',
-      badge: '🔮 3D Atom & Laser',
+      badge: 'Electrodynamics & Quantum',
       gradient: 'from-cyan-600 via-sky-600 to-blue-600',
       activeBg: 'bg-cyan-600 text-white shadow-cyan-600/30',
       tagline: isArabic
@@ -269,7 +272,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'هندسة الجزيئات الفراغية 3D، بلورات السبائك، والاتزان والتخليق العضوي',
       icon: FlaskConical,
       color: 'emerald',
-      badge: '🧬 3D VSEPR & Alloys',
+      badge: 'Analytical & Physical',
       gradient: 'from-emerald-600 via-teal-600 to-green-600',
       activeBg: 'bg-emerald-600 text-white shadow-emerald-600/30',
       tagline: isArabic
@@ -284,7 +287,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'التهجين الحراري لـ DNA والكروماتين 3D، المناعة وأطلس العظام',
       icon: Dna,
       color: 'rose',
-      badge: '🔮 3D DNA & Chromatin',
+      badge: 'Cytology & Molecular',
       gradient: 'from-rose-600 via-pink-600 to-purple-600',
       activeBg: 'bg-rose-600 text-white shadow-rose-600/30',
       tagline: isArabic
@@ -299,7 +302,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'الخط الزمني، مسرح العمليات والخرائط، أرشيف المعاهدات، ومحلل الأسباب',
       icon: Compass,
       color: 'amber',
-      badge: '🗺️ Strategic Maps & Timeline',
+      badge: 'Chronology & Strategy',
       gradient: 'from-amber-600 via-orange-600 to-yellow-600',
       activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
       tagline: isArabic
@@ -314,7 +317,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'المناطق المائية الدولية، حاسبة الشكل، بؤر النزاعات الحدودية، والتكتلات الاقتصادية',
       icon: Globe,
       color: 'teal',
-      badge: '🌍 UNCLOS & Hotspots',
+      badge: 'UNCLOS & Geopolitics',
       gradient: 'from-teal-600 via-emerald-600 to-cyan-700',
       activeBg: 'bg-teal-600 text-white shadow-teal-600/30',
       tagline: isArabic
@@ -329,7 +332,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'الأنظمة البلورية السبعة، متسلسلة بوين، أخدود البحر الأحمر، والتوازن الإيزوستاتيكي',
       icon: Mountain,
       color: 'amber',
-      badge: '⛰️ Crystals & Tectonics',
+      badge: 'Crystallography & Tectonics',
       gradient: 'from-amber-600 via-stone-700 to-emerald-700',
       activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
       tagline: isArabic
@@ -344,7 +347,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'صوتيات واستماع الإنجليزية، محطة الاستماع الفرنسية، واستوديو النحو والبلاغة',
       icon: Headphones,
       color: 'violet',
-      badge: '🎧 Audio Labs & Grammar',
+      badge: 'Acoustics & Syntax',
       gradient: 'from-violet-600 via-purple-600 to-indigo-600',
       activeBg: 'bg-violet-600 text-white shadow-violet-600/30',
       tagline: isArabic
@@ -359,7 +362,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'جداول الصدق الرمزية، القياس الأرسطي، طرق مل الاستقرائية، المنطق المرن، ومصفوفة البيوتيقا',
       icon: Brain,
       color: 'purple',
-      badge: '🧠 Logic & AI Studio',
+      badge: 'Formal Logic & Axiomatics',
       gradient: 'from-purple-600 via-violet-600 to-indigo-700',
       activeBg: 'bg-purple-600 text-white shadow-purple-600/30',
       tagline: isArabic
@@ -374,7 +377,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'الاشتراط الكلاسيكي، منحنى إبنجهاوس للنسيان، صراعات ليفين، وديناميات التفاعل الجمعي',
       icon: Users,
       color: 'pink',
-      badge: '👥 Psych & Social Studio',
+      badge: 'Cognition & Dynamics',
       gradient: 'from-pink-600 via-rose-600 to-purple-700',
       activeBg: 'bg-pink-600 text-white shadow-pink-600/30',
       tagline: isArabic
@@ -389,7 +392,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'توازن السوق والمرونة، مضاعف الاستثمار الكينزي، ارتباط بيرسون والتوزيع الطبيعي المعياري',
       icon: TrendingUp,
       color: 'amber',
-      badge: '📈 Econ & Stats Studio',
+      badge: 'Econometrics & Statistics',
       gradient: 'from-amber-600 via-orange-600 to-yellow-600',
       activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
       tagline: isArabic
@@ -404,7 +407,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'بوابات المنطق الرقمي، خوارزميات الترتيب والبحث، استعلامات SQL، حساب الشبكات والشبكات العصبية',
       icon: Binary,
       color: 'violet',
-      badge: '💻 CS & AI Studio',
+      badge: 'Boolean Logic & Algorithms',
       gradient: 'from-violet-600 via-indigo-600 to-purple-700',
       activeBg: 'bg-indigo-600 text-white shadow-indigo-600/30',
       tagline: isArabic
@@ -419,7 +422,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'مدارات كبلر، استكشاف كواكب المجموعة الشمسية، مخطط هرتزبرنغ-راسل، نقل هومان الفضائي، والاستشعار عن بعد',
       icon: Orbit,
       color: 'indigo',
-      badge: '🪐 Space Studio',
+      badge: 'Orbital Mechanics & Astrophysics',
       gradient: 'from-indigo-600 via-blue-700 to-violet-900',
       activeBg: 'bg-indigo-600 text-white shadow-indigo-600/30',
       tagline: isArabic
@@ -434,7 +437,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'الرقابة الدستورية، الدورة التشريعية، طيف الأحزاب، ونظام المقاعد الانتخابية',
       icon: Scale,
       color: 'emerald',
-      badge: '⚖️ Constitution & Elections',
+      badge: 'Constitutional Jurisprudence',
       gradient: 'from-emerald-700 via-teal-700 to-amber-700',
       activeBg: 'bg-emerald-700 text-white shadow-emerald-700/30',
       tagline: isArabic
@@ -449,7 +452,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'أحكام التجويد والترتيل، مقاصد الشريعة، محطات السيرة النبوية، والأخلاقيات الحيوية',
       icon: BookOpen,
       color: 'emerald',
-      badge: '☪️ MoE Accredited',
+      badge: 'Hermeneutics & Ethics',
       gradient: 'from-emerald-700 via-teal-700 to-green-700',
       activeBg: 'bg-emerald-700 text-white shadow-emerald-700/30',
       tagline: isArabic
@@ -464,7 +467,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'الأسرار الكنسية السبعة، التراث الرهباني القبطي، الأناجيل الإزائية، والأخلاقيات الحيوية',
       icon: Church,
       color: 'amber',
-      badge: '✝️ MoE Accredited',
+      badge: 'Ecclesiastical Studies',
       gradient: 'from-amber-700 via-rose-700 to-purple-700',
       activeBg: 'bg-amber-700 text-white shadow-amber-700/30',
       tagline: isArabic
@@ -479,7 +482,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'تقييم الشركات بالتدفقات النقدية (DCF)، نقطة التعادل، اللين كانفاس، وسلاسل الإمداد',
       icon: Briefcase,
       color: 'indigo',
-      badge: '💼 MoE Accredited',
+      badge: 'Finance & Strategy',
       gradient: 'from-sky-700 via-indigo-700 to-slate-800',
       activeBg: 'bg-indigo-700 text-white shadow-indigo-700/30',
       tagline: isArabic
@@ -494,12 +497,27 @@ export const VirtualLabsHub: React.FC<Props> = ({
       subtitleAr: 'المنظور الهندسي الحر، دائرة التوافق اللوني، النسبة الذهبية φ، والأطباق النجمية الإسلامية',
       icon: Palette,
       color: 'rose',
-      badge: '🎨 MoE Accredited',
+      badge: 'Orthographic & Tessellation',
       gradient: 'from-fuchsia-900 via-rose-800 to-amber-700',
       activeBg: 'bg-rose-700 text-white shadow-rose-700/30',
       tagline: isArabic
         ? 'مرسم الفنون الجميلة والتصميم المعماري الافتراضي: محاكاة المنظور الحر ذي النقطة والنقطتين، دائرة الألوان وقاعدة 60-30-10، حاسبة النسبة الذهبية φ، والأطباق النجمية ومقرنصات التراث الإسلامي'
         : 'Fine Arts & Architectural Virtual Studio: Interactive one & two-point perspective drafter, color harmony wheel, golden ratio calculator, and Islamic star rosette tessellations',
+    },
+    {
+      id: 'music' as LabId,
+      titleEn: 'Music Theory & Audio Studio',
+      titleAr: 'استوديو النظريات الموسيقية والصوتيات',
+      subtitleEn: 'Maqamat, 24-EDO Microtones, Arab Iqa\'at, Solfège & SATB Harmony',
+      subtitleAr: 'المقامات الشرقية، نظام الربع تون، الضروب والإيقاعات، الصولفيج، والتوزيع الهارموني',
+      icon: Music,
+      color: 'amber',
+      badge: 'Microtonal & Acoustics',
+      gradient: 'from-amber-600 via-purple-700 to-indigo-950',
+      activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
+      tagline: isArabic
+        ? 'استوديو النظريات الموسيقية والصوتيات الافتراضي: محاكي المقامات والربع تون (٢٤ درجة)، آلة إيقاعات الدم والتك، تدريب الأذن والصولفيج، والهارموني الغربي'
+        : 'Music Theory & Acoustic Audio Studio: Interactive 24-EDO Arab Maqam synthesizer, Dum-Tak rhythm sandbox, Solfège ear trainer, and SATB harmonic voice-leading',
     },
   ];
 
@@ -582,72 +600,80 @@ export const VirtualLabsHub: React.FC<Props> = ({
         <>
           {/* Master Hub Banner */}
       <div
-        className={`p-5 sm:p-7 rounded-3xl border shadow-xl relative overflow-hidden transition-all ${
+        className={`p-5 sm:p-7 rounded-2xl border transition-all ${
           isContrast
             ? 'bg-black border-2 border-yellow-400 text-white'
             : isLight
-            ? 'bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border-slate-700'
-            : 'bg-gradient-to-r from-slate-950 via-slate-900 to-indigo-950 text-white border-slate-800'
+            ? 'bg-white border-slate-200 text-slate-900 shadow-xs'
+            : 'bg-[#161B22] border-[#30363D] text-slate-100 shadow-xs'
         }`}
       >
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 flex items-center gap-1.5">
-                <Flask className="w-3.5 h-3.5 text-cyan-400" />
+              <span className={`px-2.5 py-1 rounded-md text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 border ${
+                isLight ? 'bg-blue-50 text-blue-800 border-blue-200' : 'bg-blue-950/50 text-blue-300 border-blue-800/60'
+              }`}>
+                <Flask className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>{isArabic ? 'المختبرات العلمية والرياضية المعتمدة' : 'Official Virtual Science Laboratories'}</span>
               </span>
-              <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
-                14 Specialized Labs & Studios
+              <span className={`px-2.5 py-1 rounded-md text-xs tabular-mono font-medium border ${
+                isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-[#0D1117] text-slate-300 border-[#30363D]'
+              }`}>
+                19 Specialized Labs & Studios
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
               {isArabic ? 'المجمع التفاعلي للمختبرات والمحاكاة العلمية' : 'Interactive Virtual Laboratories Suite'}
             </h1>
-            <p className="text-xs sm:text-sm text-slate-300 max-w-3xl mt-1.5 leading-relaxed">
+            <p className={`text-xs sm:text-sm max-w-3xl mt-1.5 leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isArabic
                 ? 'بيئة محاكاة عملية تفاعلية تجمع مختبرات الرياضيات، الفيزياء، الكيمياء، والأحياء، مجهزة بأطلس مجهري عالي الدقة ونماذج تجريبية ثلاثية الأبعاد مطابقة لمعايير الثانوية العامة والبكالوريا.'
                 : 'A comprehensive interactive experimental environment hosting specialized Math, Physics, Chemistry, and Biology laboratories equipped with high-resolution microscopy and 3D quantitative simulations.'}
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 flex-wrap">
+          <div className="flex items-center gap-2.5 shrink-0 flex-wrap">
             <button
               onClick={() => {
                 const contextualExp = getContextualReportExpId();
                 setReportExpId(contextualExp);
                 setIsReportModalOpen(true);
               }}
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs shadow-lg shadow-emerald-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-emerald-400/30"
+              className="px-3.5 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-semibold text-xs border border-emerald-600/40 shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
             >
-              <Printer className="w-4 h-4 text-emerald-200" />
+              <Printer className="w-4 h-4 text-emerald-100" />
               <span>{isArabic ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
             </button>
 
             <button
               onClick={() => setIsGuidedModalOpen(true)}
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700 hover:from-indigo-500 hover:to-blue-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-indigo-400/30"
+              className="px-3.5 py-2 rounded-lg bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-semibold text-xs border border-blue-600/40 shadow-xs flex items-center gap-2 transition-colors cursor-pointer"
             >
-              <FileSpreadsheet className="w-4 h-4 text-cyan-300" />
+              <FileSpreadsheet className="w-4 h-4 text-blue-100" />
               <span>{isArabic ? 'دليل التجارب الموجهة' : 'Guided Experiments'}</span>
             </button>
 
             <button
               type="button"
               onClick={toggleHubFullscreen}
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-700 hover:from-violet-500 hover:to-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-purple-400/30"
+              className={`px-3.5 py-2 rounded-lg font-semibold text-xs border shadow-xs flex items-center gap-2 transition-colors cursor-pointer ${
+                isLight 
+                  ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300' 
+                  : 'bg-[#21262D] hover:bg-[#30363D] text-slate-100 border-[#30363D]'
+              }`}
               title={isArabic ? 'بيئة العمل المجمعة للشاشات الكاملة' : 'Master Fullscreen Workstation'}
             >
-              <Maximize2 className="w-4 h-4 text-amber-300" />
+              <Maximize2 className="w-4 h-4 text-amber-500" />
               <span>{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>
             </button>
 
-            <div className="text-right rtl:text-left hidden sm:block border-l rtl:border-r border-slate-700/60 pl-3 rtl:pr-3">
-              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+            <div className={`text-right rtl:text-left hidden sm:block border-l rtl:border-r pl-3 rtl:pr-3 ${isLight ? 'border-slate-200' : 'border-[#30363D]'}`}>
+              <p className={`text-[11px] font-semibold uppercase tracking-wider ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                 {isArabic ? 'المسار الحالي' : 'Active Track'}
               </p>
-              <p className="text-sm font-black text-cyan-400">
+              <p className={`text-sm font-bold ${isLight ? 'text-blue-700' : 'text-blue-400'}`}>
                 {currentCurriculum.id === 'thanaweya'
                   ? isArabic ? 'الثانوية العامة المصرية' : 'Thanaweya Amma'
                   : isArabic ? 'البكالوريا المصرية' : 'New EG-Baccalaureate'}
@@ -657,8 +683,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* 6 Laboratory Selector Navigation Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      {/* Laboratory Selector Navigation Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         {LABS.map((lab) => {
           const isSelected = activeLab === lab.id;
           const Icon = lab.icon;
@@ -667,37 +693,43 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <button
               key={lab.id}
               onClick={() => setActiveLab(lab.id)}
-              className={`p-4 rounded-2xl border text-left rtl:text-right transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden active:scale-98 ${
+              className={`p-3.5 rounded-xl border text-left rtl:text-right transition-colors duration-150 cursor-pointer flex flex-col justify-between group relative ${
                 isSelected
                   ? isContrast
-                    ? 'bg-black border-2 border-yellow-400 text-yellow-300 shadow-lg shadow-yellow-500/20'
-                    : `bg-gradient-to-br ${lab.gradient} text-white shadow-xl scale-[1.02] border-white/20`
+                    ? 'bg-black border-2 border-yellow-400 text-yellow-300'
+                    : isLight
+                    ? 'bg-white border-2 border-blue-600 text-slate-900 shadow-xs ring-1 ring-blue-600/20'
+                    : 'bg-[#161B22] border-2 border-blue-500 text-white shadow-xs ring-1 ring-blue-500/20'
                   : isContrast
                   ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
                   : isLight
-                  ? 'bg-white border-slate-200 text-slate-800 hover:border-indigo-300 hover:shadow-md'
-                  : 'bg-slate-900/80 border-slate-800 text-slate-200 hover:border-slate-700 hover:bg-slate-800/90 shadow-sm'
+                  ? 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50/80'
+                  : 'bg-[#0D1117] border border-[#30363D] text-slate-300 hover:border-slate-600 hover:bg-[#161B22]'
               }`}
             >
-              <div className="flex items-center justify-between w-full mb-2.5">
+              <div className="flex items-center justify-between w-full mb-2">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center border shadow-xs transition-transform group-hover:scale-110 ${
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
                     isSelected
-                      ? 'bg-white/20 border-white/30 text-white'
+                      ? isLight
+                        ? 'bg-blue-50 border-blue-200 text-blue-700'
+                        : 'bg-blue-950/60 border-blue-800 text-blue-300'
                       : isLight
-                      ? 'bg-slate-100 border-slate-200 text-slate-700'
-                      : 'bg-slate-800 border-slate-700 text-slate-200'
+                      ? 'bg-slate-100 border-slate-200 text-slate-600 group-hover:text-slate-900'
+                      : 'bg-[#21262D] border-[#30363D] text-slate-400 group-hover:text-slate-200'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                 </div>
                 <span
-                  className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-md ${
+                  className={`text-[10px] tabular-mono font-medium px-1.5 py-0.5 rounded border ${
                     isSelected
-                      ? 'bg-black/25 text-white backdrop-blur-xs'
+                      ? isLight
+                        ? 'bg-blue-100/70 border-blue-200 text-blue-800'
+                        : 'bg-blue-950 border-blue-800 text-blue-300'
                       : isLight
-                      ? 'bg-slate-100 text-slate-600'
-                      : 'bg-slate-800 text-slate-300'
+                      ? 'bg-slate-100 border-slate-200 text-slate-600'
+                      : 'bg-[#161B22] border-[#30363D] text-slate-400'
                   }`}
                 >
                   {lab.badge}
@@ -705,21 +737,19 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
 
               <div>
-                <h3 className="text-base font-black tracking-tight">
+                <h3 className="text-xs sm:text-sm font-bold tracking-tight line-clamp-1">
                   {isArabic ? lab.titleAr : lab.titleEn}
                 </h3>
                 <p
                   className={`text-[11px] mt-0.5 line-clamp-1 ${
-                    isSelected ? 'text-white/85 font-medium' : isLight ? 'text-slate-500' : 'text-slate-400'
+                    isSelected
+                      ? isLight ? 'text-blue-700 font-medium' : 'text-blue-300 font-medium'
+                      : isLight ? 'text-slate-500' : 'text-slate-400'
                   }`}
                 >
                   {isArabic ? lab.subtitleAr : lab.subtitleEn}
                 </p>
               </div>
-
-              {isSelected && (
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/60 animate-pulse" />
-              )}
             </button>
           );
         })}
@@ -958,21 +988,23 @@ export const VirtualLabsHub: React.FC<Props> = ({
         {activeLab === 'languages' && (
           <div className="space-y-4">
             {/* Languages Sub-Studio Selector */}
-            <div className="p-3 rounded-2xl bg-slate-900/90 dark:bg-slate-950/90 border border-slate-800 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <span className="text-xs font-bold text-slate-400 shrink-0 flex items-center gap-1.5 pl-1">
-                <Headphones className="w-4 h-4 text-violet-400" />
+            <div className={`p-3 rounded-xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${
+              isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-[#161B22] border-[#30363D] shadow-xs'
+            }`}>
+              <span className={`text-xs font-semibold shrink-0 flex items-center gap-1.5 pl-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                <Headphones className="w-4 h-4 text-blue-500" />
                 <span>{isArabic ? 'المحطة الصوتية واللغوية المتخصصة:' : 'Language & Audio Station:'}</span>
               </span>
 
               <div className="flex items-center gap-2 flex-wrap">
                 {[
-                  { id: 'english', labelAr: '🇬🇧 صوتيات واستماع الإنجليزية', labelEn: '🇬🇧 English Audio & Phonetics', color: 'from-blue-600 to-indigo-600' },
-                  { id: 'french', labelAr: '🇫🇷 محطة الاستماع الفرنسية', labelEn: '🇫🇷 French Audio Station', color: 'from-cyan-600 to-blue-600' },
-                  { id: 'german', labelAr: '🇩🇪 صوتيات وقواعد واستماع الألمانية', labelEn: '🇩🇪 German Audio & Grammar', color: 'from-amber-600 to-yellow-600' },
-                  { id: 'italian', labelAr: '🇮🇹 صوتيات وقواعد واستماع الإيطالية', labelEn: '🇮🇹 Italian Audio & Grammar', color: 'from-emerald-600 via-stone-500 to-red-600' },
-                  { id: 'spanish', labelAr: '🇪🇸 صوتيات وقواعد واستماع الإسبانية', labelEn: '🇪🇸 Spanish Audio & Grammar', color: 'from-red-600 via-amber-500 to-yellow-500' },
-                  { id: 'chinese', labelAr: '🇨🇳 صوتيات ونغمات وقواعد الصينية', labelEn: '🇨🇳 Chinese Audio & Characters', color: 'from-red-600 via-rose-600 to-amber-500' },
-                  { id: 'arabic', labelAr: '🇪🇬 استوديو النحو والبلاغة العربية', labelEn: '🇪🇬 Arabic Grammar & Rhetoric', color: 'from-emerald-600 to-teal-600' },
+                  { id: 'english', code: 'EN', labelAr: 'صوتيات واستماع الإنجليزية', labelEn: 'English Audio & Phonetics' },
+                  { id: 'french', code: 'FR', labelAr: 'محطة الاستماع الفرنسية', labelEn: 'French Audio Station' },
+                  { id: 'german', code: 'DE', labelAr: 'صوتيات وقواعد واستماع الألمانية', labelEn: 'German Audio & Grammar' },
+                  { id: 'italian', code: 'IT', labelAr: 'صوتيات وقواعد واستماع الإيطالية', labelEn: 'Italian Audio & Grammar' },
+                  { id: 'spanish', code: 'ES', labelAr: 'صوتيات وقواعد واستماع الإسبانية', labelEn: 'Spanish Audio & Grammar' },
+                  { id: 'chinese', code: 'ZH', labelAr: 'صوتيات ونغمات وقواعد الصينية', labelEn: 'Chinese Audio & Characters' },
+                  { id: 'arabic', code: 'AR', labelAr: 'استوديو النحو والبلاغة العربية', labelEn: 'Arabic Grammar & Rhetoric' },
                 ].map((station) => {
                   const isSelected = activeLangSubLab === station.id;
                   return (
@@ -980,15 +1012,16 @@ export const VirtualLabsHub: React.FC<Props> = ({
                       key={station.id}
                       type="button"
                       onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish' | 'chinese')}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer flex items-center gap-1.5 border ${
                         isSelected
-                          ? `bg-gradient-to-r ${station.color} text-white shadow-md shadow-indigo-600/30`
+                          ? 'bg-blue-600 border-blue-600 text-white shadow-xs'
                           : isLight
-                          ? 'bg-slate-200 text-slate-700 hover:bg-slate-300'
-                          : 'bg-slate-800/80 text-slate-300 hover:bg-slate-800 hover:text-white'
+                          ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-200'
+                          : 'bg-[#21262D] hover:bg-[#30363D] text-slate-300 border-[#30363D]'
                       }`}
                     >
-                      {isArabic ? station.labelAr : station.labelEn}
+                      <span className="text-[10px] tabular-mono px-1 py-0.2 rounded bg-black/20 font-bold">{station.code}</span>
+                      <span>{isArabic ? station.labelAr : station.labelEn}</span>
                     </button>
                   );
                 })}
@@ -1161,6 +1194,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Music Theory & Audio Studio */}
+        {activeLab === 'music' && (
+          <div className="space-y-4">
+            <MusicTheoryStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={isHubFullscreen}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -1169,7 +1213,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -1184,7 +1228,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -126,17 +126,17 @@ export const Navbar: React.FC<Props> = ({
   }, []);
 
   const navTabs = [
-    { id: 'overview', label: t.overviewTab, icon: '🗺️', descAr: 'خريطة المنهاج والوحدات', descEn: 'Curriculum map & units' },
-    { id: 'equivalency', label: t.equivalencyTab, icon: '⚖️', descAr: 'المعادلة بين الثانوية والبكالوريا', descEn: 'Track equivalency & alignment' },
-    { id: 'theory', label: t.theoryTab, icon: '📖', descAr: 'الشرح والملخصات والقوانين', descEn: 'Theory, notes & formulas' },
-    { id: 'solvedExamples', label: t.solvedExamplesTab, icon: '💡', descAr: 'المسائل المحلولة نموذجياً', descEn: 'Step-by-step solved models' },
-    { id: 'exerciseProblems', label: t.exerciseProblemsTab, icon: '📚', descAr: 'تمارين وتطبيقات تدريبية', descEn: 'Exercise practice sets' },
-    { id: 'databank', label: t.databankTab, icon: '🗄️', descAr: 'بنك ١١,٤٠٠ مسألة مصنفة', descEn: '11,400 Classified question bank' },
-    { id: 'worksheet', label: t.worksheetTab, icon: '✏️', descAr: 'أوراق عمل قابلة للطباعة', descEn: 'Printable student worksheets' },
-    { id: 'interactive', label: t.interactiveTab, icon: '🔬', descAr: 'مختبرات محاكاة 2D/3D', descEn: 'Interactive simulations & labs' },
-    { id: 'lessonPlan', label: t.lessonPlanTab, icon: '📋', descAr: 'دليل المعلم والتحضير الصفي', descEn: 'Teacher lesson plans & guides' },
-    { id: 'testGenerator', label: t.testGeneratorTab, icon: '📝', descAr: 'توليد امتحانات إلكترونية وPDF', descEn: 'Custom mock exam generator' },
-    { id: 'analytics', label: t.analyticsTab, icon: '📊', descAr: 'رادار تشخيص الجاهزية ونقاط القوة والضعف', descEn: 'Student readiness radar & chapter proficiency' },
+    { id: 'overview', label: t.overviewTab, Icon: Compass, descAr: 'خريطة المنهاج والوحدات', descEn: 'Curriculum map & units' },
+    { id: 'equivalency', label: t.equivalencyTab, Icon: Scale, descAr: 'المعادلة بين الثانوية والبكالوريا', descEn: 'Track equivalency & alignment' },
+    { id: 'theory', label: t.theoryTab, Icon: BookOpen, descAr: 'الشرح والملخصات والقوانين', descEn: 'Theory, notes & formulas' },
+    { id: 'solvedExamples', label: t.solvedExamplesTab, Icon: Lightbulb, descAr: 'المسائل المحلولة نموذجياً', descEn: 'Step-by-step solved models' },
+    { id: 'exerciseProblems', label: t.exerciseProblemsTab, Icon: BookmarkCheck, descAr: 'تمارين وتطبيقات تدريبية', descEn: 'Exercise practice sets' },
+    { id: 'databank', label: t.databankTab, Icon: Database, descAr: 'بنك الأسئلة والمسائل المصنفة', descEn: 'Classified question bank' },
+    { id: 'worksheet', label: t.worksheetTab, Icon: PenTool, descAr: 'أوراق عمل قابلة للطباعة', descEn: 'Printable student worksheets' },
+    { id: 'interactive', label: t.interactiveTab, Icon: FlaskConical, descAr: 'مختبرات محاكاة 2D/3D', descEn: 'Interactive simulations & labs' },
+    { id: 'lessonPlan', label: t.lessonPlanTab, Icon: ClipboardList, descAr: 'دليل المعلم والتحضير الصفي', descEn: 'Teacher lesson plans & guides' },
+    { id: 'testGenerator', label: t.testGeneratorTab, Icon: FileSpreadsheet, descAr: 'توليد امتحانات إلكترونية وPDF', descEn: 'Custom mock exam generator' },
+    { id: 'analytics', label: t.analyticsTab, Icon: BarChart3, descAr: 'رادار تشخيص الجاهزية ونقاط القوة والضعف', descEn: 'Student readiness radar & chapter proficiency' },
   ];
 
   const activeTabObj = navTabs.find((tab) => tab.id === activeTab) || navTabs[0];
@@ -897,16 +897,14 @@ export const Navbar: React.FC<Props> = ({
               </a>
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
                 <span className={`text-sm sm:text-base xl:text-lg font-black tracking-tight whitespace-nowrap ${
-                  isLight
-                    ? 'bg-gradient-to-r from-blue-700 via-indigo-700 to-teal-700 bg-clip-text text-transparent'
-                    : 'bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300 bg-clip-text text-transparent drop-shadow-sm'
+                  isLight ? 'text-slate-900' : 'text-white'
                 }`}>
-                  ClipSAT for Egypt
+                  ClipSAT EGBaccalaureate
                 </span>
-                <span className={`text-[9px] sm:text-[10px] font-black px-1.5 py-0.5 rounded-md border shrink-0 ${
+                <span className={`text-[9px] sm:text-[10px] font-mono font-bold px-1.5 py-0.5 rounded border shrink-0 ${
                   isLight
-                    ? 'bg-amber-100 text-amber-900 border-amber-300'
-                    : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                    ? 'bg-slate-100 text-slate-700 border-slate-300'
+                    : 'bg-slate-800 text-slate-300 border-slate-700'
                 }`}>
                   2026
                 </span>
@@ -968,12 +966,12 @@ export const Navbar: React.FC<Props> = ({
                 isHighContrast
                   ? 'bg-black border-2 border-yellow-400 text-yellow-300 hover:bg-zinc-950'
                   : isLight
-                  ? 'bg-white border-slate-300 text-slate-900 hover:border-indigo-400 hover:bg-slate-50'
-                  : 'bg-slate-900 border-slate-800 text-white hover:border-indigo-500'
+                  ? 'bg-white border-slate-300 text-slate-900 hover:border-slate-400 hover:bg-slate-50'
+                  : 'bg-slate-900 border-slate-800 text-white hover:border-slate-700'
               }`}
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="text-base shrink-0">{activeTabObj.icon}</span>
+                <activeTabObj.Icon className="w-4 h-4 shrink-0 text-slate-500" />
                 <div className="text-left rtl:text-right min-w-0">
                   <div className="flex items-center gap-1.5">
                     <span className="font-extrabold truncate">{activeTabObj.label}</span>
@@ -981,8 +979,8 @@ export const Navbar: React.FC<Props> = ({
                       isHighContrast
                         ? 'bg-yellow-400 text-black font-black'
                         : isLight
-                        ? 'bg-indigo-100 text-indigo-800'
-                        : 'bg-indigo-900/60 text-indigo-300'
+                        ? 'bg-slate-200 text-slate-800 font-bold'
+                        : 'bg-slate-800 text-slate-300 font-bold'
                     }`}>
                       {isArabic ? 'القسم النشط' : 'Active'}
                     </span>
@@ -1017,6 +1015,7 @@ export const Navbar: React.FC<Props> = ({
                 <div className="space-y-1">
                   {navTabs.map((tab) => {
                     const isSelected = tab.id === activeTab;
+                    const TabIcon = tab.Icon;
                     return (
                       <button
                         key={tab.id}
@@ -1030,15 +1029,15 @@ export const Navbar: React.FC<Props> = ({
                             ? isHighContrast
                               ? 'bg-yellow-950 text-white border border-yellow-400 font-black'
                               : isLight
-                              ? 'bg-indigo-50 text-indigo-950 border border-indigo-200 font-extrabold'
-                              : 'bg-indigo-950/60 text-white border border-indigo-800/60 font-extrabold'
+                              ? 'bg-slate-100 text-slate-950 border border-slate-300 font-extrabold'
+                              : 'bg-slate-800/80 text-white border border-slate-700 font-extrabold'
                             : isLight
                             ? 'hover:bg-slate-100 text-slate-700'
                             : 'hover:bg-slate-900 text-slate-300'
                         }`}
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="text-lg shrink-0">{tab.icon}</span>
+                          <TabIcon className="w-4 h-4 shrink-0 text-slate-500" />
                           <div className="min-w-0">
                             <p className="text-xs font-bold truncate">{tab.label}</p>
                             <p className="text-[10px] text-slate-400 truncate">
@@ -1046,7 +1045,7 @@ export const Navbar: React.FC<Props> = ({
                             </p>
                           </div>
                         </div>
-                        {isSelected && <Check className="w-4 h-4 text-indigo-500 shrink-0 ml-2 rtl:ml-0 rtl:mr-2" />}
+                        {isSelected && <Check className="w-4 h-4 text-emerald-500 shrink-0 ml-2 rtl:ml-0 rtl:mr-2" />}
                       </button>
                     );
                   })}
@@ -1063,25 +1062,27 @@ export const Navbar: React.FC<Props> = ({
           >
             {navTabs.map((tab) => {
               const isActive = activeTab === tab.id;
+              const TabIcon = tab.Icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => onTabChange(tab.id)}
-                  className={`px-2.5 xl:px-3 py-1.5 rounded-lg whitespace-nowrap transition-all shrink-0 active:scale-95 text-[11px] xl:text-xs ${
+                  className={`px-2.5 xl:px-3 py-1.5 rounded-lg whitespace-nowrap transition-all shrink-0 active:scale-95 text-[11px] xl:text-xs flex items-center gap-1.5 ${
                     isActive
                       ? isHighContrast
-                        ? 'bg-yellow-400 text-black font-black shadow-sm border border-yellow-300'
+                        ? 'bg-yellow-400 text-black font-black shadow-xs border border-yellow-300'
                         : isLight
-                        ? 'bg-indigo-600 text-white font-extrabold shadow-sm'
-                        : 'bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 font-extrabold'
+                        ? 'bg-slate-900 text-white font-extrabold shadow-xs'
+                        : 'bg-slate-800 text-white border border-slate-700 font-extrabold'
                       : isHighContrast
                         ? 'text-white hover:text-yellow-300 hover:bg-zinc-900'
                         : isLight
-                        ? 'text-slate-600 hover:text-indigo-700 hover:bg-slate-100'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                        : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                   }`}
                 >
-                  {tab.icon} {tab.label}
+                  <TabIcon className="w-3.5 h-3.5 shrink-0 opacity-80" />
+                  <span>{tab.label}</span>
                 </button>
               );
             })}

@@ -39,6 +39,7 @@ import { IslamicStudiesStudio } from './labs/IslamicStudiesStudio';
 import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
 import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
 import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
+import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
@@ -368,6 +369,18 @@ export const LessonView: React.FC<Props> = ({
         case 'islamic_geometry_generator':
           return (
             <FineArtsArchitectureStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
+        case 'music_theory_studio':
+        case 'solfege_ear_training_lab':
+        case 'maqamat_oriental_lab':
+        case 'rhythm_iqaat_sandbox':
+        case 'western_harmony_counterpoint_lab':
+          return (
+            <MusicTheoryStudio
               lang={lang}
               theme={theme}
               isFullscreen={false}
@@ -708,6 +721,18 @@ export const LessonView: React.FC<Props> = ({
         case 'islamic_geometry_generator':
           return (
             <FineArtsArchitectureStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'music_theory_studio':
+        case 'solfege_ear_training_lab':
+        case 'maqamat_oriental_lab':
+        case 'rhythm_iqaat_sandbox':
+        case 'western_harmony_counterpoint_lab':
+          return (
+            <MusicTheoryStudio
               lang={lang}
               theme={theme}
               isFullscreen={true}

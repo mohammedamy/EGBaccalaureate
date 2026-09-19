@@ -31,6 +31,7 @@ export type BranchId =
   | 'thanaweya_business'
   | 'thanaweya_fine_arts'
   | 'thanaweya_religion'
+  | 'thanaweya_music'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -58,7 +59,8 @@ export type BranchId =
   | 'egbac_christian'
   | 'egbac_business'
   | 'egbac_fine_arts'
-  | 'egbac_religion';
+  | 'egbac_religion'
+  | 'egbac_music';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -317,7 +319,12 @@ export type InteractiveWidgetType =
   | 'chinese_pinyin_tones_lab'
   | 'chinese_hanzi_radicals_lab'
   | 'chinese_grammar_patterns_lab'
-  | 'chinese_listening_comprehension_lab';
+  | 'chinese_listening_comprehension_lab'
+  | 'music_theory_studio'
+  | 'solfege_ear_training_lab'
+  | 'maqamat_oriental_lab'
+  | 'rhythm_iqaat_sandbox'
+  | 'western_harmony_counterpoint_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

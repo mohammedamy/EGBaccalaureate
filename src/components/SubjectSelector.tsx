@@ -29,6 +29,7 @@ import {
   Scale,
   Briefcase,
   Palette,
+  Music,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -131,6 +132,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <Briefcase className={className} />;
       case 'Palette':
         return <Palette className={className} />;
+      case 'Music':
+        return <Music className={className} />;
       default:
         return <Layers className={className} />;
     }

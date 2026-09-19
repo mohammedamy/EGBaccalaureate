@@ -23,7 +23,8 @@ export type SubjectCategory =
   | 'islamic_studies'
   | 'christian_studies'
   | 'business_entrepreneurship'
-  | 'fine_arts_architecture';
+  | 'fine_arts_architecture'
+  | 'music_theory';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -54,7 +55,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -84,6 +85,28 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('تراث معماري')
   ) {
     return 'fine_arts_architecture';
+  }
+
+  if (
+    text.includes('موسيق') ||
+    text.includes('صولفيج') ||
+    text.includes('نغم') ||
+    text.includes('إيقاع') ||
+    text.includes('ايقاع') ||
+    text.includes('هارموني') ||
+    text.includes('بوليفون') ||
+    text.includes('مقامات') ||
+    text.includes('مقام') ||
+    text.includes('سيكاه') ||
+    text.includes('بياتي') ||
+    text.includes('راست') ||
+    text.includes('music') ||
+    text.includes('solfege') ||
+    text.includes('maqam') ||
+    text.includes('rhythm') ||
+    text.includes('counterpoint')
+  ) {
+    return 'music_theory';
   }
 
   if (
@@ -635,9 +658,21 @@ export function getMasteryRadarData(
     { key: 'fine_arts_architecture', ar: 'الفنون والتصميم المعماري', en: 'Fine Arts & Architecture', color: '#E11D48' },
   ];
 
+  const all19Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all18Dimensions,
+    { key: 'music_theory', ar: 'التربية الموسيقية والنظريات', en: 'Music Theory & Musicology', color: '#D97706' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all19'
+      ? all19Dimensions
       : mode === 'all18'
       ? all18Dimensions
       : mode === 'all17'

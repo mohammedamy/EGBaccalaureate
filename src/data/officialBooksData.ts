@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -3355,6 +3355,102 @@ export const officialBooksList: OfficialBook[] = [
       'التصميم البارامتري التوليدي، الأنماط الخوارزمية، والتقييم البصري المعاصر',
     ],
   },
+  {
+    id: 'th-music-g12',
+    curriculum: 'thanaweya',
+    category: 'music_theory',
+    branchId: 'thanaweya_music',
+    subjectId: 'music_theory',
+    code: 'TH-MUS-G12',
+    titleEn: 'Egyptian Ministry Music Theory & Arab/Western Musicology',
+    titleAr: 'التربية الموسيقية والنظريات الموسيقية للثانوية العامة',
+    subtitleEn: 'Official Ministry Standardized Textbook - Grade 12',
+    subtitleAr: 'كتاب الوزارة المعتمد للثانوية العامة - قسم النظريات والتراث الموسيقي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (Thanaweya Amma)',
+    gradeAr: 'الصف الثالث الثانوي (الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '22.8 KB',
+    compendiumTitleEn: 'Official Music Theory, Maqamat & Staff Notation Compendium',
+    compendiumTitleAr: 'كتيب مفاهيم النظريات الموسيقية والمقامات والتدوين الموسيقي',
+    fullTextbookPages: 224,
+    fullTextbookSize: '20.6 MB',
+    filename: 'thanaweya-music-theory-g12.pdf',
+    downloadUrl: './books/thanaweya-music-theory-g12.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-amber-700 via-purple-800 to-indigo-950',
+    accentColor: '#f59e0b',
+    chapters: [
+      { id: 'th-mus-c1', titleEn: 'Chapter 1: Acoustics, Sound Physics & Staff Notation', titleAr: 'الفصل الأول: فيزياء الصوت والتدوين على المدرج الموسيقي', pageRange: 'pp. 1–56', topicsCount: 4 },
+      { id: 'th-mus-c2', titleEn: 'Chapter 2: Classical Harmony, Triads & Cadences', titleAr: 'الفصل الثاني: الهارموني الكلاسيكي والتآلفات والقفلات', pageRange: 'pp. 57–112', topicsCount: 4 },
+      { id: 'th-mus-c3', titleEn: 'Chapter 3: Arab Music Theory & The 8 Maqamat', titleAr: 'الفصل الثالث: النظريات الموسيقية الشرقية والمقامات الثمانية', pageRange: 'pp. 113–168', topicsCount: 4 },
+      { id: 'th-mus-c4', titleEn: 'Chapter 4: Arab Rhythms, Organology & Renaissance Masters', titleAr: 'الفصل الرابع: الإيقاعات وتصنيف الآلات ورواد الموسيقى المصرية', pageRange: 'pp. 169–224', topicsCount: 4 },
+    ],
+    descriptionEn: 'Official Egyptian Ministry music curriculum covering acoustic wave fundamentals, staff reading in G and F clefs, classical harmony and cadences, 24-quarter-tone Maqam structures, Arab Iqa\'at metrics, and historical pioneers.',
+    descriptionAr: 'كتاب التربية الموسيقية والنظريات الموسيقية المعتمد من وزارة التربية والتعليم، يغطي الخصائص الفيزيائية للموجات الصوتية، التدوين على المدرج الخماسي، الهارموني والقفلات، سلم الربع تون والمقامات، الإيقاعات وتاريخ الموسيقى المصرية.',
+    highlightsEn: [
+      'Acoustic physics of sound waves, frequency, wavelength, and overtone series',
+      'Western staff notation fluency in Treble (G) and Bass (F) clefs with accidentals',
+      'Classical voice leading, triad construction, dominant seventh V7, and harmonic cadences',
+      'The 24 quarter-tone equal temperament system and analysis of the 8 principal Maqamat',
+    ],
+    highlightsAr: [
+      'الفيزياء الصوتية للموجات والتردد والطول الموجي والسلسلة التوافقية',
+      'إتقان قراءة التدوين الموسيقي الغربي بمفتاحي صول وفا وعلامات التحويل',
+      'التصريف الهارموني الكلاسيكي، بناء التآلفات، تآلف السابعة، والقفلات الموسيقية',
+      'نظام الـ ٢٤ ربع تون المتساوي وتحليل عائلات المقامات الشرقية الثمانية الأساسية',
+    ],
+  },
+  {
+    id: 'egbac-music-g12',
+    curriculum: 'egbac',
+    category: 'music_theory',
+    branchId: 'egbac_music',
+    subjectId: 'music_theory',
+    code: 'EGBAC-MUS-G12',
+    titleEn: 'Egyptian Baccalaureate Advanced Musicology & Psychoacoustics',
+    titleAr: 'الميوزيكولوجيا المتقدمة والسايكو-أكوستيك للبكالوريا المصرية',
+    subtitleEn: 'Official Advanced Secondary Curriculum - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (Egyptian Baccalaureate)',
+    gradeAr: 'الصف الثالث الثانوي (البكالوريا المصرية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '24.6 KB',
+    compendiumTitleEn: 'Official Advanced Acoustics & Ethnomusicology Compendium',
+    compendiumTitleAr: 'كتيب الصوتيات المتقدمة والكونتربوينت والميوزيكولوجيا المقارنة',
+    fullTextbookPages: 256,
+    fullTextbookSize: '23.5 MB',
+    filename: 'egbac-music-theory-g12.pdf',
+    downloadUrl: './books/egbac-music-theory-g12.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-purple-950 via-indigo-900 to-amber-950',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'egbac-mus-c1', titleEn: 'Module 1: Advanced Acoustics & Psychoacoustics', titleAr: 'الوحدة الأولى: الفيزياء الصوتية المتقدمة والسايكو-أكوستيك', pageRange: 'pp. 1–64', topicsCount: 4 },
+      { id: 'egbac-mus-c2', titleEn: 'Module 2: Polyphony, Counterpoint & Sonata Architecture', titleAr: 'الوحدة الثانية: البوليفونية والكونتربوينت وقالب السوناتا', pageRange: 'pp. 65–128', topicsCount: 4 },
+      { id: 'egbac-mus-c3', titleEn: 'Module 3: Advanced Arab Microtonality & Modal Science', titleAr: 'الوحدة الثالثة: المايكروتوناليت المتقدمة وعلم المقامات', pageRange: 'pp. 129–192', topicsCount: 4 },
+      { id: 'egbac-mus-c4', titleEn: 'Module 4: Comparative Ethnomusicology & Symphonic Heritage', titleAr: 'الوحدة الرابعة: علم الموسيقى المقارن والتراث السيمفوني', pageRange: 'pp. 193–256', topicsCount: 4 },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate music curriculum exploring psychoacoustic perception (critical bands & Fletcher-Munson), Fux species counterpoint, chromatic harmony, comparative microtonality (Urmawi vs. 24-EDO), and Egyptian symphonic nationalism.',
+    descriptionAr: 'منهج النظريات الموسيقية المتقدمة للبكالوريا المصرية، يغطي السمع النفسي والحزم الحرجة، قواعد الكونتربوينت الصارم، التآلفات الكروماتيكية، المقارنة التاريخية للسلالم الميكروتونية، ورواد المدرسة السيمفونية القومية المصرية.',
+    highlightsEn: [
+      'Psychoacoustic critical bands, Fletcher-Munson curves, and Fourier wave decomposition',
+      'Fux species counterpoint, voice independence rules, and tonal polarity in sonata form',
+      'Comparative microtonality: Safi al-Din al-Urmawi 17-tone scale versus modern 24-EDO',
+      'Ethnomusicological field preservation of Nubian, Bedouin, and Coptic oral heritage',
+    ],
+    highlightsAr: [
+      'الحزم السمعية الحرجة، منحنيات فليتشر-مونسون، والتحليل التوافقي الموجي لفورييه',
+      'قواعد الكونتربوينت الصارم لفوكس، حظر التوازيات، والصراع النغمي في قالب السوناتا',
+      'الميوزيكولوجيا المقارنة: سلم الـ ١٧ نغمة للأرموي مقابل نظام الـ ٢٤ ربع تون الحديث',
+      'التوثيق الإثنوموسيقي الميداني لصون التراث النوبي والبدوي وألحان الكنيسة القبطية',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -3412,6 +3508,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_business' && (b.branchId === 'egbac_business' || b.id === 'egbac-business-g12')) return true;
     if (branchId === 'thanaweya_fine_arts' && (b.branchId === 'thanaweya_fine_arts' || b.id === 'th-arts-g12')) return true;
     if (branchId === 'egbac_fine_arts' && (b.branchId === 'egbac_fine_arts' || b.id === 'egbac-arts-g12')) return true;
+    if (branchId === 'thanaweya_music' && (b.branchId === 'thanaweya_music' || b.id === 'th-music-g12')) return true;
+    if (branchId === 'egbac_music' && (b.branchId === 'egbac_music' || b.id === 'egbac-music-g12')) return true;
     return false;
   });
 }
@@ -3421,7 +3519,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

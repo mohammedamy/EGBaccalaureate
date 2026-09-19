@@ -34,6 +34,7 @@ import {
   Scale,
   Briefcase,
   Palette,
+  Music,
   ChevronDown,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -141,6 +142,8 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <Briefcase className="w-5 h-5" />;
       case 'Palette':
         return <Palette className="w-5 h-5" />;
+      case 'Music':
+        return <Music className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }
@@ -171,98 +174,100 @@ export const CurriculumOverview: React.FC<Props> = ({
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      {/* Hero Banner */}
-      <div className={`hero-banner relative overflow-hidden rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-2xl transition-all ${
+      {/* Editorial Scientific Overview Dispatch */}
+      <div className={`hero-banner relative overflow-hidden rounded-2xl border transition-all ${
         isContrast
-          ? 'bg-black border-2 border-yellow-400 text-yellow-300'
+          ? 'bg-black border-2 border-yellow-400 text-yellow-300 p-6'
           : isLight
-          ? 'bg-gradient-to-r from-blue-700 via-indigo-600 to-teal-600 border border-indigo-400/40 text-white shadow-xl shadow-indigo-100/50'
-          : 'bg-gradient-to-r from-indigo-950 via-slate-900 to-slate-950 border border-indigo-900/50 text-white'
+          ? 'bg-white border-slate-200 text-slate-900 p-6 sm:p-8 shadow-xs'
+          : 'bg-[#161B22] border-[#30363D] text-[#F0F6FC] p-6 sm:p-8 shadow-md'
       }`}>
-        <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col-reverse md:flex-row md:items-center justify-between gap-5 sm:gap-6">
-          <div className="space-y-3 sm:space-y-4 max-w-2xl text-center sm:text-left rtl:sm:text-right">
-            <div className={`hero-badge inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold text-center mx-auto sm:mx-0 border ${
+        <div className="relative z-10 flex flex-col-reverse md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-3.5 max-w-2xl text-center sm:text-left rtl:sm:text-right">
+            <div className={`hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold text-center mx-auto sm:mx-0 border ${
               isContrast
                 ? 'bg-black text-cyan-300 border-cyan-400'
                 : isLight
-                ? 'bg-white/20 text-white border-white/30 backdrop-blur-xs'
-                : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-400'
+                ? 'bg-slate-50 text-slate-700 border-slate-200'
+                : 'bg-slate-900 text-slate-300 border-slate-700'
             }`}>
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <BookOpen className="w-3.5 h-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
               <span>
                 {isArabic
-                  ? `منصة ClipSAT: جميع الفصول الـ ${totalChapters} مجهزة بالكامل (${totalProblems.toLocaleString()} مسألة وسؤال) بالمعادلات والمختبرات الافتراضية وخطط المعلمين`
-                  : `ClipSAT Platform: All ${totalChapters} Chapters Fully Equipped (${totalProblems.toLocaleString()} Problems) with LaTeX, Virtual Labs & Teacher Plans`}
+                  ? `منظومة المناهج الرسمية: ${totalChapters} فصلاً معتمداً (${totalProblems.toLocaleString()} مسألة وتمرين وسؤال)`
+                  : `Official Curriculum Repository: ${totalChapters} Accredited Chapters (${totalProblems.toLocaleString()} Problems & Items)`}
               </span>
             </div>
 
-            <h2 className="hero-title text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
+            <h2 className="hero-title text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
               {isArabic ? curriculum.nameAr : curriculum.nameEn}
             </h2>
-            <p className="hero-subtitle text-xs sm:text-sm md:text-base text-indigo-100 font-medium">
+            <p className={`hero-subtitle text-xs sm:text-sm md:text-base font-normal leading-relaxed ${
+              isLight ? 'text-slate-600' : 'text-slate-300'
+            }`}>
               {isArabic ? curriculum.subtitleAr : curriculum.subtitleEn}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-2 flex-wrap">
               <button
                 onClick={() => onNavigateTab('theory')}
-                className="bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/30 transition-all cursor-pointer"
+                className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
               >
                 <BookOpen className="w-4 h-4" />
-                <span>{isArabic ? 'استكشف المنهج التفاعلي' : 'Explore Interactive Curriculum'}</span>
+                <span>{isArabic ? 'استكشف المنهج والشروحات' : 'Explore Theory & Notes'}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('testGenerator')}
-                className={`hero-btn-secondary font-bold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   isContrast
                     ? 'bg-black text-white border-white hover:bg-zinc-900'
                     : isLight
-                    ? 'bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-md'
+                    ? 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-300'
                     : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                 }`}
               >
-                <FileSpreadsheet className={`w-4 h-4 ${isLight ? 'text-white' : 'text-indigo-400'}`} />
+                <FileSpreadsheet className="w-4 h-4 text-slate-500" />
                 <span>{t.generateTest}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('equivalency')}
-                className={`hero-btn-secondary font-bold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   isContrast
                     ? 'bg-black text-white border-white hover:bg-zinc-900'
                     : isLight
-                    ? 'bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-md'
-                    : 'bg-slate-800/80 hover:bg-slate-700 text-slate-200 border-slate-700'
+                    ? 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-300'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                 }`}
               >
-                <span>{isArabic ? '⚖️ مقارنة المسارات' : '⚖️ Track Bridge'}</span>
+                <Scale className="w-4 h-4 text-slate-500" />
+                <span>{isArabic ? 'مقارنة المسارات' : 'Track Bridge'}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('interactive')}
-                className={`hero-btn-labs font-bold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   isContrast
                     ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-zinc-900'
                     : isLight
-                    ? 'bg-purple-600/90 hover:bg-purple-600 text-white border-purple-400/40 shadow-purple-900/20'
-                    : 'bg-purple-900/60 hover:bg-purple-800/80 text-purple-200 border-purple-700/60'
+                    ? 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-300'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                 }`}
               >
-                <span>{isArabic ? '🔬 المختبرات الافتراضية الأربعة' : '🔬 4 Virtual Labs'}</span>
+                <FlaskConical className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <span>{isArabic ? 'المختبرات العلمية' : 'Virtual Labs'}</span>
               </button>
               {onOpenOfficialBooks && (
                 <button
                   onClick={onOpenOfficialBooks}
-                  className={`font-bold py-2.5 sm:py-3 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                  className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     isContrast
                       ? 'bg-black text-amber-300 border-amber-400 hover:bg-zinc-900'
                       : isLight
-                      ? 'bg-emerald-600/90 hover:bg-emerald-600 text-white border-emerald-400/40 shadow-emerald-900/20'
-                      : 'bg-emerald-900/60 hover:bg-emerald-800/80 text-emerald-200 border-emerald-700/60'
+                      ? 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-slate-300'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                   }`}
                 >
-                  <Download className="w-4 h-4 text-emerald-300" />
-                  <span>{isArabic ? '📚 كتب الوزارة PDF' : '📚 Ministry Books PDF'}</span>
+                  <Download className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <span>{isArabic ? 'كتب الوزارة PDF' : 'Ministry Books PDF'}</span>
                 </button>
               )}
             </div>
@@ -272,59 +277,59 @@ export const CurriculumOverview: React.FC<Props> = ({
             <img
               src={clipsatLogo}
               alt="ClipSAT Logo"
-              className="h-20 sm:h-28 md:h-32 w-auto object-contain drop-shadow-[0_10px_25px_rgba(34,211,238,0.35)] hover:scale-105 transition-transform"
+              className="h-16 sm:h-20 md:h-24 w-auto object-contain opacity-95 transition-opacity"
             />
           </div>
         </div>
 
-        {/* Global Stats Matrix Ribbon */}
+        {/* Global Stats Tabular Ribbon */}
         <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t text-center sm:text-left rtl:sm:text-right ${
-          isContrast ? 'border-yellow-400/50' : isLight ? 'border-white/30' : 'border-slate-800/80'
+          isContrast ? 'border-yellow-400/50' : isLight ? 'border-slate-200' : 'border-slate-800'
         }`}>
           <div className={`p-3 rounded-xl border ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/50 border-slate-800/60'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
-            <span className={`text-[10px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'إجمالي الفصول المعتمدة:' : 'Total Chapters:'}
             </span>
-            <span className={`text-base font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>
+            <span className="text-base font-black font-mono">
               {isArabic ? toHindiDigits(totalChapters) : totalChapters}{' '}
-              <span className={`text-[11px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'فصلاً' : 'Ch'}</span>
+              <span className="text-[11px] text-slate-500 font-sans font-normal">{isArabic ? 'فصلاً' : 'Ch'}</span>
             </span>
           </div>
 
           <div className={`p-3 rounded-xl border ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/50 border-slate-800/60'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
-            <span className={`text-[10px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المجهزة بالحلول:' : 'Equipped Problems:'}
             </span>
-            <span className={`text-base font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>
+            <span className="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">
               {isArabic ? toHindiDigits(totalProblems) : totalProblems.toLocaleString()}{' '}
-              <span className={`text-[11px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة' : 'Items'}</span>
+              <span className="text-[11px] text-slate-500 font-sans font-normal">{isArabic ? 'مسألة' : 'Items'}</span>
             </span>
           </div>
 
           <div className={`p-3 rounded-xl border ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/50 border-slate-800/60'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
-            <span className={`text-[10px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المجابة محلياً:' : 'Practiced Problems:'}
             </span>
-            <span className={`text-base font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>
+            <span className="text-base font-black font-mono text-blue-600 dark:text-blue-400">
               {isArabic ? toHindiDigits(userStats.answeredCount) : userStats.answeredCount}{' '}
-              <span className={`text-[11px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة' : 'Done'}</span>
+              <span className="text-[11px] text-slate-500 font-sans font-normal">{isArabic ? 'مسألة' : 'Done'}</span>
             </span>
           </div>
 
           <div className={`p-3 rounded-xl border ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/50 border-slate-800/60'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
-            <span className={`text-[10px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المميزة بنجمة:' : 'Starred Bookmarks:'}
             </span>
-            <span className={`text-base font-black flex items-center justify-center sm:justify-start gap-1 ${isLight ? 'text-amber-200' : 'text-amber-400'}`}>
-              <Star className={`w-3.5 h-3.5 fill-current ${isLight ? 'text-amber-200' : 'text-amber-400'}`} />
+            <span className="text-base font-black font-mono flex items-center justify-center sm:justify-start gap-1 text-amber-600 dark:text-amber-400">
+              <Star className="w-3.5 h-3.5 fill-current" />
               <span>{isArabic ? toHindiDigits(userStats.bookmarkedCount) : userStats.bookmarkedCount}</span>
             </span>
           </div>

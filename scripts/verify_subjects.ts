@@ -15,11 +15,12 @@ function assert(condition: boolean, message: string) {
 }
 
 // 1. Verify Subjects Configured
-assert(SUBJECTS.length >= 24, `Expected at least 24 subjects, found ${SUBJECTS.length}`);
+assert(SUBJECTS.length >= 25, `Expected at least 25 subjects, found ${SUBJECTS.length}`);
 assert(SUBJECTS[0].id === 'islamic_studies', `Expected first subject to be 'islamic_studies', found '${SUBJECTS[0].id}'`);
 assert(SUBJECTS[1].id === 'christian_studies', `Expected second subject to be 'christian_studies', found '${SUBJECTS[1].id}'`);
 assert(SUBJECTS.some((s) => s.id === 'business_entrepreneurship'), `Subject 'business_entrepreneurship' is registered`);
 assert(SUBJECTS.some((s) => s.id === 'fine_arts_architecture'), `Subject 'fine_arts_architecture' is registered`);
+assert(SUBJECTS.some((s) => s.id === 'music_theory'), `Subject 'music_theory' is registered`);
 assert(SUBJECTS.some((s) => s.id === 'chinese'), `Subject 'chinese' is registered`);
 
 const subjectIds = SUBJECTS.map((s) => s.id);
@@ -47,6 +48,7 @@ assert(subjectIds.includes('earth_space'), 'Earth & Planetary Space Sciences sub
 assert(subjectIds.includes('civics'), 'National Civics & Constitution subject exists');
 assert(subjectIds.includes('business_entrepreneurship'), 'Business Administration & Entrepreneurship subject exists');
 assert(subjectIds.includes('fine_arts_architecture'), 'Fine Arts, Architectural Design & Visual Culture subject exists');
+assert(subjectIds.includes('music_theory'), 'Music Theory & Arab/Western Musicology subject exists');
 
 // 2. Verify Metadata on all subjects
 for (const sub of SUBJECTS) {
@@ -242,9 +244,13 @@ const chineseStats = getSubjectStats(thanaweyaCurriculum, 'chinese');
 assert(chineseStats.totalChapters === 4, `Chinese thanaweya chapters: ${chineseStats.totalChapters} (expected 4)`);
 assert(chineseStats.totalProblems === 800, `Chinese thanaweya problems: ${chineseStats.totalProblems} (expected 800)`);
 
+const musicStats = getSubjectStats(thanaweyaCurriculum, 'music_theory');
+assert(musicStats.totalChapters === 4, `Music Theory thanaweya chapters: ${musicStats.totalChapters} (expected 4)`);
+assert(musicStats.totalProblems === 800, `Music Theory thanaweya problems: ${musicStats.totalProblems} (expected 800)`);
+
 const allStats = getSubjectStats(thanaweyaCurriculum, 'all');
-assert(allStats.totalChapters === 151, `Total thanaweya chapters: ${allStats.totalChapters} (expected 151)`);
-assert(allStats.totalProblems === 30200, `Total thanaweya problems: ${allStats.totalProblems} (expected 30200)`);
+assert(allStats.totalChapters === 155, `Total thanaweya chapters: ${allStats.totalChapters} (expected 155)`);
+assert(allStats.totalProblems === 31000, `Total thanaweya problems: ${allStats.totalProblems} (expected 31000)`);
 
 const egbacPhysStats = getSubjectStats(egBacCurriculum, 'physics');
 assert(egbacPhysStats.totalChapters === 5, `Physics egbac chapters: ${egbacPhysStats.totalChapters} (expected 5)`);
@@ -342,14 +348,18 @@ const egbacChineseStats = getSubjectStats(egBacCurriculum, 'chinese');
 assert(egbacChineseStats.totalChapters === 4, `Chinese egbac chapters: ${egbacChineseStats.totalChapters} (expected 4)`);
 assert(egbacChineseStats.totalProblems === 800, `Chinese egbac problems: ${egbacChineseStats.totalProblems} (expected 800)`);
 
+const egbacMusicStats = getSubjectStats(egBacCurriculum, 'music_theory');
+assert(egbacMusicStats.totalChapters === 4, `Music Theory egbac chapters: ${egbacMusicStats.totalChapters} (expected 4)`);
+assert(egbacMusicStats.totalProblems === 800, `Music Theory egbac problems: ${egbacMusicStats.totalProblems} (expected 800)`);
+
 const egbacAllStats = getSubjectStats(egBacCurriculum, 'all');
-assert(egbacAllStats.totalChapters === 138, `Total egbac chapters: ${egbacAllStats.totalChapters} (expected 138)`);
-assert(egbacAllStats.totalProblems === 27600, `Total egbac problems: ${egbacAllStats.totalProblems} (expected 27600)`);
+assert(egbacAllStats.totalChapters === 142, `Total egbac chapters: ${egbacAllStats.totalChapters} (expected 142)`);
+assert(egbacAllStats.totalProblems === 28400, `Total egbac problems: ${egbacAllStats.totalProblems} (expected 28400)`);
 
 const totalChaptersAcrossCurricula = allStats.totalChapters + egbacAllStats.totalChapters;
 const totalProblemsAcrossCurricula = allStats.totalProblems + egbacAllStats.totalProblems;
-assert(totalChaptersAcrossCurricula === 289, `Total platform chapters across both curriculums: ${totalChaptersAcrossCurricula} (expected 289)`);
-assert(totalProblemsAcrossCurricula === 57800, `Total platform problems across both curriculums: ${totalProblemsAcrossCurricula} (expected 57800)`);
+assert(totalChaptersAcrossCurricula === 297, `Total platform chapters across both curriculums: ${totalChaptersAcrossCurricula} (expected 297)`);
+assert(totalProblemsAcrossCurricula === 59400, `Total platform problems across both curriculums: ${totalProblemsAcrossCurricula} (expected 59400)`);
 
 if (failed) {
   console.error('\n❌ Verification failed with errors.');

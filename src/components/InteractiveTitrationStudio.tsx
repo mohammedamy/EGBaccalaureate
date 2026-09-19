@@ -19,6 +19,7 @@ import {
   Volume2,
   VolumeX,
   FileText,
+  FileSpreadsheet,
   Award,
   Check,
   Download,
@@ -214,6 +215,7 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
 }) => {
   const isAr = lang === 'ar';
   const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   // Mode: Explore vs MoE Guided Exam
   const [studioMode, setStudioMode] = useState<'explore' | 'guided_exam'>('explore');
@@ -240,6 +242,7 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   ]);
   const [studentCalculatedMa, setStudentCalculatedMa] = useState<string>('');
   const [reportExported, setReportExported] = useState<boolean>(false);
+  const [csvExported, setCsvExported] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
 
   const currentSystem = useMemo(() => {
@@ -319,6 +322,11 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   const currentPH = useMemo(() => {
     return calculatePH(titrantAddedMl, currentSystem);
   }, [titrantAddedMl, currentSystem]);
+
+  const electrodeMv = useMemo(() => {
+    // Glass electrode potential vs standard reference: E = 414 mV - (59.16 mV/pH * pH) at 25 °C
+    return Math.round(414 - 59.16 * currentPH);
+  }, [currentPH]);
 
   const indicatorColor = useMemo(() => {
     return INDICATORS[selectedIndicator].getColor(currentPH);
@@ -529,6 +537,56 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
     setTimeout(() => setReportExported(false), 3000);
   };
 
+  // Export CSV Data (Curve dataset in explore mode, or 3-trial log in guided mode)
+  const handleExportCSV = () => {
+    playSuccessFanfare();
+    let csvContent = '\uFEFF'; // UTF-8 BOM for Excel compatibility
+    if (studioMode === 'explore') {
+      csvContent += 'Volume_NaOH_mL,pH,H_Concentration_M,OH_Concentration_M,Electrode_EMF_mV,Solution_State,Indicator_Color\n';
+      for (let v = 0; v <= 50; v += 0.5) {
+        const ph = calculatePH(v, currentSystem);
+        const hConc = Math.pow(10, -ph);
+        const ohConc = Math.pow(10, -(14 - ph));
+        const emf = Math.round(414 - 59.16 * ph);
+        const state = ph < 6.8 ? 'Acidic' : ph > 7.2 ? 'Basic' : 'Neutral';
+        const indCol = INDICATORS[selectedIndicator].getColor(ph).labelEn;
+        csvContent += `${v.toFixed(1)},${ph.toFixed(2)},${hConc.toExponential(3)},${ohConc.toExponential(3)},${emf},"${state}","${indCol}"\n`;
+      }
+    } else {
+      csvContent += 'Trial_ID,Initial_Burette_mL,Final_Burette_mL,Titre_Volume_mL,Pipette_Analyte_mL,Standard_Base_M,Calculated_Acid_M,Concordance_Status\n';
+      trials.forEach((t) => {
+        const calcMa = ((GUIDED_UNKNOWN_ACID.standardBaseMolarity * t.titreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl).toFixed(4);
+        csvContent += `Trial ${t.id},${t.initialMl.toFixed(1)},${t.finalMl.toFixed(1)},${t.titreMl.toFixed(1)},${GUIDED_UNKNOWN_ACID.pipetteVolumeMl.toFixed(1)},${GUIDED_UNKNOWN_ACID.standardBaseMolarity.toFixed(3)},${t.logged ? calcMa : 'N/A'},"${t.logged ? (isConcordant ? 'Concordant' : 'Variance > 0.2mL') : 'Pending'}"\n`;
+      });
+      csvContent += `\nSummary_Statistics,Value\n`;
+      csvContent += `Average_Titre_mL,${averageTitreMl.toFixed(2)}\n`;
+      csvContent += `Pipette_Volume_mL,${GUIDED_UNKNOWN_ACID.pipetteVolumeMl.toFixed(1)}\n`;
+      csvContent += `Standard_NaOH_M,${GUIDED_UNKNOWN_ACID.standardBaseMolarity.toFixed(3)}\n`;
+      csvContent += `Calculated_HCl_M,${((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl).toFixed(4)}\n`;
+      csvContent += `True_HCl_M,${GUIDED_UNKNOWN_ACID.trueMolarity.toFixed(3)}\n`;
+      csvContent += `Percent_Discrepancy,${(
+        (Math.abs(((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl) - GUIDED_UNKNOWN_ACID.trueMolarity) /
+          GUIDED_UNKNOWN_ACID.trueMolarity) *
+        100
+      ).toFixed(2)}%\n`;
+      csvContent += `Rubric_Score,${rubricScore.total} / 12 Marks\n`;
+    }
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = studioMode === 'explore'
+      ? `titration_curve_${selectedSystemId}_${Date.now()}.csv`
+      : `moe_titration_trials_${Date.now()}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    setCsvExported(true);
+    setTimeout(() => setCsvExported(false), 3000);
+  };
+
   // Open Official MoE A4 Lab Report Generator Modal
   const handleOpenOfficialReportModal = () => {
     playTactileClick();
@@ -571,27 +629,47 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
     <div
       className={`w-full flex flex-col font-sans select-none ${
         isFullscreen
-          ? 'h-full overflow-hidden p-2 sm:p-4 bg-slate-950 text-slate-100'
-          : 'space-y-4 text-slate-200'
+          ? isContrast
+            ? 'h-full overflow-hidden p-2 sm:p-4 bg-black text-white'
+            : isLight
+            ? 'h-full overflow-hidden p-2 sm:p-4 bg-slate-50 text-slate-900'
+            : 'h-full overflow-hidden p-2 sm:p-4 bg-[#0D1117] text-[#C9D1D9]'
+          : isContrast
+          ? 'space-y-4 text-white'
+          : isLight
+          ? 'space-y-4 text-slate-900'
+          : 'space-y-4 text-[#C9D1D9]'
       }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* Top Header & System / Indicator Selectors */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 sm:p-4 shadow-lg shrink-0 flex flex-wrap items-center justify-between gap-3">
+      <div
+        className={`rounded-2xl p-3 sm:p-4 shadow-sm shrink-0 flex flex-wrap items-center justify-between gap-3 border transition-colors ${
+          isContrast
+            ? 'bg-black border-2 border-white'
+            : isLight
+            ? 'bg-white border-slate-200 shadow-sm'
+            : 'bg-[#161B22] border-[#30363D] shadow-md'
+        }`}
+      >
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-md shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center shadow-md shrink-0">
             <FlaskConical className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-sm sm:text-base font-black text-slate-100 flex items-center gap-2">
+            <h3
+              className={`text-sm sm:text-base font-black flex items-center gap-2 ${
+                isLight ? 'text-slate-900' : 'text-slate-100'
+              }`}
+            >
               <span>
                 {isAr ? 'مختبر منحنيات المعايرة الحجمية والـ pH' : 'Volumetric Titration & pH Curves Studio'}
               </span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 font-bold border border-emerald-500/30">
                 {isAr ? 'الكيمياء التحليلية' : 'Analytical Chemistry'}
               </span>
             </h3>
-            <p className="text-[11px] text-slate-400">
+            <p className={`text-[11px] ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isAr
                 ? 'تتبع تغير الرقم الهيدروجيني pH، التغير اللوني للأدلة، ونماذج امتحانات المعمل الوزارية'
                 : 'Interactive pH curve generation, indicator transition ranges, and MoE practical exam worksheets'}
@@ -602,7 +680,11 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
         {/* Mode Switcher & Tools */}
         <div className="flex flex-wrap items-center gap-2">
           {/* Explore vs Guided MoE Exam Toggle */}
-          <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+          <div
+            className={`flex items-center p-1 rounded-xl border text-xs ${
+              isLight ? 'bg-slate-100 border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#0D1117] border-[#30363D]'
+            }`}
+          >
             <button
               type="button"
               onClick={() => {
@@ -612,6 +694,8 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                 studioMode === 'explore'
                   ? 'bg-emerald-600 text-white shadow-xs'
+                  : isLight
+                  ? 'text-slate-600 hover:text-slate-900'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -628,6 +712,8 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 studioMode === 'guided_exam'
                   ? 'bg-amber-600 text-white shadow-xs'
+                  : isLight
+                  ? 'text-slate-600 hover:text-slate-900'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -648,7 +734,13 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                   const sys = SYSTEMS.find((s) => s.id === sysId);
                   if (sys) setSelectedIndicator(sys.suitableIndicator);
                 }}
-                className="bg-slate-950 border border-slate-700 text-slate-200 text-xs font-bold rounded-xl px-3 py-1.5 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/50 cursor-pointer"
+                className={`border text-xs font-bold rounded-xl px-3 py-1.5 focus:outline-hidden focus:ring-2 focus:ring-emerald-500/50 cursor-pointer ${
+                  isLight
+                    ? 'bg-slate-100 border-slate-300 text-slate-800'
+                    : isContrast
+                    ? 'bg-black border-white text-white'
+                    : 'bg-[#0D1117] border-[#30363D] text-slate-200'
+                }`}
               >
                 {SYSTEMS.map((sys) => (
                   <option key={sys.id} value={sys.id}>
@@ -663,7 +755,13 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                   playTactileClick();
                   setSelectedIndicator(e.target.value as IndicatorType);
                 }}
-                className="bg-slate-950 border border-slate-700 text-slate-200 text-xs font-bold rounded-xl px-3 py-1.5 focus:outline-hidden focus:ring-2 focus:ring-teal-500/50 cursor-pointer"
+                className={`border text-xs font-bold rounded-xl px-3 py-1.5 focus:outline-hidden focus:ring-2 focus:ring-teal-500/50 cursor-pointer ${
+                  isLight
+                    ? 'bg-slate-100 border-slate-300 text-slate-800'
+                    : isContrast
+                    ? 'bg-black border-white text-white'
+                    : 'bg-[#0D1117] border-[#30363D] text-slate-200'
+                }`}
               >
                 {Object.entries(INDICATORS).map(([key, ind]) => (
                   <option key={key} value={key}>
@@ -673,10 +771,35 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               </select>
             </>
           ) : (
-            <div className="text-xs bg-amber-950/40 border border-amber-600/40 text-amber-300 font-bold px-3 py-1.5 rounded-xl">
+            <div
+              className={`text-xs border font-bold px-3 py-1.5 rounded-xl ${
+                isLight
+                  ? 'bg-amber-50 border-amber-300 text-amber-800'
+                  : 'bg-amber-950/40 border-amber-600/40 text-amber-300'
+              }`}
+            >
               {isAr ? 'حمض مجهول التركيز (HCl) + دليل الفينولفثالين' : 'Unknown Acid (HCl) + Phenolphthalein'}
             </div>
           )}
+
+          {/* CSV Export Button */}
+          <button
+            type="button"
+            onClick={handleExportCSV}
+            className={`p-1.5 px-2.5 rounded-xl border transition-all cursor-pointer flex items-center gap-1.5 text-xs font-bold ${
+              csvExported
+                ? 'bg-emerald-600 text-white border-emerald-500 shadow-xs'
+                : isLight
+                ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                : isContrast
+                ? 'bg-black text-white border-white'
+                : 'bg-[#0D1117] hover:bg-[#1f2937] text-slate-300 border-[#30363D]'
+            }`}
+            title={isAr ? 'تصدير البيانات المقاسة كملف CSV' : 'Export Tabular Data as CSV'}
+          >
+            <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-500" />
+            <span className="font-mono text-[11px]">{csvExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'بيانات CSV' : 'CSV Data')}</span>
+          </button>
 
           {/* Audio Mute Toggle */}
           <button
@@ -684,7 +807,9 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
             onClick={handleToggleMute}
             className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
               audioMuted
-                ? 'bg-slate-800 text-slate-400 border-slate-700'
+                ? isLight
+                  ? 'bg-slate-100 text-slate-500 border-slate-300'
+                  : 'bg-slate-800 text-slate-400 border-slate-700'
                 : 'bg-emerald-950/60 text-emerald-300 border-emerald-600/50 shadow-xs'
             }`}
             title={audioMuted ? (isAr ? 'تشغيل الصوت' : 'Unmute Audio') : (isAr ? 'كتم الصوت' : 'Mute Audio')}
@@ -699,7 +824,13 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               playTactileClick();
               setTitrantAddedMl(0.0);
             }}
-            className="p-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 transition-all cursor-pointer"
+            className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
+              isLight
+                ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                : isContrast
+                ? 'bg-black text-white border-white'
+                : 'bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border-slate-700'
+            }`}
             title={isAr ? 'إعادة التعيين إلى 0 ملل' : 'Reset to 0 mL'}
           >
             <RotateCcw className="w-4 h-4" />
@@ -714,25 +845,41 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
         }`}
       >
         {/* Left Area (7 Cols on desktop) */}
-        <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-3xl p-3 sm:p-4 shadow-xl flex flex-col justify-between overflow-y-auto min-h-0 space-y-3">
+        <div
+          className={`lg:col-span-7 rounded-3xl p-3 sm:p-4 flex flex-col justify-between overflow-y-auto min-h-0 space-y-3 border transition-colors ${
+            isContrast
+              ? 'bg-black border-2 border-white text-white'
+              : isLight
+              ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
+              : 'bg-[#161B22] border-[#30363D] text-[#C9D1D9] shadow-md'
+          }`}
+        >
           {studioMode === 'explore' ? (
             <>
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800 shrink-0">
+              <div
+                className={`flex items-center justify-between pb-2 border-b shrink-0 ${
+                  isLight ? 'border-slate-200' : isContrast ? 'border-white' : 'border-[#30363D]'
+                }`}
+              >
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
-                  <span className="text-xs font-bold text-slate-200">
+                  <span
+                    className={`text-xs font-bold ${
+                      isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-200'
+                    }`}
+                  >
                     {isAr
                       ? 'منحنى تغير الرقم الهيدروجيني بدلالة حجم السحاحة (mL)'
                       : 'pH Titration Curve vs Added Volume (mL)'}
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-[11px] font-mono">
-                  <span className="text-emerald-400 font-bold">
+                <div className="flex items-center gap-3 text-[11px] font-mono tabular-mono">
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                     {isAr
                       ? `الحجم المضاف: ${toHindiDigits(titrantAddedMl.toFixed(1))} ملل`
                       : `V: ${titrantAddedMl.toFixed(1)} mL`}
                   </span>
-                  <span className="text-cyan-400 font-bold">
+                  <span className="text-cyan-600 dark:text-cyan-400 font-bold">
                     {isAr
                       ? `الرقم الهيدروجيني: ${toHindiDigits(currentPH.toFixed(2))}`
                       : `pH: ${currentPH.toFixed(2)}`}
@@ -743,7 +890,16 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               {/* SVG Plot Canvas */}
               <div className="flex-1 min-h-[220px] max-h-[360px] w-full flex items-center justify-center p-1 relative">
                 <svg viewBox="0 0 480 240" className="w-full h-full max-h-[340px] object-contain overflow-visible">
-                  <rect x="45" y="20" width="415" height="185" fill={isLight ? '#f8fafc' : '#020617'} rx="8" />
+                  <rect
+                    x="45"
+                    y="20"
+                    width="415"
+                    height="185"
+                    fill={isContrast ? '#050505' : isLight ? '#f8fafc' : '#0d1117'}
+                    stroke={isLight ? '#e2e8f0' : '#30363d'}
+                    strokeWidth="1"
+                    rx="8"
+                  />
 
                   {/* Horizontal pH Grid Lines */}
                   {[0, 2, 4, 6, 7, 8, 10, 12, 14].map((phVal) => {
@@ -756,14 +912,14 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                           y1={y}
                           x2="460"
                           y2={y}
-                          stroke={isSeven ? '#10b981' : isLight ? '#e2e8f0' : '#1e293b'}
+                          stroke={isSeven ? '#10b981' : isLight ? '#e2e8f0' : '#21262d'}
                           strokeWidth={isSeven ? 1.5 : 1}
                           strokeDasharray={isSeven ? '4 2' : undefined}
                         />
                         <text
                           x="38"
                           y={y + 3.5}
-                          fill={isSeven ? '#10b981' : '#64748b'}
+                          fill={isSeven ? '#10b981' : isLight ? '#64748b' : '#8b949e'}
                           fontSize="9"
                           fontWeight={isSeven ? 'bold' : 'normal'}
                           textAnchor="end"
@@ -786,14 +942,14 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                           y1="20"
                           x2={x}
                           y2="205"
-                          stroke={isEq ? '#f59e0b' : isLight ? '#e2e8f0' : '#1e293b'}
+                          stroke={isEq ? '#f59e0b' : isLight ? '#e2e8f0' : '#21262d'}
                           strokeWidth={isEq ? 1.5 : 1}
                           strokeDasharray={isEq ? '3 3' : undefined}
                         />
                         <text
                           x={x}
                           y="218"
-                          fill={isEq ? '#f59e0b' : '#64748b'}
+                          fill={isEq ? '#f59e0b' : isLight ? '#64748b' : '#8b949e'}
                           fontSize="9"
                           fontWeight={isEq ? 'bold' : 'normal'}
                           textAnchor="middle"
@@ -813,7 +969,7 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                       width={(currentSystem.eqVolumeMl / 50) * 415}
                       height="185"
                       fill="#06b6d4"
-                      fillOpacity="0.06"
+                      fillOpacity={isLight ? 0.12 : 0.06}
                     />
                   )}
 
@@ -821,7 +977,7 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                   <path
                     d={pathD}
                     fill="none"
-                    stroke="#06b6d4"
+                    stroke={isLight ? '#0284c7' : '#38bdf8'}
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -859,7 +1015,7 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                           <text
                             x={halfX - 6}
                             y={halfY - 6}
-                            fill="#38bdf8"
+                            fill="#0284c7"
                             fontSize="8"
                             fontWeight="bold"
                             textAnchor="end"
@@ -886,10 +1042,18 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
           ) : (
             /* Guided MoE Practical Exam Worksheet View */
             <div className="space-y-3.5">
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+              <div
+                className={`flex items-center justify-between pb-2 border-b ${
+                  isLight ? 'border-slate-200' : isContrast ? 'border-white' : 'border-[#30363D]'
+                }`}
+              >
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-amber-400" />
-                  <span className="text-xs font-bold text-slate-200">
+                  <Award className="w-4 h-4 text-amber-500" />
+                  <span
+                    className={`text-xs font-bold ${
+                      isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-200'
+                    }`}
+                  >
                     {isAr
                       ? 'ورقة امتحان المعمل الوزاري: تعيين تركيز حمض الهيدروكلوريك المجهول'
                       : 'MoE Practical Exam Protocol: Determination of Unknown HCl Molarity'}
@@ -907,6 +1071,15 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                   </button>
                   <button
                     type="button"
+                    onClick={handleExportCSV}
+                    className="px-2.5 py-1 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                    title={isAr ? 'تصدير جدول التجارب إلى ملف CSV' : 'Export Trials Table as CSV'}
+                  >
+                    {csvExported ? <Check className="w-3.5 h-3.5" /> : <FileSpreadsheet className="w-3.5 h-3.5" />}
+                    <span>{csvExported ? (isAr ? 'تم التصدير!' : 'Exported!') : (isAr ? 'تصدير CSV' : 'Export CSV')}</span>
+                  </button>
+                  <button
+                    type="button"
                     onClick={handleExportReport}
                     className="px-2.5 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
                   >
@@ -917,12 +1090,24 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               </div>
 
               {/* Protocol Steps Checklist */}
-              <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 text-xs space-y-2">
-                <span className="text-amber-300 font-bold flex items-center gap-1.5 text-[11px]">
+              <div
+                className={`p-3 rounded-2xl border text-xs space-y-2 ${
+                  isContrast
+                    ? 'bg-black border-white text-white'
+                    : isLight
+                    ? 'bg-slate-50 border-slate-200 text-slate-800'
+                    : 'bg-[#0D1117] border-[#30363D] text-slate-300'
+                }`}
+              >
+                <span className="text-amber-600 dark:text-amber-300 font-bold flex items-center gap-1.5 text-[11px]">
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>{isAr ? 'خطوات التجربة العملية الرسمية:' : 'Official Lab Procedure:'}</span>
                 </span>
-                <ol className="list-decimal list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
+                <ol
+                  className={`list-decimal list-inside space-y-1 text-[11px] leading-relaxed ${
+                    isLight ? 'text-slate-700' : 'text-slate-300'
+                  }`}
+                >
                   <li>{isAr ? 'انقل ٢٥٫٠ ملل من الحمض المجهول بواسطة ماصة عيارية إلى الدورق المخروطي.' : 'Pipette exactly 25.0 mL of unknown HCl into the conical flask.'}</li>
                   <li>{isAr ? 'أضف قطرتين من دليل الفينولفثالين (يظل المحلول عديم اللون في الوسط الحامضي).' : 'Add 2 drops of phenolphthalein indicator (remains colorless in acid).'}</li>
                   <li>{isAr ? 'املأ السحاحة بمحلول الصودا الكاوية القياسي (٠٫١٠ مولار) حتى علامة الصفر.' : 'Fill burette with standard 0.10 M NaOH titrant up to the 0.0 mL mark.'}</li>
@@ -934,16 +1119,30 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               {/* Empirical 3-Trial Data Table */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between text-xs font-bold">
-                  <span className="text-slate-300">{isAr ? 'جدول تسجيل التجارب الثلاثية:' : '3-Trial Titration Data Table:'}</span>
-                  <span className="text-emerald-400 font-mono text-[11px]">
+                  <span className={isLight ? 'text-slate-700' : 'text-slate-300'}>
+                    {isAr ? 'جدول تسجيل التجارب الثلاثية:' : '3-Trial Titration Data Table:'}
+                  </span>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-mono tabular-mono text-[11px]">
                     {isAr ? `متوسط الحجم المستهلك (Vb̄): ${averageTitreMl.toFixed(2)} ملل` : `Average Titre (Vb̄): ${averageTitreMl.toFixed(2)} mL`}
                   </span>
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full text-xs text-left rtl:text-right border-collapse bg-slate-950 rounded-xl overflow-hidden border border-slate-800">
+                  <table
+                    className={`w-full text-xs text-left rtl:text-right border-collapse rounded-xl overflow-hidden border ${
+                      isContrast
+                        ? 'bg-black border-white text-white'
+                        : isLight
+                        ? 'bg-white border-slate-200 text-slate-800'
+                        : 'bg-[#0D1117] border-[#30363D] text-slate-300'
+                    }`}
+                  >
                     <thead>
-                      <tr className="bg-slate-800/80 text-slate-300 font-bold text-[11px]">
+                      <tr
+                        className={`font-bold text-[11px] ${
+                          isLight ? 'bg-slate-100 text-slate-700' : isContrast ? 'bg-neutral-900 text-white' : 'bg-[#161B22] text-slate-300'
+                        }`}
+                      >
                         <th className="p-2">{isAr ? 'التجربة' : 'Trial'}</th>
                         <th className="p-2">{isAr ? 'القراءة الابتدائية (ملل)' : 'Initial (mL)'}</th>
                         <th className="p-2">{isAr ? 'القراءة النهائية (ملل)' : 'Final (mL)'}</th>
@@ -951,13 +1150,16 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                         <th className="p-2 text-center">{isAr ? 'الإجراء' : 'Action'}</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-800 text-slate-300 font-mono">
+                    <tbody className={`divide-y font-mono tabular-mono ${isLight ? 'divide-slate-200' : isContrast ? 'divide-neutral-800' : 'divide-[#30363D]'}`}>
                       {trials.map((trial) => (
-                        <tr key={trial.id} className="hover:bg-slate-900/60">
+                        <tr
+                          key={trial.id}
+                          className={isLight ? 'hover:bg-slate-50' : 'hover:bg-[#161B22]/60'}
+                        >
                           <td className="p-2 font-bold font-sans">{isAr ? `المحاولة ${trial.id}` : `Trial ${trial.id}`}</td>
                           <td className="p-2">{trial.initialMl.toFixed(1)}</td>
                           <td className="p-2">{trial.finalMl.toFixed(1)}</td>
-                          <td className="p-2 font-bold text-cyan-300">{trial.titreMl.toFixed(1)} mL</td>
+                          <td className="p-2 font-bold text-cyan-600 dark:text-cyan-300">{trial.titreMl.toFixed(1)} mL</td>
                           <td className="p-2 text-center">
                             <button
                               type="button"
@@ -978,8 +1180,8 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                   <div
                     className={`p-2 rounded-xl text-[11px] font-bold flex items-center gap-2 border ${
                       isConcordant
-                        ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-300'
-                        : 'bg-amber-500/15 border-amber-500/40 text-amber-300'
+                        ? 'bg-emerald-500/15 border-emerald-500/40 text-emerald-700 dark:text-emerald-300'
+                        : 'bg-amber-500/15 border-amber-500/40 text-amber-700 dark:text-amber-300'
                     }`}
                   >
                     {isConcordant ? (
@@ -998,27 +1200,45 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               </div>
 
               {/* Molarity Calculation Equation & Input */}
-              <div className="p-3 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-                <span className="font-bold text-indigo-300 block">
+              <div
+                className={`p-3 rounded-2xl border space-y-2 text-xs ${
+                  isContrast
+                    ? 'bg-black border-white text-white'
+                    : isLight
+                    ? 'bg-slate-50 border-slate-200 text-slate-800'
+                    : 'bg-[#0D1117] border-[#30363D] text-slate-300'
+                }`}
+              >
+                <span className="font-bold text-indigo-600 dark:text-indigo-300 block">
                   {isAr ? 'قانون المعايرة وحساب التركيز المجهول (Ma):' : 'Stoichiometric Neutralization Formula:'}
                 </span>
-                <div className="bg-slate-900 p-2 rounded-xl border border-slate-800 font-mono text-center text-sm">
+                <div
+                  className={`p-2 rounded-xl border font-mono text-center text-sm ${
+                    isLight ? 'bg-white border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'
+                  }`}
+                >
                   <MathRenderer
                     text="$$M_a = \frac{M_b \cdot \bar{V}_b}{V_a} = \frac{0.100 \times \bar{V}_b}{25.0}$$"
                   />
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
-                  <span className="text-slate-400">
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
                     {isAr ? 'التركيز المحسوب للمجهول (مولار):' : 'Calculated Molarity (M):'}
                   </span>
-                  <div className="flex items-center gap-2 font-mono">
+                  <div className="flex items-center gap-2 font-mono tabular-mono">
                     <input
                       type="number"
                       step="0.001"
                       placeholder={averageTitreMl > 0 ? ((GUIDED_UNKNOWN_ACID.standardBaseMolarity * averageTitreMl) / GUIDED_UNKNOWN_ACID.pipetteVolumeMl).toFixed(4) : "0.108"}
                       value={studentCalculatedMa}
                       onChange={(e) => setStudentCalculatedMa(e.target.value)}
-                      className="w-24 bg-slate-900 border border-slate-700 text-emerald-400 font-bold px-2 py-1 rounded-lg text-xs focus:outline-hidden focus:ring-1 focus:ring-emerald-500"
+                      className={`w-24 border font-bold px-2 py-1 rounded-lg text-xs focus:outline-hidden focus:ring-1 focus:ring-emerald-500 ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900'
+                          : isContrast
+                          ? 'bg-black border-white text-white'
+                          : 'bg-[#161B22] border-[#30363D] text-emerald-400'
+                      }`}
                     />
                     {averageTitreMl > 0 && !studentCalculatedMa && (
                       <button
@@ -1037,37 +1257,45 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               </div>
 
               {/* 12-Mark MoE Rubric Scorecard */}
-              <div className="p-3 rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 border border-slate-800 space-y-2 text-xs">
+              <div
+                className={`p-3 rounded-2xl border space-y-2 text-xs ${
+                  isContrast
+                    ? 'bg-black border-white'
+                    : isLight
+                    ? 'bg-slate-50 border-slate-200'
+                    : 'bg-[#0D1117] border-[#30363D]'
+                }`}
+              >
                 <div className="flex items-center justify-between">
-                  <span className="font-black text-amber-300 flex items-center gap-1.5">
+                  <span className="font-black text-amber-600 dark:text-amber-300 flex items-center gap-1.5">
                     <Award className="w-4 h-4" />
                     <span>{isAr ? 'بطاقة تقييم المعمل الوزاري (١٢ درجة):' : 'MoE Practical Rubric Scorecard (12 Marks):'}</span>
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono font-black border border-amber-500/30">
+                  <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-600 dark:text-amber-300 font-mono tabular-mono font-black border border-amber-500/30">
                     {rubricScore.total} / 12 {isAr ? 'درجة' : 'Marks'}
                   </span>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 text-[10px] text-center font-bold">
-                  <div className="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className={`p-1.5 rounded-lg border ${isLight ? 'bg-white border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
                     <span className="text-slate-400 block">{isAr ? 'الأدوات والأدلة' : 'Apparatus'}</span>
-                    <span className="text-emerald-400 font-mono">{rubricScore.apparatusMarks}/2</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono tabular-mono">{rubricScore.apparatusMarks}/2</span>
                   </div>
-                  <div className="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className={`p-1.5 rounded-lg border ${isLight ? 'bg-white border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
                     <span className="text-slate-400 block">{isAr ? 'دقة نقطة النهاية' : 'Endpoint'}</span>
-                    <span className="text-emerald-400 font-mono">{rubricScore.executionMarks}/3</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono tabular-mono">{rubricScore.executionMarks}/3</span>
                   </div>
-                  <div className="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className={`p-1.5 rounded-lg border ${isLight ? 'bg-white border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
                     <span className="text-slate-400 block">{isAr ? 'جدول التجارب' : 'Trials Table'}</span>
-                    <span className="text-emerald-400 font-mono">{rubricScore.empiricalMarks}/3</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono tabular-mono">{rubricScore.empiricalMarks}/3</span>
                   </div>
-                  <div className="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className={`p-1.5 rounded-lg border ${isLight ? 'bg-white border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
                     <span className="text-slate-400 block">{isAr ? 'صحة الحسابات' : 'Calculation'}</span>
-                    <span className="text-emerald-400 font-mono">{rubricScore.calculationMarks}/2</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono tabular-mono">{rubricScore.calculationMarks}/2</span>
                   </div>
-                  <div className="p-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                  <div className={`p-1.5 rounded-lg border ${isLight ? 'bg-white border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
                     <span className="text-slate-400 block">{isAr ? 'تحليل الأخطاء' : 'Error Analysis'}</span>
-                    <span className="text-emerald-400 font-mono">{rubricScore.errorMarks}/2</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-mono tabular-mono">{rubricScore.errorMarks}/2</span>
                   </div>
                 </div>
               </div>
@@ -1075,15 +1303,15 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
           )}
 
           {/* Slider & Quick Titration Controls (Active in both modes) */}
-          <div className="space-y-2 pt-2 border-t border-slate-800 shrink-0">
+          <div className={`space-y-2 pt-2 border-t shrink-0 ${isLight ? 'border-slate-200' : isContrast ? 'border-white' : 'border-[#30363D]'}`}>
             <div className="flex items-center justify-between text-xs font-bold">
-              <span className="text-slate-300 flex items-center gap-1.5">
-                <Droplet className="w-3.5 h-3.5 text-cyan-400" />
+              <span className={`flex items-center gap-1.5 ${isLight ? 'text-slate-800' : isContrast ? 'text-white' : 'text-slate-300'}`}>
+                <Droplet className="w-3.5 h-3.5 text-cyan-500" />
                 <span>
                   {isAr ? 'التحكم في صنبور السحاحة (حجم المحلول القياسي):' : 'Burette Stopcock (Titrant Added):'}
                 </span>
               </span>
-              <span className="font-mono text-cyan-300 font-black">
+              <span className="font-mono tabular-mono text-cyan-600 dark:text-cyan-300 font-black">
                 {isAr ? `${toHindiDigits(titrantAddedMl.toFixed(1))} ملل` : `${titrantAddedMl.toFixed(1)} mL`}
               </span>
             </div>
@@ -1095,37 +1323,49 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               step="0.1"
               value={titrantAddedMl}
               onChange={(e) => changeVolume(parseFloat(e.target.value))}
-              className="w-full accent-cyan-500 cursor-pointer h-2 bg-slate-800 rounded-lg"
+              className={`w-full accent-cyan-600 cursor-pointer h-2 rounded-lg ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
             />
 
             {/* Micro-Step Adjustment Buttons */}
             <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1.5 font-mono tabular-mono">
                 <button
                   type="button"
                   onClick={() => changeVolume(titrantAddedMl - 1.0)}
-                  className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-all cursor-pointer"
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    isLight
+                      ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300'
+                      : isContrast
+                      ? 'bg-black text-white border border-white'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                  }`}
                 >
                   -1.0
                 </button>
                 <button
                   type="button"
                   onClick={() => changeVolume(titrantAddedMl - 0.1)}
-                  className="px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition-all cursor-pointer"
+                  className={`px-2 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                    isLight
+                      ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300'
+                      : isContrast
+                      ? 'bg-black text-white border border-white'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                  }`}
                 >
                   -0.1
                 </button>
                 <button
                   type="button"
                   onClick={() => changeVolume(titrantAddedMl + 0.1)}
-                  className="px-2 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-2 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
                 >
                   +0.1
                 </button>
                 <button
                   type="button"
                   onClick={() => changeVolume(titrantAddedMl + 1.0)}
-                  className="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-2.5 py-1 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition-all cursor-pointer shadow-xs"
                 >
                   +1.0
                 </button>
@@ -1165,34 +1405,69 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
         {/* Right: Flask & Live Digital pH Meter HUD (5 Cols on desktop) */}
         <div className="lg:col-span-5 flex flex-col justify-between gap-3 overflow-y-auto min-h-0">
           {/* Digital pH Meter Card */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 shadow-xl space-y-3">
+          <div
+            className={`rounded-3xl p-4 shadow-md space-y-3 border transition-colors ${
+              isContrast
+                ? 'bg-black border-2 border-white text-white'
+                : isLight
+                ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
+                : 'bg-[#161B22] border-[#30363D] text-[#C9D1D9]'
+            }`}
+          >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-black uppercase tracking-wider text-slate-400">
-                {isAr ? 'جهاز قياس الرقم الهيدروجيني الرقمي' : 'Digital pH Meter (Glass Electrode)'}
+              <span
+                className={`text-xs font-black uppercase tracking-wider ${
+                  isLight ? 'text-slate-600' : 'text-slate-400'
+                }`}
+              >
+                {isAr ? 'مقياس الرقم الهيدروجيني الرقمي (مجس زجاجي)' : 'Digital pH Meter & Glass Electrode'}
               </span>
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping" />
             </div>
 
-            <div className="flex items-baseline justify-between bg-slate-950 p-3.5 rounded-2xl border border-slate-800 shadow-inner">
-              <span className="text-xs font-bold text-slate-400">{isAr ? 'قراءة المجس:' : 'pH Probe:'}</span>
-              <div className="text-right">
-                <span className="text-4xl font-black font-mono tracking-tight text-emerald-400">
-                  {isAr ? toHindiDigits(currentPH.toFixed(2)) : currentPH.toFixed(2)}
-                </span>
-                <span className="text-xs text-slate-500 ml-1 font-mono">pH</span>
+            {/* Instrument LCD Readout Panel */}
+            <div
+              className={`p-3.5 rounded-2xl border shadow-inner ${
+                isContrast
+                  ? 'bg-black border-white text-white'
+                  : 'bg-[#050B14] border-slate-800 text-emerald-400'
+              }`}
+            >
+              <div className="flex items-baseline justify-between">
+                <div>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                    {isAr ? 'قراءة المجس الكهروكيميائي' : 'Electrode Potential'}
+                  </span>
+                  <span className="text-xs font-mono tabular-mono text-cyan-400 font-bold">
+                    {electrodeMv > 0 ? `+${electrodeMv}` : electrodeMv} mV
+                  </span>
+                </div>
+                <div className="text-right">
+                  <span className="text-4xl sm:text-5xl font-black font-mono tabular-mono tracking-tight text-emerald-400">
+                    {isAr ? toHindiDigits(currentPH.toFixed(2)) : currentPH.toFixed(2)}
+                  </span>
+                  <span className="text-xs text-slate-500 ml-1.5 font-mono">pH</span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between text-[10px] font-mono tabular-mono text-slate-400 pt-2 mt-2 border-t border-slate-800/80">
+                <span>T = 25.0 °C (298 K)</span>
+                <span>Slope: 99.2% Nernstian</span>
               </div>
             </div>
 
             {/* Chemical State Alert Chip */}
             <div className="flex items-center justify-between text-xs px-1">
-              <span className="text-slate-400">{isAr ? 'حالة المحلول:' : 'Solution State:'}</span>
+              <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                {isAr ? 'حالة المحلول:' : 'Solution State:'}
+              </span>
               <span
                 className={`font-bold px-2 py-0.5 rounded-md ${
                   currentPH < 6.8
-                    ? 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
+                    ? 'bg-rose-500/20 text-rose-600 dark:text-rose-300 border border-rose-500/30'
                     : currentPH > 7.2
-                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
-                    : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                    ? 'bg-indigo-500/20 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30'
+                    : 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/30'
                 }`}
               >
                 {currentPH < 6.8
@@ -1204,9 +1479,9 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
             </div>
 
             {isEquivalenceReached && (
-              <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/40 text-xs text-amber-200 flex items-center gap-2 animate-bounce">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
-                <span className="font-bold">
+              <div className="p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/40 text-xs text-amber-600 dark:text-amber-200 flex items-center gap-2 animate-bounce font-bold">
+                <CheckCircle2 className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>
                   {isAr
                     ? 'تم الوصول إلى نقطة التكافؤ الدقيقة (Equivalence Point)!'
                     : 'Exact Equivalence Point Reached!'}
@@ -1215,9 +1490,9 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
             )}
 
             {isHalfEquivalence && (
-              <div className="p-2.5 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-xs text-cyan-200 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-cyan-400 shrink-0" />
-                <span className="font-bold">
+              <div className="p-2.5 rounded-xl bg-cyan-500/15 border border-cyan-500/40 text-xs text-cyan-600 dark:text-cyan-200 flex items-center gap-2 font-bold">
+                <Sparkles className="w-4 h-4 text-cyan-500 shrink-0" />
+                <span>
                   {isAr
                     ? `منطقة المحلول المنظم: [CH₃COOH] = [CH₃COO⁻] فتكون pH = pKa = ${currentSystem.pKa1}`
                     : `Buffer Midpoint: [HA] = [A⁻] hence pH = pKa = ${currentSystem.pKa1}`}
@@ -1226,11 +1501,19 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
             )}
           </div>
 
-          {/* Simulated Conical Flask with Live Fluid Color */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-4 shadow-xl space-y-3 flex-1 flex flex-col justify-between">
+          {/* Calibrated 50 mL Burette & Conical Flask Apparatus Card */}
+          <div
+            className={`rounded-3xl p-4 shadow-md space-y-3 flex-1 flex flex-col justify-between border transition-colors ${
+              isContrast
+                ? 'bg-black border-2 border-white text-white'
+                : isLight
+                ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
+                : 'bg-[#161B22] border-[#30363D] text-[#C9D1D9]'
+            }`}
+          >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-slate-300">
-                {isAr ? 'الدورق المخروطي والمظهر اللوني' : 'Conical Flask Visualizer'}
+              <span className={`text-xs font-bold ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                {isAr ? 'منظومة السحاحة والدورق المخروطي' : 'Class-A Burette & Erlenmeyer Apparatus'}
               </span>
               <button
                 type="button"
@@ -1238,10 +1521,12 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                   playTactileClick();
                   setIsStirring((prev) => !prev);
                 }}
-                className={`text-[10px] px-2 py-0.5 rounded-md font-bold cursor-pointer transition-all ${
+                className={`text-[10px] px-2.5 py-1 rounded-lg font-bold cursor-pointer transition-all ${
                   isStirring
-                    ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                    : 'bg-slate-800 text-slate-400'
+                    ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300 border border-emerald-500/40 shadow-xs'
+                    : isLight
+                    ? 'bg-slate-100 text-slate-500 border border-slate-200'
+                    : 'bg-slate-800 text-slate-400 border border-slate-700'
                 }`}
               >
                 {isAr
@@ -1254,58 +1539,243 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               </button>
             </div>
 
-            {/* Flask SVG Graphic */}
-            <div className="flex items-center justify-center p-2">
-              <div className="relative w-40 h-40 sm:w-44 sm:h-44 flex items-center justify-center">
-                <svg viewBox="0 0 160 160" className="w-full h-full drop-shadow-xl">
-                  {/* Glass Flask Outline */}
-                  <path
-                    d="M 65 20 L 95 20 L 95 45 L 135 130 C 140 140, 135 150, 120 150 L 40 150 C 25 150, 20 140, 25 130 L 65 45 Z"
-                    fill="#0f172a"
-                    stroke="#475569"
-                    strokeWidth="3"
+            {/* Comprehensive Photorealistic Laboratory Apparatus SVG */}
+            <div className="flex items-center justify-center p-1">
+              <div className="relative w-48 sm:w-56 h-80 sm:h-92 flex items-center justify-center">
+                <svg viewBox="0 0 220 380" className="w-full h-full drop-shadow-xl overflow-visible">
+                  <defs>
+                    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#475569" />
+                      <stop offset="35%" stopColor="#94a3b8" />
+                      <stop offset="70%" stopColor="#cbd5e1" />
+                      <stop offset="100%" stopColor="#334155" />
+                    </linearGradient>
+                    <linearGradient id="glassSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="rgba(255,255,255,0.4)" />
+                      <stop offset="25%" stopColor="rgba(255,255,255,0.1)" />
+                      <stop offset="75%" stopColor="rgba(56,189,248,0.05)" />
+                      <stop offset="100%" stopColor="rgba(255,255,255,0.3)" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* 1. Retort Stand & Steel Clamp Rod */}
+                  {/* Heavy Cast Iron Base Plate */}
+                  <rect x="20" y="360" width="180" height="14" rx="3" fill="#1e293b" stroke="#0f172a" strokeWidth="1" />
+                  <line x1="21" y1="361" x2="199" y2="361" stroke="#475569" strokeWidth="1" />
+
+                  {/* Vertical Steel Support Rod */}
+                  <rect x="38" y="10" width="6" height="350" rx="1.5" fill="url(#steelGrad)" stroke="#334155" strokeWidth="0.5" />
+
+                  {/* Upper Clamp holding Burette */}
+                  <path d="M 44 65 L 88 65 L 88 75 L 44 72 Z" fill="#334155" />
+                  <circle cx="44" cy="68.5" r="4" fill="#475569" stroke="#1e293b" strokeWidth="0.5" />
+                  <rect x="88" y="62" width="10" height="16" rx="2" fill="#475569" stroke="#334155" strokeWidth="0.5" />
+
+                  {/* Lower Clamp holding Stopcock housing */}
+                  <path d="M 44 175 L 88 175 L 88 185 L 44 182 Z" fill="#334155" />
+                  <circle cx="44" cy="178.5" r="4" fill="#475569" stroke="#1e293b" strokeWidth="0.5" />
+                  <rect x="88" y="172" width="10" height="16" rx="2" fill="#475569" stroke="#334155" strokeWidth="0.5" />
+
+                  {/* 2. Magnetic Stirrer Base underneath Erlenmeyer Flask */}
+                  <rect x="58" y="352" width="94" height="8" rx="2" fill="#334155" stroke="#1e293b" strokeWidth="0.8" />
+                  <rect x="62" y="354" width="86" height="4" rx="1" fill="#475569" />
+
+                  {/* 3. Class-A Calibrated 50 mL Burette */}
+                  {/* Outer Glass Barrel */}
+                  <rect
+                    x="96"
+                    y="18"
+                    width="18"
+                    height="172"
+                    rx="1.5"
+                    fill={isLight ? 'rgba(241, 245, 249, 0.45)' : 'rgba(15, 23, 42, 0.45)'}
+                    stroke="#94a3b8"
+                    strokeWidth="1.2"
+                  />
+                  {/* Glass Lip Top Rim */}
+                  <ellipse cx="105" cy="18" rx="10" ry="2.5" fill="#cbd5e1" stroke="#94a3b8" strokeWidth="1" />
+
+                  {/* Burette Dynamic Fluid Column */}
+                  {/* 0 mL at y=32, 50 mL at y=182 (total 150 px -> 3.0 px/mL) */}
+                  {(() => {
+                    const meniscusY = 32 + (titrantAddedMl / 50) * 150;
+                    const fluidH = Math.max(0, 190 - meniscusY);
+                    return (
+                      <g>
+                        {fluidH > 0 && (
+                          <rect
+                            x="97.5"
+                            y={meniscusY}
+                            width="15"
+                            height={fluidH}
+                            fill="rgba(186, 230, 253, 0.55)"
+                          />
+                        )}
+                        {/* Meniscus Curve Line */}
+                        <path
+                          d={`M 97.5 ${meniscusY} Q 105 ${meniscusY + 3} 112.5 ${meniscusY}`}
+                          fill="none"
+                          stroke="#0284c7"
+                          strokeWidth="1.5"
+                        />
+                        <path
+                          d={`M 98.5 ${meniscusY + 0.8} Q 105 ${meniscusY + 3.2} 111.5 ${meniscusY + 0.8}`}
+                          fill="none"
+                          stroke="rgba(255, 255, 255, 0.85)"
+                          strokeWidth="0.8"
+                        />
+                      </g>
+                    );
+                  })()}
+
+                  {/* Burette Graduation Markings (0 to 50 mL) */}
+                  {[0, 10, 20, 30, 40, 50].map((v) => {
+                    const y = 32 + (v / 50) * 150;
+                    return (
+                      <g key={v}>
+                        <line x1="108" y1={y} x2="114" y2={y} stroke="#64748b" strokeWidth="1" />
+                        <text
+                          x="117"
+                          y={y + 2.5}
+                          fill={isLight ? '#475569' : '#94a3b8'}
+                          fontSize="6.5"
+                          fontFamily="monospace"
+                          fontWeight="bold"
+                        >
+                          {v}
+                        </text>
+                      </g>
+                    );
+                  })}
+                  {/* Intermediate 5 mL ticks */}
+                  {[5, 15, 25, 35, 45].map((v) => {
+                    const y = 32 + (v / 50) * 150;
+                    return <line key={v} x1="109.5" y1={y} x2="114" y2={y} stroke="#94a3b8" strokeWidth="0.7" />;
+                  })}
+
+                  {/* Burette Glass Specular Sheen */}
+                  <rect x="98" y="20" width="2" height="168" fill="rgba(255,255,255,0.4)" />
+                  <rect x="110" y="20" width="1.5" height="168" fill="rgba(255,255,255,0.2)" />
+
+                  {/* PTFE Stopcock Valve Assembly */}
+                  <rect x="92" y="190" width="26" height="12" rx="2" fill="#f1f5f9" stroke="#0284c7" strokeWidth="1" />
+                  <rect
+                    x="86"
+                    y="194"
+                    width="38"
+                    height="4"
+                    rx="1"
+                    fill="#0284c7"
+                    stroke="#0369a1"
+                    strokeWidth="0.8"
+                    transform={titrantAddedMl > 0 ? "rotate(70 105 196)" : "rotate(0 105 196)"}
+                    className="transition-transform duration-300"
                   />
 
-                  {/* Liquid inside Flask */}
+                  {/* Glass Discharge Jet Tip */}
+                  <path d="M 102 202 L 108 202 L 106 222 L 104 222 Z" fill="#cbd5e1" stroke="#94a3b8" strokeWidth="1" />
+
+                  {/* Active Titrant Droplet */}
+                  {titrantAddedMl > 0 && titrantAddedMl < 50 && (
+                    <g className="animate-pulse">
+                      <ellipse cx="105" cy="230" rx="1.5" ry="2.5" fill="#38bdf8" />
+                    </g>
+                  )}
+
+                  {/* 4. Conical Flask (Erlenmeyer, 250 mL) */}
+                  {/* Dynamic Fluid Volume: base 25 mL at y=325, rises to y=300 at 75 mL */}
+                  {(() => {
+                    const fluidTopY = 325 - (titrantAddedMl / 50) * 25;
+                    // Compute left and right X along the flask conical slope
+                    // Top neck at y=256: x=94 to 116 (width 22)
+                    // Bottom base at y=350: x=60 to 150 (width 90)
+                    const t = (fluidTopY - 256) / (350 - 256);
+                    const leftX = 94 - (94 - 60) * t;
+                    const rightX = 116 + (150 - 116) * t;
+                    const fluidPath = `M ${leftX} ${fluidTopY} Q 105 ${fluidTopY + 3} ${rightX} ${fluidTopY} L 148 348 C 148 350, 145 350, 138 350 L 72 350 C 65 350, 62 350, 62 348 Z`;
+
+                    return (
+                      <g>
+                        {/* Fluid Body with Active Indicator Color */}
+                        <path
+                          d={fluidPath}
+                          fill={indicatorColor.bg}
+                          fillOpacity="0.85"
+                          className="transition-all duration-500"
+                        />
+                        {/* Fluid Surface Meniscus */}
+                        <path
+                          d={`M ${leftX} ${fluidTopY} Q 105 ${fluidTopY + 3.5} ${rightX} ${fluidTopY}`}
+                          fill="none"
+                          stroke="rgba(255, 255, 255, 0.65)"
+                          strokeWidth="1.2"
+                        />
+                      </g>
+                    );
+                  })()}
+
+                  {/* Glass Erlenmeyer Flask Outline */}
                   <path
-                    d="M 45 95 Q 80 92 115 95 L 130 132 C 135 142, 130 148, 118 148 L 42 148 C 30 148, 25 142, 30 132 Z"
-                    fill={indicatorColor.bg}
-                    fillOpacity="0.85"
-                    className="transition-all duration-500"
+                    d="M 94 242 L 116 242 L 116 256 L 150 348 C 153 352, 148 352, 138 352 L 72 352 C 62 352, 57 352, 60 348 L 94 256 Z"
+                    fill="none"
+                    stroke="#64748b"
+                    strokeWidth="2.5"
+                    strokeLinejoin="round"
                   />
 
-                  {/* Graduations marks */}
-                  <line x1="50" y1="110" x2="65" y2="110" stroke="#94a3b8" strokeWidth="1.5" />
-                  <line x1="45" y1="125" x2="62" y2="125" stroke="#94a3b8" strokeWidth="1.5" />
+                  {/* Flask Lip Rim */}
+                  <ellipse cx="105" cy="242" rx="12" ry="2.5" fill="none" stroke="#94a3b8" strokeWidth="1.2" />
 
-                  {/* Magnetic Stirrer Bar */}
+                  {/* Flask Volume Graduation Marks */}
+                  <line x1="82" y1="318" x2="96" y2="318" stroke="#94a3b8" strokeWidth="1" />
+                  <text x="76" y="320" fill="#94a3b8" fontSize="6" fontFamily="monospace" textAnchor="end">50mL</text>
+
+                  <line x1="86" y1="298" x2="98" y2="298" stroke="#94a3b8" strokeWidth="1" />
+                  <text x="80" y="300" fill="#94a3b8" fontSize="6" fontFamily="monospace" textAnchor="end">75mL</text>
+
+                  {/* Magnetic Stirrer Bar inside Flask */}
                   {isStirring && (
                     <ellipse
-                      cx="80"
-                      cy="142"
-                      rx="14"
-                      ry="4"
+                      cx="105"
+                      cy="346"
+                      rx="12"
+                      ry="3"
                       fill="#ffffff"
                       stroke="#94a3b8"
-                      strokeWidth="1"
-                      className="animate-spin origin-[80px_142px]"
+                      strokeWidth="0.8"
+                      className="animate-spin origin-[105px_346px]"
                     />
                   )}
-                </svg>
 
-                {/* Drop animation dripping from burette tip */}
-                {titrantAddedMl > 0 && titrantAddedMl < 50 && (
-                  <div className="absolute top-2 w-2 h-3 rounded-full bg-cyan-400 opacity-80 animate-ping" />
-                )}
+                  {/* Glass Electrode pH Probe submerged in solution */}
+                  <g>
+                    {/* Electrode stem entering from top right */}
+                    <line x1="135" y1="235" x2="118" y2="320" stroke="#0284c7" strokeWidth="3" strokeLinecap="round" />
+                    {/* Blue glass sensing bulb */}
+                    <circle cx="118" cy="324" r="4.5" fill="#38bdf8" stroke="#0284c7" strokeWidth="1" />
+                    {/* Cable leading to digital meter */}
+                    <path d="M 135 235 Q 155 210 165 160" fill="none" stroke="#334155" strokeWidth="2" strokeDasharray="3 1" />
+                  </g>
+                </svg>
               </div>
             </div>
 
             {/* Current Color Indicator Label */}
-            <div className="bg-slate-950 p-2.5 rounded-2xl border border-slate-800 text-xs flex items-center justify-between">
-              <span className="text-slate-400">{isAr ? 'لون الدليل الحالي:' : 'Indicator Color:'}</span>
-              <span className="font-bold text-slate-100 flex items-center gap-1.5">
+            <div
+              className={`p-2.5 rounded-2xl border text-xs flex items-center justify-between ${
+                isContrast
+                  ? 'bg-black border-white text-white'
+                  : isLight
+                  ? 'bg-slate-50 border-slate-200 text-slate-800'
+                  : 'bg-[#0D1117] border-[#30363D] text-slate-200'
+              }`}
+            >
+              <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                {isAr ? 'لون الدليل الحالي:' : 'Indicator Color:'}
+              </span>
+              <span className="font-bold flex items-center gap-1.5">
                 <span
-                  className="w-3 h-3 rounded-full border border-white/40 shadow-xs inline-block"
+                  className="w-3.5 h-3.5 rounded-full border border-black/20 dark:border-white/40 shadow-xs inline-block"
                   style={{ backgroundColor: indicatorColor.bg }}
                 />
                 <span>{isAr ? indicatorColor.labelAr : indicatorColor.labelEn}</span>
@@ -1316,8 +1786,16 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
       </div>
 
       {/* Governing Theory & Ministerial Equations Footer */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3 sm:p-4 text-xs shadow-md space-y-2 shrink-0">
-        <div className="flex items-center gap-2 font-bold text-emerald-400">
+      <div
+        className={`rounded-2xl p-3 sm:p-4 text-xs shadow-md space-y-2 shrink-0 border transition-colors ${
+          isContrast
+            ? 'bg-black border-2 border-white text-white'
+            : isLight
+            ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
+            : 'bg-[#161B22] border-[#30363D] text-[#C9D1D9]'
+        }`}
+      >
+        <div className="flex items-center gap-2 font-bold text-emerald-600 dark:text-emerald-400">
           <Info className="w-4 h-4" />
           <span>
             {isAr
@@ -1325,11 +1803,19 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               : 'Governing Reaction & Ministerial Guidelines:'}
           </span>
         </div>
-        <div className="flex flex-wrap items-center justify-between gap-3 text-slate-300">
-          <div className="font-mono text-sm bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div
+            className={`font-mono text-sm px-3 py-1.5 rounded-xl border ${
+              isLight
+                ? 'bg-slate-50 border-slate-200 text-slate-900'
+                : isContrast
+                ? 'bg-black border-white text-white'
+                : 'bg-[#0D1117] border-[#30363D] text-slate-200'
+            }`}
+          >
             <MathRenderer text={`$$${currentSystem.formulaAr}$$`} />
           </div>
-          <p className="text-[11px] text-slate-400 max-w-xl leading-relaxed">
+          <p className={`text-[11px] max-w-xl leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {isAr ? currentSystem.descriptionAr : currentSystem.descriptionEn}
           </p>
         </div>
