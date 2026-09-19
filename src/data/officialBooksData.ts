@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -2325,6 +2325,132 @@ export const officialBooksList: OfficialBook[] = [
       'الانحدار التدريجي والتراجع الخلفي في الشبكات متعددة الطبقات وأطر الذكاء الاصطناعي التفسيري'
     ]
   },
+  // 25. Thanaweya Earth & Planetary Space Sciences
+  {
+    id: 'th-earth-space-g12',
+    curriculum: 'thanaweya',
+    category: 'earth_space',
+    subjectId: 'earth_space',
+    branchId: 'thanaweya_earth_space',
+    code: 'TH-EARTH-SPACE-G12',
+    titleEn: 'Earth & Planetary Space Sciences: Astrophysics & Space Systems',
+    titleAr: 'علوم الأرض والفلك: علوم الفضاء والكواكب والفيزياء الفلكية',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 48,
+    fileSize: '5.1 MB',
+    compendiumTitleEn: 'Official Grade 12 Earth, Planetary & Space Systems Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم والقوانين الرسمية لعلوم الأرض والفضاء والفيزياء الفلكية',
+    filename: 'thanaweya-earth-space.pdf',
+    downloadUrl: '/books/thanaweya-earth-space.pdf',
+    fullTextbookPages: 260,
+    fullTextbookSize: '29.6 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/sec3/earth-space/',
+    coverGradient: 'from-indigo-900 via-blue-900 to-violet-950',
+    accentColor: '#4f46e5',
+    chapters: [
+      { id: 'ch1', titleEn: 'Unit 1: Celestial Mechanics & Keplerian Orbital Dynamics', titleAr: 'الوحدة الأولى: الميكانيكا السماوية وديناميكا المدارات الكبلرية', pageRange: 'pp. 1-26', topicsCount: 15 },
+      { id: 'ch2', titleEn: 'Unit 2: Comparative Planetology: Terrestrial & Jovian Worlds', titleAr: 'الوحدة الثانية: علم الكواكب المقارن: العوالم الأرضية والعملاقة الغازية', pageRange: 'pp. 27-52', topicsCount: 15 },
+      { id: 'ch3', titleEn: 'Unit 3: Solar Physics, Heliophysics & Space Weather', titleAr: 'الوحدة الثالثة: فيزياء الشمس والطقس الفضائي والغلاف المغناطيسي', pageRange: 'pp. 53-78', topicsCount: 15 },
+      { id: 'ch4', titleEn: 'Unit 4: Stellar Evolution, H-R Diagram & Compact Stellar Remnants', titleAr: 'الوحدة الرابعة: تطور النجوم ومخطط هرتزبرنغ-راسل وبقايا النجوم المنهارة', pageRange: 'pp. 79-104', topicsCount: 15 },
+      { id: 'ch5', titleEn: 'Unit 5: Galactic Structures, Dark Matter & Cosmic Microwave Background', titleAr: 'الوحدة الخامسة: البنية المجرية، المادة المظلمة وإشعاع الخلفية الكونية', pageRange: 'pp. 105-130', topicsCount: 15 },
+      { id: 'ch6', titleEn: 'Unit 6: Astrodynamics, Hohmann Transfer & Rocket Propulsion', titleAr: 'الوحدة السادسة: الملاحة الفضائية ومناورات نقل هومان ودفع الصواريخ', pageRange: 'pp. 131-156', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Unit 7: Satellite Remote Sensing, Spectroscopy & Earth Observation', titleAr: 'الوحدة السابعة: الاستشعار عن بعد بالساتل والتحليل الطيفي ومراقبة الأرض', pageRange: 'pp. 157-182', topicsCount: 15 },
+      { id: 'ch8', titleEn: 'Unit 8: Exoplanetary Systems, Transit Spectroscopy & Habitability', titleAr: 'الوحدة الثامنة: الكواكب الخارجية، طيف العبور ونطاقات الحياة الصالحة', pageRange: 'pp. 183-208', topicsCount: 15 },
+      { id: 'ch9', titleEn: 'Unit 9: Space Instrumentation, Optical/Radio Telescopes & Cryogenics', titleAr: 'الوحدة التاسعة: أجهزة الرصد الفضائي والتلسكوبات الراديوية والبصرية والأنظمة المبردة', pageRange: 'pp. 209-234', topicsCount: 15 },
+      { id: 'ch10', titleEn: 'Unit 10: Space Law, Planetary Protection, Orbital Debris & Exploration', titleAr: 'الوحدة العاشرة: قانون الفضاء الدولي، الحماية الكوكبية ومخلفات المدارات', pageRange: 'pp. 235-260', topicsCount: 15 }
+    ],
+    descriptionEn: 'The authorized Grade 12 Earth & Planetary Space Sciences textbook published by the Egyptian Ministry of Education, covering Keplerian celestial mechanics, comparative planetology, solar wind physics, stellar lifecycles and Chandrasekhar limits, cosmology and dark matter, Hohmann transfer orbits, Tsiolkovsky rocketry, and multi-spectral satellite remote sensing.',
+    descriptionAr: 'الكتاب المدرسي المعتمد لوزارة التربية والتعليم لطلاب الصف الثالث الثانوي في مادة علوم الأرض والفلك: يغطي الميكانيكا السماوية وقوانين كبلر، علم الكواكب المقارن، فيزياء الشمس والرياح الشمسية، أطوار النجوم وحد تشاندراسيخار، علم الكونيات والمادة المظلمة، مناورات نقل هومان الفضائية، معادلة تسيلكوفسكي لدفع الصواريخ، والاستشعار عن بعد بالأقمار الصناعية.',
+    highlightsEn: [
+      'Keplerian three laws of planetary motion, semi-major axis, and orbital eccentricity derivation',
+      'Atmospheric scale height, planetary differentiation, and magnetic dynamo mechanics',
+      'Solar core fusion (p-p chain), coronal mass ejections, and geomagnetic storm induction',
+      'Hertzsprung-Russell diagram sequences, main sequence lifetimes, white dwarfs, and neutron stars',
+      'Hubble-Lemaître cosmic expansion, Doppler galactic redshift, and dark matter rotation curves',
+      'Tsiolkovsky rocket equation, specific impulse (Isp), delta-V budgets, and Hohmann transfer burns',
+      'Normalized Difference Vegetation Index (NDVI), Planck blackbody spectra, and atmospheric windows',
+      'Outer Space Treaty (1967), Kessler syndrome cascading debris mitigation, and planetary defense'
+    ],
+    highlightsAr: [
+      'قوانين كبلر الثلاثة لحركة الكواكب واستنتاج نصف المحور الأكبر والانحراف المداري',
+      'المقياس الارتفاعي للغلاف الجوي وتمايز الكواكب ومولد المجال المغناطيسي الديناميكي',
+      'الاندماج النووي الشمسي، الانبعاثات الكتلية الإكليلية، والعواصف الجيومغناطيسية',
+      'تسلسلات مخطط هرتزبرنغ-راسل، أعمار النجوم، الأقزام البيضاء والنجوم النيوترونية',
+      'تمدد هابل الكوني، الانزياح نحو الأحمر، ومنحنيات دوران المجرات والمادة المظلمة',
+      'معادلة تسيلكوفسكي للصواريخ، الدفع النوعي، ومناورات نقل هومان المدارية المزدوجة',
+      'مؤشر الغطاء النباتي NDVI، أطياف بلانك للجسم الأسود، ونوافذ النفاذية الجوية',
+      'معاهدة الفضاء الخارجي لعام 1967، متلازمة كسلر لتراكم الحطام، والدفاع الكوكبي'
+    ]
+  },
+  // 26. EG-Bac Earth & Planetary Space Sciences
+  {
+    id: 'egbac-earth-space-g12',
+    curriculum: 'egbac',
+    category: 'earth_space',
+    subjectId: 'earth_space',
+    branchId: 'egbac_earth_space',
+    code: 'EGBAC-EARTH-SPACE-G12',
+    titleEn: 'Advanced Planetary Astrophysics, Space Systems & Astrodynamics',
+    titleAr: 'الفيزياء الفلكية الكوكبية المتقدمة ونظم الفضاء وديناميكا الملاحة الفضائية',
+    subtitleEn: 'New Egyptian Baccalaureate Official Framework - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Astrophysics & Space Exploration Division)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية (شعبة الفيزياء الفلكية واستكشاف الفضاء)',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 52,
+    fileSize: '5.5 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Planetary Astrophysics & Orbital Astrodynamics Compendium',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في الفيزياء الفلكية الكوكبية وميكانيكا المدارات',
+    filename: 'egbac-earth-space.pdf',
+    downloadUrl: '/books/egbac-earth-space.pdf',
+    fullTextbookPages: 280,
+    fullTextbookSize: '32.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/earth-space/',
+    coverGradient: 'from-blue-950 via-indigo-950 to-purple-950',
+    accentColor: '#38bdf8',
+    chapters: [
+      { id: 'ch1', titleEn: 'Unit 1: Celestial Mechanics & Keplerian Orbital Dynamics', titleAr: 'الوحدة الأولى: الميكانيكا السماوية وديناميكا المدارات الكبلرية', pageRange: 'pp. 1-28', topicsCount: 15 },
+      { id: 'ch2', titleEn: 'Unit 2: Comparative Planetology: Terrestrial & Jovian Worlds', titleAr: 'الوحدة الثانية: علم الكواكب المقارن: العوالم الأرضية والعملاقة الغازية', pageRange: 'pp. 29-56', topicsCount: 15 },
+      { id: 'ch3', titleEn: 'Unit 3: Solar Physics, Heliophysics & Space Weather', titleAr: 'الوحدة الثالثة: فيزياء الشمس والطقس الفضائي والغلاف المغناطيسي', pageRange: 'pp. 57-84', topicsCount: 15 },
+      { id: 'ch4', titleEn: 'Unit 4: Stellar Evolution, H-R Diagram & Compact Stellar Remnants', titleAr: 'الوحدة الرابعة: تطور النجوم ومخطط هرتزبرنغ-راسل وبقايا النجوم المنهارة', pageRange: 'pp. 85-112', topicsCount: 15 },
+      { id: 'ch5', titleEn: 'Unit 5: Galactic Structures, Dark Matter & Cosmic Microwave Background', titleAr: 'الوحدة الخامسة: البنية المجرية، المادة المظلمة وإشعاع الخلفية الكونية', pageRange: 'pp. 113-140', topicsCount: 15 },
+      { id: 'ch6', titleEn: 'Unit 6: Astrodynamics, Hohmann Transfer & Rocket Propulsion', titleAr: 'الوحدة السادسة: الملاحة الفضائية ومناورات نقل هومان ودفع الصواريخ', pageRange: 'pp. 141-168', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Unit 7: Satellite Remote Sensing, Spectroscopy & Earth Observation', titleAr: 'الوحدة السابعة: الاستشعار عن بعد بالساتل والتحليل الطيفي ومراقبة الأرض', pageRange: 'pp. 169-196', topicsCount: 15 },
+      { id: 'ch8', titleEn: 'Unit 8: Exoplanetary Systems, Transit Spectroscopy & Habitability', titleAr: 'الوحدة الثامنة: الكواكب الخارجية، طيف العبور ونطاقات الحياة الصالحة', pageRange: 'pp. 197-224', topicsCount: 15 },
+      { id: 'ch9', titleEn: 'Unit 9: Space Instrumentation, Optical/Radio Telescopes & Cryogenics', titleAr: 'الوحدة التاسعة: أجهزة الرصد الفضائي والتلسكوبات الراديوية والبصرية والأنظمة المبردة', pageRange: 'pp. 225-252', topicsCount: 15 },
+      { id: 'ch10', titleEn: 'Unit 10: Space Law, Planetary Protection, Orbital Debris & Exploration', titleAr: 'الوحدة العاشرة: قانون الفضاء الدولي، الحماية الكوكبية ومخلفات المدارات', pageRange: 'pp. 253-280', topicsCount: 15 }
+    ],
+    descriptionEn: 'Rigorous collegiate-level planetary astrophysics and space systems engineering curriculum designed for the New Egyptian Baccalaureate, synthesizing vis-viva orbital equations, planetary hydrothermal thermodynamics, stellar nucleosynthesis, relativistic cosmology, multi-stage rocket optimization, and hyperspectral radiometric analysis.',
+    descriptionAr: 'منهج البكالوريا المصرية المتقدم في الفيزياء الفلكية وهندسة النظم الفضائية: مصمم بمستوى جامعي تأسيسي يجمع بين معادلات فيس-فيفا الحركية، ديناميكا الموائع الكوكبية، التخليق النووي النجمي، علم الكون النسبي، التحسين الرياضي للصواريخ متعددة المراحل، والتحليل الطيفي الفضائي فائق الأطياف.',
+    highlightsEn: [
+      'Vis-viva orbital energy conservation, hyperbolic escape velocities, and three-body Lagrange points',
+      'Thermal equilibrium temperatures, greenhouse runaways, and tidal heating in Jovian moons',
+      'Magnetohydrodynamic dynamo equations, Parker solar wind model, and plasma reconnection',
+      'Degeneracy pressure (Fermi-Dirac), Oppenheimer-Volkoff neutron limits, and Kerr black holes',
+      'Friedmann cosmic acceleration equations, dark energy equation of state, and CMB power spectra',
+      'Multi-stage mass ratio optimization, gravity-assist slingshots, and low-thrust ion propulsion',
+      'Atmospheric radiative transfer, Rayleigh-Mie scattering, and hyperspectral endmember unmixing',
+      'Planetary protection biosafety protocols, Moon Treaty, and in-situ resource utilization (ISRU)'
+    ],
+    highlightsAr: [
+      'حفظ طاقة مدارات فيس-فيفا، سرعات الهروب القطعية، ونقاط لاغرانج لنظام الأجسام الثلاثة',
+      'حرارة التوازن الإشعاعي، ظاهرة الاحتباس الجامح، والتسخين المدي في أقمار المشتري',
+      'معادلات الدينامو الهيدروديناميكي الممغنط، نموذج باركر للرياح الشمسية، وإعادة الاتصال المغناطيسي',
+      'ضغط التحلل الكمي الفيرمي، حد أوبنهايمر-فولكوف للنجوم النيوترونية، وثقوب كير الدوارة',
+      'معادلات فريدمان للتسارع الكوني، معادلة حالة الطاقة المظلمة، وطيف قدرة إشعاع CMB',
+      'التحسين الرياضي لكتل الصواريخ متعددة المراحل، مساعدات الجاذبية، ودفع المحركات الأيونية',
+      'الانتقال الإشعاعي بالغلاف الجوي، تشتت رايلي ومي، والتحليل الطيفي عالي الدقة',
+      'بروتوكولات الأمان الحيوي لحماية الكواكب، معاهدة القمر، واستغلال الموارد الفضائية ISRU'
+    ]
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -2362,6 +2488,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_economics_stat' && (b.branchId === 'egbac_economics_stat' || b.id === 'egbac-econ-stat-g12')) return true;
     if (branchId === 'thanaweya_cs_informatics' && (b.branchId === 'thanaweya_cs_informatics' || b.id === 'th-cs-informatics-g12')) return true;
     if (branchId === 'egbac_cs_informatics' && (b.branchId === 'egbac_cs_informatics' || b.id === 'egbac-cs-informatics-g12')) return true;
+    if (branchId === 'thanaweya_earth_space' && (b.branchId === 'thanaweya_earth_space' || b.id === 'th-earth-space-g12')) return true;
+    if (branchId === 'egbac_earth_space' && (b.branchId === 'egbac_earth_space' || b.id === 'egbac-earth-space-g12')) return true;
     return false;
   });
 }
@@ -2371,7 +2499,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

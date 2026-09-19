@@ -20,6 +20,7 @@ export type BranchId =
   | 'thanaweya_psychology'
   | 'thanaweya_economics_stat'
   | 'thanaweya_cs_informatics'
+  | 'thanaweya_earth_space'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -36,7 +37,8 @@ export type BranchId =
   | 'egbac_philosophy'
   | 'egbac_psychology'
   | 'egbac_economics_stat'
-  | 'egbac_cs_informatics';
+  | 'egbac_cs_informatics'
+  | 'egbac_earth_space';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -254,7 +256,12 @@ export type InteractiveWidgetType =
   | 'cs_algorithm_visualizer'
   | 'cs_sql_sandbox'
   | 'cs_network_subnet'
-  | 'cs_neural_playground';
+  | 'cs_neural_playground'
+  | 'space_orbit_sim'
+  | 'planetary_viewer'
+  | 'stellar_lifecycle'
+  | 'hohmann_transfer'
+  | 'remote_sensing_spectroscopy';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

@@ -533,8 +533,8 @@ export const SearchModal: React.FC<Props> = ({
             type="text"
             placeholder={
               isArabic
-                ? 'ابحث في ٣٩,٤٠٠ مسألة وقانون وفصل... (مثال: كيرشوف، بوين، موهس، طابا، بايز، كينز، بايثون، DNA)'
-                : 'Search across 39,400 problems, theorems & lessons... (e.g. Kirchhoff, Bowen, Mohs, Taba, Bayes, Keynes, Python, DNA)'
+                ? 'ابحث في ٤٣,٤٠٠ مسألة وقانون وفصل... (مثال: كبلر، كيرشوف، بوين، موهس، طابا، بايز، كينز، بايثون، DNA)'
+                : 'Search across 43,400 problems, theorems & lessons... (e.g. Kepler, Kirchhoff, Bowen, Mohs, Taba, Bayes, Keynes, Python, DNA)'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -602,7 +602,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'الكل (١٩٧ فصلاً)' : 'All (197 Ch)'}
+                  {isArabic ? 'الكل (٢١٧ فصلاً)' : 'All (217 Ch)'}
                 </button>
                 <button
                   onClick={() => setTrackFilter('thanaweya')}
@@ -612,7 +612,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'ثانوية عامة (١٠٥)' : 'Thanaweya (105)'}
+                  {isArabic ? 'ثانوية عامة (١١٥)' : 'Thanaweya (115)'}
                 </button>
                 <button
                   onClick={() => setTrackFilter('egbac')}
@@ -622,7 +622,7 @@ export const SearchModal: React.FC<Props> = ({
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
-                  {isArabic ? 'بكالوريا مصرية (٩٢)' : 'EG-Bac (92)'}
+                  {isArabic ? 'بكالوريا مصرية (١٠٢)' : 'EG-Bac (102)'}
                 </button>
               </div>
 
@@ -774,8 +774,8 @@ export const SearchModal: React.FC<Props> = ({
                 </p>
                 <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
                   {isArabic
-                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٣٩,٤٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ١٩٧ فصلاً في ١٤ مادة معتمدة.'
-                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 39,400 problems across 197 chapters in 14 accredited subjects.'}
+                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٤٣,٤٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ٢١٧ فصلاً في ١٥ مادة معتمدة.'
+                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 43,400 problems across 217 chapters in 15 accredited subjects.'}
                 </p>
               </div>
 
@@ -1015,8 +1015,8 @@ export const SearchModal: React.FC<Props> = ({
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
             <span className="font-medium">
               {isArabic
-                ? 'فهرس فوري لـ ١٩٧ فصلاً و ٣٩,٤٠٠ مسألة عبر ١٤ مادة أساسية'
-                : 'Live index of 197 chapters & 39,400 problems across 14 core subjects'}
+                ? 'فهرس فوري لـ ٢١٧ فصلاً و ٤٣,٤٠٠ مسألة عبر ١٥ مادة أساسية'
+                : 'Live index of 217 chapters & 43,400 problems across 15 core subjects'}
             </span>
           </div>
 

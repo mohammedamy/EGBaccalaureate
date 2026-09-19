@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -317,6 +317,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_cs_informatics'],
       egbac: ['egbac_cs_informatics'],
+    },
+  },
+  {
+    id: 'earth_space',
+    titleEn: 'Earth & Planetary Space Sciences',
+    titleAr: 'علوم الأرض والفلك: علوم الفضاء والكواكب',
+    shortTitleEn: 'Earth & Space',
+    shortTitleAr: 'أرض وفلك وفضاء',
+    emoji: '🪐',
+    iconName: 'Orbit',
+    badgeColor: 'indigo',
+    gradient: 'from-blue-950 via-indigo-900 to-amber-900',
+    lightBg: 'bg-indigo-50 text-indigo-950 border-indigo-200',
+    darkBg: 'bg-indigo-950/80 text-indigo-200 border-indigo-800/60',
+    borderColor: 'border-indigo-500/50',
+    textColor: 'text-indigo-400',
+    descriptionEn: 'National STEM & Scientific Core Subject: Celestial Mechanics, Keplerian Orbits, Solar System & Comparative Planetology, Heliophysics, Space Weather, Stellar Astrophysics, Compact Objects, Cosmology, Exoplanets & Satellite Remote Sensing',
+    descriptionAr: 'المادة العلمية المتقدمة: ميكانيكا الأجرام الفلكية، مدارات كبلر، النظام الشمسي والمقارنة الكوكبية، فيزياء الشمس والطقس الفضائي، فيزياء النجوم والتخليق النووي، الثقوب السوداء وعلم الكونيات، الكواكب الخارجية والاستشعار عن بعد',
+    branchIds: {
+      thanaweya: ['thanaweya_earth_space'],
+      egbac: ['egbac_earth_space'],
     },
   },
 ];

@@ -25,6 +25,7 @@ import {
   Users,
   TrendingUp,
   Binary,
+  Orbit,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -119,6 +120,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <TrendingUp className={className} />;
       case 'Binary':
         return <Binary className={className} />;
+      case 'Orbit':
+        return <Orbit className={className} />;
       default:
         return <Layers className={className} />;
     }

@@ -15,6 +15,7 @@ import {
   GraduationCap,
   Sparkles,
   Binary,
+  Orbit,
   Microscope,
   Calculator,
   Atom,
@@ -885,6 +886,60 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageEn: 'Direct accelerated qualification for faculties of Computers & Artificial Intelligence, Computer Engineering, Software Engineering, Cybersecurity, and Data Science.',
       universityAdvantageAr: 'تأهيل مباشر وفوري لكليات الحاسبات والذكاء الاصطناعي، هندسة الحاسب والبرمجيات، الأمن السيبراني، ونظم وعلوم البيانات.',
     },
+    {
+      id: 'earth_space_bridge',
+      titleEn: 'Earth & Planetary Space Sciences: Astrophysics, Celestial Mechanics & Remote Sensing',
+      titleAr: 'علوم الأرض والفلك: الفيزياء الفلكية، الميكانيكا السماوية، والاستشعار عن بعد',
+      icon: <Orbit className="w-5 h-5 text-indigo-400" />,
+      thanaweyaBranchId: 'thanaweya_earth_space',
+      egBacBranchId: 'egbac_earth_space',
+      thanaweyaTitleEn: 'Comprehensive 10-Chapter Earth & Space Exploration Track',
+      thanaweyaTitleAr: 'المنهج الشامل (١٠ فصول): علوم الأرض والفلك واستكشاف الفضاء',
+      thanaweyaTopicsEn: [
+        'Ch.1 Celestial Mechanics: Keplerian laws, orbital eccentricity, semi-major axis, and orbital periods',
+        'Ch.2 Comparative Planetology: Terrestrial vs. Jovian planets, planetary interiors, and atmospheres',
+        'Ch.3 Solar Physics & Space Weather: Nuclear fusion, solar wind, coronal mass ejections, and geomagnetic storms',
+        'Ch.4 Stellar Evolution: Hertzsprung-Russell diagram, stellar nucleosynthesis, white dwarfs, and neutron stars',
+        'Ch.5 Cosmology & Galaxies: Galactic morphologies, Doppler redshift, cosmic expansion, and dark matter',
+        'Ch.6 Astrodynamics & Rocketry: Tsiolkovsky rocket equation, specific impulse (Isp), and Hohmann transfer burns',
+        'Ch.7 Satellite Remote Sensing: Electromagnetic spectrum, atmospheric windows, multispectral sensors, and NDVI',
+        'Ch.8 Exoplanetary Astronomy: Radial velocity method, transit photometry, transit transmission spectroscopy, and habitable zones',
+        'Ch.9 Space Instrumentation: Ground-based & space observatories, optical/infrared/radio telescopes, and CCDs',
+        'Ch.10 Space Law & Exploration: Outer Space Treaty, space debris mitigation (Kessler syndrome), and planetary protection',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ الميكانيكا السماوية: قوانين كبلر الثلاثة، الانحراف المداري، نصف المحور الأكبر، وحسابات الزمن الدوري',
+        'فصل ٢ علم الكواكب المقارن: الكواكب الصخرية والعملاقة الغازية، البنية الداخلية وتمايز الكواكب، والأغلفة الجوية',
+        'فصل ٣ فيزياء الشمس والطقس الفضائي: سلاسل الاندماج النووي، الرياح الشمسية، الانبعاثات الكتلية، والعواصف المغناطيسية',
+        'فصل ٤ تطور النجوم ومخطط H-R: تسلسلات النجوم ومخطط هرتزبرنغ-راسل، الأقزام البيضاء، والنجوم النيوترونية',
+        'فصل ٥ علم الكونيات والمجرات: أشكال المجرات، الانزياح نحو الأحمر، تمدد الكون وقانون هابل، ومنحنيات المادة المظلمة',
+        'فصل ٦ ديناميكا الصواريخ والملاحة الفضائية: معادلة تسيلكوفسكي للصواريخ، الدفع النوعي، ومناورات نقل هومان المدارية',
+        'فصل ٧ الاستشعار عن بعد بالأقمار الصناعية: الطيف الكهرومغناطيسي، نوافذ النفاذية الجوية، والمستشعرات متعددة الأطياف ومؤشر NDVI',
+        'فصل ٨ الكواكب النجمية الخارجية: طريقة السرعة الشعاعية، طيف عبور الكواكب، ونطاقات الكواكب القابلة للحياة (Goldilocks)',
+        'فصل ٩ المراصد والمعدات الفضائية: التلسكوبات البصرية والأشعة تحت الحمراء والراديوية، كواشف CCD والأنظمة المبردة',
+        'فصل ١٠ قانون الفضاء وحماية البيئة الفضائية: معاهدة الفضاء الخارجي 1967، متلازمة كسلر لتراكم الحطام، وبروتوكولات حماية الكواكب',
+      ],
+      egBacTitleEn: 'Advanced 10-Unit Planetary Astrophysics & Astrodynamical Systems Framework',
+      egBacTitleAr: 'المسار المتقدم (١٠ فصول): الفيزياء الفلكية الكوكبية، ديناميكا الملاحة، واستكشاف الفضاء العميق',
+      egBacTopicsEn: [
+        'Units 1-3 Orbital Mechanics & Heliophysics: Vis-viva equations, three-body Lagrange points, magnetohydrodynamic dynamos, and solar plasma reconnection',
+        'Units 4-5 Relativistic Astrophysics & Cosmology: Degeneracy pressure, Chandrasekhar/TOV limits, Friedmann expansion equations, and CMB anisotropy analysis',
+        'Units 6-7 Spacecraft Systems & Hyperspectral Sensing: Multi-stage mass optimization, low-thrust ion trajectory design, and radiative transfer spectroscopy',
+        'Units 8-10 Planetary Astrobiology & Mission Architecture: Biosignature spectroscopy, atmospheric scale heights, and deep-space mission design',
+      ],
+      egBacTopicsAr: [
+        'فصول ١-٣ الميكانيكا المدارية وفيزياء الشمس: معادلات فيس-فيفا للطاقة المدارية، نقاط لاغرانج لنظام الأجسام الثلاثة، ودينامو البلازما المغناطيسية',
+        'فصول ٤-٥ الفيزياء الفلكية والكونيات: ضغط الانحلال الكمي، حدود تشاندراسيخار وتولمان-أوبنهايمر، معادلات فريدمان، وتحليل إشعاع الخلفية الكونية',
+        'فصول ٦-٧ هندسة المركبات والاستشعار فائق الأطياف: التحسين الرياضي لكتل الصواريخ متعددة المراحل، الدفع الأيوني، ونمذجة الانتقال الإشعاعي',
+        'فصول ٨-١٠ البيولوجيا الفلكية وتصميم المهام الفضائية: البصمات الطيفية الحيوية، مقياس الارتفاع الجوي، وتصميم معماريات مهام الفضاء السحيق',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an extensive foundation in Keplerian orbital mechanics, solar system planetology, stellar evolution, and satellite Earth observation. EG-Bac elevates this with collegiate-level astrodynamical derivations (vis-viva, Lagrange points), relativistic astrophysics, and hyperspectral radiometric analysis.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً شاملاً في الميكانيكا السماوية لكبلر، علم الكواكب، تطور النجوم، ومراقبة الأرض بالأقمار الصناعية. بينما ترتقي البكالوريا بالمنهج إلى مستوى متقدم يشمل اشتقاقات الملاحة الفضائية (معادلات فيس-فيفا ونقاط لاغرانج)، الفيزياء الفلكية النسبية، والتحليل الإشعاعي فائق الأطياف.',
+      universityAdvantageEn: 'Direct accelerated springboard for faculties of Aerospace & Space Engineering, Astronomy & Astrophysics, Satellite Communications, Remote Sensing, and Planetary Sciences.',
+      universityAdvantageAr: 'تأهيل مباشر ومتقدم لكليات هندسة الطيران والفضاء، علوم الفلك والفيزياء الفلكية، اتصالات الأقمار الصناعية، الاستشعار عن بعد وعلوم الفضاء، وعلوم الكواكب والجيوفيزياء.',
+    },
   ];
 
 
@@ -955,7 +1010,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(39400) : '39,400'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(43400) : '43,400'}</span>
               <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
@@ -967,8 +1022,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(14) : '14'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٧ فرعاً لكل مسار)' : 'Subjects (17 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(15) : '15'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٨ فرعاً لكل مسار)' : 'Subjects (18 branches/track)'}</span>
             </div>
           </div>
 
@@ -1008,7 +1063,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٤ مادة • ١٧ فرعاً • ١٠٥ فصول' : 'National Standard Track • 14 Subjects • 17 Branches • 105 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٥ مادة • ١٨ فرعاً • ١١٥ فصلاً' : 'National Standard Track • 15 Subjects • 18 Branches • 115 Chapters'}
                 </p>
               </div>
             </div>
@@ -1027,8 +1082,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي، وعلوم الحاسب والذكاء الاصطناعي.'
-              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, Economics & Statistics, and Computer Science & AI.'}
+              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي، وعلوم الحاسب والذكاء الاصطناعي، وعلوم الأرض والفلك.'
+              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, Economics & Statistics, Computer Science & AI, and Earth & Space Sciences.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -1056,6 +1111,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'علوم الحاسب والذكاء الاصطناعي: الخوارزميات، قواعد البيانات، الشبكات، ونظم الذكاء الاصطناعي (١٠ فصول)' : 'Computer Science & AI: Algorithms, Databases, Networking & AI Systems (10 Ch)'}</span>
             </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span>{isArabic ? 'علوم الأرض والفلك: الميكانيكا السماوية، الفيزياء الفلكية، والاستشعار عن بعد (١٠ فصول)' : 'Earth & Space Sciences: Celestial Mechanics, Astrophysics & Remote Sensing (10 Ch)'}</span>
+            </div>
           </div>
         </div>
 
@@ -1079,7 +1138,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٤ مادة • ١٧ فرعاً • ٩٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 14 Subjects • 17 Branches • 92 Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٥ مادة • ١٨ فرعاً • ١٠٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 15 Subjects • 18 Branches • 102 Chapters'}
                 </p>
               </div>
             </div>
@@ -1098,8 +1157,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي، وهندسة البرمجيات الموزعة.'
-              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, quantitative macroeconomics, and distributed software engineering.'}
+              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي، وهندسة البرمجيات الموزعة، والفيزياء الفلكية الكوكبية.'
+              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, quantitative macroeconomics, distributed software engineering, and planetary astrophysics.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -1126,6 +1185,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'المعلوماتية المتقدمة وهندسة البرمجيات: الهياكل البيانية، نمذجة البيانات، الحوسبة الموزعة، والتعلم العميق (١٠ فصول)' : 'Advanced Informatics & Software Engineering: Data Structures, Data Modeling, Distributed Systems & Deep Learning (10 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+              <span>{isArabic ? 'الفيزياء الفلكية ونظم الفضاء: الملاحة الفضائية، علم الكواكب، والاستشعار الفضائي (١٠ فصول)' : 'Astrophysics & Space Systems: Astrodynamics, Planetary Sciences & Remote Sensing (10 Ch)'}</span>
             </div>
           </div>
         </div>

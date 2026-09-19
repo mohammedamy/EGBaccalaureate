@@ -17,6 +17,7 @@ import {
   Brain,
   TrendingUp,
   Binary,
+  Orbit,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
@@ -32,6 +33,7 @@ import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio'
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
+import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
@@ -45,7 +47,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -64,6 +66,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'chemistry') return 'chemistry';
     if (selectedSubject === 'biology') return 'biology';
     if (selectedSubject === 'geology') return 'geology';
+    if (selectedSubject === 'earth_space') return 'earth_space';
     if (selectedSubject === 'philosophy') return 'philosophy';
     if (selectedSubject === 'psychology') return 'psychology';
     if (selectedSubject === 'history') return 'history';
@@ -90,6 +93,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'chemistry') setActiveLab('chemistry');
     else if (selectedSubject === 'biology') setActiveLab('biology');
     else if (selectedSubject === 'geology') setActiveLab('geology');
+    else if (selectedSubject === 'earth_space') setActiveLab('earth_space');
     else if (selectedSubject === 'philosophy') setActiveLab('philosophy');
     else if (selectedSubject === 'psychology') setActiveLab('psychology');
     else if (selectedSubject === 'economics_stat') setActiveLab('economics_stat');
@@ -376,6 +380,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
         ? 'استوديو علوم الحاسب والمعلوماتية والذكاء الاصطناعي: محاكي الدوائر المنطقية وجداول الصدق، متتبع الخوارزميات خطوة بخطوة، منصة SQL التفاعلية، حاسبة الشبكات وعناوين IP، وملعب الشبكات العصبية العميقة'
         : 'Computer Science & AI Studio: Digital logic gate circuit builder, sorting/searching algorithm tracer, interactive SQL sandbox, IPv4/CIDR subnet calculator, and neural network decision boundary playground',
     },
+    {
+      id: 'earth_space' as LabId,
+      titleEn: 'Space & Planetary Studio',
+      titleAr: 'استوديو علوم الفضاء والكواكب',
+      subtitleEn: 'Keplerian Orbits, Solar System, H-R Diagram, Hohmann Transfer & Satellite Remote Sensing',
+      subtitleAr: 'مدارات كبلر، استكشاف كواكب المجموعة الشمسية، مخطط هرتزبرنغ-راسل، نقل هومان الفضائي، والاستشعار عن بعد',
+      icon: Orbit,
+      color: 'indigo',
+      badge: '🪐 Space Studio',
+      gradient: 'from-indigo-600 via-blue-700 to-violet-900',
+      activeBg: 'bg-indigo-600 text-white shadow-indigo-600/30',
+      tagline: isArabic
+        ? 'استوديو علوم الأرض والفضاء والكواكب: محاكي قوانين كبلر والمدارات البيضاوية، أطلس الكواكب المقارن، تطور النجوم ومخطط هرتزبرنغ-راسل، ميكانيكا المناورات المدارية ونقل هومان، ومحلل الاستشعار الفضائي والأطياف'
+        : 'Earth & Planetary Space Studio: Keplerian orbit dynamics, comparative planetology explorer, Hertzsprung-Russell stellar lifecycle, Hohmann transfer orbital mechanics, and satellite remote sensing spectrogram analyzer',
+    },
   ];
 
   return (
@@ -398,7 +417,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 <span>{isArabic ? 'المختبرات العلمية والرياضية المعتمدة' : 'Official Virtual Science Laboratories'}</span>
               </span>
               <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
-                11 Specialized Labs & Studios
+                13 Specialized Labs & Studios
               </span>
             </div>
 
@@ -845,6 +864,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Space & Planetary Studio */}
+        {activeLab === 'earth_space' && (
+          <div className="space-y-4">
+            <SpacePlanetaryStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -853,7 +883,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -868,7 +898,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

@@ -16,13 +16,14 @@ import { egBacPhilosophyBranch } from './egBacPhilosophy';
 import { egBacPsychologyBranch } from './egBacPsychology';
 import { egBacEconomicsStatBranch } from './egBacEconomicsStat';
 import { egBacCsInformaticsBranch } from './egBacCsInformatics';
+import { egBacEarthSpaceBranch } from './egBacEarthSpace';
 
 export const egBacCurriculum: Curriculum = {
   id: 'egbac',
   nameEn: 'New Egyptian Baccalaureate (EG-Bac)',
   nameAr: 'نظام البكالوريا المصرية الجديد (EG-Bac)',
-  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI',
-  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي واللغات والتاريخ والجغرافيا السياسية وعلوم الأرض والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب والذكاء الاصطناعي بوزارة التربية والتعليم',
+  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences',
+  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي واللغات والتاريخ والجغرافيا السياسية وعلوم الأرض والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب وعلوم الفضاء والفلك والكواكب',
   moeOfficialBaselineEn: 'Egyptian Ministry of Education New Baccalaureate Educational Framework 2025/2026',
   moeOfficialBaselineAr: 'الإطار الوطني المطور لإعادة هيكلة الثانوية والبكالوريا المصرية - وزارة التربية والتعليم',
   branches: [
@@ -43,6 +44,7 @@ export const egBacCurriculum: Curriculum = {
     egBacPsychologyBranch,
     egBacEconomicsStatBranch,
     egBacCsInformaticsBranch,
+    egBacEarthSpaceBranch,
   ],
 };
 

@@ -30,6 +30,7 @@ import { LogicStudio } from './labs/LogicStudio';
 import { PsychologyStudio } from './labs/PsychologyStudio';
 import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
 import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
+import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -418,6 +419,29 @@ export const LessonView: React.FC<Props> = ({
               }
             />
           );
+        case 'space_orbit_sim':
+        case 'planetary_viewer':
+        case 'stellar_lifecycle':
+        case 'hohmann_transfer':
+        case 'remote_sensing_spectroscopy':
+          return (
+            <SpacePlanetaryStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'space_orbit_sim'
+                  ? 'orbital_sim'
+                  : lesson.interactiveWidget.type === 'planetary_viewer'
+                  ? 'planet_explorer'
+                  : lesson.interactiveWidget.type === 'stellar_lifecycle'
+                  ? 'hr_diagram'
+                  : lesson.interactiveWidget.type === 'hohmann_transfer'
+                  ? 'hohmann_transfer'
+                  : 'remote_sensing'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -620,6 +644,29 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'cs_network_subnet'
                   ? 'network_subnet'
                   : 'neural_playground'
+              }
+            />
+          );
+        case 'space_orbit_sim':
+        case 'planetary_viewer':
+        case 'stellar_lifecycle':
+        case 'hohmann_transfer':
+        case 'remote_sensing_spectroscopy':
+          return (
+            <SpacePlanetaryStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'space_orbit_sim'
+                  ? 'orbital_sim'
+                  : lesson.interactiveWidget.type === 'planetary_viewer'
+                  ? 'planet_explorer'
+                  : lesson.interactiveWidget.type === 'stellar_lifecycle'
+                  ? 'hr_diagram'
+                  : lesson.interactiveWidget.type === 'hohmann_transfer'
+                  ? 'hohmann_transfer'
+                  : 'remote_sensing'
               }
             />
           );

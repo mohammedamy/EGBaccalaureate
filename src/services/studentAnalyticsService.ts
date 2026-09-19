@@ -17,7 +17,8 @@ export type SubjectCategory =
   | 'economics_stat'
   | 'arabic'
   | 'languages'
-  | 'cs_informatics';
+  | 'cs_informatics'
+  | 'earth_space';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -48,7 +49,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -60,22 +61,31 @@ export interface MasteryRadarPoint {
 }
 
 /**
- * Determine subject dimension from branch / chapter metadata.
+ * Categorize a branch title or ID into a SubjectCategory
  */
-export function classifySubjectCategory(
-  branchTitleAr: string = '',
-  branchTitleEn: string = '',
-  chapterTitleAr: string = '',
-  subjectOrBranchId: string = ''
-): SubjectCategory {
-  const text = `${branchTitleAr} ${branchTitleEn} ${chapterTitleAr} ${subjectOrBranchId}`.toLowerCase();
+export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
+  const text = branchTitleOrId.toLowerCase();
+
+  if (
+    text.includes('فلك') ||
+    text.includes('فضاء') ||
+    text.includes('كواكب') ||
+    text.includes('earth_space') ||
+    text.includes('astronomy') ||
+    text.includes('planetary') ||
+    text.includes('orbit') ||
+    text.includes('كبلر')
+  ) {
+    return 'earth_space';
+  }
 
   if (
     text.includes('اقتصاد') ||
-    text.includes('economic') ||
     text.includes('إحصاء') ||
     text.includes('احصاء') ||
+    text.includes('econ') ||
     text.includes('statistic') ||
+    text.includes('economics_stat') ||
     text.includes('pearson') ||
     text.includes('spearman') ||
     text.includes('توزيع طبيعي') ||
@@ -152,6 +162,19 @@ export function classifySubjectCategory(
   }
   // Default to pure math for algebra, calculus, geometry, analysis
   return 'pure_math';
+}
+
+/**
+ * Classifies curriculum items into subject categories based on multiple metadata fields.
+ */
+export function classifySubjectCategory(
+  branchTitleAr?: string,
+  branchTitleEn?: string,
+  chapterTitleAr?: string,
+  branchId?: string
+): SubjectCategory {
+  const combined = [branchTitleAr || '', branchTitleEn || '', chapterTitleAr || '', branchId || ''].join(' ').toLowerCase();
+  return categorizeBranch(combined);
 }
 
 const DEFAULT_ANALYTICS_STATE: StudentAnalyticsState = {
@@ -468,9 +491,21 @@ export function getMasteryRadarData(
     { key: 'cs_informatics', ar: 'الحاسب والمعلوماتية', en: 'CS & Informatics', color: '#6366F1' },
   ];
 
+  const all15Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all14Dimensions,
+    { key: 'earth_space', ar: 'علوم الأرض والفلك', en: 'Earth & Space', color: '#4F46E5' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all15'
+      ? all15Dimensions
       : mode === 'all14'
       ? all14Dimensions
       : mode === 'all13'
