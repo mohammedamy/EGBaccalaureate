@@ -78,7 +78,7 @@ export const FormulaHandbook: React.FC<Props> = ({
       curData.branches.forEach((branch) => {
         branch.chapters.forEach((ch) => {
           ch.lessons.forEach((l) => {
-            l.formulas.forEach((f, idx) => {
+            l.formulas?.forEach((f, idx) => {
               list.push({
                 id: `${l.id}_f_${idx}`,
                 labelEn: f.labelEn,

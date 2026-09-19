@@ -774,8 +774,8 @@ export const SearchModal: React.FC<Props> = ({
                 </p>
                 <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
                   {isArabic
-                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٤٥,٠٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ٢٢٥ فصلاً في ١٦ مادة معتمدة.'
-                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 45,000 problems across 225 chapters in 16 accredited subjects.'}
+                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٥١,٤٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ٢٥٧ فصلاً في ٢٠ مادة معتمدة.'
+                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 51,400 problems across 257 chapters in 20 accredited subjects.'}
                 </p>
               </div>
 
@@ -1015,8 +1015,8 @@ export const SearchModal: React.FC<Props> = ({
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
             <span className="font-medium">
               {isArabic
-                ? 'فهرس فوري لـ ٢٢٥ فصلاً و ٤٥,٠٠٠ مسألة عبر ١٦ مادة أساسية'
-                : 'Live index of 225 chapters & 45,000 problems across 16 core subjects'}
+                ? 'فهرس فوري لـ ٢٥٧ فصلاً و ٥١,٤٠٠ مسألة عبر ٢٠ مادة أساسية'
+                : 'Live index of 257 chapters & 51,400 problems across 20 core subjects'}
             </span>
           </div>
 

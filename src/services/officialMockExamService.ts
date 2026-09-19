@@ -308,8 +308,96 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
   }
 
   if (
+    normSubject === 'italian' ||
+    normSubject.includes('italian') ||
+    normSubject.includes('italiano') ||
+    normSubject.includes('إيطال') ||
+    normSubject.includes('ايطال') ||
+    normBranch.includes('italian') ||
+    normBranch.includes('إيطال') ||
+    normBranch.includes('ايطال') ||
+    normBranch.includes('italiano')
+  ) {
+    return {
+      subjectId: 'italian',
+      totalQuestions: 31,
+      totalMarks: 40,
+      durationMinutes: 120,
+      section1Count: 22, // 22 * 1 = 22 marks
+      section2Count: 9,  // 9 * 2 = 18 marks (Total: 40 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة اللغة الأجنبية الثانية (الإيطالية)',
+      titleEn: 'Official Thanawya Amma Examination - Italian (Second Foreign Language)',
+      descAr: '٣١ سؤالاً (٢٢ سؤالاً بدرجة واحدة + ٩ أسئلة بدرجتين) بإجمالي ٤٠ درجة في ساعتين كاملتين بنظام البابل شيت الرسمي.',
+      descEn: '31 questions (22 items @ 1 mark + 9 items @ 2 marks) totaling 40 marks over 2 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (
+    normSubject === 'spanish' ||
+    normSubject.includes('spanish') ||
+    normSubject.includes('español') ||
+    normSubject.includes('espanol') ||
+    normSubject.includes('إسبان') ||
+    normSubject.includes('اسبان') ||
+    normBranch.includes('spanish') ||
+    normBranch.includes('إسبان') ||
+    normBranch.includes('اسبان') ||
+    normBranch.includes('español')
+  ) {
+    return {
+      subjectId: 'spanish',
+      totalQuestions: 31,
+      totalMarks: 40,
+      durationMinutes: 120,
+      section1Count: 22, // 22 * 1 = 22 marks
+      section2Count: 9,  // 9 * 2 = 18 marks (Total: 40 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة اللغة الأجنبية الثانية (الإسبانية)',
+      titleEn: 'Official Thanawya Amma Examination - Spanish (Second Foreign Language)',
+      descAr: '٣١ سؤالاً (٢٢ سؤالاً بدرجة واحدة + ٩ أسئلة بدرجتين) بإجمالي ٤٠ درجة في ساعتين كاملتين بنظام البابل شيت الرسمي.',
+      descEn: '31 questions (22 items @ 1 mark + 9 items @ 2 marks) totaling 40 marks over 2 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (
+    normSubject === 'religious_education' ||
+    normSubject === 'religion' ||
+    normSubject.includes('religion') ||
+    normSubject === 'islamic_studies' ||
+    normSubject === 'islamic' ||
+    normSubject.includes('islamic') ||
+    normSubject.includes('إسلام') ||
+    normSubject.includes('اسلام') ||
+    normSubject === 'christian_studies' ||
+    normSubject === 'christian' ||
+    normSubject.includes('christian') ||
+    normSubject.includes('مسيحي') ||
+    normSubject.includes('قبط') ||
+    normSubject.includes('دين') ||
+    normBranch.includes('religion') ||
+    normBranch.includes('islamic') ||
+    normBranch.includes('christian') ||
+    normBranch.includes('مسيحي') ||
+    normBranch.includes('دين')
+  ) {
+    return {
+      subjectId: 'religious_education',
+      totalQuestions: 25,
+      totalMarks: 30,
+      durationMinutes: 90,
+      section1Count: 20,
+      section2Count: 5,
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الدينية الإسلامية والمسيحية ومقرر القيم والأخلاق',
+      titleEn: 'Official Thanawya Amma Examination - Religious Education (Islamic & Christian Studies, Values & Ethics)',
+      descAr: '٢٥ سؤالاً بنظام الاختيار من متعدد بإجمالي ٣٠ درجة في ٩٠ دقيقة بنظام البابل شيت الرسمي لوزارة التربية والتعليم.',
+      descEn: '25 multiple-choice questions totaling 30 marks over 90 minutes conforming to official Ministry of Education specifications.',
+    };
+  }
+
+  if (
     normSubject === 'cs_informatics' ||
-    normSubject.includes('cs') ||
+    normSubject === 'cs' ||
+    normSubject.startsWith('cs_') ||
+    normSubject.includes('computer') ||
     normSubject.includes('informatic') ||
     normSubject.includes('حاسب') ||
     normSubject.includes('معلومات') ||
@@ -350,6 +438,81 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
       section2Count: 10, // 10 * 2 = 20 marks (Total: 50 marks)
       titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة علوم الأرض والفلك (علوم الفضاء والكواكب)',
       titleEn: 'Official Thanawya Amma Examination - Earth & Planetary Space Sciences',
+      descAr: '٤٠ سؤالاً (٣٠ سؤالاً بدرجة واحدة + ١٠ أسئلة بدرجتين) بإجمالي ٥٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '40 questions (30 items @ 1 mark + 10 items @ 2 marks) totaling 50 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (
+    normSubject === 'civics' ||
+    normSubject.includes('civic') ||
+    normSubject.includes('وطني') ||
+    normSubject.includes('دستور') ||
+    normSubject.includes('مواطن') ||
+    normSubject.includes('أحزاب') ||
+    normSubject.includes('انتخاب') ||
+    normBranch.includes('civic') ||
+    normBranch.includes('وطني')
+  ) {
+    return {
+      subjectId: 'civics',
+      totalQuestions: 25,
+      totalMarks: 30,
+      durationMinutes: 90,
+      section1Count: 20, // 20 * 1 = 20 marks
+      section2Count: 5,  // 5 * 2 = 10 marks (Total: 30 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الوطنية والدستور',
+      titleEn: 'Official Thanawya Amma Examination - National Civics & Constitution',
+      descAr: '٢٥ سؤالاً (٢٠ سؤالاً بدرجة واحدة + ٥ أسئلة بدرجتين) بإجمالي ٣٠ درجة في ٩٠ دقيقة بنظام البابل شيت الرسمي.',
+      descEn: '25 questions (20 items @ 1 mark + 5 items @ 2 marks) totaling 30 marks over 90 minutes conforming to official ministerial specifications.',
+    };
+  }
+
+  if (
+    normSubject === 'business_entrepreneurship' ||
+    normSubject === 'business' ||
+    normSubject.includes('business') ||
+    normSubject.includes('entrepreneur') ||
+    normSubject.includes('إدارة') ||
+    normSubject.includes('ريادة') ||
+    normSubject.includes('تسويق') ||
+    normBranch.includes('business') ||
+    normBranch.includes('إدارة')
+  ) {
+    return {
+      subjectId: 'business_entrepreneurship',
+      totalQuestions: 40,
+      totalMarks: 50,
+      durationMinutes: 180,
+      section1Count: 30, // 30 * 1 = 30 marks
+      section2Count: 10, // 10 * 2 = 20 marks (Total: 50 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة إدارة الأعمال وريادة الأعمال',
+      titleEn: 'Official Thanawya Amma Examination - Business Administration & Entrepreneurship',
+      descAr: '٤٠ سؤالاً (٣٠ سؤالاً بدرجة واحدة + ١٠ أسئلة بدرجتين) بإجمالي ٥٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '40 questions (30 items @ 1 mark + 10 items @ 2 marks) totaling 50 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (
+    normSubject === 'fine_arts_architecture' ||
+    normSubject === 'fine_arts' ||
+    normSubject.includes('arts') ||
+    normSubject.includes('architecture') ||
+    normSubject.includes('فنون') ||
+    normSubject.includes('عمارة') ||
+    normSubject.includes('تصميم') ||
+    normBranch.includes('fine_arts') ||
+    normBranch.includes('فنون')
+  ) {
+    return {
+      subjectId: 'fine_arts_architecture',
+      totalQuestions: 40,
+      totalMarks: 50,
+      durationMinutes: 180,
+      section1Count: 30, // 30 * 1 = 30 marks
+      section2Count: 10, // 10 * 2 = 20 marks (Total: 50 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة الفنون الجميلة والتصميم المعماري',
+      titleEn: 'Official Thanawya Amma Examination - Fine Arts & Architectural Design',
       descAr: '٤٠ سؤالاً (٣٠ سؤالاً بدرجة واحدة + ١٠ أسئلة بدرجتين) بإجمالي ٥٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
       descEn: '40 questions (30 items @ 1 mark + 10 items @ 2 marks) totaling 50 marks over 3 hours conforming to official ministerial specifications.',
     };

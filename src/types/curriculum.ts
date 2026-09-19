@@ -22,6 +22,14 @@ export type BranchId =
   | 'thanaweya_cs_informatics'
   | 'thanaweya_earth_space'
   | 'thanaweya_german'
+  | 'thanaweya_civics'
+  | 'thanaweya_italian'
+  | 'thanaweya_spanish'
+  | 'thanaweya_islamic'
+  | 'thanaweya_christian'
+  | 'thanaweya_business'
+  | 'thanaweya_fine_arts'
+  | 'thanaweya_religion'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -40,7 +48,15 @@ export type BranchId =
   | 'egbac_economics_stat'
   | 'egbac_cs_informatics'
   | 'egbac_earth_space'
-  | 'egbac_german';
+  | 'egbac_german'
+  | 'egbac_civics'
+  | 'egbac_italian'
+  | 'egbac_spanish'
+  | 'egbac_islamic'
+  | 'egbac_christian'
+  | 'egbac_business'
+  | 'egbac_fine_arts'
+  | 'egbac_religion';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -59,35 +75,41 @@ export interface MoEReference {
 export interface TeacherLessonPlan {
   titleEn: string;
   titleAr: string;
-  gradeLevel: string;
-  durationMinutes: number;
-  moeCode: string;
-  bloomsObjectivesEn: string[];
-  bloomsObjectivesAr: string[];
-  prerequisitesEn: string[];
-  prerequisitesAr: string[];
-  keyVocabularyEn: { term: string; definition: string }[];
-  keyVocabularyAr: { term: string; definition: string }[];
-  teachingPacing: {
+  gradeLevel?: string;
+  durationMinutes?: number;
+  moeCode?: string;
+  objectives?: string[];
+  warmUpEn?: string;
+  warmUpAr?: string;
+  activitiesEn?: string;
+  activitiesAr?: string;
+  differentiation?: { support: string; advanced: string };
+  bloomsObjectivesEn?: string[];
+  bloomsObjectivesAr?: string[];
+  prerequisitesEn?: string[];
+  prerequisitesAr?: string[];
+  keyVocabularyEn?: { term: string; definition: string }[];
+  keyVocabularyAr?: { term: string; definition: string }[];
+  teachingPacing?: {
     phaseEn: string;
     phaseAr: string;
     duration: string;
     activitiesEn: string;
     activitiesAr: string;
   }[];
-  commonMisconceptionsEn: string[];
-  commonMisconceptionsAr: string[];
-  differentiationEn: {
+  commonMisconceptionsEn?: string[];
+  commonMisconceptionsAr?: string[];
+  differentiationEn?: {
     struggling: string;
     advanced: string;
   };
-  differentiationAr: {
+  differentiationAr?: {
     struggling: string;
     advanced: string;
   };
-  formativeAssessmentEn: string;
-  formativeAssessmentAr: string;
-  exitTicketQuestion: {
+  formativeAssessmentEn?: string;
+  formativeAssessmentAr?: string;
+  exitTicketQuestion?: {
     questionEn: string;
     questionAr: string;
     solutionEn: string;
@@ -266,7 +288,29 @@ export type InteractiveWidgetType =
   | 'planetary_viewer'
   | 'stellar_lifecycle'
   | 'hohmann_transfer'
-  | 'remote_sensing_spectroscopy';
+  | 'remote_sensing_spectroscopy'
+  | 'civics_constitution_lab'
+  | 'civics_electoral_simulator'
+  | 'civics_party_matrix'
+  | 'spanish_language_lab'
+  | 'spanish_phonetics_lab'
+  | 'spanish_grammar_matrix'
+  | 'islamic_studies_lab'
+  | 'tajweed_rules_lab'
+  | 'maqasid_fiqh_studio'
+  | 'islamic_civilization_timeline'
+  | 'christian_heritage_studio'
+  | 'coptic_history_timeline'
+  | 'sacraments_interactive_lab'
+  | 'christian_ethics_sandbox'
+  | 'business_modeling_studio'
+  | 'lean_canvas_builder'
+  | 'financial_valuation_lab'
+  | 'supply_chain_simulator'
+  | 'fine_arts_architecture_studio'
+  | 'perspective_grid_drafter'
+  | 'golden_ratio_calculator'
+  | 'islamic_geometry_generator';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;
@@ -284,13 +328,14 @@ export interface Lesson {
   summaryEn: string;
   summaryAr: string;
   theoryContentEn: string; // Markdown / LaTeX supported
-  theoryContentAr: string;
-  formulas: { labelEn: string; labelAr: string; latex: string }[];
+  theoryContentAr?: string;
+  formulas?: { labelEn: string; labelAr: string; latex: string }[];
   moeRef: MoEReference;
   lessonPlan: TeacherLessonPlan;
   worksheet: Worksheet;
   interactiveWidget: InteractiveWidgetConfig;
   interactiveWidgets?: InteractiveWidgetConfig[];
+  estimatedMinutes?: number;
 }
 
 export interface ChapterDatabank {
@@ -299,9 +344,11 @@ export interface ChapterDatabank {
   hots: SolvedProblem[];
 }
 
+export type QuestionBank = ChapterDatabank;
+
 export interface Chapter {
   id: string;
-  chapterNumber: number;
+  chapterNumber?: number;
   titleEn: string;
   titleAr: string;
   descriptionEn: string;
@@ -322,6 +369,8 @@ export interface Branch {
   categoryAr: string;
   iconName: string;
   colorGradient: string;
+  totalMarks?: number;
+  passingMarks?: number;
   chapters: Chapter[];
 }
 

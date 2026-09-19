@@ -32,11 +32,14 @@ const subjectsToTest = [
   { subject: 'english', expectedQ: 37, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'french', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
   { subject: 'german', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
+  { subject: 'italian', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
+  { subject: 'spanish', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
   { subject: 'philosophy', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'psychology', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'economics_stat', expectedQ: 40, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'cs_informatics', expectedQ: 40, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'earth_space', expectedQ: 40, expectedMarks: 50, expectedDuration: 180 },
+  { subject: 'civics', expectedQ: 25, expectedMarks: 30, expectedDuration: 90 },
 ];
 
 for (const item of subjectsToTest) {
@@ -269,6 +272,15 @@ assert.deepStrictEqual(
   ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'philosophy', 'psychology', 'arabic', 'languages', 'economics_stat', 'cs_informatics', 'earth_space']
 );
 console.log('  ✓ All 15 track mode verified: 15 dimensions');
+
+// Mode L: All 16 core subjects (with National Civics & Constitution)
+const radarAll16 = getMasteryRadarData(emptyState, 'all16');
+assert.strictEqual(radarAll16.length, 16, 'all16 radar must have exactly 16 dimensions');
+assert.deepStrictEqual(
+  radarAll16.map((r) => r.dimensionKey),
+  ['pure_math', 'applied_math', 'physics', 'chemistry', 'biology', 'geology', 'history', 'geography', 'philosophy', 'psychology', 'arabic', 'languages', 'economics_stat', 'cs_informatics', 'earth_space', 'civics']
+);
+console.log('  ✓ All 16 track mode verified: 16 dimensions');
 
 // Default when parameter omitted (backward compatibility)
 const radarDefault = getMasteryRadarData(emptyState);

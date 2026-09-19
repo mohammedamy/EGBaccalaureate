@@ -18,7 +18,12 @@ export type SubjectCategory =
   | 'arabic'
   | 'languages'
   | 'cs_informatics'
-  | 'earth_space';
+  | 'earth_space'
+  | 'civics'
+  | 'islamic_studies'
+  | 'christian_studies'
+  | 'business_entrepreneurship'
+  | 'fine_arts_architecture';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -49,7 +54,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -65,6 +70,84 @@ export interface MasteryRadarPoint {
  */
 export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
   const text = branchTitleOrId.toLowerCase();
+
+  if (
+    text.includes('فنون') ||
+    text.includes('عمارة') ||
+    text.includes('تصميم') ||
+    text.includes('منظور') ||
+    text.includes('fine_arts') ||
+    text.includes('architecture') ||
+    text.includes('visual culture') ||
+    text.includes('perspective') ||
+    text.includes('tessellation') ||
+    text.includes('تراث معماري')
+  ) {
+    return 'fine_arts_architecture';
+  }
+
+  if (
+    text.includes('إدارة أعمال') ||
+    text.includes('ادارة اعمال') ||
+    text.includes('ريادة') ||
+    text.includes('إدارة') ||
+    text.includes('ادارة') ||
+    text.includes('business') ||
+    text.includes('entrepreneur') ||
+    text.includes('تسويق') ||
+    text.includes('تمويل') ||
+    text.includes('سلاسل إمداد') ||
+    text.includes('سلاسل امداد') ||
+    text.includes('corporate') ||
+    text.includes('startup')
+  ) {
+    return 'business_entrepreneurship';
+  }
+
+  if (
+    text.includes('تربية وطنية') ||
+    text.includes('وطني') ||
+    text.includes('دستور') ||
+    text.includes('مواطن') ||
+    text.includes('أحزاب') ||
+    text.includes('احزاب') ||
+    text.includes('انتخاب') ||
+    text.includes('civic') ||
+    text.includes('constitution') ||
+    text.includes('governance')
+  ) {
+    return 'civics';
+  }
+
+  if (
+    text.includes('مسيحي') ||
+    text.includes('قبط') ||
+    text.includes('أسرار كنسية') ||
+    text.includes('اسرار كنسية') ||
+    text.includes('كتاب مقدس') ||
+    text.includes('رهبنة') ||
+    text.includes('christian') ||
+    text.includes('coptic')
+  ) {
+    return 'christian_studies';
+  }
+
+  if (
+    text.includes('تربية دينية') ||
+    text.includes('دين إسلامي') ||
+    text.includes('ديني') ||
+    text.includes('دينية') ||
+    text.includes(' دين ') ||
+    text.includes('religion') ||
+    text.includes('اسلام') ||
+    text.includes('إسلام') ||
+    text.includes('تجويد') ||
+    text.includes('سيرة') ||
+    text.includes('مقاصد') ||
+    text.includes('islamic')
+  ) {
+    return 'islamic_studies';
+  }
 
   if (
     text.includes('فلك') ||
@@ -147,6 +230,17 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('ألمان') ||
     text.includes('deutsch') ||
     text.includes('hallo') ||
+    text.includes('italian') ||
+    text.includes('italiano') ||
+    text.includes('إيطال') ||
+    text.includes('ايطال') ||
+    text.includes('ciao') ||
+    text.includes('spanish') ||
+    text.includes('español') ||
+    text.includes('espanol') ||
+    text.includes('إسبان') ||
+    text.includes('اسبان') ||
+    text.includes('hola') ||
     text.includes('لغة أجنبية') ||
     text.includes('language')
   ) {
@@ -505,9 +599,45 @@ export function getMasteryRadarData(
     { key: 'earth_space', ar: 'علوم الأرض والفلك', en: 'Earth & Space', color: '#4F46E5' },
   ];
 
+  const all16Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all15Dimensions,
+    { key: 'civics', ar: 'التربية الوطنية والدستور', en: 'National Civics & Constitution', color: '#059669' },
+  ];
+
+  const all17Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all16Dimensions,
+    { key: 'business_entrepreneurship', ar: 'إدارة الأعمال وريادة الأعمال', en: 'Business & Entrepreneurship', color: '#4338CA' },
+  ];
+
+  const all18Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all17Dimensions,
+    { key: 'fine_arts_architecture', ar: 'الفنون والتصميم المعماري', en: 'Fine Arts & Architecture', color: '#E11D48' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all18'
+      ? all18Dimensions
+      : mode === 'all17'
+      ? all17Dimensions
+      : mode === 'all16'
+      ? all16Dimensions
       : mode === 'all15'
       ? all15Dimensions
       : mode === 'all14'

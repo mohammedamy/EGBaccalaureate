@@ -29,6 +29,9 @@ import {
   Users,
   Languages,
   Scroll,
+  Scale,
+  Briefcase,
+  Palette,
 } from 'lucide-react';
 
 
@@ -829,6 +832,174 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr: 'تأهيل مباشر لبرامج السنة التحضيرية (Studienkolleg) والجامعات الألمانية في كليات الهندسة والطب وعلوم الحاسب وكليات الألسن واللغات والترجمة.',
     },
     {
+      id: 'italian_bridge',
+      titleEn: 'Italian: Second Foreign Language, CEFR A2/B1 Fluency & Contemporary Italian Studies',
+      titleAr: 'اللغة الإيطالية: اللغة الأجنبية الثانية، الكفاءة اللغوية والدراسات المعاصرة للحضارة الإيطالية',
+      icon: <Languages className="w-5 h-5 text-emerald-500" />,
+      thanaweyaBranchId: 'thanaweya_italian',
+      egBacBranchId: 'egbac_italian',
+      thanaweyaTitleEn: 'Complete 4-Unit Curriculum: Ecology, Musical Contest, Fashion & Daily Communication',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ وحدات): مشروعات البيئة، المسابقة الموسيقية، الموضة والتسوق، والتواصل والبريد الإلكتروني',
+      thanaweyaTopicsEn: [
+        'Unità 1 Progetti ed ecologia: Environmental projects, Futuro Semplice (parlerò, prenderò) and temporal clauses with Futuro Composto (appena, quando)',
+        'Unità 2 Concorso musicale: Musical instruments, rock contest between schools, direct object pronouns (lo, la, li, le) and the partitive pronoun NE',
+        'Unità 3 Feste, shopping e abbigliamento: Shopping dialogues, Italian fashion sizes & colors, combined prepositions (preposizioni articolate)',
+        'Unità 4 Comunicazione quotidiana: Invitation etiquette (invitare, accettare, rifiutare), festive greetings, formal e-mail & SMS register',
+      ],
+      thanaweyaTopicsAr: [
+        'الوحدة الأولى مشروعات البيئة: المشروعات البيئية وحماية الكوكب، المستقبل البسيط (Futuro Semplice)، والمستقبل المركب مع الروابط الزمنية (appena, quando)',
+        'الوحدة الثانية المسابقة الموسيقية: الآلات الموسيقية، مسابقة المدارس الغنائية، ضمائر المفعول المباشر (lo, la, li, le)، وضمير التجزئة والكميات NE',
+        'الوحدة الثالثة التسوق والملابس: حوارات الشراء والأسعار والمقاسات والألوان، وحروف الجر المدمجة بأدوات التعريف (Preposizioni Articolate)',
+        'الوحدة الرابعة التواصل اليومي: توجيه وقبول ورفض الدعوات، بطاقات التهاني بالأعياد والمناسبات، وصياغة الرسائل الإلكترونية الرسمية والقصيرة',
+      ],
+      egBacTitleEn: 'Advanced 4-Module CEFR B1/B2 Academic Italian, Subjunctive Syntax & Made in Italy Track',
+      egBacTitleAr: 'المسار المتقدم (٤ موديولات): الإيطالية الأكاديمية لمستوى B1/B2، صيغ الشك والربط، واقتصاد وحضارة Made in Italy',
+      egBacTopicsEn: [
+        'Modulo 1 Sostenibilità & Transizione Ecologica: Ecological transition, carbon neutrality, and the subjunctive mood (Congiuntivo Presente e Passato)',
+        'Modulo 2 Industria Culturale & Opera Lirica: Lyric opera, Renaissance art criticism, combined pronouns (pronomi combinati me lo/te lo) and narrative tenses',
+        'Modulo 3 Economia Circolare & Moda Sostenibile: Sustainable design, Made in Italy manufacturing excellence, passive structures (venire, andare, si passivante)',
+        'Modulo 4 Diplomazia & Mobilità Internazionale: Academic diplomacy, European university mobility (Erasmus), and hypothetical periods (Periodo Ipotetico)',
+      ],
+      egBacTopicsAr: [
+        'الموديول الأول التحول البيئي والاستدامة: التحول الطاقي والحياد الكربوني وصيغ الشك والتمني والرأي (Congiuntivo Presente e Passato)',
+        'الموديول الثاني الصناعات الثقافية والأوبرا: تاريخ فنون الأوبرا وعصر النهضة، الضمائر المركبة (Pronomi Combinati)، والتحليل الجمالي للأعمال الفنية',
+        'الموديول الثالث الاقتصاد الدائري والأزياء: علامة التميز Made in Italy، سلاسل القيمة الخضراء، وصيغ المبني للمجهول بـ venire و andare و si passivante',
+        'الموديول الرابع الدبلوماسية الأكاديمية والتنقل الدولي: التواصل الأكاديمي والتبادل الجامعي الأوروبي، وتراكيب الجمل الشرطية (Periodo Ipotetico) بأنواعها الثلاثة',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides rigorous mastery of In Italia per la scuola secondaria grammar, situational dialogues, and OMR exam excellence. EG-Bac expands this into CEFR B1/B2 academic Italian, sophisticated subjunctive/hypothetical syntax, and university preparatory discourse in Italian institutions.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً شاملاً ومحكماً لقواعد كتاب In Italia per la scuola secondaria وتدريبات المواقف اليومية ونظام البابل شيت، بينما ترتقي البكالوريا بمستوى التراكيب المعقدة (Congiuntivo, Periodo Ipotetico, Forma Passiva) مؤهلة للدراسة الجامعية في إيطاليا.',
+      universityAdvantageEn: 'Direct advantage for Italian-medium university admissions, Architecture & Design programs (Politecnico di Milano/Torino), Medicine (IMAT), and Alsun Italian departments.',
+      universityAdvantageAr: 'أفضلية استثنائية للالتحاق بالجامعات الإيطالية، كليات الهندسة والتصميم والعمارة (بوليتكنيكو ميلانو وتورينو)، كليات الطب (IMAT)، وكليات الألسن واللغات والترجمة.',
+    },
+    {
+      id: 'spanish_bridge',
+      titleEn: 'Spanish: Second Foreign Language, CEFR A2/B1 Fluency & Hispanic World Studies',
+      titleAr: 'اللغة الإسبانية: اللغة الأجنبية الثانية، الكفاءة اللغوية والدراسات المعاصرة للعالم الإسباني',
+      icon: <Languages className="w-5 h-5 text-red-500" />,
+      thanaweyaBranchId: 'thanaweya_spanish',
+      egBacBranchId: 'egbac_spanish',
+      thanaweyaTitleEn: 'Complete 4-Unit Curriculum: Projects & Ecology, Biographies, Fashion & Pragmatics',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ وحدات): مشروعات البيئة، السير والماضي، الموضة والتسوق، ومواقف التواصل اليومي',
+      thanaweyaTopicsEn: [
+        'Unidad 1 Proyectos y Medio Ambiente: Future intentions, Futuro Simple (cantaré, comeré, viviré) and irregular stems (tendré, haré, podré)',
+        'Unidad 2 Descripciones y Personalidad: Character and mood, the fundamental contrast Ser vs. Estar vs. Haber (Hay)',
+        'Unidad 3 Biografías y Tiempos Pasados: Narrative past tenses: Pretérito Indefinido vs. Imperfecto, and the prepositional contrast Por vs. Para',
+        'Unidad 4 De Compras y Ropa: Clothing, sizes, prices, Direct & Indirect Object Pronouns, imperative requests, and gustar-type verbs',
+      ],
+      thanaweyaTopicsAr: [
+        'الوحدة الأولى المشروعات والبيئة: النوايا والمشروعات المستقبلية، تصريف المستقبل البسيط (Futuro Simple) والأفعال الشاذة (tendré, haré, podré)',
+        'الوحدة الثانية الوصف والشخصية: وصف المظهر والطباع والحالة النفسية، والتمييز الجوهري بين Ser و Estar و Hay',
+        'الوحدة الثالثة السير الذاتية والماضي: السرد التاريخي والماضي، المقارنة بين الماضي البسيط والمستمر (Indefinido vs Imperfecto)، وحرفي Por و Para',
+        'الوحدة الرابعة التسوق والملابس: الملابس والمقاسات والأسعار، ضمائر المفعول المباشر وغير المباشر، وصيغ الأمر وأفعال الإعجاب (Gustar)',
+      ],
+      egBacTitleEn: 'Advanced 4-Module CEFR B1/B2 Academic Spanish, Subjunctive Syntax & Hispanic Studies',
+      egBacTitleAr: 'المسار المتقدم (٤ موديولات): الإسبانية الأكاديمية لمستوى B1/B2، صيغ المنصوب (Subjuntivo)، والأدب والجيوسياسة الهسبانية',
+      egBacTopicsEn: [
+        'Módulo 1 Sintaxis Académica: Discourse markers (puesto que, ya que), academic registers, and university structures in Spain & Latin America',
+        'Módulo 2 Modo Subjuntivo: Present Subjunctive triggers in nominal and adverbial clauses, expressing desires, doubts, emotions, and valuations',
+        'Módulo 3 Condicionales Complejas: Advanced conditional periods (si + imperfecto/pluscuamperfecto de subjuntivo) and concessive structures',
+        'Módulo 4 Literatura y Geopolítica: Hispanic masterpieces (Cervantes, García Márquez, Lorca), and Ibero-American economic integration (Mercosur)',
+      ],
+      egBacTopicsAr: [
+        'الموديول الأول التركيب اللغوي الأكاديمي: الروابط الخطابية والسببية والاستنتاجية المتقدمة، ونظام التعليم الجامعي والساعات المعتمدة في إسبانيا',
+        'الموديول الثاني صيغة المنصوب (Subjuntivo): حالات استدعاء الـ Subjuntivo في الجمل الاسمية والظرفية، والتعبير عن الرغبات والشك والتقييمات',
+        'الموديول الثالث الجمل الشرطية المعقدة: تراكيب الشرط الافتراضي في الحاضر والماضي (Si + Subjuntivo)، والجمل الاستدراكية المتقدمة',
+        'الموديول الرابع الأدب والجيوسياسة: التحليل النقدي لروائع الأدب الهسباني (سرفانتس، غارسيا ماركيز، لوركا)، والتكتلات الاقتصادية اللاتينية (Mercosur)',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers robust communicative mastery of core grammar, listening skills, and OMR examination techniques. EG-Bac elevates this into high-level CEFR B1/B2 academic Spanish, advanced Subjunctive/conditional mastery, and literary-geopolitical competency for Spanish and Latin American academic institutions.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً تواصلياً وقواعدياً متيناً لمهارات اللغة الإسبانية وأسئلة المواقف والبابل شيت، بينما ترتقي البكالوريا بالدارس إلى مستوى B1/B2 الأكاديمي وصيغ Subjuntivo المعقدة، والتحليل الأدبي والجيوسياسي للالتحاق بالجامعات في إسبانيا وأمريكا اللاتينية.',
+      universityAdvantageEn: 'Direct qualification for Spanish university admissions (Selectividad / UNEDasiss), DELE/SIELE B2 certification, and premier Alsun & Languages faculties.',
+      universityAdvantageAr: 'تأهيل مباشر لاختبارات القبول بالجامعات الإسبانية (Selectividad / UNEDasiss)، شهادات DELE و SIELE الرسمية، وكليات الألسن واللغات والترجمة.',
+    },
+    {
+      id: 'islamic_bridge',
+      titleEn: 'Islamic Studies: Exegesis, Jurisprudential Maxims & Civilizational Bioethics',
+      titleAr: 'التربية الدينية الإسلامية: التفسير القرآني، القواعد الفقهية، والأخلاقيات الحضارية والطبية',
+      icon: <BookOpen className="w-5 h-5 text-emerald-500" />,
+      thanaweyaBranchId: 'thanaweya_islamic',
+      egBacBranchId: 'egbac_islamic',
+      thanaweyaTitleEn: 'Complete 4-Chapter Program: Tajweed & Creed, Seerah & Shura, Maqasid & Solidarity, Dialogue & Reason',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ فصول): التجويد والعقيدة، السيرة والشورى، مقاصد الشريعة والتكافل، وأدب الحوار وإعمال العقل',
+      thanaweyaTopicsEn: [
+        'Ch.1 Tajweed & Creed: Nun Sakinah & Tanween rules (Izhar, Idgham, Iqlab, Ikhfa), Madd prolongations, Surah Luqman and Surah An-Nur social decorum',
+        'Ch.2 Prophetic Biography: Strategic planning in the Hijrah, institutional Shura in battles, the Treaty of Hudaybiyyah diplomacy, and Conquest of Makkah clemency',
+        'Ch.3 Maqasid al-Sharia: The five higher essential objectives (Religion, Life, Intellect, Lineage, Wealth), hierarchy of interests, and Zakat solidarity',
+        'Ch.4 Ethics of Dialogue & Reason: "Argue in ways that are best", verifying news ("Fa-tabayyanu"), countering extremism (Ghuluww), and environmental stewardship',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ التجويد والعقيدة: أحكام النون الساكنة والتنوين والميم الساكنة والمدود، سورة لقمان والآداب الاجتماعية وحفظ الأعراض في سورة النور',
+        'فصل ٢ السيرة النبوية: التخطيط الاستراتيجي في الهجرة، الشورى في إدارة الدولة والغزوات، دهاء الدبلوماسية في صلح الحديبية، والعفو في فتح مكة',
+        'فصل ٣ مقاصد الشريعة والتكافل: المقاصد الكلية الخمس (الدين، النفس، العقل، النسل، المال)، مراتب المصالح، وفقه المعاملات والزكاة والوقف',
+        'فصل ٤ أدب الحوار وإعمال العقل: منهج القرآن في الحوار، التثبت ومكافحة الشائعات والإفك، مواجهة التطرف الفكري، ورعاية البيئة والمواطنة الصالحة',
+      ],
+      egBacTitleEn: 'Advanced 4-Module Program: Jurisprudential Philosophy, Participatory Economics, Scientific Method & AI Ethics',
+      egBacTitleAr: 'المسار المتقدم (٤ موديولات): فلسفة التشريع، الاقتصاد التشاركي والصكوك الخضراء، المنهج التجريبي، وأخلاقيات الذكاء الاصطناعي',
+      egBacTopicsEn: [
+        'Module 1 Legal Philosophy & Bioethics: Five major legal maxims, Fiqh of emerging realities (Nawazil), organ transplantation, brainstem death, and gene editing',
+        'Module 2 Islamic Economic Thought: Participatory risk-sharing finance (Mudarabah & Musharakah), Green Sukuk for renewable infrastructure, and developmental Waqf',
+        'Module 3 Scientific Method & Civilization: Ibn al-Haytham optics and empirical method, Al-Khwarizmi algorithms, Al-Biruni geodesy, and House of Wisdom',
+        'Module 4 AI Ethics & Global Citizenship: Algorithmic accountability, combating deepfakes, the Madinah Charter constitutionalism, and inter-faith dialogue',
+      ],
+      egBacTopicsAr: [
+        'الموديول الأول فلسفة التشريع والأخلاقيات الحيوية: القواعد الفقهية الكبرى الخمس، فقه النوازل، زراعة الأعضاء، موت الدماغ، والضوابط الشرعية للهندسة الوراثية',
+        'الموديول الثاني الفكر الاقتصادي الإسلامي: التمويل التشاركي وتقاسم المخاطر، الصكوك الخضراء للطاقة المتجددة، والوقف الاستثماري لحوكمة التنمية',
+        'الموديول الثالث المنهج التجريبي وإسهامات الحضارة: ابن الهيثم وتأسيس المنهج التجريبي والبصريات، الخوارزمي والجبر، البيروني والفلك، وبيت الحكمة',
+        'الموديول الرابع أخلاقيات الذكاء الاصطناعي والمواطنة العالمية: حوكمة الخوارزميات، مكافحة التزييف الرقمي، وثيقة المدينة كدستور مدني، وحوار الأديان',
+      ],
+      bridgeInsightEn:
+        'Thanaweya establishes core scriptural foundations, Quranic recitation rules, and authentic Prophetic biography for the national qualification exam. EG-Bac expands this into high-level analytical legal philosophy, contemporary bioethics, Green Sukuk, Islamic history of science, and artificial intelligence ethics for international and tertiary research.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً إيمانياً ومنهجياً راسخاً في أحكام التجويد والتفسير والسيرة النبوية ومقاصد الشريعة لامتحان الشهادة الوطنية، بينما ترتقي البكالوريا بالدراسة إلى الفلسفة التشريعية المقارنة، فقه النوازل الطبية الحيوية، الصكوك الخضراء، تاريخ العلوم التجريبية الإسلامية، وأخلاقيات الذكاء الاصطناعي.',
+      universityAdvantageEn: 'Outstanding preparation for Law & Sharia faculties (Al-Azhar, Cairo University), International Human Rights, Bioethics & Medical Law, Islamic Banking & Finance (CIPA/CSAA), and diplomatic careers.',
+      universityAdvantageAr: 'تأهيل متميز لكليات الشريعة والقانون، حقوق الإنسان والقانون الطبي الحيوي، الصيرفة والتمويل الإسلامي (شهادات AAOIFI)، والدبلوماسية وحوار الثقافات.',
+    },
+    {
+      id: 'christian_bridge',
+      titleEn: 'Christian Religious Studies: Biblical Hermeneutics, Church Dogmatics & Coptic Heritage',
+      titleAr: 'التربية الدينية المسيحية: التفسير الكتابي، العقيدة الكنسية، والتراث والتاريخ القبطي',
+      icon: <BookOpen className="w-5 h-5 text-amber-500" />,
+      thanaweyaBranchId: 'thanaweya_christian',
+      egBacBranchId: 'egbac_christian',
+      thanaweyaTitleEn: 'Complete 4-Chapter Program: Scripture & Hermeneutics, Church Sacraments, Christian Ethics & Family, Coptic Heritage',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ فصول): الكتاب المقدس والوحي، أسرار الكنيسة السبعة، الأخلاق المسيحية والأسرة، والتراث والتاريخ القبطي',
+      thanaweyaTopicsEn: [
+        'Ch.1 Holy Scripture & Hermeneutics: Divine inspiration, Old & New Testament canon, Messianic prophecies, and Sermon on the Mount ethics',
+        'Ch.2 The Seven Church Sacraments: Visible signs and invisible grace, Christian initiation (Baptism & Chrismation), Eucharist, and Penance',
+        'Ch.3 Christian Ethics & Sacred Family: Sanctity of marriage, domestic church, Christian bioethics, mutual altruism, and civic citizenship',
+        'Ch.4 Coptic Heritage & National Identity: The Holy Family in Egypt, St. Mark the Evangelist, School of Alexandria, and desert monasticism',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ الكتاب المقدس والتفسير: الوحي الإلهي، قانونية العهدين القديم والجديد، النبوات المسيانية، وتطويبات العظة على الجبل',
+        'فصل ٢ أسرار الكنيسة السبعة: العلامة المنظورة والنعمة غير المنظورة، أسرار التأسيس (المعمودية والميرون)، الإفخارستيا، والتوبة والاعتراف',
+        'فصل ٣ الأخلاق المسيحية وبناء الأسرة: قدسية سر الزيجة، الكنيسة المنزلية، الأخلاقيات الطبية والحيوية، والمواطنة الصالحة ومحبة الوطن',
+        'فصل ٤ التراث القبطي والهوية الوطنية: رحلة العائلة المقدسة في مصر، كرازة القديس مرقس، مدرسة الإسكندرية اللاهوتية، ونشأة الرهبنة القبطية',
+      ],
+      egBacTitleEn: 'Advanced 4-Module Program: Patristic Theology, Bioethics & Medical Jurisprudence, Coptic Monastic Civilization & Ecumenical Councils',
+      egBacTitleAr: 'المسار المتقدم (٤ موديولات): اللاهوت الآبائي، الأخلاقيات الحيوية والطبية، الحضارة الرهبانية القبطية، والمجامع المسكونية والحوار المسكوني',
+      egBacTopicsEn: [
+        'Module 1 Patristic Hermeneutics & Biblical Exegesis: Alexandrian allegorical method (Origen, Cyril of Alexandria), Greek & Coptic manuscript textual criticism',
+        'Module 2 Contemporary Bioethics & Human Dignity: Christian stance on organ donation, palliative care vs. euthanasia, CRISPR gene editing, and artificial intelligence ethics',
+        'Module 3 Monastic Architecture & Coptic Cultural History: Structural evolution of anchoritic & cenobitic monasteries (Pachomius, Shenouda), Coptic art, and hymnology',
+        'Module 4 Ecumenical Councils & International Dialogue: Council of Nicaea (Athanasius and Homoousios), Ephesus, modern theological dialogues, and global peacemaking',
+      ],
+      egBacTopicsAr: [
+        'الموديول الأول التفسير الآبائي ونقد النصوص: المنهج التأويلي السكندري (أوريجانوس، كيرلس السكندري)، والتحقيق التاريخي للمخطوطات القبطية واليونانية',
+        'الموديول الثاني الأخلاقيات الحيوية والكرامة الإنسانية: الموقف المسيحي من التبرع بالأعضاء، الرعاية التلطيفية مقابل القتل الرحيم، التعديل الجيني، وأخلاقيات الذكاء الاصطناعي',
+        'الموديول الثالث العمارة الرهبانية والتاريخ الثقافي القبطي: تطور أنظمة الرهبنة التوحدية والشركوية (باخوميوس وشنودة)، الفن والأيقونات القبطية، والموسيقى الكنسية',
+        'الموديول الرابع المجامع المسكونية والحوار الدولي: مجمع نيقية (أثناسيوس وعقيدة الجوهر الواحد)، مجمع أفسس، الحوارات اللاهوتية المعاصرة، وبناء السلام العالمي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an accredited ministerial foundation in biblical scriptures, the seven church sacraments, family ethics, and national Coptic milestones. EG-Bac elevates this into graduate-level patristic theology, textual manuscript criticism, contemporary bioethical decision-making, Coptic art & architectural analysis, and ecumenical historical jurisprudence.',
+      bridgeInsightAr:
+        'ترسخ الثانوية العامة المعرفة الإيمانية والمنهجية المعتمدة لأسفار العهدين، أسرار الكنيسة السبعة، بناء الأسرة المسيحية، ومحطات التراث القبطي الوطني. بينما ترتقي البكالوريا بالدارس إلى آفاق اللاهوت الآبائي والتحقيق التاريخي للمخطوطات، الفكر الأخلاقي الحيوي المعاصر، علم الآثار والعمارة الرهبانية القبطية، وفقه المجامع المسكونية وحوار السلام العالمي.',
+      universityAdvantageEn: 'Unrivaled preparation for Theological Colleges & Seminaries, Coptic Studies Institutes, Comparative Religion faculties, Bioethics & Medical Law, and World Heritage & Museology careers.',
+      universityAdvantageAr: 'تأهيل أكاديمي ريادي للكليات الإكليريكية، معاهد الدراسات القبطية والتاريخ الكنسي، كليات اللغات والآثار والمتاحف، والقانون الطبي وحوار الحضارات والأديان.',
+    },
+    {
       id: 'economics_stat_bridge',
       titleEn: 'Economics & Applied Statistics: Macroeconomic Principles & Stochastic Inference',
       titleAr: 'الاقتصاد والإحصاء التطبيقي: مبادئ الاقتصاد الكلي والاستدلال العشوائي',
@@ -980,7 +1151,133 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       bridgeInsightAr:
         'تمنح الثانوية العامة تأسيساً شاملاً في الميكانيكا السماوية لكبلر، علم الكواكب، تطور النجوم، ومراقبة الأرض بالأقمار الصناعية. بينما ترتقي البكالوريا بالمنهج إلى مستوى متقدم يشمل اشتقاقات الملاحة الفضائية (معادلات فيس-فيفا ونقاط لاغرانج)، الفيزياء الفلكية النسبية، والتحليل الإشعاعي فائق الأطياف.',
       universityAdvantageEn: 'Direct accelerated springboard for faculties of Aerospace & Space Engineering, Astronomy & Astrophysics, Satellite Communications, Remote Sensing, and Planetary Sciences.',
-      universityAdvantageAr: 'تأهيل مباشر ومتقدم لكليات هندسة الطيران والفضاء، علوم الفلك والفيزياء الفلكية، اتصالات الأقمار الصناعية، الاستشعار عن بعد وعلوم الفضاء، وعلوم الكواكب والجيوفيزياء.',
+      universityAdvantageAr: 'تأهيل مباشر ومتقدم للالتحاق بكليات هندسة الطيران والفضاء، علوم الفلك والفيزياء الفلكية، هندسة الاتصالات الفضائية، الاستشعار عن بعد، وعلوم الكواكب.',
+    },
+    {
+      id: 'civics_bridge',
+      titleEn: 'National Civics, Constitutional Law & Democratic Governance',
+      titleAr: 'التربية الوطنية، القانون والدستور، والحوكمة الديمقراطية',
+      icon: <Scale className="w-5 h-5 text-emerald-400" />,
+      thanaweyaBranchId: 'thanaweya_civics',
+      egBacBranchId: 'egbac_civics',
+      thanaweyaTitleEn: 'National Civics & Constitution (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'التربية الوطنية والدستور للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Law and Constitution: Concept of legal rules, origins of Egyptian law, constitutional supremacy, and Constitutional Court powers',
+        'Ch.2 Democracy and Citizenship: Democratic principles, direct vs. representative democracy, rights, duties, and social contract',
+        'Ch.3 Political Parties: Party system evolution in Egypt, multi-party principles, functions, party financing, and governance',
+        'Ch.4 Political Participation & Elections: Electoral cycles, voter registration, parliamentary oversight, and civic responsibility',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ القانون والدستور: ماهية القواعد القانونية، تطور التشريعات المصرية، سمو الدستور، واختصاصات المحكمة الدستورية العليا',
+        'فصل ٢ الديمقراطية والمواطنة: مقومات النظم الديمقراطية، الديمقراطية المباشرة والنيابية، الحقوق والواجبات، ونظرية العقد الاجتماعي',
+        'فصل ٣ الأحزاب السياسية: نشأة وتطور التعددية الحزبية في مصر، أهداف ووظائف الأحزاب، مصادر التمويل، وقواعد الحوكمة الحزبية',
+        'فصل ٤ المشاركة السياسية والانتخابات: مراحل العملية الانتخابية، القيد والتصويت، الرقابة البرلمانية، وقيم النزاهة والمسؤولية المدنية',
+      ],
+      egBacTitleEn: 'Advanced Comparative Constitutional Law, Institutional Governance & Civic Ethics (4 Units)',
+      egBacTitleAr: 'القانون الدستوري المقارن، حوكمة المؤسسات، والأخلاقيات المدنية للبكالوريا (٤ وحدات)',
+      egBacTopicsEn: [
+        'Ch.1 Comparative Constitutional Jurisprudence: Constitutional review, separation of powers, and international human rights treaties',
+        'Ch.2 Democratic Governance & Institutional Integrity: Transparency, anti-corruption frameworks, and civic engagement mechanisms',
+        'Ch.3 Party Systems & Electoral Engineering: Proportional representation, seat allocation algorithms (D’Hondt & Sainte-Laguë), and campaign finance',
+        'Ch.4 Civic Agency, Human Rights & Public Policy: Digital civic engagement, policy analysis, grassroots advocacy, and ethical public service',
+      ],
+      egBacTopicsAr: [
+        'فصل ١ الفقه الدستوري المقارن: الرقابة على دستورية القوانين، فصل السلطات وتوازنها، وتكامل المعاهدات الدولية لحقوق الإنسان',
+        'فصل ٢ الحوكمة الديمقراطية والنزاهة المؤسسية: الشفافية ومكافحة الفساد، الحوكمة الرشيدة، وآليات الشراكة المجتمعية في صنع القرار',
+        'فصل ٣ الأنظمة الحزبية والهندسة الانتخابية: التمثيل النسبي، خوارزميات توزيع المقاعد (سانت لاغو وهوندت)، وحوكمة تمويل الحملات',
+        'فصل ٤ الفاعلية المدنية والسياسات العامة: المواطنة الرقمية، تحليل السياسات العامة، المناصرة المجتمعية، والأخلاقيات القيادية للمصلحة العامة',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an essential civic foundation in statutory legal principles, the Egyptian constitutional hierarchy, party regulation, and electoral rights. EG-Bac expands this into collegiate-level comparative constitutional law, algorithmic electoral seat allocation, anti-corruption governance, and public policy formulation.',
+      bridgeInsightAr:
+        'ترسخ الثانوية العامة مفاهيم المواطنة الدستورية، التدرج التشريعي، نشأة التعددية الحزبية، وضمانات الاقتراع الحر. بينما تعمق البكالوريا هذه المفاهيم بدراسة الفقه الدستوري المقارن، التحليل الحسابي للهندسة الانتخابية وتوزيع المقاعد، حوكمة مكافحة الفساد، وهندسة السياسات العامة للدولة الحديثة.',
+      universityAdvantageEn: 'Direct foundational springboard for faculties of Law, Political Science & Economics, Public Administration, International Relations, and Diplomatic Studies.',
+      universityAdvantageAr: 'تأهيل ريادي وأكاديمي لكليات الحقوق، الاقتصاد والعلوم السياسية، الإدارة العامة والسياسات، العلاقات الدولية، والسلك الدبلوماسي والقضائي.',
+    },
+    {
+      id: 'business_bridge',
+      titleEn: 'Business Administration, Entrepreneurship & Venture Finance',
+      titleAr: 'إدارة الأعمال، ريادة الأعمال والتمويل الاستثماري',
+      icon: <Briefcase className="w-5 h-5 text-indigo-400" />,
+      thanaweyaBranchId: 'thanaweya_business',
+      egBacBranchId: 'egbac_business',
+      thanaweyaTitleEn: 'Business Administration & Organizational Management (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'إدارة الأعمال والتنظيم المؤسسي للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Principles of Management & Organizational Structures: Planning, organizing, directing, controlling, delegation, and spans of control',
+        'Ch.2 Financial Management & Accounting: Balance sheets, income statements, cash flow, working capital, and break-even analysis',
+        'Ch.3 Marketing Management & Consumer Behavior: The 4Ps marketing mix, market segmentation, targeting, and consumer decision cycles',
+        'Ch.4 Operations & Supply Chain Management: Production planning, EOQ inventory modeling, supply logistics, and Total Quality Management (TQM)',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ مبادئ الإدارة والتنظيم المؤسسي: وظائف الإدارة (التخطيط، التنظيم، التوجيه، الرقابة)، تفويض السلطة، ونطاقات الإشراف',
+        'فصل ٢ الإدارة المالية والمحاسبة: الميزانية العمومية، قائمة الدخل، التدفقات النقدية، رأس المال العامل، وتحليل نقطة التعادل',
+        'فصل ٣ إدارة التسويق وسلوك المستهلك: المزيج التسويقي (4Ps)، تجزئة السوق، استهداف القطاعات، ودورة اتخاذ قرار الشراء',
+        'فصل ٤ إدارة العمليات وسلاسل الإمداد: تخطيط الإنتاج، نموذج الحجم الاقتصادي للطلب (EOQ)، اللوجستيات، وإدارة الجودة الشاملة (TQM)',
+      ],
+      egBacTitleEn: 'Advanced Entrepreneurship, Venture Capital & Digital Business Models (4 Modules)',
+      egBacTitleAr: 'ريادة الأعمال المتقدمة، رأس المال المخاطر ونماذج الأعمال الرقمية للبكالوريا (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Strategic Management & Corporate Governance: Porter’s Five Forces, VRIO framework, agency theory, and ESG sustainability governance',
+        'Mod.2 Entrepreneurship & Lean Startup: Customer discovery, MVP prototyping, Lean Canvas architecture, and agile venture validation',
+        'Mod.3 Corporate Finance & Valuation: Discounted Cash Flow (DCF), WACC cost of capital, venture rounds (Seed to Series B), and term sheets',
+        'Mod.4 Digital Business Models & Platform Economics: Network effects, multi-sided platforms, SaaS unit economics (LTV/CAC), and growth loops',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ الإدارة الاستراتيجية وحوكمة الشركات: نموذج بورتر للقوى الخمس، إطار VRIO للميزة التنافسية، نظرية الوكالة، وحوكمة الاستدامة (ESG)',
+        'وحدة ٢ ريادة الأعمال والشركات الناشئة الرشيقة: اكتشاف العملاء، بناء النماذج الأولية (MVP)، هندسة مخطط اللين، والتحقق السريع من الفرضيات',
+        'وحدة ٣ مالية الشركات والتقييم الاستثماري: التدفقات النقدية المخصومة (DCF)، المتوسط المرجح لتكلفة رأس المال (WACC)، وجولات التمويل المخاطر',
+        'وحدة ٤ نماذج الأعمال الرقمية واقتصاد المنصات: تأثيرات الشبكة، المنصات متعددة الأطراف، اقتصاديات وحدات البرمجيات (LTV/CAC)، ومحركات النمو',
+      ],
+      bridgeInsightEn:
+        'Thanaweya establishes a rigorous foundation in classical managerial functions, financial accounting statements, classical marketing mix, and production logistics. EG-Bac elevates this into high-growth entrepreneurial venture building, DCF/WACC corporate valuation, venture capital financing structures, and digital platform economics.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً متيناً في وظائف الإدارة الكلاسيكية، قراءة القوائم المالية والمحاسبية، المزيج التسويقي، ولوجستيات العمليات والإنتاج. بينما تنقل البكالوريا الطالب إلى مستوى جامعي متقدم يركز على بناء وتأسيس الشركات الناشئة سريعة النمو، التقييم المالي المتقدم للشركات (DCF وWACC)، آليات الاستثمار الجريء، واقتصاد المنصات الرقمية.',
+      universityAdvantageEn: 'Direct foundational springboard for faculties of Commerce & Business Administration, Economics, Entrepreneurship Institutes, Financial Engineering, Management Information Systems (MIS), and MBA/CFA preparatory pathways.',
+      universityAdvantageAr: 'تأهيل أكاديمي وريادي مباشر لكليات التجارة وإدارة الأعمال، الاقتصاد والعلوم المالية، معاهد ريادة الأعمال وحاضنات التقنية، نظم المعلومات الإدارية (MIS)، والمسارات المؤهلة لشهادات CFA وMBA المهنية الدولية.',
+    },
+    {
+      id: 'fine_arts_bridge',
+      titleEn: 'Fine Arts, Architectural Design & Visual Culture',
+      titleAr: 'الفنون الجميلة، التصميم المعماري والثقافة البصرية',
+      icon: <Palette className="w-5 h-5 text-rose-400" />,
+      thanaweyaBranchId: 'thanaweya_fine_arts',
+      egBacBranchId: 'egbac_fine_arts',
+      thanaweyaTitleEn: 'Fine Arts & Architectural Design Foundation (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'الفنون الجميلة والتصميم المعماري للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Freehand Perspective & Orthogonal Projection: 1-point and 2-point perspective grids, horizon line calibration, eye level dynamics, and spatial recession',
+        'Ch.2 Light, Shadow & Chiaroscuro Modeling: Value scale gradients, core shadows, reflected light, cast shadows, and volumetric rendering',
+        'Ch.3 Color Theory & Visual Harmony: RYB/RGB color wheels, complementary/triadic palettes, chromatic temperature, and the 60-30-10 architectural rule',
+        'Ch.4 Architectural Design & Geometric Compositions: Golden Ratio φ proportions, facade rhythm, scale, human anthropometrics, and urban aesthetics',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ المنظور الحر والإسقاط المتعامد: منظور النقطة والنقطتين، خط الأفق، مستوى عين الناظر، والتراجع الفراغي للخطوط',
+        'فصل ٢ دراسة الظل والنور والتشكيل المجسم: درجات التظليل، خط فاصل الظل الذاتي، الضوء المنعكس، والظل الساقط للمجسمات',
+        'فصل ٣ نظريات الألوان والتوافق البصري: دوائر الألوان، التوافق المتكامل والثلاثي والمتجاور، حرارة الألوان، وقاعدة 60-30-10',
+        'فصل ٤ التصميم المعماري والتكوينات الهندسية: النسبة الذهبية φ، الإيقاع المعماري للواجهات، المقياس الإنساني، وجماليات الفراغ الحضري',
+      ],
+      egBacTitleEn: 'Advanced Architectural Heritage, Spatial Typologies & Islamic Geometry (4 Modules)',
+      egBacTitleAr: 'التراث المعماري المتقدم، الأنماط الفراغية والهندسة الإسلامية للبكالوريا (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Architectural History & Heritage Preservation: Pharaonic, Coptic, Islamic Mamluk/Fatimid architectures, Hassan Fathy vernacularism, and conservation',
+        'Mod.2 Spatial Design, Ergonomics & Sustainable Architecture: Bioclimatic passive cooling, courtyards, mashrabiya shading, windcatchers (malqaf), and green materials',
+        'Mod.3 Islamic Geometric Patterns & Structural Tessellation: 8-fold and 12-fold star rosettes, ablaq marble masonry, muqarnas squinches, and girih tiles',
+        'Mod.4 Digital Visual Culture, Parametricism & Contemporary Art: Computational generative design, parametric facades, installation art, and cultural curation',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ تاريخ العمارة والحفاظ على التراث: العمارة الفرعونية والقبطية والإسلامية (الفاطمية والمملوكية)، عمارة حسن فتحي البيئية، وصون المعالم الأثرية',
+        'وحدة ٢ التصميم الفراغي، الإرجونوميكس والعمارة المستدامة: التبريد البيئي السلبي، الأفنية الداخلية، المشربيات الخشبية، الملاقف الهوائية، والمواد الخضراء',
+        'وحدة ٣ الأنماط الهندسية الإسلامية والتعشيق الفراغي: الأطباق النجمية الثمانية والإثناعشرية، مداميك الأبلق الرخامي، المقرنصات الانتقالية، وبلاطات الجيريه',
+        'وحدة ٤ الثقافة البصرية الرقمية والتصميم البارامتري والفن المعاصر: التصميم التوليدي الحاسوبي، الواجهات الحركية، التجهيز في الفراغ، والتقييم المتحفي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya establishes a rigorous artistic foundation in freehand perspective drafting, volumetric chiaroscuro shading, academic color wheel harmony, and proportion. EG-Bac expands into architectural heritage preservation, passive sustainable bioclimatic environmental systems (mashrabiya and windcatchers), complex Islamic star tessellations, and parametric digital visual culture.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً فنياً وأكاديمياً متيناً في رسم المنظور الحر الهندسي، التظليل المجسم المتقن للظل والنور، التوافق اللوني المعماري، والتناسب الذهبي. بينما تنقل البكالوريا الطالب إلى عمق تاريخ العمارة وصون التراث، التصميم المستدام وحلول المناخ السلبية (المشربيات وملاقف الهواء المستلهمة من حسن فتحي)، الأطباق النجمية والمقرنصات الإسلامية المعقدة، والفن البارامتري الرقمي المعاصر.',
+      universityAdvantageEn: 'Essential academic preparation and portfolio readiness for Faculties of Fine Arts (Architecture & Decor), Applied Arts, Architectural Engineering, Urban Planning, Graphic & Digital Design, and International Conservation Academies.',
+      universityAdvantageAr: 'تأهيل أكاديمي محوري واجتياز اختبارات القدرات المؤهلة لكليات الفنون الجميلة (عمارة وديكور وفنون)، الفنون التطبيقية، الهندسة المعمارية، التخطيط العمراني، التصميم الجرافيكي والوسائط الرقمية، وأكاديميات الترميم والآثار الدولية.',
     },
   ];
 
@@ -1040,8 +1337,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(197) : '197'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٠٥ ثانوية + ٩٢ بكالوريا)' : '(105 Thanaweya + 92 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(281) : '281'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٤٧ ثانوية + ١٣٤ بكالوريا)' : '(147 Thanaweya + 134 Bac)'}</span>
             </div>
           </div>
 
@@ -1052,7 +1349,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(43400) : '43,400'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(56200) : '56,200'}</span>
               <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
@@ -1064,8 +1361,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(16) : '16'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٩ فرعاً لكل مسار)' : 'Subjects (19 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(23) : '23'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مادة (٢٦ فرعاً لكل مسار)' : 'Subjects (26 branches/track)'}</span>
             </div>
           </div>
 
@@ -1105,7 +1402,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٦ مادة • ١٩ فرعاً • ١١٩ فصلاً' : 'National Standard Track • 16 Subjects • 19 Branches • 119 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ٢٠ مادة • ٢٣ فرعاً • ١٣٥ فصلاً' : 'National Standard Track • 20 Subjects • 23 Branches • 135 Chapters'}
                 </p>
               </div>
             </div>
@@ -1124,8 +1421,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي، وعلوم الحاسب والذكاء الاصطناعي، وعلوم الأرض والفلك.'
-              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, Economics & Statistics, Computer Science & AI, and Earth & Space Sciences.'}
+              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي، وعلوم الحاسب والذكاء الاصطناعي، وعلوم الأرض والفلك، والتربية الوطنية والدستور.'
+              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, Economics & Statistics, Computer Science & AI, Earth & Space Sciences, and National Civics & Constitution.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -1143,7 +1440,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>{isArabic ? 'اللغات: اللغة العربية، اللغة الإنجليزية، اللغة الفرنسية، واللغة الألمانية (١٨ فصلاً)' : 'Languages: Arabic Language, English, French, and German (18 Ch)'}</span>
+              <span>{isArabic ? 'اللغات: اللغة العربية، اللغة الإنجليزية، الفرنسية، الألمانية، الإيطالية، والإسبانية (٢٦ فصلاً)' : 'Languages: Arabic, English, French, German, Italian, and Spanish (26 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
@@ -1156,6 +1453,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'علوم الأرض والفلك: الميكانيكا السماوية، الفيزياء الفلكية، والاستشعار عن بعد (١٠ فصول)' : 'Earth & Space Sciences: Celestial Mechanics, Astrophysics & Remote Sensing (10 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span>{isArabic ? 'التربية الوطنية والدستور: القانون والدستور، الديمقراطية، الأحزاب، والمشاركة السياسية (٤ فصول)' : 'National Civics & Constitution: Law, Democracy, Political Parties & Elections (4 Ch)'}</span>
             </div>
           </div>
         </div>
@@ -1180,7 +1481,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٦ مادة • ١٩ فرعاً • ١٠٦ فصول مكثفة' : 'International STEM & Humanities Track • 16 Subjects • 19 Branches • 106 Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ٢٠ مادة • ٢٣ فرعاً • ١٢٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 20 Subjects • 23 Branches • 122 Chapters'}
                 </p>
               </div>
             </div>
@@ -1199,8 +1500,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي، وهندسة البرمجيات الموزعة، والفيزياء الفلكية الكوكبية.'
-              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, quantitative macroeconomics, distributed software engineering, and planetary astrophysics.'}
+              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي، وهندسة البرمجيات الموزعة، والفيزياء الفلكية الكوكبية، والفقه الدستوري المقارن.'
+              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, quantitative macroeconomics, distributed software engineering, planetary astrophysics, and comparative constitutional jurisprudence.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -1218,7 +1519,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
-              <span>{isArabic ? 'اللسانيات واللغات: اللسانيات العربية، الخطاب الأكاديمي الإنجليزي، اللغة الفرنسية، والألمانية الأكاديمية (١٨ فصلاً)' : 'Linguistics & Languages: Arabic Linguistics, C1 Academic English, French Fluency, German Academic DaF (18 Ch)'}</span>
+              <span>{isArabic ? 'اللسانيات واللغات: اللسانيات العربية، الخطاب الأكاديمي الإنجليزي، الفرنسية، الألمانية، الإيطالية، والإسبانية (٢٦ فصلاً)' : 'Linguistics & Languages: Arabic Linguistics, C1 Academic English, French Fluency, German DaF, Italian B1/B2, and Spanish B1/B2 (26 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
@@ -1231,6 +1532,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'الفيزياء الفلكية ونظم الفضاء: الملاحة الفضائية، علم الكواكب، والاستشعار الفضائي (١٠ فصول)' : 'Astrophysics & Space Systems: Astrodynamics, Planetary Sciences & Remote Sensing (10 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+              <span>{isArabic ? 'القانون الدستوري المقارن والحوكمة: الرقابة الدستورية، النزاهة، والهندسة الانتخابية (٤ فصول)' : 'Comparative Constitutional Law & Governance: Judicial Review, Institutional Integrity & Electoral Systems (4 Ch)'}</span>
             </div>
           </div>
         </div>

@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **16 Accredited Subject Tracks** (Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Economics & Applied Statistics, Computer Science & Informatics, and Earth & Planetary Space Sciences).
-- **38 Total Branches** (19 Thanaweya Amma + 19 EG-Baccalaureate).
-- **225 Fully Equipped Chapters** (119 Thanaweya + 106 EG-Bac).
-- **45,000 Total Curriculum Problems**:
-  - 2,250 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 3,375 Practice Exercises with hints, scaffolding, and verification.
-  - 39,375 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **14 Interactive Virtual Laboratories & Simulation Studios**.
-- **28 Downloadable Official Ministry Textbooks & Formula Compendiums**.
-- **114 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models).
+- **22 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, and Business Administration & Entrepreneurship).
+- **50 Total Branches** (25 Thanaweya Amma + 25 EG-Baccalaureate).
+- **273 Fully Equipped Chapters** (143 Thanaweya + 130 EG-Bac).
+- **54,600 Total Curriculum Problems**:
+  - 2,730 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 4,095 Practice Exercises with hints, scaffolding, and verification.
+  - 47,775 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **20 Interactive Virtual Laboratories & Simulation Studios**.
+- **53 Official Ministry Textbooks & Formula Compendiums**.
+- **150 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 25 disciplines).
 - **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (16 Core Disciplines)
+## 📚 Accredited Subject Tracks (22 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -39,14 +39,20 @@
 | **11** | **English** | اللغة الإنجليزية (الأولى) | English Language (First Foreign) | C1 Academic Discourse & Analytical Writing | 12 | 2,400 |
 | **12** | **French** | اللغة الفرنسية (الثانية) | French (Club @dos Plus 3) | Francophone Sociocultural Communication | 8 | 1,600 |
 | **13** | **German** | اللغة الألمانية (الثانية) | German (Hallo Deutsch Klasse 12) | Advanced Academic German (DaF B1/B2) | 8 | 1,600 |
-| **14** | **Economics & Statistics** | الاقتصاد والإحصاء التطبيقي | Economics & Applied Statistics | Quantitative Macroeconomics & Statistics | 20 | 4,000 |
-| **15** | **Computer Science & Informatics** | علوم الحاسب والمعلوماتية والذكاء الاصطناعي | Computer Science, Informatics & AI | Computational Systems, Distributed Architectures & AI | 20 | 4,000 |
-| **16** | **Earth & Space Sciences** | علوم الأرض والفلك: علوم الفضاء والكواكب | Earth & Planetary Space Sciences | Planetary Space Systems & Astrophysics | 20 | 4,000 |
-| **Total** | **16 Subjects** | **١٦ مادة معتمدة** | **19 Branches (119 Chapters)** | **19 Branches (106 Chapters)** | **225** | **45,000** |
+| **14** | **Italian** | اللغة الإيطالية (الثانية) | Italian (In Italia per la scuola secondaria) | Advanced Academic Italian (Livello B1/B2) | 8 | 1,600 |
+| **15** | **Spanish** | اللغة الإسبانية (الثانية) | Spanish (¡Viva el Español! para el Bachillerato) | Advanced Academic Spanish (Nivel B1/B2) | 8 | 1,600 |
+| **16** | **Economics & Statistics** | الاقتصاد والإحصاء التطبيقي | Economics & Applied Statistics | Quantitative Macroeconomics & Statistics | 20 | 4,000 |
+| **17** | **Computer Science & Informatics** | علوم الحاسب والمعلوماتية والذكاء الاصطناعي | Computer Science, Informatics & AI | Computational Systems, Distributed Architectures & AI | 20 | 4,000 |
+| **18** | **Earth & Space Sciences** | علوم الأرض والفلك: علوم الفضاء والكواكب | Earth & Planetary Space Sciences | Planetary Space Systems & Astrophysics | 20 | 4,000 |
+| **19** | **National Civics & Constitution** | التربية الوطنية والقانون والدستور | National Civics & Constitution | Comparative Constitutional Law & Governance | 8 | 1,600 |
+| **20** | **Islamic Religious Education** | التربية الدينية الإسلامية | Islamic Religious Education | Comparative Quranic Ethics & Islamic Thought | 8 | 1,600 |
+| **21** | **Christian Religious Education** | التربية الدينية المسيحية | Christian Religious Education | Christian Hermeneutics, Dogmatics & Monastic Heritage | 8 | 1,600 |
+| **22** | **Business & Entrepreneurship** | إدارة الأعمال وريادة الأعمال | Business Administration & Entrepreneurship | Corporate Strategy, Finance & Tech Entrepreneurship | 8 | 1,600 |
+| **Total** | **22 Subjects** | **٢٢ مادة معتمدة** | **25 Branches (143 Chapters)** | **25 Branches (130 Chapters)** | **273** | **54,600** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (14 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (20 Studios)
 
 ClipSAT provides immersive digital laboratories equipped with real-time math, physics, linguistic and simulation engines, dynamic SVG graphing, and parameter controls:
 
@@ -84,6 +90,40 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Modalverben & Satzklammer Engine**: Modal verbs (müssen, sollen, wollen, dürfen, können, möchten) with main clause bracket syntax and modal participle placement.
     - **Dativ & Two-Way Prepositions Laboratory**: Fixed Dative prepositions (aus, bei, mit, nach, seit, von, zu) and Wechselpräpositionen (an, auf, in, neben, etc.) with Akkusativ motion vs. Dativ position diagnostics.
     - **Alltagssituationen & Hörverstehen Trainer**: Authentic Egyptian ministerial communicative situation dialogues (doctor, transport, customer repairs, celebrations) with trap analysis.
+15. **Italian Audio, Grammar & Situations Studio** (`ItalianLanguageStudio.tsx`):
+    - **Phonetics & Pronunciation Audio Studio**: SpeechSynthesis (`it-IT`) playback for double consonants (doppie: tt, ss, rr, ll), C/G soft and hard variants, gn, gli, and sc with IPA transcription.
+    - **Verb Conjugation Engine**: Live verb conjugation across 8 tenses (Presente, Passato Prossimo, Imperfetto, Futuro Semplice, Futuro Composto, Condizionale Presente, Congiuntivo Presente, Imperativo) for regular and irregular verbs.
+    - **Direct & Indirect Pronouns and NE Partitive Matrix**: Direct pronouns (mi, ti, lo, la, ci, vi, li, le), indirect pronouns (mi, ti, gli, le, ci, vi, gli), combined pronouns, and the partitive NE with quantitative partitives.
+    - **Articulated Prepositions Laboratory**: Combinations of simple prepositions (di, a, da, in, su) with definite articles (il, lo, la, l', i, gli, le) and contraction mechanics.
+    - **Daily Situations & Listening Dialogue Trainer**: Authentic Egyptian ministerial communicative situation dialogues (projects, music contest, fashion shopping, invitations) with trap analysis.
+16. **Spanish Audio, Grammar & Situations Studio** (`SpanishLanguageStudio.tsx`):
+    - **Phonetics & Acoustic Studio**: SpeechSynthesis (`es-ES`) playback for C/Z (distinción vs seseo), G/J, LL/Y (yeísmo), Ñ, vibrant R/RR, and silent H with full IPA phonetic transcriptions.
+    - **Verb Conjugator Engine**: Interactive conjugator across 8 grammatical tenses (Presente, Pretérito Perfecto Compuesto, Pretérito Indefinido, Imperfecto, Futuro Simple, Condicional, Presente de Subjuntivo, Imperativo) with stem-mutation alerts.
+    - **Pronouns Matrix & SE Transformation**: Direct Object Pronouns, Indirect Object Pronouns, combined double pronouns (*se lo, se la*), and *GUSTAR* constructions.
+    - **Fundamental Contrasts Laboratory**: Side-by-side matrices comparing *SER vs. ESTAR* and *POR vs. PARA* with ministerial trap pairs (e.g. *ser listo* vs. *estar listo*).
+    - **Daily Situations & Listening Dialogue Trainer**: High-yield communicative drills based on authentic Egyptian ministerial situation questions with auditory playback and trap diagnostics.
+17. **National Civics & Constitutional Studio** (`NationalCivicsStudio.tsx`):
+    - **Constitutional Supremacy & Judicial Review Simulator**: Direct constitutional appeal, legislative conflict diagnostics, Supreme Constitutional Court binding precedence.
+    - **Bicameral Legislative Law-Making Simulator**: Chamber of Deputies, Senate review, Presidential referral, and Gazetta publication workflow.
+    - **Multi-Party Ideological Spectrum Matrix**: Party program comparison, ideological axis (social/market economy, civic nationalism), and coalition viability.
+    - **Electoral Seat Allocator (Sainte-Laguë & D’Hondt Algorithms)**: Authentic PR quotient calculations, highest averages table, and threshold compliance.
+    - **Civic Scenario Sandbox**: Real-world civic dilemma analysis with human rights treaty compliance and constitutional article citations.
+18. **Islamic Studies & Quranic Sciences Studio** (`IslamicStudiesStudio.tsx`):
+    - **Tajweed & Quranic Recitation Engine**: Interactive rules of Nun Sakinah, Tanween, Meem Sakinah, and Madd with Uthmanic script.
+    - **Maqasid al-Sharia Hierarchy**: Five universal necessities (Religion, Life, Intellect, Lineage, Wealth) with case studies.
+    - **Seerah Milestones & Strategic Planning**: Prophetic timeline, treaties, and socio-economic governance.
+    - **Contemporary Bioethics & AI Ethics Sandbox**: Organ donation, cloning, AI accountability, and environmental stewardship.
+19. **Christian Studies & Heritage Studio** (`ChristianHeritageStudio.tsx`):
+    - **Holy Sacraments Explorer**: Seven Sacraments with biblical foundations, liturgical matter, form, and spiritual grace.
+    - **Coptic Monastic Heritage Timeline**: St. Anthony, St. Pachomius, ancient desert monasteries, and patristic contributions.
+    - **Gospel Synoptics Comparative Matrix**: Side-by-side comparison of Matthew, Mark, Luke, and John themes and target audiences.
+    - **Contemporary Christian Ethics & Bioethics**: Sanctity of human life, palliative care, artificial intelligence ethics, and family values.
+20. **Business Administration & Entrepreneurship Modeling Studio** (`BusinessModelingStudio.tsx`):
+    - **DCF & WACC Valuation Engine**: Weighted Average Cost of Capital, Enterprise Value, and Terminal Value sensitivity curves.
+    - **Break-Even & Contribution Margin Calculator**: Variable costs, fixed overhead, target profit volumes, and safety margin calculations.
+    - **Interactive 9-Block Lean Canvas Builder**: Problem, solution, unfair advantage, channels, revenue streams, and cost structure with Egyptian startup presets.
+    - **EOQ & Supply Chain Optimizer**: Economic order quantity, holding costs, ordering costs, and reorder point buffer stock formulas.
+    - **Ministerial Strategic Scenario Quiz**: Real-world corporate restructuring, VC term sheets, and operational management dilemma cases.
 
 ---
 
@@ -92,8 +132,9 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Official Time & Scoring Blueprints**: Replicates Egyptian Ministry examination blueprints:
   - 46 questions, 60 marks, 180 minutes (Science & Humanities).
   - 55 questions, 80 marks, 180 minutes (Arabic).
-  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, and Earth & Space Sciences).
-  - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French & German).
+  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, and Business Administration).
+  - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French, German, Italian & Spanish).
+  - 25 questions, 30 marks, 90 minutes (National Civics & Constitution, Islamic Studies, Christian Studies).
   - 20 questions, 30 marks, 120 minutes (Individual Mathematics Branches).
 - **Official Question Formats**: Forms A, B, C, and D with randomized permutation.
 - **Full OMR Bubble Sheet**: Grid view with answer bubbling, timer countdown, and ministerial certificate generation upon submission.
@@ -107,7 +148,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 45,000 problems and 225 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 54,600 problems and 273 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
@@ -127,7 +168,7 @@ npm run build
 
 ### Running Test Verification Suites
 ```bash
-# Run comprehensive test suite (36 test scripts)
+# Run comprehensive test suite (42 test scripts)
 npm test
 
 # Verify Economics & Statistics Subject specifically
@@ -141,7 +182,24 @@ npm run test:earth-space
 
 # Verify German Language Subject specifically
 npm run test:german
-```
+
+# Verify Italian Language Subject specifically
+npm run test:italian
+
+# Verify Spanish Language Subject specifically
+npm run test:spanish
+
+# Verify National Civics & Constitution Subject specifically
+npm run test:civics
+
+# Verify Islamic Religious Education Subject specifically
+npm run test:islamic
+
+# Verify Christian Religious Education Subject specifically
+npm run test:christian
+
+# Verify Business Administration & Entrepreneurship Subject specifically
+npm run test:business
 ```
 
 ---

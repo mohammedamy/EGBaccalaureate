@@ -35,10 +35,17 @@ import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
 import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
 import { GermanLanguageStudio } from './labs/GermanLanguageStudio';
+import { ItalianLanguageStudio } from './labs/ItalianLanguageStudio';
+import { SpanishLanguageStudio } from './labs/SpanishLanguageStudio';
+import { IslamicStudiesStudio } from './labs/IslamicStudiesStudio';
+import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
+import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
+import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
+import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -48,7 +55,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -74,7 +81,12 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'geography') return 'geography';
     if (selectedSubject === 'economics_stat') return 'economics_stat';
     if (selectedSubject === 'cs_informatics') return 'cs_informatics';
-    if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german') return 'languages';
+    if (selectedSubject === 'civics') return 'civics';
+    if (selectedSubject === 'islamic_studies') return 'islamic_studies';
+    if (selectedSubject === 'christian_studies') return 'christian_studies';
+    if (selectedSubject === 'business_entrepreneurship' || selectedSubject === 'business') return 'business';
+    if (selectedSubject === 'fine_arts_architecture') return 'fine_arts';
+    if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
 
@@ -83,7 +95,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
-  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic' | 'german'>('english');
+  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish'>('english');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
@@ -99,14 +111,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'psychology') setActiveLab('psychology');
     else if (selectedSubject === 'economics_stat') setActiveLab('economics_stat');
     else if (selectedSubject === 'cs_informatics') setActiveLab('cs_informatics');
+    else if (selectedSubject === 'civics') setActiveLab('civics');
+    else if (selectedSubject === 'islamic_studies') setActiveLab('islamic_studies');
+    else if (selectedSubject === 'christian_studies') setActiveLab('christian_studies');
+    else if (selectedSubject === 'business_entrepreneurship' || selectedSubject === 'business') setActiveLab('business');
+    else if (selectedSubject === 'fine_arts_architecture') setActiveLab('fine_arts');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
-    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german') {
+    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') {
       setActiveLab('languages');
       if (selectedSubject === 'arabic') setActiveLangSubLab('arabic');
       else if (selectedSubject === 'french') setActiveLangSubLab('french');
       else if (selectedSubject === 'german') setActiveLangSubLab('german');
+      else if (selectedSubject === 'italian') setActiveLangSubLab('italian');
+      else if (selectedSubject === 'spanish') setActiveLangSubLab('spanish');
       else if (selectedSubject === 'english') setActiveLangSubLab('english');
     }
   }, [selectedSubject]);
@@ -397,6 +416,81 @@ export const VirtualLabsHub: React.FC<Props> = ({
         ? 'استوديو علوم الأرض والفضاء والكواكب: محاكي قوانين كبلر والمدارات البيضاوية، أطلس الكواكب المقارن، تطور النجوم ومخطط هرتزبرنغ-راسل، ميكانيكا المناورات المدارية ونقل هومان، ومحلل الاستشعار الفضائي والأطياف'
         : 'Earth & Planetary Space Studio: Keplerian orbit dynamics, comparative planetology explorer, Hertzsprung-Russell stellar lifecycle, Hohmann transfer orbital mechanics, and satellite remote sensing spectrogram analyzer',
     },
+    {
+      id: 'civics' as LabId,
+      titleEn: 'Civics & Constitutional Studio',
+      titleAr: 'استوديو التربية الوطنية والدستور',
+      subtitleEn: 'Constitutional Review, Legislative Flow, Party Spectrum & Electoral Allocator',
+      subtitleAr: 'الرقابة الدستورية، الدورة التشريعية، طيف الأحزاب، ونظام المقاعد الانتخابية',
+      icon: Scale,
+      color: 'emerald',
+      badge: '⚖️ Constitution & Elections',
+      gradient: 'from-emerald-700 via-teal-700 to-amber-700',
+      activeBg: 'bg-emerald-700 text-white shadow-emerald-700/30',
+      tagline: isArabic
+        ? 'استوديو التربية الوطنية والدستور التفاعلي: محاكي الرقابة الدستورية للمحكمة الدستورية العليا، مسار إقرار القوانين، مصفوفة الأحزاب السياسية، وحاسبة التمثيل النسبي وهوندت وسانت ليغو'
+        : "National Civics & Constitutional Studio: Supreme Constitutional Court judicial review simulator, legislative bill workflow, political party spectrum matrix, and Sainte-Laguë / D'Hondt electoral seat allocation engine",
+    },
+    {
+      id: 'islamic_studies' as LabId,
+      titleEn: 'Islamic Studies Studio',
+      titleAr: 'استوديو التربية الدينية الإسلامية',
+      subtitleEn: 'Tajweed Recitation, Maqasid al-Sharia, Seerah Milestones & Bioethics',
+      subtitleAr: 'أحكام التجويد والترتيل، مقاصد الشريعة، محطات السيرة النبوية، والأخلاقيات الحيوية',
+      icon: BookOpen,
+      color: 'emerald',
+      badge: '☪️ MoE Accredited',
+      gradient: 'from-emerald-700 via-teal-700 to-green-700',
+      activeBg: 'bg-emerald-700 text-white shadow-emerald-700/30',
+      tagline: isArabic
+        ? 'استوديو الدراسات الإسلامية التفاعلي: أحكام التلاوة والتجويد والترتيل الصوتي، محاكي مقاصد الشريعة الخمس، وثيقة المدينة ومحطات السيرة، والأخلاقيات الحيوية والذكاء الاصطناعي'
+        : 'Islamic Studies Studio: Interactive Quranic Tajweed recitation, Five Maqasid al-Sharia simulator, Madinah Charter & Seerah milestones, and contemporary bioethics/AI ethics',
+    },
+    {
+      id: 'christian_studies' as LabId,
+      titleEn: 'Christian Heritage & Studies Studio',
+      titleAr: 'استوديو التراث والدراسات المسيحية',
+      subtitleEn: 'Seven Sacraments, Coptic Monastic Heritage, Gospel Synoptics & Bioethics',
+      subtitleAr: 'الأسرار الكنسية السبعة، التراث الرهباني القبطي، الأناجيل الإزائية، والأخلاقيات الحيوية',
+      icon: Church,
+      color: 'amber',
+      badge: '✝️ MoE Accredited',
+      gradient: 'from-amber-700 via-rose-700 to-purple-700',
+      activeBg: 'bg-amber-700 text-white shadow-amber-700/30',
+      tagline: isArabic
+        ? 'استوديو الدراسات والتراث المسيحي التفاعلي: استكشاف أسرار الكنيسة السبعة، مسار الرهبنة وتاريخ العائلة المقدسة، مقارنة الأناجيل الأربعة، ومحاكي الأخلاقيات الطبية والحيوية'
+        : 'Christian Heritage & Studies Studio: Interactive exploration of the Seven Sacraments, Coptic monastic trail, Gospel Synoptics comparative matrix, and contemporary bioethics simulator',
+    },
+    {
+      id: 'business' as LabId,
+      titleEn: 'Business Modeling & Entrepreneurship Studio',
+      titleAr: 'مختبر نمذجة الأعمال وريادة الأعمال',
+      subtitleEn: 'DCF Corporate Valuation, Break-Even Analysis, Lean Canvas & Supply Chain',
+      subtitleAr: 'تقييم الشركات بالتدفقات النقدية (DCF)، نقطة التعادل، اللين كانفاس، وسلاسل الإمداد',
+      icon: Briefcase,
+      color: 'indigo',
+      badge: '💼 MoE Accredited',
+      gradient: 'from-sky-700 via-indigo-700 to-slate-800',
+      activeBg: 'bg-indigo-700 text-white shadow-indigo-700/30',
+      tagline: isArabic
+        ? 'مختبر نمذجة الأعمال وريادة الأعمال الافتراضي: التقييم المالي للشركات (DCF & WACC)، تحليل نقطة التعادل، بناء مخططات اللين للشركات الناشئة، وإدارة سلاسل الإمداد والمخزون'
+        : 'Business Modeling & Entrepreneurship Virtual Studio: Interactive DCF & WACC corporate valuation, break-even economics, Lean Canvas startup architecture, and EOQ supply chain optimization',
+    },
+    {
+      id: 'fine_arts' as LabId,
+      titleEn: 'Fine Arts & Architecture Studio',
+      titleAr: 'مرسم الفنون الجميلة والتصميم المعماري',
+      subtitleEn: 'Perspective Drafting, Color Theory Wheel, Golden Ratio φ & Islamic Tessellation',
+      subtitleAr: 'المنظور الهندسي الحر، دائرة التوافق اللوني، النسبة الذهبية φ، والأطباق النجمية الإسلامية',
+      icon: Palette,
+      color: 'rose',
+      badge: '🎨 MoE Accredited',
+      gradient: 'from-fuchsia-900 via-rose-800 to-amber-700',
+      activeBg: 'bg-rose-700 text-white shadow-rose-700/30',
+      tagline: isArabic
+        ? 'مرسم الفنون الجميلة والتصميم المعماري الافتراضي: محاكاة المنظور الحر ذي النقطة والنقطتين، دائرة الألوان وقاعدة 60-30-10، حاسبة النسبة الذهبية φ، والأطباق النجمية ومقرنصات التراث الإسلامي'
+        : 'Fine Arts & Architectural Virtual Studio: Interactive one & two-point perspective drafter, color harmony wheel, golden ratio calculator, and Islamic star rosette tessellations',
+    },
   ];
 
   return (
@@ -419,7 +513,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 <span>{isArabic ? 'المختبرات العلمية والرياضية المعتمدة' : 'Official Virtual Science Laboratories'}</span>
               </span>
               <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-400/30">
-                13 Specialized Labs & Studios
+                14 Specialized Labs & Studios
               </span>
             </div>
 
@@ -777,6 +871,8 @@ export const VirtualLabsHub: React.FC<Props> = ({
                   { id: 'english', labelAr: '🇬🇧 صوتيات واستماع الإنجليزية', labelEn: '🇬🇧 English Audio & Phonetics', color: 'from-blue-600 to-indigo-600' },
                   { id: 'french', labelAr: '🇫🇷 محطة الاستماع الفرنسية', labelEn: '🇫🇷 French Audio Station', color: 'from-cyan-600 to-blue-600' },
                   { id: 'german', labelAr: '🇩🇪 صوتيات وقواعد واستماع الألمانية', labelEn: '🇩🇪 German Audio & Grammar', color: 'from-amber-600 to-yellow-600' },
+                  { id: 'italian', labelAr: '🇮🇹 صوتيات وقواعد واستماع الإيطالية', labelEn: '🇮🇹 Italian Audio & Grammar', color: 'from-emerald-600 via-stone-500 to-red-600' },
+                  { id: 'spanish', labelAr: '🇪🇸 صوتيات وقواعد واستماع الإسبانية', labelEn: '🇪🇸 Spanish Audio & Grammar', color: 'from-red-600 via-amber-500 to-yellow-500' },
                   { id: 'arabic', labelAr: '🇪🇬 استوديو النحو والبلاغة العربية', labelEn: '🇪🇬 Arabic Grammar & Rhetoric', color: 'from-emerald-600 to-teal-600' },
                 ].map((station) => {
                   const isSelected = activeLangSubLab === station.id;
@@ -784,7 +880,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     <button
                       key={station.id}
                       type="button"
-                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic' | 'german')}
+                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish')}
                       className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
                         isSelected
                           ? `bg-gradient-to-r ${station.color} text-white shadow-md shadow-indigo-600/30`
@@ -818,6 +914,22 @@ export const VirtualLabsHub: React.FC<Props> = ({
 
             {activeLangSubLab === 'german' && (
               <GermanLanguageStudio
+                lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+                isFullscreen={false}
+              />
+            )}
+
+            {activeLangSubLab === 'italian' && (
+              <ItalianLanguageStudio
+                lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+                isFullscreen={false}
+              />
+            )}
+
+            {activeLangSubLab === 'spanish' && (
+              <SpanishLanguageStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
                 isFullscreen={false}
@@ -886,6 +998,61 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* National Civics & Constitutional Studio */}
+        {activeLab === 'civics' && (
+          <div className="space-y-4">
+            <NationalCivicsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
+
+        {/* Islamic Studies Studio */}
+        {activeLab === 'islamic_studies' && (
+          <div className="space-y-4">
+            <IslamicStudiesStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          </div>
+        )}
+
+        {/* Christian Heritage & Studies Studio */}
+        {activeLab === 'christian_studies' && (
+          <div className="space-y-4">
+            <ChristianHeritageStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          </div>
+        )}
+
+        {/* Business Modeling & Entrepreneurship Studio */}
+        {activeLab === 'business' && (
+          <div className="space-y-4">
+            <BusinessModelingStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          </div>
+        )}
+
+        {/* Fine Arts & Architectural Design Studio */}
+        {activeLab === 'fine_arts' && (
+          <div className="space-y-4">
+            <FineArtsArchitectureStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={false}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -894,7 +1061,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -909,7 +1076,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

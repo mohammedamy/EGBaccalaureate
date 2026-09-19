@@ -18,13 +18,20 @@ import { egBacEconomicsStatBranch } from './egBacEconomicsStat';
 import { egBacCsInformaticsBranch } from './egBacCsInformatics';
 import { egBacEarthSpaceBranch } from './egBacEarthSpace';
 import { egBacGermanBranch } from './egBacGerman';
+import { egBacItalianBranch } from './egBacItalian';
+import { egBacSpanishBranch } from './egBacSpanish';
+import { egBacIslamicBranch } from './egBacIslamic';
+import { egBacChristianBranch } from './egBacChristian';
+import { egBacBusinessBranch } from './egBacBusiness';
+import { egBacCivicsBranch } from './egBacCivics';
+import { egBacFineArtsBranch } from './egBacFineArts';
 
 export const egBacCurriculum: Curriculum = {
   id: 'egbac',
   nameEn: 'New Egyptian Baccalaureate (EG-Bac)',
   nameAr: 'نظام البكالوريا المصرية الجديد (EG-Bac)',
-  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages (English, French, German), Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences',
-  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي واللغات (الإنجليزية والفرنسية والألمانية) والتاريخ والجغرافيا السياسية وعلوم الأرض والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب وعلوم الفضاء والفلك والكواكب',
+  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages (English, French, German, Italian, Spanish), Comparative Religious Studies, Ethics & Bioethics, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences, Comparative Civics & Constitutional Law, Fine Arts & Architectural Heritage',
+  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي واللغات والدراسات الدينية والأخلاقية والتاريخ والجغرافيا السياسية وعلوم الأرض والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب وعلوم الفضاء والفلك والكواكب والفقه الدستوري والأخلاقيات المدنية والفنون الجميلة والتصميم المعماري وتاريخ الفن',
   moeOfficialBaselineEn: 'Egyptian Ministry of Education New Baccalaureate Educational Framework 2025/2026',
   moeOfficialBaselineAr: 'الإطار الوطني المطور لإعادة هيكلة الثانوية والبكالوريا المصرية - وزارة التربية والتعليم',
   branches: [
@@ -38,6 +45,8 @@ export const egBacCurriculum: Curriculum = {
     egBacEnglishBranch,
     egBacFrenchBranch,
     egBacGermanBranch,
+    egBacItalianBranch,
+    egBacSpanishBranch,
     egBacArabicBranch,
     egBacHistoryBranch,
     egBacGeographyBranch,
@@ -47,6 +56,11 @@ export const egBacCurriculum: Curriculum = {
     egBacEconomicsStatBranch,
     egBacCsInformaticsBranch,
     egBacEarthSpaceBranch,
+    egBacIslamicBranch,
+    egBacChristianBranch,
+    egBacBusinessBranch,
+    egBacCivicsBranch,
+    egBacFineArtsBranch,
   ],
 };
 

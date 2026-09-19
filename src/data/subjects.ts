@@ -1,6 +1,30 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'german' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
+export type SubjectId = 
+  | 'islamic_studies'
+  | 'christian_studies'
+  | 'religious_education'
+  | 'arabic'
+  | 'english'
+  | 'french'
+  | 'german'
+  | 'italian'
+  | 'spanish'
+  | 'history'
+  | 'geography'
+  | 'philosophy'
+  | 'psychology'
+  | 'mathematics'
+  | 'biology'
+  | 'chemistry'
+  | 'physics'
+  | 'geology'
+  | 'economics_stat'
+  | 'cs_informatics'
+  | 'earth_space'
+  | 'civics'
+  | 'business_entrepreneurship'
+  | 'fine_arts_architecture';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +33,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -25,132 +49,53 @@ export interface SubjectDefinition {
 }
 
 export const SUBJECTS: SubjectDefinition[] = [
+  // 1. Islamic Religious Education (التربية الدينية الإسلامية)
   {
-    id: 'mathematics',
-    titleEn: 'Mathematics',
-    titleAr: 'الرياضيات',
-    shortTitleEn: 'Math',
-    shortTitleAr: 'رياضيات',
-    emoji: '📐',
-    iconName: 'Calculator',
-    badgeColor: 'indigo',
-    gradient: 'from-blue-600 via-indigo-600 to-violet-600',
-    lightBg: 'bg-indigo-50 text-indigo-900 border-indigo-200',
-    darkBg: 'bg-indigo-950/70 text-indigo-200 border-indigo-800/60',
-    borderColor: 'border-indigo-500/50',
-    textColor: 'text-indigo-400',
-    descriptionEn: 'Pure and Applied Mathematics, Calculus, Algebra, Geometry, Mechanics, Statistics & Analysis',
-    descriptionAr: 'الرياضيات البحتة والتطبيقية، التفاضل والتكامل، الجبر، الهندسة، الميكانيكا، والإحصاء والتحليل',
-    branchIds: {
-      thanaweya: ['algebra_solid', 'calculus', 'statics', 'dynamics'],
-      egbac: ['egbac_vectors_geometry', 'egbac_analysis', 'egbac_mechanics', 'egbac_probability'],
-    },
-  },
-  {
-    id: 'physics',
-    titleEn: 'Physics',
-    titleAr: 'الفيزياء',
-    shortTitleEn: 'Physics',
-    shortTitleAr: 'فيزياء',
-    emoji: '⚡',
-    iconName: 'Atom',
-    badgeColor: 'cyan',
-    gradient: 'from-cyan-600 via-sky-600 to-blue-600',
-    lightBg: 'bg-cyan-50 text-cyan-900 border-cyan-200',
-    darkBg: 'bg-cyan-950/70 text-cyan-200 border-cyan-800/60',
-    borderColor: 'border-cyan-500/50',
-    textColor: 'text-cyan-400',
-    descriptionEn: 'Electric Circuits, Magnetic Effects, Induction, Quantum Radiation & Matter-Wave Duality',
-    descriptionAr: 'التيار الكهربي، التأثير المغناطيسي، الحث الكهرومغناطيسي، والفيزياء الحديثة وازدواجية الموجة والجسيم',
-    branchIds: {
-      thanaweya: ['thanaweya_physics'],
-      egbac: ['egbac_physics'],
-    },
-  },
-  {
-    id: 'chemistry',
-    titleEn: 'Chemistry',
-    titleAr: 'الكيمياء',
-    shortTitleEn: 'Chem',
-    shortTitleAr: 'كيمياء',
-    emoji: '🧪',
-    iconName: 'FlaskConical',
+    id: 'islamic_studies',
+    titleEn: 'Islamic Religious Education',
+    titleAr: 'التربية الدينية الإسلامية',
+    shortTitleEn: 'Islamic Studies',
+    shortTitleAr: 'دين إسلامي',
+    emoji: '☪️',
+    iconName: 'BookOpen',
     badgeColor: 'emerald',
-    gradient: 'from-emerald-600 via-teal-600 to-green-600',
-    lightBg: 'bg-emerald-50 text-emerald-900 border-emerald-200',
-    darkBg: 'bg-emerald-950/70 text-emerald-200 border-emerald-800/60',
+    gradient: 'from-emerald-800 via-teal-800 to-green-900',
+    lightBg: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    darkBg: 'bg-emerald-950/80 text-emerald-200 border-emerald-800/60',
     borderColor: 'border-emerald-500/50',
     textColor: 'text-emerald-400',
-    descriptionEn: 'Transition Metals Metallurgy, Chemical Kinetics, Dynamic Equilibrium & Solution Buffers',
-    descriptionAr: 'عناصر السلسلة الانتقالية وتعدين الحديد، الحركية الكيميائية، وسرعة التفاعلات والاتزان ومحاليل البفر',
+    descriptionEn: 'Official Egyptian secondary Islamic curriculum: Quranic Recitation & Tafsir in Uthmanic Script, Tajweed rules, Prophetic Sunnah & Seerah, the five universal Maqasid al-Sharia, and Contemporary Bioethics & AI Ethics.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة التربية الدينية الإسلامية: القرآن الكريم وعلومه وأحكام التجويد والتلاوة بالرسم العثماني التام، العقيدة والحديث الشريف، السيرة النبوية والتخطيط، مقاصد الشريعة الكلية الخمس، وفقه المعاملات والأخلاقيات الحيوية المعاصرة.',
     branchIds: {
-      thanaweya: ['thanaweya_chemistry'],
-      egbac: ['egbac_chemistry'],
+      thanaweya: ['thanaweya_islamic'],
+      egbac: ['egbac_islamic'],
     },
   },
+
+  // 2. Christian Religious Education (التربية الدينية المسيحية)
   {
-    id: 'biology',
-    titleEn: 'Biology',
-    titleAr: 'الأحياء',
-    shortTitleEn: 'Bio',
-    shortTitleAr: 'أحياء',
-    emoji: '🧬',
-    iconName: 'Dna',
-    badgeColor: 'rose',
-    gradient: 'from-rose-600 via-pink-600 to-purple-600',
-    lightBg: 'bg-rose-50 text-rose-900 border-rose-200',
-    darkBg: 'bg-rose-950/70 text-rose-200 border-rose-800/60',
-    borderColor: 'border-rose-500/50',
-    textColor: 'text-rose-400',
-    descriptionEn: 'Support & Movement in Living Organisms, Molecular Genetics, DNA Structure & Protein Synthesis',
-    descriptionAr: 'الدعامة والحركة في الكائنات الحية، البيولوجيا الجزيئية، وتركيب الحمض النووي وتخليق البروتين',
+    id: 'christian_studies',
+    titleEn: 'Christian Religious Education',
+    titleAr: 'التربية الدينية المسيحية',
+    shortTitleEn: 'Christian Studies',
+    shortTitleAr: 'دين مسيحي',
+    emoji: '✝️',
+    iconName: 'BookOpen',
+    badgeColor: 'amber',
+    gradient: 'from-amber-800 via-rose-800 to-purple-900',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-amber-950/80 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary Christian curriculum: Holy Scriptures & Biblical Hermeneutics, Church Dogmatics, The Seven Sacraments, Christian Family Ethics, and Coptic Monastic Heritage & History.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة التربية الدينية المسيحية: دراسة الكتاب المقدس بعهديه وتفسيره، العقيدة الكنسية، أسرار الكنيسة السبعة، الأخلاق المسيحية وبناء الأسرة، وتاريخ الكنيسة القبطية والرهبنة وتراث مصر الروحي.',
     branchIds: {
-      thanaweya: ['thanaweya_biology'],
-      egbac: ['egbac_biology'],
+      thanaweya: ['thanaweya_christian'],
+      egbac: ['egbac_christian'],
     },
   },
-  {
-    id: 'english',
-    titleEn: 'English Language',
-    titleAr: 'اللغة الإنجليزية',
-    shortTitleEn: 'English',
-    shortTitleAr: 'إنجليزي',
-    emoji: '🇬🇧',
-    iconName: 'Languages',
-    badgeColor: 'violet',
-    gradient: 'from-violet-600 via-purple-600 to-indigo-700',
-    lightBg: 'bg-violet-50 text-violet-900 border-violet-200',
-    darkBg: 'bg-violet-950/70 text-violet-200 border-violet-800/60',
-    borderColor: 'border-violet-500/50',
-    textColor: 'text-violet-400',
-    descriptionEn: 'First Foreign Language: Vocabulary, Grammar, Advanced Writing, Reading Comprehension & Translation Skills',
-    descriptionAr: 'اللغة الأجنبية الأولى: المفردات اللغوية، القواعد، مهارات الكتابة المتقدمة، الفهم والاستيعاب، وفنون الترجمة',
-    branchIds: {
-      thanaweya: ['thanaweya_english'],
-      egbac: ['egbac_english'],
-    },
-  },
-  {
-    id: 'french',
-    titleEn: 'French Language (Second Foreign Language)',
-    titleAr: 'اللغة الفرنسية (اللغة الأجنبية الثانية)',
-    shortTitleEn: 'French',
-    shortTitleAr: 'فرنساوي',
-    emoji: '🇫🇷',
-    iconName: 'Languages',
-    badgeColor: 'sky',
-    gradient: 'from-blue-600 via-sky-600 to-rose-600',
-    lightBg: 'bg-sky-50 text-sky-900 border-sky-200',
-    darkBg: 'bg-sky-950/70 text-sky-200 border-sky-800/60',
-    borderColor: 'border-sky-500/50',
-    textColor: 'text-sky-400',
-    descriptionEn: 'Second Foreign Language (Club @dos Plus 3): Sports, Food, Countryside & Travel Communicative Units, Grammar, Daily Life Situations & Listening',
-    descriptionAr: 'اللغة الأجنبية الثانية (Club @dos Plus 3): الرياضة، التغذية، الريف، السفر ووسائل المواصلات، القواعد اللغوية، المواقف الحياتية، وفهم النصوص الشفهية',
-    branchIds: {
-      thanaweya: ['thanaweya_french'],
-      egbac: ['egbac_french'],
-    },
-  },
+
+  // 3. Arabic Language & Literature (اللغة العربية وآدابها)
   {
     id: 'arabic',
     titleEn: 'Arabic Language & Literature',
@@ -172,6 +117,123 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_arabic'],
     },
   },
+
+  // 3. English Language (اللغة الإنجليزية)
+  {
+    id: 'english',
+    titleEn: 'English Language',
+    titleAr: 'اللغة الإنجليزية',
+    shortTitleEn: 'English',
+    shortTitleAr: 'إنجليزي',
+    emoji: '🇬🇧',
+    iconName: 'Languages',
+    badgeColor: 'violet',
+    gradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    lightBg: 'bg-violet-50 text-violet-900 border-violet-200',
+    darkBg: 'bg-violet-950/70 text-violet-200 border-violet-800/60',
+    borderColor: 'border-violet-500/50',
+    textColor: 'text-violet-400',
+    descriptionEn: 'First Foreign Language: Vocabulary, Grammar, Advanced Writing, Reading Comprehension & Translation Skills',
+    descriptionAr: 'اللغة الأجنبية الأولى: المفردات اللغوية، القواعد، مهارات الكتابة المتقدمة، الفهم والاستيعاب، وفنون الترجمة',
+    branchIds: {
+      thanaweya: ['thanaweya_english'],
+      egbac: ['egbac_english'],
+    },
+  },
+
+  // 4. French Language (اللغة الفرنسية)
+  {
+    id: 'french',
+    titleEn: 'French Language (Second Foreign Language)',
+    titleAr: 'اللغة الفرنسية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'French',
+    shortTitleAr: 'فرنساوي',
+    emoji: '🇫🇷',
+    iconName: 'Languages',
+    badgeColor: 'sky',
+    gradient: 'from-blue-600 via-sky-600 to-rose-600',
+    lightBg: 'bg-sky-50 text-sky-900 border-sky-200',
+    darkBg: 'bg-sky-950/70 text-sky-200 border-sky-800/60',
+    borderColor: 'border-sky-500/50',
+    textColor: 'text-sky-400',
+    descriptionEn: 'Second Foreign Language (Club @dos Plus 3): Sports, Food, Countryside & Travel Communicative Units, Grammar, Daily Life Situations & Listening',
+    descriptionAr: 'اللغة الأجنبية الثانية (Club @dos Plus 3): الرياضة، التغذية، الريف، السفر ووسائل المواصلات، القواعد اللغوية، المواقف الحياتية، وفهم النصوص الشفهية',
+    branchIds: {
+      thanaweya: ['thanaweya_french'],
+      egbac: ['egbac_french'],
+    },
+  },
+
+  // 5. German Language (اللغة الألمانية)
+  {
+    id: 'german',
+    titleEn: 'German Language (Deutsch)',
+    titleAr: 'اللغة الألمانية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'German',
+    shortTitleAr: 'الألمانية',
+    emoji: '🇩🇪',
+    iconName: 'Languages',
+    badgeColor: 'amber',
+    gradient: 'from-stone-950 via-red-800 to-amber-600',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-stone-900/90 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary German curriculum (Hallo Deutsch) and advanced academic DaF (B1/B2) for linguistic, situational, and professional fluency.',
+    descriptionAr: 'المنهج الرسمي لوزارة التربية والتعليم (Hallo Deutsch) ومسار البكالوريا المتقدم للإتقان اللغوي والتواصلي والأكاديمي (DaF B1/B2).',
+    branchIds: {
+      thanaweya: ['thanaweya_german'],
+      egbac: ['egbac_german'],
+    },
+  },
+
+  // 6. Italian Language (اللغة الإيطالية)
+  {
+    id: 'italian',
+    titleEn: 'Italian Language (Italiano)',
+    titleAr: 'اللغة الإيطالية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'Italian',
+    shortTitleAr: 'إيطالي',
+    emoji: '🇮🇹',
+    iconName: 'Languages',
+    badgeColor: 'emerald',
+    gradient: 'from-emerald-600 via-stone-100 to-red-600',
+    lightBg: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    darkBg: 'bg-emerald-950/80 text-emerald-200 border-emerald-800/60',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    descriptionEn: 'Official Egyptian secondary Italian curriculum (In Italia / Progetto Italiano) and advanced academic Italian (B1/B2) for grammatical, situational, and communicative mastery.',
+    descriptionAr: 'المنهج الرسمي لوزارة التربية والتعليم للغة الإيطالية ومسار البكالوريا المتقدم للإتقان اللغوي والتواصلي والأكاديمي (B1/B2).',
+    branchIds: {
+      thanaweya: ['thanaweya_italian'],
+      egbac: ['egbac_italian'],
+    },
+  },
+
+  // 7. Spanish Language (اللغة الإسبانية)
+  {
+    id: 'spanish',
+    titleEn: 'Spanish Language (Español)',
+    titleAr: 'اللغة الإسبانية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'Spanish',
+    shortTitleAr: 'إسباني',
+    emoji: '🇪🇸',
+    iconName: 'Languages',
+    badgeColor: 'amber',
+    gradient: 'from-red-600 via-amber-500 to-yellow-500',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-amber-950/80 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary Spanish curriculum (¡Hola! / ¡Español!) and advanced academic Spanish (B1/B2) for grammatical, situational, and Hispanic cultural mastery.',
+    descriptionAr: 'المنهج الرسمي لوزارة التربية والتعليم للغة الإسبانية (¡Hola!) ومسار البكالوريا المتقدم للإتقان اللغوي والتواصلي والثقافي الإسباني (B1/B2).',
+    branchIds: {
+      thanaweya: ['thanaweya_spanish'],
+      egbac: ['egbac_spanish'],
+    },
+  },
+
+  // 8. Modern & Contemporary Egyptian History (تاريخ مصر الحديث والمعاصر)
   {
     id: 'history',
     titleEn: 'Modern & Contemporary Egyptian History',
@@ -193,6 +255,8 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_history'],
     },
   },
+
+  // 9. Political Geography & Geopolitics (الجغرافيا السياسية)
   {
     id: 'geography',
     titleEn: 'Political Geography & Geopolitics',
@@ -214,27 +278,8 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_geography'],
     },
   },
-  {
-    id: 'geology',
-    titleEn: 'Geology & Environmental Sciences',
-    titleAr: 'الجيولوجيا والعلوم البيئية',
-    shortTitleEn: 'Geology',
-    shortTitleAr: 'جيولوجيا',
-    emoji: '🪨',
-    iconName: 'Mountain',
-    badgeColor: 'amber',
-    gradient: 'from-amber-700 via-stone-700 to-emerald-800',
-    lightBg: 'bg-amber-50 text-amber-900 border-amber-200',
-    darkBg: 'bg-amber-950/70 text-amber-200 border-amber-800/60',
-    borderColor: 'border-amber-500/50',
-    textColor: 'text-amber-400',
-    descriptionEn: 'National Scientific Core Subject: Earth Dynamics, Minerals & Crystallography, Bowen Rock Cycle, Continental Drift & Plate Tectonics, Geomorphology, and Environmental Ecosystems',
-    descriptionAr: 'المادة العلمية الكبرى لشعبة علمي علوم: مادة الأرض والتراكيب، المعادن ومقياس موهس، دورة الصخور والبراكين، تكتونية الصفائح والزلازل، الجيومورفولوجيا، والنظم الإيكولوجية واستنزاف الموارد',
-    branchIds: {
-      thanaweya: ['thanaweya_geology'],
-      egbac: ['egbac_geology'],
-    },
-  },
+
+  // 10. Philosophy & Applied Logic (الفلسفة والمنطق التطبيقي)
   {
     id: 'philosophy',
     titleEn: 'Philosophy & Applied Logic',
@@ -256,6 +301,8 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_philosophy'],
     },
   },
+
+  // 11. Psychology & Sociology (علم النفس وعلم الاجتماع)
   {
     id: 'psychology',
     titleEn: 'Psychology & Sociology',
@@ -277,6 +324,123 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_psychology'],
     },
   },
+
+  // 12. Mathematics (الرياضيات)
+  {
+    id: 'mathematics',
+    titleEn: 'Mathematics',
+    titleAr: 'الرياضيات',
+    shortTitleEn: 'Math',
+    shortTitleAr: 'رياضيات',
+    emoji: '📐',
+    iconName: 'Calculator',
+    badgeColor: 'indigo',
+    gradient: 'from-blue-600 via-indigo-600 to-violet-600',
+    lightBg: 'bg-indigo-50 text-indigo-900 border-indigo-200',
+    darkBg: 'bg-indigo-950/70 text-indigo-200 border-indigo-800/60',
+    borderColor: 'border-indigo-500/50',
+    textColor: 'text-indigo-400',
+    descriptionEn: 'Pure and Applied Mathematics, Calculus, Algebra, Geometry, Mechanics, Statistics & Analysis',
+    descriptionAr: 'الرياضيات البحتة والتطبيقية، التفاضل والتكامل، الجبر، الهندسة، الميكانيكا، والإحصاء والتحليل',
+    branchIds: {
+      thanaweya: ['algebra_solid', 'calculus', 'statics', 'dynamics'],
+      egbac: ['egbac_vectors_geometry', 'egbac_analysis', 'egbac_mechanics', 'egbac_probability'],
+    },
+  },
+
+  // 13. Biology (الأحياء)
+  {
+    id: 'biology',
+    titleEn: 'Biology',
+    titleAr: 'الأحياء',
+    shortTitleEn: 'Bio',
+    shortTitleAr: 'أحياء',
+    emoji: '🧬',
+    iconName: 'Dna',
+    badgeColor: 'rose',
+    gradient: 'from-rose-600 via-pink-600 to-purple-600',
+    lightBg: 'bg-rose-50 text-rose-900 border-rose-200',
+    darkBg: 'bg-rose-950/70 text-rose-200 border-rose-800/60',
+    borderColor: 'border-rose-500/50',
+    textColor: 'text-rose-400',
+    descriptionEn: 'Support & Movement in Living Organisms, Molecular Genetics, DNA Structure & Protein Synthesis',
+    descriptionAr: 'الدعامة والحركة في الكائنات الحية، البيولوجيا الجزيئية، وتركيب الحمض النووي وتخليق البروتين',
+    branchIds: {
+      thanaweya: ['thanaweya_biology'],
+      egbac: ['egbac_biology'],
+    },
+  },
+
+  // 14. Chemistry (الكيمياء)
+  {
+    id: 'chemistry',
+    titleEn: 'Chemistry',
+    titleAr: 'الكيمياء',
+    shortTitleEn: 'Chem',
+    shortTitleAr: 'كيمياء',
+    emoji: '🧪',
+    iconName: 'FlaskConical',
+    badgeColor: 'emerald',
+    gradient: 'from-emerald-600 via-teal-600 to-green-600',
+    lightBg: 'bg-emerald-50 text-emerald-900 border-emerald-200',
+    darkBg: 'bg-emerald-950/70 text-emerald-200 border-emerald-800/60',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    descriptionEn: 'Transition Metals Metallurgy, Chemical Kinetics, Dynamic Equilibrium & Solution Buffers',
+    descriptionAr: 'عناصر السلسلة الانتقالية وتعدين الحديد، الحركية الكيميائية، وسرعة التفاعلات والاتزان ومحاليل البفر',
+    branchIds: {
+      thanaweya: ['thanaweya_chemistry'],
+      egbac: ['egbac_chemistry'],
+    },
+  },
+
+  // 15. Physics (الفيزياء)
+  {
+    id: 'physics',
+    titleEn: 'Physics',
+    titleAr: 'الفيزياء',
+    shortTitleEn: 'Physics',
+    shortTitleAr: 'فيزياء',
+    emoji: '⚡',
+    iconName: 'Atom',
+    badgeColor: 'cyan',
+    gradient: 'from-cyan-600 via-sky-600 to-blue-600',
+    lightBg: 'bg-cyan-50 text-cyan-900 border-cyan-200',
+    darkBg: 'bg-cyan-950/70 text-cyan-200 border-cyan-800/60',
+    borderColor: 'border-cyan-500/50',
+    textColor: 'text-cyan-400',
+    descriptionEn: 'Electric Circuits, Magnetic Effects, Induction, Quantum Radiation & Matter-Wave Duality',
+    descriptionAr: 'التيار الكهربي، التأثير المغناطيسي، الحث الكهرومغناطيسي، والفيزياء الحديثة وازدواجية الموجة والجسيم',
+    branchIds: {
+      thanaweya: ['thanaweya_physics'],
+      egbac: ['egbac_physics'],
+    },
+  },
+
+  // 16. Geology & Environmental Sciences (الجيولوجيا والعلوم البيئية)
+  {
+    id: 'geology',
+    titleEn: 'Geology & Environmental Sciences',
+    titleAr: 'الجيولوجيا والعلوم البيئية',
+    shortTitleEn: 'Geology',
+    shortTitleAr: 'جيولوجيا',
+    emoji: '🪨',
+    iconName: 'Mountain',
+    badgeColor: 'amber',
+    gradient: 'from-amber-700 via-stone-700 to-emerald-800',
+    lightBg: 'bg-amber-50 text-amber-900 border-amber-200',
+    darkBg: 'bg-amber-950/70 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'National Scientific Core Subject: Earth Dynamics, Minerals & Crystallography, Bowen Rock Cycle, Continental Drift & Plate Tectonics, Geomorphology, and Environmental Ecosystems',
+    descriptionAr: 'المادة العلمية الكبرى لشعبة علمي علوم: مادة الأرض والتراكيب، المعادن ومقياس موهس، دورة الصخور والبراكين، تكتونية الصفائح والزلازل، الجيومورفولوجيا، والنظم الإيكولوجية واستنزاف الموارد',
+    branchIds: {
+      thanaweya: ['thanaweya_geology'],
+      egbac: ['egbac_geology'],
+    },
+  },
+
+  // 17. Economics & Statistics (الاقتصاد والإحصاء)
   {
     id: 'economics_stat',
     titleEn: 'Economics & Statistics',
@@ -298,6 +462,8 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_economics_stat'],
     },
   },
+
+  // 18. Computer Science & Informatics (علوم الحاسب والمعلوماتية)
   {
     id: 'cs_informatics',
     titleEn: 'Computer Science & Informatics',
@@ -319,6 +485,8 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_cs_informatics'],
     },
   },
+
+  // 19. Earth & Planetary Space Sciences (علوم الأرض والفلك: علوم الفضاء والكواكب)
   {
     id: 'earth_space',
     titleEn: 'Earth & Planetary Space Sciences',
@@ -340,25 +508,73 @@ export const SUBJECTS: SubjectDefinition[] = [
       egbac: ['egbac_earth_space'],
     },
   },
+
+  // 20. National Civics & Constitution (التربية الوطنية والدستور) - LAST
   {
-    id: 'german',
-    titleEn: 'German Language (Deutsch)',
-    titleAr: 'اللغة الألمانية (اللغة الأجنبية الثانية)',
-    shortTitleEn: 'German',
-    shortTitleAr: 'الألمانية',
-    emoji: '🇩🇪',
-    iconName: 'Languages',
-    badgeColor: 'amber',
-    gradient: 'from-stone-950 via-red-800 to-amber-600',
-    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
-    darkBg: 'bg-stone-900/90 text-amber-200 border-amber-800/60',
-    borderColor: 'border-amber-500/50',
-    textColor: 'text-amber-400',
-    descriptionEn: 'Official Egyptian secondary German curriculum (Hallo Deutsch) and advanced academic DaF (B1/B2) for linguistic, situational, and professional fluency.',
-    descriptionAr: 'المنهج الرسمي لوزارة التربية والتعليم (Hallo Deutsch) ومسار البكالوريا المتقدم للإتقان اللغوي والتواصلي والأكاديمي (DaF B1/B2).',
+    id: 'civics',
+    titleEn: 'National Civics & Constitution',
+    titleAr: 'التربية الوطنية والدستور',
+    shortTitleEn: 'Civics',
+    shortTitleAr: 'التربية الوطنية',
+    emoji: '⚖️',
+    iconName: 'Scale',
+    badgeColor: 'emerald',
+    gradient: 'from-emerald-900 via-teal-800 to-amber-700',
+    lightBg: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    darkBg: 'bg-emerald-950/80 text-emerald-200 border-emerald-800/60',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    descriptionEn: 'Official Egyptian secondary national civics curriculum: The Law and Constitution, Democracy & Citizenship, Political Parties, Electoral Practice & Judicial Oversight.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة التربية الوطنية: القانون والدستور، الديمقراطية والمواطنة، الأحزاب السياسية، المشاركة السياسية والعملية الانتخابية.',
     branchIds: {
-      thanaweya: ['thanaweya_german'],
-      egbac: ['egbac_german'],
+      thanaweya: ['thanaweya_civics'],
+      egbac: ['egbac_civics'],
+    },
+  },
+
+  // 22. Business Administration & Entrepreneurship (إدارة الأعمال وريادة الأعمال)
+  {
+    id: 'business_entrepreneurship',
+    titleEn: 'Business Administration & Entrepreneurship',
+    titleAr: 'إدارة الأعمال وريادة الأعمال',
+    shortTitleEn: 'Business & Entrepreneurship',
+    shortTitleAr: 'إدارة وريادة',
+    emoji: '💼',
+    iconName: 'Briefcase',
+    badgeColor: 'sky',
+    gradient: 'from-sky-900 via-indigo-900 to-slate-950',
+    lightBg: 'bg-sky-50 text-sky-950 border-sky-200',
+    darkBg: 'bg-sky-950/80 text-sky-200 border-sky-800/60',
+    borderColor: 'border-sky-500/50',
+    textColor: 'text-sky-400',
+    descriptionEn: 'Official Egyptian secondary business curriculum: Management Principles, Organizational Behavior, Strategic Marketing, Operations & Supply Chain, Corporate Finance, Capital Structure, Lean Startup, and Digital Business Transformation.',
+    descriptionAr: 'المنهج الوزاري المعتمد لإدارة الأعمال وريادة الأعمال: مبادئ الإدارة والتنظيم المؤسسي، استراتيجيات التسويق والتموضع، إدارة العمليات وسلاسل الإمداد، الإدارة المالية وهيكل رأس المال، ريادة الأعمال ونماذج العمل الرشيقة، والتحول الرقمي للشركات.',
+    branchIds: {
+      thanaweya: ['thanaweya_business'],
+      egbac: ['egbac_business'],
+    },
+  },
+
+  // 23. Fine Arts, Architectural Design & Visual Culture (الفنون الجميلة والتصميم المعماري)
+  {
+    id: 'fine_arts_architecture',
+    titleEn: 'Fine Arts, Architectural Design & Visual Culture',
+    titleAr: 'الفنون الجميلة والتصميم المعماري',
+    shortTitleEn: 'Fine Arts & Architecture',
+    shortTitleAr: 'فنون وعمارة',
+    emoji: '🎨',
+    iconName: 'Palette',
+    badgeColor: 'rose',
+    gradient: 'from-fuchsia-950 via-rose-900 to-amber-950',
+    lightBg: 'bg-rose-50 text-rose-950 border-rose-200',
+    darkBg: 'bg-rose-950/80 text-rose-200 border-rose-800/60',
+    borderColor: 'border-rose-500/50',
+    textColor: 'text-rose-400',
+    descriptionEn: 'Official Egyptian secondary curriculum for Fine Arts & Architecture: Egyptian artistic evolution and masters, linear perspective & volumetric shading, principles of visual composition, color harmony, classical proportion & Golden Ratio, vernacular architecture (Hassan Fathy), and advanced parametric urbanism.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة الفنون الجميلة والتصميم المعماري: تطور الفنون التشكيلية ورواد الحركة المصرية، قواعد المنظور الهندسي والظل والظلال وتجسيم الفراغ، أسس التكوين والتصميم والدائرة اللونية، العمارة المصرية التراثية وفلسفة حسن فتحي، والنظريات المعمارية المعاصرة والعمارة البارامترية.',
+    branchIds: {
+      thanaweya: ['thanaweya_fine_arts'],
+      egbac: ['egbac_fine_arts'],
     },
   },
 ];

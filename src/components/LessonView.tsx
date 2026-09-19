@@ -32,6 +32,13 @@ import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
 import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
 import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
 import { GermanLanguageStudio } from './labs/GermanLanguageStudio';
+import { ItalianLanguageStudio } from './labs/ItalianLanguageStudio';
+import { SpanishLanguageStudio } from './labs/SpanishLanguageStudio';
+import { IslamicStudiesStudio } from './labs/IslamicStudiesStudio';
+import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
+import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
+import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
+import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -280,6 +287,70 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={false}
             />
           );
+        case 'italian_language_lab':
+        case 'italian_grammar_lab':
+        case 'italian_pronoun_matrix':
+          return (
+            <ItalianLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
+        case 'spanish_language_lab':
+        case 'spanish_phonetics_lab':
+        case 'spanish_grammar_matrix':
+          return (
+            <SpanishLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
+        case 'islamic_studies_lab':
+        case 'tajweed_rules_lab':
+        case 'maqasid_fiqh_studio':
+        case 'islamic_civilization_timeline':
+          return (
+            <IslamicStudiesStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
+        case 'christian_heritage_studio':
+        case 'coptic_history_timeline':
+        case 'sacraments_interactive_lab':
+        case 'christian_ethics_sandbox':
+          return (
+            <ChristianHeritageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
+        case 'business_modeling_studio':
+        case 'lean_canvas_builder':
+        case 'financial_valuation_lab':
+        case 'supply_chain_simulator':
+          return (
+            <BusinessModelingStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
+        case 'fine_arts_architecture_studio':
+        case 'perspective_grid_drafter':
+        case 'golden_ratio_calculator':
+        case 'islamic_geometry_generator':
+          return (
+            <FineArtsArchitectureStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -450,6 +521,23 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'hohmann_transfer'
                   ? 'hohmann_transfer'
                   : 'remote_sensing'
+              }
+            />
+          );
+        case 'civics_constitution_lab':
+        case 'civics_electoral_simulator':
+        case 'civics_party_matrix':
+          return (
+            <NationalCivicsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialTab={
+                lesson.interactiveWidget.type === 'civics_constitution_lab'
+                  ? 'constitution_review'
+                  : lesson.interactiveWidget.type === 'civics_electoral_simulator'
+                  ? 'electoral_systems'
+                  : 'parties_matrix'
               }
             />
           );
@@ -518,6 +606,70 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={true}
             />
           );
+        case 'italian_language_lab':
+        case 'italian_grammar_lab':
+        case 'italian_pronoun_matrix':
+          return (
+            <ItalianLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'spanish_language_lab':
+        case 'spanish_phonetics_lab':
+        case 'spanish_grammar_matrix':
+          return (
+            <SpanishLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'islamic_studies_lab':
+        case 'tajweed_rules_lab':
+        case 'maqasid_fiqh_studio':
+        case 'islamic_civilization_timeline':
+          return (
+            <IslamicStudiesStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'christian_heritage_studio':
+        case 'coptic_history_timeline':
+        case 'sacraments_interactive_lab':
+        case 'christian_ethics_sandbox':
+          return (
+            <ChristianHeritageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'business_modeling_studio':
+        case 'lean_canvas_builder':
+        case 'financial_valuation_lab':
+        case 'supply_chain_simulator':
+          return (
+            <BusinessModelingStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'fine_arts_architecture_studio':
+        case 'perspective_grid_drafter':
+        case 'golden_ratio_calculator':
+        case 'islamic_geometry_generator':
+          return (
+            <FineArtsArchitectureStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -688,6 +840,23 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'hohmann_transfer'
                   ? 'hohmann_transfer'
                   : 'remote_sensing'
+              }
+            />
+          );
+        case 'civics_constitution_lab':
+        case 'civics_electoral_simulator':
+        case 'civics_party_matrix':
+          return (
+            <NationalCivicsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialTab={
+                lesson.interactiveWidget.type === 'civics_constitution_lab'
+                  ? 'constitution_review'
+                  : lesson.interactiveWidget.type === 'civics_electoral_simulator'
+                  ? 'electoral_systems'
+                  : 'parties_matrix'
               }
             />
           );
@@ -1500,12 +1669,12 @@ export const LessonView: React.FC<Props> = ({
               <span className={`text-xs font-semibold ${
                 isLight ? 'text-slate-600' : 'text-slate-400'
               }`}>
-                {lang === 'ar' ? `${toHindiDigits(lesson.formulas.length)} قوانين أساسية` : `${lesson.formulas.length} Core Formulas`}
+                {lang === 'ar' ? `${toHindiDigits(lesson.formulas?.length ?? 0)} قوانين أساسية` : `${lesson.formulas?.length ?? 0} Core Formulas`}
               </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
-              {lesson.formulas.map((f, fIdx) => (
+              {lesson.formulas?.map((f, fIdx) => (
                 <div
                   key={fIdx}
                   className={`p-3 rounded-xl border transition-all hover:border-indigo-500/50 flex flex-col justify-between ${
@@ -1862,7 +2031,7 @@ export const LessonView: React.FC<Props> = ({
                 <span>{t.prerequisites}</span>
               </h4>
               <div className="flex flex-wrap gap-2">
-                {(lang === 'ar' ? lesson.lessonPlan.prerequisitesAr : lesson.lessonPlan.prerequisitesEn).map((prereq, pIdx) => (
+                {(lang === 'ar' ? lesson.lessonPlan.prerequisitesAr : lesson.lessonPlan.prerequisitesEn)?.map((prereq, pIdx) => (
                   <span
                     key={pIdx}
                     className={`px-3 py-1.5 rounded-xl border text-xs font-semibold flex items-center gap-1.5 ${
@@ -1885,7 +2054,7 @@ export const LessonView: React.FC<Props> = ({
               isLight ? 'text-indigo-900 font-bold' : 'text-indigo-300'
             }`}>{t.bloomsTaxonomy}</h4>
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-              {(lang === 'ar' ? lesson.lessonPlan.bloomsObjectivesAr : lesson.lessonPlan.bloomsObjectivesEn).map((obj, oIdx) => (
+              {(lang === 'ar' ? lesson.lessonPlan.bloomsObjectivesAr : lesson.lessonPlan.bloomsObjectivesEn)?.map((obj, oIdx) => (
                 <li
                   key={oIdx}
                   className={`p-3.5 rounded-xl border flex items-start gap-2 print-avoid-break ${
@@ -1911,7 +2080,7 @@ export const LessonView: React.FC<Props> = ({
                 <span>{t.vocabulary}</span>
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {(lang === 'ar' ? lesson.lessonPlan.keyVocabularyAr : lesson.lessonPlan.keyVocabularyEn).map((vocab, vIdx) => (
+                {(lang === 'ar' ? lesson.lessonPlan.keyVocabularyAr : lesson.lessonPlan.keyVocabularyEn)?.map((vocab, vIdx) => (
                   <div
                     key={vIdx}
                     className={`p-3.5 rounded-xl border space-y-1.5 text-xs ${
@@ -1942,7 +2111,7 @@ export const LessonView: React.FC<Props> = ({
               isLight ? 'text-amber-900 font-bold' : 'text-amber-300'
             }`}>{lang === 'ar' ? 'خطوات السير في الدرس والتوقيت الزمني' : 'Instructional Pacing & Flow'}</h4>
             <div className="space-y-3">
-              {lesson.lessonPlan.teachingPacing.map((p, pIdx) => (
+              {lesson.lessonPlan.teachingPacing?.map((p, pIdx) => (
                 <div
                   key={pIdx}
                   className={`p-4 rounded-xl border space-y-1 text-xs pacing-item print-avoid-break ${
@@ -1980,7 +2149,7 @@ export const LessonView: React.FC<Props> = ({
                 <span>{t.misconceptions}</span>
               </h4>
               <ul className={`space-y-2 list-disc list-inside ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
-                {(lang === 'ar' ? lesson.lessonPlan.commonMisconceptionsAr : lesson.lessonPlan.commonMisconceptionsEn).map((m, mIdx) => (
+                {(lang === 'ar' ? lesson.lessonPlan.commonMisconceptionsAr : lesson.lessonPlan.commonMisconceptionsEn)?.map((m, mIdx) => (
                   <li key={mIdx}>
                     <MathRenderer math={m} lang={lang} />
                   </li>
@@ -1997,11 +2166,11 @@ export const LessonView: React.FC<Props> = ({
               <div className={`space-y-2 ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
                 <p>
                   <strong className={isLight ? 'text-amber-800' : 'text-amber-400'}>{lang === 'ar' ? 'للطلاب المحتاجين لدعم:' : 'Struggling Learners:'}</strong>{' '}
-                  <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.differentiationAr.struggling : lesson.lessonPlan.differentiationEn.struggling} lang={lang} />
+                  <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.differentiationAr?.struggling : lesson.lessonPlan.differentiationEn?.struggling} lang={lang} />
                 </p>
                 <p>
                   <strong className={isLight ? 'text-emerald-800' : 'text-emerald-400'}>{lang === 'ar' ? 'للطلاب المتميزين:' : 'Advanced Learners:'}</strong>{' '}
-                  <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.differentiationAr.advanced : lesson.lessonPlan.differentiationEn.advanced} lang={lang} />
+                  <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.differentiationAr?.advanced : lesson.lessonPlan.differentiationEn?.advanced} lang={lang} />
                 </p>
               </div>
             </div>
@@ -2039,11 +2208,11 @@ export const LessonView: React.FC<Props> = ({
           }`}>
             <h4 className={`font-bold uppercase tracking-wider ${isLight ? 'text-amber-900' : 'text-amber-400'}`}>{t.exitTicket}</h4>
             <div className={`font-semibold ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-              <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion.questionAr : lesson.lessonPlan.exitTicketQuestion.questionEn} lang={lang} />
+              <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion?.questionAr : lesson.lessonPlan.exitTicketQuestion?.questionEn} lang={lang} />
             </div>
             <div className={`p-3 rounded-lg ${isLight ? 'bg-white border border-slate-200 text-slate-800' : 'bg-slate-900 text-slate-300'}`}>
               <strong className={`block mb-1 ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>{t.stepByStepSolution}:</strong>
-              <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion.solutionAr : lesson.lessonPlan.exitTicketQuestion.solutionEn} lang={lang} />
+              <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion?.solutionAr : lesson.lessonPlan.exitTicketQuestion?.solutionEn} lang={lang} />
             </div>
           </div>
         </div>

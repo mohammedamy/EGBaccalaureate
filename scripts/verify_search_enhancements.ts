@@ -20,13 +20,13 @@ const egBacStats = getSubjectStats(egBacCurriculum, 'all');
 const totalChapters = thanaweyaStats.totalChapters + egBacStats.totalChapters;
 const totalProblems = thanaweyaStats.totalProblems + egBacStats.totalProblems;
 
-assert(thanaweyaStats.totalChapters === 119, `Thanaweya has 119 chapters (got ${thanaweyaStats.totalChapters})`);
-assert(egBacStats.totalChapters === 106, `EG-Bac has 106 chapters (got ${egBacStats.totalChapters})`);
-assert(totalChapters === 225, `Total platform chapters equals 225 (got ${totalChapters})`);
+assert(thanaweyaStats.totalChapters === 143, `Thanaweya has 143 chapters (got ${thanaweyaStats.totalChapters})`);
+assert(egBacStats.totalChapters === 130, `EG-Bac has 130 chapters (got ${egBacStats.totalChapters})`);
+assert(totalChapters === 273, `Total platform chapters equals 273 (got ${totalChapters})`);
 
-assert(thanaweyaStats.totalProblems === 23800, `Thanaweya has 23,800 problems (got ${thanaweyaStats.totalProblems})`);
-assert(egBacStats.totalProblems === 21200, `EG-Bac has 21,200 problems (got ${egBacStats.totalProblems})`);
-assert(totalProblems === 45000, `Grand total platform problems equals 45,000 (got ${totalProblems})`);
+assert(thanaweyaStats.totalProblems === 28600, `Thanaweya has 28,600 problems (got ${thanaweyaStats.totalProblems})`);
+assert(egBacStats.totalProblems === 26000, `EG-Bac has 26,000 problems (got ${egBacStats.totalProblems})`);
+assert(totalProblems === 54600, `Grand total platform problems equals 54,600 (got ${totalProblems})`);
 
 // 2. Verify Subject Mapping Across All Branches
 console.log('\n--- Checking Subject Mapping for Search ---');

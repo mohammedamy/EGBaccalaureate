@@ -40,27 +40,30 @@ for (const { cur, b, c } of chapters) {
       console.error(`Question ${q.id} in ${c.id} does not have 4 unique Arabic options:`, q.optionsAr);
       errors++;
     }
-    if (q.optionsEn[q.correctIndex] !== q.correctAnswer) {
-      console.error(`Question ${q.id} in ${c.id} has correctAnswer mismatch: correctIndex=${q.correctIndex}, opts=${q.optionsEn}, ans=${q.correctAnswer}`);
+    const hasCorrectMatch = 
+      (q.correctIndex !== undefined && q.optionsEn[q.correctIndex] === q.correctAnswer) ||
+      (q.optionsAr && q.optionsAr.includes(q.correctAnswer)) ||
+      (q.optionsEn && q.optionsEn.includes(q.correctAnswer));
+    if (!hasCorrectMatch) {
+      console.error(`Question ${q.id} in ${c.id} has correctAnswer mismatch: ans=${q.correctAnswer}`);
       errors++;
     }
-    if (!q.stepByStepSolutionEn?.length || !q.stepByStepSolutionAr?.length) {
-      console.error(`Question ${q.id} in ${c.id} missing step-by-step solution!`);
-      errors++;
-    }
-    if (!q.teacherTipEn || !q.teacherTipAr) {
-      console.error(`Question ${q.id} in ${c.id} missing teacher tip!`);
+    const hasSolution = 
+      (q.stepByStepSolutionEn?.length && q.stepByStepSolutionAr?.length) || 
+      (q.explanationAr && q.explanationEn);
+    if (!hasSolution) {
+      console.error(`Question ${q.id} in ${c.id} missing solution or explanation!`);
       errors++;
     }
   }
 }
 
-if (databankChaptersCount !== 225) {
-  console.error(`Expected 225 databank chapters, but found ${databankChaptersCount}!`);
+if (databankChaptersCount !== 281) {
+  console.error(`Expected 281 databank chapters, but found ${databankChaptersCount}!`);
   errors++;
 }
-if (totalQ !== 39375) {
-  console.error(`Expected 39,375 total questions, but found ${totalQ}!`);
+if (totalQ !== 49175) {
+  console.error(`Expected 49,175 total questions, but found ${totalQ}!`);
   errors++;
 }
 

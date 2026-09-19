@@ -31,6 +31,9 @@ import {
   Users,
   Binary,
   Orbit,
+  Scale,
+  Briefcase,
+  Palette,
   ChevronDown,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -124,6 +127,12 @@ export const CurriculumOverview: React.FC<Props> = ({
         return <Binary className="w-5 h-5" />;
       case 'Orbit':
         return <Orbit className="w-5 h-5" />;
+      case 'Scale':
+        return <Scale className="w-5 h-5" />;
+      case 'Briefcase':
+        return <Briefcase className="w-5 h-5" />;
+      case 'Palette':
+        return <Palette className="w-5 h-5" />;
       default:
         return <Layers className="w-5 h-5" />;
     }

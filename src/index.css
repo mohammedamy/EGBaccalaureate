@@ -6,6 +6,17 @@
   :root {
     --font-ar: 'Cairo', 'Tajawal', system-ui, sans-serif;
     --font-en: 'Outfit', 'Inter', system-ui, sans-serif;
+    --font-quran: 'Amiri Quran', 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+  }
+
+  .font-quran,
+  .quran-text,
+  .quran-verse {
+    font-family: var(--font-quran);
+    font-feature-settings: "cv01" 1, "cv02" 1, "cv03" 1, "ss01" 1;
+    line-height: 2.2;
+    letter-spacing: 0.02em;
+    word-spacing: 0.1em;
   }
 
   html {

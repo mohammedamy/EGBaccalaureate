@@ -35,37 +35,37 @@ function assert(condition: boolean, message: string) {
 console.log('🏛️ Starting Authentic Thanawya Amma Past Exam Papers Verification Suite...\n');
 
 // 1. Catalog & Metadata Integrity
-console.log('--- 1. Testing Past Exam Papers Catalog Metadata (114 Authentic Papers) ---');
-assert(PAST_EXAM_PAPERS.length === 114, `Catalog contains exactly 114 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
+console.log('--- 1. Testing Past Exam Papers Catalog Metadata (156 Authentic Papers) ---');
+assert(PAST_EXAM_PAPERS.length === 156, `Catalog contains exactly 156 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
 
 // Test filtering by year
 const papers2024 = getPastExamPapers({ year: 2024 });
-assert(papers2024.length === 38, `Found exactly 38 papers for 2024 (19 S1 + 19 S2) (got ${papers2024.length})`);
+assert(papers2024.length === 52, `Found exactly 52 papers for 2024 (26 S1 + 26 S2) (got ${papers2024.length})`);
 
 const papers2023 = getPastExamPapers({ year: 2023 });
-assert(papers2023.length === 19, `Found exactly 19 papers for 2023 (got ${papers2023.length})`);
+assert(papers2023.length === 26, `Found exactly 26 papers for 2023 (got ${papers2023.length})`);
 
 const papers2022 = getPastExamPapers({ year: 2022 });
-assert(papers2022.length === 19, `Found exactly 19 papers for 2022 (got ${papers2022.length})`);
+assert(papers2022.length === 26, `Found exactly 26 papers for 2022 (got ${papers2022.length})`);
 
 const papers2021 = getPastExamPapers({ year: 2021 });
-assert(papers2021.length === 19, `Found exactly 19 papers for 2021 (got ${papers2021.length})`);
+assert(papers2021.length === 26, `Found exactly 26 papers for 2021 (got ${papers2021.length})`);
 
 const papers2025 = getPastExamPapers({ year: 2025 });
-assert(papers2025.length === 19, `Found exactly 19 papers for 2025 (got ${papers2025.length})`);
+assert(papers2025.length === 26, `Found exactly 26 papers for 2025 (got ${papers2025.length})`);
 
 // Test filtering by session
 const session1Papers = getPastExamPapers({ session: 'session1' });
-assert(session1Papers.length === 76, `Found exactly 76 First Session (دور أول) papers (got ${session1Papers.length})`);
+assert(session1Papers.length === 104, `Found exactly 104 First Session (دور أول) papers (got ${session1Papers.length})`);
 
 const session2Papers = getPastExamPapers({ session: 'session2' });
-assert(session2Papers.length === 19, `Found exactly 19 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
+assert(session2Papers.length === 26, `Found exactly 26 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
 
 const expPapers = getPastExamPapers({ session: 'experimental' });
-assert(expPapers.length === 19, `Found exactly 19 2025 MoE Experimental Model papers (got ${expPapers.length})`);
+assert(expPapers.length === 26, `Found exactly 26 2025 MoE Experimental Model papers (got ${expPapers.length})`);
 
-// Test subject filtering across all 19 disciplines
-const ALL_19_SUBJECTS: PastExamSubject[] = [
+// Test subject filtering across all 26 disciplines
+const ALL_26_SUBJECTS: PastExamSubject[] = [
   'physics',
   'chemistry',
   'biology',
@@ -78,6 +78,8 @@ const ALL_19_SUBJECTS: PastExamSubject[] = [
   'english',
   'french',
   'german',
+  'italian',
+  'spanish',
   'history',
   'geography',
   'philosophy',
@@ -85,9 +87,14 @@ const ALL_19_SUBJECTS: PastExamSubject[] = [
   'economics_stat',
   'cs_informatics',
   'earth_space',
+  'civics',
+  'islamic_studies',
+  'christian_studies',
+  'business_entrepreneurship',
+  'fine_arts_architecture',
 ];
 
-ALL_19_SUBJECTS.forEach((sub) => {
+ALL_26_SUBJECTS.forEach((sub) => {
   const papers = getPastExamPapers({ subject: sub });
   assert(papers.length === 6, `Subject [${sub}] has 6 papers across historical sessions (got ${papers.length})`);
 });
@@ -122,20 +129,27 @@ PAST_EXAM_PAPERS.forEach((paper) => {
     expectedSec1 = 24;
     expectedSec2 = 13;
     expectedPass = 25;
-  } else if (paper.subject === 'french' || paper.subject === 'german') {
+  } else if (paper.subject === 'french' || paper.subject === 'german' || paper.subject === 'italian' || paper.subject === 'spanish') {
     expectedQ = 31;
     expectedMarks = 40;
     expectedDuration = 120;
     expectedSec1 = 22;
     expectedSec2 = 9;
     expectedPass = 20;
-  } else if (paper.subject === 'economics_stat' || paper.subject === 'cs_informatics' || paper.subject === 'earth_space') {
+  } else if (paper.subject === 'economics_stat' || paper.subject === 'cs_informatics' || paper.subject === 'earth_space' || paper.subject === 'business_entrepreneurship' || paper.subject === 'fine_arts_architecture') {
     expectedQ = 40;
     expectedMarks = 50;
     expectedDuration = 180;
     expectedSec1 = 30;
     expectedSec2 = 10;
     expectedPass = 25;
+  } else if (paper.subject === 'civics' || paper.subject === 'islamic_studies' || paper.subject === 'christian_studies') {
+    expectedQ = 25;
+    expectedMarks = 30;
+    expectedDuration = 90;
+    expectedSec1 = 20;
+    expectedSec2 = 5;
+    expectedPass = 15;
   }
 
   assert(paper.totalQuestions === expectedQ, `[${paper.id}] Total questions is ${expectedQ}`);
@@ -155,10 +169,10 @@ PAST_EXAM_PAPERS.forEach((paper) => {
   assert(paper.historicalStats.topTenThreshold > expectedMarks * 0.85, `[${paper.id}] Top ten threshold is > 85% of total`);
 });
 
-// 2. Question Generation & Section Integrity Across All 19 Subjects
-console.log('\n--- 2. Testing Deterministic Question Generation Across All 19 Subjects ---');
+// 2. Question Generation & Section Integrity Across All 26 Subjects
+console.log('\n--- 2. Testing Deterministic Question Generation Across All 26 Subjects ---');
 
-ALL_19_SUBJECTS.forEach((sub) => {
+ALL_26_SUBJECTS.forEach((sub) => {
   const paper = PAST_EXAM_PAPERS.find((p) => p.subject === sub && p.year === 2024 && p.session === 'session1')!;
   const questions = generatePastPaperQuestions(paper.id, thanaweyaCurriculum);
 
@@ -196,7 +210,7 @@ assert(
 
 // 3. Schema & KaTeX Delimiter Validation
 console.log('\n--- 3. Testing Question Schema & KaTeX Syntax Integrity ---');
-const allSampledQuestions = ALL_19_SUBJECTS.flatMap((sub) => {
+const allSampledQuestions = ALL_26_SUBJECTS.flatMap((sub) => {
   const paper = PAST_EXAM_PAPERS.find((p) => p.subject === sub && p.year === 2024 && p.session === 'session1')!;
   return generatePastPaperQuestions(paper.id, thanaweyaCurriculum).slice(0, 5);
 });
@@ -273,6 +287,12 @@ const econPaper = getPastExamPaperById('th-econ-2024-s1')!;
 const econReport = computeCohortComparison(econPaper, 50);
 assert(econReport.earnedMarks === 50, `Economics earned marks is 50`);
 assert(econReport.isTopTenCandidate === true, `Economics 50/50 is Top 10 candidate`);
+
+// Case G: Civics 30-mark Paper (Civics 2024 S1)
+const civicsPaper = getPastExamPaperById('th-civics-2024-s1')!;
+const civicsReport = computeCohortComparison(civicsPaper, 30);
+assert(civicsReport.earnedMarks === 30, `Civics earned marks is 30`);
+assert(civicsReport.isTopTenCandidate === true, `Civics 30/30 is Top 10 candidate`);
 
 // 5. Bilingual Summaries & Text Rendering
 console.log('\n--- 5. Testing Bilingual Summaries & Cultural Formatting ---');
