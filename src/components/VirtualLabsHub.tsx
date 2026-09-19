@@ -18,7 +18,10 @@ import {
   TrendingUp,
   Binary,
   Orbit,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab, type ChemTab } from './labs/ChemistryLab';
@@ -99,6 +102,11 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
+  const {
+    isFullscreen: isHubFullscreen,
+    toggleFullscreen: toggleHubFullscreen,
+    exitFullscreen: exitHubFullscreen,
+  } = useNativeLabFullscreen();
 
   // Sync if selectedSubject prop changes
   useEffect(() => {
@@ -494,8 +502,83 @@ export const VirtualLabsHub: React.FC<Props> = ({
   ];
 
   return (
-    <div className="space-y-6">
-      {/* Master Hub Banner */}
+    <div
+      className={
+        isHubFullscreen
+          ? 'fixed inset-0 z-50 w-screen h-screen flex flex-col bg-slate-950 text-slate-100 overflow-hidden font-sans'
+          : 'space-y-6'
+      }
+      data-fullscreen-lab={isHubFullscreen ? 'true' : undefined}
+      dir={isArabic ? 'rtl' : 'ltr'}
+    >
+      {isHubFullscreen ? (
+        <div className="shrink-0 flex items-center justify-between gap-3 px-4 py-2.5 bg-slate-900/95 border-b border-slate-800 backdrop-blur-md z-20">
+          <div className="flex items-center gap-3">
+            <span className="p-1.5 rounded-lg bg-indigo-500/20 text-indigo-400 border border-indigo-500/30 flex items-center">
+              <Flask className="w-4 h-4" />
+            </span>
+            <div>
+              <div className="text-xs font-black text-white flex items-center gap-2">
+                <span>{isArabic ? 'المجمع التفاعلي للمختبرات - بيئة العمل المجمعة' : 'Virtual Labs Suite - Master Workstation'}</span>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">
+                  FULLSCREEN
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            {/* Quick Discipline Switcher */}
+            <div className="relative min-w-[200px] sm:min-w-[280px]">
+              <select
+                value={activeLab}
+                onChange={(e) => setActiveLab(e.target.value as LabId)}
+                className="w-full appearance-none pl-3.5 pr-8 rtl:pr-3.5 rtl:pl-8 py-1.5 rounded-xl text-xs font-bold bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              >
+                {LABS.map((lab) => (
+                  <option key={lab.id} value={lab.id} className="bg-slate-900 text-white">
+                    {isArabic ? lab.titleAr : lab.titleEn}
+                  </option>
+                ))}
+              </select>
+              <div className="absolute right-2.5 rtl:right-auto rtl:left-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                <ChevronDown className="w-3.5 h-3.5" />
+              </div>
+            </div>
+
+            <button
+              onClick={() => {
+                const contextualExp = getContextualReportExpId();
+                setReportExpId(contextualExp);
+                setIsReportModalOpen(true);
+              }}
+              className="px-3 py-1.5 rounded-xl bg-emerald-700/80 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1.5 border border-emerald-500/30 cursor-pointer"
+            >
+              <Printer className="w-3.5 h-3.5 text-emerald-200" />
+              <span className="hidden sm:inline">{isArabic ? 'تقرير A4' : 'Lab Report'}</span>
+            </button>
+
+            <button
+              onClick={() => setIsGuidedModalOpen(true)}
+              className="px-3 py-1.5 rounded-xl bg-indigo-700/80 hover:bg-indigo-600 text-white text-xs font-bold flex items-center gap-1.5 border border-indigo-500/30 cursor-pointer"
+            >
+              <FileSpreadsheet className="w-3.5 h-3.5 text-cyan-200" />
+              <span className="hidden sm:inline">{isArabic ? 'تجارب موجهة' : 'Guided'}</span>
+            </button>
+
+            <button
+              onClick={exitHubFullscreen}
+              className="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-rose-900/60 border border-slate-700 hover:border-rose-500/50 text-slate-200 hover:text-rose-200 text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer"
+              title={isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)'}
+            >
+              <Minimize2 className="w-3.5 h-3.5 text-amber-400" />
+              <span>{isArabic ? 'إنهاء (Esc)' : 'Exit (Esc)'}</span>
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          {/* Master Hub Banner */}
       <div
         className={`p-5 sm:p-7 rounded-3xl border shadow-xl relative overflow-hidden transition-all ${
           isContrast
@@ -546,6 +629,16 @@ export const VirtualLabsHub: React.FC<Props> = ({
             >
               <FileSpreadsheet className="w-4 h-4 text-cyan-300" />
               <span>{isArabic ? 'دليل التجارب الموجهة' : 'Guided Experiments'}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleHubFullscreen}
+              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-700 hover:from-violet-500 hover:to-purple-500 text-white font-bold text-xs shadow-lg shadow-purple-600/30 flex items-center gap-2 transition-all cursor-pointer hover:scale-105 active:scale-95 border border-purple-400/30"
+              title={isArabic ? 'بيئة العمل المجمعة للشاشات الكاملة' : 'Master Fullscreen Workstation'}
+            >
+              <Maximize2 className="w-4 h-4 text-amber-300" />
+              <span>{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>
             </button>
 
             <div className="text-right rtl:text-left hidden sm:block border-l rtl:border-r border-slate-700/60 pl-3 rtl:pr-3">
@@ -629,9 +722,11 @@ export const VirtualLabsHub: React.FC<Props> = ({
           );
         })}
       </div>
+        </>
+      )}
 
       {/* Render Active Laboratory Component */}
-      <div className="animate-in fade-in duration-200">
+      <div className={isHubFullscreen ? 'flex-1 min-h-0 overflow-y-auto p-4 sm:p-6 bg-slate-950' : 'animate-in fade-in duration-200'}>
         {activeLab === 'math' && (
           <div className="space-y-4">
             {/* Quick-Access Math Sub-Laboratory Dropdown */}
@@ -678,6 +773,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               onOpenDesmos={onOpenDesmos}
               initialTab={activeMathTab}
               onTabChange={setActiveMathTab}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -726,7 +822,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
             </div>
 
-            <PhysicsLab lang={lang} theme={theme} initialTab={activePhysTab} onTabChange={setActivePhysTab} />
+            <PhysicsLab lang={lang} theme={theme} initialTab={activePhysTab} onTabChange={setActivePhysTab} isFullscreen={isHubFullscreen} />
           </div>
         )}
         {activeLab === 'chemistry' && (
@@ -771,7 +867,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
             </div>
 
-            <ChemistryLab lang={lang} theme={theme} initialTab={activeChemTab} onTabChange={setActiveChemTab} />
+            <ChemistryLab lang={lang} theme={theme} initialTab={activeChemTab} onTabChange={setActiveChemTab} isFullscreen={isHubFullscreen} />
           </div>
         )}
         {activeLab === 'biology' && (
@@ -819,7 +915,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               </div>
             </div>
 
-            <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} onTabChange={setActiveBioTab} />
+            <BiologyLab lang={lang} theme={theme} initialTab={activeBioTab} onTabChange={setActiveBioTab} isFullscreen={isHubFullscreen} />
           </div>
         )}
 
@@ -829,7 +925,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <HistoryTimelineStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -840,7 +936,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <GeopoliticalMapStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -851,7 +947,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <GeologyEarthStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -900,7 +996,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               <EnglishAudioPhoneticsStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-                isFullscreen={false}
+                isFullscreen={isHubFullscreen}
               />
             )}
 
@@ -908,7 +1004,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               <FrenchAudioStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-                isFullscreen={false}
+                isFullscreen={isHubFullscreen}
               />
             )}
 
@@ -916,7 +1012,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               <GermanLanguageStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-                isFullscreen={false}
+                isFullscreen={isHubFullscreen}
               />
             )}
 
@@ -924,7 +1020,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               <ItalianLanguageStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-                isFullscreen={false}
+                isFullscreen={isHubFullscreen}
               />
             )}
 
@@ -932,13 +1028,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
               <SpanishLanguageStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-                isFullscreen={false}
+                isFullscreen={isHubFullscreen}
               />
             )}
 
             {activeLangSubLab === 'arabic' && (
               <ArabicGrammarStudio
                 lang={lang}
+                isFullscreen={isHubFullscreen}
               />
             )}
           </div>
@@ -950,7 +1047,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <LogicStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -961,7 +1058,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <PsychologyStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -972,7 +1069,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <EconomicsStatisticsStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -983,7 +1080,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <ComputerScienceInformaticsStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -994,7 +1091,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <SpacePlanetaryStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -1005,7 +1102,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <NationalCivicsStudio
               lang={lang}
               theme={theme}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -1016,7 +1113,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <IslamicStudiesStudio
               lang={lang}
               theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -1027,7 +1124,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <ChristianHeritageStudio
               lang={lang}
               theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -1038,7 +1135,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <BusinessModelingStudio
               lang={lang}
               theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}
@@ -1049,7 +1146,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             <FineArtsArchitectureStudio
               lang={lang}
               theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-              isFullscreen={false}
+              isFullscreen={isHubFullscreen}
             />
           </div>
         )}

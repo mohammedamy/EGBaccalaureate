@@ -14,12 +14,16 @@ import {
   Award,
   Scroll,
   PieChart,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialTab?: CivicsStudioTab;
 }
 
@@ -192,9 +196,14 @@ const CONSTITUTIONAL_CHALLENGES: ConstitutionalLawChallenge[] = [
 export const NationalCivicsStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialTab = 'constitution_review',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
   const isAr = lang === 'ar';
@@ -410,14 +419,19 @@ export const NationalCivicsStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+      className={`border transition-all duration-300 ${
+        isFullscreen
+          ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0'
+          : 'rounded-2xl overflow-hidden'
+      } ${
         isLight
           ? 'bg-slate-50 border-emerald-200 text-slate-800'
           : isContrast
           ? 'bg-black border-emerald-400 text-white'
           : 'bg-slate-900/95 border-emerald-500/30 text-slate-100'
-      } ${isFullscreen ? 'p-8 min-h-screen' : 'p-4 md:p-6'}`}
+      } ${isFullscreen ? 'p-6 md:p-8' : 'p-4 md:p-6'}`}
       dir={isAr ? 'rtl' : 'ltr'}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-emerald-500/20">
@@ -502,6 +516,16 @@ export const NationalCivicsStudio: React.FC<Props> = ({
           >
             <Shield className="w-3.5 h-3.5" />
             <span>{isAr ? 'سيناريوهات النزاهة' : 'Civic Sandbox'}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors border border-slate-700/50"
+            title={isFullscreen ? (isAr ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isAr ? 'ملء الشاشة' : 'Fullscreen')}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-emerald-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
           </button>
         </div>
       </div>

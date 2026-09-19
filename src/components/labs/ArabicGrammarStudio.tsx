@@ -20,14 +20,28 @@ import {
   ChevronRight,
   BookMarked,
   Feather,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface ArabicGrammarStudioProps {
   onClose?: () => void;
   lang?: string;
+  isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
 }
 
-export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({ onClose }) => {
+export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
+  onClose,
+  lang: _lang = 'ar',
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
+}) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const [activeTab, setActiveTab] = useState<'irab' | 'derivatives' | 'rhetoric' | 'orthography' | 'traps'>('irab');
 
   // Tab 1: Irab state
@@ -104,7 +118,9 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({ onClos
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto bg-slate-950/95 border border-amber-500/30 rounded-3xl shadow-2xl overflow-hidden text-slate-100 flex flex-col font-sans" dir="rtl">
+    <div className={`w-full mx-auto bg-slate-950/95 border border-amber-500/30 overflow-hidden text-slate-100 flex flex-col font-sans transition-all duration-300 ${
+      isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0 p-4 sm:p-6' : 'max-w-6xl my-4 rounded-3xl shadow-2xl'
+    }`} data-fullscreen-lab={isFullscreen ? 'true' : undefined} dir="rtl">
       {/* Studio Header */}
       <div className="bg-gradient-to-l from-amber-950/60 via-slate-900 to-amber-950/40 p-5 border-b border-amber-500/20 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -126,6 +142,17 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({ onClos
           </div>
         </div>
 
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="px-3 py-1.5 bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+            title={isFullscreen ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'شاشة كاملة'}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-amber-400" />}
+            <span>{isFullscreen ? 'إنهاء' : 'شاشة كاملة'}</span>
+          </button>
+
         {onClose && (
           <button
             onClick={onClose}
@@ -134,6 +161,7 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({ onClos
             إغلاق المعمل ✕
           </button>
         )}
+        </div>
       </div>
 
       {/* Navigation Tabs */}

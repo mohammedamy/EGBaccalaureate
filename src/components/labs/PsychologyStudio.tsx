@@ -17,12 +17,16 @@ import {
   TrendingUp,
   Sliders,
   Award,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'learning_theories' | 'memory_retention' | 'conflict_matrix' | 'social_processes' | 'culture_extremism';
 }
 
@@ -36,9 +40,14 @@ export type PsychologyStudioMode =
 export const PsychologyStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'learning_theories',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -264,7 +273,8 @@ export const PsychologyStudio: React.FC<Props> = ({
           : isLight
           ? 'bg-white border-slate-200 text-slate-900 shadow-xl'
           : 'bg-slate-900/95 border-slate-800 text-slate-100 shadow-2xl backdrop-blur-xl'
-      } ${isFullscreen ? 'p-6 sm:p-8 min-h-[85vh]' : 'p-4 sm:p-6'}`}
+      } ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-6 sm:p-8' : 'p-4 sm:p-6'}`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
       dir={isArabic ? 'rtl' : 'ltr'}
     >
       {/* Studio Header */}
@@ -292,6 +302,15 @@ export const PsychologyStudio: React.FC<Props> = ({
 
         {/* Global Reset / Presets */}
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-pink-400" />}
+            <span>{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
+          </button>
           <button
             onClick={() => {
               setPavlovTrials(6);

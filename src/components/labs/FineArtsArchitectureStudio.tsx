@@ -25,12 +25,16 @@ import {
   Building2,
   Brush,
   ChevronRight,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialTab?: FineArtsStudioTab;
 }
 
@@ -39,9 +43,14 @@ export type FineArtsStudioTab = 'perspective' | 'colors' | 'golden_ratio' | 'tes
 export const FineArtsArchitectureStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialTab = 'perspective',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
   const isArabic = lang === 'ar';
@@ -106,7 +115,12 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
     : (inputDimension * 1.618).toFixed(2);
 
   return (
-    <div className={`w-full rounded-2xl border ${panelBg} p-4 md:p-6 transition-all duration-300 ${isFullscreen ? 'min-h-screen' : ''}`}>
+    <div
+      className={`w-full border ${panelBg} p-4 md:p-6 transition-all duration-300 ${
+        isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0' : 'rounded-2xl'
+      }`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
+    >
       {/* Studio Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-rose-500/20 gap-4">
         <div className="flex items-center gap-3">
@@ -186,6 +200,16 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
           >
             <Award className="w-3.5 h-3.5" />
             {isArabic ? 'اختبار القدرات' : 'Aptitude Exam'}
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800/60 transition-colors border border-rose-500/20"
+            title={isFullscreen ? (isArabic ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isArabic ? 'ملء الشاشة' : 'Fullscreen')}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-rose-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
           </button>
         </div>
       </div>

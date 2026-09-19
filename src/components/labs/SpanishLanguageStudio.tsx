@@ -24,12 +24,16 @@ import {
   Compass,
   Activity,
   RotateCcw,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialTab?: StudioTab;
 }
 
@@ -37,9 +41,14 @@ export type StudioTab = 'fonetica' | 'tempi_verbali' | 'pronomi' | 'contrastes' 
 
 export const SpanishLanguageStudio: React.FC<Props> = ({
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialTab = 'fonetica',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
@@ -115,9 +124,10 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`rounded-2xl border transition-all ${bgClass} ${
-        isFullscreen ? 'h-full p-4 sm:p-6 overflow-y-auto' : 'p-4 sm:p-6 my-6'
+      className={`border transition-all ${bgClass} ${
+        isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0 p-4 sm:p-6' : 'rounded-2xl p-4 sm:p-6 my-6'
       }`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-stone-800/60">
@@ -167,6 +177,16 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
             </button>
           )}
         </div>
+
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          className="p-2 bg-stone-900/90 border border-stone-800 rounded-xl text-stone-400 hover:text-white hover:bg-stone-800 transition-all cursor-pointer"
+          title={isFullscreen ? 'خروج من ملء الشاشة' : 'ملء الشاشة'}
+          aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+        >
+          {isFullscreen ? <Minimize2 className="w-4 h-4 text-amber-400" /> : <Maximize2 className="w-4 h-4" />}
+        </button>
       </div>
 
       {/* Navigation Tabs */}

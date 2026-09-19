@@ -19,12 +19,16 @@ import {
   CheckCircle2,
   RotateCcw,
   Sliders,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'morphology' | 'unclos' | 'hotspots' | 'blocs' | 'geopower';
 }
 
@@ -33,9 +37,14 @@ type StudioMode = 'morphology' | 'unclos' | 'hotspots' | 'blocs' | 'geopower';
 export const GeopoliticalMapStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'morphology',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -715,6 +724,7 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
           ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-xl'
           : 'bg-slate-900 border-slate-800 text-white shadow-2xl'
       } ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-6' : 'p-4 sm:p-6'}`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
       dir={isArabic ? 'rtl' : 'ltr'}
     >
       {/* Studio Header */}
@@ -769,6 +779,15 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
               </button>
             );
           })}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-400 hover:text-white hover:bg-slate-800/60 cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-teal-400" />}
+            <span>{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
+          </button>
         </div>
       </div>
 

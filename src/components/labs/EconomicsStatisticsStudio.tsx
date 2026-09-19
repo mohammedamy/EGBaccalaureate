@@ -15,12 +15,16 @@ import {
   CheckCircle2,
   AlertCircle,
   HelpCircle,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'market_equilibrium' | 'national_income' | 'correlation_regression' | 'probability_tree' | 'normal_distribution';
 }
 
@@ -34,8 +38,14 @@ export type EconStudioMode =
 export const EconomicsStatisticsStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'market_equilibrium',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -268,7 +278,9 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
     : 'bg-slate-900/80 border-amber-500/20 backdrop-blur-sm';
 
   return (
-    <div className={`p-4 sm:p-6 rounded-2xl border ${bgClass} transition-all duration-300`}>
+    <div className={`rounded-2xl border ${bgClass} transition-all duration-300 ${
+      isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-6' : 'p-4 sm:p-6'
+    }`} data-fullscreen-lab={isFullscreen ? 'true' : undefined}>
       {/* Header Banner */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b border-amber-500/20 mb-6">
         <div className="flex items-center gap-3">
@@ -316,6 +328,15 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
               </button>
             );
           })}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-700/50 cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-amber-400" />}
+            <span className="hidden sm:inline">{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
+          </button>
         </div>
       </div>
 

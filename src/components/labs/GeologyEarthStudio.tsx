@@ -12,12 +12,16 @@ import {
   Droplets,
   Sun,
   ShieldCheck,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem';
 }
 
@@ -26,9 +30,14 @@ type StudioMode = 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosyst
 export const GeologyEarthStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'crystals',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -346,7 +355,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
     : 'bg-stone-900/70 border-stone-800';
 
   return (
-    <div className={`flex flex-col w-full rounded-2xl border ${containerBg} p-4 md:p-6 transition-all duration-300 ${isFullscreen ? 'h-full' : ''}`} dir={isArabic ? 'rtl' : 'ltr'}>
+    <div className={`flex flex-col w-full rounded-2xl border ${containerBg} p-4 md:p-6 transition-all duration-300 ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-4 md:p-6' : ''}`} data-fullscreen-lab={isFullscreen ? 'true' : undefined} dir={isArabic ? 'rtl' : 'ltr'}>
       {/* Studio Header */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b border-stone-800">
         <div className="flex items-center gap-3">
@@ -424,6 +433,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           >
             <Droplets className="w-4 h-4" />
             <span>{isArabic ? 'الضغط وهرم الطاقة' : 'Pressure & Energy'}</span>
+          </button>
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all text-stone-400 hover:text-stone-200 hover:bg-stone-800/50 cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-amber-400" /> : <Maximize2 className="w-4 h-4 text-amber-400" />}
+            <span className="hidden sm:inline">{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
           </button>
         </div>
       </div>

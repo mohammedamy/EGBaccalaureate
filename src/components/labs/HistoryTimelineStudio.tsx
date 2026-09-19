@@ -30,12 +30,16 @@ import {
   BookOpen,
   Layers,
   X,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   onClose?: () => void;
 }
 
@@ -44,9 +48,14 @@ type HistoryTab = 'timeline' | 'map' | 'treaties' | 'cause_effect' | 'quiz';
 export const HistoryTimelineStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   onClose,
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -151,8 +160,9 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
   return (
     <div
       className={`w-full mx-auto rounded-3xl border overflow-hidden flex flex-col font-sans transition-all duration-300 ${
-        isFullscreen ? 'h-full max-w-none rounded-none' : 'max-w-6xl my-4'
+        isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0' : 'max-w-6xl my-4 rounded-3xl border'
       } ${containerClasses}`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
       dir={isArabic ? 'rtl' : 'ltr'}
     >
       {/* ------------------------------------------------------------- */}
@@ -240,6 +250,16 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
           >
             <Award className="w-3.5 h-3.5" />
             {isArabic ? 'تحدي الفخاخ' : 'Exam Traps'}
+          </button>
+
+                    <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-1.5 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 transition-all flex items-center gap-1 text-xs font-bold cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-amber-400" />}
+            <span className="hidden md:inline">{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
           </button>
 
           {onClose && (

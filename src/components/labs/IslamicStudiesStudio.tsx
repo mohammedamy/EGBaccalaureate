@@ -25,13 +25,17 @@ import {
   Brain,
   HelpCircle,
   ShieldCheck,
-  Radio
+  Radio,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialTab?: IslamicStudioTab;
 }
 
@@ -40,9 +44,14 @@ export type IslamicStudioTab = 'tajweed' | 'maqasid' | 'seerah' | 'bioethics' | 
 export const IslamicStudiesStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialTab = 'tajweed',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
   const isArabic = lang === 'ar';
@@ -208,10 +217,11 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`rounded-2xl border p-4 md:p-6 transition-all duration-300 flex flex-col gap-6 ${themeClasses} ${
-        isFullscreen ? 'min-h-screen' : 'min-h-[700px]'
+      className={`border p-4 md:p-6 transition-all duration-300 flex flex-col gap-6 ${themeClasses} ${
+        isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0' : 'rounded-2xl min-h-[700px]'
       }`}
       dir={isArabic ? 'rtl' : 'ltr'}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Header Banner */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-emerald-500/20">
@@ -292,6 +302,16 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           >
             <HelpCircle className="w-4 h-4" />
             <span>{isArabic ? 'بنك المواقف والتقييم' : 'Scenario Quiz'}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-2 text-emerald-300/80 hover:text-white rounded-lg hover:bg-emerald-800/30 transition-colors border border-emerald-500/30"
+            title={isFullscreen ? (isArabic ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isArabic ? 'ملء الشاشة' : 'Fullscreen')}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-emerald-300" /> : <Maximize2 className="w-4 h-4" />}
           </button>
         </div>
       </div>

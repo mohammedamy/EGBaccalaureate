@@ -12,12 +12,16 @@ import {
   Sliders,
   Layers,
   TrendingUp,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'orbital_sim' | 'planet_explorer' | 'hr_diagram' | 'hohmann_transfer' | 'remote_sensing';
 }
 
@@ -58,8 +62,14 @@ const PLANETS: PlanetData[] = [
 export const SpacePlanetaryStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'orbital_sim',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -289,13 +299,18 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`w-full rounded-2xl border ${
+      className={`w-full border ${
+        isFullscreen
+          ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0'
+          : 'rounded-2xl shadow-2xl overflow-hidden'
+      } ${
         isLight
           ? 'bg-white border-slate-200 text-slate-900'
           : isContrast
           ? 'bg-black border-yellow-400 text-white'
           : 'bg-slate-900/95 border-indigo-800/40 text-slate-100'
-      } shadow-2xl overflow-hidden`}
+      }`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Header Bar */}
       <div className="p-4 border-b border-indigo-700/30 bg-gradient-to-r from-blue-950/80 via-indigo-950/70 to-slate-900/90 flex flex-wrap items-center justify-between gap-4">
@@ -378,6 +393,16 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
           >
             <Satellite className="w-3.5 h-3.5" />
             <span>{isArabic ? 'الاستشعار عن بعد NDVI' : 'Remote Sensing'}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800/80 transition-colors border border-slate-700/50"
+            title={isFullscreen ? (isArabic ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isArabic ? 'ملء الشاشة' : 'Fullscreen')}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-cyan-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
           </button>
         </div>
       </div>

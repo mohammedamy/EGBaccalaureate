@@ -31,12 +31,16 @@ import {
   HelpCircle,
   Activity,
   Award,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
 }
 
 type StudioTab = 'phonetics' | 'stress' | 'connected' | 'listening' | 'voice_test';
@@ -44,8 +48,13 @@ type StudioTab = 'phonetics' | 'stress' | 'connected' | 'listening' | 'voice_tes
 export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
   lang: _lang = 'en',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
@@ -252,13 +261,18 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`w-full rounded-2xl border transition-all ${
+      className={`w-full border transition-all ${
+        isFullscreen
+          ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0 p-6 sm:p-8'
+          : 'rounded-2xl p-4 sm:p-6'
+      } ${
         isContrast
           ? 'bg-black border-yellow-400 text-yellow-300'
           : isLight
           ? 'bg-white border-slate-200 text-slate-800 shadow-sm'
           : 'bg-slate-900/95 border-slate-700/80 text-slate-100 shadow-xl'
-      } ${isFullscreen ? 'p-6 sm:p-8 min-h-screen' : 'p-4 sm:p-6'}`}
+      }`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header Banner */}
       <div className="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-700/40">
@@ -327,6 +341,18 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
               </button>
             ))}
           </div>
+
+          <div className="w-px h-4 bg-slate-700 mx-1" />
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-1 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors"
+            title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-violet-400" /> : <Maximize2 className="w-4 h-4" />}
+          </button>
         </div>
       </div>
 

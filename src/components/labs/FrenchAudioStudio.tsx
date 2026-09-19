@@ -27,12 +27,16 @@ import {
   Layers,
   HelpCircle,
   Award,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
 }
 
 type StudioTab = 'nasales' | 'liaisons' | 'pronoms' | 'situations' | 'ecoute';
@@ -40,8 +44,13 @@ type StudioTab = 'nasales' | 'liaisons' | 'pronoms' | 'situations' | 'ecoute';
 export const FrenchAudioStudio: React.FC<Props> = ({
   lang: _lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
@@ -142,8 +151,10 @@ export const FrenchAudioStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`w-full rounded-3xl border transition-all duration-300 flex flex-col font-sans ${
-        isFullscreen ? 'h-full' : 'min-h-[620px]'
+      className={`w-full border transition-all duration-300 flex flex-col font-sans ${
+        isFullscreen
+          ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0'
+          : 'rounded-3xl min-h-[620px]'
       } ${
         isContrast
           ? 'bg-black border-amber-400 text-white'
@@ -152,6 +163,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
           : 'bg-slate-950/95 border-slate-800 text-slate-100'
       }`}
       dir="ltr"
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
       <div className="p-4 sm:p-5 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
@@ -202,6 +214,16 @@ export const FrenchAudioStudio: React.FC<Props> = ({
               Arrêter
             </button>
           )}
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-all cursor-pointer"
+            title={isFullscreen ? 'Quitter Plein Écran' : 'Plein Écran'}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-blue-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
+          </button>
         </div>
       </div>
 

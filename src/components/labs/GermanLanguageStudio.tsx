@@ -30,12 +30,16 @@ import {
   Compass,
   FileText,
   Activity,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialTab?: StudioTab;
 }
 
@@ -44,9 +48,14 @@ export type StudioTab = 'phonetik' | 'kasus' | 'modalverben' | 'praepositionen' 
 export const GermanLanguageStudio: React.FC<Props> = ({
   lang: _lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialTab = 'phonetik',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
@@ -147,8 +156,8 @@ export const GermanLanguageStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`rounded-3xl border transition-all ${
-        isFullscreen ? 'min-h-screen p-6 sm:p-10' : 'p-5 sm:p-7 shadow-2xl'
+      className={`border transition-all ${
+        isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0 p-6 sm:p-10' : 'rounded-3xl p-5 sm:p-7 shadow-2xl'
       } ${
         isContrast
           ? 'bg-black border-2 border-yellow-400 text-white'
@@ -157,6 +166,7 @@ export const GermanLanguageStudio: React.FC<Props> = ({
           : 'bg-gradient-to-br from-stone-950 via-stone-900 to-amber-950/40 border-amber-900/40 text-stone-100'
       }`}
       dir="rtl"
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-5 border-amber-500/20">
@@ -211,6 +221,18 @@ export const GermanLanguageStudio: React.FC<Props> = ({
               <span>إيقاف الصوت</span>
             </button>
           )}
+
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className={`p-2 rounded-xl border transition-all ${
+              isLight ? 'bg-white border-stone-200 text-stone-700 hover:bg-stone-100' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white hover:bg-stone-800'
+            }`}
+            title={isFullscreen ? 'خروج من ملء الشاشة' : 'ملء الشاشة'}
+            aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+          >
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-amber-500" /> : <Maximize2 className="w-4 h-4" />}
+          </button>
         </div>
       </div>
 

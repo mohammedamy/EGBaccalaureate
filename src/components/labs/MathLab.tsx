@@ -25,6 +25,7 @@ interface Props {
   initialTab?: MathTab;
   onTabChange?: (tab: MathTab) => void;
   defaultFullscreen?: boolean;
+  isFullscreen?: boolean;
 }
 
 export type MathTab = 'calculus' | 'geometry3d' | 'complex' | 'mechanics' | 'matrix' | 'pascal' | 'probability';
@@ -36,15 +37,17 @@ export const MathLab: React.FC<Props> = ({
   initialTab = 'calculus',
   onTabChange,
   defaultFullscreen = false,
+  isFullscreen: isFullscreenProp,
 }) => {
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<MathTab>(initialTab);
-  const { isFullscreen, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
-    defaultFullscreen,
+  const { isFullscreen: isNativeFs, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
   });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
 
   useEffect(() => {
     if (initialTab && initialTab !== activeTab) {

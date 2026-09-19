@@ -14,12 +14,16 @@ import {
   Layers,
   ArrowRight,
   Shield,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'truth_table' | 'syllogism' | 'mills_methods' | 'fuzzy_ai' | 'bioethics_matrix';
 }
 
@@ -28,9 +32,14 @@ type LogicStudioMode = 'truth_table' | 'syllogism' | 'mills_methods' | 'fuzzy_ai
 export const LogicStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'truth_table',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -309,7 +318,7 @@ export const LogicStudio: React.FC<Props> = ({
 
   return (
     <div className={`w-full rounded-2xl overflow-hidden border shadow-xl flex flex-col transition-all duration-300 ${
-      isFullscreen ? 'h-screen fixed inset-0 z-50 rounded-none' : 'min-h-[720px]'
+      isFullscreen ? 'h-screen fixed inset-0 z-50 rounded-none overflow-y-auto' : 'min-h-[720px]'
     } ${
       isLight 
         ? 'bg-slate-50 border-slate-200 text-slate-900' 
@@ -369,6 +378,15 @@ export const LogicStudio: React.FC<Props> = ({
               </button>
             );
           })}
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-800/50 cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-purple-400" />}
+            <span className="hidden sm:inline">{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
+          </button>
         </div>
       </div>
 

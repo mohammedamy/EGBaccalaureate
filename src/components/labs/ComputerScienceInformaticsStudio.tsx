@@ -15,13 +15,17 @@ import {
   SkipForward,
   Terminal,
   Layers,
-  HelpCircle
+  HelpCircle,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialMode?: 'logic_circuit' | 'algorithm_visualizer' | 'sql_sandbox' | 'network_subnet' | 'neural_playground';
 }
 
@@ -35,8 +39,14 @@ export type CSStudioMode =
 export const ComputerScienceInformaticsStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialMode = 'logic_circuit',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
@@ -274,7 +284,7 @@ export const ComputerScienceInformaticsStudio: React.FC<Props> = ({
   return (
     <div className={`w-full rounded-2xl border ${
       isLight ? 'bg-white border-slate-200 text-slate-900' : isContrast ? 'bg-black border-yellow-400 text-white' : 'bg-slate-900/95 border-violet-800/40 text-slate-100'
-    } shadow-2xl overflow-hidden`}>
+    } shadow-2xl overflow-hidden ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-4 sm:p-6' : ''}`} data-fullscreen-lab={isFullscreen ? 'true' : undefined}>
       {/* Header Bar */}
       <div className="p-4 border-b border-violet-700/30 bg-gradient-to-r from-violet-950/80 via-indigo-950/60 to-slate-900/90 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -298,6 +308,15 @@ export const ComputerScienceInformaticsStudio: React.FC<Props> = ({
 
         {/* Engine Tabs */}
         <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-slate-800/60 border border-slate-700/60">
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all text-slate-300 hover:bg-slate-700/50 cursor-pointer"
+            title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
+          >
+            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-violet-400" />}
+            <span className="hidden sm:inline">{isFullscreen ? (isArabic ? 'إنهاء' : 'Exit') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}</span>
+          </button>
           <button
             onClick={() => setActiveMode('logic_circuit')}
             className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all ${

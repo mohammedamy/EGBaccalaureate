@@ -29,12 +29,16 @@ import {
   Compass,
   FileText,
   Activity,
+  Maximize2,
+  Minimize2,
 } from 'lucide-react';
+import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
   isFullscreen?: boolean;
+  defaultFullscreen?: boolean;
   initialTab?: StudioTab;
 }
 
@@ -43,9 +47,14 @@ export type StudioTab = 'fonetica' | 'tempi_verbali' | 'pronomi' | 'preposizioni
 export const ItalianLanguageStudio: React.FC<Props> = ({
   lang: _lang = 'ar',
   theme = 'dark',
-  isFullscreen = false,
+  isFullscreen: isFullscreenProp = false,
+  defaultFullscreen = false,
   initialTab = 'fonetica',
 }) => {
+  const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
+    defaultFullscreen: defaultFullscreen || isFullscreenProp,
+  });
+  const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
@@ -160,8 +169,8 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`rounded-3xl border shadow-2xl overflow-hidden transition-all flex flex-col ${
-        isFullscreen ? 'h-full' : 'min-h-[750px]'
+      className={`border shadow-2xl overflow-hidden transition-all flex flex-col ${
+        isFullscreen ? 'fixed inset-0 z-50 w-screen h-screen overflow-y-auto rounded-none border-0' : 'rounded-3xl min-h-[750px]'
       } ${
         isContrast
           ? 'bg-black border-yellow-400 text-yellow-300'
@@ -169,6 +178,7 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
           ? 'bg-slate-50 border-emerald-200 text-slate-800'
           : 'bg-gradient-to-br from-slate-950 via-emerald-950/20 to-slate-900 border-emerald-800/40 text-slate-100'
       }`}
+      data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Top Header */}
       <div className="p-4 sm:p-6 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-4 bg-emerald-950/30">
@@ -209,6 +219,16 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
             </button>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={toggleFullscreen}
+          className="p-2 rounded-2xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-all cursor-pointer"
+          title={isFullscreen ? 'خروج من ملء الشاشة' : 'ملء الشاشة'}
+          aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
+        >
+          {isFullscreen ? <Minimize2 className="w-4 h-4 text-emerald-400" /> : <Maximize2 className="w-4 h-4" />}
+        </button>
       </div>
 
       {/* Main Tab Navigation */}
