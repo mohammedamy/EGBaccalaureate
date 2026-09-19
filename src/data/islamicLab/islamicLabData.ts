@@ -235,6 +235,105 @@ export const TAJWEED_RULES_DATA: TajweedRuleItem[] = [
         explanationEn: 'Madd letter concludes the first word and Hamzah initiates the second, creating Madd Munfasil (2 to 5 counts permissible).'
       }
     ]
+  },
+  {
+    id: 'noon_idgham_bighair_ghunnah',
+    nameAr: 'الإدغام بغير غنة (الإدغام الكامل)',
+    nameEn: 'Complete Assimilation without Ghunnah',
+    categoryAr: 'أحكام النون الساكنة والتنوين',
+    categoryEn: 'Nun Sakinah and Tanween Rules',
+    letters: ['ل', 'ر'],
+    descriptionAr: 'إدخال النون الساكنة أو التنوين في اللام أو الراء إدخالاً تاماً دون بقاء أي أثر للغنة، بحيث يصيران حرفاً واحداً مشدداً نطقاً لا خطاً.',
+    descriptionEn: 'Complete merger of Nun Sakinah or Tanween into Lam or Ra without nasal resonance (Ghunnah).',
+    quranicExamples: [
+      {
+        verseText: 'ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ',
+        surahName: 'البقرة',
+        surahNumber: 2,
+        ayahNumber: 2,
+        highlightedPart: 'هُدًى لِّلْمُتَّقِينَ (تُنطق: هُدَلِّلْمُتَّقِين)',
+        explanationAr: 'جاءت اللام بعد التنوين، وحكمها الإدغام الكامل بغير غنة.',
+        explanationEn: 'Lam follows Tanween, causing total assimilation without Ghunnah.'
+      },
+      {
+        verseText: 'جَزَاءً مِّن رَّبِّكَ عَطَاءً حِسَابًا',
+        surahName: 'النبأ',
+        surahNumber: 78,
+        ayahNumber: 36,
+        highlightedPart: 'مِّن رَّبِّكَ (تُنطق: مِرَّبِّكَ)',
+        explanationAr: 'جاءت الراء بعد النون الساكنة في كلمتين، وحكمها الإدغام الكامل بغير غنة.',
+        explanationEn: 'Ra follows Nun Sakinah, triggering complete non-nasal assimilation.'
+      }
+    ]
+  },
+  {
+    id: 'meem_sakinah',
+    nameAr: 'أحكام الميم الساكنة (الإخفاء والإدغام والإظهار)',
+    nameEn: 'Rules of Meem Sakinah (Labial Concealment & Assimilation)',
+    categoryAr: 'أحكام الميم الساكنة',
+    categoryEn: 'Meem Sakinah Rules',
+    letters: ['ب', 'م', 'بقية الحروف'],
+    descriptionAr: 'للميم الساكنة ثلاثة أحكام: الإخفاء الشفوي عند حرف الباء بغنة، إدغام المتماثلين الصغير عند حرف الميم بغنة، والإظهار الشفوي عند بقية حروف الهجاء الستة والعشرين وأشدها عند الواو والفاء.',
+    descriptionEn: 'Three rules govern Meem Sakinah: Ikhfa Shafawi before Ba with Ghunnah, Idgham Mithlayn before Meem with Ghunnah, and Izhar Shafawi before the remaining 26 letters.',
+    quranicExamples: [
+      {
+        verseText: 'تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ',
+        surahName: 'الفيل',
+        surahNumber: 105,
+        ayahNumber: 4,
+        highlightedPart: 'تَرْمِيهِم بِحِجَارَةٍ (إخفاء شفوي)',
+        explanationAr: 'جاء حرف الباء بعد الميم الساكنة، وحكمه الإخفاء الشفوي بغنة حركتين وتلامس لطيف للشفتين.',
+        explanationEn: 'Ba follows Meem Sakinah, producing labial concealment (Ikhfa Shafawi) with Ghunnah.'
+      },
+      {
+        verseText: 'الَّذِي أَطْعَمَهُم مِّن جُوعٍ وَآمَنَهُم مِّنْ خَوْفٍ',
+        surahName: 'قريش',
+        surahNumber: 106,
+        ayahNumber: 4,
+        highlightedPart: 'أَطْعَمَهُم مِّن (إدغام متماثلين)',
+        explanationAr: 'جاءت ميم متحركة بعد الميم الساكنة، فيجب إدغامهما مع غنة حركتين (إدغام مثلين صغير).',
+        explanationEn: 'A voweled Meem follows quiescent Meem, triggering complete assimilation with 2-count Ghunnah.'
+      },
+      {
+        verseText: 'أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ',
+        surahName: 'الفيل',
+        surahNumber: 105,
+        ayahNumber: 1,
+        highlightedPart: 'أَلَمْ تَرَ (إظهار شفوي)',
+        explanationAr: 'جاءت التاء بعد الميم الساكنة، وحكمها الإظهار الشفوي التام دون غنة ظاهرة.',
+        explanationEn: 'Ta follows Meem Sakinah, demanding clear labial Izhar.'
+      }
+    ]
+  },
+  {
+    id: 'qalqalah_rules',
+    nameAr: 'أحكام القلقلة ومراتبها (قطب جد)',
+    nameEn: 'Rules and Ranks of Qalqalah (Echoing Acoustic Rebound)',
+    categoryAr: 'صفات الحروف والقلقلة',
+    categoryEn: 'Qalqalah Mechanics',
+    letters: ['ق', 'ط', 'ب', 'ج', 'د'],
+    descriptionAr: 'اضطراب مخرج الحرف عند النطق به ساكناً حتى يُسمع له نبرة قوية، وحروفها خمسة يجمعها (قُطْبُ جَدٍّ)، وتنقسم إلى كبرى (عند الوقف على الحرف) وصغرى (في وسط الكلمة أو وسط الكلام).',
+    descriptionEn: 'Vibrant acoustic bouncing/resonance produced when articulating one of the five Qalqalah consonants (Qaf, Taa, Ba, Jeem, Dal) in a quiescent state, categorized into Kubra (major, at pause) and Sughra (minor, medial).',
+    quranicExamples: [
+      {
+        verseText: 'قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ',
+        surahName: 'الفلق',
+        surahNumber: 113,
+        ayahNumber: 1,
+        highlightedPart: 'الْفَلَقِ (قلقلة كبرى عند الوقف)',
+        explanationAr: 'سكنت القاف في آخر الكلمة بسبب الوقف عليها، فتُقلقل قلقلة كبرى بنبر واضح وقوي.',
+        explanationEn: 'The letter Qaf is paused upon at the verse boundary, producing a strong major Qalqalah (Kubra).'
+      },
+      {
+        verseText: 'أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ',
+        surahName: 'الفيل',
+        surahNumber: 105,
+        ayahNumber: 2,
+        highlightedPart: 'يَجْعَلْ (قلقلة صغرى في الجيم)',
+        explanationAr: 'سكنت الجيم في وسط الكلمة، فيكون حكمها القلقلة الصغرى بنبرة خفيفة ومستمرة.',
+        explanationEn: 'The letter Jeem is quiescent within the word, triggering a brisk minor Qalqalah (Sughra).'
+      }
+    ]
   }
 ];
 

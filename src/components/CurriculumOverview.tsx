@@ -55,6 +55,14 @@ interface Props {
   onSelectSubject?: (subjectId: string) => void;
 }
 
+const cleanChapterTitle = (raw: string): string => {
+  if (!raw) return '';
+  return raw
+    .replace(/^(Chapter|Module|Unit)\s*(\d+|[٠-٩]+|[IVXLCDM]+)?\s*[:\-–—]\s*/i, '')
+    .replace(/^(الفصل|الوحدة)\s*([\d٠-٩]+|الأول|الأولى|الثاني|الثانية|الثالث|الثالثة|الرابع|الرابعة|الخامس|الخامسة|السادس|السادسة|السابع|السابعة|الثامن|الثامنة|التاسع|التاسعة|العاشر|العاشرة|التمهيدي)?\s*[:\-–—]\s*/, '')
+    .trim();
+};
+
 export const CurriculumOverview: React.FC<Props> = ({
   lang,
   theme = 'dark',
@@ -633,7 +641,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                             }`} />
                             <span>
                               {t.chapter} {isArabic ? toHindiDigits(ch.chapterNumber) : ch.chapterNumber}:{' '}
-                              <MathRenderer math={isArabic ? ch.titleAr : ch.titleEn} lang={lang} />
+                              <MathRenderer math={cleanChapterTitle(isArabic ? ch.titleAr : ch.titleEn)} lang={lang} />
                             </span>
                           </span>
                           {ch.isFullyEquipped && (

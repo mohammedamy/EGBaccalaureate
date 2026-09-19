@@ -12,8 +12,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_chr_ch1',
     chapterNumber: 1,
-    titleEn: "Chapter 1: The Holy Bible: Structure, Inspiration, Biblical Hermeneutics, and The Gospels",
-    titleAr: "الفصل الأول: الكتاب المقدس: الأسفار، الوحي الإلهي، البشائر الأربع، ومبادئ التفسير",
+    titleEn: "The Holy Bible: Structure, Inspiration, Biblical Hermeneutics, and The Gospels",
+    titleAr: "الكتاب المقدس: الأسفار، الوحي الإلهي، البشائر الأربع، ومبادئ التفسير",
     descriptionEn: "Structure of the Old and New Testaments, divine inspiration (Theopneustos), manuscript preservation, the Four Gospels, the Sermon on the Mount, and parables of the Kingdom of God.",
     descriptionAr: "أسفار العهدين القديم والجديد، الوحي الإلهي وعصمة النص وحفظ المخطوطات، البشائر الإنجيلية الأربع، العظة على الجبل ودستور الكمال الأخلاقي، وأمثال ملكوت الله في حياة المؤمن.",
     isFullyEquipped: true,
@@ -222,8 +222,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_chr_ch2',
     chapterNumber: 2,
-    titleEn: "Chapter 2: Christian Creed and Dogmatics: The Holy Trinity, Incarnation, Redemption, and Resurrection",
-    titleAr: "الفصل الثاني: العقيدة واللاهوت المسيحي: الثالوث الأقدس، التجسد الإلهي، الفداء والصلب، والقيامة المجيدة",
+    titleEn: "Christian Creed and Dogmatics: The Holy Trinity, Incarnation, Redemption, and Resurrection",
+    titleAr: "العقيدة واللاهوت المسيحي: الثالوث الأقدس، التجسد الإلهي، الفداء والصلب، والقيامة المجيدة",
     descriptionEn: "Tenets of the Christian faith: The Holy Trinity (One Essence in Three Hypostases), Incarnation, the Nicene Creed, sacrificial atonement on the Cross, and historic resurrection.",
     descriptionAr: "أركان العقيدة المسيحية: وحدانية الله الجامعة في الثالوث الأقدس، سر التجسد الإلهي، قانون الإيمان النيقاوي القسطنطيني، كفارة الصليب والفداء الشامل، وحقيقة القيامة ورجاء الخلود.",
     isFullyEquipped: true,
@@ -432,8 +432,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_chr_ch3',
     chapterNumber: 3,
-    titleEn: "Chapter 3: The Seven Holy Sacraments of the Church (Al-Asrar al-Kanasiyyah)",
-    titleAr: "الفصل الثالث: الأسرار الكنسية السبعة: مفاهيمها اللاهوتية، فاعليتها الروحية، وممارساتها الإيمانية",
+    titleEn: "The Seven Holy Sacraments of the Church (Al-Asrar al-Kanasiyyah)",
+    titleAr: "الأسرار الكنسية السبعة: مفاهيمها اللاهوتية، فاعليتها الروحية، وممارساتها الإيمانية",
     descriptionEn: "Theology of sacraments, Christian initiation (Baptism, Myron), the Holy Eucharist, Repentance and Confession, Priesthood, Holy Matrimony, and Unction of the Sick.",
     descriptionAr: "اللاهوت الأسراري للكنيسة: نعمة الأسرار غير المنظورة، أسرار التأسيس (المعمودية والميرون)، سر الإفخارستيا والتناول، سر التوبة والاعتراف، الكهنوت، الزيجة، ومسحة المرضى.",
     isFullyEquipped: true,
@@ -642,8 +642,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_chr_ch4',
     chapterNumber: 4,
-    titleEn: "Chapter 4: Christian Ethics, Social Harmony, Family Life, and Civic Responsibility",
-    titleAr: "الفصل الرابع: الأخلاق والفضائل المسيحية، التماسك الأسري، والمواطنة والمسؤولية المجتمعية والوطنية",
+    titleEn: "Christian Ethics, Social Harmony, Family Life, and Civic Responsibility",
+    titleAr: "الأخلاق والفضائل المسيحية، التماسك الأسري، والمواطنة والمسؤولية المجتمعية والوطنية",
     descriptionEn: "Christian love (Agape) and forgiveness, family values and marriage sanctity, work ethic and diligence, patriotism and peaceful coexistence in Egypt, and resisting moral degradation.",
     descriptionAr: "الفضائل والأخلاق المسيحية الكبرى: المحبة الباذلة، التسامح، قدسية الأسرة وتربية النشء، قيمة العمل المتقن وعمارة الوطن، المواطنة والوحدة الوطنية في مصر، والتحصين الأخلاقي ضد الإدمان والمادية.",
     isFullyEquipped: true,

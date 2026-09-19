@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Language } from '../../i18n/translations';
 import {
   TAJWEED_RULES_DATA,
@@ -13,9 +13,9 @@ import {
 } from '../../data/islamicLab/islamicLabData';
 import {
   Volume2,
+  Square,
   CheckCircle2,
   XCircle,
-  Sparkles,
   Layers,
   Scale,
   Compass,
@@ -24,7 +24,8 @@ import {
   Award,
   Brain,
   HelpCircle,
-  ShieldCheck
+  ShieldCheck,
+  Radio
 } from 'lucide-react';
 
 interface Props {
@@ -52,7 +53,6 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
   // Tab 1: Tajweed State
   const [selectedTajweed, setSelectedTajweed] = useState<TajweedRuleItem>(TAJWEED_RULES_DATA[0]);
   const [currentlyPlayingVerse, setCurrentlyPlayingVerse] = useState<string | null>(null);
-
   // Tab 2: Maqasid State
   const [selectedMaqsad, setSelectedMaqsad] = useState<MaqasidCategory>(MAQASID_CATEGORIES_DATA[0]);
 
@@ -68,21 +68,106 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState<boolean>(false);
   const [quizScore, setQuizScore] = useState<number>(0);
 
-  // Web Speech API Arabic Pronunciation
-  const speakArabic = (text: string) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
+  // Sheikh Al-Hussary Recitation Audio Player State (حصرياً بصوت الشيخ محمود خليل الحصري - بلا نطق حاسوبي)
+  const [recitationStyle, setRecitationStyle] = useState<'murattal' | 'muallim'>('murattal');
+  const [audioLoading, setAudioLoading] = useState<boolean>(false);
+  const [audioError, setAudioError] = useState<string | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'ar-SA';
-    utterance.rate = 0.8;
-    utterance.pitch = 1.0;
+  // Stop any active recitation when switching tabs or unmounting
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+      setCurrentlyPlayingVerse(null);
+      setAudioLoading(false);
+      setAudioError(null);
+    };
+  }, [activeTab]);
 
-    utterance.onstart = () => setCurrentlyPlayingVerse(text);
-    utterance.onend = () => setCurrentlyPlayingVerse(null);
-    utterance.onerror = () => setCurrentlyPlayingVerse(null);
+  const getHussaryAudioUrl = (surahNumber: number, ayahNumber: number, style: 'murattal' | 'muallim') => {
+    const surahStr = String(surahNumber).padStart(3, '0');
+    const ayahStr = String(ayahNumber).padStart(3, '0');
+    const folder = style === 'muallim' ? 'Husary_Muallim_128kbps' : 'Husary_128kbps';
+    return `https://everyayah.com/data/${folder}/${surahStr}${ayahStr}.mp3`;
+  };
 
-    window.speechSynthesis.speak(utterance);
+  // Authentic Quran Recitation by Sheikh Mahmoud Khalil Al-Hussary (فضيلة الشيخ محمود خليل الحصري رحمه الله)
+  const playHussaryRecitation = (surahNumber: number, ayahNumber: number, verseText: string) => {
+    // If clicking on the currently playing verse, stop playback
+    if (currentlyPlayingVerse === verseText && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+      setCurrentlyPlayingVerse(null);
+      setAudioLoading(false);
+      return;
+    }
+
+    // Stop any existing audio
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+
+    setCurrentlyPlayingVerse(verseText);
+    setAudioLoading(true);
+    setAudioError(null);
+
+    const primaryUrl = getHussaryAudioUrl(surahNumber, ayahNumber, recitationStyle);
+    const audio = new Audio(primaryUrl);
+    audio.preload = 'auto';
+    audioRef.current = audio;
+
+    audio.oncanplay = () => {
+      setAudioLoading(false);
+    };
+
+    audio.onplaying = () => {
+      setAudioLoading(false);
+    };
+
+    audio.onended = () => {
+      setCurrentlyPlayingVerse(null);
+      setAudioLoading(false);
+      audioRef.current = null;
+    };
+
+    audio.onerror = () => {
+      // Automatic failover: if Muallim fails try Murattal, or vice versa
+      const fallbackStyle = recitationStyle === 'muallim' ? 'murattal' : 'muallim';
+      const fallbackUrl = getHussaryAudioUrl(surahNumber, ayahNumber, fallbackStyle);
+      const fallbackAudio = new Audio(fallbackUrl);
+      fallbackAudio.preload = 'auto';
+      audioRef.current = fallbackAudio;
+
+      fallbackAudio.oncanplay = () => setAudioLoading(false);
+      fallbackAudio.onplaying = () => setAudioLoading(false);
+      fallbackAudio.onended = () => {
+        setCurrentlyPlayingVerse(null);
+        setAudioLoading(false);
+        audioRef.current = null;
+      };
+      fallbackAudio.onerror = () => {
+        setAudioLoading(false);
+        setCurrentlyPlayingVerse(null);
+        setAudioError(isArabic ? 'تعذر تشغيل التسجيل الصوتي للآية حالياً بصوت الشيخ الحصري، يرجى التحقق من اتصال الشبكة.' : 'Could not stream verse audio by Sheikh Al-Hussary, please check your network connection.');
+        audioRef.current = null;
+      };
+      fallbackAudio.play().catch(() => {
+        setAudioLoading(false);
+        setCurrentlyPlayingVerse(null);
+        audioRef.current = null;
+      });
+    };
+
+    audio.play().catch((err) => {
+      console.warn('Audio play prevented by browser policy or network issue:', err);
+      setAudioLoading(false);
+      setCurrentlyPlayingVerse(null);
+      audioRef.current = null;
+    });
   };
 
   const handleQuizSubmit = (index: number) => {
@@ -272,46 +357,161 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
               {isArabic ? selectedTajweed.descriptionAr : selectedTajweed.descriptionEn}
             </p>
 
-            {/* Quranic Verse Examples */}
+            {/* Quranic Verse Examples with Sheikh Al-Hussary Audio Engine */}
             <div className="flex flex-col gap-4">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                <Sparkles className="w-4 h-4" />
-                <span>{isArabic ? 'شواهد قرآنية تطبيقية ونطق صوتي' : 'Quranic Exemplars & Interactive Recitation'}</span>
-              </h4>
+              {/* Sheikh Al-Hussary Attribution & Style Switcher Banner */}
+              <div className="p-4 rounded-xl bg-gradient-to-r from-emerald-950/90 via-slate-950 to-teal-950/90 border border-emerald-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-lg">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-800/40 border border-emerald-400/40 flex items-center justify-center text-teal-300 shadow">
+                    <Radio className="w-5 h-5 animate-pulse" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-black text-emerald-300 flex items-center gap-1.5">
+                      <span>{isArabic ? 'تلاوات القرآن الكريم بصوت فضيلة الشيخ محمود خليل الحصري (رحمه الله)' : 'Quranic Recitation by Sheikh Mahmoud Khalil Al-Hussary'}</span>
+                      <span className="px-1.5 py-0.2 rounded bg-emerald-500/20 text-[10px] text-teal-300 border border-emerald-400/30 font-sans">
+                        {isArabic ? 'شيخ عموم المقارئ المصرية' : 'Grand Sheikh of Egyptian Reciters'}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-emerald-400/80 mt-0.5">
+                      {isArabic
+                        ? 'تلاوات قرآنية حقيقية تراعي مخارج الحروف، أحكام النون الساكنة والتنوين، المدود، والإقلاب بلا أي نطق اصطناعي.'
+                        : 'Authentic recorded Tajweed recitations adhering strictly to classical Makhaarij and Ahkam without synthetic speech.'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Recitation Style Toggle (Murattal vs Muallim) */}
+                <div className="flex items-center gap-1.5 p-1 rounded-lg bg-slate-900 border border-emerald-500/30 self-stretch md:self-auto justify-center">
+                  <button
+                    onClick={() => {
+                      if (audioRef.current) {
+                        audioRef.current.pause();
+                        audioRef.current = null;
+                      }
+                      setCurrentlyPlayingVerse(null);
+                      setRecitationStyle('murattal');
+                    }}
+                    className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
+                      recitationStyle === 'murattal'
+                        ? 'bg-emerald-600 text-white shadow'
+                        : 'text-emerald-300/70 hover:text-white'
+                    }`}
+                  >
+                    {isArabic ? 'المصحف المرتل' : 'Murattal'}
+                  </button>
+                  <button
+                    onClick={() => {
+                      if (audioRef.current) {
+                        audioRef.current.pause();
+                        audioRef.current = null;
+                      }
+                      setCurrentlyPlayingVerse(null);
+                      setRecitationStyle('muallim');
+                    }}
+                    className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
+                      recitationStyle === 'muallim'
+                        ? 'bg-teal-600 text-white shadow'
+                        : 'text-emerald-300/70 hover:text-white'
+                    }`}
+                  >
+                    {isArabic ? 'المصحف المعلم' : 'Muallim (Educational)'}
+                  </button>
+                </div>
+              </div>
+
+              {audioError && (
+                <div className="p-3 rounded-lg bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs flex items-center gap-2">
+                  <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{audioError}</span>
+                </div>
+              )}
 
               <div className="grid grid-cols-1 gap-4">
-                {selectedTajweed.quranicExamples.map((ex, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded-xl bg-slate-950/70 border border-emerald-500/20 flex flex-col gap-3"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-xs font-bold px-2 py-0.5 rounded bg-emerald-950 border border-emerald-600/40 text-emerald-300">
-                        سورة {ex.surahName} (الآية {ex.ayahNumber})
-                      </span>
-                      <button
-                        onClick={() => speakArabic(ex.verseText)}
-                        className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                          currentlyPlayingVerse === ex.verseText
-                            ? 'bg-teal-500 text-slate-950 animate-pulse'
-                            : 'bg-emerald-700/60 hover:bg-emerald-600 text-white'
-                        }`}
-                      >
-                        <Volume2 className="w-3.5 h-3.5" />
-                        <span>{currentlyPlayingVerse === ex.verseText ? 'جارٍ الاستماع...' : 'استمع للترتيل'}</span>
-                      </button>
-                    </div>
+                {selectedTajweed.quranicExamples.map((ex, i) => {
+                  const isThisVersePlaying = currentlyPlayingVerse === ex.verseText;
+                  return (
+                    <div
+                      key={i}
+                      className={`p-5 rounded-xl bg-slate-950/80 border transition-all ${
+                        isThisVersePlaying
+                          ? 'border-teal-400/90 ring-2 ring-teal-400/30 shadow-xl shadow-emerald-950/60'
+                          : 'border-emerald-500/20 hover:border-emerald-500/40'
+                      } flex flex-col gap-3.5`}
+                    >
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-950 border border-emerald-600/40 text-emerald-300">
+                            سورة {ex.surahName} (الآية {ex.ayahNumber})
+                          </span>
+                          <span className="text-[11px] font-semibold text-teal-400 bg-teal-950/60 border border-teal-800/40 px-2 py-0.5 rounded-full flex items-center gap-1">
+                            <span>🎙️ تلاوة الشيخ الحصري</span>
+                            <span className="text-emerald-300/70 font-normal">
+                              ({recitationStyle === 'muallim' ? (isArabic ? 'المعلم' : 'Muallim') : (isArabic ? 'المرتل' : 'Murattal')})
+                            </span>
+                          </span>
+                        </div>
 
-                    <div className="text-xl md:text-2xl font-serif text-center py-2 text-emerald-200 tracking-wide">
-                      ﴿ {ex.verseText} ﴾
-                    </div>
+                        <div className="flex items-center gap-2">
+                          {isThisVersePlaying && !audioLoading && (
+                            <div className="hidden sm:flex items-center gap-1 px-2 py-1 rounded bg-teal-950/70 border border-teal-500/30">
+                              <span className="w-1 h-3 bg-teal-400 animate-pulse rounded-full" />
+                              <span className="w-1 h-5 bg-teal-400 animate-pulse rounded-full" style={{ animationDelay: '150ms' }} />
+                              <span className="w-1 h-2 bg-teal-400 animate-pulse rounded-full" style={{ animationDelay: '300ms' }} />
+                              <span className="w-1 h-4 bg-teal-400 animate-pulse rounded-full" style={{ animationDelay: '450ms' }} />
+                            </div>
+                          )}
 
-                    <div className="text-xs bg-emerald-950/40 p-2.5 rounded-lg border border-emerald-500/20 text-emerald-300/90 leading-relaxed">
-                      <strong>{isArabic ? 'التحليل التجويدي: ' : 'Tajweed Analysis: '}</strong>
-                      {isArabic ? ex.explanationAr : ex.explanationEn}
+                          <button
+                            onClick={() => playHussaryRecitation(ex.surahNumber, ex.ayahNumber, ex.verseText)}
+                            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+                              isThisVersePlaying
+                                ? 'bg-teal-400 text-slate-950 font-black shadow-lg shadow-teal-500/50'
+                                : 'bg-emerald-700/80 hover:bg-emerald-600 text-white shadow'
+                            }`}
+                            title={isArabic ? 'استمع لتلاوة الآية مسجلة بصوت فضيلة الشيخ الحصري (أحكام تجويد منضبطة)' : 'Listen to authentic recitation by Sheikh Al-Hussary'}
+                          >
+                            {isThisVersePlaying ? (
+                              audioLoading ? (
+                                <span className="w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
+                              ) : (
+                                <Square className="w-3.5 h-3.5 fill-current" />
+                              )
+                            ) : (
+                              <Volume2 className="w-3.5 h-3.5" />
+                            )}
+                            <span>
+                              {isThisVersePlaying
+                                ? (audioLoading
+                                    ? (isArabic ? 'جارٍ تحميل التلاوة...' : 'Buffering recitation...')
+                                    : (isArabic ? 'إيقاف التلاوة' : 'Stop Recitation'))
+                                : (isArabic ? 'استمع لترتيل الشيخ الحصري' : 'Play Sheikh Al-Hussary Recitation')}
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+
+                      {/* Quranic Text */}
+                      <div className="text-xl md:text-2xl font-serif text-center py-3 text-emerald-100 tracking-wider bg-slate-900/40 rounded-lg border border-emerald-500/10 px-4">
+                        ﴿ {ex.verseText} ﴾
+                      </div>
+
+                      {/* Tajweed Explanation & Pedagogical Breakdown */}
+                      <div className="text-xs bg-emerald-950/40 p-3 rounded-lg border border-emerald-500/20 text-emerald-200/90 leading-relaxed flex flex-col gap-1">
+                        <div className="flex items-center gap-1.5 text-emerald-300 font-bold">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-teal-400 shrink-0" />
+                          <span>{isArabic ? 'موضع الحكم التجويدي: ' : 'Tajweed Target: '}</span>
+                          <span className="font-mono bg-emerald-900/60 px-1.5 py-0.5 rounded text-teal-200 border border-emerald-500/30">
+                            {ex.highlightedPart}
+                          </span>
+                        </div>
+                        <p className="text-emerald-100/80 mt-1">
+                          <strong>{isArabic ? 'الشرح والبيان: ' : 'Explanation: '}</strong>
+                          {isArabic ? ex.explanationAr : ex.explanationEn}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>

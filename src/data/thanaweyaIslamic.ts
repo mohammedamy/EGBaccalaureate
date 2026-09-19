@@ -12,8 +12,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_isl_ch1',
     chapterNumber: 1,
-    titleEn: "Chapter 1: Recitation Rules (Tajweed), Islamic Creed, and Destiny (Surah Luqman & An-Nur)",
-    titleAr: "الفصل الأول: أحكام التلاوة والتجويد، العقيدة الإسلامية، والإيمان بالقضاء والقدر (سورة لقمان والنور)",
+    titleEn: "Recitation Rules (Tajweed), Islamic Creed, and Destiny (Surah Luqman & An-Nur)",
+    titleAr: "أحكام التلاوة والتجويد، العقيدة الإسلامية، والإيمان بالقضاء والقدر (سورة لقمان والنور)",
     descriptionEn: "Rules of Tajweed (Nun Sakinah, Tanween, Meem Sakinah, and Madd prolongations), core tenets of Islamic Tawhid, divine decree and destiny (Qada & Qadar), and moral exhortations from Surah Luqman and Surah An-Nur.",
     descriptionAr: "أحكام التلاوة والتجويد (النون الساكنة والتنوين، الميم الساكنة، والمدود)، أصول العقيدة الإسلامية والتوحيد، الإيمان بالقضاء والقدر مع الأخذ بالأسباب، والوصايا التربوية العقدية والآداب الاجتماعية في سورتي لقمان والنور.",
     isFullyEquipped: true,
@@ -222,8 +222,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_isl_ch2',
     chapterNumber: 2,
-    titleEn: "Chapter 2: Prophetic Biography, Shura, Treaty of Hudaybiyyah, and Conquest of Makkah",
-    titleAr: "الفصل الثاني: السيرة النبوية، التخطيط والشورى، صلح الحديبية، وفتح مكة المكرمة",
+    titleEn: "Prophetic Biography, Shura, Treaty of Hudaybiyyah, and Conquest of Makkah",
+    titleAr: "السيرة النبوية، التخطيط والشورى، صلح الحديبية، وفتح مكة المكرمة",
     descriptionEn: "Prophetic methodology in leadership, strategic planning in the Hijrah, institutionalization of Shura (consultation), diplomacy in the Treaty of Hudaybiyyah, and magnanimity in the Conquest of Makkah.",
     descriptionAr: "المنهج النبوي في القيادة والإدارة، التخطيط المحكم في الهجرة، ترسيخ مبدأ الشورى، الدبلوماسية والرؤية الاستراتيجية في صلح الحديبية، والعفو عند المقدرة في فتح مكة المكرمة.",
     isFullyEquipped: true,
@@ -432,8 +432,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_isl_ch3',
     chapterNumber: 3,
-    titleEn: "Chapter 3: The Five Higher Objectives of Sharia (Maqasid), Islamic Jurisprudence, and Social Solidarity",
-    titleAr: "الفصل الثالث: مقاصد الشريعة الإسلامية الخمس، فقه المعاملات، والتكافل الاجتماعي وحقوق الأسرة",
+    titleEn: "The Five Higher Objectives of Sharia (Maqasid), Islamic Jurisprudence, and Social Solidarity",
+    titleAr: "مقاصد الشريعة الإسلامية الخمس، فقه المعاملات، والتكافل الاجتماعي وحقوق الأسرة",
     descriptionEn: "The five essential objectives of Islamic Law (Preservation of Religion, Life, Intellect, Lineage, and Wealth), ranks of necessity (Daruriyyat, Hajiyyat, Tahsiniyyat), and social solidarity mechanisms.",
     descriptionAr: "مقاصد الشريعة الإسلامية الكلية الخمس (حفظ الدين، النفس، العقل، النسل، والمال)، مراتب المصالح (الضروريات، الحاجيات، والتحسينيات)، فقه المعاملات، التكافل الاجتماعي، وحقوق الأسرة المسلمة.",
     isFullyEquipped: true,
@@ -642,8 +642,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_isl_ch4',
     chapterNumber: 4,
-    titleEn: "Chapter 4: Ethics of Dialogue, Countering Extremism and Rumors, Environmental Stewardship, and Reason",
-    titleAr: "الفصل الرابع: أدب الحوار في الإسلام، محاربة التطرف والشائعات، حماية البيئة، وإعمال العقل",
+    titleEn: "Ethics of Dialogue, Countering Extremism and Rumors, Environmental Stewardship, and Reason",
+    titleAr: "أدب الحوار في الإسلام، محاربة التطرف والشائعات، حماية البيئة، وإعمال العقل",
     descriptionEn: "Quranic principles of constructive dialogue, peaceful coexistence, evidentiary verification against rumors, intellectual repudiation of extremism, ecological conservation, and sanctification of rational thought.",
     descriptionAr: "أدب الحوار في القرآن الكريم، حرية الفكر والتعايش، منهج التثبت ومكافحة الشائعات والإفك، تفنيد الفكر المتطرف والغلو، حماية البيئة ورعاية الكائنات، وتكريم العقل والاجتهاد.",
     isFullyEquipped: true,

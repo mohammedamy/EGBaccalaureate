@@ -687,27 +687,47 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
 
           {/* Golden Spiral & Architectural Diagram */}
           <div className="lg:col-span-8 flex flex-col space-y-4">
-            <div className="relative w-full h-[360px] rounded-xl border border-rose-500/30 bg-slate-950 flex items-center justify-center p-4 overflow-hidden">
+            <div className="relative w-full h-[360px] rounded-xl border border-rose-500/30 bg-slate-950 flex items-center justify-center p-4 overflow-hidden shadow-inner">
               <svg className="w-full h-full max-w-[500px]" viewBox="0 0 500 310">
-                {/* Golden Rectangle subdivisions */}
-                {/* Main 191.6 square */}
-                <rect x="10" y="10" width="191.6" height="191.6" fill="none" stroke="#f43f5e" strokeWidth="2" />
-                <rect x="201.6" y="10" width="118.4" height="118.4" fill="none" stroke="#f59e0b" strokeWidth="2" />
-                <rect x="201.6" y="128.4" width="73.2" height="73.2" fill="none" stroke="#3b82f6" strokeWidth="2" />
-                <rect x="274.8" y="128.4" width="45.2" height="45.2" fill="none" stroke="#10b981" strokeWidth="2" />
+                <defs>
+                  <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
 
-                {/* Fibonacci Golden Spiral Curve */}
+                {/* Outer Golden Rectangle (Border Guide) */}
+                <rect x="50" y="35" width="388.3" height="240" fill="none" stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" opacity="0.4" />
+
+                {/* Nested Golden Squares with Precise Proportions (φ ≈ 1.618) */}
+                <rect x="50" y="35" width="240" height="240" fill="rgba(244, 63, 94, 0.06)" stroke="#f43f5e" strokeWidth="2" />
+                <rect x="290" y="35" width="148.3" height="148.3" fill="rgba(245, 158, 11, 0.06)" stroke="#f59e0b" strokeWidth="2" />
+                <rect x="346.7" y="183.3" width="91.7" height="91.7" fill="rgba(59, 130, 246, 0.06)" stroke="#3b82f6" strokeWidth="2" />
+                <rect x="290" y="218.3" width="56.7" height="56.7" fill="rgba(16, 185, 129, 0.06)" stroke="#10b981" strokeWidth="2" />
+                <rect x="290" y="183.3" width="35.0" height="35.0" fill="rgba(139, 92, 246, 0.06)" stroke="#8b5cf6" strokeWidth="1.5" />
+                <rect x="325" y="183.3" width="21.6" height="21.6" fill="rgba(236, 72, 153, 0.06)" stroke="#ec4899" strokeWidth="1.5" />
+                <rect x="333.3" y="205.0" width="13.4" height="13.4" fill="rgba(6, 182, 212, 0.06)" stroke="#06b6d4" strokeWidth="1" />
+                <rect x="325" y="210.1" width="8.3" height="8.3" fill="rgba(234, 179, 8, 0.06)" stroke="#eab308" strokeWidth="1" />
+
+                {/* Continuous Fibonacci Logarithmic Golden Spiral Curve */}
                 <path
-                  d="M 201.6,201.6 A 191.6,191.6 0 0,1 10,10 A 118.4,118.4 0 0,1 201.6,10 A 73.2,73.2 0 0,1 274.8,128.4"
+                  d="M 50.0,275.0 A 240.0,240.0 0 0,1 290.0,35.0 A 148.3,148.3 0 0,1 438.3,183.3 A 91.7,91.7 0 0,1 346.7,275.0 A 56.7,56.7 0 0,1 290.0,218.3 A 35.0,35.0 0 0,1 325.0,183.3 A 21.6,21.6 0 0,1 346.7,205.0 A 13.4,13.4 0 0,1 333.3,218.3 A 8.3,8.3 0 0,1 325.0,210.1"
                   fill="none"
                   stroke="#fbbf24"
                   strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  filter="url(#goldGlow)"
                 />
 
-                {/* Annotation Badges */}
-                <text x="70" y="110" fill="#f43f5e" fontSize="16" fontWeight="bold">φ = 1.618</text>
-                <text x="240" y="70" fill="#f59e0b" fontSize="13" fontWeight="bold">1.000</text>
-                <text x="230" y="170" fill="#3b82f6" fontSize="11" fontWeight="bold">0.618</text>
+                {/* Dimension & Proportion Scale Labels */}
+                <text x="170" y="155" fill="#f43f5e" fontSize="18" fontWeight="bold" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif">φ = 1.618</text>
+                <text x="364" y="110" fill="#f59e0b" fontSize="15" fontWeight="bold" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif">1.000</text>
+                <text x="392" y="235" fill="#60a5fa" fontSize="13" fontWeight="bold" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif">0.618</text>
+                <text x="318" y="252" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle" fontFamily="system-ui, -apple-system, sans-serif">0.382</text>
               </svg>
             </div>
 

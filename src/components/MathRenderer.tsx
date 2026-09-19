@@ -138,7 +138,9 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     'this', 'all', 'any', 'are', 'was', 'were', 'has', 'have', 'had', 'been', 'which', 'where',
     'who', 'whom', 'whose', 'what', 'why', 'how', 'each', 'every', 'both', 'either', 'neither',
     'only', 'same', 'such', 'more', 'most', 'other', 'some', 'between', 'through', 'during',
-    'before', 'after', 'above', 'below', 'under', 'again', 'further', 'once', 'here', 'there'
+    'before', 'after', 'above', 'below', 'under', 'again', 'further', 'once', 'here', 'there',
+    'chapter', 'module', 'unit', 'lesson', 'part', 'section', 'topic', 'exercise', 'problem',
+    'given', 'find', 'calculate', 'determine', 'solve', 'let', 'suppose', 'assume', 'consider'
   ]);
 
   const mathFunctions = new Set([
@@ -146,23 +148,23 @@ const isPureMathExpression = (str: string, isBlock: boolean): boolean => {
     'det', 'deg', 'mod', 'var', 'cov', 'dim', 'ker', 'gcd', 'lcm', 'arcsin', 'arccos', 'arctan'
   ]);
 
-  const hasEquationOperators =
-    /[=+\-*/^_{}()|\\\[\]<>]/.test(s) ||
-    /\\(le|ge|approx|neq|to|implies|iff|times|pm|cdot|rightleftharpoons|rightleftarrows|xrightleftharpoons|xrightarrow|leftrightarrow|Longleftrightarrow|longleftrightarrow|leftarrow|rightarrow|propto|equiv|sim|cong)/.test(s);
-
   const stopWordCount = words.filter(w => englishStopWords.has(w.toLowerCase())).length;
-  if (stopWordCount >= 2 && !hasEquationOperators) {
-    return false;
-  }
-
   const proseWords = words.filter(w => {
     const lower = w.toLowerCase();
     return englishStopWords.has(lower) || (w.length >= 4 && !mathFunctions.has(lower));
   });
 
-  if (proseWords.length >= 2 && !hasEquationOperators) {
+  // If there are multiple prose words or stop words, it is prose or mixed text, not pure math
+  if (stopWordCount >= 2 || proseWords.length >= 2 || (stopWordCount >= 1 && proseWords.length >= 1)) {
     return false;
   }
+  if (words.length >= 4 && !s.includes('\\')) {
+    return false;
+  }
+
+  const hasEquationOperators =
+    /[=+\-*/^_{}()|\\\[\]<>]/.test(s) ||
+    /\\(le|ge|approx|neq|to|implies|iff|times|pm|cdot|rightleftharpoons|rightleftarrows|xrightleftharpoons|xrightarrow|leftrightarrow|Longleftrightarrow|longleftrightarrow|leftarrow|rightarrow|propto|equiv|sim|cong)/.test(s);
 
   // 6. Mathematical equations, operations, coordinates, Greek letters, or numbers
   if (hasEquationOperators || /^[\d٠-٩.]+$/.test(s) || /\\[a-zA-Z]+/.test(s)) {

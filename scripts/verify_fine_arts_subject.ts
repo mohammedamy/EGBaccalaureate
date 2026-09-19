@@ -56,8 +56,8 @@ if (thArts) {
     ch.lessons.forEach((l, lIdx) => {
       assert(!!l.titleEn && !!l.titleAr, `Ch${chNum} Lesson ${lIdx + 1} has bilingual titles`);
       assert(!!l.summaryEn && !!l.summaryAr, `Ch${chNum} Lesson ${lIdx + 1} has bilingual summaries`);
-      assert(!!l.theoryContent, `Ch${chNum} Lesson ${lIdx + 1} has comprehensive theory content`);
-      assert(!!l.moeReference, `Ch${chNum} Lesson ${lIdx + 1} has MoEReference`);
+      assert(!!(l.theoryContentEn || (l as any).theoryContent), `Ch${chNum} Lesson ${lIdx + 1} has comprehensive theory content`);
+      assert(!!(l.moeRef || (l as any).moeReference), `Ch${chNum} Lesson ${lIdx + 1} has MoEReference`);
       assert(!!l.lessonPlan, `Ch${chNum} Lesson ${lIdx + 1} has lessonPlan`);
       assert(!!l.worksheet, `Ch${chNum} Lesson ${lIdx + 1} has worksheet`);
       assert(!!l.interactiveWidget, `Ch${chNum} Lesson ${lIdx + 1} has interactiveWidget`);
@@ -113,8 +113,8 @@ if (egArts) {
     ch.lessons.forEach((l, lIdx) => {
       assert(!!l.titleEn && !!l.titleAr, `Ch${chNum} Lesson ${lIdx + 1} has bilingual titles`);
       assert(!!l.summaryEn && !!l.summaryAr, `Ch${chNum} Lesson ${lIdx + 1} has bilingual summaries`);
-      assert(!!l.theoryContent, `Ch${chNum} Lesson ${lIdx + 1} has comprehensive theory content`);
-      assert(!!l.moeReference, `Ch${chNum} Lesson ${lIdx + 1} has MoEReference`);
+      assert(!!(l.theoryContentEn || (l as any).theoryContent), `Ch${chNum} Lesson ${lIdx + 1} has comprehensive theory content`);
+      assert(!!(l.moeRef || (l as any).moeReference), `Ch${chNum} Lesson ${lIdx + 1} has MoEReference`);
       assert(!!l.lessonPlan, `Ch${chNum} Lesson ${lIdx + 1} has lessonPlan`);
       assert(!!l.worksheet, `Ch${chNum} Lesson ${lIdx + 1} has worksheet`);
       assert(!!l.interactiveWidget, `Ch${chNum} Lesson ${lIdx + 1} has interactiveWidget`);

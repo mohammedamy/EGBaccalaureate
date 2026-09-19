@@ -12,8 +12,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_bus_ch1',
     chapterNumber: 1,
-    titleEn: "Chapter 1: Principles of Management, Planning & Organizational Structures",
-    titleAr: "الفصل الأول: مبادئ الإدارة، التخطيط المؤسسي والهياكل التنظيمية",
+    titleEn: "Principles of Management, Planning & Organizational Structures",
+    titleAr: "مبادئ الإدارة، التخطيط المؤسسي والهياكل التنظيمية",
     descriptionEn: "Core functions of management (planning, organizing, directing, controlling), strategic planning, organizational structures, delegation of authority, and corporate governance.",
     descriptionAr: "الوظائف الإدارية الأربع (التخطيط، التنظيم، التوجيه، والرقابة)، التخطيط الاستراتيجي، الهياكل التنظيمية وتفويض الصلاحيات، وحوكمة المؤسسات وأخلاقيات الأعمال.",
     isFullyEquipped: true,
@@ -222,8 +222,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_bus_ch2',
     chapterNumber: 2,
-    titleEn: "Chapter 2: Marketing Strategy, Market Research & Consumer Behavior",
-    titleAr: "الفصل الثاني: استراتيجيات التسويق، بحوث السوق وسلوك المستهلك",
+    titleEn: "Marketing Strategy, Market Research & Consumer Behavior",
+    titleAr: "استراتيجيات التسويق، بحوث السوق وسلوك المستهلك",
     descriptionEn: "Marketing mix (4Ps & 7Ps), market segmentation, targeting, brand positioning (STP), consumer buying journey, market research methodologies, and digital marketing channels.",
     descriptionAr: "المزيج التسويقي السلعي والخدمي، تجزئة السوق واستهداف الشرائح والتموضع الذهني (STP)، مراحل سلوك المستهلك، أساليب بحوث السوق، ومنظومة التسويق الرقمي الحديث.",
     isFullyEquipped: true,
@@ -432,8 +432,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_bus_ch3',
     chapterNumber: 3,
-    titleEn: "Chapter 3: Operations, Supply Chain & Total Quality Management (TQM)",
-    titleAr: "الفصل الثالث: إدارة العمليات، سلاسل الإمداد وإدارة الجودة الشاملة",
+    titleEn: "Operations, Supply Chain & Total Quality Management (TQM)",
+    titleAr: "إدارة العمليات، سلاسل الإمداد وإدارة الجودة الشاملة",
     descriptionEn: "Operations planning, inventory management models (EOQ), supply chain logistics, Just-In-Time (JIT), Total Quality Management (TQM), Kaizen continuous improvement, and Six Sigma methodology.",
     descriptionAr: "تخطيط العمليات الإنتاجية، نماذج مراقبة المخزون وكمية الطلب الاقتصادية (EOQ)، لوجستيات سلاسل الإمداد، الإنتاج الآني (JIT)، إدارة الجودة الشاملة (TQM)، فلسفة كايزن، ومنهجية حيود ستة سيجما.",
     isFullyEquipped: true,
@@ -642,8 +642,8 @@ const chapters: Chapter[] = [
   {
     id: 'th_bus_ch4',
     chapterNumber: 4,
-    titleEn: "Chapter 4: Human Resource Management, Leadership & Organizational Dynamics",
-    titleAr: "الفصل الرابع: إدارة الموارد البشرية، القيادة المؤسسية وديناميكيات السلوك التنظيمي",
+    titleEn: "Human Resource Management, Leadership & Organizational Dynamics",
+    titleAr: "إدارة الموارد البشرية، القيادة المؤسسية وديناميكيات السلوك التنظيمي",
     descriptionEn: "Strategic human resource planning, talent acquisition, performance appraisal (KPIs & 360-degree feedback), motivation theories (Maslow, Herzberg), leadership styles, and change management.",
     descriptionAr: "التخطيط الاستراتيجي للموارد البشرية، استقطاب واختيار الكفاءات، تقييم الأداء ومؤشرات KPIs والتقييم الشامل، نظريات التحفيز والرضا الوظيفي، أنماط القيادة، وإدارة التغيير المؤسسي.",
     isFullyEquipped: true,

@@ -21,8 +21,8 @@ export const thanaweyaFineArtsBranch: Branch = {
   chapters: [
     {
       id: 'th_fine_arts_ch1',
-      titleEn: 'Chapter 1: History of Visual Arts & Egyptian Artistic Evolution',
-      titleAr: 'الفصل الأول: تاريخ الفنون التشكيلية وتطور الفن المصري عبر العصور',
+      titleEn: 'History of Visual Arts & Egyptian Artistic Evolution',
+      titleAr: 'تاريخ الفنون التشكيلية وتطور الفن المصري عبر العصور',
       descriptionEn: 'Ancient Egyptian canons of proportion, Coptic encaustic icon tradition, Islamic arabesque and geometric interlace, and the pioneers of the Modern Egyptian Renaissance.',
       descriptionAr: 'قواعد النسب والرمزية في الفن المصري القديم، الأيقونة القبطية وتقنيات الإنكوستيك، الزخرفة الإسلامية وتجريد الأرابيسك، ورواد حركة الفن التشكيلي المصري الحديث.',
       isFullyEquipped: true,
@@ -182,8 +182,8 @@ Pioneer of surrealism and social realism. Her vibrant undulating brushstrokes ca
     // Chapter 2
     {
       id: 'th_fine_arts_ch2',
-      titleEn: 'Chapter 2: Linear Perspective, Shadows & Spatial Volumetrics',
-      titleAr: 'الفصل الثاني: قواعد المنظور الهندسي وعلم الظل والظلال وتجسيم الفراغ',
+      titleEn: 'Linear Perspective, Shadows & Spatial Volumetrics',
+      titleAr: 'قواعد المنظور الهندسي وعلم الظل والظلال وتجسيم الفراغ',
       descriptionEn: 'Horizon line, eye levels, 1-point, 2-point, and 3-point vanishing systems, physics of core and cast shadows, and volumetric spatial projections.',
       descriptionAr: 'خط الأفق ومستويات النظر، نظم التلاشي بنقطة ونقطتين وثلاث نقاط تلاشٍ، فيزياء الظل الذاتي والساقط، وتجسيم الكتل الفراغية في الفضاء الهندسي.',
       isFullyEquipped: true,
@@ -341,8 +341,8 @@ Drawing rays from the light source through the object vertices and intersecting 
     // Chapter 3
     {
       id: 'th_fine_arts_ch3',
-      titleEn: 'Chapter 3: Principles of Design Composition & Color Harmony',
-      titleAr: 'الفصل الثالث: أسس التصميم والتكوين الفني ونظرية وتناغم الألوان',
+      titleEn: 'Principles of Design Composition & Color Harmony',
+      titleAr: 'أسس التصميم والتكوين الفني ونظرية وتناغم الألوان',
       descriptionEn: 'Balance, visual rhythm, dominance, unity, the Golden Ratio (Phi), Itten color wheel, subtractive CMYK vs additive RGB, and psychological color harmonies.',
       descriptionAr: 'الاتزان، الإيقاع البصري، السيادة والوحدة، النسبة الذهبية (فاي)، الدائرة اللونية ليوهانس إيتن، خلط الألوان الجمعي والطرحي، والتوافقات وسيكولوجيا الألوان.',
       isFullyEquipped: true,
@@ -365,7 +365,7 @@ Drawing rays from the light source through the object vertices and intersecting 
 - **Unity & Harmony (الوحدة والتوافق)**: The holistic cohesion binding all parts so that no element appears extraneous.
 
 ### 2. The Golden Ratio ($Phi approx 1.618$) (النسبة الذهبية)
-The Golden Ratio ($Phi = rac{1 + sqrt{5}}{2} approx 1.618$) divides a line segment so that $rac{A+B}{A} = rac{A}{B}$.
+The Golden Ratio ($\Phi = \\frac{1 + \\sqrt{5}}{2} \\approx 1.618$) divides a line segment so that $\\frac{A+B}{A} = \\frac{A}{B}$.
 Applying this proportion iteratively to rectangles yields the Golden Rectangle. Connecting quarter-circle arcs across golden square subdivisions generates the Golden Spiral (Fibonacci Spiral). The simplified Rule of Thirds places focal elements at the four grid intersection points to invoke similar dynamic visual tension.
 `,
           moeRef: {
@@ -502,8 +502,8 @@ Applying this proportion iteratively to rectangles yields the Golden Rectangle. 
     // Chapter 4
     {
       id: 'th_fine_arts_ch4',
-      titleEn: 'Chapter 4: Egyptian Architecture, Decorative Arts & Applied Design',
-      titleAr: 'الفصل الرابع: العمارة المصرية وفنون الزخرفة والتصميم التطبيقي',
+      titleEn: 'Egyptian Architecture, Decorative Arts & Applied Design',
+      titleAr: 'العمارة المصرية وفنون الزخرفة والتصميم التطبيقي',
       descriptionEn: "Heritage Egyptian architecture from Karnak to Islamic domes, Hassan Fathy's vernacular mudbrick philosophy, graphic typography, and faculty aptitude testing.",
       descriptionAr: 'العمارة المصرية التراثية من الكرنك إلى القباب والمشربيات الإسلامية، فلسفة حسن فتحي وعمارة الطين، التصميم الجرافيكي والصناعي، ومعايير اختبارات القدرات الفنية.',
       isFullyEquipped: true,

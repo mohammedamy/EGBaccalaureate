@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **22 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, and Business Administration & Entrepreneurship).
-- **50 Total Branches** (25 Thanaweya Amma + 25 EG-Baccalaureate).
-- **273 Fully Equipped Chapters** (143 Thanaweya + 130 EG-Bac).
-- **54,600 Total Curriculum Problems**:
-  - 2,730 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 4,095 Practice Exercises with hints, scaffolding, and verification.
-  - 47,775 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **20 Interactive Virtual Laboratories & Simulation Studios**.
+- **23 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, and Fine Arts & Visual Architecture).
+- **52 Total Branches** (26 Thanaweya Amma + 26 EG-Baccalaureate).
+- **281 Fully Equipped Chapters** (147 Thanaweya + 134 EG-Bac).
+- **56,200 Total Curriculum Problems**:
+  - 2,810 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 4,215 Practice Exercises with hints, scaffolding, and verification.
+  - 49,175 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **21 Interactive Virtual Laboratories & Simulation Studios**.
 - **53 Official Ministry Textbooks & Formula Compendiums**.
-- **150 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 25 disciplines).
+- **150 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 26 disciplines).
 - **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (22 Core Disciplines)
+## 📚 Accredited Subject Tracks (23 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -48,11 +48,12 @@
 | **20** | **Islamic Religious Education** | التربية الدينية الإسلامية | Islamic Religious Education | Comparative Quranic Ethics & Islamic Thought | 8 | 1,600 |
 | **21** | **Christian Religious Education** | التربية الدينية المسيحية | Christian Religious Education | Christian Hermeneutics, Dogmatics & Monastic Heritage | 8 | 1,600 |
 | **22** | **Business & Entrepreneurship** | إدارة الأعمال وريادة الأعمال | Business Administration & Entrepreneurship | Corporate Strategy, Finance & Tech Entrepreneurship | 8 | 1,600 |
-| **Total** | **22 Subjects** | **٢٢ مادة معتمدة** | **25 Branches (143 Chapters)** | **25 Branches (130 Chapters)** | **273** | **54,600** |
+| **23** | **Fine Arts & Visual Architecture** | التربية الفنية والفنون البصرية والعمارة | Fine Arts & Visual Design | Architectural Heritage & Spatial Aesthetics | 8 | 1,600 |
+| **Total** | **23 Subjects** | **٢٣ مادة معتمدة** | **26 Branches (147 Chapters)** | **26 Branches (134 Chapters)** | **281** | **56,200** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (20 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (21 Studios)
 
 ClipSAT provides immersive digital laboratories equipped with real-time math, physics, linguistic and simulation engines, dynamic SVG graphing, and parameter controls:
 
@@ -109,7 +110,8 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Electoral Seat Allocator (Sainte-Laguë & D’Hondt Algorithms)**: Authentic PR quotient calculations, highest averages table, and threshold compliance.
     - **Civic Scenario Sandbox**: Real-world civic dilemma analysis with human rights treaty compliance and constitutional article citations.
 18. **Islamic Studies & Quranic Sciences Studio** (`IslamicStudiesStudio.tsx`):
-    - **Tajweed & Quranic Recitation Engine**: Interactive rules of Nun Sakinah, Tanween, Meem Sakinah, and Madd with Uthmanic script.
+    - **Authentic Al-Hussary Recitation Audio Engine**: Authentic high-fidelity Quranic recitation recordings by Sheikh Mahmoud Khalil Al-Hussary (فضيلة الشيخ محمود خليل الحصري رحمه الله - شيخ عموم المقارئ المصرية) streamed directly from EveryAyah in both Murattal (المصحف المرتل) and Muallim (المصحف المعلم التعليمي) modes, completely replacing synthetic computer speech to preserve the rigorous phonetic application of Tajweed rules (Nun Sakinah, Tanween, Meem Sakinah, Qalqalah, and Madd).
+    - **Tajweed & Quranic Recitation Engine**: Interactive rules of Nun Sakinah, Tanween, Meem Sakinah, Qalqalah, and Madd with authentic Uthmanic script and tajweed analysis.
     - **Maqasid al-Sharia Hierarchy**: Five universal necessities (Religion, Life, Intellect, Lineage, Wealth) with case studies.
     - **Seerah Milestones & Strategic Planning**: Prophetic timeline, treaties, and socio-economic governance.
     - **Contemporary Bioethics & AI Ethics Sandbox**: Organ donation, cloning, AI accountability, and environmental stewardship.
@@ -124,6 +126,12 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Interactive 9-Block Lean Canvas Builder**: Problem, solution, unfair advantage, channels, revenue streams, and cost structure with Egyptian startup presets.
     - **EOQ & Supply Chain Optimizer**: Economic order quantity, holding costs, ordering costs, and reorder point buffer stock formulas.
     - **Ministerial Strategic Scenario Quiz**: Real-world corporate restructuring, VC term sheets, and operational management dilemma cases.
+21. **Fine Arts, Visual Design & Architectural Heritage Studio** (`FineArtsArchitectureStudio.tsx`):
+    - **Munsell & Itten Color Harmonies**: Chromatic color wheel, complementary, split-complementary, triadic palettes, and psychological temperature.
+    - **Linear Perspective & Vanishing Point Raycaster**: 1-point, 2-point, and 3-point perspective with dynamic horizon line, orthogonal convergence, and foreshortening.
+    - **Golden Ratio ($\Phi$) & Fibonacci Divine Proportion**: Sacred geometry in the Great Pyramid of Giza, Parthenon facade, and compositional balance.
+    - **Historical Egyptian Architectural Matrix**: Chronological exploration across Ancient Pharaonic, Greco-Roman, Coptic Christian, Islamic/Mamluk, and Contemporary periods with structural load analysis.
+    - **Visual Composition & Balance Analyzer**: Rule of thirds, symmetry vs. asymmetry, visual rhythm, and focal hierarchy.
 
 ---
 
@@ -148,7 +156,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 54,600 problems and 273 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 56,200 problems and 281 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
