@@ -55,6 +55,15 @@ for (const { cur, b, c } of chapters) {
   }
 }
 
+if (databankChaptersCount !== 225) {
+  console.error(`Expected 225 databank chapters, but found ${databankChaptersCount}!`);
+  errors++;
+}
+if (totalQ !== 39375) {
+  console.error(`Expected 39,375 total questions, but found ${totalQ}!`);
+  errors++;
+}
+
 if (errors === 0) {
   console.log(`\n======================================================`);
   console.log(`ALL ${databankChaptersCount} DATABANK CHAPTERS (${totalQ} TOTAL QUESTIONS) FULLY VALIDATED!`);

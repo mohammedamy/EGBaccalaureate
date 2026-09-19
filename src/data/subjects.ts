@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'german' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -338,6 +338,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_earth_space'],
       egbac: ['egbac_earth_space'],
+    },
+  },
+  {
+    id: 'german',
+    titleEn: 'German Language (Deutsch)',
+    titleAr: 'اللغة الألمانية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'German',
+    shortTitleAr: 'الألمانية',
+    emoji: '🇩🇪',
+    iconName: 'Languages',
+    badgeColor: 'amber',
+    gradient: 'from-stone-950 via-red-800 to-amber-600',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-stone-900/90 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary German curriculum (Hallo Deutsch) and advanced academic DaF (B1/B2) for linguistic, situational, and professional fluency.',
+    descriptionAr: 'المنهج الرسمي لوزارة التربية والتعليم (Hallo Deutsch) ومسار البكالوريا المتقدم للإتقان اللغوي والتواصلي والأكاديمي (DaF B1/B2).',
+    branchIds: {
+      thanaweya: ['thanaweya_german'],
+      egbac: ['egbac_german'],
     },
   },
 ];

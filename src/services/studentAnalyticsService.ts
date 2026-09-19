@@ -143,6 +143,10 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('إنجليز') ||
     text.includes('french') ||
     text.includes('فرنس') ||
+    text.includes('german') ||
+    text.includes('ألمان') ||
+    text.includes('deutsch') ||
+    text.includes('hallo') ||
     text.includes('لغة أجنبية') ||
     text.includes('language')
   ) {

@@ -17,13 +17,14 @@ import { thanaweyaPsychologyBranch } from './thanaweyaPsychology';
 import { thanaweyaEconomicsStatBranch } from './thanaweyaEconomicsStat';
 import { thanaweyaCsInformaticsBranch } from './thanaweyaCsInformatics';
 import { thanaweyaEarthSpaceBranch } from './thanaweyaEarthSpace';
+import { thanaweyaGermanBranch } from './thanaweyaGerman';
 
 export const thanaweyaCurriculum: Curriculum = {
   id: 'thanaweya',
   nameEn: 'Egyptian General Secondary (Thanaweya Amma)',
-  nameAr: 'الثانوية العامة المصرية (الرياضيات والعلوم واللغات والعلوم الإنسانية والاقتصاد والإحصاء والحاسب الآلي وعلوم الفضاء والفلك)',
-  subtitleEn: 'Grade 12 Standardized Ministry of Education Curricula (Pure & Applied Math, Physics, Chemistry, Biology, English, French, Arabic, History, Geography, Geology, Philosophy & Logic, Psychology & Sociology, Economics & Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences)',
-  subtitleAr: 'الصف الثالث الثانوي - الصفوف الإتمامية بوزارة التربية والتعليم والتعليم الفني — فروع الرياضيات والعلوم التجريبية واللغات والتاريخ والجغرافيا والجيولوجيا والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب وعلوم الأرض والفلك والفضاء',
+  nameAr: 'الثانوية العامة المصرية (الرياضيات والعلوم واللغات والعلوم الإنسانية والاقتصاد والإحصاء والحاسب الآلي وعلوم الفضاء واللغة الألمانية)',
+  subtitleEn: 'Grade 12 Standardized Ministry of Education Curricula (Pure & Applied Math, Physics, Chemistry, Biology, English, French, German, Arabic, History, Geography, Geology, Philosophy & Logic, Psychology & Sociology, Economics & Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences)',
+  subtitleAr: 'الصف الثالث الثانوي - الصفوف الإتمامية بوزارة التربية والتعليم والتعليم الفني — فروع الرياضيات والعلوم التجريبية واللغات (الإنجليزية والفرنسية والألمانية) والتاريخ والجغرافيا والجيولوجيا والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب وعلوم الأرض والفلك والفضاء',
   moeOfficialBaselineEn: 'Egyptian MoE General Secondary Education Specifications 2025/2026',
   moeOfficialBaselineAr: 'مواصفات المناهج الرسمية الصادرة عن وزارة التربية والتعليم المصرية 2025/2026',
   branches: [
@@ -36,6 +37,7 @@ export const thanaweyaCurriculum: Curriculum = {
     thanaweyaBiologyBranch,
     thanaweyaEnglishBranch,
     thanaweyaFrenchBranch,
+    thanaweyaGermanBranch,
     thanaweyaArabicBranch,
     thanaweyaHistoryBranch,
     thanaweyaGeographyBranch,

@@ -787,6 +787,48 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr: 'بوابة كبرى للالتحاق بالشعب الفرنسية في كليات الحقوق والتجارة، كليات الألسن واللغات، والمنح الجامعية الأوروبية.',
     },
     {
+      id: 'german_bridge',
+      titleEn: 'German: Second Foreign Language, CEFR A2/B1 Fluency & DACH Regional Studies',
+      titleAr: 'اللغة الألمانية: اللغة الأجنبية الثانية، الكفاءة اللغوية والدراسات الإقليمية لدول DACH',
+      icon: <Languages className="w-5 h-5 text-amber-500" />,
+      thanaweyaBranchId: 'thanaweya_german',
+      egBacBranchId: 'egbac_german',
+      thanaweyaTitleEn: 'Complete 4-Chapter Curriculum: Health & Doctor, City Orientation, Customer Service & Celebrations',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ فصول): الصحة والطبيب، التنقل والاتجاهات، خدمة العملاء والملابس، والأعياد والمناسبات',
+      thanaweyaTopicsEn: [
+        'Lektion 10 Gesundheit & Körperteile: Physical ailments, Dativ personal pronouns (mir, dir, ihm, ihr), doctor consultations & modal verbs (sollen, müssen)',
+        'Lektion 11 Orientierung & Verkehrsmittel: Urban landmarks, transport prepositions with Dativ (mit dem/der, zu, nach), imperative directions',
+        'Lektion 12 Kundenservice & Reparaturen: Service dialogues, polite request subjunctive (könnten/würden Sie), separable verbs & accusative/dative clothing',
+        'Lektion 13 Feste & Einladungen: Calendar dates, ordinal numbers (am ...ten), congratulations (Alles Gute, Herzlichen Glückwunsch) & invitation etiquette',
+      ],
+      thanaweyaTopicsAr: [
+        'الدرس ١٠ الصحة وأجزاء الجسم: التعبير عن الآلام، ضمائر المجرور الشخصية (mir, dir, ihm, ihr)، زيارة الطبيب والأفعال الناقصة (sollen, müssen)',
+        'الدرس ١١ التنقل والاتجاهات: معالم المدينة، حروف جر وسائل المواصلات والاتجاهات في حالة الجر (mit dem/der, zu, nach)، وصيغ الأمر للتوجيه',
+        'الدرس ١٢ خدمة العملاء والإصلاح: حوارات الدعم الفني، صيغة الطلب المهذب (könnten/würden Sie)، الأفعال المنفصلة ومفردات الملابس والمقاسات',
+        'الدرس ١٣ الأعياد والاحتفالات: التواريخ والأعداد الترتيبية (am ...ten)، عبارات التهاني والبطاقات، وقبول الدعوات أو الاعتذار عنها بلباقة',
+      ],
+      egBacTitleEn: 'Advanced 4-Module CEFR B1/B2 Academic German, Syntactic Synthesis & DACH Culture Track',
+      egBacTitleAr: 'المسار المتقدم (٤ موديولات): الألمانية الأكاديمية لمستوى B1/B2، التركيب النحوي المعقد، والثقافة المشتركة لدول DACH',
+      egBacTopicsEn: [
+        'Module 1 Medical & Scientific Communication: Advanced health systems, hypothetical consultations in Konjunktiv II & passive voice in medical reports',
+        'Module 2 Sustainable Urbanism & Mobility: Urban spatial syntax, two-way prepositions (Wechselpräpositionen with Akk/Dat) & relative clauses',
+        'Module 3 Technical Support & Digital Industry: Industrial customer interaction, consumer rights, Zustandspassiv vs Vorgangspassiv & causal connectors',
+        'Module 4 Socio-Cultural Celebrations & Public Discourse: DACH regional traditions, festival history, subjunction clauses (weil, dass, obwohl, wenn) & academic essays',
+      ],
+      egBacTopicsAr: [
+        'الموديول ١ التواصل العلمي والطبي: النظم الصحية المتقدمة، الاستشارات الافتراضية بصيغة التمني Konjunktiv II، والمبني للمجهول في التقارير الطبية',
+        'الموديول ٢ التخطيط الحضري والتنقل المستدام: دلالات المكان الحضرية، حروف الجر ذات الحالتين (Wechselpräpositionen) والجمل الموصولة (Relativsätze)',
+        'الموديول ٣ الدعم التقني والتحول الرقمي: التعامل التجاري والصناعي، حقوق المستهلك، التمييز بين نوعي المبني للمجهول، وروابط السببية والنتيجة',
+        'الموديول ٤ المناسبات والخطاب المجتمعي: تقاليد دول ألمانيا والنمسا وسويسرا (DACH)، الروابط التبعية (weil, dass, obwohl, wenn)، وكتابة المقال الأكاديمي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers an exhaustive, high-scoring mastery of Hallo Deutsch grammar rules, situational drills, and OMR exam patterns. EG-Bac expands this into B1/B2 academic German, complex subjunctive/passive syntax, and university preparatory discourse in DACH countries.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً شاملاً ومحكماً لقواعد منهج Hallo Deutsch وتدريبات المواقف اليومية ونظام البابل شيت، بينما ترتقي البكالوريا بمستوى التراكيب المعقدة (Konjunktiv II, Passiv, Nebensätze) مؤهلة للدراسة الجامعية في ألمانيا والنمسا وسويسرا.',
+      universityAdvantageEn: 'Direct readiness for Studienkolleg / German-medium university programs in Engineering, Medicine, Informatics, and Alsun German departments.',
+      universityAdvantageAr: 'تأهيل مباشر لبرامج السنة التحضيرية (Studienkolleg) والجامعات الألمانية في كليات الهندسة والطب وعلوم الحاسب وكليات الألسن واللغات والترجمة.',
+    },
+    {
       id: 'economics_stat_bridge',
       titleEn: 'Economics & Applied Statistics: Macroeconomic Principles & Stochastic Inference',
       titleAr: 'الاقتصاد والإحصاء التطبيقي: مبادئ الاقتصاد الكلي والاستدلال العشوائي',
@@ -1022,8 +1064,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(15) : '15'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٨ فرعاً لكل مسار)' : 'Subjects (18 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(16) : '16'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٩ فرعاً لكل مسار)' : 'Subjects (19 branches/track)'}</span>
             </div>
           </div>
 
@@ -1063,7 +1105,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٥ مادة • ١٨ فرعاً • ١١٥ فصلاً' : 'National Standard Track • 15 Subjects • 18 Branches • 115 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٦ مادة • ١٩ فرعاً • ١١٩ فصلاً' : 'National Standard Track • 16 Subjects • 19 Branches • 119 Chapters'}
                 </p>
               </div>
             </div>
@@ -1101,7 +1143,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-              <span>{isArabic ? 'اللغات: اللغة العربية، اللغة الإنجليزية، واللغة الفرنسية (١٤ فصلاً)' : 'Languages: Arabic Language, English, and French (14 Ch)'}</span>
+              <span>{isArabic ? 'اللغات: اللغة العربية، اللغة الإنجليزية، اللغة الفرنسية، واللغة الألمانية (١٨ فصلاً)' : 'Languages: Arabic Language, English, French, and German (18 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
@@ -1138,7 +1180,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٥ مادة • ١٨ فرعاً • ١٠٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 15 Subjects • 18 Branches • 102 Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٦ مادة • ١٩ فرعاً • ١٠٦ فصول مكثفة' : 'International STEM & Humanities Track • 16 Subjects • 19 Branches • 106 Chapters'}
                 </p>
               </div>
             </div>
@@ -1176,7 +1218,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
-              <span>{isArabic ? 'اللسانيات واللغات: اللسانيات العربية، الخطاب الأكاديمي الإنجليزي، واللغة الفرنسية (١٤ فصلاً)' : 'Linguistics & Languages: Arabic Linguistics, C1 Academic English, French Fluency (14 Ch)'}</span>
+              <span>{isArabic ? 'اللسانيات واللغات: اللسانيات العربية، الخطاب الأكاديمي الإنجليزي، اللغة الفرنسية، والألمانية الأكاديمية (١٨ فصلاً)' : 'Linguistics & Languages: Arabic Linguistics, C1 Academic English, French Fluency, German Academic DaF (18 Ch)'}</span>
             </div>
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />

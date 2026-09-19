@@ -31,6 +31,7 @@ import { PsychologyStudio } from './labs/PsychologyStudio';
 import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
 import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
 import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
+import { GermanLanguageStudio } from './labs/GermanLanguageStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -269,6 +270,16 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={false}
             />
           );
+        case 'german_audio_lab':
+        case 'german_grammar_lab':
+        case 'german_cases_matrix':
+          return (
+            <GermanLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          );
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -492,6 +503,16 @@ export const LessonView: React.FC<Props> = ({
         case 'french_grammar_lab':
           return (
             <FrenchAudioStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+            />
+          );
+        case 'german_audio_lab':
+        case 'german_grammar_lab':
+        case 'german_cases_matrix':
+          return (
+            <GermanLanguageStudio
               lang={lang}
               theme={theme}
               isFullscreen={true}

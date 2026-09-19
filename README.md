@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **15 Accredited Subject Tracks** (Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, Economics & Applied Statistics, Computer Science & Informatics, and Earth & Planetary Space Sciences).
-- **36 Total Branches** (18 Thanaweya Amma + 18 EG-Baccalaureate).
-- **217 Fully Equipped Chapters** (115 Thanaweya + 102 EG-Bac).
-- **43,400 Total Curriculum Problems**:
-  - 2,170 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 3,255 Practice Exercises with hints, scaffolding, and verification.
-  - 37,975 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **13 Interactive Virtual Laboratories & Simulation Studios**.
-- **26 Downloadable Official Ministry Textbooks & Formula Compendiums**.
-- **108 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models).
-- **Official Ministerial 3-Hour Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
+- **16 Accredited Subject Tracks** (Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Economics & Applied Statistics, Computer Science & Informatics, and Earth & Planetary Space Sciences).
+- **38 Total Branches** (19 Thanaweya Amma + 19 EG-Baccalaureate).
+- **225 Fully Equipped Chapters** (119 Thanaweya + 106 EG-Bac).
+- **45,000 Total Curriculum Problems**:
+  - 2,250 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 3,375 Practice Exercises with hints, scaffolding, and verification.
+  - 39,375 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **14 Interactive Virtual Laboratories & Simulation Studios**.
+- **28 Downloadable Official Ministry Textbooks & Formula Compendiums**.
+- **114 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models).
+- **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (15 Core Disciplines)
+## 📚 Accredited Subject Tracks (16 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -38,16 +38,17 @@
 | **10** | **Arabic** | اللغة العربية وآدابها | Arabic Language & Literature | Arabic Linguistics & Comparative Rhetoric | 8 | 1,600 |
 | **11** | **English** | اللغة الإنجليزية (الأولى) | English Language (First Foreign) | C1 Academic Discourse & Analytical Writing | 12 | 2,400 |
 | **12** | **French** | اللغة الفرنسية (الثانية) | French (Club @dos Plus 3) | Francophone Sociocultural Communication | 8 | 1,600 |
-| **13** | **Economics & Statistics** | الاقتصاد والإحصاء التطبيقي | Economics & Applied Statistics | Quantitative Macroeconomics & Statistics | 20 | 4,000 |
-| **14** | **Computer Science & Informatics** | علوم الحاسب والمعلوماتية والذكاء الاصطناعي | Computer Science, Informatics & AI | Computational Systems, Distributed Architectures & AI | 20 | 4,000 |
-| **15** | **Earth & Space Sciences** | علوم الأرض والفلك: علوم الفضاء والكواكب | Earth & Planetary Space Sciences | Planetary Space Systems & Astrophysics | 20 | 4,000 |
-| **Total** | **15 Subjects** | **١٥ مادة معتمدة** | **18 Branches (115 Chapters)** | **18 Branches (102 Chapters)** | **217** | **43,400** |
+| **13** | **German** | اللغة الألمانية (الثانية) | German (Hallo Deutsch Klasse 12) | Advanced Academic German (DaF B1/B2) | 8 | 1,600 |
+| **14** | **Economics & Statistics** | الاقتصاد والإحصاء التطبيقي | Economics & Applied Statistics | Quantitative Macroeconomics & Statistics | 20 | 4,000 |
+| **15** | **Computer Science & Informatics** | علوم الحاسب والمعلوماتية والذكاء الاصطناعي | Computer Science, Informatics & AI | Computational Systems, Distributed Architectures & AI | 20 | 4,000 |
+| **16** | **Earth & Space Sciences** | علوم الأرض والفلك: علوم الفضاء والكواكب | Earth & Planetary Space Sciences | Planetary Space Systems & Astrophysics | 20 | 4,000 |
+| **Total** | **16 Subjects** | **١٦ مادة معتمدة** | **19 Branches (119 Chapters)** | **19 Branches (106 Chapters)** | **225** | **45,000** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (13 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (14 Studios)
 
-ClipSAT provides immersive digital laboratories equipped with real-time math and physics engines, dynamic SVG graphing, and parameter controls:
+ClipSAT provides immersive digital laboratories equipped with real-time math, physics, linguistic and simulation engines, dynamic SVG graphing, and parameter controls:
 
 1. **Optics & Electromagnetic Laboratory** (`OpticsBenchLab.tsx`): Lens/mirror ray optics, diffraction gratings, Young's double-slit interference, Snell's law refraction.
 2. **AC Circuits, Resonance & Electromagnetism Studio** (`Induction3DStudio.tsx`): Faraday induction, Lenz's law, RLC resonance phasors, Coolidge X-ray tube simulation.
@@ -77,6 +78,12 @@ ClipSAT provides immersive digital laboratories equipped with real-time math and
     - **Hertzsprung-Russell (H-R) Diagram & Stellar Evolution**: Spectral classification (O, B, A, F, G, K, M), luminosity classes (Main Sequence, Giants, Supergiants, White Dwarfs), and stellar life-track curves.
     - **Hohmann Interplanetary Transfer & Rocket Dynamics**: Orbital transfer $\Delta v$ staging, Tsiolkovsky rocket equation, thrust-to-weight ratio, and specific impulse ($I_{sp}$).
     - **Multispectral Remote Sensing & NDVI Spectrometer**: Reflectance curve analysis across Blue, Green, Red, and Near-Infrared (NIR) bands with automated NDVI vegetative indexing.
+14. **German Audio, Grammar & Situations Studio** (`GermanLanguageStudio.tsx`):
+    - **Phonetics & Umlaut Audio Studio**: SpeechSynthesis (`de-DE`) playback for Umlauts (ä, ö, ü), diphthongs (ei, ie, eu), and consonants (ch, sp, st, sch) with IPA notation.
+    - **Interactive 4 Kasus Matrix**: Gender-based declensions across Nominativ, Akkusativ, Dativ, and Genitiv with definite/indefinite/negative articles and possessives.
+    - **Modalverben & Satzklammer Engine**: Modal verbs (müssen, sollen, wollen, dürfen, können, möchten) with main clause bracket syntax and modal participle placement.
+    - **Dativ & Two-Way Prepositions Laboratory**: Fixed Dative prepositions (aus, bei, mit, nach, seit, von, zu) and Wechselpräpositionen (an, auf, in, neben, etc.) with Akkusativ motion vs. Dativ position diagnostics.
+    - **Alltagssituationen & Hörverstehen Trainer**: Authentic Egyptian ministerial communicative situation dialogues (doctor, transport, customer repairs, celebrations) with trap analysis.
 
 ---
 
@@ -86,6 +93,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math and
   - 46 questions, 60 marks, 180 minutes (Science & Humanities).
   - 55 questions, 80 marks, 180 minutes (Arabic).
   - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, and Earth & Space Sciences).
+  - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French & German).
   - 20 questions, 30 marks, 120 minutes (Individual Mathematics Branches).
 - **Official Question Formats**: Forms A, B, C, and D with randomized permutation.
 - **Full OMR Bubble Sheet**: Grid view with answer bubbling, timer countdown, and ministerial certificate generation upon submission.
@@ -99,7 +107,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math and
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 43,400 problems and 217 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 45,000 problems and 225 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
@@ -119,7 +127,7 @@ npm run build
 
 ### Running Test Verification Suites
 ```bash
-# Run comprehensive test suite (35 test scripts)
+# Run comprehensive test suite (36 test scripts)
 npm test
 
 # Verify Economics & Statistics Subject specifically
@@ -130,6 +138,9 @@ npm run test:cs-informatics
 
 # Verify Earth & Planetary Space Sciences Subject specifically
 npm run test:earth-space
+
+# Verify German Language Subject specifically
+npm run test:german
 ```
 ```
 

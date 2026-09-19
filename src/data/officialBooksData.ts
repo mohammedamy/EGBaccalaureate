@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -2451,6 +2451,106 @@ export const officialBooksList: OfficialBook[] = [
       'بروتوكولات الأمان الحيوي لحماية الكواكب، معاهدة القمر، واستغلال الموارد الفضائية ISRU'
     ]
   },
+
+  // 40. Thanaweya German Language (Hallo Deutsch für die Sekundarstufe - Klasse 12)
+  {
+    id: 'th-german-g12',
+    curriculum: 'thanaweya',
+    category: 'german',
+    subjectId: 'german',
+    branchId: 'thanaweya_german',
+    code: 'TH-DE-HALLO-G12',
+    titleEn: 'German Language: Hallo Deutsch (Klasse 12)',
+    titleAr: 'اللغة الألمانية: منهج Hallo Deutsch للصف الثالث الثانوي',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 220,
+    fileSize: '18.8 MB',
+    compendiumTitleEn: 'Hallo Deutsch Klasse 12 Grammar & Situations Compendium',
+    compendiumTitleAr: 'ملخص قواعد ومفردات ومواقف اللغة الألمانية الرسمي (Hallo Deutsch)',
+    filename: 'thanaweya-german.pdf',
+    downloadUrl: '/books/thanaweya-german.pdf',
+    fullTextbookPages: 245,
+    fullTextbookSize: '35.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-amber-600 via-yellow-600 to-zinc-900',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'th-de-c1', titleEn: 'Lektion 10 : Gesundheit, Körperteile und beim Arzt', titleAr: 'الدرس العاشر: الصحة وأجزاء الجسم والعيادة الطبية', pageRange: 'pp. 1–55', topicsCount: 4 },
+      { id: 'th-de-c2', titleEn: 'Lektion 11 : In der Stadt, Orientierung und Verkehrsmittel', titleAr: 'الدرس الحادي عشر: في المدينة والتوجيه ووسائل المواصلات', pageRange: 'pp. 56–110', topicsCount: 4 },
+      { id: 'th-de-c3', titleEn: 'Lektion 12 : Kundenservice, Reparaturen und Kleidung', titleAr: 'الدرس الثاني عشر: خدمة العملاء والإصلاحات والملابس والمقاسات', pageRange: 'pp. 111–165', topicsCount: 4 },
+      { id: 'th-de-c4', titleEn: 'Lektion 13 : Feste, Feiern und Glückwünsche', titleAr: 'الدرس الثالث عشر: الحفلات والمناسبات الاجتماعية والتهاني', pageRange: 'pp. 166–220', topicsCount: 4 },
+    ],
+    descriptionEn: 'Official Egyptian Ministry German textbook (Hallo Deutsch für die Sekundarstufe - Klasse 12), providing comprehensive training in medical dialogues, city orientation, customer service & repairs, and celebrations, with thorough coverage of Dativ, Modalverben, Imperativ, and Wechselpräpositionen.',
+    descriptionAr: 'كتاب اللغة الألمانية الرسمي المعتمد من وزارة التربية والتعليم (Hallo Deutsch) للصف الثالث الثانوي، يغطي موضوعات الصحة والطبيب، التنقل والاتجاهات، خدمات الصيانة والمشتريات، والمناسبات والاحتفالات، مع تدريبات شاملة على الداتيف وحروف الجر المزدوجة والمواقف اليومية.',
+    highlightsEn: [
+      'Health vocabulary, body parts, Dativ personal pronouns (mir, dir, ihm, ihr), and doctor appointments',
+      'City orientation, transport prepositions with Dative (mit dem/der, zu, nach), and path inquiries',
+      'Customer service dialogues, modal verbs (müssen, sollen, wollen, dürfen), and polite requests (höfliche Bitte)',
+      'Celebrations, calendar dates, ordinals (am ...ten), and greeting situations with invitation responses',
+    ],
+    highlightsAr: [
+      'مفردات الصحة وأعضاء الجسم، ضمائر المجرور الشخصية (mir, dir, ihm, ihr)، والمحادثات الطبية',
+      'الاتجاهات في المدينة، حروف جر وسائل المواصلات والاتجاهات (mit, zu, nach) وحالة المجرور (Dativ)',
+      'حوارات خدمة العملاء والإصلاح، الأفعال الناقصة (müssen, sollen, dürfen)، والطلب المهذب (könnten/würden)',
+      'الأعياد والتهاني، الأعداد الترتيبية والتواريخ (am ...ten)، والرد على الدعوات والمناسبات',
+    ],
+  },
+
+  // 41. EG-Bac Advanced Academic German (DaF B1/B2)
+  {
+    id: 'egbac-german-g12',
+    curriculum: 'egbac',
+    category: 'german',
+    subjectId: 'german',
+    branchId: 'egbac_german',
+    code: 'EGBAC-DE-ADV-G12',
+    titleEn: 'Advanced Academic German (DaF B1/B2)',
+    titleAr: 'اللغة الألمانية الأكاديمية المتقدمة (EG-Bac DaF B1/B2)',
+    subtitleEn: 'Egyptian Baccalaureate Advanced Modern Languages Track',
+    subtitleAr: 'المسار المتقدم للبكالوريا المصرية - المستوى النهائي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Terminale / Year 12 (Egyptian Baccalaureate)',
+    gradeAr: 'المستوى النهائي (شهادة البكالوريا المصرية)',
+    publisherEn: 'Egyptian Baccalaureate Curriculum & Standards Authority',
+    publisherAr: 'هيئة المناهج والمعايير للبكالوريا المصرية',
+    pagesCount: 240,
+    fileSize: '21.0 MB',
+    compendiumTitleEn: 'Advanced Academic German & Grammar Compendium',
+    compendiumTitleAr: 'دليل الألمانية الأكاديمية وقواعد المستويات المتقدمة DaF',
+    filename: 'egbac-german.pdf',
+    downloadUrl: '/books/egbac-german.pdf',
+    fullTextbookPages: 270,
+    fullTextbookSize: '38.5 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-amber-600 via-yellow-600 to-zinc-900',
+    accentColor: '#d97706',
+    chapters: [
+      { id: 'egbac-de-c1', titleEn: 'Modul 1 : Wissenschaftliche Kommunikation & Gesundheitssysteme', titleAr: 'الموديول الأول: التواصل العلمي والأنظمة الصحية والطبية', pageRange: 'pp. 1–60', topicsCount: 4 },
+      { id: 'egbac-de-c2', titleEn: 'Modul 2 : Urbane Infrastruktur, Mobilität & Raumorientierung', titleAr: 'الموديول الثاني: البنية الحضرية والتنقل والاستدامة المكانية', pageRange: 'pp. 61–120', topicsCount: 4 },
+      { id: 'egbac-de-c3', titleEn: 'Modul 3 : Technischer Kundenservice & Digitale Transformation', titleAr: 'الموديول الثالث: خدمة الدعم الفني والتحول الرقمي والأجهزة', pageRange: 'pp. 121–180', topicsCount: 4 },
+      { id: 'egbac-de-c4', titleEn: 'Modul 4 : Interkulturelle Feste, Traditionen & Soziale Dynamik', titleAr: 'الموديول الرابع: الثقافات المقارنة والتقاليد والخطاب الأكاديمي', pageRange: 'pp. 181–240', topicsCount: 4 },
+    ],
+    descriptionEn: 'Egyptian Baccalaureate advanced German curriculum (DaF B1/B2 level), mastering complex syntactic structures including Konjunktiv II, Passiv, Relativsätze in all four cases, and Nebensätze with Subjunktoren (weil, dass, wenn, obwohl), preparing students for university studies in DACH countries.',
+    descriptionAr: 'منهج اللغة الألمانية المتقدمة للبكالوريا المصرية (مستوى DaF B1/B2)، يطور الكفاءة اللغوية والأكاديمية في التراكيب المركبة (صيغة التمني Konjunktiv II، المبني للمجهول Passiv، الجمل الموصولة Relativsätze، والروابط التبعية)، مؤهلاً الطلاب للدراسة الجامعية بالدول الناطقة بالألمانية.',
+    highlightsEn: [
+      'Advanced medical and scientific terminology with Konjunktiv II for hypothetical consultation',
+      'Urban engineering, transport infrastructure, and Wechselpräpositionen in complex spatial contexts',
+      'Technical support discourse, consumer law, and Passiv construction across present and past tenses',
+      'Intercultural socio-cultural celebrations, comparative essays, and formal academic presentations',
+    ],
+    highlightsAr: [
+      'المصطلحات الطبية والأكاديمية وصيغة الافتراض والتمني (Konjunktiv II) في الاستشارات',
+      'الهندسة الحضرية وحروف الجر ذات الحالتين (Wechselpräpositionen) في سياقات الحركة والسكون المركبة',
+      'خطاب الدعم التقني وصيغ المبني للمجهول (Passiv) في الأزمنة المختلفة والتعبير عن الإلزام',
+      'المناسبات والتقاليد الاجتماعية المقارنة، كتابة المقالات النقدية، والعروض التقديمية الأكاديمية الرسمية',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -2474,6 +2574,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_english' && (b.branchId === 'egbac_english' || b.id === 'egbac-english-g12')) return true;
     if (branchId === 'thanaweya_french' && (b.branchId === 'thanaweya_french' || b.id === 'th-french-g12')) return true;
     if (branchId === 'egbac_french' && (b.branchId === 'egbac_french' || b.id === 'egbac-french-g12')) return true;
+    if (branchId === 'thanaweya_german' && (b.branchId === 'thanaweya_german' || b.id === 'th-german-g12')) return true;
+    if (branchId === 'egbac_german' && (b.branchId === 'egbac_german' || b.id === 'egbac-german-g12')) return true;
     if (branchId === 'thanaweya_history' && (b.branchId === 'thanaweya_history' || b.id === 'th-history-g12')) return true;
     if (branchId === 'egbac_history' && (b.branchId === 'egbac_history' || b.id === 'egbac-history-g12')) return true;
     if (branchId === 'thanaweya_geography' && (b.branchId === 'thanaweya_geography' || b.id === 'th-geography-g12')) return true;
@@ -2499,7 +2601,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

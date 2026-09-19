@@ -21,6 +21,7 @@ export type BranchId =
   | 'thanaweya_economics_stat'
   | 'thanaweya_cs_informatics'
   | 'thanaweya_earth_space'
+  | 'thanaweya_german'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -38,7 +39,8 @@ export type BranchId =
   | 'egbac_psychology'
   | 'egbac_economics_stat'
   | 'egbac_cs_informatics'
-  | 'egbac_earth_space';
+  | 'egbac_earth_space'
+  | 'egbac_german';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -226,6 +228,9 @@ export type InteractiveWidgetType =
   | 'english_audio_lab'
   | 'french_audio_lab'
   | 'french_grammar_lab'
+  | 'german_audio_lab'
+  | 'german_grammar_lab'
+  | 'german_cases_matrix'
   | 'arabic_grammar_lab'
   | 'arabic_rhetoric_lab'
   | 'geopolitical_map'

@@ -31,6 +31,7 @@ const subjectsToTest = [
   { subject: 'arabic', expectedQ: 55, expectedMarks: 80, expectedDuration: 180 },
   { subject: 'english', expectedQ: 37, expectedMarks: 50, expectedDuration: 180 },
   { subject: 'french', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
+  { subject: 'german', expectedQ: 31, expectedMarks: 40, expectedDuration: 120 },
   { subject: 'philosophy', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'psychology', expectedQ: 46, expectedMarks: 60, expectedDuration: 180 },
   { subject: 'economics_stat', expectedQ: 40, expectedMarks: 50, expectedDuration: 180 },

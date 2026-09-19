@@ -34,6 +34,7 @@ import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
 import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
 import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
+import { GermanLanguageStudio } from './labs/GermanLanguageStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
@@ -73,7 +74,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'geography') return 'geography';
     if (selectedSubject === 'economics_stat') return 'economics_stat';
     if (selectedSubject === 'cs_informatics') return 'cs_informatics';
-    if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
+    if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german') return 'languages';
     return 'math';
   };
 
@@ -82,7 +83,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
-  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic'>('english');
+  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic' | 'german'>('english');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
@@ -101,10 +102,11 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
-    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') {
+    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german') {
       setActiveLab('languages');
       if (selectedSubject === 'arabic') setActiveLangSubLab('arabic');
       else if (selectedSubject === 'french') setActiveLangSubLab('french');
+      else if (selectedSubject === 'german') setActiveLangSubLab('german');
       else if (selectedSubject === 'english') setActiveLangSubLab('english');
     }
   }, [selectedSubject]);
@@ -774,6 +776,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 {[
                   { id: 'english', labelAr: '🇬🇧 صوتيات واستماع الإنجليزية', labelEn: '🇬🇧 English Audio & Phonetics', color: 'from-blue-600 to-indigo-600' },
                   { id: 'french', labelAr: '🇫🇷 محطة الاستماع الفرنسية', labelEn: '🇫🇷 French Audio Station', color: 'from-cyan-600 to-blue-600' },
+                  { id: 'german', labelAr: '🇩🇪 صوتيات وقواعد واستماع الألمانية', labelEn: '🇩🇪 German Audio & Grammar', color: 'from-amber-600 to-yellow-600' },
                   { id: 'arabic', labelAr: '🇪🇬 استوديو النحو والبلاغة العربية', labelEn: '🇪🇬 Arabic Grammar & Rhetoric', color: 'from-emerald-600 to-teal-600' },
                 ].map((station) => {
                   const isSelected = activeLangSubLab === station.id;
@@ -781,7 +784,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     <button
                       key={station.id}
                       type="button"
-                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic')}
+                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic' | 'german')}
                       className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
                         isSelected
                           ? `bg-gradient-to-r ${station.color} text-white shadow-md shadow-indigo-600/30`
@@ -807,6 +810,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
 
             {activeLangSubLab === 'french' && (
               <FrenchAudioStudio
+                lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+                isFullscreen={false}
+              />
+            )}
+
+            {activeLangSubLab === 'german' && (
+              <GermanLanguageStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
                 isFullscreen={false}
