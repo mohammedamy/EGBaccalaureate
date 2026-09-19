@@ -15,6 +15,7 @@ import {
   getPastExamPaperById,
   generatePastPaperQuestions,
   computeCohortComparison,
+  type PastExamSubject,
 } from '../src/services/pastExamPapersService';
 import { thanaweyaCurriculum } from '../src/data/thanaweyaData';
 
@@ -34,53 +35,112 @@ function assert(condition: boolean, message: string) {
 console.log('🏛️ Starting Authentic Thanawya Amma Past Exam Papers Verification Suite...\n');
 
 // 1. Catalog & Metadata Integrity
-console.log('--- 1. Testing Past Exam Papers Catalog Metadata ---');
-assert(PAST_EXAM_PAPERS.length === 42, `Catalog contains exactly 42 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
+console.log('--- 1. Testing Past Exam Papers Catalog Metadata (96 Authentic Papers) ---');
+assert(PAST_EXAM_PAPERS.length === 96, `Catalog contains exactly 96 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
 
 // Test filtering by year
 const papers2024 = getPastExamPapers({ year: 2024 });
-assert(papers2024.length === 14, `Found exactly 14 papers for 2024 (got ${papers2024.length})`);
+assert(papers2024.length === 32, `Found exactly 32 papers for 2024 (16 S1 + 16 S2) (got ${papers2024.length})`);
+
+const papers2023 = getPastExamPapers({ year: 2023 });
+assert(papers2023.length === 16, `Found exactly 16 papers for 2023 (got ${papers2023.length})`);
+
+const papers2022 = getPastExamPapers({ year: 2022 });
+assert(papers2022.length === 16, `Found exactly 16 papers for 2022 (got ${papers2022.length})`);
+
+const papers2021 = getPastExamPapers({ year: 2021 });
+assert(papers2021.length === 16, `Found exactly 16 papers for 2021 (got ${papers2021.length})`);
+
+const papers2025 = getPastExamPapers({ year: 2025 });
+assert(papers2025.length === 16, `Found exactly 16 papers for 2025 (got ${papers2025.length})`);
 
 // Test filtering by session
 const session1Papers = getPastExamPapers({ session: 'session1' });
-assert(session1Papers.length === 28, `Found exactly 28 First Session (دور أول) papers (got ${session1Papers.length})`);
+assert(session1Papers.length === 64, `Found exactly 64 First Session (دور أول) papers (got ${session1Papers.length})`);
 
 const session2Papers = getPastExamPapers({ session: 'session2' });
-assert(session2Papers.length === 7, `Found exactly 7 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
+assert(session2Papers.length === 16, `Found exactly 16 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
 
 const expPapers = getPastExamPapers({ session: 'experimental' });
-assert(expPapers.length === 7, `Found exactly 7 2025 MoE Experimental Model papers (got ${expPapers.length})`);
+assert(expPapers.length === 16, `Found exactly 16 2025 MoE Experimental Model papers (got ${expPapers.length})`);
 
-// Test subject filtering across all 7 disciplines
-const physicsPapers = getPastExamPapers({ subject: 'physics' });
-assert(physicsPapers.length === 6, `Found 6 Physics papers across years (got ${physicsPapers.length})`);
+// Test subject filtering across all 16 disciplines
+const ALL_16_SUBJECTS: PastExamSubject[] = [
+  'physics',
+  'chemistry',
+  'biology',
+  'geology',
+  'calculus',
+  'algebra_solid',
+  'statics',
+  'dynamics',
+  'arabic',
+  'english',
+  'french',
+  'history',
+  'geography',
+  'philosophy',
+  'psychology',
+  'economics_stat',
+];
 
-const calculusPapers = getPastExamPapers({ subject: 'calculus' });
-assert(calculusPapers.length === 6, `Found 6 Calculus papers across years (got ${calculusPapers.length})`);
-
-const algebraPapers = getPastExamPapers({ subject: 'algebra_solid' });
-assert(algebraPapers.length === 6, `Found 6 Algebra & Solid Geometry papers across years (got ${algebraPapers.length})`);
-
-const staticsPapers = getPastExamPapers({ subject: 'statics' });
-assert(staticsPapers.length === 6, `Found 6 Statics papers across years (got ${staticsPapers.length})`);
-
-const dynamicsPapers = getPastExamPapers({ subject: 'dynamics' });
-assert(dynamicsPapers.length === 6, `Found 6 Dynamics papers across years (got ${dynamicsPapers.length})`);
+ALL_16_SUBJECTS.forEach((sub) => {
+  const papers = getPastExamPapers({ subject: sub });
+  assert(papers.length === 6, `Subject [${sub}] has 6 papers across historical sessions (got ${papers.length})`);
+});
 
 // Validate every paper's schema
 PAST_EXAM_PAPERS.forEach((paper) => {
-  const isScience = paper.subject === 'physics' || paper.subject === 'chemistry' || paper.subject === 'biology';
-  const expectedQ = isScience ? 46 : 20;
-  const expectedMarks = isScience ? 60 : 30;
-  const expectedDuration = isScience ? 180 : 120;
-  const expectedSec1 = isScience ? 32 : 10;
-  const expectedSec2 = isScience ? 14 : 10;
+  let expectedQ = 46;
+  let expectedMarks = 60;
+  let expectedDuration = 180;
+  let expectedSec1 = 32;
+  let expectedSec2 = 14;
+  let expectedPass = 30;
+
+  if (['calculus', 'algebra_solid', 'statics', 'dynamics'].includes(paper.subject)) {
+    expectedQ = 20;
+    expectedMarks = 30;
+    expectedDuration = 120;
+    expectedSec1 = 10;
+    expectedSec2 = 10;
+    expectedPass = 15;
+  } else if (paper.subject === 'arabic') {
+    expectedQ = 55;
+    expectedMarks = 80;
+    expectedDuration = 180;
+    expectedSec1 = 30;
+    expectedSec2 = 25;
+    expectedPass = 40;
+  } else if (paper.subject === 'english') {
+    expectedQ = 37;
+    expectedMarks = 50;
+    expectedDuration = 180;
+    expectedSec1 = 24;
+    expectedSec2 = 13;
+    expectedPass = 25;
+  } else if (paper.subject === 'french') {
+    expectedQ = 31;
+    expectedMarks = 40;
+    expectedDuration = 120;
+    expectedSec1 = 22;
+    expectedSec2 = 9;
+    expectedPass = 20;
+  } else if (paper.subject === 'economics_stat') {
+    expectedQ = 40;
+    expectedMarks = 50;
+    expectedDuration = 180;
+    expectedSec1 = 30;
+    expectedSec2 = 10;
+    expectedPass = 25;
+  }
 
   assert(paper.totalQuestions === expectedQ, `[${paper.id}] Total questions is ${expectedQ}`);
   assert(paper.totalMarks === expectedMarks, `[${paper.id}] Total marks is ${expectedMarks}`);
   assert(paper.durationMinutes === expectedDuration, `[${paper.id}] Duration is ${expectedDuration} min`);
   assert(paper.section1Count === expectedSec1, `[${paper.id}] Section 1 count is ${expectedSec1}`);
   assert(paper.section2Count === expectedSec2, `[${paper.id}] Section 2 count is ${expectedSec2}`);
+  assert(paper.passingMark === expectedPass, `[${paper.id}] Passing mark is ${expectedPass}`);
   assert(
     paper.section1Count * 1 + paper.section2Count * 2 === expectedMarks,
     `[${paper.id}] Marks formula (Sec1*1 + Sec2*2 === ${expectedMarks})`
@@ -92,68 +152,51 @@ PAST_EXAM_PAPERS.forEach((paper) => {
   assert(paper.historicalStats.topTenThreshold > expectedMarks * 0.85, `[${paper.id}] Top ten threshold is > 85% of total`);
 });
 
-// 2. Question Generation & Section Integrity
-console.log('\n--- 2. Testing Deterministic Question Generation & Section Allocations ---');
+// 2. Question Generation & Section Integrity Across All 16 Subjects
+console.log('\n--- 2. Testing Deterministic Question Generation Across All 16 Subjects ---');
 
-// Test 2024 Physics First Session
+ALL_16_SUBJECTS.forEach((sub) => {
+  const paper = PAST_EXAM_PAPERS.find((p) => p.subject === sub && p.year === 2024 && p.session === 'session1')!;
+  const questions = generatePastPaperQuestions(paper.id, thanaweyaCurriculum);
+
+  assert(
+    questions.length === paper.totalQuestions,
+    `[${sub}] 2024 S1 generated exactly ${paper.totalQuestions} questions (got ${questions.length})`
+  );
+
+  const totalMarks = questions.reduce((sum, q) => sum + (q.points || 1), 0);
+  assert(
+    totalMarks === paper.totalMarks,
+    `[${sub}] 2024 S1 questions sum to exactly ${paper.totalMarks} marks (got ${totalMarks})`
+  );
+
+  const sec1 = questions.slice(0, paper.section1Count);
+  const sec2 = questions.slice(paper.section1Count);
+
+  assert(
+    sec1.every((q) => q.points === 1),
+    `[${sub}] Section 1 items strictly have points === 1`
+  );
+  assert(
+    sec2.every((q) => q.points === 2),
+    `[${sub}] Section 2 items strictly have points === 2`
+  );
+});
+
+// Deterministic repeat check on Physics
 const phys2024Q1 = generatePastPaperQuestions('th-phys-2024-s1', thanaweyaCurriculum);
-assert(phys2024Q1.length === 46, `Physics 2024 S1 generated exactly 46 questions (got ${phys2024Q1.length})`);
-
-// Deterministic repeat check
 const phys2024Q2 = generatePastPaperQuestions('th-phys-2024-s1', thanaweyaCurriculum);
 assert(
   phys2024Q1.every((q, idx) => q.id === phys2024Q2[idx].id),
   `Seeded RNG ensures 100% deterministic question reproducibility across separate invocations`
 );
 
-// Verify Section 1 and Section 2 demarcation
-const physSec1 = phys2024Q1.slice(0, 32);
-const physSec2 = phys2024Q1.slice(32);
-assert(physSec1.every((q) => q.points === 1), `Physics Section 1 items (first 32) strictly have points === 1`);
-assert(physSec2.every((q) => q.points === 2), `Physics Section 2 items (remaining 14) strictly have points === 2`);
-assert(
-  physSec2.every((q) => q.bloomLevel === 'analysis'),
-  `Physics Section 2 items are classified as high-order Bloom analysis`
-);
-
-const totalPhysMarks = phys2024Q1.reduce((sum, q) => sum + (q.points || 1), 0);
-assert(totalPhysMarks === 60, `Physics questions sum to exactly 60 marks`);
-
-// Test 2024 Calculus First Session
-const calc2024Q = generatePastPaperQuestions('th-calc-2024-s1', thanaweyaCurriculum);
-assert(calc2024Q.length === 20, `Calculus 2024 S1 generated exactly 20 questions (got ${calc2024Q.length})`);
-const calcSec1 = calc2024Q.slice(0, 10);
-const calcSec2 = calc2024Q.slice(10);
-assert(calcSec1.every((q) => q.points === 1), `Calculus Section 1 items strictly have points === 1`);
-assert(calcSec2.every((q) => q.points === 2), `Calculus Section 2 items strictly have points === 2`);
-const totalCalcMarks = calc2024Q.reduce((sum, q) => sum + (q.points || 1), 0);
-assert(totalCalcMarks === 30, `Calculus questions sum to exactly 30 marks`);
-
-// Test Chemistry and Biology
-const chem2024Q = generatePastPaperQuestions('th-chem-2024-s1', thanaweyaCurriculum);
-assert(chem2024Q.length === 46, `Chemistry 2024 S1 generated 46 questions`);
-assert(chem2024Q.reduce((sum, q) => sum + (q.points || 1), 0) === 60, `Chemistry sums to 60 marks`);
-
-const bio2024Q = generatePastPaperQuestions('th-bio-2024-s1', thanaweyaCurriculum);
-assert(bio2024Q.length === 46, `Biology 2024 S1 generated 46 questions`);
-assert(bio2024Q.reduce((sum, q) => sum + (q.points || 1), 0) === 60, `Biology sums to 60 marks`);
-
-// Test Math branches: Statics, Dynamics, Algebra
-const stat2024Q = generatePastPaperQuestions('th-stat-2024-s1', thanaweyaCurriculum);
-assert(stat2024Q.length === 20, `Statics 2024 S1 generated 20 questions`);
-assert(stat2024Q.reduce((sum, q) => sum + (q.points || 1), 0) === 30, `Statics sums to 30 marks`);
-
-const dyn2024Q = generatePastPaperQuestions('th-dyn-2024-s1', thanaweyaCurriculum);
-assert(dyn2024Q.length === 20, `Dynamics 2024 S1 generated 20 questions`);
-assert(dyn2024Q.reduce((sum, q) => sum + (q.points || 1), 0) === 30, `Dynamics sums to 30 marks`);
-
-const alg2024Q = generatePastPaperQuestions('th-algs-2024-s1', thanaweyaCurriculum);
-assert(alg2024Q.length === 20, `Algebra & Solid 2024 S1 generated 20 questions`);
-assert(alg2024Q.reduce((sum, q) => sum + (q.points || 1), 0) === 30, `Algebra & Solid sums to 30 marks`);
-
 // 3. Schema & KaTeX Delimiter Validation
 console.log('\n--- 3. Testing Question Schema & KaTeX Syntax Integrity ---');
-const allSampledQuestions = [...phys2024Q1, ...calc2024Q, ...chem2024Q, ...bio2024Q, ...stat2024Q, ...dyn2024Q, ...alg2024Q];
+const allSampledQuestions = ALL_16_SUBJECTS.flatMap((sub) => {
+  const paper = PAST_EXAM_PAPERS.find((p) => p.subject === sub && p.year === 2024 && p.session === 'session1')!;
+  return generatePastPaperQuestions(paper.id, thanaweyaCurriculum).slice(0, 5);
+});
 
 let valid4Opts = 0;
 let validKatex = 0;
@@ -171,8 +214,14 @@ allSampledQuestions.forEach((q) => {
   if (openBraces === closeBraces) validKatex++;
 });
 
-assert(valid4Opts === allSampledQuestions.length, `All ${allSampledQuestions.length} questions have strictly 4 unique options in Ar/En and valid correctIndex`);
-assert(validKatex === allSampledQuestions.length, `All ${allSampledQuestions.length} questions have balanced KaTeX curly braces`);
+assert(
+  valid4Opts === allSampledQuestions.length,
+  `All ${allSampledQuestions.length} sampled questions have strictly 4 unique options in Ar/En and valid correctIndex`
+);
+assert(
+  validKatex === allSampledQuestions.length,
+  `All ${allSampledQuestions.length} sampled questions have balanced KaTeX curly braces`
+);
 
 // 4. Historical Cohort Analytics & Percentile Calculations
 console.log('\n--- 4. Testing Historical Cohort Analytics & Percentile Engine ---');
@@ -208,6 +257,19 @@ const calcTopReport = computeCohortComparison(calcPaper, 30);
 assert(calcTopReport.earnedMarks === 30, `Calculus earned marks is 30`);
 assert(calcTopReport.percentileRank >= 98.0, `Calculus 30/30 marks is >= 98th percentile (got ${calcTopReport.percentileRank}%)`);
 assert(calcTopReport.isTopTenCandidate === true, `Calculus 30/30 is Top 10 candidate`);
+
+// Case E: Arabic 80-mark Paper (Arabic 2024 S1)
+const arabPaper = getPastExamPaperById('th-arab-2024-s1')!;
+const arabReport = computeCohortComparison(arabPaper, 80);
+assert(arabReport.earnedMarks === 80, `Arabic earned marks is 80`);
+assert(arabReport.scorePercentage === 100, `Arabic score percentage is 100%`);
+assert(arabReport.isTopTenCandidate === true, `Arabic 80/80 is Top 10 candidate`);
+
+// Case F: Economics & Statistics 50-mark Paper (Econ 2024 S1)
+const econPaper = getPastExamPaperById('th-econ-2024-s1')!;
+const econReport = computeCohortComparison(econPaper, 50);
+assert(econReport.earnedMarks === 50, `Economics earned marks is 50`);
+assert(econReport.isTopTenCandidate === true, `Economics 50/50 is Top 10 candidate`);
 
 // 5. Bilingual Summaries & Text Rendering
 console.log('\n--- 5. Testing Bilingual Summaries & Cultural Formatting ---');

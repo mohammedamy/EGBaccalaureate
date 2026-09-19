@@ -241,21 +241,26 @@ export const TestGenerator: React.FC<Props> = ({
     }
   }, [blueprintMode, selectedSubject, selectedBranch, selectedPastPaperId]);
 
-  // Auto-align selectedPastPaperId when selectedSubject matches a past paper subject
+  // Auto-align selectedPastPaperId when selectedSubject or selectedBranch matches a past paper subject
   useEffect(() => {
     if (blueprintMode === 'official_past_papers') {
       const currentPaper = getPastExamPaperById(selectedPastPaperId);
+      const branchKey = selectedBranch as PastExamSubject;
       const subjectKey = selectedSubject as PastExamSubject;
-      if (currentPaper && currentPaper.subject !== subjectKey) {
-        const matching = getPastExamPapers({ subject: subjectKey, session: 'session1', year: 2024 })[0]
-          || getPastExamPapers({ subject: subjectKey })[0];
+      const targetKey = branchKey || subjectKey;
+      if (currentPaper && currentPaper.subject !== targetKey) {
+        const matching =
+          getPastExamPapers({ subject: branchKey, session: 'session1', year: 2024 })[0] ||
+          getPastExamPapers({ subject: branchKey })[0] ||
+          getPastExamPapers({ subject: subjectKey, session: 'session1', year: 2024 })[0] ||
+          getPastExamPapers({ subject: subjectKey })[0];
         if (matching) {
           setSelectedPastPaperId(matching.id);
-          setPastPaperSubjectFilter(subjectKey);
+          setPastPaperSubjectFilter(matching.subject);
         }
       }
     }
-  }, [blueprintMode, selectedSubject]);
+  }, [blueprintMode, selectedSubject, selectedBranch]);
 
   // Printable Exam Paper & Solution Sheet Customization
   const [showAnswerKeyOnPrint, setShowAnswerKeyOnPrint] = useState<boolean>(true);
@@ -1902,10 +1907,19 @@ export const TestGenerator: React.FC<Props> = ({
                   { id: 'physics', labelAr: 'الفيزياء', labelEn: 'Physics' },
                   { id: 'chemistry', labelAr: 'الكيمياء', labelEn: 'Chemistry' },
                   { id: 'biology', labelAr: 'الأحياء', labelEn: 'Biology' },
-                  { id: 'calculus', labelAr: 'التفاضل', labelEn: 'Calculus' },
+                  { id: 'geology', labelAr: 'الجيولوجيا', labelEn: 'Geology' },
+                  { id: 'calculus', labelAr: 'التفاضل والتكامل', labelEn: 'Calculus' },
                   { id: 'algebra_solid', labelAr: 'الجبر والفراغية', labelEn: 'Algebra' },
                   { id: 'statics', labelAr: 'الاستاتيكا', labelEn: 'Statics' },
                   { id: 'dynamics', labelAr: 'الديناميكا', labelEn: 'Dynamics' },
+                  { id: 'arabic', labelAr: 'اللغة العربية', labelEn: 'Arabic' },
+                  { id: 'english', labelAr: 'اللغة الإنجليزية', labelEn: 'English' },
+                  { id: 'french', labelAr: 'اللغة الفرنسية', labelEn: 'French' },
+                  { id: 'history', labelAr: 'التاريخ', labelEn: 'History' },
+                  { id: 'geography', labelAr: 'الجغرافيا', labelEn: 'Geography' },
+                  { id: 'philosophy', labelAr: 'الفلسفة والمنطق', labelEn: 'Philosophy' },
+                  { id: 'psychology', labelAr: 'علم النفس', labelEn: 'Psychology' },
+                  { id: 'economics_stat', labelAr: 'الاقتصاد والإحصاء', labelEn: 'Econ & Stat' },
                 ].map((sub) => (
                   <button
                     key={sub.id}
