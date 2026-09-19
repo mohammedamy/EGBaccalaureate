@@ -1,6 +1,6 @@
 import type { Branch, BranchId, Curriculum, CurriculumType } from '../types/curriculum';
 
-export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat';
+export type SubjectId = 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'english' | 'french' | 'arabic' | 'history' | 'geography' | 'geology' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -9,7 +9,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -296,6 +296,27 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_economics_stat'],
       egbac: ['egbac_economics_stat'],
+    },
+  },
+  {
+    id: 'cs_informatics',
+    titleEn: 'Computer Science & Informatics',
+    titleAr: 'علوم الحاسب والمعلوماتية',
+    shortTitleEn: 'CS & AI',
+    shortTitleAr: 'حاسب ومعلوماتية',
+    emoji: '💻',
+    iconName: 'Binary',
+    badgeColor: 'violet',
+    gradient: 'from-violet-600 via-indigo-600 to-cyan-600',
+    lightBg: 'bg-violet-50 text-violet-900 border-violet-200',
+    darkBg: 'bg-violet-950/70 text-violet-200 border-violet-800/60',
+    borderColor: 'border-violet-500/50',
+    textColor: 'text-violet-400',
+    descriptionEn: 'Digital Logic, Computer Architecture, Data Structures, Algorithms & Complexity, Python OOP, Relational Databases & SQL, Web Technologies, Networks & Protocols, Cybersecurity & Cryptography, and AI & Machine Learning',
+    descriptionAr: 'المنطق الرقمي، بنية المعالجات، هياكل البيانات، الخوارزميات والتعقيد الحسابي، البرمجة كائنية التوجه بلغة بايثون، قواعد البيانات ولغة SQL، تقنيات الويب، شبكات الحاسب، الأمن السيبراني والتشفير، والذكاء الاصطناعي وتعلم الآلة',
+    branchIds: {
+      thanaweya: ['thanaweya_cs_informatics'],
+      egbac: ['egbac_cs_informatics'],
     },
   },
 ];

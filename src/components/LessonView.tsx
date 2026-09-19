@@ -29,6 +29,7 @@ import { GeologyEarthStudio } from './labs/GeologyEarthStudio';
 import { LogicStudio } from './labs/LogicStudio';
 import { PsychologyStudio } from './labs/PsychologyStudio';
 import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
+import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
@@ -394,6 +395,29 @@ export const LessonView: React.FC<Props> = ({
               }
             />
           );
+        case 'cs_logic_circuit':
+        case 'cs_algorithm_visualizer':
+        case 'cs_sql_sandbox':
+        case 'cs_network_subnet':
+        case 'cs_neural_playground':
+          return (
+            <ComputerScienceInformaticsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialMode={
+                lesson.interactiveWidget.type === 'cs_logic_circuit'
+                  ? 'logic_circuit'
+                  : lesson.interactiveWidget.type === 'cs_algorithm_visualizer'
+                  ? 'algorithm_visualizer'
+                  : lesson.interactiveWidget.type === 'cs_sql_sandbox'
+                  ? 'sql_sandbox'
+                  : lesson.interactiveWidget.type === 'cs_network_subnet'
+                  ? 'network_subnet'
+                  : 'neural_playground'
+              }
+            />
+          );
         default:
           return <Interactive3DGeometry lang={lang} theme={theme} />;
       }
@@ -573,6 +597,29 @@ export const LessonView: React.FC<Props> = ({
                   : lesson.interactiveWidget.type === 'statistics_probability_tree'
                   ? 'probability_tree'
                   : 'normal_distribution'
+              }
+            />
+          );
+        case 'cs_logic_circuit':
+        case 'cs_algorithm_visualizer':
+        case 'cs_sql_sandbox':
+        case 'cs_network_subnet':
+        case 'cs_neural_playground':
+          return (
+            <ComputerScienceInformaticsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialMode={
+                lesson.interactiveWidget.type === 'cs_logic_circuit'
+                  ? 'logic_circuit'
+                  : lesson.interactiveWidget.type === 'cs_algorithm_visualizer'
+                  ? 'algorithm_visualizer'
+                  : lesson.interactiveWidget.type === 'cs_sql_sandbox'
+                  ? 'sql_sandbox'
+                  : lesson.interactiveWidget.type === 'cs_network_subnet'
+                  ? 'network_subnet'
+                  : 'neural_playground'
               }
             />
           );

@@ -19,6 +19,7 @@ export type BranchId =
   | 'thanaweya_philosophy'
   | 'thanaweya_psychology'
   | 'thanaweya_economics_stat'
+  | 'thanaweya_cs_informatics'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -34,7 +35,8 @@ export type BranchId =
   | 'egbac_geology'
   | 'egbac_philosophy'
   | 'egbac_psychology'
-  | 'egbac_economics_stat';
+  | 'egbac_economics_stat'
+  | 'egbac_cs_informatics';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -247,7 +249,12 @@ export type InteractiveWidgetType =
   | 'economics_national_income'
   | 'statistics_correlation_regression'
   | 'statistics_probability_tree'
-  | 'statistics_normal_curve';
+  | 'statistics_normal_curve'
+  | 'cs_logic_circuit'
+  | 'cs_algorithm_visualizer'
+  | 'cs_sql_sandbox'
+  | 'cs_network_subnet'
+  | 'cs_neural_playground';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

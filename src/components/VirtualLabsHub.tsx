@@ -16,6 +16,7 @@ import {
   Mountain,
   Brain,
   TrendingUp,
+  Binary,
 } from 'lucide-react';
 import { MathLab, type MathTab } from './labs/MathLab';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
@@ -30,6 +31,7 @@ import { EconomicsStatisticsStudio } from './labs/EconomicsStatisticsStudio';
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
+import { ComputerScienceInformaticsStudio } from './labs/ComputerScienceInformaticsStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
@@ -43,7 +45,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -67,6 +69,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'history') return 'history';
     if (selectedSubject === 'geography') return 'geography';
     if (selectedSubject === 'economics_stat') return 'economics_stat';
+    if (selectedSubject === 'cs_informatics') return 'cs_informatics';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french') return 'languages';
     return 'math';
   };
@@ -90,6 +93,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'philosophy') setActiveLab('philosophy');
     else if (selectedSubject === 'psychology') setActiveLab('psychology');
     else if (selectedSubject === 'economics_stat') setActiveLab('economics_stat');
+    else if (selectedSubject === 'cs_informatics') setActiveLab('cs_informatics');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -356,6 +360,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'استوديو الاقتصاد والإحصاء التطبيقي: محاكي توازن السوق ومرونة الطلب، التدفق الدائري ومضاعف الاستثمار الكينزي، معامل ارتباط بيرسون وسبيرمان، شجرة الاحتمالات وبايرز، ومحاكي منحنى التوزيع الطبيعي المعياري Z-Score'
         : 'Economics & Applied Statistics Studio: Market equilibrium & elasticity simulator, circular flow & Keynesian multiplier, Pearson & Spearman correlation lab, conditional probability & Bayes explorer, and Gaussian normal curve & standard Z-score engine',
+    },
+    {
+      id: 'cs_informatics' as LabId,
+      titleEn: 'Computer Science & AI Studio',
+      titleAr: 'استوديو علوم الحاسب والذكاء الاصطناعي',
+      subtitleEn: 'Logic Gates, Algorithm Visualizer, SQL Sandbox, IPv4 Subnetting & Neural Playground',
+      subtitleAr: 'بوابات المنطق الرقمي، خوارزميات الترتيب والبحث، استعلامات SQL، حساب الشبكات والشبكات العصبية',
+      icon: Binary,
+      color: 'violet',
+      badge: '💻 CS & AI Studio',
+      gradient: 'from-violet-600 via-indigo-600 to-purple-700',
+      activeBg: 'bg-indigo-600 text-white shadow-indigo-600/30',
+      tagline: isArabic
+        ? 'استوديو علوم الحاسب والمعلوماتية والذكاء الاصطناعي: محاكي الدوائر المنطقية وجداول الصدق، متتبع الخوارزميات خطوة بخطوة، منصة SQL التفاعلية، حاسبة الشبكات وعناوين IP، وملعب الشبكات العصبية العميقة'
+        : 'Computer Science & AI Studio: Digital logic gate circuit builder, sorting/searching algorithm tracer, interactive SQL sandbox, IPv4/CIDR subnet calculator, and neural network decision boundary playground',
     },
   ];
 
@@ -815,6 +834,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Computer Science & Informatics Studio */}
+        {activeLab === 'cs_informatics' && (
+          <div className="space-y-4">
+            <ComputerScienceInformaticsStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -823,7 +853,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -838,7 +868,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

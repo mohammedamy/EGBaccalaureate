@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -2199,6 +2199,132 @@ export const officialBooksList: OfficialBook[] = [
       'حساب المساحات تحت المنحنى الطبيعي المعياري وتقدير فترات الثقة الإحصائية'
     ]
   },
+  // 23. Thanaweya Computer Science & Informatics
+  {
+    id: 'th-cs-informatics-g12',
+    curriculum: 'thanaweya',
+    category: 'cs_informatics',
+    subjectId: 'cs_informatics',
+    branchId: 'thanaweya_cs_informatics',
+    code: 'TH-CS-INFORMATICS-G12',
+    titleEn: 'Computer Science, Information Technology & Digital Systems',
+    titleAr: 'الحاسب الآلي وتكنولوجيا المعلومات والأنظمة الرقمية',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 48,
+    fileSize: '4.8 MB',
+    compendiumTitleEn: 'Official Grade 12 Computer Science, Architecture & Python Programming Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم والقواعد الرسمية لعلوم الحاسب والمعمارية والبرمجة بلغة بايثون',
+    filename: 'thanaweya-cs-informatics.pdf',
+    downloadUrl: '/books/thanaweya-cs-informatics.pdf',
+    fullTextbookPages: 250,
+    fullTextbookSize: '28.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/sec3/computer-science/',
+    coverGradient: 'from-violet-700 via-indigo-700 to-cyan-800',
+    accentColor: '#6366f1',
+    chapters: [
+      { id: 'ch1', titleEn: 'Unit 1: Digital Logic, Hardware Architecture & Processor Internals', titleAr: 'الوحدة الأولى: المنطق الرقمي وبنية الحاسب والمعالج الدقيق', pageRange: 'pp. 1-25', topicsCount: 15 },
+      { id: 'ch2', titleEn: 'Unit 2: Data Representation, Number Systems & Memory Organization', titleAr: 'الوحدة الثانية: تمثيل البيانات والأنظمة العددية وتنظيم الذاكرة', pageRange: 'pp. 26-50', topicsCount: 15 },
+      { id: 'ch3', titleEn: 'Unit 3: Linear & Non-Linear Data Structures: Stacks, Queues, Trees', titleAr: 'الوحدة الثالثة: هياكل البيانات الخطية وغير الخطية: المكدسات والصفوف والأشجار', pageRange: 'pp. 51-75', topicsCount: 15 },
+      { id: 'ch4', titleEn: 'Unit 4: Algorithms, Pseudocode & Computational Complexity', titleAr: 'الوحدة الرابعة: الخوارزميات، الكود الزائف والتعقيد الحسابي', pageRange: 'pp. 76-100', topicsCount: 15 },
+      { id: 'ch5', titleEn: 'Unit 5: Structured & Object-Oriented Programming with Python', titleAr: 'الوحدة الخامسة: البرمجة الهيكلية والشيئية بلغة بايثون', pageRange: 'pp. 101-125', topicsCount: 15 },
+      { id: 'ch6', titleEn: 'Unit 6: Relational Databases, Normalization & Advanced SQL', titleAr: 'الوحدة السادسة: قواعد البيانات العلائقية والمعيارية ولغة الاستعلام SQL', pageRange: 'pp. 126-150', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Unit 7: Full-Stack Web Technologies & Client-Server Architecture', titleAr: 'الوحدة السابعة: تقنيات الويب الشاملة ومعمارية العميل والخادم', pageRange: 'pp. 151-175', topicsCount: 15 },
+      { id: 'ch8', titleEn: 'Unit 8: Computer Networking, OSI/TCP-IP Protocols & Routing', titleAr: 'الوحدة الثامنة: شبكات الحاسب، بروتوكولات OSI/TCP-IP والتوجيه الشبكي', pageRange: 'pp. 176-200', topicsCount: 15 },
+      { id: 'ch9', titleEn: 'Unit 9: Cybersecurity, Cryptography & Threat Prevention', titleAr: 'الوحدة التاسعة: الأمن السيبراني وعلم التشفير والحماية من التهديدات', pageRange: 'pp. 201-225', topicsCount: 15 },
+      { id: 'ch10', titleEn: 'Unit 10: Artificial Intelligence, Machine Learning & Digital Ethics', titleAr: 'الوحدة العاشرة: الذكاء الاصطناعي وتعلم الآلة والأخلاقيات الرقمية', pageRange: 'pp. 226-250', topicsCount: 15 }
+    ],
+    descriptionEn: 'The authorized Grade 12 Computer Science & Information Technology textbook published by the Egyptian Ministry of Education, covering digital Boolean logic circuits, Von Neumann CPU microarchitecture, data structures, algorithms, Python OOP, relational databases, web architecture, network protocols, cybersecurity, and artificial intelligence.',
+    descriptionAr: 'الكتاب المدرسي المعتمد لوزارة التربية والتعليم لطلاب الصف الثالث الثانوي في مادة الحاسب الآلي وتكنولوجيا المعلومات: يغطي الدوائر المنطقية، معمارية فون نيومان وسجلات المعالج، هياكل البيانات، الخوارزميات، البرمجة كائنية التوجه بلغة بايثون، قواعد البيانات ولغة SQL، معمارية الويب، شبكات الحاسب وبروتوكولات التوجيه، الأمن السيبراني، وأساسيات الذكاء الاصطناعي.',
+    highlightsEn: [
+      'Boolean algebra theorems, Karnaugh maps, and universal gate circuit synthesis',
+      'Von Neumann registers (PC, MAR, MDR, CIR) and fetch-decode-execute cycle',
+      'Asymptotic complexity bounds (Big-O, Omega, Theta) and sorting algorithm analysis',
+      'Python object-oriented programming: encapsulation, inheritance, polymorphism',
+      'Relational normalization (1NF, 2NF, 3NF), ER modeling, and multi-table SQL joins',
+      'OSI 7-layer and TCP/IP protocol stack with IPv4 CIDR subnetting calculations',
+      'Cryptographic symmetric (AES) and asymmetric (RSA) algorithms and CIA security triad',
+      'Perceptron mechanics, neural network forward/backpropagation, and ethical AI frameworks'
+    ],
+    highlightsAr: [
+      'نظريات الجبر البوليني وخرائط كارنوف وبناء الدوائر بالبوابات الشاملة',
+      'سجلات معمارية فون نيومان ودورة جلب وتنفيذ التعليمات بالمعالج الدقيق',
+      'رتب التعقيد الحسابي وتحليل خوارزميات الترتيب والبحث ومبدأ فرّق تسد',
+      'البرمجة الشيئية بلغة بايثون: التغليف، الوراثة، وتعدد الأشكال البرمجية',
+      'المعيارية وتصميم قواعد البيانات العلائقية والاستعلامات المتقدمة بلغة SQL',
+      'طبقات نموذج OSI ومكدس بروتوكولات TCP/IP وحسابات تقسيم الشبكات CIDR',
+      'خوارزميات التشفير المتماثل وغير المتماثل ومبادئ أمن المعلومات السيبراني',
+      'بنية العصبون الاصطناعي والشبكات العصبية وأخلاقيات الذكاء الاصطناعي ومسؤوليته'
+    ]
+  },
+  // 24. EG-Bac Computer Science, Informatics & AI
+  {
+    id: 'egbac-cs-informatics-g12',
+    curriculum: 'egbac',
+    category: 'cs_informatics',
+    subjectId: 'cs_informatics',
+    branchId: 'egbac_cs_informatics',
+    code: 'EGBAC-CS-INFORMATICS-G12',
+    titleEn: 'Advanced Computer Science, Informatics & Artificial Intelligence',
+    titleAr: 'علوم الحاسب المتقدمة والمعلوماتية والذكاء الاصطناعي',
+    subtitleEn: 'New Egyptian Baccalaureate Official Framework - Grade 12',
+    subtitleAr: 'الإطار الوطني المطور للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'EG-Bac Grade 12 (Advanced Computational & Emerging Technologies Division)',
+    gradeAr: 'المرحلة الثانوية المتقدمة - البكالوريا المصرية (شعبة الحوسبة المتقدمة والتقنيات الناشئة)',
+    publisherEn: 'Egyptian Ministry of Education - National Baccalaureate Directorate',
+    publisherAr: 'وزارة التربية والتعليم المصرية - قطاع البكالوريا وتطوير التعليم',
+    pagesCount: 52,
+    fileSize: '5.2 MB',
+    compendiumTitleEn: 'EG-Bac Advanced Computational Systems, Algorithms & AI Compendium',
+    compendiumTitleAr: 'دليل البكالوريا المصرية المتقدم في النظم الحاسوبية والخوارزميات والذكاء الاصطناعي',
+    filename: 'egbac-cs-informatics.pdf',
+    downloadUrl: '/books/egbac-cs-informatics.pdf',
+    fullTextbookPages: 275,
+    fullTextbookSize: '31.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/computer-science/',
+    coverGradient: 'from-indigo-700 via-purple-700 to-pink-800',
+    accentColor: '#4f46e5',
+    chapters: [
+      { id: 'ch1', titleEn: 'Unit 1: Digital Logic, Hardware Architecture & Processor Internals', titleAr: 'الوحدة الأولى: المنطق الرقمي وبنية الحاسب والمعالج الدقيق', pageRange: 'pp. 1-27', topicsCount: 15 },
+      { id: 'ch2', titleEn: 'Unit 2: Data Representation, Number Systems & Memory Organization', titleAr: 'الوحدة الثانية: تمثيل البيانات والأنظمة العددية وتنظيم الذاكرة', pageRange: 'pp. 28-54', topicsCount: 15 },
+      { id: 'ch3', titleEn: 'Unit 3: Linear & Non-Linear Data Structures: Stacks, Queues, Trees', titleAr: 'الوحدة الثالثة: هياكل البيانات الخطية وغير الخطية: المكدسات والصفوف والأشجار', pageRange: 'pp. 55-82', topicsCount: 15 },
+      { id: 'ch4', titleEn: 'Unit 4: Algorithms, Pseudocode & Computational Complexity', titleAr: 'الوحدة الرابعة: الخوارزميات، الكود الزائف والتعقيد الحسابي', pageRange: 'pp. 83-110', topicsCount: 15 },
+      { id: 'ch5', titleEn: 'Unit 5: Structured & Object-Oriented Programming with Python', titleAr: 'الوحدة الخامسة: البرمجة الهيكلية والشيئية بلغة بايثون', pageRange: 'pp. 111-137', topicsCount: 15 },
+      { id: 'ch6', titleEn: 'Unit 6: Relational Databases, Normalization & Advanced SQL', titleAr: 'الوحدة السادسة: قواعد البيانات العلائقية والمعيارية ولغة الاستعلام SQL', pageRange: 'pp. 138-165', topicsCount: 15 },
+      { id: 'ch7', titleEn: 'Unit 7: Full-Stack Web Technologies & Client-Server Architecture', titleAr: 'الوحدة السابعة: تقنيات الويب الشاملة ومعمارية العميل والخادم', pageRange: 'pp. 166-192', topicsCount: 15 },
+      { id: 'ch8', titleEn: 'Unit 8: Computer Networking, OSI/TCP-IP Protocols & Routing', titleAr: 'الوحدة الثامنة: شبكات الحاسب، بروتوكولات OSI/TCP-IP والتوجيه الشبكي', pageRange: 'pp. 193-220', topicsCount: 15 },
+      { id: 'ch9', titleEn: 'Unit 9: Cybersecurity, Cryptography & Threat Prevention', titleAr: 'الوحدة التاسعة: الأمن السيبراني وعلم التشفير والحماية من التهديدات', pageRange: 'pp. 221-247', topicsCount: 15 },
+      { id: 'ch10', titleEn: 'Unit 10: Artificial Intelligence, Machine Learning & Digital Ethics', titleAr: 'الوحدة العاشرة: الذكاء الاصطناعي وتعلم الآلة والأخلاقيات الرقمية', pageRange: 'pp. 248-275', topicsCount: 15 }
+    ],
+    descriptionEn: 'Rigorous collegiate-level computer science, systems engineering, and machine learning framework designed for the New Egyptian Baccalaureate, incorporating hardware design, balanced tree algorithms, database normalization, zero-trust network defense, and neural network deep learning pipelines.',
+    descriptionAr: 'منهج البكالوريا المصرية المتقدم في علوم الحاسب وهندسة النظم: مصمم بمستوى جامعي تأسيسي يجمع بين هندسة المعالجات، هياكل البيانات المتقدمة، تحليل الخوارزميات، معيارية قواعد البيانات، أمن الشبكات انعدام الثقة (Zero-Trust)، ونماذج التعلم العميق والشبكات العصبية الاصطناعية.',
+    highlightsEn: [
+      'Pipelined CPU architecture, superscalar execution, and cache coherence protocols',
+      'Self-balancing AVL trees, red-black tree invariants, and cryptographic hash maps',
+      'Dynamic programming recurrences, Master Theorem asymptotics, and divide-and-conquer bounds',
+      'Python metaclasses, abstract base classes, decorators, and asynchronous concurrency',
+      'Advanced SQL window functions, transaction isolation levels, and ACID deadlock resolution',
+      'IPv4/IPv6 dual-stack routing, BGP/OSPF convergence, and TCP congestion control algorithms',
+      'Zero-trust network architecture, public key infrastructure (PKI), and penetration defense',
+      'Multi-layer perceptron gradient descent backpropagation, loss surfaces, and explainable AI'
+    ],
+    highlightsAr: [
+      'معمارية خطوط الأنابيب الفائقة وبروتوكولات اتساق الذاكرة المخبأة للمعالجات',
+      'أشجار AVL المتوازنة ذاتياً، جداول التجزئة المشفرة وتفادي التصادم بالذاكرة',
+      'البرمجة الديناميكية، النظرية الرئيسية للتعاود الحسابي وحدود خوارزميات فرّق تسد',
+      'الفئات التجريدية في بايثون، المولدات، الدوال غير التزامنية والتزامن متعدد المهام',
+      'دوال النوافذ في SQL، مستويات عزل المعاملات البنكية وحل اختناقات الموارد',
+      'بروتوكولات التوجيه المزدوج IPv4/IPv6 وخوارزميات التحكم في ازدحام شبكات TCP',
+      'معمارية أمن انعدام الثقة (Zero-Trust) والبنية التحتية للمفاتيح العامة PKI',
+      'الانحدار التدريجي والتراجع الخلفي في الشبكات متعددة الطبقات وأطر الذكاء الاصطناعي التفسيري'
+    ]
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -2234,6 +2360,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_psychology' && (b.branchId === 'egbac_psychology' || b.id === 'egbac-psychology-g12')) return true;
     if (branchId === 'thanaweya_economics_stat' && (b.branchId === 'thanaweya_economics_stat' || b.id === 'th-econ-stat-g12')) return true;
     if (branchId === 'egbac_economics_stat' && (b.branchId === 'egbac_economics_stat' || b.id === 'egbac-econ-stat-g12')) return true;
+    if (branchId === 'thanaweya_cs_informatics' && (b.branchId === 'thanaweya_cs_informatics' || b.id === 'th-cs-informatics-g12')) return true;
+    if (branchId === 'egbac_cs_informatics' && (b.branchId === 'egbac_cs_informatics' || b.id === 'egbac-cs-informatics-g12')) return true;
     return false;
   });
 }
@@ -2243,7 +2371,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }

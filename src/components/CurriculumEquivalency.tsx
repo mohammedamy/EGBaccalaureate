@@ -831,6 +831,60 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageEn: 'Direct foundational springboard for faculties of Economics & Political Science, Business Administration, Actuarial Science, Data Science, and Financial Engineering.',
       universityAdvantageAr: 'قاعدة انطلاق حاسمة لكليات الاقتصاد والعلوم السياسية، إدارة الأعمال والمحاسبة، العلوم الاكتوارية، علوم البيانات، والهندسة المالية.',
     },
+    {
+      id: 'cs_informatics_bridge',
+      titleEn: 'Computer Science, Informatics & AI: Digital Logic, Algorithms & Intelligent Systems',
+      titleAr: 'علوم الحاسب والمعلوماتية والذكاء الاصطناعي: المنطق الرقمي، الخوارزميات، والنظم الذكية',
+      icon: <Binary className="w-5 h-5 text-indigo-400" />,
+      thanaweyaBranchId: 'thanaweya_cs_informatics',
+      egBacBranchId: 'egbac_cs_informatics',
+      thanaweyaTitleEn: 'Comprehensive 10-Chapter Computer Science, Networking & AI Track',
+      thanaweyaTitleAr: 'المنهج الشامل (١٠ فصول): علوم الحاسب والبرمجيات والشبكات والذكاء الاصطناعي',
+      thanaweyaTopicsEn: [
+        'Ch.1 Digital Logic & Architecture: Boolean algebra, truth tables, logic gates, half/full adders, and von Neumann architecture',
+        'Ch.2 Algorithms & Complexity: Flowcharts, pseudocode, asymptotic Big-O notation, linear & binary search, bubble/insertion/selection sort',
+        'Ch.3 Data Structures: Static vs. dynamic memory, arrays, linked lists, stacks (LIFO), queues (FIFO), and binary trees',
+        'Ch.4 Relational Databases: Entity-Relationship modeling (ERD), normalization (1NF-3NF), primary/foreign keys, and SQL DDL/DML/DQL',
+        'Ch.5 Networks & TCP/IP: OSI 7 layers, TCP/IP stack, IPv4 addressing, subnet masks, CIDR prefix routing, DNS, and HTTP/HTTPS',
+        'Ch.6 Cybersecurity & Cryptography: Confidentiality-Integrity-Availability (CIA), symmetric vs. asymmetric encryption (AES, RSA), and digital signatures',
+        'Ch.7 AI & Machine Learning: Supervised vs. unsupervised learning, regression, decision trees, confusion matrix metrics, and ethics',
+        'Ch.8 Advanced Neural Networks: Perceptron model, activation functions (ReLU, Sigmoid), backpropagation, and loss functions',
+        'Ch.9 Web Technologies & Cloud: HTML5 semantics, CSS3 layouts, JavaScript DOM manipulation, REST APIs, and cloud services (IaaS/PaaS/SaaS)',
+        'Ch.10 Software Engineering & Ethics: SDLC lifecycle (Waterfall, Agile/Scrum), version control (Git), algorithmic bias, and IP law',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ المنطق الرقمي والمعمارية: الجبر البولياني، جداول الصدق، البوابات المنطقية، الجوامع النصفية والكاملة، ومعمارية فون نيومان',
+        'فصل ٢ الخوارزميات والتعقيد الحسابي: خرائط التدفق، الكود الزائف، ترميز Big-O، خوارزميات البحث والترتيب، والتحليل الزمني',
+        'فصل ٣ هياكل البيانات: المصفوفات، القوائم المتصلة، المكدسات (LIFO)، الطوابير (FIFO)، والأشجار الثنائية وعمليات المرور عليها',
+        'فصل ٤ قواعد البيانات العلائقية: مخططات الكيانات والعلاقات (ERD)، تسوية الجداول (1NF-3NF)، والمفاتيح واستعلامات SQL',
+        'فصل ٥ شبكات الحاسب وبروتوكول TCP/IP: طبقات OSI، حزمة TCP/IP، عنونة IPv4، أقنعة الشبكات وتوجيه CIDR، ونظام DNS',
+        'فصل ٦ الأمن السيبراني والتشفير: مثلث الأمان (CIA)، التشفير المتماثل وغير المتماثل (AES, RSA)، والتوقيعات الرقمية والشهادات',
+        'فصل ٧ الذكاء الاصطناعي وتعلم الآلة: التعلم الموجه وغير الموجه، شجيرات القرار، مصفوفة الالتباس، والاعتبارات الأخلاقية',
+        'فصل ٨ الشبكات العصبية والتعلم العميق: نموذج البيرسبترون، دوال التنشيط، خوارزمية الانتشار العكسي، ودوال الخسارة وتقليل الانحدار',
+        'فصل ٩ هندسة الويب والحوسبة السحابية: هيكلية HTML5، تنسيق CSS3، تفاعلية DOM، واجهات RESTful APIs، ونماذج السحابة IaaS/PaaS/SaaS',
+        'فصل ١٠ هندسة البرمجيات وأخلاقيات الحوسبة: دورة حياة تطوير البرمجيات (SDLC)، منهجية Agile، أنظمة التحكم في الإصدارات Git، والملكية الفكرية',
+      ],
+      egBacTitleEn: 'Advanced 10-Unit Computational Systems, Distributed Architectures & Applied AI Framework',
+      egBacTitleAr: 'المسار المتقدم (١٠ فصول): الأنظمة الحاسوبية، المعماريات الموزعة، وهندسة الذكاء الاصطناعي التطبيقي',
+      egBacTopicsEn: [
+        'Units 1-3 Theoretical Computing: Combinational/sequential logic synthesis, Karnaugh maps, asymptotic amortized complexity, graph traversals (BFS/DFS), and memory pointer architecture',
+        'Units 4-5 Distributed Data & Networks: Relational schema normalization calculus, query execution plans, sub-netting mathematical proofs, packet fragmentation, and socket programming principles',
+        'Units 6-7 Cryptographic Protocols & Statistical ML: Public-key infrastructure (PKI), zero-knowledge concepts, gradient descent convergence, ROC-AUC curve analysis, and ensemble methods',
+        'Units 8-10 Deep Learning & System Design: Multi-layer perceptron tensor operations, vanishing gradient mitigations, microservices architecture, CI/CD pipeline automation, and algorithmic fairness metrics',
+      ],
+      egBacTopicsAr: [
+        'فصول ١-٣ الحوسبة النظرية وهندسة الخوارزميات: تركيب المنطق التوافقي والتعاقبي، خرائط كارنوف، التعقيد الزمني الإجمالي، مسح المخططات (BFS/DFS)، وإدارة المؤشرات في الذاكرة',
+        'فصول ٤-٥ البيانات الموزعة والشبكات: براهين تسوية الجداول، خطط تنفيذ الاستعلامات، البراهين الرياضية لتقسيم الشبكات الفرعية، وتجزئة الحزم والبرمجة الشبكية',
+        'فصول ٦-٧ البروتوكولات الأمنية والتعلم الإحصائي: البنية التحتية للمفاتيح العامة (PKI)، خوارزميات التدرج التنازلي ونقاط التقارب، منحنيات ROC-AUC، ونماذج التجميع',
+        'فصول ٨-١٠ التعلم العميق وتصميم الأنظمة: عمليات التنسور في الشبكات متعددة الطبقات، تلاشي الانحدار، معمارية الخدمات المصغرة (Microservices)، خطوط CI/CD، ومقاييس العدالة الخوارزمية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides an exhaustive foundation in computer architecture, systematic algorithmic traces, practical SQL, networking protocols, and essential AI models. EG-Bac expands this into full-stack software system architecture, mathematical optimization proofs, formal schema engineering, and advanced deep learning pipelines.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً شاملاً في بنية الحاسب، تتبع الخوارزميات، استعلامات SQL، بروتوكولات الشبكات، ونماذج الذكاء الاصطناعي الأساسية. بينما ترتقي البكالوريا بالمنهج إلى تصميم الأنظمة البرمجية المتكاملة، براهين التحسين الرياضي، هندسة البيانات الموزعة، ومسارات التعلم العميق المتقدمة.',
+      universityAdvantageEn: 'Direct accelerated qualification for faculties of Computers & Artificial Intelligence, Computer Engineering, Software Engineering, Cybersecurity, and Data Science.',
+      universityAdvantageAr: 'تأهيل مباشر وفوري لكليات الحاسبات والذكاء الاصطناعي، هندسة الحاسب والبرمجيات، الأمن السيبراني، ونظم وعلوم البيانات.',
+    },
   ];
 
 
@@ -889,8 +943,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(177) : '177'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(٩٥ ثانوية + ٨٢ بكالوريا)' : '(95 Thanaweya + 82 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(197) : '197'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٠٥ ثانوية + ٩٢ بكالوريا)' : '(105 Thanaweya + 92 Bac)'}</span>
             </div>
           </div>
 
@@ -901,7 +955,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(35400) : '35,400'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(39400) : '39,400'}</span>
               <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
@@ -913,8 +967,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(13) : '13'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٦ فرعاً لكل مسار)' : 'Subjects (16 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(14) : '14'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مواد (١٧ فرعاً لكل مسار)' : 'Subjects (17 branches/track)'}</span>
             </div>
           </div>
 
@@ -954,7 +1008,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٣ مادة • ١٦ فرعاً • ٩٥ فصلاً' : 'National Standard Track • 13 Subjects • 16 Branches • 95 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ١٤ مادة • ١٧ فرعاً • ١٠٥ فصول' : 'National Standard Track • 14 Subjects • 17 Branches • 105 Chapters'}
                 </p>
               </div>
             </div>
@@ -973,8 +1027,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي.'
-              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, and Economics & Statistics.'}
+              ? 'يتميز بالعمق التحليلي والشمول المعرفي في الرياضيات البحتة والتطبيقية، والعلوم الطبيعية، والإتقان اللغوي والأدبي، والدراسات الإنسانية، والاقتصاد والإحصاء التطبيقي، وعلوم الحاسب والذكاء الاصطناعي.'
+              : 'Renowned for rigorous analytical depth across Pure & Applied Mathematics, Natural Sciences, comprehensive Language mastery, rich Humanities, Economics & Statistics, and Computer Science & AI.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -997,6 +1051,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
               <span>{isArabic ? 'العلوم التطبيقية والإحصاء: الاقتصاد الكلي والإحصاء التطبيقي (١٠ فصول)' : 'Applied Sciences & Statistics: Macroeconomics & Applied Statistics (10 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
+              <span>{isArabic ? 'علوم الحاسب والذكاء الاصطناعي: الخوارزميات، قواعد البيانات، الشبكات، ونظم الذكاء الاصطناعي (١٠ فصول)' : 'Computer Science & AI: Algorithms, Databases, Networking & AI Systems (10 Ch)'}</span>
             </div>
           </div>
         </div>
@@ -1021,7 +1079,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٣ مادة • ١٦ فرعاً • ٨٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 13 Subjects • 16 Branches • 82 Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ١٤ مادة • ١٧ فرعاً • ٩٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 14 Subjects • 17 Branches • 92 Chapters'}
                 </p>
               </div>
             </div>
@@ -1040,8 +1098,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
             {isArabic
-              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي.'
-              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, and quantitative macroeconomics.'}
+              ? 'مبني على معايير البكالوريا الدولية ومدارس المتفوقين. يدمج النمذجة الحاسوبية، التحليل البنيوي، نظم المعلومات الجغرافية، القياس النفسي واللسانيات، والتحليل الاقتصادي الكمي، وهندسة البرمجيات الموزعة.'
+              : 'Engineered on international baccalaureate benchmarks. Integrates computational modeling, structural epistemology, GIS analytics, psychometrics, quantitative macroeconomics, and distributed software engineering.'}
           </p>
 
           <div className={`space-y-2 pt-2 border-t text-xs ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
@@ -1064,6 +1122,10 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
               <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
               <span>{isArabic ? 'الاقتصاد التطبيقي والإحصاء: الاقتصاد الكلي الكمي والإحصاء التطبيقي (١٠ فصول)' : 'Applied Economics & Statistics: Quantitative Macroeconomics & Applied Statistics (10 Ch)'}</span>
+            </div>
+            <div className={`flex items-center gap-2 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
+              <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0" />
+              <span>{isArabic ? 'المعلوماتية المتقدمة وهندسة البرمجيات: الهياكل البيانية، نمذجة البيانات، الحوسبة الموزعة، والتعلم العميق (١٠ فصول)' : 'Advanced Informatics & Software Engineering: Data Structures, Data Modeling, Distributed Systems & Deep Learning (10 Ch)'}</span>
             </div>
           </div>
         </div>

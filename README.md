@@ -8,20 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **13 Accredited Subject Tracks** (Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, and Economics & Applied Statistics).
-- **32 Total Branches** (16 Thanaweya Amma + 16 EG-Baccalaureate).
-- **177 Fully Equipped Chapters** (95 Thanaweya + 82 EG-Bac).
-- **35,400 Total Curriculum Problems**:
-  - 1,770 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 2,655 Practice Exercises with hints, scaffolding, and verification.
-  - 30,975 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **11 Interactive Virtual Laboratories & Simulation Studios**.
-- **22 Downloadable Official Ministry Textbooks & Formula Compendiums**.
+- **14 Accredited Subject Tracks** (Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, Economics & Applied Statistics, and Computer Science & Informatics).
+- **34 Total Branches** (17 Thanaweya Amma + 17 EG-Baccalaureate).
+- **197 Fully Equipped Chapters** (105 Thanaweya + 92 EG-Bac).
+- **39,400 Total Curriculum Problems**:
+  - 1,970 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 2,955 Practice Exercises with hints, scaffolding, and verification.
+  - 34,475 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **12 Interactive Virtual Laboratories & Simulation Studios**.
+- **24 Downloadable Official Ministry Textbooks & Formula Compendiums**.
+- **102 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models).
 - **Official Ministerial 3-Hour Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (13 Core Disciplines)
+## 📚 Accredited Subject Tracks (14 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -38,11 +39,12 @@
 | **11** | **English** | اللغة الإنجليزية (الأولى) | English Language (First Foreign) | C1 Academic Discourse & Analytical Writing | 12 | 2,400 |
 | **12** | **French** | اللغة الفرنسية (الثانية) | French (Club @dos Plus 3) | Francophone Sociocultural Communication | 8 | 1,600 |
 | **13** | **Economics & Statistics** | الاقتصاد والإحصاء التطبيقي | Economics & Applied Statistics | Quantitative Macroeconomics & Statistics | 20 | 4,000 |
-| **Total** | **13 Subjects** | **١٣ مادة معتمدة** | **16 Branches (95 Chapters)** | **16 Branches (82 Chapters)** | **177** | **35,400** |
+| **14** | **Computer Science & Informatics** | علوم الحاسب والمعلوماتية والذكاء الاصطناعي | Computer Science, Informatics & AI | Computational Systems, Distributed Architectures & AI | 20 | 4,000 |
+| **Total** | **14 Subjects** | **١٤ مادة معتمدة** | **17 Branches (105 Chapters)** | **17 Branches (92 Chapters)** | **197** | **39,400** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (11 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (12 Studios)
 
 ClipSAT provides immersive digital laboratories equipped with real-time math and physics engines, dynamic SVG graphing, and parameter controls:
 
@@ -62,6 +64,12 @@ ClipSAT provides immersive digital laboratories equipped with real-time math and
     - **Pearson & Spearman Correlation & Regression**: Scatter plot generator with least-squares regression lines.
     - **Conditional Probability & Bayes Tree**: Branching probability trees and independence tests.
     - **Gaussian Normal Bell Curve**: Dynamic $\mu$ and $\sigma$ curve with standard Z-score integration.
+12. **Computer Science & Informatics Studio** (`ComputerScienceInformaticsStudio.tsx`):
+    - **Digital Logic Gate Circuit Builder & Truth Table Simulator**: AND, OR, NOT, NAND, NOR, XOR gates, half-adders, full-adders with live boolean signals.
+    - **Sorting & Searching Algorithm Visualizer**: Step-by-step trace of Bubble Sort, Selection Sort, Insertion Sort, Binary Search with swap counters.
+    - **Interactive Relational SQL Sandbox**: In-browser SQLite-like engine for students, courses, enrollments tables with live queries (SELECT, JOIN, WHERE, GROUP BY).
+    - **TCP/IP & IPv4 Subnetting Calculator**: CIDR prefix analyzer, network ID, broadcast address, valid host ranges, subnet masks.
+    - **Neural Network & Decision Boundary Playground**: Interactive 2D perceptron classifier with adjustable weights, learning rate, and decision boundary.
 
 ---
 
@@ -70,7 +78,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math and
 - **Official Time & Scoring Blueprints**: Replicates Egyptian Ministry examination blueprints:
   - 46 questions, 60 marks, 180 minutes (Science & Humanities).
   - 55 questions, 80 marks, 180 minutes (Arabic).
-  - 40 questions, 50 marks, 180 minutes (Economics & Statistics).
+  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, and Computer Science & Informatics).
   - 20 questions, 30 marks, 120 minutes (Individual Mathematics Branches).
 - **Official Question Formats**: Forms A, B, C, and D with randomized permutation.
 - **Full OMR Bubble Sheet**: Grid view with answer bubbling, timer countdown, and ministerial certificate generation upon submission.
@@ -84,7 +92,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math and
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 35,400 problems and 177 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 39,400 problems and 197 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
@@ -104,11 +112,14 @@ npm run build
 
 ### Running Test Verification Suites
 ```bash
-# Run comprehensive test suite (33 test scripts)
+# Run comprehensive test suite (34 test scripts)
 npm test
 
 # Verify Economics & Statistics Subject specifically
 npm run test:econ-stat
+
+# Verify Computer Science & Informatics Subject specifically
+npm run test:cs-informatics
 ```
 
 ---

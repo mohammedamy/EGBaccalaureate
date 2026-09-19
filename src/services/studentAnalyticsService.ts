@@ -16,7 +16,8 @@ export type SubjectCategory =
   | 'psychology'
   | 'economics_stat'
   | 'arabic'
-  | 'languages';
+  | 'languages'
+  | 'cs_informatics';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -47,7 +48,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -87,6 +88,26 @@ export function classifySubjectCategory(
     text.includes('مرونة الطلب')
   ) {
     return 'economics_stat';
+  }
+
+  if (
+    text.includes('حاسب') ||
+    text.includes('computer') ||
+    text.includes('informatic') ||
+    text.includes('خوارزم') ||
+    text.includes('algorithm') ||
+    text.includes('بايثون') ||
+    text.includes('python') ||
+    text.includes('ذكاء') ||
+    text.includes('neural') ||
+    text.includes('تشفير') ||
+    text.includes('crypto') ||
+    text.includes('شبك') ||
+    text.includes('network') ||
+    text.includes('قواعد بيانات') ||
+    text.includes('sql')
+  ) {
+    return 'cs_informatics';
   }
 
   if (text.includes('فلسف') || text.includes('philosoph') || text.includes('منطق') || text.includes('logic') || text.includes('بيوتيق')) {
@@ -437,9 +458,21 @@ export function getMasteryRadarData(
     { key: 'economics_stat', ar: 'الاقتصاد والإحصاء', en: 'Economics & Statistics', color: '#F59E0B' },
   ];
 
+  const all14Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all13Dimensions,
+    { key: 'cs_informatics', ar: 'الحاسب والمعلوماتية', en: 'CS & Informatics', color: '#6366F1' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all14'
+      ? all14Dimensions
       : mode === 'all13'
       ? all13Dimensions
       : mode === 'all12'
