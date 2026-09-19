@@ -359,6 +359,29 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
   }
 
   if (
+    normSubject === 'chinese' ||
+    normSubject.includes('chinese') ||
+    normSubject.includes('mandarin') ||
+    normSubject.includes('صين') ||
+    normBranch.includes('chinese') ||
+    normBranch.includes('صين') ||
+    normBranch.includes('mandarin')
+  ) {
+    return {
+      subjectId: 'chinese',
+      totalQuestions: 31,
+      totalMarks: 40,
+      durationMinutes: 120,
+      section1Count: 22, // 22 * 1 = 22 marks
+      section2Count: 9,  // 9 * 2 = 18 marks (Total: 40 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة اللغة الأجنبية الثانية (الصينية)',
+      titleEn: 'Official Thanawya Amma Examination - Chinese (Second Foreign Language)',
+      descAr: '٣١ سؤالاً (٢٢ سؤالاً بدرجة واحدة + ٩ أسئلة بدرجتين) بإجمالي ٤٠ درجة في ساعتين كاملتين بنظام البابل شيت الرسمي.',
+      descEn: '31 questions (22 items @ 1 mark + 9 items @ 2 marks) totaling 40 marks over 2 hours conforming to official ministerial specifications.',
+    };
+  }
+
+  if (
     normSubject === 'religious_education' ||
     normSubject === 'religion' ||
     normSubject.includes('religion') ||

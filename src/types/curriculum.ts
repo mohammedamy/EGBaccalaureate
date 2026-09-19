@@ -25,6 +25,7 @@ export type BranchId =
   | 'thanaweya_civics'
   | 'thanaweya_italian'
   | 'thanaweya_spanish'
+  | 'thanaweya_chinese'
   | 'thanaweya_islamic'
   | 'thanaweya_christian'
   | 'thanaweya_business'
@@ -52,6 +53,7 @@ export type BranchId =
   | 'egbac_civics'
   | 'egbac_italian'
   | 'egbac_spanish'
+  | 'egbac_chinese'
   | 'egbac_islamic'
   | 'egbac_christian'
   | 'egbac_business'
@@ -310,7 +312,12 @@ export type InteractiveWidgetType =
   | 'fine_arts_architecture_studio'
   | 'perspective_grid_drafter'
   | 'golden_ratio_calculator'
-  | 'islamic_geometry_generator';
+  | 'islamic_geometry_generator'
+  | 'chinese_language_studio'
+  | 'chinese_pinyin_tones_lab'
+  | 'chinese_hanzi_radicals_lab'
+  | 'chinese_grammar_patterns_lab'
+  | 'chinese_listening_comprehension_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

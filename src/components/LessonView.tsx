@@ -34,6 +34,7 @@ import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
 import { GermanLanguageStudio } from './labs/GermanLanguageStudio';
 import { ItalianLanguageStudio } from './labs/ItalianLanguageStudio';
 import { SpanishLanguageStudio } from './labs/SpanishLanguageStudio';
+import { ChineseLanguageStudio } from './labs/ChineseLanguageStudio';
 import { IslamicStudiesStudio } from './labs/IslamicStudiesStudio';
 import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
 import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
@@ -305,6 +306,27 @@ export const LessonView: React.FC<Props> = ({
               lang={lang}
               theme={theme}
               isFullscreen={false}
+            />
+          );
+        case 'chinese_language_studio':
+        case 'chinese_pinyin_tones_lab':
+        case 'chinese_hanzi_radicals_lab':
+        case 'chinese_grammar_patterns_lab':
+        case 'chinese_listening_comprehension_lab':
+          return (
+            <ChineseLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={false}
+              initialTab={
+                lesson.interactiveWidget.type === 'chinese_hanzi_radicals_lab'
+                  ? 'radicals'
+                  : lesson.interactiveWidget.type === 'chinese_grammar_patterns_lab'
+                  ? 'grammar'
+                  : lesson.interactiveWidget.type === 'chinese_listening_comprehension_lab'
+                  ? 'listening'
+                  : 'pinyin_tones'
+              }
             />
           );
         case 'islamic_studies_lab':
@@ -624,6 +646,27 @@ export const LessonView: React.FC<Props> = ({
               lang={lang}
               theme={theme}
               isFullscreen={true}
+            />
+          );
+        case 'chinese_language_studio':
+        case 'chinese_pinyin_tones_lab':
+        case 'chinese_hanzi_radicals_lab':
+        case 'chinese_grammar_patterns_lab':
+        case 'chinese_listening_comprehension_lab':
+          return (
+            <ChineseLanguageStudio
+              lang={lang}
+              theme={theme}
+              isFullscreen={true}
+              initialTab={
+                lesson.interactiveWidget.type === 'chinese_hanzi_radicals_lab'
+                  ? 'radicals'
+                  : lesson.interactiveWidget.type === 'chinese_grammar_patterns_lab'
+                  ? 'grammar'
+                  : lesson.interactiveWidget.type === 'chinese_listening_comprehension_lab'
+                  ? 'listening'
+                  : 'pinyin_tones'
+              }
             />
           );
         case 'islamic_studies_lab':

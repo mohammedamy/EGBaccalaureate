@@ -241,6 +241,12 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('إسبان') ||
     text.includes('اسبان') ||
     text.includes('hola') ||
+    text.includes('chinese') ||
+    text.includes('mandarin') ||
+    text.includes('صين') ||
+    text.includes('pinyin') ||
+    text.includes('بينيين') ||
+    text.includes('hanzi') ||
     text.includes('لغة أجنبية') ||
     text.includes('language')
   ) {

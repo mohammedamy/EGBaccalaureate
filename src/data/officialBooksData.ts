@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -2860,6 +2860,106 @@ export const officialBooksList: OfficialBook[] = [
     ],
   },
 
+  // Thanaweya Chinese (Second Foreign Language)
+  {
+    id: 'th-chinese-g12',
+    curriculum: 'thanaweya',
+    category: 'chinese',
+    subjectId: 'chinese',
+    branchId: 'thanaweya_chinese',
+    code: 'TH-ZH-G12',
+    titleEn: 'Chinese Language: Gateway to China for Secondary Education',
+    titleAr: 'اللغة الصينية: طريقك إلى الصينية للثانوية العامة',
+    subtitleEn: 'Official Ministry of Education Textbook - Grade 12 (Second Foreign Language LV2)',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي (اللغة الأجنبية الثانية)',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 150,
+    fileSize: '16.2 MB',
+    compendiumTitleEn: 'Chinese Language, Pinyin & Character Radicals Compendium',
+    compendiumTitleAr: 'دليل ومفاهيم اللغة الصينية والبينيين وبناء الرموز للثانوية العامة',
+    filename: 'thanaweya-chinese.pdf',
+    downloadUrl: '/books/thanaweya-chinese.pdf',
+    fullTextbookPages: 175,
+    fullTextbookSize: '25.8 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-red-700 via-amber-600 to-yellow-600',
+    accentColor: '#dc2626',
+    chapters: [
+      { id: 'th-zh-c1', titleEn: 'Unit 1 : Phonetics, Greetings, Personal Information & Basic Sentences', titleAr: 'الوحدة الأولى: النظام الصوتي، التحيات والتعارف، وتراكيب الجمل البسيطة', pageRange: 'pp. 5–40', topicsCount: 5 },
+      { id: 'th-zh-c2', titleEn: 'Unit 2 : Family, Numbers, Age, Date & Time', titleAr: 'الوحدة الثانية: العائلة، الأعداد، التعبير عن العمر، والتاريخ والوقت', pageRange: 'pp. 41–75', topicsCount: 5 },
+      { id: 'th-zh-c3', titleEn: 'Unit 3 : School Life, Studies, Hobbies & Daily Routine', titleAr: 'الوحدة الثالثة: الحياة المدرسية، المواد الدراسية، الهوايات والروتين اليومي', pageRange: 'pp. 76–110', topicsCount: 5 },
+      { id: 'th-zh-c4', titleEn: 'Unit 4 : Shopping, Dining, Directions & MoE Communicative Scenarios', titleAr: 'الوحدة الرابعة: التسوق، المطعم الصيني، الاتجاهات ومواقف الامتحان التواصلي', pageRange: 'pp. 111–150', topicsCount: 5 },
+    ],
+    descriptionEn: 'Official Ministry of Education Grade 12 Chinese textbook covering Pinyin phonetics, tones, family kinship terms, time adverbials, hobbies, shopping and restaurant ordering dialogues, and official communicative scenarios.',
+    descriptionAr: 'كتاب وزارة التربية والتعليم الرسمي للصف الثالث الثانوي في مادة اللغة الصينية (اللغة الأجنبية الثانية)؛ يشمل صوتيات البينيين والنغمات، الأعداد والعائلة والوقت، الحياة المدرسية والهوايات، والتسوق والمطاعم والاتجاهات ومواقف الامتحان.',
+    highlightsEn: [
+      'Pinyin phonetics, tone sandhi rules, and character radicals decomposition',
+      'Numeral systems, telling time, and hierarchical Chinese calendar sequencing',
+      'Daily routines, hobbies, and SVO sentence word order with location preposition 在',
+      'Shopping currencies, dining phrases, and MoE situational communication dialogues',
+    ],
+    highlightsAr: [
+      'النظام الصوتي للبينيين، قواعد تحول النغمات، والجذور المعجمية لبناء الرموز',
+      'الأعداد من 1 إلى 100، قراءة الوقت، والترتيب الهرمي للتاريخ والتقويم الصيني',
+      'الروتين اليومي، الهوايات، وبناء الجملة الصينية وموقع الظروف الزمانية والمكانية',
+      'العملة الصينية والتسوق، وعبارات المطاعم، ومواقف التخاطب اليومية والامتحانية',
+    ],
+  },
+
+  // EG-Bac Chinese (Advanced Academic HSK 1-3 / CEFR A2-B1)
+  {
+    id: 'egbac-chinese-g12',
+    curriculum: 'egbac',
+    category: 'chinese',
+    subjectId: 'chinese',
+    branchId: 'egbac_chinese',
+    code: 'EGBAC-ZH-ADV-G12',
+    titleEn: 'Advanced Standard Academic Chinese (HSK 1-3 / CEFR A2-B1)',
+    titleAr: 'اللغة الصينية الأكاديمية المتقدمة (EG-Bac HSK 1-3 / A2-B1)',
+    subtitleEn: 'Egyptian Baccalaureate Advanced Modern Languages Track',
+    subtitleAr: 'المسار المتقدم للبكالوريا المصرية - المستوى النهائي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Terminale / Year 12 (Egyptian Baccalaureate)',
+    gradeAr: 'المستوى النهائي (شهادة البكالوريا المصرية)',
+    publisherEn: 'Egyptian Baccalaureate Curriculum & Standards Authority',
+    publisherAr: 'هيئة المناهج والمعايير للبكالوريا المصرية',
+    pagesCount: 210,
+    fileSize: '19.8 MB',
+    compendiumTitleEn: 'Advanced Academic Chinese, Discourse & Belt & Road Compendium',
+    compendiumTitleAr: 'دليل الصينية المتقدمة، التراكيب المركبة، والتعاون المصري الصيني',
+    filename: 'egbac-chinese.pdf',
+    downloadUrl: '/books/egbac-chinese.pdf',
+    fullTextbookPages: 240,
+    fullTextbookSize: '36.5 MB',
+    officialPortalUrl: 'https://moe.gov.eg',
+    coverGradient: 'from-red-900 via-amber-800 to-yellow-700',
+    accentColor: '#b91c1c',
+    chapters: [
+      { id: 'egbac-zh-c1', titleEn: 'Module 1 : Modern Chinese Society, Education & Complex Sentences', titleAr: 'الموديول الأول: المجتمع الصيني المعاصر، التعليم الجامعي والتراكيب المعقدة', pageRange: 'pp. 1–50', topicsCount: 5 },
+      { id: 'egbac-zh-c2', titleEn: 'Module 2 : Traditional Culture, Festivals, Philosophy & Idioms', titleAr: 'الموديول الثاني: الثقافة الصينية التراثية، الأعياد الكبرى، الفلسفة والتعبيرات الاصطلاحية', pageRange: 'pp. 51–105', topicsCount: 5 },
+      { id: 'egbac-zh-c3', titleEn: 'Module 3 : Tech Innovation, High-Speed Rail, Digital Economy & Ecology', titleAr: 'الموديول الثالث: الابتكار التكنولوجي، القطارات فائقة السرعة، الاقتصاد الرقمي والمدن البيئية', pageRange: 'pp. 106–160', topicsCount: 5 },
+      { id: 'egbac-zh-c4', titleEn: 'Module 4 : Sino-Egyptian Relations, Belt & Road & Diplomatic Translation', titleAr: 'الموديول الرابع: العلاقات المصرية الصينية، مبادرة الحزام والطريق، والترجمة الدبلوماسية', pageRange: 'pp. 161–210', topicsCount: 5 },
+    ],
+    descriptionEn: 'Egyptian Baccalaureate advanced Chinese curriculum (HSK 1-3 / CEFR A2-B1), cultivating mastery in complex sentence structures (因为...所以..., 虽然...但是...), disposal structure 把, passive voice with 被, aspect markers, and Sino-Egyptian diplomatic and trade translation.',
+    descriptionAr: 'منهج اللغة الصينية المتقدمة للبكالوريا المصرية المتوافق مع معايير HSK 1-3 والمستوى الأوروبي A2-B1، يرسخ التراكيب المركبة السببية والاستدراكية، أسلوب 把 وأسلوب المبني للمجهول 被، ودراسة مشروعات الحزام والطريق والترجمة الدبلوماسية.',
+    highlightsEn: [
+      'Academic syntax, causal/concessive complex sentences, and comparative structures',
+      'Traditional Chinese philosophical concepts, major festivals, and Chengyu idioms',
+      'Technological innovation, high-speed rail terminology, and disposal 把 construction',
+      'Sino-Egyptian strategic partnership, TEDA cooperation, and diplomatic translation',
+    ],
+    highlightsAr: [
+      'التركيب اللغوي الأكاديمي، الجمل المركبة السببية والاستدراكية، وصيغ المقارنة ومكملات النتيجة',
+      'الفلسفة الصينية الكلاسيكية (الين واليانغ والوئام)، الأعياد الكبرى، والأمثال الرباعية البليغة',
+      'مصطلحات التكنولوجيا والقطارات السريعة، أسلوب 把 وأسلوب المبني للمجهول بـ 被',
+      'الشراكة الاستراتيجية الشاملة بين مصر والصين، منطقة تيدا الاقتصادية، وأصول الترجمة الدبلوماسية',
+    ],
+  },
+
   // 48. Thanaweya: Islamic Religious Education Grade 12
   {
     id: 'th-islamic-g12',
@@ -3284,6 +3384,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_italian' && (b.branchId === 'egbac_italian' || b.id === 'egbac-italian-g12')) return true;
     if (branchId === 'thanaweya_spanish' && (b.branchId === 'thanaweya_spanish' || b.id === 'th-spanish-g12')) return true;
     if (branchId === 'egbac_spanish' && (b.branchId === 'egbac_spanish' || b.id === 'egbac-spanish-g12')) return true;
+    if (branchId === 'thanaweya_chinese' && (b.branchId === 'thanaweya_chinese' || b.id === 'th-chinese-g12')) return true;
+    if (branchId === 'egbac_chinese' && (b.branchId === 'egbac_chinese' || b.id === 'egbac-chinese-g12')) return true;
     if ((branchId === 'thanaweya_religion' || branchId === 'thanaweya_islamic') && (b.branchId === 'thanaweya_religion' || b.branchId === 'thanaweya_islamic' || b.id === 'th-religion-g12' || b.id === 'th-islamic-g12')) return true;
     if ((branchId === 'egbac_religion' || branchId === 'egbac_islamic') && (b.branchId === 'egbac_religion' || b.branchId === 'egbac_islamic' || b.id === 'egbac-religion-g12' || b.id === 'egbac-islamic-g12')) return true;
     if (branchId === 'thanaweya_christian' && (b.branchId === 'thanaweya_christian' || b.id === 'th-christian-g12')) return true;
@@ -3319,7 +3421,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

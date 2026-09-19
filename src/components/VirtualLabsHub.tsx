@@ -40,6 +40,7 @@ import { SpacePlanetaryStudio } from './labs/SpacePlanetaryStudio';
 import { GermanLanguageStudio } from './labs/GermanLanguageStudio';
 import { ItalianLanguageStudio } from './labs/ItalianLanguageStudio';
 import { SpanishLanguageStudio } from './labs/SpanishLanguageStudio';
+import { ChineseLanguageStudio } from './labs/ChineseLanguageStudio';
 import { IslamicStudiesStudio } from './labs/IslamicStudiesStudio';
 import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
@@ -98,7 +99,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
   const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
-  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish'>('english');
+  const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish' | 'chinese'>('english');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
@@ -127,13 +128,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
-    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') {
+    else if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish' || selectedSubject === 'chinese') {
       setActiveLab('languages');
       if (selectedSubject === 'arabic') setActiveLangSubLab('arabic');
       else if (selectedSubject === 'french') setActiveLangSubLab('french');
       else if (selectedSubject === 'german') setActiveLangSubLab('german');
       else if (selectedSubject === 'italian') setActiveLangSubLab('italian');
       else if (selectedSubject === 'spanish') setActiveLangSubLab('spanish');
+      else if (selectedSubject === 'chinese') setActiveLangSubLab('chinese');
       else if (selectedSubject === 'english') setActiveLangSubLab('english');
     }
   }, [selectedSubject]);
@@ -969,6 +971,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                   { id: 'german', labelAr: '🇩🇪 صوتيات وقواعد واستماع الألمانية', labelEn: '🇩🇪 German Audio & Grammar', color: 'from-amber-600 to-yellow-600' },
                   { id: 'italian', labelAr: '🇮🇹 صوتيات وقواعد واستماع الإيطالية', labelEn: '🇮🇹 Italian Audio & Grammar', color: 'from-emerald-600 via-stone-500 to-red-600' },
                   { id: 'spanish', labelAr: '🇪🇸 صوتيات وقواعد واستماع الإسبانية', labelEn: '🇪🇸 Spanish Audio & Grammar', color: 'from-red-600 via-amber-500 to-yellow-500' },
+                  { id: 'chinese', labelAr: '🇨🇳 صوتيات ونغمات وقواعد الصينية', labelEn: '🇨🇳 Chinese Audio & Characters', color: 'from-red-600 via-rose-600 to-amber-500' },
                   { id: 'arabic', labelAr: '🇪🇬 استوديو النحو والبلاغة العربية', labelEn: '🇪🇬 Arabic Grammar & Rhetoric', color: 'from-emerald-600 to-teal-600' },
                 ].map((station) => {
                   const isSelected = activeLangSubLab === station.id;
@@ -976,7 +979,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     <button
                       key={station.id}
                       type="button"
-                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish')}
+                      onClick={() => setActiveLangSubLab(station.id as 'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish' | 'chinese')}
                       className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer ${
                         isSelected
                           ? `bg-gradient-to-r ${station.color} text-white shadow-md shadow-indigo-600/30`
@@ -1026,6 +1029,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
 
             {activeLangSubLab === 'spanish' && (
               <SpanishLanguageStudio
+                lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+                isFullscreen={isHubFullscreen}
+              />
+            )}
+
+            {activeLangSubLab === 'chinese' && (
+              <ChineseLanguageStudio
                 lang={lang}
                 theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
                 isFullscreen={isHubFullscreen}

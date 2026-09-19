@@ -916,6 +916,48 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr: 'تأهيل مباشر لاختبارات القبول بالجامعات الإسبانية (Selectividad / UNEDasiss)، شهادات DELE و SIELE الرسمية، وكليات الألسن واللغات والترجمة.',
     },
     {
+      id: 'chinese_bridge',
+      titleEn: 'Chinese (Mandarin): Second Foreign Language, HSK 1-3 Fluency & Modern Sinology',
+      titleAr: 'اللغة الصينية (الماندارين): اللغة الأجنبية الثانية، كفاءة HSK 1-3، ودراسات الصين المعاصرة',
+      icon: <Languages className="w-5 h-5 text-amber-500" />,
+      thanaweyaBranchId: 'thanaweya_chinese',
+      egBacBranchId: 'egbac_chinese',
+      thanaweyaTitleEn: 'Complete 4-Unit Curriculum: Phonetics & Greetings, Family & Numbers, Studies & Daily Life, Dining & Shopping',
+      thanaweyaTitleAr: 'المنهج المتكامل (٤ وحدات): الصوتيات والتحيات، العائلة والأعداد، الدراسة والروتين، والمطاعم والتسوق',
+      thanaweyaTopicsEn: [
+        'Unit 1 Phonetics & Basic Sentences: Pinyin initials/finals, 4 tones, tone sandhi, copula 是, pronouns, and particle 吗',
+        'Unit 2 Family, Numbers & Calendar: Counting 1-100, age with 岁, existence with 有/没有, measure words 个/口, and Chinese date/time order',
+        'Unit 3 School & Daily Routine: School subjects, time adverbial placement (Subject + Time + Verb), hobbies with 喜欢, and location 在',
+        'Unit 4 Shopping, Dining & Directions: Yuan currency, measure words (本, 杯, 瓶, 件), restaurant ordering, directions 怎么走, and communicative routines',
+      ],
+      thanaweyaTopicsAr: [
+        'الوحدة الأولى الصوتيات والجمل الأساسية: نطق البينيين، النغمات الأربع وتغيراتها، فعل الكينونة 是، الضمائر، وأداة الاستفهام 吗',
+        'الوحدة الثانية العائلة والأعداد والتقويم: الأعداد من 1 إلى 100، التعبير عن العمر بـ 岁، الملكية والوجود بـ 有/没有، أدوات القياس 个 و 口، والهرم الزمني',
+        'الوحدة الثالثة المدرسة والروتين اليومي: المواد الدراسية، ترتيب الظروف الزمانية قبل الفعل، الهوايات بـ 喜欢، وأشباه الجمل المكانية بـ 在',
+        'الوحدة الرابعة التسوق والمطاعم والاتجاهات: العملة الصينية (块/元)، أدوات القياس المتخصصة (本, 杯, 瓶, 件)، حوارات المطعم، وصف الطريق 怎么走، ومواقف التخاطب',
+      ],
+      egBacTitleEn: 'Advanced 4-Module HSK 1-3 Academic Chinese, Discourse Syntax & Belt & Road Studies',
+      egBacTitleAr: 'المسار المتقدم (٤ موديولات): الصينية الأكاديمية HSK 1-3، التراكيب المركبة، ودراسات مبادرة الحزام والطريق',
+      egBacTopicsEn: [
+        'Module 1 Modern Society & Complex Sentences: Higher education in China, causal 因为...所以..., concessive 虽然...但是..., comparisons A比B, and resultative complements',
+        'Module 2 Traditional Culture & Philosophy: Spring Festival, Mid-Autumn, Confucian ethics, Chengyu idioms, and aspect markers (了, 着, 过)',
+        'Module 3 Tech Innovation & Advanced Syntax: High-speed rail (高铁), mobile payments, disposal 把 construction, passive with 被, and progressive 正在',
+        'Module 4 Sino-Egyptian Relations & Translation: Comprehensive Strategic Partnership, TEDA Suez zone, Luban Workshops, correlatives 不仅...而且..., and diplomatic translation',
+      ],
+      egBacTopicsAr: [
+        'الموديول الأول المجتمع المعاصر والتركيب المعقد: التعليم العالي بالصين، الجمل السببية (因为...所以...)، الجمل الاستدراكية (虽然...但是...)، صيغ المقارنة بـ 比، ومكملات النتيجة',
+        'الموديول الثاني الثقافة الصينية والتراث: عيد الربيع وعيد منتصف الخريف، الفلسفة الكونفوشيوسية، الأمثال الرباعية (成语)، وأزمنة المظهر (了, 着, 过)',
+        'الموديول الثالث الابتكار التكنولوجي والتراكيب المتقدمة: القطارات السريعة (高铁)، الدفع الرقمي، أسلوب المعالجة بـ 把، المبني للمجهول بـ 被، والمظهر المستمر 正在',
+        'الموديول الرابع العلاقات المصرية الصينية والترجمة: الشراكة الاستراتيجية الشاملة، منطقة تيدا بالسويس، ورش لوبان، الروابط التوكيدية (不仅...而且...)، والترجمة الدبلوماسية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers essential mastery of standard Pinyin, tone accuracy, high-frequency characters, and MoE examination communicative situations. EG-Bac expands into HSK 1-3 proficiency, academic SVO and disposal/passive syntax, Chengyu literary culture, and real-world Sino-Egyptian diplomatic and trade discourse.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة إتقاناً صوتياً وتواصلياً متيناً للبينيين والنغمات ومفردات المنهج الوزاري ونظام البابل شيت، بينما ترتقي البكالوريا بمستوى الدارس إلى معايير HSK 1-3 والتراكيب الأكاديمية المعقدة وأسلوبي 把 و 被، والترجمة الدبلوماسية والتجارية الداعمة للشراكة الاستراتيجية بين مصر والصين.',
+      universityAdvantageEn: 'Exceptional advantage for Chinese Government Scholarship (CSC) admissions, HSK certification, Confucius Institute programs, and Alsun & International Trade faculties.',
+      universityAdvantageAr: 'أفضلية كبرى للقبول بالمنح الحكومية الصينية (CSC)، اختبارات الكفاءة العالمية HSK، برامج معهد كونفوشيوس، وكليات الألسن واللغات والتجارة الدولية.',
+    },
+    {
       id: 'islamic_bridge',
       titleEn: 'Islamic Studies: Exegesis, Jurisprudential Maxims & Civilizational Bioethics',
       titleAr: 'التربية الدينية الإسلامية: التفسير القرآني، القواعد الفقهية، والأخلاقيات الحضارية والطبية',

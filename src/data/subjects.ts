@@ -10,6 +10,7 @@ export type SubjectId =
   | 'german'
   | 'italian'
   | 'spanish'
+  | 'chinese'
   | 'history'
   | 'geography'
   | 'philosophy'
@@ -233,7 +234,30 @@ export const SUBJECTS: SubjectDefinition[] = [
     },
   },
 
-  // 8. Modern & Contemporary Egyptian History (تاريخ مصر الحديث والمعاصر)
+  // 8. Chinese Language (اللغة الصينية)
+  {
+    id: 'chinese',
+    titleEn: 'Chinese Language (Mandarin)',
+    titleAr: 'اللغة الصينية (اللغة الأجنبية الثانية)',
+    shortTitleEn: 'Chinese',
+    shortTitleAr: 'صيني',
+    emoji: '🇨🇳',
+    iconName: 'Languages',
+    badgeColor: 'red',
+    gradient: 'from-red-600 via-amber-500 to-yellow-500',
+    lightBg: 'bg-red-50 text-red-950 border-red-200',
+    darkBg: 'bg-red-950/80 text-red-200 border-red-800/60',
+    borderColor: 'border-red-500/50',
+    textColor: 'text-red-400',
+    descriptionEn: 'Official Egyptian secondary Chinese curriculum (Kuai Le Han Yu / Gateway to China) and advanced academic Mandarin (HSK 1-3 / B1) for phonetics, radicals, grammar, and situational fluency.',
+    descriptionAr: 'المنهج الرسمي المعتمد لوزارة التربية والتعليم للغة الصينية ومسار البكالوريا المتقدم للإتقان الصوتي (Pinyin)، والرموز (Hanzi)، وتراكيب الجمل، والتواصل الحي (HSK 1-3).',
+    branchIds: {
+      thanaweya: ['thanaweya_chinese'],
+      egbac: ['egbac_chinese'],
+    },
+  },
+
+  // 9. Modern & Contemporary Egyptian History (تاريخ مصر الحديث والمعاصر)
   {
     id: 'history',
     titleEn: 'Modern & Contemporary Egyptian History',
