@@ -13,6 +13,12 @@ export interface HolySacrament {
   scriptureBasisEn: string;
   theologicalDepthAr: string;
   theologicalDepthEn: string;
+  audioUrl?: string;
+  audioFallbackUrl?: string;
+  audioCitationAr?: string;
+  audioCitationEn?: string;
+  reciterAr?: string;
+  reciterEn?: string;
 }
 
 export interface MonasticMilestone {
@@ -43,6 +49,26 @@ export interface GospelSynopticItem {
   keyThemeEn: string;
   notablePassageAr: string;
   notablePassageEn: string;
+  audioUrl?: string;
+  audioFallbackUrl?: string;
+  passageRefAr?: string;
+  passageRefEn?: string;
+}
+
+export interface AuthenticScriptureRecording {
+  id: string;
+  titleAr: string;
+  titleEn: string;
+  referenceAr: string;
+  referenceEn: string;
+  themeAr: string;
+  themeEn: string;
+  textAr: string;
+  textEn: string;
+  audioUrl: string;
+  audioFallbackUrl?: string;
+  reciterAr: string;
+  reciterEn: string;
 }
 
 export interface BioethicsTopic {
@@ -83,7 +109,13 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«مَنْ آمَنَ وَاعْتَمَدَ خَلَصَ» (مرقس ١٦: ١٦) — «إِنْ كَانَ أَحَدٌ لاَ يُولَدُ مِنَ الْمَاءِ وَالرُّوحِ لاَ يَقْدِرُ أَنْ يَدْخُلَ مَلَكُوتَ اللهِ» (يوحنا ٣: ٥)',
     scriptureBasisEn: '"He who believes and is baptized will be saved" (Mark 16:16) — "Unless one is born of water and the Spirit, he cannot enter the kingdom of God" (John 3:5)',
     theologicalDepthAr: 'المعمودية هي باب الأسرار والمدخل الإلزامي لنيل سائر النعم الكنسية؛ وبها يُغرس المؤمن في الجسد السري للمسيح ويسترد كرامة البنوة الإلهية بالتبني.',
-    theologicalDepthEn: 'Baptism is the portal to all sacraments and divine gifts, grafting the believer organically into the mystical Body of Christ and conferring divine adoptive sonship.'
+    theologicalDepthEn: 'Baptism is the portal to all sacraments and divine gifts, grafting the believer organically into the mystical Body of Christ and conferring divine adoptive sonship.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/mark/016.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Mark/02_mark_16.mp3',
+    audioCitationAr: 'إنجيل مرقس - الأصحاح ١٦: ١٦ (معمودية الخلاص)',
+    audioCitationEn: 'Gospel of Mark - Chapter 16:16',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — العهد الجديد باللغة العربية (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Arabic New Testament (Smith & Van Dyck)'
   },
   {
     id: 'sacrament_myron',
@@ -99,7 +131,12 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«وَأَمَّا أَنْتُمْ فَلَكُمْ مَسْحَةٌ مِنَ الْقُدُّوسِ وَتَعْلَمُونَ كُلَّ شَيْءٍ» (١ يوحنا ٢: ٢٠)',
     scriptureBasisEn: '"But you have an anointing from the Holy One, and you know all things" (1 John 2:20)',
     theologicalDepthAr: 'يحل سر الميرون محل وضع أيدي الرسل؛ وبموجبه يصبح المؤمن مسكناً حياً للروح المعزي ومحصناً بمواهب الحكمة والفهم والقوة والتقوى.',
-    theologicalDepthEn: 'Chrismation succeeds the apostolic laying of hands, imparting the indwelling Holy Spirit with wisdom, spiritual understanding, moral fortitude, and piety.'
+    theologicalDepthEn: 'Chrismation succeeds the apostolic laying of hands, imparting the indwelling Holy Spirit with wisdom, spiritual understanding, moral fortitude, and piety.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/1john/002.mp3',
+    audioCitationAr: 'رسالة يوحنا الأولى - الأصحاح ٢: ٢٠ (مسحة القدوس)',
+    audioCitationEn: 'First Epistle of John - Chapter 2:20',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — رسائل يوحنا الرسول (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Johannine Epistles (Smith & Van Dyck)'
   },
   {
     id: 'sacrament_eucharist',
@@ -115,7 +152,13 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«مَنْ يَأْكُلْ جَسَدِي وَيَشْرَبْ دَمِي يَثْبُتْ فِيَّ وَأَنَا فِيهِ» (يوحنا ٦: ٥٦) — «هذَا هُوَ جَسَدِي... هذَا هُوَ دَمِي» (متى ٢٦: ٢٦-٢٨)',
     scriptureBasisEn: '"He who eats My flesh and drinks My blood abides in Me, and I in him" (John 6:56) — "This is My body... This is My blood" (Matthew 26:26-28)',
     theologicalDepthAr: 'تاج الأسرار وسر الأسرار، به تستحضر الكنيسة ذبيحة الصليب الواحدة غير المتكررة كحضور حقيقي دائم يهب غفران الخطايا والاتحاد الحميم بالمخلص.',
-    theologicalDepthEn: 'The crown and pinnacle of sacraments, actualizing the perpetual presence of Calvary\'s one all-sufficient sacrifice and fostering deep communal union with God.'
+    theologicalDepthEn: 'The crown and pinnacle of sacraments, actualizing the perpetual presence of Calvary\'s one all-sufficient sacrifice and fostering deep communal union with God.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/matthew/026.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Matthew/01_matthew_26.mp3',
+    audioCitationAr: 'إنجيل متى - الأصحاح ٢٦: ٢٦-٢٨ (تأسيس سر الشكر والتناول)',
+    audioCitationEn: 'Gospel of Matthew - Chapter 26:26-28',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — العهد الجديد باللغة العربية (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Arabic New Testament (Smith & Van Dyck)'
   },
   {
     id: 'sacrament_confession',
@@ -131,7 +174,13 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«مَنْ غَفَرْتُمْ خَطَايَاهُ تُغْفَرُ لَهُ، وَمَنْ أَمْسَكْتُمْ خَطَايَاهُ أُمْسِكَتْ» (يوحنا ٢٠: ٢٣)',
     scriptureBasisEn: '"If you forgive the sins of any, they are forgiven them; if you retain the sins of any, they are retained" (John 20:23)',
     theologicalDepthAr: 'المعمودية الثانية المتجددة؛ حيث يعود الابن الضال إلى أحضان الآب السماوي، متجرداً من كبرياء التبرير الذاتي ومقبلاً على ينابيع النعمة والرحمة.',
-    theologicalDepthEn: 'The continuous baptism of tears wherein the soul returns to the Father\'s embrace, laying down pride to receive divine mercy, counsel, and restoration.'
+    theologicalDepthEn: 'The continuous baptism of tears wherein the soul returns to the Father\'s embrace, laying down pride to receive divine mercy, counsel, and restoration.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/john/020.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/John/04_john_20.mp3',
+    audioCitationAr: 'إنجيل يوحنا - الأصحاح ٢٠: ٢٣ (سلطان الحل والمغفرة الرسولي)',
+    audioCitationEn: 'Gospel of John - Chapter 20:23',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — العهد الجديد باللغة العربية (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Arabic New Testament (Smith & Van Dyck)'
   },
   {
     id: 'sacrament_priesthood',
@@ -147,7 +196,12 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«لاَ تُهْمِلِ الْمَوْهِبَةَ الَّتِي فِيكَ، الَّتِي أُعْطِيَتْ لَكَ بِالنُّبُوَّةِ مَعَ وَضْعِ أَيْدِي الْمَشْيَخَةِ» (١ تيموثاوس ٤: ١٤)',
     scriptureBasisEn: '"Do not neglect the gift that is in you, which was given to you by prophecy with the laying on of the hands of the eldership" (1 Tim 4:14)',
     theologicalDepthAr: 'الكهنوت هو خدمة مستمدة من كهنوت السيد المسيح الأعظم؛ ويتدرج في ثلاث رتب رسولية: الشمامسة، القسوس، والأساقفة، حافظاً وحدة الكنيسة عبر الخلافة الرسولية.',
-    theologicalDepthEn: 'Ecclesiastical ministry participating in Christ\'s eternal high priesthood, articulated across three ranks: Diaconate, Presbyterate, and Episcopate via Apostolic Succession.'
+    theologicalDepthEn: 'Ecclesiastical ministry participating in Christ\'s eternal high priesthood, articulated across three ranks: Diaconate, Presbyterate, and Episcopate via Apostolic Succession.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/1timothy/004.mp3',
+    audioCitationAr: 'رسالة بولس الرسول الأولى إلى تيموثاوس - الأصحاح ٤: ١٤ (وضع يد المشيخة)',
+    audioCitationEn: 'First Epistle to Timothy - Chapter 4:14',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — رسائل بولس الرسول الرعوية (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Pastoral Epistles (Smith & Van Dyck)'
   },
   {
     id: 'sacrament_matrimony',
@@ -163,7 +217,13 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«هذَا السِّرُّ عَظِيمٌ، وَلكِنَّنِي أَنَا أَقُولُ مِنْ نَحْوِ الْمَسِيحِ وَالْكَنِيسَةِ» (أفسس ٥: ٣٢) — «فَالَّذِي جَمَعَهُ اللهُ لاَ يُفَرِّقُهُ إِنْسَانٌ» (متى ١٩: ٦)',
     scriptureBasisEn: '"This is a great mystery, but I speak concerning Christ and the church" (Ephesians 5:32) — "What God has joined together, let not man separate" (Matthew 19:6)',
     theologicalDepthAr: 'يقوم الزواج المسيحي على الوحدانية غير المنحلة والتضحية المتبادلة محاكياً بذل المسيح لأجل كنيسته، منشئاً خلية أسرية صالحة تخدم المجتمع والوطن.',
-    theologicalDepthEn: 'Christian marriage embodies indissoluble covenantal love reflecting Christ\'s devotion to His Church, establishing a sanctuary of love, fidelity, and civic integrity.'
+    theologicalDepthEn: 'Christian marriage embodies indissoluble covenantal love reflecting Christ\'s devotion to His Church, establishing a sanctuary of love, fidelity, and civic integrity.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/ephesians/005.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Matthew/01_matthew_19.mp3',
+    audioCitationAr: 'رسالة أفسس - الأصحاح ٥: ٣٢ (سر الزيجة الكنسي المقدس)',
+    audioCitationEn: 'Ephesians - Chapter 5:32',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — رسائل بولس الرسول (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Pauline Epistles (Smith & Van Dyck)'
   },
   {
     id: 'sacrament_unction',
@@ -179,7 +239,12 @@ export const HOLY_SACRAMENTS: HolySacrament[] = [
     scriptureBasisAr: '«أَمَرِيضٌ أَحَدٌ بَيْنَكُمْ؟ فَلْيَدْعُ قُسُوسَ الْكَنِيسَةِ فَيُصَلُّوا عَلَيْهِ وَيَدْهُنُوهُ بِزَيْتٍ بِاسْمِ الرَّبِّ» (يعقوب ٥: ١٤)',
     scriptureBasisEn: '"Is anyone among you sick? Let him call for the elders of the church, and let them pray over him, anointing him with oil in the name of the Lord" (James 5:14)',
     theologicalDepthAr: 'يؤكد السر رعاية الكنيسة للإنسان في أوقات الضعف والألم؛ فلا تكتفي بالدواء الطبي المادي بل تقرنه بالرجاء الروحي والصلاة الإيمانية الداعمة.',
-    theologicalDepthEn: 'Affirms holistic pastoral compassion toward human suffering, harmonizing medical treatment with prayerful spiritual solace and divine hope.'
+    theologicalDepthEn: 'Affirms holistic pastoral compassion toward human suffering, harmonizing medical treatment with prayerful spiritual solace and divine hope.',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/james/005.mp3',
+    audioCitationAr: 'رسالة يعقوب الرسول - الأصحاح ٥: ١٤ (صلاة الإيمان ومسحة الزيت)',
+    audioCitationEn: 'Epistle of James - Chapter 5:14',
+    reciterAr: 'تسجيل صوتي كنسي معتمد — الرسائل الجامعة الكاثوليكون (ترجمة سميث وفانديك)',
+    reciterEn: 'Accredited Church Audio Archive — Catholic Epistles (Smith & Van Dyck)'
   }
 ];
 
@@ -265,7 +330,11 @@ export const GOSPEL_SYNOPTICS: GospelSynopticItem[] = [
     keyThemeAr: 'يسوع المسيح هو المسيا المنتظر متمم نبوات وعهود العهد القديم',
     keyThemeEn: 'Jesus is the Promised Messiah-King fulfilling Old Testament covenants',
     notablePassageAr: 'العظة على الجبل (متى ٥ - ٧)، التطويبات، وأمثال ملكوت السماوات',
-    notablePassageEn: 'The Sermon on the Mount (Matt 5-7), The Beatitudes, and Kingdom Parables'
+    notablePassageEn: 'The Sermon on the Mount (Matt 5-7), The Beatitudes, and Kingdom Parables',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/matthew/005.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Matthew/01_matthew_05.mp3',
+    passageRefAr: 'العظة على الجبل والتطويبات (متى ٥)',
+    passageRefEn: 'Sermon on the Mount & Beatitudes (Matt 5)'
   },
   {
     id: 'gospel_mark',
@@ -280,7 +349,11 @@ export const GOSPEL_SYNOPTICS: GospelSynopticItem[] = [
     keyThemeAr: 'المسيح الخادم الباذل ذو السلطان الفائق على قوى الطبيعة والشر والمرض',
     keyThemeEn: 'Christ the Mighty Servant possessing sovereign power over disease and evil',
     notablePassageAr: 'أقصر الأناجيل زمناً وأسرعها إيقاعاً، استخدام لفظ "للوقت / حالاً" أكثر من ٤٠ مرة',
-    notablePassageEn: 'Fastest-paced gospel, emphasizing immediate actions using the Greek "Euthus" (immediately)'
+    notablePassageEn: 'Fastest-paced gospel, emphasizing immediate actions using the Greek "Euthus" (immediately)',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/mark/001.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Mark/02_mark_01.mp3',
+    passageRefAr: 'صوت صارخ في البرية وإعلان البشارة (مرقس ١)',
+    passageRefEn: 'Voice in Wilderness & Good News (Mark 1)'
   },
   {
     id: 'gospel_luke',
@@ -295,7 +368,11 @@ export const GOSPEL_SYNOPTICS: GospelSynopticItem[] = [
     keyThemeAr: 'المسيح ابن الإنسان، مخلص الجميع، صديق الفقراء والخطاة والمنبوذين والنساء',
     keyThemeEn: 'Christ the Compassionate Son of Man, Savior of all nations and marginalized',
     notablePassageAr: 'مثل الابن الضال، السامري الصالح، الفريسي والعشار، ونشيد مريم (المعظم)',
-    notablePassageEn: 'Parables of the Prodigal Son, Good Samaritan, Pharisee & Publican, and the Magnificat'
+    notablePassageEn: 'Parables of the Prodigal Son, Good Samaritan, Pharisee & Publican, and the Magnificat',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/luke/001.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Luke/03_luke_01.mp3',
+    passageRefAr: 'بشارة الملاك وتسبحة تعظم نفسي الرب (لوقا ١)',
+    passageRefEn: 'The Annunciation & The Magnificat (Luke 1)'
   },
   {
     id: 'gospel_john',
@@ -310,7 +387,87 @@ export const GOSPEL_SYNOPTICS: GospelSynopticItem[] = [
     keyThemeAr: 'لاهوت المسيح الكلمة الأزلي، النور الحقيقي، وسر الإيمان الواهب للحياة الأبدية',
     keyThemeEn: 'The Deity of the Incarnate Logos, the True Light, granting eternal life through faith',
     notablePassageAr: 'مقدمة اللوغوس (يوحنا ١: ١-١٤)، حوار نيقوديموس (يوحنا ٣)، وحديث الخبز الحي (يوحنا ٦)',
-    notablePassageEn: 'Prologue of the Logos (John 1:1-14), Nicodemus dialogue (John 3), Bread of Life (John 6)'
+    notablePassageEn: 'Prologue of the Logos (John 1:1-14), Nicodemus dialogue (John 3), Bread of Life (John 6)',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/john/001.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/John/04_john_01.mp3',
+    passageRefAr: 'مقدمة اللوغوس: في البدء كان الكلمة (يوحنا ١)',
+    passageRefEn: 'Prologue of the Logos: In the Beginning (John 1)'
+  }
+];
+
+export const AUTHENTIC_CHRISTIAN_SCRIPTURE_RECORDINGS: AuthenticScriptureRecording[] = [
+  {
+    id: 'rec_beatitudes',
+    titleAr: 'تطويبات العظة على الجبل الخالدة',
+    titleEn: 'The Beatitudes (Sermon on the Mount)',
+    referenceAr: 'إنجيل متى ٥: ١-١٢',
+    referenceEn: 'Matthew 5:1-12',
+    themeAr: 'دستور الأخلاق المسيحية ودعوة الطهارة والسلام الداخلي',
+    themeEn: 'Foundational Charter of Christian Ethics, Peace, and Purity of Heart',
+    textAr: '«طُوبَى لِلْمَسَاكِينِ بِالرُّوحِ، لأَنَّ لَهُمْ مَلَكُوتَ السَّمَاوَاتِ. طُوبَى لِلْحَزَانَى، لأَنَّهُمْ يُعَزَّوْنَ. طُوبَى لِلْوُدَعَاءِ، لأَنَّهُمْ يَرِثُونَ الأَرْضَ. طُوبَى لِلْجِيَاعِ وَالْعِطَاشِ إِلَى الْبِرِّ، لأَنَّهُمْ يُشْبَعُونَ. طُوبَى لِلرُّحَمَاءِ، لأَنَّهُمْ يُرْحَمُونَ. طُوبَى لأَنْقِيَاءِ الْقَلْبِ، لأَنَّهُمْ يُعَايِنُونَ اللهَ. طُوبَى لِصَانِعِي السَّلاَمِ، لأَنَّهُمْ أَبْنَاءَ اللهِ يُدْعَوْنَ.»',
+    textEn: '"Blessed are the poor in spirit, for theirs is the kingdom of heaven. Blessed are those who mourn, for they shall be comforted. Blessed are the meek, for they shall inherit the earth. Blessed are those who hunger and thirst for righteousness, for they shall be filled. Blessed are the merciful, for they shall obtain mercy. Blessed are the pure in heart, for they shall see God. Blessed are the peacemakers, for they shall be called sons of God."',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/matthew/005.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Matthew/01_matthew_05.mp3',
+    reciterAr: 'تسجيل كنسي معتمد — الكتاب المقدس المسموع (سميث وفانديك)',
+    reciterEn: 'Church Audio Archive — Arabic Holy Bible (Smith & Van Dyck)'
+  },
+  {
+    id: 'rec_logos_prologue',
+    titleAr: 'مقدمة اللوغوس (في البدء كان الكلمة)',
+    titleEn: 'Prologue of the Logos (In the Beginning)',
+    referenceAr: 'إنجيل يوحنا ١: ١-١٤',
+    referenceEn: 'John 1:1-14',
+    themeAr: 'أزلية المسيح الكلمة وتجسده لخلاص ونور العالم',
+    themeEn: 'Eternal Deity of the Incarnate Word, True Light Illuminating Humanity',
+    textAr: '«فِي الْبَدْءِ كَانَ الْكَلِمَةُ، وَالْكَلِمَةُ كَانَ عِنْدَ اللهِ، وَكَانَ الْكَلِمَةُ اللهَ. هذَا كَانَ فِي الْبَدْءِ عِنْدَ اللهِ. كُلُّ شَيْءٍ بِهِ كَانَ، وَبِغَيْرِهِ لَمْ يَكُنْ شَيْءٌ مِمَّا كَانَ. فِيهِ كَانَتِ الْحَيَاةُ، وَالْحَيَاةُ كَانَتْ نُورَ النَّاسِ، وَالنُّورُ يُضِيءُ فِي الظُّلْمَةِ، وَالظُّلْمَةُ لَمْ تُدْرِكْهُ... وَالْكَلِمَةُ صَارَ جَسَدًا وَحَلَّ بَيْنَنَا، وَرَأَيْنَا مَجْدَهُ.»',
+    textEn: '"In the beginning was the Word, and the Word was with God, and the Word was God. He was in the beginning with God. All things were made through Him, and without Him nothing was made that was made. In Him was life, and the life was the light of men. And the light shines in the darkness, and the darkness did not comprehend it... And the Word became flesh and dwelt among us, and we beheld His glory."',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/john/001.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/John/04_john_01.mp3',
+    reciterAr: 'تسجيل كنسي معتمد — الكتاب المقدس المسموع (سميث وفانديك)',
+    reciterEn: 'Church Audio Archive — Arabic Holy Bible (Smith & Van Dyck)'
+  },
+  {
+    id: 'rec_love_chapter',
+    titleAr: 'أصحاح المحبة الخالدة (أنشودة الفضائل)',
+    titleEn: 'The Hymn of Divine Love',
+    referenceAr: '١ كورنثوس ١٣: ١-١٣',
+    referenceEn: '1 Corinthians 13:1-13',
+    themeAr: 'سمو المحبة الباذلة وخلودها فوق جميع المواهب والأعمال',
+    themeEn: 'Supremacy and Eternity of Selfless Agápe Love',
+    textAr: '«الْمَحَبَّةُ تَتَأَنَّى وَتَرْفُقُ. الْمَحَبَّةُ لاَ تَحْسِدُ. الْمَحَبَّةُ لاَ تَتَفَاخَرُ، وَلاَ تَنْتَفِخُ، وَلاَ تُقَبِّحُ، وَلاَ تَطْلُبُ مَا لِنَفْسِهَا، وَلاَ تَحْتَدُّ، وَلاَ تَظُنُّ السُّوءَ، وَلاَ تَفْرَحُ بِالإِثْمِ بَلْ تَفْرَحُ بِالْحَقِّ، وَتَحْتَمِلُ كُلَّ شَيْءٍ، وَتُصَدِّقُ كُلَّ شَيْءٍ، وَتَرْجُو كُلَّ شَيْءٍ، وَتَصْبِرُ عَلَى كُلِّ شَيْءٍ. اَلْمَحَبَّةُ لاَ تَسْقُطُ أَبَدًا.»',
+    textEn: '"Love suffers long and is kind; love does not envy; love does not parade itself, is not puffed up; does not behave rudely, does not seek its own, is not provoked, thinks no evil; does not rejoice in iniquity, but rejoices in the truth; bears all things, believes all things, hopes all things, endures all things. Love never fails."',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/1corinthians/013.mp3',
+    reciterAr: 'تسجيل كنسي معتمد — رسائل بولس الرسول (سميث وفانديك)',
+    reciterEn: 'Church Audio Archive — Pauline Epistles (Smith & Van Dyck)'
+  },
+  {
+    id: 'rec_psalm_23',
+    titleAr: 'مزمور الراعي الصالح والسلام الروحي',
+    titleEn: 'Psalm 23 (The Lord is My Shepherd)',
+    referenceAr: 'مزمور ٢٣: ١-٦',
+    referenceEn: 'Psalm 23:1-6',
+    themeAr: 'الثقة المطلقة في رعاية الله وعنايته الفائقة بالإنسان',
+    themeEn: 'Unwavering Confidence in God’s Loving Pastoral Care and Solace',
+    textAr: '«الرَّبُّ رَاعِيَّ فَلاَ يُعْوِزُنِي شَيْءٌ. فِي مَرَاعٍ خُضْرٍ يُرْبِضُنِي. إِلَى مِيَاهِ الرَّاحَةِ يُورِدُنِي. يَرُدُّ نَفْسِي. يَهْدِينِي إِلَى سُبُلِ الْبِرِّ مِنْ أَجْلِ اسْمِهِ. أَيْضًا إِذَا سِرْتُ فِي وَادِي ظِلِّ الْمَوْتِ لاَ أَخَافُ شَرًّا، لأَنَّكَ أَنْتَ مَعِي. عَصَاكَ وَعُكَّازُكَ هُمَا يُعَزِّيَانِنِي.»',
+    textEn: '"The Lord is my shepherd; I shall not want. He makes me to lie down in green pastures; He leads me beside the still waters. He restores my soul; He leads me in the paths of righteousness For His name\'s sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil; For You are with me; Your rod and Your staff, they comfort me."',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/psalms/023.mp3',
+    reciterAr: 'تسجيل كنسي معتمد — سفر المزامير (سميث وفانديك)',
+    reciterEn: 'Church Audio Archive — Book of Psalms (Smith & Van Dyck)'
+  },
+  {
+    id: 'rec_magnificat',
+    titleAr: 'تسبحة العذراء مريم (تعظم نفسي الرب)',
+    titleEn: 'The Magnificat (Hymn of the Virgin Mary)',
+    referenceAr: 'إنجيل لوقا ١: ٤٦-٥٥',
+    referenceEn: 'Luke 1:46-55',
+    themeAr: 'التواضع وشكر الله على نعمته وتجسد المخلص لرفع المتضعين',
+    themeEn: 'Joyful Praise, Humility, and Thanksgiving for Divine Salvation',
+    textAr: '«تُعَظِّمُ نَفْسِي الرَّبَّ، وَتَبْتَهِجُ رُوحِي بِاللهِ مُخَلِّصِي، لأَنَّهُ نَظَرَ إِلَى اتِّضَاعِ أَمَتِهِ. فَهُوَذَا مُنْذُ الآنَ جَمِيعُ الأَجْيَالِ تُطَوِّبُنِي، لأَنَّ الْقَدِيرَ صَنَعَ بِي عَظَائِمَ، وَاسْمُهُ قُدُّوسٌ، وَرَحْمَتُهُ إِلَى جِيلِ الأَجْيَالِ لِلَّذِينَ يَتَّقُونَهُ.»',
+    textEn: '"My soul magnifies the Lord, and my spirit has rejoiced in God my Savior. For He has regarded the lowly state of His maidservant; for behold, henceforth all generations will call me blessed. For He who is mighty has done great things for me, and holy is His name. And His mercy is on those who fear Him from generation to generation."',
+    audioUrl: 'https://archive.org/download/bible_Audio_Arabicavddv/luke/001.mp3',
+    audioFallbackUrl: 'https://www.audiotreasure.com/mp3/Arabic/Luke/03_luke_01.mp3',
+    reciterAr: 'تسجيل كنسي معتمد — إنجيل لوقا (سميث وفانديك)',
+    reciterEn: 'Church Audio Archive — Gospel of Luke (Smith & Van Dyck)'
   }
 ];
 

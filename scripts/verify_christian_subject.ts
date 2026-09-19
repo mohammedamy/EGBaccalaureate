@@ -273,8 +273,18 @@ if (fs.existsSync(studioComponentPath)) {
   assert(studioContent.includes('sacraments'), 'Studio has Holy Sacraments explorer');
   assert(studioContent.includes('monasticism'), 'Studio has Monastic Heritage timeline');
   assert(studioContent.includes('synoptics'), 'Studio has Gospel Synoptics comparative matrix');
+  assert(studioContent.includes('scriptures'), 'Studio has Dedicated Scripture Audio Matrix');
   assert(studioContent.includes('bioethics'), 'Studio has Contemporary Bioethics sandbox');
   assert(studioContent.includes('quiz'), 'Studio has Interactive Scenario Quiz');
+  assert(!studioContent.includes('speechSynthesis'), 'Studio completely eliminated SpeechSynthesis computer-generated audio');
+  assert(!studioContent.includes('SpeechSynthesisUtterance'), 'Studio has zero robotic SpeechSynthesisUtterance references');
+  assert(studioContent.includes('playScriptureAudio'), 'Studio implements authentic audio player method playScriptureAudio');
+}
+
+if (fs.existsSync(labDataPath)) {
+  const labContent = fs.readFileSync(labDataPath, 'utf8');
+  assert(labContent.includes('AUTHENTIC_CHRISTIAN_SCRIPTURE_RECORDINGS'), 'labData exports AUTHENTIC_CHRISTIAN_SCRIPTURE_RECORDINGS');
+  assert(labContent.includes('bible_Audio_Arabicavddv'), 'labData references authentic Church Arabic Bible audio repository');
 }
 
 // 10. Platform Curriculum & Problem Totals Verification

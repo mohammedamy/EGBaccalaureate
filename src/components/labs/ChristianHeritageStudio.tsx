@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Language } from '../../i18n/translations';
 import {
   HOLY_SACRAMENTS,
   MONASTIC_MILESTONES,
   GOSPEL_SYNOPTICS,
+  AUTHENTIC_CHRISTIAN_SCRIPTURE_RECORDINGS,
   BIOETHICS_TOPICS,
   CHRISTIAN_SCENARIO_QUIZ,
   type HolySacrament,
   type MonasticMilestone,
   type GospelSynopticItem,
+  type AuthenticScriptureRecording,
   type BioethicsTopic,
 } from '../../data/christianLab/christianLabData';
 import {
   Volume2,
+  Play,
+  Pause,
+  Loader2,
+  Music,
   CheckCircle2,
   XCircle,
   Sparkles,
@@ -27,7 +33,9 @@ import {
   Cross,
   Church,
   Scroll,
-  HeartHandshake
+  HeartHandshake,
+  Radio,
+  AlertCircle
 } from 'lucide-react';
 
 interface Props {
@@ -37,7 +45,7 @@ interface Props {
   initialTab?: ChristianStudioTab;
 }
 
-export type ChristianStudioTab = 'sacraments' | 'monasticism' | 'synoptics' | 'bioethics' | 'quiz';
+export type ChristianStudioTab = 'sacraments' | 'monasticism' | 'synoptics' | 'scriptures' | 'bioethics' | 'quiz';
 
 export const ChristianHeritageStudio: React.FC<Props> = ({
   lang = 'ar',
@@ -54,7 +62,6 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
 
   // Tab 1: Sacraments State
   const [selectedSacrament, setSelectedSacrament] = useState<HolySacrament>(HOLY_SACRAMENTS[0]);
-  const [currentlyPlayingVerse, setCurrentlyPlayingVerse] = useState<string | null>(null);
 
   // Tab 2: Monastic Heritage State
   const [selectedMilestone, setSelectedMilestone] = useState<MonasticMilestone>(MONASTIC_MILESTONES[0]);
@@ -62,30 +69,170 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
   // Tab 3: Gospel Synoptics State
   const [selectedGospel, setSelectedGospel] = useState<GospelSynopticItem>(GOSPEL_SYNOPTICS[0]);
 
-  // Tab 4: Bioethics State
+  // Tab 4: Scripture Audio Matrix State
+  const [selectedScripture, setSelectedScripture] = useState<AuthenticScriptureRecording>(AUTHENTIC_CHRISTIAN_SCRIPTURE_RECORDINGS[0]);
+
+  // Tab 5: Bioethics State
   const [selectedTopic, setSelectedTopic] = useState<BioethicsTopic>(BIOETHICS_TOPICS[0]);
 
-  // Tab 5: Quiz State
+  // Tab 6: Quiz State
   const [currentQIndex, setCurrentQIndex] = useState<number>(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState<boolean>(false);
   const [quizScore, setQuizScore] = useState<number>(0);
 
-  // Web Speech API Pronunciation
-  const speakScripture = (text: string) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
+  // Authentic Christian Church Audio Player State (تسجيلات كنسية حقيقية - بلا نطق حاسوبي)
+  const [playingAudioId, setPlayingAudioId] = useState<string | null>(null);
+  const [audioLoading, setAudioLoading] = useState<boolean>(false);
+  const [audioError, setAudioError] = useState<string | null>(null);
+  const [audioProgress, setAudioProgress] = useState<number>(0);
+  const [audioCurrentTime, setAudioCurrentTime] = useState<number>(0);
+  const [audioDuration, setAudioDuration] = useState<number>(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = isArabic ? 'ar-EG' : 'en-US';
-    utterance.rate = 0.85;
-    utterance.pitch = 1.0;
+  // Stop audio on tab change or component unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+      setPlayingAudioId(null);
+      setAudioLoading(false);
+      setAudioError(null);
+    };
+  }, [activeTab]);
 
-    utterance.onstart = () => setCurrentlyPlayingVerse(text);
-    utterance.onend = () => setCurrentlyPlayingVerse(null);
-    utterance.onerror = () => setCurrentlyPlayingVerse(null);
+  const stopAudio = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+    setPlayingAudioId(null);
+    setAudioLoading(false);
+    setAudioProgress(0);
+    setAudioCurrentTime(0);
+  };
 
-    window.speechSynthesis.speak(utterance);
+  const playScriptureAudio = (
+    id: string,
+    primaryUrl: string,
+    fallbackUrl?: string
+  ) => {
+    // If currently playing this audio, toggle pause
+    if (playingAudioId === id && audioRef.current) {
+      stopAudio();
+      return;
+    }
+
+    // Stop any existing audio
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+
+    setPlayingAudioId(id);
+    setAudioLoading(true);
+    setAudioError(null);
+    setAudioProgress(0);
+    setAudioCurrentTime(0);
+
+    const audio = new Audio(primaryUrl);
+    audio.preload = 'auto';
+    audioRef.current = audio;
+
+    audio.oncanplay = () => {
+      setAudioLoading(false);
+    };
+
+    audio.onloadedmetadata = () => {
+      if (audio.duration && !isNaN(audio.duration)) {
+        setAudioDuration(audio.duration);
+      }
+    };
+
+    audio.ontimeupdate = () => {
+      if (audio.duration && !isNaN(audio.duration) && audio.duration > 0) {
+        setAudioProgress((audio.currentTime / audio.duration) * 100);
+        setAudioCurrentTime(audio.currentTime);
+      }
+    };
+
+    audio.onplaying = () => {
+      setAudioLoading(false);
+    };
+
+    audio.onended = () => {
+      setPlayingAudioId(null);
+      setAudioLoading(false);
+      setAudioProgress(0);
+      audioRef.current = null;
+    };
+
+    audio.onerror = () => {
+      if (fallbackUrl) {
+        console.warn(`Primary audio failed for ${id}, switching to church fallback URL...`);
+        const fallbackAudio = new Audio(fallbackUrl);
+        fallbackAudio.preload = 'auto';
+        audioRef.current = fallbackAudio;
+
+        fallbackAudio.oncanplay = () => setAudioLoading(false);
+        fallbackAudio.onplaying = () => setAudioLoading(false);
+        fallbackAudio.onloadedmetadata = () => {
+          if (fallbackAudio.duration && !isNaN(fallbackAudio.duration)) {
+            setAudioDuration(fallbackAudio.duration);
+          }
+        };
+        fallbackAudio.ontimeupdate = () => {
+          if (fallbackAudio.duration && !isNaN(fallbackAudio.duration) && fallbackAudio.duration > 0) {
+            setAudioProgress((fallbackAudio.currentTime / fallbackAudio.duration) * 100);
+            setAudioCurrentTime(fallbackAudio.currentTime);
+          }
+        };
+        fallbackAudio.onended = () => {
+          setPlayingAudioId(null);
+          setAudioLoading(false);
+          setAudioProgress(0);
+          audioRef.current = null;
+        };
+        fallbackAudio.onerror = () => {
+          setAudioLoading(false);
+          setPlayingAudioId(null);
+          setAudioError(
+            isArabic
+              ? 'تعذر تشغيل التسجيل الصوتي للنص الإنجيلي حالياً، يرجى التحقق من اتصال الشبكة.'
+              : 'Could not stream church scripture recording, please check network connection.'
+          );
+          audioRef.current = null;
+        };
+        fallbackAudio.play().catch(() => {
+          setAudioLoading(false);
+          setPlayingAudioId(null);
+          audioRef.current = null;
+        });
+      } else {
+        setAudioLoading(false);
+        setPlayingAudioId(null);
+        setAudioError(
+          isArabic
+            ? 'تعذر تشغيل التسجيل الصوتي للنص الإنجيلي حالياً، يرجى التحقق من اتصال الشبكة.'
+            : 'Could not stream church scripture recording, please check network connection.'
+        );
+        audioRef.current = null;
+      }
+    };
+
+    audio.play().catch((err) => {
+      console.warn('Audio play prevented by browser policy or network issue:', err);
+      setAudioLoading(false);
+    });
+  };
+
+  const formatAudioTime = (seconds: number) => {
+    if (isNaN(seconds) || seconds < 0) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
   const handleQuizSubmit = (index: number) => {
@@ -190,6 +337,18 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
           >
             <Scroll className="w-4 h-4" />
             <span>{isArabic ? 'الأناجيل الإزائية' : 'Gospel Synoptics'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('scriptures')}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-semibold transition-all ${
+              activeTab === 'scriptures'
+                ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+            }`}
+          >
+            <Volume2 className="w-4 h-4" />
+            <span>{isArabic ? 'تسجيلات النصوص المقررة' : 'Scripture Audio'}</span>
           </button>
 
           <button
@@ -330,27 +489,88 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Scripture Basis with Audio */}
+            {/* Scripture Basis with Authentic Church Audio */}
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700/60 space-y-3">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
                   <BookOpen className="w-4 h-4 text-amber-500" />
                   {isArabic ? 'السند الكتابي والتأسيس الإلهي' : 'Scriptural Foundation'}
                 </span>
-                <button
-                  onClick={() =>
-                    speakScripture(
-                      isArabic ? selectedSacrament.scriptureBasisAr : selectedSacrament.scriptureBasisEn
-                    )
-                  }
-                  className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-400 hover:bg-amber-500/30 transition-all border border-amber-500/30"
-                >
-                  <Volume2 className="w-3.5 h-3.5" />
-                  <span>
-                    {currentlyPlayingVerse ? (isArabic ? 'جارٍ الاستماع...' : 'Playing...') : isArabic ? 'استماع للآية' : 'Listen'}
-                  </span>
-                </button>
+
+                {selectedSacrament.audioUrl && (
+                  <button
+                    onClick={() =>
+                      playScriptureAudio(
+                        selectedSacrament.id,
+                        selectedSacrament.audioUrl!,
+                        selectedSacrament.audioFallbackUrl
+                      )
+                    }
+                    disabled={audioLoading && playingAudioId === selectedSacrament.id}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                      playingAudioId === selectedSacrament.id
+                        ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md shadow-amber-500/20'
+                        : 'bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border-amber-500/30'
+                    }`}
+                  >
+                    {audioLoading && playingAudioId === selectedSacrament.id ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>{isArabic ? 'جارٍ التحميل...' : 'Buffering...'}</span>
+                      </>
+                    ) : playingAudioId === selectedSacrament.id ? (
+                      <>
+                        <Pause className="w-3.5 h-3.5" />
+                        <span>{isArabic ? 'إيقاف التسجيل الكنسي' : 'Pause Recording'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Volume2 className="w-3.5 h-3.5" />
+                        <span>{isArabic ? 'استماع للتسجيل الكنسي المعتمد' : 'Listen to Church Audio'}</span>
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
+
+              {/* Active Audio Wave & Duration Panel */}
+              {playingAudioId === selectedSacrament.id && (
+                <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-1 text-[11px] text-amber-300">
+                    <span className="flex items-center gap-1.5 font-bold">
+                      <Music className="w-3.5 h-3.5 animate-pulse text-amber-400" />
+                      {isArabic ? selectedSacrament.audioCitationAr : selectedSacrament.audioCitationEn}
+                    </span>
+                    <span className="text-[10px] text-amber-400/90 font-medium bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                      {isArabic ? selectedSacrament.reciterAr : selectedSacrament.reciterEn}
+                    </span>
+                  </div>
+
+                  <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                    <div
+                      className="bg-amber-400 h-1.5 transition-all duration-200 rounded-full"
+                      style={{ width: `${audioProgress}%` }}
+                    />
+                  </div>
+
+                  <div className="flex items-center justify-between text-[10px] text-slate-400">
+                    <span className="font-mono">{formatAudioTime(audioCurrentTime)}</span>
+                    <span className="text-amber-300 font-semibold flex items-center gap-1">
+                      <Radio className="w-3 h-3 text-amber-400 animate-pulse" />
+                      {isArabic ? 'تسجيل كنسي حقيقي — غير مخلق آلياً' : 'Authentic human voice recording'}
+                    </span>
+                    <span className="font-mono">{audioDuration > 0 ? formatAudioTime(audioDuration) : '--:--'}</span>
+                  </div>
+                </div>
+              )}
+
+              {audioError && playingAudioId === selectedSacrament.id && (
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-rose-500/10 border border-rose-500/20 text-xs text-rose-300">
+                  <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                  <span>{audioError}</span>
+                </div>
+              )}
+
               <blockquote className="text-sm md:text-base font-serif italic text-amber-200/90 leading-relaxed border-s-2 border-amber-500 ps-3">
                 {isArabic ? selectedSacrament.scriptureBasisAr : selectedSacrament.scriptureBasisEn}
               </blockquote>
@@ -508,14 +728,269 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-2">
-              <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
-                <BookOpen className="w-4 h-4" />
-                {isArabic ? 'أبرز المقاطع والخصائص الأسلوبية' : 'Notable Passages & Characteristics'}
+            <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4" />
+                  {isArabic ? 'أبرز المقاطع والخصائص الأسلوبية' : 'Notable Passages & Characteristics'}
+                </div>
+
+                {selectedGospel.audioUrl && (
+                  <button
+                    onClick={() =>
+                      playScriptureAudio(
+                        selectedGospel.id,
+                        selectedGospel.audioUrl!,
+                        selectedGospel.audioFallbackUrl
+                      )
+                    }
+                    disabled={audioLoading && playingAudioId === selectedGospel.id}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                      playingAudioId === selectedGospel.id
+                        ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md'
+                        : 'bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 border-amber-500/30'
+                    }`}
+                  >
+                    {audioLoading && playingAudioId === selectedGospel.id ? (
+                      <>
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        <span>{isArabic ? 'جارٍ التحميل...' : 'Buffering...'}</span>
+                      </>
+                    ) : playingAudioId === selectedGospel.id ? (
+                      <>
+                        <Pause className="w-3.5 h-3.5" />
+                        <span>{isArabic ? 'إيقاف التسجيل' : 'Pause'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Volume2 className="w-3.5 h-3.5" />
+                        <span>
+                          {isArabic
+                            ? `استماع لتسجيل: ${selectedGospel.passageRefAr || selectedGospel.gospelAr}`
+                            : `Listen: ${selectedGospel.passageRefEn || selectedGospel.gospelEn}`}
+                        </span>
+                      </>
+                    )}
+                  </button>
+                )}
               </div>
+
+              {playingAudioId === selectedGospel.id && (
+                <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-1 text-[11px] text-amber-300">
+                    <span className="flex items-center gap-1.5 font-bold">
+                      <Music className="w-3.5 h-3.5 animate-pulse text-amber-400" />
+                      {isArabic ? selectedGospel.passageRefAr : selectedGospel.passageRefEn}
+                    </span>
+                    <span className="text-[10px] text-amber-400/90 font-medium bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                      {isArabic ? 'الكتاب المقدس المسموع (سميث وفانديك)' : 'Audio Bible (Smith & Van Dyck)'}
+                    </span>
+                  </div>
+                  <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                    <div
+                      className="bg-amber-400 h-1.5 transition-all duration-200 rounded-full"
+                      style={{ width: `${audioProgress}%` }}
+                    />
+                  </div>
+                  <div className="flex justify-between text-[10px] text-slate-400">
+                    <span className="font-mono">{formatAudioTime(audioCurrentTime)}</span>
+                    <span className="text-amber-300 font-semibold flex items-center gap-1">
+                      <Radio className="w-3 h-3 text-amber-400 animate-pulse" />
+                      {isArabic ? 'تسجيل كنسي حقيقي — غير مخلق آلياً' : 'Authentic human voice recording'}
+                    </span>
+                    <span className="font-mono">{audioDuration > 0 ? formatAudioTime(audioDuration) : '--:--'}</span>
+                  </div>
+                </div>
+              )}
+
               <p className="text-sm text-slate-200 leading-relaxed">
                 {isArabic ? selectedGospel.notablePassageAr : selectedGospel.notablePassageEn}
               </p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Tab: Dedicated Authentic Christian Scripture Audio Studio */}
+      {activeTab === 'scriptures' && (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          {/* Scripture Selection Sidebar */}
+          <div className="lg:col-span-4 space-y-2.5">
+            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2 mb-3">
+              <Volume2 className="w-4 h-4 text-amber-500" />
+              {isArabic ? 'تسجيلات النصوص الإنجيلية المقررة' : 'Accredited Scripture Recordings'}
+            </h3>
+            {AUTHENTIC_CHRISTIAN_SCRIPTURE_RECORDINGS.map((rec) => {
+              const isSelected = selectedScripture.id === rec.id;
+              const isPlaying = playingAudioId === rec.id;
+              return (
+                <button
+                  key={rec.id}
+                  onClick={() => setSelectedScripture(rec)}
+                  className={`w-full text-start p-3.5 rounded-xl border transition-all duration-200 ${
+                    isSelected
+                      ? 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                      : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300'
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="text-sm font-bold leading-tight">
+                      {isArabic ? rec.titleAr : rec.titleEn}
+                    </div>
+                    {isPlaying && (
+                      <span className="flex items-center gap-1 text-[10px] text-amber-400 bg-amber-500/20 px-1.5 py-0.5 rounded border border-amber-500/30 shrink-0">
+                        <Music className="w-3 h-3 animate-spin" />
+                        {isArabic ? 'يُعزف' : 'Playing'}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-xs text-amber-400/90 mt-1 flex items-center gap-1.5 font-sans">
+                    <BookOpen className="w-3 h-3 text-amber-500" />
+                    <span>{isArabic ? rec.referenceAr : rec.referenceEn}</span>
+                  </div>
+                </button>
+              );
+            })}
+
+            {/* Note badge */}
+            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] text-slate-400 space-y-1">
+              <div className="flex items-center gap-1.5 text-amber-400 font-semibold">
+                <Radio className="w-3.5 h-3.5" />
+                <span>{isArabic ? 'تسجيلات صوتية حقيقية 100%' : '100% Authentic Voice'}</span>
+              </div>
+              <p className="leading-relaxed">
+                {isArabic
+                  ? 'تم استبدال النطق الحاسوبي بتسجيلات صوتية كنسية حقيقية بصوت قراء معتمدين للكتاب المقدس العربي (سميث وفانديك) لضمان الدقة الروحية واللغوية الكاملة.'
+                  : 'Synthesized browser speech has been replaced by authentic human church audio recordings from official Arabic Holy Bible archives.'}
+              </p>
+            </div>
+          </div>
+
+          {/* Scripture Detail & Audio Player Card */}
+          <div className={`lg:col-span-8 ${cardClasses} p-5 md:p-6 rounded-2xl space-y-5`}>
+            {/* Header & Meta */}
+            <div className="pb-3 border-b border-amber-500/20 flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  {isArabic ? selectedScripture.referenceAr : selectedScripture.referenceEn}
+                </span>
+                <h3 className="text-xl md:text-2xl font-black text-white mt-1">
+                  {isArabic ? selectedScripture.titleAr : selectedScripture.titleEn}
+                </h3>
+                <p className="text-xs md:text-sm text-amber-200/80 mt-1">
+                  ✨ {isArabic ? selectedScripture.themeAr : selectedScripture.themeEn}
+                </p>
+              </div>
+
+              {/* Player Button */}
+              <button
+                onClick={() =>
+                  playScriptureAudio(
+                    selectedScripture.id,
+                    selectedScripture.audioUrl,
+                    selectedScripture.audioFallbackUrl
+                  )
+                }
+                disabled={audioLoading && playingAudioId === selectedScripture.id}
+                className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all shadow-lg border ${
+                  playingAudioId === selectedScripture.id
+                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 border-amber-300 shadow-amber-500/30'
+                    : 'bg-gradient-to-r from-amber-600/30 to-purple-600/30 text-amber-300 hover:from-amber-600/40 hover:to-purple-600/40 border-amber-500/40'
+                }`}
+              >
+                {audioLoading && playingAudioId === selectedScripture.id ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>{isArabic ? 'جارٍ التحميل...' : 'Buffering...'}</span>
+                  </>
+                ) : playingAudioId === selectedScripture.id ? (
+                  <>
+                    <Pause className="w-4 h-4" />
+                    <span>{isArabic ? 'إيقاف مؤقت' : 'Pause'}</span>
+                  </>
+                ) : (
+                  <>
+                    <Play className="w-4 h-4" />
+                    <span>{isArabic ? 'تشغيل التسجيل الصوتي' : 'Play Authentic Audio'}</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Active Audio Player Progress Bar */}
+            {playingAudioId === selectedScripture.id && (
+              <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30 space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-amber-300">
+                  <span className="flex items-center gap-2 font-bold">
+                    <Music className="w-4 h-4 animate-bounce text-amber-400" />
+                    {isArabic ? selectedScripture.referenceAr : selectedScripture.referenceEn}
+                  </span>
+                  <span className="text-[11px] text-amber-400 bg-amber-500/15 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+                    {isArabic ? selectedScripture.reciterAr : selectedScripture.reciterEn}
+                  </span>
+                </div>
+
+                <div className="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                  <div
+                    className="bg-gradient-to-r from-amber-400 to-amber-500 h-2 transition-all duration-200 rounded-full"
+                    style={{ width: `${audioProgress}%` }}
+                  />
+                </div>
+
+                <div className="flex items-center justify-between text-xs text-slate-400">
+                  <span className="font-mono text-amber-300">{formatAudioTime(audioCurrentTime)}</span>
+                  <span className="text-amber-400/90 font-medium flex items-center gap-1.5 text-[11px]">
+                    <Radio className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+                    {isArabic ? 'تسجيل كنسي حقيقي — غير مخلق آلياً' : 'Authentic Church Recording — No AI'}
+                  </span>
+                  <span className="font-mono">{audioDuration > 0 ? formatAudioTime(audioDuration) : '--:--'}</span>
+                </div>
+              </div>
+            )}
+
+            {audioError && playingAudioId === selectedScripture.id && (
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-xs text-rose-300">
+                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                <span>{audioError}</span>
+              </div>
+            )}
+
+            {/* Scripture Full Biblical Text */}
+            <div className="p-5 md:p-6 rounded-xl bg-slate-900/80 border border-slate-700/60 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <Scroll className="w-3.5 h-3.5 text-amber-400" />
+                  {isArabic ? 'النص الإنجيلي المعتمد في المنهج الوزاري' : 'Ministry-Accredited Scripture Text'}
+                </span>
+                <span className="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                  {isArabic ? 'ترجمة سميث وفانديك' : 'Smith & Van Dyck'}
+                </span>
+              </div>
+              <blockquote className="text-base md:text-lg font-serif italic text-amber-100 leading-loose border-s-4 border-amber-500 ps-4 py-1">
+                {isArabic ? selectedScripture.textAr : selectedScripture.textEn}
+              </blockquote>
+            </div>
+
+            {/* Secondary Language Translation & Theological Context */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
+                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  {isArabic ? 'الترجمة الإنجليزية الموازية' : 'Arabic Translation'}
+                </div>
+                <p className="text-xs md:text-sm text-slate-300 leading-relaxed italic">
+                  {isArabic ? selectedScripture.textEn : selectedScripture.textAr}
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1.5">
+                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+                  {isArabic ? 'المدلول الروحي واللاهوتي' : 'Spiritual & Theological Reflection'}
+                </div>
+                <p className="text-xs md:text-sm text-slate-200 leading-relaxed">
+                  {isArabic ? selectedScripture.themeAr : selectedScripture.themeEn}
+                </p>
+              </div>
             </div>
           </div>
         </div>
