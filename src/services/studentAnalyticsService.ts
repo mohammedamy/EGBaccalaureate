@@ -24,7 +24,8 @@ export type SubjectCategory =
   | 'christian_studies'
   | 'business_entrepreneurship'
   | 'fine_arts_architecture'
-  | 'music_theory';
+  | 'music_theory'
+  | 'agricultural_sciences';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -55,7 +56,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -107,6 +108,25 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('counterpoint')
   ) {
     return 'music_theory';
+  }
+
+  if (
+    text.includes('زراع') ||
+    text.includes('أراض') ||
+    text.includes('اراض') ||
+    text.includes('تربة') ||
+    text.includes('محاصيل') ||
+    text.includes('توشكى') ||
+    text.includes('مستقبل مصر') ||
+    text.includes('العوينات') ||
+    text.includes('بحر البقر') ||
+    text.includes('agri') ||
+    text.includes('soil') ||
+    text.includes('crop') ||
+    text.includes('irrigation') ||
+    text.includes('fertigation')
+  ) {
+    return 'agricultural_sciences';
   }
 
   if (
@@ -668,9 +688,21 @@ export function getMasteryRadarData(
     { key: 'music_theory', ar: 'التربية الموسيقية والنظريات', en: 'Music Theory & Musicology', color: '#D97706' },
   ];
 
+  const all20Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all19Dimensions,
+    { key: 'agricultural_sciences', ar: 'العلوم والتكنولوجيا الزراعية', en: 'Agricultural Sciences & Agrotechnology', color: '#059669' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all20'
+      ? all20Dimensions
       : mode === 'all19'
       ? all19Dimensions
       : mode === 'all18'

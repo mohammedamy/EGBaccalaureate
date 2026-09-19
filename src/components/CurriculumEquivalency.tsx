@@ -33,6 +33,7 @@ import {
   Briefcase,
   Palette,
   Music,
+  Sprout,
 } from 'lucide-react';
 
 
@@ -1363,6 +1364,48 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
         'ترسخ الثانوية العامة إتقاناً سمعياً وعملياً دقيقاً لقراءة النوتة الموسيقية، نظام الربع تون الشرقي (٢٤ درجة متساوية)، المقامات الكبرى، الضروب الإيقاعية، وتاريخ رواد الموسيقى العربية. بينما تفتح البكالوريا آفاق التوزيع الهارموني الصارم للرباعي الصوتي SATB، تحليل القوالب الآلية والغنائية المعقدة كالموشح والسوناتة، دراسة الموسيقى المقارنة عالمياً، والإنتاج الصوتي والترددات الرقمية الحديثة.',
       universityAdvantageEn: 'Direct accreditation and audition preparation for Faculties of Music Education (Helwan University), Higher Institute of Arabic Music (Academy of Arts), Cairo Conservatoire, Sound Engineering & Acoustic Architecture departments, and International Musicology Faculties.',
       universityAdvantageAr: 'تأهيل أكاديمي واختباري مباشر لاجتياز اختبارات القدرات بكليات التربية الموسيقية (جامعة حلوان)، المعهد العالي للموسيقى العربية (أكاديمية الفنون)، الكونسرفتوار، أقسام الهندسة الصوتية والوسائط المتعددة، ومؤسسات البحث الموسيقي والموسيقى التصويرية الدولية.',
+    },
+    {
+      id: 'agriculture_bridge',
+      titleEn: 'Agricultural Sciences, Precision Agrotechnology & Desert Mega-Projects',
+      titleAr: 'العلوم والتكنولوجيا الزراعية، الهندسة الحيوية والمشروعات القومية الصحراوية',
+      icon: <Sprout className="w-5 h-5 text-emerald-400" />,
+      thanaweyaBranchId: 'thanaweya_agriculture',
+      egBacBranchId: 'egbac_agriculture',
+      thanaweyaTitleEn: 'Foundations of Soil Science, Water Efficiency & Crop Management (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'أسس علوم الأراضي وكفاءة المياه ورعاية المحاصيل للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Soil Science & Sodic Land Reclamation: Soil textural triangle, cation exchange capacity (CEC), SAR, and gypsum requirements for sodic soils',
+        'Ch.2 Water Resources & Precision Irrigation Systems: Drip and center-pivot hydraulics, water use efficiency, and FAO-56 Penman-Monteith water budgeting',
+        'Ch.3 Strategic Field Crops & Protected Horticulture: Egyptian bread wheat, Giza long-staple cotton, sugar beet, tissue-culture date palms, and greenhouse climate controls',
+        'Ch.4 Integrated Pest Management & Plant Protection: Economic injury levels, Wheat Stripe Rust, Red Palm Weevil, Fall Armyworm, and multi-tier biocontrol protocols',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ خواص التربة واستصلاح الأراضي الصودية والملحية: مثلث قوام التربة، السعة التبادلية الكاتيونية، نسبة الصوديوم المتبادل، والاحتياج الجبسي للغسيل والاستصلاح',
+        'فصل ٢ الموارد المائية ونظم الري الحديث والمقننات: هيدروليكا الري بالتنقيط والرش المحوري، كفاءة استخدام المياه، وحساب المقننات المائية وفق معادلات الفاو-٥٦',
+        'فصل ٣ المحاصيل الاستراتيجية والزراعات المحمية: قمح الخبز المصري عالي الإنتاجية، القطن طويل التيلة، بنجر السكر، نخيل التمر الأنسجة، والتحكم البيئي في الصوب',
+        'فصل ٤ المكافحة المتكاملة لآفات وأمراض المحاصيل: العتبة الاقتصادية الحرجة للضرر، الصدأ الأصفر بالقمح، سوسة النخيل الحمراء، دودة الحشد، والمكافحة الحيوية',
+      ],
+      egBacTitleEn: 'Precision Agrotechnology, Closed-Loop Automation & National Mega-Projects (4 Modules)',
+      egBacTitleAr: 'التكنولوجيا الزراعية الدقيقة، الأتمتة المغلقة والمشروعات القومية العملاقة للبكالوريا (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Soil Biogeochemistry & Hydroponic Solutions: Rhizosphere nutrient diffusion kinetics, ion exchange equilibria, buffering, and closed-loop NFT nutrient balancing',
+        'Mod.2 Advanced Agro-Hydrology & Closed-Loop Automation: Subterranean capacitance telemetry, automated ETc feedback, Variable Rate Irrigation (VRI), and leaching fractions',
+        'Mod.3 National Reclamation Megaprojects & Desert Agro-Ecology: Toshka El-Kheir, New Delta 7.5M m³/day plant, East Oweinat Nubian aquifer, and Sinai Bahr El-Baqar',
+        'Mod.4 Molecular Phytopathology & Precision Biocontrol: CRISPR pathogen resistance, entomopathogenic fungi (Beauveria), bio-acoustic weevil detection, and drone IPM spraying',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ الكيمياء الحيوية لمنطقة الجذور ومحاليل الهيدروبونيك: ديناميكا انتشار المغذيات بالريزوسفير، توازن التبادل الأيوني، ومحاليل التغذية المغلقة لأنظمة NFT وDWC',
+        'وحدة ٢ الهيدرولوجيا الزراعية وأتمتة الري المغلق: مجسات الرطوبة السعوية المتصلة بالإنترنت، التغذية الراجعة التلقائية للبخر-نتح، والري المتغير المعدل (VRI)',
+        'وحدة ٣ المشروعات القومية الكبرى وبيئة المناطق الجافة: توشكى الخير، الدلتا الجديدة ومحطة الحمام ٧.٥ مليون م³/يوم، شرق العوينات وخزان الحجر الرملي النوبي، وسحارات سيناء',
+        'وحدة ٤ أمراض النبات الجزيئية والمكافحة الحيوية الدقيقة: تعديل المقاومة الوراثية بكريسبر، الفطريات الممرضة للحشرات، الرصد الصوتي للسوسة، والمكافحة الجوية بالدرونز',
+      ],
+      bridgeInsightEn:
+        'Thanaweya provides solid scientific principles of soil physics, fertilizer chemistry, and classic Egyptian crop husbandry. EG-Bac elevates this into high-tech precision agriculture: IoT telemetry sensors, satellite remote sensing, closed hydroponics, and national mega-engineering projects securing Egypt\'s food sovereignty.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً علمياً رصيناً في فيزياء وكيمياء الأراضي المصرية، حسابات التسميد واستصلاح القلوية، ورعاية المحاصيل الاستراتيجية. بينما تنقل البكالوريا الطالب إلى طليعة الزراعة الذكية عالمياً: أتمتة الري بإنترنت الأشياء، الاستشعار الفضائي، الزراعة المائية المغلقة، والمشروعات القومية الكبرى الضامنة للسيادة والأمن الغذائي المصري.',
+      universityAdvantageEn: 'Full accreditation and foundational excellence for Faculties of Agriculture (Agronomy, Soil & Water, Plant Protection, Precision Agrotechnology), Agricultural Engineering, Biotechnology, Environmental Sciences, Water Resources Management, and National Desert Research Institutes.',
+      universityAdvantageAr: 'تأهيل أكاديمي وبحثي كامل للالتحاق بكليات الزراعة (أقسام الأراضي والمياه، المحاصيل، وقاية النبات، التكنولوجيا الحيوية، والهندسة الزراعية المتقدمة)، كليات الموارد الطبيعية والبيئة، هندسة الري والصرف، ومراكز بحوث الصحراء ومركز البحوث الزراعية القومي.',
     },
   ];
 

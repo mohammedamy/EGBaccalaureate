@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -3451,6 +3451,102 @@ export const officialBooksList: OfficialBook[] = [
       'التوثيق الإثنوموسيقي الميداني لصون التراث النوبي والبدوي وألحان الكنيسة القبطية',
     ],
   },
+  {
+    id: 'th-agri-g12',
+    curriculum: 'thanaweya',
+    category: 'agricultural_sciences',
+    branchId: 'thanaweya_agriculture',
+    subjectId: 'agriculture',
+    code: 'TH-AGRI-G12',
+    titleEn: 'Egyptian Ministry Agricultural Sciences & Agrotechnology',
+    titleAr: 'التربية الزراعية والتكنولوجيا الزراعية للثانوية العامة',
+    subtitleEn: 'Official Ministry Standardized Textbook - Grade 12',
+    subtitleAr: 'كتاب الوزارة المعتمد للثانوية العامة - قسم الإنتاج الزراعي والمشروعات القومية',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (Thanaweya Amma)',
+    gradeAr: 'الصف الثالث الثانوي (الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '24.1 KB',
+    compendiumTitleEn: 'Official Soil, Irrigation & Crop Production Compendium',
+    compendiumTitleAr: 'كتيب مفاهيم علوم الأراضي والري والمحاصيل الاستراتيجية',
+    fullTextbookPages: 228,
+    fullTextbookSize: '21.8 MB',
+    filename: 'thanaweya-agriculture-g12.pdf',
+    downloadUrl: './books/thanaweya-agriculture-g12.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-emerald-700 via-teal-800 to-slate-950',
+    accentColor: '#059669',
+    chapters: [
+      { id: 'th-agr-c1', titleEn: 'Chapter 1: Soil Science & Sodic Land Reclamation', titleAr: 'الفصل الأول: خواص التربة واستصلاح الأراضي الصودية والملحية', pageRange: 'pp. 1–56', topicsCount: 4 },
+      { id: 'th-agr-c2', titleEn: 'Chapter 2: Water Resources & Precision Irrigation Systems', titleAr: 'الفصل الثاني: الموارد المائية ونظم الري الحديث والمقننات', pageRange: 'pp. 57–114', topicsCount: 4 },
+      { id: 'th-agr-c3', titleEn: 'Chapter 3: Strategic Field Crops & Protected Horticulture', titleAr: 'الفصل الثالث: المحاصيل الاستراتيجية والزراعات المحمية', pageRange: 'pp. 115–172', topicsCount: 4 },
+      { id: 'th-agr-c4', titleEn: 'Chapter 4: Integrated Pest Management & Plant Protection', titleAr: 'الفصل الرابع: المكافحة المتكاملة لآفات وأمراض المحاصيل', pageRange: 'pp. 173–228', topicsCount: 4 },
+    ],
+    descriptionEn: 'Official Egyptian Ministry agricultural curriculum covering soil chemistry, SAR and gypsum requirement, modern irrigation telemetry, strategic crop phenology (wheat, cotton, beet), and integrated pest management (IPM).',
+    descriptionAr: 'كتاب التربية الزراعية المعتمد من وزارة التربية والتعليم، يغطي الخواص الفيزيائية والكيميائية للتربة واستصلاح الأراضي الملحية والصودية، نظم الري الذكية والموازنة المائية، رعاية المحاصيل الاستراتيجية والبيوت المحمية، والمكافحة المتكاملة لآفات المحاصيل المصرية.',
+    highlightsEn: [
+      'Soil texture, cation exchange capacity (CEC), and gypsum reclamation for sodic soils',
+      'Modern drip and center-pivot irrigation hydraulics with water efficiency budgeting',
+      'Agronomy of Egyptian strategic crops (wheat, cotton, sugar beet, date palms)',
+      'Integrated pest management (IPM), economic injury levels, and biological control',
+    ],
+    highlightsAr: [
+      'قوام وبناء التربة، السعة التبادلية الكاتيونية والاحتياج الجبسي لاستصلاح الأراضي الصودية',
+      'هيدروليكا الري بالتنقيط والرش المحوري الذكي والموازنة المائية وفق معادلات الفاو',
+      'المعاملات الزراعية للمحاصيل الاستراتيجية المصرية (القمح، القطن، البنجر، النخيل)',
+      'المكافحة المتكاملة للآفات (IPM)، العتبة الاقتصادية الحرجة، والمكافحة الحيوية',
+    ],
+  },
+  {
+    id: 'egbac-agri-g12',
+    curriculum: 'egbac',
+    category: 'agricultural_sciences',
+    branchId: 'egbac_agriculture',
+    subjectId: 'agriculture',
+    code: 'EGBAC-AGRI-G12',
+    titleEn: 'Egyptian Baccalaureate Precision Agrotechnology & Biosystems',
+    titleAr: 'التكنولوجيا الزراعية الدقيقة والنظم الحيوية للبكالوريا المصرية',
+    subtitleEn: 'Official Advanced Secondary Curriculum - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم للبكالوريا المصرية - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (Egyptian Baccalaureate)',
+    gradeAr: 'الصف الثالث الثانوي (البكالوريا المصرية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '25.8 KB',
+    compendiumTitleEn: 'Official Advanced Agrotechnology, Mega-Projects & Biocontrol Compendium',
+    compendiumTitleAr: 'كتيب مفاهيم التكنولوجيا الزراعية المتقدمة والمشروعات القومية',
+    fullTextbookPages: 260,
+    fullTextbookSize: '24.2 MB',
+    filename: 'egbac-agriculture-g12.pdf',
+    downloadUrl: './books/egbac-agriculture-g12.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-teal-900 via-emerald-800 to-slate-950',
+    accentColor: '#10b981',
+    chapters: [
+      { id: 'egbac-agr-c1', titleEn: 'Module 1: Soil Biogeochemistry & Hydroponic Solutions', titleAr: 'الوحدة الأولى: الكيمياء الحيوية للتربة ومحاليل الزراعة المائية', pageRange: 'pp. 1–65', topicsCount: 4 },
+      { id: 'egbac-agr-c2', titleEn: 'Module 2: Advanced Agro-Hydrology & Closed-Loop Automation', titleAr: 'الوحدة الثانية: الهيدرولوجيا الزراعية وأتمتة الري المغلق', pageRange: 'pp. 66–130', topicsCount: 4 },
+      { id: 'egbac-agr-c3', titleEn: 'Module 3: National Reclamation Megaprojects & Desert Agro-Ecology', titleAr: 'الوحدة الثالثة: المشروعات القومية الكبرى وبيئة المناطق الجافة', pageRange: 'pp. 131–195', topicsCount: 4 },
+      { id: 'egbac-agr-c4', titleEn: 'Module 4: Molecular Phytopathology & Precision Biocontrol', titleAr: 'الوحدة الرابعة: أمراض النبات الجزيئية والمكافحة الحيوية الدقيقة', pageRange: 'pp. 196–260', topicsCount: 4 },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate agrotechnology curriculum exploring rhizosphere nutrient kinetics, closed-loop NFT hydroponics, FAO-56 Penman-Monteith automation, Toshka and New Delta mega-reclamation, and molecular pathology.',
+    descriptionAr: 'منهج التكنولوجيا الزراعية المتقدمة للبكالوريا المصرية، يغطي كيمياء الريزوسفير ومحاليل الزراعة المائية بدون تربة، الموازنة الهيدرولوجية وأجهزة الاستشعار عن بعد، الهندسة الزراعية بالمشروعات القومية الكبرى (توشكى والدلتا الجديدة وسيناء)، والبيولوجيا الجزيئية لمقاومة الآفات.',
+    highlightsEn: [
+      'Rhizosphere biogeochemistry, CEC cation exchange kinetics, and hydroponic buffer solutions',
+      'Closed-loop automated irrigation with capacitance telemetry and FAO-56 Penman-Monteith',
+      'Engineering and agro-ecology of Toshka, New Delta, and East Oweinat mega-projects',
+      'Molecular plant pathology, CRISPR-Cas9 bio-resistance, and precision pheromone monitoring',
+    ],
+    highlightsAr: [
+      'الكيمياء الحيوية لمنطقة الجذور، ديناميكا التبادل الأيوني، ومحاليل الهيدروبونيك الدقيقة',
+      'الأتمتة الهيدرولوجية المغلقة ومجسات الرطوبة الأرضية ونمذجة الفاو للبخر-نتح',
+      'الهندسة الزراعية والبيئية لمشروعات توشكى الخير والدلتا الجديدة وشرق العوينات وسيناء',
+      'أمراض النبات الجزيئية، الاستنباط الحيوي للأصناف المقاومة، والمراقبة الفيرمونية الدقيقة',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -3510,6 +3606,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_fine_arts' && (b.branchId === 'egbac_fine_arts' || b.id === 'egbac-arts-g12')) return true;
     if (branchId === 'thanaweya_music' && (b.branchId === 'thanaweya_music' || b.id === 'th-music-g12')) return true;
     if (branchId === 'egbac_music' && (b.branchId === 'egbac_music' || b.id === 'egbac-music-g12')) return true;
+    if (branchId === 'thanaweya_agriculture' && (b.branchId === 'thanaweya_agriculture' || b.id === 'th-agri-g12')) return true;
+    if (branchId === 'egbac_agriculture' && (b.branchId === 'egbac_agriculture' || b.id === 'egbac-agri-g12')) return true;
     return false;
   });
 }
@@ -3519,7 +3617,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

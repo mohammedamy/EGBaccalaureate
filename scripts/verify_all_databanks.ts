@@ -58,12 +58,12 @@ for (const { cur, b, c } of chapters) {
   }
 }
 
-if (databankChaptersCount !== 297) {
-  console.error(`Expected 297 databank chapters, but found ${databankChaptersCount}!`);
+if (databankChaptersCount !== 305) {
+  console.error(`Expected 305 databank chapters, but found ${databankChaptersCount}!`);
   errors++;
 }
-if (totalQ !== 51975) {
-  console.error(`Expected 51,975 total questions, but found ${totalQ}!`);
+if (totalQ !== 53375) {
+  console.error(`Expected 53,375 total questions, but found ${totalQ}!`);
   errors++;
 }
 

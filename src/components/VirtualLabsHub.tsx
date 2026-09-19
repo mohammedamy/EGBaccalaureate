@@ -47,10 +47,11 @@ import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
 import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
+import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -60,7 +61,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -92,6 +93,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'business_entrepreneurship' || selectedSubject === 'business') return 'business';
     if (selectedSubject === 'fine_arts_architecture') return 'fine_arts';
     if (selectedSubject === 'music_theory' || selectedSubject === 'music') return 'music';
+    if (selectedSubject === 'agriculture' || selectedSubject === 'agricultural_sciences') return 'agriculture';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
@@ -518,6 +520,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'استوديو النظريات الموسيقية والصوتيات الافتراضي: محاكي المقامات والربع تون (٢٤ درجة)، آلة إيقاعات الدم والتك، تدريب الأذن والصولفيج، والهارموني الغربي'
         : 'Music Theory & Acoustic Audio Studio: Interactive 24-EDO Arab Maqam synthesizer, Dum-Tak rhythm sandbox, Solfège ear trainer, and SATB harmonic voice-leading',
+    },
+    {
+      id: 'agriculture' as LabId,
+      titleEn: 'Agricultural Sciences & Technology Studio',
+      titleAr: 'مختبر التكنولوجيا والعلوم الزراعية الحديثة',
+      subtitleEn: 'Soil Chemistry, FAO-56 Water Budgeting, Toshka/New Delta & IPM',
+      subtitleAr: 'كيمياء التربة، الاحتياج الجبسي، موازنة الري الذكي، المشروعات القومية والمكافحة المتكاملة',
+      icon: Sprout,
+      color: 'emerald',
+      badge: 'Precision Agrotechnology',
+      gradient: 'from-emerald-700 via-teal-800 to-slate-950',
+      activeBg: 'bg-emerald-600 text-white shadow-emerald-600/30',
+      tagline: isArabic
+        ? 'مختبر التكنولوجيا والعلوم الزراعية: كيمياء التربة والاحتياج الجبسي، موازنة الري المحوري FAO-56، استكشاف المشروعات القومية (توشكى والدلتا الجديدة وشرق العوينات)، والعيادة النباتية المتكاملة IPM'
+        : 'Agricultural Technology Studio: Soil physicochemical balancing, FAO-56 Penman-Monteith irrigation budgeting, Toshka & New Delta national mega-projects explorer, and IPM plant pathology diagnostic clinic',
     },
   ];
 
@@ -1205,6 +1222,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Agricultural Technology Studio */}
+        {activeLab === 'agriculture' && (
+          <div className="space-y-4">
+            <AgriculturalTechnologyStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={isHubFullscreen}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -1213,7 +1241,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -1228,7 +1256,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

@@ -27,15 +27,16 @@ import { egBacCivicsBranch } from './egBacCivics';
 import { egBacFineArtsBranch } from './egBacFineArts';
 import { egBacChineseBranch } from './egBacChinese';
 import { egBacMusicBranch } from './egBacMusic';
+import { egBacAgricultureBranch } from './egBacAgriculture';
 
 export const egBacCurriculum: Curriculum = {
   id: 'egbac',
   nameEn: 'New Egyptian Baccalaureate (EG-Bac)',
   nameAr: 'نظام البكالوريا المصرية الجديد (EG-Bac)',
-  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages (English, French, German, Italian, Spanish, Chinese), Comparative Religious Studies, Ethics & Bioethics, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences, Comparative Civics & Constitutional Law, Fine Arts & Architectural Heritage',
-  subtitleAr: 'المرحلة الثانوية المتقدمة - المسار العلمي والرياضي واللغات والدراسات الدينية والأخلاقية والتاريخ والجغرافيا السياسية وعلوم الأرض والفلسفة والمنطق وعلم النفس والاجتماع والاقتصاد والإحصاء وعلوم الحاسب وعلوم الفضاء والفلك والكواكب والفقه الدستوري والأخلاقيات المدنية والفنون الجميلة والتصميم المعماري وتاريخ الفن',
-  moeOfficialBaselineEn: 'Egyptian Ministry of Education New Baccalaureate Educational Framework 2025/2026',
-  moeOfficialBaselineAr: 'الإطار الوطني المطور لإعادة هيكلة الثانوية والبكالوريا المصرية - وزارة التربية والتعليم',
+  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages (English, French, German, Italian, Spanish, Chinese), Comparative Religious Studies, Ethics & Bioethics, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences, Comparative Civics & Constitutional Law, Fine Arts & Architectural Heritage, Musical Theory, Agricultural Sciences & Precision Agrotechnology',
+  subtitleAr: 'الصف الثالث الثانوي — نظام البكالوريا المصري المطور للمسارات المتقدمة، العلوم والتكنولوجيا والهندسة والرياضيات (STEM)، اللغات العالمية، الأديان المقارنة والأخلاقية الحيوية، والجيوبوليتيك والعلوم الإنسانية والاقتصاد القياسي والذكاء الاصطناعي وعلوم الفضاء والتربية الوطنية الدستورية والفنون المعمارية والموسيقى والعلوم والتكنولوجيا الزراعية الحديثة',
+  moeOfficialBaselineEn: 'Egyptian Baccalaureate Advanced Dual-Track Framework (2025/2026 Guidelines)',
+  moeOfficialBaselineAr: 'الإطار المرجعي المتقدم للبكالوريا المصرية - المسار المزدوج للعلوم والتكنولوجيا والإنسانيات',
   branches: [
     egBacVectorsGeometryBranch,
     egBacAnalysisBranch,
@@ -65,7 +66,6 @@ export const egBacCurriculum: Curriculum = {
     egBacCivicsBranch,
     egBacFineArtsBranch,
     egBacMusicBranch,
+    egBacAgricultureBranch,
   ],
 };
-
-

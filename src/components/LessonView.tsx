@@ -40,6 +40,7 @@ import { ChristianHeritageStudio } from './labs/ChristianHeritageStudio';
 import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
 import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
+import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
@@ -386,6 +387,18 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={false}
             />
           );
+        case 'agricultural_technology_studio':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="soil_chemistry" />;
+        case 'agri_soil_chemistry_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="soil_chemistry" />;
+        case 'agri_irrigation_evapotranspiration_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="irrigation_budgeting" />;
+        case 'agri_hydroponics_greenhouse_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="hydroponics_greenhouse" />;
+        case 'agri_egyptian_megaprojects_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="egyptian_megaprojects" />;
+        case 'agri_ipm_plant_pathology_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="ipm_pathology" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -738,6 +751,18 @@ export const LessonView: React.FC<Props> = ({
               isFullscreen={true}
             />
           );
+        case 'agricultural_technology_studio':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="soil_chemistry" />;
+        case 'agri_soil_chemistry_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="soil_chemistry" />;
+        case 'agri_irrigation_evapotranspiration_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="irrigation_budgeting" />;
+        case 'agri_hydroponics_greenhouse_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="hydroponics_greenhouse" />;
+        case 'agri_egyptian_megaprojects_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="egyptian_megaprojects" />;
+        case 'agri_ipm_plant_pathology_lab':
+          return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="ipm_pathology" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (

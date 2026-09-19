@@ -30,8 +30,8 @@ export type BranchId =
   | 'thanaweya_christian'
   | 'thanaweya_business'
   | 'thanaweya_fine_arts'
-  | 'thanaweya_religion'
   | 'thanaweya_music'
+  | 'thanaweya_agriculture'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -60,7 +60,8 @@ export type BranchId =
   | 'egbac_business'
   | 'egbac_fine_arts'
   | 'egbac_religion'
-  | 'egbac_music';
+  | 'egbac_music'
+  | 'egbac_agriculture';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -324,7 +325,13 @@ export type InteractiveWidgetType =
   | 'solfege_ear_training_lab'
   | 'maqamat_oriental_lab'
   | 'rhythm_iqaat_sandbox'
-  | 'western_harmony_counterpoint_lab';
+  | 'western_harmony_counterpoint_lab'
+  | 'agricultural_technology_studio'
+  | 'agri_soil_chemistry_lab'
+  | 'agri_irrigation_evapotranspiration_lab'
+  | 'agri_hydroponics_greenhouse_lab'
+  | 'agri_egyptian_megaprojects_lab'
+  | 'agri_ipm_plant_pathology_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

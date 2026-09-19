@@ -26,7 +26,8 @@ export type SubjectId =
   | 'civics'
   | 'business_entrepreneurship'
   | 'fine_arts_architecture'
-  | 'music_theory';
+  | 'music_theory'
+  | 'agriculture';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -35,7 +36,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -623,6 +624,29 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_music'],
       egbac: ['egbac_music'],
+    },
+  },
+
+  // 26. Agricultural Sciences & Agrotechnology (التربية الزراعية والتكنولوجيا الزراعية)
+  {
+    id: 'agriculture',
+    titleEn: 'Agricultural Sciences & Agrotechnology',
+    titleAr: 'التربية الزراعية والتكنولوجيا الزراعية',
+    shortTitleEn: 'Agriculture',
+    shortTitleAr: 'زراعة وتكنولوجيا',
+    emoji: '🌾',
+    iconName: 'Sprout',
+    badgeColor: 'emerald',
+    gradient: 'from-emerald-800 via-green-700 to-lime-800',
+    lightBg: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    darkBg: 'bg-emerald-950/80 text-emerald-200 border-emerald-800/60',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    descriptionEn: 'Official Egyptian secondary agricultural curriculum: Soil chemistry & fertility, plant physiology & crop production, modern pressurized irrigation & drainage hydrology, Integrated Pest Management (IPM), protected hydroponic greenhouses, Egyptian national reclamation mega-projects (Toshka, New Delta), agricultural biotechnology, and sustainable agribusiness.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة التربية الزراعية والتكنولوجيا الزراعية: كيمياء وخصوبة التربة والتغذية النباتية، فسيولوجيا النبات والمحاصيل الحقلية، هندسة الري المطور وإدارة الموارد المائية، المكافحة المتكاملة للآفات (IPM) وأمراض النبات، الزراعات المحمية والهيدروبونيك، المشروعات القومية الكبرى لاستصلاح الأراضي الصحراوية (توشكى والدلتا الجديدة ومستقبل مصر)، التكنولوجيا الحيوية الزراعية، وإدارة الإنتاج الحيواني والسمكي وسلاسل القيمة الغذائية.',
+    branchIds: {
+      thanaweya: ['thanaweya_agriculture'],
+      egbac: ['egbac_agriculture'],
     },
   },
 ];
