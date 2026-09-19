@@ -41,6 +41,7 @@ import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
 import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
+import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
@@ -399,6 +400,18 @@ export const LessonView: React.FC<Props> = ({
           return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="egyptian_megaprojects" />;
         case 'agri_ipm_plant_pathology_lab':
           return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="ipm_pathology" />;
+        case 'industrial_engineering_studio':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="materials_testing" />;
+        case 'ind_materials_testing_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="materials_testing" />;
+        case 'ind_plc_automation_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="plc_automation" />;
+        case 'ind_fluid_power_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="fluid_power" />;
+        case 'ind_cnc_machining_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="cnc_machining" />;
+        case 'ind_quality_spc_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="quality_spc" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -763,6 +776,18 @@ export const LessonView: React.FC<Props> = ({
           return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="egyptian_megaprojects" />;
         case 'agri_ipm_plant_pathology_lab':
           return <AgriculturalTechnologyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="ipm_pathology" />;
+        case 'industrial_engineering_studio':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="materials_testing" />;
+        case 'ind_materials_testing_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="materials_testing" />;
+        case 'ind_plc_automation_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="plc_automation" />;
+        case 'ind_fluid_power_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="fluid_power" />;
+        case 'ind_cnc_machining_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="cnc_machining" />;
+        case 'ind_quality_spc_lab':
+          return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="quality_spc" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (

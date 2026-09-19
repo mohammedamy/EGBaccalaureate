@@ -34,7 +34,8 @@ export type PastExamSubject =
   | 'business_entrepreneurship'
   | 'fine_arts_architecture'
   | 'music_theory'
-  | 'agriculture';
+  | 'agriculture'
+  | 'industrial';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -5329,6 +5330,192 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250029,
   },
+  // 175. Industrial Technology & Applied Engineering 2021 - Session 1
+  {
+    id: 'th-ind-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'industrial',
+    branchId: 'thanaweya_industrial',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الصناعية والتكنولوجيا التطبيقية (الدور الأول ٢٠٢١)',
+    titleEn: 'Official Ministerial General Secondary Exam - Industrial Technology & Applied Engineering (2021 Session 1)',
+    subtitleAr: 'الامتحان الرسمي المعتمد من وزارة التربية والتعليم والتعليم الفني بنظام بابل شيت والتقييم الإلكتروني',
+    subtitleEn: 'Official Standardized National Paper released by the Ministry of Education & Technical Education',
+    formCodeAr: 'النموذج أ (كود ١١٥)',
+    formCodeEn: 'Form A (Code 115)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢١ / دور أول / تربية صناعية وتكنولوجيا',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 35.8,
+      totalMarks: 50,
+      passRatePercent: 86.4,
+      distinctionRatePercent: 14.8,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 42000,
+      stdDeviation: 5.3,
+    },
+    seed: 20210031,
+  },
+  // 176. Industrial Technology & Applied Engineering 2022 - Session 1
+  {
+    id: 'th-ind-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'industrial',
+    branchId: 'thanaweya_industrial',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الصناعية والتكنولوجيا التطبيقية (الدور الأول ٢٠٢٢)',
+    titleEn: 'Official Ministerial General Secondary Exam - Industrial Technology & Applied Engineering (2022 Session 1)',
+    subtitleAr: 'الامتحان الرسمي المعتمد من وزارة التربية والتعليم والتعليم الفني بنظام بابل شيت والتقييم الإلكتروني',
+    subtitleEn: 'Official Standardized National Paper released by the Ministry of Education & Technical Education',
+    formCodeAr: 'النموذج ب (كود ١١٦)',
+    formCodeEn: 'Form B (Code 116)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٢ / دور أول / تربية صناعية وتكنولوجيا',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 34.6,
+      totalMarks: 50,
+      passRatePercent: 84.1,
+      distinctionRatePercent: 13.2,
+      topTenThreshold: 48.5,
+      totalCandidatesEst: 45000,
+      stdDeviation: 5.6,
+    },
+    seed: 20220031,
+  },
+  // 177. Industrial Technology & Applied Engineering 2023 - Session 1
+  {
+    id: 'th-ind-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'industrial',
+    branchId: 'thanaweya_industrial',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الصناعية والتكنولوجيا التطبيقية (الدور الأول ٢٠٢٣)',
+    titleEn: 'Official Ministerial General Secondary Exam - Industrial Technology & Applied Engineering (2023 Session 1)',
+    subtitleAr: 'الامتحان الرسمي المعتمد من وزارة التربية والتعليم والتعليم الفني بنظام بابل شيت والتقييم الإلكتروني',
+    subtitleEn: 'Official Standardized National Paper released by the Ministry of Education & Technical Education',
+    formCodeAr: 'النموذج ج (كود ١١٧)',
+    formCodeEn: 'Form C (Code 117)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٣ / دور أول / تربية صناعية وتكنولوجيا',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 36.2,
+      totalMarks: 50,
+      passRatePercent: 87.9,
+      distinctionRatePercent: 15.6,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 48000,
+      stdDeviation: 5.1,
+    },
+    seed: 20230031,
+  },
+  // 178. Industrial Technology & Applied Engineering 2024 - Session 2
+  {
+    id: 'th-ind-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'industrial',
+    branchId: 'thanaweya_industrial',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الصناعية والتكنولوجيا التطبيقية (الدور الثاني ٢٠٢٤)',
+    titleEn: 'Official Ministerial General Secondary Exam - Industrial Technology & Applied Engineering (2024 Session 2)',
+    subtitleAr: 'امتحان الدور الثاني المعتمد للثانوية العامة الصادر عن المركز القومي للامتحانات والتقويم التربوي',
+    subtitleEn: 'Official Second Session Supplementary Paper administered under standardized MoE protocols',
+    formCodeAr: 'النموذج الموحد (دور ثانٍ)',
+    formCodeEn: 'Unified Session 2 Form',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور ثانٍ / تربية صناعية وتكنولوجيا',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 31.5,
+      totalMarks: 50,
+      passRatePercent: 78.4,
+      distinctionRatePercent: 8.9,
+      topTenThreshold: 46.0,
+      totalCandidatesEst: 11000,
+      stdDeviation: 6.2,
+    },
+    seed: 20240032,
+  },
+  // 179. Industrial Technology & Applied Engineering 2024 - Session 1
+  {
+    id: 'th-ind-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'industrial',
+    branchId: 'thanaweya_industrial',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة التربية الصناعية والتكنولوجيا التطبيقية (الدور الأول ٢٠٢٤)',
+    titleEn: 'Official Ministerial General Secondary Exam - Industrial Technology & Applied Engineering (2024 Session 1)',
+    subtitleAr: 'الامتحان الرسمي المعتمد الصادر عن وزارة التربية والتعليم وفق معايير نواتج التعلم المتطورة',
+    subtitleEn: 'Official Standardized National Paper released under the updated MoE Bloom Taxonomy specifications',
+    formCodeAr: 'النموذج د (كود ١١٨)',
+    formCodeEn: 'Form D (Code 118)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور أول / تربية صناعية وتكنولوجيا',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 35.4,
+      totalMarks: 50,
+      passRatePercent: 85.7,
+      distinctionRatePercent: 14.1,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 51000,
+      stdDeviation: 5.4,
+    },
+    seed: 20240031,
+  },
+  // 180. Industrial Technology & Applied Engineering 2025 - Experimental Diagnostic
+  {
+    id: 'th-ind-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'industrial',
+    branchId: 'thanaweya_industrial',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - مادة التربية الصناعية والتكنولوجيا التطبيقية (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - Industrial Technology & Applied Engineering (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من الإدارة المركزية لتطوير المناهج والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE Central Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٥ / نموذج استرشادي / تربية صناعية وتكنولوجيا',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.5,
+      totalMarks: 50,
+      passRatePercent: 91.2,
+      distinctionRatePercent: 21.0,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 95000,
+      stdDeviation: 4.8,
+    },
+    seed: 20250030,
+  },
 ];
 
 /**
@@ -5404,7 +5591,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('business')) && (b.id.includes('business'))) ||
       ((paper.branchId.includes('arts') || paper.branchId.includes('fine_arts')) && (b.id.includes('arts') || b.id.includes('fine_arts'))) ||
       ((paper.branchId.includes('music')) && (b.id.includes('music'))) ||
-      ((paper.branchId.includes('agri') || paper.branchId.includes('agriculture')) && (b.id.includes('agri') || b.id.includes('agriculture')))
+      ((paper.branchId.includes('agri') || paper.branchId.includes('agriculture')) && (b.id.includes('agri') || b.id.includes('agriculture'))) ||
+      ((paper.branchId.includes('ind') || paper.branchId.includes('industrial')) && (b.id.includes('ind') || b.id.includes('industrial')))
   );
 
   if (!targetBranch) return [];

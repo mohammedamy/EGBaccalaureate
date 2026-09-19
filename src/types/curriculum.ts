@@ -32,6 +32,7 @@ export type BranchId =
   | 'thanaweya_fine_arts'
   | 'thanaweya_music'
   | 'thanaweya_agriculture'
+  | 'thanaweya_industrial'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -61,7 +62,8 @@ export type BranchId =
   | 'egbac_fine_arts'
   | 'egbac_religion'
   | 'egbac_music'
-  | 'egbac_agriculture';
+  | 'egbac_agriculture'
+  | 'egbac_industrial';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -331,7 +333,13 @@ export type InteractiveWidgetType =
   | 'agri_irrigation_evapotranspiration_lab'
   | 'agri_hydroponics_greenhouse_lab'
   | 'agri_egyptian_megaprojects_lab'
-  | 'agri_ipm_plant_pathology_lab';
+  | 'agri_ipm_plant_pathology_lab'
+  | 'industrial_engineering_studio'
+  | 'ind_materials_testing_lab'
+  | 'ind_plc_automation_lab'
+  | 'ind_fluid_power_lab'
+  | 'ind_cnc_machining_lab'
+  | 'ind_quality_spc_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

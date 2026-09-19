@@ -27,7 +27,8 @@ export type SubjectId =
   | 'business_entrepreneurship'
   | 'fine_arts_architecture'
   | 'music_theory'
-  | 'agriculture';
+  | 'agriculture'
+  | 'industrial';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -36,7 +37,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -647,6 +648,29 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_agriculture'],
       egbac: ['egbac_agriculture'],
+    },
+  },
+
+  // 27. Industrial Technology & Applied Engineering (التربية الصناعية والتكنولوجيا التطبيقية)
+  {
+    id: 'industrial',
+    titleEn: 'Industrial Technology & Applied Engineering',
+    titleAr: 'التربية الصناعية والتكنولوجيا التطبيقية والهندسية',
+    shortTitleEn: 'Industrial Tech',
+    shortTitleAr: 'صناعية وتطبيقية',
+    emoji: '⚙️',
+    iconName: 'Wrench',
+    badgeColor: 'amber',
+    gradient: 'from-amber-800 via-orange-700 to-slate-800',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-amber-950/80 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary industrial curriculum: Engineering materials science & metallurgy, manufacturing processes, metal forming & CNC machining, electrical machines & power distribution, industrial electronics & control systems, PLC automation & ladder logic, fluid power hydraulics & pneumatics, and Total Quality Management (TQM) with statistical process control.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة التربية الصناعية والتكنولوجيا التطبيقية والهندسية: خواص واختبارات المواد الهندسية والمعادن، تكنولوجيا التصنيع والتشكيل والتشغيل الميكانيكي، آلات القوى والتركيبات الكهربية الصناعية، الإلكترونيات الصناعية ودوائر التحكم، أنظمة التحكم الآلي المبرمج (PLC)، أنظمة القوى المائعية (الهيدروليك والنيوماتيك)، والتحكم الإحصائي في الجودة وإدارة الصيانة وهندسة الإنتاج.',
+    branchIds: {
+      thanaweya: ['thanaweya_industrial'],
+      egbac: ['egbac_industrial'],
     },
   },
 ];

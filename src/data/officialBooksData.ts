@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -3547,6 +3547,152 @@ export const officialBooksList: OfficialBook[] = [
       'أمراض النبات الجزيئية، الاستنباط الحيوي للأصناف المقاومة، والمراقبة الفيرمونية الدقيقة',
     ],
   },
+  // 62. Thanaweya Industrial Technology & Applied Engineering
+  {
+    id: 'th-ind-g12',
+    curriculum: 'thanaweya',
+    category: 'industrial_engineering',
+    subjectId: 'industrial',
+    branchId: 'thanaweya_industrial',
+    code: 'TH-IND-G12',
+    titleEn: 'Industrial Technology & Applied Engineering',
+    titleAr: 'التربية الصناعية والتكنولوجيا التطبيقية والهندسية',
+    subtitleEn: 'Official Ministry of Education Standard Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '24.2 KB',
+    compendiumTitleEn: 'Official Industrial Engineering Formulas & Standards Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم والقوانين والمواصفات القياسية المعتمد للهندسة التطبيقية',
+    fullTextbookPages: 256,
+    fullTextbookSize: '26.8 MB',
+    filename: 'thanaweya-industrial-engineering.pdf',
+    downloadUrl: './books/thanaweya-industrial-engineering.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-amber-700 via-orange-800 to-slate-950',
+    accentColor: '#f59e0b',
+    chapters: [
+      {
+        id: 'th-ind-ch1',
+        titleEn: 'Engineering Materials, Metallurgy & Mechanical Testing',
+        titleAr: 'خواص واختبارات المواد الهندسية والمعادن وميكانيكا التشكيل',
+        pageRange: 'pp. 1–64',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-ind-ch2',
+        titleEn: 'Machining Technology, Metal Forming & Welding',
+        titleAr: 'تكنولوجيا التشغيل وتشكيل المعادن والسباكة واللحام',
+        pageRange: 'pp. 65–128',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-ind-ch3',
+        titleEn: 'Electrical Machines, Power Distribution & Industrial Safety',
+        titleAr: 'الآلات والتركيبات الكهربية الصناعية وشبكات القوى والأمن الصناعي',
+        pageRange: 'pp. 129–192',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-ind-ch4',
+        titleEn: 'Industrial Electronics, Sensors & Applied Control Circuits',
+        titleAr: 'الإلكترونيات الصناعية ودوائر التحكم والحساسات والمحولات',
+        pageRange: 'pp. 193–256',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Official Egyptian Ministry textbook for Industrial Technology & Applied Engineering covering metallurgy, tensile testing, machining forces, induction machines, power factor, sensors, and OSHA safety standards.',
+    descriptionAr: 'الكتاب المدرسي المعتمد لوزارة التربية والتعليم للتربية الصناعية والتطبيقات الهندسية، يغطي الميتالورجيا، اختبارات الشد، قوى القطع، المحركات الحثية، الحساسات، ومعايير السلامة المهنية.',
+    highlightsEn: [
+      'Hooke’s law, ASTM tensile testing, and steel heat treatment',
+      'Cutting speed calculations, lathe turning, and Chvorinov’s casting rule',
+      'Three-phase induction motors, Star-Delta starting, and power factor correction',
+      '4-20 mA current loops, RTD probes, and OSHA Lockout/Tagout safety protocols',
+    ],
+    highlightsAr: [
+      'قانون هوك واختبارات الشد القياسية والمعاملات الحرارية للصلب',
+      'حسابات سرعات القطع والخراطة وقاعدة شفورينوف للتجمد في السباكة',
+      'المحركات الحثية وبدء ستار-دلتا وتحسين معامل القدرة وتأريض المصانع',
+      'حلقات الإشارة 4-20 مللي أمبير وحساسات RTD وإجراءات العزل والتأمين LOTO',
+    ],
+  },
+  // 63. Egyptian Baccalaureate (EG-Bac) Applied Engineering Systems
+  {
+    id: 'egbac-ind-g12',
+    curriculum: 'egbac',
+    category: 'industrial_engineering',
+    subjectId: 'industrial',
+    branchId: 'egbac_industrial',
+    code: 'EGBAC-IND-G12',
+    titleEn: 'Advanced Applied Engineering & Industrial Systems',
+    titleAr: 'الهندسة التطبيقية المتقدمة والنظم الصناعية (EG-Bac)',
+    subtitleEn: 'New Egyptian Baccalaureate Advanced STEM Track - Grade 12',
+    subtitleAr: 'نظام البكالوريا المصرية الجديد - مسار العلوم والتكنولوجيا المتقدم - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (Advanced Baccalaureate Framework)',
+    gradeAr: 'الصف الثالث الثانوي (الإطار المرجعي المتقدم للبكالوريا المصرية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '25.6 KB',
+    compendiumTitleEn: 'Official Advanced Engineering & Automation Reference Framework',
+    compendiumTitleAr: 'الإطار المرجعي المتقدم للهندسة التطبيقية والتحكم الآلي والجودة',
+    fullTextbookPages: 272,
+    fullTextbookSize: '28.4 MB',
+    filename: 'egbac-applied-engineering-systems.pdf',
+    downloadUrl: './books/egbac-applied-engineering-systems.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-slate-900 via-amber-700 to-orange-600',
+    accentColor: '#d97706',
+    chapters: [
+      {
+        id: 'egbac-ind-ch1',
+        titleEn: 'Advanced CNC Machining, CAD/CAM & Additive Manufacturing',
+        titleAr: 'تشغيل ماكينات CNC وأنظمة CAD/CAM والتصنيع المضاف',
+        pageRange: 'pp. 1–68',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-ind-ch2',
+        titleEn: 'Industrial Automation, Programmable Logic Controllers (PLC) & SCADA',
+        titleAr: 'أنظمة التحكم الآلي المبرمج PLC والروبوتات الصناعية وأنظمة السكادا',
+        pageRange: 'pp. 69–136',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-ind-ch3',
+        titleEn: 'Applied Fluid Power: Hydraulics & Pneumatics Engineering',
+        titleAr: 'هندسة القوى الهيدروليكية والنيوماتيكية في خطوط الإنتاج',
+        pageRange: 'pp. 137–204',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-ind-ch4',
+        titleEn: 'Total Quality Management (TQM), Lean Manufacturing & Industrial Maintenance',
+        titleAr: 'إدارة الجودة الشاملة TQM والصيانة الصناعية وهندسة الموثوقية',
+        pageRange: 'pp. 205–272',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Applied Engineering Systems: 5-axis CNC machining, G-code canned cycles, IEC 61131-3 PLC ladder rungs, electro-hydraulics, and Six Sigma SPC quality control.',
+    descriptionAr: 'كتاب البكالوريا المصرية المطور في الأنظمة الهندسية التطبيقية: تشغيل CNC خماسي المحاور، دورات G-code، برمجة PLC المخطط السلمي، الهيدروليك الصناعي، والتحكم الإحصائي ستة سيجما.',
+    highlightsEn: [
+      'G-code programming, cutter radius compensation, and 3D printing topology',
+      'PLC ladder scan cycles, Star-Delta timing, and SCADA OPC UA networking',
+      'Pascal fluid mechanics, double-acting cylinder sizing, and 4/3-way DCVs',
+      'Shewhart X-bar and R control charts, Cp/Cpk capability, and Lean 5S maintenance',
+    ],
+    highlightsAr: [
+      'برمجة G-code وتعويض نصف قطر أداة القطع وتحسين طوبولوجيا الطباعة ثلاثية الأبعاد',
+      'دورة مسح الـ PLC وتوقيت ستار-دلتا وشبكات السكادا وبروتوكولات OPC UA',
+      'ميكانيكا موائع باسكال وتصميم الأسطوانات مزدوجة الفعل وصمامات التوجيه 4/3',
+      'خرائط شوارت للمتوسطات والمدى ومؤشرات Cp/Cpk ومنهجية 5S للصيانة الإنتاجية',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -3608,6 +3754,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_music' && (b.branchId === 'egbac_music' || b.id === 'egbac-music-g12')) return true;
     if (branchId === 'thanaweya_agriculture' && (b.branchId === 'thanaweya_agriculture' || b.id === 'th-agri-g12')) return true;
     if (branchId === 'egbac_agriculture' && (b.branchId === 'egbac_agriculture' || b.id === 'egbac-agri-g12')) return true;
+    if (branchId === 'thanaweya_industrial' && (b.branchId === 'thanaweya_industrial' || b.id === 'th-ind-g12')) return true;
+    if (branchId === 'egbac_industrial' && (b.branchId === 'egbac_industrial' || b.id === 'egbac-ind-g12')) return true;
     return false;
   });
 }
@@ -3617,7 +3765,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

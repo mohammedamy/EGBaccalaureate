@@ -34,6 +34,7 @@ import {
   Palette,
   Music,
   Sprout,
+  Wrench,
 } from 'lucide-react';
 
 
@@ -1406,6 +1407,48 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
         'تمنح الثانوية العامة تأسيساً علمياً رصيناً في فيزياء وكيمياء الأراضي المصرية، حسابات التسميد واستصلاح القلوية، ورعاية المحاصيل الاستراتيجية. بينما تنقل البكالوريا الطالب إلى طليعة الزراعة الذكية عالمياً: أتمتة الري بإنترنت الأشياء، الاستشعار الفضائي، الزراعة المائية المغلقة، والمشروعات القومية الكبرى الضامنة للسيادة والأمن الغذائي المصري.',
       universityAdvantageEn: 'Full accreditation and foundational excellence for Faculties of Agriculture (Agronomy, Soil & Water, Plant Protection, Precision Agrotechnology), Agricultural Engineering, Biotechnology, Environmental Sciences, Water Resources Management, and National Desert Research Institutes.',
       universityAdvantageAr: 'تأهيل أكاديمي وبحثي كامل للالتحاق بكليات الزراعة (أقسام الأراضي والمياه، المحاصيل، وقاية النبات، التكنولوجيا الحيوية، والهندسة الزراعية المتقدمة)، كليات الموارد الطبيعية والبيئة، هندسة الري والصرف، ومراكز بحوث الصحراء ومركز البحوث الزراعية القومي.',
+    },
+    {
+      id: 'industrial_bridge',
+      titleEn: 'Industrial Technology, Applied Engineering & Smart Factory Automation',
+      titleAr: 'التربية الصناعية، الهندسة التطبيقية وأتمتة المصانع الذكية',
+      icon: <Wrench className="w-5 h-5 text-amber-400" />,
+      thanaweyaBranchId: 'thanaweya_industrial',
+      egBacBranchId: 'egbac_industrial',
+      thanaweyaTitleEn: 'Foundations of Industrial Technology, Metallurgy & Manufacturing (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'أسس التكنولوجيا الصناعية والميتالورجيا والتشغيل للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Engineering Materials & Metallurgy: Hooke’s law, ASTM tensile stress-strain curves, Brinell hardness, and steel heat treatments (annealing, normalizing, quenching, tempering)',
+        'Ch.2 Machining & Metal Forming: Cutting speed, spindle RPM, feed rate, tool life, lathe turning, milling mechanics, and Chvorinov’s casting solidification rule',
+        'Ch.3 Electrical Machines & Power Distribution: Three-phase induction motors, rotating magnetic fields, Star-Delta starting, power factor correction capacitor banks, and OSHA safety',
+        'Ch.4 Industrial Electronics & Sensors: Thyristors (SCR), TRIACs, IGBT inverters, inductive/capacitive proximity sensors, RTD probes, 4-20 mA current loops, and op-amps',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ خواص واختبارات المواد الهندسية والمعادن: قانون هوك، منحنى الإجهاد والانفعال القياسي ASTM، صلادة برينل، والمعاملات الحرارية للصلب (تخمير، معادلة، تقسية، مراجعة)',
+        'فصل ٢ تكنولوجيا التشغيل وتشكيل المعادن: سرعات ومعدلات التغذية، قوى القطع، الخراطة والتفريز، وقاعدة شفورينوف لتجمد المسبوكات المعدنية',
+        'فصل ٣ الآلات والتركيبات الكهربية وشبكات القوى: المحركات الحثية ثلاثية الأوجه، بادئ ستار-دلتا، تحسين معامل القدرة، القواطع الآلية، وتدابير السلامة المهنية OSHA',
+        'فصل ٤ الإلكترونيات الصناعية ودوائر التحكم والحساسات: الثايرستور والترياك، مغيرات IGBT، حساسات التقارب الحثية والسعوية، مجسات RTD، وحلقات نقل الإشارة 4-20 مللي أمبير',
+      ],
+      egBacTitleEn: 'Advanced Applied Engineering, Mechatronics & Six Sigma Quality (4 Modules)',
+      egBacTitleAr: 'الهندسة التطبيقية المتقدمة، الميكاترونكس وهندسة الجودة ستة سيجما (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Advanced CNC Machining & Additive Manufacturing: Multi-axis CNC milling, ISO G-code programming (G01/G02/G03), tool compensation, and 3D printing slicing topology',
+        'Mod.2 Industrial PLC Automation & SCADA: IEC 61131-3 ladder logic, timers, counters, interlocking, Modbus/Profinet Fieldbus telemetry, and SCADA HMI alarms',
+        'Mod.3 Applied Fluid Power: Hydraulics & Pneumatics: Pascal fluid mechanics, double-acting cylinder sizing, 4/3 & 5/2-way DCVs, throttle speed regulation, and power units',
+        'Mod.4 Total Quality Management (TQM) & Six Sigma SPC: Shewhart X-bar and R charts, process capability (Cp, Cpk), Lean 5S waste elimination, and predictive vibration maintenance',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ تشغيل ماكينات CNC المتقدمة والتصنيع المضاف: التفريز متعدد المحاور، برمجة ISO G-code (G01/G02/G03)، تعويض العدة، وتحسين طوبولوجيا الطباعة ثلاثية الأبعاد',
+        'وحدة ٢ التحكم المبرمج PLC وأنظمة السكادا الصناعية: مخططات السلم القياسية IEC 61131-3، المؤقتات والعدادات، شبكات الحقل الصناعي Modbus وProfinet، وإنذارات السكادا',
+        'وحدة ٣ هندسة القوى المائعية (الهيدروليك والنيوماتيك): ميكانيكا باسكال، حساب قوى وسرعات الأسطوانات مزدوجة الفعل، صمامات التوجيه 4/3 و5/2، ومحطات القدرة',
+        'وحدة ٤ إدارة الجودة الشاملة والتحكم الإحصائي ستة سيجما: خرائط شوارت للمتوسط والمدى، مؤشرات مقدرة العملية Cp وCpk، منهجية 5S، والصيانة التنبؤية بالاهتزازات',
+      ],
+      bridgeInsightEn:
+        'Thanaweya establishes rigorous foundational mastery in engineering materials, metal forming, electrical machine drives, and analog instrumentation. EG-Bac expands this directly into Industry 4.0 advanced manufacturing: multi-axis CNC G-code programming, PLC industrial automation rungs, fluid power mechatronics, and Six Sigma statistical process control.',
+      bridgeInsightAr:
+        'ترسخ الثانوية العامة إتقاناً عملياً وهندسياً رصيناً لعلوم المواد والمعادن، قوى التشغيل، المحركات الكهربية الصناعية، وأجهزة القياس التناظرية. بينما تنطلق البكالوريا المصرية بالطالب مباشرة إلى عصر الثورة الصناعية الرابعة (Industry 4.0): برمجة مسارات CNC خماسية المحاور، أتمتة خطوط الإنتاج بـ PLC، الدوائر الكهروهيدروليكية المدمجة، وهندسة الجودة الإحصائية الدقيقة بمعايير ستة سيجما.',
+      universityAdvantageEn: 'Direct accreditation and foundational competitive advantage for Faculties of Engineering (Mechanical, Mechatronics, Electrical Power, Manufacturing & Production, Industrial Engineering), Technological Universities (Applied Engineering Tracks), and Advanced Technical Institutes.',
+      universityAdvantageAr: 'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات الهندسة (أقسام الهندسة الميكانيكية، الميكاترونكس، هندسة القوى والآلات الكهربية، هندسة الإنتاج والتصميم الميكانيكي، والهندسة الصناعية)، الجامعات التكنولوجية الحديثة بمختلف مساراتها الهندسية المتقدمة، والمعاهد الفنية الصناعية العليا.',
     },
   ];
 

@@ -48,10 +48,11 @@ import { BusinessModelingStudio } from './labs/BusinessModelingStudio';
 import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
+import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -61,7 +62,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -94,6 +95,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'fine_arts_architecture') return 'fine_arts';
     if (selectedSubject === 'music_theory' || selectedSubject === 'music') return 'music';
     if (selectedSubject === 'agriculture' || selectedSubject === 'agricultural_sciences') return 'agriculture';
+    if (selectedSubject === 'industrial' || selectedSubject === 'industrial_engineering') return 'industrial';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
@@ -535,6 +537,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'مختبر التكنولوجيا والعلوم الزراعية: كيمياء التربة والاحتياج الجبسي، موازنة الري المحوري FAO-56، استكشاف المشروعات القومية (توشكى والدلتا الجديدة وشرق العوينات)، والعيادة النباتية المتكاملة IPM'
         : 'Agricultural Technology Studio: Soil physicochemical balancing, FAO-56 Penman-Monteith irrigation budgeting, Toshka & New Delta national mega-projects explorer, and IPM plant pathology diagnostic clinic',
+    },
+    {
+      id: 'industrial' as LabId,
+      titleEn: 'Industrial Technology & Applied Engineering Studio',
+      titleAr: 'مختبر التكنولوجيا الصناعية والأنظمة الهندسية',
+      subtitleEn: 'Materials Metallurgy, PLC Ladder Logic, Hydraulics, CNC & Quality SPC',
+      subtitleAr: 'اختبارات المواد، برمجة السلم PLC، القدرة المائعية، تشغيل CNC والتحكم الإحصائي للجودة',
+      icon: Wrench,
+      color: 'amber',
+      badge: 'Applied Engineering Systems',
+      gradient: 'from-amber-700 via-orange-800 to-slate-950',
+      activeBg: 'bg-amber-600 text-white shadow-amber-600/30',
+      tagline: isArabic
+        ? 'مختبر التكنولوجيا الصناعية والهندسية المتكامل: اختبارات الشد والمعادن، محاكي برمجة مخطط السلم PLC، دوائر القوى الهيدروليكية والنيوماتيكية، مسارات تشغيل ماكينات CNC، والتحكم الإحصائي للجودة ومؤشرات ستة سيجما'
+        : 'Industrial Technology & Applied Engineering Studio: Tensile materials testing, IEC 61131-3 PLC ladder logic simulator, fluid power hydraulic & pneumatic circuits, CNC G-code toolpath interpolator, and Six Sigma SPC quality control',
     },
   ];
 
@@ -1233,6 +1250,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Industrial Engineering Studio */}
+        {activeLab === 'industrial' && (
+          <div className="space-y-4">
+            <IndustrialEngineeringStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={isHubFullscreen}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -1241,7 +1269,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -1256,7 +1284,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

@@ -31,6 +31,7 @@ import {
   Palette,
   Music,
   Sprout,
+  Wrench,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -137,6 +138,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <Music className={className} />;
       case 'Sprout':
         return <Sprout className={className} />;
+      case 'Wrench':
+        return <Wrench className={className} />;
       default:
         return <Layers className={className} />;
     }

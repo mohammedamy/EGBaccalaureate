@@ -25,7 +25,8 @@ export type SubjectCategory =
   | 'business_entrepreneurship'
   | 'fine_arts_architecture'
   | 'music_theory'
-  | 'agricultural_sciences';
+  | 'agricultural_sciences'
+  | 'industrial_engineering';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -56,7 +57,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -127,6 +128,29 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('fertigation')
   ) {
     return 'agricultural_sciences';
+  }
+
+  if (
+    text.includes('صناع') ||
+    text.includes('industrial') ||
+    text.includes('هندسة تطبيقية') ||
+    text.includes('applied engineering') ||
+    text.includes('تكنولوجيا تطبيقية') ||
+    text.includes('ميتالورج') ||
+    text.includes('metallurgy') ||
+    text.includes('خراطة') ||
+    text.includes('تفريز') ||
+    text.includes('سباكة') ||
+    text.includes('لحام') ||
+    text.includes('machining') ||
+    text.includes('هيدروليك') ||
+    text.includes('نيوماتيك') ||
+    text.includes('plc') ||
+    text.includes('cnc') ||
+    text.includes('fluid_power') ||
+    text.includes('quality_spc')
+  ) {
+    return 'industrial_engineering';
   }
 
   if (
@@ -698,9 +722,21 @@ export function getMasteryRadarData(
     { key: 'agricultural_sciences', ar: 'العلوم والتكنولوجيا الزراعية', en: 'Agricultural Sciences & Agrotechnology', color: '#059669' },
   ];
 
+  const all21Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all20Dimensions,
+    { key: 'industrial_engineering', ar: 'التربية والتكنولوجيا الصناعية', en: 'Industrial Technology & Engineering', color: '#F59E0B' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all21'
+      ? all21Dimensions
       : mode === 'all20'
       ? all20Dimensions
       : mode === 'all19'
