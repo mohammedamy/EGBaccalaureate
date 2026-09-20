@@ -36,6 +36,7 @@ import {
   Zap,
   Leaf,
   Bot,
+  Cpu,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -152,6 +153,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <Leaf className={className} />;
       case 'Bot':
         return <Bot className={className} />;
+      case 'Cpu':
+        return <Cpu className={className} />;
       default:
         return <Layers className={className} />;
     }

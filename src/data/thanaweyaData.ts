@@ -34,6 +34,7 @@ import { thanaweyaTourismBranch } from './thanaweyaTourism';
 import { thanaweyaRenewableBranch } from './thanaweyaRenewable';
 import { thanaweyaStemCapstoneBranch } from './thanaweyaStemCapstone';
 import { thanaweyaRoboticsBranch } from './thanaweyaRobotics';
+import { thanaweyaElectronicsIotBranch } from './thanaweyaElectronicsIot';
 
 export const thanaweyaCurriculum: Curriculum = {
   id: 'thanaweya',
@@ -79,5 +80,6 @@ export const thanaweyaCurriculum: Curriculum = {
     thanaweyaRenewableBranch,
     thanaweyaStemCapstoneBranch,
     thanaweyaRoboticsBranch,
+    thanaweyaElectronicsIotBranch,
   ],
 };

@@ -1673,6 +1673,50 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr:
         'تأهيل نخبوي للالتحاق بأقسام هندسة الميكاترونكس، هندسة الروبوتات والأنظمة الذاتية، الأنظمة المدمجة، إلكترونيات السيارات والملاحة الذاتية، الأتمتة والتحكم الصناعي، وكليات الذكاء الاصطناعي وهندسة الحاسبات العالمية.',
     },
+    {
+      id: 'electronics_iot_bridge',
+      titleEn: 'Advanced Electronics, VLSI & IoT Systems',
+      titleAr: 'الإلكترونيات المتقدمة، الدوائر المتكاملة وإنترنت الأشياء (STEM)',
+      icon: <Cpu className="w-5 h-5 text-cyan-400" />,
+      thanaweyaBranchId: 'thanaweya_electronics_iot',
+      egBacBranchId: 'egbac_electronics_iot',
+      thanaweyaTitleEn: 'Advanced Electronics, Microcontrollers & IoT Architecture (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'الإلكترونيات المتقدمة والمتحكمات الدقيقة وإنترنت الأشياء لمدارس STEM (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Semiconductor Devices, Diodes & BJT/MOSFET Amplifiers: P-N junctions, small-signal models, MOSFET switching, transconductance, and biasing circuits',
+        'Ch.2 Operational Amplifiers, Active Filters & Signal Conditioning: Inverting/non-inverting amplifiers, Butterworth active filters, instrumentation amps, and ADCs',
+        'Ch.3 Digital Logic Design, Microcontrollers & Embedded C: Combinational/sequential logic, ARM Cortex-M/ESP32 GPIO, timers, interrupts, and I2C/SPI telemetry',
+        'Ch.4 Internet of Things (IoT) Architectures, Sensors & Wireless Protocols: Sensor interfacing, MQTT/HTTP protocols, Wi-Fi/BLE, LoRaWAN, and cloud dashboards',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ أجهزة أشباه الموصلات والترانزستورات BJT و MOSFET: وصلات P-N، نماذج الإشارة الصغيرة، مفاتيح MOSFET، التوصيلية التبادلية، ودوائر الانحياز',
+        'فصل ٢ مكبرات العمليات والمرشحات الفعالة وتكييف الإشارة: المكبرات العاكسة وغير العاكسة، مرشحات بتروورث الفعالة، مكبرات الأجهزة الدقيقة، ومحولات ADC',
+        'فصل ٣ تصميم المنطق الرقمي والمتحكمات الدقيقة ولغة C المدمجة: الدوائر التوافقية والتتابعية، معالجات ARM وESP32، المؤقتات، المقاطعات، وبروتوكولات I2C/SPI',
+        'فصل ٤ بنى إنترنت الأشياء والحساسات والبروتوكولات اللاسلكية: ربط الحساسات الذكية، بروتوكولات MQTT وHTTP، شبكات Wi-Fi وBLE، تقنية LoRaWAN، واللوحات السحابية',
+      ],
+      egBacTitleEn: 'Nanometer CMOS VLSI, FPGA Synthesis & Industrial IoT Edge Systems (4 Modules)',
+      egBacTitleAr: 'تصميم الدوائر المتكاملة CMOS النانومترية، شرائح FPGA وإنترنت الأشياء الصناعي (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Nanometer CMOS VLSI Design & Layout Principles: FinFET technology, CMOS inverter delay, stick diagrams, DRC/LVS, and parasitic RC extraction',
+        'Mod.2 FPGA Architecture, HDL Synthesis & Digital Systems: Verilog/VHDL RTL modeling, pipelined datapath design, timing closure, and Vivado/Quartus synthesis',
+        'Mod.3 Low-Power Edge Computing, DSP & Embedded Telemetry: Dynamic voltage/frequency scaling (DVFS), fixed-point DSP filtering, DMA telemetry, and RTOS scheduling',
+        'Mod.4 Industrial IoT (IIoT), Edge AI & Hardware Security: Modbus/OPC UA industrial stacks, TinyML neural network inference, PUF authentication, and secure boot',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ تصميم الدوائر المتكاملة CMOS النانومترية ومبادئ الرسم التخطيطي: تكنولوجيا FinFET، زمن تأخير عواكس CMOS، مخططات العصي، قواعد DRC/LVS، واستخراج السعات والمقاومات الطفيلية',
+        'وحدة ٢ بنية شرائح FPGA وتوليف لغات توصيف العتاد HDL: نمذجة RTL بلغة Verilog/VHDL، مسارات البيانات المتسلسلة (Pipelined Datapaths)، استيفاء التوقيت الزمني، وأدوات التوليف الرقمي',
+        'وحدة ٣ الحوسبة الطرفية منخفضة الطاقة ومعالجة الإشارات DSP: التدريج الديناميكي للجهد والتردد DVFS، المرشحات الرقمية بنقطة ثابتة، النفاذ المباشر للذاكرة DMA، وجدولة أنظمة RTOS',
+        'وحدة ٤ إنترنت الأشياء الصناعي IIoT والذكاء الاصطناعي الطرفي وأمن العتاد: بروتوكولات Modbus وOPC UA الصناعية، استدلال الشبكات العصبية بـ TinyML، المصادقة بوظائف PUF، والإقلاع الآمن',
+      ],
+      bridgeInsightEn:
+        'Thanaweya STEM Electronics emphasizes discrete circuit design, operational amplifier active filtering, microcontroller embedded programming, and IoT cloud connectivity. EG-Bac elevates this into nanometer silicon VLSI physics (FinFETs), hardware description languages (Verilog/VHDL on FPGA), TinyML edge AI, and hardware-level cryptographic security.',
+      bridgeInsightAr:
+        'يركز منهج الثانوية STEM على تصميم الدوائر المنفصلة ومكبرات العمليات، والبرمجة المدمجة للمتحكمات وتطبيقات إنترنت الأشياء السحابية. بينما ترتقي البكالوريا المصرية بالدراسة إلى فيزياء تصنيع رقائق السيليكون النانومترية (FinFET)، ولغات توصيف العتاد Verilog/VHDL على شرائح FPGA، والذكاء الاصطناعي الطرفي TinyML، والأمن السيبراني على مستوى العتاد.',
+      universityAdvantageEn:
+        'Elite launchpad for Electronics & Electrical Communications Engineering, Microelectronics & VLSI IC Design, Computer Engineering, IoT Systems, Nanotechnology, and Embedded Hardware Security worldwide.',
+      universityAdvantageAr:
+        'انطلاقة نخبويّة لكليات الهندسة الإلكترونية وهندسة الاتصالات، تصميم الرقائق والدوائر المتكاملة الدقيقة VLSI، هندسة الحاسبات ونظم التحكم، تكنولوجيا النانو، وأمن العتاد والأنظمة المدمجة عالمياً.',
+    },
   ];
 
   const activeBridge = bridges[activeBridgeIndex];

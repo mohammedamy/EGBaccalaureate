@@ -33,7 +33,8 @@ export type SubjectId =
   | 'tourism'
   | 'renewable'
   | 'stem_capstone'
-  | 'robotics_mechatronics';
+  | 'robotics_mechatronics'
+  | 'electronics_iot';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -791,6 +792,28 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_robotics'],
       egbac: ['egbac_robotics'],
+    },
+  },
+  // 33. Advanced Electronics, VLSI & IoT Systems (الإلكترونيات المتقدمة، الدوائر المتكاملة وإنترنت الأشياء)
+  {
+    id: 'electronics_iot',
+    titleEn: 'Advanced Electronics, VLSI & IoT Systems',
+    titleAr: 'الإلكترونيات المتقدمة، الدوائر المتكاملة وإنترنت الأشياء',
+    shortTitleEn: 'Electronics & IoT',
+    shortTitleAr: 'إلكترونيات وإنترنت الأشياء',
+    emoji: '⚡',
+    iconName: 'Cpu',
+    badgeColor: 'cyan',
+    gradient: 'from-cyan-600 via-teal-600 to-blue-700',
+    lightBg: 'bg-cyan-50 text-cyan-950 border-cyan-200',
+    darkBg: 'bg-cyan-950/80 text-cyan-200 border-cyan-800/60',
+    borderColor: 'border-cyan-500/50',
+    textColor: 'text-cyan-400',
+    descriptionEn: 'Official Egyptian STEM secondary and EG-Bac curriculum in Advanced Electronics, Microelectronics & Internet of Things (IoT): Solid-state semiconductor physics, BJT & MOSFET small-signal amplifiers, operational amplifier (Op-Amp) active filters, digital logic design, FPGA & Verilog/VHDL synthesis, nanometer CMOS VLSI layout, embedded microcontroller systems (ARM Cortex-M, ESP32), wireless sensor networks (BLE, Zigbee, LoRaWAN), MQTT cloud telemetry, and Industrial IoT (IIoT) edge computing.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) والبكالوريا المصرية في الإلكترونيات المتقدمة، الدوائر المتكاملة وإنترنت الأشياء: فيزياء الحالة الصلبة وأشباه الموصلات، ترانزستورات BJT و MOSFET ومكبرات الإشارة الصغيرة، مكبرات العمليات والمرشحات الفعالة، المنطق الرقمي وبنية شرائح FPGA وتوليف لغات Verilog/VHDL، تصميم دوائر CMOS المتكاملة النانومترية VLSI، الأنظمة المدمجة (معالجات ARM وESP32)، شبكات الحساسات اللاسلكية (BLE وLoRaWAN)، بروتوكولات السحابة MQTT، وحوسبة الحافة لإنترنت الأشياء الصناعي IIoT.',
+    branchIds: {
+      thanaweya: ['thanaweya_electronics_iot'],
+      egbac: ['egbac_electronics_iot'],
     },
   },
 ];

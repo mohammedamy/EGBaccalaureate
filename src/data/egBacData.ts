@@ -34,6 +34,7 @@ import { egBacTourismBranch } from './egBacTourism';
 import { egBacRenewableBranch } from './egBacRenewable';
 import { egBacStemCapstoneBranch } from './egBacStemCapstone';
 import { egBacRoboticsBranch } from './egBacRobotics';
+import { egBacElectronicsIotBranch } from './egBacElectronicsIot';
 
 export const egBacCurriculum: Curriculum = {
   id: 'egbac',
@@ -79,5 +80,6 @@ export const egBacCurriculum: Curriculum = {
     egBacRenewableBranch,
     egBacStemCapstoneBranch,
     egBacRoboticsBranch,
+    egBacElectronicsIotBranch,
   ],
 };

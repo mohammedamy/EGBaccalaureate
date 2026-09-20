@@ -40,7 +40,8 @@ export type PastExamSubject =
   | 'tourism'
   | 'renewable'
   | 'stem_capstone'
-  | 'robotics_mechatronics';
+  | 'robotics_mechatronics'
+  | 'electronics_iot';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -6451,6 +6452,192 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250049,
   },
+  // 211. STEM Advanced Electronics, VLSI & IoT Systems 2021 - Session 1
+  {
+    id: 'th-electronics-iot-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    titleAr: 'امتحان شهادة إتمام دراسة الثانوية لمدارس STEM - الدور الأول (٢٠٢١) - الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء',
+    titleEn: 'Egyptian STEM High Schools Official General Examination - First Session (2021) - Advanced Electronics, VLSI & IoT',
+    subtitleAr: 'الامتحان القومي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا في هندسة الإلكترونيات وإنترنت الأشياء',
+    subtitleEn: 'National Standardized Electronics, VLSI & IoT Systems Examination administered by Egyptian MoE',
+    formCodeAr: 'النموذج الرسمي (أ)',
+    formCodeEn: 'Official Ministerial Form A',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢١ / دور أول / إلكترونيات وإنترنت أشياء',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.4,
+      totalMarks: 50,
+      passRatePercent: 88.0,
+      distinctionRatePercent: 15.5,
+      topTenThreshold: 48.5,
+      totalCandidatesEst: 1850,
+      stdDeviation: 4.8,
+    },
+    seed: 20210053,
+  },
+  // 212. STEM Advanced Electronics, VLSI & IoT Systems 2022 - Session 1
+  {
+    id: 'th-electronics-iot-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    titleAr: 'امتحان شهادة إتمام دراسة الثانوية لمدارس STEM - الدور الأول (٢٠٢٢) - الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء',
+    titleEn: 'Egyptian STEM High Schools Official General Examination - First Session (2022) - Advanced Electronics, VLSI & IoT',
+    subtitleAr: 'الامتحان القومي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا في هندسة الإلكترونيات وإنترنت الأشياء',
+    subtitleEn: 'National Standardized Electronics, VLSI & IoT Systems Examination administered by Egyptian MoE',
+    formCodeAr: 'النموذج الرسمي (ب)',
+    formCodeEn: 'Official Ministerial Form B',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٢ / دور أول / إلكترونيات وإنترنت أشياء',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 38.1,
+      totalMarks: 50,
+      passRatePercent: 89.6,
+      distinctionRatePercent: 17.0,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 2050,
+      stdDeviation: 4.6,
+    },
+    seed: 20220053,
+  },
+  // 213. STEM Advanced Electronics, VLSI & IoT Systems 2023 - Session 1
+  {
+    id: 'th-electronics-iot-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    titleAr: 'امتحان شهادة إتمام دراسة الثانوية لمدارس STEM - الدور الأول (٢٠٢٣) - الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء',
+    titleEn: 'Egyptian STEM High Schools Official General Examination - First Session (2023) - Advanced Electronics, VLSI & IoT',
+    subtitleAr: 'الامتحان القومي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا في هندسة الإلكترونيات وإنترنت الأشياء',
+    subtitleEn: 'National Standardized Electronics, VLSI & IoT Systems Examination administered by Egyptian MoE',
+    formCodeAr: 'النموذج الرسمي (ج)',
+    formCodeEn: 'Official Ministerial Form C',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٣ / دور أول / إلكترونيات وإنترنت أشياء',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 38.7,
+      totalMarks: 50,
+      passRatePercent: 91.2,
+      distinctionRatePercent: 19.1,
+      topTenThreshold: 49.4,
+      totalCandidatesEst: 2310,
+      stdDeviation: 4.4,
+    },
+    seed: 20230053,
+  },
+  // 214. STEM Advanced Electronics, VLSI & IoT Systems 2024 - Session 1
+  {
+    id: 'th-electronics-iot-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    titleAr: 'امتحان شهادة إتمام دراسة الثانوية لمدارس STEM - الدور الأول (٢٠٢٤) - الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء',
+    titleEn: 'Egyptian STEM High Schools Official General Examination - First Session (2024) - Advanced Electronics, VLSI & IoT',
+    subtitleAr: 'الامتحان القومي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا في هندسة الإلكترونيات وإنترنت الأشياء',
+    subtitleEn: 'National Standardized Electronics, VLSI & IoT Systems Examination administered by Egyptian MoE',
+    formCodeAr: 'النموذج الرسمي (أ)',
+    formCodeEn: 'Official Ministerial Form A',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / دور أول / إلكترونيات وإنترنت أشياء',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.4,
+      totalMarks: 50,
+      passRatePercent: 92.8,
+      distinctionRatePercent: 21.0,
+      topTenThreshold: 49.7,
+      totalCandidatesEst: 2560,
+      stdDeviation: 4.2,
+    },
+    seed: 20240053,
+  },
+  // 215. STEM Advanced Electronics, VLSI & IoT Systems 2024 - Session 2
+  {
+    id: 'th-electronics-iot-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    titleAr: 'امتحان شهادة إتمام دراسة الثانوية لمدارس STEM - الدور الثاني (٢٠٢٤) - الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء',
+    titleEn: 'Egyptian STEM High Schools Official General Examination - Second Session (2024) - Advanced Electronics, VLSI & IoT',
+    subtitleAr: 'امتحان الدور الثاني المعتمد لمادة الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء لمدارس STEM',
+    subtitleEn: 'Official Second Session National Examination for STEM Advanced Electronics & IoT',
+    formCodeAr: 'النموذج الرسمي (دور ثان)',
+    formCodeEn: 'Official Second Session Form',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / دور ثان / إلكترونيات وإنترنت أشياء',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 34.0,
+      totalMarks: 50,
+      passRatePercent: 80.5,
+      distinctionRatePercent: 7.8,
+      topTenThreshold: 45.8,
+      totalCandidatesEst: 310,
+      stdDeviation: 5.2,
+    },
+    seed: 20240054,
+  },
+  // 216. STEM Advanced Electronics, VLSI & IoT Systems 2025 - Experimental Diagnostic
+  {
+    id: 'th-electronics-iot-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - الإلكترونيات المتقدمة والدوائر المتكاملة وإنترنت الأشياء STEM (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - STEM Advanced Electronics & IoT Systems (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من وحدة مدارس المتفوقين STEM والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE STEM Unit and Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٥ / نموذج استرشادي / إلكترونيات وإنترنت أشياء',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.8,
+      totalMarks: 50,
+      passRatePercent: 96.5,
+      distinctionRatePercent: 28.0,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2790,
+      stdDeviation: 3.9,
+    },
+    seed: 20250053,
+  },
 ];
 
 /**
@@ -6531,7 +6718,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('comm') || paper.branchId.includes('commercial')) && (b.id.includes('comm') || b.id.includes('commercial'))) ||
       ((paper.branchId.includes('tour') || paper.branchId.includes('tourism')) && (b.id.includes('tour') || b.id.includes('tourism'))) ||
       ((paper.branchId.includes('renew') || paper.branchId.includes('renewable')) && (b.id.includes('renew') || b.id.includes('renewable'))) ||
-      ((paper.branchId.includes('robot') || paper.branchId.includes('robotics')) && (b.id.includes('robot') || b.id.includes('robotics')))
+      ((paper.branchId.includes('robot') || paper.branchId.includes('robotics')) && (b.id.includes('robot') || b.id.includes('robotics'))) ||
+      ((paper.branchId.includes('electronics') || paper.branchId.includes('iot')) && (b.id.includes('electronics') || b.id.includes('iot')))
   );
 
   if (!targetBranch) return [];

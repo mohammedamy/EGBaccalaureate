@@ -21,8 +21,8 @@ export interface OfficialBookEnglishEdition {
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -4770,6 +4770,152 @@ export const officialBooksList: OfficialBook[] = [
       'تتبع المسارات بالتحكم التنبؤي NMPC، فض نزاعات أساطيل الروبوتات بـ CBS، ومحاكاة التوائم الرقمية',
     ],
   },
+  // 74. STEM High Schools Grade 12 Advanced Electronics, VLSI & IoT Systems
+  {
+    id: 'th-electronics-iot-g12',
+    curriculum: 'thanaweya',
+    category: 'electronics_iot',
+    subjectId: 'electronics_iot',
+    branchId: 'thanaweya_electronics_iot',
+    code: 'STEM-ELEC-2025',
+    titleEn: 'Advanced Electronics, VLSI & IoT Systems',
+    titleAr: 'الإلكترونيات المتقدمة، الدوائر المتكاملة وإنترنت الأشياء - مدارس STEM',
+    subtitleEn: 'Official Egyptian STEM High Schools Electronics & IoT Systems Curriculum (Grade 12)',
+    subtitleAr: 'الدليل المرجعي الرسمي لمدارس STEM في هندسة الإلكترونيات وإنترنت الأشياء',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Grade 12 STEM',
+    gradeAr: 'الصف الثالث الثانوي (STEM)',
+    publisherEn: 'Ministry of Education & Technical Education - STEM Education Unit',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم - وحدة مدارس المتفوقين STEM',
+    pagesCount: 8,
+    fileSize: '33.2 KB',
+    compendiumTitleEn: 'Official STEM Electronics, VLSI & IoT Systems Compendium',
+    compendiumTitleAr: 'دليل المفاهيم والمعايير الهندسية للإلكترونيات الدقيقة وإنترنت الأشياء',
+    fullTextbookPages: 295,
+    fullTextbookSize: '34.8 MB',
+    filename: 'thanaweya-electronics-iot.pdf',
+    downloadUrl: './books/thanaweya-electronics-iot.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-cyan-950 via-slate-900 to-blue-900',
+    accentColor: '#06b6d4',
+    chapters: [
+      {
+        id: 'th-electronics-iot-ch1',
+        titleEn: 'Semiconductor Devices, BJT & MOSFET Small-Signal Amplifiers',
+        titleAr: 'أجهزة أشباه الموصلات، وترانزستورات BJT و MOSFET ومكبرات الإشارة',
+        pageRange: 'pp. 1–74',
+        topicsCount: 3,
+      },
+      {
+        id: 'th-electronics-iot-ch2',
+        titleEn: 'Operational Amplifiers, Active Filters & Signal Conditioning',
+        titleAr: 'مكبرات العمليات، المرشحات الفعالة وتكييف الإشارات التناظرية',
+        pageRange: 'pp. 75–148',
+        topicsCount: 3,
+      },
+      {
+        id: 'th-electronics-iot-ch3',
+        titleEn: 'Digital Logic Design, Microcontrollers & Embedded C',
+        titleAr: 'تصميم المنطق الرقمي، المتحكمات الدقيقة والبرمجة المدمجة بلغة C',
+        pageRange: 'pp. 149–220',
+        topicsCount: 3,
+      },
+      {
+        id: 'th-electronics-iot-ch4',
+        titleEn: 'Internet of Things (IoT) Architectures, Protocols & Wireless Networks',
+        titleAr: 'بنى إنترنت الأشياء، البروتوكولات وشبكات الاتصال اللاسلكية',
+        pageRange: 'pp. 221–295',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Official Egyptian STEM High Schools textbook in Advanced Electronics & IoT Systems: Solid-state P-N junction physics, BJT and MOSFET small-signal amplifiers, 3-op-amp instrumentation amplifiers, Sallen-Key 2nd-order Butterworth active filters, ARM Cortex-M 32-bit registers, 12-bit SAR ADCs, and IoT wireless telemetry using I2C/SPI, MQTT QoS, and LoRaWAN Chirp Spread Spectrum.',
+    descriptionAr: 'الدليل الرسمي المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) في الإلكترونيات المتقدمة والأنظمة المدمجة: فيزياء أشباه الموصلات، مكبرات BJT و MOSFET للإشارة الصغيرة، مكبرات الأجهزة الدقيقة ثلاثية المكبرات، مرشحات سالين-كي الفعالة، مسجلات معالجات ARM Cortex-M، محولات SAR ADC بدقة 12 بت، وشبكات إنترنت الأشياء اللاسلكية باستخدام I2C/SPI وبروتوكول MQTT وتقنية LoRaWAN.',
+    highlightsEn: [
+      'Shockley diode equation, BJT hybrid-pi small-signal models, and MOSFET saturation overdrive voltage',
+      'High-CMRR 3-op-amp instrumentation amplifiers and 2nd-order Butterworth active filter synthesis',
+      'ARM Cortex-M memory-mapped GPIO registers, hardware PWM generation, and 12-bit SAR ADC conversions',
+      'I2C pull-up resistor constraints, MQTT publish/subscribe QoS levels, and LoRaWAN time-on-air energy budgets',
+    ],
+    highlightsAr: [
+      'معادلة شوكلي للدايود، نماذج باي الهجين لترانزستورات BJT، وتيار تشبع MOSFET وعلاقة التربيع',
+      'مكبرات الأجهزة الدقيقة ثلاثية المكبرات ذات نسبة الرفض العالية وتوليف مرشحات بتروورث الفعالة',
+      'مسجلات منافذ GPIO في خريطة ذاكرة ARM Cortex-M، توليد نبضات PWM، وتحويلات محول ADC بدقة 12 بت',
+      'حسابات مقاومة سحب ناقل I2C، مستويات جودة خدمة MQTT، وحسابات طاقة إرسال حزم LoRaWAN',
+    ],
+  },
+  // 75. EG-Bac Advanced Microelectronics, VLSI & Industrial IoT
+  {
+    id: 'egbac-electronics-iot-g12',
+    curriculum: 'egbac',
+    category: 'electronics_iot',
+    subjectId: 'electronics_iot',
+    branchId: 'egbac_electronics_iot',
+    code: 'EGBAC-ELEC-2025',
+    titleEn: 'Advanced Microelectronics, VLSI & Industrial IoT',
+    titleAr: 'الإلكترونيات الدقيقة المتقدمة، الدوائر المتكاملة وإنترنت الأشياء الصناعي',
+    subtitleEn: 'New Egyptian Baccalaureate (EG-Bac) Microelectronics & Industrial IoT Framework (Grade 12)',
+    subtitleAr: 'الإطار المرجعي المتقدم للبكالوريا المصرية في الإلكترونيات الدقيقة وإنترنت الأشياء الصناعي',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Grade 12 Advanced',
+    gradeAr: 'الصف الثالث الثانوي (المسار المتقدم)',
+    publisherEn: 'Egyptian Baccalaureate Board & Microelectronics Curriculum Authority',
+    publisherAr: 'الهيئة العامة للبكالوريا المصرية - قطاع هندسة الإلكترونيات الدقيقة وتصميم الرقائق',
+    pagesCount: 8,
+    fileSize: '34.5 KB',
+    compendiumTitleEn: 'Official EG-Bac Microelectronics, VLSI & Industrial IoT Compendium',
+    compendiumTitleAr: 'دليل المعايير المتقدمة لتصميم الدوائر المتكاملة VLSI وإنترنت الأشياء الصناعي',
+    fullTextbookPages: 310,
+    fullTextbookSize: '39.2 MB',
+    filename: 'egbac-electronics-iot.pdf',
+    downloadUrl: './books/egbac-electronics-iot.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-teal-950 via-slate-900 to-cyan-900',
+    accentColor: '#14b8a6',
+    chapters: [
+      {
+        id: 'egbac-electronics-iot-ch1',
+        titleEn: 'Nanometer CMOS VLSI, FinFET Physics & Integrated Circuit Layout',
+        titleAr: 'تصميم الدوائر المتكاملة CMOS النانومترية، فيزياء FinFET والمخططات السيليكونية',
+        pageRange: 'pp. 1–78',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac-electronics-iot-ch2',
+        titleEn: 'FPGA Architecture, HDL Synthesis & Static Timing Analysis',
+        titleAr: 'بنية شرائح FPGA، توليف لغات توصيف العتاد والتحليل الزمني الساكن',
+        pageRange: 'pp. 79–156',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac-electronics-iot-ch3',
+        titleEn: 'Low-Power Edge Computing, DSP & Embedded Telemetry',
+        titleAr: 'الحوسبة الطرفية منخفضة الطاقة، معالجة الإشارات والقياس عن بعد',
+        pageRange: 'pp. 157–232',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac-electronics-iot-ch4',
+        titleEn: 'Industrial IoT (IIoT), Edge AI & Hardware Security',
+        titleAr: 'إنترنت الأشياء الصناعي (IIoT)، الذكاء الاصطناعي الطرفي وأمن العتاد',
+        pageRange: 'pp. 233–310',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Microelectronics, VLSI Design & Industrial IoT: 3D FinFET short-channel electrostatics, CMOS inverter noise margins and clock gating, FPGA 6-LUT architectures and Static Timing Analysis (STA), Q15 fixed-point DSP filtering, DMA circular streaming, Modbus RTU, Time-Sensitive Networking (TSN), on-device TinyML neural network inference, and silicon Root of Trust (RoT) with Physically Unclonable Functions (PUF).',
+    descriptionAr: 'كتاب البكالوريا المصرية المتقدم في الإلكترونيات الدقيقة وتصميم دوائر VLSI وإنترنت الأشياء الصناعي: إلكتروستاتيكا ترانزستورات FinFET ثلاثية الأبعاد، هوامش ضوضاء عواكس CMOS وتقنية حجب الساعة، بنية جداول 6-LUT والتحليل الزمني الساكن STA، ترشيح الإشارات بتمثيل Q15 الثابت، تدفق نواقل DMA، شبكات Modbus وTSN الحتمية، استدلال الذكاء الاصطناعي الطرفي TinyML، وجذر الثقة العتادي ووظائف PUF السيليكونية.',
+    highlightsEn: [
+      'Nanometer FinFET DIBL mitigation, subthreshold swing, and layout design rule checking (DRC/LVS)',
+      'Verilog pipelined datapath design, hazard bypassing, and setup/hold static timing slack closure',
+      'DVFS low-power optimization, fixed-point Q15 fractional arithmetic, and zero-CPU DMA transfers',
+      'Modbus RTU framing, IEEE 802.1Qbv TSN scheduling, INT8 TinyML quantization, and secure boot RoT',
+    ],
+    highlightsAr: [
+      'قمع تأثير DIBL في ترانزستورات FinFET، وتأكيد قواعد التصميم السيليكوني DRC/LVS ومطابقة المخططات',
+      'تصميم مسارات البيانات المتسلسلة بلغة Verilog، وتفادي مخاطر التنفيذ، واستيفاء قيود التوقيت الزمني',
+      'توفير الطاقة بنظام DVFS، الحسابات الرياضية بتمثيل Q15 الثابت، وتدفق عينات الحساسات بنواقل DMA',
+      'تأطير حزم Modbus، جدولة شبكات TSN الحساسة للوقت، تكميم نماذج TinyML بدقة 8 بت، والإقلاع الآمن',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -4843,6 +4989,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_stem_capstone' && (b.branchId === 'egbac_stem_capstone' || b.id === 'egbac-stem-capstone-g12')) return true;
     if (branchId === 'thanaweya_robotics' && (b.branchId === 'thanaweya_robotics' || b.id === 'th-robotics-g12')) return true;
     if (branchId === 'egbac_robotics' && (b.branchId === 'egbac_robotics' || b.id === 'egbac-robotics-g12')) return true;
+    if (branchId === 'thanaweya_electronics_iot' && (b.branchId === 'thanaweya_electronics_iot' || b.id === 'th-electronics-iot-g12')) return true;
+    if (branchId === 'egbac_electronics_iot' && (b.branchId === 'egbac_electronics_iot' || b.id === 'egbac-electronics-iot-g12')) return true;
     return false;
   });
 }
@@ -4852,7 +5000,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

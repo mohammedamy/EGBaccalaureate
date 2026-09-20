@@ -39,8 +39,8 @@ async function runVerification() {
 
   // 1. Total Catalog Count Check
   assert(
-    officialBooksList.length === 73,
-    `Expected exactly 73 official books, found ${officialBooksList.length}`
+    officialBooksList.length === 75,
+    `Expected exactly 75 official books, found ${officialBooksList.length}`
   );
 
   const booksDir = path.resolve(process.cwd(), 'public/books');
@@ -222,6 +222,9 @@ async function runVerification() {
     'commercial',
     'tourism',
     'renewable',
+    'stem_capstone',
+    'robotics_mechatronics',
+    'electronics_iot',
   ];
 
   for (const s of subjects) {
@@ -269,7 +272,7 @@ async function runVerification() {
   if (failedChecks > 0) {
     process.exit(1);
   } else {
-    console.log('✨ ALL 69 OFFICIAL BOOKS & DOWNLOAD LINKS VERIFIED SUCCESSFULLY (100% PASS)!');
+    console.log('✨ ALL 75 OFFICIAL BOOKS & DOWNLOAD LINKS VERIFIED SUCCESSFULLY (100% PASS)!');
   }
 }
 

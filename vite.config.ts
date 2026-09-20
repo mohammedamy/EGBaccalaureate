@@ -221,6 +221,12 @@ export default defineConfig({
             { name: 'curriculum-robotics', test: /src\/data\/(thanaweya|egBac)Robotics/, priority: 20 },
             { name: 'robotics-studio', test: /roboticsLabData/, priority: 30 },
 
+            // Advanced Electronics, VLSI & IoT Systems
+            { name: 'databank-electronics-iot', test: /databanks\/(thanaweya|egbac)\/.*electronicsIot/i, priority: 30 },
+            { name: 'textbook-electronics-iot', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*electronicsIot/i, priority: 30 },
+            { name: 'curriculum-electronics-iot', test: /src\/data\/(thanaweya|egBac)ElectronicsIot/, priority: 20 },
+            { name: 'electronics-studio', test: /electronicsLabData/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

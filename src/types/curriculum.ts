@@ -38,6 +38,7 @@ export type BranchId =
   | 'thanaweya_renewable'
   | 'thanaweya_stem_capstone'
   | 'thanaweya_robotics'
+  | 'thanaweya_electronics_iot'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -73,7 +74,8 @@ export type BranchId =
   | 'egbac_tourism'
   | 'egbac_renewable'
   | 'egbac_stem_capstone'
-  | 'egbac_robotics';
+  | 'egbac_robotics'
+  | 'egbac_electronics_iot';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
