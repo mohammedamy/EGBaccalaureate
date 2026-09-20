@@ -172,7 +172,7 @@
   }
 }
 
-/* Mobile Ergonomics, Touch Feedback & Safe Areas */
+/* Mobile Ergonomics, Touch Feedback, Formula Scrolling & iOS Auto-zoom Prevention */
 * {
   -webkit-tap-highlight-color: transparent;
 }
@@ -180,6 +180,40 @@
 body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
+}
+
+/* Prevent iOS Safari auto-zoom when focusing text inputs/selects on mobile */
+@media screen and (max-width: 768px) {
+  input:not([type='range']):not([type='checkbox']):not([type='radio']),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Accessible mobile touch targets (44px min touch footprint) */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+/* Fluid mobile container for KaTeX formulas with smooth touch scrolling */
+.formula-scroll-container,
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  scrollbar-width: thin;
+}
+
+/* Safe area padding utilities for mobile home indicator & notch */
+.safe-pb {
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+}
+.safe-pt {
+  padding-top: calc(0.75rem + env(safe-area-inset-top, 0px));
 }
 
 /* Hide scrollbars on mobile horizontal carousels with smooth momentum touch scrolling */
@@ -1062,13 +1096,19 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     size: A4 portrait;
   }
 
-  /* Reset layout and force crisp white background */
+  /* Reset layout and force crisp pure white background with pitch-black ink across all day/night/contrast views */
   html, html.dark, html.high-contrast, html.light,
-  body, body.dark, .dark, .high-contrast, .light {
+  body, body.dark, body.high-contrast, body.light,
+  .dark, .high-contrast, .light,
+  #root, main, div, section, article, p, span, h1, h2, h3, h4, h5, h6,
+  .printable-root, .printable-sheet, .printable-page, .exam-paper, .worksheet-page,
+  .bubble-sheet-container, .certificate-container, .lab-report-sheet {
     background: #ffffff !important;
     background-color: #ffffff !important;
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
     font-size: 11pt !important;
     line-height: 1.5 !important;
     width: 100% !important;
@@ -1076,6 +1116,42 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     overflow: visible !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+
+  /* Strip all dark backgrounds from Tailwind utility classes */
+  *[class*="bg-slate-"],
+  *[class*="bg-gray-"],
+  *[class*="bg-zinc-"],
+  *[class*="bg-neutral-"],
+  *[class*="bg-black"],
+  *[class*="bg-indigo-"],
+  *[class*="bg-amber-"],
+  *[class*="bg-purple-"],
+  *[class*="bg-emerald-"] {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Force all Tailwind text utility classes to solid pitch-black ink */
+  *[class*="text-slate-"],
+  *[class*="text-gray-"],
+  *[class*="text-zinc-"],
+  *[class*="text-neutral-"],
+  *[class*="text-white"],
+  *[class*="text-amber-"],
+  *[class*="text-indigo-"],
+  *[class*="text-purple-"],
+  *[class*="text-emerald-"],
+  *[class*="text-cyan-"],
+  *[class*="text-rose-"],
+  *[class*="text-teal-"] {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  /* Borders printed with crisp dark lines */
+  *[class*="border-"] {
+    border-color: #000000 !important;
   }
 
   [dir="rtl"] {

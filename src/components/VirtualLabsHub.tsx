@@ -116,6 +116,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
   const [showAllLabsOverride, setShowAllLabsOverride] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'sciences' | 'math' | 'engineering' | 'humanities' | 'languages_arts'>('all');
   const {
     isFullscreen: isHubFullscreen,
     toggleFullscreen: toggleHubFullscreen,
@@ -704,6 +705,44 @@ export const VirtualLabsHub: React.FC<Props> = ({
     }
   };
 
+  type WorkstationCategory = 'all' | 'sciences' | 'math' | 'engineering' | 'humanities' | 'languages_arts';
+
+  const LAB_CATEGORY_MAP: Record<LabId, Exclude<WorkstationCategory, 'all'>> = {
+    physics: 'sciences',
+    chemistry: 'sciences',
+    biology: 'sciences',
+    geology: 'sciences',
+    earth_space: 'sciences',
+    math: 'math',
+    economics_stat: 'math',
+    cs_informatics: 'engineering',
+    industrial: 'engineering',
+    renewable: 'engineering',
+    agriculture: 'engineering',
+    business: 'engineering',
+    history: 'humanities',
+    geography: 'humanities',
+    philosophy: 'humanities',
+    psychology: 'humanities',
+    civics: 'humanities',
+    islamic_studies: 'humanities',
+    christian_studies: 'humanities',
+    languages: 'languages_arts',
+    music: 'languages_arts',
+    fine_arts: 'languages_arts',
+    commercial: 'languages_arts',
+    tourism: 'languages_arts',
+  };
+
+  const WORKSTATION_CATEGORIES: { id: WorkstationCategory; nameEn: string; nameAr: string; count: number; icon: React.FC<{ className?: string }> }[] = [
+    { id: 'all', nameEn: 'All Workstations', nameAr: 'جميع المختبرات', count: 24, icon: Flask },
+    { id: 'sciences', nameEn: 'Natural Sciences', nameAr: 'العلوم الطبيعية', count: 5, icon: Atom },
+    { id: 'math', nameEn: 'Math & Stats', nameAr: 'الرياضيات والإحصاء', count: 2, icon: Calculator },
+    { id: 'engineering', nameEn: 'Engineering & STEM', nameAr: 'التكنولوجيا والهندسة', count: 5, icon: Binary },
+    { id: 'humanities', nameEn: 'Humanities & Civics', nameAr: 'العلوم الإنسانية والاجتماعية', count: 7, icon: BookOpen },
+    { id: 'languages_arts', nameEn: 'Languages & Arts', nameAr: 'اللغات والفنون والخدمات', count: 5, icon: Palette },
+  ];
+
   const relevantLabs = useMemo<LabCardItem[]>(() => {
     if (!selectedSubject || selectedSubject === 'all') return LABS;
     const filtered = LABS.filter((lab: LabCardItem) => isLabRelevantToSubject(lab.id, selectedSubject));
@@ -717,7 +756,13 @@ export const VirtualLabsHub: React.FC<Props> = ({
     relevantLabs.length < LABS.length
   );
 
-  const displayedLabs: LabCardItem[] = (!showAllLabsOverride && isSubjectFiltered) ? relevantLabs : LABS;
+  const baseDisplayedLabs: LabCardItem[] = (!showAllLabsOverride && isSubjectFiltered) ? relevantLabs : LABS;
+
+  const displayedLabs = useMemo(() => {
+    if (selectedCategory === 'all') return baseDisplayedLabs;
+    const catFiltered = baseDisplayedLabs.filter((lab) => LAB_CATEGORY_MAP[lab.id] === selectedCategory);
+    return catFiltered.length > 0 ? catFiltered : LABS.filter((lab) => LAB_CATEGORY_MAP[lab.id] === selectedCategory);
+  }, [baseDisplayedLabs, selectedCategory, LABS]);
 
   return (
     <div
@@ -818,7 +863,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
               <span className={`px-2.5 py-1 rounded-md text-xs tabular-mono font-medium border ${
                 isLight ? 'bg-slate-100 text-slate-700 border-slate-200' : 'bg-[#0D1117] text-slate-300 border-[#30363D]'
               }`}>
-                19 Specialized Labs & Studios
+                {isArabic ? '٢٤ مختبراً واستوديو تخصصياً' : '24 Specialized Labs & Studios'}
               </span>
             </div>
 
@@ -904,6 +949,49 @@ export const VirtualLabsHub: React.FC<Props> = ({
             </button>
           </div>
         )}
+
+        {/* Workstation Category Filter Bar */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-1.5 -mx-1 px-1 no-scrollbar sm:flex-wrap">
+          {WORKSTATION_CATEGORIES.map((cat) => {
+            const isCatActive = selectedCategory === cat.id;
+            const CatIcon = cat.icon;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  if (!showAllLabsOverride && isSubjectFiltered && cat.id !== 'all') {
+                    setShowAllLabsOverride(true);
+                  }
+                }}
+                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold shrink-0 transition-all border cursor-pointer min-h-[40px] touch-target ${
+                  isCatActive
+                    ? isLight
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                      : 'bg-indigo-600 text-white border-indigo-500 shadow-xs shadow-indigo-600/30'
+                    : isLight
+                    ? 'bg-white text-slate-700 border-slate-200 hover:border-slate-300 hover:bg-slate-50'
+                    : 'bg-[#161B22] text-slate-300 border-[#30363D] hover:border-slate-600 hover:text-white'
+                }`}
+              >
+                <CatIcon className={`w-3.5 h-3.5 ${isCatActive ? 'text-white' : 'text-slate-400'}`} />
+                <span>{isArabic ? cat.nameAr : cat.nameEn}</span>
+                <span
+                  className={`text-[10px] tabular-nums px-1.5 py-0.5 rounded-full font-mono ${
+                    isCatActive
+                      ? 'bg-white/20 text-white'
+                      : isLight
+                      ? 'bg-slate-100 text-slate-500'
+                      : 'bg-slate-800 text-slate-400'
+                  }`}
+                >
+                  {cat.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
         <div className={`grid ${displayedLabs.length === 1 ? 'grid-cols-1 max-w-sm sm:max-w-md' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6'} gap-3`}>
           {displayedLabs.map((lab) => {

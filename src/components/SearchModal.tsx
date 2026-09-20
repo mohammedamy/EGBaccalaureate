@@ -18,6 +18,8 @@ import {
   ArrowRight,
   ArrowLeft,
   SlidersHorizontal,
+  Mic,
+  MicOff,
 } from 'lucide-react';
 
 interface SearchResultItem {
@@ -133,6 +135,57 @@ export const SearchModal: React.FC<Props> = ({
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
   const isArabic = lang === 'ar';
+
+  // Voice Search Web Speech API State
+  const [isListening, setIsListening] = useState<boolean>(false);
+  const recognitionRef = useRef<any>(null);
+
+  const toggleVoiceSearch = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    const SpeechRec = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    if (!SpeechRec) {
+      alert(isArabic ? 'البحث الصوتي غير مدعوم في متصفحك الحالي.' : 'Voice search is not supported in your browser.');
+      return;
+    }
+    if (isListening && recognitionRef.current) {
+      try {
+        recognitionRef.current.stop();
+      } catch {}
+      setIsListening(false);
+      return;
+    }
+    try {
+      const rec = new SpeechRec();
+      rec.lang = isArabic ? 'ar-EG' : 'en-US';
+      rec.continuous = false;
+      rec.interimResults = false;
+      rec.onstart = () => setIsListening(true);
+      rec.onresult = (e: any) => {
+        const transcript = e.results?.[0]?.[0]?.transcript;
+        if (transcript) {
+          setQuery(transcript);
+        }
+        setIsListening(false);
+      };
+      rec.onerror = () => setIsListening(false);
+      rec.onend = () => setIsListening(false);
+      recognitionRef.current = rec;
+      rec.start();
+    } catch (err) {
+      console.warn('Voice search error:', err);
+      setIsListening(false);
+    }
+  }, [isListening, isArabic]);
+
+  useEffect(() => {
+    return () => {
+      if (recognitionRef.current) {
+        try {
+          recognitionRef.current.stop();
+        } catch {}
+      }
+    };
+  }, []);
 
   // Load recent searches on mount
   useEffect(() => {
@@ -392,9 +445,26 @@ export const SearchModal: React.FC<Props> = ({
         continue;
       }
 
-      // 2. Subject filter
-      if (subjectFilter !== 'all' && item.subjectId !== subjectFilter) {
-        continue;
+      // 2. Subject filter & Category Groups
+      if (subjectFilter !== 'all') {
+        if (subjectFilter === 'group_science') {
+          const scienceIds = ['physics', 'chemistry', 'biology', 'geology', 'earth_space', 'biotechnology', 'nanotechnology'];
+          if (!scienceIds.includes(item.subjectId as string)) continue;
+        } else if (subjectFilter === 'group_math') {
+          const mathIds = ['mathematics', 'economics_stat'];
+          if (!mathIds.includes(item.subjectId as string)) continue;
+        } else if (subjectFilter === 'group_stem') {
+          const stemIds = ['cs_informatics', 'robotics_mechatronics', 'electronics_iot', 'ai_data_science', 'renewable', 'stem_capstone', 'industrial'];
+          if (!stemIds.includes(item.subjectId as string)) continue;
+        } else if (subjectFilter === 'group_humanities') {
+          const humIds = ['history', 'geography', 'philosophy', 'psychology', 'civics', 'business_entrepreneurship', 'fine_arts_architecture', 'music_theory', 'commercial', 'tourism', 'islamic_studies', 'christian_studies'];
+          if (!humIds.includes(item.subjectId as string)) continue;
+        } else if (subjectFilter === 'group_languages') {
+          const langIds = ['arabic', 'english', 'french', 'german', 'italian', 'spanish', 'chinese'];
+          if (!langIds.includes(item.subjectId as string)) continue;
+        } else if (item.subjectId !== subjectFilter) {
+          continue;
+        }
       }
 
       // 3. Type filter
@@ -414,10 +484,22 @@ export const SearchModal: React.FC<Props> = ({
         }
       }
 
-      // 5. Multi-token relevance check
+      // 5. Multi-token relevance check with typo tolerance
       let allTokensFound = true;
       for (const token of tokens) {
-        if (!item.normalizedIndex.includes(token)) {
+        if (item.normalizedIndex.includes(token)) {
+          continue;
+        }
+        // Resilient typo / stem match for words of 4+ characters
+        let fuzzyMatch = false;
+        if (token.length >= 4) {
+          const prefix = token.slice(0, -1);
+          const suffix = token.slice(1);
+          if (item.normalizedIndex.includes(prefix) || item.normalizedIndex.includes(suffix)) {
+            fuzzyMatch = true;
+          }
+        }
+        if (!fuzzyMatch) {
           allTokensFound = false;
           break;
         }
@@ -542,6 +624,27 @@ export const SearchModal: React.FC<Props> = ({
             className="w-full bg-transparent text-sm sm:text-base outline-none font-medium placeholder:text-slate-500"
           />
 
+          {/* Voice Search Button */}
+          <button
+            onClick={toggleVoiceSearch}
+            className={`p-2 rounded-xl transition-all flex items-center justify-center shrink-0 ${
+              isListening
+                ? 'bg-rose-600 text-white animate-pulse ring-4 ring-rose-500/40'
+                : 'text-slate-400 hover:text-amber-400 hover:bg-slate-800/60'
+            }`}
+            title={
+              isListening
+                ? isArabic
+                  ? 'جاري الاستماع... انقر للإيقاف'
+                  : 'Listening... Click to stop'
+                : isArabic
+                ? 'البحث الصوتي الذكي (تحدث بالعربية)'
+                : 'Voice Search (Click and speak)'
+            }
+          >
+            {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+          </button>
+
           {query && (
             <button
               onClick={() => setQuery('')}
@@ -577,6 +680,40 @@ export const SearchModal: React.FC<Props> = ({
           >
             ESC
           </button>
+        </div>
+
+        {/* Quick Category Filter Chips */}
+        <div
+          className={`px-3.5 py-2 border-b flex items-center gap-1.5 overflow-x-auto no-scrollbar text-xs ${
+            isLight ? 'bg-slate-100/60 border-slate-200' : 'bg-slate-900/60 border-slate-800'
+          }`}
+        >
+          <span className="text-[11px] text-slate-400 font-semibold shrink-0">
+            {isArabic ? 'المجال:' : 'Category:'}
+          </span>
+          {[
+            { id: 'all', labelAr: 'الكل', labelEn: 'All' },
+            { id: 'group_science', labelAr: '🔬 العلوم الطبيعية', labelEn: 'Sciences' },
+            { id: 'group_math', labelAr: '📐 الرياضيات', labelEn: 'Math' },
+            { id: 'group_stem', labelAr: '💻 التقنية والـ STEM', labelEn: 'STEM & AI' },
+            { id: 'group_humanities', labelAr: '📜 الإنسانيات', labelEn: 'Humanities' },
+            { id: 'group_languages', labelAr: '🌍 اللغات', labelEn: 'Languages' },
+          ].map((cat) => {
+            const isCatActive = subjectFilter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setSubjectFilter(cat.id)}
+                className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
+                  isCatActive
+                    ? 'bg-indigo-600 text-white shadow-sm font-bold'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
+                }`}
+              >
+                {isArabic ? cat.labelAr : cat.labelEn}
+              </button>
+            );
+          })}
         </div>
 
         {/* Collapsible Filter Bar */}

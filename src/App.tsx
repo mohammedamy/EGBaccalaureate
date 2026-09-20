@@ -70,9 +70,9 @@ export const App: React.FC = () => {
     openVerificationModal?: boolean;
   } => {
     try {
-      const rawHash = window.location.hash.replace('#', '');
+      const rawHash = typeof window !== 'undefined' ? window.location.hash.replace('#', '') : '';
       const hash = rawHash.toLowerCase();
-      const params = new URLSearchParams(window.location.search);
+      const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : new URLSearchParams();
       let subject = params.get('subject') || '';
       let tab = params.get('tab') || '';
       let blueprint: BlueprintMode | undefined = undefined;
@@ -86,7 +86,7 @@ export const App: React.FC = () => {
         verificationSerial = verifyQuery;
       }
 
-      // Check hash params for verification, e.g. #verify, #certificate-verification, #verify?serial=...
+      // Check legacy hash params for verification, e.g. #verify, #certificate-verification, #verify?serial=...
       if (hash.startsWith('verify') || hash.startsWith('certificate-verification') || hash.startsWith('cert-verify')) {
         openVerificationModal = true;
         if (rawHash.includes('=')) {
@@ -103,6 +103,7 @@ export const App: React.FC = () => {
         blueprint = bpParam as BlueprintMode;
       }
 
+      // Map legacy hash fragments to subject / tab (so old bookmarks continue to resolve)
       if (hash === 'physics' || hash === 'phys') subject = 'physics';
       else if (hash === 'chemistry' || hash === 'chem') subject = 'chemistry';
       else if (hash === 'biology' || hash === 'bio') subject = 'biology';
@@ -142,12 +143,25 @@ export const App: React.FC = () => {
       }
 
       if (!subject) {
-        const saved = localStorage.getItem('egbac_selected_subject');
+        const saved = typeof window !== 'undefined' ? localStorage.getItem('egbac_selected_subject') : null;
         if (saved && (saved === 'all' || SUBJECTS.some((s) => s.id === saved))) {
           subject = saved;
         } else {
           subject = 'all';
         }
+      }
+
+      // CRITICAL: Eliminate all '#' from browser address bar immediately if any legacy hash was present
+      if (typeof window !== 'undefined' && window.location.hash) {
+        try {
+          const cleanParams = new URLSearchParams(window.location.search);
+          if (subject && subject !== 'all') cleanParams.set('subject', subject);
+          if (tab && tab !== 'overview') cleanParams.set('tab', tab);
+          if (blueprint) cleanParams.set('blueprint', blueprint);
+          if (verificationSerial) cleanParams.set('verify', verificationSerial);
+          const searchStr = cleanParams.toString() ? `?${cleanParams.toString()}` : '';
+          window.history.replaceState(null, '', window.location.pathname + searchStr);
+        } catch {}
       }
 
       return {
@@ -222,19 +236,21 @@ export const App: React.FC = () => {
   const handleCloseCertificateVerification = () => {
     setIsCertificateVerificationOpen(false);
     setVerificationTargetSerial('');
-    if (typeof window !== 'undefined' && window.location.hash) {
-      const h = window.location.hash.toLowerCase();
-      if (h.includes('verify') || h.includes('certificate')) {
-        window.history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      params.delete('verify');
+      params.delete('certificate');
+      params.delete('cert');
+      const searchStr = params.toString() ? `?${params.toString()}` : '';
+      window.history.replaceState(null, '', window.location.pathname + searchStr);
     }
   };
 
   const activeCurriculumData = curriculum === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
 
-  // Listen for hash changes to support instant deep links
+  // Listen for route changes (popstate and hashchange) to support instant deep links
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleRouteChange = () => {
       const parsed = parseRouteState();
       if (parsed.tab) setActiveTab(parsed.tab);
       if (parsed.subject && parsed.subject !== 'all') setSelectedSubject(parsed.subject);
@@ -246,8 +262,12 @@ export const App: React.FC = () => {
         }
       }
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleRouteChange);
+    window.addEventListener('hashchange', handleRouteChange);
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+      window.removeEventListener('hashchange', handleRouteChange);
+    };
   }, []);
 
   // Register Service Worker for PWA offline resilience
@@ -306,17 +326,22 @@ export const App: React.FC = () => {
       }
     }
     try {
-      if (subjectId !== 'all') {
-        window.history.replaceState(null, '', `#${subjectId}`);
-      } else {
-        window.history.replaceState(null, '', '#');
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        if (subjectId !== 'all') {
+          params.set('subject', subjectId);
+        } else {
+          params.delete('subject');
+        }
+        const searchStr = params.toString() ? `?${params.toString()}` : '';
+        window.history.replaceState(null, '', window.location.pathname + searchStr);
       }
     } catch {}
   };
 
-  // Sync with hashchange events for browser back/forward or direct bookmark links
+  // Sync with popstate & hashchange events for browser back/forward or direct links
   useEffect(() => {
-    const handleHashChange = () => {
+    const handleRouteChange = () => {
       const route = parseRouteState();
       if (route.subject && route.subject !== selectedSubject) {
         setSelectedSubject(route.subject);
@@ -335,8 +360,12 @@ export const App: React.FC = () => {
         setActiveTab(route.tab);
       }
     };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleRouteChange);
+    window.addEventListener('hashchange', handleRouteChange);
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange);
+      window.removeEventListener('hashchange', handleRouteChange);
+    };
   }, [activeCurriculumData, selectedSubject, activeTab]);
 
   // Global safety guarantee: whenever navigation tab, subject, or curriculum changes, ensure all scroll locks are cleared
