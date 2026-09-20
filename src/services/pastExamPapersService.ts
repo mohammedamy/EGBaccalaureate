@@ -35,7 +35,8 @@ export type PastExamSubject =
   | 'fine_arts_architecture'
   | 'music_theory'
   | 'agriculture'
-  | 'industrial';
+  | 'industrial'
+  | 'commercial';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -5516,6 +5517,192 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250030,
   },
+  // 181. Commercial Sciences, Financial Accounting & Banking 2021 - Session 1
+  {
+    id: 'th-comm-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'commercial',
+    branchId: 'thanaweya_commercial',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة العلوم التجارية والمحاسبة والمالية (الدور الأول ٢٠٢١)',
+    titleEn: 'General Secondary Certificate Examination - Commercial Sciences & Accounting (First Session 2021)',
+    subtitleAr: 'الامتحان القومي الموحد المعتمد لنظام التقييم الإلكتروني وبابل شيت',
+    subtitleEn: 'Official Standardized National Examination Paper - Paper Code A',
+    formCodeAr: 'النموذج أ',
+    formCodeEn: 'Form A',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢١ / دور أول / علوم تجارية ومحاسبة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 35.8,
+      totalMarks: 50,
+      passRatePercent: 82.4,
+      distinctionRatePercent: 12.5,
+      topTenThreshold: 48.5,
+      totalCandidatesEst: 78000,
+      stdDeviation: 5.6,
+    },
+    seed: 20210041,
+  },
+  // 182. Commercial Sciences, Financial Accounting & Banking 2022 - Session 1
+  {
+    id: 'th-comm-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'commercial',
+    branchId: 'thanaweya_commercial',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة العلوم التجارية والمحاسبة والمالية (الدور الأول ٢٠٢٢)',
+    titleEn: 'General Secondary Certificate Examination - Commercial Sciences & Accounting (First Session 2022)',
+    subtitleAr: 'الامتحان القومي الموحد المعتمد لنظام التقييم الإلكتروني وبابل شيت',
+    subtitleEn: 'Official Standardized National Examination Paper - Paper Code B',
+    formCodeAr: 'النموذج ب',
+    formCodeEn: 'Form B',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٢ / دور أول / علوم تجارية ومحاسبة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 36.2,
+      totalMarks: 50,
+      passRatePercent: 83.9,
+      distinctionRatePercent: 13.8,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 82000,
+      stdDeviation: 5.4,
+    },
+    seed: 20220041,
+  },
+  // 183. Commercial Sciences, Financial Accounting & Banking 2023 - Session 1
+  {
+    id: 'th-comm-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'commercial',
+    branchId: 'thanaweya_commercial',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة العلوم التجارية والمحاسبة والمالية (الدور الأول ٢٠٢٣)',
+    titleEn: 'General Secondary Certificate Examination - Commercial Sciences & Accounting (First Session 2023)',
+    subtitleAr: 'الامتحان القومي الموحد المعتمد لنظام التقييم الإلكتروني وبابل شيت',
+    subtitleEn: 'Official Standardized National Examination Paper - Paper Code A',
+    formCodeAr: 'النموذج أ',
+    formCodeEn: 'Form A',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٣ / دور أول / علوم تجارية ومحاسبة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 36.9,
+      totalMarks: 50,
+      passRatePercent: 85.1,
+      distinctionRatePercent: 15.2,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 86000,
+      stdDeviation: 5.2,
+    },
+    seed: 20230041,
+  },
+  // 184. Commercial Sciences, Financial Accounting & Banking 2024 - Session 1
+  {
+    id: 'th-comm-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'commercial',
+    branchId: 'thanaweya_commercial',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة العلوم التجارية والمحاسبة والمالية (الدور الأول ٢٠٢٤)',
+    titleEn: 'General Secondary Certificate Examination - Commercial Sciences & Accounting (First Session 2024)',
+    subtitleAr: 'الامتحان القومي الموحد المعتمد لنظام التقييم الإلكتروني وبابل شيت',
+    subtitleEn: 'Official Standardized National Examination Paper - Paper Code C',
+    formCodeAr: 'النموذج ج',
+    formCodeEn: 'Form C',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور أول / علوم تجارية ومحاسبة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.4,
+      totalMarks: 50,
+      passRatePercent: 86.8,
+      distinctionRatePercent: 16.5,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 91000,
+      stdDeviation: 5.0,
+    },
+    seed: 20240041,
+  },
+  // 185. Commercial Sciences, Financial Accounting & Banking 2024 - Session 2
+  {
+    id: 'th-comm-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'commercial',
+    branchId: 'thanaweya_commercial',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة العلوم التجارية والمحاسبة والمالية (الدور الثاني ٢٠٢٤)',
+    titleEn: 'General Secondary Certificate Examination - Commercial Sciences & Accounting (Second Session 2024)',
+    subtitleAr: 'امتحان الدور الثاني الرسمي المعتمد لطلاب شهادة إتمام الثانوية العامة',
+    subtitleEn: 'Official Second Session Supplementary Examination Paper',
+    formCodeAr: 'الدور الثاني المعتمد',
+    formCodeEn: 'Session 2 Standard Paper',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور ثان / علوم تجارية ومحاسبة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 34.5,
+      totalMarks: 50,
+      passRatePercent: 81.0,
+      distinctionRatePercent: 10.5,
+      topTenThreshold: 48.0,
+      totalCandidatesEst: 32000,
+      stdDeviation: 5.5,
+    },
+    seed: 20240042,
+  },
+  // 186. Commercial Sciences, Financial Accounting & Banking 2025 - Experimental Diagnostic
+  {
+    id: 'th-comm-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'commercial',
+    branchId: 'thanaweya_commercial',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - مادة العلوم التجارية والمحاسبة والمالية (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - Commercial Sciences & Banking (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من الإدارة المركزية لتطوير المناهج والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE Central Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٥ / نموذج استرشادي / علوم تجارية ومصرفية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 38.2,
+      totalMarks: 50,
+      passRatePercent: 92.5,
+      distinctionRatePercent: 22.4,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 98000,
+      stdDeviation: 4.6,
+    },
+    seed: 20250040,
+  },
 ];
 
 /**
@@ -5592,7 +5779,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('arts') || paper.branchId.includes('fine_arts')) && (b.id.includes('arts') || b.id.includes('fine_arts'))) ||
       ((paper.branchId.includes('music')) && (b.id.includes('music'))) ||
       ((paper.branchId.includes('agri') || paper.branchId.includes('agriculture')) && (b.id.includes('agri') || b.id.includes('agriculture'))) ||
-      ((paper.branchId.includes('ind') || paper.branchId.includes('industrial')) && (b.id.includes('ind') || b.id.includes('industrial')))
+      ((paper.branchId.includes('ind') || paper.branchId.includes('industrial')) && (b.id.includes('ind') || b.id.includes('industrial'))) ||
+      ((paper.branchId.includes('comm') || paper.branchId.includes('commercial')) && (b.id.includes('comm') || b.id.includes('commercial')))
   );
 
   if (!targetBranch) return [];

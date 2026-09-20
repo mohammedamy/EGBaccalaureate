@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -3693,6 +3693,152 @@ export const officialBooksList: OfficialBook[] = [
       'خرائط شوارت للمتوسطات والمدى ومؤشرات Cp/Cpk ومنهجية 5S للصيانة الإنتاجية',
     ],
   },
+  // 64. Thanaweya Commercial Sciences & Financial Accounting
+  {
+    id: 'th-comm-g12',
+    curriculum: 'thanaweya',
+    category: 'commercial_sciences',
+    subjectId: 'commercial',
+    branchId: 'thanaweya_commercial',
+    code: 'TH-COMM-G12',
+    titleEn: 'Commercial Sciences, Financial Accounting & Banking',
+    titleAr: 'العلوم التجارية والمحاسبة والمالية والمصرفية',
+    subtitleEn: 'Official Ministry of Education Standard Textbook - Grade 12',
+    subtitleAr: 'كتاب وزارة التربية والتعليم الرسمي - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (General Secondary Certificate)',
+    gradeAr: 'الصف الثالث الثانوي (شهادة إتمام الثانوية العامة)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '24.8 KB',
+    compendiumTitleEn: 'Official Commercial Sciences & Accounting Standards Compendium',
+    compendiumTitleAr: 'كتيب المفاهيم والقوانين والمعايير المحاسبية والمصرفية المعتمد',
+    fullTextbookPages: 256,
+    fullTextbookSize: '27.2 MB',
+    filename: 'thanaweya-commercial-accounting.pdf',
+    downloadUrl: './books/thanaweya-commercial-accounting.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-teal-800 via-emerald-800 to-slate-950',
+    accentColor: '#14b8a6',
+    chapters: [
+      {
+        id: 'th-comm-ch1',
+        titleEn: 'Financial Accounting Principles, Double-Entry & Ledger Balancing',
+        titleAr: 'أصول ومبادئ المحاسبة المالية وقيود اليومية وموازين المراجعة',
+        pageRange: 'pp. 1–64',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-comm-ch2',
+        titleEn: 'Financial Mathematics, Compound Interest & Annuities',
+        titleAr: 'الرياضة المالية وحساب الفائدة المركبة والأقساط والاستهلاك',
+        pageRange: 'pp. 65–128',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-comm-ch3',
+        titleEn: 'Commercial Law, Corporate Governance & Negotiable Instruments',
+        titleAr: 'القانون التجاري وحوكمة الشركات والأوراق التجارية',
+        pageRange: 'pp. 129–192',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-comm-ch4',
+        titleEn: 'Egyptian Tax Accounting & Public Finance Legislation',
+        titleAr: 'المحاسبة الضريبية وتشريعات المالية العامة المصرية',
+        pageRange: 'pp. 193–256',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Official Egyptian Ministry textbook for Commercial Sciences & Accounting covering double-entry ledger balance, compound interest, commercial legal instruments, and corporate tax legislation.',
+    descriptionAr: 'الكتاب المدرسي المعتمد لوزارة التربية والتعليم للعلوم التجارية والمحاسبة، يغطي القيد المزدوج، الفائدة المركبة، الأوراق التجارية، والتشريع الضريبي للشركات.',
+    highlightsEn: [
+      'Fundamental accounting equation, journalizing, and trial balance',
+      'Compound interest, annuities due, and loan amortization schedules',
+      'Commercial Law 159/1981, partnerships, joint stock, and cheque protection',
+      'Tax Law 91/2005, progressive salary tax, corporate net profit, and VAT 67/2016',
+    ],
+    highlightsAr: [
+      'معادلة المحاسبة الأساسية وقيود اليومية وميزان المراجعة والتسويات',
+      'الفائدة المركبة والدفعات المستحقة وجداول استهلاك القروض بالكامل',
+      'قانون الشركات 159 لسنة 1981 والأوراق التجارية وتظهير الشيكات وحمايتها',
+      'قانون الضريبة على الدخل 91 لسنة 2005 والشرائح التصاعدية وضريبة القيمة المضافة',
+    ],
+  },
+  // 65. Egyptian Baccalaureate (EG-Bac) Corporate Finance & Banking Systems
+  {
+    id: 'egbac-comm-g12',
+    curriculum: 'egbac',
+    category: 'commercial_sciences',
+    subjectId: 'commercial',
+    branchId: 'egbac_commercial',
+    code: 'EGBAC-COMM-G12',
+    titleEn: 'Advanced Corporate Finance, Banking & FinTech Systems',
+    titleAr: 'الإدارة المالية المتقدمة والعمليات المصرفية والتكنولوجيا المالية (EG-Bac)',
+    subtitleEn: 'New Egyptian Baccalaureate Advanced Financial Track - Grade 12',
+    subtitleAr: 'نظام البكالوريا المصرية الجديد - مسار العلوم المالية والمصرفية المتقدم - الصف الثالث الثانوي',
+    academicYear: '2025 / 2026',
+    gradeEn: 'Grade 12 (Advanced Baccalaureate Framework)',
+    gradeAr: 'الصف الثالث الثانوي (الإطار المرجعي المتقدم للبكالوريا المصرية)',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '26.2 KB',
+    compendiumTitleEn: 'Official Corporate Finance, Banking & IFRS Reference Framework',
+    compendiumTitleAr: 'الإطار المرجعي المتقدم للإدارة المالية والعمليات المصرفية ومعايير IFRS',
+    fullTextbookPages: 272,
+    fullTextbookSize: '29.1 MB',
+    filename: 'egbac-corporate-finance-banking.pdf',
+    downloadUrl: './books/egbac-corporate-finance-banking.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-slate-900 via-teal-800 to-emerald-700',
+    accentColor: '#0d9488',
+    chapters: [
+      {
+        id: 'egbac-comm-ch1',
+        titleEn: 'Corporate Financial Management, Capital Budgeting & Valuation',
+        titleAr: 'الإدارة المالية المتقدمة وتقييم المشاريع الرأسمالية وقيمة المنشأة',
+        pageRange: 'pp. 1–68',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-comm-ch2',
+        titleEn: 'Commercial Banking Operations, Central Bank Monetary Policy & Credit Analysis',
+        titleAr: 'العمليات المصرفية والسياسة النقدية للبنك المركزي وتحليل الائتمان',
+        pageRange: 'pp. 69–136',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-comm-ch3',
+        titleEn: 'Financial Markets, Investment Portfolios & Derivatives',
+        titleAr: 'الأسواق المالية وإدارة المحافظ الاستثمارية والمشتقات المالية',
+        pageRange: 'pp. 137–204',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-comm-ch4',
+        titleEn: 'FinTech, Digital Banking, Blockchain & Auditing Standards (IFRS)',
+        titleAr: 'التكنولوجيا المالية والتحول الرقمي المصرفي ومعايير المحاسبة الدولية',
+        pageRange: 'pp. 205–272',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Corporate Finance & Banking: DCF valuation, WACC optimization, Basel III capital adequacy, Markowitz portfolio frontier, CAPM beta pricing, FinTech, and IFRS 9 expected loss standards.',
+    descriptionAr: 'كتاب البكالوريا المصرية المطور في الإدارة المالية والمصرفية: تقييم DCF، تحسين هيكل التمويل WACC، كفاية رأس المال بازل ٣، الحد الكفء لماركويتز، تسعير الأصول CAPM، التكنولوجيا المالية ومعايير IFRS 9.',
+    highlightsEn: [
+      'Discounted Cash Flow (DCF), Net Present Value (NPV), and IRR optimization',
+      'Central Bank monetary transmission, reserve multipliers, and trade letters of credit',
+      'Markowitz efficient frontier, systematic risk Beta, and Security Market Line (SML)',
+      'InstaPay digital banking, blockchain distributed ledgers, and IFRS expected loss accounting',
+    ],
+    highlightsAr: [
+      'التدفقات النقدية المخصومة وصافي القيمة الحالية ومعدل العائد الداخلي ونماذج WACC',
+      'آليات السياسة النقدية ومضاعف الودائع وخطابات الاعتماد والضمان وتحليل الائتمان',
+      'الحد الكفء لماركويتز ومخاطر بيتا السوقية وخط سوق الأوراق المالية SML وعقود الخيارات',
+      'المدفوعات اللحظية إنستاباي وسجلات البلوكتشين ومعايير التقارير المالية الدولية IFRS',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -3756,6 +3902,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_agriculture' && (b.branchId === 'egbac_agriculture' || b.id === 'egbac-agri-g12')) return true;
     if (branchId === 'thanaweya_industrial' && (b.branchId === 'thanaweya_industrial' || b.id === 'th-ind-g12')) return true;
     if (branchId === 'egbac_industrial' && (b.branchId === 'egbac_industrial' || b.id === 'egbac-ind-g12')) return true;
+    if (branchId === 'thanaweya_commercial' && (b.branchId === 'thanaweya_commercial' || b.id === 'th-comm-g12')) return true;
+    if (branchId === 'egbac_commercial' && (b.branchId === 'egbac_commercial' || b.id === 'egbac-comm-g12')) return true;
     return false;
   });
 }
@@ -3765,7 +3913,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

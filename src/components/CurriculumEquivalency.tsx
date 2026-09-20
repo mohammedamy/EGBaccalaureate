@@ -1450,6 +1450,50 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageEn: 'Direct accreditation and foundational competitive advantage for Faculties of Engineering (Mechanical, Mechatronics, Electrical Power, Manufacturing & Production, Industrial Engineering), Technological Universities (Applied Engineering Tracks), and Advanced Technical Institutes.',
       universityAdvantageAr: 'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات الهندسة (أقسام الهندسة الميكانيكية، الميكاترونكس، هندسة القوى والآلات الكهربية، هندسة الإنتاج والتصميم الميكانيكي، والهندسة الصناعية)، الجامعات التكنولوجية الحديثة بمختلف مساراتها الهندسية المتقدمة، والمعاهد الفنية الصناعية العليا.',
     },
+    {
+      id: 'commercial_bridge',
+      titleEn: 'Commercial Sciences, Financial Accounting & Banking',
+      titleAr: 'العلوم التجارية والمحاسبة والمالية والمصرفية',
+      icon: <Landmark className="w-5 h-5 text-teal-400" />,
+      thanaweyaBranchId: 'thanaweya_commercial',
+      egBacBranchId: 'egbac_commercial',
+      thanaweyaTitleEn: 'Foundations of Financial Accounting & Egyptian Banking (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'أسس المحاسبة المالية والعمليات المصرفية للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Financial Accounting & Double-Entry Bookkeeping: Journal entries, general ledger, trial balance, and income statement & balance sheet under EAS',
+        'Ch.2 Commercial Law & Contractual Governance: Commercial papers (bills of exchange, promissory notes, checks), maritime commerce, and bankruptcy regulations',
+        'Ch.3 Egyptian Commercial Banking Operations: Central Bank of Egypt (CBE) monetary policy, reserve ratios, letter of credit (L/C), letters of guarantee (L/G), and fractional reserve credit',
+        'Ch.4 Financial Mathematics & Compound Interest: Future value, present value, ordinary and due annuities, loan amortization tables, and sinking fund schedules',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ المحاسبة المالية ونظام القيد المزدوج: قيود اليومية، دفتر الأستاذ العام، ميزان المراجعة، وإعداد القوائم المالية وفق معايير المحاسبة المصرية',
+        'فصل ٢ القانون التجاري وحوكمة المعاملات التعاقدية: الأوراق التجارية (الكمبيالة، السند لأمر، الشيك)، العقود التجارية، وحالات الإفلاس والتصفية القانونية',
+        'فصل ٣ العمليات المصرفية وإدارة البنوك المصرية: السياسة النقدية للبنك المركزي المصري، نسب الاحتياطي الإلزامي، خطابات الضمان، والاعتمادات المستندية',
+        'فصل ٤ الرياضة المالية وحسابات الفائدة المركبة: القيمة المستقبلية والحالية، الدفعات العادية والفورية، جداول استهلاك القروض، واستهلاك السندات',
+      ],
+      egBacTitleEn: 'Advanced Corporate Finance, Investment Analysis & FinTech (4 Modules)',
+      egBacTitleAr: 'التمويل المتقدم للشركات، تحليل الاستثمار والتكنولوجيا المالية (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Corporate Financial Analysis & Valuation: Free Cash Flow (FCF), DuPont analysis, WACC, DCF valuation, and capital structure optimization',
+        'Mod.2 Investment & Portfolio Management: Modern Portfolio Theory (MPT), Markowitz efficient frontier, CAPM, beta risk, and Sharpe ratio',
+        'Mod.3 Capital Budgeting & Mergers and Acquisitions (M&A): Net Present Value (NPV), Internal Rate of Return (IRR), payback period, and M&A synergy valuation',
+        'Mod.4 Digital Banking, FinTech & Blockchain Governance: Open banking APIs, ISO 20022 payments, cryptographic distributed ledgers, central bank digital currencies (CBDC), and algorithmic risk',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ التحليل المالي للشركات وتقييم الأصول: التدفقات النقدية الحرة (FCF)، نموذج دوبونت ثلاثي الأبعاد، تكلفة رأس المال المرجحة (WACC)، والتقييم بالتدفقات المخصومة',
+        'وحدة ٢ إدارة الاستثمار والمحافظ المالية: نظرية المحفظة الاستثمارية الحديثة (ماركويتز)، نموذج تسعير الأصول الرأسمالية (CAPM)، معامل بيتا، ونسبة شارب',
+        'وحدة ٣ موازنة رأس المال والاندماج والاستحواذ: صافي القيمة الحالية (NPV)، معدل العائد الداخلي (IRR)، فترة الاسترداد، وحساب عوائد التآزر الاستراتيجي',
+        'وحدة ٤ التكنولوجيا المالية والمصرفية الرقمية والحوكمة: واجهات برمجة التطبيقات المفتوحة (Open Banking)، معيار ISO 20022، سلاسل الكتل المشفرة، والعملات الرقمية للبنوك المركزية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers solid academic rigor in double-entry bookkeeping, Egyptian commercial code, Central Bank fractional banking, and compound interest mathematics. EG-Bac elevates students directly into institutional corporate finance, algorithmic portfolio optimization, capital budgeting valuation (NPV/IRR), and cutting-edge FinTech/digital payments infrastructure.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً أكاديمياً رصيناً في أصول القيد المزدوج، التشريعات التجارية المصرية، نظم الائتمان بالبنك المركزي، وحسابات الفائدة المركبة واستهلاك القروض. بينما تنقل البكالوريا المصرية الطالب مباشرة إلى صلب التمويل المؤسسي المتقدم، التحسين الرياضي للمحافظ الاستثمارية، تقييم المشاريع الاستثمارية الكبرى (NPV/IRR)، وبنية التكنولوجيا المالية والمصرفية الرقمية الحديثة.',
+      universityAdvantageEn:
+        'Direct accreditation and top-tier foundational competitive advantage for Faculties of Commerce and Business Administration (Accounting, Finance, Banking, Actuarial Sciences, FinTech), Economics and Political Science, Management Information Systems (MIS), and international financial certifications (CFA, CMA, CPA).',
+      universityAdvantageAr:
+        'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات التجارة وإدارة الأعمال (شعب المحاسبة، التمويل والاستثمار، المصارف والأسواق المالية، والعلوم الإكتوارية)، كليات الاقتصاد والعلوم السياسية، كليات نظم معلومات الأعمال (BIS/FMI)، وبرامج الإعداد المسبق للشهادات المهنية الدولية (CFA, CMA, CPA).',
+    },
   ];
 
 

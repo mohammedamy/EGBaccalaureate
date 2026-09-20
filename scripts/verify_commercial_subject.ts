@@ -8,7 +8,7 @@ import { getOfficialMockConfig } from '../src/services/officialMockExamService';
 import { getPastExamPapers, PAST_EXAM_PAPERS, generatePastPaperQuestions } from '../src/services/pastExamPapersService';
 import { categorizeBranch } from '../src/services/studentAnalyticsService';
 
-console.log('--- VERIFYING INDUSTRIAL TECHNOLOGY & APPLIED ENGINEERING (27TH ACCREDITED CORE SUBJECT) ---');
+console.log('--- VERIFYING COMMERCIAL SCIENCES, FINANCIAL ACCOUNTING & BANKING (28TH ACCREDITED CORE SUBJECT) ---');
 
 let errors = 0;
 function assert(condition: boolean, msg: string) {
@@ -22,33 +22,33 @@ function assert(condition: boolean, msg: string) {
 
 // 1. Subject Definition Verification
 console.log('\n--- 1. Subject Definition in SUBJECTS ---');
-const indSubject = SUBJECTS.find((s) => s.id === 'industrial');
-assert(!!indSubject, 'Subject definition for "industrial" found in SUBJECTS');
-if (indSubject) {
-  assert(indSubject.titleEn === 'Industrial Technology & Applied Engineering', `Bilingual titleEn matches: ${indSubject.titleEn}`);
-  assert(indSubject.titleAr === 'التربية الصناعية والتكنولوجيا التطبيقية والهندسية', `Bilingual titleAr matches: ${indSubject.titleAr}`);
-  assert(indSubject.emoji === '⚙️', `Emoji matches gear (found: ${indSubject.emoji})`);
-  assert(indSubject.iconName === 'Wrench', `IconName is Wrench (found: ${indSubject.iconName})`);
-  assert(indSubject.badgeColor === 'amber', `Badge color is amber (found: ${indSubject.badgeColor})`);
-  assert(indSubject.branchIds.thanaweya.includes('thanaweya_industrial'), 'thanaweya_industrial registered in branchIds.thanaweya');
-  assert(indSubject.branchIds.egbac.includes('egbac_industrial'), 'egbac_industrial registered in branchIds.egbac');
+const commSubject = SUBJECTS.find((s) => s.id === 'commercial');
+assert(!!commSubject, 'Subject definition for "commercial" found in SUBJECTS');
+if (commSubject) {
+  assert(commSubject.titleEn === 'Commercial Sciences, Financial Accounting & Banking', `Bilingual titleEn matches: ${commSubject.titleEn}`);
+  assert(commSubject.titleAr === 'العلوم التجارية والمحاسبة والمالية والمصرفية', `Bilingual titleAr matches: ${commSubject.titleAr}`);
+  assert(commSubject.emoji === '🏛️', `Emoji matches bank/landmark (found: ${commSubject.emoji})`);
+  assert(commSubject.iconName === 'Landmark', `IconName is Landmark (found: ${commSubject.iconName})`);
+  assert(commSubject.badgeColor === 'teal', `Badge color is teal (found: ${commSubject.badgeColor})`);
+  assert(commSubject.branchIds.thanaweya.includes('thanaweya_commercial'), 'thanaweya_commercial registered in branchIds.thanaweya');
+  assert(commSubject.branchIds.egbac.includes('egbac_commercial'), 'egbac_commercial registered in branchIds.egbac');
 }
 
 // 2. Thanaweya Branch Verification
-console.log('\n--- 2. Thanaweya Industrial Branch Verification ---');
-const thInd = thanaweyaCurriculum.branches.find((b) => b.id === 'thanaweya_industrial');
-assert(!!thInd, 'thanaweya_industrial branch present in thanaweyaCurriculum');
-if (thInd) {
-  assert(thInd.chapters.length === 4, `Thanaweya Industrial has exactly 4 chapters (found: ${thInd.chapters.length})`);
+console.log('\n--- 2. Thanaweya Commercial Branch Verification ---');
+const thComm = thanaweyaCurriculum.branches.find((b) => b.id === 'thanaweya_commercial');
+assert(!!thComm, 'thanaweya_commercial branch present in thanaweyaCurriculum');
+if (thComm) {
+  assert(thComm.chapters.length === 4, `Thanaweya Commercial has exactly 4 chapters (found: ${thComm.chapters.length})`);
 
   let totalThLessons = 0;
   let totalThSolved = 0;
   let totalThExercises = 0;
   let totalThMCQ = 0;
 
-  thInd.chapters.forEach((ch, idx) => {
+  thComm.chapters.forEach((ch, idx) => {
     const chNum = idx + 1;
-    assert(ch.id === `th_ind_ch${chNum}`, `Chapter ${chNum} ID is ${ch.id}`);
+    assert(ch.id === `th_comm_ch${chNum}`, `Chapter ${chNum} ID is ${ch.id}`);
     assert(ch.isFullyEquipped === true, `Chapter ${chNum} is marked isFullyEquipped`);
     assert(ch.lessons.length >= 1, `Chapter ${chNum} has at least 1 comprehensive lesson (found: ${ch.lessons.length})`);
     totalThLessons += ch.lessons.length;
@@ -92,20 +92,20 @@ if (thInd) {
 }
 
 // 3. EG-Bac Branch Verification
-console.log('\n--- 3. EG-Bac Industrial Branch Verification ---');
-const egInd = egBacCurriculum.branches.find((b) => b.id === 'egbac_industrial');
-assert(!!egInd, 'egbac_industrial branch present in egBacCurriculum');
-if (egInd) {
-  assert(egInd.chapters.length === 4, `EG-Bac Industrial has exactly 4 chapters (found: ${egInd.chapters.length})`);
+console.log('\n--- 3. EG-Bac Commercial Branch Verification ---');
+const egComm = egBacCurriculum.branches.find((b) => b.id === 'egbac_commercial');
+assert(!!egComm, 'egbac_commercial branch present in egBacCurriculum');
+if (egComm) {
+  assert(egComm.chapters.length === 4, `EG-Bac Commercial has exactly 4 chapters (found: ${egComm.chapters.length})`);
 
   let totalEgLessons = 0;
   let totalEgSolved = 0;
   let totalEgExercises = 0;
   let totalEgMCQ = 0;
 
-  egInd.chapters.forEach((ch, idx) => {
+  egComm.chapters.forEach((ch, idx) => {
     const chNum = idx + 1;
-    assert(ch.id === `egbac_ind_ch${chNum}`, `Chapter ${chNum} ID is ${ch.id}`);
+    assert(ch.id === `egbac_comm_ch${chNum}`, `Chapter ${chNum} ID is ${ch.id}`);
     assert(ch.isFullyEquipped === true, `Chapter ${chNum} is marked isFullyEquipped`);
     assert(ch.lessons.length >= 1, `Chapter ${chNum} has at least 1 comprehensive lesson (found: ${ch.lessons.length})`);
     totalEgLessons += ch.lessons.length;
@@ -151,7 +151,7 @@ if (egInd) {
 // 4. MCQ Integrity & Answer Matching (All 1,400 MCQs)
 console.log('\n--- 4. MCQ Integrity & Answer Matching Verification ---');
 let totalCheckedMCQs = 0;
-[thInd, egInd].forEach((branch) => {
+[thComm, egComm].forEach((branch) => {
   if (!branch) return;
   branch.chapters.forEach((ch) => {
     if (!ch.databank) return;
@@ -178,41 +178,41 @@ let totalCheckedMCQs = 0;
     });
   });
 });
-assert(totalCheckedMCQs === 1400, `Verified 1,400 Industrial Technology MCQs with 100% data integrity`);
+assert(totalCheckedMCQs === 1400, `Verified 1,400 Commercial Sciences MCQs with 100% data integrity`);
 
 // 5. Official Textbooks Verification
 console.log('\n--- 5. Official Textbooks in officialBooksData ---');
-const thIndBook = getOfficialBookById('th-ind-g12');
-assert(!!thIndBook, 'th-ind-g12 textbook found in officialBooksList');
-if (thIndBook) {
-  assert(thIndBook.category === 'industrial_engineering', `th-ind-g12 category is industrial_engineering`);
-  assert(thIndBook.subjectId === 'industrial', `th-ind-g12 subjectId is industrial`);
-  assert(thIndBook.chapters.length === 4, `th-ind-g12 has 4 chapter mappings`);
-  assert(thIndBook.filename === 'thanaweya-industrial-engineering.pdf', `th-ind-g12 filename matches`);
+const thCommBook = getOfficialBookById('th-comm-g12');
+assert(!!thCommBook, 'th-comm-g12 textbook found in officialBooksList');
+if (thCommBook) {
+  assert(thCommBook.category === 'commercial_sciences', `th-comm-g12 category is commercial_sciences`);
+  assert(thCommBook.subjectId === 'commercial', `th-comm-g12 subjectId is commercial`);
+  assert(thCommBook.chapters.length === 4, `th-comm-g12 has 4 chapter mappings`);
+  assert(thCommBook.filename === 'thanaweya-commercial-accounting.pdf', `th-comm-g12 filename matches`);
 }
 
-const egBacIndBook = getOfficialBookById('egbac-ind-g12');
-assert(!!egBacIndBook, 'egbac-ind-g12 textbook found in officialBooksList');
-if (egBacIndBook) {
-  assert(egBacIndBook.category === 'industrial_engineering', `egbac-ind-g12 category is industrial_engineering`);
-  assert(egBacIndBook.subjectId === 'industrial', `egbac-ind-g12 subjectId is industrial`);
-  assert(egBacIndBook.chapters.length === 4, `egbac-ind-g12 has 4 module mappings`);
-  assert(egBacIndBook.filename === 'egbac-applied-engineering-systems.pdf', `egbac-ind-g12 filename matches`);
+const egBacCommBook = getOfficialBookById('egbac-comm-g12');
+assert(!!egBacCommBook, 'egbac-comm-g12 textbook found in officialBooksList');
+if (egBacCommBook) {
+  assert(egBacCommBook.category === 'commercial_sciences', `egbac-comm-g12 category is commercial_sciences`);
+  assert(egBacCommBook.subjectId === 'commercial', `egbac-comm-g12 subjectId is commercial`);
+  assert(egBacCommBook.chapters.length === 4, `egbac-comm-g12 has 4 module mappings`);
+  assert(egBacCommBook.filename === 'egbac-corporate-finance-banking.pdf', `egbac-comm-g12 filename matches`);
 }
 
-const branchBook1 = getOfficialBookByBranch('thanaweya_industrial');
-assert(branchBook1?.id === 'th-ind-g12', 'getOfficialBookByBranch("thanaweya_industrial") resolves th-ind-g12');
+const branchBook1 = getOfficialBookByBranch('thanaweya_commercial');
+assert(branchBook1?.id === 'th-comm-g12', 'getOfficialBookByBranch("thanaweya_commercial") resolves th-comm-g12');
 
-const branchBook2 = getOfficialBookByBranch('egbac_industrial');
-assert(branchBook2?.id === 'egbac-ind-g12', 'getOfficialBookByBranch("egbac_industrial") resolves egbac-ind-g12');
+const branchBook2 = getOfficialBookByBranch('egbac_commercial');
+assert(branchBook2?.id === 'egbac-comm-g12', 'getOfficialBookByBranch("egbac_commercial") resolves egbac-comm-g12');
 
-const subjectBooks = getOfficialBooksBySubject('industrial');
-assert(subjectBooks.length === 2, `getOfficialBooksBySubject("industrial") returns 2 books (found: ${subjectBooks.length})`);
+const subjectBooks = getOfficialBooksBySubject('commercial');
+assert(subjectBooks.length === 2, `getOfficialBooksBySubject("commercial") returns 2 books (found: ${subjectBooks.length})`);
 
 // 6. Past Exam Papers Verification
 console.log('\n--- 6. Past Exam Papers Verification ---');
-const indPapers = getPastExamPapers({ subject: 'industrial' });
-assert(indPapers.length === 6, `Found exactly 6 past exam papers for industrial (found: ${indPapers.length})`);
+const commPapers = getPastExamPapers({ subject: 'commercial' });
+assert(commPapers.length === 6, `Found exactly 6 past exam papers for commercial (found: ${commPapers.length})`);
 
 const expectedSessions = [
   { year: 2021, session: 'session1' },
@@ -224,7 +224,7 @@ const expectedSessions = [
 ];
 
 expectedSessions.forEach((item) => {
-  const paper = indPapers.find((p) => p.year === item.year && p.session === item.session);
+  const paper = commPapers.find((p) => p.year === item.year && p.session === item.session);
   assert(!!paper, `Paper exists for ${item.year} ${item.session}`);
   if (paper) {
     assert(paper.durationMinutes === 180, `${paper.id} duration is 180 min`);
@@ -240,8 +240,8 @@ expectedSessions.forEach((item) => {
 
 // 7. Official Mock Exam Blueprint Verification
 console.log('\n--- 7. Official Mock Exam Blueprint Verification ---');
-const mockBlueprint = getOfficialMockConfig('thanaweya_industrial', 'thanaweya');
-assert(mockBlueprint.subjectId === 'industrial', `Mock blueprint subjectId is industrial (found: ${mockBlueprint.subjectId})`);
+const mockBlueprint = getOfficialMockConfig('thanaweya_commercial', 'thanaweya');
+assert(mockBlueprint.subjectId === 'commercial', `Mock blueprint subjectId is commercial (found: ${mockBlueprint.subjectId})`);
 assert(mockBlueprint.totalQuestions === 40, `Mock blueprint has 40 questions (found: ${mockBlueprint.totalQuestions})`);
 assert(mockBlueprint.totalMarks === 50, `Mock blueprint has 50 marks (found: ${mockBlueprint.totalMarks})`);
 assert(mockBlueprint.durationMinutes === 180, `Mock blueprint has 180 minutes duration`);
@@ -250,28 +250,28 @@ assert(mockBlueprint.section2Count === 10, `Mock blueprint has 10 2-mark questio
 
 // 8. Student Analytics Categorization Verification
 console.log('\n--- 8. Student Analytics Categorization Verification ---');
-const cat1 = categorizeBranch('thanaweya_industrial', 'التربية الصناعية والتكنولوجيا الهندسية');
-assert(cat1 === 'industrial_engineering', `categorizeBranch returned "industrial_engineering" for thanaweya_industrial (found: ${cat1})`);
-const cat2 = categorizeBranch('egbac_industrial', 'Mechatronics, Smart Manufacturing & Industrial Robotics');
-assert(cat2 === 'industrial_engineering', `categorizeBranch returned "industrial_engineering" for egbac_industrial (found: ${cat2})`);
+const cat1 = categorizeBranch('thanaweya_commercial', 'العلوم التجارية والمحاسبة والمالية والمصرفية');
+assert(cat1 === 'commercial_sciences', `categorizeBranch returned "commercial_sciences" for thanaweya_commercial (found: ${cat1})`);
+const cat2 = categorizeBranch('egbac_commercial', 'Advanced Corporate Finance & FinTech Banking');
+assert(cat2 === 'commercial_sciences', `categorizeBranch returned "commercial_sciences" for egbac_commercial (found: ${cat2})`);
 
 // 9. Interactive Studio & Component Integrity
 console.log('\n--- 9. Interactive Studio & Component Integrity ---');
-const labDataPath = path.resolve(process.cwd(), 'src/data/industrialLab/industrialLabData.ts');
-assert(fs.existsSync(labDataPath), `industrialLabData.ts file exists on disk`);
+const labDataPath = path.resolve(process.cwd(), 'src/data/commercialLab/commercialLabData.ts');
+assert(fs.existsSync(labDataPath), `commercialLabData.ts file exists on disk`);
 
-const studioComponentPath = path.resolve(process.cwd(), 'src/components/labs/IndustrialEngineeringStudio.tsx');
-assert(fs.existsSync(studioComponentPath), `IndustrialEngineeringStudio.tsx component exists on disk`);
+const studioComponentPath = path.resolve(process.cwd(), 'src/components/labs/CommercialFinanceStudio.tsx');
+assert(fs.existsSync(studioComponentPath), `CommercialFinanceStudio.tsx component exists on disk`);
 
 // 10. Platform Global Totals
 console.log('\n--- 10. Platform Global Integrity & Accreditation Metrics ---');
-assert(SUBJECTS.length >= 27, `Total platform subjects is at least 27 (found: ${SUBJECTS.length})`);
-assert(thanaweyaCurriculum.branches.length >= 30, `Thanaweya branches total is at least 30 (found: ${thanaweyaCurriculum.branches.length})`);
-assert(egBacCurriculum.branches.length >= 30, `EG-Bac branches total is at least 30 (found: ${egBacCurriculum.branches.length})`);
+assert(SUBJECTS.length === 28, `Total platform subjects is 28 (found: ${SUBJECTS.length})`);
+assert(thanaweyaCurriculum.branches.length === 31, `Thanaweya branches total is 31 (found: ${thanaweyaCurriculum.branches.length})`);
+assert(egBacCurriculum.branches.length === 31, `EG-Bac branches total is 31 (found: ${egBacCurriculum.branches.length})`);
 
 const totalChapters = thanaweyaCurriculum.branches.reduce((acc, b) => acc + b.chapters.length, 0) +
   egBacCurriculum.branches.reduce((acc, b) => acc + b.chapters.length, 0);
-assert(totalChapters >= 313, `Total curriculum chapters across all subjects is at least 313 (found: ${totalChapters})`);
+assert(totalChapters === 321, `Total curriculum chapters across all subjects is 321 (found: ${totalChapters})`);
 
 const totalMCQs = thanaweyaCurriculum.branches.reduce((acc, b) => {
   return acc + b.chapters.reduce((chAcc, ch) => {
@@ -284,7 +284,7 @@ const totalMCQs = thanaweyaCurriculum.branches.reduce((acc, b) => {
     return chAcc + ch.databank.easy.length + ch.databank.medium.length + ch.databank.hots.length;
   }, 0);
 }, 0);
-assert(totalMCQs >= 54775, `Total databank MCQs is at least 54,775 (found: ${totalMCQs})`);
+assert(totalMCQs === 56175, `Total databank MCQs is 56,175 (found: ${totalMCQs})`);
 
 const totalProblems = thanaweyaCurriculum.branches.reduce((acc, b) => {
   return acc + b.chapters.reduce((chAcc, ch) => {
@@ -301,15 +301,15 @@ const totalProblems = thanaweyaCurriculum.branches.reduce((acc, b) => {
     return chAcc + solved + ex + mcqs;
   }, 0);
 }, 0);
-assert(totalProblems >= 62600, `Total platform problems across all branches is at least 62,600 (found: ${totalProblems})`);
+assert(totalProblems === 64200, `Total platform problems across all branches is 64,200 (found: ${totalProblems})`);
 
-assert(officialBooksList.length >= 63, `Total official books is at least 63 (found: ${officialBooksList.length})`);
-assert(PAST_EXAM_PAPERS.length >= 180, `Total past exam papers is at least 180 (found: ${PAST_EXAM_PAPERS.length})`);
+assert(officialBooksList.length === 65, `Total official books is 65 (found: ${officialBooksList.length})`);
+assert(PAST_EXAM_PAPERS.length === 186, `Total past exam papers is 186 (found: ${PAST_EXAM_PAPERS.length})`);
 
 // Final Output
 console.log('\n======================================================');
 if (errors === 0) {
-  console.log('🎉 ALL INDUSTRIAL TECHNOLOGY & APPLIED ENGINEERING VERIFICATIONS PASSED (0 ERRORS)!');
+  console.log('🎉 ALL COMMERCIAL SCIENCES, FINANCIAL ACCOUNTING & BANKING VERIFICATIONS PASSED (0 ERRORS)!');
   process.exit(0);
 } else {
   console.error(`💥 VERIFICATION FAILED WITH ${errors} ERRORS!`);

@@ -42,6 +42,7 @@ import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
 import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
+import { CommercialFinanceStudio } from './labs/CommercialFinanceStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
@@ -412,6 +413,18 @@ export const LessonView: React.FC<Props> = ({
           return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="cnc_machining" />;
         case 'ind_quality_spc_lab':
           return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={false} initialStation="quality_spc" />;
+        case 'commercial_finance_studio':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="financial_statements" />;
+        case 'comm_financial_statements_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="financial_statements" />;
+        case 'comm_compound_interest_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="compound_interest" />;
+        case 'comm_capital_budgeting_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="capital_budgeting" />;
+        case 'comm_banking_credit_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="banking_credit" />;
+        case 'comm_portfolio_risk_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="portfolio_risk" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -788,6 +801,18 @@ export const LessonView: React.FC<Props> = ({
           return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="cnc_machining" />;
         case 'ind_quality_spc_lab':
           return <IndustrialEngineeringStudio lang={lang} theme={theme} isFullscreen={true} initialStation="quality_spc" />;
+        case 'commercial_finance_studio':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="financial_statements" />;
+        case 'comm_financial_statements_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="financial_statements" />;
+        case 'comm_compound_interest_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="compound_interest" />;
+        case 'comm_capital_budgeting_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="capital_budgeting" />;
+        case 'comm_banking_credit_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="banking_credit" />;
+        case 'comm_portfolio_risk_lab':
+          return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="portfolio_risk" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (

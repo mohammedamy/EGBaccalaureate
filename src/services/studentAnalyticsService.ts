@@ -26,7 +26,8 @@ export type SubjectCategory =
   | 'fine_arts_architecture'
   | 'music_theory'
   | 'agricultural_sciences'
-  | 'industrial_engineering';
+  | 'industrial_engineering'
+  | 'commercial_sciences';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -57,7 +58,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -151,6 +152,26 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('quality_spc')
   ) {
     return 'industrial_engineering';
+  }
+
+  if (
+    text.includes('تجاري') ||
+    text.includes('commercial') ||
+    text.includes('محاسبة') ||
+    text.includes('accounting') ||
+    text.includes('مصرفي') ||
+    text.includes('banking') ||
+    text.includes('فائدة مركبة') ||
+    text.includes('compound interest') ||
+    text.includes('ضرائب') ||
+    text.includes('tax') ||
+    text.includes('موازنة رأسمالية') ||
+    text.includes('capital budgeting') ||
+    text.includes('fintech') ||
+    text.includes('تكنولوجيا مالية') ||
+    text.includes('استثمار ومحافظ')
+  ) {
+    return 'commercial_sciences';
   }
 
   if (
@@ -732,9 +753,21 @@ export function getMasteryRadarData(
     { key: 'industrial_engineering', ar: 'التربية والتكنولوجيا الصناعية', en: 'Industrial Technology & Engineering', color: '#F59E0B' },
   ];
 
+  const all22Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all21Dimensions,
+    { key: 'commercial_sciences', ar: 'العلوم التجارية والمصرفية', en: 'Commercial Sciences & Banking', color: '#14B8A6' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all22'
+      ? all22Dimensions
       : mode === 'all21'
       ? all21Dimensions
       : mode === 'all20'

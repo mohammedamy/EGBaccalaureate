@@ -49,10 +49,11 @@ import { FineArtsArchitectureStudio } from './labs/FineArtsArchitectureStudio';
 import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
 import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
+import { CommercialFinanceStudio } from './labs/CommercialFinanceStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench, Landmark } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -62,7 +63,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial' | 'commercial';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -96,6 +97,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'music_theory' || selectedSubject === 'music') return 'music';
     if (selectedSubject === 'agriculture' || selectedSubject === 'agricultural_sciences') return 'agriculture';
     if (selectedSubject === 'industrial' || selectedSubject === 'industrial_engineering') return 'industrial';
+    if (selectedSubject === 'commercial' || selectedSubject === 'commercial_sciences' || selectedSubject === 'banking') return 'commercial';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
@@ -552,6 +554,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'مختبر التكنولوجيا الصناعية والهندسية المتكامل: اختبارات الشد والمعادن، محاكي برمجة مخطط السلم PLC، دوائر القوى الهيدروليكية والنيوماتيكية، مسارات تشغيل ماكينات CNC، والتحكم الإحصائي للجودة ومؤشرات ستة سيجما'
         : 'Industrial Technology & Applied Engineering Studio: Tensile materials testing, IEC 61131-3 PLC ladder logic simulator, fluid power hydraulic & pneumatic circuits, CNC G-code toolpath interpolator, and Six Sigma SPC quality control',
+    },
+    {
+      id: 'commercial' as LabId,
+      titleEn: 'Commercial Sciences, Banking & Finance Studio',
+      titleAr: 'مختبر العلوم التجارية والمصرفية والمالية',
+      subtitleEn: 'Financial Statements, Compound Interest, DCF Valuation, Banking & CAPM',
+      subtitleAr: 'القوائم المالية، الفائدة المركبة، تقييم المشاريع DCF، الائتمان المصرفي ونموذج CAPM',
+      icon: Landmark,
+      color: 'teal',
+      badge: 'Commercial Sciences & Banking',
+      gradient: 'from-teal-800 via-emerald-800 to-slate-950',
+      activeBg: 'bg-teal-600 text-white shadow-teal-600/30',
+      tagline: isArabic
+        ? 'مختبر العلوم التجارية والمحاسبة والمالية والمصرفية: موازين المراجعة والقوائم المالية، محاكي الفائدة المركبة وجداول استهلاك القروض، تقييم المشاريع الرأسمالية ونماذج DCF، الجدارة الائتمانية ومعايير بازل ٣، ونظرية المحفظة وتسعير الأصول CAPM'
+        : 'Commercial Sciences & Banking Studio: Financial statements ledger balancing, compound interest annuity & loan amortization solver, DCF capital budgeting (NPV/IRR/WACC), commercial bank credit scoring & Basel III, and Modern Portfolio Theory with CAPM SML risk analytics',
     },
   ];
 
@@ -1261,6 +1278,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Commercial Finance Studio */}
+        {activeLab === 'commercial' && (
+          <div className="space-y-4">
+            <CommercialFinanceStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={isHubFullscreen}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -1269,7 +1297,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -1284,7 +1312,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );

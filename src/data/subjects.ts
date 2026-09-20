@@ -28,7 +28,8 @@ export type SubjectId =
   | 'fine_arts_architecture'
   | 'music_theory'
   | 'agriculture'
-  | 'industrial';
+  | 'industrial'
+  | 'commercial';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -671,6 +672,29 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_industrial'],
       egbac: ['egbac_industrial'],
+    },
+  },
+
+  // 28. Commercial Sciences, Financial Accounting & Banking (العلوم التجارية والمحاسبة والمالية والمصرفية)
+  {
+    id: 'commercial',
+    titleEn: 'Commercial Sciences, Financial Accounting & Banking',
+    titleAr: 'العلوم التجارية والمحاسبة والمالية والمصرفية',
+    shortTitleEn: 'Commercial Sciences',
+    shortTitleAr: 'علوم تجارية ومصرفية',
+    emoji: '🏛️',
+    iconName: 'Landmark',
+    badgeColor: 'teal',
+    gradient: 'from-teal-800 via-emerald-800 to-slate-900',
+    lightBg: 'bg-teal-50 text-teal-950 border-teal-200',
+    darkBg: 'bg-teal-950/80 text-teal-200 border-teal-800/60',
+    borderColor: 'border-teal-500/50',
+    textColor: 'text-teal-400',
+    descriptionEn: 'Official Egyptian secondary commercial curriculum: Financial accounting principles & double-entry bookkeeping, financial mathematics & compound interest annuities, commercial law & negotiable instruments, tax accounting & public finance, corporate financial management & capital budgeting (NPV/IRR/WACC), commercial banking operations & credit analysis, financial markets & portfolio risk (CAPM), and FinTech digital banking with IFRS standards.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة العلوم التجارية والمحاسبة والمالية والمصرفية: أصول ومبادئ المحاسبة المالية وقيود اليومية وموازين المراجعة، الرياضة المالية وحساب الفائدة المركبة والأقساط والاستهلاك، القانون التجاري وحوكمة الشركات والأوراق التجارية، المحاسبة الضريبية وتشريعات المالية العامة، الإدارة المالية المتقدمة وتقييم المشاريع الرأسمالية، العمليات المصرفية والسياسة النقدية وتحليل الائتمان، الأسواق المالية وإدارة المحافظ الاستثمارية، والتكنولوجيا المالية والتحول الرقمي ومعايير المحاسبة الدولية.',
+    branchIds: {
+      thanaweya: ['thanaweya_commercial'],
+      egbac: ['egbac_commercial'],
     },
   },
 ];

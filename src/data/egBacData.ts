@@ -29,13 +29,14 @@ import { egBacChineseBranch } from './egBacChinese';
 import { egBacMusicBranch } from './egBacMusic';
 import { egBacAgricultureBranch } from './egBacAgriculture';
 import { egBacIndustrialBranch } from './egBacIndustrial';
+import { egBacCommercialBranch } from './egBacCommercial';
 
 export const egBacCurriculum: Curriculum = {
   id: 'egbac',
   nameEn: 'New Egyptian Baccalaureate (EG-Bac)',
   nameAr: 'نظام البكالوريا المصرية الجديد (EG-Bac)',
-  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages (English, French, German, Italian, Spanish, Chinese), Comparative Religious Studies, Ethics & Bioethics, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences, Comparative Civics & Constitutional Law, Fine Arts & Architectural Heritage, Musical Theory, Agricultural Sciences & Precision Agrotechnology, Industrial Technology & Applied Engineering Systems',
-  subtitleAr: 'الصف الثالث الثانوي — نظام البكالوريا المصري المطور للمسارات المتقدمة، العلوم والتكنولوجيا والهندسة والرياضيات (STEM)، اللغات العالمية، الأديان المقارنة والأخلاقية الحيوية، والجيوبوليتيك والعلوم الإنسانية والاقتصاد القياسي والذكاء الاصطناعي وعلوم الفضاء والتربية الوطنية الدستورية والفنون المعمارية والموسيقى والعلوم والتكنولوجيا الزراعية الحديثة والتكنولوجيا الصناعية والأنظمة الهندسية التطبيقية',
+  subtitleEn: 'Grade 12 Advanced Mathematical Sciences, STEM Track, Modern Languages (English, French, German, Italian, Spanish, Chinese), Comparative Religious Studies, Ethics & Bioethics, Geopolitics, Earth Sciences, Philosophy & Applied Logic, Psychology & Sociology, Applied Economics & Statistics, Computer Science, Informatics & AI, Earth & Planetary Space Sciences, Comparative Civics & Constitutional Law, Fine Arts & Architectural Heritage, Musical Theory, Agricultural Sciences & Precision Agrotechnology, Industrial Technology & Applied Engineering Systems, Commercial Sciences, Financial Accounting & Banking Systems',
+  subtitleAr: 'الصف الثالث الثانوي — نظام البكالوريا المصري المطور للمسارات المتقدمة، العلوم والتكنولوجيا والهندسة والرياضيات (STEM)، اللغات العالمية، الأديان المقارنة والأخلاقية الحيوية، والجيوبوليتيك والعلوم الإنسانية والاقتصاد القياسي والذكاء الاصطناعي وعلوم الفضاء والتربية الوطنية الدستورية والفنون المعمارية والموسيقى والعلوم والتكنولوجيا الزراعية الحديثة والتكنولوجيا الصناعية والأنظمة الهندسية التطبيقية، والعلوم التجارية والمحاسبة والمالية والمصرفية',
   moeOfficialBaselineEn: 'Egyptian Baccalaureate Advanced Dual-Track Framework (2025/2026 Guidelines)',
   moeOfficialBaselineAr: 'الإطار المرجعي المتقدم للبكالوريا المصرية - المسار المزدوج للعلوم والتكنولوجيا والإنسانيات',
   branches: [
@@ -69,5 +70,6 @@ export const egBacCurriculum: Curriculum = {
     egBacMusicBranch,
     egBacAgricultureBranch,
     egBacIndustrialBranch,
+    egBacCommercialBranch,
   ],
 };

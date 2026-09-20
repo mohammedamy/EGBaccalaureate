@@ -33,6 +33,7 @@ export type BranchId =
   | 'thanaweya_music'
   | 'thanaweya_agriculture'
   | 'thanaweya_industrial'
+  | 'thanaweya_commercial'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -63,7 +64,8 @@ export type BranchId =
   | 'egbac_religion'
   | 'egbac_music'
   | 'egbac_agriculture'
-  | 'egbac_industrial';
+  | 'egbac_industrial'
+  | 'egbac_commercial';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -339,7 +341,13 @@ export type InteractiveWidgetType =
   | 'ind_plc_automation_lab'
   | 'ind_fluid_power_lab'
   | 'ind_cnc_machining_lab'
-  | 'ind_quality_spc_lab';
+  | 'ind_quality_spc_lab'
+  | 'commercial_finance_studio'
+  | 'comm_financial_statements_lab'
+  | 'comm_compound_interest_lab'
+  | 'comm_capital_budgeting_lab'
+  | 'comm_banking_credit_lab'
+  | 'comm_portfolio_risk_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;
