@@ -533,8 +533,8 @@ export const SearchModal: React.FC<Props> = ({
             type="text"
             placeholder={
               isArabic
-                ? 'ابحث في ٤٣,٤٠٠ مسألة وقانون وفصل... (مثال: كبلر، كيرشوف، بوين، موهس، طابا، بايز، كينز، بايثون، DNA)'
-                : 'Search across 43,400 problems, theorems & lessons... (e.g. Kepler, Kirchhoff, Bowen, Mohs, Taba, Bayes, Keynes, Python, DNA)'
+                ? 'ابحث في ٧٧,٠٠٠ مسألة وقانون وفصل... (مثال: كبلر، كيرشوف، بوين، موهس، طابا، بايز، كينز، بايثون، نانو، DNA)'
+                : 'Search across 77,000 problems, theorems & lessons... (e.g. Kepler, Kirchhoff, Bowen, Mohs, Taba, Bayes, Keynes, Python, Nano, DNA)'
             }
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -774,8 +774,8 @@ export const SearchModal: React.FC<Props> = ({
                 </p>
                 <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
                   {isArabic
-                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٥١,٤٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ٢٥٧ فصلاً في ٢٠ مادة معتمدة.'
-                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 51,400 problems across 257 chapters in 20 accredited subjects.'}
+                    ? 'اكتب أي مفهوم، قانون علمي أو رياضي، اسم عالم، أو نص مسألة للوصول الفوري إلى ٧٧,٠٠٠ سؤالاً وتدريباً وشرحاً مفصلاً عبر ٣٨٥ فصلاً في ٣٦ مادة معتمدة.'
+                    : 'Type any concept, formula, scientist, or problem text to instantly locate any of the 77,000 problems across 385 chapters in 36 accredited subjects.'}
                 </p>
               </div>
 
@@ -1015,8 +1015,8 @@ export const SearchModal: React.FC<Props> = ({
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
             <span className="font-medium">
               {isArabic
-                ? 'فهرس فوري لـ ٢٥٧ فصلاً و ٥١,٤٠٠ مسألة عبر ٢٠ مادة أساسية'
-                : 'Live index of 257 chapters & 51,400 problems across 20 core subjects'}
+                ? 'فهرس فوري لـ ٣٨٥ فصلاً و ٧٧,٠٠٠ مسألة عبر ٣٦ مادة معتمدة'
+                : 'Live index of 385 chapters & 77,000 problems across 36 accredited subjects'}
             </span>
           </div>
 

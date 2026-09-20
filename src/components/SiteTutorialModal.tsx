@@ -98,9 +98,9 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     taglineEn: 'PhET & Labster standard across STEM, Humanities & Social Sciences',
     taglineAr: 'معايير عالمية للمحاكاة تشمل العلوم الطبيعية والتطبيقية والإنسانية والاجتماعية',
     descriptionEn:
-      'Experience 35+ sandboxed interactive laboratories and studios: 3D Dynamo induction, RLC AC resonance, Photoelectric effect, Atomic spectra & He-Ne laser, Galvanic electrochemistry, Acid-Base titration, Rotary ATP Synthase, Geology Earth Studio, Geopolitical Map Studio, History Timeline Studio, Logic & AI Studio, Psychology & Social Dynamics Studio, German Language Studio, and National Civics & Constitutional Studio.',
+      'Experience 34+ sandboxed interactive laboratories and simulation studios: 3D Dynamo induction, RLC AC resonance, Photoelectric effect, Atomic spectra & He-Ne laser, Galvanic electrochemistry, Acid-Base titration, Rotary ATP Synthase, Geology Earth Studio, Geopolitical Map Studio, History Timeline Studio, Logic & AI Studio, Psychology & Social Dynamics Studio, German Language Studio, National Civics, and Nanotechnology Studio.',
     descriptionAr:
-      'اكتشف أكثر من ٣٥ مختبراً واستوديو تفاعلياً متكاملاً: دينامو الحث الكهرومغناطيسي 3D، دوائر الرنين RLC، الظاهرة الكهروضوئية، أطياف بور وليزر He-Ne، الخلايا الجلفانية، المعايرة، ومضخة إنزيم ATP، واستوديو علوم الأرض والجيولوجيا، واستوديو الخرائط الجيوسياسية، واستوديو الخط الزمني للتاريخ، واستوديو المنطق والذكاء الاصطناعي، واستوديو علم النفس والديناميات الاجتماعية، واستوديو اللغة الألمانية، واستوديو التربية الوطنية والدستور.',
+      'اكتشف أكثر من ٣٤ مختبراً واستوديو تفاعلياً متكاملاً: دينامو الحث الكهرومغناطيسي 3D، دوائر الرنين RLC، الظاهرة الكهروضوئية، أطياف بور وليزر He-Ne، الخلايا الجلفانية، المعايرة، ومضخة إنزيم ATP، واستوديو علوم الأرض والجيولوجيا، واستوديو الخرائط الجيوسياسية، واستوديو الخط الزمني للتاريخ، واستوديو المنطق والذكاء الاصطناعي، واستوديو علم النفس والديناميات الاجتماعية، واستوديو اللغة الألمانية، واستوديو التربية الوطنية، وتكنولوجيا النانو.',
     highlightsEn: [
       'Calibrated Fluke 87V Digital Multimeter, Dual-Trace Oscilloscope & Geopolitical HUD',
       'Predict-Observe-Explain (POE) pedagogical hypothesis cycles',
@@ -123,14 +123,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 3,
     categoryEn: 'Smart Search & Indexing',
     categoryAr: 'البحث الشامل والاستكشاف الفوري',
-    titleEn: 'Instant Universal Search Across 51,400+ Questions',
-    titleAr: 'البحث الفوري الذكي في جميع الـ ٥١,٤٠٠ مسألة و ٢٥٧ فصلاً',
+    titleEn: 'Instant Universal Search Across 77,000+ Questions',
+    titleAr: 'البحث الفوري الذكي في جميع الـ ٧٧,٠٠٠ مسألة و ٣٨٥ فصلاً',
     taglineEn: 'Find any theorem, law, formula, or problem in milliseconds',
     taglineAr: 'ابحث عن أي قانون أو تعريف أو مسألة في أجزاء من الثانية',
     descriptionEn:
-      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 51,400+ problems, 257 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
+      'Press ⌘K or Ctrl+K anywhere to launch the Universal Search modal. Search across 77,000+ problems, 385 syllabus chapters, official Ministry theorems, and KaTeX scientific equations with live filtered highlights.',
     descriptionAr:
-      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ٥١,٤٠٠+ مسألة، و٢٥٧ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
+      'اضغط ⌘K أو Ctrl+K في أي وقت لفتح نافذة البحث الشامل السريع. ابحث عبر ٧٧,٠٠٠+ مسألة، و٣٨٥ فصلاً دراسياً، وقوانين الوزارة والمعادلات العلمية بدقة فائقة وانتقال فوري إلى الدرس المعني.',
     highlightsEn: [
       'Keyboard shortcut: ⌘K / Ctrl+K accessible from all views',
       'Filters by track (Thanaweya / EG-Bac) and item category',
@@ -184,14 +184,14 @@ const TUTORIAL_STEPS: TutorialStep[] = [
     stepNumber: 5,
     categoryEn: 'Examination Engine',
     categoryAr: 'بنك الأسئلة ومولد الامتحانات الذكي',
-    titleEn: '51,400+ Problems & Automated Exam Simulator',
-    titleAr: 'بنك ٥١,٤٠٠+ مسألة ومولد الامتحانات المؤتمت',
+    titleEn: '77,000+ Problems & Automated Exam Simulator',
+    titleAr: 'بنك ٧٧,٠٠٠+ مسألة ومولد الامتحانات المؤتمت',
     taglineEn: 'Customizable timed exams with instant grading & diagnostic feedback',
     taglineAr: 'امتحانات إلكترونية محددة بزمن مع تصحيح فوري وتحليل تفصيلي للإجابات',
     descriptionEn:
-      'Challenge yourself with the complete 51,400+ problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
+      'Challenge yourself with the complete 77,000+ problem databank categorized into 3 difficulty tiers (Foundational, Intermediate, Advanced HOTS). Generate custom mock exams or launch the 3-Hour Ministerial Exam Simulation Room with OMR bubble sheets.',
     descriptionAr:
-      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ٥١,٤٠٠+ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
+      'اختبر قدراتك مع بنك الأسئلة المتكامل الذي يضم ٧٧,٠٠٠+ مسألة مصنفة لثلاثة مستويات صعوبة (تأسيسي، متوسط، متقدم HOTS). قم بإنشاء امتحانات تجريبية أو محاكاة الامتحان الوزاري الرسمي لثلاث ساعات بنظام البابل شيت.',
     highlightsEn: [
       'Generate online timed quizzes or printable paper exam forms',
       'Targeted topic selection: select specific branches, chapters, or difficulty',
@@ -681,7 +681,7 @@ export const SiteTutorialModal: React.FC<Props> = ({
                   </span>
                 </div>
                 <div className="text-[11px] text-slate-400 flex items-center justify-between px-1">
-                  <span>{isArabic ? 'تصفية فورية في ١٠,٩١٠ مسألة وقانون وفصل' : 'Instant match across 10,910 databank problems & theorems'}</span>
+                  <span>{isArabic ? 'تصفية فورية في ٧٧,٠٠٠ مسألة وقانون وفصل' : 'Instant match across 77,000 databank problems & theorems'}</span>
                   <span className="text-emerald-400 font-bold">0.02s</span>
                 </div>
               </div>

@@ -1906,8 +1906,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(281) : '281'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٤٧ ثانوية + ١٣٤ بكالوريا)' : '(147 Thanaweya + 134 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(385) : '385'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٩٩ ثانوية + ١٨٦ بكالوريا)' : '(199 Thanaweya + 186 Bac)'}</span>
             </div>
           </div>
 
@@ -1918,7 +1918,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(56200) : '56,200'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(77000) : '77,000'}</span>
               <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
@@ -1930,8 +1930,8 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(23) : '23'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مادة (٢٦ فرعاً لكل مسار)' : 'Subjects (26 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(36) : '36'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مادة (٣٧ فرعاً لكل مسار)' : 'Subjects (37 branches/track)'}</span>
             </div>
           </div>
 
@@ -1971,7 +1971,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'الثانوية العامة المصرية (Thanaweya Amma)' : 'Egyptian General Secondary'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ٢٠ مادة • ٢٣ فرعاً • ١٣٥ فصلاً' : 'National Standard Track • 20 Subjects • 23 Branches • 135 Chapters'}
+                  {isArabic ? 'المنهج الوطني التاريخي المعتمد • ٣٦ مادة • ٣٧ فرعاً • ١٩٩ فصلاً' : 'National Standard Track • 36 Subjects • 37 Branches • 199 Chapters'}
                 </p>
               </div>
             </div>
@@ -2050,7 +2050,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
                   {isArabic ? 'البكالوريا المصرية الحديثة (EG-Baccalaureate)' : 'New Egyptian Baccalaureate (EG-Bac)'}
                 </h3>
                 <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                  {isArabic ? 'معايير STEM والجامعات الدولية • ٢٠ مادة • ٢٣ فرعاً • ١٢٢ فصلاً مكثفاً' : 'International STEM & Humanities Track • 20 Subjects • 23 Branches • 122 Chapters'}
+                  {isArabic ? 'معايير STEM والجامعات الدولية • ٣٦ مادة • ٣٧ فرعاً • ١٨٦ فصلاً مكثفاً' : 'International STEM & Humanities Track • 36 Subjects • 37 Branches • 186 Chapters'}
                 </p>
               </div>
             </div>

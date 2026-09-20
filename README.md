@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **30 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, Commercial Sciences, Financial Accounting & Banking, Tourism, Hospitality & Cultural Heritage Management, and Renewable Energy & Environmental Sustainability).
-- **66 Total Branches** (33 Thanaweya Amma + 33 EG-Baccalaureate).
-- **337 Fully Equipped Chapters** (175 Thanaweya + 162 EG-Bac).
-- **67,400 Total Curriculum Problems**:
-  - 3,370 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 5,055 Practice Exercises with hints, scaffolding, and verification.
-  - 58,975 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **28 Interactive Virtual Laboratories & Simulation Studios**.
-- **69 Official Ministry Textbooks & Formula Compendiums**.
-- **198 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 33 disciplines).
+- **36 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, Commercial Sciences, Financial Accounting & Banking, Tourism, Hospitality & Cultural Heritage Management, Renewable Energy & Environmental Sustainability, STEM Interdisciplinary Capstone, Robotics & Autonomous Systems, Embedded Systems & IoT, AI & Data Science, Biotechnology & Genetic Engineering, and Nanotechnology & Smart Nanomaterials).
+- **74 Total Branches** (37 Thanaweya Amma + 37 EG-Baccalaureate).
+- **385 Fully Equipped Chapters** (199 Thanaweya + 186 EG-Bac).
+- **77,000 Total Curriculum Problems**:
+  - 3,850 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 5,775 Practice Exercises with hints, scaffolding, and verification.
+  - 67,375 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **34 Interactive Virtual Laboratories & Simulation Studios**.
+- **81 Official Ministry Textbooks & Formula Compendiums**.
+- **234 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 39 exam subjects).
 - **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (30 Core Disciplines)
+## 📚 Accredited Subject Tracks (36 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -56,11 +56,17 @@
 | **28** | **Commercial Sciences & Banking** | العلوم التجارية والمحاسبة والمالية والمصرفية | Commercial Sciences & Financial Accounting | Corporate Finance, Banking Operations & FinTech | 8 | 1,600 |
 | **29** | **Tourism, Hospitality & Heritage** | السياحة والضيافة وإدارة التراث الثقافي | Tourism, Hospitality & Cultural Heritage Management | Sustainable Tourism Economics & Heritage Conservation | 8 | 1,600 |
 | **30** | **Renewable Energy & Sustainability** | الطاقة المتجددة والاستدامة البيئية | Renewable Energy & Environmental Sustainability | Advanced Green Technologies, Clean Energy & Decarbonization | 8 | 1,600 |
-| **Total** | **30 Subjects** | **٣٠ مادة معتمدة** | **33 Branches (175 Chapters)** | **33 Branches (162 Chapters)** | **337** | **67,400** |
+| **31** | **STEM Capstone & Grand Challenges** | مشاريع كابستون والتحديات الكبرى | STEM Capstone Engineering | STEM Grand Challenges Research | 8 | 1,600 |
+| **32** | **Robotics & Autonomous Systems** | الروبوتات والأنظمة الذكية والميكاترونكس | Robotics & Mechatronics Systems | Autonomous Robotics & Kinematics | 8 | 1,600 |
+| **33** | **Embedded Systems & IoT** | الأنظمة المدمجة وإنترنت الأشياء | Embedded Systems & Microcontrollers | Microcontroller Engineering & Smart IoT | 8 | 1,600 |
+| **34** | **AI & Machine Learning** | الذكاء الاصطناعي وعلم البيانات | Artificial Intelligence & Data Science | Deep Learning & Applied AI Systems | 8 | 1,600 |
+| **35** | **Biotechnology & Genetic Engineering** | التكنولوجيا الحيوية والهندسة الوراثية | Biotechnology & Applied Genetics | Molecular Bio-Engineering & Genomics | 8 | 1,600 |
+| **36** | **Nanotechnology & Nanomaterials** | تكنولوجيا النانو والمواد النانوية الذكية | Nanotechnology & Smart Nanomaterials | Quantum Nanostructures & Nano-Engineering | 8 | 1,600 |
+| **Total** | **36 Subjects** | **٣٦ مادة معتمدة** | **37 Branches (199 Chapters)** | **37 Branches (186 Chapters)** | **385** | **77,000** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (28 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (34 Studios)
 
 ClipSAT provides immersive digital laboratories equipped with real-time math, physics, linguistic and simulation engines, dynamic SVG graphing, and parameter controls:
 
@@ -180,6 +186,12 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Green Hydrogen, Electrolysis & PtX Fuel Cell Lab**: Alkaline and PEM electrolyzers, Faraday efficiency, specific power consumption, SCZone green corridor export logistics.
     - **Smart Grid, BESS & Pumped-Storage Hydro Station**: Grid frequency regulation, droop curve response, battery degradation, Ataka pumped storage hydro 2,400 MW dispatch.
     - **Carbon Accounting, Life Cycle Assessment (LCA) & CBAM Calculator**: Scope 1, 2, 3 GHG protocol emissions, EU Carbon Border Adjustment Mechanism (CBAM) certificate tariffs for Egyptian industrial exports.
+29. **STEM Interdisciplinary Capstone & Egypt's Grand Challenges Studio** (`STEMCapstoneStudio.tsx`): Water desalination & treatment, renewable grid integration, urban transit optimization, sustainable agriculture, and climate mitigation engineering.
+30. **Robotics, Mechatronics & Autonomous Systems Studio** (`RoboticsMechatronicsStudio.tsx`): Forward and inverse kinematics (Denavit-Hartenberg parameters), PID motor trajectory controllers, LiDAR SLAM mapping, sensor fusion, and autonomous mobile robot navigation.
+31. **Embedded Systems, Microcontrollers & IoT Studio** (`ElectronicsIoTStudio.tsx`): ESP32/ARM Cortex microcontroller architecture, GPIO/ADC/PWM signal acquisition, I2C/SPI bus protocol analyzer, MQTT IoT telemetry publish-subscribe, and Edge AI inference.
+32. **Artificial Intelligence, Data Science & Machine Learning Studio** (`AIDataScienceStudio.tsx`): Deep convolutional neural network (CNN) feature maps, Transformer self-attention matrix visualizer, gradient descent optimizer, and hyperparameter tuning sandbox.
+33. **Biotechnology, Genetic Engineering & Bio-Informatics Studio** (`BiotechnologyStudio.tsx`): CRISPR-Cas9 sgRNA target cleavage simulator, recombinant plasmid bacterial transformation, protein Western blot / SDS-PAGE electrophoresis, and BLAST sequence alignment.
+34. **Nanotechnology & Advanced Nanomaterials Studio** (`NanotechnologyStudio.tsx`): Surface area-to-volume ratio scaling, quantum confinement bandgap tuning, localized surface plasmon resonance (LSPR) spectrophotometry, and carbon nanotube / graphene mechanical strength analyzer.
 
 ---
 
@@ -204,7 +216,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 65,800 problems and 329 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 77,000 problems and 385 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
