@@ -32,7 +32,8 @@ export type SubjectCategory =
   | 'renewable_energy'
   | 'stem_capstone'
   | 'robotics_mechatronics'
-  | 'electronics_iot';
+  | 'electronics_iot'
+  | 'ai_data_science';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -63,7 +64,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26' | 'all27';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26' | 'all27' | 'all28';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -79,6 +80,24 @@ export interface MasteryRadarPoint {
  */
 export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
   const text = branchTitleOrId.toLowerCase();
+
+  if (
+    text.includes('ai_data_science') ||
+    text.includes('artificial intelligence') ||
+    text.includes('data science') ||
+    text.includes('machine learning') ||
+    text.includes('deep learning') ||
+    text.includes('الذكاء الاصطناعي') ||
+    text.includes('ذكاء اصطناعي') ||
+    text.includes('علم البيانات') ||
+    text.includes('علوم البيانات') ||
+    text.includes('ذكاء') ||
+    /\bai\b/.test(text) ||
+    text.includes('ai-data-science') ||
+    text.includes('ai data science')
+  ) {
+    return 'ai_data_science';
+  }
 
   if (
     text.includes('electronics') ||
@@ -894,9 +913,21 @@ export function getMasteryRadarData(
     { key: 'electronics_iot', ar: 'الإلكترونيات والدوائر المتكاملة وإنترنت الأشياء', en: 'Electronics & IoT', color: '#06B6D4' },
   ];
 
+  const all28Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all27Dimensions,
+    { key: 'ai_data_science', ar: 'الذكاء الاصطناعي وعلم البيانات', en: 'AI & Data Science', color: '#8B5CF6' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all28'
+      ? all28Dimensions
       : mode === 'all27'
       ? all27Dimensions
       : mode === 'all26'

@@ -82,7 +82,7 @@ export const CATEGORY_MAP: Record<SubjectCategory, string[]> = {
   math: ['mathematics', 'economics_stat'],
   languages: ['arabic', 'english', 'french', 'german', 'italian', 'spanish', 'chinese'],
   humanities: ['history', 'geography', 'philosophy', 'psychology'],
-  technology: ['cs_informatics', 'business_entrepreneurship', 'fine_arts_architecture', 'music_theory', 'agriculture', 'industrial', 'commercial', 'tourism', 'renewable', 'stem_capstone', 'robotics_mechatronics', 'electronics_iot'],
+  technology: ['cs_informatics', 'business_entrepreneurship', 'fine_arts_architecture', 'music_theory', 'agriculture', 'industrial', 'commercial', 'tourism', 'renewable', 'stem_capstone', 'robotics_mechatronics', 'electronics_iot', 'ai_data_science'],
   general: ['islamic_studies', 'christian_studies', 'civics'],
 };
 

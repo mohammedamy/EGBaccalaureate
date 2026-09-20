@@ -21,8 +21,8 @@ export interface OfficialBookEnglishEdition {
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -4916,6 +4916,152 @@ export const officialBooksList: OfficialBook[] = [
       'تأطير حزم Modbus، جدولة شبكات TSN الحساسة للوقت، تكميم نماذج TinyML بدقة 8 بت، والإقلاع الآمن',
     ],
   },
+  // 76. Thanaweya STEM AI, Machine Learning & Data Science (الكتاب الوزاري في الذكاء الاصطناعي وعلم البيانات لمدارس المتفوقين)
+  {
+    id: 'th-ai-data-science-g12',
+    curriculum: 'thanaweya',
+    category: 'ai_data_science',
+    subjectId: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    code: 'STEM-AI-G12',
+    titleEn: 'Artificial Intelligence, Machine Learning & Data Science',
+    titleAr: 'الذكاء الاصطناعي، تعلم الآلة وعلم البيانات',
+    subtitleEn: 'Official Egyptian STEM High Schools Grade 12 Textbook',
+    subtitleAr: 'الكتاب الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM)',
+    academicYear: '2024/2025',
+    gradeEn: 'Grade 12 (STEM)',
+    gradeAr: 'الصف الثالث الثانوي (STEM)',
+    publisherEn: 'Egyptian Ministry of Education & Technical Education',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 8,
+    fileSize: '21.8 KB',
+    compendiumTitleEn: 'AI, Machine Learning & MLOps Formula & Concept Compendium',
+    compendiumTitleAr: 'ملخص المفاهيم والقوانين الهندسية في الذكاء الاصطناعي وعلم البيانات',
+    filename: 'thanaweya-ai-data-science.pdf',
+    downloadUrl: '/books/thanaweya-ai-data-science.pdf',
+    fullTextbookPages: 312,
+    fullTextbookSize: '28.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/elearning/stem/ai-data-science-g12',
+    coverGradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    accentColor: '#7C3AED',
+    chapters: [
+      {
+        id: 'th_ai_data_science_ch1',
+        titleEn: 'Machine Learning Foundations, Linear Algebra & Convex Optimization',
+        titleAr: 'أسس تعلم الآلة، الجبر الخطي والتحسين المحدب',
+        pageRange: 'pp. 1–72',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_ai_data_science_ch2',
+        titleEn: 'Deep Neural Networks, CNNs & Computer Vision',
+        titleAr: 'الشبكات العصبية العميقة، شبكات CNN ورؤية الحاسوب',
+        pageRange: 'pp. 73–156',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_ai_data_science_ch3',
+        titleEn: 'Natural Language Processing, Transformers & LLMs',
+        titleAr: 'معالجة اللغات الطبيعية، محولات Transformers والنماذج اللغوية الضخمة',
+        pageRange: 'pp. 157–234',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_ai_data_science_ch4',
+        titleEn: 'Data Engineering, Big Data Analytics & MLOps Pipelines',
+        titleAr: 'هندسة البيانات، تحليلات البيانات الضخمة وخطوط تدفق MLOps',
+        pageRange: 'pp. 235–312',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Official Egyptian STEM curriculum textbook in Artificial Intelligence, Machine Learning & Data Science: Singular Value Decomposition (SVD), PCA dimensionality reduction, gradient descent variants (SGD, Adam), L1/L2 regularization, deep CNNs, ResNet residual skip connections, YOLO object detection, self-attention mechanisms, transformer encoder-decoder architectures, Retrieval-Augmented Generation (RAG), Apache Spark distributed analytics, and production MLOps data drift monitoring.',
+    descriptionAr: 'كتاب الوزارة المعتمد لمدارس المتفوقين STEM في الذكاء الاصطناعي وعلم البيانات: تفكيك القيم المفردة SVD، تقليص الأبعاد بـ PCA، الانحدار التدريجي ومحسن Adam، التنظيم بـ L1 و L2، الشبكات الالتفافية العميقة، معماريات ResNet، كشف الكائنات بنماذج YOLO، آليات الانتباه الذاتي ومحولات Transformers، التوليد المعزز بالاسترجاع RAG، التحليلات الموزعة بـ Apache Spark، ومراقبة انحراف البيانات في خطوط MLOps الإنتاجية.',
+    highlightsEn: [
+      'Singular Value Decomposition and PCA variance maximization proofs',
+      'ResNet gradient flow dynamics and YOLO Intersection-over-Union (IoU) localization metrics',
+      'Scaled dot-product attention derivations and enterprise RAG vector search integration',
+      'Apache Spark RDD lazy optimization and Population Stability Index (PSI) drift monitoring',
+    ],
+    highlightsAr: [
+      'تحليل القيم المفردة وإثباتات تعظيم التباين في تحليل المكونات الرئيسية PCA',
+      'ديناميكيات تدفق التدرجات في ResNet ومقاييس تقاطع الاتحاد IoU لكشف الكائنات بـ YOLO',
+      'اشتقاق مصفوفات الانتباه الذاتي المقاس وتكامل أنظمة RAG مع قواعد بيانات المتجهات',
+      'التحسين المؤجل لعمليات RDD في Spark ومراقبة انحراف التوزيعات بمؤشر الاستقرار PSI',
+    ],
+  },
+  // 77. New Egyptian Baccalaureate Advanced AI, Deep Generative Models & Autonomous Systems
+  {
+    id: 'egbac-ai-data-science-g12',
+    curriculum: 'egbac',
+    category: 'ai_data_science',
+    subjectId: 'ai_data_science',
+    branchId: 'egbac_ai_data_science',
+    code: 'EGBAC-AI-G12',
+    titleEn: 'Advanced AI, Deep Generative Models & Autonomous Decision Systems',
+    titleAr: 'الذكاء الاصطناعي المتقدم، نماذج التوليد وأنظمة اتخاذ القرار المستقلة',
+    subtitleEn: 'New Egyptian Baccalaureate (EG-Bac) Advanced AI Syllabus',
+    subtitleAr: 'منهج البكالوريا المصرية الجديد (EG-Bac) في الذكاء الاصطناعي المتقدم',
+    academicYear: '2024/2025',
+    gradeEn: 'Grade 12 (EG-Bac Advanced Track)',
+    gradeAr: 'الصف الثالث الثانوي (المسار المتقدم للبكالوريا المصرية)',
+    publisherEn: 'Egyptian Ministry of Education & Technical Education',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 8,
+    fileSize: '22.1 KB',
+    compendiumTitleEn: 'Advanced Generative AI, Diffusion & RL Mathematical Compendium',
+    compendiumTitleAr: 'دليل النماذج الرياضية للذكاء الاصطناعي التوليدي والتعلم التعزيزي',
+    filename: 'egbac-ai-data-science.pdf',
+    downloadUrl: '/books/egbac-ai-data-science.pdf',
+    fullTextbookPages: 324,
+    fullTextbookSize: '31.2 MB',
+    officialPortalUrl: 'https://moe.gov.eg/elearning/egbac/advanced-ai-g12',
+    coverGradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    accentColor: '#7C3AED',
+    chapters: [
+      {
+        id: 'egbac_ai_data_science_ch1',
+        titleEn: 'Advanced Statistical Learning & Probabilistic Graphical Models',
+        titleAr: 'التعلم الإحصائي المتقدم والنماذج الرسومية الاحتمالية',
+        pageRange: 'pp. 1–78',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_ai_data_science_ch2',
+        titleEn: 'Deep Generative Models, Diffusion & Multimodal Architectures',
+        titleAr: 'نماذج التوليد العميقة، الانتشار والمعماريات متعددة الوسائط',
+        pageRange: 'pp. 79–162',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_ai_data_science_ch3',
+        titleEn: 'Reinforcement Learning, Autonomous Agents & Decision Systems',
+        titleAr: 'التعلم التعزيزي، الوكلاء المستقلون وأنظمة اتخاذ القرار',
+        pageRange: 'pp. 163–242',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_ai_data_science_ch4',
+        titleEn: 'Enterprise MLOps, Distributed Model Training & Responsible AI',
+        titleAr: 'هندسة MLOps المؤسسية، التدريب الموزع والذكاء الاصطناعي المسؤول',
+        pageRange: 'pp. 243–324',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Artificial Intelligence, Deep Generative Modeling & Autonomous Cognitive Systems: Bayesian networks, d-separation, Expectation-Maximization (EM) for GMMs, Variational Inference with Evidence Lower Bound (ELBO), VAE reparameterization trick, score-based diffusion models (DDPM), CLIP multimodal contrastive learning, Markov Decision Processes, Bellman optimality, Deep Q-Networks, Proximal Policy Optimization (PPO), DeepSpeed ZeRO distributed model training, INT8/FP4 quantization, and SHAP explainability.',
+    descriptionAr: 'كتاب البكالوريا المصرية المتقدم في الذكاء الاصطناعي ونماذج التوليد العميقة والأنظمة الإدراكية المستقلة: شبكات بايز، الفصل الاتجاهي d-separation، خوارزمية التعظيم المتوقع EM لنماذج المزيج الغاوسي، الاستدلال المتغير وحد ELBO، حيلة إعادة المعلمة في VAEs، نماذج الانتشار لإزالة الضوضاء DDPM، محاذاة النماذج متعددة الوسائط بـ CLIP، عمليات ماركوف لاتخاذ القرار، معادلات بيلمان المثلى، شبكات DQN، خوارزمية PPO، التدريب الموزع بـ DeepSpeed ZeRO، تكميم النماذج بدقة INT8 و FP4، وتفسير النماذج بقيم SHAP.',
+    highlightsEn: [
+      'D-separation proofs, explaining-away dynamics, and variational lower bound (ELBO) derivations',
+      'Diffusion reverse Markov chain sampling and CLIP multimodal cross-entropy alignment',
+      'Bellman operator fixed-point convergence and PPO clipped surrogate objective proofs',
+      'DeepSpeed ZeRO-3 memory partitioning, INT8 affine quantization, and Shapley feature attribution',
+    ],
+    highlightsAr: [
+      'إثباتات الفصل الاتجاهي وظاهرة التفسير البديل واشتقاقات حد دليل البيانات المتغير ELBO',
+      'أخذ العينات بالعملية العكسية لسلاسل ماركوف في الانتشار ومحاذاة الرؤية واللغة بـ CLIP',
+      'تقارب مؤثر بيلمان للنقطة الثابتة وصياغة دالة خسارة السياسة البديلة المقصوصة في PPO',
+      'تجزئة الذاكرة بـ ZeRO-3، التكميم المتناظر بدقة INT8، وإسناد إسهامات الخصائص بقيم شابلي',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -4991,6 +5137,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_robotics' && (b.branchId === 'egbac_robotics' || b.id === 'egbac-robotics-g12')) return true;
     if (branchId === 'thanaweya_electronics_iot' && (b.branchId === 'thanaweya_electronics_iot' || b.id === 'th-electronics-iot-g12')) return true;
     if (branchId === 'egbac_electronics_iot' && (b.branchId === 'egbac_electronics_iot' || b.id === 'egbac-electronics-iot-g12')) return true;
+    if (branchId === 'thanaweya_ai_data_science' && (b.branchId === 'thanaweya_ai_data_science' || b.id === 'th-ai-data-science-g12')) return true;
+    if (branchId === 'egbac_ai_data_science' && (b.branchId === 'egbac_ai_data_science' || b.id === 'egbac-ai-data-science-g12')) return true;
     return false;
   });
 }
@@ -5000,7 +5148,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

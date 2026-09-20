@@ -1717,6 +1717,50 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr:
         'انطلاقة نخبويّة لكليات الهندسة الإلكترونية وهندسة الاتصالات، تصميم الرقائق والدوائر المتكاملة الدقيقة VLSI، هندسة الحاسبات ونظم التحكم، تكنولوجيا النانو، وأمن العتاد والأنظمة المدمجة عالمياً.',
     },
+    {
+      id: 'ai_data_science_bridge',
+      titleEn: 'Artificial Intelligence & Data Science',
+      titleAr: 'الذكاء الاصطناعي وعلم البيانات (STEM & EG-Bac)',
+      icon: <Brain className="w-5 h-5 text-violet-400" />,
+      thanaweyaBranchId: 'thanaweya_ai_data_science',
+      egBacBranchId: 'egbac_ai_data_science',
+      thanaweyaTitleEn: 'Applied Machine Learning, Computer Vision & MLOps Pipelines (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'تعلم الآلة التطبيقي ورؤية الحاسوب وهندسة خطوط تدفق MLOps (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Machine Learning Foundations, Linear Algebra & Convex Optimization: SVD, gradient descent, regularization (L1/L2), logistic regression, and SVM kernels',
+        'Ch.2 Deep Neural Networks, CNNs & Computer Vision: Backpropagation, convolutional layers, ResNet architectures, YOLO object detection, and transfer learning',
+        'Ch.3 Natural Language Processing, Transformers & LLMs: Tokenization, self-attention mechanisms, BERT/GPT architectures, fine-tuning, and RAG pipelines',
+        'Ch.4 Data Engineering, Big Data Analytics & MLOps: Feature stores, distributed Spark processing, model tracking (MLflow), Docker containerization, and monitoring',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ أسس تعلم الآلة والجبر الخطي والتحسين المحدب: تحليل SVD، الانحدار التدريجي، التنظيم (L1/L2)، الانحدار اللوجستي، ودوال نوى SVM',
+        'فصل ٢ الشبكات العصبية العميقة ورؤية الحاسوب: الانتشار الخلفي للأخطاء، الطبقات الالتفافية، معماريات ResNet، نماذج YOLO لرصد الكائنات، والتعلم بالنقل',
+        'فصل ٣ معالجة اللغات الطبيعية ومحولات Transformers والنماذج اللغوية: التقطيع اللغوي، آليات الانتباه الذاتي، معماريات BERT وGPT، والضبط الدقيق وأنظمة RAG',
+        'فصل ٤ هندسة البيانات والبيانات الضخمة وخطوط MLOps: مستودعات الخصائص، المعالجة الموزعة بـ Spark، تتبع النماذج بـ MLflow، حاويات Docker، والمراقبة',
+      ],
+      egBacTitleEn: 'Statistical Learning Theory, Generative AI & Autonomous Reinforcement Agents (4 Modules)',
+      egBacTitleAr: 'نظرية التعلم الإحصائي، الذكاء الاصطناعي التوليدي والوكلاء المعززون ذاتياً (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Advanced Statistical Learning & Probabilistic Graphical Models: Bayesian networks, Markov Random Fields, Expectation-Maximization (EM), and variational inference',
+        'Mod.2 Deep Generative Models, Diffusion & Multimodal Architectures: Variational Autoencoders (VAEs), score-based diffusion, Stable Diffusion, and Vision-Language models',
+        'Mod.3 Reinforcement Learning, Autonomous Agents & Decision Systems: Markov Decision Processes (MDPs), Q-learning, Policy Gradients (PPO), and actor-critic models',
+        'Mod.4 Enterprise MLOps, Distributed Model Training & Responsible AI: Distributed data-parallel training (DeepSpeed/Horovod), model quant/pruning, fairness, and governance',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ التعلم الإحصائي المتقدم والنماذج الرسومية الاحتمالية: شبكات بايز، حقول ماركوف العشوائية، خوارزمية التعظيم المتوقع EM، والاستدلال المتغير',
+        'وحدة ٢ نماذج التوليد العميقة والانتشار والمعماريات متعددة الوسائط: المشفرات التلقائية المتغيرة VAEs، نماذج الانتشار المبنية على التدرج، ونماذج الرؤية واللغة',
+        'وحدة ٣ التعلم التعزيزي والوكلاء المستقلون وأنظمة اتخاذ القرار: عمليات ماركوف لاتخاذ القرار MDPs، خوارزمية Q-learning، تدرج السياسات PPO، ونماذج الفاعل-الناقد',
+        'وحدة ٤ هندسة MLOps المؤسسية والتدريب الموزع والذكاء الاصطناعي المسؤول: التدريب الموزع المتوازي (DeepSpeed)، تكميم وتقليم النماذج، والعدالة وحوكمة الذكاء الاصطناعي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya STEM AI focuses on practical machine learning pipelines, CNN computer vision, transformer NLP, and applied MLOps engineering. EG-Bac elevates this into theoretical statistical learning, deep generative diffusion dynamics, mathematical reinforcement learning, and enterprise distributed training infrastructure.',
+      bridgeInsightAr:
+        'يركز منهج الثانوية STEM للذكاء الاصطناعي على خطوط تعلم الآلة العملية ورؤية الحاسوب والشبكات العصبية ومعالجة اللغات الطبيعية وهندسة MLOps. بينما ترتقي البكالوريا المصرية بالدراسة إلى نظرية التعلم الإحصائي المعمقة، وديناميكيات نماذج الانتشار التوليدية، والتعلم التعزيزي الرياضي، والبنى التحتية للتدريب الموزع فائق النطاق.',
+      universityAdvantageEn:
+        'Prepares students for top-tier global faculties in Artificial Intelligence, Computer Science, Data Science, Machine Learning Engineering, Robotics, and Computational Cognitive Systems.',
+      universityAdvantageAr:
+        'تأهيل استثنائي للالتحاق بأعرق كليات الذكاء الاصطناعي، علوم الحاسب، علم البيانات، هندسة تعلم الآلة، الروبوتات، والأنظمة الإدراكية الحوسبية عالمياً ومحلياً.',
+    },
   ];
 
   const activeBridge = bridges[activeBridgeIndex];

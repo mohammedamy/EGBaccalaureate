@@ -227,6 +227,12 @@ export default defineConfig({
             { name: 'curriculum-electronics-iot', test: /src\/data\/(thanaweya|egBac)ElectronicsIot/, priority: 20 },
             { name: 'electronics-studio', test: /electronicsLabData/, priority: 30 },
 
+            // Artificial Intelligence & Data Science
+            { name: 'databank-ai-data-science', test: /databanks\/(thanaweya|egbac)\/.*aiDataScience/i, priority: 30 },
+            { name: 'textbook-ai-data-science', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*aiDataScience/i, priority: 30 },
+            { name: 'curriculum-ai-data-science', test: /src\/data\/(thanaweya|egBac)AiDataScience/, priority: 20 },
+            { name: 'ai-studio', test: /aiLabData/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

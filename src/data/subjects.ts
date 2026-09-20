@@ -34,7 +34,8 @@ export type SubjectId =
   | 'renewable'
   | 'stem_capstone'
   | 'robotics_mechatronics'
-  | 'electronics_iot';
+  | 'electronics_iot'
+  | 'ai_data_science';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -814,6 +815,28 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_electronics_iot'],
       egbac: ['egbac_electronics_iot'],
+    },
+  },
+  // 34. Artificial Intelligence & Data Science (الذكاء الاصطناعي وعلم البيانات)
+  {
+    id: 'ai_data_science',
+    titleEn: 'Artificial Intelligence & Data Science',
+    titleAr: 'الذكاء الاصطناعي وعلم البيانات',
+    shortTitleEn: 'AI & Data Science',
+    shortTitleAr: 'الذكاء الاصطناعي والبيانات',
+    emoji: '🧠',
+    iconName: 'Brain',
+    badgeColor: 'violet',
+    gradient: 'from-violet-600 via-purple-600 to-indigo-700',
+    lightBg: 'bg-violet-50 text-violet-950 border-violet-200',
+    darkBg: 'bg-violet-950/80 text-violet-200 border-violet-800/60',
+    borderColor: 'border-violet-500/50',
+    textColor: 'text-violet-400',
+    descriptionEn: 'Official Egyptian STEM secondary and EG-Bac curriculum in Artificial Intelligence & Data Science: Statistical machine learning foundations, convex loss optimization, deep neural networks (CNNs, Vision Transformers), Natural Language Processing and Large Language Models (LLMs), probabilistic graphical models, generative diffusion models, reinforcement learning and autonomous agents, enterprise MLOps, distributed model training, and ethical AI governance.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) والبكالوريا المصرية في الذكاء الاصطناعي وعلم البيانات: أسس تعلم الآلة الإحصائي، تحسين دوال الخسارة المحدبة، الشبكات العصبية العميقة (رؤية الحاسوب ونماذج CNN ومحولات الرؤية ViT)، معالجة اللغات الطبيعية والنماذج اللغوية الضخمة (LLMs)، النماذج الرسومية الاحتمالية، نماذج التوليد بالانتشار، التعلم التعزيزي والوكلاء الأذكياء، هندسة تدفقات MLOps المؤسسية، والتدريب الموزع وحوكمة الذكاء الاصطناعي الأخلاقي.',
+    branchIds: {
+      thanaweya: ['thanaweya_ai_data_science'],
+      egbac: ['egbac_ai_data_science'],
     },
   },
 ];

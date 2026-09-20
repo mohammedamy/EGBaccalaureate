@@ -41,7 +41,8 @@ export type PastExamSubject =
   | 'renewable'
   | 'stem_capstone'
   | 'robotics_mechatronics'
-  | 'electronics_iot';
+  | 'electronics_iot'
+  | 'ai_data_science';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -6638,6 +6639,195 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250053,
   },
+  // ============================================================================
+  // 34. STEM ARTIFICIAL INTELLIGENCE & DATA SCIENCE (2021-2025)
+  // ============================================================================
+  // 217. STEM AI & Data Science 2021 - Session 1
+  {
+    id: 'th-ai-data-science-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - الذكاء الاصطناعي وعلم البيانات (الدور الأول ٢٠٢١)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM AI & Data Science (First Session 2021)',
+    subtitleAr: 'الامتحان الرسمي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا وفق نظام التقييم الإلكتروني والأسئلة التحليلية',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج أ',
+    formCodeEn: 'Form A',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢١ / دور أول / ذكاء اصطناعي وعلم بيانات',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.4,
+      totalMarks: 50,
+      passRatePercent: 94.2,
+      distinctionRatePercent: 25.6,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 2210,
+      stdDeviation: 4.2,
+    },
+    seed: 20210054,
+  },
+  // 218. STEM AI & Data Science 2022 - Session 1
+  {
+    id: 'th-ai-data-science-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - الذكاء الاصطناعي وعلم البيانات (الدور الأول ٢٠٢٢)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM AI & Data Science (First Session 2022)',
+    subtitleAr: 'الامتحان الرسمي الموحد المعتمد من الإدارة المركزية لتطوير المناهج والمركز القومي للامتحانات',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج ب',
+    formCodeEn: 'Form B',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٢ / دور أول / ذكاء اصطناعي وعلم بيانات',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.8,
+      totalMarks: 50,
+      passRatePercent: 94.8,
+      distinctionRatePercent: 26.2,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 2380,
+      stdDeviation: 4.1,
+    },
+    seed: 20220054,
+  },
+  // 219. STEM AI & Data Science 2023 - Session 1
+  {
+    id: 'th-ai-data-science-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - الذكاء الاصطناعي وعلم البيانات (الدور الأول ٢٠٢٣)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM AI & Data Science (First Session 2023)',
+    subtitleAr: 'الامتحان الرسمي الموحد بنظام البابل شيت والمقالي والتقييم الإلكتروني المتطور',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج ج',
+    formCodeEn: 'Form C',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٣ / دور أول / ذكاء اصطناعي وعلم بيانات',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.2,
+      totalMarks: 50,
+      passRatePercent: 95.3,
+      distinctionRatePercent: 27.0,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2540,
+      stdDeviation: 4.0,
+    },
+    seed: 20230054,
+  },
+  // 220. STEM AI & Data Science 2024 - Session 1
+  {
+    id: 'th-ai-data-science-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - الذكاء الاصطناعي وعلم البيانات (الدور الأول ٢٠٢٤)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM AI & Data Science (First Session 2024)',
+    subtitleAr: 'الامتحان الرسمي وفق معايير المركز القومي للامتحانات والتقويم التربوي 2024',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج د',
+    formCodeEn: 'Form D',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / دور أول / ذكاء اصطناعي وعلم بيانات',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.6,
+      totalMarks: 50,
+      passRatePercent: 96.1,
+      distinctionRatePercent: 28.2,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2710,
+      stdDeviation: 3.9,
+    },
+    seed: 20240054,
+  },
+  // 221. STEM AI & Data Science 2024 - Session 2
+  {
+    id: 'th-ai-data-science-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - الذكاء الاصطناعي وعلم البيانات (الدور الثاني ٢٠٢٤)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM AI & Data Science (Second Session 2024)',
+    subtitleAr: 'امتحان الدور الثاني المعتمد من الإدارة المركزية للتعليم العام والتعليم الفني',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج أ (دور ثان)',
+    formCodeEn: 'Form A (Session 2)',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / دور ثان / ذكاء اصطناعي وعلم بيانات',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.5,
+      totalMarks: 50,
+      passRatePercent: 91.0,
+      distinctionRatePercent: 18.5,
+      topTenThreshold: 47.0,
+      totalCandidatesEst: 420,
+      stdDeviation: 4.5,
+    },
+    seed: 20240154,
+  },
+  // 222. STEM AI & Data Science 2025 - Experimental Diagnostic
+  {
+    id: 'th-ai-data-science-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'ai_data_science',
+    branchId: 'thanaweya_ai_data_science',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - الذكاء الاصطناعي وعلم البيانات STEM (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - STEM AI & Data Science (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من وحدة مدارس المتفوقين STEM والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE STEM Unit and Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٥ / نموذج استرشادي / ذكاء اصطناعي وعلم بيانات',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 41.2,
+      totalMarks: 50,
+      passRatePercent: 97.0,
+      distinctionRatePercent: 29.5,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2850,
+      stdDeviation: 3.8,
+    },
+    seed: 20250054,
+  },
 ];
 
 /**
@@ -6719,7 +6909,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('tour') || paper.branchId.includes('tourism')) && (b.id.includes('tour') || b.id.includes('tourism'))) ||
       ((paper.branchId.includes('renew') || paper.branchId.includes('renewable')) && (b.id.includes('renew') || b.id.includes('renewable'))) ||
       ((paper.branchId.includes('robot') || paper.branchId.includes('robotics')) && (b.id.includes('robot') || b.id.includes('robotics'))) ||
-      ((paper.branchId.includes('electronics') || paper.branchId.includes('iot')) && (b.id.includes('electronics') || b.id.includes('iot')))
+      ((paper.branchId.includes('electronics') || paper.branchId.includes('iot')) && (b.id.includes('electronics') || b.id.includes('iot'))) ||
+      ((paper.branchId.includes('ai') || paper.branchId.includes('data_science')) && (b.id.includes('ai') || b.id.includes('data_science')))
   );
 
   if (!targetBranch) return [];

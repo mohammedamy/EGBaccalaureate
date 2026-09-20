@@ -1233,7 +1233,7 @@ function getOrCreateBookDetails(book: OfficialBook): BookDetailedContent {
   // Determine subject-specific cognitive breakdown
   const isLanguage = ['arabic', 'english', 'french', 'german', 'italian', 'spanish', 'chinese', 'languages'].includes(book.subjectId);
   const isHumanities = ['history', 'geography', 'philosophy', 'psychology', 'civics', 'islamic_studies', 'christian_studies', 'religious_education'].includes(book.subjectId);
-  const isApplied = ['economics_stat', 'cs_informatics', 'business_entrepreneurship', 'fine_arts_architecture', 'music_theory', 'agriculture', 'industrial', 'commercial', 'tourism', 'renewable', 'stem_capstone', 'robotics_mechatronics', 'electronics_iot'].includes(book.subjectId);
+  const isApplied = ['economics_stat', 'cs_informatics', 'business_entrepreneurship', 'fine_arts_architecture', 'music_theory', 'agriculture', 'industrial', 'commercial', 'tourism', 'renewable', 'stem_capstone', 'robotics_mechatronics', 'electronics_iot', 'ai_data_science'].includes(book.subjectId);
 
   const bloom = isLanguage
     ? { knowledge: 35, application: 45, hots: 20 }
