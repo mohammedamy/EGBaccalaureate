@@ -485,63 +485,159 @@ export const GeologyEarthStudio: React.FC<Props> = ({
 
                 {/* Crystal 3D SVG Projection & Structural Parameters */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-stone-950/60 p-4 rounded-xl border border-stone-800">
-                  {/* SVG Isometric Crystal Wireframe */}
-                  <div className="h-52 flex items-center justify-center relative overflow-hidden rounded-lg bg-gradient-to-b from-stone-900 to-stone-950 p-3">
-                    <svg viewBox="-100 -100 200 200" className="w-48 h-48 drop-shadow-md">
-                      {/* Crystal Axes Guidelines */}
-                      <line x1="0" y1="80" x2="0" y2="-80" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 3" />
-                      <line x1="-70" y1="40" x2="70" y2="-40" stroke="#10b981" strokeWidth="2" strokeDasharray="3 3" />
-                      <line x1="-80" y1="-20" x2="80" y2="20" stroke="#3b82f6" strokeWidth="2" strokeDasharray="3 3" />
-                      
-                      {/* Dynamic Crystal Facets based on selection */}
+                  {/* High-Resolution Realistic 3D Faceted Crystal Viewport */}
+                  <div className="h-60 flex items-center justify-center relative overflow-hidden rounded-xl bg-gradient-to-b from-stone-900 via-stone-950 to-black p-4 border border-stone-800 shadow-2xl">
+                    <svg viewBox="-120 -110 240 220" className="w-56 h-56 drop-shadow-2xl">
+                      <defs>
+                        {/* Shading Gradients for Specular Facets */}
+                        <linearGradient id="facetHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#fef3c7" stopOpacity="0.9" />
+                          <stop offset="100%" stopColor="#fde68a" stopOpacity="0.6" />
+                        </linearGradient>
+                        <linearGradient id="facetMidtone" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#fbbf24" stopOpacity="0.8" />
+                          <stop offset="100%" stopColor="#d97706" stopOpacity="0.65" />
+                        </linearGradient>
+                        <linearGradient id="facetShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#b45309" stopOpacity="0.75" />
+                          <stop offset="100%" stopColor="#78350f" stopOpacity="0.85" />
+                        </linearGradient>
+                        <linearGradient id="facetInternal" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.25" />
+                          <stop offset="100%" stopColor="#d97706" stopOpacity="0.05" />
+                        </linearGradient>
+                      </defs>
+
+                      {/* Crystallographic Coordinate Axes Guidelines with Labels */}
+                      <line x1="0" y1="90" x2="0" y2="-90" stroke="#f59e0b" strokeWidth="1.8" strokeDasharray="4 3" opacity="0.6" />
+                      <line x1="-80" y1="45" x2="80" y2="-45" stroke="#10b981" strokeWidth="1.8" strokeDasharray="4 3" opacity="0.6" />
+                      <line x1="-90" y1="-25" x2="90" y2="25" stroke="#3b82f6" strokeWidth="1.8" strokeDasharray="4 3" opacity="0.6" />
+                      <text x="5" y="-88" fill="#f59e0b" fontSize="9" fontWeight="bold" fontFamily="monospace">c-axis</text>
+                      <text x="82" y="-43" fill="#10b981" fontSize="9" fontWeight="bold" fontFamily="monospace">b-axis</text>
+                      <text x="88" y="27" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace">a-axis</text>
+
+                      {/* 1. CUBIC SYSTEM (Halite / Pyrite) - Isometric Hexahedron with Beveled Facets */}
                       {selectedSystem === 'cubic' && (
-                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
-                          {/* Isometric Cube Facets */}
-                          <polygon points="0,-60 50,-30 0,0 -50,-30" />
-                          <polygon points="0,0 50,-30 50,30 0,60" />
-                          <polygon points="0,0 -50,-30 -50,30 0,60" />
+                        <g>
+                          {/* Inner ghost prism */}
+                          <polygon points="0,-70 60,-35 0,0 -60,-35" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          <polygon points="0,0 60,-35 60,35 0,70" fill="url(#facetMidtone)" stroke="#fbbf24" strokeWidth="1.5" />
+                          <polygon points="0,0 -60,-35 -60,35 0,70" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          {/* Internal refraction bevel lines */}
+                          <line x1="0" y1="-70" x2="0" y2="70" stroke="#ffffff" strokeWidth="0.8" opacity="0.6" strokeDasharray="2 2" />
+                          <line x1="-60" y1="-35" x2="60" y2="35" stroke="#ffffff" strokeWidth="0.8" opacity="0.4" strokeDasharray="2 2" />
+                          {/* Mineral label */}
+                          <text x="0" y="88" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Cubic Hexahedron • الهيكل المكعبي (NaCl)
+                          </text>
                         </g>
                       )}
+
+                      {/* 2. TETRAGONAL SYSTEM (Zircon) - Elongated Square Column with Pyramidal Termination */}
                       {selectedSystem === 'tetragonal' && (
-                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
-                          <polygon points="0,-80 40,-45 0,-10 -40,-45" />
-                          <polygon points="0,-10 40,-45 40,45 0,80" />
-                          <polygon points="0,-10 -40,-45 -40,45 0,80" />
+                        <g>
+                          {/* Upper Pyramidal Cap */}
+                          <polygon points="0,-85 45,-50 0,-30" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          <polygon points="0,-85 -45,-50 0,-30" fill="url(#facetMidtone)" stroke="#fbbf24" strokeWidth="1.5" />
+                          {/* Elongated Columnar Body (c > a) */}
+                          <polygon points="0,-30 45,-50 45,45 0,65" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          <polygon points="0,-30 -45,-50 -45,45 0,65" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          {/* Lower Pyramidal Cap */}
+                          <polygon points="0,65 45,45 0,85" fill="url(#facetShadow)" stroke="#78350f" strokeWidth="1.5" />
+                          <polygon points="0,65 -45,45 0,85" fill="#451a03" stroke="#78350f" strokeWidth="1.5" />
+                          <text x="0" y="100" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Tetragonal Prism • منشوري رباعي (ZrSiO₄)
+                          </text>
                         </g>
                       )}
+
+                      {/* 3. ORTHORHOMBIC SYSTEM (Topaz / Sulfur) - Rhombic Prism (a ≠ b ≠ c, all 90°) */}
                       {selectedSystem === 'orthorhombic' && (
-                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
-                          <polygon points="0,-40 65,-20 0,0 -65,-20" />
-                          <polygon points="0,0 65,-20 65,30 0,50" />
-                          <polygon points="0,0 -65,-20 -65,30 0,50" />
+                        <g>
+                          {/* Top Rhombic Facet */}
+                          <polygon points="0,-50 75,-25 0,0 -75,-25" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* Right Side Wall */}
+                          <polygon points="0,0 75,-25 75,35 0,60" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          {/* Left Side Wall */}
+                          <polygon points="0,0 -75,-25 -75,35 0,60" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          {/* Rhombic Bevel Edge */}
+                          <line x1="0" y1="-50" x2="0" y2="60" stroke="#fef08a" strokeWidth="1.8" />
+                          <text x="0" y="80" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Orthorhombic • أحادي الميل القائم (Topaz)
+                          </text>
                         </g>
                       )}
+
+                      {/* 4. MONOCLINIC SYSTEM (Gypsum) - Inclined Prism (β ≠ 90°) */}
                       {selectedSystem === 'monoclinic' && (
-                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
-                          <polygon points="15,-55 55,-25 0,5 -40,-25" />
-                          <polygon points="0,5 55,-25 40,35 -15,65" />
-                          <polygon points="0,5 -40,-25 -55,35 -15,65" />
+                        <g>
+                          {/* Sheared/Inclined Top Facet */}
+                          <polygon points="20,-65 65,-30 10,5 -35,-30" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* Tilted Right Lateral Face */}
+                          <polygon points="10,5 65,-30 45,40 -10,75" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          {/* Tilted Left Lateral Face */}
+                          <polygon points="10,5 -35,-30 -55,40 -10,75" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          {/* Inclined Axis β Marker */}
+                          <path d="M 10 5 A 18 18 0 0 1 20 -12" fill="none" stroke="#f43f5e" strokeWidth="1.5" />
+                          <text x="24" y="-3" fill="#fb7185" fontSize="8" fontWeight="bold" fontFamily="monospace">β=105°</text>
+                          <text x="0" y="94" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Monoclinic • أحادي الميل (CaSO₄·2H₂O)
+                          </text>
                         </g>
                       )}
+
+                      {/* 5. TRICLINIC SYSTEM (Turquoise / Feldspar) - Asymmetric Pinacoid (α ≠ β ≠ γ ≠ 90°) */}
                       {selectedSystem === 'triclinic' && (
-                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
-                          <polygon points="25,-50 60,-15 10,15 -35,-20" />
-                          <polygon points="10,15 60,-15 35,45 -15,75" />
-                          <polygon points="10,15 -35,-20 -60,40 -15,75" />
+                        <g>
+                          {/* Oblique Skewed Top */}
+                          <polygon points="28,-58 70,-15 15,18 -40,-25" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* Skewed Right Face */}
+                          <polygon points="15,18 70,-15 40,50 -15,82" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          {/* Skewed Left Face */}
+                          <polygon points="15,18 -40,-25 -65,42 -15,82" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          <text x="0" y="100" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Triclinic • ثلاثي الميل (Microcline)
+                          </text>
                         </g>
                       )}
-                      {(selectedSystem === 'hexagonal' || selectedSystem === 'trigonal') && (
-                        <g stroke="#f59e0b" strokeWidth="2.5" fill="rgba(245, 158, 11, 0.15)">
-                          {/* 6-sided prism */}
-                          <polygon points="0,-75 35,-60 35,-25 0,-10 -35,-25 -35,-60" />
-                          <polygon points="0,-10 35,-25 35,50 0,65" />
-                          <polygon points="0,-10 -35,-25 -35,50 0,65" />
-                          <polygon points="35,-25 60,-40 60,35 35,50" fill="rgba(245, 158, 11, 0.08)" />
+
+                      {/* 6. HEXAGONAL SYSTEM (Beryl / Emerald) - 6-Sided Di-Hexagonal Prism */}
+                      {selectedSystem === 'hexagonal' && (
+                        <g>
+                          {/* Top Hexagonal Basal Pinacoid */}
+                          <polygon points="0,-82 42,-64 42,-22 0,-4 -42,-22 -42,-64" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* Front Center Column Facet */}
+                          <polygon points="0,-4 42,-22 42,48 0,66" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          {/* Front Left Column Facet */}
+                          <polygon points="0,-4 -42,-22 -42,48 0,66" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          {/* Right Side Facet */}
+                          <polygon points="42,-22 68,-38 68,32 42,48" fill="url(#facetShadow)" stroke="#78350f" strokeWidth="1.5" />
+                          <text x="0" y="85" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Hexagonal Prism • سداسي الأوجه (Beryl)
+                          </text>
+                        </g>
+                      )}
+
+                      {/* 7. TRIGONAL SYSTEM (Calcite / Quartz) - Rhombohedron with 3-Fold Symmetry */}
+                      {selectedSystem === 'trigonal' && (
+                        <g>
+                          {/* Rhombohedral Vertex Top Facet */}
+                          <polygon points="0,-78 50,-40 0,-2 -50,-40" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* 3-Fold Rhomb Face Right */}
+                          <polygon points="0,-2 50,-40 45,35 0,72" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          {/* 3-Fold Rhomb Face Left */}
+                          <polygon points="0,-2 -50,-40 -45,35 0,72" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          {/* Striation lines typical of Calcite cleavage */}
+                          <line x1="-30" y1="-10" x2="-10" y2="10" stroke="#fef08a" strokeWidth="0.8" opacity="0.6" />
+                          <line x1="-35" y1="10" x2="-15" y2="30" stroke="#fef08a" strokeWidth="0.8" opacity="0.6" />
+                          <text x="0" y="90" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Trigonal Rhombohedron • ثلاثي التماثل (Calcite)
+                          </text>
                         </g>
                       )}
                     </svg>
-                    <span className="absolute bottom-2 end-2 text-[10px] text-stone-500 font-mono">
-                      {isArabic ? 'إسقاط فراغي بلوري' : 'Crystallographic 3D Projection'}
+                    <span className="absolute bottom-2 end-2 text-[10px] text-amber-400 font-mono bg-stone-900/80 px-2 py-0.5 rounded border border-amber-500/30">
+                      {isArabic ? 'إسقاط بلوري فراغي ثلاثي الأبعاد' : '3D Realistic Crystallography'}
                     </span>
                   </div>
 
@@ -899,27 +995,107 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   </div>
                 </div>
 
-                {/* SVG Visualizing Divergent Tectonic Rift */}
-                <div className="mt-4 h-40 bg-stone-950 rounded-xl border border-stone-800 p-2 relative overflow-hidden flex items-center justify-center">
-                  <svg viewBox="-150 -50 300 100" className="w-full h-full">
-                    {/* Left African Plate */}
-                    <rect x={-140 - (riftTimeMillionYears * 0.8)} y="-20" width="100" height="50" rx="4" fill="#3f3f46" stroke="#71717a" strokeWidth="1.5" />
-                    <text x={-90 - (riftTimeMillionYears * 0.8)} y="10" fill="#e4e4e7" fontSize="11" textAnchor="middle" fontWeight="bold">
-                      {isArabic ? 'اللوح الأفريقي' : 'African Plate'}
-                    </text>
-                    <line x1={-30 - (riftTimeMillionYears * 0.8)} y1="5" x2={-10 - (riftTimeMillionYears * 0.8)} y2="5" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#arrow)" />
+                {/* High-Resolution Realistic Geological Cross-Section of Red Sea Divergent Rift */}
+                <div className="mt-4 h-48 bg-stone-950 rounded-xl border border-stone-800 p-2 relative overflow-hidden flex items-center justify-center shadow-xl">
+                  <svg viewBox="-160 -60 320 120" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="mantlePlumeGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stopColor="#7f1d1d" />
+                        <stop offset="40%" stopColor="#dc2626" />
+                        <stop offset="80%" stopColor="#ea580c" />
+                        <stop offset="100%" stopColor="#facc15" />
+                      </linearGradient>
+                      <linearGradient id="redSeaWaterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                        <stop offset="70%" stopColor="#0284c7" stopOpacity="0.9" />
+                        <stop offset="100%" stopColor="#0c4a6e" />
+                      </linearGradient>
+                      <linearGradient id="continentalCrustGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#78716c" />
+                        <stop offset="100%" stopColor="#57534e" />
+                      </linearGradient>
+                      <marker id="divergenceArrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                        <path d="M 0 0 L 6 3 L 0 6 z" fill="#ef4444" />
+                      </marker>
+                    </defs>
 
-                    {/* Right Arabian Plate */}
-                    <rect x={40 + (riftTimeMillionYears * 0.8)} y="-20" width="100" height="50" rx="4" fill="#3f3f46" stroke="#71717a" strokeWidth="1.5" />
-                    <text x={90 + (riftTimeMillionYears * 0.8)} y="10" fill="#e4e4e7" fontSize="11" textAnchor="middle" fontWeight="bold">
-                      {isArabic ? 'اللوح العربي' : 'Arabian Plate'}
-                    </text>
+                    {/* Asthenosphere Mantle Bedrock */}
+                    <rect x="-160" y="10" width="320" height="50" fill="#292524" />
+                    {/* Mantle Convection Upwelling Plume */}
+                    <path d="M -50 60 Q -30 20 0 10 Q 30 20 50 60 Z" fill="url(#mantlePlumeGrad)" opacity="0.85" />
+                    {/* Convection Circulation Arrows */}
+                    <path d="M -35 45 Q -25 28 -5 18" fill="none" stroke="#facc15" strokeWidth="1.8" strokeDasharray="3 2" markerEnd="url(#divergenceArrow)" />
+                    <path d="M 35 45 Q 25 28 5 18" fill="none" stroke="#facc15" strokeWidth="1.8" strokeDasharray="3 2" markerEnd="url(#divergenceArrow)" />
 
-                    {/* Central Rift Basin & Rising Magma */}
-                    <rect x={-35} y="-15" width="70" height="40" fill="#0284c7" opacity="0.3" rx="2" />
-                    <polygon points="0,-15 15,25 -15,25" fill="#f97316" opacity="0.8" />
-                    <text x="0" y="38" fill="#38bdf8" fontSize="10" textAnchor="middle" fontWeight="bold">
-                      {isArabic ? 'مياه البحر الأحمر المتسع' : 'Red Sea Oceanic Basin'}
+                    {/* African Continental Plate (Left) with Graben Step-Fault Terraces */}
+                    {(() => {
+                      const shift = riftTimeMillionYears * 0.8;
+                      const leftX = -155 - shift;
+                      return (
+                        <g>
+                          {/* Main Continental Block */}
+                          <polygon
+                            points={`${leftX},-25 ${leftX + 85},-25 ${leftX + 98},-10 ${leftX + 110},8 ${leftX + 110},50 ${leftX},50`}
+                            fill="url(#continentalCrustGrad)"
+                            stroke="#a8a29e"
+                            strokeWidth="1.2"
+                          />
+                          {/* Coastal Mountain Shoulder */}
+                          <polygon points={`${leftX + 40},-25 ${leftX + 60},-38 ${leftX + 75},-25`} fill="#a8a29e" />
+                          <text x={leftX + 50} y="-8" fill="#f5f5f4" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+                            {isArabic ? 'اللوح الأفريقي (مصر)' : 'African Plate'}
+                          </text>
+                          {/* Normal Step Fault Lines */}
+                          <line x1={leftX + 85} y1="-25" x2={leftX + 98} y2="-10" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+                          <line x1={leftX + 98} y1="-10" x2={leftX + 110} y2="8" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+                          {/* Divergence Motion Vector Arrow */}
+                          <line x1={leftX + 90} y1="-18" x2={leftX + 65} y2="-18" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#divergenceArrow)" />
+                          <text x={leftX + 75} y="-30" fill="#fca5a5" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            ← 2.5 cm/yr
+                          </text>
+                        </g>
+                      );
+                    })()}
+
+                    {/* Arabian Continental Plate (Right) with Complementary Graben Terraces */}
+                    {(() => {
+                      const shift = riftTimeMillionYears * 0.8;
+                      const rightX = 45 + shift;
+                      return (
+                        <g>
+                          {/* Main Continental Block */}
+                          <polygon
+                            points={`${rightX},-10 ${rightX + 12},-25 ${rightX + 105},-25 ${rightX + 105},50 ${rightX - 10},50 ${rightX - 10},8`}
+                            fill="url(#continentalCrustGrad)"
+                            stroke="#a8a29e"
+                            strokeWidth="1.2"
+                          />
+                          {/* Hijaz Mountain Shoulder */}
+                          <polygon points={`${rightX + 25},-25 ${rightX + 45},-38 ${rightX + 65},-25`} fill="#a8a29e" />
+                          <text x={rightX + 55} y="-8" fill="#f5f5f4" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+                            {isArabic ? 'اللوح العربي (الحجاز)' : 'Arabian Plate'}
+                          </text>
+                          {/* Normal Fault Lines */}
+                          <line x1={rightX - 10} y1="8" x2={rightX} y2="-10" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+                          <line x1={rightX} y1="-10" x2={rightX + 12} y2="-25" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="2 2" />
+                          {/* Divergence Motion Vector Arrow */}
+                          <line x1={rightX + 15} y1="-18" x2={rightX + 40} y2="-18" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#divergenceArrow)" />
+                          <text x={rightX + 28} y="-30" fill="#fca5a5" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            2.5 cm/yr →
+                          </text>
+                        </g>
+                      );
+                    })()}
+
+                    {/* Central Oceanic Floor Basalt & Hydrothermal Ridge */}
+                    <polygon points="-25,12 25,12 18,22 -18,22" fill="#1c1917" stroke="#44403c" strokeWidth="1" />
+                    {/* Young Mid-Rift Volcanic Cone */}
+                    <polygon points="0,5 8,12 -8,12" fill="#ea580c" />
+
+                    {/* Red Sea Seawater Column in Graben Basin */}
+                    <polygon points="-40,-12 40,-12 30,10 -30,10" fill="url(#redSeaWaterGrad)" stroke="#38bdf8" strokeWidth="0.8" />
+                    <text x="0" y="2" fill="#f0f9ff" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
+                      {isArabic ? 'البحر الأحمر (حوض محيطي وليد)' : 'Red Sea Proto-Ocean Basin'}
                     </text>
                   </svg>
                 </div>
@@ -1066,65 +1242,140 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* Cross-Section SVG Canvas */}
-              <div className="h-64 bg-stone-950 rounded-xl border border-stone-800 p-3 relative overflow-hidden flex items-center justify-center">
+              {/* High-Resolution Realistic Stratigraphic Cross-Section SVG Canvas */}
+              <div className="h-72 bg-stone-950 rounded-xl border border-stone-800 p-3 relative overflow-hidden flex items-center justify-center shadow-2xl">
                 <svg viewBox="0 0 600 250" className="w-full h-full">
-                  {/* Bed 1: Deep Cambrian Sandstone */}
+                  <defs>
+                    {/* 1. Sandstone Geological Pattern (Stippled Grains) */}
+                    <pattern id="sandstoneHatch" width="16" height="16" patternUnits="userSpaceOnUse">
+                      <rect width="16" height="16" fill="#78350f" opacity="0.85" />
+                      <circle cx="4" cy="4" r="1" fill="#fef3c7" opacity="0.7" />
+                      <circle cx="12" cy="6" r="1.2" fill="#fde68a" opacity="0.6" />
+                      <circle cx="8" cy="12" r="1" fill="#fef3c7" opacity="0.7" />
+                      <circle cx="2" cy="14" r="0.8" fill="#fbbf24" opacity="0.5" />
+                    </pattern>
+
+                    {/* 2. Limestone Geological Pattern (Standard Offset Brickwork) */}
+                    <pattern id="limestoneHatch" width="28" height="14" patternUnits="userSpaceOnUse">
+                      <rect width="28" height="14" fill="#1e3a8a" opacity="0.8" />
+                      {/* Horizontal bedding planes */}
+                      <line x1="0" y1="0" x2="28" y2="0" stroke="#93c5fd" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="0" y1="7" x2="28" y2="7" stroke="#93c5fd" strokeWidth="0.8" opacity="0.6" />
+                      {/* Staggered vertical joints */}
+                      <line x1="14" y1="0" x2="14" y2="7" stroke="#93c5fd" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="0" y1="7" x2="0" y2="14" stroke="#93c5fd" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="28" y1="7" x2="28" y2="14" stroke="#93c5fd" strokeWidth="0.8" opacity="0.6" />
+                    </pattern>
+
+                    {/* 3. Shale Geological Pattern (Fissile Laminations) */}
+                    <pattern id="shaleHatch" width="20" height="10" patternUnits="userSpaceOnUse">
+                      <rect width="20" height="10" fill="#064e3b" opacity="0.8" />
+                      <line x1="2" y1="3" x2="10" y2="3" stroke="#6ee7b7" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="12" y1="7" x2="18" y2="7" stroke="#6ee7b7" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="0" y1="10" x2="20" y2="10" stroke="#6ee7b7" strokeWidth="0.8" opacity="0.4" />
+                    </pattern>
+
+                    {/* 4. Upper Tertiary Cover Bed Pattern */}
+                    <pattern id="tertiaryHatch" width="24" height="8" patternUnits="userSpaceOnUse">
+                      <rect width="24" height="8" fill="#581c87" opacity="0.6" />
+                      <line x1="0" y1="4" x2="24" y2="4" stroke="#d8b4fe" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.6" />
+                      <line x1="0" y1="8" x2="24" y2="8" stroke="#d8b4fe" strokeWidth="0.8" opacity="0.4" />
+                    </pattern>
+
+                    {/* 5. Conglomerate Pebble Gradient */}
+                    <radialGradient id="pebbleGrad" cx="35%" cy="35%" r="65%">
+                      <stop offset="0%" stopColor="#fde68a" />
+                      <stop offset="60%" stopColor="#d97706" />
+                      <stop offset="100%" stopColor="#78350f" />
+                    </radialGradient>
+                  </defs>
+
+                  {/* Bed 1: Deep Cambrian Sandstone (Folded Anticline with Stippling) */}
                   <path
                     d={`M 0,220 Q 150,${220 - foldCompression * 0.4} 300,220 T 600,220 L 600,250 L 0,250 Z`}
-                    fill="#b45309"
-                    opacity="0.8"
+                    fill="url(#sandstoneHatch)"
+                    stroke="#d97706"
+                    strokeWidth="1.2"
                   />
-                  {/* Bed 2: Ordovician Limestone */}
+                  {/* Bed 2: Ordovician Limestone (Brickwork Pattern) */}
                   <path
                     d={`M 0,180 Q 150,${180 - foldCompression * 0.4} 300,180 T 600,180 L 600,220 Q 450,220 300,220 T 0,220 Z`}
-                    fill="#3b82f6"
-                    opacity="0.7"
+                    fill="url(#limestoneHatch)"
+                    stroke="#60a5fa"
+                    strokeWidth="1.2"
                   />
-                  {/* Bed 3: Silurian Shale */}
+                  {/* Bed 3: Silurian Shale (Laminated Pattern) */}
                   <path
                     d={`M 0,140 Q 150,${140 - foldCompression * 0.4} 300,140 T 600,140 L 600,180 Q 450,180 300,180 T 0,180 Z`}
-                    fill="#059669"
-                    opacity="0.7"
+                    fill="url(#shaleHatch)"
+                    stroke="#34d399"
+                    strokeWidth="1.2"
                   />
 
-                  {/* Fault Plane Line cutting through beds */}
+                  {/* Fault Plane Line & Displacement Arrows */}
                   {faultThrow > 0 && (
-                    <line x1="240" y1="120" x2="360" y2="245" stroke="#ef4444" strokeWidth="3" strokeDasharray="4 2" />
+                    <g>
+                      <line x1="240" y1="120" x2="360" y2="245" stroke="#ef4444" strokeWidth="3.5" strokeDasharray="5 3" />
+                      {/* Fault Gouge Zone */}
+                      <line x1="238" y1="120" x2="358" y2="245" stroke="#f87171" strokeWidth="1" opacity="0.6" />
+                      {/* Downthrow Slip Arrow */}
+                      <polygon points="315,190 325,185 320,195" fill="#ef4444" />
+                      <text x="345" y="195" fill="#fca5a5" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                        Fault Slip (Throw: {faultThrow}m)
+                      </text>
+                    </g>
                   )}
 
-                  {/* Basalt Dyke Cutting */}
+                  {/* Basaltic Magmatic Dyke with Thermal Contact Metamorphism Aureole */}
                   {hasBasaltDyke && (
-                    <polygon points="120,250 135,250 170,120 155,120" fill="#18181b" stroke="#71717a" strokeWidth="1.5" />
-                  )}
-
-                  {/* Angular Unconformity Line */}
-                  {hasUpperUnconformity && (
-                    <>
-                      <line x1="0" y1="120" x2="600" y2="120" stroke="#f59e0b" strokeWidth="3" />
-                      {/* Conglomerate pebbles along unconformity */}
-                      {[30, 80, 140, 210, 290, 370, 440, 520].map((cx, i) => (
-                        <circle key={i} cx={cx} cy="115" r="4" fill="#d97706" />
+                    <g>
+                      {/* Contact Metamorphic Halo (Thermal Aureole Baked Zone) */}
+                      <polygon points="114,250 141,250 176,120 149,120" fill="none" stroke="#dc2626" strokeWidth="2.5" strokeDasharray="3 2" />
+                      {/* Discordant Basaltic Igneous Body */}
+                      <polygon points="120,250 135,250 170,120 155,120" fill="#18181b" stroke="#52525b" strokeWidth="1.5" />
+                      {/* Basalt Mineral Phenocryst Texture */}
+                      {[150, 175, 200, 225].map((py, i) => (
+                        <line key={i} x1={135 + i * 5} y1={py} x2={142 + i * 5} y2={py} stroke="#a1a1aa" strokeWidth="1.5" />
                       ))}
-                      {/* Horizontal Tertiary Sedimentary Bed above unconformity */}
-                      <rect x="0" y="70" width="600" height="48" fill="#a855f7" opacity="0.4" />
-                    </>
+                      <text x="185" y="152" fill="#f87171" fontSize="9.5" fontWeight="bold" fontFamily="sans-serif">
+                        {isArabic ? 'عرق بازلتي قاطع (أحدث من الطية)' : 'Basalt Dyke (Cross-cutting)'}
+                      </text>
+                    </g>
                   )}
 
-                  {/* Annotations */}
-                  <text x="30" y="200" fill="#ffffff" fontSize="11" fontWeight="bold">
-                    {isArabic ? 'طية محدبة مائلة (ضغط تكتوني)' : 'Folded Lower Strata'}
-                  </text>
+                  {/* Angular Unconformity Surface with Basal Conglomerate Pebbles */}
                   {hasUpperUnconformity && (
-                    <text x="450" y="110" fill="#fbbf24" fontSize="10" fontWeight="bold">
-                      {isArabic ? 'سطح عدم توافق زاوي' : 'Angular Unconformity Surface'}
-                    </text>
+                    <g>
+                      {/* Horizontal Angular Unconformity Line */}
+                      <line x1="0" y1="120" x2="600" y2="120" stroke="#f59e0b" strokeWidth="3.5" />
+                      {/* Basal Conglomerate Rounded Pebbles indicating Marine Transgression */}
+                      {[25, 55, 95, 135, 175, 215, 255, 295, 335, 375, 415, 455, 495, 535, 575].map((cx, i) => (
+                        <g key={i}>
+                          <ellipse cx={cx} cy="115" rx="6" ry="4.5" fill="url(#pebbleGrad)" stroke="#451a03" strokeWidth="1" />
+                          <ellipse cx={cx + 12} cy="117" rx="4" ry="3" fill="url(#pebbleGrad)" stroke="#451a03" strokeWidth="0.8" />
+                        </g>
+                      ))}
+                      {/* Horizontal Tertiary Sedimentary Bedding */}
+                      <rect x="0" y="65" width="600" height="53" fill="url(#tertiaryHatch)" stroke="#c084fc" strokeWidth="1.2" />
+                      <text x="440" y="105" fill="#fef08a" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                        {isArabic ? 'سطح عدم توافق زاوي (طبقة كونجلوميرات)' : 'Angular Unconformity Surface (Conglomerate)'}
+                      </text>
+                      <text x="50" y="95" fill="#e9d5ff" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                        {isArabic ? 'طبقات العصر الثالث الأفقية الحديثة' : 'Horizontal Tertiary Strata'}
+                      </text>
+                    </g>
                   )}
-                  {hasBasaltDyke && (
-                    <text x="180" y="150" fill="#a1a1aa" fontSize="10">
-                      {isArabic ? 'عرق ناري بازلتي قاطع' : 'Basalt Dyke'}
-                    </text>
-                  )}
+
+                  {/* Strata Labels */}
+                  <text x="25" y="210" fill="#fef3c7" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">
+                    {isArabic ? 'حجر رملي كامبري (طية محدبة مطوية)' : 'Cambrian Sandstone (Folded Anticline)'}
+                  </text>
+                  <text x="25" y="170" fill="#bfdbfe" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                    {isArabic ? 'حجر جيري أوردوفيشي' : 'Ordovician Limestone'}
+                  </text>
+                  <text x="25" y="132" fill="#a7f3d0" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                    {isArabic ? 'طفلة/شيل سيلوري' : 'Silurian Shale'}
+                  </text>
                 </svg>
               </div>
 

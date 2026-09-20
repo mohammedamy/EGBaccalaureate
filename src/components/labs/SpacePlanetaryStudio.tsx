@@ -493,58 +493,189 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                     <span className="text-xs font-mono text-emerald-400">Kepler II: dA/dt = const</span>
                   </h3>
 
-                  {/* SVG Orbital Plot */}
-                  <div className="h-64 rounded-xl bg-slate-900 border border-slate-800 p-4 flex items-center justify-center relative overflow-hidden">
-                    <svg viewBox="-250 -130 500 260" className="w-full h-full">
-                      {/* Grid lines */}
-                      <line x1="-240" y1="0" x2="240" y2="0" stroke="#334155" strokeDasharray="3,3" strokeWidth="0.8" />
-                      <line x1="0" y1="-120" x2="0" y2="120" stroke="#334155" strokeDasharray="3,3" strokeWidth="0.8" />
+                  {/* High-Resolution Realistic Keplerian Orbital Viewport */}
+                  <div className="h-72 rounded-xl bg-slate-950 border border-slate-800 p-4 flex items-center justify-center relative overflow-hidden shadow-2xl">
+                    <svg viewBox="-260 -140 520 280" className="w-full h-full">
+                      <defs>
+                        {/* Deep Space Background Glow */}
+                        <radialGradient id="spaceBackdrop" cx="50%" cy="50%" r="70%">
+                          <stop offset="0%" stopColor="#0f172a" />
+                          <stop offset="60%" stopColor="#020617" />
+                          <stop offset="100%" stopColor="#000000" />
+                        </radialGradient>
 
-                      {/* Elliptical Orbit Path */}
-                      <ellipse
-                        cx="0"
-                        cy="0"
-                        rx="170"
-                        ry={170 * Math.sqrt(1 - Math.pow(keplerCalc.e, 2))}
-                        fill="none"
-                        stroke="#6366F1"
-                        strokeWidth="2.5"
-                        strokeDasharray="6,4"
-                      />
+                        {/* Solar Core & Corona Radial Gradient */}
+                        <radialGradient id="sunCoronaGrad" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#ffffff" />
+                          <stop offset="25%" stopColor="#fef08a" />
+                          <stop offset="55%" stopColor="#f59e0b" />
+                          <stop offset="85%" stopColor="#d97706" />
+                          <stop offset="100%" stopColor="#b45309" stopOpacity="0" />
+                        </radialGradient>
 
-                      {/* Primary Focus (Sun) at (-c, 0) */}
-                      <circle
-                        cx={-170 * keplerCalc.e}
-                        cy="0"
-                        r="12"
-                        fill="#F59E0B"
-                        className="animate-pulse"
-                      />
-                      <text
-                        x={-170 * keplerCalc.e}
-                        y="26"
-                        fill="#FCD34D"
-                        fontSize="10"
-                        textAnchor="middle"
-                        fontFamily="monospace"
-                      >
-                        {isArabic ? 'الشمس (البؤرة الأولى)' : 'Sun Focus'}
-                      </text>
+                        {/* Planet Sphere Shading */}
+                        <radialGradient id="planetShading" cx="35%" cy="35%" r="65%">
+                          <stop offset="0%" stopColor="#67e8f9" />
+                          <stop offset="45%" stopColor="#06b6d4" />
+                          <stop offset="80%" stopColor="#0891b2" />
+                          <stop offset="100%" stopColor="#164e63" />
+                        </radialGradient>
 
-                      {/* Empty Secondary Focus */}
-                      <circle cx={170 * keplerCalc.e} cy="0" r="3" fill="#64748B" />
+                        {/* Swept Area Gradient */}
+                        <linearGradient id="sectorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#10b981" stopOpacity="0.35" />
+                          <stop offset="100%" stopColor="#059669" stopOpacity="0.1" />
+                        </linearGradient>
 
-                      {/* Perihelion Planet Point at (-170, 0) */}
-                      <circle cx="-170" cy="0" r="8" fill="#10B981" />
-                      <text x="-170" y="-14" fill="#34D399" fontSize="9" textAnchor="middle" fontFamily="monospace">
-                        Perihelion ({keplerCalc.periSpeed} km/s)
-                      </text>
+                        {/* Glow Filter */}
+                        <filter id="solarGlow" x="-50%" y="-50%" width="200%" height="200%">
+                          <feGaussianBlur stdDeviation="3.5" result="blur" />
+                          <feMerge>
+                            <feMergeNode in="blur" />
+                            <feMergeNode in="SourceGraphic" />
+                          </feMerge>
+                        </filter>
+                      </defs>
 
-                      {/* Aphelion Planet Point at (+170, 0) */}
-                      <circle cx="170" cy="0" r="6" fill="#F43F5E" />
-                      <text x="170" y="-14" fill="#FB7185" fontSize="9" textAnchor="middle" fontFamily="monospace">
-                        Aphelion ({keplerCalc.aphSpeed} km/s)
-                      </text>
+                      {/* Backdrop */}
+                      <rect x="-260" y="-140" width="520" height="280" fill="url(#spaceBackdrop)" rx="10" />
+
+                      {/* Distant Starfield Background */}
+                      {[
+                        [-220, -100, 1], [-190, 80, 1.2], [-140, -115, 0.8], [-90, 110, 1],
+                        [-30, -90, 1.4], [50, 115, 0.9], [120, -105, 1.1], [180, 85, 1.3],
+                        [220, -80, 0.7], [230, 95, 1.2], [-70, -40, 0.9], [140, 40, 0.8]
+                      ].map(([sx, sy, sr], i) => (
+                        <circle key={i} cx={sx} cy={sy} r={sr} fill="#ffffff" opacity={0.4 + (i % 5) * 0.12} />
+                      ))}
+
+                      {/* Coordinate Axes & Grid Lines */}
+                      <line x1="-240" y1="0" x2="240" y2="0" stroke="#334155" strokeDasharray="3,3" strokeWidth="0.8" opacity="0.6" />
+                      <line x1="0" y1="-125" x2="0" y2="125" stroke="#334155" strokeDasharray="3,3" strokeWidth="0.8" opacity="0.6" />
+
+                      {(() => {
+                        const a = 170;
+                        const b = a * Math.sqrt(Math.max(0.01, 1 - Math.pow(keplerCalc.e, 2)));
+                        const c = a * keplerCalc.e; // Distance from center to focus
+                        const sunX = -c;
+
+                        // Perihelion Sector Path (Swept Area A1 over time interval dt)
+                        const periAngleRad = (28 * Math.PI) / 180;
+                        const p1X = -a * Math.cos(periAngleRad);
+                        const p1Y = -b * Math.sin(periAngleRad);
+
+                        // Aphelion Sector Path (Swept Area A2 over same dt, smaller angular sweep)
+                        const aphAngleRad = (13 * Math.PI) / 180;
+                        const a1X = a * Math.cos(aphAngleRad);
+                        const a1Y = b * Math.sin(aphAngleRad);
+
+                        return (
+                          <g>
+                            {/* Kepler II: Equal Swept Area Sector at Perihelion */}
+                            <path
+                              d={`M ${sunX} 0 L -${a} 0 A ${a} ${b} 0 0 1 ${p1X} ${p1Y} Z`}
+                              fill="url(#sectorGrad)"
+                              stroke="#10b981"
+                              strokeWidth="1.2"
+                              strokeDasharray="2,2"
+                            />
+                            <text x={(-a + sunX) / 2} y="-12" fill="#34d399" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                              Area A₁
+                            </text>
+
+                            {/* Kepler II: Equal Swept Area Sector at Aphelion */}
+                            <path
+                              d={`M ${sunX} 0 L ${a} 0 A ${a} ${b} 0 0 1 ${a1X} ${a1Y} Z`}
+                              fill="url(#sectorGrad)"
+                              stroke="#10b981"
+                              strokeWidth="1.2"
+                              strokeDasharray="2,2"
+                            />
+                            <text x={(a + sunX) / 2 + 10} y="16" fill="#34d399" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                              Area A₂
+                            </text>
+
+                            {/* Elliptical Orbit Path */}
+                            <ellipse
+                              cx="0"
+                              cy="0"
+                              rx={a}
+                              ry={b}
+                              fill="none"
+                              stroke="#6366f1"
+                              strokeWidth="2.5"
+                              strokeDasharray="6,4"
+                            />
+
+                            {/* Semi-Major Axis Dimension Marker */}
+                            <line x1="0" y1="0" x2={a} y2="0" stroke="#818cf8" strokeWidth="1.5" opacity="0.7" />
+                            <text x={a / 2} y="-6" fill="#a5b4fc" fontSize="9" textAnchor="middle" fontFamily="monospace">
+                              a = {keplerCalc.a} AU
+                            </text>
+
+                            {/* Empty Secondary Focus at (+c, 0) */}
+                            <circle cx={c} cy="0" r="3.5" fill="#64748b" />
+                            <text x={c} y="14" fill="#94a3b8" fontSize="8" textAnchor="middle" fontFamily="monospace">
+                              F₂
+                            </text>
+
+                            {/* Primary Focus (Sun with High-Res Corona) at (-c, 0) */}
+                            <circle cx={sunX} cy="0" r="28" fill="url(#sunCoronaGrad)" opacity="0.4" />
+                            <circle cx={sunX} cy="0" r="16" fill="url(#sunCoronaGrad)" opacity="0.8" />
+                            <circle cx={sunX} cy="0" r="10" fill="#fef08a" filter="url(#solarGlow)" />
+                            {/* Solar Flare Spikes */}
+                            {[-45, 0, 45, 90, 135, 180, 225, 270].map((deg, i) => {
+                              const rad = (deg * Math.PI) / 180;
+                              return (
+                                <line
+                                  key={i}
+                                  x1={sunX + 11 * Math.cos(rad)}
+                                  y1={11 * Math.sin(rad)}
+                                  x2={sunX + 17 * Math.cos(rad)}
+                                  y2={17 * Math.sin(rad)}
+                                  stroke="#f59e0b"
+                                  strokeWidth="1.5"
+                                  opacity="0.75"
+                                />
+                              );
+                            })}
+                            <text x={sunX} y="32" fill="#fef08a" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                              {isArabic ? 'الشمس (البؤرة F₁)' : 'Sun Focus (F₁)'}
+                            </text>
+
+                            {/* Perihelion Planet with Realistic 3D Atmosphere & Velocity Vector */}
+                            <g transform={`translate(-${a}, 0)`}>
+                              {/* Velocity Vector Arrow pointing downward */}
+                              <line x1="0" y1="0" x2="0" y2="42" stroke="#10b981" strokeWidth="2.5" />
+                              <polygon points="0,46 -4,38 4,38" fill="#10b981" />
+                              <text x="-8" y="28" fill="#34d399" fontSize="8" fontWeight="bold" textAnchor="end" fontFamily="monospace">
+                                v_max
+                              </text>
+                              {/* Planet Body */}
+                              <circle cx="0" cy="0" r="9.5" fill="url(#planetShading)" />
+                              <circle cx="0" cy="0" r="11" fill="none" stroke="#67e8f9" strokeWidth="1" opacity="0.6" />
+                              <text x="0" y="-16" fill="#34d399" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                                Perihelion ({keplerCalc.periSpeed} km/s)
+                              </text>
+                            </g>
+
+                            {/* Aphelion Planet with Velocity Vector */}
+                            <g transform={`translate(${a}, 0)`}>
+                              {/* Velocity Vector Arrow pointing upward */}
+                              <line x1="0" y1="0" x2="0" y2="-24" stroke="#f43f5e" strokeWidth="2" />
+                              <polygon points="0,-28 -3.5,-21 3.5,-21" fill="#f43f5e" />
+                              <text x="8" y="-14" fill="#fb7185" fontSize="8" fontWeight="bold" textAnchor="start" fontFamily="monospace">
+                                v_min
+                              </text>
+                              {/* Planet Body */}
+                              <circle cx="0" cy="0" r="7.5" fill="url(#planetShading)" opacity="0.9" />
+                              <text x="0" y="24" fill="#fb7185" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                                Aphelion ({keplerCalc.aphSpeed} km/s)
+                              </text>
+                            </g>
+                          </g>
+                        );
+                      })()}
                     </svg>
                   </div>
                 </div>
@@ -552,8 +683,8 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                 <div className="mt-4 p-3 rounded-lg bg-indigo-950/40 border border-indigo-500/30 text-xs text-slate-300">
                   <span className="text-indigo-300 font-semibold">{isArabic ? 'التحليل الفيزيائي:' : 'Astrophysical Insight:'} </span>
                   {isArabic
-                    ? 'يتحقق قانون كبلر الثاني بوضوح؛ إذ تبلغ سرعة الكوكب ذروتها عند الحضيض الأقرب للشمس للحفاظ على بقاء كمية التحرك الزاوي المدارية.'
-                    : 'Kepler’s Second Law manifests as the orbiting body accelerates to maximum velocity at perihelion to conserve orbital angular momentum.'}
+                    ? 'يتحقق قانون كبلر الثاني بوضوح؛ إذ تتساوى المساحات الممسوحة A₁ = A₂ في الأزمنة المتساوية dt، وتتسارع سرعة الكوكب لذروتها عند الحضيض للحفاظ على بقاء كمية التحرك الزاوي المدارية (L = m·r·v = ثابت).'
+                    : 'Kepler’s Second Law manifests as equal orbital areas (A₁ = A₂) are swept in equal time intervals; the orbiting body accelerates to maximum velocity at perihelion to strictly conserve angular momentum (L = m·r·v = const).'}
                 </div>
               </div>
             </div>
@@ -698,56 +829,190 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                     <span className="text-xs font-mono text-cyan-400">L ∝ M^3.5</span>
                   </h3>
 
-                  <div className="h-64 rounded-xl bg-slate-900 border border-slate-800 p-4 relative overflow-hidden flex items-center justify-center">
-                    <svg viewBox="0 0 500 240" className="w-full h-full">
-                      {/* Main Sequence Band */}
+                  <div className="h-72 rounded-xl bg-slate-950 border border-slate-800 p-3 relative overflow-hidden flex items-center justify-center shadow-2xl">
+                    <svg viewBox="0 0 540 290" className="w-full h-full">
+                      <defs>
+                        {/* Spectral Classification Background Thermal Bar */}
+                        <linearGradient id="spectralTempGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#38bdf8" />
+                          <stop offset="18%" stopColor="#818cf8" />
+                          <stop offset="35%" stopColor="#e0e7ff" />
+                          <stop offset="52%" stopColor="#fef08a" />
+                          <stop offset="68%" stopColor="#facc15" />
+                          <stop offset="84%" stopColor="#fb923c" />
+                          <stop offset="100%" stopColor="#ef4444" />
+                        </linearGradient>
+
+                        {/* Main Sequence Gradient Ribbon */}
+                        <linearGradient id="mainSeqGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.45" />
+                          <stop offset="40%" stopColor="#e0e7ff" stopOpacity="0.4" />
+                          <stop offset="70%" stopColor="#facc15" stopOpacity="0.35" />
+                          <stop offset="100%" stopColor="#ef4444" stopOpacity="0.3" />
+                        </linearGradient>
+
+                        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stopColor="#ffffff" />
+                          <stop offset="40%" stopColor="#fef08a" />
+                          <stop offset="100%" stopColor="#eab308" stopOpacity="0" />
+                        </radialGradient>
+                      </defs>
+
+                      {/* Chart Area Boundary */}
+                      <rect x="55" y="25" width="425" height="215" fill="#030712" stroke="#1e293b" strokeWidth="1" />
+
+                      {/* Horizontal Luminosity Grid Lines (L / L_sun) */}
+                      {[
+                        { y: 35, label: '10⁶', mag: '-8' },
+                        { y: 70, label: '10⁴', mag: '-3' },
+                        { y: 105, label: '10²', mag: '+2' },
+                        { y: 140, label: '1', mag: '+5' },
+                        { y: 175, label: '10⁻²', mag: '+10' },
+                        { y: 210, label: '10⁻⁴', mag: '+15' },
+                      ].map((grid, i) => (
+                        <g key={i}>
+                          <line x1="55" y1={grid.y} x2="480" y2={grid.y} stroke="#1e293b" strokeDasharray="3,3" strokeWidth="0.8" />
+                          {/* Left Axis: L / L_sun */}
+                          <text x="48" y={grid.y + 3} fill="#94a3b8" fontSize="8" textAnchor="end" fontFamily="monospace">
+                            {grid.label}
+                          </text>
+                          {/* Right Axis: Absolute Magnitude M_V */}
+                          <text x="487" y={grid.y + 3} fill="#64748b" fontSize="8" textAnchor="start" fontFamily="monospace">
+                            {grid.mag}
+                          </text>
+                        </g>
+                      ))}
+
+                      {/* Axis Titles */}
+                      <text x="18" y="130" fill="#38bdf8" fontSize="9" fontWeight="bold" fontFamily="monospace" transform="rotate(-90, 18, 130)" textAnchor="middle">
+                        Luminosity (L / L☉)
+                      </text>
+                      <text x="518" y="130" fill="#64748b" fontSize="8" fontFamily="monospace" transform="rotate(90, 518, 130)" textAnchor="middle">
+                        Abs. Magnitude (M_V)
+                      </text>
+
+                      {/* Supergiants Region (Ia / Ib) */}
+                      <path d="M 75 32 Q 260 30 465 48 L 465 72 Q 260 55 75 58 Z" fill="#ef4444" fillOpacity="0.12" stroke="#ef4444" strokeWidth="1" strokeDasharray="3,2" />
+                      <text x="270" y="44" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                        SUPERGIANTS (العمالقة الفائقة)
+                      </text>
+
+                      {/* Red Giants Region (III) */}
+                      <path d="M 330 65 Q 410 70 465 85 L 465 130 Q 400 115 330 100 Z" fill="#f97316" fillOpacity="0.14" stroke="#f97316" strokeWidth="1" strokeDasharray="3,2" />
+                      <text x="400" y="98" fill="#fb923c" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                        RED GIANTS (العمالقة الحمر)
+                      </text>
+
+                      {/* White Dwarfs Region (VII) */}
+                      <path d="M 75 170 Q 150 178 210 190 L 210 230 Q 140 220 75 210 Z" fill="#38bdf8" fillOpacity="0.14" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3,2" />
+                      <text x="140" y="202" fill="#7dd3fc" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                        WHITE DWARFS (الأقزام البيضاء)
+                      </text>
+
+                      {/* Main Sequence (V) S-Curve Ribbon */}
                       <path
-                        d="M 50 40 Q 250 120 450 200"
+                        d="M 70 45 C 130 65, 230 115, 290 140 C 350 165, 420 205, 465 225"
                         fill="none"
-                        stroke="#3B82F6"
-                        strokeWidth="18"
+                        stroke="url(#mainSeqGrad)"
+                        strokeWidth="24"
                         strokeLinecap="round"
-                        opacity="0.25"
                       />
-                      <text x="260" y="115" fill="#60A5FA" fontSize="10" fontFamily="monospace" transform="rotate(18, 260, 115)">
-                        Main Sequence (التتابع الرئيسي)
+                      <text x="210" y="116" fill="#e0e7ff" fontSize="10" fontWeight="bold" fontFamily="monospace" transform="rotate(22, 210, 116)">
+                        MAIN SEQUENCE • التتابع الرئيسي (V)
                       </text>
 
-                      {/* Giants Area */}
-                      <rect x="280" y="30" width="160" height="55" rx="8" fill="#EF4444" opacity="0.15" />
-                      <text x="360" y="60" fill="#F87171" fontSize="10" textAnchor="middle" fontFamily="monospace">
-                        Red Giants (العمالقة الحمر)
+                      {/* Benchmark Canonical Stars */}
+                      {/* Betelgeuse (M2I) */}
+                      <circle cx="430" cy="52" r="5" fill="#ef4444" />
+                      <text x="430" y="44" fill="#fca5a5" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Betelgeuse</text>
+
+                      {/* Rigel (B8I) */}
+                      <circle cx="130" cy="40" r="5" fill="#38bdf8" />
+                      <text x="130" y="32" fill="#bae6fd" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Rigel</text>
+
+                      {/* Aldebaran (K5III) */}
+                      <circle cx="390" cy="90" r="4" fill="#fb923c" />
+                      <text x="390" y="82" fill="#fed7aa" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Aldebaran</text>
+
+                      {/* Vega (A0V) */}
+                      <circle cx="180" cy="92" r="3.5" fill="#e0e7ff" />
+                      <text x="180" y="84" fill="#f1f5f9" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Vega</text>
+
+                      {/* The SUN (G2V, L=1, T=5778K, center of diagram) */}
+                      <circle cx="290" cy="140" r="7" fill="url(#sunGlow)" />
+                      <circle cx="290" cy="140" r="3.5" fill="#facc15" />
+                      <circle cx="290" cy="140" r="5.5" fill="none" stroke="#fef08a" strokeWidth="1" />
+                      <text x="290" y="156" fill="#fde047" fontSize="8.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                        ☉ Sun (شمسنا 1L)
                       </text>
 
-                      {/* White Dwarfs Area */}
-                      <rect x="60" y="160" width="130" height="50" rx="8" fill="#F59E0B" opacity="0.15" />
-                      <text x="125" y="190" fill="#FCD34D" fontSize="10" textAnchor="middle" fontFamily="monospace">
-                        White Dwarfs (الأقزام البيضاء)
-                      </text>
+                      {/* Sirius B (White Dwarf) */}
+                      <circle cx="120" cy="195" r="2.5" fill="#7dd3fc" />
+                      <text x="120" y="188" fill="#bae6fd" fontSize="7" textAnchor="middle" fontFamily="monospace">Sirius B</text>
 
-                      {/* Active Star Marker Position */}
+                      {/* Proxima Centauri (M5V) */}
+                      <circle cx="450" cy="220" r="2.5" fill="#f87171" />
+                      <text x="450" y="213" fill="#fca5a5" fontSize="7" textAnchor="middle" fontFamily="monospace">Proxima Cen</text>
+
+                      {/* Active Dynamic Star Position Marker */}
                       {(() => {
-                        const clampedLogL = Math.max(-2, Math.min(4, stellarMetrics.logL));
-                        const posX = 450 - ((stellarMetrics.tempK - 3000) / 32000) * 400;
-                        const posY = 150 - (clampedLogL / 4) * 90;
+                        const clampedLogL = Math.max(-3.5, Math.min(5.5, stellarMetrics.logL));
+                        // Horizontal map from TempK (40,000K -> x=70, 3,000K -> x=460)
+                        const normT = Math.max(0, Math.min(1, (stellarMetrics.tempK - 2800) / (38000 - 2800)));
+                        const posX = 460 - normT * 390;
+                        // Vertical map from LogL (-4 -> y=210, 6 -> y=35)
+                        const normL = Math.max(0, Math.min(1, (clampedLogL - (-4)) / (6 - (-4))));
+                        const posY = 210 - normL * 175;
+
                         return (
                           <g>
-                            <circle cx={posX} cy={posY} r="8" fill="#10B981" className="animate-pulse" />
-                            <circle cx={posX} cy={posY} r="14" fill="none" stroke="#34D399" strokeWidth="1.5" />
-                            <text x={posX} y={posY - 12} fill="#A7F3D0" fontSize="9" textAnchor="middle" fontFamily="monospace">
-                              Star ({stellarMetrics.M} M☉)
+                            {/* Pulsing Target Radar Rings */}
+                            <circle cx={posX} cy={posY} r="18" fill="none" stroke="#10b981" strokeWidth="1" opacity="0.4" className="animate-ping" />
+                            <circle cx={posX} cy={posY} r="10" fill="none" stroke="#34d399" strokeWidth="1.5" strokeDasharray="3,2" />
+                            <circle cx={posX} cy={posY} r="5" fill="#10b981" />
+                            <circle cx={posX} cy={posY} r="2" fill="#ffffff" />
+                            {/* Crosshairs */}
+                            <line x1={posX - 14} y1={posY} x2={posX + 14} y2={posY} stroke="#34d399" strokeWidth="1" opacity="0.8" />
+                            <line x1={posX} y1={posY - 14} x2={posX} y2={posY + 14} stroke="#34d399" strokeWidth="1" opacity="0.8" />
+                            {/* Tag */}
+                            <rect x={posX - 38} y={posY - 28} width="76" height="15" rx="3" fill="#022c22" stroke="#059669" strokeWidth="1" />
+                            <text x={posX} y={posY - 18} fill="#a7f3d0" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                              M={stellarMetrics.M}M☉ ({Math.round(stellarMetrics.tempK)}K)
                             </text>
                           </g>
                         );
                       })()}
+
+                      {/* Bottom Spectral Class Banner Bar */}
+                      <rect x="55" y="244" width="425" height="10" rx="2" fill="url(#spectralTempGrad)" />
+                      {/* Spectral Type Ticks & Labels */}
+                      {[
+                        { x: 80, class: 'O', temp: '40,000K' },
+                        { x: 135, class: 'B', temp: '20,000K' },
+                        { x: 195, class: 'A', temp: '10,000K' },
+                        { x: 250, class: 'F', temp: '7,500K' },
+                        { x: 305, class: 'G', temp: '5,800K' },
+                        { x: 365, class: 'K', temp: '4,500K' },
+                        { x: 440, class: 'M', temp: '3,000K' },
+                      ].map((spec, i) => (
+                        <g key={i}>
+                          <line x1={spec.x} y1="240" x2={spec.x} y2="244" stroke="#94a3b8" strokeWidth="1" />
+                          <text x={spec.x} y="265" fill="#f8fafc" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            {spec.class}
+                          </text>
+                          <text x={spec.x} y="277" fill="#64748b" fontSize="7" textAnchor="middle" fontFamily="monospace">
+                            {spec.temp}
+                          </text>
+                        </g>
+                      ))}
                     </svg>
                   </div>
                 </div>
 
                 <div className="mt-4 p-3 rounded-lg bg-slate-900/60 border border-slate-800 text-xs text-slate-400">
                   {isArabic
-                    ? 'كلما زادت كتلة النجم، زادت حرارته ولمعانه بشكل أسي، وقصرت فترة بقائه على التتابع الرئيسي حتى ينتهي في مستعر أعظم أو ثقب أسود.'
-                    : 'Higher mass stars radiate drastically higher luminosities, exhausting core hydrogen at exponential rates before collapsing into supernovae or black holes.'}
+                    ? 'كلما زادت كتلة النجم، زادت حرارته ولمعانه بشكل أسي (L ∝ M^3.5)، وقصرت فترة بقائه على التتابع الرئيسي حتى ينتهي في مستعر أعظم أو ثقب أسود.'
+                    : 'Higher mass stars radiate drastically higher luminosities (L ∝ M^3.5), exhausting core hydrogen at exponential rates before collapsing into supernovae or black holes.'}
                 </div>
               </div>
             </div>
@@ -834,31 +1099,136 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                     <span className="text-xs font-mono text-emerald-400">Two-Impulse Minimum Energy</span>
                   </h3>
 
-                  <div className="h-64 rounded-xl bg-slate-900 border border-slate-800 p-4 flex items-center justify-center relative overflow-hidden">
-                    <svg viewBox="-200 -120 400 240" className="w-full h-full">
-                      {/* Central primary (Sun or Earth) */}
-                      <circle cx="0" cy="0" r="14" fill="#F59E0B" />
+                  <div className="h-72 rounded-xl bg-slate-950 border border-slate-800 p-4 flex items-center justify-center relative overflow-hidden shadow-2xl">
+                    <svg viewBox="-230 -140 460 280" className="w-full h-full">
+                      <defs>
+                        <radialGradient id="hohmannBackdrop" cx="50%" cy="50%" r="70%">
+                          <stop offset="0%" stopColor="#0f172a" />
+                          <stop offset="60%" stopColor="#020617" />
+                          <stop offset="100%" stopColor="#000000" />
+                        </radialGradient>
 
-                      {/* Inner Circular Orbit */}
-                      <circle cx="0" cy="0" r="50" fill="none" stroke="#3B82F6" strokeWidth="2" />
-                      <circle cx="50" cy="0" r="5" fill="#3B82F6" />
-                      <text x="50" y="16" fill="#93C5FD" fontSize="8" textAnchor="middle" fontFamily="monospace">Departure</text>
+                        {/* Earth Texture Radial Gradient */}
+                        <radialGradient id="earthGrad" cx="35%" cy="35%" r="65%">
+                          <stop offset="0%" stopColor="#93c5fd" />
+                          <stop offset="40%" stopColor="#3b82f6" />
+                          <stop offset="75%" stopColor="#1d4ed8" />
+                          <stop offset="100%" stopColor="#1e3a8a" />
+                        </radialGradient>
 
-                      {/* Outer Circular Orbit */}
-                      <circle cx="0" cy="0" r="110" fill="none" stroke="#EF4444" strokeWidth="2" />
-                      <circle cx="-110" cy="0" r="5" fill="#EF4444" />
-                      <text x="-110" y="16" fill="#FCA5A5" fontSize="8" textAnchor="middle" fontFamily="monospace">Arrival</text>
+                        {/* Mars Texture Radial Gradient */}
+                        <radialGradient id="marsGrad" cx="35%" cy="35%" r="65%">
+                          <stop offset="0%" stopColor="#fca5a5" />
+                          <stop offset="40%" stopColor="#ef4444" />
+                          <stop offset="75%" stopColor="#b91c1c" />
+                          <stop offset="100%" stopColor="#7f1d1d" />
+                        </radialGradient>
 
-                      {/* Transfer Ellipse (half) */}
+                        {/* Rocket Exhaust Plume Fire */}
+                        <linearGradient id="rocketFire" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stopColor="#ffffff" />
+                          <stop offset="30%" stopColor="#fde047" />
+                          <stop offset="70%" stopColor="#f97316" />
+                          <stop offset="100%" stopColor="#ef4444" stopOpacity="0" />
+                        </linearGradient>
+                      </defs>
+
+                      {/* Space Backdrop */}
+                      <rect x="-230" y="-140" width="460" height="280" fill="url(#hohmannBackdrop)" rx="10" />
+
+                      {/* Distant Stars */}
+                      {[
+                        [-200, -90], [-170, 70], [-120, -110], [-50, 105], [40, -100],
+                        [110, 80], [170, -95], [195, 60], [-80, -40], [130, 30]
+                      ].map(([sx, sy], i) => (
+                        <circle key={i} cx={sx} cy={sy} r="1" fill="#ffffff" opacity={0.35 + (i % 4) * 0.15} />
+                      ))}
+
+                      {/* Central Primary (The Sun) */}
+                      <circle cx="0" cy="0" r="22" fill="#f59e0b" opacity="0.25" />
+                      <circle cx="0" cy="0" r="14" fill="#fef08a" />
+                      <circle cx="0" cy="0" r="10" fill="#facc15" />
+                      <text x="0" y="24" fill="#fde047" fontSize="8.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                        ☉ Sun
+                      </text>
+
+                      {/* Departure Orbit (Earth Orbit r1 = 60 AU-scaled) */}
+                      <circle cx="0" cy="0" r="60" fill="none" stroke="#3b82f6" strokeWidth="1.8" strokeDasharray="5,4" opacity="0.8" />
+                      {/* Orbit direction arrow */}
+                      <polygon points="0,-60 -5,-57 -5,-63" fill="#60a5fa" />
+                      <text x="0" y="-65" fill="#93c5fd" fontSize="8" textAnchor="middle" fontFamily="monospace">
+                        Departure Orbit (r₁ = 1.00 AU)
+                      </text>
+
+                      {/* Arrival Orbit (Target Planet Orbit r2 = 135 AU-scaled) */}
+                      <circle cx="0" cy="0" r="135" fill="none" stroke="#ef4444" strokeWidth="1.8" strokeDasharray="6,4" opacity="0.8" />
+                      {/* Orbit direction arrow */}
+                      <polygon points="0,135 5,132 5,138" fill="#f87171" />
+                      <text x="0" y="148" fill="#fca5a5" fontSize="8" textAnchor="middle" fontFamily="monospace">
+                        Target Orbit (r₂ = 1.52 AU)
+                      </text>
+
+                      {/* Hohmann Semi-Elliptical Transfer Trajectory Path */}
+                      {/* Semi-major axis a_t = (r1 + r2) / 2 = 97.5, c_t = (r2 - r1)/2 = 37.5, center = (-37.5, 0) */}
                       <path
-                        d="M 50 0 A 80 65 0 0 0 -110 0"
+                        d="M 60 0 C 60 -75, -135 -75, -135 0"
                         fill="none"
-                        stroke="#10B981"
-                        strokeWidth="2.5"
-                        strokeDasharray="5,4"
+                        stroke="#10b981"
+                        strokeWidth="2.8"
+                        strokeDasharray="6,3"
                       />
-                      <text x="-30" y="-75" fill="#34D399" fontSize="9" textAnchor="middle" fontFamily="monospace">
-                        Hohmann Trajectory (Δv1 + Δv2)
+                      {/* Mid-trajectory velocity vector */}
+                      <polygon points="-37.5,-55 -30,-50 -30,-60" fill="#34d399" />
+                      <text x="-37.5" y="-63" fill="#34d399" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                        Hohmann Trajectory (Δv_total = Δv₁ + Δv₂)
+                      </text>
+
+                      {/* Earth at Departure (r1 = 60, 0) */}
+                      <g transform="translate(60, 0)">
+                        {/* Atmospheric glow ring */}
+                        <circle cx="0" cy="0" r="11" fill="none" stroke="#60a5fa" strokeWidth="1.2" opacity="0.6" />
+                        <circle cx="0" cy="0" r="9" fill="url(#earthGrad)" />
+                        {/* Prograde Tangential Burn 1 (Δv1) Exhaust Plume */}
+                        <polygon points="0,0 20,-4 20,4" fill="url(#rocketFire)" />
+                        <line x1="0" y1="0" x2="-22" y2="0" stroke="#10b981" strokeWidth="2.2" />
+                        <polygon points="-26,0 -20,-3 -20,3" fill="#10b981" />
+                        <text x="-12" y="-12" fill="#34d399" fontSize="8" fontWeight="bold" fontFamily="monospace">
+                          Δv₁ (+2.94 km/s)
+                        </text>
+                        <text x="0" y="20" fill="#93c5fd" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                          Earth (الانطلاق)
+                        </text>
+                      </g>
+
+                      {/* Target Planet (Mars) at Arrival (-135, 0) */}
+                      <g transform="translate(-135, 0)">
+                        {/* Atmospheric glow ring */}
+                        <circle cx="0" cy="0" r="10" fill="none" stroke="#f87171" strokeWidth="1" opacity="0.6" />
+                        <circle cx="0" cy="0" r="8" fill="url(#marsGrad)" />
+                        {/* Polar ice cap */}
+                        <circle cx="0" cy="-6" r="2.5" fill="#f8fafc" opacity="0.85" />
+                        {/* Retro-Burn 2 (Δv2) Capture Insertion Plume */}
+                        <polygon points="0,0 -18,-3.5 -18,3.5" fill="url(#rocketFire)" />
+                        <line x1="0" y1="0" x2="20" y2="0" stroke="#10b981" strokeWidth="2.2" />
+                        <polygon points="24,0 18,-3 18,3" fill="#10b981" />
+                        <text x="14" y="-10" fill="#34d399" fontSize="8" fontWeight="bold" fontFamily="monospace">
+                          Δv₂ (+2.65 km/s)
+                        </text>
+                        <text x="0" y="20" fill="#fca5a5" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                          Mars (الالتقاء المداري)
+                        </text>
+                      </g>
+
+                      {/* Planetary Launch Window Phase Angle (44°) */}
+                      <path
+                        d="M 28 0 A 28 28 0 0 0 20 -20"
+                        fill="none"
+                        stroke="#f59e0b"
+                        strokeWidth="1.5"
+                        strokeDasharray="2,2"
+                      />
+                      <text x="36" y="-14" fill="#fbbf24" fontSize="8" fontWeight="bold" fontFamily="monospace">
+                        Phase Angle φ ≈ 44°
                       </text>
                     </svg>
                   </div>

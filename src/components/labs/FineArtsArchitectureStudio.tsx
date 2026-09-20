@@ -843,61 +843,165 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
             </div>
           </div>
 
-          {/* Interactive Islamic Rosette Canvas */}
+          {/* Interactive Islamic Rosette Canvas - Museum-Grade Girih Geometric Strapwork */}
           <div className="lg:col-span-8 flex flex-col space-y-4">
-            <div className="relative w-full h-[380px] rounded-xl border border-rose-500/30 bg-slate-950 flex items-center justify-center p-4 overflow-hidden">
-              <svg className="w-80 h-80" viewBox="0 0 300 300">
+            <div className="relative w-full h-[410px] rounded-xl border border-rose-500/30 bg-slate-950 flex items-center justify-center p-4 overflow-hidden shadow-2xl">
+              <svg className="w-96 h-96" viewBox="0 0 320 320">
                 <defs>
+                  {/* Radial Backdrop Glow */}
                   <radialGradient id={`${svgId}-rosetteGlow`}>
-                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.4" />
+                    <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.35" />
+                    <stop offset="60%" stopColor="#78350f" stopOpacity="0.15" />
                     <stop offset="100%" stopColor="#0f172a" stopOpacity="0" />
                   </radialGradient>
+
+                  {/* Gold Leaf Shimmer */}
+                  <linearGradient id={`${svgId}-goldLeaf`} x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#fef08a" />
+                    <stop offset="40%" stopColor="#f59e0b" />
+                    <stop offset="70%" stopColor="#b45309" />
+                    <stop offset="100%" stopColor="#78350f" />
+                  </linearGradient>
+
+                  {/* Central Medallion Dome Gradient */}
+                  <radialGradient id={`${svgId}-centralBoss`} cx="35%" cy="35%" r="65%">
+                    <stop offset="0%" stopColor="#fde68a" />
+                    <stop offset="50%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#78350f" />
+                  </radialGradient>
+
+                  {/* Filter for Drop Shadow on Strapwork Ribbons */}
+                  <filter id={`${svgId}-girihShadow`} x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="1" dy="2" stdDeviation="2" floodColor="#000000" floodOpacity="0.8" />
+                  </filter>
                 </defs>
 
-                <circle cx="150" cy="150" r="140" fill={`url(#${svgId}-rosetteGlow)`} />
-                <circle cx="150" cy="150" r="130" fill="none" stroke="#475569" strokeWidth="1" strokeDasharray="4 4" />
-                <circle cx="150" cy="150" r="85" fill="none" stroke="#475569" strokeWidth="1" strokeDasharray="3 3" />
+                {/* Outer Decorative Circular Frame */}
+                <circle cx="160" cy="160" r="150" fill={`url(#${svgId}-rosetteGlow)`} />
+                <circle cx="160" cy="160" r="146" fill="none" stroke="url(#${svgId}-goldLeaf)" strokeWidth="2.5" />
+                <circle cx="160" cy="160" r="140" fill="none" stroke="#475569" strokeWidth="1" strokeDasharray="4 3" opacity="0.6" />
+                <circle cx="160" cy="160" r="95" fill="none" stroke="#64748b" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.4" />
 
-                {/* 8-Fold or 12-Fold Star Rosette Rays */}
+                {/* 1. Outer Star Petals / Kite Louzat (Outer Tier) */}
                 {Array.from({ length: selectedTessellation.symmetryOrder }).map((_, idx) => {
-                  const angle = (idx * 360) / selectedTessellation.symmetryOrder;
-                  const rad = (angle * Math.PI) / 180;
-                  const radMid = ((angle + 360 / (selectedTessellation.symmetryOrder * 2)) * Math.PI) / 180;
+                  const N = selectedTessellation.symmetryOrder;
+                  const step = 360 / N;
+                  const angle = idx * step;
+                  const rad1 = (angle * Math.PI) / 180;
+                  const radMid = ((angle + step / 2) * Math.PI) / 180;
+                  const radNext = (((angle + step)) * Math.PI) / 180;
 
-                  const xOuter = 150 + 120 * Math.cos(rad);
-                  const yOuter = 150 + 120 * Math.sin(rad);
-                  const xInner = 150 + 55 * Math.cos(radMid);
-                  const yInner = 150 + 55 * Math.sin(radMid);
+                  const rTip = 138;
+                  const rNotch = 95;
+                  const rInner = 60;
 
-                  const rayColor =
+                  const tipX = 160 + rTip * Math.cos(rad1);
+                  const tipY = 160 + rTip * Math.sin(rad1);
+
+                  const notchX = 160 + rNotch * Math.cos(radMid);
+                  const notchY = 160 + rNotch * Math.sin(radMid);
+
+                  const inner1X = 160 + rInner * Math.cos(rad1);
+                  const inner1Y = 160 + rInner * Math.sin(rad1);
+
+                  const nextTipX = 160 + rTip * Math.cos(radNext);
+                  const nextTipY = 160 + rTip * Math.sin(radNext);
+
+                  const primaryColor =
                     ablaqPalette === 'traditional'
-                      ? idx % 2 === 0
-                        ? '#be123c'
-                        : '#f8fafc'
+                      ? idx % 2 === 0 ? '#991b1b' : '#f8fafc'
                       : ablaqPalette === 'golden'
-                      ? idx % 2 === 0
-                        ? '#f59e0b'
-                        : '#78350f'
-                      : idx % 2 === 0
-                      ? '#0d9488'
-                      : '#0284c7';
+                      ? idx % 2 === 0 ? '#d97706' : '#292524'
+                      : idx % 2 === 0 ? '#0f766e' : '#0369a1';
+
+                  const secondaryColor =
+                    ablaqPalette === 'traditional'
+                      ? idx % 2 === 0 ? '#be123c' : '#e2e8f0'
+                      : ablaqPalette === 'golden'
+                      ? idx % 2 === 0 ? '#f59e0b' : '#44403c'
+                      : idx % 2 === 0 ? '#14b8a6' : '#0284c7';
 
                   return (
-                    <g key={idx}>
+                    <g key={idx} filter={`url(#${svgId}-girihShadow)`}>
+                      {/* Louza Outer Kite Polygon */}
                       <polygon
-                        points={`150,150 ${xOuter},${yOuter} ${xInner},${yInner}`}
-                        fill={rayColor}
-                        fillOpacity="0.85"
+                        points={`160,160 ${inner1X},${inner1Y} ${tipX},${tipY} ${notchX},${notchY}`}
+                        fill={primaryColor}
                         stroke="#f59e0b"
-                        strokeWidth="1.5"
+                        strokeWidth="1.8"
+                        strokeLinejoin="round"
+                      />
+                      <polygon
+                        points={`160,160 ${notchX},${notchY} ${nextTipX},${nextTipY}`}
+                        fill={secondaryColor}
+                        stroke="#f59e0b"
+                        strokeWidth="1.8"
+                        strokeLinejoin="round"
                       />
                     </g>
                   );
                 })}
 
-                {/* Central Medallion */}
-                <circle cx="150" cy="150" r="30" fill="#0f172a" stroke="#f59e0b" strokeWidth="3" />
-                <circle cx="150" cy="150" r="8" fill="#f59e0b" />
+                {/* 2. Middle Interlocking Girih Strapwork Ribbon Band */}
+                {Array.from({ length: selectedTessellation.symmetryOrder }).map((_, idx) => {
+                  const N = selectedTessellation.symmetryOrder;
+                  const step = 360 / N;
+                  const angle = idx * step;
+                  const rad1 = (angle * Math.PI) / 180;
+                  const radMid = ((angle + step / 2) * Math.PI) / 180;
+
+                  const rOuter = 95;
+                  const rInner = 52;
+
+                  const xO = 160 + rOuter * Math.cos(radMid);
+                  const yO = 160 + rOuter * Math.sin(radMid);
+                  const xI = 160 + rInner * Math.cos(rad1);
+                  const yI = 160 + rInner * Math.sin(rad1);
+
+                  return (
+                    <line
+                      key={`strap-${idx}`}
+                      x1={xI}
+                      y1={yI}
+                      x2={xO}
+                      y2={yO}
+                      stroke="url(#${svgId}-goldLeaf)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                    />
+                  );
+                })}
+
+                {/* 3. Inner Polygonal Rosette Star (Central Khatam Core) */}
+                <circle cx="160" cy="160" r="48" fill="#090d16" stroke="#f59e0b" strokeWidth="2.5" />
+                {Array.from({ length: selectedTessellation.symmetryOrder }).map((_, idx) => {
+                  const N = selectedTessellation.symmetryOrder;
+                  const angle = (idx * 360) / N;
+                  const rad = (angle * Math.PI) / 180;
+                  const radMid = ((angle + 180 / N) * Math.PI) / 180;
+                  const x1 = 160 + 44 * Math.cos(rad);
+                  const y1 = 160 + 44 * Math.sin(rad);
+                  const x2 = 160 + 26 * Math.cos(radMid);
+                  const y2 = 160 + 26 * Math.sin(radMid);
+
+                  return (
+                    <polygon
+                      key={`core-${idx}`}
+                      points={`160,160 ${x1},${y1} ${x2},${y2}`}
+                      fill={idx % 2 === 0 ? 'url(#${svgId}-goldLeaf)' : '#1e1b4b'}
+                      stroke="#f59e0b"
+                      strokeWidth="1.2"
+                    />
+                  );
+                })}
+
+                {/* 4. Central Raised Gilded Boss (Sultani Medal Center) */}
+                <circle cx="160" cy="160" r="22" fill="#0f172a" stroke="#f59e0b" strokeWidth="2" />
+                <circle cx="160" cy="160" r="14" fill={`url(#${svgId}-centralBoss)`} />
+                <circle cx="160" cy="160" r="5" fill="#ffffff" opacity="0.8" />
+
+                {/* Compass Axes & Construction Nodes */}
+                <circle cx="160" cy="160" r="146" fill="none" stroke="#f59e0b" strokeWidth="0.8" opacity="0.3" />
               </svg>
             </div>
 
