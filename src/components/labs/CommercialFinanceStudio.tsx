@@ -42,6 +42,1103 @@ export type CommercialStation =
   | 'banking_credit'
   | 'portfolio_risk';
 
+// ============================================================================
+// HIGH-RESOLUTION SCIENTIFIC VECTOR SCHEMATICS FOR COMMERCIAL FINANCE
+// ============================================================================
+
+const DupontPyramidSchematic: React.FC<{
+  roePct: number;
+  netMarginPct: number;
+  assetTurnover: number;
+  equityMultiplier: number;
+  netIncome: number;
+  sales: number;
+  totalAssets: number;
+  totalEquity: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({
+  roePct,
+  netMarginPct,
+  assetTurnover,
+  equityMultiplier,
+  netIncome,
+  sales,
+  totalAssets,
+  totalEquity,
+  isArabic,
+  isLight = false,
+}) => {
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+        {isArabic
+          ? 'مخطط هرم ديبون لتفكيك العائد على حقوق الملكية (DuPont ROE Decomposition Pyramid)'
+          : 'DuPont ROE Decomposition Architecture Pyramid'}
+      </div>
+      <svg viewBox="0 0 760 320" className="w-full max-w-[760px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="dupontRoeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0f766e" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="#0d9488" stopOpacity="0.7" />
+          </linearGradient>
+          <linearGradient id="dupontPillarTeal" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#134e4a" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#042f2e" stopOpacity="0.95" />
+          </linearGradient>
+          <linearGradient id="dupontPillarAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#78350f" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#451a03" stopOpacity="0.95" />
+          </linearGradient>
+          <linearGradient id="dupontPillarPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#581c87" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#3b0764" stopOpacity="0.95" />
+          </linearGradient>
+        </defs>
+
+        {/* Outer Viewport Box */}
+        <rect
+          x="10"
+          y="10"
+          width="740"
+          height="300"
+          rx="12"
+          fill={isLight ? '#f8fafc' : '#070b14'}
+          stroke={isLight ? '#cbd5e1' : '#1e293b'}
+          strokeWidth="1.5"
+        />
+
+        {/* Tree Circuit Bus Connecting Lines */}
+        <path d="M 380 75 L 380 110" stroke="#38bdf8" strokeWidth="2" strokeDasharray="3 3" />
+        <path d="M 130 110 L 630 110" stroke="#38bdf8" strokeWidth="2" />
+        <line x1="130" y1="110" x2="130" y2="135" stroke="#14b8a6" strokeWidth="2" />
+        <line x1="380" y1="110" x2="380" y2="135" stroke="#f59e0b" strokeWidth="2" />
+        <line x1="630" y1="110" x2="630" y2="135" stroke="#a855f7" strokeWidth="2" />
+
+        {/* Multiplier Operator Badges on Bus */}
+        <circle cx="255" cy="110" r="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+        <text x="255" y="114" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">×</text>
+        <circle cx="505" cy="110" r="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
+        <text x="505" y="114" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">×</text>
+
+        {/* Connecting Lines from Middle to Bottom */}
+        <line x1="130" y1="200" x2="130" y2="225" stroke="#14b8a6" strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M 70 225 L 190 225" stroke="#14b8a6" strokeWidth="1.5" />
+        <line x1="70" y1="225" x2="70" y2="240" stroke="#14b8a6" strokeWidth="1.5" />
+        <line x1="190" y1="225" x2="190" y2="240" stroke="#14b8a6" strokeWidth="1.5" />
+
+        <line x1="380" y1="200" x2="380" y2="225" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M 320 225 L 440 225" stroke="#f59e0b" strokeWidth="1.5" />
+        <line x1="320" y1="225" x2="320" y2="240" stroke="#f59e0b" strokeWidth="1.5" />
+        <line x1="440" y1="225" x2="440" y2="240" stroke="#f59e0b" strokeWidth="1.5" />
+
+        <line x1="630" y1="200" x2="630" y2="225" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M 570 225 L 690 225" stroke="#a855f7" strokeWidth="1.5" />
+        <line x1="570" y1="225" x2="570" y2="240" stroke="#a855f7" strokeWidth="1.5" />
+        <line x1="690" y1="225" x2="690" y2="240" stroke="#a855f7" strokeWidth="1.5" />
+
+        {/* Division badges */}
+        <circle cx="130" cy="225" r="8" fill="#0f172a" stroke="#14b8a6" strokeWidth="1" />
+        <text x="130" y="228" fill="#14b8a6" fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
+        <circle cx="380" cy="225" r="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
+        <text x="380" y="228" fill="#f59e0b" fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
+        <circle cx="630" cy="225" r="8" fill="#0f172a" stroke="#a855f7" strokeWidth="1" />
+        <text x="630" y="228" fill="#a855f7" fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
+
+        {/* LEVEL 1: TOP ROE APEX CARD */}
+        <g transform="translate(380, 48)">
+          <rect
+            x="-140"
+            y="-30"
+            width="280"
+            height="58"
+            rx="10"
+            fill="url(#dupontRoeGrad)"
+            stroke="#2dd4bf"
+            strokeWidth="2"
+          />
+          <text x="0" y="-12" fill="#ccfbf1" fontSize="9" fontWeight="bold" textAnchor="middle">
+            {isArabic ? 'العائد على حقوق الملكية (ROE)' : 'Return on Equity (ROE)'}
+          </text>
+          <text x="0" y="10" fill="#ffffff" fontSize="18" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {roePct.toFixed(1)}%
+          </text>
+          <text x="0" y="22" fill="#99f6e4" fontSize="7" textAnchor="middle">
+            {isArabic ? 'كفاءة تعظيم ثروة المساهمين والمستثمرين' : 'Shareholder Wealth Generation Efficiency'}
+          </text>
+        </g>
+
+        {/* LEVEL 2: THREE OPERATIONAL PILLARS */}
+        {/* Pillar 1: Profit Margin (Left) */}
+        <g transform="translate(130, 168)">
+          <rect
+            x="-105"
+            y="-32"
+            width="210"
+            height="64"
+            rx="8"
+            fill="url(#dupontPillarTeal)"
+            stroke="#14b8a6"
+            strokeWidth="1.5"
+          />
+          <text x="0" y="-16" fill="#5eead4" fontSize="8.5" fontWeight="bold" textAnchor="middle">
+            {isArabic ? '١. صافي هامش الربح' : '1. Net Profit Margin'}
+          </text>
+          <text x="0" y="4" fill="#ffffff" fontSize="15" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {netMarginPct.toFixed(1)}%
+          </text>
+          <text x="0" y="18" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'كفاءة التشغيل والتسعير وضبط التكاليف' : 'Operating Cost & Pricing Efficiency'}
+          </text>
+        </g>
+
+        {/* Pillar 2: Asset Turnover (Center) */}
+        <g transform="translate(380, 168)">
+          <rect
+            x="-105"
+            y="-32"
+            width="210"
+            height="64"
+            rx="8"
+            fill="url(#dupontPillarAmber)"
+            stroke="#f59e0b"
+            strokeWidth="1.5"
+          />
+          <text x="0" y="-16" fill="#fde68a" fontSize="8.5" fontWeight="bold" textAnchor="middle">
+            {isArabic ? '٢. معدل دوران الأصول' : '2. Total Asset Turnover'}
+          </text>
+          <text x="0" y="4" fill="#ffffff" fontSize="15" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {assetTurnover.toFixed(2)}x
+          </text>
+          <text x="0" y="18" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'كفاءة تشغيل الأصول وتوليد الإيرادات' : 'Asset Capital Productivity & Revenue Velocity'}
+          </text>
+        </g>
+
+        {/* Pillar 3: Equity Multiplier (Right) */}
+        <g transform="translate(630, 168)">
+          <rect
+            x="-105"
+            y="-32"
+            width="210"
+            height="64"
+            rx="8"
+            fill="url(#dupontPillarPurple)"
+            stroke="#a855f7"
+            strokeWidth="1.5"
+          />
+          <text x="0" y="-16" fill="#e9d5ff" fontSize="8.5" fontWeight="bold" textAnchor="middle">
+            {isArabic ? '٣. مضاعف الرفع المالي' : '3. Equity Multiplier (Leverage)'}
+          </text>
+          <text x="0" y="4" fill="#ffffff" fontSize="15" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {equityMultiplier.toFixed(2)}x
+          </text>
+          <text x="0" y="18" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'هيكل التمويل ومخاطر الالتزامات' : 'Capital Structure & Financial Solvency'}
+          </text>
+        </g>
+
+        {/* LEVEL 3: RAW ACCOUNTING INPUT NODES */}
+        {/* Node 1: Net Income */}
+        <g transform="translate(70, 265)">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#14b8a6" strokeWidth="1" />
+          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'صافي الدخل' : 'Net Income'}
+          </text>
+          <text x="0" y="9" fill="#14b8a6" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(netIncome / 1000).toFixed(0)}k EGP
+          </text>
+        </g>
+
+        {/* Node 2: Sales Revenue */}
+        <g transform="translate(190, 265)">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#14b8a6" strokeWidth="1" />
+          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'المبيعات' : 'Sales Revenue'}
+          </text>
+          <text x="0" y="9" fill="#14b8a6" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(sales / 1000).toFixed(0)}k EGP
+          </text>
+        </g>
+
+        {/* Node 3: Sales (for Turnover) */}
+        <g transform="translate(320, 265)">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
+          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'المبيعات' : 'Sales Revenue'}
+          </text>
+          <text x="0" y="9" fill="#f59e0b" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(sales / 1000).toFixed(0)}k EGP
+          </text>
+        </g>
+
+        {/* Node 4: Total Assets */}
+        <g transform="translate(440, 265)">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
+          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'إجمالي الأصول' : 'Total Assets'}
+          </text>
+          <text x="0" y="9" fill="#f59e0b" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(totalAssets / 1000).toFixed(0)}k EGP
+          </text>
+        </g>
+
+        {/* Node 5: Total Assets for Leverage */}
+        <g transform="translate(570, 265)">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#a855f7" strokeWidth="1" />
+          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'إجمالي الأصول' : 'Total Assets'}
+          </text>
+          <text x="0" y="9" fill="#a855f7" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(totalAssets / 1000).toFixed(0)}k EGP
+          </text>
+        </g>
+
+        {/* Node 6: Total Equity */}
+        <g transform="translate(690, 265)">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#a855f7" strokeWidth="1" />
+          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+            {isArabic ? 'حقوق الملكية' : 'Total Equity'}
+          </text>
+          <text x="0" y="9" fill="#a855f7" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(totalEquity / 1000).toFixed(0)}k EGP
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const LoanAmortizationScheduleSchematic: React.FC<{
+  principal: number;
+  totalInterest: number;
+  totalCost: number;
+  periodicInstallment: number;
+  loanYears: number;
+  compoundingFreq: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({
+  principal,
+  totalInterest,
+  totalCost,
+  periodicInstallment,
+  loanYears,
+  compoundingFreq,
+  isArabic,
+  isLight = false,
+}) => {
+  const totalPeriods = loanYears * compoundingFreq;
+  const principalSharePct = totalCost > 0 ? (principal / totalCost) * 100 : 0;
+  const interestSharePct = totalCost > 0 ? (totalInterest / totalCost) * 100 : 0;
+
+  // Generate 24 continuous steps for stacked area geometry
+  const numSteps = 24;
+  const stepsData = useMemo(() => {
+    const pts = [];
+    for (let i = 0; i <= numSteps; i++) {
+      const frac = i / numSteps;
+      const period = Math.max(1, Math.round(frac * totalPeriods));
+      const decay = Math.pow(1 - frac, 1.18);
+      const balance = principal * decay;
+      const interest = periodicInstallment * (1 - Math.pow(frac, 0.85)) * (interestSharePct / 100) * 1.5;
+      const prinPortion = Math.max(0, periodicInstallment - interest);
+      pts.push({ frac, period, balance, interest, prinPortion });
+    }
+    return pts;
+  }, [principal, totalPeriods, periodicInstallment, interestSharePct]);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+        {isArabic
+          ? 'ديناميكية استهلاك القرض وتلاشي الرصيد المدين (Loan Amortization Dynamics & Balance Decay)'
+          : 'Loan Amortization Dynamics & Principal-Interest Stack'}
+      </div>
+      <svg viewBox="0 0 760 280" className="w-full max-w-[760px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="amortPrinArea" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#0d9488" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#115e59" stopOpacity="0.4" />
+          </linearGradient>
+          <linearGradient id="amortIntArea" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#b45309" stopOpacity="0.4" />
+          </linearGradient>
+          <linearGradient id="amortBalanceLine" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#38bdf8" />
+            <stop offset="100%" stopColor="#818cf8" />
+          </linearGradient>
+        </defs>
+
+        {/* Viewport Box */}
+        <rect
+          x="10"
+          y="10"
+          width="740"
+          height="260"
+          rx="12"
+          fill={isLight ? '#f8fafc' : '#070b14'}
+          stroke={isLight ? '#cbd5e1' : '#1e293b'}
+          strokeWidth="1.5"
+        />
+
+        {/* LEFT PANEL: STACKED AMORTIZATION AREA */}
+        <g transform="translate(45, 35)">
+          {/* Background Grid */}
+          {[0, 0.25, 0.5, 0.75, 1.0].map((g) => (
+            <line
+              key={g}
+              x1="0"
+              y1={190 * (1 - g)}
+              x2="460"
+              y2={190 * (1 - g)}
+              stroke={isLight ? '#e2e8f0' : '#1e293b'}
+              strokeWidth="1"
+              strokeDasharray="2 2"
+            />
+          ))}
+
+          {/* Principal Area (bottom) */}
+          <path
+            d={`M 0 190 ${stepsData.map((d) => `L ${d.frac * 460} ${190 - (d.prinPortion / (periodicInstallment || 1)) * 150}`).join(' ')} L 460 190 Z`}
+            fill="url(#amortPrinArea)"
+          />
+          {/* Interest Area (top) */}
+          <path
+            d={`M 0 40 ${stepsData.map((d) => `L ${d.frac * 460} 40`).join(' ')} L 460 190 ${stepsData.slice().reverse().map((d) => `L ${d.frac * 460} ${190 - (d.prinPortion / (periodicInstallment || 1)) * 150}`).join(' ')} Z`}
+            fill="url(#amortIntArea)"
+          />
+
+          {/* Remaining Balance Decay Line */}
+          <path
+            d={`M 0 15 ${stepsData.map((d) => `L ${d.frac * 460} ${15 + (1 - d.balance / (principal || 1)) * 175}`).join(' ')}`}
+            fill="none"
+            stroke="url(#amortBalanceLine)"
+            strokeWidth="3"
+          />
+
+          {/* Baseline axes */}
+          <line x1="0" y1="190" x2="460" y2="190" stroke="#475569" strokeWidth="1.5" />
+          <line x1="0" y1="0" x2="0" y2="190" stroke="#475569" strokeWidth="1.5" />
+          <line x1="460" y1="0" x2="460" y2="190" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3 3" />
+
+          {/* Crossover Milestone Vertical Line */}
+          <line x1="230" y1="0" x2="230" y2="190" stroke="#ffffff" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.6" />
+          <rect x="180" y="2" width="100" height="18" rx="3" fill="#0f172a" stroke="#ffffff" strokeWidth="0.8" opacity="0.9" />
+          <text x="230" y="14" fill="#ffffff" fontSize="7.5" fontWeight="bold" textAnchor="middle">
+            {isArabic ? 'نقطة انقلاب الفائدة' : 'Principal Crossover'}
+          </text>
+
+          {/* Axis Labels */}
+          <text x="0" y="204" fill="#94a3b8" fontSize="8" textAnchor="start">
+            {isArabic ? 'الفترة ١ (بداية القرض)' : 'P1 (Loan Start)'}
+          </text>
+          <text x="230" y="204" fill="#94a3b8" fontSize="8" textAnchor="middle">
+            {isArabic ? `منتصف المدة (${Math.round(totalPeriods / 2)})` : `Mid (${Math.round(totalPeriods / 2)})`}
+          </text>
+          <text x="460" y="204" fill="#38bdf8" fontSize="8" fontWeight="bold" textAnchor="end">
+            {isArabic ? `الفترة ${totalPeriods} (السداد الكامل)` : `P${totalPeriods} (Maturity)`}
+          </text>
+
+          {/* Y Axis Labels */}
+          <text x="-6" y="20" fill="#38bdf8" fontSize="7.5" textAnchor="end" fontFamily="monospace">
+            {(principal / 1000).toFixed(0)}k EGP
+          </text>
+          <text x="-6" y="190" fill="#94a3b8" fontSize="7.5" textAnchor="end" fontFamily="monospace">
+            0
+          </text>
+
+          {/* Area Legend labels */}
+          <rect x="15" y="155" width="10" height="10" rx="2" fill="#0d9488" />
+          <text x="30" y="163" fill="#ccfbf1" fontSize="7.5" fontWeight="bold">
+            {isArabic ? 'سداد أصل الدين (Principal)' : 'Principal Repayment'}
+          </text>
+          <rect x="15" y="70" width="10" height="10" rx="2" fill="#f59e0b" />
+          <text x="30" y="78" fill="#fef3c7" fontSize="7.5" fontWeight="bold">
+            {isArabic ? 'تكلفة الفائدة (Interest)' : 'Interest Charge'}
+          </text>
+        </g>
+
+        {/* RIGHT PANEL: COST BREAKDOWN DONUT & METRICS */}
+        <g transform="translate(635, 135)">
+          <circle cx="0" cy="0" r="54" fill="none" stroke="#1e293b" strokeWidth="18" />
+          <circle
+            cx="0"
+            cy="0"
+            r="54"
+            fill="none"
+            stroke="#0d9488"
+            strokeWidth="18"
+            strokeDasharray={`${(principalSharePct / 100) * 339.29} 339.29`}
+            strokeDashoffset="84.82"
+          />
+          <circle
+            cx="0"
+            cy="0"
+            r="54"
+            fill="none"
+            stroke="#f59e0b"
+            strokeWidth="18"
+            strokeDasharray={`${(interestSharePct / 100) * 339.29} 339.29`}
+            strokeDashoffset={`${84.82 - (principalSharePct / 100) * 339.29}`}
+          />
+
+          <text x="0" y="-8" fill="#94a3b8" fontSize="7.5" textAnchor="middle">
+            {isArabic ? 'إجمالي التكلفة' : 'Total Outlay'}
+          </text>
+          <text x="0" y="10" fill="#ffffff" fontSize="12" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {(totalCost / 1000).toFixed(0)}k
+          </text>
+          <text x="0" y="22" fill="#38bdf8" fontSize="7" textAnchor="middle">
+            EGP
+          </text>
+
+          {/* Cost Legend Cards */}
+          <g transform="translate(-75, 75)">
+            <rect x="0" y="0" width="70" height="34" rx="4" fill="#042f2e" stroke="#0d9488" strokeWidth="1" />
+            <text x="35" y="13" fill="#5eead4" fontSize="7" fontWeight="bold" textAnchor="middle">
+              {isArabic ? 'أصل القرض' : 'Principal'}
+            </text>
+            <text x="35" y="27" fill="#ffffff" fontSize="9" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+              {principalSharePct.toFixed(1)}%
+            </text>
+
+            <rect x="80" y="0" width="70" height="34" rx="4" fill="#451a03" stroke="#f59e0b" strokeWidth="1" />
+            <text x="115" y="13" fill="#fde68a" fontSize="7" fontWeight="bold" textAnchor="middle">
+              {isArabic ? 'إجمالي الفوائد' : 'Interest'}
+            </text>
+            <text x="115" y="27" fill="#ffffff" fontSize="9" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+              {interestSharePct.toFixed(1)}%
+            </text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const CapitalBudgetingNpvProfileSchematic: React.FC<{
+  initialOutlay: number;
+  cashFlows: number[];
+  discountedFlows: number[];
+  hurdleRatePct: number;
+  npv: number;
+  irrPct: number;
+  paybackYears: number;
+  isAccepted: boolean;
+  npvCurve: Array<{ ratePct: number; npv: number }>;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({
+  initialOutlay,
+  discountedFlows,
+  hurdleRatePct,
+  npv,
+  irrPct,
+  paybackYears,
+  isAccepted,
+  npvCurve,
+  isArabic,
+  isLight = false,
+}) => {
+  const maxNpv = Math.max(initialOutlay * 1.2, ...npvCurve.map((p) => p.npv));
+  const minNpv = -initialOutlay * 0.9;
+  const zeroY = 35 + ((maxNpv - 0) / (maxNpv - minNpv)) * 185;
+
+  const pointsStr = npvCurve
+    .map((pt) => {
+      const x = 45 + (pt.ratePct / 32) * 395;
+      const y = 35 + ((maxNpv - pt.npv) / (maxNpv - minNpv)) * 185;
+      return `${Math.max(45, Math.min(440, x))},${Math.max(35, Math.min(220, y))}`;
+    })
+    .join(' ');
+
+  const irrX = 45 + (Math.min(32, Math.max(0, irrPct)) / 32) * 395;
+  const waccX = 45 + (Math.min(32, Math.max(0, hurdleRatePct)) / 32) * 395;
+  const waccY = 35 + ((maxNpv - npv) / (maxNpv - minNpv)) * 185;
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+        {isArabic
+          ? 'منحنى حساسية صافي القيمة الحالية ومخطط شلال التدفقات المخصومة (NPV Profile & DCF Waterfall)'
+          : 'NPV Profile Sensitivity Curve & DCF Cash Flow Waterfall'}
+      </div>
+      <svg viewBox="0 0 760 280" className="w-full max-w-[760px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="npvCreationGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#0d9488" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#0d9488" stopOpacity="0.05" />
+          </linearGradient>
+          <linearGradient id="npvDestructionGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#e11d48" stopOpacity="0.05" />
+            <stop offset="100%" stopColor="#e11d48" stopOpacity="0.4" />
+          </linearGradient>
+          <linearGradient id="npvLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#2dd4bf" />
+            <stop offset="100%" stopColor="#f43f5e" />
+          </linearGradient>
+        </defs>
+
+        {/* Viewport Box */}
+        <rect
+          x="10"
+          y="10"
+          width="740"
+          height="260"
+          rx="12"
+          fill={isLight ? '#f8fafc' : '#070b14'}
+          stroke={isLight ? '#cbd5e1' : '#1e293b'}
+          strokeWidth="1.5"
+        />
+
+        {/* LEFT PANEL: NPV PROFILE CURVE */}
+        <rect x="45" y="35" width="395" height={Math.max(0, zeroY - 35)} fill="url(#npvCreationGrad)" />
+        <rect x="45" y={zeroY} width="395" height={Math.max(0, 220 - zeroY)} fill="url(#npvDestructionGrad)" />
+
+        <line x1="45" y1={zeroY} x2="440" y2={zeroY} stroke="#38bdf8" strokeWidth="1.5" />
+        <line x1="45" y1="35" x2="45" y2="220" stroke="#475569" strokeWidth="1.5" />
+
+        {[0, 8, 16, 24, 32].map((r) => {
+          const gx = 45 + (r / 32) * 395;
+          return (
+            <g key={r}>
+              <line x1={gx} y1="35" x2={gx} y2="220" stroke="#1e293b" strokeWidth="1" strokeDasharray="2 2" />
+              <text x={gx} y="233" fill="#64748b" fontSize="7.5" textAnchor="middle">
+                {r}%
+              </text>
+            </g>
+          );
+        })}
+
+        <polyline fill="none" stroke="url(#npvLineGrad)" strokeWidth="3" points={pointsStr} />
+
+        <text x="442" y={zeroY + 3} fill="#38bdf8" fontSize="8" fontWeight="bold">
+          NPV = 0
+        </text>
+
+        {/* IRR Marker & Drop Line */}
+        <line x1={irrX} y1={zeroY} x2={irrX} y2="220" stroke="#10b981" strokeWidth="1.5" strokeDasharray="3 3" />
+        <circle cx={irrX} cy={zeroY} r="5" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
+        <g transform={`translate(${Math.min(390, Math.max(70, irrX))}, ${zeroY - 24})`}>
+          <rect x="-42" y="-12" width="84" height="20" rx="3" fill="#022c22" stroke="#10b981" strokeWidth="1" />
+          <text x="0" y="1" fill="#6ee7b7" fontSize="7.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+            IRR: {irrPct.toFixed(1)}%
+          </text>
+        </g>
+
+        {/* Current WACC Point */}
+        <line x1={waccX} y1={waccY} x2={waccX} y2="220" stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="2 2" />
+        <circle cx={waccX} cy={waccY} r="5.5" fill="#f59e0b" stroke="#ffffff" strokeWidth="1.5" />
+        <g transform={`translate(${Math.min(390, Math.max(70, waccX))}, ${Math.max(48, waccY - 18)})`}>
+          <rect x="-48" y="-10" width="96" height="18" rx="3" fill="#451a03" stroke="#f59e0b" strokeWidth="1" />
+          <text x="0" y="2" fill="#fde68a" fontSize="7" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+            WACC: {hurdleRatePct}% | {npv >= 0 ? '+' : ''}{(npv / 1000).toFixed(0)}k
+          </text>
+        </g>
+
+        <text x="55" y="55" fill="#14b8a6" fontSize="8" fontWeight="bold" opacity="0.8">
+          {isArabic ? 'نطاق تعظيم الثروة (NPV > 0)' : 'Value Creation Zone (NPV > 0)'}
+        </text>
+        <text x="55" y="210" fill="#f43f5e" fontSize="8" fontWeight="bold" opacity="0.8">
+          {isArabic ? 'نطاق تدمير الثروة (NPV < 0)' : 'Value Destruction Zone (NPV < 0)'}
+        </text>
+
+        {/* RIGHT PANEL: DCF WATERFALL DIAGRAM */}
+        <g transform="translate(485, 35)">
+          <text x="0" y="0" fill="#94a3b8" fontSize="8" fontWeight="bold">
+            {isArabic ? 'شلال التدفقات المخصومة (DCF Waterfall)' : 'Discounted Cash Flows Waterfall'}
+          </text>
+
+          <g transform="translate(10, 40)">
+            <rect x="0" y="0" width="28" height="110" rx="3" fill="#e11d48" opacity="0.85" />
+            <text x="14" y="-5" fill="#fca5a5" fontSize="7" fontWeight="bold" textAnchor="middle">
+              CF₀
+            </text>
+            <text x="14" y="55" fill="#ffffff" fontSize="7" fontFamily="monospace" transform="rotate(-90 14 55)" textAnchor="middle">
+              -{(initialOutlay / 1000).toFixed(0)}k
+            </text>
+          </g>
+
+          {discountedFlows.slice(0, 5).map((pv, i) => {
+            const barHeight = Math.min(110, (pv / (initialOutlay || 1)) * 140);
+            return (
+              <g key={i} transform={`translate(${48 + i * 36}, 40)`}>
+                <rect x="0" y={110 - barHeight} width="28" height={barHeight} rx="3" fill="#0d9488" opacity="0.85" />
+                <text x="14" y="-5" fill="#5eead4" fontSize="7" fontWeight="bold" textAnchor="middle">
+                  Y{i + 1}
+                </text>
+                <text x="14" y={110 - barHeight / 2 + 3} fill="#ffffff" fontSize="6.5" fontFamily="monospace" textAnchor="middle">
+                  +{(pv / 1000).toFixed(0)}k
+                </text>
+              </g>
+            );
+          })}
+
+          <g transform="translate(115, 185)">
+            <rect
+              x="-110"
+              y="-12"
+              width="220"
+              height="26"
+              rx="5"
+              fill={isAccepted ? '#022c22' : '#4c0519'}
+              stroke={isAccepted ? '#10b981' : '#f43f5e'}
+              strokeWidth="1.2"
+            />
+            <text
+              x="0"
+              y="4"
+              fill={isAccepted ? '#6ee7b7' : '#fca5a5'}
+              fontSize="8"
+              fontWeight="bold"
+              textAnchor="middle"
+            >
+              {isAccepted
+                ? (isArabic ? `مقبول استثمارياً (فترة الاسترداد: ${paybackYears.toFixed(1)} سنة)` : `Economically Accepted (Payback: ${paybackYears.toFixed(1)} yrs)`)
+                : (isArabic ? 'مشروع مرفوض (العائد أقل من تكلفة رأس المال)' : 'Project Rejected (IRR < WACC)')}
+            </text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const CreditScorePentagonRadarSchematic: React.FC<{
+  characterScore: number;
+  capacityScore: number;
+  capitalScore: number;
+  collateralScore: number;
+  conditionsScore: number;
+  compositeScore: number;
+  ratingGrade: string;
+  isApproved: boolean;
+  depositMultiplier: number;
+  carPct: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({
+  characterScore,
+  capacityScore,
+  capitalScore,
+  collateralScore,
+  conditionsScore,
+  compositeScore,
+  ratingGrade,
+  isApproved,
+  depositMultiplier,
+  carPct,
+  isArabic,
+  isLight = false,
+}) => {
+  const angles = [-Math.PI / 2, -Math.PI / 10, (3 * Math.PI) / 10, (7 * Math.PI) / 10, (11 * Math.PI) / 10];
+  const maxR = 85;
+
+  const scores = [characterScore, capacityScore, capitalScore, collateralScore, conditionsScore];
+  const borrowerPoints = scores
+    .map((s, idx) => {
+      const r = (s / 100) * maxR;
+      const x = r * Math.cos(angles[idx]);
+      const y = r * Math.sin(angles[idx]);
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    })
+    .join(' ');
+
+  const iScore = 300 + (compositeScore / 100) * 550;
+  const gaugeAngleDeg = 180 - (compositeScore / 100) * 180;
+  const needleRad = (gaugeAngleDeg * Math.PI) / 180;
+  const needleLen = 70;
+  const needleX = needleLen * Math.cos(needleRad);
+  const needleY = -needleLen * Math.sin(needleRad);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+        {isArabic
+          ? 'رادار المعايير الخمسة للجدارة الائتمانية ومؤشر الجودة المصرفية (5 Cs Radar & I-Score Gauge)'
+          : '5 Cs Credit Assessment Radar & Egyptian I-Score Terminal'}
+      </div>
+      <svg viewBox="0 0 760 280" className="w-full max-w-[760px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="radarAreaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0d9488" stopOpacity="0.75" />
+            <stop offset="100%" stopColor="#0284c7" stopOpacity="0.4" />
+          </linearGradient>
+          <linearGradient id="gaugeArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#ef4444" />
+            <stop offset="35%" stopColor="#f59e0b" />
+            <stop offset="70%" stopColor="#84cc16" />
+            <stop offset="100%" stopColor="#10b981" />
+          </linearGradient>
+        </defs>
+
+        <rect
+          x="10"
+          y="10"
+          width="740"
+          height="260"
+          rx="12"
+          fill={isLight ? '#f8fafc' : '#070b14'}
+          stroke={isLight ? '#cbd5e1' : '#1e293b'}
+          strokeWidth="1.5"
+        />
+
+        {/* LEFT SECTION: 5 Cs RADAR */}
+        <g transform="translate(210, 140)">
+          {[0.2, 0.4, 0.6, 0.8, 1.0].map((frac) => {
+            const pts = angles
+              .map((a) => {
+                const r = frac * maxR;
+                return `${(r * Math.cos(a)).toFixed(1)},${(r * Math.sin(a)).toFixed(1)}`;
+              })
+              .join(' ');
+            return (
+              <polygon
+                key={frac}
+                points={pts}
+                fill="none"
+                stroke={isLight ? '#cbd5e1' : '#1e293b'}
+                strokeWidth={frac === 1.0 ? '1.5' : '1'}
+                strokeDasharray={frac === 0.6 ? '3 2' : 'none'}
+              />
+            );
+          })}
+
+          {angles.map((a, i) => (
+            <line
+              key={i}
+              x1="0"
+              y1="0"
+              x2={(maxR * Math.cos(a)).toFixed(1)}
+              y2={(maxR * Math.sin(a)).toFixed(1)}
+              stroke={isLight ? '#94a3b8' : '#334155'}
+              strokeWidth="1"
+            />
+          ))}
+
+          <polygon points={borrowerPoints} fill="url(#radarAreaGrad)" stroke="#2dd4bf" strokeWidth="2" />
+
+          {scores.map((s, idx) => {
+            const r = (s / 100) * maxR;
+            const vx = r * Math.cos(angles[idx]);
+            const vy = r * Math.sin(angles[idx]);
+            return (
+              <circle key={idx} cx={vx} cy={vy} r="4" fill="#2dd4bf" stroke="#0f172a" strokeWidth="1.5" />
+            );
+          })}
+
+          {[
+            { labelAr: 'الشخصية', labelEn: 'Character', a: angles[0], offX: 0, offY: -14 },
+            { labelAr: 'القدرة', labelEn: 'Capacity', a: angles[1], offX: 20, offY: 0 },
+            { labelAr: 'رأس المال', labelEn: 'Capital', a: angles[2], offX: 18, offY: 14 },
+            { labelAr: 'الضمانات', labelEn: 'Collateral', a: angles[3], offX: -18, offY: 14 },
+            { labelAr: 'الظروف', labelEn: 'Conditions', a: angles[4], offX: -22, offY: 0 },
+          ].map((item, i) => {
+            const lx = (maxR + 12) * Math.cos(item.a) + item.offX;
+            const ly = (maxR + 12) * Math.sin(item.a) + item.offY;
+            return (
+              <text key={i} x={lx} y={ly} fill="#94a3b8" fontSize="7.5" fontWeight="bold" textAnchor="middle">
+                {isArabic ? item.labelAr : item.labelEn}
+              </text>
+            );
+          })}
+        </g>
+
+        {/* RIGHT SECTION: I-SCORE GAUGE */}
+        <g transform="translate(550, 150)">
+          <path d="M -90 0 A 90 90 0 0 1 90 0" fill="none" stroke="#1e293b" strokeWidth="18" strokeLinecap="round" />
+          <path d="M -90 0 A 90 90 0 0 1 90 0" fill="none" stroke="url(#gaugeArcGrad)" strokeWidth="18" strokeLinecap="round" />
+
+          <text x="-90" y="16" fill="#ef4444" fontSize="8" fontWeight="bold" textAnchor="middle">
+            300
+          </text>
+          <text x="0" y="-98" fill="#f59e0b" fontSize="8" fontWeight="bold" textAnchor="middle">
+            575
+          </text>
+          <text x="90" y="16" fill="#10b981" fontSize="8" fontWeight="bold" textAnchor="middle">
+            850
+          </text>
+
+          <line x1="0" y1="0" x2={needleX} y2={needleY} stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" />
+          <circle cx="0" cy="0" r="7" fill="#0f172a" stroke="#38bdf8" strokeWidth="2" />
+          <circle cx="0" cy="0" r="3" fill="#38bdf8" />
+
+          <text x="0" y="32" fill="#ffffff" fontSize="18" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+            {Math.round(iScore)}
+          </text>
+          <text x="0" y="44" fill="#94a3b8" fontSize="7.5" textAnchor="middle">
+            {isArabic ? 'درجة الجدارة الائتمانية المصرية (I-Score)' : 'Egyptian I-Score Benchmark'}
+          </text>
+
+          <g transform="translate(0, 62)">
+            <rect x="-60" y="-10" width="120" height="20" rx="4" fill="#0f172a" stroke="#38bdf8" strokeWidth="1" />
+            <text x="0" y="3" fill="#38bdf8" fontSize="8" fontWeight="bold" textAnchor="middle">
+              {ratingGrade}
+            </text>
+          </g>
+
+          <g transform="translate(0, 95)">
+            <rect
+              x="-90"
+              y="-12"
+              width="180"
+              height="24"
+              rx="4"
+              fill={isApproved ? '#022c22' : '#4c0519'}
+              stroke={isApproved ? '#10b981' : '#f43f5e'}
+              strokeWidth="1.5"
+            />
+            <text x="0" y="3" fill={isApproved ? '#6ee7b7' : '#fca5a5'} fontSize="8.5" fontWeight="bold" textAnchor="middle">
+              {isApproved
+                ? (isArabic ? '✓ موافقة ائتمانية معتمدة' : '✓ CREDIT FACILITY APPROVED')
+                : (isArabic ? '✗ ائتمان مرفوض (مخاطر عالية)' : '✗ CREDIT FACILITY REJECTED')}
+            </text>
+          </g>
+        </g>
+
+        <g transform="translate(380, 255)">
+          <text x="0" y="0" fill="#64748b" fontSize="7.5" textAnchor="middle" fontFamily="monospace">
+            {isArabic
+              ? `كفاية رأس المال بازل ٣: ${carPct.toFixed(1)}% (المعيار: ≥ ١٠.٥%) • مضاعف الائتمان المصرفي: ${depositMultiplier.toFixed(1)}x`
+              : `Basel III CAR: ${carPct.toFixed(1)}% (Benchmark: ≥ 10.5%) • Bank Credit Multiplier: ${depositMultiplier.toFixed(1)}x`}
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const MarkowitzEfficientFrontierSchematic: React.FC<{
+  frontierPoints: Array<{ wA: number; ret: number; risk: number }>;
+  expectedReturn: number;
+  volatilitySigma: number;
+  sharpeRatio: number;
+  capmRequiredReturn: number;
+  alphaSpread: number;
+  assetA: FinancialAsset;
+  assetB: FinancialAsset;
+  weightA: number;
+  correlationRho: number;
+  riskFreeRate: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({
+  frontierPoints,
+  expectedReturn,
+  volatilitySigma,
+  sharpeRatio,
+  capmRequiredReturn,
+  alphaSpread,
+  assetA,
+  assetB,
+  weightA,
+  correlationRho,
+  riskFreeRate,
+  isArabic,
+  isLight = false,
+}) => {
+  const scaleX = (risk: number) => 50 + ((Math.max(5, Math.min(35, risk)) - 5) / 30) * 470;
+  const scaleY = (ret: number) => 220 - ((Math.max(6, Math.min(28, ret)) - 6) / 22) * 185;
+
+  const frontierPointsStr = frontierPoints
+    .map((pt) => `${scaleX(pt.risk).toFixed(1)},${scaleY(pt.ret).toFixed(1)}`)
+    .join(' ');
+
+  const curX = scaleX(volatilitySigma);
+  const curY = scaleY(expectedReturn);
+
+  const assetAx = scaleX(assetA.volatilityPct);
+  const assetAy = scaleY(assetA.expectedReturnPct);
+  const assetBx = scaleX(assetB.volatilityPct);
+  const assetBy = scaleY(assetB.expectedReturnPct);
+
+  const rfY = scaleY(riskFreeRate);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
+        {isArabic
+          ? 'الحد الكفء لماركويتز وخط تخصيص رأس المال (Markowitz Efficient Frontier & CAL)'
+          : 'Markowitz Efficient Frontier, Diversification Geometry & CAL'}
+      </div>
+      <svg viewBox="0 0 760 280" className="w-full max-w-[760px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="frontierLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#2dd4bf" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+        </defs>
+
+        <rect
+          x="10"
+          y="10"
+          width="740"
+          height="260"
+          rx="12"
+          fill={isLight ? '#f8fafc' : '#070b14'}
+          stroke={isLight ? '#cbd5e1' : '#1e293b'}
+          strokeWidth="1.5"
+        />
+
+        {/* Coordinate System Grid */}
+        {[5, 10, 15, 20, 25, 30, 35].map((rx) => {
+          const gx = scaleX(rx);
+          return (
+            <g key={rx}>
+              <line x1={gx} y1="35" x2={gx} y2="220" stroke={isLight ? '#e2e8f0' : '#1e293b'} strokeWidth="1" strokeDasharray="2 2" />
+              <text x={gx} y="233" fill="#64748b" fontSize="7.5" textAnchor="middle">
+                {rx}%
+              </text>
+            </g>
+          );
+        })}
+
+        {[8, 12, 16, 20, 24, 28].map((ry) => {
+          const gy = scaleY(ry);
+          return (
+            <g key={ry}>
+              <line x1="50" y1={gy} x2="520" y2={gy} stroke={isLight ? '#e2e8f0' : '#1e293b'} strokeWidth="1" strokeDasharray="2 2" />
+              <text x="44" y={gy + 3} fill="#64748b" fontSize="7.5" textAnchor="end">
+                {ry}%
+              </text>
+            </g>
+          );
+        })}
+
+        <line x1="50" y1="220" x2="530" y2="220" stroke="#475569" strokeWidth="1.5" />
+        <line x1="50" y1="25" x2="50" y2="220" stroke="#475569" strokeWidth="1.5" />
+        <text x="532" y="223" fill="#94a3b8" fontSize="8" fontWeight="bold">
+          {isArabic ? 'المخاطرة σ' : 'Risk (σ)'}
+        </text>
+        <text x="50" y="20" fill="#94a3b8" fontSize="8" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'العائد E(R)' : 'Return E(R)'}
+        </text>
+
+        {/* Straight dashed line between A and B */}
+        <line x1={assetAx} y1={assetAy} x2={assetBx} y2={assetBy} stroke="#64748b" strokeWidth="1" strokeDasharray="4 3" opacity="0.5" />
+
+        <polyline fill="none" stroke="url(#frontierLineGrad)" strokeWidth="3" points={frontierPointsStr} />
+
+        {/* Capital Allocation Line (CAL) */}
+        <line
+          x1="50"
+          y1={rfY}
+          x2="480"
+          y2={scaleY(riskFreeRate + (sharpeRatio || 0.8) * 25)}
+          stroke="#f59e0b"
+          strokeWidth="1.5"
+          strokeDasharray="3 3"
+          opacity="0.85"
+        />
+        <text x="54" y={rfY - 4} fill="#f59e0b" fontSize="7.5" fontWeight="bold">
+          Rf = {riskFreeRate}%
+        </text>
+
+        {/* Marker for Asset A */}
+        <circle cx={assetAx} cy={assetAy} r="5" fill="#38bdf8" stroke="#ffffff" strokeWidth="1.5" />
+        <text x={assetAx + 8} y={assetAy + 3} fill="#38bdf8" fontSize="7.5" fontWeight="bold">
+          {assetA.ticker} ({(weightA * 100).toFixed(0)}%)
+        </text>
+
+        {/* Marker for Asset B */}
+        <circle cx={assetBx} cy={assetBy} r="5" fill="#a855f7" stroke="#ffffff" strokeWidth="1.5" />
+        <text x={assetBx + 8} y={assetBy + 3} fill="#a855f7" fontSize="7.5" fontWeight="bold">
+          {assetB.ticker} ({((1 - weightA) * 100).toFixed(0)}%)
+        </text>
+
+        {/* Current User Portfolio Point */}
+        <circle cx={curX} cy={curY} r="7" fill="#f59e0b" stroke="#ffffff" strokeWidth="2" />
+        <circle cx={curX} cy={curY} r="12" fill="#f59e0b" opacity="0.25" />
+        <g transform={`translate(${Math.min(460, curX + 15)}, ${Math.max(45, curY - 10)})`}>
+          <rect x="0" y="-12" width="105" height="24" rx="4" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
+          <text x="6" y="2" fill="#fde68a" fontSize="7.5" fontFamily="monospace" fontWeight="bold">
+            E(R): {expectedReturn.toFixed(1)}% | σ: {volatilitySigma.toFixed(1)}%
+          </text>
+        </g>
+
+        {/* Diversification Curvature Callout */}
+        <g transform="translate(180, 50)">
+          <text x="0" y="0" fill="#2dd4bf" fontSize="7.5" fontWeight="bold">
+            {isArabic
+              ? `أثر التنويع الرياضي (معامل الارتباط ρ = ${correlationRho.toFixed(2)})`
+              : `Diversification Convexity Benefit (ρ = ${correlationRho.toFixed(2)})`}
+          </text>
+          <text x="0" y="11" fill="#94a3b8" fontSize="7">
+            {isArabic
+              ? 'انحناء المنحنى لليسار يخفض المخاطر غير المنتظمة دون التضحية بالعائد'
+              : 'Curve bends leftward, eliminating unsystematic risk without sacrificing return'}
+          </text>
+        </g>
+
+        {/* RIGHT PANEL: CAPM SML & ALPHA SPREAD */}
+        <g transform="translate(560, 40)">
+          <text x="0" y="0" fill="#94a3b8" fontSize="8" fontWeight="bold">
+            {isArabic ? 'تسعير الأصول الرأسمالية (CAPM SML)' : 'CAPM Asset Pricing Model'}
+          </text>
+
+          <g transform="translate(0, 20)">
+            <rect x="0" y="0" width="165" height="42" rx="6" fill="#0f172a" stroke="#38bdf8" strokeWidth="1" />
+            <text x="12" y="15" fill="#94a3b8" fontSize="7">
+              {isArabic ? 'العائد المطلوب (CAPM Required):' : 'CAPM Required Return:'}
+            </text>
+            <text x="12" y="32" fill="#38bdf8" fontSize="12" fontWeight="bold" fontFamily="monospace">
+              {capmRequiredReturn.toFixed(2)}%
+            </text>
+          </g>
+
+          <g transform="translate(0, 72)">
+            <rect x="0" y="0" width="165" height="42" rx="6" fill="#0f172a" stroke="#10b981" strokeWidth="1" />
+            <text x="12" y="15" fill="#94a3b8" fontSize="7">
+              {isArabic ? 'العائد المتوقع للمحفظة E(Rp):' : 'Portfolio Expected Return:'}
+            </text>
+            <text x="12" y="32" fill="#10b981" fontSize="12" fontWeight="bold" fontFamily="monospace">
+              {expectedReturn.toFixed(2)}%
+            </text>
+          </g>
+
+          <g transform="translate(0, 124)">
+            <rect
+              x="0"
+              y="0"
+              width="165"
+              height="48"
+              rx="6"
+              fill={alphaSpread >= 0 ? '#022c22' : '#4c0519'}
+              stroke={alphaSpread >= 0 ? '#10b981' : '#f43f5e'}
+              strokeWidth="1.2"
+            />
+            <text x="12" y="15" fill="#94a3b8" fontSize="7">
+              {isArabic ? 'عائد ألفا الفائض (Jensen Alpha):' : "Jensen's Alpha Spread:"}
+            </text>
+            <text
+              x="12"
+              y="33"
+              fill={alphaSpread >= 0 ? '#6ee7b7' : '#fca5a5'}
+              fontSize="13"
+              fontWeight="bold"
+              fontFamily="monospace"
+            >
+              {alphaSpread >= 0 ? '+' : ''}{alphaSpread.toFixed(2)}%
+            </text>
+            <text x="12" y="44" fill={alphaSpread >= 0 ? '#34d399' : '#f87171'} fontSize="6.5">
+              {alphaSpread >= 0
+                ? (isArabic ? 'أداء متفوق فوق خط SML' : 'Outperforming SML Line')
+                : (isArabic ? 'عائد دون المستوى المطلوب' : 'Sub-market Return')}
+            </text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
 export const CommercialFinanceStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
@@ -642,7 +1739,7 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
             <button
               key={tab.id}
               onClick={() => setActiveStation(tab.id)}
-              className={`flex items-center gap-2 px-4 py-3 text-xs font-semibold whitespace-nowrap border-b-2 transition-all ${
+              className={`flex items-center gap-2 px-4 py-3 min-h-[44px] text-xs font-semibold whitespace-nowrap border-b-2 transition-all ${
                 isActive
                   ? 'border-teal-500 text-teal-500 bg-teal-500/5'
                   : 'border-transparent text-slate-500 hover:text-slate-300'
@@ -687,7 +1784,7 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                     <button
                       key={pr.id}
                       onClick={() => handleApplyFsPreset(pr)}
-                      className={`px-2.5 py-1 text-xs rounded-lg border font-medium transition-all ${
+                      className={`px-3 py-1.5 min-h-[40px] text-xs rounded-lg border font-medium transition-all ${
                         selectedFsPreset.id === pr.id
                           ? 'border-teal-500 bg-teal-500/10 text-teal-400 font-bold'
                           : 'border-slate-700 hover:bg-slate-800 text-slate-400'
@@ -738,6 +1835,22 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                   {fsMetrics.roePct.toFixed(1)}%
                 </span>
               </div>
+            </div>
+
+            {/* High-Resolution DuPont ROE Decomposition Schematic */}
+            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+              <DupontPyramidSchematic
+                roePct={fsMetrics.roePct}
+                netMarginPct={fsMetrics.netMarginPct}
+                assetTurnover={salesVal > 0 && fsMetrics.totalAssets > 0 ? salesVal / fsMetrics.totalAssets : 0}
+                equityMultiplier={fsMetrics.totalEquity > 0 ? fsMetrics.totalAssets / fsMetrics.totalEquity : 1}
+                netIncome={fsMetrics.netIncome}
+                sales={salesVal}
+                totalAssets={fsMetrics.totalAssets}
+                totalEquity={fsMetrics.totalEquity}
+                isArabic={isArabic}
+                isLight={isLight}
+              />
             </div>
 
             {/* Interactive Sliders & Equation Check */}
@@ -974,7 +2087,7 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                     <button
                       key={pr.id}
                       onClick={() => handleApplyLoanPreset(pr)}
-                      className={`px-2.5 py-1 text-xs rounded-lg border font-medium transition-all ${
+                      className={`px-3 py-1.5 min-h-[40px] text-xs rounded-lg border font-medium transition-all ${
                         selectedLoan.id === pr.id
                           ? 'border-teal-500 bg-teal-500/10 text-teal-400 font-bold'
                           : 'border-slate-700 hover:bg-slate-800 text-slate-400'
@@ -1093,6 +2206,18 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                   </div>
                 </div>
 
+                {/* High-Resolution Loan Amortization Stack & Balance Decay Schematic */}
+                <LoanAmortizationScheduleSchematic
+                  principal={loanPrincipal}
+                  totalInterest={loanAmortizationData.totalInterestPaid}
+                  totalCost={loanAmortizationData.totalCostOfLoan}
+                  periodicInstallment={loanAmortizationData.periodicInstallment}
+                  loanYears={loanYears}
+                  compoundingFreq={compoundingFreq}
+                  isArabic={isArabic}
+                  isLight={isLight}
+                />
+
                 {/* Mini Schedule Table Preview */}
                 <div className="border border-slate-800 rounded-lg overflow-hidden">
                   <div className="max-h-56 overflow-y-auto">
@@ -1155,7 +2280,7 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                     <button
                       key={pr.id}
                       onClick={() => handleApplyProjectPreset(pr)}
-                      className={`px-2.5 py-1 text-xs rounded-lg border font-medium transition-all ${
+                      className={`px-3 py-1.5 min-h-[40px] text-xs rounded-lg border font-medium transition-all ${
                         selectedProject.id === pr.id
                           ? 'border-teal-500 bg-teal-500/10 text-teal-400 font-bold'
                           : 'border-slate-700 hover:bg-slate-800 text-slate-400'
@@ -1182,30 +2307,50 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                   <h4 className="text-sm font-bold">
                     {capitalBudgetingMetrics.isAccepted
                       ? isArabic
-                        ? 'القرار الاستثماري المعتمد: قبول المشروع (Accept Investment)'
-                        : 'Investment Decision: Accept Project'
+                        ? 'المشروع مقبول استثمارياً (NPV > 0 & IRR > WACC)'
+                        : 'Project Economically Viable (NPV > 0 & IRR > WACC)'
                       : isArabic
-                      ? 'القرار الاستثماري المعتمد: رفض المشروع (Reject Investment)'
-                      : 'Investment Decision: Reject Project'}
+                      ? 'المشروع مرفوض استثمارياً (العائد دون تكلفة الفرصة البديلة)'
+                      : 'Project Rejected (Substandard Return Below Hurdle Rate)'}
                   </h4>
-                  <p className="text-xs opacity-80">
+                  <p className="text-xs opacity-80 mt-0.5">
                     {isArabic
-                      ? `صافي القيمة الحالية = ${capitalBudgetingMetrics.npv.toFixed(0)} جنيه | معدل العائد الداخلي = ${capitalBudgetingMetrics.irrPct.toFixed(1)}% مقارنة بمعدل الخصم ${hurdleRatePct}%`
-                      : `NPV = ${capitalBudgetingMetrics.npv.toFixed(0)} EGP | IRR = ${capitalBudgetingMetrics.irrPct.toFixed(1)}% vs Hurdle Rate ${hurdleRatePct}%`}
+                      ? 'مؤشر الربحية (PI): ' + capitalBudgetingMetrics.profitabilityIndex.toFixed(2) + 'x'
+                      : 'Profitability Index (PI): ' + capitalBudgetingMetrics.profitabilityIndex.toFixed(2) + 'x'}
                   </p>
                 </div>
               </div>
               <div className="text-right">
-                <span className="text-xs block opacity-70">{isArabic ? 'دليل الربحية (PI)' : 'Profitability Index'}</span>
-                <span className="text-base font-mono font-bold">{capitalBudgetingMetrics.profitabilityIndex.toFixed(2)}x</span>
+                <span className="text-xs uppercase opacity-75 block">{isArabic ? 'صافي القيمة الحالية' : 'Net Present Value'}</span>
+                <span className="text-lg font-bold font-mono">
+                  {capitalBudgetingMetrics.npv >= 0 ? '+' : ''}
+                  {capitalBudgetingMetrics.npv.toLocaleString()} EGP
+                </span>
               </div>
+            </div>
+
+            {/* High-Resolution NPV Profile Curve & DCF Waterfall Schematic */}
+            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+              <CapitalBudgetingNpvProfileSchematic
+                initialOutlay={initialOutlay}
+                cashFlows={cashFlows}
+                discountedFlows={capitalBudgetingMetrics.discountedFlows}
+                hurdleRatePct={hurdleRatePct}
+                npv={capitalBudgetingMetrics.npv}
+                irrPct={capitalBudgetingMetrics.irrPct}
+                paybackYears={capitalBudgetingMetrics.paybackYears}
+                isAccepted={capitalBudgetingMetrics.isAccepted}
+                npvCurve={capitalBudgetingMetrics.npvCurve}
+                isArabic={isArabic}
+                isLight={isLight}
+              />
             </div>
 
             {/* Cash Flow Inputs & NPV Profile Curve */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="p-5 rounded-xl border border-slate-800 bg-slate-900/30 space-y-4">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                  {isArabic ? 'التدفقات النقدية السنوية ومعدل الخصم' : 'Annual Cash Flows & Hurdle Rate'}
+                  {isArabic ? 'محددات المشروع وتكلفة رأس المال' : 'Outlay & Hurdle Rate Parameters'}
                 </h4>
 
                 <div>
@@ -1268,49 +2413,39 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                 </div>
               </div>
 
-              {/* NPV Profile Curve SVG Chart */}
+              {/* Summary Metrics & Capital Recovery */}
               <div className="p-5 rounded-xl border border-slate-800 bg-slate-900/40 flex flex-col justify-between">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    {isArabic ? 'منحنى حساسية صافي القيمة الحالية (NPV Profile Curve)' : 'NPV Profile Sensitivity Curve'}
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
+                    {isArabic ? 'مؤشرات التقييم الاستثماري والقرار' : 'Capital Valuation Indicators'}
                   </h4>
-                  <p className="text-[11px] text-slate-500 mb-4">
-                    {isArabic
-                      ? 'يوضح العلاقة العكسية بين معدل الخصم وNPV ونقطة تقاطع الصفر (IRR)'
-                      : 'Inverse relationship between discount rate and project NPV intersecting zero at IRR'}
-                  </p>
-                </div>
-
-                {/* SVG Graph */}
-                <div className="h-52 w-full bg-slate-950/70 rounded-lg p-3 relative flex items-center justify-center">
-                  <svg viewBox="0 0 400 160" className="w-full h-full overflow-visible">
-                    {/* Zero axis */}
-                    <line x1="40" y1="80" x2="380" y2="80" stroke="#475569" strokeWidth="1" strokeDasharray="3 3" />
-                    <text x="385" y="83" fill="#64748B" fontSize="9">NPV=0</text>
-
-                    {/* Curve Polyline */}
-                    <polyline
-                      fill="none"
-                      stroke="#14B8A6"
-                      strokeWidth="2.5"
-                      points={capitalBudgetingMetrics.npvCurve
-                        .map((pt, idx) => {
-                          const x = 50 + idx * 20;
-                          // Scale NPV around 80px center
-                          const y = 80 - (pt.npv / (initialOutlay * 0.8)) * 50;
-                          return `${x},${Math.max(15, Math.min(145, y))}`;
-                        })
-                        .join(' ')}
-                    />
-
-                    {/* Point of Current WACC */}
-                    <circle
-                      cx={50 + (hurdleRatePct / 2) * 20}
-                      cy={Math.max(15, Math.min(145, 80 - (capitalBudgetingMetrics.npv / (initialOutlay * 0.8)) * 50))}
-                      r="4.5"
-                      fill="#38BDF8"
-                    />
-                  </svg>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="p-3 rounded-lg border border-slate-800 bg-slate-950/70">
+                      <span className="text-[11px] text-slate-400 block">{isArabic ? 'معدل العائد الداخلي (IRR)' : 'Internal Rate of Return'}</span>
+                      <span className="text-base font-bold text-emerald-400 font-mono">
+                        {capitalBudgetingMetrics.irrPct.toFixed(2)}%
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-lg border border-slate-800 bg-slate-950/70">
+                      <span className="text-[11px] text-slate-400 block">{isArabic ? 'فترة الاسترداد' : 'Payback Period'}</span>
+                      <span className="text-base font-bold text-teal-400 font-mono">
+                        {capitalBudgetingMetrics.paybackYears.toFixed(2)} {isArabic ? 'سنوات' : 'Years'}
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-lg border border-slate-800 bg-slate-950/70">
+                      <span className="text-[11px] text-slate-400 block">{isArabic ? 'دليل الربحية (PI)' : 'Profitability Index'}</span>
+                      <span className="text-base font-bold text-purple-400 font-mono">
+                        {capitalBudgetingMetrics.profitabilityIndex.toFixed(2)}x
+                      </span>
+                    </div>
+                    <div className="p-3 rounded-lg border border-slate-800 bg-slate-950/70">
+                      <span className="text-[11px] text-slate-400 block">{isArabic ? 'العائد الفائض فوق WACC' : 'Spread Above WACC'}</span>
+                      <span className={`text-base font-bold font-mono ${capitalBudgetingMetrics.irrPct - hurdleRatePct >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
+                        {capitalBudgetingMetrics.irrPct - hurdleRatePct >= 0 ? '+' : ''}
+                        {(capitalBudgetingMetrics.irrPct - hurdleRatePct).toFixed(2)}%
+                      </span>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="flex justify-between items-center text-xs mt-3 pt-2 border-t border-slate-800">
@@ -1360,7 +2495,7 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                     <button
                       key={pr.id}
                       onClick={() => handleApplyBorrowerPreset(pr)}
-                      className={`px-2.5 py-1 text-xs rounded-lg border font-medium transition-all ${
+                      className={`px-3 py-1.5 min-h-[40px] text-xs rounded-lg border font-medium transition-all ${
                         selectedBorrower.id === pr.id
                           ? 'border-teal-500 bg-teal-500/10 text-teal-400 font-bold'
                           : 'border-slate-700 hover:bg-slate-800 text-slate-400'
@@ -1409,6 +2544,24 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                   </span>
                 </div>
               </div>
+            </div>
+
+            {/* High-Resolution 5 Cs Credit Radar & Egyptian I-Score Schematic */}
+            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+              <CreditScorePentagonRadarSchematic
+                characterScore={characterScore}
+                capacityScore={capacityScore}
+                capitalScore={capitalScore}
+                collateralScore={collateralScore}
+                conditionsScore={conditionsScore}
+                compositeScore={bankingMetrics.compositeScore}
+                ratingGrade={bankingMetrics.ratingGrade}
+                isApproved={bankingMetrics.isApproved}
+                depositMultiplier={bankingMetrics.depositMultiplier}
+                carPct={bankingMetrics.carPct}
+                isArabic={isArabic}
+                isLight={isLight}
+              />
             </div>
 
             {/* 5 Cs Sliders & Monetary Multiplier */}
@@ -1692,38 +2845,22 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
                   </div>
                 </div>
 
-                {/* Markowitz Efficient Frontier SVG */}
-                <div className="h-44 w-full bg-slate-950/70 rounded-lg p-3 relative flex items-center justify-center">
-                  <svg viewBox="0 0 400 130" className="w-full h-full overflow-visible">
-                    {/* Axes */}
-                    <line x1="40" y1="110" x2="380" y2="110" stroke="#334155" strokeWidth="1" />
-                    <line x1="40" y1="10" x2="40" y2="110" stroke="#334155" strokeWidth="1" />
-                    <text x="385" y="113" fill="#64748B" fontSize="9">Risk (σ)</text>
-                    <text x="25" y="12" fill="#64748B" fontSize="9">Return</text>
-
-                    {/* Frontier Curve */}
-                    <polyline
-                      fill="none"
-                      stroke="#14B8A6"
-                      strokeWidth="2.5"
-                      points={portfolioMetrics.frontierPoints
-                        .map((pt) => {
-                          const x = 50 + (pt.risk - 8) * 18;
-                          const y = 110 - (pt.ret - 10) * 6;
-                          return `${Math.max(45, Math.min(370, x))},${Math.max(15, Math.min(105, y))}`;
-                        })
-                        .join(' ')}
-                    />
-
-                    {/* Current Portfolio Point */}
-                    <circle
-                      cx={Math.max(45, Math.min(370, 50 + (portfolioMetrics.volatilitySigma - 8) * 18))}
-                      cy={Math.max(15, Math.min(105, 110 - (portfolioMetrics.expectedReturn - 10) * 6))}
-                      r="5"
-                      fill="#F59E0B"
-                    />
-                  </svg>
-                </div>
+                {/* High-Resolution Markowitz Efficient Frontier & CAPM Schematic */}
+                <MarkowitzEfficientFrontierSchematic
+                  frontierPoints={portfolioMetrics.frontierPoints}
+                  expectedReturn={portfolioMetrics.expectedReturn}
+                  volatilitySigma={portfolioMetrics.volatilitySigma}
+                  sharpeRatio={portfolioMetrics.sharpeRatio}
+                  capmRequiredReturn={portfolioMetrics.capmRequiredReturn}
+                  alphaSpread={portfolioMetrics.alphaSpread}
+                  assetA={assetA}
+                  assetB={assetB}
+                  weightA={weightA}
+                  correlationRho={correlationRho}
+                  riskFreeRate={riskFreeRatePct}
+                  isArabic={isArabic}
+                  isLight={isLight}
+                />
 
                 <div className="flex justify-between items-center text-xs pt-2 border-t border-slate-800">
                   <span className="text-slate-400">
