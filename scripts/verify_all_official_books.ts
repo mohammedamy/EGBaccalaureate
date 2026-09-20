@@ -4,6 +4,8 @@ import { PDFDocument } from 'pdf-lib';
 import {
   officialBooksList,
   getBookDownloadUrl,
+  getBookGithubUrl,
+  GITHUB_BOOKS_RAW_BASE,
   getOfficialBookById,
   getOfficialBookByBranch,
   getOfficialBooksBySubject,
@@ -64,6 +66,15 @@ async function runVerification() {
     assert(
       typeof downloadUrl === 'string' && downloadUrl.length > 0 && downloadUrl.includes(book.filename),
       `Book [${book.id}] getBookDownloadUrl must return valid string containing filename, got: ${downloadUrl}`
+    );
+
+    // GitHub Mirror URL integrity
+    const githubUrl = getBookGithubUrl(book);
+    assert(
+      typeof githubUrl === 'string' &&
+        githubUrl.startsWith(GITHUB_BOOKS_RAW_BASE) &&
+        githubUrl.endsWith(book.filename),
+      `Book [${book.id}] getBookGithubUrl must return valid GitHub raw URL ending with ${book.filename}, got: ${githubUrl}`
     );
 
     // Official portal URL check

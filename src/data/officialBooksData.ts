@@ -21,6 +21,7 @@ export interface OfficialBook {
   compendiumTitleAr: string;
   filename: string;
   downloadUrl: string;
+  githubMirrorUrl?: string;
   // Full Official Ministry Textbook via E-Learning Portal
   fullTextbookPages: number;
   fullTextbookSize: string;
@@ -4217,13 +4218,32 @@ export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'ph
   return officialBooksList.filter((b) => b.subjectId === subjectId);
 }
 
-export function getBookDownloadUrl(book?: OfficialBook | { downloadUrl?: string }): string {
-  if (!book?.downloadUrl) return "";
+export const GITHUB_REPO_URL = 'https://github.com/mohammedamy/EGBaccalaureate';
+export const GITHUB_BOOKS_RAW_BASE =
+  'https://raw.githubusercontent.com/mohammedamy/EGBaccalaureate/main/public/books/';
+
+export function getBookGithubUrl(book?: OfficialBook | { filename?: string }): string {
+  if (!book?.filename) return '';
+  return `${GITHUB_BOOKS_RAW_BASE}${book.filename}`;
+}
+
+export function getBookDownloadUrl(
+  book?: OfficialBook | { downloadUrl?: string; filename?: string; githubMirrorUrl?: string },
+  preferGithub: boolean = false
+): string {
+  if (!book) return '';
+  if (preferGithub && book.filename) {
+    return getBookGithubUrl(book);
+  }
+  if (!book.downloadUrl) {
+    return book.filename ? getBookGithubUrl(book) : '';
+  }
   const url = book.downloadUrl;
-  if (url.startsWith("http://") || url.startsWith("https://")) return url;
-  const base = (import.meta.env && import.meta.env.BASE_URL) || "./";
-  const cleanBase = base.endsWith("/") ? base : base + "/";
-  const cleanUrl = url.startsWith("./") ? url.slice(2) : url.startsWith("/") ? url.slice(1) : url;
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  const base = (import.meta.env && import.meta.env.BASE_URL) || './';
+  const cleanBase = base.endsWith('/') ? base : base + '/';
+  const cleanUrl = url.startsWith('./') ? url.slice(2) : url.startsWith('/') ? url.slice(1) : url;
   return cleanBase + cleanUrl;
 }
+
 

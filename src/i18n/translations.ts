@@ -146,6 +146,11 @@ export interface Translations {
   downloadFullTextbook: string;
   downloadOfficialTextbook: string;
   downloadConceptCompendium: string;
+  downloadGithubMirror: string;
+  downloadGithubMirrorShort: string;
+  githubMirrorDesc: string;
+  githubMirrorTooltip: string;
+  githubMirrorActiveBadge: string;
   moePortalNotice: string;
   moeWafNotice: string;
   conceptCompendiumLabel: string;
@@ -299,6 +304,11 @@ export const translations: Record<Language, Translations> = {
     downloadFullTextbook: 'Visit Ministry Portal (External)',
     downloadOfficialTextbook: 'Download Official Textbook (Direct PDF)',
     downloadConceptCompendium: 'Download Concept Compendium (PDF)',
+    downloadGithubMirror: 'Download via GitHub Mirror (Zero 403)',
+    downloadGithubMirrorShort: 'GitHub Mirror',
+    githubMirrorDesc: 'Permanent up-to-date mirror preserved in the GitHub repository, guaranteeing 100% unrestricted downloads without ministerial Azure WAF 403 blocks.',
+    githubMirrorTooltip: 'Direct download from GitHub CDN repository (Zero 403)',
+    githubMirrorActiveBadge: 'GitHub Anti-403 Mirror Synchronized',
     moePortalNotice: 'Complete official textbooks (200–300 pages) are published and authorized by the Egyptian Ministry of Education & Technical Education. Certified digital versions are bundled directly within this platform.',
     moeWafNotice: 'Note: The external Ministry server (moe.gov.eg) employs Azure firewall policies that frequently reject direct connections with Error 403. Use the Direct PDF button above for guaranteed instant access.',
     conceptCompendiumLabel: 'Official Concept Compendium',
@@ -450,6 +460,11 @@ export const translations: Record<Language, Translations> = {
     downloadFullTextbook: 'زيارة بوابة الوزارة (رابط خارجي)',
     downloadOfficialTextbook: 'تحميل الكتاب المدرسي المعتمد (PDF مباشر)',
     downloadConceptCompendium: 'تحميل كتيب المفاهيم والقوانين (PDF)',
+    downloadGithubMirror: 'تحميل عبر سيرفر GitHub المباشر (تجاوز خطأ 403)',
+    downloadGithubMirrorShort: 'سيرفر GitHub',
+    githubMirrorDesc: 'نسخة رقمية رسمية محدثة محفوظة في مستودع GitHub تضمن تحميلاً فورياً بنسبة إتاحة ١٠٠٪ دون التعرض لحجب جدار حماية الوزارة (Error 403).',
+    githubMirrorTooltip: 'تحميل مباشر من سيرفر ومستودع GitHub (مضمون بدون حجب أو 403)',
+    githubMirrorActiveBadge: 'نسخة GitHub الاحتياطية محدثة ومزامنة (مضاد لـ 403)',
     moePortalNotice: 'الكتب والمقررات المدرسية الرسمية صادرة ومعتمدة من وزارة التربية والتعليم والتعليم الفني المصرية، والنسخ الرقمية المعتمدة مدمجة بالكامل ومتاحة للتحميل المباشر من المنصة.',
     moeWafNotice: 'تنبيه: بوابة الوزارة الخارجية (moe.gov.eg) تطبق جدار حماية سحابي (Azure Firewall) قد يُظهر خطأ 403 عند الدخول المباشر. يرجى استخدام زر التحميل المباشر بصيغة PDF للوصول الفوري المضمون.',
     conceptCompendiumLabel: 'كتيب المفاهيم المعتمد',

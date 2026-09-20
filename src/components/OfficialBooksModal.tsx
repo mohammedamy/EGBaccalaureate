@@ -2,8 +2,18 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import type { OfficialBook } from '../data/officialBooksData';
-import { officialBooksList, getBookDownloadUrl } from '../data/officialBooksData';
+import { officialBooksList, getBookDownloadUrl, getBookGithubUrl } from '../data/officialBooksData';
 import { toHindiDigits } from '../utils/arabicNumerals';
+
+const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+    />
+  </svg>
+);
 import {
   X,
   Search,
@@ -323,11 +333,17 @@ export const OfficialBooksModal: React.FC<Props> = ({
               <p className={`leading-relaxed text-xs ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
                 {t.moePortalNotice}
               </p>
-              <div className="flex items-center gap-2 pt-1 text-[11px] text-amber-600 dark:text-amber-400 font-medium">
-                <span className="px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-[10px] font-mono uppercase">
-                  WAF 403 Notice
-                </span>
-                <span>{t.moeWafNotice}</span>
+              <div className="flex flex-wrap items-center gap-2 pt-1.5 text-[11px] font-medium">
+                <div className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
+                  <span className="px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-[10px] font-mono uppercase">
+                    WAF 403 Notice
+                  </span>
+                  <span>{t.moeWafNotice}</span>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-800 text-slate-200 border border-slate-700 text-[10px] font-mono shadow-xs">
+                  <GithubIcon className="w-3 h-3 text-emerald-400" />
+                  <span>{t.githubMirrorActiveBadge}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -538,7 +554,29 @@ export const OfficialBooksModal: React.FC<Props> = ({
                           </div>
                         </a>
 
-                        {/* 2. Secondary Row: In-App Preview & External Ministry Portal */}
+                        {/* 2. Secondary Row: GitHub Anti-403 Mirror Download */}
+                        <a
+                          href={getBookGithubUrl(book)}
+                          download={book.filename}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-full inline-flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                            isLight
+                              ? 'bg-slate-900 hover:bg-slate-800 text-white border-slate-900 shadow-xs'
+                              : 'bg-slate-800/90 hover:bg-slate-700 text-slate-100 border-slate-700 hover:border-slate-500 shadow-xs'
+                          }`}
+                          title={t.githubMirrorTooltip}
+                        >
+                          <div className="flex items-center gap-1.5">
+                            <GithubIcon className="w-3.5 h-3.5 text-emerald-400" />
+                            <span>{t.downloadGithubMirror}</span>
+                          </div>
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
+                            Anti-403
+                          </span>
+                        </a>
+
+                        {/* 3. Tertiary Row: In-App Preview & External Ministry Portal */}
                         <div className="flex items-center gap-2">
                           <button
                             onClick={() => window.open(getBookDownloadUrl(book), '_blank')}
@@ -646,33 +684,48 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
                 <span>
                   {isArabic
-                    ? 'التحميل المباشر متاح فوراً! لقد قمنا بدمج النسخ الرقمية الرسمية المعتمدة بصيغة PDF داخل المنصة للتحميل المباشر السريع بدون أي حجب.'
-                    : 'Direct Download Available! We have bundled certified digital PDF textbooks directly on this platform for instant, unrestricted download.'}
+                    ? 'التحميل المباشر متاح فوراً! نحتفظ بنسخة رسمية رقمية محدثة من كافة الكتب على سيرفرات GitHub، إلى جانب النسخة المدمجة في المنصة للتحميل الفوري بدون أي حجب.'
+                    : 'Direct Download Available! An up-to-date official copy of all books is mirrored and maintained directly in the GitHub repository with 100% uptime and zero 403 blocks.'}
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-2 pt-2">
+            <div className="flex flex-col gap-2 pt-2">
+              {/* GitHub Anti-403 Mirror Button */}
               <a
-                href={getBookDownloadUrl(showWafModal)}
+                href={getBookGithubUrl(showWafModal)}
                 download={showWafModal.filename}
-                onClick={() => setShowWafModal(null)}
-                className="w-full sm:flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all flex items-center justify-center gap-2"
-              >
-                <Download className="w-4 h-4" />
-                <span>{isArabic ? 'تحميل الكتاب المعتمد (PDF مباشر)' : 'Download Direct PDF Now'}</span>
-              </a>
-
-              <a
-                href={showWafModal.officialPortalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWafModal(null)}
-                className="w-full sm:w-auto py-2.5 px-3 rounded-xl text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-center flex items-center justify-center gap-1.5"
+                className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 shadow-md transition-all flex items-center justify-center gap-2"
               >
-                <span>{isArabic ? 'فتح moe.gov.eg رغم ذلك' : 'Open moe.gov.eg anyway'}</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <GithubIcon className="w-4 h-4 text-emerald-400" />
+                <span>{isArabic ? 'تحميل مباشر عبر سيرفر GitHub (مضمون بدون خطأ 403)' : 'Download via GitHub Mirror (Zero 403 Guaranteed)'}</span>
               </a>
+
+              <div className="flex flex-col sm:flex-row items-center gap-2">
+                <a
+                  href={getBookDownloadUrl(showWafModal)}
+                  download={showWafModal.filename}
+                  onClick={() => setShowWafModal(null)}
+                  className="w-full sm:flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all flex items-center justify-center gap-2"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>{isArabic ? 'تحميل النسخة المدمجة (PDF)' : 'Download Bundled PDF'}</span>
+                </a>
+
+                <a
+                  href={showWafModal.officialPortalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setShowWafModal(null)}
+                  className="w-full sm:w-auto py-2.5 px-3 rounded-xl text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-center flex items-center justify-center gap-1.5"
+                >
+                  <span>{isArabic ? 'فتح moe.gov.eg رغم ذلك' : 'Open moe.gov.eg anyway'}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
