@@ -29,6 +29,596 @@ interface Props {
 
 type LogicStudioMode = 'truth_table' | 'syllogism' | 'mills_methods' | 'fuzzy_ai' | 'bioethics_matrix';
 
+// =========================================================================
+// Schematic 1: Aristotelian Syllogism Euler / Venn Set Overlap Schematic
+// =========================================================================
+interface AristotelianSchematicProps {
+  majorType: 'A' | 'E' | 'I' | 'O';
+  minorType: 'A' | 'E' | 'I' | 'O';
+  conclusionType: 'A' | 'E' | 'I' | 'O' | 'INVALID';
+  middleTerm: string;
+  majorTerm: string;
+  minorTerm: string;
+  isSyllogismValid: boolean;
+  isArabic: boolean;
+}
+
+const AristotelianEulerVennVectorSchematic: React.FC<AristotelianSchematicProps> = ({
+  majorType,
+  minorType,
+  conclusionType,
+  middleTerm,
+  majorTerm,
+  minorTerm,
+  isSyllogismValid,
+  isArabic,
+}) => {
+  const [diagramMode, setDiagramMode] = useState<'euler' | 'venn'>('euler');
+  const mood = `${majorType}${minorType}${conclusionType}`;
+
+  return (
+    <div className="rounded-2xl bg-slate-950 border border-slate-800 p-5 space-y-4 shadow-2xl relative overflow-hidden">
+      {/* Background CAD Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#8b5cf6_1px,transparent_1px)] [background-size:20px_20px] opacity-15 pointer-events-none" />
+
+      {/* Top Header & View Switcher */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3 relative z-10">
+        <div className="flex items-center gap-2">
+          <Scale className="w-4 h-4 text-purple-400" />
+          <span className="text-xs font-mono font-bold text-slate-200 uppercase">
+            {isArabic ? 'المخطط الهندسي الصوري لقياس أرسطو (أويلر وفن)' : 'Aristotelian Syllogism Euler & Venn Set Schematic'}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="p-1 rounded-xl bg-slate-900 border border-slate-800 flex gap-1">
+            <button
+              type="button"
+              onClick={() => setDiagramMode('euler')}
+              className={`min-h-[36px] px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+                diagramMode === 'euler'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              {isArabic ? 'دوائر أويلر التداخلية (Euler Rings)' : 'Euler Concentric Rings'}
+            </button>
+            <button
+              type="button"
+              onClick={() => setDiagramMode('venn')}
+              className={`min-h-[36px] px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all cursor-pointer ${
+                diagramMode === 'venn'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              {isArabic ? 'مخطط فن الثلاثي (Venn 3-Circle)' : 'Venn 3-Circle Sets'}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* SVG Canvas */}
+      <div className="w-full overflow-x-auto">
+        <svg viewBox="0 0 680 260" className="w-full h-auto min-w-[580px] select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            {/* Venn Shading Hatch Pattern (for empty null sets) */}
+            <pattern id="vennHatch" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#ef4444" strokeWidth="1.5" strokeOpacity="0.5" />
+            </pattern>
+            <radialGradient id="glowInnerSet" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#0f172a" stopOpacity="0.8" />
+            </radialGradient>
+          </defs>
+
+          {/* ============================================================== */}
+          {/* VIEW A: EULER CONCENTRIC / CATEGORICAL INCLUSION RINGS         */}
+          {/* ============================================================== */}
+          {diagramMode === 'euler' && (
+            <g>
+              {/* Barbara (AAA): Concentric Inclusion S ⊂ M ⊂ P */}
+              {mood === 'AAA' && (
+                <g transform="translate(340, 130)">
+                  {/* Outer Ring: Major Term P */}
+                  <ellipse rx="190" ry="105" fill="#1e1b4b" fillOpacity="0.4" stroke="#6366f1" strokeWidth="2.5" />
+                  <text x="140" y="-75" fill="#a5b4fc" fontSize="11" fontFamily="sans-serif" fontWeight="bold">
+                    {majorTerm} (P - الحد الأكبر)
+                  </text>
+
+                  {/* Middle Ring: Middle Term M */}
+                  <ellipse rx="125" ry="70" fill="#2e1065" fillOpacity="0.5" stroke="#a855f7" strokeWidth="2.5" />
+                  <text x="75" y="-45" fill="#d8b4fe" fontSize="11" fontFamily="sans-serif" fontWeight="bold">
+                    {middleTerm} (M - الحد الأوسط)
+                  </text>
+
+                  {/* Inner Ring: Minor Term S */}
+                  <circle r="42" fill="url(#glowInnerSet)" stroke="#38bdf8" strokeWidth="3" />
+                  <text x="0" y="4" fill="#bae6fd" fontSize="12" fontFamily="sans-serif" fontWeight="black" textAnchor="middle">
+                    {minorTerm} (S)
+                  </text>
+
+                  {/* Deductive Inclusion Flow Annotation */}
+                  <path d="M -150 90 L 150 90" stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="4,2" />
+                  <text x="0" y="105" fill="#38bdf8" fontSize="10" fontFamily="monospace" textAnchor="middle">
+                    S ⊂ M ⊂ P  ⟹  S ⊂ P (استغراق كلي وضرورة منطقية مطلقة)
+                  </text>
+                </g>
+              )}
+
+              {/* Celarent (EAE): Disjoint Sets (M containing S) and P excluded */}
+              {mood === 'EAA' || mood === 'EAE' ? (
+                <g transform="translate(340, 130)">
+                  {/* Left Set: M containing S */}
+                  <g transform="translate(-140, 0)">
+                    <ellipse rx="120" ry="85" fill="#2e1065" fillOpacity="0.4" stroke="#a855f7" strokeWidth="2.5" />
+                    <text x="0" y="-65" fill="#d8b4fe" fontSize="11" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">
+                      {middleTerm} (M)
+                    </text>
+                    <circle r="38" fill="url(#glowInnerSet)" stroke="#38bdf8" strokeWidth="3" />
+                    <text x="0" y="4" fill="#bae6fd" fontSize="11" fontFamily="sans-serif" fontWeight="black" textAnchor="middle">
+                      {minorTerm} (S)
+                    </text>
+                  </g>
+
+                  {/* Exclusion Barrier Line */}
+                  <line x1="0" y1="-95" x2="0" y2="95" stroke="#ef4444" strokeWidth="2" strokeDasharray="6,4" />
+                  <text x="0" y="-102" fill="#f87171" fontSize="10" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                    M ∩ P = ∅ (انفصال كلي)
+                  </text>
+
+                  {/* Right Set: P completely separate */}
+                  <g transform="translate(140, 0)">
+                    <ellipse rx="110" ry="85" fill="#1e1b4b" fillOpacity="0.4" stroke="#6366f1" strokeWidth="2.5" />
+                    <text x="0" y="4" fill="#a5b4fc" fontSize="12" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">
+                      {majorTerm} (P)
+                    </text>
+                  </g>
+
+                  {/* Annotation */}
+                  <text x="0" y="112" fill="#f87171" fontSize="10" fontFamily="monospace" textAnchor="middle">
+                    S ⊂ M  و  M ∩ P = ∅  ⟹  لا واحد من {minorTerm} {majorTerm} (سالبة كلية)
+                  </text>
+                </g>
+              ) : null}
+
+              {/* Darii (AII) or Ferio (EIO) or Other Valid/Invalid */}
+              {mood !== 'AAA' && mood !== 'EAE' && mood !== 'EAA' && (
+                <g transform="translate(340, 130)">
+                  {/* Left Circle: S */}
+                  <ellipse cx="-110" cy="0" rx="95" ry="75" fill="#0369a1" fillOpacity="0.25" stroke="#38bdf8" strokeWidth="2.5" />
+                  <text x="-165" y="-55" fill="#7dd3fc" fontSize="11" fontFamily="sans-serif" fontWeight="bold">
+                    {minorTerm} (S)
+                  </text>
+
+                  {/* Center Circle: M */}
+                  <ellipse cx="0" cy="0" rx="95" ry="75" fill="#581c87" fillOpacity="0.25" stroke="#a855f7" strokeWidth="2.5" />
+                  <text x="0" y="-85" fill="#d8b4fe" fontSize="11" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">
+                    {middleTerm} (M)
+                  </text>
+
+                  {/* Right Circle: P */}
+                  <ellipse cx="110" cy="0" rx="95" ry="75" fill="#312e81" fillOpacity="0.25" stroke="#6366f1" strokeWidth="2.5" />
+                  <text x="165" y="-55" fill="#a5b4fc" fontSize="11" fontFamily="sans-serif" fontWeight="bold">
+                    {majorTerm} (P)
+                  </text>
+
+                  {/* Particular Indicator Marker */}
+                  <circle cx="-50" cy="0" r="14" fill="#f59e0b" fillOpacity="0.3" stroke="#f59e0b" strokeWidth="2" />
+                  <text x="-50" y="4" fill="#fbbf24" fontSize="12" fontFamily="monospace" fontWeight="black" textAnchor="middle">✕</text>
+
+                  <text x="0" y="105" fill={isSyllogismValid ? '#34d399' : '#f87171'} fontSize="11" fontFamily="monospace" textAnchor="middle" fontWeight="bold">
+                    {isSyllogismValid
+                      ? `Mood ${mood}: إنتاج جزئي سليم وفق قواعد الشكل الأول`
+                      : `Mood ${mood}: خرق لقواعد الإنتاج — قياس عقيم غير منتج`}
+                  </text>
+                </g>
+              )}
+            </g>
+          )}
+
+          {/* ============================================================== */}
+          {/* VIEW B: CLASSIC VENN 3-CIRCLE SET OVERLAP DIAGRAM             */}
+          {/* ============================================================== */}
+          {diagramMode === 'venn' && (
+            <g transform="translate(340, 120)">
+              {/* Circle M (Top Left) */}
+              <circle cx="-65" cy="-35" r="75" fill="#581c87" fillOpacity="0.2" stroke="#a855f7" strokeWidth="2" />
+              <text x="-120" y="-80" fill="#d8b4fe" fontSize="11" fontFamily="sans-serif" fontWeight="bold">
+                M: {middleTerm}
+              </text>
+
+              {/* Circle P (Top Right) */}
+              <circle cx="65" cy="-35" r="75" fill="#312e81" fillOpacity="0.2" stroke="#6366f1" strokeWidth="2" />
+              <text x="90" y="-80" fill="#a5b4fc" fontSize="11" fontFamily="sans-serif" fontWeight="bold">
+                P: {majorTerm}
+              </text>
+
+              {/* Circle S (Bottom Center) */}
+              <circle cx="0" cy="55" r="75" fill="#0369a1" fillOpacity="0.2" stroke="#38bdf8" strokeWidth="2" />
+              <text x="0" y="145" fill="#7dd3fc" fontSize="11" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">
+                S: {minorTerm}
+              </text>
+
+              {/* Shading for Universal Premises */}
+              {majorType === 'A' && (
+                <path d="M -65 -110 A 75 75 0 0 1 0 -35 A 75 75 0 0 1 -65 40 A 75 75 0 0 1 -140 -35 A 75 75 0 0 1 -65 -110 Z" fill="url(#vennHatch)" opacity="0.6" />
+              )}
+              {majorType === 'E' && (
+                <path d="M 0 -85 A 75 75 0 0 1 10 -35 A 75 75 0 0 1 0 15 A 75 75 0 0 1 -10 -35 A 75 75 0 0 1 0 -85 Z" fill="url(#vennHatch)" opacity="0.8" />
+              )}
+
+              {/* Center Tri-Intersection S ∩ M ∩ P */}
+              <circle cx="0" cy="5" r="6" fill="#10b981" />
+              <text x="0" y="8" fill="#d1fae5" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">S·M·P</text>
+            </g>
+          )}
+        </svg>
+      </div>
+
+      {/* Schematic Footer Summary */}
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-slate-400 border-t border-slate-800 pt-3 relative z-10">
+        <div className="flex items-center gap-2">
+          <span className="text-slate-300">ضرب القياس (Mood):</span>
+          <span className="px-2 py-0.5 rounded bg-purple-950 border border-purple-700 text-purple-300 font-bold">
+            {mood} (الشكل الأول - Figure 1)
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className={`w-2.5 h-2.5 rounded-full ${isSyllogismValid ? 'bg-emerald-400' : 'bg-rose-400'}`} />
+          <span className={isSyllogismValid ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
+            {isSyllogismValid ? 'صحيح ومنتج بحكم الاستغراق الصوري' : 'عقيم لخرق شروط الشكل الأول'}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// =========================================================================
+// Schematic 2: Fuzzy Logic Continuous Membership Function Curve
+// =========================================================================
+interface FuzzyMembershipSchematicProps {
+  ambientTemp: number;
+  fuzzy: { cold: number; comfortable: number; hot: number };
+  binaryVerdict: string;
+  isArabic: boolean;
+}
+
+const FuzzyContinuousMembershipVectorSchematic: React.FC<FuzzyMembershipSchematicProps> = ({
+  ambientTemp,
+  fuzzy,
+  binaryVerdict,
+  isArabic,
+}) => {
+  // Coordinate calculations: X maps [10, 35] -> [70, 610] (range 540px)
+  const mapX = (temp: number) => 70 + ((temp - 10) / 25) * 540;
+  // Y maps [0.0, 1.0] -> [190, 40] (range 150px inverted)
+  const mapY = (mu: number) => 190 - mu * 150;
+
+  const scanX = mapX(ambientTemp);
+
+  return (
+    <div className="rounded-2xl bg-slate-950 border border-slate-800 p-5 space-y-4 shadow-2xl relative overflow-hidden">
+      {/* Top Banner */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+        <div className="flex items-center gap-2">
+          <Cpu className="w-4 h-4 text-purple-400" />
+          <span className="text-xs font-mono font-bold text-slate-200 uppercase">
+            {isArabic ? 'منحنيات دالة الانتماء المستمرة μ(T) في المنطق المرن' : 'Lotfi Zadeh Continuous Fuzzy Membership Function μ(T)'}
+          </span>
+        </div>
+        <div className="flex items-center gap-3 text-xs font-mono">
+          <span className="text-blue-400">Cold: {(fuzzy.cold * 100).toFixed(0)}%</span>
+          <span className="text-emerald-400">Comfortable: {(fuzzy.comfortable * 100).toFixed(0)}%</span>
+          <span className="text-rose-400">Hot: {(fuzzy.hot * 100).toFixed(0)}%</span>
+        </div>
+      </div>
+
+      {/* Curves Coordinate Plane */}
+      <div className="w-full overflow-x-auto">
+        <svg viewBox="0 0 680 230" className="w-full h-auto min-w-[580px] select-none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gradCold" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.0" />
+            </linearGradient>
+            <linearGradient id="gradComfort" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#10b981" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+            </linearGradient>
+            <linearGradient id="gradHot" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#f43f5e" stopOpacity="0.0" />
+            </linearGradient>
+          </defs>
+
+          {/* Coordinate Axes & Grid Lines */}
+          <line x1="70" y1="190" x2="620" y2="190" stroke="#334155" strokeWidth="2" />
+          <line x1="70" y1="40" x2="70" y2="190" stroke="#334155" strokeWidth="2" />
+
+          {/* Y-Ticks (μ = 0.0, 0.5, 1.0) */}
+          <text x="50" y="44" fill="#94a3b8" fontSize="10" fontFamily="monospace">1.0</text>
+          <line x1="65" y1="40" x2="620" y2="40" stroke="#1e293b" strokeDasharray="2,3" />
+
+          <text x="50" y="119" fill="#94a3b8" fontSize="10" fontFamily="monospace">0.5</text>
+          <line x1="65" y1="115" x2="620" y2="115" stroke="#1e293b" strokeDasharray="2,3" />
+
+          <text x="50" y="194" fill="#94a3b8" fontSize="10" fontFamily="monospace">0.0</text>
+
+          {/* X-Ticks for Temperature */}
+          {[10, 15, 20, 25, 30, 35].map((temp) => (
+            <g key={temp} transform={`translate(${mapX(temp)}, 0)`}>
+              <line x1="0" y1="40" x2="0" y2="190" stroke="#1e293b" strokeDasharray="2,3" />
+              <line x1="0" y1="190" x2="0" y2="196" stroke="#475569" strokeWidth="1.5" />
+              <text x="0" y="210" fill="#64748b" fontSize="10" fontFamily="monospace" textAnchor="middle">
+                {temp}°C
+              </text>
+            </g>
+          ))}
+
+          {/* Curve 1: Cold Function (Blue) */}
+          {/* 10°C to 16°C is 1.0, 16°C to 22°C drops to 0, remaining 0 */}
+          <path
+            d={`M ${mapX(10)} ${mapY(1.0)} L ${mapX(16)} ${mapY(1.0)} L ${mapX(22)} ${mapY(0.0)} L ${mapX(35)} ${mapY(0.0)}`}
+            fill="none"
+            stroke="#38bdf8"
+            strokeWidth="2.5"
+          />
+          <path
+            d={`M ${mapX(10)} ${mapY(1.0)} L ${mapX(16)} ${mapY(1.0)} L ${mapX(22)} ${mapY(0.0)} L ${mapX(10)} ${mapY(0.0)} Z`}
+            fill="url(#gradCold)"
+          />
+          <text x={mapX(13)} y="32" fill="#38bdf8" fontSize="10" fontFamily="monospace" fontWeight="bold">
+            μ_Cold
+          </text>
+
+          {/* Curve 2: Comfortable Function (Emerald Triangular) */}
+          {/* 0 up to 18°C, rises to 1.0 at 23°C, drops to 0 at 28°C */}
+          <path
+            d={`M ${mapX(10)} ${mapY(0.0)} L ${mapX(18)} ${mapY(0.0)} L ${mapX(23)} ${mapY(1.0)} L ${mapX(28)} ${mapY(0.0)} L ${mapX(35)} ${mapY(0.0)}`}
+            fill="none"
+            stroke="#10b981"
+            strokeWidth="2.5"
+          />
+          <path
+            d={`M ${mapX(18)} ${mapY(0.0)} L ${mapX(23)} ${mapY(1.0)} L ${mapX(28)} ${mapY(0.0)} Z`}
+            fill="url(#gradComfort)"
+          />
+          <text x={mapX(23)} y="32" fill="#10b981" fontSize="10" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+            μ_Comfort
+          </text>
+
+          {/* Curve 3: Hot Function (Rose) */}
+          {/* 0 up to 24°C, rises to 1.0 at 30°C, remains 1.0 */}
+          <path
+            d={`M ${mapX(10)} ${mapY(0.0)} L ${mapX(24)} ${mapY(0.0)} L ${mapX(30)} ${mapY(1.0)} L ${mapX(35)} ${mapY(1.0)}`}
+            fill="none"
+            stroke="#f43f5e"
+            strokeWidth="2.5"
+          />
+          <path
+            d={`M ${mapX(24)} ${mapY(0.0)} L ${mapX(30)} ${mapY(1.0)} L ${mapX(35)} ${mapY(1.0)} L ${mapX(35)} ${mapY(0.0)} Z`}
+            fill="url(#gradHot)"
+          />
+          <text x={mapX(32)} y="32" fill="#f43f5e" fontSize="10" fontFamily="monospace" fontWeight="bold">
+            μ_Hot
+          </text>
+
+          {/* Crisp Classical Binary Step Function (Dashed Purple Cliff at 25°C) */}
+          <path
+            d={`M ${mapX(10)} ${mapY(0.0)} L ${mapX(25)} ${mapY(0.0)} L ${mapX(25)} ${mapY(1.0)} L ${mapX(35)} ${mapY(1.0)}`}
+            fill="none"
+            stroke="#a855f7"
+            strokeWidth="1.5"
+            strokeDasharray="4,3"
+            opacity="0.6"
+          />
+
+          {/* LIVE SCANNING LASER BEAM AT ambientTemp */}
+          <g>
+            <line x1={scanX} y1="35" x2={scanX} y2="195" stroke="#c084fc" strokeWidth="2.5" />
+            <circle cx={scanX} cy="190" r="4" fill="#c084fc" />
+
+            {/* Probe on Cold curve */}
+            {fuzzy.cold > 0 && (
+              <circle cx={scanX} cy={mapY(fuzzy.cold)} r="5" fill="#38bdf8" stroke="#0f172a" strokeWidth="2" />
+            )}
+
+            {/* Probe on Comfortable curve */}
+            {fuzzy.comfortable > 0 && (
+              <circle cx={scanX} cy={mapY(fuzzy.comfortable)} r="5" fill="#10b981" stroke="#0f172a" strokeWidth="2" />
+            )}
+
+            {/* Probe on Hot curve */}
+            {fuzzy.hot > 0 && (
+              <circle cx={scanX} cy={mapY(fuzzy.hot)} r="5" fill="#f43f5e" stroke="#0f172a" strokeWidth="2" />
+            )}
+
+            {/* Scanning Beacon Badge */}
+            <g transform={`translate(${scanX}, 20)`}>
+              <rect x="-24" y="-12" width="48" height="16" rx="4" fill="#581c87" stroke="#c084fc" strokeWidth="1" />
+              <text x="0" y="0" fill="#f3e8ff" fontSize="9" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                {ambientTemp}°C
+              </text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      {/* Comparison Telemetry Footer */}
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono border-t border-slate-800 pt-3">
+        <div className="flex items-center gap-2">
+          <span className="text-slate-400">المنطق الأرسطي القاطع:</span>
+          <span className="px-2 py-0.5 rounded bg-rose-950/80 border border-rose-700/50 text-rose-300 font-bold">
+            {binaryVerdict}
+          </span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-slate-400">المنطق المرن المستمر:</span>
+          <span className="px-2 py-0.5 rounded bg-purple-950/80 border border-purple-700/50 text-purple-300 font-bold">
+            μ ∈ [0.0 , 1.0] (استمرارية واقعية بلا قفزات حادة)
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// =========================================================================
+// Schematic 3: Beauchamp & Childress 4-Axis Bioethics Radar Chart
+// =========================================================================
+interface BioethicsRadarSchematicProps {
+  autonomyScore: number;
+  beneficenceScore: number;
+  nonMaleficenceScore: number;
+  justiceScore: number;
+  titleEn: string;
+  titleAr: string;
+  officialVerdictEn: string;
+  officialVerdictAr: string;
+  isArabic: boolean;
+}
+
+const BioethicsRadarChartVectorSchematic: React.FC<BioethicsRadarSchematicProps> = ({
+  autonomyScore,
+  beneficenceScore,
+  nonMaleficenceScore,
+  justiceScore,
+  titleEn,
+  titleAr,
+  officialVerdictEn,
+  officialVerdictAr,
+  isArabic,
+}) => {
+  const cx = 170;
+  const cy = 135;
+  const maxR = 95;
+
+  // 4 Cardinal Axes:
+  // North (0 deg): Autonomy
+  // East (90 deg): Beneficence
+  // South (180 deg): Non-Maleficence
+  // West (270 deg): Justice
+  const pAutonomy = { x: cx, y: cy - (autonomyScore / 100) * maxR };
+  const pBeneficence = { x: cx + (beneficenceScore / 100) * maxR, y: cy };
+  const pNonMaleficence = { x: cx, y: cy + (nonMaleficenceScore / 100) * maxR };
+  const pJustice = { x: cx - (justiceScore / 100) * maxR, y: cy };
+
+  const polygonPoints = `${pAutonomy.x},${pAutonomy.y} ${pBeneficence.x},${pBeneficence.y} ${pNonMaleficence.x},${pNonMaleficence.y} ${pJustice.x},${pJustice.y}`;
+
+  const avgCompliance = Math.round((autonomyScore + beneficenceScore + nonMaleficenceScore + justiceScore) / 4);
+
+  return (
+    <div className="rounded-2xl bg-slate-950 border border-slate-800 p-5 shadow-2xl relative overflow-hidden">
+      {/* Background CAD Grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#ec4899_1px,transparent_1px)] [background-size:20px_20px] opacity-15 pointer-events-none" />
+
+      {/* Header */}
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3 relative z-10">
+        <div className="flex items-center gap-2">
+          <Shield className="w-4 h-4 text-purple-400" />
+          <span className="text-xs font-mono font-bold text-slate-200 uppercase">
+            {isArabic ? 'مخطط الرادار لمعايير البيوتيقا الطبية الحيوية (بيتشامب وتشيلدرس)' : 'Beauchamp & Childress 4-Axis Biomedical Ethics Radar'}
+          </span>
+        </div>
+        <div className="flex items-center gap-2 text-xs font-mono">
+          <span className="text-slate-400">Overall Compliance:</span>
+          <span className={`px-2.5 py-0.5 rounded font-bold ${
+            avgCompliance >= 50 ? 'bg-emerald-950 border border-emerald-500 text-emerald-400' : 'bg-rose-950 border border-rose-500 text-rose-400'
+          }`}>
+            {avgCompliance}%
+          </span>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-2 relative z-10">
+        {/* Radar SVG */}
+        <div className="lg:col-span-6 flex justify-center">
+          <svg viewBox="0 0 340 270" className="w-full max-w-[320px] h-auto select-none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="polyGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.6" />
+                <stop offset="100%" stopColor="#ec4899" stopOpacity="0.4" />
+              </linearGradient>
+            </defs>
+
+            {/* Concentric Reference Rings (25%, 50%, 75%, 100%) */}
+            {[0.25, 0.5, 0.75, 1.0].map((ratio) => {
+              const r = maxR * ratio;
+              return (
+                <polygon
+                  key={ratio}
+                  points={`${cx},${cy - r} ${cx + r},${cy} ${cx},${cy + r} ${cx - r},${cy}`}
+                  fill="none"
+                  stroke={ratio === 0.5 ? '#f59e0b' : '#334155'}
+                  strokeWidth={ratio === 0.5 ? 1.5 : 1}
+                  strokeDasharray={ratio === 0.5 ? '4,2' : undefined}
+                />
+              );
+            })}
+
+            {/* 4 Cardinal Axis Lines */}
+            <line x1={cx} y1={cy - maxR} x2={cx} y2={cy + maxR} stroke="#475569" strokeWidth="1.5" />
+            <line x1={cx - maxR} y1={cy} x2={cx + maxR} y2={cy} stroke="#475569" strokeWidth="1.5" />
+
+            {/* Ethical Permissibility 50% Threshold Marker */}
+            <text x={cx + 5} y={cy - maxR * 0.5 - 3} fill="#f59e0b" fontSize="8" fontFamily="monospace">
+              50% MoE Threshold
+            </text>
+
+            {/* Plotted Scenario Score Polygon */}
+            <polygon
+              points={polygonPoints}
+              fill="url(#polyGrad)"
+              stroke="#ec4899"
+              strokeWidth="2.5"
+            />
+
+            {/* Vertex Nodes */}
+            <circle cx={pAutonomy.x} cy={pAutonomy.y} r="4.5" fill="#38bdf8" stroke="#0f172a" strokeWidth="1.5" />
+            <circle cx={pBeneficence.x} cy={pBeneficence.y} r="4.5" fill="#10b981" stroke="#0f172a" strokeWidth="1.5" />
+            <circle cx={pNonMaleficence.x} cy={pNonMaleficence.y} r="4.5" fill="#f59e0b" stroke="#0f172a" strokeWidth="1.5" />
+            <circle cx={pJustice.x} cy={pJustice.y} r="4.5" fill="#c084fc" stroke="#0f172a" strokeWidth="1.5" />
+
+            {/* Axis Labels */}
+            <text x={cx} y="20" fill="#38bdf8" fontSize="10" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">
+              {isArabic ? 'الاستقلالية' : 'Autonomy'} ({autonomyScore}%)
+            </text>
+            <text x={cx + maxR + 10} y={cy + 4} fill="#10b981" fontSize="10" fontFamily="sans-serif" fontWeight="bold">
+              {isArabic ? 'المنفعة' : 'Beneficence'} ({beneficenceScore}%)
+            </text>
+            <text x={cx} y={cy + maxR + 22} fill="#f59e0b" fontSize="10" fontFamily="sans-serif" fontWeight="bold" textAnchor="middle">
+              {isArabic ? 'عدم الإضرار' : 'Non-Maleficence'} ({nonMaleficenceScore}%)
+            </text>
+            <text x={cx - maxR - 10} y={cy + 4} fill="#c084fc" fontSize="10" fontFamily="sans-serif" fontWeight="bold" textAnchor="end">
+              {isArabic ? 'العدالة' : 'Justice'} ({justiceScore}%)
+            </text>
+          </svg>
+        </div>
+
+        {/* Telemetry Card */}
+        <div className="lg:col-span-6 space-y-3 font-mono text-xs">
+          <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <span className="text-slate-400 block text-[10px]">قضية النزاع الأخلاقي:</span>
+            <span className="text-purple-300 font-bold text-sm font-sans">{isArabic ? titleAr : titleEn}</span>
+          </div>
+
+          <div className="p-3 rounded-xl bg-slate-900 border border-slate-800">
+            <span className="text-slate-400 block text-[10px]">الحكم المعياري المعتمد بوزارة التربية والتعليم:</span>
+            <p className="text-slate-200 text-[11px] leading-relaxed mt-1 font-sans">
+              {isArabic ? officialVerdictAr : officialVerdictEn}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// =========================================================================
+// Main Logic Studio Component
+// =========================================================================
 export const LogicStudio: React.FC<Props> = ({
   lang,
   theme = 'dark',
@@ -173,15 +763,10 @@ export const LogicStudio: React.FC<Props> = ({
   const [majorTerm, setMajorTerm] = useState<string>(isArabic ? 'فانٍ' : 'Living Being');
   const [minorTerm, setMinorTerm] = useState<string>(isArabic ? 'سقراط' : 'Socrates');
 
-  // Figure 1: Major is M - P, Minor is S - M
-  // Rules of Figure 1:
-  // 1. Minor premise must be Affirmative (موجبة: A or I)
-  // 2. Major premise must be Universal (كلية: A or E)
   const isMinorAffirmative = minorType === 'A' || minorType === 'I';
   const isMajorUniversal = majorType === 'A' || majorType === 'E';
   const isSyllogismValid = isMinorAffirmative && isMajorUniversal;
 
-  // Deducing conclusion type
   const getConclusionType = (): CategoricalType | 'INVALID' => {
     if (!isSyllogismValid) return 'INVALID';
     if (majorType === 'A' && minorType === 'A') return 'A'; // Barbara
@@ -208,7 +793,6 @@ export const LogicStudio: React.FC<Props> = ({
   type MillMethod = 'agreement' | 'difference' | 'joint' | 'concomitant' | 'residues';
   const [selectedMill, setSelectedMill] = useState<MillMethod>('agreement');
 
-  // Concomitant variation slider
   const [tempDegree, setTempDegree] = useState<number>(30);
   const gasVolume = (tempDegree * 1.5 + 20).toFixed(1);
 
@@ -217,19 +801,15 @@ export const LogicStudio: React.FC<Props> = ({
   // -------------------------------------------------------------
   const [ambientTemp, setAmbientTemp] = useState<number>(24);
 
-  // Fuzzy membership functions
   const calcFuzzyMemberships = (t: number) => {
-    // Cold: 100% at <= 16, 0% at >= 22
     let cold = 0;
     if (t <= 16) cold = 1;
     else if (t < 22) cold = (22 - t) / 6;
 
-    // Comfortable: 0% at <= 18 and >= 28, 100% at 23
     let comfortable = 0;
     if (t > 18 && t < 23) comfortable = (t - 18) / 5;
     else if (t >= 23 && t < 28) comfortable = (28 - t) / 5;
 
-    // Hot: 0% at <= 24, 100% at >= 30
     let hot = 0;
     if (t <= 24) hot = 0;
     else if (t < 30) hot = (t - 24) / 6;
@@ -327,7 +907,7 @@ export const LogicStudio: React.FC<Props> = ({
         : 'bg-slate-950 border-purple-900/50 text-slate-100'
     }`}>
       
-      {/* Studio Top Navigation Bar */}
+      {/* Studio Top Navigation Bar with >= 44px Mobile Touch Targets */}
       <div className={`p-4 border-b flex flex-wrap items-center justify-between gap-4 backdrop-blur-md ${
         isLight ? 'bg-white/90 border-slate-200' : 'bg-slate-900/90 border-purple-900/40'
       }`}>
@@ -352,7 +932,7 @@ export const LogicStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* 5 Mode Selector Buttons */}
+        {/* 5 Mode Selector Buttons with >= 44px touch targets */}
         <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/60 border border-slate-800/80 overflow-x-auto max-w-full">
           {[
             { id: 'truth_table', icon: Binary, labelAr: 'جداول الصدق الرمزية', labelEn: 'Truth Tables' },
@@ -367,7 +947,7 @@ export const LogicStudio: React.FC<Props> = ({
               <button
                 key={mode.id}
                 onClick={() => setActiveMode(mode.id as LogicStudioMode)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                className={`min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'bg-purple-600 text-white shadow-md shadow-purple-600/30'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -381,7 +961,7 @@ export const LogicStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-800/50 cursor-pointer"
+            className="min-h-[44px] flex items-center gap-1 px-3.5 py-2 rounded-lg text-xs font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-800/50 cursor-pointer"
             title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
           >
             {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-purple-400" />}
@@ -407,7 +987,7 @@ export const LogicStudio: React.FC<Props> = ({
                   <button
                     key={opKey}
                     onClick={() => setSelectedOp(opKey)}
-                    className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
+                    className={`min-h-[50px] p-3 rounded-xl border text-center transition-all cursor-pointer ${
                       isSel
                         ? 'bg-purple-600/20 border-purple-500 text-purple-300 shadow-md ring-1 ring-purple-500'
                         : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
@@ -435,16 +1015,16 @@ export const LogicStudio: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Interactive Live Row Tester */}
+            {/* Interactive Live Row Tester with >=44px buttons */}
             <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 <span className="text-xs font-bold text-slate-400">
                   {isArabic ? 'اختبر قيم المتغيرات يدوياً:' : 'Interactive Variable Toggles:'}
                 </span>
 
                 <button
                   onClick={() => setPVal(!pVal)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  className={`min-h-[44px] px-4 py-2 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                     pVal ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'
                   }`}
                 >
@@ -454,7 +1034,7 @@ export const LogicStudio: React.FC<Props> = ({
                 {selectedOp !== 'negation' && selectedOp !== 'tautology_demo' && (
                   <button
                     onClick={() => setQVal(!qVal)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`min-h-[44px] px-4 py-2 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                       qVal ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'
                     }`}
                   >
@@ -468,7 +1048,7 @@ export const LogicStudio: React.FC<Props> = ({
                 <span className="text-xs font-bold text-slate-400">
                   {isArabic ? 'النتيجة الصورية:' : 'Evaluated Truth Value:'}
                 </span>
-                <span className={`px-4 py-1.5 rounded-xl font-mono text-sm font-black flex items-center gap-1.5 ${
+                <span className={`px-4 py-2 rounded-xl font-mono text-sm font-black flex items-center gap-1.5 ${
                   evalCurrentRow()
                     ? 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-400'
                     : 'bg-rose-500/20 border border-rose-500/40 text-rose-400'
@@ -562,7 +1142,7 @@ export const LogicStudio: React.FC<Props> = ({
         )}
 
         {/* ========================================================= */}
-        {/* TAB 2: Aristotelian Syllogism Validator                   */}
+        {/* TAB 2: Aristotelian Syllogism Validator & Euler/Venn Sets */}
         {/* ========================================================= */}
         {activeMode === 'syllogism' && (
           <div className="space-y-6 max-w-5xl mx-auto">
@@ -596,7 +1176,7 @@ export const LogicStudio: React.FC<Props> = ({
                   type="text"
                   value={middleTerm}
                   onChange={(e) => setMiddleTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-purple-300 font-bold focus:outline-hidden focus:border-purple-500"
+                  className="min-h-[44px] w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-purple-300 font-bold focus:outline-none focus:border-purple-500"
                 />
               </div>
 
@@ -608,7 +1188,7 @@ export const LogicStudio: React.FC<Props> = ({
                   type="text"
                   value={majorTerm}
                   onChange={(e) => setMajorTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-indigo-300 font-bold focus:outline-hidden focus:border-indigo-500"
+                  className="min-h-[44px] w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-indigo-300 font-bold focus:outline-none focus:border-indigo-500"
                 />
               </div>
 
@@ -620,12 +1200,12 @@ export const LogicStudio: React.FC<Props> = ({
                   type="text"
                   value={minorTerm}
                   onChange={(e) => setMinorTerm(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-sky-300 font-bold focus:outline-hidden focus:border-sky-500"
+                  className="min-h-[44px] w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-sky-300 font-bold focus:outline-none focus:border-sky-500"
                 />
               </div>
             </div>
 
-            {/* Premise Formulation & Quantifiers */}
+            {/* Premise Formulation & Quantifiers with >=44px buttons */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Major Premise */}
               <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
@@ -643,7 +1223,7 @@ export const LogicStudio: React.FC<Props> = ({
                     <button
                       key={t}
                       onClick={() => setMajorType(t)}
-                      className={`py-1 rounded text-xs font-bold font-mono transition-all cursor-pointer ${
+                      className={`min-h-[44px] py-2 rounded-lg text-xs font-bold font-mono transition-all cursor-pointer ${
                         majorType === t
                           ? 'bg-purple-600 text-white'
                           : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200'
@@ -678,7 +1258,7 @@ export const LogicStudio: React.FC<Props> = ({
                     <button
                       key={t}
                       onClick={() => setMinorType(t)}
-                      className={`py-1 rounded text-xs font-bold font-mono transition-all cursor-pointer ${
+                      className={`min-h-[44px] py-2 rounded-lg text-xs font-bold font-mono transition-all cursor-pointer ${
                         minorType === t
                           ? 'bg-sky-600 text-white'
                           : 'bg-slate-950 border border-slate-800 text-slate-400 hover:text-slate-200'
@@ -760,6 +1340,18 @@ export const LogicStudio: React.FC<Props> = ({
                 </div>
               </div>
             </div>
+
+            {/* High-Resolution Euler / Venn Set Overlap Schematic */}
+            <AristotelianEulerVennVectorSchematic
+              majorType={majorType}
+              minorType={minorType}
+              conclusionType={conclusionType}
+              middleTerm={middleTerm}
+              majorTerm={majorTerm}
+              minorTerm={minorTerm}
+              isSyllogismValid={isSyllogismValid}
+              isArabic={isArabic}
+            />
           </div>
         )}
 
@@ -768,7 +1360,7 @@ export const LogicStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeMode === 'mills_methods' && (
           <div className="space-y-6 max-w-5xl mx-auto">
-            {/* Mill's 5 Methods Selector */}
+            {/* Mill's 5 Methods Selector with >=44px touch targets */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
               {[
                 { id: 'agreement', titleAr: '١. طريقة الاتفاق', titleEn: '1. Agreement' },
@@ -780,7 +1372,7 @@ export const LogicStudio: React.FC<Props> = ({
                 <button
                   key={m.id}
                   onClick={() => setSelectedMill(m.id as MillMethod)}
-                  className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
+                  className={`min-h-[44px] p-3 rounded-xl border text-center transition-all cursor-pointer ${
                     selectedMill === m.id
                       ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-600/30'
                       : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
@@ -793,7 +1385,7 @@ export const LogicStudio: React.FC<Props> = ({
 
             {/* Method 1: Agreement Simulator */}
             {selectedMill === 'agreement' && (
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-xl">
                 <div className="border-b border-slate-800 pb-3">
                   <h4 className="font-black text-sm text-purple-300">
                     {isArabic ? 'طريقة الاتفاق (The Method of Agreement)' : 'The Method of Agreement'}
@@ -813,12 +1405,12 @@ export const LogicStudio: React.FC<Props> = ({
                   <table className="w-full text-xs text-center border-collapse">
                     <thead>
                       <tr className="bg-slate-950 text-slate-400 border-b border-slate-800">
-                        <th className="p-2.5">{isArabic ? 'الشخص' : 'Person'}</th>
-                        <th className="p-2.5">{isArabic ? 'وجبة اللحم' : 'Meat'}</th>
-                        <th className="p-2.5 text-purple-400 font-bold">{isArabic ? 'عصير الفراولة' : 'Strawberry Juice'}</th>
-                        <th className="p-2.5">{isArabic ? 'السلطة' : 'Salad'}</th>
-                        <th className="p-2.5">{isArabic ? 'الحلوى' : 'Dessert'}</th>
-                        <th className="p-2.5 text-rose-400 font-bold">{isArabic ? 'النتيجة (التسمم)' : 'Poisoning'}</th>
+                        <th className="p-3">{isArabic ? 'الشخص' : 'Person'}</th>
+                        <th className="p-3">{isArabic ? 'وجبة اللحم' : 'Meat'}</th>
+                        <th className="p-3 text-purple-400 font-bold">{isArabic ? 'عصير الفراولة' : 'Strawberry Juice'}</th>
+                        <th className="p-3">{isArabic ? 'السلطة' : 'Salad'}</th>
+                        <th className="p-3">{isArabic ? 'الحلوى' : 'Dessert'}</th>
+                        <th className="p-3 text-rose-400 font-bold">{isArabic ? 'النتيجة (التسمم)' : 'Poisoning'}</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-800 font-mono">
@@ -829,12 +1421,12 @@ export const LogicStudio: React.FC<Props> = ({
                         { name: isArabic ? 'ليلى' : 'Laila', meat: false, juice: true, salad: false, dessert: true, poisoned: true }
                       ].map((r, i) => (
                         <tr key={i} className="hover:bg-slate-800/30">
-                          <td className="p-2.5 font-bold font-sans text-slate-200">{r.name}</td>
-                          <td className="p-2.5">{r.meat ? '✓' : '—'}</td>
-                          <td className="p-2.5 bg-purple-950/40 text-purple-300 font-black">✓ ({isArabic ? 'مشترك' : 'Common'})</td>
-                          <td className="p-2.5">{r.salad ? '✓' : '—'}</td>
-                          <td className="p-2.5">{r.dessert ? '✓' : '—'}</td>
-                          <td className="p-2.5 text-rose-400 font-black">✓ {isArabic ? 'تسمم' : 'Ill'}</td>
+                          <td className="p-3 font-bold font-sans text-slate-200">{r.name}</td>
+                          <td className="p-3">{r.meat ? '✓' : '—'}</td>
+                          <td className="p-3 bg-purple-950/40 text-purple-300 font-black">✓ ({isArabic ? 'مشترك' : 'Common'})</td>
+                          <td className="p-3">{r.salad ? '✓' : '—'}</td>
+                          <td className="p-3">{r.dessert ? '✓' : '—'}</td>
+                          <td className="p-3 text-rose-400 font-black">✓ {isArabic ? 'تسمم' : 'Ill'}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -852,7 +1444,7 @@ export const LogicStudio: React.FC<Props> = ({
 
             {/* Method 4: Concomitant Variations */}
             {selectedMill === 'concomitant' && (
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-5">
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-5 shadow-xl">
                 <div className="border-b border-slate-800 pb-3">
                   <h4 className="font-black text-sm text-purple-300">
                     {isArabic ? 'طريقة التلازم في التغير (Concomitant Variations)' : 'Method of Concomitant Variations'}
@@ -880,7 +1472,7 @@ export const LogicStudio: React.FC<Props> = ({
                     max={100}
                     value={tempDegree}
                     onChange={(e) => setTempDegree(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                    className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
                   />
                 </div>
 
@@ -902,7 +1494,7 @@ export const LogicStudio: React.FC<Props> = ({
 
             {/* Method 5: Residues */}
             {selectedMill === 'residues' && (
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-xl">
                 <div className="border-b border-slate-800 pb-3">
                   <h4 className="font-black text-sm text-purple-300">
                     {isArabic ? 'طريقة البواقي (The Method of Residues)' : 'The Method of Residues'}
@@ -943,7 +1535,7 @@ export const LogicStudio: React.FC<Props> = ({
 
             {/* Methods 2 & 3 summary if selected */}
             {(selectedMill === 'difference' || selectedMill === 'joint') && (
-              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-xl">
                 <h4 className="font-black text-sm text-purple-300">
                   {selectedMill === 'difference'
                     ? (isArabic ? 'طريقة الاختلاف (التلازم في الغياب)' : 'The Method of Difference')
@@ -978,8 +1570,8 @@ export const LogicStudio: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Continuous Temperature Slider */}
-            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+            {/* Continuous Temperature Slider with >=44px area */}
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-xl">
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-slate-300">
                   {isArabic ? 'درجة الحرارة في بيئة التكييف الذكي:' : 'Smart AC Ambient Temperature Input:'}
@@ -995,79 +1587,26 @@ export const LogicStudio: React.FC<Props> = ({
                 max={35}
                 value={ambientTemp}
                 onChange={(e) => setAmbientTemp(Number(e.target.value))}
-                className="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                className="w-full h-3 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-500"
               />
 
-              {/* Comparison Grid: Binary vs Fuzzy */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                {/* Classical Binary Logic */}
-                <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400">
-                      {isArabic ? 'المنطق الأرسطي التقليدي (ثنائي القيم):' : 'Classical Binary Aristotelian Logic:'}
-                    </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">
-                      {isArabic ? 'قاطع 0 أو 1' : 'Crisp 0 or 1'}
-                    </span>
-                  </div>
-                  <div className="text-lg font-black font-mono text-rose-400">
-                    {binaryVerdict}
-                  </div>
-                  <p className="text-[11px] text-slate-500 leading-relaxed">
-                    {isArabic
-                      ? 'لا يعترف بدرجات وسطى؛ إما حار تماماً وإما بارد تماماً وفق مبدأ الثالث المرفوع.'
-                      : 'Strict boundary cutoff. Excludes mid-degrees and nuances.'}
-                  </p>
-                </div>
-
-                {/* Lotfi Zadeh's Fuzzy Logic */}
-                <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-purple-300">
-                      {isArabic ? 'منطق لطفي زادة المرن (متعدد القيم):' : "Lotfi Zadeh's Continuous Fuzzy Logic:"}
-                    </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono">
-                      μ ∈ [0.0 , 1.0]
-                    </span>
-                  </div>
-
-                  <div className="space-y-1.5 text-xs font-mono">
-                    <div className="flex items-center justify-between">
-                      <span className="text-blue-400 font-sans">{isArabic ? 'بارد (Cold):' : 'Cold:'}</span>
-                      <span className="font-black text-blue-300">{(fuzzy.cold * 100).toFixed(0)}%</span>
-                    </div>
-                    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-blue-500 h-full" style={{ width: `${fuzzy.cold * 100}%` }} />
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-emerald-400 font-sans">{isArabic ? 'معتدل (Comfortable):' : 'Comfortable:'}</span>
-                      <span className="font-black text-emerald-300">{(fuzzy.comfortable * 100).toFixed(0)}%</span>
-                    </div>
-                    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-emerald-500 h-full" style={{ width: `${fuzzy.comfortable * 100}%` }} />
-                    </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-rose-400 font-sans">{isArabic ? 'حار (Hot):' : 'Hot:'}</span>
-                      <span className="font-black text-rose-300">{(fuzzy.hot * 100).toFixed(0)}%</span>
-                    </div>
-                    <div className="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-rose-500 h-full" style={{ width: `${fuzzy.hot * 100}%` }} />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {/* High-Resolution Continuous Curve Schematic */}
+              <FuzzyContinuousMembershipVectorSchematic
+                ambientTemp={ambientTemp}
+                fuzzy={fuzzy}
+                binaryVerdict={binaryVerdict}
+                isArabic={isArabic}
+              />
             </div>
           </div>
         )}
 
         {/* ========================================================= */}
-        {/* TAB 5: Bioethics Dilemma Decision Matrix                  */}
+        {/* TAB 5: Bioethics Dilemma Decision Matrix & 4-Axis Radar   */}
         {/* ========================================================= */}
         {activeMode === 'bioethics_matrix' && (
           <div className="space-y-6 max-w-5xl mx-auto">
-            {/* Dilemma Selector */}
+            {/* Dilemma Selector with >= 50px buttons */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
               {(Object.keys(dilemmasData) as BioDilemmaId[]).map((dKey) => {
                 const d = dilemmasData[dKey];
@@ -1076,7 +1615,7 @@ export const LogicStudio: React.FC<Props> = ({
                   <button
                     key={dKey}
                     onClick={() => setSelectedDilemma(dKey)}
-                    className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
+                    className={`min-h-[50px] p-3 rounded-xl border text-left transition-all cursor-pointer ${
                       isSel
                         ? 'bg-purple-600 text-white border-purple-500 shadow-md shadow-purple-600/30'
                         : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
@@ -1090,7 +1629,7 @@ export const LogicStudio: React.FC<Props> = ({
             </div>
 
             {/* Dilemma Details Card */}
-            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+            <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4 shadow-xl">
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-purple-400">
                   {isArabic ? 'القضية الأخلاقية البيوطبية المعاصرة:' : 'Contemporary Bioethical Dilemma:'}
@@ -1103,45 +1642,18 @@ export const LogicStudio: React.FC<Props> = ({
                 </p>
               </div>
 
-              {/* 4 Core Ethical Principles Metrics */}
-              <div>
-                <div className="text-xs font-bold text-slate-300 mb-2">
-                  {isArabic ? 'تقييم القضية عبر المعايير الأخلاقية الأربعة (بيتشامب وتشيلدرس):' : 'Evaluation Across 4 Core Biomedical Principles:'}
-                </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">{isArabic ? 'الاستقلالية الفردية' : 'Autonomy'}</span>
-                    <span className="text-base font-mono font-black text-sky-400">{currentDilemma.autonomyScore}%</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">{isArabic ? 'فعل الخير والمنفعة' : 'Beneficence'}</span>
-                    <span className="text-base font-mono font-black text-emerald-400">{currentDilemma.beneficenceScore}%</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">{isArabic ? 'عدم إلحاق الأذى' : 'Non-Maleficence'}</span>
-                    <span className="text-base font-mono font-black text-amber-400">{currentDilemma.nonMaleficenceScore}%</span>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800">
-                    <span className="text-[11px] text-slate-400 block">{isArabic ? 'العدالة والمساواة' : 'Justice & Equity'}</span>
-                    <span className="text-base font-mono font-black text-purple-400">{currentDilemma.justiceScore}%</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Official Ministerial Ethical Verdict */}
-              <div className="p-4 rounded-xl bg-purple-950/40 border border-purple-800/80 text-purple-200">
-                <div className="text-xs font-bold uppercase tracking-wider text-purple-400 mb-1 flex items-center gap-1.5">
-                  <Shield className="w-4 h-4" />
-                  <span>{isArabic ? 'الحكم المعياري المعتمد في المنهج الوزاري المصري:' : 'Official MoE Curriculum Ethical Consensus:'}</span>
-                </div>
-                <p className="text-xs leading-relaxed">
-                  {isArabic ? currentDilemma.officialVerdictAr : currentDilemma.officialVerdictEn}
-                </p>
-              </div>
+              {/* 4-Axis Bioethics Radar Chart Schematic */}
+              <BioethicsRadarChartVectorSchematic
+                autonomyScore={currentDilemma.autonomyScore}
+                beneficenceScore={currentDilemma.beneficenceScore}
+                nonMaleficenceScore={currentDilemma.nonMaleficenceScore}
+                justiceScore={currentDilemma.justiceScore}
+                titleEn={currentDilemma.titleEn}
+                titleAr={currentDilemma.titleAr}
+                officialVerdictEn={currentDilemma.officialVerdictEn}
+                officialVerdictAr={currentDilemma.officialVerdictAr}
+                isArabic={isArabic}
+              />
             </div>
           </div>
         )}

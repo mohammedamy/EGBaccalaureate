@@ -31,6 +31,558 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
+// =========================================================================
+// VECTOR SCHEMATIC 1: TAJWEED MAKHAARIJ & PHONETICS (المخارج العامة والصفات)
+// =========================================================================
+const TajweedPhoneticMakharijVectorSchematic: React.FC<{
+  rule: TajweedRuleItem;
+  isArabic: boolean;
+}> = ({ rule, isArabic }) => {
+  const isGhunnah =
+    rule.id.includes('nun') ||
+    rule.id.includes('mim') ||
+    rule.nameAr.includes('غنة') ||
+    rule.nameAr.includes('إخفاء') ||
+    rule.nameAr.includes('إدغام');
+  const isMadd = rule.id.includes('madd') || rule.categoryAr.includes('المد');
+  const isHalq = rule.id.includes('idhar') || rule.categoryAr.includes('حلق');
+  const isQalqalah = rule.id.includes('qalqalah') || rule.nameAr.includes('قلقلة');
+  const isShafatayn =
+    rule.id.includes('iqlab') || rule.letters.some((l) => ['ب', 'م', 'و', 'ف'].includes(l));
+
+  return (
+    <div className="bg-gradient-to-b from-slate-900/95 via-slate-950 to-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-emerald-500/20">
+        <div className="flex items-center gap-2">
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+          <h4 className="text-xs sm:text-sm font-black text-emerald-300">
+            {isArabic
+              ? 'المخطط التشريحي الصوتي لمخارج الحروف وصفاتها (Vocal Tract & Articulation Schematic)'
+              : 'Phonetic Vocal Tract & Articulation Point Schematic'}
+          </h4>
+        </div>
+        <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[11px] font-mono text-teal-300">
+          {isArabic ? rule.categoryAr : rule.categoryEn}
+        </span>
+      </div>
+
+      <div className="w-full overflow-x-auto">
+        <svg
+          viewBox="0 0 800 240"
+          className="w-full min-w-[660px] h-auto select-none"
+          style={{ maxHeight: '250px' }}
+        >
+          <defs>
+            <radialGradient id="nasalResonance" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#0f766e" stopOpacity="0" />
+            </radialGradient>
+            <radialGradient id="vocalTractGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#10b981" stopOpacity="0.7" />
+              <stop offset="100%" stopColor="#047857" stopOpacity="0" />
+            </radialGradient>
+            <filter id="makhrajGlow">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          {/* Stylized Anatomical Head & Vocal Tract Cross-Section Outline */}
+          <path
+            d="M 120 220 C 110 180, 100 120, 130 70 C 160 30, 240 20, 300 35 C 330 45, 360 80, 370 120 C 375 140, 385 155, 410 160 C 420 162, 420 175, 400 180 C 375 185, 365 200, 365 220"
+            fill="none"
+            stroke="#334155"
+            strokeWidth="2"
+            strokeDasharray="4,4"
+          />
+
+          {/* 1. Al-Khayshoom (Nasal Cavity / الخيشوم) */}
+          <ellipse
+            cx="280"
+            cy="90"
+            rx="45"
+            ry="22"
+            fill={isGhunnah ? 'url(#nasalResonance)' : '#0f172a'}
+            stroke={isGhunnah ? '#2dd4bf' : '#475569'}
+            strokeWidth={isGhunnah ? '2.5' : '1.2'}
+            filter={isGhunnah ? 'url(#makhrajGlow)' : undefined}
+          />
+          <text
+            x="280"
+            y="94"
+            textAnchor="middle"
+            fill={isGhunnah ? '#ccfbf1' : '#94a3b8'}
+            fontSize="11"
+            fontWeight="bold"
+          >
+            {isArabic ? 'الخَيْشُوم (مخرج الغنة)' : 'Nasal Cavity (Ghunnah)'}
+          </text>
+
+          {/* 2. Al-Jawf (Oral & Throat Cavity / الجوف) */}
+          <ellipse
+            cx="250"
+            cy="140"
+            rx="55"
+            ry="25"
+            fill={isMadd ? 'url(#vocalTractGlow)' : '#0f172a'}
+            stroke={isMadd ? '#10b981' : '#475569'}
+            strokeWidth={isMadd ? '2.5' : '1.2'}
+            filter={isMadd ? 'url(#makhrajGlow)' : undefined}
+          />
+          <text
+            x="250"
+            y="144"
+            textAnchor="middle"
+            fill={isMadd ? '#d1fae5' : '#94a3b8'}
+            fontSize="11"
+            fontWeight="bold"
+          >
+            {isArabic ? 'الجَوْف (حروف المد الثلاثة)' : 'Al-Jawf (Madd Cavity)'}
+          </text>
+
+          {/* 3. Al-Lisan (The Tongue / اللسان) */}
+          <path
+            d="M 210 165 C 240 150, 290 150, 320 168 C 300 185, 230 185, 210 165 Z"
+            fill={!isHalq && !isMadd ? '#064e3b' : '#0f172a'}
+            stroke={!isHalq && !isMadd ? '#34d399' : '#475569'}
+            strokeWidth="1.8"
+          />
+          <text x="265" y="172" textAnchor="middle" fill="#a7f3d0" fontSize="10" fontWeight="bold">
+            {isArabic ? 'اللِّسَان (10 مخارج لـ 18 حرفاً)' : 'Tongue (18 Letters)'}
+          </text>
+
+          {/* 4. Ash-Shafatayn (The Lips / الشفتان) */}
+          <circle
+            cx="370"
+            cy="165"
+            r="18"
+            fill={isShafatayn ? '#047857' : '#0f172a'}
+            stroke={isShafatayn ? '#34d399' : '#475569'}
+            strokeWidth={isShafatayn ? '2.5' : '1.2'}
+            filter={isShafatayn ? 'url(#makhrajGlow)' : undefined}
+          />
+          <text
+            x="370"
+            y="169"
+            textAnchor="middle"
+            fill={isShafatayn ? '#ecfdf5' : '#94a3b8'}
+            fontSize="9"
+            fontWeight="bold"
+          >
+            {isArabic ? 'الشفتان' : 'Lips'}
+          </text>
+
+          {/* 5. Al-Halq (The Throat / الحلق) */}
+          <rect
+            x="180"
+            y="185"
+            width="60"
+            height="30"
+            rx="8"
+            fill={isHalq ? '#065f46' : '#0f172a'}
+            stroke={isHalq ? '#34d399' : '#475569'}
+            strokeWidth={isHalq ? '2.5' : '1.2'}
+            filter={isHalq ? 'url(#makhrajGlow)' : undefined}
+          />
+          <text
+            x="210"
+            y="204"
+            textAnchor="middle"
+            fill={isHalq ? '#ecfdf5' : '#94a3b8'}
+            fontSize="10"
+            fontWeight="bold"
+          >
+            {isArabic ? 'الحَلْق' : 'Throat'}
+          </text>
+
+          {/* Acoustic Wave Vector Beams */}
+          <g transform="translate(420, 30)">
+            <rect
+              x="0"
+              y="0"
+              width="360"
+              height="180"
+              rx="16"
+              fill="#020617"
+              stroke="#10b981"
+              strokeWidth="1"
+              strokeOpacity="0.4"
+            />
+            <text x="180" y="24" textAnchor="middle" fill="#34d399" fontSize="12" fontWeight="bold">
+              {isArabic ? 'خصائص الصوت والأداء التجويدي' : 'Acoustic Attributes & Articulation Profile'}
+            </text>
+
+            <line x1="15" y1="36" x2="345" y2="36" stroke="#334155" strokeWidth="1" />
+
+            {/* Feature 1: Target Letters */}
+            <text x="20" y="60" fill="#94a3b8" fontSize="11">
+              {isArabic ? 'أحرف الحكم المعني:' : 'Target Letters:'}
+            </text>
+            <g transform="translate(130, 46)">
+              {rule.letters.map((lettr, idx) => (
+                <g key={idx}>
+                  <rect
+                    x={idx * 26}
+                    y="0"
+                    width="22"
+                    height="22"
+                    rx="6"
+                    fill="#064e3b"
+                    stroke="#34d399"
+                    strokeWidth="1"
+                  />
+                  <text
+                    x={idx * 26 + 11}
+                    y="15"
+                    textAnchor="middle"
+                    fill="#fef08a"
+                    fontSize="12"
+                    fontWeight="bold"
+                    fontFamily="serif"
+                  >
+                    {lettr}
+                  </text>
+                </g>
+              ))}
+            </g>
+
+            {/* Feature 2: Articulatory Action */}
+            <text x="20" y="96" fill="#94a3b8" fontSize="11">
+              {isArabic ? 'آلية النطق الصوتي:' : 'Phonetic Mechanism:'}
+            </text>
+            <text x="130" y="96" fill="#6ee7b7" fontSize="11" fontWeight="bold">
+              {isGhunnah
+                ? isArabic
+                  ? 'جريان الصوت في الخيشوم بمقدار حركتين'
+                  : '2-count nasal resonance airflow'
+                : isMadd
+                ? isArabic
+                  ? 'امتداد الصوت بحرف المد في الجوف'
+                  : 'Longitudinal airflow elongation in Jawf'
+                : isHalq
+                ? isArabic
+                  ? 'إخراج الحرف من مخرجه بغير غنة ظاهرة'
+                  : 'Clear throat release without nasalization'
+                : isQalqalah
+                ? isArabic
+                  ? 'اضطراب المخرج عند النطق بالحرف ساكناً'
+                  : 'Vocal tract impulse tremor on sukoon'
+                : isArabic
+                ? 'تطابق الشفتين مع قلب النون ميماً مخفاة'
+                : 'Labial assimilation with hidden meem'}
+            </text>
+
+            {/* Feature 3: Measure / Duration */}
+            <text x="20" y="132" fill="#94a3b8" fontSize="11">
+              {isArabic ? 'المقدار الزمني الدستوري:' : 'Metronomic Timing:'}
+            </text>
+            <text x="130" y="132" fill="#38bdf8" fontSize="11" fontWeight="bold" fontFamily="mono">
+              {isMadd
+                ? 'حركتان إلى 6 حركات (2 - 6 Harakat)'
+                : isGhunnah
+                ? 'حركتان كاملتان (2 Harakat)'
+                : 'حركة اعتيادية منضبطة'}
+            </text>
+
+            <rect x="20" y="148" width="320" height="12" rx="6" fill="#0f172a" />
+            <rect
+              x="20"
+              y="148"
+              width={isMadd ? '300' : isGhunnah ? '220' : '150'}
+              height="12"
+              rx="6"
+              fill="#10b981"
+            />
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+// =========================================================================
+// VECTOR SCHEMATIC 2: MAQASID SPHERES OF PROTECTION (هرمية المقاصد والضرورات)
+// =========================================================================
+const MaqasidHierarchyVectorSchematic: React.FC<{
+  selectedMaqsad: MaqasidCategory;
+  isArabic: boolean;
+}> = ({ selectedMaqsad, isArabic }) => {
+  const categories = MAQASID_CATEGORIES_DATA;
+  const cx = 400;
+  const cy = 120;
+
+  return (
+    <div className="bg-gradient-to-b from-slate-900/95 via-slate-950 to-teal-950/30 border border-teal-500/30 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-teal-500/20">
+        <div className="flex items-center gap-2">
+          <Scale className="w-5 h-5 text-teal-400" />
+          <h4 className="text-xs sm:text-sm font-black text-teal-300">
+            {isArabic
+              ? 'هرمية المقاصد الشرعية الكلية ورتب الضرورات (Maqasid Spheres of Protection)'
+              : 'Universal Sharia Objectives & Hierarchy of Necessities'}
+          </h4>
+        </div>
+        <span className="px-2.5 py-0.5 rounded-full bg-teal-950/80 border border-teal-500/30 text-[11px] font-bold text-teal-300">
+          {selectedMaqsad.priorityLevel}
+        </span>
+      </div>
+
+      <div className="w-full overflow-x-auto">
+        <svg
+          viewBox="0 0 800 230"
+          className="w-full min-w-[660px] h-auto select-none"
+          style={{ maxHeight: '240px' }}
+        >
+          <defs>
+            <radialGradient id="daruriyyatGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#0d9488" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#115e59" stopOpacity="0.05" />
+            </radialGradient>
+          </defs>
+
+          {/* 3 Concentric Spheres of Sharia Protection */}
+          {/* Sphere 3: Tahsiniyyat (Outer Orbit) */}
+          <ellipse
+            cx={cx}
+            cy={cy}
+            rx="340"
+            ry="95"
+            fill="none"
+            stroke="#334155"
+            strokeWidth="1"
+            strokeDasharray="4,4"
+          />
+          <text
+            x={cx}
+            y={cy - 82}
+            textAnchor="middle"
+            fill="#64748b"
+            fontSize="10"
+            fontWeight="bold"
+          >
+            {isArabic
+              ? 'نطاق التَّحْسِينِيَّات (محاسن العادات ومكارم الأخلاق)'
+              : 'Tahsiniyyat (Embellishments & Ethics)'}
+          </text>
+
+          {/* Sphere 2: Hajiyyat (Middle Orbit) */}
+          <ellipse
+            cx={cx}
+            cy={cy}
+            rx="250"
+            ry="72"
+            fill="none"
+            stroke="#0d9488"
+            strokeWidth="1.2"
+            strokeOpacity="0.5"
+            strokeDasharray="3,3"
+          />
+          <text
+            x={cx}
+            y={cy - 58}
+            textAnchor="middle"
+            fill="#2dd4bf"
+            fontSize="10"
+            fontWeight="bold"
+          >
+            {isArabic
+              ? 'نطاق الحَاجِيَّات (رفع الحرج وتيسير المعاملات)'
+              : 'Hajiyyat (Relief of Hardship)'}
+          </text>
+
+          {/* Sphere 1: Daruriyyat Core Sanctuary */}
+          <ellipse
+            cx={cx}
+            cy={cy}
+            rx="150"
+            ry="46"
+            fill="url(#daruriyyatGrad)"
+            stroke="#14b8a6"
+            strokeWidth="2"
+          />
+          <text
+            x={cx}
+            y={cy - 22}
+            textAnchor="middle"
+            fill="#5eead4"
+            fontSize="11"
+            fontWeight="900"
+          >
+            {isArabic ? 'حِمَى الضَّرُورِيَّات الكُلِّيَّة الخَمْس' : 'The Core 5 Sacred Essentials'}
+          </text>
+
+          {/* 5 Maqasid Planetary Nodes */}
+          {categories.map((m, idx) => {
+            const angle = (idx / 5) * 2 * Math.PI - Math.PI / 2;
+            const nodeX = cx + 190 * Math.cos(angle);
+            const nodeY = cy + 62 * Math.sin(angle);
+            const isSelected = selectedMaqsad.id === m.id;
+
+            return (
+              <g key={m.id} transform={`translate(${nodeX}, ${nodeY})`}>
+                {/* Glowing halo if selected */}
+                {isSelected && (
+                  <circle
+                    cx="0"
+                    cy="0"
+                    r="32"
+                    fill="none"
+                    stroke="#2dd4bf"
+                    strokeWidth="2.5"
+                    className="animate-ping"
+                    opacity="0.4"
+                  />
+                )}
+                <circle
+                  cx="0"
+                  cy="0"
+                  r={isSelected ? '24' : '18'}
+                  fill={isSelected ? '#042f2e' : '#0f172a'}
+                  stroke={isSelected ? '#2dd4bf' : '#334155'}
+                  strokeWidth={isSelected ? '2.5' : '1.5'}
+                />
+                <text
+                  textAnchor="middle"
+                  y="4"
+                  fill={isSelected ? '#f0fdfa' : '#94a3b8'}
+                  fontSize={isSelected ? '11' : '9'}
+                  fontWeight="bold"
+                >
+                  {isArabic ? m.titleAr.split(' ')[1] || m.titleAr : m.titleEn.split(' ')[0]}
+                </text>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+// =========================================================================
+// VECTOR SCHEMATIC 3: SEERAH ASTROLABE (الإسطرلاب التاريخي والدستوري)
+// =========================================================================
+const SeerahConstitutionalAstrolabeVectorSchematic: React.FC<{
+  milestone: SeerahMilestone;
+  isArabic: boolean;
+}> = ({ milestone, isArabic: _isArabic }) => {
+  return (
+    <div className="bg-gradient-to-b from-slate-900/95 via-slate-950 to-emerald-950/30 border border-emerald-500/30 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-emerald-500/20">
+        <div className="flex items-center gap-2">
+          <Compass className="w-5 h-5 text-emerald-400" />
+          <h4 className="text-xs sm:text-sm font-black text-emerald-300">
+            {_isArabic
+              ? 'الإسطرلاب التاريخي والدستوري للسيرة النبوية (Prophetic Constitutional Astrolabe)'
+              : 'Prophetic Historic & Constitutional Cartography'}
+          </h4>
+        </div>
+        <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 font-bold">
+          {milestone.yearHijri} هـ
+        </span>
+      </div>
+
+      <div className="w-full overflow-x-auto">
+        <svg
+          viewBox="0 0 800 200"
+          className="w-full min-w-[660px] h-auto select-none"
+          style={{ maxHeight: '210px' }}
+        >
+          {/* Compass Rose Ring */}
+          <circle cx="120" cy="100" r="75" fill="#020617" stroke="#059669" strokeWidth="1.5" />
+          <circle
+            cx="120"
+            cy="100"
+            r="60"
+            fill="none"
+            stroke="#047857"
+            strokeWidth="1"
+            strokeDasharray="3,3"
+          />
+          <line x1="120" y1="25" x2="120" y2="175" stroke="#10b981" strokeWidth="1" opacity="0.4" />
+          <line x1="45" y1="100" x2="195" y2="100" stroke="#10b981" strokeWidth="1" opacity="0.4" />
+          <text x="120" y="42" textAnchor="middle" fill="#34d399" fontSize="10" fontWeight="bold">
+            شَمَال
+          </text>
+          <text x="120" y="168" textAnchor="middle" fill="#34d399" fontSize="10" fontWeight="bold">
+            جَنُوب
+          </text>
+          <text
+            x="120"
+            y="104"
+            textAnchor="middle"
+            fill="#fef08a"
+            fontSize="12"
+            fontWeight="bold"
+            fontFamily="serif"
+          >
+            {milestone.yearHijri} هـ
+          </text>
+
+          {/* Geo Trail Map: Makkah -> Madinah -> Badr -> Uhud -> Hudaybiyyah */}
+          <g transform="translate(230, 20)">
+            <rect
+              x="0"
+              y="0"
+              width="540"
+              height="160"
+              rx="16"
+              fill="#020617"
+              stroke="#10b981"
+              strokeWidth="1"
+              strokeOpacity="0.4"
+            />
+
+            {/* Path Connection line */}
+            <path
+              d="M 60 120 Q 150 90, 220 70 T 360 80 T 480 60"
+              fill="none"
+              stroke="#10b981"
+              strokeWidth="2.5"
+              strokeDasharray="5,4"
+            />
+
+            {/* Stations */}
+            {[
+              { nameAr: 'مكة المكرمة', x: 60, y: 120, tag: 'مهد الرسالة' },
+              { nameAr: 'بدر الكبرى', x: 180, y: 80, tag: '2 هـ' },
+              { nameAr: 'أُحُد', x: 280, y: 70, tag: '3 هـ' },
+              { nameAr: 'المدينة المنورة', x: 380, y: 85, tag: 'عاصمة الدستور' },
+              { nameAr: 'الحديبية', x: 480, y: 60, tag: '6 هـ' },
+            ].map((st, i) => (
+              <g key={i} transform={`translate(${st.x}, ${st.y})`}>
+                <circle cx="0" cy="0" r="10" fill="#064e3b" stroke="#34d399" strokeWidth="2" />
+                <circle cx="0" cy="0" r="4" fill="#fef08a" />
+                <text
+                  textAnchor="middle"
+                  y="-14"
+                  fill="#ecfdf5"
+                  fontSize="10"
+                  fontWeight="bold"
+                >
+                  {st.nameAr}
+                </text>
+                <text
+                  textAnchor="middle"
+                  y="22"
+                  fill="#6ee7b7"
+                  fontSize="8"
+                  fontFamily="mono"
+                >
+                  {st.tag}
+                </text>
+              </g>
+            ))}
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+};
+
 interface Props {
   lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
@@ -250,7 +802,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
         <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-900/60 border border-emerald-500/30">
           <button
             onClick={() => setActiveTab('tajweed')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
               activeTab === 'tajweed'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
                 : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
@@ -261,7 +813,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveTab('maqasid')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
               activeTab === 'maqasid'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
                 : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
@@ -272,7 +824,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveTab('seerah')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
               activeTab === 'seerah'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
                 : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
@@ -283,7 +835,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveTab('bioethics')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
               activeTab === 'bioethics'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
                 : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
@@ -294,7 +846,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
               activeTab === 'quiz'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
                 : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
@@ -307,7 +859,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="p-2 text-emerald-300/80 hover:text-white rounded-lg hover:bg-emerald-800/30 transition-colors border border-emerald-500/30"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-emerald-300/80 hover:text-white rounded-lg hover:bg-emerald-800/30 transition-colors border border-emerald-500/30"
             title={isFullscreen ? (isArabic ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isArabic ? 'ملء الشاشة' : 'Fullscreen')}
             aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           >
@@ -330,7 +882,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 <button
                   key={rule.id}
                   onClick={() => setSelectedTajweed(rule)}
-                  className={`p-3.5 rounded-xl text-start transition-all border ${
+                  className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                     selectedTajweed.id === rule.id
                       ? 'bg-emerald-900/50 border-emerald-400 text-white shadow-md shadow-emerald-950/40'
                       : 'bg-slate-900/40 border-emerald-500/10 text-emerald-200/80 hover:bg-emerald-900/20 hover:border-emerald-500/30'
@@ -377,6 +929,9 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
               {isArabic ? selectedTajweed.descriptionAr : selectedTajweed.descriptionEn}
             </p>
 
+            {/* High-Resolution Scientific Vector Schematic: Anatomical Makharij & Resonance */}
+            <TajweedPhoneticMakharijVectorSchematic rule={selectedTajweed} isArabic={isArabic} />
+
             {/* Quranic Verse Examples with Sheikh Al-Hussary Audio Engine */}
             <div className="flex flex-col gap-4">
               {/* Sheikh Al-Hussary Attribution & Style Switcher Banner */}
@@ -411,7 +966,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                       setCurrentlyPlayingVerse(null);
                       setRecitationStyle('murattal');
                     }}
-                    className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
+                    className={`min-h-[44px] px-3.5 py-2 rounded-md text-xs font-bold transition-all ${
                       recitationStyle === 'murattal'
                         ? 'bg-emerald-600 text-white shadow'
                         : 'text-emerald-300/70 hover:text-white'
@@ -428,7 +983,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                       setCurrentlyPlayingVerse(null);
                       setRecitationStyle('muallim');
                     }}
-                    className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all ${
+                    className={`min-h-[44px] px-3.5 py-2 rounded-md text-xs font-bold transition-all ${
                       recitationStyle === 'muallim'
                         ? 'bg-teal-600 text-white shadow'
                         : 'text-emerald-300/70 hover:text-white'
@@ -483,7 +1038,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
 
                           <button
                             onClick={() => playHussaryRecitation(ex.surahNumber, ex.ayahNumber, ex.verseText)}
-                            className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
+                            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
                               isThisVersePlaying
                                 ? 'bg-teal-400 text-slate-950 font-black shadow-lg shadow-teal-500/50'
                                 : 'bg-emerald-700/80 hover:bg-emerald-600 text-white shadow'
@@ -551,7 +1106,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 <button
                   key={maqsad.id}
                   onClick={() => setSelectedMaqsad(maqsad)}
-                  className={`p-3.5 rounded-xl text-start transition-all border ${
+                  className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                     selectedMaqsad.id === maqsad.id
                       ? 'bg-emerald-900/50 border-emerald-400 text-white shadow-md'
                       : 'bg-slate-900/40 border-emerald-500/10 text-emerald-200/80 hover:bg-emerald-900/20'
@@ -580,6 +1135,9 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 {isArabic ? selectedMaqsad.essentialAr : selectedMaqsad.essentialEn}
               </p>
             </div>
+
+            {/* High-Resolution Scientific Vector Schematic: Concentric Spheres of Sharia Protection */}
+            <MaqasidHierarchyVectorSchematic selectedMaqsad={selectedMaqsad} isArabic={isArabic} />
 
             <div className="flex flex-col gap-4">
               <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400">
@@ -619,7 +1177,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 <button
                   key={m.id}
                   onClick={() => setSelectedMilestone(m)}
-                  className={`p-3.5 rounded-xl text-start transition-all border ${
+                  className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                     selectedMilestone.id === m.id
                       ? 'bg-emerald-900/50 border-emerald-400 text-white shadow-md'
                       : 'bg-slate-900/40 border-emerald-500/10 text-emerald-200/80 hover:bg-emerald-900/20'
@@ -648,6 +1206,9 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 {isArabic ? selectedMilestone.eventSummaryAr : selectedMilestone.eventSummaryEn}
               </p>
             </div>
+
+            {/* High-Resolution Scientific Vector Schematic: Historic Astrolabe & Constitutional Cartography */}
+            <SeerahConstitutionalAstrolabeVectorSchematic milestone={selectedMilestone} isArabic={isArabic} />
 
             <div className="p-4 rounded-xl bg-teal-950/30 border border-teal-500/30 flex flex-col gap-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-teal-300 flex items-center gap-1.5">
@@ -689,7 +1250,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 <button
                   key={issue.id}
                   onClick={() => setSelectedIssue(issue)}
-                  className={`p-3.5 rounded-xl text-start transition-all border ${
+                  className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                     selectedIssue.id === issue.id
                       ? 'bg-emerald-900/50 border-emerald-400 text-white shadow-md'
                       : 'bg-slate-900/40 border-emerald-500/10 text-emerald-200/80 hover:bg-emerald-900/20'
@@ -786,7 +1347,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                   key={i}
                   disabled={isAnswerSubmitted}
                   onClick={() => handleQuizSubmit(i)}
-                  className={`p-4 rounded-xl border text-start transition-all flex items-center justify-between gap-3 ${btnStyle}`}
+                  className={`min-h-[44px] p-4 rounded-xl border text-start transition-all flex items-center justify-between gap-3 ${btnStyle}`}
                 >
                   <span className="text-xs md:text-sm font-medium">{opt}</span>
                   {isAnswerSubmitted && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />}
@@ -812,7 +1373,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
           <div className="flex items-center justify-between pt-2">
             <button
               onClick={resetQuiz}
-              className="flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-200 transition-colors"
+              className="min-h-[44px] px-3 py-2 flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-200 transition-colors"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>{isArabic ? 'إعادة الاختبار' : 'Reset Quiz'}</span>
@@ -821,7 +1382,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
             {isAnswerSubmitted && currentQIndex < ISLAMIC_STUDIES_QUIZ_DATA.length - 1 && (
               <button
                 onClick={nextQuestion}
-                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs md:text-sm shadow-lg shadow-emerald-700/40 transition-all"
+                className="min-h-[44px] px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs md:text-sm shadow-lg shadow-emerald-700/40 transition-all"
               >
                 {isArabic ? 'السؤال التالي ←' : 'Next Question →'}
               </button>

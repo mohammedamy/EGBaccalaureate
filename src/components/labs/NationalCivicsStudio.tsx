@@ -193,6 +193,548 @@ const CONSTITUTIONAL_CHALLENGES: ConstitutionalLawChallenge[] = [
   },
 ];
 
+// =========================================================================
+// VECTOR SCHEMATIC 1: LEGISLATIVE PROCESS FLOWCHART (المسار التشريعي لإقرار القوانين)
+// =========================================================================
+const LegislativeProcessFlowchartSchematic: React.FC<{
+  currentStepIndex: number;
+  vetoTriggered: boolean;
+  isAr: boolean;
+  onSelectStep: (idx: number) => void;
+}> = ({ currentStepIndex, vetoTriggered, isAr, onSelectStep }) => {
+  const steps = [
+    {
+      num: 1,
+      titleAr: 'الاقتراح والصياغة',
+      titleEn: 'Proposal & Drafting',
+      actorAr: 'الرئيس / الحكومة / 60 نائباً',
+      actorEn: 'Pres. / Gov. / 60 MPs',
+    },
+    {
+      num: 2,
+      titleAr: 'اللجان النوعية',
+      titleEn: 'Committees Review',
+      actorAr: 'اللجنة التشريعية والنوعية',
+      actorEn: 'Specialized Committee',
+    },
+    {
+      num: 3,
+      titleAr: 'المناقشة العامة',
+      titleEn: 'Plenary Debate',
+      actorAr: 'الجلسة العامة (مادة بمادة)',
+      actorEn: 'Plenary Hall (Article by Article)',
+    },
+    {
+      num: 4,
+      titleAr: 'التصويت والنصاب',
+      titleEn: 'Voting & Quorum',
+      actorAr: 'الأغلبية المطلقة للحاضرين',
+      actorEn: 'Absolute Majority of Present',
+    },
+    {
+      num: 5,
+      titleAr: 'التصديق الرئاسي',
+      titleEn: 'Presidential Assent',
+      actorAr: 'تصديق أو فيتو (30 يوماً)',
+      actorEn: 'Assent or Veto (30 Days)',
+    },
+    {
+      num: 6,
+      titleAr: 'النشر والسريان',
+      titleEn: 'Gazette & Enactment',
+      actorAr: 'الجريدة الرسمية (15 يوماً)',
+      actorEn: 'Official Gazette (15 Days)',
+    },
+  ];
+
+  return (
+    <div className="bg-gradient-to-b from-slate-900/95 via-slate-950 to-emerald-950/20 border border-emerald-500/30 rounded-2xl p-4 sm:p-5 shadow-xl space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-emerald-500/20">
+        <div className="flex items-center gap-2">
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+          <h4 className="text-xs sm:text-sm font-black text-emerald-300">
+            {isAr
+              ? 'مخطط التدفق التشريعي لإقرار القوانين (Constitutional Legislative Flowchart - Art. 121-123)'
+              : 'Constitutional Legislative Process Flowchart (Egyptian Const. Art. 121-123)'}
+          </h4>
+        </div>
+        <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 font-bold">
+          {isAr ? `المرحلة الحالية: ${currentStepIndex + 1} من 6` : `Stage ${currentStepIndex + 1} of 6`}
+        </span>
+      </div>
+
+      <div className="w-full overflow-x-auto">
+        <svg
+          viewBox="0 0 940 220"
+          className="w-full min-w-[760px] h-auto select-none"
+          style={{ maxHeight: '230px' }}
+        >
+          <defs>
+            <linearGradient id="activeNodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#064e3b" />
+              <stop offset="100%" stopColor="#022c22" />
+            </linearGradient>
+            <filter id="legNodeGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+
+          {/* Veto Loop Arrow if vetoTriggered (from Node 5 back to Node 3) */}
+          {vetoTriggered && (
+            <g>
+              <path
+                d="M 680 50 C 680 15, 410 15, 410 50"
+                fill="none"
+                stroke="#ef4444"
+                strokeWidth="2.5"
+                strokeDasharray="6,4"
+              />
+              <polygon points="410,50 405,38 415,38" fill="#ef4444" />
+              <rect x="440" y="8" width="210" height="20" rx="4" fill="#450a0a" stroke="#ef4444" strokeWidth="1" />
+              <text x="545" y="22" textAnchor="middle" fill="#fca5a5" fontSize="10" fontWeight="bold">
+                {isAr ? '⚠️ اعتراض رئاسي: يتطلب إقرار 2/3 المجلس (المادة 123)' : '⚠️ Presidential Veto: 2/3 Override Required'}
+              </text>
+            </g>
+          )}
+
+          {/* Connecting Arrows between Stations */}
+          {steps.map((_, idx) => {
+            if (idx === steps.length - 1) return null;
+            const x1 = 65 + idx * 155 + 110;
+            const x2 = 65 + (idx + 1) * 155;
+            const isPassed = idx < currentStepIndex;
+            return (
+              <g key={`arrow-${idx}`}>
+                <line
+                  x1={x1}
+                  y1={110}
+                  x2={x2}
+                  y2={110}
+                  stroke={isPassed ? '#10b981' : '#334155'}
+                  strokeWidth={isPassed ? 2.5 : 1.5}
+                  strokeDasharray={isPassed ? 'none' : '4,3'}
+                />
+                <polygon
+                  points={`${x2},110 ${x2 - 8},105 ${x2 - 8},115`}
+                  fill={isPassed ? '#10b981' : '#475569'}
+                />
+              </g>
+            );
+          })}
+
+          {/* 6 Stage Nodes */}
+          {steps.map((st, idx) => {
+            const nodeX = 65 + idx * 155;
+            const nodeY = 65;
+            const isActive = currentStepIndex === idx;
+            const isCompleted = idx < currentStepIndex;
+
+            return (
+              <g
+                key={st.num}
+                transform={`translate(${nodeX}, ${nodeY})`}
+                onClick={() => onSelectStep(idx)}
+                className="cursor-pointer group"
+              >
+                {/* Active Outer Pulsing Glow */}
+                {isActive && (
+                  <rect
+                    x="-4"
+                    y="-4"
+                    width="118"
+                    height="98"
+                    rx="16"
+                    fill="none"
+                    stroke="#34d399"
+                    strokeWidth="2"
+                    className="animate-pulse"
+                    opacity="0.8"
+                  />
+                )}
+
+                {/* Node Box */}
+                <rect
+                  x="0"
+                  y="0"
+                  width="110"
+                  height="90"
+                  rx="12"
+                  fill={isActive ? 'url(#activeNodeGrad)' : isCompleted ? '#064e3b' : '#0f172a'}
+                  stroke={isActive ? '#34d399' : isCompleted ? '#059669' : '#334155'}
+                  strokeWidth={isActive ? '2' : '1.5'}
+                  filter={isActive ? 'url(#legNodeGlow)' : undefined}
+                />
+
+                {/* Step Number Badge */}
+                <circle
+                  cx="20"
+                  cy="20"
+                  r="12"
+                  fill={isActive ? '#059669' : isCompleted ? '#10b981' : '#1e293b'}
+                  stroke={isActive ? '#6ee7b7' : isCompleted ? '#a7f3d0' : '#475569'}
+                  strokeWidth="1"
+                />
+                <text
+                  x="20"
+                  y="24"
+                  textAnchor="middle"
+                  fill={isCompleted ? '#022c22' : '#ffffff'}
+                  fontSize="10"
+                  fontWeight="900"
+                >
+                  {st.num}
+                </text>
+
+                {/* Stage Title */}
+                <text
+                  x="55"
+                  y="48"
+                  textAnchor="middle"
+                  fill={isActive ? '#a7f3d0' : isCompleted ? '#d1fae5' : '#94a3b8'}
+                  fontSize="11"
+                  fontWeight="bold"
+                >
+                  {isAr ? st.titleAr : st.titleEn}
+                </text>
+
+                {/* Actor Subtitle */}
+                <text
+                  x="55"
+                  y="68"
+                  textAnchor="middle"
+                  fill={isActive ? '#6ee7b7' : isCompleted ? '#6ee7b7' : '#64748b'}
+                  fontSize="9"
+                >
+                  {isAr ? st.actorAr : st.actorEn}
+                </text>
+
+                {/* Status indicator bar */}
+                <rect
+                  x="15"
+                  y="78"
+                  width="80"
+                  height="3"
+                  rx="1.5"
+                  fill={isActive ? '#34d399' : isCompleted ? '#10b981' : '#334155'}
+                />
+              </g>
+            );
+          })}
+
+          {/* Bottom Constitutional Quorum Guide */}
+          <g transform="translate(65, 175)">
+            <rect x="0" y="0" width="810" height="34" rx="8" fill="#020617" stroke="#065f46" strokeWidth="1" />
+            <text x="15" y="21" fill="#34d399" fontSize="10" fontWeight="bold">
+              {isAr ? '⚖️ النصاب الدستوري (المادة 121): ' : '⚖️ Constitutional Quorum (Art. 121): '}
+            </text>
+            <text x="210" y="21" fill="#cbd5e1" fontSize="10">
+              {isAr
+                ? 'القوانين العادية: أغلبية الأعضاء الحاضرين (بما لا يقل عن ثلث المجلس) | القوانين المكملة للدستور: موافقة ثلثي أعضاء المجلس (66.7%)'
+                : 'Ordinary bills: Majority of present MPs (min 1/3 total) | Organic complementary laws: 2/3 majority of all members'}
+            </text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+// =========================================================================
+// VECTOR SCHEMATIC 2: PARLIAMENTARY HEMICYCLE (قاعة مجلس النواب والتمثيل النسبي)
+// =========================================================================
+interface SeatResultItem {
+  name: string;
+  votes: number;
+  seats: number;
+  color: string;
+}
+
+const ParliamentHemiCycleVectorSchematic: React.FC<{
+  selectedSystem: 'closed_list' | 'dhondt' | 'largest_remainder';
+  seatsResult: SeatResultItem[];
+  totalSeats: number;
+  isAr: boolean;
+}> = ({ selectedSystem: _unusedSystem, seatsResult, totalSeats, isAr }) => {
+  const totalVotes = seatsResult.reduce((sum, p) => sum + p.votes, 0);
+
+  // Loosemore-Hanby Disproportionality Index: D = 0.5 * sum(|v% - s%|)
+  const loosemoreHanby =
+    totalVotes > 0 && totalSeats > 0
+      ? Math.round(
+          0.5 *
+            seatsResult.reduce((acc, p) => {
+              const votePct = (p.votes / totalVotes) * 100;
+              const seatPct = (p.seats / totalSeats) * 100;
+              return acc + Math.abs(votePct - seatPct);
+            }, 0) *
+            10
+        ) / 10
+      : 0;
+
+  // Effective Number of Parties (Laakso-Taagepera Index): N = 1 / sum((s_i / S)^2)
+  const sumSqSeats = seatsResult.reduce((acc, p) => {
+    const s = totalSeats > 0 ? p.seats / totalSeats : 0;
+    return acc + s * s;
+  }, 0);
+  const effectiveParties = sumSqSeats > 0 ? (1 / sumSqSeats).toFixed(2) : '1.00';
+
+  // Build sequential seats list mapped to parties
+  const assignedSeats: { partyName: string; color: string; seatNum: number }[] = [];
+  let seatCounter = 1;
+  seatsResult.forEach((p) => {
+    for (let i = 0; i < p.seats; i++) {
+      assignedSeats.push({
+        partyName: p.name,
+        color: p.color,
+        seatNum: seatCounter++,
+      });
+    }
+  });
+
+  // Radii and layout for concentric tiers
+  const cx = 400;
+  const cy = 290;
+  const tiers = [
+    { r: 120, count: Math.ceil(totalSeats * 0.18) },
+    { r: 165, count: Math.ceil(totalSeats * 0.24) },
+    { r: 210, count: Math.ceil(totalSeats * 0.28) },
+    {
+      r: 255,
+      count:
+        totalSeats -
+        Math.ceil(totalSeats * 0.18) -
+        Math.ceil(totalSeats * 0.24) -
+        Math.ceil(totalSeats * 0.28),
+    },
+  ];
+
+  // Distribute all seats across tiers
+  const seatCoordinates: {
+    x: number;
+    y: number;
+    seatData?: { partyName: string; color: string; seatNum: number };
+  }[] = [];
+  let currentAssignedIdx = 0;
+
+  tiers.forEach((tier) => {
+    const seatCount = Math.max(1, tier.count);
+    for (let i = 0; i < seatCount; i++) {
+      const fraction = seatCount > 1 ? i / (seatCount - 1) : 0.5;
+      const angle = Math.PI + (fraction * (Math.PI - 0.35) + 0.175);
+      const x = cx + tier.r * Math.cos(angle);
+      const y = cy + tier.r * Math.sin(angle);
+      seatCoordinates.push({
+        x,
+        y,
+        seatData: assignedSeats[currentAssignedIdx],
+      });
+      currentAssignedIdx++;
+    }
+  });
+
+  return (
+    <div className="bg-gradient-to-b from-slate-900/95 via-slate-950 to-emerald-950/20 border border-emerald-500/30 rounded-2xl p-4 sm:p-5 shadow-xl space-y-4">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-emerald-500/20">
+        <div className="flex items-center gap-2">
+          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+          <h4 className="text-xs sm:text-sm font-black text-emerald-300">
+            {isAr
+              ? 'المخطط الهندسي لقاعة البرلمان وتوزيع المقاعد (Parliamentary Chamber Hemicycle)'
+              : 'Parliamentary Chamber Hemicycle Schematic & Electoral Proportionality'}
+          </h4>
+        </div>
+        <span className="px-2.5 py-0.5 rounded-full bg-slate-800 border border-emerald-500/30 text-[11px] font-mono text-emerald-300 font-bold">
+          {totalSeats} {isAr ? 'مقعداً برلمانياً' : 'Total Seats'}
+        </span>
+      </div>
+
+      <div className="w-full overflow-x-auto">
+        <svg
+          viewBox="0 0 800 340"
+          className="w-full min-w-[620px] h-auto select-none"
+          style={{ maxHeight: '310px' }}
+        >
+          <defs>
+            <radialGradient id="chamberGlow" cx="50%" cy="100%" r="90%">
+              <stop offset="0%" stopColor="#0f172a" />
+              <stop offset="60%" stopColor="#020617" />
+              <stop offset="100%" stopColor="#020617" stopOpacity="0.9" />
+            </radialGradient>
+            <linearGradient id="rostrumGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#1e293b" />
+              <stop offset="100%" stopColor="#0f172a" />
+            </linearGradient>
+          </defs>
+
+          {/* Chamber Arch Background */}
+          <path
+            d="M 100 290 A 300 300 0 0 1 700 290 Z"
+            fill="url(#chamberGlow)"
+            stroke="#1e293b"
+            strokeWidth="1.5"
+          />
+
+          {/* Tier Guide Arcs */}
+          {tiers.map((t, idx) => (
+            <path
+              key={`tier-arc-${idx}`}
+              d={`M ${cx - t.r} ${cy} A ${t.r} ${t.r} 0 0 1 ${cx + t.r} ${cy}`}
+              fill="none"
+              stroke="#334155"
+              strokeWidth="1"
+              strokeDasharray="3,3"
+              opacity="0.6"
+            />
+          ))}
+
+          {/* Speaker Rostrum & Bureau (منصة رئيس المجلس) */}
+          <g transform={`translate(${cx - 70}, ${cy - 30})`}>
+            <rect
+              x="0"
+              y="0"
+              width="140"
+              height="35"
+              rx="8"
+              fill="url(#rostrumGrad)"
+              stroke="#f59e0b"
+              strokeWidth="1.5"
+            />
+            {/* Eagle Crest / Emblem */}
+            <circle cx="70" cy="12" r="6" fill="#f59e0b" opacity="0.8" />
+            <text x="70" y="28" textAnchor="middle" fill="#fef08a" fontSize="9" fontWeight="900">
+              {isAr ? 'منصة هيئة مكتب مجلس النواب' : 'Speaker Bureau & Podium'}
+            </text>
+          </g>
+
+          {/* Parliamentary Seats */}
+          {seatCoordinates.map((sc, idx) => {
+            const hasData = Boolean(sc.seatData);
+            const seatColor = sc.seatData ? sc.seatData.color : '#475569';
+            return (
+              <g key={`seat-${idx}`} className="group cursor-pointer">
+                {/* Glow ring on hover / active */}
+                <circle
+                  cx={sc.x}
+                  cy={sc.y}
+                  r="13"
+                  fill="none"
+                  stroke={seatColor}
+                  strokeWidth="1"
+                  opacity="0.3"
+                />
+                {/* Seat Cushion */}
+                <circle
+                  cx={sc.x}
+                  cy={sc.y}
+                  r="8.5"
+                  fill={seatColor}
+                  stroke="#020617"
+                  strokeWidth="1.5"
+                />
+                {/* Inner dot */}
+                <circle cx={sc.x} cy={sc.y} r="2.5" fill="#ffffff" opacity="0.8" />
+                <title>
+                  {hasData
+                    ? `${sc.seatData?.partyName} - ${isAr ? 'مقعد' : 'Seat'} #${sc.seatData?.seatNum}`
+                    : `Seat #${idx + 1}`}
+                </title>
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* Advanced Scientific & Constitutional Metrics Dashboard */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+        {/* Metric 1: Loosemore-Hanby Index */}
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 flex flex-col gap-1">
+          <span className="text-[10px] uppercase font-bold text-slate-400">
+            {isAr ? 'مؤشر التناسبية (Loosemore-Hanby Index)' : 'Loosemore-Hanby Disproportionality'}
+          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-base font-black font-mono text-emerald-300">{loosemoreHanby}%</span>
+            <span
+              className={`text-[10px] px-2 py-0.5 rounded font-bold ${
+                loosemoreHanby < 10
+                  ? 'bg-emerald-950 text-emerald-300 border border-emerald-500/40'
+                  : loosemoreHanby < 25
+                  ? 'bg-amber-950 text-amber-300 border border-amber-500/40'
+                  : 'bg-rose-950 text-rose-300 border border-rose-500/40'
+              }`}
+            >
+              {loosemoreHanby < 10
+                ? isAr
+                  ? 'تناسبية فائقة'
+                  : 'High Proportionality'
+                : loosemoreHanby < 25
+                ? isAr
+                  ? 'تناسبية معتدلة'
+                  : 'Moderate'
+                : isAr
+                ? 'انحراف أغلبي مرتفع'
+                : 'Majoritarian Bias'}
+            </span>
+          </div>
+          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">
+            {isAr
+              ? 'يقيس مقدار انحراف توزيع المقاعد عن نسبة أصوات الناخبين الحقيقية.'
+              : 'Measures divergence between vote percentages and allocated seat shares.'}
+          </p>
+        </div>
+
+        {/* Metric 2: Effective Number of Parties */}
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 flex flex-col gap-1">
+          <span className="text-[10px] uppercase font-bold text-slate-400">
+            {isAr ? 'العدد الفعلي للأحزاب (Laakso-Taagepera)' : 'Effective Number of Parties (N)'}
+          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-base font-black font-mono text-teal-300">{effectiveParties}</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-500/40 font-bold">
+              {Number(effectiveParties) > 2.5
+                ? isAr
+                  ? 'تعددية حزبية واسعة'
+                  : 'Multi-party Pluralism'
+                : Number(effectiveParties) > 1.5
+                ? isAr
+                  ? 'نظام ثنائي معتدل'
+                  : 'Two-Party Tendency'
+                : isAr
+                ? 'حزب مهيمن'
+                : 'Dominant Party'}
+            </span>
+          </div>
+          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">
+            {isAr
+              ? 'مؤشر علم السياسة الدستوري لوزن الأحزاب الممثلة في البرلمان.'
+              : 'Political science metric reflecting parliamentary faction fragmentation.'}
+          </p>
+        </div>
+
+        {/* Metric 3: Constitutional Quotas & Guarantees */}
+        <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-700/80 flex flex-col gap-1">
+          <span className="text-[10px] uppercase font-bold text-slate-400">
+            {isAr ? 'الضمانات الدستورية والكوتة (المادة 102)' : 'Constitutional Quotas (Art. 102)'}
+          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-sm font-bold text-amber-300">
+              {isAr ? 'كوتة المرأة: ≥ 25%' : 'Women Quota: ≥ 25%'}
+            </span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/40 font-bold">
+              {isAr ? 'إلزامي بالدستور' : 'Mandatory'}
+            </span>
+          </div>
+          <p className="text-[10px] text-slate-400 leading-tight mt-0.5">
+            {isAr
+              ? 'تمثيل ملائم للعمال والفلاحين والشباب والأقباط والمصريين بالخارج وذوي الإعاقة.'
+              : 'Mandatory fair representation for youth, workers, Copts, and expats.'}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const NationalCivicsStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
@@ -464,68 +1006,68 @@ export const NationalCivicsStudio: React.FC<Props> = ({
         <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
           <button
             onClick={() => setActiveTab('constitution_review')}
-            className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
               activeTab === 'constitution_review'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5" />
+            <BookOpen className="w-4 h-4" />
             <span>{isAr ? 'الدستور والمحكمة' : 'Constitution'}</span>
           </button>
           <button
             onClick={() => setActiveTab('legislative_process')}
-            className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
               activeTab === 'legislative_process'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
             }`}
           >
-            <Scroll className="w-3.5 h-3.5" />
+            <Scroll className="w-4 h-4" />
             <span>{isAr ? 'الدورة التشريعية' : 'Legislation'}</span>
           </button>
           <button
             onClick={() => setActiveTab('parties_matrix')}
-            className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
               activeTab === 'parties_matrix'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
             }`}
           >
-            <Building2 className="w-3.5 h-3.5" />
+            <Building2 className="w-4 h-4" />
             <span>{isAr ? 'مصفوفة الأحزاب' : 'Parties'}</span>
           </button>
           <button
             onClick={() => setActiveTab('electoral_systems')}
-            className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
               activeTab === 'electoral_systems'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
             }`}
           >
-            <Vote className="w-3.5 h-3.5" />
+            <Vote className="w-4 h-4" />
             <span>{isAr ? 'حاسبة الانتخابات' : 'Electoral Math'}</span>
           </button>
           <button
             onClick={() => setActiveTab('civic_sandbox')}
-            className={`px-3 py-1.5 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
               activeTab === 'civic_sandbox'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
             }`}
           >
-            <Shield className="w-3.5 h-3.5" />
+            <Shield className="w-4 h-4" />
             <span>{isAr ? 'سيناريوهات النزاهة' : 'Civic Sandbox'}</span>
           </button>
 
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors border border-slate-700/50"
+            className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-slate-300 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors border border-slate-700/50"
             title={isFullscreen ? (isAr ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isAr ? 'ملء الشاشة' : 'Fullscreen')}
             aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           >
-            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-emerald-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-emerald-400" /> : <Maximize2 className="w-4 h-4" />}
           </button>
         </div>
       </div>
@@ -547,7 +1089,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                     <button
                       key={art.number}
                       onClick={() => setSelectedArticleNum(art.number)}
-                      className={`w-full text-start p-3 rounded-xl border transition-all text-xs ${
+                      className={`min-h-[44px] w-full text-start p-3 rounded-xl border transition-all text-xs ${
                         selectedArticleNum === art.number
                           ? 'bg-emerald-950/40 border-emerald-500 text-emerald-200 shadow-md'
                           : 'bg-slate-800/60 border-slate-700 text-slate-300 hover:bg-slate-700/60'
@@ -620,7 +1162,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                           setSelectedChallengeId(ch.id);
                           setCourtVerdictRevealed(false);
                         }}
-                        className={`p-2.5 rounded-xl border text-xs text-start transition-all ${
+                        className={`min-h-[44px] p-2.5 rounded-xl border text-xs text-start transition-all ${
                           selectedChallengeId === ch.id
                             ? 'bg-amber-950/40 border-amber-500 text-amber-200'
                             : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
@@ -655,7 +1197,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                   <div className="flex items-center justify-between gap-4">
                     <button
                       onClick={() => setCourtVerdictRevealed((prev) => !prev)}
-                      className="px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white text-xs font-semibold shadow-md flex items-center gap-2 transition-all"
+                      className="min-h-[44px] px-4 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white text-xs font-semibold shadow-md flex items-center gap-2 transition-all"
                     >
                       <Scale className="w-3.5 h-3.5" />
                       <span>{courtVerdictRevealed ? (isAr ? 'إخفاء منطوق الحكم' : 'Hide Verdict') : (isAr ? 'إصدار حكم المحكمة الدستورية' : 'Deliver Court Ruling')}</span>
@@ -720,11 +1262,19 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                   setCurrentStepIndex(0);
                   setVetoTriggered(false);
                 }}
-                className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700"
+                className="min-h-[44px] px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium border border-slate-700 transition-all"
               >
                 {isAr ? 'إعادة المحاكاة' : 'Reset Process'}
               </button>
             </div>
+
+            {/* High-Resolution Scientific Vector Schematic: Legislative Process Flowchart */}
+            <LegislativeProcessFlowchartSchematic
+              currentStepIndex={currentStepIndex}
+              vetoTriggered={vetoTriggered}
+              isAr={isAr}
+              onSelectStep={(idx) => setCurrentStepIndex(idx)}
+            />
 
             {/* Stepper Display */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
@@ -732,7 +1282,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                 <button
                   key={step.step}
                   onClick={() => setCurrentStepIndex(idx)}
-                  className={`p-3 rounded-xl border text-xs text-start transition-all ${
+                  className={`min-h-[44px] p-3 rounded-xl border text-xs text-start transition-all ${
                     currentStepIndex === idx
                       ? 'bg-emerald-950/60 border-emerald-500 text-white shadow-lg'
                       : idx < currentStepIndex
@@ -786,7 +1336,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                         </span>
                         <button
                           onClick={() => setVetoTriggered((v) => !v)}
-                          className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                          className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-bold transition-all ${
                             vetoTriggered
                               ? 'bg-red-600 text-white'
                               : 'bg-slate-700 text-slate-300 hover:text-white'
@@ -816,14 +1366,14 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                     <button
                       disabled={currentStepIndex === 0}
                       onClick={() => setCurrentStepIndex((idx) => Math.max(0, idx - 1))}
-                      className="px-4 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-xs font-semibold text-white transition-all"
+                      className="min-h-[44px] px-4 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-xs font-semibold text-white transition-all"
                     >
                       {isAr ? 'المرحلة السابقة' : 'Previous Step'}
                     </button>
                     <button
                       disabled={currentStepIndex === LEGISLATIVE_STEPS.length - 1}
                       onClick={() => setCurrentStepIndex((idx) => Math.min(LEGISLATIVE_STEPS.length - 1, idx + 1))}
-                      className="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 text-xs font-semibold text-white transition-all flex items-center gap-1.5 shadow-md"
+                      className="min-h-[44px] px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-40 text-xs font-semibold text-white transition-all flex items-center gap-1.5 shadow-md"
                     >
                       <span>{isAr ? 'المرحلة التالية' : 'Next Step'}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -1021,9 +1571,9 @@ export const NationalCivicsStudio: React.FC<Props> = ({
               <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-900 border border-slate-700 text-xs">
                 <button
                   onClick={() => setSelectedSystem('dhondt')}
-                  className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all ${
                     selectedSystem === 'dhondt'
-                      ? 'bg-emerald-600 text-white'
+                      ? 'bg-emerald-600 text-white shadow'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1031,9 +1581,9 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                 </button>
                 <button
                   onClick={() => setSelectedSystem('largest_remainder')}
-                  className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all ${
                     selectedSystem === 'largest_remainder'
-                      ? 'bg-emerald-600 text-white'
+                      ? 'bg-emerald-600 text-white shadow'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1041,9 +1591,9 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                 </button>
                 <button
                   onClick={() => setSelectedSystem('closed_list')}
-                  className={`px-3 py-1 rounded-lg font-medium transition-all ${
+                  className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all ${
                     selectedSystem === 'closed_list'
-                      ? 'bg-emerald-600 text-white'
+                      ? 'bg-emerald-600 text-white shadow'
                       : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1051,6 +1601,14 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                 </button>
               </div>
             </div>
+
+            {/* High-Resolution Scientific Vector Schematic: Parliamentary Chamber Hemicycle */}
+            <ParliamentHemiCycleVectorSchematic
+              selectedSystem={selectedSystem}
+              seatsResult={seatsResult}
+              totalSeats={totalSeats}
+              isAr={isAr}
+            />
 
             {/* Sliders & Visualizer */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -1065,7 +1623,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                     <select
                       value={totalSeats}
                       onChange={(e) => setTotalSeats(Number(e.target.value))}
-                      className="bg-slate-900 border border-slate-700 rounded px-2 py-0.5 text-emerald-400 font-bold"
+                      className="min-h-[44px] bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-emerald-400 font-bold"
                     >
                       {[5, 10, 15, 20, 25].map((s) => (
                         <option key={s} value={s}>
@@ -1231,7 +1789,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                     setActiveScenarioIndex((i) => Math.max(0, i - 1));
                     setScenarioAnswerSelected(null);
                   }}
-                  className="px-3 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-xs text-white"
+                  className="min-h-[44px] px-3.5 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-xs text-white transition-all flex items-center justify-center"
                 >
                   {isAr ? 'السابق' : 'Prev'}
                 </button>
@@ -1244,7 +1802,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                     setActiveScenarioIndex((i) => Math.min(CIVIC_DILEMMAS.length - 1, i + 1));
                     setScenarioAnswerSelected(null);
                   }}
-                  className="px-3 py-1 rounded-lg bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-xs text-white"
+                  className="min-h-[44px] px-3.5 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 disabled:opacity-40 text-xs text-white transition-all flex items-center justify-center"
                 >
                   {isAr ? 'التالي' : 'Next'}
                 </button>
@@ -1270,7 +1828,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                         <div
                           key={optIdx}
                           onClick={() => setScenarioAnswerSelected(optIdx)}
-                          className={`p-4 rounded-xl border cursor-pointer text-xs transition-all ${
+                          className={`min-h-[44px] p-4 rounded-xl border cursor-pointer text-xs transition-all ${
                             isChosen
                               ? opt.isCorrect
                                 ? 'bg-emerald-950/50 border-emerald-500 text-emerald-200 shadow-md'
