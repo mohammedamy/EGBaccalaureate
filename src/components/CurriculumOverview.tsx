@@ -78,7 +78,7 @@ export const SUBJECT_CATEGORIES: { id: SubjectCategory; labelAr: string; labelEn
 
 export const CATEGORY_MAP: Record<SubjectCategory, string[]> = {
   all: [],
-  science: ['physics', 'chemistry', 'biology', 'geology', 'earth_space', 'biotechnology'],
+  science: ['physics', 'chemistry', 'biology', 'geology', 'earth_space', 'biotechnology', 'nanotechnology'],
   math: ['mathematics', 'economics_stat'],
   languages: ['arabic', 'english', 'french', 'german', 'italian', 'spanish', 'chinese'],
   humanities: ['history', 'geography', 'philosophy', 'psychology'],

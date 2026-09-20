@@ -34,7 +34,8 @@ export type SubjectCategory =
   | 'robotics_mechatronics'
   | 'electronics_iot'
   | 'ai_data_science'
-  | 'biotechnology';
+  | 'biotechnology'
+  | 'nanotechnology';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -60,12 +61,13 @@ export interface StudentAnalyticsState {
   totalCorrect: number;
   totalTimeSpentSec: number;
   quizzesCompleted: number;
+  lastActiveTimestamp?: number;
+  lastUpdated: number;
   chapters: Record<string, ChapterPerformanceRecord>;
   cognitive: CognitiveBreakdown;
-  lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26' | 'all27' | 'all28' | 'all29';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26' | 'all27' | 'all28' | 'all29' | 'all30';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -81,6 +83,21 @@ export interface MasteryRadarPoint {
  */
 export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
   const text = branchTitleOrId.toLowerCase();
+
+  if (
+    text.includes('nanotechnology') ||
+    text.includes('nanotech') ||
+    text.includes('نانوتكنولوجي') ||
+    text.includes('النانوتكنولوجي') ||
+    text.includes('علوم المواد') ||
+    text.includes('مواد متقدمة') ||
+    text.includes('المواد المتقدمة') ||
+    text.includes('quantum materials') ||
+    text.includes('نانو') ||
+    text.includes('nanoscale')
+  ) {
+    return 'nanotechnology';
+  }
 
   if (
     text.includes('biotechnology') ||
@@ -964,9 +981,21 @@ export function getMasteryRadarData(
     { key: 'biotechnology', ar: 'التكنولوجيا الحيوية والهندسة الوراثية', en: 'Biotechnology & Genetics', color: '#10B981' },
   ];
 
+  const all30Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all29Dimensions,
+    { key: 'nanotechnology', ar: 'النانوتكنولوجي وعلوم المواد المتقدمة', en: 'Nanotechnology & Materials', color: '#0D9488' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all30'
+      ? all30Dimensions
       : mode === 'all29'
       ? all29Dimensions
       : mode === 'all28'

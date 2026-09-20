@@ -46,6 +46,7 @@ assert(classifySubjectCategory('الأحياء', 'Biology', 'المناعة في
 assert(classifySubjectCategory('الاستاتيكا', 'Applied Math', 'الاحتكاك') === 'applied_math', 'Correctly classifies Applied Math');
 assert(classifySubjectCategory('التفاضل والتكامل', 'Calculus', 'المشتقات العليا') === 'pure_math', 'Correctly classifies Pure Math');
 assert(classifySubjectCategory('التكنولوجيا الحيوية والهندسة الوراثية', 'Biotechnology & Genetic Engineering', 'استنساخ الجينات') === 'biotechnology', 'Correctly classifies Biotechnology');
+assert(classifySubjectCategory('النانوتكنولوجي وعلوم المواد المتقدمة', 'Nanotechnology & Advanced Materials Science', 'النقاط الكمومية وتأثير الحصر الكمي') === 'nanotechnology', 'Correctly classifies Nanotechnology');
 
 // Test 2: Initial Analytics State
 const initial = getStudentAnalytics();
@@ -174,6 +175,11 @@ const radarAll29 = getMasteryRadarData(updatedState, 'all29');
 assert(radarAll29.length === 29, 'Radar all29 has strictly 29 dimensions');
 const biotechPoint = radarAll29.find((p) => p.dimensionKey === 'biotechnology');
 assert(!!biotechPoint, 'Biotechnology dimension exists in all29 radar');
+
+const radarAll30 = getMasteryRadarData(updatedState, 'all30');
+assert(radarAll30.length === 30, 'Radar all30 has strictly 30 dimensions');
+const nanotechPoint = radarAll30.find((p) => p.dimensionKey === 'nanotechnology');
+assert(!!nanotechPoint, 'Nanotechnology dimension exists in all30 radar');
 
 // Test 6: Weakest chapter detection
 // Add 2nd attempt in chemistry with another error to test threshold

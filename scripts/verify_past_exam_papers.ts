@@ -35,36 +35,36 @@ function assert(condition: boolean, message: string) {
 console.log('🏛️ Starting Authentic Thanawya Amma Past Exam Papers Verification Suite...\n');
 
 // 1. Catalog & Metadata Integrity
-console.log('--- 1. Testing Past Exam Papers Catalog Metadata (228 Authentic Papers) ---');
-assert(PAST_EXAM_PAPERS.length === 228, `Catalog contains exactly 228 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
+console.log('--- 1. Testing Past Exam Papers Catalog Metadata (234 Authentic Papers) ---');
+assert(PAST_EXAM_PAPERS.length === 234, `Catalog contains exactly 234 authentic past papers (found ${PAST_EXAM_PAPERS.length})`);
 
 // Test filtering by year
 const papers2024 = getPastExamPapers({ year: 2024 });
-assert(papers2024.length === 76, `Found exactly 76 papers for 2024 (38 S1 + 38 S2) (got ${papers2024.length})`);
+assert(papers2024.length === 78, `Found exactly 78 papers for 2024 (39 S1 + 39 S2) (got ${papers2024.length})`);
 
 const papers2023 = getPastExamPapers({ year: 2023 });
-assert(papers2023.length === 38, `Found exactly 38 papers for 2023 (got ${papers2023.length})`);
+assert(papers2023.length === 39, `Found exactly 39 papers for 2023 (got ${papers2023.length})`);
 
 const papers2022 = getPastExamPapers({ year: 2022 });
-assert(papers2022.length === 38, `Found exactly 38 papers for 2022 (got ${papers2022.length})`);
+assert(papers2022.length === 39, `Found exactly 39 papers for 2022 (got ${papers2022.length})`);
 
 const papers2021 = getPastExamPapers({ year: 2021 });
-assert(papers2021.length === 38, `Found exactly 38 papers for 2021 (got ${papers2021.length})`);
+assert(papers2021.length === 39, `Found exactly 39 papers for 2021 (got ${papers2021.length})`);
 
 const papers2025 = getPastExamPapers({ year: 2025 });
-assert(papers2025.length === 38, `Found exactly 38 papers for 2025 (got ${papers2025.length})`);
+assert(papers2025.length === 39, `Found exactly 39 papers for 2025 (got ${papers2025.length})`);
 
 // Test filtering by session
 const session1Papers = getPastExamPapers({ session: 'session1' });
-assert(session1Papers.length === 152, `Found exactly 152 First Session (دور أول) papers (got ${session1Papers.length})`);
+assert(session1Papers.length === 156, `Found exactly 156 First Session (دور أول) papers (got ${session1Papers.length})`);
 
 const session2Papers = getPastExamPapers({ session: 'session2' });
-assert(session2Papers.length === 38, `Found exactly 38 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
+assert(session2Papers.length === 39, `Found exactly 39 Second Session (دور ثاني) papers (got ${session2Papers.length})`);
 
 const expPapers = getPastExamPapers({ session: 'experimental' });
-assert(expPapers.length === 38, `Found exactly 38 2025 MoE Experimental Model papers (got ${expPapers.length})`);
+assert(expPapers.length === 39, `Found exactly 39 2025 MoE Experimental Model papers (got ${expPapers.length})`);
 
-// Test subject filtering across all 36 disciplines
+// Test subject filtering across all 39 disciplines
 const ALL_33_SUBJECTS: PastExamSubject[] = [
   'physics',
   'chemistry',
@@ -104,6 +104,7 @@ const ALL_33_SUBJECTS: PastExamSubject[] = [
   'electronics_iot',
   'ai_data_science',
   'biotechnology',
+  'nanotechnology',
 ];
 
 ALL_33_SUBJECTS.forEach((sub) => {
@@ -148,7 +149,7 @@ PAST_EXAM_PAPERS.forEach((paper) => {
     expectedSec1 = 22;
     expectedSec2 = 9;
     expectedPass = 20;
-  } else if (paper.subject === 'economics_stat' || paper.subject === 'cs_informatics' || paper.subject === 'earth_space' || paper.subject === 'business_entrepreneurship' || paper.subject === 'fine_arts_architecture' || paper.subject === 'music_theory' || paper.subject === 'agriculture' || paper.subject === 'industrial' || paper.subject === 'commercial' || paper.subject === 'tourism' || paper.subject === 'renewable' || paper.subject === 'stem_capstone' || paper.subject === 'robotics_mechatronics' || paper.subject === 'electronics_iot' || paper.subject === 'ai_data_science' || paper.subject === 'biotechnology') {
+  } else if (paper.subject === 'economics_stat' || paper.subject === 'cs_informatics' || paper.subject === 'earth_space' || paper.subject === 'business_entrepreneurship' || paper.subject === 'fine_arts_architecture' || paper.subject === 'music_theory' || paper.subject === 'agriculture' || paper.subject === 'industrial' || paper.subject === 'commercial' || paper.subject === 'tourism' || paper.subject === 'renewable' || paper.subject === 'stem_capstone' || paper.subject === 'robotics_mechatronics' || paper.subject === 'electronics_iot' || paper.subject === 'ai_data_science' || paper.subject === 'biotechnology' || paper.subject === 'nanotechnology') {
     expectedQ = 40;
     expectedMarks = 50;
     expectedDuration = 180;

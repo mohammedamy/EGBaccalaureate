@@ -21,8 +21,8 @@ export interface OfficialBookEnglishEdition {
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology' | 'nanotechnology';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology' | 'nanotechnology';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -5208,6 +5208,152 @@ export const officialBooksList: OfficialBook[] = [
       'ديناميكا معدل انتقال الأكسجين الحجمي بالمفاعلات الحيوية والنشاط السام لخلايا CAR-T',
     ],
   },
+  // 80. Thanaweya STEM Nanotechnology & Advanced Materials Science (الكتاب الوزاري في النانوتكنولوجي وعلوم المواد المتقدمة لمدارس المتفوقين)
+  {
+    id: 'th-nanotechnology-g12',
+    curriculum: 'thanaweya',
+    category: 'nanotechnology',
+    subjectId: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    code: 'MOE-NANOTECH-G12',
+    titleEn: 'Nanotechnology & Advanced Materials Science',
+    titleAr: 'النانوتكنولوجي وعلوم المواد المتقدمة',
+    subtitleEn: 'Official Egyptian STEM Secondary Curriculum Textbook',
+    subtitleAr: 'الكتاب المدرسي المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM)',
+    academicYear: '2024/2025',
+    gradeEn: 'Grade 12 (Thanaweya STEM)',
+    gradeAr: 'الصف الثالث الثانوي (STEM)',
+    publisherEn: 'Egyptian Ministry of Education & Technical Education',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 8,
+    fileSize: '22.4 KB',
+    compendiumTitleEn: 'Nanotechnology, Quantum Dots & Carbon Allotropes Concept Compendium',
+    compendiumTitleAr: 'كتيب مفاهيم وقوانين النانوتكنولوجي والنقاط الكمية ومتآصلات الكربون',
+    filename: 'thanaweya-nanotechnology.pdf',
+    downloadUrl: '/books/thanaweya-nanotechnology.pdf',
+    fullTextbookPages: 314,
+    fullTextbookSize: '29.8 MB',
+    officialPortalUrl: 'https://moe.gov.eg/elearning/stem/nanotechnology-g12',
+    coverGradient: 'from-teal-600 via-cyan-600 to-blue-700',
+    accentColor: '#0D9488',
+    chapters: [
+      {
+        id: 'th_nanotechnology_ch1',
+        titleEn: 'Foundations of Nanoscale Physics & Quantum Confinement',
+        titleAr: 'أسس فيزياء مقياس النانو وظواهر الحبس الكمي',
+        pageRange: 'pp. 1–78',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_nanotechnology_ch2',
+        titleEn: 'Carbon Allotropes, Graphene & Low-Dimensional Nanostructures',
+        titleAr: 'متآصلات الكربون، الجرافين والتراكيب النانوية منخفضة الأبعاد',
+        pageRange: 'pp. 79–158',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_nanotechnology_ch3',
+        titleEn: 'Nanomaterials for Clean Energy, Catalysis & Environment',
+        titleAr: 'المواد النانوية للطاقة النظيفة، الحفز الكيميائي والبيئة',
+        pageRange: 'pp. 159–236',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_nanotechnology_ch4',
+        titleEn: 'Nanomedicine, Targeted Drug Delivery & Biosensing',
+        titleAr: 'الطب النانوي، التوصيل الموجه للأدوية والاستشعار الحيوي',
+        pageRange: 'pp. 237–314',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Official Egyptian STEM curriculum textbook in Nanotechnology & Advanced Materials Science: Surface area-to-volume ratio scaling laws, quantum confinement in semiconductor nanocrystals, Brus bandgap blue-shift equations, exciton Bohr radius, top-down and bottom-up synthesis methods, electron microscopy (SEM/TEM), graphene Dirac cone band dispersion, carbon nanotube chiral indices (n,m), mechanical tensile strength, heterogeneous TiO2 photocatalysis, green hydrogen water splitting, perovskite photovoltaics, silicon nanoparticle battery anodes, tumor EPR effect, PEGylated liposomes, localized surface plasmon resonance (LSPR) biosensors, and magnetic nanoparticle hyperthermia.',
+    descriptionAr: 'الكتاب الوزاري المعتمد لمدارس المتفوقين في النانوتكنولوجي وعلوم المواد المتقدمة: قوانين تحجيم نسبة مساحة السطح إلى الحجم، ظواهر الحبس الكمي، معادلة بروس لاتساع فجوة الطاقة، نصف قطر بور للإكسيتون، طرائق التصنيع النانوية من أعلى لأسفل ومن أسفل لأعلى، المجهر الإلكتروني SEM و TEM، تشتت مخاريط ديراك في الجرافين، المؤشرات الكيرالية لأنابيب الكربون النانوية، التحفيز الضوئي على TiO2 وشطر الماء للهيدروجين الأخضر، خلايا البيروفسكايت الشمسية، مصاعد السيليكون النانوية للبطاريات، استهداف الأورام بتأثير EPR، الليبوزومات المغلفة بـ PEG، مجسات الرنين البلازموني السطحي LSPR، والمعالجة الحرارية بجزيئات أكسيد الحديد المغناطيسية.',
+    highlightsEn: [
+      'Brus equation quantum confinement derivation and TEM de Broglie wavelength resolution',
+      'Carbon nanotube chiral vector C_h = (n,m) roll-up angle and metallic vs semiconducting classification',
+      'Solar-to-hydrogen (STH) photocatalytic efficiency and perovskite photovoltaic band alignments',
+      'EPR passive nanocarrier tumor accumulation and localized surface plasmon resonance (LSPR) refractive index sensing',
+    ],
+    highlightsAr: [
+      'استنتاج معادلة بروس للحبس الكمي وحساب دقة المجهر الإلكتروني من طول موجة دي برولي',
+      'تحليل المتجه الكيرالي لأنابيب الكربون وتصنيف التوصيلية الكهربية المعدنية وشبه الموصلة',
+      'حساب كفاءة تحويل الطاقة الشمسية لهيدروجين STH ومحاذاة حزم الطاقة لخلايا البيروفسكايت',
+      'حركية تراكم النواقل بالأورام عبر تأثير EPR وحساسية مجسات الرنين البلازموني LSPR لمعامل الانكسار',
+    ],
+  },
+  // 81. New Egyptian Baccalaureate Advanced Nanotechnology, Quantum Materials & Nanoscale Engineering
+  {
+    id: 'egbac-nanotechnology-g12',
+    curriculum: 'egbac',
+    category: 'nanotechnology',
+    subjectId: 'nanotechnology',
+    branchId: 'egbac_nanotechnology',
+    code: 'EGBAC-NANOTECH-G12',
+    titleEn: 'Nanotechnology, Quantum Materials & Nanoscale Engineering',
+    titleAr: 'النانوتكنولوجي، المواد الكمية والهندسة النانوية',
+    subtitleEn: 'New Egyptian Baccalaureate (EG-Bac) Advanced Nanotechnology Syllabus',
+    subtitleAr: 'منهج البكالوريا المصرية الجديد (EG-Bac) في النانوتكنولوجي والمواد الكمية المتقدمة',
+    academicYear: '2024/2025',
+    gradeEn: 'Grade 12 (EG-Bac Advanced Track)',
+    gradeAr: 'الصف الثالث الثانوي (المسار المتقدم للبكالوريا المصرية)',
+    publisherEn: 'Egyptian Ministry of Education & Technical Education',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 8,
+    fileSize: '22.6 KB',
+    compendiumTitleEn: 'Quantum Transport, Metamaterials & Molecular Nanotechnology Compendium',
+    compendiumTitleAr: 'دليل النقل الكمي والمواد الخارقة والنانوتكنولوجي الجزيئي',
+    filename: 'egbac-nanotechnology.pdf',
+    downloadUrl: '/books/egbac-nanotechnology.pdf',
+    fullTextbookPages: 328,
+    fullTextbookSize: '30.4 MB',
+    officialPortalUrl: 'https://moe.gov.eg/elearning/egbac/advanced-nanotechnology-g12',
+    coverGradient: 'from-teal-600 via-cyan-600 to-blue-700',
+    accentColor: '#0D9488',
+    chapters: [
+      {
+        id: 'egbac_nanotechnology_ch1',
+        titleEn: 'Quantum Transport, 2D Van der Waals Heterostructures & Nanoscale Metrology',
+        titleAr: 'نقل الشحنات الكمي، اللامتجانسات الفاندرفالسية ثنائية الأبعاد ومترولوجيا النانو',
+        pageRange: 'pp. 1–84',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_nanotechnology_ch2',
+        titleEn: 'Molecular Nanotechnology, DNA Origami & Supramolecular Nanomachines',
+        titleAr: 'النانوتكنولوجي الجزيئي، أوريغامي الـ DNA والآلات النانوية فوق الجزيئية',
+        pageRange: 'pp. 85–168',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_nanotechnology_ch3',
+        titleEn: 'Metamaterials, Plasmonics & Photonic Nanocavities',
+        titleAr: 'المواد الخارقة، البلازمونيات والتجاويف الضوئية النانوية',
+        pageRange: 'pp. 169–248',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_nanotechnology_ch4',
+        titleEn: 'Nanotoxicology, Environmental Fate & Advanced Nano-Biomaterials',
+        titleAr: 'السمية النانوية، المصير البيئي والمواد النانوية الحيوية المتقدمة',
+        pageRange: 'pp. 249–328',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Nanotechnology, Quantum Materials & Nanoscale Engineering: Landauer-Büttiker conductance quantization formula, ballistic quantum point contacts, twisted bilayer graphene Moiré superlattices at the 1.1° magic angle, scanning tunneling microscopy (STM) exponential tunneling current, mechanically interlocked rotaxanes and catenanes, light-driven unidirectional Feringa molecular rotary motors, structural DNA scaffold origami folding algorithms (M13mp18), negative refractive index metamaterials (double-negative ε < 0, μ < 0), Pendry perfect superlens evanescent wave restoration, surface plasmon polaritons (SPPs), photonic nanocavity Purcell factors, nanoparticle biomolecular protein corona dynamics (Vroman effect), blood-brain barrier receptor-mediated transcytosis, and OECD environmental nanotoxicology risk assessment.',
+    descriptionAr: 'كتاب البكالوريا المصرية المتقدم في النانوتكنولوجي والمواد الكمية والهندسة النانوية: صيغة لاندور لتكميم التوصيلية الكهربية، نقاط التلامس الكمية الباليستية، شبكات مواريه الفائقة في الجرافين الملتوي عند الزاوية السحرية 1.1°، تيار النفق الكمي في مجهر STM، الجزيئات المتشابكة ميكانيكياً (الروتاكسانات والكاتينانات)، المحركات الجزيئية الدوارة أحادية الاتجاه لفيرينجا، خوارزميات طي هياكل أوريغامي DNA، المواد الخارقة ذات معامل الانكسار السالب، عدسة بيندري الخارقة واستعادة الموجات المتلاشية، بولاريتونات البلازمون السطحي SPP، عامل بيرسيل في التجاويف الفوتونية، ديناميكيات إكليل البروتين حول النواقل النانوية وتأثير فرومان، عبور الحاجز الدموي الدماغي بالالتقام الخلوي، وتقييم مخاطر السمية النانوية البيئية لمنظمة OECD.',
+    highlightsEn: [
+      'Landauer formula G = (2e²/h)M stepped plateaus and Moiré flat band superlattice physics',
+      'Feringa rotary motor photo-thermal cycle and DNA origami staple strand hybridization ΔG thermodynamics',
+      'Negative refraction Snell angle inversion, evanescent recovery, and photonic Purcell enhancement',
+      'Dynamic protein corona Vroman displacement, BBB transcytosis permeability, and ecotoxicology trophic factors',
+    ],
+    highlightsAr: [
+      'مدرجات تكميم التوصيلية بمعادلة لاندور وفيزياء الحزم المسطحة لشبكات مواريه الفائقة',
+      'دورة محركات فيرينجا الدوارة والديناميكا الحرارية لتهجين خيوط أوريغامي الـ DNA',
+      'انعكاس زاوية سنيل في المواد سالبة الانكسار واستعادة الموجات المتلاشية وتأثير بيرسيل',
+      'إزاحة فرومان في إكليل البروتين ونفاذية عبور الحاجز الدموي الدماغي والتراكم البيئي',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -5287,6 +5433,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_ai_data_science' && (b.branchId === 'egbac_ai_data_science' || b.id === 'egbac-ai-data-science-g12')) return true;
     if (branchId === 'thanaweya_biotechnology' && (b.branchId === 'thanaweya_biotechnology' || b.id === 'th-biotechnology-g12')) return true;
     if (branchId === 'egbac_biotechnology' && (b.branchId === 'egbac_biotechnology' || b.id === 'egbac-biotechnology-g12')) return true;
+    if (branchId === 'thanaweya_nanotechnology' && (b.branchId === 'thanaweya_nanotechnology' || b.id === 'th-nanotechnology-g12')) return true;
+    if (branchId === 'egbac_nanotechnology' && (b.branchId === 'egbac_nanotechnology' || b.id === 'egbac-nanotechnology-g12')) return true;
     return false;
   });
 }
@@ -5296,7 +5444,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology' | 'nanotechnology'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

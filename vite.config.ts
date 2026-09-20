@@ -239,6 +239,12 @@ export default defineConfig({
             { name: 'curriculum-biotechnology', test: /src\/data\/(thanaweya|egBac)Biotechnology/, priority: 20 },
             { name: 'biotech-studio', test: /biotechLabData/, priority: 30 },
 
+            // Nanotechnology & Advanced Materials Science
+            { name: 'databank-nanotechnology', test: /databanks\/(thanaweya|egbac)\/.*nanotechnology/i, priority: 30 },
+            { name: 'textbook-nanotechnology', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*nanotechnology/i, priority: 30 },
+            { name: 'curriculum-nanotechnology', test: /src\/data\/(thanaweya|egBac)Nanotechnology/, priority: 20 },
+            { name: 'nanotech-studio', test: /nanotechLabData/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

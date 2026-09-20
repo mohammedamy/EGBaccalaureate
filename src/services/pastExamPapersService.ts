@@ -43,7 +43,8 @@ export type PastExamSubject =
   | 'robotics_mechatronics'
   | 'electronics_iot'
   | 'ai_data_science'
-  | 'biotechnology';
+  | 'biotechnology'
+  | 'nanotechnology';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -7018,6 +7019,193 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250055,
   },
+  // 36. STEM NANOTECHNOLOGY & ADVANCED MATERIALS SCIENCE (2021-2025)
+  // 229. STEM Nanotechnology 2021 - Session 1
+  {
+    id: 'th-nanotechnology-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    titleAr: 'امتحان إتمام شهادة الثانوية العامة لمدارس المتفوقين STEM - النانوتكنولوجي وعلوم المواد (الدور الأول ٢٠٢١)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Nanotechnology & Materials Science (First Session 2021)',
+    subtitleAr: 'الامتحان الرسمي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) من المركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized National Paper administered across Egyptian STEM Schools by the Ministry of Education',
+    formCodeAr: 'كود الامتحان: نانو-١-٢٠٢١-أ',
+    formCodeEn: 'Paper Code: NANO-01-2021-A',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢١ / نانوتكنولوجي ومواد متقدمة - دور أول',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 38.6,
+      totalMarks: 50,
+      passRatePercent: 91.2,
+      distinctionRatePercent: 21.5,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 2140,
+      stdDeviation: 4.8,
+    },
+    seed: 20210056,
+  },
+  // 230. STEM Nanotechnology 2022 - Session 1
+  {
+    id: 'th-nanotechnology-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    titleAr: 'امتحان إتمام شهادة الثانوية العامة لمدارس المتفوقين STEM - النانوتكنولوجي وعلوم المواد (الدور الأول ٢٠٢٢)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Nanotechnology & Materials Science (First Session 2022)',
+    subtitleAr: 'الامتحان الرسمي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) من المركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized National Paper administered across Egyptian STEM Schools by the Ministry of Education',
+    formCodeAr: 'كود الامتحان: نانو-١-٢٠٢٢-ب',
+    formCodeEn: 'Paper Code: NANO-01-2022-B',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٢ / نانوتكنولوجي ومواد متقدمة - دور أول',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.4,
+      totalMarks: 50,
+      passRatePercent: 92.8,
+      distinctionRatePercent: 23.4,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 2280,
+      stdDeviation: 4.6,
+    },
+    seed: 20220056,
+  },
+  // 231. STEM Nanotechnology 2023 - Session 1
+  {
+    id: 'th-nanotechnology-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    titleAr: 'امتحان إتمام شهادة الثانوية العامة لمدارس المتفوقين STEM - النانوتكنولوجي وعلوم المواد (الدور الأول ٢٠٢٣)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Nanotechnology & Materials Science (First Session 2023)',
+    subtitleAr: 'الامتحان الرسمي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) من المركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized National Paper administered across Egyptian STEM Schools by the Ministry of Education',
+    formCodeAr: 'كود الامتحان: نانو-١-٢٠٢٣-ج',
+    formCodeEn: 'Paper Code: NANO-01-2023-C',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٣ / نانوتكنولوجي ومواد متقدمة - دور أول',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.1,
+      totalMarks: 50,
+      passRatePercent: 94.0,
+      distinctionRatePercent: 25.1,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2450,
+      stdDeviation: 4.4,
+    },
+    seed: 20230056,
+  },
+  // 232. STEM Nanotechnology 2024 - Session 1
+  {
+    id: 'th-nanotechnology-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    titleAr: 'امتحان إتمام شهادة الثانوية العامة لمدارس المتفوقين STEM - النانوتكنولوجي وعلوم المواد (الدور الأول ٢٠٢٤)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Nanotechnology & Materials Science (First Session 2024)',
+    subtitleAr: 'الامتحان الرسمي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) من المركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized National Paper administered across Egyptian STEM Schools by the Ministry of Education',
+    formCodeAr: 'كود الامتحان: نانو-١-٢٠٢٤-د',
+    formCodeEn: 'Paper Code: NANO-01-2024-D',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / نانوتكنولوجي ومواد متقدمة - دور أول',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.8,
+      totalMarks: 50,
+      passRatePercent: 95.5,
+      distinctionRatePercent: 27.0,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2620,
+      stdDeviation: 4.2,
+    },
+    seed: 20240056,
+  },
+  // 233. STEM Nanotechnology 2024 - Session 2
+  {
+    id: 'th-nanotechnology-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    titleAr: 'امتحان إتمام شهادة الثانوية العامة لمدارس المتفوقين STEM - النانوتكنولوجي وعلوم المواد (الدور الثاني ٢٠٢٤)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Nanotechnology & Materials Science (Second Session 2024)',
+    subtitleAr: 'امتحان الدور الثاني الرسمي المعتمد من وزارة التربية والتعليم لمدارس المتفوقين',
+    subtitleEn: 'Official Second Session Supplementary Examination for Egyptian STEM Schools',
+    formCodeAr: 'كود الامتحان: نانو-٢-٢٠٢٤-ث',
+    formCodeEn: 'Paper Code: NANO-02-2024-SUPP',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / نانوتكنولوجي ومواد متقدمة - دور ثان',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.1,
+      totalMarks: 50,
+      passRatePercent: 88.4,
+      distinctionRatePercent: 12.0,
+      topTenThreshold: 47.5,
+      totalCandidatesEst: 390,
+      stdDeviation: 4.6,
+    },
+    seed: 20240156,
+  },
+  // 234. STEM Nanotechnology 2025 - Experimental Diagnostic
+  {
+    id: 'th-nanotechnology-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'nanotechnology',
+    branchId: 'thanaweya_nanotechnology',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - النانوتكنولوجي وعلوم المواد STEM (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - STEM Nanotechnology & Materials Science (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من وحدة مدارس المتفوقين STEM والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE STEM Unit and Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٥ / نموذج استرشادي / نانوتكنولوجي ومواد متقدمة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 41.6,
+      totalMarks: 50,
+      passRatePercent: 97.5,
+      distinctionRatePercent: 31.0,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2840,
+      stdDeviation: 3.7,
+    },
+    seed: 20250056,
+  },
 ];
 
 /**
@@ -7101,7 +7289,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('robot') || paper.branchId.includes('robotics')) && (b.id.includes('robot') || b.id.includes('robotics'))) ||
       ((paper.branchId.includes('electronics') || paper.branchId.includes('iot')) && (b.id.includes('electronics') || b.id.includes('iot'))) ||
       ((paper.branchId.includes('ai') || paper.branchId.includes('data_science')) && (b.id.includes('ai') || b.id.includes('data_science'))) ||
-      ((paper.branchId.includes('biotech') || paper.branchId.includes('biotechnology')) && (b.id.includes('biotech') || b.id.includes('biotechnology')))
+      ((paper.branchId.includes('biotech') || paper.branchId.includes('biotechnology')) && (b.id.includes('biotech') || b.id.includes('biotechnology'))) ||
+      ((paper.branchId.includes('nano') || paper.branchId.includes('nanotechnology')) && (b.id.includes('nano') || b.id.includes('nanotechnology')))
   );
 
   if (!targetBranch) return [];

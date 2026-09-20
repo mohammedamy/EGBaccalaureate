@@ -41,6 +41,7 @@ export type BranchId =
   | 'thanaweya_electronics_iot'
   | 'thanaweya_ai_data_science'
   | 'thanaweya_biotechnology'
+  | 'thanaweya_nanotechnology'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -79,7 +80,8 @@ export type BranchId =
   | 'egbac_robotics'
   | 'egbac_electronics_iot'
   | 'egbac_ai_data_science'
-  | 'egbac_biotechnology';
+  | 'egbac_biotechnology'
+  | 'egbac_nanotechnology';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 

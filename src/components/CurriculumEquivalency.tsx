@@ -1805,6 +1805,50 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr:
         'تأهيل أكاديمي مباشر للقبول بكليات الطب البشري، التكنولوجيا الحيوية الجزيئية، الهندسة الطبية الحيوية، الصيدلة الإكلينيكية، علم الوراثة، والمعلوماتية الحيوية.',
     },
+    {
+      id: 'nanotechnology_bridge',
+      titleEn: 'Nanotechnology & Advanced Materials Science',
+      titleAr: 'النانوتكنولوجي وعلوم المواد المتقدمة (STEM & EG-Bac)',
+      icon: <Atom className="w-5 h-5 text-teal-400" />,
+      thanaweyaBranchId: 'thanaweya_nanotechnology',
+      egBacBranchId: 'egbac_nanotechnology',
+      thanaweyaTitleEn: 'Nanoscale Physics, Synthesis & Advanced Applications (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'فيزياء مقياس النانو والتخليق والتطبيقات المتقدمة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Nanoscale Physics, Quantum Confinement & Surface Thermodynamics: Density of states, particle in a box, de Broglie wavelength, exciton Bohr radius, and surface-to-volume ratio scaling',
+        'Ch.2 Synthesis of Nanomaterials, Top-Down/Bottom-Up & Green Chemical Methods: Ball milling, lithography, sol-gel, chemical vapor deposition (CVD), and plant extract green nanoparticle synthesis',
+        'Ch.3 Advanced Characterization Techniques: SEM/TEM electron optics, Atomic Force Microscopy (AFM), X-ray Diffraction (Scherrer equation), and Dynamic Light Scattering (DLS)',
+        'Ch.4 Industrial, Energy & Environmental Nanotechnology Applications: Perovskite/quantum dot solar cells, TiO2 photocatalytic wastewater treatment, and nanostructured catalytic converters',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ فيزياء مقياس النانو والحبس الكمي وديناميكا السطوح: كثافة الحالات، جسيم في صندوق، طول موجة دي برولي، نصف قطر بور للإكسيتون، ومضاعفة نسبة مساحة السطح للحجم',
+        'فصل ٢ تخليق المواد النانوية وطرائق القمة للقاع والقاع للقمة: الطحن الميكانيكي، الطباعة الضوئية، السول-جل، الترسيب الكيميائي للبخار CVD، وتخليق الجسيمات النانوية بالمستخلصات النباتية',
+        'فصل ٣ تقنيات التوصيف النانوية المتقدمة: المجاهر الإلكترونية SEM وTEM، مجهر القوة الذرية AFM، حيود الأشعة السينية XRD ومعادلة شيرير، وتشتت الضوء الديناميكي DLS',
+        'فصل ٤ تطبيقات النانو الصناعية والبيئية والطاقة: خلايا البيروفسكايت والنقاط الكمية الشمسية، التنقية الضوئية للمياه بـ TiO2، والمحولات الحفازة النانوية',
+      ],
+      egBacTitleEn: '2D Materials, Nanobiotechnology, Nanophotonics & Smart Composites (4 Modules)',
+      egBacTitleAr: 'المواد ثنائية الأبعاد، البيوتكنولوجي النانوي، الضوئيات النانوية والمتراكبات الذكية (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Carbon Allotropes, Graphene, Nanotubes & 2D MXenes: Dirac cone electronic bandstructure, chirality vectors (n,m), high tensile strength, and 2D transition metal carbides',
+        'Mod.2 Nanobiotechnology, Targeted Drug Delivery & Diagnostic Nanomedicine: EPR effect in solid tumors, PEGylated liposomes, magnetic hyperthermia, and nanoparticle biosensing',
+        'Mod.3 Nano-Optics, Surface Plasmon Resonance & Nanophotonics: Drude model dielectric permittivity, localized surface plasmon resonance (LSPR), SERS Raman enhancement, and metamaterials',
+        'Mod.4 Smart Nanocomposites, Self-Healing Materials & Nano-Toxicology Governance: Polymer-carbon nanotube percolation, microcapsule self-healing, cellular ROS generation, and REACH safety guidelines',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ متآصلات الكربون والجرافين وأنابيب الكربون النانوية ومواد MXenes: البنية الإلكترونية لمخروط ديراك، متجهات الكيرالية، قوة الشد الفائقة، وكربيدات المعادن الانتقالية ثنائية الأبعاد',
+        'وحدة ٢ التكنولوجيا الحيوية النانوية وتوصيل الدواء الموجه والطب النانوي: تأثير النفاذية المعززة EPR، الليبوزومات المحمية بـ PEG، العلاج بالحرارة المغناطيسية، والمجسات النانوية',
+        'وحدة ٣ البصريات النانوية ورنين البلازمون السطحي والضوئيات النانوية: نموذج درود لثابت العزل، رنين البلازمون الموضعي LSPR، تأثير تشتت رامان المعزز بالسطح SERS، والمواد الخارقة',
+        'وحدة ٤ المتراكبات النانوية الذكية والمواد ذاتية الالتئام وحوكمة السمية النانوية: عتبة التوصيل الترشيحي للبوليمر والنانوتيوب، الالتئام الذاتي بالكبسولات، وتوليد أنواع الأكسجين التفاعلية ROS',
+      ],
+      bridgeInsightEn:
+        'Thanaweya STEM Nanotechnology focuses on the foundational quantum physical scaling laws, electron microscopy characterization tools, and green synthesis methods. EG-Bac expands this into advanced 2D quantum materials, surface plasmon nanophotonics, targeted cancer nanomedicine, and smart self-healing industrial nanocomposites.',
+      bridgeInsightAr:
+        'يركز منهج الثانوية العامة للمتفوقين على القوانين الكمية الحاكمة لتأثير الحجم النانوي، وأدوات المجهر الإلكتروني، وطرق التخليق الأخضر. بينما تتوسع البكالوريا نحو المواد الكمية ثنائية الأبعاد، والضوئيات النانوية البلازمونية، والطب النانوي الموجه لعلاج الأورام، والمتراكبات النانوية الذكية ذاتية الإصلاح.',
+      universityAdvantageEn:
+        'Direct preparation for premier faculties of Nanotechnology, Materials Science & Engineering, Chemical Engineering, Microelectronics, Applied Physics, and Nanomedical Engineering.',
+      universityAdvantageAr:
+        'تأهيل أكاديمي متميز للالتحاق بكليات وهندسة النانوتكنولوجي، علوم وهندسة المواد، الهندسة الكيميائية، الإلكترونيات الدقيقة، الفيزياء التطبيقية، وهندسة الطب النانوي.',
+    },
   ];
 
   const activeBridge = bridges[activeBridgeIndex];

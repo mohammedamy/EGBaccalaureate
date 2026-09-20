@@ -36,7 +36,8 @@ export type SubjectId =
   | 'robotics_mechatronics'
   | 'electronics_iot'
   | 'ai_data_science'
-  | 'biotechnology';
+  | 'biotechnology'
+  | 'nanotechnology';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -860,6 +861,28 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_biotechnology'],
       egbac: ['egbac_biotechnology'],
+    },
+  },
+  // 36. Nanotechnology & Advanced Materials Science (النانوتكنولوجي وعلوم المواد المتقدمة)
+  {
+    id: 'nanotechnology',
+    titleEn: 'Nanotechnology & Advanced Materials Science',
+    titleAr: 'النانوتكنولوجي وعلوم المواد المتقدمة',
+    shortTitleEn: 'Nanotechnology',
+    shortTitleAr: 'النانوتكنولوجي',
+    emoji: '🔬',
+    iconName: 'Atom',
+    badgeColor: 'teal',
+    gradient: 'from-teal-600 via-cyan-600 to-blue-700',
+    lightBg: 'bg-teal-50 text-teal-950 border-teal-200',
+    darkBg: 'bg-teal-950/80 text-teal-200 border-teal-800/60',
+    borderColor: 'border-teal-500/50',
+    textColor: 'text-teal-400',
+    descriptionEn: 'Official Egyptian STEM secondary and EG-Bac curriculum in Nanotechnology & Advanced Materials Science: Quantum confinement, exciton Bohr radius, zero-dimensional quantum dots, 1D carbon nanotubes and nanowires, 2D graphene and MXenes, top-down and bottom-up nanomaterial synthesis, green chemistry nanoparticle precipitation, high-resolution electron microscopy (HR-TEM, SEM, AFM, XRD), localized surface plasmon resonance (LSPR), targeted nanomedicine drug delivery, nanocomposites, solar photocatalytic water purification, and nano-toxicology safety governance.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) والبكالوريا المصرية في النانوتكنولوجي وعلوم المواد المتقدمة: فيزياء الحبس الكمي ونصف قطر بور للإكسيتون، النقاط الكمية صفرية الأبعاد، أنابيب الكربون النانوية والأسلاك النانوية أحادية البعد، الجرافين ومواد MXenes ثنائية الأبعاد، طرائق تصنيع المواد النانوية من القمة للقاع ومن القاع للقمة، التخليق الأخضر للجسيمات النانوية، تقنيات التوصيف المجهري المتقدم (HR-TEM، SEM، AFM، وحيود الأشعة السينية XRD)، رنين البلازمون السطحي الموضعي LSPR، أنظمة توصيل الدواء النانوية الذكية، المتراكبات النانوية، التحفيز الضوئي النانوي لتنقية المياه، وحوكمة السلامة والسمية النانوية.',
+    branchIds: {
+      thanaweya: ['thanaweya_nanotechnology'],
+      egbac: ['egbac_nanotechnology'],
     },
   },
 ];
