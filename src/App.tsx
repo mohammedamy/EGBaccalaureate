@@ -10,12 +10,10 @@ import { CurriculumOverview } from './components/CurriculumOverview';
 import type { BlueprintMode } from './components/TestGenerator';
 import type { DesmosMode, DesmosLayout } from './components/DesmosSuite';
 import { VisitorCounter } from './components/VisitorCounter';
-import { SiteTutorialModal } from './components/SiteTutorialModal';
 import { Search, ShieldCheck, Command, Mail, X } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
 import { registerServiceWorker } from './core/pwa/pwaManager';
-import { forceReleaseAllScrollLocks } from './core/labs/useNativeLabFullscreen';
 
 // Lazy-loaded heavy components, workstations & secondary modals
 const LessonView = lazy(() => import('./components/LessonView').then(m => ({ default: m.LessonView })));
@@ -33,6 +31,7 @@ const EnglishAudioLabModal = lazy(() => import('./components/EnglishAudioLabModa
 const FrenchListeningStationModal = lazy(() => import('./components/FrenchListeningStationModal').then(m => ({ default: m.FrenchListeningStationModal })));
 const ArabicGrammarModal = lazy(() => import('./components/ArabicGrammarModal').then(m => ({ default: m.ArabicGrammarModal })));
 const AccessibilitySettingsModal = lazy(() => import('./components/AccessibilitySettingsModal').then(m => ({ default: m.AccessibilitySettingsModal })));
+const SiteTutorialModal = lazy(() => import('./components/SiteTutorialModal').then(m => ({ default: m.SiteTutorialModal })));
 const MathScratchpad = lazy(() => import('./core/math/MathScratchpad').then(m => ({ default: m.MathScratchpad })));
 
 const ViewLoadingFallback: React.FC<{ messageAr?: string; messageEn?: string }> = ({
@@ -342,7 +341,11 @@ export const App: React.FC = () => {
 
   // Global safety guarantee: whenever navigation tab, subject, or curriculum changes, ensure all scroll locks are cleared
   useEffect(() => {
-    forceReleaseAllScrollLocks();
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.removeAttribute('data-fullscreen-lab');
+    }
   }, [activeTab, selectedSubject, curriculum]);
 
   // Sync html dir attribute (RTL / LTR)
@@ -796,36 +799,40 @@ export const App: React.FC = () => {
         )}
 
         {/* Interactive Site Navigation Tutorial Modal (PCs, Mobiles, Tablets, Smartboards) */}
-        <SiteTutorialModal
-          isOpen={isTutorialOpen}
-          onClose={() => setIsTutorialOpen(false)}
-          lang={lang}
-          theme={theme}
-          onNavigateTab={(tab) => {
-            setActiveTab(tab);
-            setIsTutorialOpen(false);
-          }}
-          onSelectSubject={(subjectId) => {
-            handleSubjectChange(subjectId);
-            setIsTutorialOpen(false);
-          }}
-          onOpenSearch={() => {
-            setIsTutorialOpen(false);
-            setIsSearchOpen(true);
-          }}
-          onOpenFormulaHandbook={() => {
-            setIsTutorialOpen(false);
-            setIsFormulaHandbookOpen(true);
-          }}
-          onOpenDesmos={() => {
-            setIsTutorialOpen(false);
-            setIsDesmosOpen(true);
-          }}
-          onOpenOfficialBooks={() => {
-            setIsTutorialOpen(false);
-            handleOpenOfficialBooks();
-          }}
-        />
+        {isTutorialOpen && (
+          <Suspense fallback={null}>
+            <SiteTutorialModal
+              isOpen={isTutorialOpen}
+              onClose={() => setIsTutorialOpen(false)}
+              lang={lang}
+              theme={theme}
+              onNavigateTab={(tab) => {
+                setActiveTab(tab);
+                setIsTutorialOpen(false);
+              }}
+              onSelectSubject={(subjectId) => {
+                handleSubjectChange(subjectId);
+                setIsTutorialOpen(false);
+              }}
+              onOpenSearch={() => {
+                setIsTutorialOpen(false);
+                setIsSearchOpen(true);
+              }}
+              onOpenFormulaHandbook={() => {
+                setIsTutorialOpen(false);
+                setIsFormulaHandbookOpen(true);
+              }}
+              onOpenDesmos={() => {
+                setIsTutorialOpen(false);
+                setIsDesmosOpen(true);
+              }}
+              onOpenOfficialBooks={() => {
+                setIsTutorialOpen(false);
+                handleOpenOfficialBooks();
+              }}
+            />
+          </Suspense>
+        )}
 
         {/* Global Math & KaTeX Scratchpad Modal */}
         {isMathScratchpadOpen && (

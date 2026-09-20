@@ -4,7 +4,6 @@ import { translations } from '../i18n/translations';
 import type { ThemeMode } from '../types/curriculum';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import { Users, Activity, Sparkles } from 'lucide-react';
-import { subscribeToVisitorCount } from '../services/firebase';
 
 interface Props {
   lang: Language;
@@ -62,18 +61,32 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     return baseActive + Math.floor(Math.random() * 8);
   });
 
-  // Subscribe to real-time global visitor count via Firebase Cloud Firestore
+  // Subscribe to real-time global visitor count via Firebase Cloud Firestore (lazily loaded to keep initial bundle ultra-lean)
   useEffect(() => {
-    const unsubscribe = subscribeToVisitorCount(({ totalVisits, todayVisits: firestoreToday }) => {
-      setVisitorCount(totalVisits);
-      setTodayVisits(firestoreToday);
-      try {
-        localStorage.setItem('egbac_highest_count', String(totalVisits));
-      } catch {}
-    });
+    let unsubscribe: (() => void) | undefined;
+    let isMounted = true;
+
+    import('../services/firebase')
+      .then(({ subscribeToVisitorCount }) => {
+        if (!isMounted) return;
+        unsubscribe = subscribeToVisitorCount(({ totalVisits, todayVisits: firestoreToday }) => {
+          if (!isMounted) return;
+          setVisitorCount(totalVisits);
+          setTodayVisits(firestoreToday);
+          try {
+            localStorage.setItem('egbac_highest_count', String(totalVisits));
+          } catch {}
+        });
+      })
+      .catch((err) => {
+        console.warn('Failed to dynamically load Firebase visitor counter:', err);
+      });
 
     return () => {
-      unsubscribe();
+      isMounted = false;
+      if (unsubscribe) {
+        unsubscribe();
+      }
     };
   }, []);
 

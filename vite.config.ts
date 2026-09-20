@@ -21,7 +21,18 @@ export default defineConfig({
             !dep.includes('virtual-labs') &&
             !dep.includes('studio') &&
             !dep.includes('exam-') &&
-            !dep.includes('curriculum-')
+            !dep.includes('curriculum-') &&
+            !dep.includes('vendor-firebase') &&
+            !dep.includes('vendor-three') &&
+            !dep.includes('vendor-confetti') &&
+            !dep.includes('student-analytics') &&
+            !dep.includes('desmos-suite') &&
+            !dep.includes('official-books') &&
+            !dep.includes('specialized-studios') &&
+            !dep.includes('core-scratchpad') &&
+            !dep.includes('core-instruments') &&
+            !dep.includes('core-simulation') &&
+            !dep.includes('core-labs')
         );
       },
     },
@@ -29,7 +40,19 @@ export default defineConfig({
       output: {
         codeSplitting: {
           groups: [
-            // Vendor
+            // High-priority core & vendor chunks
+            { name: 'core-scratchpad', test: /src\/core\/math\//, priority: 65 },
+            { name: 'core-instruments', test: /src\/core\/instruments\//, priority: 65 },
+            { name: 'core-simulation', test: /src\/core\/simulation\//, priority: 65 },
+            { name: 'core-labs', test: /src\/core\/labs\//, priority: 60 },
+            { name: 'core-ui-math', test: /src\/components\/MathRenderer/, priority: 60 },
+            { name: 'core-i18n', test: /src\/i18n\/translations/, priority: 55 },
+            { name: 'core-subjects', test: /src\/data\/subjects/, priority: 55 },
+            { name: 'vendor-firebase', test: /node_modules\/(firebase|@firebase)/, priority: 55 },
+            { name: 'vendor-three', test: /node_modules\/three/, priority: 55 },
+            { name: 'vendor-confetti', test: /node_modules\/canvas-confetti/, priority: 55 },
+
+            // Standard Vendor
             { name: 'vendor-katex', test: /node_modules\/katex/, priority: 50 },
             { name: 'vendor-icons', test: /node_modules\/lucide-react/, priority: 50 },
             { name: 'vendor-react', test: /node_modules\/(react|react-dom|scheduler)/, priority: 50 },

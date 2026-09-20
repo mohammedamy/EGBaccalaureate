@@ -64,6 +64,28 @@ const cleanChapterTitle = (raw: string): string => {
     .trim();
 };
 
+export type SubjectCategory = 'all' | 'science' | 'math' | 'languages' | 'humanities' | 'technology' | 'general';
+
+export const SUBJECT_CATEGORIES: { id: SubjectCategory; labelAr: string; labelEn: string; emoji: string }[] = [
+  { id: 'all', labelAr: 'الكل', labelEn: 'All', emoji: '📚' },
+  { id: 'science', labelAr: 'العلوم الطبيعية والجيولوجيا', labelEn: 'Sciences', emoji: '🔬' },
+  { id: 'math', labelAr: 'الرياضيات والإحصاء', labelEn: 'Math & Stats', emoji: '📐' },
+  { id: 'languages', labelAr: 'اللغات والآداب', labelEn: 'Languages', emoji: '🌐' },
+  { id: 'humanities', labelAr: 'الإنسانيات والاجتماعيات', labelEn: 'Humanities', emoji: '🏛️' },
+  { id: 'technology', labelAr: 'التكنولوجية والمهنية', labelEn: 'Tech & Applied', emoji: '⚙️' },
+  { id: 'general', labelAr: 'المواد العامة', labelEn: 'Civic & Religion', emoji: '⚖️' },
+];
+
+export const CATEGORY_MAP: Record<SubjectCategory, string[]> = {
+  all: [],
+  science: ['physics', 'chemistry', 'biology', 'geology', 'earth_space'],
+  math: ['mathematics', 'economics_stat'],
+  languages: ['arabic', 'english', 'french', 'german', 'italian', 'spanish', 'chinese'],
+  humanities: ['history', 'geography', 'philosophy', 'psychology'],
+  technology: ['cs_informatics', 'business_entrepreneurship', 'fine_arts_architecture', 'music_theory', 'agriculture', 'industrial', 'commercial', 'tourism', 'renewable'],
+  general: ['islamic_studies', 'christian_studies', 'civics'],
+};
+
 export const CurriculumOverview: React.FC<Props> = ({
   lang,
   theme = 'dark',
@@ -79,6 +101,7 @@ export const CurriculumOverview: React.FC<Props> = ({
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
+  const [selectedCategory, setSelectedCategory] = useState<SubjectCategory>('all');
   const [selectedBranchId, setSelectedBranchId] = useState<string>('all');
 
   // Retrieve user statistics from localStorage
@@ -172,27 +195,31 @@ export const CurriculumOverview: React.FC<Props> = ({
     return found.length > 0 ? found : subjectBranches;
   }, [subjectBranches, selectedBranchId]);
 
-  // When a subject is selected from menu, filter subject cards so unrelated cards disappear
+  // Filter subjects by selectedSubject OR selectedCategory
   const displayedSubjects = useMemo(() => {
-    if (!selectedSubject || selectedSubject === 'all') {
-      return SUBJECTS;
+    if (selectedSubject && selectedSubject !== 'all') {
+      const filtered = SUBJECTS.filter((s) => s.id === selectedSubject);
+      return filtered.length > 0 ? filtered : SUBJECTS;
     }
-    const filtered = SUBJECTS.filter((s) => s.id === selectedSubject);
-    return filtered.length > 0 ? filtered : SUBJECTS;
-  }, [selectedSubject]);
+    if (selectedCategory !== 'all') {
+      const allowedIds = new Set(CATEGORY_MAP[selectedCategory] || []);
+      return SUBJECTS.filter((s) => allowedIds.has(s.id));
+    }
+    return SUBJECTS;
+  }, [selectedSubject, selectedCategory]);
 
   return (
-    <div className="space-y-6 sm:space-y-8">
+    <div className="space-y-4 sm:space-y-6 md:space-y-8">
       {/* Editorial Scientific Overview Dispatch */}
       <div className={`hero-banner relative overflow-hidden rounded-2xl border transition-all ${
         isContrast
-          ? 'bg-black border-2 border-yellow-400 text-yellow-300 p-6'
+          ? 'bg-black border-2 border-yellow-400 text-yellow-300 p-4 sm:p-6'
           : isLight
-          ? 'bg-white border-slate-200 text-slate-900 p-6 sm:p-8 shadow-xs'
-          : 'bg-[#161B22] border-[#30363D] text-[#F0F6FC] p-6 sm:p-8 shadow-md'
+          ? 'bg-white border-slate-200 text-slate-900 p-4 sm:p-6 md:p-8 shadow-xs'
+          : 'bg-[#161B22] border-[#30363D] text-[#F0F6FC] p-4 sm:p-6 md:p-8 shadow-md'
       }`}>
-        <div className="relative z-10 flex flex-col-reverse md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-3.5 max-w-2xl text-center sm:text-left rtl:sm:text-right">
+        <div className="relative z-10 flex flex-col-reverse md:flex-row md:items-center justify-between gap-4 sm:gap-6">
+          <div className="space-y-2.5 sm:space-y-3.5 max-w-2xl text-center sm:text-left rtl:sm:text-right">
             <div className={`hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold text-center mx-auto sm:mx-0 border ${
               isContrast
                 ? 'bg-black text-cyan-300 border-cyan-400'
@@ -208,7 +235,7 @@ export const CurriculumOverview: React.FC<Props> = ({
               </span>
             </div>
 
-            <h2 className="hero-title text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+            <h2 className="hero-title text-xl sm:text-2xl md:text-4xl font-extrabold tracking-tight">
               {isArabic ? curriculum.nameAr : curriculum.nameEn}
             </h2>
             <p className={`hero-subtitle text-xs sm:text-sm md:text-base font-normal leading-relaxed ${
@@ -217,17 +244,17 @@ export const CurriculumOverview: React.FC<Props> = ({
               {isArabic ? curriculum.subtitleAr : curriculum.subtitleEn}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-2 flex-wrap">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 sm:pt-2 flex-wrap">
               <button
                 onClick={() => onNavigateTab('theory')}
-                className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+                className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer min-h-[44px] active:scale-[0.98]"
               >
-                <BookOpen className="w-4 h-4" />
+                <BookOpen className="w-4 h-4 shrink-0" />
                 <span>{isArabic ? 'استكشف المنهج والشروحات' : 'Explore Theory & Notes'}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('testGenerator')}
-                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
                   isContrast
                     ? 'bg-black text-white border-white hover:bg-zinc-900'
                     : isLight
@@ -235,12 +262,12 @@ export const CurriculumOverview: React.FC<Props> = ({
                     : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                 }`}
               >
-                <FileSpreadsheet className="w-4 h-4 text-slate-500" />
+                <FileSpreadsheet className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>{t.generateTest}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('equivalency')}
-                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
                   isContrast
                     ? 'bg-black text-white border-white hover:bg-zinc-900'
                     : isLight
@@ -248,12 +275,12 @@ export const CurriculumOverview: React.FC<Props> = ({
                     : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                 }`}
               >
-                <Scale className="w-4 h-4 text-slate-500" />
+                <Scale className="w-4 h-4 text-slate-500 shrink-0" />
                 <span>{isArabic ? 'مقارنة المسارات' : 'Track Bridge'}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('interactive')}
-                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
                   isContrast
                     ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-zinc-900'
                     : isLight
@@ -261,13 +288,13 @@ export const CurriculumOverview: React.FC<Props> = ({
                     : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                 }`}
               >
-                <FlaskConical className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <FlaskConical className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                 <span>{isArabic ? 'المختبرات العلمية' : 'Virtual Labs'}</span>
               </button>
               {onOpenOfficialBooks && (
                 <button
                   onClick={onOpenOfficialBooks}
-                  className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
                     isContrast
                       ? 'bg-black text-amber-300 border-amber-400 hover:bg-zinc-900'
                       : isLight
@@ -275,7 +302,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                       : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
                   }`}
                 >
-                  <Download className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+                  <Download className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                   <span>{isArabic ? 'كتب الوزارة PDF' : 'Ministry Books PDF'}</span>
                 </button>
               )}
@@ -286,58 +313,58 @@ export const CurriculumOverview: React.FC<Props> = ({
             <img
               src={clipsatLogo}
               alt="ClipSAT Logo"
-              className="h-16 sm:h-20 md:h-24 w-auto object-contain opacity-95 transition-opacity"
+              className="h-14 sm:h-20 md:h-24 w-auto object-contain opacity-95 transition-opacity"
             />
           </div>
         </div>
 
         {/* Global Stats Tabular Ribbon */}
-        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6 pt-6 border-t text-center sm:text-left rtl:sm:text-right ${
+        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t text-center sm:text-left rtl:sm:text-right ${
           isContrast ? 'border-yellow-400/50' : isLight ? 'border-slate-200' : 'border-slate-800'
         }`}>
-          <div className={`p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'إجمالي الفصول المعتمدة:' : 'Total Chapters:'}
             </span>
-            <span className="text-base font-black font-mono">
+            <span className="text-sm sm:text-base font-black font-mono">
               {isArabic ? toHindiDigits(totalChapters) : totalChapters}{' '}
               <span className="text-[11px] text-slate-500 font-sans font-normal">{isArabic ? 'فصلاً' : 'Ch'}</span>
             </span>
           </div>
 
-          <div className={`p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المجهزة بالحلول:' : 'Equipped Problems:'}
             </span>
-            <span className="text-base font-black font-mono text-emerald-600 dark:text-emerald-400">
+            <span className="text-sm sm:text-base font-black font-mono text-emerald-600 dark:text-emerald-400">
               {isArabic ? toHindiDigits(totalProblems) : totalProblems.toLocaleString()}{' '}
               <span className="text-[11px] text-slate-500 font-sans font-normal">{isArabic ? 'مسألة' : 'Items'}</span>
             </span>
           </div>
 
-          <div className={`p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المجابة محلياً:' : 'Practiced Problems:'}
             </span>
-            <span className="text-base font-black font-mono text-blue-600 dark:text-blue-400">
+            <span className="text-sm sm:text-base font-black font-mono text-blue-600 dark:text-blue-400">
               {isArabic ? toHindiDigits(userStats.answeredCount) : userStats.answeredCount}{' '}
               <span className="text-[11px] text-slate-500 font-sans font-normal">{isArabic ? 'مسألة' : 'Done'}</span>
             </span>
           </div>
 
-          <div className={`p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المميزة بنجمة:' : 'Starred Bookmarks:'}
             </span>
-            <span className="text-base font-black font-mono flex items-center justify-center sm:justify-start gap-1 text-amber-600 dark:text-amber-400">
+            <span className="text-sm sm:text-base font-black font-mono flex items-center justify-center sm:justify-start gap-1 text-amber-600 dark:text-amber-400">
               <Star className="w-3.5 h-3.5 fill-current" />
               <span>{isArabic ? toHindiDigits(userStats.bookmarkedCount) : userStats.bookmarkedCount}</span>
             </span>
@@ -346,7 +373,7 @@ export const CurriculumOverview: React.FC<Props> = ({
       </div>
 
       {/* 🏛️ ACADEMIC SUBJECT TRACKS GATEWAY */}
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
           <div className="flex items-center gap-2 flex-wrap">
             <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
@@ -358,8 +385,8 @@ export const CurriculumOverview: React.FC<Props> = ({
                   ? `المسار الأكاديمي المختار: ${currentSubject?.titleAr || selectedSubject}`
                   : `Selected Subject Track: ${currentSubject?.titleEn || selectedSubject}`
                 : isArabic
-                ? 'المسارات الأكاديمية والمواد المعتمدة (اختر المادة):'
-                : 'Accredited Academic Subject Tracks (Select Subject):'}
+                ? 'المسارات الأكاديمية والمواد المعتمدة:'
+                : 'Accredited Academic Subject Tracks:'}
             </h3>
             {selectedSubject && selectedSubject !== 'all' && (
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
@@ -372,10 +399,11 @@ export const CurriculumOverview: React.FC<Props> = ({
             <button
               onClick={() => {
                 if (onSelectSubject) onSelectSubject('all');
+                setSelectedCategory('all');
                 setSelectedBranchId('all');
               }}
-              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 border ${
-                selectedSubject === 'all'
+              className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 border min-h-[38px] ${
+                selectedSubject === 'all' && selectedCategory === 'all'
                   ? isContrast
                     ? 'bg-yellow-400 text-black font-black'
                     : 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30 border-indigo-500'
@@ -387,14 +415,49 @@ export const CurriculumOverview: React.FC<Props> = ({
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'جميع المواد الـ 30 (شامل)' : 'All 30 Subjects (Complete)'}</span>
+              <span>{isArabic ? 'جميع المواد الـ 30' : 'All 30 Subjects'}</span>
               <span className="text-[10px] opacity-80 font-mono">({SUBJECTS.length})</span>
             </button>
           </div>
         </div>
 
-        {/* Grand Subject Cards (Filtered to single relevant card when a subject is chosen) */}
-        <div className={`grid grid-cols-1 ${selectedSubject === 'all' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-1 lg:grid-cols-2 max-w-4xl'} gap-3 sm:gap-4`}>
+        {/* 📱 Mobile & Desktop Horizontal Quick Subject Category Pills */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 -mx-1 px-1 scrollbar-none touch-pan-x select-none">
+          {SUBJECT_CATEGORIES.map((cat) => {
+            const isCatActive = selectedCategory === cat.id && (!selectedSubject || selectedSubject === 'all');
+            const count = cat.id === 'all' ? SUBJECTS.length : (CATEGORY_MAP[cat.id]?.length || 0);
+
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  if (onSelectSubject) onSelectSubject('all');
+                  setSelectedBranchId('all');
+                }}
+                className={`shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 border min-h-[36px] ${
+                  isCatActive
+                    ? isContrast
+                      ? 'bg-yellow-400 text-black font-black border-yellow-300 shadow-md shadow-yellow-500/20'
+                      : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md shadow-indigo-600/30 border-indigo-500'
+                    : isContrast
+                    ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
+                    : isLight
+                    ? 'bg-white border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-50 shadow-2xs'
+                    : 'bg-slate-900/90 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
+                }`}
+              >
+                <span>{cat.emoji}</span>
+                <span>{isArabic ? cat.labelAr : cat.labelEn}</span>
+                <span className="text-[10px] opacity-75 font-mono">({count})</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Grand Subject Cards (Filtered by category or specific subject selection) */}
+        <div className={`grid grid-cols-1 ${selectedSubject === 'all' ? 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'sm:grid-cols-1 lg:grid-cols-2 max-w-4xl'} gap-3 sm:gap-4`}>
           {displayedSubjects.map((sub) => {
             const isSubActive = selectedSubject === sub.id;
             const stats = getSubjectStats(curriculum, sub.id);

@@ -59,7 +59,7 @@ assert(navbarContent.includes('howToShort'), 'Mobile toolbar renders How To butt
 const appPath = path.resolve('src/App.tsx');
 const appContent = fs.readFileSync(appPath, 'utf8');
 
-assert(appContent.includes("import { SiteTutorialModal } from './components/SiteTutorialModal';"), 'App.tsx imports SiteTutorialModal');
+assert(appContent.includes('SiteTutorialModal') && (appContent.includes("import('./components/SiteTutorialModal')") || appContent.includes("from './components/SiteTutorialModal'")), 'App.tsx imports SiteTutorialModal');
 assert(appContent.includes('isTutorialOpen') && appContent.includes('setIsTutorialOpen'), 'App.tsx maintains isTutorialOpen state');
 assert(appContent.includes("localStorage.getItem('egbac_tutorial_completed')"), 'App.tsx checks localStorage for first-time visitors');
 assert(appContent.includes('<SiteTutorialModal'), 'App.tsx renders SiteTutorialModal');
