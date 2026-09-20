@@ -43,21 +43,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
   const t = translations[lang];
 
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [filterSubject, setFilterSubject] = useState<
-    | 'all'
-    | 'mathematics'
-    | 'physics'
-    | 'chemistry'
-    | 'biology'
-    | 'geology'
-    | 'arabic'
-    | 'english'
-    | 'french'
-    | 'history'
-    | 'geography'
-    | 'philosophy'
-    | 'psychology'
-  >('all');
+  const [filterSubject, setFilterSubject] = useState<string>('all');
   const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium'>('all');
   const [expandedChaptersBookId, setExpandedChaptersBookId] = useState<string | null>(initialBookId || null);
   const [showWafModal, setShowWafModal] = useState<OfficialBook | null>(null);
@@ -68,6 +54,8 @@ export const OfficialBooksModal: React.FC<Props> = ({
       setTimeout(() => searchInputRef.current?.focus(), 50);
       if (initialBookId) {
         setExpandedChaptersBookId(initialBookId);
+        setFilterSubject('all');
+        setFilterCurriculum('all');
       }
     } else {
       setSearchQuery('');
@@ -238,11 +226,28 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <option value="arabic">{isArabic ? '📜 اللغة العربية' : '📜 Arabic'} ({officialBooksList.filter(b => b.subjectId === 'arabic').length})</option>
                 <option value="english">{isArabic ? '🌍 اللغة الإنجليزية' : '🌍 English'} ({officialBooksList.filter(b => b.subjectId === 'english').length})</option>
                 <option value="french">{isArabic ? '🇫🇷 اللغة الفرنسية' : '🇫🇷 French'} ({officialBooksList.filter(b => b.subjectId === 'french').length})</option>
+                <option value="german">{isArabic ? '🇩🇪 اللغة الألمانية' : '🇩🇪 German'} ({officialBooksList.filter(b => b.subjectId === 'german').length})</option>
+                <option value="italian">{isArabic ? '🇮🇹 اللغة الإيطالية' : '🇮🇹 Italian'} ({officialBooksList.filter(b => b.subjectId === 'italian').length})</option>
+                <option value="spanish">{isArabic ? '🇪🇸 اللغة الإسبانية' : '🇪🇸 Spanish'} ({officialBooksList.filter(b => b.subjectId === 'spanish').length})</option>
+                <option value="chinese">{isArabic ? '🇨🇳 اللغة الصينية' : '🇨🇳 Chinese'} ({officialBooksList.filter(b => b.subjectId === 'chinese').length})</option>
                 <option value="history">{isArabic ? '🏛️ تاريخ مصر' : '🏛️ Egyptian History'} ({officialBooksList.filter(b => b.subjectId === 'history').length})</option>
                 <option value="geography">{isArabic ? '🌍 الجغرافيا السياسية' : '🌍 Political Geography'} ({officialBooksList.filter(b => b.subjectId === 'geography').length})</option>
                 <option value="philosophy">{isArabic ? '🧠 الفلسفة والمنطق' : '🧠 Philosophy & Logic'} ({officialBooksList.filter(b => b.subjectId === 'philosophy').length})</option>
                 <option value="psychology">{isArabic ? '👥 علم النفس والاجتماع' : '👥 Psychology & Sociology'} ({officialBooksList.filter(b => b.subjectId === 'psychology').length})</option>
                 <option value="economics_stat">{isArabic ? '📈 الاقتصاد والإحصاء التطبيقي' : '📈 Economics & Applied Statistics'} ({officialBooksList.filter(b => b.subjectId === 'economics_stat').length})</option>
+                <option value="cs_informatics">{isArabic ? '💻 الحاسب والذكاء الاصطناعي' : '💻 Computer Science & AI'} ({officialBooksList.filter(b => b.subjectId === 'cs_informatics').length})</option>
+                <option value="earth_space">{isArabic ? '🪐 علوم الأرض والفضاء' : '🪐 Earth & Space Sciences'} ({officialBooksList.filter(b => b.subjectId === 'earth_space').length})</option>
+                <option value="civics">{isArabic ? '⚖️ التربية الوطنية والمواطنة' : '⚖️ Civics & Citizenship'} ({officialBooksList.filter(b => b.subjectId === 'civics').length})</option>
+                <option value="islamic_studies">{isArabic ? '🕌 التربية الإسلامية' : '🕌 Islamic Studies'} ({officialBooksList.filter(b => b.subjectId === 'islamic_studies').length})</option>
+                <option value="christian_studies">{isArabic ? '⛪ التربية المسيحية' : '⛪ Christian Studies'} ({officialBooksList.filter(b => b.subjectId === 'christian_studies').length})</option>
+                <option value="business_entrepreneurship">{isArabic ? '💼 إدارة وريادة الأعمال' : '💼 Business & Entrepreneurship'} ({officialBooksList.filter(b => b.subjectId === 'business_entrepreneurship').length})</option>
+                <option value="fine_arts_architecture">{isArabic ? '🎨 الفنون الجميلة والعمارة' : '🎨 Fine Arts & Architecture'} ({officialBooksList.filter(b => b.subjectId === 'fine_arts_architecture').length})</option>
+                <option value="music_theory">{isArabic ? '🎵 التربية الموسيقية' : '🎵 Music Theory'} ({officialBooksList.filter(b => b.subjectId === 'music_theory').length})</option>
+                <option value="agriculture">{isArabic ? '🌾 العلوم الزراعية' : '🌾 Agricultural Sciences'} ({officialBooksList.filter(b => b.subjectId === 'agriculture').length})</option>
+                <option value="industrial">{isArabic ? '⚙️ العلوم الصناعية والهندسية' : '⚙️ Industrial Engineering'} ({officialBooksList.filter(b => b.subjectId === 'industrial').length})</option>
+                <option value="commercial">{isArabic ? '📊 العلوم التجارية والمصرفية' : '📊 Commercial & Financial'} ({officialBooksList.filter(b => b.subjectId === 'commercial').length})</option>
+                <option value="tourism">{isArabic ? '🏨 السياحة والضيافة' : '🏨 Tourism & Hospitality'} ({officialBooksList.filter(b => b.subjectId === 'tourism').length})</option>
+                <option value="renewable">{isArabic ? '🌱 الطاقة المتجددة والاستدامة' : '🌱 Renewable Energy & Sustainability'} ({officialBooksList.filter(b => b.subjectId === 'renewable').length})</option>
               </select>
             </div>
 
