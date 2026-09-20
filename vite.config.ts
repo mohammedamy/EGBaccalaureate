@@ -209,13 +209,25 @@ export default defineConfig({
             { name: 'textbook-renewable', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*renew/i, priority: 30 },
             { name: 'curriculum-renewable', test: /src\/data\/(thanaweya|egBac)Renewable/, priority: 20 },
 
+            // STEM Engineering Capstone & Egypt's Grand Challenges
+            { name: 'databank-stem-capstone', test: /databanks\/(thanaweya|egbac)\/.*stemCapstone/i, priority: 30 },
+            { name: 'textbook-stem-capstone', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*stemCapstone/i, priority: 30 },
+            { name: 'curriculum-stem-capstone', test: /src\/data\/(thanaweya|egBac)StemCapstone/, priority: 20 },
+            { name: 'stem-capstone-studio', test: /stemCapstoneLabData/, priority: 30 },
+
+            // Robotics, Mechatronics & Embedded Systems
+            { name: 'databank-robotics', test: /databanks\/(thanaweya|egbac)\/.*robotics/i, priority: 30 },
+            { name: 'textbook-robotics', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*robotics/i, priority: 30 },
+            { name: 'curriculum-robotics', test: /src\/data\/(thanaweya|egBac)Robotics/, priority: 20 },
+            { name: 'robotics-studio', test: /roboticsLabData/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },
             { name: 'textbook-egbac', test: /src\/data\/textbook\/egbac\//, priority: 30 },
 
             // Specialized 3D & Advanced Vocational Studios
-            { name: 'specialized-studios', test: /InductionSimulator3D|OpticsBench3D|ElectrochemistryCell3D|MusicTheoryStudio|AgriculturalTechnologyStudio|IndustrialEngineeringStudio|CommercialFinanceStudio|TourismHospitalityStudio|RenewableEnergyStudio|SpanishLanguageLab|ChineseLanguageStudio|GermanInteractiveStudio|ItalianInteractiveStudio/, priority: 30 },
+            { name: 'specialized-studios', test: /InductionSimulator3D|OpticsBench3D|ElectrochemistryCell3D|MusicTheoryStudio|AgriculturalTechnologyStudio|IndustrialEngineeringStudio|CommercialFinanceStudio|TourismHospitalityStudio|RenewableEnergyStudio|RoboticsLabStudio|SpanishLanguageLab|ChineseLanguageStudio|GermanInteractiveStudio|ItalianInteractiveStudio/, priority: 30 },
 
             // Virtual Labs
             { name: 'virtual-labs-biology', test: /src\/components\/labs\/(Bio|Dna|Endocrine|GeneticsLab|Immunity|Menstrual|Plant|Sarcomere|Skeleton)/, priority: 30 },

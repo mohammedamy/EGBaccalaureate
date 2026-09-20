@@ -29,7 +29,9 @@ export type SubjectCategory =
   | 'industrial_engineering'
   | 'commercial_sciences'
   | 'tourism_hospitality'
-  | 'renewable_energy';
+  | 'renewable_energy'
+  | 'stem_capstone'
+  | 'robotics_mechatronics';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -60,7 +62,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -76,6 +78,30 @@ export interface MasteryRadarPoint {
  */
 export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
   const text = branchTitleOrId.toLowerCase();
+
+  if (
+    text.includes('robot') ||
+    text.includes('mechatronic') ||
+    text.includes('روبوت') ||
+    text.includes('ميكاترونك') ||
+    text.includes('ميكاترونيك') ||
+    text.includes('أنظمة مدمجة') ||
+    text.includes('انظمة مدمجة') ||
+    text.includes('embedded') ||
+    text.includes('robotics')
+  ) {
+    return 'robotics_mechatronics';
+  }
+
+  if (
+    text.includes('capstone') ||
+    text.includes('مشروع تخرج') ||
+    text.includes('مشروع التخرج') ||
+    text.includes('ابتكار stem') ||
+    text.includes('stem_capstone')
+  ) {
+    return 'stem_capstone';
+  }
 
   if (
     text.includes('فنون') ||
@@ -824,9 +850,33 @@ export function getMasteryRadarData(
     { key: 'renewable_energy', ar: 'الطاقة المتجددة والاستدامة', en: 'Renewable Energy & Sustainability', color: '#059669' },
   ];
 
+  const all25Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all24Dimensions,
+    { key: 'stem_capstone', ar: 'مشروع التخرج والابتكار STEM', en: 'STEM Capstone & Innovation', color: '#0284C7' },
+  ];
+
+  const all26Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all25Dimensions,
+    { key: 'robotics_mechatronics', ar: 'الروبوتات والميكاترونكس والأنظمة المدمجة', en: 'Robotics & Mechatronics', color: '#6366F1' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all26'
+      ? all26Dimensions
+      : mode === 'all25'
+      ? all25Dimensions
       : mode === 'all24'
       ? all24Dimensions
       : mode === 'all23'

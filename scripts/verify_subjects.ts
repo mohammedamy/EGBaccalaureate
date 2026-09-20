@@ -15,7 +15,7 @@ function assert(condition: boolean, message: string) {
 }
 
 // 1. Verify Subjects Configured
-assert(SUBJECTS.length >= 30, `Expected at least 30 subjects, found ${SUBJECTS.length}`);
+assert(SUBJECTS.length >= 32, `Expected at least 32 subjects, found ${SUBJECTS.length}`);
 assert(SUBJECTS[0].id === 'islamic_studies', `Expected first subject to be 'islamic_studies', found '${SUBJECTS[0].id}'`);
 assert(SUBJECTS[1].id === 'christian_studies', `Expected second subject to be 'christian_studies', found '${SUBJECTS[1].id}'`);
 assert(SUBJECTS.some((s) => s.id === 'business_entrepreneurship'), `Subject 'business_entrepreneurship' is registered`);
@@ -27,11 +27,15 @@ assert(SUBJECTS.some((s) => s.id === 'industrial'), `Subject 'industrial' is reg
 assert(SUBJECTS.some((s) => s.id === 'commercial'), `Subject 'commercial' is registered`);
 assert(SUBJECTS.some((s) => s.id === 'tourism'), `Subject 'tourism' is registered`);
 assert(SUBJECTS.some((s) => s.id === 'renewable'), `Subject 'renewable' is registered`);
+assert(SUBJECTS.some((s) => s.id === 'stem_capstone'), `Subject 'stem_capstone' is registered`);
+assert(SUBJECTS.some((s) => s.id === 'robotics_mechatronics'), `Subject 'robotics_mechatronics' is registered`);
 
 const subjectIds = SUBJECTS.map((s) => s.id);
 assert(subjectIds.includes('islamic_studies'), 'Islamic Religious Education subject exists');
 assert(subjectIds.includes('christian_studies'), 'Christian Religious Education subject exists');
 assert(subjectIds.includes('renewable'), 'Renewable Energy & Environmental Sustainability subject exists');
+assert(subjectIds.includes('stem_capstone'), "STEM Engineering Capstone & Egypt's Grand Challenges subject exists");
+assert(subjectIds.includes('robotics_mechatronics'), 'Robotics, Mechatronics & Embedded Systems subject exists');
 assert(subjectIds.includes('mathematics'), 'Mathematics subject exists');
 assert(subjectIds.includes('physics'), 'Physics subject exists');
 assert(subjectIds.includes('chemistry'), 'Chemistry subject exists');
@@ -281,9 +285,17 @@ const renewStats = getSubjectStats(thanaweyaCurriculum, 'renewable');
 assert(renewStats.totalChapters === 4, `Renewable Energy thanaweya chapters: ${renewStats.totalChapters} (expected 4)`);
 assert(renewStats.totalProblems === 800, `Renewable Energy thanaweya problems: ${renewStats.totalProblems} (expected 800)`);
 
+const stemCapstoneStats = getSubjectStats(thanaweyaCurriculum, 'stem_capstone');
+assert(stemCapstoneStats.totalChapters === 4, `STEM Capstone thanaweya chapters: ${stemCapstoneStats.totalChapters} (expected 4)`);
+assert(stemCapstoneStats.totalProblems === 800, `STEM Capstone thanaweya problems: ${stemCapstoneStats.totalProblems} (expected 800)`);
+
+const roboticsStats = getSubjectStats(thanaweyaCurriculum, 'robotics_mechatronics');
+assert(roboticsStats.totalChapters === 4, `Robotics thanaweya chapters: ${roboticsStats.totalChapters} (expected 4)`);
+assert(roboticsStats.totalProblems === 800, `Robotics thanaweya problems: ${roboticsStats.totalProblems} (expected 800)`);
+
 const allStats = getSubjectStats(thanaweyaCurriculum, 'all');
-assert(allStats.totalChapters === 175, `Total thanaweya chapters: ${allStats.totalChapters} (expected 175)`);
-assert(allStats.totalProblems === 35000, `Total thanaweya problems: ${allStats.totalProblems} (expected 35000)`);
+assert(allStats.totalChapters === 183, `Total thanaweya chapters: ${allStats.totalChapters} (expected 183)`);
+assert(allStats.totalProblems === 36600, `Total thanaweya problems: ${allStats.totalProblems} (expected 36600)`);
 
 const egbacPhysStats = getSubjectStats(egBacCurriculum, 'physics');
 assert(egbacPhysStats.totalChapters === 5, `Physics egbac chapters: ${egbacPhysStats.totalChapters} (expected 5)`);
@@ -405,14 +417,22 @@ const egbacRenewStats = getSubjectStats(egBacCurriculum, 'renewable');
 assert(egbacRenewStats.totalChapters === 4, `Renewable Energy egbac chapters: ${egbacRenewStats.totalChapters} (expected 4)`);
 assert(egbacRenewStats.totalProblems === 800, `Renewable Energy egbac problems: ${egbacRenewStats.totalProblems} (expected 800)`);
 
+const egbacStemCapstoneStats = getSubjectStats(egBacCurriculum, 'stem_capstone');
+assert(egbacStemCapstoneStats.totalChapters === 4, `STEM Capstone egbac chapters: ${egbacStemCapstoneStats.totalChapters} (expected 4)`);
+assert(egbacStemCapstoneStats.totalProblems === 800, `STEM Capstone egbac problems: ${egbacStemCapstoneStats.totalProblems} (expected 800)`);
+
+const egbacRoboticsStats = getSubjectStats(egBacCurriculum, 'robotics_mechatronics');
+assert(egbacRoboticsStats.totalChapters === 4, `Robotics egbac chapters: ${egbacRoboticsStats.totalChapters} (expected 4)`);
+assert(egbacRoboticsStats.totalProblems === 800, `Robotics egbac problems: ${egbacRoboticsStats.totalProblems} (expected 800)`);
+
 const egbacAllStats = getSubjectStats(egBacCurriculum, 'all');
-assert(egbacAllStats.totalChapters === 162, `Total egbac chapters: ${egbacAllStats.totalChapters} (expected 162)`);
-assert(egbacAllStats.totalProblems === 32400, `Total egbac problems: ${egbacAllStats.totalProblems} (expected 32400)`);
+assert(egbacAllStats.totalChapters === 170, `Total egbac chapters: ${egbacAllStats.totalChapters} (expected 170)`);
+assert(egbacAllStats.totalProblems === 34000, `Total egbac problems: ${egbacAllStats.totalProblems} (expected 34000)`);
 
 const totalChaptersAcrossCurricula = allStats.totalChapters + egbacAllStats.totalChapters;
 const totalProblemsAcrossCurricula = allStats.totalProblems + egbacAllStats.totalProblems;
-assert(totalChaptersAcrossCurricula === 337, `Total platform chapters across both curriculums: ${totalChaptersAcrossCurricula} (expected 337)`);
-assert(totalProblemsAcrossCurricula === 67400, `Total platform problems across both curriculums: ${totalProblemsAcrossCurricula} (expected 67400)`);
+assert(totalChaptersAcrossCurricula === 353, `Total platform chapters across both curriculums: ${totalChaptersAcrossCurricula} (expected 353)`);
+assert(totalProblemsAcrossCurricula === 70600, `Total platform problems across both curriculums: ${totalProblemsAcrossCurricula} (expected 70600)`);
 
 if (failed) {
   console.error('\n❌ Verification failed with errors.');

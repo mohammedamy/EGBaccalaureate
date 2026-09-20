@@ -35,6 +35,7 @@ import {
   Hotel,
   Zap,
   Leaf,
+  Bot,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -149,6 +150,8 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <Zap className={className} />;
       case 'Leaf':
         return <Leaf className={className} />;
+      case 'Bot':
+        return <Bot className={className} />;
       default:
         return <Layers className={className} />;
     }

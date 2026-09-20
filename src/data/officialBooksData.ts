@@ -21,8 +21,8 @@ export interface OfficialBookEnglishEdition {
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -4478,6 +4478,298 @@ export const officialBooksList: OfficialBook[] = [
       'القصور الذاتي التزامني الافتراضي، محولات HVDC بتقنية VSC، وحساب التكاليف الحدية لضريبة CBAM',
     ],
   },
+  // 70. STEM High Schools Grade 12 Capstone Engineering Design & Grand Challenges
+  {
+    id: 'th-stem-capstone-g12',
+    curriculum: 'thanaweya',
+    category: 'stem_capstone',
+    subjectId: 'stem_capstone',
+    branchId: 'thanaweya_stem_capstone',
+    code: 'STEM-CAPSTONE-2025',
+    titleEn: 'STEM Engineering Capstone & Egypt Grand Challenges',
+    titleAr: 'مشروع التخرج الهندسي وحل التحديات الكبرى لمصر - مدارس المتفوقين STEM',
+    subtitleEn: 'Official Egyptian STEM High Schools Capstone Engineering Portfolio (Grade 12)',
+    subtitleAr: 'الدليل المرجعي الرسمي لمشروعات التخرج والتصميم الهندسي لمدارس STEM',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Grade 12 STEM',
+    gradeAr: 'الصف الثالث الثانوي (STEM)',
+    publisherEn: 'Ministry of Education & Technical Education - STEM Education Unit',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم - وحدة مدارس المتفوقين STEM',
+    pagesCount: 8,
+    fileSize: '31.2 KB',
+    compendiumTitleEn: 'Official STEM Capstone Engineering Design & Grand Challenges Compendium',
+    compendiumTitleAr: 'دليل المفاهيم والمعايير الهندسية لمشروعات كابستون والتحديات الكبرى',
+    fullTextbookPages: 312,
+    fullTextbookSize: '36.8 MB',
+    filename: 'thanaweya-stem-capstone.pdf',
+    downloadUrl: './books/thanaweya-stem-capstone.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-cyan-900 via-blue-900 to-teal-800',
+    accentColor: '#0891b2',
+    chapters: [
+      {
+        id: 'th-capstone-ch1',
+        titleEn: 'Water Treatment, Seawater Desalination & Nile Basin Security',
+        titleAr: 'تحلية ومعالجة المياه والأمن المائي لحوض النيل',
+        pageRange: 'pp. 1–78',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-capstone-ch2',
+        titleEn: 'Renewable Energy Storage, Smart Grids & Hydrogen Distribution',
+        titleAr: 'تخزين الطاقة المتجددة، الشبكات الذكية وتوزيع الهيدروجين',
+        pageRange: 'pp. 79–156',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-capstone-ch3',
+        titleEn: 'Arid Land Agri-Tech, Precision Farming & Desert Reclamation',
+        titleAr: 'التكنولوجيا الزراعية في الأراضي القاحلة واستصلاح الصحراء',
+        pageRange: 'pp. 157–234',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-capstone-ch4',
+        titleEn: 'Urban Mobility, Smart Cities & Environmental Public Health',
+        titleAr: 'النقل الحضري، المدن الذكية والصحة البيئية',
+        pageRange: 'pp. 235–312',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: "Official Egyptian STEM High Schools capstone portfolio guide addressing Egypt's 11 Grand Challenges: Seawater reverse osmosis membrane mechanics and Nile basin water security, grid-scale BESS and green hydrogen electrolysis, desert precision agriculture and biosaline crops, and smart urban mobility and low-carbon infrastructure.",
+    descriptionAr: 'الدليل الرسمي المعتمد لمشروعات التخرج الهندسية لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) لحل التحديات الكبرى لمصر: تحلية مياه البحر بالتناضح العكسي والأمن المائي للنيل، تخزين الطاقة بالبطاريات والهيدروجين الأخضر، استصلاح الصحراء بالري الدقيق، ونظم النقل الحضري الذكي والمدن المستدامة.',
+    highlightsEn: [
+      "Van 't Hoff osmotic pressure and SWRO pressure exchanger energy recovery",
+      'Grid-scale LFP/VRFB battery sizing and PEM water electrolysis thermodynamics',
+      'Subsurface drip irrigation hydraulics, SAR, and satellite NDVI evapotranspiration',
+      'Webster traffic signal delay optimization and green building thermal U-values',
+    ],
+    highlightsAr: [
+      'ديناميكا ضغط فان هوف الأسموزي واسترجاع الطاقة في محطات التحلية بالتناضح العكسي',
+      'حسابات سعة بطاريات LFP وVRFB وثرموديناميكا التحليل الكهربائي للهيدروجين الأخضر',
+      'هيدروليكا الري بالتنقيط تحت السطحي ونسبة امتزاز الصوديوم SAR والاستشعار الفضائي NDVI',
+      'معادلة ويبستر لتحسين الإشارات المرورية وحسابات العزل الحراري للمباني الخضراء',
+    ],
+  },
+  // 71. EG-Bac Advanced STEM Capstone & Applied Innovation Thesis
+  {
+    id: 'egbac-stem-capstone-g12',
+    curriculum: 'egbac',
+    category: 'stem_capstone',
+    subjectId: 'stem_capstone',
+    branchId: 'egbac_stem_capstone',
+    code: 'EGBAC-CAPSTONE-2025',
+    titleEn: 'Advanced STEM Capstone & Applied Innovation Thesis',
+    titleAr: 'مرجع البكالوريا المصرية للابتكار التطبيقي وأبحاث التخرج المتقدمة (STEM)',
+    subtitleEn: 'New Egyptian Baccalaureate Curriculum (Stage 3 Advanced STEM)',
+    subtitleAr: 'منهج البكالوريا المصرية المطورة - المرحلة الثالثة (المسار المتقدم STEM)',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Baccalaureate Stage 3 Advanced STEM',
+    gradeAr: 'المرحلة الثالثة للبكالوريا (STEM المتقدم)',
+    publisherEn: 'Supreme Council for Baccalaureate Education & Ministry of Education',
+    publisherAr: 'المجلس الأعلى للبكالوريا المصرية ووزارة التربية والتعليم',
+    pagesCount: 8,
+    fileSize: '32.1 KB',
+    compendiumTitleEn: 'Advanced Applied Innovation, Nanomembranes & AI Systems Compendium',
+    compendiumTitleAr: 'مفاهيم الابتكار التطبيقي والأغشية النانوية والأنظمة الذكية',
+    fullTextbookPages: 334,
+    fullTextbookSize: '39.2 MB',
+    filename: 'egbac-stem-capstone.pdf',
+    downloadUrl: './books/egbac-stem-capstone.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-slate-950 via-cyan-950 to-blue-900',
+    accentColor: '#06b6d4',
+    chapters: [
+      {
+        id: 'egbac-capstone-ch1',
+        titleEn: 'Advanced Membrane Thermodynamics & Solar Distillation',
+        titleAr: 'الديناميكا الحرارية للأغشية وتحلية المياه بالطاقة الشمسية',
+        pageRange: 'pp. 1–84',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-capstone-ch2',
+        titleEn: 'Microgrid Synchronization, Flow Batteries & SCADA Automation',
+        titleAr: 'مزامنة الشبكات الدقيقة وبطاريات التدفق وأتمتة سكادا',
+        pageRange: 'pp. 85–168',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-capstone-ch3',
+        titleEn: 'Automated Hydroponics, IoT Soil Sensors & Biosaline Crop Engineering',
+        titleAr: 'الزراعة المائية الذكية، مجسات التربة والهندسة الوراثية للنباتات الملحية',
+        pageRange: 'pp. 169–252',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-capstone-ch4',
+        titleEn: 'Multi-Agent Autonomous Traffic Control & Green Building HVAC Modeling',
+        titleAr: 'التحكم الذكي في المرور متعدد الوكلاء ونمذجة المباني الخضراء',
+        pageRange: 'pp. 253–334',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Applied STEM Innovation: Forward osmosis and laminar graphene oxide desalination, virtual synchronous generator microgrid droop control, closed-loop aquaponic nitrification and CRISPR wheat editing, and multi-agent reinforcement learning traffic systems with Phase Change Material building physics.',
+    descriptionAr: 'كتاب البكالوريا المصرية المتقدم في الابتكار التطبيقي لمسار STEM: التناضح الأمامي وأغشية أكسيد الجرافين، التحكم بالانحدار والمولدات الافتراضية في الشبكات الدقيقة، الأكوابونيكس وتعديل القمح بكريسبر، ونظم المرور الذكية بالتعلم التعزيزي متعدد الوكلاء ومواد PCM للمباني.',
+    highlightsEn: [
+      'Forward osmosis osmotic flux, thermolytic draw solutes, and Zero Liquid Discharge crystallization',
+      'Inverter frequency/voltage droop control, PEMFC overpotentials, and BMS Extended Kalman Filtering',
+      'Ultrasonic aeroponic atomization, aquaponic biofilter nitrification kinetics, and biochar carbon sequestration',
+      'Multi-Agent Reinforcement Learning traffic coordination, street canyon CFD, and PCM latent thermal storage',
+    ],
+    highlightsAr: [
+      'تدفق التناضح الأمامي ومحاليل السحب الحرارية وتبلور أملاح تصفير الصرف السائل ZLD',
+      'التحكم بالانحدار في عواكس الشبكات وفواقد خلايا الوقود ومرشح كالمان لحالة شحن البطاريات',
+      'تفتيت الرذاذ الهوائي وحركية النترجة الحيوية في الأكوابونيكس واحتجاز الكربون بالبيوتشار',
+      'التنسيق المروري بالتعلم التعزيزي متعدد الوكلاء وديناميكا الرياح الحضرية والتخزين الكامن بمواد PCM',
+    ],
+  },
+  // 72. STEM High Schools Grade 12 Robotics, Mechatronics & Embedded Systems
+  {
+    id: 'th-robotics-g12',
+    curriculum: 'thanaweya',
+    category: 'robotics_mechatronics',
+    subjectId: 'robotics_mechatronics',
+    branchId: 'thanaweya_robotics',
+    code: 'STEM-ROBOTICS-2025',
+    titleEn: 'Robotics, Mechatronics & Embedded Systems',
+    titleAr: 'الروبوتات والميكاترونكس والأنظمة المدمجة - مدارس المتفوقين STEM',
+    subtitleEn: 'Official Egyptian STEM High Schools Robotics & Embedded Systems Curriculum (Grade 12)',
+    subtitleAr: 'الدليل المرجعي الرسمي لمدارس STEM في هندسة الروبوتات والأنظمة المدمجة',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Grade 12 STEM',
+    gradeAr: 'الصف الثالث الثانوي (STEM)',
+    publisherEn: 'Ministry of Education & Technical Education - STEM Education Unit',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم - وحدة مدارس المتفوقين STEM',
+    pagesCount: 8,
+    fileSize: '32.5 KB',
+    compendiumTitleEn: 'Official STEM Robotics, Mechatronics & Embedded Systems Compendium',
+    compendiumTitleAr: 'دليل المفاهيم والمعايير الهندسية للروبوتات والميكاترونكس والأنظمة المدمجة',
+    fullTextbookPages: 320,
+    fullTextbookSize: '37.5 MB',
+    filename: 'thanaweya-robotics.pdf',
+    downloadUrl: './books/thanaweya-robotics.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-indigo-950 via-slate-900 to-purple-900',
+    accentColor: '#6366f1',
+    chapters: [
+      {
+        id: 'th-robotics-ch1',
+        titleEn: 'Robot Kinematics, Actuators & Power Electronics',
+        titleAr: 'علم حركة الروبوت والمحركات وإلكترونيات القوى',
+        pageRange: 'pp. 1–80',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-robotics-ch2',
+        titleEn: 'Sensors, Signal Conditioning & Computer Vision',
+        titleAr: 'الحساسات وتكييف الإشارات والرؤية الحاسوبية',
+        pageRange: 'pp. 81–160',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-robotics-ch3',
+        titleEn: 'Microcontroller Architecture, RTOS & Embedded Systems',
+        titleAr: 'معمارية المتحكمات الدقيقة ونظم التشغيل المدمجة والأنظمة المدمجة',
+        pageRange: 'pp. 161–240',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-robotics-ch4',
+        titleEn: 'Autonomous Navigation, ROS2 & Industrial Automation',
+        titleAr: 'الملاحة الذاتية ونظام تشغيل الروبوت ROS2 والأتمتة الصناعية',
+        pageRange: 'pp. 241–320',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Official Egyptian STEM High Schools textbook in Robotics, Mechatronics & Embedded Systems: Forward and inverse kinematics, Denavit-Hartenberg parameters, BLDC motor drives and FOC vector control, 6-DOF IMUs and LiDAR SLAM, ARM Cortex-M NVIC and FreeRTOS task scheduling, CAN Bus 2.0B, and ROS2 Nav2 mobile autonomous navigation with PLC ladder logic automation.',
+    descriptionAr: 'الدليل الرسمي المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) في هندسة الروبوتات والميكاترونكس والأنظمة المدمجة: الحركيات الأمامية والعكسية، معاملات دينافيت-هارتنبرغ، دوائر محركات BLDC والتحكم بالفيض FOC، حساسات IMU ورادار الليزر LiDAR SLAM، معالجات ARM Cortex-M وجدولة FreeRTOS، شبكة CAN Bus، والملاحة الذاتية بنظام ROS2 ومخططات السلم لمتحكمات PLC.',
+    highlightsEn: [
+      'Denavit-Hartenberg homogeneous transformation matrices and robotic singularity avoidance',
+      'BLDC motor electronic commutation, H-bridge PWM gate drivers, and Field-Oriented Control',
+      'IMU complementary/Kalman sensor fusion, optical quadrature encoders, and OpenCV edge detection',
+      'ARM Cortex-M NVIC preemption priorities, FreeRTOS mutex inheritance, CAN Bus, and ROS2 Nav2',
+    ],
+    highlightsAr: [
+      'مصفوفات التحويل المتجانسة لدينافيت-هارتنبرغ وتفادي نقاط الانفراد الكينماتيكية في الأذرع الروبوتية',
+      'التبديل الإلكتروني لمحركات BLDC، دوائر قيادة قنطرة H-Bridge، والتحكم الشعاعي الموجه بالفيض FOC',
+      'دمج حساسات IMU بمرشحات كالمان، فك تشفير المشفرات البصرية، واستخراج حواف الصور بـ OpenCV',
+      'أولويات استباق مقاطعات NVIC في معالجات ARM، توريث أولويات FreeRTOS، ناقل CAN، وملاحة ROS2',
+    ],
+  },
+  // 73. EG-Bac Advanced Robotics, Mechatronics & Cyber-Physical Systems
+  {
+    id: 'egbac-robotics-g12',
+    curriculum: 'egbac',
+    category: 'robotics_mechatronics',
+    subjectId: 'robotics_mechatronics',
+    branchId: 'egbac_robotics',
+    code: 'EGBAC-ROBOTICS-2025',
+    titleEn: 'Advanced Robotics, Mechatronics & Cyber-Physical Systems',
+    titleAr: 'الروبوتات المتقدمة والميكاترونكس والأنظمة السيبرفيزيائية - البكالوريا المصرية',
+    subtitleEn: 'New Egyptian Baccalaureate Curriculum (Stage 3 Advanced Engineering & Robotics)',
+    subtitleAr: 'منهج البكالوريا المصرية المطورة - المرحلة الثالثة (المسار المتقدم لهندسة الروبوتات)',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Baccalaureate Stage 3 Advanced STEM',
+    gradeAr: 'المرحلة الثالثة للبكالوريا (STEM المتقدم)',
+    publisherEn: 'Supreme Council for Baccalaureate Education & Ministry of Education',
+    publisherAr: 'المجلس الأعلى للبكالوريا المصرية ووزارة التربية والتعليم',
+    pagesCount: 8,
+    fileSize: '33.4 KB',
+    compendiumTitleEn: 'Advanced Spatial Dynamics, Multi-Sensor SLAM & Cyber-Physical Systems Compendium',
+    compendiumTitleAr: 'مفاهيم الديناميكا الفراغية وسحب النقاط والأنظمة السيبرفيزيائية المتقدمة',
+    fullTextbookPages: 340,
+    fullTextbookSize: '39.8 MB',
+    filename: 'egbac-robotics.pdf',
+    downloadUrl: './books/egbac-robotics.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-slate-950 via-indigo-950 to-purple-950',
+    accentColor: '#818cf8',
+    chapters: [
+      {
+        id: 'egbac-robotics-ch1',
+        titleEn: 'Robot Kinematics, Actuators & Power Electronics',
+        titleAr: 'علم حركة الروبوت والمحركات وإلكترونيات القوى',
+        pageRange: 'pp. 1–85',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-robotics-ch2',
+        titleEn: 'Sensors, Signal Conditioning & Computer Vision',
+        titleAr: 'الحساسات وتكييف الإشارات والرؤية الحاسوبية',
+        pageRange: 'pp. 86–170',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-robotics-ch3',
+        titleEn: 'Microcontroller Architecture, RTOS & Embedded Systems',
+        titleAr: 'معمارية المتحكمات الدقيقة ونظم التشغيل المدمجة والأنظمة المدمجة',
+        pageRange: 'pp. 171–255',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-robotics-ch4',
+        titleEn: 'Autonomous Navigation, ROS2 & Industrial Automation',
+        titleAr: 'الملاحة الذاتية ونظام تشغيل الروبوت ROS2 والأتمتة الصناعية',
+        pageRange: 'pp. 256–340',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Robotics & Cyber-Physical Systems: Euler-Lagrange manipulator dynamics and operational space impedance control, Extended Kalman Filter sensor fusion, 3D LiDAR point cloud processing (PCL/RANSAC) and Visual-Inertial Odometry, hard real-time Rate Monotonic Scheduling (RMS), EtherCAT, Micro-ROS, and Non-linear Model Predictive Control (NMPC) for multi-agent warehouse AMR fleets with Digital Twins.',
+    descriptionAr: 'كتاب البكالوريا المصرية المتقدم في هندسة الروبوتات والأنظمة السيبرفيزيائية: ديناميكا أويلر-لاغرانج والتحكم بالممانعة العملياتية، دمج الحساسات بمرشح كالمان الممتد، معالجة السحب النقطية ثلاثية الأبعاد وخوارزمية RANSAC، الجدولة الفورية الصارمة (RMS)، شبكات EtherCAT وMicro-ROS، والتحكم التنبؤي بالنموذج (NMPC) لإدارة أساطيل الروبوتات المتنقلة مع التوائم الرقمية.',
+    highlightsEn: [
+      'Lagrangian multi-body dynamics, inertia matrices, and compliant impedance control for pHRI',
+      'Discrete Extended Kalman Filter state propagation and 3D LiDAR point cloud RANSAC segmentation',
+      'Liu-Layland Rate Monotonic Scheduling proofs, deterministic EtherCAT PDOs, and Micro-ROS',
+      'Non-linear MPC trajectory tracking, Conflict-Based Search multi-AMR routing, and Gazebo Digital Twins',
+    ],
+    highlightsAr: [
+      'ديناميكا لاغرانج للأجسام المتعددة ومصفوفات القصور الذاتي والتحكم بالممانعة للتعاون الآمن مع الإنسان',
+      'تحديثات مصفوفات تغاير مرشح كالمان الممتد وتجزئة السحب النقطية ثلاثية الأبعاد بخوارزمية RANSAC',
+      'مبرهنة ليو-لايلاند لقابلية جدولة المهام الفورية الصارمة وتزامن دورات EtherCAT وتشغيل Micro-ROS',
+      'تتبع المسارات بالتحكم التنبؤي NMPC، فض نزاعات أساطيل الروبوتات بـ CBS، ومحاكاة التوائم الرقمية',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -4547,6 +4839,10 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_tourism' && (b.branchId === 'egbac_tourism' || b.id === 'egbac-tour-g12')) return true;
     if (branchId === 'thanaweya_renewable' && (b.branchId === 'thanaweya_renewable' || b.id === 'th-renew-g12')) return true;
     if (branchId === 'egbac_renewable' && (b.branchId === 'egbac_renewable' || b.id === 'egbac-renew-g12')) return true;
+    if (branchId === 'thanaweya_stem_capstone' && (b.branchId === 'thanaweya_stem_capstone' || b.id === 'th-stem-capstone-g12')) return true;
+    if (branchId === 'egbac_stem_capstone' && (b.branchId === 'egbac_stem_capstone' || b.id === 'egbac-stem-capstone-g12')) return true;
+    if (branchId === 'thanaweya_robotics' && (b.branchId === 'thanaweya_robotics' || b.id === 'th-robotics-g12')) return true;
+    if (branchId === 'egbac_robotics' && (b.branchId === 'egbac_robotics' || b.id === 'egbac-robotics-g12')) return true;
     return false;
   });
 }
@@ -4556,7 +4852,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

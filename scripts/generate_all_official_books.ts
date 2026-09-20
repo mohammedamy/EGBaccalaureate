@@ -2454,12 +2454,16 @@ async function main() {
 
   console.log(`Generating ${officialBooksList.length} official Ministry PDF textbooks into: ${booksDir}`);
 
+  const forceAll = process.argv.includes('--force');
   for (const book of officialBooksList) {
     const targetFile = path.join(booksDir, book.filename);
+    if (!forceAll && fs.existsSync(targetFile)) {
+      continue;
+    }
     await generateBookPdf(book, targetFile);
   }
 
-  console.log('All 10 official Ministry textbooks generated successfully!');
+  console.log('All official Ministry textbooks generated/verified successfully!');
 }
 
 main().catch(err => {

@@ -31,7 +31,9 @@ export type SubjectId =
   | 'industrial'
   | 'commercial'
   | 'tourism'
-  | 'renewable';
+  | 'renewable'
+  | 'stem_capstone'
+  | 'robotics_mechatronics';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -40,7 +42,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench' | 'Hotel' | 'Zap';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench' | 'Hotel' | 'Zap' | 'Cpu' | 'Bot';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -743,6 +745,52 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_renewable'],
       egbac: ['egbac_renewable'],
+    },
+  },
+
+  // 31. STEM Engineering Capstone & Egypt's Grand Challenges (مشروع التخرج الهندسي STEM والتحديات الكبرى لمصر)
+  {
+    id: 'stem_capstone',
+    titleEn: 'STEM Engineering Capstone & Grand Challenges',
+    titleAr: 'مشروع التخرج الهندسي STEM والتحديات الكبرى لمصر',
+    shortTitleEn: 'STEM Capstone & Challenges',
+    shortTitleAr: 'مشروع كابستون STEM',
+    emoji: '🏗️',
+    iconName: 'Cpu',
+    badgeColor: 'cyan',
+    gradient: 'from-cyan-600 via-blue-600 to-teal-500',
+    lightBg: 'bg-cyan-50 text-cyan-950 border-cyan-200',
+    darkBg: 'bg-cyan-950/80 text-cyan-200 border-cyan-800/60',
+    borderColor: 'border-cyan-500/50',
+    textColor: 'text-cyan-400',
+    descriptionEn: "Official Egyptian STEM Schools capstone curriculum addressing Egypt's 11 Grand Challenges: Reverse osmosis seawater desalination & solar thermal distillation, microgrid smart dispatch & green hydrogen fuel cells, desert precision irrigation & biosaline agriculture, and AI urban traffic optimization & low-carbon infrastructure.",
+    descriptionAr: "منهج مشروع التخرج (الـ Capstone) لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) لحل التحديات الإحدى عشرة الكبرى لمصر: تحلية مياه البحر بالتناضح العكسي والتقطير الشمسي، إدارة الشبكات الدقيقة الذكية وتخزين الطاقة بالهيدروجين الأخضر، الزراعة الصحراوية الذكية والمحاصيل الملحية في الدلتا الجديدة، ونظم المرور الذكية والمدن المستدامة.",
+    branchIds: {
+      thanaweya: ['thanaweya_stem_capstone'],
+      egbac: ['egbac_stem_capstone'],
+    },
+  },
+
+  // 32. Robotics, Mechatronics & Embedded Systems (الروبوتات والميكاترونكس والأنظمة المدمجة)
+  {
+    id: 'robotics_mechatronics',
+    titleEn: 'Robotics, Mechatronics & Embedded Systems',
+    titleAr: 'الروبوتات والميكاترونكس والأنظمة المدمجة',
+    shortTitleEn: 'Robotics & Mechatronics',
+    shortTitleAr: 'روبوتات وميكاترونكس',
+    emoji: '🤖',
+    iconName: 'Bot',
+    badgeColor: 'indigo',
+    gradient: 'from-indigo-600 via-violet-600 to-purple-600',
+    lightBg: 'bg-indigo-50 text-indigo-950 border-indigo-200',
+    darkBg: 'bg-indigo-950/80 text-indigo-200 border-indigo-800/60',
+    borderColor: 'border-indigo-500/50',
+    textColor: 'text-indigo-400',
+    descriptionEn: 'Official Egyptian STEM secondary curriculum in advanced robotics, mechatronics & cyber-physical systems: Forward & inverse kinematics (DH parameters, Jacobian matrices), actuator control (BLDC motors, field-oriented control, H-bridges), sensor fusion & machine vision (IMU Kalman filtering, 2D/3D LiDAR SLAM, OpenCV feature detection), embedded RTOS (ARM Cortex-M, FreeRTOS preemption, CAN bus, SPI/I2C), and autonomous navigation using ROS2 & industrial automation (PLC ladder logic, collaborative robots).',
+    descriptionAr: 'المنهج الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) في هندسة الروبوتات والميكاترونكس والأنظمة المدمجة: الحركيات الأمامية والعكسية ومصفوفات ديناميكا الروبوت (معاملات DH ومصفوفة جاكوبيان)، التحكم في المحركات وإلكترونيات القوى (المحركات عديمة المسفرات BLDC والتحكم بالفيض FOC)، دمج الحساسات والرؤية الحاسوبية (مرشح كالمان لوحدات IMU، رسم الخرائط وتحديد الموقع بالليزر LiDAR SLAM)، أنظمة التشغيل المدمجة في الوقت الحقيقي (معالجات ARM Cortex-M ونظام FreeRTOS وبروتوكول CAN Bus)، والملاحة الذاتية باستخدام نظام تشغيل الروبوتات ROS2 والأتمتة الصناعية ومتحكمات PLC.',
+    branchIds: {
+      thanaweya: ['thanaweya_robotics'],
+      egbac: ['egbac_robotics'],
     },
   },
 ];

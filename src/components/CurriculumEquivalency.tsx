@@ -37,6 +37,7 @@ import {
   Wrench,
   Hotel,
   Leaf,
+  Bot,
 } from 'lucide-react';
 
 
@@ -1583,6 +1584,94 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
         'Direct accreditation and premier competitive advantage for Faculties of Engineering (Renewable Energy, Electrical Power, Mechanical, Chemical & Environmental Engineering), Faculties of Science (Applied Physics, Materials Science, Energy Chemistry), Green Energy Research Institutes, and multinational clean tech and hydrogen project developers.',
       universityAdvantageAr:
         'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات الهندسة (أقسام الطاقة المتجددة، القوى والآلات الكهربية، الميكانيكا، الهندسة الكيميائية والبيئية)، كليات العلوم (الفيزياء التطبيقية، علوم المواد، وكيمياء الطاقة)، معاهد بحوث الطاقة الجديدة والمتجددة، وشركات الطاقة النظيفة والهيدروجين العالمية.',
+    },
+    {
+      id: 'stem_capstone_bridge',
+      titleEn: "STEM Engineering Capstone & Egypt's Grand Challenges",
+      titleAr: 'مشروع التخرج الهندسي والتحديات الكبرى لمصر (مدارس المتفوقين STEM)',
+      icon: <Cpu className="w-5 h-5 text-cyan-400" />,
+      thanaweyaBranchId: 'thanaweya_stem_capstone',
+      egBacBranchId: 'egbac_stem_capstone',
+      thanaweyaTitleEn: "STEM Engineering Capstone & Egypt's Grand Challenges (4 Grade 12 Chapters)",
+      thanaweyaTitleAr: 'مشروع التخرج الهندسي والتحديات القومية الكبرى لمدارس المتفوقين (٤ فصول)',
+      thanaweyaTopicsEn: [
+        "Ch.1 Engineering Design Process (EDP), Grand Challenges & System Requirements: 11 Egyptian Grand Challenges, iterative prototype cycles, and engineering constraints",
+        "Ch.2 Advanced Desalination, Water Resource Recovery & Membrane Engineering: SWRO desalination, brackish groundwater treatment, and zero-liquid discharge (ZLD)",
+        "Ch.3 Renewable Microgrids, Energy Storage & Decarbonization Systems: Off-grid solar-wind microgrids, battery energy storage, and industrial energy efficiency",
+        "Ch.4 Arid Land AgriTech, Smart Irrigation & Sustainable Desert Reclamation: Precision hydroponics, soil salinity mitigation, and IoT sensor-driven water scheduling",
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ منهجية التصميم الهندسي والتحديات القومية ومتطلبات النظم: التحديات الأحد عشر لمصر، دورات النماذج الأولية، وتحليل القيود الهندسية والمعايير',
+        'فصل ٢ هندسة تحلية المياه واستعادة الموارد والأغشية المتقدمة: التناضح العكسي لمياه البحر، معالجة المياه الجوفية، وأنظمة التخلص الصفري من السوائل ZLD',
+        'فصل ٣ الشبكات الذكية المصغرة وتخزين الطاقة وإزالة الكربون: أنظمة الطاقة الهجينة المعزولة، بطاريات التخزين، وكفاءة الطاقة في العمليات الصناعية',
+        'فصل ٤ التكنولوجيا الزراعية في الأراضي القاحلة والري الذكي واستصلاح الصحراء: الزراعة المائية الدقيقة، خفض ملوحة التربة، والجدولة الذكية بمستشعرات IoT',
+      ],
+      egBacTitleEn: 'Grand Challenges Systems Engineering, Capstone Portfolio & Defense (4 Modules)',
+      egBacTitleAr: 'هندسة النظم للتحديات الكبرى وملف الدفاع عن مشروع التخرج (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Systems Engineering Architecture, Trade-off Matrices & Failure Mode Analysis (FMEA): Stakeholder requirements, functional breakdown, and risk mitigation matrices',
+        'Mod.2 Closed-Loop Water Recovery, Desalination Thermodynamics & Zero-Liquid Discharge: Specific energy consumption (kWh/m³), membrane fouling, and mineral crystallization',
+        'Mod.3 Smart Microgrid Dispatch, Virtual Power Plants & Industrial Decarbonization: Grid-forming inverters, demand-side management, and levelized cost of storage (LCOS)',
+        'Mod.4 Precision Agritech Ecosystems, Autonomous Robotics & Desert Biogeochemistry: Multi-spectral crop analytics, closed-loop nutrient dosing, and soil carbon sequestration',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ بنية هندسة النظم ومصفوفات المفاضلة وتحليل أنماط الأعطال FMEA: متطلبات أصحاب المصلحة، الهيكل الوظيفي، ومصفوفات إدارة المخاطر وتخفيفها',
+        'وحدة ٢ ديناميكا استعادة المياه المغلقة وثرموديناميكا التحلية والتبخير الصفري: استهلاك الطاقة النوعي (kWh/m³)، اتساخ الأغشية، وتبلور الأملاح الاقتصادية',
+        'وحدة ٣ التحكم الذكي بالشبكات المصغرة ومحطات التوليد الافتراضية وخفض الانبعاثات: المحولات المشكلة للشبكة، إدارة الأحمال المرنة، وتكلفة التخزين المستوية LCOS',
+        'وحدة ٤ منظومات الزراعة الدقيقة والروبوتات المستقلة والكيمياء الحيوية الصحراوية: تحليل المحاصيل بالطيف المتعدد، التسميد المغلق الدقيق، وعزل الكربون في التربة',
+      ],
+      bridgeInsightEn:
+        "Thanaweya STEM Capstone instills rigorous practical engineering design, hands-on prototyping, testing, and alignment with Egypt's 11 Grand Challenges. EG-Bac elevates this with formal INCOSE systems engineering architectures, deep thermodynamic and economic optimizations, mathematical trade-off studies, and thesis-level symposium defense standards.",
+      bridgeInsightAr:
+        'يرسخ مشروع التخرج للثانوية STEM منهجية التصميم الهندسي التطبيقي وبناء النماذج الأولية وحل التحديات القومية الكبرى لمصر. في حين ترتقي البكالوريا بالمنهج إلى معايير هندسة النظم العالمية INCOSE، والتحسين الثرموديناميكي والاقتصادي المتقدم، ودراسات المفاضلة الرياضية، والدفاع الأكاديمي الشامل عن المشروع أمام لجان التحكيم.',
+      universityAdvantageEn:
+        'Unrivaled portfolio and practical credentials for admission to elite Engineering & Technology faculties worldwide, STEM research universities (Zewail City, E-JUST, Nile University), competitive innovation grants, national engineering incubators, and undergraduate research fellowships.',
+      universityAdvantageAr:
+        'ملف إنجاز هندسي متميز وتأهيل تطبيقي فريد للالتحاق بأعرق كليات الهندسة والتكنولوجيا، الجامعات البحثية المتطورة (مدينة زويل، الجامعة المصرية اليابانية E-JUST، جامعة النيل)، منح الابتكار وحاضنات التكنولوجيا وريادة الأعمال الهندسية.',
+    },
+    {
+      id: 'robotics_bridge',
+      titleEn: 'Robotics, Mechatronics & Embedded Systems',
+      titleAr: 'الروبوتات والميكاترونكس والأنظمة المدمجة (مدارس المتفوقين STEM)',
+      icon: <Bot className="w-5 h-5 text-indigo-400" />,
+      thanaweyaBranchId: 'thanaweya_robotics',
+      egBacBranchId: 'egbac_robotics',
+      thanaweyaTitleEn: 'Robotics, Mechatronics & Embedded Systems (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'الروبوتات والميكاترونكس والأنظمة المدمجة لمدارس المتفوقين (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Robot Kinematics, Dynamics & Actuator Control: Forward/Inverse kinematics, Denavit-Hartenberg (DH) parameters, BLDC motors, FOC, and H-bridge PWM',
+        'Ch.2 Sensors, Signal Conditioning & Computer Vision: IMU sensor fusion, Kalman filters, 2D LiDAR SLAM, OpenCV edge detection, and op-amp filters',
+        'Ch.3 Microcontroller Architecture, RTOS & Embedded Protocols: ARM Cortex-M architecture, FreeRTOS tasks & semaphores, CAN Bus, SPI, and I2C',
+        'Ch.4 Autonomous Navigation, ROS2 & Industrial Automation: ROS2 nodes & topics, Nav2 path planning, PID control, PLC ladder logic, and safety cobots',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ كينماتيكا وديناميكا الروبوت والتحكم بالمحركات: الحركيات الأمامية والعكسية، معاملات DH، المحركات عديمة المسفرات BLDC، التحكم بالفيض FOC، ودوائر H-Bridge',
+        'فصل ٢ الحساسات وتكييف الإشارات والرؤية الحاسوبية: دمج حساسات IMU بمرشح كالمان، رسم الخرائط وتحديد الموقع LiDAR SLAM، معالجة الصور بـ OpenCV، ومكبرات العمليات',
+        'فصل ٣ معمارية المتحكمات الدقيقة ونظم التشغيل المدمجة RTOS: معالجات ARM Cortex-M، إدارة المهام والمزامنة بـ FreeRTOS، وبروتوكولات CAN Bus وSPI وI2C',
+        'فصل ٤ الملاحة الذاتية ونظام ROS2 والأتمتة الصناعية: عقد ومواضيع ROS2، تخطيط المسارات بحزمة Nav2، التحكم التناسبي التكاملي التفاضلي PID، ومخططات السلم PLC',
+      ],
+      egBacTitleEn: 'Cyber-Physical Systems, Advanced Mobile Robotics & ROS2 Architecture (4 Modules)',
+      egBacTitleAr: 'الأنظمة السيبرفيزيائية وهندسة الروبوتات المتقدمة ونظام ROS2 (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Mathematical Robot Dynamics, Manipulator Jacobians & Torque Control: Lagrangian dynamics, singularity avoidance, impedance control, and trajectory generation',
+        'Mod.2 High-Speed Machine Vision, Point Cloud Processing & Multi-Sensor SLAM: 3D LiDAR point clouds, depth cameras, visual-inertial odometry (VIO), and EKF SLAM',
+        'Mod.3 Hard Real-Time Embedded Systems, Deterministic Buses & Micro-ROS: Deterministic RTOS scheduling, CAN FD/EtherCAT industrial fieldbuses, and micro-ROS on MCUs',
+        'Mod.4 Autonomous Fleet Robotics, Swarm Coordination & Smart Factory Cyber-Physical Systems: Multi-agent AMRs, obstacle avoidance algorithms, OPC UA, and Industry 4.0',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ ديناميكا الروبوت الرياضية ومصفوفة جاكوبيان والتحكم في عزم الدوران: معادلات لاغرانج، تجنب نقاط الانفراد (Singularities)، التحكم بالممانعة، وتوليد المسارات',
+        'وحدة ٢ الرؤية الآلية فائقة السرعة ومعالجة السحب النقطية ودمج الحساسات: سحب النقاط ثلاثية الأبعاد 3D LiDAR، كاميرات العمق، قياس المسافات البصري العطالي VIO، وEKF SLAM',
+        'وحدة ٣ الأنظمة المدمجة في الوقت الحقيقي القاسي وشبكات الحقل الصناعي: جدولة المهام الحتمية، شبكات CAN FD وEtherCAT الصناعية، وتشغيل micro-ROS على المتحكمات الدقيقة',
+        'وحدة ٤ أساطيل الروبوتات المستقلة والأنظمة السيبرفيزيائية للمصانع الذكية: تنسيق الروبوتات المتعددة (Swarm AMRs)، خوارزميات تفادي العوائق، بروتوكول OPC UA، ومصانع المستقبل',
+      ],
+      bridgeInsightEn:
+        'Thanaweya STEM Robotics delivers comprehensive foundations in robotic manipulation, motor drives, sensor interfaces, and foundational ROS2 nodes. EG-Bac expands this to complex Lagrangian manipulator dynamics, 3D VIO sensor fusion, deterministic CAN FD industrial networking, and multi-robot autonomous fleets.',
+      bridgeInsightAr:
+        'يرسخ منهج الثانوية STEM أسس التحكم في أذرع الروبوتات والمحركات الكهربية ودوائر الاستشعار وتطبيقات ROS2 العملية. وتتوسع البكالوريا المصرية لتشمل ديناميكا لاغرانج الرياضية المعقدة، ودمج الحساسات ثلاثي الأبعاد VIO، وشبكات CAN FD الصناعية الحتمية، وإدارة أساطيل الروبوتات المستقلة للمصانع الذكية.',
+      universityAdvantageEn:
+        'Premier preparation for Mechatronics Engineering, Robotics & Autonomous Systems, Embedded Systems Design, Automotive Electronics, Industrial Automation, and Artificial Intelligence & Robotics departments worldwide.',
+      universityAdvantageAr:
+        'تأهيل نخبوي للالتحاق بأقسام هندسة الميكاترونكس، هندسة الروبوتات والأنظمة الذاتية، الأنظمة المدمجة، إلكترونيات السيارات والملاحة الذاتية، الأتمتة والتحكم الصناعي، وكليات الذكاء الاصطناعي وهندسة الحاسبات العالمية.',
     },
   ];
 

@@ -39,8 +39,8 @@ async function runVerification() {
 
   // 1. Total Catalog Count Check
   assert(
-    officialBooksList.length === 69,
-    `Expected exactly 69 official books, found ${officialBooksList.length}`
+    officialBooksList.length === 73,
+    `Expected exactly 73 official books, found ${officialBooksList.length}`
   );
 
   const booksDir = path.resolve(process.cwd(), 'public/books');
