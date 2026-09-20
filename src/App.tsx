@@ -29,6 +29,7 @@ import { FrenchListeningStationModal } from './components/FrenchListeningStation
 import { ArabicGrammarModal } from './components/ArabicGrammarModal';
 import { AccessibilitySettingsModal } from './components/AccessibilitySettingsModal';
 import { registerServiceWorker } from './core/pwa/pwaManager';
+import { forceReleaseAllScrollLocks } from './core/labs/useNativeLabFullscreen';
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
@@ -323,6 +324,11 @@ export const App: React.FC = () => {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [activeCurriculumData, selectedSubject, activeTab]);
+
+  // Global safety guarantee: whenever navigation tab, subject, or curriculum changes, ensure all scroll locks are cleared
+  useEffect(() => {
+    forceReleaseAllScrollLocks();
+  }, [activeTab, selectedSubject, curriculum]);
 
   // Sync html dir attribute (RTL / LTR)
   useEffect(() => {

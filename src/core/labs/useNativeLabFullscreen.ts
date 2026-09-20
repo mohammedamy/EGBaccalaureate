@@ -71,6 +71,44 @@ export async function exitNativeFullscreen(): Promise<boolean> {
   return false;
 }
 
+// Global reference-counted scroll lock manager for labs, studios, and modals
+let activeScrollLocks = 0;
+
+export function acquireScrollLock(): () => void {
+  activeScrollLocks++;
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+  }
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    releaseScrollLock();
+  };
+}
+
+export function releaseScrollLock(): void {
+  activeScrollLocks = Math.max(0, activeScrollLocks - 1);
+  if (activeScrollLocks === 0 && typeof document !== 'undefined') {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    document.documentElement.removeAttribute('data-fullscreen-lab');
+  }
+}
+
+export function forceReleaseAllScrollLocks(): void {
+  activeScrollLocks = 0;
+  if (typeof document !== 'undefined') {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    document.documentElement.removeAttribute('data-fullscreen-lab');
+    if (isNativeFullscreen()) {
+      exitNativeFullscreen().catch(() => {});
+    }
+  }
+}
+
 export interface UseNativeLabFullscreenOptions {
   /**
    * Whether to default to fullscreen mode if already in native fullscreen or explicitly requested.
@@ -93,6 +131,8 @@ export interface UseNativeLabFullscreenOptions {
  * 3. Auto-adjusts typography scale while in fullscreen via `data-fullscreen-lab="true"` and CSS clamp so
  *    that all options, sliders, and live telemetry fit on a single screen without internal scrolling or overlap.
  * 4. Automatically restores the user's previously selected font preference (`data-font-size`) upon exit.
+ * 5. Uses an atomic reference-counted scroll lock manager to guarantee zero screen freezing, no lingering
+ *    `overflow: hidden`, and reliable restoration of native browser UI and gestures.
  */
 export function useNativeLabFullscreen(options?: UseNativeLabFullscreenOptions) {
   const { defaultFullscreen = false, onExitFullscreen, onEnterFullscreen } = options || {};
@@ -110,6 +150,12 @@ export function useNativeLabFullscreen(options?: UseNativeLabFullscreenOptions) 
   const exitFullscreen = useCallback(async () => {
     await exitNativeFullscreen();
     setIsFullscreen(false);
+    releaseScrollLock();
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.removeAttribute('data-fullscreen-lab');
+    }
     onExitFullscreen?.();
   }, [onExitFullscreen]);
 
@@ -129,6 +175,12 @@ export function useNativeLabFullscreen(options?: UseNativeLabFullscreenOptions) 
       if (active) {
         onEnterFullscreen?.();
       } else {
+        releaseScrollLock();
+        if (typeof document !== 'undefined') {
+          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
+          document.documentElement.removeAttribute('data-fullscreen-lab');
+        }
         onExitFullscreen?.();
       }
     };
@@ -156,8 +208,7 @@ export function useNativeLabFullscreen(options?: UseNativeLabFullscreenOptions) 
       localStorage.getItem('egbac_font_size') ||
       'normal';
 
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    const releaseLock = acquireScrollLock();
 
     // 2. Mark html element with data-fullscreen-lab="true" for calibrated scaling
     document.documentElement.setAttribute('data-fullscreen-lab', 'true');
@@ -170,12 +221,21 @@ export function useNativeLabFullscreen(options?: UseNativeLabFullscreenOptions) 
     };
     window.addEventListener('keydown', handleKeyDown);
 
-    // 4. Cleanup on exit or unmount: restore user font setting and body overflow
+    // 4. Cleanup on exit or unmount: safely release scroll lock, exit hardware fullscreen, restore font
     return () => {
-      document.body.style.overflow = originalOverflow;
       window.removeEventListener('keydown', handleKeyDown);
+      releaseLock();
+
+      // Ensure that if this workstation unmounts while in native fullscreen, hardware fullscreen exits cleanly
+      if (isNativeFullscreen()) {
+        exitNativeFullscreen().catch(() => {});
+      }
 
       document.documentElement.removeAttribute('data-fullscreen-lab');
+      if (activeScrollLocks === 0) {
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+      }
       const restoredSize = localStorage.getItem('egbac_font_size') || previousFontSize;
       document.documentElement.setAttribute('data-font-size', restoredSize);
     };

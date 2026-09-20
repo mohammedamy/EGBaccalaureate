@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import type { Language } from '../i18n/translations';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { X, Headphones } from 'lucide-react';
+import { acquireScrollLock } from '../core/labs/useNativeLabFullscreen';
 
 interface Props {
   isOpen: boolean;
@@ -29,15 +30,12 @@ export const FrenchListeningStationModal: React.FC<Props> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when modal is open using atomic reference-counted lock
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    if (!isOpen) return;
+    const releaseLock = acquireScrollLock();
     return () => {
-      document.body.style.overflow = '';
+      releaseLock();
     };
   }, [isOpen]);
 

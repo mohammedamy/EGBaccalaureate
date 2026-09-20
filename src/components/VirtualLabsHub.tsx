@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import type { Curriculum, ThemeMode } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import {
@@ -115,11 +115,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
   const [reportExpId, setReportExpId] = useState<string>('phys-exp-1');
+  const [showAllLabsOverride, setShowAllLabsOverride] = useState<boolean>(false);
   const {
     isFullscreen: isHubFullscreen,
     toggleFullscreen: toggleHubFullscreen,
     exitFullscreen: exitHubFullscreen,
   } = useNativeLabFullscreen();
+
+  // Reset override whenever subject changes from menu
+  useEffect(() => {
+    setShowAllLabsOverride(false);
+  }, [selectedSubject]);
 
   // Sync if selectedSubject prop changes
   useEffect(() => {
@@ -248,7 +254,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
     }
   };
 
-  const LABS = [
+  interface LabCardItem {
+    id: LabId;
+    titleEn: string;
+    titleAr: string;
+    subtitleEn: string;
+    subtitleAr: string;
+    icon: any;
+    color: string;
+    badge: string;
+    gradient: string;
+    activeBg: string;
+    tagline: string;
+  }
+
+  const LABS: LabCardItem[] = [
     {
       id: 'math' as LabId,
       titleEn: 'Math Lab',
@@ -611,6 +631,94 @@ export const VirtualLabsHub: React.FC<Props> = ({
     },
   ];
 
+  // Helper to determine whether a lab workstation is relevant to a chosen subject
+  const isLabRelevantToSubject = (labId: LabId, subjectId: string): boolean => {
+    if (!subjectId || subjectId === 'all') return true;
+
+    switch (subjectId) {
+      case 'mathematics':
+        return labId === 'math';
+      case 'physics':
+        return labId === 'physics';
+      case 'chemistry':
+        return labId === 'chemistry';
+      case 'biology':
+        return labId === 'biology';
+      case 'geology':
+        return labId === 'geology';
+      case 'earth_space':
+        return labId === 'earth_space';
+      case 'philosophy':
+        return labId === 'philosophy';
+      case 'psychology':
+        return labId === 'psychology';
+      case 'economics_stat':
+        return labId === 'economics_stat';
+      case 'cs_informatics':
+        return labId === 'cs_informatics';
+      case 'civics':
+        return labId === 'civics';
+      case 'islamic_studies':
+        return labId === 'islamic_studies';
+      case 'christian_studies':
+        return labId === 'christian_studies';
+      case 'business_entrepreneurship':
+      case 'business':
+        return labId === 'business';
+      case 'fine_arts_architecture':
+        return labId === 'fine_arts';
+      case 'music_theory':
+      case 'music':
+        return labId === 'music';
+      case 'agriculture':
+      case 'agricultural_sciences':
+        return labId === 'agriculture';
+      case 'industrial':
+      case 'industrial_engineering':
+        return labId === 'industrial';
+      case 'commercial':
+      case 'commercial_sciences':
+      case 'banking':
+        return labId === 'commercial';
+      case 'tourism':
+      case 'tourism_hospitality':
+        return labId === 'tourism';
+      case 'renewable':
+      case 'renewable_energy':
+      case 'sustainability':
+        return labId === 'renewable';
+      case 'history':
+        return labId === 'history';
+      case 'geography':
+        return labId === 'geography';
+      case 'arabic':
+      case 'english':
+      case 'french':
+      case 'german':
+      case 'italian':
+      case 'spanish':
+      case 'chinese':
+        return labId === 'languages';
+      default:
+        return true;
+    }
+  };
+
+  const relevantLabs = useMemo<LabCardItem[]>(() => {
+    if (!selectedSubject || selectedSubject === 'all') return LABS;
+    const filtered = LABS.filter((lab: LabCardItem) => isLabRelevantToSubject(lab.id, selectedSubject));
+    return filtered.length > 0 ? filtered : LABS;
+  }, [selectedSubject, LABS]);
+
+  const isSubjectFiltered = Boolean(
+    selectedSubject &&
+    selectedSubject !== 'all' &&
+    relevantLabs.length > 0 &&
+    relevantLabs.length < LABS.length
+  );
+
+  const displayedLabs: LabCardItem[] = (!showAllLabsOverride && isSubjectFiltered) ? relevantLabs : LABS;
+
   return (
     <div
       className={
@@ -645,7 +753,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 onChange={(e) => setActiveLab(e.target.value as LabId)}
                 className="w-full appearance-none pl-3.5 pr-8 rtl:pr-3.5 rtl:pl-8 py-1.5 rounded-xl text-xs font-bold bg-slate-800 border border-slate-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
               >
-                {LABS.map((lab) => (
+                {(showAllLabsOverride || !isSubjectFiltered ? LABS : displayedLabs).map((lab) => (
                   <option key={lab.id} value={lab.id} className="bg-slate-900 text-white">
                     {isArabic ? lab.titleAr : lab.titleEn}
                   </option>
@@ -773,76 +881,100 @@ export const VirtualLabsHub: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* Laboratory Selector Navigation Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-        {LABS.map((lab) => {
-          const isSelected = activeLab === lab.id;
-          const Icon = lab.icon;
-
-          return (
+      {/* Laboratory Selector Navigation Header & Cards */}
+      <div className="space-y-3">
+        {isSubjectFiltered && (
+          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-indigo-950/40 border border-indigo-800/40 text-xs">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-bold text-indigo-200">
+                {isArabic
+                  ? `يتم عرض معامل وورش المسار المختار: ${selectedSubject} (${displayedLabs.length})`
+                  : `Showing lab workstations for selected subject: ${selectedSubject} (${displayedLabs.length})`}
+              </span>
+            </div>
             <button
-              key={lab.id}
-              onClick={() => setActiveLab(lab.id)}
-              className={`p-3.5 rounded-xl border text-left rtl:text-right transition-colors duration-150 cursor-pointer flex flex-col justify-between group relative ${
-                isSelected
-                  ? isContrast
-                    ? 'bg-black border-2 border-yellow-400 text-yellow-300'
-                    : isLight
-                    ? 'bg-white border-2 border-blue-600 text-slate-900 shadow-xs ring-1 ring-blue-600/20'
-                    : 'bg-[#161B22] border-2 border-blue-500 text-white shadow-xs ring-1 ring-blue-500/20'
-                  : isContrast
-                  ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
-                  : isLight
-                  ? 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50/80'
-                  : 'bg-[#0D1117] border border-[#30363D] text-slate-300 hover:border-slate-600 hover:bg-[#161B22]'
-              }`}
+              type="button"
+              onClick={() => setShowAllLabsOverride((prev) => !prev)}
+              className="px-2.5 py-1 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-300 hover:text-white border border-indigo-500/30 font-bold transition-all cursor-pointer"
             >
-              <div className="flex items-center justify-between w-full mb-2">
-                <div
-                  className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
-                    isSelected
-                      ? isLight
-                        ? 'bg-blue-50 border-blue-200 text-blue-700'
-                        : 'bg-blue-950/60 border-blue-800 text-blue-300'
-                      : isLight
-                      ? 'bg-slate-100 border-slate-200 text-slate-600 group-hover:text-slate-900'
-                      : 'bg-[#21262D] border-[#30363D] text-slate-400 group-hover:text-slate-200'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                </div>
-                <span
-                  className={`text-[10px] tabular-mono font-medium px-1.5 py-0.5 rounded border ${
-                    isSelected
-                      ? isLight
-                        ? 'bg-blue-100/70 border-blue-200 text-blue-800'
-                        : 'bg-blue-950 border-blue-800 text-blue-300'
-                      : isLight
-                      ? 'bg-slate-100 border-slate-200 text-slate-600'
-                      : 'bg-[#161B22] border-[#30363D] text-slate-400'
-                  }`}
-                >
-                  {lab.badge}
-                </span>
-              </div>
-
-              <div>
-                <h3 className="text-xs sm:text-sm font-bold tracking-tight line-clamp-1">
-                  {isArabic ? lab.titleAr : lab.titleEn}
-                </h3>
-                <p
-                  className={`text-[11px] mt-0.5 line-clamp-1 ${
-                    isSelected
-                      ? isLight ? 'text-blue-700 font-medium' : 'text-blue-300 font-medium'
-                      : isLight ? 'text-slate-500' : 'text-slate-400'
-                  }`}
-                >
-                  {isArabic ? lab.subtitleAr : lab.subtitleEn}
-                </p>
-              </div>
+              {showAllLabsOverride
+                ? (isArabic ? 'إخفاء المعامل غير المتعلقة' : 'Filter to Subject Only')
+                : (isArabic ? 'إظهار جميع المعامل والورش الـ 24' : 'Show All 24 Labs')}
             </button>
-          );
-        })}
+          </div>
+        )}
+
+        <div className={`grid ${displayedLabs.length === 1 ? 'grid-cols-1 max-w-sm sm:max-w-md' : 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-6'} gap-3`}>
+          {displayedLabs.map((lab) => {
+            const isSelected = activeLab === lab.id;
+            const Icon = lab.icon;
+
+            return (
+              <button
+                key={lab.id}
+                onClick={() => setActiveLab(lab.id)}
+                className={`p-3.5 rounded-xl border text-left rtl:text-right transition-colors duration-150 cursor-pointer flex flex-col justify-between group relative ${
+                  isSelected
+                    ? isContrast
+                      ? 'bg-black border-2 border-yellow-400 text-yellow-300'
+                      : isLight
+                      ? 'bg-white border-2 border-blue-600 text-slate-900 shadow-xs ring-1 ring-blue-600/20'
+                      : 'bg-[#161B22] border-2 border-blue-500 text-white shadow-xs ring-1 ring-blue-500/20'
+                    : isContrast
+                    ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
+                    : isLight
+                    ? 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50/80'
+                    : 'bg-[#0D1117] border border-[#30363D] text-slate-300 hover:border-slate-600 hover:bg-[#161B22]'
+                }`}
+              >
+                <div className="flex items-center justify-between w-full mb-2">
+                  <div
+                    className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
+                      isSelected
+                        ? isLight
+                          ? 'bg-blue-50 border-blue-200 text-blue-700'
+                          : 'bg-blue-950/60 border-blue-800 text-blue-300'
+                        : isLight
+                        ? 'bg-slate-100 border-slate-200 text-slate-600 group-hover:text-slate-900'
+                        : 'bg-[#21262D] border-[#30363D] text-slate-400 group-hover:text-slate-200'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </div>
+                  <span
+                    className={`text-[10px] tabular-mono font-medium px-1.5 py-0.5 rounded border ${
+                      isSelected
+                        ? isLight
+                          ? 'bg-blue-100/70 border-blue-200 text-blue-800'
+                          : 'bg-blue-950 border-blue-800 text-blue-300'
+                        : isLight
+                        ? 'bg-slate-100 border-slate-200 text-slate-600'
+                        : 'bg-[#161B22] border-[#30363D] text-slate-400'
+                    }`}
+                  >
+                    {lab.badge}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-xs sm:text-sm font-bold tracking-tight line-clamp-1">
+                    {isArabic ? lab.titleAr : lab.titleEn}
+                  </h3>
+                  <p
+                    className={`text-[11px] mt-0.5 line-clamp-1 ${
+                      isSelected
+                        ? isLight ? 'text-blue-700 font-medium' : 'text-blue-300 font-medium'
+                        : isLight ? 'text-slate-500' : 'text-slate-400'
+                    }`}
+                  >
+                    {isArabic ? lab.subtitleAr : lab.subtitleEn}
+                  </p>
+                </div>
+              </button>
+            );
+          })}
+        </div>
       </div>
         </>
       )}

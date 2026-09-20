@@ -172,6 +172,15 @@ export const CurriculumOverview: React.FC<Props> = ({
     return found.length > 0 ? found : subjectBranches;
   }, [subjectBranches, selectedBranchId]);
 
+  // When a subject is selected from menu, filter subject cards so unrelated cards disappear
+  const displayedSubjects = useMemo(() => {
+    if (!selectedSubject || selectedSubject === 'all') {
+      return SUBJECTS;
+    }
+    const filtered = SUBJECTS.filter((s) => s.id === selectedSubject);
+    return filtered.length > 0 ? filtered : SUBJECTS;
+  }, [selectedSubject]);
+
   return (
     <div className="space-y-6 sm:space-y-8">
       {/* Editorial Scientific Overview Dispatch */}
@@ -336,16 +345,27 @@ export const CurriculumOverview: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* 🏛️ 4-SUBJECT ACADEMIC TRACKS GATEWAY */}
+      {/* 🏛️ ACADEMIC SUBJECT TRACKS GATEWAY */}
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
             <h3 className={`text-sm font-black tracking-tight ${
               isLight ? 'text-slate-900' : 'text-slate-100'
             }`}>
-              {isArabic ? 'المسارات الأكاديمية والمواد المعتمدة (اختر المادة):' : 'Accredited Academic Subject Tracks (Select Subject):'}
+              {selectedSubject && selectedSubject !== 'all'
+                ? isArabic
+                  ? `المسار الأكاديمي المختار: ${currentSubject?.titleAr || selectedSubject}`
+                  : `Selected Subject Track: ${currentSubject?.titleEn || selectedSubject}`
+                : isArabic
+                ? 'المسارات الأكاديمية والمواد المعتمدة (اختر المادة):'
+                : 'Accredited Academic Subject Tracks (Select Subject):'}
             </h3>
+            {selectedSubject && selectedSubject !== 'all' && (
+              <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+                {isArabic ? 'تصفية نشطة' : 'Filtered'}
+              </span>
+            )}
           </div>
           
           <div className="flex items-center gap-2">
@@ -367,15 +387,15 @@ export const CurriculumOverview: React.FC<Props> = ({
               }`}
             >
               <Layers className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'جميع المواد (شامل)' : 'All Subjects (Complete)'}</span>
+              <span>{isArabic ? 'جميع المواد الـ 30 (شامل)' : 'All 30 Subjects (Complete)'}</span>
               <span className="text-[10px] opacity-80 font-mono">({SUBJECTS.length})</span>
             </button>
           </div>
         </div>
 
-        {/* 4 Grand Subject Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          {SUBJECTS.map((sub) => {
+        {/* Grand Subject Cards (Filtered to single relevant card when a subject is chosen) */}
+        <div className={`grid grid-cols-1 ${selectedSubject === 'all' ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-1 lg:grid-cols-2 max-w-4xl'} gap-3 sm:gap-4`}>
+          {displayedSubjects.map((sub) => {
             const isSubActive = selectedSubject === sub.id;
             const stats = getSubjectStats(curriculum, sub.id);
 
