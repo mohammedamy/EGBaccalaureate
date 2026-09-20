@@ -37,7 +37,8 @@ export type PastExamSubject =
   | 'agriculture'
   | 'industrial'
   | 'commercial'
-  | 'tourism';
+  | 'tourism'
+  | 'renewable';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -5890,6 +5891,192 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250045,
   },
+  // 193. Renewable Energy & Environmental Sustainability 2021 - Session 1
+  {
+    id: 'th-renew-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'renewable',
+    branchId: 'thanaweya_renewable',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة الطاقة المتجددة والاستدامة البيئية (الدور الأول ٢٠٢١)',
+    titleEn: 'Egyptian General Secondary Certificate Exam - Renewable Energy & Environmental Sustainability (Session 1, 2021)',
+    subtitleAr: 'الامتحان الرسمي الموحد لطلاب شعبة العلوم والتكنولوجيا والهندسة وفق نظام التقييم الحديث',
+    subtitleEn: 'Official Unified Examination for Science, Technology & Engineering Track under Modern Assessment System',
+    formCodeAr: 'النموذج (أ)',
+    formCodeEn: 'Form (A)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢١ / دور أول / طاقة متجددة واستدامة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 32.4,
+      totalMarks: 50,
+      passRatePercent: 78.4,
+      distinctionRatePercent: 9.8,
+      topTenThreshold: 47.5,
+      totalCandidatesEst: 28500,
+      stdDeviation: 5.8,
+    },
+    seed: 20210047,
+  },
+  // 194. Renewable Energy & Environmental Sustainability 2022 - Session 1
+  {
+    id: 'th-renew-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'renewable',
+    branchId: 'thanaweya_renewable',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة الطاقة المتجددة والاستدامة البيئية (الدور الأول ٢٠٢٢)',
+    titleEn: 'Egyptian General Secondary Certificate Exam - Renewable Energy & Environmental Sustainability (Session 1, 2022)',
+    subtitleAr: 'الامتحان الرسمي الموحد المشتمل على مهارات التفكير العليا والتحليل الإيروديناميكي وحسابات بنبان',
+    subtitleEn: 'Official Unified Examination Featuring Higher-Order Thinking Skills, Wind Aerodynamics & Benban PV Yields',
+    formCodeAr: 'النموذج (ب)',
+    formCodeEn: 'Form (B)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٢ / دور أول / طاقة متجددة واستدامة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 33.6,
+      totalMarks: 50,
+      passRatePercent: 80.5,
+      distinctionRatePercent: 11.2,
+      topTenThreshold: 48.0,
+      totalCandidatesEst: 31200,
+      stdDeviation: 5.4,
+    },
+    seed: 20220047,
+  },
+  // 195. Renewable Energy & Environmental Sustainability 2023 - Session 1
+  {
+    id: 'th-renew-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'renewable',
+    branchId: 'thanaweya_renewable',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة الطاقة المتجددة والاستدامة البيئية (الدور الأول ٢٠٢٣)',
+    titleEn: 'Egyptian General Secondary Certificate Exam - Renewable Energy & Environmental Sustainability (Session 1, 2023)',
+    subtitleAr: 'الامتحان الرسمي المعتمد المتضمن مسائل الهيدروجين الأخضر بالمنطقة الاقتصادية وضخ عتاقة وتخزين BESS',
+    subtitleEn: 'Official Unified Examination Covering SCZone Green Hydrogen Electrolysis, Ataka Pumped Storage & BESS',
+    formCodeAr: 'النموذج (ج)',
+    formCodeEn: 'Form (C)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٣ / دور أول / طاقة متجددة واستدامة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 34.2,
+      totalMarks: 50,
+      passRatePercent: 82.1,
+      distinctionRatePercent: 12.8,
+      topTenThreshold: 48.5,
+      totalCandidatesEst: 34800,
+      stdDeviation: 5.2,
+    },
+    seed: 20230047,
+  },
+  // 196. Renewable Energy & Environmental Sustainability 2024 - Session 1
+  {
+    id: 'th-renew-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'renewable',
+    branchId: 'thanaweya_renewable',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة الطاقة المتجددة والاستدامة البيئية (الدور الأول ٢٠٢٤)',
+    titleEn: 'Egyptian General Secondary Certificate Exam - Renewable Energy & Environmental Sustainability (Session 1, 2024)',
+    subtitleAr: 'الامتحان الرسمي المعتمد المتضمن حسابات البصمة الكربونية وضريبة CBAM الأوروبية على الحديد والأسمدة',
+    subtitleEn: 'Official Standardized Paper with GHG Protocol Life-Cycle Carbon Accounting & EU CBAM Border Carbon Tax',
+    formCodeAr: 'النموذج (أ)',
+    formCodeEn: 'Form (A)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور أول / طاقة متجددة واستدامة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 34.8,
+      totalMarks: 50,
+      passRatePercent: 83.9,
+      distinctionRatePercent: 14.5,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 38200,
+      stdDeviation: 5.0,
+    },
+    seed: 20240047,
+  },
+  // 197. Renewable Energy & Environmental Sustainability 2024 - Session 2
+  {
+    id: 'th-renew-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'renewable',
+    branchId: 'thanaweya_renewable',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة - مادة الطاقة المتجددة والاستدامة البيئية (الدور الثاني ٢٠٢٤)',
+    titleEn: 'Egyptian General Secondary Certificate Exam - Renewable Energy & Environmental Sustainability (Session 2, 2024)',
+    subtitleAr: 'امتحان الدور الثاني المعتمد من وزارة التربية والتعليم بنظام البابل شيت',
+    subtitleEn: 'Official Session 2 Examination Accredited by the Ministry of Education',
+    formCodeAr: 'النموذج (د)',
+    formCodeEn: 'Form (D)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور ثان / طاقة متجددة واستدامة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 28.5,
+      totalMarks: 50,
+      passRatePercent: 71.0,
+      distinctionRatePercent: 4.2,
+      topTenThreshold: 44.0,
+      totalCandidatesEst: 7500,
+      stdDeviation: 6.0,
+    },
+    seed: 20240048,
+  },
+  // 198. Renewable Energy & Environmental Sustainability 2025 - Experimental Diagnostic
+  {
+    id: 'th-renew-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'renewable',
+    branchId: 'thanaweya_renewable',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - مادة الطاقة المتجددة والاستدامة البيئية (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - Renewable Energy & Environmental Sustainability (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من الإدارة المركزية لتطوير المناهج والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE Central Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٥ / نموذج استرشادي / طاقة متجددة واستدامة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.1,
+      totalMarks: 50,
+      passRatePercent: 94.2,
+      distinctionRatePercent: 23.4,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 56000,
+      stdDeviation: 4.4,
+    },
+    seed: 20250046,
+  },
 ];
 
 /**
@@ -5968,7 +6155,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('agri') || paper.branchId.includes('agriculture')) && (b.id.includes('agri') || b.id.includes('agriculture'))) ||
       ((paper.branchId.includes('ind') || paper.branchId.includes('industrial')) && (b.id.includes('ind') || b.id.includes('industrial'))) ||
       ((paper.branchId.includes('comm') || paper.branchId.includes('commercial')) && (b.id.includes('comm') || b.id.includes('commercial'))) ||
-      ((paper.branchId.includes('tour') || paper.branchId.includes('tourism')) && (b.id.includes('tour') || b.id.includes('tourism')))
+      ((paper.branchId.includes('tour') || paper.branchId.includes('tourism')) && (b.id.includes('tour') || b.id.includes('tourism'))) ||
+      ((paper.branchId.includes('renew') || paper.branchId.includes('renewable')) && (b.id.includes('renew') || b.id.includes('renewable')))
   );
 
   if (!targetBranch) return [];

@@ -41,11 +41,11 @@ for (const { cur, b, c } of chapters) {
       errors++;
     }
     const hasCorrectMatch = 
-      (q.correctIndex !== undefined && q.optionsEn[q.correctIndex] === q.correctAnswer) ||
-      (q.optionsAr && q.optionsAr.includes(q.correctAnswer)) ||
-      (q.optionsEn && q.optionsEn.includes(q.correctAnswer));
+      (q.correctIndex !== undefined && (q.optionsEn[q.correctIndex] === q.correctAnswer || q.optionsEn[q.correctIndex] === q.correctAnswerEn)) ||
+      (q.optionsAr && (q.optionsAr.includes(q.correctAnswer) || q.optionsAr.includes(q.correctAnswerAr))) ||
+      (q.optionsEn && (q.optionsEn.includes(q.correctAnswer) || q.optionsEn.includes(q.correctAnswerEn)));
     if (!hasCorrectMatch) {
-      console.error(`Question ${q.id} in ${c.id} has correctAnswer mismatch: ans=${q.correctAnswer}`);
+      console.error(`Question ${q.id} in ${c.id} has correctAnswer mismatch: ans=${q.correctAnswer || q.correctAnswerEn}`);
       errors++;
     }
     const hasSolution = 
@@ -58,12 +58,12 @@ for (const { cur, b, c } of chapters) {
   }
 }
 
-if (databankChaptersCount !== 329) {
-  console.error(`Expected 329 databank chapters, but found ${databankChaptersCount}!`);
+if (databankChaptersCount !== 337) {
+  console.error(`Expected 337 databank chapters, but found ${databankChaptersCount}!`);
   errors++;
 }
-if (totalQ !== 57575) {
-  console.error(`Expected 57,575 total questions, but found ${totalQ}!`);
+if (totalQ !== 58975) {
+  console.error(`Expected 58,975 total questions, but found ${totalQ}!`);
   errors++;
 }
 

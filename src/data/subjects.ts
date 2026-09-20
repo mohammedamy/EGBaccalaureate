@@ -30,7 +30,8 @@ export type SubjectId =
   | 'agriculture'
   | 'industrial'
   | 'commercial'
-  | 'tourism';
+  | 'tourism'
+  | 'renewable';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -39,7 +40,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench' | 'Hotel';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench' | 'Hotel' | 'Zap';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -719,6 +720,29 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_tourism'],
       egbac: ['egbac_tourism'],
+    },
+  },
+
+  // 30. Renewable Energy & Environmental Sustainability (الطاقة المتجددة والاستدامة البيئية)
+  {
+    id: 'renewable',
+    titleEn: 'Renewable Energy & Environmental Sustainability',
+    titleAr: 'الطاقة المتجددة والاستدامة البيئية',
+    shortTitleEn: 'Renewable Energy & Sustainability',
+    shortTitleAr: 'طاقة متجددة واستدامة',
+    emoji: '🌱',
+    iconName: 'Zap',
+    badgeColor: 'emerald',
+    gradient: 'from-emerald-600 via-teal-600 to-green-500',
+    lightBg: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    darkBg: 'bg-emerald-950/80 text-emerald-200 border-emerald-800/60',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    descriptionEn: 'Official Egyptian secondary curriculum in clean energy transition & climate sustainability: Solar photovoltaic cell physics & CSP thermal storage (Benban Solar Park), wind turbine aerodynamics & Betz limit (Gulf of Suez wind farms), green hydrogen electrolysis & clean synfuels (SCZone corridor), smart grids & BESS battery dispatch, and GHG Protocol carbon accounting with EU CBAM compliance.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة الطاقة المتجددة والاستدامة البيئية: فيزياء الخلايا الكهروضوئية وأنظمة الطاقة الشمسية المركزة والتخزين الحراري (مجمع بنبان بأسوان)، الديناميكا الهوائية لتوربينات الرياح وحد بيتز (مزارع رياح خليج السويس وجبل الزيت)، الهيدروجين الأخضر والتحليل الكهربائي والأمونيا النظيفة (المنطقة الاقتصادية لقناة السويس)، الشبكات الذكية وتخزين الطاقة بالبطاريات (BESS) ومشروع جبل عتاقة، ومحاسبة الكربون وتقييم دورة الحياة وفق بروتوكول GHG ومعايير CBAM الأوروبية.',
+    branchIds: {
+      thanaweya: ['thanaweya_renewable'],
+      egbac: ['egbac_renewable'],
     },
   },
 ];

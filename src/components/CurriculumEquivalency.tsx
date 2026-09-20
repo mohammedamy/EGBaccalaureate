@@ -36,6 +36,7 @@ import {
   Sprout,
   Wrench,
   Hotel,
+  Leaf,
 } from 'lucide-react';
 
 
@@ -1539,8 +1540,51 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr:
         'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات السياحة والفنادق (أقسام الدراسات السياحية، إدارة الفنادق، والإرشاد السياحي)، كليات الآثار وإدارة التراث الثقافي، الأكاديميات الدولية للضيافة وعلوم الطيران، والمسارات القيادية في كبرى المجموعات الفندقية العالمية.',
     },
+    {
+      id: 'renewable_energy_bridge',
+      titleEn: 'Renewable Energy & Environmental Sustainability',
+      titleAr: 'الطاقة المتجددة والاستدامة البيئية',
+      icon: <Leaf className="w-5 h-5 text-emerald-400" />,
+      thanaweyaBranchId: 'thanaweya_renewable',
+      egBacBranchId: 'egbac_renewable',
+      thanaweyaTitleEn: 'Renewable Energy Engineering, Solar/Wind Yields & Grid Dispatch (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'هندسة الطاقة المتجددة ومحطات الشمس والرياح والشبكات الذكية للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Solar Photovoltaic & Concentrated Solar Power (CSP): Benban Solar Park 1,465 MW, I-V curves, MPPT, NOCT temperature derating, and parabolic trough thermal storage',
+        'Ch.2 Wind Turbine Aerodynamics & Betz Limit Dynamics: Gabal El-Zeit 580 MW, cubic power equation, Betz limit Cp=16/27, and active aerodynamic pitch regulation',
+        'Ch.3 Green Hydrogen Electrolysis & Power-to-X Integration: SCZone Ain Sokhna corridor, PEM vs Alkaline electrolysis, specific energy consumption, and green ammonia synthesis',
+        'Ch.4 Smart Grids, BESS Energy Storage & Carbon Accounting: Unified grid frequency droop, Ataka 2,400 MW pumped storage, BESS synthetic inertia, and GHG Protocol Scope 1/2/3',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ هندسة الطاقة الشمسية الكهروضوئية والشمسية المركزة: مجمع بنبان بأسوان، منحنيات I-V وP-V، تتبع أقصى قدرة MPPT، فواقد الحرارة، وتخزين الملح المصهور',
+        'فصل ٢ ديناميكا الرياح والتحليل الإيروديناميكي وحد بيتز: مجمع جبل الزيت والزعفرانة، معادلة القدرة التكعيبية، حد بيتز الفيزيائي ٥٩.٣٪، والتحكم النشط بزاوية الريشة',
+        'فصل ٣ اقتصاد الهيدروجين الأخضر والتحليل الكهربائي والوقود النظيف: ممر قناة السويس بالسخنة، مقارنة خلايا PEM والقلوي، وتخليق الأمونيا الخضراء للتصدير',
+        'فصل ٤ الشبكات الذكية وتخزين الطاقة وحساب البصمة الكربونية: استقرار تردد الشبكة الموحدة ٥٠ هرتز، مشروع جبل عتاقة ٢٤٠٠ ميجاوات، وبصمة الغازات الدفيئة',
+      ],
+      egBacTitleEn: 'Advanced Renewable Systems, PtX Catalysis & Climate Economics (4 Modules)',
+      egBacTitleAr: 'أنظمة الطاقة النظيفة المتقدمة وتخليق الوقود واقتصاديات المناخ للبكالوريا (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Next-Gen Photovoltaic Semiconductor Physics & Utility Solar Farms: Perovskite-silicon tandem cells, Shockley-Queisser limit, and bifacial desert sand albedo',
+        'Mod.2 Advanced Wind Aerodynamics, Offshore Wind Farms & Aeroelasticity: Blade Element Momentum (BEM) theory, deepwater floating spar-buoys, and wake turbulence dissipation',
+        'Mod.3 Green Hydrogen Thermodynamics, PtX Catalysis & Maritime Decarbonization: SOEC high-temperature electrolysis, overpotential polarization, and Fischer-Tropsch e-kerosene SAF',
+        'Mod.4 Grid Flexibility, Interconnection Markets & Industrial CBAM Compliance: Subsea HVDC interconnectors, synthetic inertia, and EU CBAM border carbon tariff liabilities',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ فيزياء أشباه الموصلات الكهروضوئية المتقدمة ومحطات الطاقة العملاقة: خلايا البيروفسكايت والسيليكون الترادفية، حد شوكلي-كويسر، وإشعاع الألواح ثنائية الوجه',
+        'وحدة ٢ الإيروديناميكا المتقدمة للرياح ومزارع الرياح البحرية: نظرية BEM، منصات التوربينات العائمة بالمياه العميقة، ونمذجة اضطراب الأثر الهوائي للمزارع الكبرى',
+        'وحدة ٣ ثرموديناميكا الهيدروجين الأخضر والحفز الكيميائي للوقود المستدام: التحليل الكهربائي عالي الحرارة SOEC، جهود التنشيط الزائدة، وتخليق وقود الطيران SAF',
+        'وحدة ٤ مرونة الشبكات الذكية وأسواق الربط الإقليمي وضريبة CBAM: خطوط الربط البحري HVDC، القصور الذاتي التزامني للبطاريات، والالتزام بضريبة الكربون الأوروبية',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers essential foundational mastery in solar park design, wind power equations, industrial hydrogen production, and grid stability. EG-Bac elevates learners into multi-junction semiconductor physics, offshore aeroelasticity, high-temperature SOEC catalysis, cross-border HVDC interconnection, and EU CBAM carbon pricing compliance.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً فيزيائياً وهندسياً متيناً في محطات بنبان وجبل الزيت، ومعادلات طاقة الرياح، والتحليل الكهربائي للماء، واستقرار الشبكة القومية. بينما ترتقي البكالوريا المصرية بالطالب إلى فيزياء أشباه الموصلات الترادفية، ديناميكا التوربينات البحرية العائمة، الحفز الكهروكيميائي للوقود المستدام، وكابلات الربط الإقليمي وحوكمة ضريبة الكربون الأوروبية CBAM.',
+      universityAdvantageEn:
+        'Direct accreditation and premier competitive advantage for Faculties of Engineering (Renewable Energy, Electrical Power, Mechanical, Chemical & Environmental Engineering), Faculties of Science (Applied Physics, Materials Science, Energy Chemistry), Green Energy Research Institutes, and multinational clean tech and hydrogen project developers.',
+      universityAdvantageAr:
+        'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات الهندسة (أقسام الطاقة المتجددة، القوى والآلات الكهربية، الميكانيكا، الهندسة الكيميائية والبيئية)، كليات العلوم (الفيزياء التطبيقية، علوم المواد، وكيمياء الطاقة)، معاهد بحوث الطاقة الجديدة والمتجددة، وشركات الطاقة النظيفة والهيدروجين العالمية.',
+    },
   ];
-
 
   const activeBridge = bridges[activeBridgeIndex];
 

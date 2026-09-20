@@ -44,6 +44,7 @@ import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudi
 import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
 import { CommercialFinanceStudio } from './labs/CommercialFinanceStudio';
 import { TourismHospitalityStudio } from './labs/TourismHospitalityStudio';
+import { RenewableEnergyStudio } from './labs/RenewableEnergyStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
@@ -438,6 +439,18 @@ export const LessonView: React.FC<Props> = ({
           return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="carrying_capacity" />;
         case 'tour_gds_booking_lab':
           return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="gds_terminal" />;
+        case 'renewable_energy_studio':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="solar_pv_csp" />;
+        case 'renew_solar_yield_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="solar_pv_csp" />;
+        case 'renew_wind_aerodynamics_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="wind_aerodynamics" />;
+        case 'renew_green_hydrogen_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="green_hydrogen_ptx" />;
+        case 'renew_smart_grid_dispatch_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="smart_grid_storage" />;
+        case 'renew_carbon_accounting_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={false} initialStation="carbon_accounting_cbam" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -838,6 +851,18 @@ export const LessonView: React.FC<Props> = ({
           return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="carrying_capacity" />;
         case 'tour_gds_booking_lab':
           return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="gds_terminal" />;
+        case 'renewable_energy_studio':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="solar_pv_csp" />;
+        case 'renew_solar_yield_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="solar_pv_csp" />;
+        case 'renew_wind_aerodynamics_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="wind_aerodynamics" />;
+        case 'renew_green_hydrogen_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="green_hydrogen_ptx" />;
+        case 'renew_smart_grid_dispatch_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="smart_grid_storage" />;
+        case 'renew_carbon_accounting_lab':
+          return <RenewableEnergyStudio lang={lang} theme={theme} isFullscreen={true} initialStation="carbon_accounting_cbam" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (

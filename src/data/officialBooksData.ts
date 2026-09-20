@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -3985,6 +3985,152 @@ export const officialBooksList: OfficialBook[] = [
       'شبكات حساسات المقاصد الذكية، أنظمة الهوية البيومترية بالمطارات، والجاهزية والاستجابة للأزمات',
     ],
   },
+  // 68. Thanaweya Renewable Energy & Environmental Sustainability
+  {
+    id: 'th-renew-g12',
+    curriculum: 'thanaweya',
+    category: 'renewable_energy',
+    subjectId: 'renewable',
+    branchId: 'thanaweya_renewable',
+    code: 'TH-RENEW-2025',
+    titleEn: 'Renewable Energy & Environmental Sustainability',
+    titleAr: 'الطاقة المتجددة والاستدامة البيئية',
+    subtitleEn: 'Official Egyptian General Secondary Education Textbook (Grade 12)',
+    subtitleAr: 'كتاب الوزارة الرسمي للثانوية العامة - الصف الثالث الثانوي',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Grade 12 (Third Secondary)',
+    gradeAr: 'الصف الثالث الثانوي',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '29.8 KB',
+    compendiumTitleEn: 'Official Renewable Energy, Clean Tech & Decarbonization Compendium',
+    compendiumTitleAr: 'المفاهيم والمعايير الرسمية للطاقة المتجددة وخفض الكربون',
+    fullTextbookPages: 275,
+    fullTextbookSize: '32.6 MB',
+    filename: 'thanaweya-renewable-energy.pdf',
+    downloadUrl: './books/thanaweya-renewable-energy.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-emerald-900 via-teal-800 to-green-700',
+    accentColor: '#059669',
+    chapters: [
+      {
+        id: 'th-renew-ch1',
+        titleEn: 'Solar Photovoltaic & Concentrated Solar Power (CSP) Engineering',
+        titleAr: 'هندسة الطاقة الشمسية الكهروضوئية والشمسية المركزة (CSP)',
+        pageRange: 'pp. 1–68',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-renew-ch2',
+        titleEn: 'Wind Turbine Aerodynamics & Betz Limit Dynamics',
+        titleAr: 'ديناميكا الرياح والتحليل الإيروديناميكي وحد بيتز الفيزيائي',
+        pageRange: 'pp. 69–138',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-renew-ch3',
+        titleEn: 'Green Hydrogen Electrolysis & Power-to-X (PtX) Integration',
+        titleAr: 'اقتصاد الهيدروجين الأخضر والتحليل الكهربائي ومشتقات الطاقة (PtX)',
+        pageRange: 'pp. 139–206',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-renew-ch4',
+        titleEn: 'Smart Grids, BESS Energy Storage & Carbon Accounting',
+        titleAr: 'الشبكات الذكية وتخزين الطاقة BESS وحساب البصمة الكربونية CBAM',
+        pageRange: 'pp. 207–275',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Official Egyptian Ministry textbook for Renewable Energy & Environmental Sustainability: Solar PV & CSP engineering (Benban Solar Park), wind aerodynamics and Betz limit (Gabal El-Zeit & Zafarana), green hydrogen electrolysis and PtX corridors (SCZone), smart grid frequency droop, Ataka pumped hydro, and GHG Protocol / EU CBAM carbon border taxation.',
+    descriptionAr: 'كتاب وزارة التربية والتعليم الرسمي في الطاقة المتجددة والاستدامة البيئية: هندسة الخلايا الشمسية وبنبان، ديناميكا الرياح وقانون بيتز (مجمع جبل الزيت والزعفرانة)، اقتصاد وتحليل الهيدروجين الأخضر بالمنطقة الاقتصادية لقناة السويس، استقرار تردد الشبكة الموحدة وضخ عتاقة، وحسابات البصمة الكربونية وضريبة CBAM الأوروبية.',
+    highlightsEn: [
+      'Photovoltaic I-V and P-V curve characterization, MPPT tracking, and NOCT thermal derating',
+      'Wind kinetic cubic power formula, Betz limit Cp=16/27, and aerodynamic pitch regulation',
+      'PEM vs Alkaline vs SOEC electrolysis thermodynamics, specific energy consumption, and green ammonia synthesis',
+      'Unified grid frequency droop, BESS synthetic inertia, Ataka 2,400 MW pumped storage, and EU CBAM tariff liability',
+    ],
+    highlightsAr: [
+      'منحنيات الخواص الكهروضوئية وتتبع نقطة القدرة العظمى MPPT ومعامل الانحدار الحراري',
+      'معادلة قدرة الرياح التكعيبية، حد بيتز الفيزيائي ٥٩.٣٪، والتحكم النشط في زاوية ميل الريش',
+      'ثرموديناميكا التحليل الكهربائي للماء، الاستهلاك النوعي للطاقة، وتخليق الأمونيا الخضراء للتصدير',
+      'استقرار تردد الشبكة القومية، القصور الصناعي للبطاريات، مشروع جبل عتاقة، والتزامات ضريبة الكربون الأوروبية CBAM',
+    ],
+  },
+  // 69. EG-Bac Advanced Renewable Energy Systems, Decarbonization & Climate Economics
+  {
+    id: 'egbac-renew-g12',
+    curriculum: 'egbac',
+    category: 'renewable_energy',
+    subjectId: 'renewable',
+    branchId: 'egbac_renewable',
+    code: 'EGBAC-RENEW-2025',
+    titleEn: 'Advanced Renewable Energy Systems, Decarbonization & Climate Economics',
+    titleAr: 'أنظمة الطاقة المتجددة المتقدمة وإزالة الكربون واقتصاديات المناخ',
+    subtitleEn: 'New Egyptian Baccalaureate Curriculum (Stage 3)',
+    subtitleAr: 'منهج البكالوريا المصرية المطورة - المرحلة الثالثة',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Baccalaureate Stage 3',
+    gradeAr: 'المرحلة الثالثة للبكالوريا',
+    publisherEn: 'Supreme Council for Baccalaureate Education & Ministry of Education',
+    publisherAr: 'المجلس الأعلى للبكالوريا المصرية ووزارة التربية والتعليم',
+    pagesCount: 8,
+    fileSize: '30.4 KB',
+    compendiumTitleEn: 'Advanced Clean Energy Systems, PtX Catalysis & Climate Economics Compendium',
+    compendiumTitleAr: 'مفاهيم أنظمة الطاقة النظيفة المتقدمة وتخليق الوقود واقتصاديات المناخ',
+    fullTextbookPages: 296,
+    fullTextbookSize: '34.5 MB',
+    filename: 'egbac-renewable-systems.pdf',
+    downloadUrl: './books/egbac-renewable-systems.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-slate-950 via-emerald-900 to-teal-800',
+    accentColor: '#10b981',
+    chapters: [
+      {
+        id: 'egbac-renew-ch1',
+        titleEn: 'Next-Gen Photovoltaic Semiconductor Physics & Utility Solar Farms',
+        titleAr: 'فيزياء أشباه الموصلات الكهروضوئية المتقدمة ومحطات الطاقة الشمسية العملاقة',
+        pageRange: 'pp. 1–74',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-renew-ch2',
+        titleEn: 'Advanced Wind Aerodynamics, Offshore Wind Farms & Aeroelasticity',
+        titleAr: 'الإيروديناميكا المتقدمة للرياح ومزارع الرياح البحرية والمرونة الهوائية',
+        pageRange: 'pp. 75–148',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-renew-ch3',
+        titleEn: 'Green Hydrogen Thermodynamics, PtX Catalysis & Maritime Decarbonization',
+        titleAr: 'ثرموديناميكا الهيدروجين الأخضر والحفز الكيميائي للوقود وإزالة كربون الملاحة',
+        pageRange: 'pp. 149–222',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-renew-ch4',
+        titleEn: 'Grid Flexibility, Interconnection Markets & Industrial CBAM Compliance',
+        titleAr: 'مرونة الشبكات الذكية وأسواق الربط الإقليمي والامتثال لضريبة الكربون الصناعية',
+        pageRange: 'pp. 223–296',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Renewable Energy Systems & Climate Economics: Perovskite-silicon tandem solar cell physics, blade element momentum (BEM) offshore wind aeroelasticity, Faraday efficiency in high-temperature SOEC electrolysis, trans-Mediterranean HVDC grid interconnectors, and econometric marginal abatement cost curves (MACC) with EU CBAM compliance.',
+    descriptionAr: 'كتاب البكالوريا المصرية المطور في أنظمة الطاقة المتجددة واقتصاديات المناخ: فيزياء خلايا البيروفسكايت والسيليكون الترادفية، نظرية كمية الحركة لعناصر الريشة (BEM)، كفاءة فاراداي للتحليل الكهربائي عالي الحرارة، كابلات الربط القاري عالي الجهد HVDC، ومنحنيات التكلفة الحدية لخفض الانبعاثات (MACC) وحوكمة ضريبة CBAM.',
+    highlightsEn: [
+      'Shockley-Queisser theoretical efficiency limit and multi-junction perovskite bandgap tuning',
+      'Blade Element Momentum (BEM) theory, wake aerodynamic interactions, and deepwater floating spar-buoy dynamics',
+      'Electrochemical overpotential polarization curves, electrocatalytic Pt-Ir catalysts, and Fischer-Tropsch e-fuels',
+      'Synchronous virtual inertia, HVDC voltage source converter (VSC) topology, and corporate EU CBAM carbon tariffs',
+    ],
+    highlightsAr: [
+      'حد شوكلي-كويسر النظري وهندسة الفجوة الطاقية لخلايا البيروفسكايت متعددة الوصلات',
+      'نظرية كمية الحركة لعناصر الريشة BEM وتفاعلات الأثر الهوائي والمنصات العائمة بالمياه العميقة',
+      'منحنيات الاستقطاب الكهروكيميائي وجهد التنشيط الزائد وتخليق وقود الطيران المستدام SAF',
+      'القصور الذاتي التزامني الافتراضي، محولات HVDC بتقنية VSC، وحساب التكاليف الحدية لضريبة CBAM',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -4052,6 +4198,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_commercial' && (b.branchId === 'egbac_commercial' || b.id === 'egbac-comm-g12')) return true;
     if (branchId === 'thanaweya_tourism' && (b.branchId === 'thanaweya_tourism' || b.id === 'th-tour-g12')) return true;
     if (branchId === 'egbac_tourism' && (b.branchId === 'egbac_tourism' || b.id === 'egbac-tour-g12')) return true;
+    if (branchId === 'thanaweya_renewable' && (b.branchId === 'thanaweya_renewable' || b.id === 'th-renew-g12')) return true;
+    if (branchId === 'egbac_renewable' && (b.branchId === 'egbac_renewable' || b.id === 'egbac-renew-g12')) return true;
     return false;
   });
 }
@@ -4061,7 +4209,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

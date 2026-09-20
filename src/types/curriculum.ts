@@ -35,6 +35,7 @@ export type BranchId =
   | 'thanaweya_industrial'
   | 'thanaweya_commercial'
   | 'thanaweya_tourism'
+  | 'thanaweya_renewable'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -67,7 +68,8 @@ export type BranchId =
   | 'egbac_agriculture'
   | 'egbac_industrial'
   | 'egbac_commercial'
-  | 'egbac_tourism';
+  | 'egbac_tourism'
+  | 'egbac_renewable';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -363,7 +365,13 @@ export type InteractiveWidgetType =
   | 'tour_package_costing_lab'
   | 'tour_heritage_explorer_lab'
   | 'tour_carrying_capacity_lab'
-  | 'tour_gds_booking_lab';
+  | 'tour_gds_booking_lab'
+  | 'renewable_energy_studio'
+  | 'renew_solar_yield_lab'
+  | 'renew_wind_aerodynamics_lab'
+  | 'renew_green_hydrogen_lab'
+  | 'renew_smart_grid_dispatch_lab'
+  | 'renew_carbon_accounting_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;

@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **29 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, Commercial Sciences, Financial Accounting & Banking, and Tourism, Hospitality & Cultural Heritage Management).
-- **64 Total Branches** (32 Thanaweya Amma + 32 EG-Baccalaureate).
-- **329 Fully Equipped Chapters** (171 Thanaweya + 158 EG-Bac).
-- **65,800 Total Curriculum Problems**:
-  - 3,290 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 4,935 Practice Exercises with hints, scaffolding, and verification.
-  - 57,575 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **27 Interactive Virtual Laboratories & Simulation Studios**.
-- **67 Official Ministry Textbooks & Formula Compendiums**.
-- **192 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 32 disciplines).
+- **30 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, Commercial Sciences, Financial Accounting & Banking, Tourism, Hospitality & Cultural Heritage Management, and Renewable Energy & Environmental Sustainability).
+- **66 Total Branches** (33 Thanaweya Amma + 33 EG-Baccalaureate).
+- **337 Fully Equipped Chapters** (175 Thanaweya + 162 EG-Bac).
+- **67,400 Total Curriculum Problems**:
+  - 3,370 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 5,055 Practice Exercises with hints, scaffolding, and verification.
+  - 58,975 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **28 Interactive Virtual Laboratories & Simulation Studios**.
+- **69 Official Ministry Textbooks & Formula Compendiums**.
+- **198 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 33 disciplines).
 - **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (29 Core Disciplines)
+## 📚 Accredited Subject Tracks (30 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -55,11 +55,12 @@
 | **27** | **Industrial Technology & Applied Engineering** | التربية الصناعية والتكنولوجيا التطبيقية والهندسية | Industrial Technology & Manufacturing | Applied Engineering & Robotics Automation | 8 | 1,600 |
 | **28** | **Commercial Sciences & Banking** | العلوم التجارية والمحاسبة والمالية والمصرفية | Commercial Sciences & Financial Accounting | Corporate Finance, Banking Operations & FinTech | 8 | 1,600 |
 | **29** | **Tourism, Hospitality & Heritage** | السياحة والضيافة وإدارة التراث الثقافي | Tourism, Hospitality & Cultural Heritage Management | Sustainable Tourism Economics & Heritage Conservation | 8 | 1,600 |
-| **Total** | **29 Subjects** | **٢٩ مادة معتمدة** | **32 Branches (171 Chapters)** | **32 Branches (158 Chapters)** | **329** | **65,800** |
+| **30** | **Renewable Energy & Sustainability** | الطاقة المتجددة والاستدامة البيئية | Renewable Energy & Environmental Sustainability | Advanced Green Technologies, Clean Energy & Decarbonization | 8 | 1,600 |
+| **Total** | **30 Subjects** | **٣٠ مادة معتمدة** | **33 Branches (175 Chapters)** | **33 Branches (162 Chapters)** | **337** | **67,400** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (26 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (28 Studios)
 
 ClipSAT provides immersive digital laboratories equipped with real-time math, physics, linguistic and simulation engines, dynamic SVG graphing, and parameter controls:
 
@@ -173,6 +174,12 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Egyptian Cultural Heritage & Archaeological Site Explorer**: Giza, Karnak, Abu Simbel, Islamic Cairo 3D/interactive highlights, UNESCO conservation charter rules.
     - **Tourism Carrying Capacity (TCC) & Environmental Impact**: Physical Carrying Capacity (PCC), Real Carrying Capacity (RCC), Effective Carrying Capacity (ECC) with limiting environmental factors.
     - **Global Distribution Systems (GDS) & Airline Reservation Sandbox**: PNR generation, flight segment ticketing, IATA fare construction, cancellation rules.
+28. **Renewable Energy & Environmental Sustainability Studio** (`RenewableEnergyStudio.tsx`):
+    - **Solar Photovoltaic & Concentrated Solar Power (CSP) Laboratory**: Irradiance, tilt angle, cell temperature, I-V / P-V curves, MPPT tracking, Benban Solar Park 1.8 GW model.
+    - **Aerodynamic Wind Energy & Turbine Physics Studio**: Betz limit ($C_p \le 59.3\%$), cut-in/rated/cut-out speeds, Gabal El-Zeit wind park power generation curve.
+    - **Green Hydrogen, Electrolysis & PtX Fuel Cell Lab**: Alkaline and PEM electrolyzers, Faraday efficiency, specific power consumption, SCZone green corridor export logistics.
+    - **Smart Grid, BESS & Pumped-Storage Hydro Station**: Grid frequency regulation, droop curve response, battery degradation, Ataka pumped storage hydro 2,400 MW dispatch.
+    - **Carbon Accounting, Life Cycle Assessment (LCA) & CBAM Calculator**: Scope 1, 2, 3 GHG protocol emissions, EU Carbon Border Adjustment Mechanism (CBAM) certificate tariffs for Egyptian industrial exports.
 
 ---
 
@@ -181,7 +188,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Official Time & Scoring Blueprints**: Replicates Egyptian Ministry examination blueprints:
   - 46 questions, 60 marks, 180 minutes (Science & Humanities).
   - 55 questions, 80 marks, 180 minutes (Arabic).
-  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, Business Administration, Agricultural Sciences, Industrial Technology, Commercial Sciences, and Tourism, Hospitality & Cultural Heritage Management).
+  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, Business Administration, Agricultural Sciences, Industrial Technology, Commercial Sciences, Tourism, Hospitality & Cultural Heritage Management, and Renewable Energy & Environmental Sustainability).
   - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French, German, Italian, Spanish & Chinese).
   - 25 questions, 30 marks, 90 minutes (National Civics & Constitution, Islamic Studies, Christian Studies, Fine Arts & Visual Architecture, and Music Theory).
   - 20 questions, 30 marks, 120 minutes (Individual Mathematics Branches).
@@ -270,6 +277,9 @@ npm run test:commercial
 
 # Verify Tourism, Hospitality & Heritage Subject specifically
 npm run test:tourism
+
+# Verify Renewable Energy & Environmental Sustainability Subject specifically
+npm run test:renewable
 ```
 
 ---

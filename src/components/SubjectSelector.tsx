@@ -33,6 +33,8 @@ import {
   Sprout,
   Wrench,
   Hotel,
+  Zap,
+  Leaf,
 } from 'lucide-react';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -143,6 +145,10 @@ export const SubjectSelector: React.FC<SubjectSelectorProps> = ({
         return <Wrench className={className} />;
       case 'Hotel':
         return <Hotel className={className} />;
+      case 'Zap':
+        return <Zap className={className} />;
+      case 'Leaf':
+        return <Leaf className={className} />;
       default:
         return <Layers className={className} />;
     }

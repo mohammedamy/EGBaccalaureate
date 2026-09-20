@@ -28,7 +28,8 @@ export type SubjectCategory =
   | 'agricultural_sciences'
   | 'industrial_engineering'
   | 'commercial_sciences'
-  | 'tourism_hospitality';
+  | 'tourism_hospitality'
+  | 'renewable_energy';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -59,7 +60,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -191,6 +192,25 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('طيران')
   ) {
     return 'tourism_hospitality';
+  }
+
+  if (
+    text.includes('طاقة متجددة') ||
+    text.includes('استدامة') ||
+    text.includes('شمسية') ||
+    text.includes('رياح') ||
+    text.includes('هيدروجين') ||
+    text.includes('renewable') ||
+    text.includes('sustainability') ||
+    text.includes('solar') ||
+    text.includes('wind') ||
+    text.includes('hydrogen') ||
+    text.includes('بنبان') ||
+    text.includes('benban') ||
+    text.includes('cbam') ||
+    text.includes('بصمة كربونية')
+  ) {
+    return 'renewable_energy';
   }
 
   if (
@@ -794,9 +814,21 @@ export function getMasteryRadarData(
     { key: 'tourism_hospitality', ar: 'السياحة والضيافة والتراث', en: 'Tourism, Hospitality & Heritage', color: '#D97706' },
   ];
 
+  const all24Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all23Dimensions,
+    { key: 'renewable_energy', ar: 'الطاقة المتجددة والاستدامة', en: 'Renewable Energy & Sustainability', color: '#059669' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all24'
+      ? all24Dimensions
       : mode === 'all23'
       ? all23Dimensions
       : mode === 'all22'

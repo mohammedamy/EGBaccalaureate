@@ -51,10 +51,11 @@ import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudi
 import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
 import { CommercialFinanceStudio } from './labs/CommercialFinanceStudio';
 import { TourismHospitalityStudio } from './labs/TourismHospitalityStudio';
+import { RenewableEnergyStudio } from './labs/RenewableEnergyStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench, Landmark, Hotel } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench, Landmark, Hotel, Leaf } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -64,7 +65,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial' | 'commercial' | 'tourism';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -100,6 +101,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'industrial' || selectedSubject === 'industrial_engineering') return 'industrial';
     if (selectedSubject === 'commercial' || selectedSubject === 'commercial_sciences' || selectedSubject === 'banking') return 'commercial';
     if (selectedSubject === 'tourism' || selectedSubject === 'tourism_hospitality') return 'tourism';
+    if (selectedSubject === 'renewable' || selectedSubject === 'renewable_energy' || selectedSubject === 'sustainability') return 'renewable';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
@@ -136,6 +138,11 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'business_entrepreneurship' || selectedSubject === 'business') setActiveLab('business');
     else if (selectedSubject === 'fine_arts_architecture') setActiveLab('fine_arts');
     else if (selectedSubject === 'music_theory' || selectedSubject === 'music') setActiveLab('music');
+    else if (selectedSubject === 'agriculture' || selectedSubject === 'agricultural_sciences') setActiveLab('agriculture');
+    else if (selectedSubject === 'industrial' || selectedSubject === 'industrial_engineering') setActiveLab('industrial');
+    else if (selectedSubject === 'commercial' || selectedSubject === 'commercial_sciences' || selectedSubject === 'banking') setActiveLab('commercial');
+    else if (selectedSubject === 'tourism' || selectedSubject === 'tourism_hospitality') setActiveLab('tourism');
+    else if (selectedSubject === 'renewable' || selectedSubject === 'renewable_energy' || selectedSubject === 'sustainability') setActiveLab('renewable');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -586,6 +593,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
       tagline: isArabic
         ? 'مختبر محاكاة السياحة والضيافة وإدارة التراث الثقافي: مؤشرات العائد الفندقي (RevPAR / ADR / GOPPAR)، تسعير البرامج السياحية ونقطة التعادل، مستكشف مواقع التراث العالمي لليونسكو، نمذجة الطاقة الاستيعابية البيئية، ومحاكي نظام حجز الطيران العالمي GDS'
         : 'Tourism, Hospitality & Cultural Heritage Studio: Hotel Yield Management (RevPAR/ADR/GOPPAR), Tour Package Costing & Break-Even Pax, UNESCO World Heritage Explorer, Environmental Carrying Capacity Modeler, and GDS Flight Reservation Terminal',
+    },
+    {
+      id: 'renewable' as LabId,
+      titleEn: 'Renewable Energy & Environmental Sustainability Studio',
+      titleAr: 'استوديو الطاقة المتجددة والاستدامة البيئية',
+      subtitleEn: 'Solar PV/CSP, Wind Betz Limit, Green Hydrogen PtX, Smart Grids & CBAM',
+      subtitleAr: 'الطاقة الشمسية وبنبان، ديناميكا الرياح، الهيدروجين الأخضر، الشبكات الذكية وضريبة CBAM',
+      icon: Leaf,
+      color: 'emerald',
+      badge: 'Clean Tech & Decarbonization',
+      gradient: 'from-emerald-700 via-teal-800 to-slate-950',
+      activeBg: 'bg-emerald-600 text-white shadow-emerald-600/30',
+      tagline: isArabic
+        ? 'استوديو الطاقة المتجددة والاستدامة البيئية: محاكي الخلايا الشمسية ومحطة بنبان، ديناميكا الرياح وقانون بيتز بجبل الزيت، مفاعل الهيدروجين الأخضر ومشتقات PtX، منظومة استقرار تردد الشبكة وضخ عتاقة والبطاريات، وحاسبة البصمة الكربونية وضريبة CBAM الأوروبية'
+        : 'Renewable Energy & Environmental Sustainability Studio: Solar PV & CSP yield modeler, wind aerodynamics & Betz limit at Gabal El-Zeit, green hydrogen electrolysis & PtX, smart grid frequency droop & Ataka pumped storage, and GHG carbon accounting with EU CBAM tariff calculator',
     },
   ];
 
@@ -1317,6 +1339,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Renewable Energy & Environmental Sustainability Studio */}
+        {activeLab === 'renewable' && (
+          <div className="space-y-4">
+            <RenewableEnergyStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={isHubFullscreen}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -1325,7 +1358,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' || activeLab === 'renewable' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -1340,7 +1373,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' || activeLab === 'renewable' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );
