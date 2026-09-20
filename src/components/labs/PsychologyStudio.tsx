@@ -98,11 +98,29 @@ export const PsychologyStudio: React.FC<Props> = ({
 
   // Ebbinghaus formula: R(t) = e^(-t / S)
   const computeRetentionRate = (days: number, reviews: number): number => {
-    let stabilityBase = isMeaningfulLearning ? 3.0 : 1.2;
-    if (practiceType === 'spaced') stabilityBase *= 1.6;
-    const effectiveStability = stabilityBase * Math.pow(2.2, reviews);
-    const retention = Math.exp(-days / effectiveStability) * 100;
-    return Math.min(100, Math.max(5, Math.round(retention)));
+    const s0 = isMeaningfulLearning ? 2.8 : 1.1;
+    if (practiceType === 'spaced') {
+      const reviewMilestones = [1, 3, 7, 16];
+      const activeMilestones = reviewMilestones.slice(0, reviews);
+      let lastTime = 0;
+      let k = 0;
+      for (let i = 0; i < activeMilestones.length; i++) {
+        if (days >= activeMilestones[i]) {
+          lastTime = activeMilestones[i];
+          k = i + 1;
+        } else {
+          break;
+        }
+      }
+      const sk = s0 * Math.pow(2.15, k);
+      const ret = Math.exp(-(days - lastTime) / sk) * 100;
+      return Math.min(100, Math.max(5, Math.round(ret)));
+    } else {
+      // Massed practice: crammed on day 0, minimal stability growth
+      const effectiveStability = s0 * Math.pow(1.14, reviews);
+      const ret = Math.exp(-days / effectiveStability) * 100;
+      return Math.min(100, Math.max(5, Math.round(ret)));
+    }
   };
 
   // -------------------------------------------------------------
@@ -950,77 +968,337 @@ export const PsychologyStudio: React.FC<Props> = ({
                 {/* SVG Forgetting Curve Display */}
                 <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 relative">
                   <div className="flex justify-between text-[11px] text-slate-400 mb-2 font-mono">
-                    <span>{isArabic ? 'نسبة الاستبقاء (Retention %)' : 'Retention Rate (%)'}</span>
-                    <span>{isArabic ? 'الزمن المنقضي (أيام)' : 'Time Elapsed (Days)'}</span>
+                    <span>{isArabic ? 'نسبة الاستبقاء في الذاكرة (Retention %)' : 'Memory Retention Rate (%)'}</span>
+                    <span>{isArabic ? 'الزمن المنقضي (أيام) [Hermann Ebbinghaus]' : 'Time Elapsed (Days) [Hermann Ebbinghaus]'}</span>
                   </div>
 
-                  <svg viewBox="0 0 500 200" className="w-full h-44 overflow-visible">
-                    {/* Grid lines */}
-                    <line x1="40" y1="20" x2="480" y2="20" stroke="#334155" strokeDasharray="3,3" />
-                    <line x1="40" y1="60" x2="480" y2="60" stroke="#334155" strokeDasharray="3,3" />
-                    <line x1="40" y1="100" x2="480" y2="100" stroke="#334155" strokeDasharray="3,3" />
-                    <line x1="40" y1="140" x2="480" y2="140" stroke="#334155" strokeDasharray="3,3" />
-                    <line x1="40" y1="180" x2="480" y2="180" stroke="#475569" />
-                    <line x1="40" y1="20" x2="40" y2="180" stroke="#475569" />
+                  <svg viewBox="0 0 540 230" className="w-full h-56 overflow-visible">
+                    <defs>
+                      <linearGradient id="consolidationGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#a855f7" stopOpacity="0.45" />
+                        <stop offset="60%" stopColor="#6366f1" stopOpacity="0.2" />
+                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.02" />
+                      </linearGradient>
+                      <linearGradient id="rawDecayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f43f5e" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="#f43f5e" stopOpacity="0.02" />
+                      </linearGradient>
+                      <filter id="purpleGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                      </filter>
+                    </defs>
 
-                    {/* Y-Axis Labels */}
-                    <text x="10" y="24" fill="#94a3b8" fontSize="10">100%</text>
-                    <text x="15" y="104" fill="#94a3b8" fontSize="10">50%</text>
-                    <text x="20" y="184" fill="#94a3b8" fontSize="10">0%</text>
-
-                    {/* Theoretical baseline decay curve */}
-                    <path
-                      d="M 40 20 Q 90 120 180 150 T 480 170"
-                      fill="none"
-                      stroke="#ef4444"
-                      strokeWidth="2"
-                      strokeDasharray="4,4"
-                      opacity="0.6"
-                    />
-
-                    {/* Active Curve modified by reviews */}
-                    {(() => {
-                      const points: string[] = [];
-                      for (let d = 0; d <= 30; d += 2) {
-                        const x = 40 + (d / 30) * 440;
-                        const ret = computeRetentionRate(d, reviewCount);
-                        const y = 180 - (ret / 100) * 160;
-                        points.push(`${x},${y}`);
-                      }
-                      return (
-                        <polyline
-                          fill="none"
-                          stroke="#a855f7"
-                          strokeWidth="3.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          points={points.join(' ')}
+                    {/* Grid lines & Y-Axis percentages */}
+                    {[
+                      { pct: 100, y: 25 },
+                      { pct: 80, y: 58 },
+                      { pct: 60, y: 91 },
+                      { pct: 40, y: 124 },
+                      { pct: 20, y: 157 },
+                      { pct: 0, y: 190 },
+                    ].map((grid) => (
+                      <g key={grid.pct}>
+                        <line
+                          x1="55"
+                          y1={grid.y}
+                          x2="520"
+                          y2={grid.y}
+                          stroke={grid.pct === 0 ? '#475569' : '#1e293b'}
+                          strokeWidth={grid.pct === 0 ? 1.5 : 1}
+                          strokeDasharray={grid.pct === 0 ? undefined : '3 3'}
                         />
+                        <text
+                          x="46"
+                          y={grid.y + 3.5}
+                          fill={grid.pct === 100 ? '#a855f7' : '#64748b'}
+                          fontSize="9"
+                          fontFamily="monospace"
+                          textAnchor="end"
+                          fontWeight={grid.pct === 100 || grid.pct === 0 ? 'bold' : 'normal'}
+                        >
+                          {grid.pct}%
+                        </text>
+                      </g>
+                    ))}
+
+                    {/* Y-Axis vertical line */}
+                    <line x1="55" y1="25" x2="55" y2="190" stroke="#475569" strokeWidth="1.5" />
+
+                    {/* X-Axis day markers */}
+                    {[0, 1, 3, 7, 14, 21, 30].map((d) => {
+                      const dx = 55 + (d / 30) * 465;
+                      return (
+                        <g key={d}>
+                          <line x1={dx} y1="190" x2={dx} y2="195" stroke="#475569" strokeWidth="1" />
+                          <text
+                            x={dx}
+                            y="208"
+                            fill="#64748b"
+                            fontSize="8.5"
+                            fontFamily="monospace"
+                            textAnchor="middle"
+                          >
+                            {d === 0 ? (isArabic ? 'البداية' : '0d') : `${d}${isArabic ? 'ي' : 'd'}`}
+                          </text>
+                        </g>
+                      );
+                    })}
+
+                    {/* Theoretical Raw Ebbinghaus Baseline Curve (0 reviews) */}
+                    {(() => {
+                      const s0 = isMeaningfulLearning ? 2.8 : 1.1;
+                      const rawPoints: string[] = [];
+                      const rawAreaPts: string[] = ['55,190'];
+                      for (let d = 0; d <= 30; d += 0.25) {
+                        const x = 55 + (d / 30) * 465;
+                        const r = Math.min(100, Math.max(5, Math.exp(-d / s0) * 100));
+                        const y = 190 - (r / 100) * 165;
+                        rawPoints.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+                        rawAreaPts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+                      }
+                      rawAreaPts.push(`520,190`);
+                      const rawPath = `M ${rawPoints.join(' L ')}`;
+                      const rawAreaPath = `M ${rawAreaPts.join(' L ')} Z`;
+
+                      const xDay1 = 55 + (1 / 30) * 465;
+                      const rDay1 = Math.round(Math.exp(-1 / s0) * 100);
+                      const yDay1 = 190 - (rDay1 / 100) * 165;
+
+                      return (
+                        <g>
+                          <path d={rawAreaPath} fill="url(#rawDecayGrad)" opacity="0.4" />
+                          <path
+                            d={rawPath}
+                            fill="none"
+                            stroke="#f43f5e"
+                            strokeWidth="1.8"
+                            strokeDasharray="5 3"
+                            opacity="0.75"
+                          />
+                          {/* 24-hour Ebbinghaus landmark callout */}
+                          <circle cx={xDay1} cy={yDay1} r="3" fill="#f43f5e" />
+                          <line
+                            x1={xDay1}
+                            y1={yDay1}
+                            x2={xDay1 + 35}
+                            y2={yDay1 - 18}
+                            stroke="#f43f5e"
+                            strokeWidth="0.8"
+                            strokeDasharray="2 2"
+                          />
+                          <text
+                            x={xDay1 + 40}
+                            y={yDay1 - 15}
+                            fill="#f43f5e"
+                            fontSize="7.5"
+                            fontFamily="monospace"
+                          >
+                            {isArabic ? `تضاؤل بعد ٢٤ ساعة (~${rDay1}%)` : `24h drop (~${rDay1}%)`}
+                          </text>
+                        </g>
                       );
                     })()}
 
-                    {/* Current day cursor */}
+                    {/* Active Spaced Repetition Sawtooth Curve & Neural Consolidation Shading */}
                     {(() => {
-                      const cx = 40 + (elapsedDays / 30) * 440;
-                      const cy = 180 - (computeRetentionRate(elapsedDays, reviewCount) / 100) * 160;
+                      const s0 = isMeaningfulLearning ? 2.8 : 1.1;
+                      const activeCurvePts: string[] = [];
+                      const activeAreaPts: string[] = ['55,190'];
+
+                      if (practiceType === 'spaced') {
+                        const milestones = [1, 3, 7, 16].slice(0, reviewCount);
+                        const schedule = [0, ...milestones, 30];
+
+                        for (let seg = 0; seg < schedule.length - 1; seg++) {
+                          const tStart = schedule[seg];
+                          const tEnd = schedule[seg + 1];
+                          const sk = s0 * Math.pow(2.15, seg);
+
+                          // Starting point of segment (at tStart, jump to 100% if seg > 0)
+                          const xStart = 55 + (tStart / 30) * 465;
+                          const rStart = seg === 0 ? 100 : 100;
+                          const yStart = 190 - (rStart / 100) * 165;
+                          activeCurvePts.push(`${xStart.toFixed(1)},${yStart.toFixed(1)}`);
+                          activeAreaPts.push(`${xStart.toFixed(1)},${yStart.toFixed(1)}`);
+
+                          // Sample decay along segment
+                          const step = 0.2;
+                          for (let d = tStart + step; d < tEnd; d += step) {
+                            const x = 55 + (d / 30) * 465;
+                            const r = Math.min(100, Math.max(5, Math.exp(-(d - tStart) / sk) * 100));
+                            const y = 190 - (r / 100) * 165;
+                            activeCurvePts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+                            activeAreaPts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+                          }
+
+                          // Point right before the jump at tEnd
+                          const xEnd = 55 + (tEnd / 30) * 465;
+                          const rEnd = Math.min(100, Math.max(5, Math.exp(-(tEnd - tStart) / sk) * 100));
+                          const yEnd = 190 - (rEnd / 100) * 165;
+                          activeCurvePts.push(`${xEnd.toFixed(1)},${yEnd.toFixed(1)}`);
+                          activeAreaPts.push(`${xEnd.toFixed(1)},${yEnd.toFixed(1)}`);
+                        }
+                      } else {
+                        // Massed practice (smooth decay, low stability growth)
+                        const effectiveStability = s0 * Math.pow(1.14, reviewCount);
+                        for (let d = 0; d <= 30; d += 0.2) {
+                          const x = 55 + (d / 30) * 465;
+                          const r = Math.min(100, Math.max(5, Math.exp(-d / effectiveStability) * 100));
+                          const y = 190 - (r / 100) * 165;
+                          activeCurvePts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+                          activeAreaPts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
+                        }
+                      }
+
+                      activeAreaPts.push(`520,190`);
+                      const activeCurvePath = `M ${activeCurvePts.join(' L ')}`;
+                      const activeAreaPath = `M ${activeAreaPts.join(' L ')} Z`;
+
                       return (
                         <g>
-                          <line x1={cx} y1="20" x2={cx} y2="180" stroke="#ec4899" strokeWidth="1.5" strokeDasharray="2,2" />
-                          <circle cx={cx} cy={cy} r="6" fill="#ec4899" className="animate-pulse" />
+                          {/* Synaptic consolidation polygon */}
+                          <path d={activeAreaPath} fill="url(#consolidationGrad)" />
+
+                          {/* Sawtooth / active curve */}
+                          <path
+                            d={activeCurvePath}
+                            fill="none"
+                            stroke="#c084fc"
+                            strokeWidth="3.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            filter="url(#purpleGlow)"
+                          />
+                          <path
+                            d={activeCurvePath}
+                            fill="none"
+                            stroke="#f3e8ff"
+                            strokeWidth="1.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </g>
+                      );
+                    })()}
+
+                    {/* Spaced Review Milestone Pins & Reinforcement Spikes */}
+                    {practiceType === 'spaced' &&
+                      [1, 3, 7, 16].slice(0, reviewCount).map((m, idx) => {
+                        const mx = 55 + (m / 30) * 465;
+                        return (
+                          <g key={m}>
+                            <line
+                              x1={mx}
+                              y1="25"
+                              x2={mx}
+                              y2="190"
+                              stroke="#a855f7"
+                              strokeWidth="1.2"
+                              strokeDasharray="3 3"
+                            />
+                            {/* Upward spike boost indicator */}
+                            <path
+                              d={`M ${mx - 4} 42 L ${mx} 34 L ${mx + 4} 42 Z`}
+                              fill="#10b981"
+                            />
+                            <g transform={`translate(${mx}, 16)`}>
+                              <rect
+                                x="-18"
+                                y="-10"
+                                width="36"
+                                height="14"
+                                rx="3"
+                                fill="#581c87"
+                                stroke="#c084fc"
+                                strokeWidth="0.8"
+                              />
+                              <text
+                                x="0"
+                                y="0"
+                                fill="#f3e8ff"
+                                fontSize="7.5"
+                                fontFamily="monospace"
+                                fontWeight="bold"
+                                textAnchor="middle"
+                              >
+                                R{idx + 1} ({m}{isArabic ? 'ي' : 'd'})
+                              </text>
+                            </g>
+                          </g>
+                        );
+                      })}
+
+                    {/* Current day cursor & Telemetry Badge */}
+                    {(() => {
+                      const cx = 55 + (elapsedDays / 30) * 465;
+                      const currentRet = computeRetentionRate(elapsedDays, reviewCount);
+                      const cy = 190 - (currentRet / 100) * 165;
+
+                      const statusColor =
+                        currentRet >= 75 ? '#10b981' : currentRet >= 40 ? '#f59e0b' : '#ef4444';
+
+                      return (
+                        <g>
+                          <line
+                            x1={cx}
+                            y1="25"
+                            x2={cx}
+                            y2="190"
+                            stroke="#ec4899"
+                            strokeWidth="1.6"
+                            strokeDasharray="3 2"
+                          />
+                          <circle cx={cx} cy={cy} r="7" fill={statusColor} opacity="0.3" className="animate-ping" />
+                          <circle cx={cx} cy={cy} r="5" fill={statusColor} stroke="#ffffff" strokeWidth="1.5" />
+
+                          {/* Floating Telemetry Pill */}
+                          <g transform={`translate(${Math.max(85, Math.min(460, cx))}, ${Math.max(22, cy - 22)})`}>
+                            <rect
+                              x="-55"
+                              y="-12"
+                              width="110"
+                              height="18"
+                              rx="4"
+                              fill="#0f172a"
+                              stroke={statusColor}
+                              strokeWidth="1"
+                            />
+                            <text
+                              x="0"
+                              y="1"
+                              fill={statusColor}
+                              fontSize="8"
+                              fontFamily="monospace"
+                              fontWeight="bold"
+                              textAnchor="middle"
+                            >
+                              {isArabic ? `يوم ${elapsedDays}: استبقاء ${currentRet}%` : `Day ${elapsedDays}: Ret ${currentRet}%`}
+                            </text>
+                          </g>
                         </g>
                       );
                     })()}
                   </svg>
 
-                  {/* Legend */}
-                  <div className="flex items-center justify-center gap-6 mt-3 text-xs">
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-0.5 bg-red-500 border-dashed" />
-                      <span className="text-slate-400">{isArabic ? 'منحنى النسيان السريع (دون مراجعة)' : 'Unreviewed Rapid Decay'}</span>
+                  {/* Legend & Theoretical Laws */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 mt-3 pt-3 border-t border-slate-800 text-xs">
+                    <div className="flex items-center gap-5">
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-0.5 bg-rose-500 border-b border-dashed" />
+                        <span className="text-slate-400">
+                          {isArabic ? 'منحنى النسيان الطبيعي (التضاؤل دون مراجعة)' : 'Raw Ebbinghaus Rapid Decay'}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-4 h-1 bg-purple-500 rounded" />
+                        <span className="text-purple-300 font-bold">
+                          {isArabic ? 'المنحنى الفعلي المعزز بالتكرار المتباعد (SRS)' : 'Spaced Consolidation Curve (SRS)'}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <div className="w-3 h-1 bg-purple-500 rounded" />
-                      <span className="text-purple-300 font-bold">{isArabic ? 'المنحنى الفعلي المعدل بالتكرار المتباعد' : 'Spaced Retention Curve'}</span>
+                    <div className="text-[11px] font-mono text-purple-400">
+                      R(t) = e^{`{-t / S}`} • {isArabic ? `استقرار الذاكرة S = ${( (isMeaningfulLearning ? 2.8 : 1.1) * (practiceType === 'spaced' ? Math.pow(2.15, reviewCount) : Math.pow(1.14, reviewCount)) ).toFixed(1)} يوم` : `Memory Stability S = ${( (isMeaningfulLearning ? 2.8 : 1.1) * (practiceType === 'spaced' ? Math.pow(2.15, reviewCount) : Math.pow(1.14, reviewCount)) ).toFixed(1)}d`}
                     </div>
                   </div>
                 </div>
@@ -1185,9 +1463,9 @@ export const PsychologyStudio: React.FC<Props> = ({
                   ))}
                 </div>
 
-                {/* Dynamic Conflict Visualizer */}
-                <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-center space-y-3">
-                  <div className="text-xs font-bold text-slate-300">
+                {/* Dynamic Conflict Visualizer: Kurt Lewin Life Space Vector Field */}
+                <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-3">
+                  <div className="text-xs font-bold text-slate-300 text-center">
                     {selectedConflict === 'approach_approach' &&
                       (isArabic ? 'حيرة بين هدفين مرغوبين وجذابين معاً (أسهل أنواع الصراع حسماً)' : 'Torn between two highly desirable goals (easiest to resolve)')}
                     {selectedConflict === 'avoidance_avoidance' &&
@@ -1196,39 +1474,228 @@ export const PsychologyStudio: React.FC<Props> = ({
                       (isArabic ? 'هدف واحد يحمل جانباً جذاباً وجانباً منفراً معاً (تذبذب وتردد مستمر)' : 'Single goal encompasses both positive allure and negative aversion')}
                   </div>
 
-                  <div className="flex items-center justify-center gap-6 py-4">
-                    <div className="p-3 rounded-lg bg-slate-800 border border-slate-700 w-32">
-                      <div className="text-xl mb-1">
-                        {selectedConflict === 'avoidance_avoidance' ? '⛔' : '⭐'}
-                      </div>
-                      <div className="text-xs font-bold text-slate-200">
-                        {selectedConflict === 'approach_approach' && (isArabic ? 'كلية الطب' : 'Medical College')}
-                        {selectedConflict === 'avoidance_avoidance' && (isArabic ? 'مرض مؤلم' : 'Severe Illness')}
-                        {selectedConflict === 'approach_avoidance' && (isArabic ? 'تناول الحلوى' : 'Sweet Pastry')}
-                      </div>
-                      <div className="text-[10px] text-amber-400 mt-1">
-                        {selectedConflict === 'avoidance_avoidance' ? '- نفور' : '+ جاذبية'}
-                      </div>
-                    </div>
+                  {/* SVG Life Space Vector Field */}
+                  <div className="h-44 w-full bg-slate-950/90 rounded-xl border border-slate-800/80 p-2 flex items-center justify-center">
+                    <svg viewBox="0 0 500 160" className="w-full h-full">
+                      <defs>
+                        <linearGradient id="lewinPositiveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#10b981" stopOpacity="0.3" />
+                          <stop offset="100%" stopColor="#059669" stopOpacity="0.08" />
+                        </linearGradient>
+                        <linearGradient id="lewinNegativeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="#ef4444" stopOpacity="0.3" />
+                          <stop offset="100%" stopColor="#b91c1c" stopOpacity="0.08" />
+                        </linearGradient>
+                        <marker id="lewinGreenArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                          <path d="M 0 1 L 7 4 L 0 7 Z" fill="#10b981" />
+                        </marker>
+                        <marker id="lewinRedArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                          <path d="M 0 1 L 7 4 L 0 7 Z" fill="#ef4444" />
+                        </marker>
+                        <marker id="lewinYellowArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                          <path d="M 0 1 L 7 4 L 0 7 Z" fill="#f59e0b" />
+                        </marker>
+                      </defs>
 
-                    <div className="text-center font-bold text-xs text-amber-400">
-                      <div className="text-xl">VS</div>
-                      <span className="text-[10px] text-slate-400">{isArabic ? 'تردد الأنا' : 'Ego Tension'}</span>
-                    </div>
+                      {/* Topological Life Space Boundary (Jordan Curve) */}
+                      <rect
+                        x="15"
+                        y="12"
+                        width="470"
+                        height="136"
+                        rx="20"
+                        fill="#090d16"
+                        stroke="#334155"
+                        strokeWidth="1.5"
+                        strokeDasharray="5 3"
+                      />
+                      <text
+                        x="30"
+                        y="26"
+                        fill="#64748b"
+                        fontSize="8"
+                        fontFamily="monospace"
+                        fontWeight="bold"
+                      >
+                        {isArabic ? 'مجال الحياة النفسي (Life Space L = P + E)' : 'Kurt Lewin Topological Life Space (L = P + E)'}
+                      </text>
 
-                    <div className="p-3 rounded-lg bg-slate-800 border border-slate-700 w-32">
-                      <div className="text-xl mb-1">
-                        {selectedConflict === 'approach_avoidance' ? '⚠️' : selectedConflict === 'avoidance_avoidance' ? '⛔' : '⭐'}
-                      </div>
-                      <div className="text-xs font-bold text-slate-200">
-                        {selectedConflict === 'approach_approach' && (isArabic ? 'كلية الهندسة' : 'Engineering')}
-                        {selectedConflict === 'avoidance_avoidance' && (isArabic ? 'جراحة خطيرة' : 'Risky Surgery')}
-                        {selectedConflict === 'approach_avoidance' && (isArabic ? 'خطر السمنة' : 'Obesity Threat')}
-                      </div>
-                      <div className="text-[10px] text-amber-400 mt-1">
-                        {selectedConflict === 'approach_avoidance' ? '- نفور' : selectedConflict === 'avoidance_avoidance' ? '- نفور' : '+ جاذبية'}
-                      </div>
-                    </div>
+                      {/* MODE 1: APPROACH - APPROACH (++) */}
+                      {selectedConflict === 'approach_approach' && (
+                        <g>
+                          {/* Goal 1 Region (Left) */}
+                          <g transform="translate(85, 80)">
+                            <rect x="-60" y="-40" width="120" height="80" rx="12" fill="url(#lewinPositiveGrad)" stroke="#10b981" strokeWidth="1.5" />
+                            <circle cx="45" cy="-25" r="11" fill="#10b981" />
+                            <text x="45" y="-21" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">+</text>
+                            <text x="0" y="-8" fill="#a7f3d0" fontSize="10" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'كلية الطب' : 'Medical College'}
+                            </text>
+                            <text x="0" y="10" fill="#6ee7b7" fontSize="8" textAnchor="middle">
+                              {isArabic ? 'تكافؤ موجب (+Val)' : 'Positive Valence'}
+                            </text>
+                          </g>
+
+                          {/* Goal 2 Region (Right) */}
+                          <g transform="translate(415, 80)">
+                            <rect x="-60" y="-40" width="120" height="80" rx="12" fill="url(#lewinPositiveGrad)" stroke="#10b981" strokeWidth="1.5" />
+                            <circle cx="45" cy="-25" r="11" fill="#10b981" />
+                            <text x="45" y="-21" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">+</text>
+                            <text x="0" y="-8" fill="#a7f3d0" fontSize="10" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'كلية الهندسة' : 'Engineering'}
+                            </text>
+                            <text x="0" y="10" fill="#6ee7b7" fontSize="8" textAnchor="middle">
+                              {isArabic ? 'تكافؤ موجب (+Val)' : 'Positive Valence'}
+                            </text>
+                          </g>
+
+                          {/* Person P (Center) */}
+                          <g transform="translate(250, 80)">
+                            <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#f59e0b" strokeWidth="2" />
+                            <circle cx="0" cy="0" r="15" fill="#f59e0b" opacity="0.25" />
+                            <text x="0" y="4" fill="#fbbf24" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'الأنا (P)' : 'Ego (P)'}
+                            </text>
+                          </g>
+
+                          {/* Opposing Attraction Force Vectors */}
+                          <line x1="225" y1="80" x2="150" y2="80" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#lewinGreenArrow)" />
+                          <text x="188" y="70" fill="#10b981" fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                            +F_G1
+                          </text>
+
+                          <line x1="275" y1="80" x2="350" y2="80" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#lewinGreenArrow)" />
+                          <text x="312" y="70" fill="#10b981" fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                            +F_G2
+                          </text>
+
+                          <text x="250" y="132" fill="#94a3b8" fontSize="8" textAnchor="middle">
+                            {isArabic ? 'توازن ديناميكي مستقر • يُحسم بسهولة بمجرد الميل لأحدهما' : 'Stable Equilibrium • Easily resolved upon minimal approach'}
+                          </text>
+                        </g>
+                      )}
+
+                      {/* MODE 2: AVOIDANCE - AVOIDANCE (--) */}
+                      {selectedConflict === 'avoidance_avoidance' && (
+                        <g>
+                          {/* Goal 1 Repellent Region (Left) */}
+                          <g transform="translate(85, 80)">
+                            <rect x="-60" y="-40" width="120" height="80" rx="12" fill="url(#lewinNegativeGrad)" stroke="#ef4444" strokeWidth="1.5" />
+                            <circle cx="45" cy="-25" r="11" fill="#ef4444" />
+                            <text x="45" y="-21" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">-</text>
+                            <text x="0" y="-8" fill="#fca5a5" fontSize="10" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'مرض مؤلم' : 'Severe Illness'}
+                            </text>
+                            <text x="0" y="10" fill="#f87171" fontSize="8" textAnchor="middle">
+                              {isArabic ? 'تكافؤ سالب (-Val)' : 'Negative Valence'}
+                            </text>
+                          </g>
+
+                          {/* Goal 2 Repellent Region (Right) */}
+                          <g transform="translate(415, 80)">
+                            <rect x="-60" y="-40" width="120" height="80" rx="12" fill="url(#lewinNegativeGrad)" stroke="#ef4444" strokeWidth="1.5" />
+                            <circle cx="45" cy="-25" r="11" fill="#ef4444" />
+                            <text x="45" y="-21" fill="#ffffff" fontSize="13" fontWeight="bold" textAnchor="middle">-</text>
+                            <text x="0" y="-8" fill="#fca5a5" fontSize="10" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'جراحة خطيرة' : 'Risky Surgery'}
+                            </text>
+                            <text x="0" y="10" fill="#f87171" fontSize="8" textAnchor="middle">
+                              {isArabic ? 'تكافؤ سالب (-Val)' : 'Negative Valence'}
+                            </text>
+                          </g>
+
+                          {/* Person P (Confined in Middle) */}
+                          <g transform="translate(250, 80)">
+                            <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#ef4444" strokeWidth="2" />
+                            <circle cx="0" cy="0" r="15" fill="#ef4444" opacity="0.3" className="animate-ping" />
+                            <text x="0" y="4" fill="#fca5a5" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'الأنا (P)' : 'Ego (P)'}
+                            </text>
+                          </g>
+
+                          {/* Compressive Repellent Force Vectors */}
+                          <line x1="150" y1="80" x2="222" y2="80" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#lewinRedArrow)" />
+                          <text x="188" y="70" fill="#ef4444" fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                            -F_rep1
+                          </text>
+
+                          <line x1="350" y1="80" x2="278" y2="80" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#lewinRedArrow)" />
+                          <text x="312" y="70" fill="#ef4444" fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                            -F_rep2
+                          </text>
+
+                          {/* Upward Escape Vector (Leaving the Field) */}
+                          <line x1="250" y1="56" x2="250" y2="28" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3 2" markerEnd="url(#lewinYellowArrow)" />
+                          <text x="250" y="24" fill="#fbbf24" fontSize="7.5" fontWeight="bold" textAnchor="middle">
+                            {isArabic ? 'محاولة الهروب من المجال (Leaving the Field)' : 'Escape Vector (Leaving the Field)'}
+                          </text>
+
+                          <text x="250" y="132" fill="#ef4444" fontSize="8" textAnchor="middle">
+                            {isArabic ? 'حصار نفسي شديد وتوتر انفعالي حاد • يستغرق وقتاً طويلاً ومؤلماً للحسم' : 'Confined Psychological Trap • Agonizing, protracted tension'}
+                          </text>
+                        </g>
+                      )}
+
+                      {/* MODE 3: APPROACH - AVOIDANCE (+-) */}
+                      {selectedConflict === 'approach_avoidance' && (
+                        <g>
+                          {/* Single Ambivalent Goal Region (Right) */}
+                          <g transform="translate(390, 80)">
+                            <rect x="-75" y="-45" width="150" height="90" rx="14" fill="#0f172a" stroke="#eab308" strokeWidth="1.5" />
+                            {/* Dual valence pill badges */}
+                            <g transform="translate(-40, -25)">
+                              <circle cx="0" cy="0" r="10" fill="#10b981" />
+                              <text x="0" y="4" fill="#ffffff" fontSize="12" fontWeight="bold" textAnchor="middle">+</text>
+                            </g>
+                            <g transform="translate(40, -25)">
+                              <circle cx="0" cy="0" r="10" fill="#ef4444" />
+                              <text x="0" y="4" fill="#ffffff" fontSize="14" fontWeight="bold" textAnchor="middle">-</text>
+                            </g>
+                            <text x="0" y="0" fill="#fde047" fontSize="10.5" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'تناول الحلوى / السمنة' : 'Sweet Pastry / Obesity'}
+                            </text>
+                            <text x="0" y="18" fill="#94a3b8" fontSize="8" textAnchor="middle">
+                              {isArabic ? 'جاذبية اللذة ⇄ خطر المرض' : 'Sensory Reward ⇄ Health Threat'}
+                            </text>
+                          </g>
+
+                          {/* Person P (Left) */}
+                          <g transform="translate(140, 80)">
+                            <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#eab308" strokeWidth="2" />
+                            <text x="0" y="4" fill="#fde047" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'الأنا (P)' : 'Ego (P)'}
+                            </text>
+                          </g>
+
+                          {/* Competing Approach and Avoidance Gradients */}
+                          <path
+                            d="M 165 70 L 290 70"
+                            stroke="#10b981"
+                            strokeWidth="2.5"
+                            markerEnd="url(#lewinGreenArrow)"
+                          />
+                          <text x="228" y="62" fill="#10b981" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                            +F_approach (إقدام)
+                          </text>
+
+                          <path
+                            d="M 310 90 L 168 90"
+                            stroke="#ef4444"
+                            strokeWidth="3"
+                            markerEnd="url(#lewinRedArrow)"
+                          />
+                          <text x="238" y="104" fill="#ef4444" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                            -F_avoidance (انحدار إحجام أشد)
+                          </text>
+
+                          {/* Hesitation & Oscillation Landmark */}
+                          <line x1="250" y1="45" x2="250" y2="115" stroke="#eab308" strokeWidth="1" strokeDasharray="3 3" />
+                          <text x="250" y="128" fill="#eab308" fontSize="8" fontWeight="bold" textAnchor="middle">
+                            {isArabic ? 'نقطة التذبذب والتردد (Oscillation Equilibrium)' : 'Oscillation & Hesitation Equilibrium Point'}
+                          </text>
+                        </g>
+                      )}
+                    </svg>
                   </div>
                 </div>
 

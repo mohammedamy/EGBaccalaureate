@@ -483,46 +483,170 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
                 </div>
 
                 {/* SVG Visual Graph of Supply and Demand */}
-                <div className="h-44 w-full bg-slate-950/80 rounded-xl border border-slate-800 relative p-2 flex items-center justify-center">
-                  <svg viewBox="0 0 400 160" className="w-full h-full">
-                    {/* Axes */}
-                    <line x1="40" y1="130" x2="380" y2="130" stroke="#64748b" strokeWidth="1.5" />
-                    <line x1="40" y1="130" x2="40" y2="20" stroke="#64748b" strokeWidth="1.5" />
-                    <text x="380" y="145" fill="#94a3b8" fontSize="10" textAnchor="end">Q</text>
-                    <text x="25" y="25" fill="#94a3b8" fontSize="10">P</text>
+                <div className="h-56 w-full bg-slate-950/80 rounded-xl border border-slate-800 relative p-3 flex items-center justify-center">
+                  <svg viewBox="0 0 420 180" className="w-full h-full">
+                    <defs>
+                      {/* Consumer Surplus Gradient */}
+                      <linearGradient id="csGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#0284c7" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.08" />
+                      </linearGradient>
 
-                    {/* Demand Line */}
-                    <line x1="60" y1="30" x2="360" y2="120" stroke="#3b82f6" strokeWidth="2.5" />
-                    <text x="365" y="118" fill="#3b82f6" fontSize="10" fontWeight="bold">D</text>
+                      {/* Producer Surplus Gradient */}
+                      <linearGradient id="psGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.08" />
+                        <stop offset="100%" stopColor="#d97706" stopOpacity="0.35" />
+                      </linearGradient>
+                    </defs>
 
-                    {/* Supply Line */}
-                    <line x1="60" y1="120" x2="360" y2="30" stroke="#f43f5e" strokeWidth="2.5" />
-                    <text x="365" y="32" fill="#f43f5e" fontSize="10" fontWeight="bold">S</text>
+                    {/* Coordinate Scaling Helpers */}
+                    {(() => {
+                      const maxQ = Math.max(140, demandA * 1.15);
+                      const maxP = Math.max(65, (demandA / demandB) * 1.15);
+                      const toX = (q: number) => 45 + (Math.max(0, Math.min(maxQ, q)) / maxQ) * 335;
+                      const toY = (p: number) => 150 - (Math.max(0, Math.min(maxP, p)) / maxP) * 130;
 
-                    {/* Equilibrium Intersection Point */}
-                    <circle cx="210" cy="75" r="5" fill="#f59e0b" />
-                    <line x1="210" y1="75" x2="210" y2="130" stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 3" />
-                    <line x1="40" y1="75" x2="210" y2="75" stroke="#f59e0b" strokeWidth="1" strokeDasharray="3 3" />
-                    <text x="210" y="142" fill="#f59e0b" fontSize="9" textAnchor="middle">Q*</text>
-                    <text x="32" y="78" fill="#f59e0b" fontSize="9" textAnchor="end">P*</text>
+                      const chokeP = demandA / demandB;
+                      const minSupplyP = Math.max(0, (taxPerUnit * supplyD - supplyC) / supplyD);
 
-                    {/* Current Price Line */}
-                    {Math.abs(currentPrice - eqPrice) > 1 && (
-                      <>
-                        <line
-                          x1="40"
-                          y1={130 - (currentPrice / 50) * 105}
-                          x2="380"
-                          y2={130 - (currentPrice / 50) * 105}
-                          stroke="#10b981"
-                          strokeWidth="1.5"
-                          strokeDasharray="4 2"
-                        />
-                        <text x="32" y={130 - (currentPrice / 50) * 105 + 3} fill="#10b981" fontSize="9" textAnchor="end">
-                          P
-                        </text>
-                      </>
-                    )}
+                      const x0 = toX(0);
+                      const xEq = toX(eqQuantity);
+                      const yEq = toY(eqPrice);
+                      const yChoke = toY(chokeP);
+                      const yMinSupply = toY(minSupplyP);
+
+                      const pHigh = maxP * 0.95;
+                      const qdHighP = Math.max(0, demandA - demandB * pHigh);
+                      const qsHighP = Math.max(0, supplyC + supplyD * Math.max(0, pHigh - taxPerUnit));
+
+                      const yCurP = toY(currentPrice);
+                      const xCurQd = toX(currentQd);
+                      const xCurQs = toX(currentQs);
+
+                      return (
+                        <g>
+                          {/* Grid Lines */}
+                          {[0.25, 0.5, 0.75].map((ratio) => (
+                            <g key={ratio} opacity="0.4">
+                              <line x1={45} y1={150 - ratio * 130} x2={390} y2={150 - ratio * 130} stroke="#1e293b" strokeDasharray="3 3" />
+                              <line x1={45 + ratio * 335} y1={20} x2={45 + ratio * 335} y2={150} stroke="#1e293b" strokeDasharray="3 3" />
+                            </g>
+                          ))}
+
+                          {/* Axes */}
+                          <line x1={45} y1={150} x2={395} y2={150} stroke="#64748b" strokeWidth="1.5" />
+                          <line x1={45} y1={150} x2={45} y2={15} stroke="#64748b" strokeWidth="1.5" />
+                          <text x={395} y={164} fill="#94a3b8" fontSize="9" fontWeight="bold" textAnchor="end">
+                            {isArabic ? 'الكمية (Q)' : 'Quantity (Q)'}
+                          </text>
+                          <text x={32} y={18} fill="#94a3b8" fontSize="9" fontWeight="bold">
+                            {isArabic ? 'السعر (P)' : 'Price (P)'}
+                          </text>
+
+                          {/* Consumer Surplus Shaded Polygon */}
+                          {eqQuantity > 0 && chokeP > eqPrice && (
+                            <polygon
+                              points={`${x0},${yEq} ${x0},${yChoke} ${xEq},${yEq}`}
+                              fill="url(#csGrad)"
+                              stroke="#0284c7"
+                              strokeWidth="0.8"
+                              strokeDasharray="2,2"
+                            />
+                          )}
+
+                          {/* Producer Surplus Shaded Polygon */}
+                          {eqQuantity > 0 && eqPrice > minSupplyP && (
+                            <polygon
+                              points={`${x0},${yEq} ${x0},${yMinSupply} ${xEq},${yEq}`}
+                              fill="url(#psGrad)"
+                              stroke="#d97706"
+                              strokeWidth="0.8"
+                              strokeDasharray="2,2"
+                            />
+                          )}
+
+                          {/* Demand Curve (Downward Sloping) */}
+                          <line
+                            x1={toX(demandA)}
+                            y1={toY(0)}
+                            x2={toX(qdHighP)}
+                            y2={toY(pHigh)}
+                            stroke="#38bdf8"
+                            strokeWidth="2.5"
+                          />
+                          <text x={toX(qdHighP) + 6} y={toY(pHigh) + 4} fill="#38bdf8" fontSize="10" fontWeight="bold">
+                            D (Qd)
+                          </text>
+
+                          {/* Supply Curve (Upward Sloping) */}
+                          <line
+                            x1={toX(Math.max(0, supplyC - supplyD * taxPerUnit))}
+                            y1={toY(minSupplyP)}
+                            x2={toX(qsHighP)}
+                            y2={toY(pHigh)}
+                            stroke="#f43f5e"
+                            strokeWidth="2.5"
+                          />
+                          <text x={toX(qsHighP) + 6} y={toY(pHigh) + 4} fill="#f43f5e" fontSize="10" fontWeight="bold">
+                            S (Qs)
+                          </text>
+
+                          {/* Surplus Labels on Areas */}
+                          {eqQuantity > 20 && (
+                            <>
+                              <text x={45 + (xEq - 45) * 0.3} y={yEq - (yEq - yChoke) * 0.35} fill="#0ea5e9" fontSize="8" fontWeight="bold">
+                                CS (فائض المستهلك)
+                              </text>
+                              <text x={45 + (xEq - 45) * 0.3} y={yEq + (yMinSupply - yEq) * 0.45} fill="#f59e0b" fontSize="8" fontWeight="bold">
+                                PS (فائض المنتج)
+                              </text>
+                            </>
+                          )}
+
+                          {/* Market Equilibrium Projections and Dot */}
+                          <line x1={xEq} y1={yEq} x2={xEq} y2={150} stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3 3" />
+                          <line x1={45} y1={yEq} x2={xEq} y2={yEq} stroke="#f59e0b" strokeWidth="1.2" strokeDasharray="3 3" />
+                          <circle cx={xEq} cy={yEq} r="5" fill="#f59e0b" stroke="#ffffff" strokeWidth="1.2" />
+                          <text x={xEq} y={162} fill="#f59e0b" fontSize="9" fontWeight="bold" textAnchor="middle">
+                            Q*={eqQuantity.toFixed(0)}
+                          </text>
+                          <text x={38} y={yEq + 3} fill="#f59e0b" fontSize="9" fontWeight="bold" textAnchor="end">
+                            P*={eqPrice.toFixed(0)}
+                          </text>
+
+                          {/* Current Price Line and Disequilibrium Dynamics */}
+                          {Math.abs(currentPrice - eqPrice) >= 0.5 && (
+                            <g>
+                              <line x1={45} y1={yCurP} x2={Math.max(xCurQd, xCurQs)} y2={yCurP} stroke="#10b981" strokeWidth="1.5" strokeDasharray="4 2" />
+                              <circle cx={xCurQd} cy={yCurP} r="3.5" fill="#38bdf8" />
+                              <circle cx={xCurQs} cy={yCurP} r="3.5" fill="#f43f5e" />
+                              <text x={38} y={yCurP + 3} fill="#10b981" fontSize="8.5" fontWeight="bold" textAnchor="end">
+                                P={currentPrice}
+                              </text>
+
+                              {/* Imbalance Gap Bracket */}
+                              {currentPrice > eqPrice ? (
+                                <g>
+                                  {/* Excess Supply (Market Surplus) */}
+                                  <line x1={xCurQd} y1={yCurP - 5} x2={xCurQs} y2={yCurP - 5} stroke="#ef4444" strokeWidth="2" />
+                                  <text x={(xCurQd + xCurQs) / 2} y={yCurP - 8} fill="#ef4444" fontSize="7.5" fontWeight="bold" textAnchor="middle">
+                                    {isArabic ? `فائض عرض: ${(currentQs - currentQd).toFixed(0)}` : `Surplus: ${(currentQs - currentQd).toFixed(0)}`}
+                                  </text>
+                                </g>
+                              ) : (
+                                <g>
+                                  {/* Excess Demand (Market Shortage) */}
+                                  <line x1={xCurQs} y1={yCurP + 7} x2={xCurQd} y2={yCurP + 7} stroke="#06b6d4" strokeWidth="2" />
+                                  <text x={(xCurQd + xCurQs) / 2} y={yCurP + 17} fill="#06b6d4" fontSize="7.5" fontWeight="bold" textAnchor="middle">
+                                    {isArabic ? `عجز طلب: ${(currentQd - currentQs).toFixed(0)}` : `Shortage: ${(currentQd - currentQs).toFixed(0)}`}
+                                  </text>
+                                </g>
+                              )}
+                            </g>
+                          )}
+                        </g>
+                      );
+                    })()}
                   </svg>
                 </div>
               </div>
@@ -700,26 +824,118 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
                 </div>
 
                 {/* SVG 45-degree Keynesian Cross Diagram */}
-                <div className="h-44 w-full bg-slate-950/80 rounded-xl border border-slate-800 relative p-2 flex items-center justify-center">
-                  <svg viewBox="0 0 400 160" className="w-full h-full">
-                    {/* Axes */}
-                    <line x1="40" y1="130" x2="380" y2="130" stroke="#64748b" strokeWidth="1.5" />
-                    <line x1="40" y1="130" x2="40" y2="20" stroke="#64748b" strokeWidth="1.5" />
-                    <text x="380" y="145" fill="#94a3b8" fontSize="10" textAnchor="end">Income (Y)</text>
-                    <text x="25" y="25" fill="#94a3b8" fontSize="10">AE</text>
+                <div className="h-56 w-full bg-slate-950/80 rounded-xl border border-slate-800 relative p-3 flex items-center justify-center">
+                  <svg viewBox="0 0 420 180" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="gapGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#ef4444" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="#ef4444" stopOpacity="0.05" />
+                      </linearGradient>
+                    </defs>
 
-                    {/* 45-degree Line */}
-                    <line x1="40" y1="130" x2="350" y2="20" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <text x="355" y="25" fill="#94a3b8" fontSize="9">Y = AE (45°)</text>
+                    {(() => {
+                      const maxY = Math.max(750, Math.max(eqNationalIncome, fullEmploymentY) * 1.25);
+                      const toX = (yVal: number) => 45 + (Math.max(0, Math.min(maxY, yVal)) / maxY) * 335;
+                      const toY = (aeVal: number) => 150 - (Math.max(0, Math.min(maxY, aeVal)) / maxY) * 130;
 
-                    {/* Aggregate Expenditure AE = A + MPC*Y */}
-                    <line x1="40" y1="90" x2="350" y2="35" stroke="#f59e0b" strokeWidth="2.5" />
-                    <text x="355" y="42" fill="#f59e0b" fontSize="10" fontWeight="bold">AE</text>
+                      const x0 = toX(0);
+                      const xMax = toX(maxY * 0.95);
+                      const yAtX0 = toY(0);
+                      const yAtMax = toY(maxY * 0.95);
 
-                    {/* Intersection Equilibrium */}
-                    <circle cx="210" cy="60" r="5" fill="#10b981" />
-                    <line x1="210" y1="60" x2="210" y2="130" stroke="#10b981" strokeWidth="1" strokeDasharray="3 3" />
-                    <text x="210" y="142" fill="#10b981" fontSize="9" textAnchor="middle">Y*</text>
+                      // Equilibrium point
+                      const xEq = toX(eqNationalIncome);
+                      const yEq = toY(eqNationalIncome);
+
+                      // Autonomous Intercept A
+                      const yA = toY(autonomousExpenditure);
+
+                      // Full Employment Y_f
+                      const xFe = toX(fullEmploymentY);
+
+                      return (
+                        <g>
+                          {/* Grid */}
+                          {[0.25, 0.5, 0.75].map((ratio) => (
+                            <line key={ratio} x1={45} y1={150 - ratio * 130} x2={390} y2={150 - ratio * 130} stroke="#1e293b" strokeDasharray="3 3" />
+                          ))}
+
+                          {/* Axes */}
+                          <line x1={45} y1={150} x2={395} y2={150} stroke="#64748b" strokeWidth="1.5" />
+                          <line x1={45} y1={150} x2={45} y2={15} stroke="#64748b" strokeWidth="1.5" />
+                          <text x={395} y={164} fill="#94a3b8" fontSize="9" fontWeight="bold" textAnchor="end">
+                            {isArabic ? 'الناتج القومي Y' : 'National Income (Y)'}
+                          </text>
+                          <text x={32} y={18} fill="#94a3b8" fontSize="9" fontWeight="bold">
+                            AE
+                          </text>
+
+                          {/* 45-degree Equilibrium Line Y = AE */}
+                          <line x1={x0} y1={yAtX0} x2={xMax} y2={yAtMax} stroke="#64748b" strokeWidth="1.5" strokeDasharray="4 4" />
+                          <text x={xMax + 5} y={yAtMax + 3} fill="#94a3b8" fontSize="8.5" fontWeight="bold">
+                            Y = AE (45°)
+                          </text>
+
+                          {/* Aggregate Expenditure Curve AE = A + MPC * Y */}
+                          <line
+                            x1={x0}
+                            y1={yA}
+                            x2={xMax}
+                            y2={toY(autonomousExpenditure + mpc * (maxY * 0.95))}
+                            stroke="#f59e0b"
+                            strokeWidth="2.5"
+                          />
+                          <text x={xMax + 5} y={toY(autonomousExpenditure + mpc * (maxY * 0.95)) + 4} fill="#f59e0b" fontSize="9" fontWeight="bold">
+                            AE = A + {mpc}Y
+                          </text>
+
+                          {/* Autonomous Expenditure Intercept Marker */}
+                          <circle cx={x0} cy={yA} r="3.5" fill="#f59e0b" />
+                          <text x={38} y={yA + 3} fill="#f59e0b" fontSize="8" fontWeight="bold" textAnchor="end">
+                            A={autonomousExpenditure}
+                          </text>
+
+                          {/* Full Employment GDP Vertical Line Y_f */}
+                          <line x1={xFe} y1={25} x2={xFe} y2={150} stroke="#38bdf8" strokeWidth="1.5" strokeDasharray="3 3" />
+                          <text x={xFe} y={163} fill="#38bdf8" fontSize="8" fontWeight="bold" textAnchor="middle">
+                            Y_f={fullEmploymentY}
+                          </text>
+
+                          {/* Equilibrium Point E* (Y*, AE*) */}
+                          <line x1={xEq} y1={yEq} x2={xEq} y2={150} stroke="#10b981" strokeWidth="1.2" strokeDasharray="3 3" />
+                          <line x1={45} y1={yEq} x2={xEq} y2={yEq} stroke="#10b981" strokeWidth="1.2" strokeDasharray="3 3" />
+                          <circle cx={xEq} cy={yEq} r="5" fill="#10b981" stroke="#ffffff" strokeWidth="1.2" />
+                          <text x={xEq} y={146} fill="#10b981" fontSize="8.5" fontWeight="bold" textAnchor="middle">
+                            Y*={eqNationalIncome.toFixed(0)}
+                          </text>
+
+                          {/* Output Gap Shading between Y* and Y_f */}
+                          {Math.abs(eqNationalIncome - fullEmploymentY) > 5 && (
+                            <g>
+                              <rect
+                                x={Math.min(xEq, xFe)}
+                                y={25}
+                                width={Math.abs(xEq - xFe)}
+                                height={125}
+                                fill="url(#gapGrad)"
+                              />
+                              <text
+                                x={(xEq + xFe) / 2}
+                                y={35}
+                                fill="#ef4444"
+                                fontSize="7.5"
+                                fontWeight="bold"
+                                textAnchor="middle"
+                              >
+                                {eqNationalIncome < fullEmploymentY
+                                  ? (isArabic ? `فجوة ركود انكماشية (${(fullEmploymentY - eqNationalIncome).toFixed(0)})` : `Deflationary Gap (${(fullEmploymentY - eqNationalIncome).toFixed(0)})`)
+                                  : (isArabic ? `فجوة تضخمية (${(eqNationalIncome - fullEmploymentY).toFixed(0)})` : `Inflationary Gap (${(eqNationalIncome - fullEmploymentY).toFixed(0)})`)}
+                              </text>
+                            </g>
+                          )}
+                        </g>
+                      );
+                    })()}
                   </svg>
                 </div>
               </div>
@@ -1203,35 +1419,193 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
                 </div>
 
                 {/* SVG Bell Curve Visualization */}
-                <div className="h-44 w-full bg-slate-950/80 rounded-xl border border-slate-800 relative p-2 flex items-center justify-center">
-                  <svg viewBox="0 0 400 160" className="w-full h-full">
-                    {/* Horizontal Axis */}
-                    <line x1="20" y1="130" x2="380" y2="130" stroke="#64748b" strokeWidth="1.5" />
+                <div className="h-56 w-full bg-slate-950/80 rounded-xl border border-slate-800 relative p-3 flex items-center justify-center">
+                  <svg viewBox="0 0 440 180" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="normalAreaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.5" />
+                        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.08" />
+                      </linearGradient>
+                      <linearGradient id="normalCurveGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#64748b" />
+                        <stop offset="50%" stopColor="#f59e0b" />
+                        <stop offset="100%" stopColor="#64748b" />
+                      </linearGradient>
+                    </defs>
 
-                    {/* Bell Curve Path: peaked at cx=200 */}
-                    <path
-                      d="M 40 130 C 100 130, 150 25, 200 25 C 250 25, 300 130, 360 130"
-                      fill="none"
-                      stroke="#f59e0b"
-                      strokeWidth="2.5"
-                    />
-
-                    {/* Center Mean Line */}
-                    <line x1="200" y1="25" x2="200" y2="130" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3" />
-                    <text x="200" y="145" fill="#94a3b8" fontSize="10" textAnchor="middle">μ (Z=0)</text>
-
-                    {/* Z-target marker */}
                     {(() => {
-                      const clampedZ = Math.max(-3, Math.min(3, computedZ));
-                      const targetX = 200 + clampedZ * 45;
+                      const zMin = -3.5;
+                      const zMax = 3.5;
+                      const zToX = (z: number) => 220 + z * 48;
+                      const zToY = (z: number) => 145 - Math.exp(-0.5 * z * z) * 121;
+
+                      // Full Gaussian curve path
+                      const fullCurvePoints: string[] = [];
+                      for (let z = zMin; z <= zMax + 0.05; z += 0.1) {
+                        fullCurvePoints.push(`${zToX(z).toFixed(1)},${zToY(z).toFixed(1)}`);
+                      }
+                      const curvePath = `M ${fullCurvePoints.join(' L ')}`;
+
+                      const clampedZ = Math.max(-3.5, Math.min(3.5, computedZ));
+
+                      // Build dynamic area polygon
+                      let areaPath = '';
+                      if (calcType === 'less') {
+                        const pts: string[] = [`${zToX(zMin).toFixed(1)},145`];
+                        for (let z = zMin; z <= clampedZ + 0.01; z += 0.08) {
+                          pts.push(`${zToX(z).toFixed(1)},${zToY(z).toFixed(1)}`);
+                        }
+                        pts.push(`${zToX(clampedZ).toFixed(1)},${zToY(clampedZ).toFixed(1)}`);
+                        pts.push(`${zToX(clampedZ).toFixed(1)},145`);
+                        areaPath = `M ${pts.join(' L ')} Z`;
+                      } else if (calcType === 'greater') {
+                        const pts: string[] = [`${zToX(clampedZ).toFixed(1)},145`];
+                        pts.push(`${zToX(clampedZ).toFixed(1)},${zToY(clampedZ).toFixed(1)}`);
+                        for (let z = clampedZ; z <= zMax + 0.01; z += 0.08) {
+                          pts.push(`${zToX(z).toFixed(1)},${zToY(z).toFixed(1)}`);
+                        }
+                        pts.push(`${zToX(zMax).toFixed(1)},${zToY(zMax).toFixed(1)}`);
+                        pts.push(`${zToX(zMax).toFixed(1)},145`);
+                        areaPath = `M ${pts.join(' L ')} Z`;
+                      } else {
+                        // symmetric: -|Z| to +|Z|
+                        const absZ = Math.min(3.5, Math.abs(computedZ));
+                        const pts: string[] = [`${zToX(-absZ).toFixed(1)},145`];
+                        pts.push(`${zToX(-absZ).toFixed(1)},${zToY(-absZ).toFixed(1)}`);
+                        for (let z = -absZ; z <= absZ + 0.01; z += 0.08) {
+                          pts.push(`${zToX(z).toFixed(1)},${zToY(z).toFixed(1)}`);
+                        }
+                        pts.push(`${zToX(absZ).toFixed(1)},${zToY(absZ).toFixed(1)}`);
+                        pts.push(`${zToX(absZ).toFixed(1)},145`);
+                        areaPath = `M ${pts.join(' L ')} Z`;
+                      }
+
+                      // Target line coordinates
+                      const targetX = zToX(clampedZ);
+                      const targetY = zToY(clampedZ);
+
                       return (
-                        <>
-                          <line x1={targetX} y1="25" x2={targetX} y2="130" stroke="#10b981" strokeWidth="2" strokeDasharray="4 2" />
-                          <circle cx={targetX} cy="130" r="4" fill="#10b981" />
-                          <text x={targetX} y="18" fill="#10b981" fontSize="10" textAnchor="middle" fontWeight="bold">
-                            Z = {computedZ}
-                          </text>
-                        </>
+                        <g>
+                          {/* Baseline grid and axes */}
+                          <line x1="30" y1="145" x2="410" y2="145" stroke="#475569" strokeWidth="1.5" />
+
+                          {/* Shaded Cumulative Probability Region */}
+                          <path d={areaPath} fill="url(#normalAreaGrad)" />
+
+                          {/* Full Gaussian Bell Curve */}
+                          <path d={curvePath} fill="none" stroke="url(#normalCurveGlow)" strokeWidth="2.5" />
+
+                          {/* Standard Deviation Tick Marks (-3 to +3) */}
+                          {[-3, -2, -1, 0, 1, 2, 3].map((s) => {
+                            const sx = zToX(s);
+                            const originalVal = normMean + s * normStd;
+                            const isMean = s === 0;
+                            return (
+                              <g key={s}>
+                                <line
+                                  x1={sx}
+                                  y1={142}
+                                  x2={sx}
+                                  y2={148}
+                                  stroke={isMean ? '#94a3b8' : '#475569'}
+                                  strokeWidth={isMean ? 1.5 : 1}
+                                />
+                                {isMean && (
+                                  <line
+                                    x1={sx}
+                                    y1={24}
+                                    x2={sx}
+                                    y2={145}
+                                    stroke="#94a3b8"
+                                    strokeWidth="1.2"
+                                    strokeDasharray="3 3"
+                                  />
+                                )}
+                                <text
+                                  x={sx}
+                                  y={158}
+                                  fill={isMean ? '#e2e8f0' : '#64748b'}
+                                  fontSize="7.5"
+                                  fontFamily="monospace"
+                                  fontWeight={isMean ? 'bold' : 'normal'}
+                                  textAnchor="middle"
+                                >
+                                  {isMean ? 'μ' : `${s > 0 ? '+' : ''}${s}σ`}
+                                </text>
+                                <text
+                                  x={sx}
+                                  y={169}
+                                  fill="#475569"
+                                  fontSize="6.5"
+                                  fontFamily="monospace"
+                                  textAnchor="middle"
+                                >
+                                  {originalVal}
+                                </text>
+                              </g>
+                            );
+                          })}
+
+                          {/* Target Z vertical indicator */}
+                          <line
+                            x1={targetX}
+                            y1={Math.min(targetY, 30)}
+                            x2={targetX}
+                            y2={145}
+                            stroke="#10b981"
+                            strokeWidth="2"
+                            strokeDasharray="4 2"
+                          />
+                          <circle cx={targetX} cy={targetY} r="4.5" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
+
+                          {/* Symmetric counterpart indicator if active */}
+                          {calcType === 'symmetric' && Math.abs(computedZ) > 0.05 && (
+                            <g>
+                              <line
+                                x1={zToX(-Math.abs(clampedZ))}
+                                y1={Math.min(zToY(-Math.abs(clampedZ)), 30)}
+                                x2={zToX(-Math.abs(clampedZ))}
+                                y2={145}
+                                stroke="#10b981"
+                                strokeWidth="2"
+                                strokeDasharray="4 2"
+                              />
+                              <circle
+                                cx={zToX(-Math.abs(clampedZ))}
+                                cy={zToY(-Math.abs(clampedZ))}
+                                r="4.5"
+                                fill="#10b981"
+                                stroke="#ffffff"
+                                strokeWidth="1.5"
+                              />
+                            </g>
+                          )}
+
+                          {/* Target Callout Badge */}
+                          <g transform={`translate(${Math.max(45, Math.min(375, targetX))}, ${Math.max(14, targetY - 14)})`}>
+                            <rect
+                              x="-34"
+                              y="-11"
+                              width="68"
+                              height="15"
+                              rx="3"
+                              fill="#0f172a"
+                              stroke="#10b981"
+                              strokeWidth="1"
+                            />
+                            <text
+                              x="0"
+                              y="0"
+                              fill="#10b981"
+                              fontSize="8"
+                              fontFamily="monospace"
+                              fontWeight="bold"
+                              textAnchor="middle"
+                            >
+                              Z={computedZ} (X={zScoreTarget})
+                            </text>
+                          </g>
+                        </g>
                       );
                     })()}
                   </svg>
