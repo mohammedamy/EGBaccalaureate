@@ -49,13 +49,17 @@ import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2, FileText } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2, FileText, Languages } from 'lucide-react';
 import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
 import {
   getOfficialBookByBranch,
   getFullTextbookDownloadUrl,
   getFullTextbookPreviewUrl,
   getCompendiumDownloadUrl,
+  hasEnglishEdition,
+  getFullTextbookEnglishDownloadUrl,
+  getFullTextbookEnglishPreviewUrl,
+  getCompendiumEnglishDownloadUrl,
 } from '../data/officialBooksData';
 import { SUBJECTS } from '../data/subjects';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -1639,35 +1643,62 @@ export const LessonView: React.FC<Props> = ({
 
             {matchingBook && (
               <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-200/70 dark:border-slate-800/80 flex-wrap">
+                {/* Primary Textbook Download (English if lang === 'en' and available, otherwise Arabic) */}
                 <a
-                  href={getFullTextbookDownloadUrl(matchingBook)}
+                  href={lang === 'en' && hasEnglishEdition(matchingBook) ? getFullTextbookEnglishDownloadUrl(matchingBook) : getFullTextbookDownloadUrl(matchingBook)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-xs transition-all active:scale-95"
-                  title={t.downloadFullTextbookDirect}
+                  title={lang === 'en' && hasEnglishEdition(matchingBook) ? t.downloadEnglishFullTextbook : t.downloadFullTextbookDirect}
                 >
                   <Download className="w-3 h-3" />
-                  <span>{lang === 'ar' ? 'كتاب الوزارة الكامل' : 'Full Textbook'} ({matchingBook.fullTextbookSize})</span>
+                  <span>
+                    {lang === 'en' && hasEnglishEdition(matchingBook)
+                      ? `English Textbook (${matchingBook.englishEdition?.fullTextbookSizeEn || matchingBook.fullTextbookSize})`
+                      : `${lang === 'ar' ? 'كتاب الوزارة الكامل' : 'Full Textbook'} (${matchingBook.fullTextbookSize})`}
+                  </span>
                 </a>
+
+                {/* Concept Compendium */}
                 <a
-                  href={getCompendiumDownloadUrl(matchingBook)}
-                  download={matchingBook.filename}
+                  href={lang === 'en' && hasEnglishEdition(matchingBook) ? getCompendiumEnglishDownloadUrl(matchingBook) : getCompendiumDownloadUrl(matchingBook)}
+                  download={lang === 'en' && matchingBook.englishEdition ? matchingBook.englishEdition.filenameEn : matchingBook.filename}
                   className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-medium bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs transition-all active:scale-95"
-                  title={t.downloadConceptCompendium}
+                  title={lang === 'en' && hasEnglishEdition(matchingBook) ? t.downloadEnglishCompendium : t.downloadConceptCompendium}
                 >
                   <FileText className="w-3 h-3" />
-                  <span>{lang === 'ar' ? 'كتيب المفاهيم' : 'Compendium'} ({matchingBook.fileSize})</span>
+                  <span>
+                    {lang === 'ar' ? 'كتيب المفاهيم' : 'Compendium'} (
+                    {lang === 'en' && matchingBook.englishEdition ? matchingBook.englishEdition.fileSizeEn : matchingBook.fileSize}
+                    )
+                  </span>
                 </a>
+
+                {/* Online PDF Reader */}
                 <a
-                  href={getFullTextbookPreviewUrl(matchingBook)}
+                  href={lang === 'en' && hasEnglishEdition(matchingBook) ? getFullTextbookEnglishPreviewUrl(matchingBook) : getFullTextbookPreviewUrl(matchingBook)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 shadow-xs transition-all active:scale-95"
-                  title={t.previewFullTextbook}
+                  title={lang === 'en' && hasEnglishEdition(matchingBook) ? t.previewEnglishFullTextbook : t.previewFullTextbook}
                 >
                   <BookOpen className="w-3 h-3 text-cyan-400" />
                   <span>{lang === 'ar' ? 'معاينة أونلاين' : 'Online PDF'}</span>
                 </a>
+
+                {/* Alternate Edition Quick Download Button */}
+                {hasEnglishEdition(matchingBook) && (
+                  <a
+                    href={lang === 'en' ? getFullTextbookDownloadUrl(matchingBook) : getFullTextbookEnglishDownloadUrl(matchingBook)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[11px] font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-700 dark:text-amber-300 border border-amber-500/40 shadow-xs transition-all active:scale-95"
+                    title={lang === 'en' ? 'Download Arabic Edition' : 'تحميل نسخة مدارس اللغات باللغة الإنجليزية'}
+                  >
+                    <Languages className="w-3 h-3" />
+                    <span>{lang === 'en' ? 'Arabic Edition (عربي)' : 'نسخة اللغات (English PDF)'}</span>
+                  </a>
+                )}
                 {onOpenOfficialBooks && (
                   <button
                     onClick={() => onOpenOfficialBooks(matchingBook.id)}
@@ -2002,35 +2033,60 @@ export const LessonView: React.FC<Props> = ({
             <div className="flex items-center gap-2 self-start flex-wrap no-print">
               {matchingBook && (
                 <>
+                  {/* Primary Textbook Download */}
                   <a
-                    href={getFullTextbookDownloadUrl(matchingBook)}
+                    href={lang === 'en' && hasEnglishEdition(matchingBook) ? getFullTextbookEnglishDownloadUrl(matchingBook) : getFullTextbookDownloadUrl(matchingBook)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 px-3.5 rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all active:scale-95"
-                    title={t.downloadFullTextbookDirect}
+                    title={lang === 'en' && hasEnglishEdition(matchingBook) ? t.downloadEnglishFullTextbook : t.downloadFullTextbookDirect}
                   >
                     <Download className="w-4 h-4" />
-                    <span>{lang === 'ar' ? `كتاب الوزارة الكامل (${matchingBook.fullTextbookSize})` : `Full Textbook (${matchingBook.fullTextbookSize})`}</span>
+                    <span>
+                      {lang === 'en' && hasEnglishEdition(matchingBook)
+                        ? `English Textbook (${matchingBook.englishEdition?.fullTextbookSizeEn || matchingBook.fullTextbookSize})`
+                        : `${lang === 'ar' ? 'كتاب الوزارة الكامل' : 'Full Textbook'} (${matchingBook.fullTextbookSize})`}
+                    </span>
                   </a>
+
+                  {/* Concept Compendium */}
                   <a
-                    href={getCompendiumDownloadUrl(matchingBook)}
-                    download={matchingBook.filename}
+                    href={lang === 'en' && hasEnglishEdition(matchingBook) ? getCompendiumEnglishDownloadUrl(matchingBook) : getCompendiumDownloadUrl(matchingBook)}
+                    download={lang === 'en' && matchingBook.englishEdition ? matchingBook.englishEdition.filenameEn : matchingBook.filename}
                     className="bg-teal-600 hover:bg-teal-500 text-white font-bold py-2 px-3 rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all active:scale-95"
-                    title={t.downloadConceptCompendium}
+                    title={lang === 'en' && hasEnglishEdition(matchingBook) ? t.downloadEnglishCompendium : t.downloadConceptCompendium}
                   >
                     <FileText className="w-3.5 h-3.5" />
-                    <span>{lang === 'ar' ? `كتيب المفاهيم (${matchingBook.fileSize})` : `Compendium (${matchingBook.fileSize})`}</span>
+                    <span>
+                      {lang === 'ar' ? `كتيب المفاهيم (${matchingBook.fileSize})` : `Compendium (${lang === 'en' && matchingBook.englishEdition ? matchingBook.englishEdition.fileSizeEn : matchingBook.fileSize})`}
+                    </span>
                   </a>
+
+                  {/* Online PDF */}
                   <a
-                    href={getFullTextbookPreviewUrl(matchingBook)}
+                    href={lang === 'en' && hasEnglishEdition(matchingBook) ? getFullTextbookEnglishPreviewUrl(matchingBook) : getFullTextbookPreviewUrl(matchingBook)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold py-2 px-3 rounded-xl text-xs flex items-center gap-1.5 border border-slate-700 shadow-md transition-all active:scale-95"
-                    title={t.previewFullTextbook}
+                    title={lang === 'en' && hasEnglishEdition(matchingBook) ? t.previewEnglishFullTextbook : t.previewFullTextbook}
                   >
                     <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
                     <span>{lang === 'ar' ? 'معاينة أونلاين' : 'Online PDF'}</span>
                   </a>
+
+                  {/* Alternate Edition Quick Download Button */}
+                  {hasEnglishEdition(matchingBook) && (
+                    <a
+                      href={lang === 'en' ? getFullTextbookDownloadUrl(matchingBook) : getFullTextbookEnglishDownloadUrl(matchingBook)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-700 dark:text-amber-300 font-bold py-2 px-3 rounded-xl text-xs flex items-center gap-1.5 border border-amber-500/40 shadow-xs transition-all active:scale-95"
+                      title={lang === 'en' ? 'Download Arabic Edition' : 'تحميل نسخة مدارس اللغات باللغة الإنجليزية'}
+                    >
+                      <Languages className="w-3.5 h-3.5" />
+                      <span>{lang === 'en' ? 'Arabic Edition (عربي)' : 'نسخة اللغات (English PDF)'}</span>
+                    </a>
+                  )}
                 </>
               )}
               <button

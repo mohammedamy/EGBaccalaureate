@@ -7,6 +7,10 @@ import {
   getFullTextbookDownloadUrl,
   getFullTextbookPreviewUrl,
   getCompendiumDownloadUrl,
+  hasEnglishEdition,
+  getFullTextbookEnglishDownloadUrl,
+  getFullTextbookEnglishPreviewUrl,
+  getCompendiumEnglishDownloadUrl,
 } from '../data/officialBooksData';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
@@ -35,6 +39,7 @@ import {
   ShieldAlert,
   Globe,
   ExternalLink,
+  Languages,
 } from 'lucide-react';
 
 interface Props {
@@ -59,10 +64,23 @@ export const OfficialBooksModal: React.FC<Props> = ({
 
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [filterSubject, setFilterSubject] = useState<string>('all');
-  const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium'>('all');
+  const [filterCurriculum, setFilterCurriculum] = useState<'all' | 'thanaweya' | 'egbac' | 'compendium' | 'languages'>('all');
+  const [selectedEdition, setSelectedEdition] = useState<Record<string, 'ar' | 'en'>>({});
   const [expandedChaptersBookId, setExpandedChaptersBookId] = useState<string | null>(initialBookId || null);
   const [showWafModal, setShowWafModal] = useState<OfficialBook | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Helper to determine active edition on a card ('ar' or 'en')
+  const getCardEdition = (book: OfficialBook): 'ar' | 'en' => {
+    if (selectedEdition[book.id]) {
+      return selectedEdition[book.id];
+    }
+    // If viewing app in English and book has an English edition, default to English
+    if (lang === 'en' && hasEnglishEdition(book)) {
+      return 'en';
+    }
+    return 'ar';
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -96,7 +114,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
         return false;
       }
 
-      // Curriculum filter
+      // Curriculum / Edition filter
       if (filterCurriculum === 'thanaweya' && book.curriculum !== 'thanaweya' && book.curriculum !== 'both') {
         return false;
       }
@@ -106,13 +124,16 @@ export const OfficialBooksModal: React.FC<Props> = ({
       if (filterCurriculum === 'compendium' && book.category !== 'compendium') {
         return false;
       }
+      if (filterCurriculum === 'languages' && !hasEnglishEdition(book)) {
+        return false;
+      }
 
       // Search query
       if (!searchQuery.trim()) return true;
       const q = searchQuery.toLowerCase().trim();
-      const inTitleEn = book.titleEn.toLowerCase().includes(q);
-      const inTitleAr = book.titleAr.includes(q);
-      const inCode = book.code.toLowerCase().includes(q);
+      const inTitleEn = book.titleEn.toLowerCase().includes(q) || (book.englishEdition?.titleEn?.toLowerCase().includes(q) ?? false);
+      const inTitleAr = book.titleAr.includes(q) || (book.englishEdition?.titleAr?.includes(q) ?? false);
+      const inCode = book.code.toLowerCase().includes(q) || (book.englishEdition?.code?.toLowerCase().includes(q) ?? false);
       const inDescEn = book.descriptionEn.toLowerCase().includes(q);
       const inDescAr = book.descriptionAr.includes(q);
       const inChapters = book.chapters.some(
@@ -279,6 +300,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                 <option value="thanaweya">{t.filterThanaweyaBooks}</option>
                 <option value="egbac">{t.filterEgBacBooks}</option>
                 <option value="compendium">{t.filterCompendiums}</option>
+                <option value="languages">🇬🇧 {t.filterEnglishEditions} ({officialBooksList.filter(b => hasEnglishEdition(b)).length})</option>
               </select>
             </div>
           </div>
@@ -371,6 +393,9 @@ export const OfficialBooksModal: React.FC<Props> = ({
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {filteredBooks.map((book) => {
                 const isExpanded = expandedChaptersBookId === book.id;
+                const cardEdition = getCardEdition(book);
+                const isEnglishActive = cardEdition === 'en';
+                const hasEn = hasEnglishEdition(book);
 
                 return (
                   <div
@@ -396,7 +421,7 @@ export const OfficialBooksModal: React.FC<Props> = ({
                       <div className="flex items-start justify-between gap-3">
                         {/* Title & Subtitle */}
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1 flex-wrap">
+                          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
                             <span
                               className="px-2.5 py-0.5 rounded-full text-[11px] font-bold font-mono tracking-wide"
                               style={{
@@ -405,11 +430,15 @@ export const OfficialBooksModal: React.FC<Props> = ({
                                 border: `1px solid ${book.accentColor}50`,
                               }}
                             >
-                              {book.code}
+                              {isEnglishActive && book.englishEdition ? book.englishEdition.code : book.code}
                             </span>
                             <span
                               className={`text-[11px] px-2 py-0.5 rounded-full font-medium ${
-                                book.curriculum === 'thanaweya'
+                                isEnglishActive
+                                  ? isLight
+                                    ? 'bg-indigo-100 text-indigo-800'
+                                    : 'bg-indigo-900/60 text-indigo-300'
+                                  : book.curriculum === 'thanaweya'
                                   ? isLight
                                     ? 'bg-teal-100 text-teal-800'
                                     : 'bg-teal-900/60 text-teal-300'
@@ -422,7 +451,9 @@ export const OfficialBooksModal: React.FC<Props> = ({
                                   : 'bg-amber-900/60 text-amber-300'
                               }`}
                             >
-                              {book.curriculum === 'thanaweya'
+                              {isEnglishActive
+                                ? (isArabic ? 'مدارس اللغات' : 'Language Schools')
+                                : book.curriculum === 'thanaweya'
                                 ? isArabic
                                   ? 'ثانوية عامة'
                                   : 'Thanaweya Amma'
@@ -434,13 +465,52 @@ export const OfficialBooksModal: React.FC<Props> = ({
                                 ? 'كتيب معتمد عام'
                                 : 'National Compendium'}
                             </span>
+
+                            {/* Dual Edition Switcher for Math & Science */}
+                            {hasEn && (
+                              <div className="inline-flex items-center p-0.5 rounded-lg bg-white/80 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-700 text-[11px] font-bold shadow-2xs">
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedEdition((prev) => ({ ...prev, [book.id]: 'ar' }))}
+                                  className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${
+                                    !isEnglishActive
+                                      ? 'bg-emerald-600 text-white shadow-xs'
+                                      : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                                  }`}
+                                  title="النسخة العربية الأصلية"
+                                >
+                                  عربي
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => setSelectedEdition((prev) => ({ ...prev, [book.id]: 'en' }))}
+                                  className={`px-2 py-0.5 rounded-md transition-all cursor-pointer flex items-center gap-1 ${
+                                    isEnglishActive
+                                      ? 'bg-indigo-600 text-white shadow-xs'
+                                      : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+                                  }`}
+                                  title="English Edition (Language Schools)"
+                                >
+                                  <Languages className="w-3 h-3" />
+                                  <span>English (لغات)</span>
+                                </button>
+                              </div>
+                            )}
                           </div>
 
                           <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">
-                            {isArabic ? book.titleAr : book.titleEn}
+                            {isEnglishActive && book.englishEdition
+                              ? book.englishEdition.titleEn
+                              : isArabic
+                              ? book.titleAr
+                              : book.titleEn}
                           </h3>
                           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
-                            {isArabic ? book.titleEn : book.titleAr}
+                            {isEnglishActive && book.englishEdition
+                              ? book.englishEdition.titleAr
+                              : isArabic
+                              ? book.titleEn
+                              : book.titleAr}
                           </p>
                         </div>
 
@@ -448,21 +518,29 @@ export const OfficialBooksModal: React.FC<Props> = ({
                         <div className="flex flex-col items-end gap-1 flex-shrink-0">
                           <span
                             className={`text-xs font-bold px-2.5 py-1 rounded-lg border ${
-                              isLight
+                              isEnglishActive
+                                ? isLight
+                                  ? 'bg-indigo-50 text-indigo-800 border-indigo-200'
+                                  : 'bg-indigo-950/80 text-indigo-300 border-indigo-700/60'
+                                : isLight
                                 ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
                                 : 'bg-emerald-950/80 text-emerald-300 border-emerald-700/60'
                             }`}
-                            title={isArabic ? 'حجم وصفحات الكتاب المدرسي ببوابة الوزارة' : 'Full textbook pages & size on Ministry portal'}
+                            title={isEnglishActive ? 'Full English textbook pages & size' : (isArabic ? 'حجم وصفحات الكتاب المدرسي ببوابة الوزارة' : 'Full textbook pages & size on Ministry portal')}
                           >
-                            {isArabic
+                            {isEnglishActive && book.englishEdition
+                              ? `${book.englishEdition.fullTextbookPagesEn} Pages • ${book.englishEdition.fullTextbookSizeEn}`
+                              : isArabic
                               ? `${toHindiDigits(book.fullTextbookPages)} صفحة • ${book.fullTextbookSize}`
                               : `${book.fullTextbookPages} Pages • ${book.fullTextbookSize}`}
                           </span>
                           <span
                             className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800/90 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700"
-                            title={isArabic ? 'كتيب المفاهيم المعتمد' : 'In-App Concept Compendium'}
+                            title={isEnglishActive ? 'English Concept Compendium' : (isArabic ? 'كتيب المفاهيم المعتمد' : 'In-App Concept Compendium')}
                           >
-                            {isArabic
+                            {isEnglishActive && book.englishEdition
+                              ? `Compendium: ${book.englishEdition.pagesCountEn}p (${book.englishEdition.fileSizeEn})`
+                              : isArabic
                               ? `الكتيب: ${toHindiDigits(book.pagesCount)} ص (${book.fileSize})`
                               : `Compendium: ${book.pagesCount}p (${book.fileSize})`}
                           </span>
@@ -541,62 +619,72 @@ export const OfficialBooksModal: React.FC<Props> = ({
                       <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex flex-col gap-2">
                         {/* 1. PRIMARY: Full Ministry Official Textbook (~20MB, 200+ pages) Direct Download */}
                         <a
-                          href={getFullTextbookDownloadUrl(book)}
+                          href={isEnglishActive ? getFullTextbookEnglishDownloadUrl(book) : getFullTextbookDownloadUrl(book)}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-full inline-flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-white shadow-md transition-all hover:opacity-95 active:scale-[0.99] group"
                           style={{
-                            background: `linear-gradient(135deg, ${book.accentColor}, ${book.accentColor}dd)`,
+                            background: isEnglishActive
+                              ? 'linear-gradient(135deg, #4338ca, #6366f1)'
+                              : `linear-gradient(135deg, ${book.accentColor}, ${book.accentColor}dd)`,
                           }}
-                          title={t.downloadFullTextbookDirect}
+                          title={isEnglishActive ? t.downloadEnglishFullTextbook : t.downloadFullTextbookDirect}
                         >
                           <div className="flex items-center gap-2">
                             <Download className="w-4 h-4 animate-bounce" />
                             <div className="flex flex-col text-left rtl:text-right">
-                              <span className="font-extrabold">{t.downloadFullTextbookDirect}</span>
+                              <span className="font-extrabold">
+                                {isEnglishActive ? t.downloadEnglishFullTextbook : t.downloadFullTextbookDirect}
+                              </span>
                               <span className="text-[10px] font-normal opacity-90">
-                                {isArabic ? 'النسخة الوزارية الكاملة والأصلية' : 'Genuine Complete Official Copy'}
+                                {isEnglishActive
+                                  ? (isArabic ? 'النسخة الإنجليزية الرسمية لمدارس اللغات' : 'Official Ministry English Edition')
+                                  : (isArabic ? 'النسخة الوزارية الكاملة والأصلية' : 'Genuine Complete Official Copy')}
                               </span>
                             </div>
                           </div>
                           <div className="flex flex-col items-end text-[11px] font-mono opacity-95">
                             <span className="font-bold">
-                              {isArabic
-                                ? `${toHindiDigits(book.fullTextbookPages)} صفحة • ${book.fullTextbookSize}`
-                                : `${book.fullTextbookPages}p • ${book.fullTextbookSize}`}
+                              {isEnglishActive && book.englishEdition
+                                ? `${book.englishEdition.fullTextbookPagesEn}p • ${book.englishEdition.fullTextbookSizeEn}`
+                                : (isArabic
+                                    ? `${toHindiDigits(book.fullTextbookPages)} صفحة • ${book.fullTextbookSize}`
+                                    : `${book.fullTextbookPages}p • ${book.fullTextbookSize}`)}
                             </span>
                             <span className="text-[9px] px-1.5 py-0.5 bg-white/20 rounded font-sans uppercase font-bold tracking-wider">
-                              Anti-403
+                              {isEnglishActive ? 'Languages • Anti-403' : 'Anti-403'}
                             </span>
                           </div>
                         </a>
 
                         {/* 2. SECONDARY: Quick Concept Compendium & Formula Guide (20KB, 8 pages) */}
                         <a
-                          href={getCompendiumDownloadUrl(book)}
-                          download={book.filename}
+                          href={isEnglishActive ? getCompendiumEnglishDownloadUrl(book) : getCompendiumDownloadUrl(book)}
+                          download={isEnglishActive && book.englishEdition ? book.englishEdition.filenameEn : book.filename}
                           className={`w-full inline-flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
                             isLight
                               ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 shadow-2xs'
                               : 'bg-slate-800/90 hover:bg-slate-700 text-slate-100 border-slate-700 hover:border-slate-500 shadow-2xs'
                           }`}
-                          title={t.downloadConceptCompendium}
+                          title={isEnglishActive ? t.downloadEnglishCompendium : t.downloadConceptCompendium}
                         >
                           <div className="flex items-center gap-2">
                             <FileText className="w-3.5 h-3.5 text-emerald-400" />
-                            <span>{t.downloadConceptCompendium}</span>
+                            <span>{isEnglishActive ? t.downloadEnglishCompendium : t.downloadConceptCompendium}</span>
                           </div>
                           <span className="text-[11px] font-mono text-slate-400 dark:text-slate-400">
-                            {isArabic
-                              ? `${toHindiDigits(book.pagesCount)} صفحات • ${book.fileSize}`
-                              : `${book.pagesCount}p • ${book.fileSize}`}
+                            {isEnglishActive && book.englishEdition
+                              ? `${book.englishEdition.pagesCountEn}p • ${book.englishEdition.fileSizeEn}`
+                              : (isArabic
+                                  ? `${toHindiDigits(book.pagesCount)} صفحات • ${book.fileSize}`
+                                  : `${book.pagesCount}p • ${book.fileSize}`)}
                           </span>
                         </a>
 
                         {/* 3. TERTIARY ROW: Full Textbook Online Reader, Compendium Preview, and WAF Info */}
                         <div className="flex items-center gap-2">
                           <a
-                            href={getFullTextbookPreviewUrl(book)}
+                            href={isEnglishActive ? getFullTextbookEnglishPreviewUrl(book) : getFullTextbookPreviewUrl(book)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
@@ -604,10 +692,10 @@ export const OfficialBooksModal: React.FC<Props> = ({
                                 ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
                                 : 'bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border-indigo-800/60'
                             }`}
-                            title={t.previewFullTextbook}
+                            title={isEnglishActive ? t.previewEnglishFullTextbook : t.previewFullTextbook}
                           >
                             <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
-                            <span>{t.previewFullTextbook}</span>
+                            <span>{isEnglishActive ? t.previewEnglishFullTextbook : t.previewFullTextbook}</span>
                           </a>
 
                           <button

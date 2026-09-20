@@ -162,6 +162,16 @@ export interface Translations {
   moePortalElearning: string;
   inAppCompendiumSubtitle: string;
 
+  // Language Schools & English Edition
+  arabicEdition: string;
+  englishEdition: string;
+  languageSchoolsBadge: string;
+  filterEnglishEditions: string;
+  downloadEnglishFullTextbook: string;
+  previewEnglishFullTextbook: string;
+  downloadEnglishCompendium: string;
+  englishEditionAvailable: string;
+
   // Footers & References
   copyright: string;
   moeReferenceNote: string;
@@ -324,6 +334,16 @@ export const translations: Record<Language, Translations> = {
     moePortalElearning: 'Ministry E-Learning Portal',
     inAppCompendiumSubtitle: 'Certified Exam Formula & Concept Sheet (20KB)',
 
+    // Language Schools & English Edition
+    arabicEdition: 'Arabic Edition',
+    englishEdition: 'English Edition (Language Schools)',
+    languageSchoolsBadge: 'Language Schools',
+    filterEnglishEditions: 'Language Schools (English)',
+    downloadEnglishFullTextbook: 'Download English Full Textbook (~20MB)',
+    previewEnglishFullTextbook: 'Read English Textbook Online',
+    downloadEnglishCompendium: 'Download English Concept Compendium (20KB)',
+    englishEditionAvailable: 'English Edition for Language Schools is available',
+
     copyright: '© 2026 Egyptian Mathematics Educational Portal. Standardized on the Egyptian Ministry of Education Mathematics Framework.',
     moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).',
     footerContactLabel: 'Error reports & suggestions:',
@@ -483,6 +503,16 @@ export const translations: Record<Language, Translations> = {
     fullTextbookLabel: 'الكتاب المدرسي الوزاري الكامل (~20MB)',
     moePortalElearning: 'بوابة التعليم الإلكتروني للوزارة',
     inAppCompendiumSubtitle: 'كتيب القوانين والمفاهيم المركزة للامتحانات (20KB)',
+
+    // Language Schools & English Edition
+    arabicEdition: 'النسخة العربية',
+    englishEdition: 'نسخة اللغات (English)',
+    languageSchoolsBadge: 'مدارس اللغات',
+    filterEnglishEditions: 'مدارس اللغات (English)',
+    downloadEnglishFullTextbook: 'تحميل كتاب اللغات بالإنجليزية (~20MB)',
+    previewEnglishFullTextbook: 'معاينة كتاب اللغات بالإنجليزية أونلاين',
+    downloadEnglishCompendium: 'تحميل كتيب المفاهيم بالإنجليزية (20KB)',
+    englishEditionAvailable: 'متوفر نسخة باللغة الإنجليزية لمدارس اللغات',
 
     copyright: '© 2026 بوابة الرياضيات للتعليم المصري. مطور وفق الإطار العام للمناهج بوزارة التربية والتعليم والتعليم الفني المصرية.',
     moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.',

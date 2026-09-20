@@ -12,6 +12,10 @@ import {
   getOfficialBookById,
   getOfficialBookByBranch,
   getOfficialBooksBySubject,
+  hasEnglishEdition,
+  getFullTextbookEnglishDownloadUrl,
+  getFullTextbookEnglishPreviewUrl,
+  getCompendiumEnglishDownloadUrl,
 } from '../src/data/officialBooksData.js';
 import { thanaweyaCurriculum } from '../src/data/thanaweyaData.js';
 import { egBacCurriculum } from '../src/data/egBacData.js';
@@ -115,6 +119,57 @@ async function runVerification() {
     assert(book.chapters && book.chapters.length > 0, `Book [${book.id}] must have chapter list`);
     assert(book.titleEn.length > 0 && book.titleAr.length > 0, `Book [${book.id}] must have bilingual titles`);
     assert(book.code.length > 0, `Book [${book.id}] must have official document code`);
+
+    // English Edition Verification
+    if (hasEnglishEdition(book)) {
+      if (book.englishEdition) {
+        assert(
+          book.englishEdition.titleEn.length > 0 && book.englishEdition.titleAr.length > 0,
+          `Book [${book.id}] English edition must have bilingual titles`
+        );
+        assert(
+          book.englishEdition.fullTextbookPagesEn >= 50,
+          `Book [${book.id}] English edition fullTextbookPagesEn must be >= 50, got: ${book.englishEdition.fullTextbookPagesEn}`
+        );
+        assert(
+          book.englishEdition.fullTextbookSizeEn.includes('MB'),
+          `Book [${book.id}] English edition fullTextbookSizeEn must specify MB, got: ${book.englishEdition.fullTextbookSizeEn}`
+        );
+
+        // Compendium file check
+        const enFilePath = path.join(booksDir, book.englishEdition.filenameEn);
+        const enFileExists = fs.existsSync(enFilePath);
+        assert(enFileExists, `English compendium file for [${book.id}] must exist at public/books/${book.englishEdition.filenameEn}`);
+        if (enFileExists) {
+          const docEn = await PDFDocument.load(fs.readFileSync(enFilePath));
+          assert(
+            docEn.getPageCount() >= 7,
+            `English compendium for [${book.id}] must have >= 7 pages, got ${docEn.getPageCount()}`
+          );
+        }
+
+        // Compendium download URL
+        const compendiumEnUrl = getCompendiumEnglishDownloadUrl(book);
+        assert(
+          compendiumEnUrl.includes(book.englishEdition.filenameEn),
+          `Book [${book.id}] getCompendiumEnglishDownloadUrl must contain filenameEn, got: ${compendiumEnUrl}`
+        );
+      }
+
+      // Full English download URL
+      const fullEnDownloadUrl = getFullTextbookEnglishDownloadUrl(book);
+      assert(
+        typeof fullEnDownloadUrl === 'string' && fullEnDownloadUrl.startsWith('http'),
+        `Book [${book.id}] getFullTextbookEnglishDownloadUrl must return valid http URL, got: ${fullEnDownloadUrl}`
+      );
+
+      // Full English preview URL
+      const fullEnPreviewUrl = getFullTextbookEnglishPreviewUrl(book);
+      assert(
+        typeof fullEnPreviewUrl === 'string' && fullEnPreviewUrl.startsWith('http'),
+        `Book [${book.id}] getFullTextbookEnglishPreviewUrl must return valid http URL, got: ${fullEnPreviewUrl}`
+      );
+    }
   }
 
   // 3. Branch Mapping Coverage Check
@@ -172,6 +227,38 @@ async function runVerification() {
   for (const s of subjects) {
     const books = getOfficialBooksBySubject(s);
     assert(books.length >= 1, `Subject [${s}] must return at least 1 official book, got ${books.length}`);
+  }
+
+  // 5. English Edition Coverage for Mathematics & Science
+  console.log('\n--- Checking English Edition coverage for Math & Science ---');
+  const requiredEnglishBookIds = [
+    'th-alg-sol-g12',
+    'th-calc-g12',
+    'th-stat-g12',
+    'th-dyn-g12',
+    'th-phys-g12',
+    'th-chem-g12',
+    'th-bio-g12',
+    'th-geology-g12',
+    'th-econ-stat-g12',
+    'egbac-disc-adv',
+    'egbac-ana-adv',
+    'egbac-mech-adv',
+    'egbac-phys-adv',
+    'egbac-chem-adv',
+    'egbac-bio-adv',
+    'egbac-geology-g12',
+  ];
+
+  for (const id of requiredEnglishBookIds) {
+    const b = getOfficialBookById(id);
+    assert(b !== undefined, `Required English edition book [${id}] must exist in catalog`);
+    if (b) {
+      assert(
+        hasEnglishEdition(b),
+        `Book [${id}] must have hasEnglishEdition === true`
+      );
+    }
   }
 
   console.log('\n================================================================');

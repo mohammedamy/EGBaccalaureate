@@ -1,3 +1,23 @@
+export interface OfficialBookEnglishEdition {
+  titleEn: string;
+  titleAr: string;
+  subtitleEn: string;
+  subtitleAr: string;
+  code: string;
+  filenameEn: string;
+  downloadUrlEn: string;
+  fileSizeEn: string;
+  pagesCountEn: number;
+  fullTextbookPagesEn: number;
+  fullTextbookSizeEn: string;
+  fullTextbookDriveIdEn?: string;
+  fullTextbookDownloadUrlEn?: string;
+  fullTextbookPreviewUrlEn?: string;
+  officialPortalUrlEn?: string;
+  descriptionEn?: string;
+  descriptionAr?: string;
+}
+
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
@@ -43,12 +63,34 @@ export interface OfficialBook {
   descriptionAr: string;
   highlightsEn: string[];
   highlightsAr: string[];
+  hasEnglishEdition?: boolean;
+  englishEdition?: OfficialBookEnglishEdition;
 }
 
 export const officialBooksList: OfficialBook[] = [
   // 1. Thanaweya Pure Math: Algebra & Solid Geometry
   {
     id: 'th-alg-sol-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Pure Mathematics: Algebra & Solid Geometry (Language Schools Edition)",
+        titleAr: "الرياضيات البحتة: الجبر والهندسة الفراغية (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-ALG-SOL-G12-EN",
+        filenameEn: "thanaweya-algebra-solid-geometry-en.pdf",
+        downloadUrlEn: "./books/thanaweya-algebra-solid-geometry-en.pdf",
+        fileSizeEn: "22.1 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 224,
+        fullTextbookSizeEn: "18.9 MB",
+        fullTextbookDriveIdEn: "1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Official Ministry of Education Mathematics textbook translated into English for Egyptian Language Schools and STEM institutes.",
+        descriptionAr: "كتاب وزارة التربية والتعليم الرسمي للرياضيات البحتة المترجم بالإنجليزية لمدارس اللغات ومدارس المتفوقين في مصر."
+    },
     curriculum: 'thanaweya',
     category: 'pure_math',
     subjectId: 'mathematics',
@@ -133,6 +175,26 @@ export const officialBooksList: OfficialBook[] = [
   // 2. Thanaweya Pure Math: Calculus & Integration
   {
     id: 'th-calc-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Pure Mathematics: Calculus & Analytical Geometry (Language Schools Edition)",
+        titleAr: "الرياضيات البحتة: التفاضل والتكامل (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-CALC-G12-EN",
+        filenameEn: "thanaweya-calculus-integration-en.pdf",
+        downloadUrlEn: "./books/thanaweya-calculus-integration-en.pdf",
+        fileSizeEn: "20.5 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 212,
+        fullTextbookSizeEn: "17.8 MB",
+        fullTextbookDriveIdEn: "12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Complete English Calculus syllabus covering limits, higher-order derivatives, implicit and parametric differentiation, and Riemann integrals.",
+        descriptionAr: "منهج التفاضل والتكامل الكامل باللغة الإنجليزية لطلاب مدارس اللغات والشهادة الثانوية العامة."
+    },
     curriculum: 'thanaweya',
     category: 'pure_math',
     subjectId: 'mathematics',
@@ -210,6 +272,26 @@ export const officialBooksList: OfficialBook[] = [
   // 3. Thanaweya Applied Math: Statics
   {
     id: 'th-stat-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Applied Mathematics: Statics (Language Schools Edition)",
+        titleAr: "الرياضيات التطبيقية: الاستاتيكا (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-STAT-G12-EN",
+        filenameEn: "thanaweya-statics-en.pdf",
+        downloadUrlEn: "./books/thanaweya-statics-en.pdf",
+        fileSizeEn: "20.6 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 140,
+        fullTextbookSizeEn: "12.4 MB",
+        fullTextbookDriveIdEn: "1c3odalouhrrghpkmU3BOtBX9tWvNmGrT",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1c3odalouhrrghpkmU3BOtBX9tWvNmGrT&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1c3odalouhrrghpkmU3BOtBX9tWvNmGrT/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Equilibrium of coplanar and spatial forces, friction, moments, parallel force systems, and centers of gravity for Language Schools.",
+        descriptionAr: "كتاب الاستاتيكا باللغة الإنجليزية لمدارس اللغات: الاحتكاك، العزوم، القوى المتوازية، والاتزان العام ومركز الثقل."
+    },
     curriculum: 'thanaweya',
     category: 'applied_math',
     subjectId: 'mathematics',
@@ -301,6 +383,26 @@ export const officialBooksList: OfficialBook[] = [
   // 4. Thanaweya Applied Math: Dynamics
   {
     id: 'th-dyn-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Applied Mathematics: Dynamics (Language Schools Edition)",
+        titleAr: "الرياضيات التطبيقية: الديناميكا (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-DYN-G12-EN",
+        filenameEn: "thanaweya-dynamics-en.pdf",
+        downloadUrlEn: "./books/thanaweya-dynamics-en.pdf",
+        fileSizeEn: "20.4 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 160,
+        fullTextbookSizeEn: "14.2 MB",
+        fullTextbookDriveIdEn: "1c3odalouhrrghpkmU3BOtBX9tWvNmGrT",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1c3odalouhrrghpkmU3BOtBX9tWvNmGrT&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1c3odalouhrrghpkmU3BOtBX9tWvNmGrT/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Newtonian mechanics, momentum, impulse, work, energy conservation, power, and collisions in English for Language Schools.",
+        descriptionAr: "كتاب الديناميكا باللغة الإنجليزية لمدارس اللغات: قوانين نيوتن، كمية الحركة، الدفع والتصادم، الشغل وطاقة الحركة والقدرة."
+    },
     curriculum: 'thanaweya',
     category: 'applied_math',
     subjectId: 'mathematics',
@@ -378,6 +480,7 @@ export const officialBooksList: OfficialBook[] = [
   // 5. EG-Bac: Discrete Mathematics & Linear Systems
   {
     id: 'egbac-disc-adv',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'advanced_math',
     subjectId: 'mathematics',
@@ -441,6 +544,7 @@ export const officialBooksList: OfficialBook[] = [
   // 6. EG-Bac: Real Analysis & Advanced Differential Calculus
   {
     id: 'egbac-ana-adv',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'advanced_math',
     subjectId: 'mathematics',
@@ -504,6 +608,7 @@ export const officialBooksList: OfficialBook[] = [
   // 7. EG-Bac: Theoretical & Analytical Mechanics
   {
     id: 'egbac-mech-adv',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'advanced_math',
     subjectId: 'mathematics',
@@ -753,6 +858,26 @@ export const officialBooksList: OfficialBook[] = [
   // 11. Thanaweya Science: Physics
   {
     id: 'th-phys-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Physics: Electricity, Magnetism & Modern Physics (Language Schools Edition)",
+        titleAr: "الفيزياء: الكهربية والمغناطيسية والفيزياء الحديثة (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-PHYS-G12-EN",
+        filenameEn: "thanaweya-physics-en.pdf",
+        downloadUrlEn: "./books/thanaweya-physics-en.pdf",
+        fileSizeEn: "21.1 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 288,
+        fullTextbookSizeEn: "28.6 MB",
+        fullTextbookDriveIdEn: "1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Official English Physics textbook covering DC circuits, Kirchhoff laws, magnetic effects, induction, AC circuits, and modern physics.",
+        descriptionAr: "كتاب الفيزياء الكامل باللغة الإنجليزية لطلاب مدارس اللغات والشهادة الثانوية العامة."
+    },
     curriculum: 'thanaweya',
     category: 'physics',
     subjectId: 'physics',
@@ -844,6 +969,26 @@ export const officialBooksList: OfficialBook[] = [
   // 12. Thanaweya Science: Chemistry
   {
     id: 'th-chem-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Chemistry: General, Inorganic & Organic Chemistry (Language Schools Edition)",
+        titleAr: "الكيمياء العامة والعضوية (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-CHEM-G12-EN",
+        filenameEn: "thanaweya-chemistry-en.pdf",
+        downloadUrlEn: "./books/thanaweya-chemistry-en.pdf",
+        fileSizeEn: "21.0 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 248,
+        fullTextbookSizeEn: "24.1 MB",
+        fullTextbookDriveIdEn: "1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Transition elements, qualitative & quantitative analysis, chemical equilibrium, electrochemistry, and comprehensive organic chemistry.",
+        descriptionAr: "كتاب الكيمياء المعتمد باللغة الإنجليزية لمدارس اللغات: العناصر الانتقالية، التحليل الكيميائي، الاتزان، الكهربية، والكيمياء العضوية."
+    },
     curriculum: 'thanaweya',
     category: 'chemistry',
     subjectId: 'chemistry',
@@ -928,6 +1073,26 @@ export const officialBooksList: OfficialBook[] = [
   // 13. Thanaweya Science: Biology
   {
     id: 'th-bio-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Biology: Physiology, Genetics & Molecular Biology (Language Schools Edition)",
+        titleAr: "الأحياء: الفسيولوجيا والمناعة والبيولوجيا الجزيئية (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-BIO-G12-EN",
+        filenameEn: "thanaweya-biology-en.pdf",
+        downloadUrlEn: "./books/thanaweya-biology-en.pdf",
+        fileSizeEn: "21.1 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 240,
+        fullTextbookSizeEn: "23.4 MB",
+        fullTextbookDriveIdEn: "1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Support and locomotion, hormonal coordination, reproduction, immunology, and DNA/RNA molecular genetics in English.",
+        descriptionAr: "كتاب الأحياء باللغة الإنجليزية لمدارس اللغات: الدعامة والحركة، التنسيق الهرموني، التكاثر، المناعة، والبيولوجيا الجزيئية."
+    },
     curriculum: 'thanaweya',
     category: 'biology',
     subjectId: 'biology',
@@ -1012,6 +1177,7 @@ export const officialBooksList: OfficialBook[] = [
   // 14. EG-Bac Science: Advanced Physics
   {
     id: 'egbac-phys-adv',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'physics',
     subjectId: 'physics',
@@ -1075,6 +1241,7 @@ export const officialBooksList: OfficialBook[] = [
   // 15. EG-Bac Science: Advanced Chemistry
   {
     id: 'egbac-chem-adv',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'chemistry',
     subjectId: 'chemistry',
@@ -1138,6 +1305,7 @@ export const officialBooksList: OfficialBook[] = [
   // 16. EG-Bac Science: Advanced Biology
   {
     id: 'egbac-bio-adv',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'biology',
     subjectId: 'biology',
@@ -1827,6 +1995,26 @@ export const officialBooksList: OfficialBook[] = [
   // 21. Thanaweya Science: Geology & Environmental Sciences
   {
     id: 'th-geology-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Geology & Environmental Sciences (Language Schools Edition)",
+        titleAr: "الجيولوجيا والعلوم البيئية (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-GEOL-G12-EN",
+        filenameEn: "thanaweya-geology-en.pdf",
+        downloadUrlEn: "./books/thanaweya-geology-en.pdf",
+        fileSizeEn: "21.2 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 216,
+        fullTextbookSizeEn: "21.7 MB",
+        fullTextbookDriveIdEn: "1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Earth structure, minerals, rock cycle, plate tectonics, geological structures, and environmental ecosystems in English.",
+        descriptionAr: "كتاب الجيولوجيا والعلوم البيئية باللغة الإنجليزية لمدارس اللغات: المعادن، الصخور، التكتونية والأنظمة البيئية واستنزاف الموارد."
+    },
     curriculum: 'thanaweya',
     category: 'geology',
     subjectId: 'geology',
@@ -1883,6 +2071,7 @@ export const officialBooksList: OfficialBook[] = [
   // 22. EG-Bac Advanced Earth Sciences & Environmental Dynamics
   {
     id: 'egbac-geology-g12',
+    hasEnglishEdition: true,
     curriculum: 'egbac',
     category: 'geology',
     subjectId: 'geology',
@@ -2179,6 +2368,26 @@ export const officialBooksList: OfficialBook[] = [
   // 21. Thanaweya Economics & Applied Statistics
   {
     id: 'th-econ-stat-g12',
+    hasEnglishEdition: true,
+    englishEdition: {
+        titleEn: "Economics & Applied Statistics (Language Schools Edition)",
+        titleAr: "الاقتصاد والإحصاء التطبيقي (نسخة مدارس اللغات)",
+        subtitleEn: "Official Ministry Textbook for Secondary 3 Language Schools",
+        subtitleAr: "الكتاب المدرسي الرسمي لوزارة التربية والتعليم - مدارس اللغات",
+        code: "TH-ECON-STAT-G12-EN",
+        filenameEn: "thanaweya-economics-statistics-en.pdf",
+        downloadUrlEn: "./books/thanaweya-economics-statistics-en.pdf",
+        fileSizeEn: "22.5 KB",
+        pagesCountEn: 8,
+        fullTextbookPagesEn: 180,
+        fullTextbookSizeEn: "16.5 MB",
+        fullTextbookDriveIdEn: "17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk",
+        fullTextbookDownloadUrlEn: "https://drive.google.com/uc?id=17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk&export=download",
+        fullTextbookPreviewUrlEn: "https://drive.google.com/file/d/17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk/preview",
+        officialPortalUrlEn: "https://moe.gov.eg/ar/elearning-content/",
+        descriptionEn: "Macroeconomic principles, national income, monetary systems, linear correlation, regression, and probability distributions.",
+        descriptionAr: "كتاب الاقتصاد والإحصاء المترجم بالإنجليزية لمدارس اللغات: الدخل القومي، النقود، الارتباط الخطي، الانحدار والمتغيرات العشوائية."
+    },
     curriculum: 'thanaweya',
     category: 'economics_stat',
     subjectId: 'economics_stat',
@@ -4358,6 +4567,64 @@ export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'ph
 export const GITHUB_REPO_URL = 'https://github.com/mohammedamy/EGBaccalaureate';
 export const GITHUB_BOOKS_RAW_BASE =
   'https://raw.githubusercontent.com/mohammedamy/EGBaccalaureate/main/public/books/';
+/**
+ * Check if a book has a dedicated English Language Schools edition.
+ */
+export function hasEnglishEdition(book?: OfficialBook): boolean {
+  if (!book) return false;
+  return Boolean(book.hasEnglishEdition || book.englishEdition);
+}
+
+/**
+ * Direct download link for the full official ministry textbook in English (~15–30 MB, 200+ pages).
+ */
+export function getFullTextbookEnglishDownloadUrl(book?: OfficialBook): string {
+  if (!book) return '';
+  if (book.englishEdition?.fullTextbookDownloadUrlEn) {
+    return book.englishEdition.fullTextbookDownloadUrlEn;
+  }
+  if (book.englishEdition?.fullTextbookDriveIdEn) {
+    return `https://drive.google.com/uc?id=${book.englishEdition.fullTextbookDriveIdEn}&export=download`;
+  }
+  if (book.englishEdition?.filenameEn) {
+    return `${GITHUB_RELEASE_BASE}${book.englishEdition.filenameEn}`;
+  }
+  return getFullTextbookDownloadUrl(book);
+}
+
+/**
+ * Interactive in-browser reader URL for the full English textbook (200+ pages) with zoom and search.
+ */
+export function getFullTextbookEnglishPreviewUrl(book?: OfficialBook): string {
+  if (!book) return '';
+  if (book.englishEdition?.fullTextbookPreviewUrlEn) {
+    return book.englishEdition.fullTextbookPreviewUrlEn;
+  }
+  if (book.englishEdition?.fullTextbookDriveIdEn) {
+    return `https://drive.google.com/file/d/${book.englishEdition.fullTextbookDriveIdEn}/preview`;
+  }
+  return getFullTextbookEnglishDownloadUrl(book);
+}
+
+/**
+ * Direct download link for the fast English concept & formula compendium (~20 KB, 8 pages).
+ */
+export function getCompendiumEnglishDownloadUrl(
+  book?: OfficialBook,
+  preferGithub: boolean = false
+): string {
+  if (!book) return '';
+  if (book.englishEdition?.filenameEn) {
+    if (preferGithub) {
+      return `${GITHUB_BOOKS_RAW_BASE}${book.englishEdition.filenameEn}`;
+    }
+    const base = (import.meta.env && import.meta.env.BASE_URL) || './';
+    const cleanBase = base.endsWith('/') ? base : base + '/';
+    return `${cleanBase}books/${book.englishEdition.filenameEn}`;
+  }
+  return getCompendiumDownloadUrl(book);
+}
+
 export const GITHUB_RELEASE_BASE =
   'https://github.com/mohammedamy/EGBaccalaureate/releases/download/v1.0.0-textbooks/';
 
