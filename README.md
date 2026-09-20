@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **23 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, and Fine Arts & Visual Architecture).
-- **52 Total Branches** (26 Thanaweya Amma + 26 EG-Baccalaureate).
-- **281 Fully Equipped Chapters** (147 Thanaweya + 134 EG-Bac).
-- **56,200 Total Curriculum Problems**:
-  - 2,810 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 4,215 Practice Exercises with hints, scaffolding, and verification.
-  - 49,175 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **21 Interactive Virtual Laboratories & Simulation Studios**.
-- **53 Official Ministry Textbooks & Formula Compendiums**.
-- **150 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 26 disciplines).
+- **28 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, and Commercial Sciences, Financial Accounting & Banking).
+- **62 Total Branches** (31 Thanaweya Amma + 31 EG-Baccalaureate).
+- **321 Fully Equipped Chapters** (167 Thanaweya + 154 EG-Bac).
+- **64,200 Total Curriculum Problems**:
+  - 3,210 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 4,815 Practice Exercises with hints, scaffolding, and verification.
+  - 56,175 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **26 Interactive Virtual Laboratories & Simulation Studios**.
+- **65 Official Ministry Textbooks & Formula Compendiums**.
+- **186 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 31 disciplines).
 - **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (23 Core Disciplines)
+## 📚 Accredited Subject Tracks (28 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -49,11 +49,16 @@
 | **21** | **Christian Religious Education** | التربية الدينية المسيحية | Christian Religious Education | Christian Hermeneutics, Dogmatics & Monastic Heritage | 8 | 1,600 |
 | **22** | **Business & Entrepreneurship** | إدارة الأعمال وريادة الأعمال | Business Administration & Entrepreneurship | Corporate Strategy, Finance & Tech Entrepreneurship | 8 | 1,600 |
 | **23** | **Fine Arts & Visual Architecture** | التربية الفنية والفنون البصرية والعمارة | Fine Arts & Visual Design | Architectural Heritage & Spatial Aesthetics | 8 | 1,600 |
-| **Total** | **23 Subjects** | **٢٣ مادة معتمدة** | **26 Branches (147 Chapters)** | **26 Branches (134 Chapters)** | **281** | **56,200** |
+| **24** | **Chinese Language & Sinology** | اللغة الصينية وآدابها والسينولوجيا | Chinese Language & Literature | Sinology & Advanced Communication | 8 | 1,600 |
+| **25** | **Music Theory & Musicology** | التربية الموسيقية والنظريات الموسيقية | Arab & Western Music Theory | Ethnomusicology & Audio Engineering | 8 | 1,600 |
+| **26** | **Agricultural Sciences & Agrotechnology** | التربية الزراعية والتكنولوجيا الزراعية | Agricultural Sciences & Soil Fertility | Agrotechnology & Hydroponic Systems | 8 | 1,600 |
+| **27** | **Industrial Technology & Applied Engineering** | التربية الصناعية والتكنولوجيا التطبيقية والهندسية | Industrial Technology & Manufacturing | Applied Engineering & Robotics Automation | 8 | 1,600 |
+| **28** | **Commercial Sciences & Banking** | العلوم التجارية والمحاسبة والمالية والمصرفية | Commercial Sciences & Financial Accounting | Corporate Finance, Banking Operations & FinTech | 8 | 1,600 |
+| **Total** | **28 Subjects** | **٢٨ مادة معتمدة** | **31 Branches (167 Chapters)** | **31 Branches (154 Chapters)** | **321** | **64,200** |
 
 ---
 
-## 🔬 Interactive Virtual Laboratories & Simulation Studios (21 Studios)
+## 🔬 Interactive Virtual Laboratories & Simulation Studios (26 Studios)
 
 ClipSAT provides immersive digital laboratories equipped with real-time math, physics, linguistic and simulation engines, dynamic SVG graphing, and parameter controls:
 
@@ -132,6 +137,35 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Golden Ratio ($\Phi$) & Fibonacci Divine Proportion**: Sacred geometry in the Great Pyramid of Giza, Parthenon facade, and compositional balance.
     - **Historical Egyptian Architectural Matrix**: Chronological exploration across Ancient Pharaonic, Greco-Roman, Coptic Christian, Islamic/Mamluk, and Contemporary periods with structural load analysis.
     - **Visual Composition & Balance Analyzer**: Rule of thirds, symmetry vs. asymmetry, visual rhythm, and focal hierarchy.
+22. **Chinese Language, Character Stroke & Phonetics Studio** (`ChineseLanguageStudio.tsx`):
+    - **Pinyin Phonetics & Tone Sandbox**: SpeechSynthesis (`zh-CN`) playback with 4 tonal contours (mā, má, mǎ, mà), initial consonant articulation, and tonal pitch graphs.
+    - **Stroke Order & Radical Matrix**: Interactive SVG stroke order animator for Chinese characters, Kangxi radical deconstruction, and compound glyph analysis.
+    - **SVO Sentence Structure & Measure Word Engine**: Grammatical order visualizer, classifier / measure word pairing (个, 本, 只, 张, etc.), and modal particle placement.
+    - **HSK Vocabulary & Situation Dialogue Trainer**: Authentic Egyptian secondary Chinese dialogues (greetings, school, market, dining) with auditory playback and diagnostic distractors.
+23. **Music Theory, Ethnomusicology & Audio Acoustics Studio** (`MusicTheoryStudio.tsx`):
+    - **Acoustic Wave & Frequency Synthesizer**: Web Audio API waveform generator (sine, square, saw, triangle), overtone harmonic series, and resonance visualization.
+    - **Western Staff Notation & Solfège Trainer**: Interactive musical staff, key signatures, intervals, triads, and Roman numeral harmonic cadence progressions.
+    - **Arab 24-Quarter-Tone Maqamat Explorer**: Quarter-tone microtonal scales (Rast, Bayati, Sikah, Nahawand, Hijaz, Kurd, Saba, Ajam) with microtonal frequency tuning.
+    - **Classical Arab Iqa'at Rhythm Engine**: Visual rhythm sequencer with Dum / Tak patterns (Wahda, Maqsum, Baladi, Malfuf, Samai Thaqil, Jurjina).
+    - **Organology & Egyptian Musical Heritage Archive**: Acoustic classification of Egyptian traditional instruments (Nay, Oud, Qanun, Riqq) with historical evolutionary timeline.
+24. **Agricultural Sciences, Hydroponics & Reclamation Studio** (`AgriculturalTechnologyStudio.tsx`):
+    - **Soil Chemistry, NPK Balance & Texture Triangle**: USDA soil textural triangle, cation exchange capacity (CEC), and NPK macronutrient deficiency diagnostics.
+    - **Plant Tissue Culture & In-Vitro Micropropagation**: Step-by-step explant preparation, auxin-to-cytokinin callus induction ratio calculator, and acclimatization greenhouse protocols.
+    - **Modern Pressurized Irrigation & Hydrology Simulator**: Center-pivot sprinkler and drip irrigation hydraulics, soil water retention curves, field capacity, and evapotranspiration ($ET_0$) modeling.
+    - **Protected Hydroponic & Nutrient Film Technique (NFT) Lab**: Dynamic pH / EC nutrient solution simulator, dissolved oxygen controls, and vertical aeroponic tower flows.
+    - **Egyptian National Mega-Reclamation Projects Matrix**: Interactive spatial explorer for Toshka Spillway, New Delta, and Future of Egypt (Mostaqbal Misr) initiatives with geological water basin mapping.
+25. **Industrial Technology, Robotics & Automation Studio** (`IndustrialEngineeringStudio.tsx`):
+    - **Engineering Materials Science & Stress-Strain Tensile Lab**: Dynamic stress-strain curve plotter, Young's modulus, yield strength, ultimate tensile strength, and Brinell/Vickers hardness tester.
+    - **Manufacturing Processes, Metal Forming & CNC G-Code Simulator**: Lathe turning, milling feeds & speeds calculator, Taylor's tool life equation, and 2D toolpath G-code emulator.
+    - **PLC Automation & Ladder Logic Studio**: Interactive ladder logic diagram builder (normally open/closed contacts, coils, timers, counters) with live boolean simulation.
+    - **Fluid Power Hydraulics & Pneumatics Lab**: Pascal's law hydraulic press calculator, pneumatic 4/2 and 5/3 directional control valve circuits, and cylinder actuator stroke velocity.
+    - **Total Quality Management (TQM) & Statistical Process Control (SPC)**: Shewhart control charts ($\bar{X}$ and $R$ charts), process capability indices ($C_p, C_{pk}$), and Six Sigma defect rate calculations.
+26. **Commercial Sciences, Financial Accounting & Banking Studio** (`CommercialFinanceStudio.tsx`):
+    - **Double-Entry Accounting & Ledger Sandbox**: Live debit/credit entry balancing, journalization, trial balance auto-generation, and income statement / balance sheet compilation.
+    - **Financial Mathematics & Compound Interest Annuity Engine**: Future/present value of ordinary annuities, loan amortization schedules with principal/interest breakdown, and sinking fund calculators.
+    - **Corporate Financial Management & Capital Budgeting**: Dynamic Net Present Value (NPV), Internal Rate of Return (IRR), Payback Period, and WACC hurdle rate sensitivity analysis.
+    - **Commercial Banking Operations & Credit Risk Analyzer**: Basel III capital adequacy ratio ($CAR$) validator, fractional reserve money multiplier, and debt service coverage ratio (DSCR) credit scoring.
+    - **FinTech Digital Banking & Capital Asset Pricing (CAPM)**: Stock beta ($\beta$), expected portfolio return vs. security market line (SML), and digital blockchain payment transaction validation.
 
 ---
 
@@ -140,9 +174,9 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Official Time & Scoring Blueprints**: Replicates Egyptian Ministry examination blueprints:
   - 46 questions, 60 marks, 180 minutes (Science & Humanities).
   - 55 questions, 80 marks, 180 minutes (Arabic).
-  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, and Business Administration).
-  - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French, German, Italian & Spanish).
-  - 25 questions, 30 marks, 90 minutes (National Civics & Constitution, Islamic Studies, Christian Studies).
+  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, Business Administration, Agricultural Sciences, Industrial Technology, and Commercial Sciences).
+  - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French, German, Italian, Spanish & Chinese).
+  - 25 questions, 30 marks, 90 minutes (National Civics & Constitution, Islamic Studies, Christian Studies, Fine Arts & Visual Architecture, and Music Theory).
   - 20 questions, 30 marks, 120 minutes (Individual Mathematics Branches).
 - **Official Question Formats**: Forms A, B, C, and D with randomized permutation.
 - **Full OMR Bubble Sheet**: Grid view with answer bubbling, timer countdown, and ministerial certificate generation upon submission.
@@ -156,7 +190,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 56,200 problems and 281 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 64,200 problems and 321 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
@@ -176,7 +210,7 @@ npm run build
 
 ### Running Test Verification Suites
 ```bash
-# Run comprehensive test suite (42 test scripts)
+# Run comprehensive test suite (48 test scripts)
 npm test
 
 # Verify Economics & Statistics Subject specifically
@@ -208,6 +242,24 @@ npm run test:christian
 
 # Verify Business Administration & Entrepreneurship Subject specifically
 npm run test:business
+
+# Verify Fine Arts & Architectural Design Subject specifically
+npm run test:fine-arts
+
+# Verify Chinese Language Subject specifically
+npm run test:chinese
+
+# Verify Music Theory Subject specifically
+npm run test:music
+
+# Verify Agricultural Sciences Subject specifically
+npm run test:agriculture
+
+# Verify Industrial Technology Subject specifically
+npm run test:industrial
+
+# Verify Commercial Sciences Subject specifically
+npm run test:commercial
 ```
 
 ---
