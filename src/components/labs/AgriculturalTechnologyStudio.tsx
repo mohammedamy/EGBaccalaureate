@@ -49,6 +49,669 @@ export type AgriStation =
   | 'egyptian_megaprojects'
   | 'ipm_pathology';
 
+
+// ============================================================================
+// REALISTIC HIGH-RESOLUTION SCIENTIFIC VECTOR SCHEMATICS FOR AGRICULTURE LAB
+// ============================================================================
+
+const UsdaSoilTextureTriangle: React.FC<{
+  sand: number;
+  silt: number;
+  clay: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({ sand, silt, clay, isArabic, isLight = false }) => {
+  const toX = (s: number, si: number, c: number) => +(40 * (s / 100) + 380 * (si / 100) + 210 * (c / 100)).toFixed(1);
+  const toY = (c: number) => +(285 - (c / 100) * 250).toFixed(1);
+
+  const poly = (pts: [number, number, number][]) =>
+    pts.map(([s, si, c]) => `${toX(s, si, c)},${toY(c)}`).join(' ');
+
+  const curX = toX(sand, silt, clay);
+  const curY = toY(clay);
+
+  const getSoilClass = (s: number, si: number, c: number) => {
+    if (c >= 40 && s <= 45 && si < 40) return isArabic ? 'طينية (Clay)' : 'Clay';
+    if (c >= 40 && si >= 40) return isArabic ? 'طينية سلتية (Silty Clay)' : 'Silty Clay';
+    if (c >= 35 && s >= 45) return isArabic ? 'طينية رملية (Sandy Clay)' : 'Sandy Clay';
+    if (c >= 27 && c < 40 && s <= 20) return isArabic ? 'طميية طينية سلتية (Silty Clay Loam)' : 'Silty Clay Loam';
+    if (c >= 27 && c < 40 && s > 20 && s <= 45) return isArabic ? 'طميية طينية (Clay Loam)' : 'Clay Loam';
+    if (c >= 20 && c < 35 && s > 45 && si < 28) return isArabic ? 'طميية طينية رملية (Sandy Clay Loam)' : 'Sandy Clay Loam';
+    if (c >= 7 && c < 27 && si >= 28 && si < 50 && s <= 52) return isArabic ? 'طميية معتدلة (Loam)' : 'Loam';
+    if (si >= 50 && ((c >= 12 && c < 27) || (si < 80 && c < 12))) return isArabic ? 'طميية سلتية (Silt Loam)' : 'Silt Loam';
+    if (si >= 80 && c < 12) return isArabic ? 'سلتية (Silt)' : 'Silt';
+    if (s >= 70 && c < 15 && s <= 85) return isArabic ? 'رملية طميية (Loamy Sand)' : 'Loamy Sand';
+    if (s > 85) return isArabic ? 'رملية خشنة (Sand)' : 'Sand';
+    return isArabic ? 'طميية رملية (Sandy Loam)' : 'Sandy Loam';
+  };
+
+  const soilName = getSoilClass(sand, silt, clay);
+
+  const zones: { id: string; name: string; pts: [number, number, number][]; fill: string }[] = [
+    { id: 'clay', name: isArabic ? 'طين' : 'Clay', pts: [[0, 0, 100], [45, 0, 55], [45, 15, 40], [20, 40, 40], [0, 40, 60]], fill: '#b91c1c' },
+    { id: 'siltyClay', name: isArabic ? 'طين سلتي' : 'SiCl', pts: [[0, 40, 60], [20, 40, 40], [0, 60, 40]], fill: '#c2410c' },
+    { id: 'sandyClay', name: isArabic ? 'طين رملي' : 'SaCl', pts: [[45, 0, 55], [65, 0, 35], [45, 20, 35]], fill: '#d97706' },
+    { id: 'clayLoam', name: isArabic ? 'طمي طيني' : 'ClLoam', pts: [[20, 40, 40], [45, 15, 40], [45, 28, 27], [20, 53, 27]], fill: '#ca8a04' },
+    { id: 'siltyClayLoam', name: isArabic ? 'طمي سلتي طيني' : 'SiClLoam', pts: [[0, 60, 40], [20, 40, 40], [20, 53, 27], [0, 73, 27]], fill: '#a16207' },
+    { id: 'sandyClayLoam', name: isArabic ? 'طمي رملي طيني' : 'SaClLoam', pts: [[45, 20, 35], [65, 0, 35], [80, 0, 20], [52, 28, 20], [45, 28, 27]], fill: '#b45309' },
+    { id: 'loam', name: isArabic ? 'طمي معتدل' : 'Loam', pts: [[43, 30, 27], [28, 45, 27], [28, 50, 22], [52, 28, 20], [52, 41, 7]], fill: '#059669' },
+    { id: 'siltLoam', name: isArabic ? 'طمي سلتي' : 'SiLoam', pts: [[0, 73, 27], [20, 53, 27], [20, 80, 0], [0, 88, 12]], fill: '#047857' },
+    { id: 'silt', name: isArabic ? 'سلت' : 'Silt', pts: [[0, 88, 12], [20, 80, 0], [0, 100, 0]], fill: '#0f766e' },
+    { id: 'sandyLoam', name: isArabic ? 'طمي رملي' : 'SaLoam', pts: [[52, 28, 20], [80, 0, 20], [85, 0, 15], [70, 30, 0], [50, 50, 0], [52, 41, 7]], fill: '#d97706' },
+    { id: 'loamySand', name: isArabic ? 'رمل طميي' : 'LoamSa', pts: [[70, 30, 0], [85, 0, 15], [90, 0, 10], [85, 15, 0]], fill: '#eab308' },
+    { id: 'sand', name: isArabic ? 'رمل' : 'Sand', pts: [[85, 15, 0], [90, 0, 10], [100, 0, 0]], fill: '#f59e0b' },
+  ];
+
+  return (
+    <div className="flex flex-col items-center">
+      <svg viewBox="0 0 420 320" className="w-full max-w-[420px] h-auto overflow-visible select-none">
+        <defs>
+          <filter id="usdaGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+
+        <polygon points="40,285 380,285 210,35" fill={isLight ? '#f8fafc' : '#0b0f19'} stroke="#475569" strokeWidth="2" />
+
+        {zones.map((z) => (
+          <polygon
+            key={z.id}
+            points={poly(z.pts)}
+            fill={z.fill}
+            fillOpacity={isLight ? '0.2' : '0.28'}
+            stroke="#475569"
+            strokeWidth="0.8"
+            strokeDasharray="2 2"
+          />
+        ))}
+
+        <text x="210" y="65" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'طين (Clay)' : 'Clay'}
+        </text>
+        <text x="310" y="140" fill="#fb923c" fontSize="8" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'طين سلتي' : 'Silty Clay'}
+        </text>
+        <text x="120" y="160" fill="#fbbf24" fontSize="8" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'طين رملي' : 'Sandy Clay'}
+        </text>
+        <text x="210" y="190" fill="#34d399" fontSize="8.5" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'طمي (Loam)' : 'Loam'}
+        </text>
+        <text x="320" y="240" fill="#2dd4bf" fontSize="8" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'طمي سلتي' : 'Silt Loam'}
+        </text>
+        <text x="120" y="250" fill="#facc15" fontSize="8" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'طمي رملي' : 'Sandy Loam'}
+        </text>
+        <text x="75" y="280" fill="#f59e0b" fontSize="8" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'رمل' : 'Sand'}
+        </text>
+
+        <text x="210" y="20" fill="#ef4444" fontSize="10" fontWeight="bold" textAnchor="middle">
+          ▲ {isArabic ? 'نسبة الطين Clay %' : 'Clay % (0-100)'}
+        </text>
+        <text x="25" y="305" fill="#f59e0b" fontSize="10" fontWeight="bold" textAnchor="middle">
+          ◀ {isArabic ? 'رمل Sand %' : 'Sand %'}
+        </text>
+        <text x="395" y="305" fill="#38bdf8" fontSize="10" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'غرين Silt %' : 'Silt %'} ▶
+        </text>
+
+        <line
+          x1={40 * (1 - clay / 100) + 210 * (clay / 100)}
+          y1={curY}
+          x2={380 * (1 - clay / 100) + 210 * (clay / 100)}
+          y2={curY}
+          stroke="#ef4444"
+          strokeWidth="1.2"
+          strokeDasharray="3 3"
+          opacity="0.8"
+        />
+
+        <circle cx={curX} cy={curY} r="8" fill="#10b981" opacity="0.3" className="animate-ping" />
+        <circle cx={curX} cy={curY} r="5" fill="#10b981" stroke="#ffffff" strokeWidth="1.8" filter="url(#usdaGlow)" />
+
+        <g transform={`translate(${Math.max(80, Math.min(340, curX))}, ${Math.max(45, curY - 18)})`}>
+          <rect x="-65" y="-12" width="130" height="18" rx="4" fill="#0f172a" stroke="#10b981" strokeWidth="1.2" />
+          <text x="0" y="1" fill="#10b981" fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+            {soilName}
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const SoilProfileHorizonColumn: React.FC<{
+  soilEsp: number;
+  targetEsp: number;
+  gypsumTons: number;
+  soilEc: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({ soilEsp, targetEsp, gypsumTons, soilEc, isArabic, isLight = false }) => {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono">
+        {isArabic ? 'قطاع التربة الاستصلاحي (Soil Profile Monolith)' : 'Reclamation Soil Profile Monolith'}
+      </div>
+      <svg viewBox="0 0 200 300" className="w-full max-w-[200px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="gypsumGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.05" />
+          </linearGradient>
+          <pattern id="clayPattern" width="10" height="10" patternUnits="userSpaceOnUse">
+            <path d="M 0 10 L 10 0 M 0 0 L 10 10" stroke="#78350f" strokeWidth="0.5" opacity="0.3" />
+          </pattern>
+        </defs>
+
+        <rect x="20" y="20" width="160" height="260" rx="8" fill={isLight ? '#f8fafc' : '#1e293b'} stroke={isLight ? '#cbd5e1' : '#475569'} strokeWidth="1.5" />
+
+        <rect x="20" y="20" width="160" height="25" fill="#1c1917" />
+        <text x="25" y="36" fill="#a8a29e" fontSize="7.5" fontWeight="bold">
+          {isArabic ? 'أفق O (دبال)' : 'O (Humus 0-5cm)'}
+        </text>
+
+        {[35, 60, 85, 110, 135, 160].map((vx) => (
+          <path
+            key={vx}
+            d={`M ${vx} 20 Q ${vx - 4} 12 ${vx - 6} 8 Q ${vx} 12 ${vx} 20 Q ${vx + 4} 10 ${vx + 7} 6 Q ${vx + 3} 12 ${vx} 20`}
+            fill="#22c55e"
+          />
+        ))}
+
+        <rect x="20" y="45" width="160" height="85" fill="#451a03" />
+        <path
+          d="M 60 45 Q 65 75 50 100 M 60 70 Q 75 90 85 110 M 110 45 Q 105 70 120 95 M 110 65 Q 95 90 90 115 M 135 45 Q 140 70 135 105"
+          fill="none"
+          stroke="#fef08a"
+          strokeWidth="1"
+          opacity="0.75"
+        />
+        <text x="25" y="60" fill="#fde047" fontSize="8" fontWeight="bold">
+          {isArabic ? 'أفق A (جذور 5-30سم)' : 'A (Topsoil 5-30cm)'}
+        </text>
+
+        <rect
+          x="22"
+          y="22"
+          width="156"
+          height="106"
+          fill="url(#gypsumGlow)"
+          stroke="#38bdf8"
+          strokeWidth="1.2"
+          strokeDasharray="4 2"
+        />
+        <g transform="translate(100, 90)">
+          <rect x="-48" y="-10" width="96" height="20" rx="3" fill="#0f172a" stroke="#38bdf8" strokeWidth="0.8" />
+          <text x="0" y="3" fill="#38bdf8" fontSize="7.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+            Ca²⁺ ⇄ 2Na⁺ ({gypsumTons} {isArabic ? 'طن' : 't'})
+          </text>
+        </g>
+
+        <rect x="20" y="130" width="160" height="90" fill="#78350f" />
+        <rect x="20" y="130" width="160" height="90" fill="url(#clayPattern)" />
+        <text x="25" y="146" fill="#fdba74" fontSize="8" fontWeight="bold">
+          {isArabic ? 'أفق B (تراكم 30-70سم)' : 'B (Subsoil 30-70cm)'}
+        </text>
+        <text x="100" y="180" fill="#fed7aa" fontSize="7" textAnchor="middle" opacity="0.8">
+          {soilEsp > 15
+            ? (isArabic ? 'تجمع أملاح صودية متشتتة (ESP > 15%)' : 'Dispersed Sodic Clay Complex')
+            : (isArabic ? 'بناء حبيبي متوازن وثابت' : 'Stable Aggregate Structure')}
+        </text>
+
+        <rect x="20" y="220" width="160" height="60" fill="#a8a29e" />
+        {[
+          { cx: 50, cy: 240, r: 4 },
+          { cx: 85, cy: 255, r: 6 },
+          { cx: 130, cy: 235, r: 5 },
+          { cx: 155, cy: 260, r: 7 },
+          { cx: 110, cy: 270, r: 4 },
+        ].map((peb, i) => (
+          <circle key={i} cx={peb.cx} cy={peb.cy} r={peb.r} fill="#e7e5e4" stroke="#78716c" strokeWidth="0.8" />
+        ))}
+        <text x="25" y="236" fill="#e7e5e4" fontSize="8" fontWeight="bold">
+          {isArabic ? 'أفق C (مادة الأصل 70-100سم)' : 'C (Parent 70-100cm)'}
+        </text>
+
+        {[
+          { label: '0cm', y: 20 },
+          { label: '30cm', y: 130 },
+          { label: '70cm', y: 220 },
+          { label: '1m', y: 280 },
+        ].map((t) => (
+          <g key={t.label}>
+            <line x1="15" y1={t.y} x2="20" y2={t.y} stroke="#94a3b8" strokeWidth="1" />
+            <text x="12" y={t.y + 3} fill="#94a3b8" fontSize="7" textAnchor="end" fontFamily="monospace">
+              {t.label}
+            </text>
+          </g>
+        ))}
+      </svg>
+      <div className="mt-2 text-[10px] text-slate-400 font-mono text-center">
+        ECe: {soilEc.toFixed(1)} dS/m • ESP: {soilEsp.toFixed(1)}% → {targetEsp}%
+      </div>
+    </div>
+  );
+};
+
+const IrrigationEngineeringSchematic: React.FC<{
+  method: IrrigationMethod;
+  etc: number;
+  leachingReq: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({ method, etc, leachingReq, isArabic, isLight = false }) => {
+  const isPivot = method.id === 'center_pivot';
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <svg viewBox="0 0 600 230" className="w-full max-w-[600px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="pivotSpray" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.05" />
+          </linearGradient>
+          <linearGradient id="wetBulbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#0284c7" stopOpacity="0.7" />
+            <stop offset="50%" stopColor="#38bdf8" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#bae6fd" stopOpacity="0.08" />
+          </linearGradient>
+        </defs>
+
+        <rect x="10" y="10" width="580" height="140" fill={isLight ? '#f0f9ff' : '#070b14'} rx="8" />
+        <rect x="10" y="150" width="580" height="70" fill={isLight ? '#fef3c7' : '#292524'} rx="4" />
+        <line x1="10" y1="150" x2="590" y2="150" stroke="#78350f" strokeWidth="2" />
+
+        {isPivot ? (
+          <g>
+            <g transform="translate(45, 150)">
+              <rect x="-18" y="-6" width="36" height="8" fill="#64748b" stroke="#334155" />
+              <polygon points="0,-75 -15,0 15,0" fill="#eab308" stroke="#ca8a04" strokeWidth="1.5" />
+              <line x1="0" y1="0" x2="0" y2="-80" stroke="#38bdf8" strokeWidth="4" />
+              <circle cx="0" cy="-80" r="5" fill="#0284c7" />
+              <circle cx="-10" cy="-60" r="4" fill="#ffffff" stroke="#ef4444" strokeWidth="1" />
+              <text x="0" y="14" fill="#94a3b8" fontSize="7.5" fontWeight="bold" textAnchor="middle">
+                {isArabic ? 'قاعدة البيفوت (Anchor)' : 'Pivot Center'}
+              </text>
+            </g>
+
+            <path d="M 45 70 Q 135 55 225 70" fill="none" stroke="#cbd5e1" strokeWidth="4" />
+            {[75, 105, 135, 165, 195].map((wx) => (
+              <line key={wx} x1={wx} y1="62" x2={wx} y2="78" stroke="#94a3b8" strokeWidth="1" />
+            ))}
+
+            <g transform="translate(225, 150)">
+              <polygon points="0,-80 -12,0 12,0" fill="none" stroke="#eab308" strokeWidth="2" />
+              <rect x="-6" y="-35" width="12" height="10" rx="2" fill="#334155" stroke="#f59e0b" strokeWidth="0.8" />
+              <circle cx="-12" cy="0" r="9" fill="#0f172a" stroke="#475569" strokeWidth="2" />
+              <circle cx="12" cy="0" r="9" fill="#0f172a" stroke="#475569" strokeWidth="2" />
+              <text x="0" y="14" fill="#94a3b8" fontSize="7" textAnchor="middle">
+                {isArabic ? 'برج قيادة ١' : 'Tower 1'}
+              </text>
+            </g>
+
+            <path d="M 225 70 Q 315 55 405 70" fill="none" stroke="#cbd5e1" strokeWidth="4" />
+            {[255, 285, 315, 345, 375].map((wx) => (
+              <line key={wx} x1={wx} y1="62" x2={wx} y2="78" stroke="#94a3b8" strokeWidth="1" />
+            ))}
+
+            <g transform="translate(405, 150)">
+              <polygon points="0,-80 -12,0 12,0" fill="none" stroke="#eab308" strokeWidth="2" />
+              <rect x="-6" y="-35" width="12" height="10" rx="2" fill="#334155" stroke="#f59e0b" strokeWidth="0.8" />
+              <circle cx="-12" cy="0" r="9" fill="#0f172a" stroke="#475569" strokeWidth="2" />
+              <circle cx="12" cy="0" r="9" fill="#0f172a" stroke="#475569" strokeWidth="2" />
+              <text x="0" y="14" fill="#94a3b8" fontSize="7" textAnchor="middle">
+                {isArabic ? 'برج قيادة ٢' : 'Tower 2'}
+              </text>
+            </g>
+
+            <path d="M 405 70 L 495 72" stroke="#cbd5e1" strokeWidth="3" />
+            <circle cx="495" cy="72" r="4" fill="#ef4444" />
+            <path d="M 495 72 L 560 60 L 550 148 Z" fill="url(#pivotSpray)" opacity="0.6" />
+
+            {[80, 120, 160, 200, 260, 300, 340, 380, 440, 475].map((nx) => (
+              <g key={nx}>
+                <line x1={nx} y1="68" x2={nx} y2="128" stroke="#334155" strokeWidth="1.5" />
+                <circle cx={nx} cy="128" r="2.5" fill="#38bdf8" />
+                <polygon points={`${nx},128 ${nx - 22},150 ${nx + 22},150`} fill="url(#pivotSpray)" />
+              </g>
+            ))}
+
+            {[...Array(28)].map((_, i) => (
+              <path
+                key={i}
+                d={`M ${60 + i * 18} 150 Q ${57 + i * 18} 142 ${54 + i * 18} 138 Q ${60 + i * 18} 144 ${60 + i * 18} 150 Q ${63 + i * 18} 141 ${66 + i * 18} 136 Q ${62 + i * 18} 145 ${60 + i * 18} 150`}
+                fill="#22c55e"
+              />
+            ))}
+
+            <g transform="translate(300, 185)">
+              <text x="0" y="0" fill="#38bdf8" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                {isArabic ? `بخر المحصول ETc: ${etc} مم/يوم • عمق الغسيل الملحي (LR = ${(leachingReq * 100).toFixed(1)}%)` : `Crop ETc: ${etc} mm/d • Leaching Fraction (LR = ${(leachingReq * 100).toFixed(1)}%)`}
+              </text>
+              {[-60, -20, 20, 60].map((lx) => (
+                <path key={lx} d={`M ${lx} 8 L ${lx} 22 M ${lx - 3} 18 L ${lx} 23 L ${lx + 3} 18`} stroke="#38bdf8" strokeWidth="1.2" />
+              ))}
+            </g>
+          </g>
+        ) : (
+          <g>
+            <g transform="translate(60, 120)">
+              <rect x="-15" y="-45" width="30" height="40" rx="4" fill="#1e293b" stroke="#38bdf8" strokeWidth="1.5" />
+              <circle cx="0" cy="-25" r="8" fill="#0284c7" />
+              <text x="0" y="-8" fill="#94a3b8" fontSize="7" textAnchor="middle">
+                {isArabic ? 'فلتر ديسك' : 'Disc Filter'}
+              </text>
+              <rect x="-40" y="-20" width="18" height="25" rx="2" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
+              <text x="-31" y="-5" fill="#f59e0b" fontSize="6" textAnchor="middle">
+                NPK
+              </text>
+              <line x1="-22" y1="-10" x2="-15" y2="-10" stroke="#f59e0b" strokeWidth="1" />
+            </g>
+
+            <line x1="60" y1="120" x2="60" y2="148" stroke="#38bdf8" strokeWidth="4" />
+            <line x1="60" y1="148" x2="570" y2="148" stroke="#1e293b" strokeWidth="4" />
+
+            {[140, 240, 340, 440, 530].map((dx) => (
+              <g key={dx}>
+                <circle cx={dx} cy="148" r="4" fill="#0284c7" stroke="#ffffff" strokeWidth="1" />
+                <circle cx={dx} cy="154" r="1.5" fill="#38bdf8" />
+                <circle cx={dx} cy="160" r="1.2" fill="#38bdf8" />
+
+                <ellipse cx={dx} cy="185" rx="36" ry="26" fill="url(#wetBulbGrad)" stroke="#38bdf8" strokeWidth="1" strokeDasharray="2 2" />
+                <ellipse cx={dx} cy="175" rx="18" ry="14" fill="#0284c7" opacity="0.45" />
+
+                <path
+                  d={`M ${dx} 148 Q ${dx - 6} 136 ${dx - 10} 128 Q ${dx} 138 ${dx} 148 Q ${dx + 6} 135 ${dx + 10} 126 Q ${dx + 3} 138 ${dx} 148`}
+                  fill="#22c55e"
+                />
+
+                <path d={`M ${dx - 12} 185 L ${dx - 4} 175 M ${dx + 12} 185 L ${dx + 4} 175`} stroke="#fef08a" strokeWidth="0.8" />
+              </g>
+            ))}
+
+            <g transform="translate(340, 215)">
+              <text x="0" y="0" fill="#38bdf8" fontSize="8" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+                {isArabic ? 'ديناميكية بصلة البلل (Wetted Bulb) وامتصاص الجذور للمياه والتسميد' : 'Capillary Moisture Bulb & Root Absorption Mechanics'}
+              </text>
+            </g>
+          </g>
+        )}
+      </svg>
+    </div>
+  );
+};
+
+const HydroponicGreenhouseSchematic: React.FC<{
+  system: 'nft' | 'dwc' | 'dutch_bucket';
+  ec: number;
+  ph: number;
+  vpd: number;
+  temp: number;
+  co2: number;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({ system, ec, ph, vpd, temp, co2, isArabic, isLight = false }) => {
+  return (
+    <div className="w-full flex flex-col items-center">
+      <svg viewBox="0 0 620 230" className="w-full max-w-[620px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="ledParBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#ec4899" stopOpacity="0.5" />
+            <stop offset="60%" stopColor="#a855f7" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.02" />
+          </linearGradient>
+          <linearGradient id="wetPadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0284c7" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+        </defs>
+
+        <rect x="15" y="15" width="590" height="205" rx="14" fill={isLight ? '#f8fafc' : '#090d16'} stroke="#475569" strokeWidth="1.5" />
+
+        <line x1="280" y1="15" x2="340" y2="6" stroke="#10b981" strokeWidth="2.5" />
+        <text x="310" y="0" fill="#10b981" fontSize="7" fontWeight="bold" textAnchor="middle">
+          {isArabic ? 'تهوية سقفية' : 'Roof Vent'}
+        </text>
+
+        <g transform="translate(20, 50)">
+          <rect x="0" y="0" width="14" height="90" fill="url(#wetPadGrad)" rx="2" />
+          {[15, 30, 45, 60, 75].map((py) => (
+            <line key={py} x1="0" y1={py} x2="14" y2={py + 6} stroke="#ffffff" strokeWidth="0.8" opacity="0.6" />
+          ))}
+          <text x="-4" y="50" fill="#38bdf8" fontSize="6.5" fontWeight="bold" transform="rotate(-90 -4 50)" textAnchor="middle">
+            {isArabic ? 'خلية تبريد' : 'Wet Pad'}
+          </text>
+        </g>
+
+        <g transform="translate(585, 75)">
+          <circle cx="0" cy="20" r="16" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
+          <line x1="-12" y1="20" x2="12" y2="20" stroke="#f59e0b" strokeWidth="2.5" />
+          <line x1="0" y1="8" x2="0" y2="32" stroke="#f59e0b" strokeWidth="2.5" />
+          <circle cx="0" cy="20" r="4" fill="#475569" />
+          <text x="0" y="44" fill="#94a3b8" fontSize="6.5" textAnchor="middle">
+            {isArabic ? 'شفاط' : 'Fan'}
+          </text>
+        </g>
+
+        {[140, 240, 340, 440].map((lx) => (
+          <g key={lx}>
+            <rect x={lx - 25} y="25" width="50" height="6" rx="2" fill="#334155" stroke="#ec4899" strokeWidth="0.8" />
+            <polygon points={`${lx - 25},31 ${lx - 45},115 ${lx + 45},115 ${lx + 25},31`} fill="url(#ledParBeam)" />
+          </g>
+        ))}
+
+        <line x1="50" y1="42" x2="570" y2="42" stroke="#10b981" strokeWidth="1" strokeDasharray="3 3" />
+        <text x="60" y="38" fill="#10b981" fontSize="7" fontWeight="bold">
+          CO₂ Enrichment: {co2} ppm
+        </text>
+
+        {system === 'nft' && (
+          <g transform="translate(80, 115)">
+            <polygon points="0,0 440,12 440,24 0,12" fill="#f8fafc" stroke="#94a3b8" strokeWidth="1.5" />
+            <polygon points="2,10 438,22 438,23 2,11" fill="#0284c7" />
+
+            {[40, 100, 160, 220, 280, 340, 400].map((px) => (
+              <g key={px} transform={`translate(${px}, ${2 + (px / 440) * 12})`}>
+                <path d="M -6 5 Q 0 10 6 5 Q 8 10 0 12 Q -8 10 -6 5" fill="#fef08a" opacity="0.9" />
+                <circle cx="0" cy="-6" r="10" fill="#22c55e" />
+                <circle cx="-4" cy="-8" r="6" fill="#16a34a" />
+                <circle cx="4" cy="-8" r="6" fill="#15803d" />
+              </g>
+            ))}
+
+            <path d="M 440 20 L 455 20 L 455 60 L 320 60 L 320 80" fill="none" stroke="#38bdf8" strokeWidth="3" />
+          </g>
+        )}
+
+        {system === 'dwc' && (
+          <g transform="translate(80, 115)">
+            <rect x="0" y="0" width="440" height="40" rx="4" fill="#0284c7" fillOpacity="0.4" stroke="#0284c7" strokeWidth="1.5" />
+            <rect x="5" y="0" width="430" height="8" rx="2" fill="#ffffff" stroke="#94a3b8" />
+
+            {[50, 120, 190, 260, 330, 400].map((px) => (
+              <g key={px} transform={`translate(${px}, 4)`}>
+                <polygon points="-8,0 8,0 6,10 -6,10" fill="#334155" />
+                <path d="M -5 10 Q 0 32 8 35 M 0 10 Q 5 28 -6 34 M 5 10 Q -4 26 2 35" stroke="#ffffff" strokeWidth="1.2" fill="none" />
+                <circle cx="0" cy="-10" r="10" fill="#22c55e" />
+                <circle cx="-4" cy="-12" r="6" fill="#16a34a" />
+              </g>
+            ))}
+
+            <rect x="40" y="32" width="360" height="5" rx="2" fill="#64748b" />
+            {[70, 140, 210, 280, 350].map((bx) => (
+              <g key={bx}>
+                <circle cx={bx} cy="26" r="2" fill="#ffffff" opacity="0.8" />
+                <circle cx={bx + 3} cy="18" r="1.5" fill="#ffffff" opacity="0.6" />
+                <circle cx={bx - 2} cy="12" r="1.8" fill="#ffffff" opacity="0.7" />
+              </g>
+            ))}
+          </g>
+        )}
+
+        {system === 'dutch_bucket' && (
+          <g transform="translate(80, 115)">
+            {[50, 150, 250, 350].map((bx) => (
+              <g key={bx} transform={`translate(${bx}, 0)`}>
+                <polygon points="-22,0 22,0 18,35 -18,35" fill="#f8fafc" stroke="#94a3b8" strokeWidth="1.5" />
+                <polygon points="-20,2 20,2 17,33 -17,33" fill="#e2e8f0" />
+                <line x1="0" y1="-10" x2="0" y2="8" stroke="#334155" strokeWidth="2" />
+                <path d="M 0 0 Q -5 -15 0 -30 Q 8 -40 0 -50" stroke="#16a34a" strokeWidth="3" fill="none" />
+                <circle cx="-6" cy="-22" r="4" fill="#ef4444" />
+                <circle cx="6" cy="-35" r="4.5" fill="#ef4444" />
+                <path d="M 0 28 L 14 28 L 14 38 L 26 38" fill="none" stroke="#38bdf8" strokeWidth="2" />
+              </g>
+            ))}
+            <line x1="30" y1="38" x2="440" y2="38" stroke="#38bdf8" strokeWidth="3" />
+          </g>
+        )}
+
+        <g transform="translate(180, 175)">
+          <rect x="0" y="0" width="130" height="42" rx="4" fill="#0f172a" stroke="#0284c7" strokeWidth="1.5" />
+          <rect x="2" y="14" width="126" height="26" rx="2" fill="#0284c7" fillOpacity="0.4" />
+          <rect x="10" y="18" width="16" height="18" rx="2" fill="#334155" stroke="#38bdf8" strokeWidth="1" />
+          <path d="M 18 18 L 18 -15 L -80 -15 L -80 -55" fill="none" stroke="#38bdf8" strokeWidth="2.5" />
+
+          <g transform="translate(145, 8)">
+            <rect x="0" y="0" width="22" height="30" rx="3" fill="#450a0a" stroke="#ef4444" strokeWidth="0.8" />
+            <text x="11" y="18" fill="#fca5a5" fontSize="6.5" fontWeight="bold" textAnchor="middle">
+              A
+            </text>
+            <rect x="28" y="0" width="22" height="30" rx="3" fill="#022c22" stroke="#10b981" strokeWidth="0.8" />
+            <text x="39" y="18" fill="#6ee7b7" fontSize="6.5" fontWeight="bold" textAnchor="middle">
+              B
+            </text>
+            <text x="25" y="38" fill="#94a3b8" fontSize="6" textAnchor="middle">
+              Stock Tanks
+            </text>
+          </g>
+
+          <line x1="75" y1="2" x2="75" y2="28" stroke="#f59e0b" strokeWidth="2" />
+          <line x1="90" y1="2" x2="90" y2="28" stroke="#a855f7" strokeWidth="2" />
+
+          <g transform="translate(260, 20)">
+            <rect x="-45" y="-14" width="90" height="28" rx="4" fill="#020617" stroke="#10b981" strokeWidth="1" />
+            <text x="0" y="-2" fill="#10b981" fontSize="7.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+              EC: {ec.toFixed(1)} | pH: {ph.toFixed(1)}
+            </text>
+            <text x="0" y="9" fill="#38bdf8" fontSize="7" fontFamily="monospace" textAnchor="middle">
+              {temp}°C | VPD: {vpd} kPa
+            </text>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+const EgyptianMegaprojectsMapSchematic: React.FC<{
+  activeProject: EgyptianMegaProject;
+  allProjects: EgyptianMegaProject[];
+  onSelectProject: (p: EgyptianMegaProject) => void;
+  isArabic: boolean;
+  isLight?: boolean;
+}> = ({ activeProject, allProjects, onSelectProject, isArabic, isLight = false }) => {
+  const toX = (lon: number) => +(40 + ((lon - 24.5) / 12.5) * 440).toFixed(1);
+  const toY = (lat: number) => +(275 - ((lat - 21.5) / 10.5) * 245).toFixed(1);
+
+  return (
+    <div className="w-full flex flex-col items-center">
+      <svg viewBox="0 0 520 300" className="w-full max-w-[520px] h-auto overflow-visible select-none">
+        <defs>
+          <linearGradient id="nileGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#0284c7" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+          <filter id="mapGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+        </defs>
+
+        <polygon
+          points="40,275 40,42 232,48 277,75 247,44 296,41 311,44 382,44 404,87 382,147 435,260 480,275"
+          fill={isLight ? '#f1f5f9' : '#090d16'}
+          stroke="#334155"
+          strokeWidth="1.5"
+        />
+
+        <text x="140" y="32" fill="#0284c7" fontSize="8" fontWeight="bold" opacity="0.7">
+          {isArabic ? 'البحر الأبيض المتوسط (Mediterranean Sea)' : 'Mediterranean Sea'}
+        </text>
+
+        <text x="435" y="180" fill="#0284c7" fontSize="8" fontWeight="bold" opacity="0.7" transform="rotate(45 435 180)">
+          {isArabic ? 'البحر الأحمر (Red Sea)' : 'Red Sea'}
+        </text>
+
+        <path
+          d="M 320 255 Q 335 240 335 220 Q 338 235 328 255 Z"
+          fill="#0284c7"
+          opacity="0.8"
+        />
+        <text x="345" y="235" fill="#38bdf8" fontSize="7" fontWeight="bold">
+          {isArabic ? 'بحيرة ناصر' : 'Lake Nasser'}
+        </text>
+
+        <path
+          d="M 335 220 Q 330 190 328 167 Q 315 155 275 142 Q 265 130 261 121 Q 268 95 277 75"
+          fill="none"
+          stroke="url(#nileGrad)"
+          strokeWidth="3"
+        />
+        <path d="M 277 75 Q 260 60 247 44" fill="none" stroke="#38bdf8" strokeWidth="2" />
+        <path d="M 277 75 Q 288 58 296 41" fill="none" stroke="#38bdf8" strokeWidth="2" />
+
+        <path d="M 330 240 L 297 249" stroke="#10b981" strokeWidth="2" strokeDasharray="3 2" />
+        <path d="M 275 75 Q 250 72 227 67" stroke="#10b981" strokeWidth="2" strokeDasharray="3 2" />
+        <path d="M 296 48 L 332 53" stroke="#10b981" strokeWidth="2" strokeDasharray="3 2" />
+
+        {allProjects.map((p) => {
+          const px = toX(p.longitude);
+          const py = toY(p.latitude);
+          const isSelected = activeProject.id === p.id;
+
+          return (
+            <g
+              key={p.id}
+              onClick={() => onSelectProject(p)}
+              className="cursor-pointer transition-all hover:scale-110"
+            >
+              {isSelected && (
+                <>
+                  <circle cx={px} cy={py} r="14" fill="#10b981" opacity="0.3" className="animate-ping" />
+                  <circle cx={px} cy={py} r="10" fill="none" stroke="#10b981" strokeWidth="1.5" strokeDasharray="2 2" />
+                </>
+              )}
+              <circle
+                cx={px}
+                cy={py}
+                r={isSelected ? 6 : 4.5}
+                fill={isSelected ? '#10b981' : '#f59e0b'}
+                stroke="#ffffff"
+                strokeWidth={1.5}
+                filter={isSelected ? 'url(#mapGlow)' : undefined}
+              />
+              <text
+                x={px}
+                y={py - 9}
+                fill={isSelected ? '#10b981' : '#cbd5e1'}
+                fontSize={isSelected ? '8.5' : '7'}
+                fontWeight={isSelected ? 'bold' : 'normal'}
+                textAnchor="middle"
+              >
+                {isArabic ? p.nameAr.split('(')[0].trim() : p.nameEn.split('(')[0].trim()}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+};
+
 export const AgriculturalTechnologyStudio: React.FC<Props> = ({
   lang = 'ar',
   theme = 'dark',
@@ -363,6 +1026,49 @@ export const AgriculturalTechnologyStudio: React.FC<Props> = ({
               ))}
             </div>
 
+            {/* Realistic Scientific Vector Schematics: USDA Texture Triangle & Soil Monolith */}
+            <div
+              className={`p-4 rounded-2xl border ${
+                isLight ? 'bg-white border-slate-200' : 'bg-[#161B22] border-slate-800'
+              }`}
+            >
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-emerald-500" />
+                  <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    {isArabic
+                      ? 'مخطط مثلث قوام التربة المعتمد (USDA) وقطاع التربة الاستصلاحي'
+                      : 'USDA Soil Texture Ternary Triangle & Reclamation Soil Monolith'}
+                  </span>
+                </div>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-500 font-bold border border-emerald-500/30">
+                  {selectedSoilPreset.nameAr} ({soilSand}% {isArabic ? 'رمل' : 'Sand'} | {soilSilt}% {isArabic ? 'غرين' : 'Silt'} | {soilClay}% {isArabic ? 'طين' : 'Clay'})
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                <div className="lg:col-span-8 flex justify-center">
+                  <UsdaSoilTextureTriangle
+                    sand={soilSand}
+                    silt={soilSilt}
+                    clay={soilClay}
+                    isArabic={isArabic}
+                    isLight={isLight}
+                  />
+                </div>
+                <div className="lg:col-span-4 flex justify-center">
+                  <SoilProfileHorizonColumn
+                    soilEsp={soilEsp}
+                    targetEsp={targetEsp}
+                    gypsumTons={gypsumRequirementTons}
+                    soilEc={soilEc}
+                    isArabic={isArabic}
+                    isLight={isLight}
+                  />
+                </div>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Controls Column */}
               <div
@@ -634,6 +1340,37 @@ export const AgriculturalTechnologyStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeStation === 'irrigation_budgeting' && (
           <div className="space-y-6">
+            {/* Realistic Hydraulic Schematic: Center Pivot / Subsurface Drip */}
+            <div
+              className={`p-4 rounded-2xl border ${
+                isLight ? 'bg-white border-slate-200' : 'bg-[#161B22] border-slate-800'
+              }`}
+            >
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <div className="flex items-center gap-2">
+                  <Droplets className="w-4 h-4 text-blue-500" />
+                  <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    {selectedIrrigation.id === 'center_pivot'
+                      ? (isArabic ? 'المخطط الهندسي لبيفوت الري المحوري وتوزيع المياه (Center Pivot)' : 'Center Pivot Machine Engineering Schematic & Wetting Pattern')
+                      : (isArabic ? 'المخطط الهيدروليكي لشبكة الري بالتنقيط وبصلة البلل (Drip Hydraulics)' : 'Drip Irrigation Hydraulics & Subsurface Wetted Bulb')}
+                  </span>
+                </div>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-bold border border-blue-500/30">
+                  {selectedIrrigation.nameAr} • {isArabic ? 'كفاءة الإضافة:' : 'Efficiency:'} {selectedIrrigation.efficiencyPct}%
+                </span>
+              </div>
+
+              <div className="flex justify-center">
+                <IrrigationEngineeringSchematic
+                  method={selectedIrrigation}
+                  etc={etc}
+                  leachingReq={leachingRequirement}
+                  isArabic={isArabic}
+                  isLight={isLight}
+                />
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Climate inputs */}
               <div
@@ -868,6 +1605,40 @@ export const AgriculturalTechnologyStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeStation === 'hydroponics_greenhouse' && (
           <div className="space-y-6">
+            {/* Realistic Commercial Greenhouse & Hydroponics P&ID Schematic */}
+            <div
+              className={`p-4 rounded-2xl border ${
+                isLight ? 'bg-white border-slate-200' : 'bg-[#161B22] border-slate-800'
+              }`}
+            >
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <div className="flex items-center gap-2">
+                  <Thermometer className="w-4 h-4 text-emerald-500" />
+                  <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    {isArabic
+                      ? 'المخطط الهيكلي للصوبة الزراعية الذكية ونظام الزراعة المائية (Greenhouse P&ID)'
+                      : 'Precision Controlled-Environment Greenhouse & Closed-Loop Hydroponics P&ID'}
+                  </span>
+                </div>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30">
+                  {hydroponicSystem === 'nft' ? (isArabic ? 'تقنية الفيلم المغذي (NFT)' : 'NFT Channel') : hydroponicSystem === 'dwc' ? (isArabic ? 'الزراعة العميقة (DWC)' : 'DWC Raft') : (isArabic ? 'الدلو الهولندي (Dutch Bucket)' : 'Dutch Bucket')}
+                </span>
+              </div>
+
+              <div className="flex justify-center">
+                <HydroponicGreenhouseSchematic
+                  system={hydroponicSystem}
+                  ec={hydroponicEc}
+                  ph={hydroponicPh}
+                  vpd={ghVpd}
+                  temp={ghTemp}
+                  co2={ghCo2Ppm}
+                  isArabic={isArabic}
+                  isLight={isLight}
+                />
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Climate controls */}
               <div
@@ -1104,6 +1875,37 @@ export const AgriculturalTechnologyStudio: React.FC<Props> = ({
                   </button>
                 );
               })}
+            </div>
+
+            {/* Egyptian National Mega-Projects Map Schematic */}
+            <div
+              className={`p-4 rounded-2xl border ${
+                isLight ? 'bg-white border-slate-200' : 'bg-[#161B22] border-slate-800'
+              }`}
+            >
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-200 dark:border-slate-800 mb-4">
+                <div className="flex items-center gap-2">
+                  <Compass className="w-4 h-4 text-emerald-500" />
+                  <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                    {isArabic
+                      ? 'الخريطة الجغرافية التفاعلية للمشروعات القومية الزراعية ومصادر المياه'
+                      : 'Interactive Geographic Map of Egyptian Agricultural Mega-Projects & Water Conveyance'}
+                  </span>
+                </div>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30 font-mono">
+                  {activeProject.nameAr} ({activeProject.latitude.toFixed(1)}°N, {activeProject.longitude.toFixed(1)}°E)
+                </span>
+              </div>
+
+              <div className="flex justify-center">
+                <EgyptianMegaprojectsMapSchematic
+                  activeProject={activeProject}
+                  allProjects={EGYPTIAN_MEGA_PROJECTS}
+                  onSelectProject={setActiveProject}
+                  isArabic={isArabic}
+                  isLight={isLight}
+                />
+              </div>
             </div>
 
             {/* Detailed Project Profile */}
