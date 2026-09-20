@@ -1761,6 +1761,50 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
       universityAdvantageAr:
         'تأهيل استثنائي للالتحاق بأعرق كليات الذكاء الاصطناعي، علوم الحاسب، علم البيانات، هندسة تعلم الآلة، الروبوتات، والأنظمة الإدراكية الحوسبية عالمياً ومحلياً.',
     },
+    {
+      id: 'biotechnology_bridge',
+      titleEn: 'Biotechnology, Genetic Engineering & Bioinformatics',
+      titleAr: 'التكنولوجيا الحيوية والهندسة الوراثية والمعلوماتية الحيوية (STEM & EG-Bac)',
+      icon: <Dna className="w-5 h-5 text-emerald-400" />,
+      thanaweyaBranchId: 'thanaweya_biotechnology',
+      egBacBranchId: 'egbac_biotechnology',
+      thanaweyaTitleEn: 'Molecular Genetics, Bioprocessing & Medical Applications (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'الوراثة الجزيئية والعمليات الحيوية والتطبيقات الطبية (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Molecular Genetics, Recombinant DNA & Gene Cloning: Restriction endonucleases, DNA ligases, plasmid vectors, cDNA libraries, and transformation techniques',
+        'Ch.2 Industrial Biotechnology, Fermentation Kinetics & Enzyme Technology: Batch/continuous bioreactors, microbial kinetics (Monod model), downstream processing, and enzyme immobilization',
+        'Ch.3 Agricultural & Environmental Biotechnology & Bioremediation: Transgenic crops, Bt endotoxins, drought/salinity resistance, phytoremediation, and biofertilizers',
+        'Ch.4 Medical Biotechnology, Gene Therapy & Stem Cell Applications: Monoclonal antibodies (hybridoma), viral vectors (AAV/lentivirus), CRISPR therapeutics, and induced pluripotent stem cells (iPSCs)',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ الوراثة الجزيئية وحمض DNA معاد الاتحاد واستنساخ الجينات: إنزيمات القصر، إنزيمات الربط، البلازميدات، مكتبات cDNA، وتقنيات التحول البكتيري',
+        'فصل ٢ التكنولوجيا الحيوية الصناعية وحركية التخمير وتكنولوجيا الإنزيمات: المفاعلات الحيوية، حركية النمو الميكروبي (معادلة مونو)، المعالجة اللاحقة، وتثبيت الإنزيمات',
+        'فصل ٣ التكنولوجيا الحيوية الزراعية والبيئية والمعالجة الحيوية: المحاصيل المعدلة وراثياً، سموم Bt، مقاومة الجفاف والملوحة، المعالجة بالنباتات، والأسمدة الحيوية',
+        'فصل ٤ التكنولوجيا الحيوية الطبية والعلاج الجيني والخلايا الجذعية: الأجسام المضادة أحادية النسيلة، النواقل الفيروسية، علاجات CRISPR، والخلايا الجذعية المستحثة iPSCs',
+      ],
+      egBacTitleEn: 'Advanced Genomics, Structural Bioinformatics & Synthetic Biology (4 Modules)',
+      egBacTitleAr: 'علم الجينوم المتقدم والمعلوماتية الحيوية البنيوية والبيولوجيا التخليقية (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Advanced Genomics, Transcriptomics & Next-Generation Sequencing: Illumina sequencing-by-synthesis, Oxford Nanopore single-molecule sequencing, RNA-seq, and variant calling',
+        'Mod.2 Computational Biology, Sequence Alignment & Structural Bioinformatics: Dynamic programming (Needleman-Wunsch/Smith-Waterman), BLAST algorithms, phylogenetic trees, and AlphaFold docking',
+        'Mod.3 CRISPR-Cas9 Precision Genome Editing & Synthetic Biology: PAM site recognition, Cas9/Cas12 endonuclease mechanics, base/prime editing, synthetic gene circuits, and metabolic engineering',
+        'Mod.4 Bioprocess Engineering, Biosafety Containment & Bioethics Governance: Scale-up fluid mechanics, oxygen mass transfer (kLa), biosafety levels (BSL-1 to BSL-4), and Cartagena Protocol compliance',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ الجينوميات المتقدمة والترانسكريبتوم وتسلسل الجيل القادم NGS: تقنية إلومينا للتسلسل عبر البناء، تسلسل النانوبور، تحليل RNA-seq، وتحديد الطفرات والتباينات',
+        'وحدة ٢ البيولوجيا الحسابية ومحاذاة التتابعات والمعلوماتية الحيوية: البرمجة الديناميكية (Needleman-Wunsch وSmith-Waterman)، خوارزمية BLAST، والأشجار التطورية، والتنبؤ بـ AlphaFold',
+        'وحدة ٣ تحرير الجينوم الدقيق بـ CRISPR والبيولوجيا التخليقية: التعرف على تسلسل PAM، ميكانيكا إنزيمات Cas، التحرير الأولي والقاعدي، الدوائر الجينية التخليقية، وهندسة الأيض',
+        'وحدة ٤ هندسة العمليات الحيوية ومستويات الأمان البيولوجي وحوكمة الأخلاقيات: ديناميكا الموائع للتوسع الصناعي، انتقال الأكسجين kLa، مستويات BSL (١ إلى ٤)، وبروتوكول قرطاجنة',
+      ],
+      bridgeInsightEn:
+        'Thanaweya STEM Biotechnology builds robust laboratory and industrial foundations in gene cloning, fermentation kinetics, and medical/agricultural therapeutics. EG-Bac expands this into quantitative computational biology, next-generation sequencing algorithms, advanced CRISPR prime-editing systems, and synthetic biology design.',
+      bridgeInsightAr:
+        'يبني منهج الثانوية العامة للمتفوقين أساساً مخبرياً وصناعياً راسخاً في استنساخ الجينات، حركية التخمير، والتطبيقات الطبية والزراعية. بينما ترتقي البكالوريا بالدراسة نحو البيولوجيا الحاسوبية الكمية، وخوارزميات تسلسل الجيل القادم، وأنظمة تحرير الجينات المتقدمة، وهندسة الكائنات التخليقية.',
+      universityAdvantageEn:
+        'Direct pipeline to top international and national faculties of Medicine, Molecular Biotechnology, Biomedical Engineering, Clinical Pharmacy, Genetics, and Computational Biology.',
+      universityAdvantageAr:
+        'تأهيل أكاديمي مباشر للقبول بكليات الطب البشري، التكنولوجيا الحيوية الجزيئية، الهندسة الطبية الحيوية، الصيدلة الإكلينيكية، علم الوراثة، والمعلوماتية الحيوية.',
+    },
   ];
 
   const activeBridge = bridges[activeBridgeIndex];

@@ -35,7 +35,8 @@ export type SubjectId =
   | 'stem_capstone'
   | 'robotics_mechatronics'
   | 'electronics_iot'
-  | 'ai_data_science';
+  | 'ai_data_science'
+  | 'biotechnology';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -837,6 +838,28 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_ai_data_science'],
       egbac: ['egbac_ai_data_science'],
+    },
+  },
+  // 35. Biotechnology, Genetic Engineering & Bioinformatics
+  {
+    id: 'biotechnology',
+    titleEn: 'Biotechnology, Genetic Engineering & Bioinformatics',
+    titleAr: 'التكنولوجيا الحيوية، الهندسة الوراثية والمعلوماتية الحيوية',
+    shortTitleEn: 'Biotechnology',
+    shortTitleAr: 'التكنولوجيا الحيوية',
+    emoji: '🧬',
+    iconName: 'Dna',
+    badgeColor: 'emerald',
+    gradient: 'from-emerald-600 via-teal-600 to-cyan-700',
+    lightBg: 'bg-emerald-50 text-emerald-950 border-emerald-200',
+    darkBg: 'bg-emerald-950/80 text-emerald-200 border-emerald-800/60',
+    borderColor: 'border-emerald-500/50',
+    textColor: 'text-emerald-400',
+    descriptionEn: 'Official Egyptian STEM secondary and EG-Bac curriculum in Biotechnology, Genetic Engineering & Bioinformatics: Molecular genetics, recombinant DNA and restriction digestion, gene cloning, PCR amplification and gel electrophoresis, CRISPR-Cas9 genome editing, industrial microbial fermentation, agricultural biotechnology, gene therapy, next-generation sequencing (NGS), and structural bioinformatics.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM) والبكالوريا المصرية في التكنولوجيا الحيوية والهندسة الوراثية والمعلوماتية الحيوية: علم الوراثة الجزيئية، تقنية الحمض النووي معاد الاتحاد وإنزيمات القصر، استنساخ الجينات، مضاعفة تفاعل البوليميراز المتسلسل PCR والترحيل الكهربي، تحرير الجينات الدقيق بنظام CRISPR-Cas9، التخمرات الصناعية الحيوية، التكنولوجيا الحيوية الزراعية والبيئية، العلاج الجيني وتسلسل الجيل القادم NGS، والمعلوماتية الحيوية والتنبؤ بالبنى الجزيئية للبروتينات.',
+    branchIds: {
+      thanaweya: ['thanaweya_biotechnology'],
+      egbac: ['egbac_biotechnology'],
     },
   },
 ];

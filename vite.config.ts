@@ -233,6 +233,12 @@ export default defineConfig({
             { name: 'curriculum-ai-data-science', test: /src\/data\/(thanaweya|egBac)AiDataScience/, priority: 20 },
             { name: 'ai-studio', test: /aiLabData/, priority: 30 },
 
+            // Biotechnology, Genetic Engineering & Bioinformatics
+            { name: 'databank-biotechnology', test: /databanks\/(thanaweya|egbac)\/.*biotechnology/i, priority: 30 },
+            { name: 'textbook-biotechnology', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*biotechnology/i, priority: 30 },
+            { name: 'curriculum-biotechnology', test: /src\/data\/(thanaweya|egBac)Biotechnology/, priority: 20 },
+            { name: 'biotech-studio', test: /biotechLabData/, priority: 30 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },

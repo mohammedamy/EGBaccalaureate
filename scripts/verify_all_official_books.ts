@@ -39,8 +39,8 @@ async function runVerification() {
 
   // 1. Total Catalog Count Check
   assert(
-    officialBooksList.length === 77,
-    `Expected exactly 77 official books, found ${officialBooksList.length}`
+    officialBooksList.length === 79,
+    `Expected exactly 79 official books, found ${officialBooksList.length}`
   );
 
   const booksDir = path.resolve(process.cwd(), 'public/books');
@@ -226,6 +226,7 @@ async function runVerification() {
     'robotics_mechatronics',
     'electronics_iot',
     'ai_data_science',
+    'biotechnology',
   ];
 
   for (const s of subjects) {

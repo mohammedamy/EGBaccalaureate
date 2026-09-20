@@ -21,8 +21,8 @@ export interface OfficialBookEnglishEdition {
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality' | 'renewable_energy' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -5062,6 +5062,152 @@ export const officialBooksList: OfficialBook[] = [
       'تجزئة الذاكرة بـ ZeRO-3، التكميم المتناظر بدقة INT8، وإسناد إسهامات الخصائص بقيم شابلي',
     ],
   },
+  // 78. Thanaweya STEM Biotechnology, Genetic Engineering & Applied Genetics (الكتاب الوزاري في التكنولوجيا الحيوية والهندسة الوراثية لمدارس المتفوقين)
+  {
+    id: 'th-biotechnology-g12',
+    curriculum: 'thanaweya',
+    category: 'biotechnology',
+    subjectId: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    code: 'STEM-BIOTECH-G12',
+    titleEn: 'Biotechnology, Genetic Engineering & Applied Genetics',
+    titleAr: 'التكنولوجيا الحيوية، الهندسة الوراثية والوراثة التطبيقية',
+    subtitleEn: 'Official Egyptian STEM High Schools Grade 12 Textbook',
+    subtitleAr: 'الكتاب الوزاري المعتمد لمدارس المتفوقين في العلوم والتكنولوجيا (STEM)',
+    academicYear: '2024/2025',
+    gradeEn: 'Grade 12 (STEM)',
+    gradeAr: 'الصف الثالث الثانوي (STEM)',
+    publisherEn: 'Egyptian Ministry of Education & Technical Education',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 8,
+    fileSize: '22.4 KB',
+    compendiumTitleEn: 'Biotechnology, Cloning Vectors & Bioreactors Concept Compendium',
+    compendiumTitleAr: 'ملخص المفاهيم والقوانين في التكنولوجيا الحيوية والمفاعلات واستنساخ الجينات',
+    filename: 'thanaweya-biotechnology.pdf',
+    downloadUrl: '/books/thanaweya-biotechnology.pdf',
+    fullTextbookPages: 308,
+    fullTextbookSize: '27.8 MB',
+    officialPortalUrl: 'https://moe.gov.eg/elearning/stem/biotechnology-g12',
+    coverGradient: 'from-emerald-600 via-teal-600 to-cyan-700',
+    accentColor: '#10B981',
+    chapters: [
+      {
+        id: 'th_biotechnology_ch1',
+        titleEn: 'Molecular Genetics, Recombinant DNA & Gene Cloning',
+        titleAr: 'الوراثة الجزيئية، حمض DNA معاد الاتحاد واستنساخ الجينات',
+        pageRange: 'pp. 1–76',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_biotechnology_ch2',
+        titleEn: 'Industrial Biotechnology, Fermentation Kinetics & Enzyme Technology',
+        titleAr: 'التكنولوجيا الحيوية الصناعية، حركية التخمير وتكنولوجيا الإنزيمات',
+        pageRange: 'pp. 77–152',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_biotechnology_ch3',
+        titleEn: 'Agricultural & Environmental Biotechnology & Bioremediation',
+        titleAr: 'التكنولوجيا الحيوية الزراعية والبيئية والمعالجة الحيوية',
+        pageRange: 'pp. 153–228',
+        topicsCount: 3,
+      },
+      {
+        id: 'th_biotechnology_ch4',
+        titleEn: 'Medical Biotechnology, Gene Therapy & Stem Cell Applications',
+        titleAr: 'التكنولوجيا الحيوية الطبية، العلاج الجيني وتطبيقات الخلايا الجذعية',
+        pageRange: 'pp. 229–308',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Official Egyptian STEM curriculum textbook in Biotechnology, Genetic Engineering & Applied Genetics: Type II restriction endonucleases, plasmid cloning vectors (pUC19), blue-white alpha-complementation screening, exponential PCR kinetics, Monod microbial fermentation, enzyme immobilization, downstream chromatographic recovery, Bt insecticidal delta-endotoxins, soil salinity NHX1 antiporters, microbial bioremediation of petroleum hydrocarbons, hybridoma monoclonal antibodies, recombinant glycoprotein expression (CHO), and clinical AAV viral gene therapy vectors.',
+    descriptionAr: 'كتاب الوزارة المعتمد لمدارس المتفوقين STEM في التكنولوجيا الحيوية والهندسة الوراثية: إنزيمات القصر البكتيرية، نواقل البلازميدات، الفرز بالأزرق والأبيض، حركية تضاعف تفاعل PCR، حركية مونو للنمو الميكروبي، تثبيت الإنزيمات، الاستعادة الكروماتوجرافية للمنتجات الحيوية، سموم Bt المقاومة للحشرات، مضخات NHX1 لتحمل الملوحة، المعالجة الميكروبية لانسكابات النفط، الأجسام المضادة أحادية النسيلة بالهجينوم، تصنيع البروتينات في خلايا CHO، والنواقل الفيروسية للعلاج الجيني السريري.',
+    highlightsEn: [
+      'Restriction endonuclease palindromic recognition kinetics and sticky-end ligation',
+      'Monod microbial growth parameters, chemostat dilution, and immobilized enzyme half-life',
+      'Bacillus thuringiensis Cry toxin midgut receptor binding and vacuolar sodium antiport',
+      'Hybridoma HAT selection, recombinant insulin refolding, and AAV clinical gene therapy dosing',
+    ],
+    highlightsAr: [
+      'حركية تعرف إنزيمات القصر على التتابعات المتناظرة وربط الأطراف اللاصقة',
+      'معاملات نمو مونو الميكروبي، تخفيف الكيموستات، ومضاعفة العمر التشغيلي للإنزيمات المثبتة',
+      'ارتباط سموم Cry بمستقبلات المعي الأوسط للحشرات ومضخات الصوديوم الفجوية ضد الملوحة',
+      'فرز الهجينوم في وسط HAT، وإعادة طي الإنسولين، وجرعات العلاج الجيني السريري بنواقل AAV',
+    ],
+  },
+  // 79. New Egyptian Baccalaureate Advanced Genomic Engineering, Bioinformatics & Synthetic Systems
+  {
+    id: 'egbac-biotechnology-g12',
+    curriculum: 'egbac',
+    category: 'biotechnology',
+    subjectId: 'biotechnology',
+    branchId: 'egbac_biotechnology',
+    code: 'EGBAC-BIOTECH-G12',
+    titleEn: 'Genomic Engineering, Bioinformatics & Synthetic Systems',
+    titleAr: 'الهندسة الجينومية، المعلوماتية الحيوية والنظم التخليقية',
+    subtitleEn: 'New Egyptian Baccalaureate (EG-Bac) Advanced Biotechnology Syllabus',
+    subtitleAr: 'منهج البكالوريا المصرية الجديد (EG-Bac) في التكنولوجيا الحيوية المتقدمة',
+    academicYear: '2024/2025',
+    gradeEn: 'Grade 12 (EG-Bac Advanced Track)',
+    gradeAr: 'الصف الثالث الثانوي (المسار المتقدم للبكالوريا المصرية)',
+    publisherEn: 'Egyptian Ministry of Education & Technical Education',
+    publisherAr: 'وزارة التربية والتعليم والتعليم الفني - جمهورية مصر العربية',
+    pagesCount: 8,
+    fileSize: '22.6 KB',
+    compendiumTitleEn: 'Advanced Genomics, CRISPR & Bioinformatics Mathematical Compendium',
+    compendiumTitleAr: 'دليل النماذج الرياضية في الجينوميات وكريسبر والمعلوماتية الحيوية',
+    filename: 'egbac-biotechnology.pdf',
+    downloadUrl: '/books/egbac-biotechnology.pdf',
+    fullTextbookPages: 328,
+    fullTextbookSize: '30.6 MB',
+    officialPortalUrl: 'https://moe.gov.eg/elearning/egbac/advanced-biotechnology-g12',
+    coverGradient: 'from-emerald-600 via-teal-600 to-cyan-700',
+    accentColor: '#10B981',
+    chapters: [
+      {
+        id: 'egbac_biotechnology_ch1',
+        titleEn: 'Next-Generation Sequencing, Nanopores & Transcriptomics',
+        titleAr: 'تسلسل الجيل القادم، مساير النانوبور والترانسكريبتوميكس',
+        pageRange: 'pp. 1–82',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_biotechnology_ch2',
+        titleEn: 'Computational Bioinformatics, Sequence Alignment & AlphaFold',
+        titleAr: 'المعلوماتية الحيوية الحاسوبية، محاذاة التتابعات والتنبؤ بـ AlphaFold',
+        pageRange: 'pp. 83–164',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_biotechnology_ch3',
+        titleEn: 'CRISPR Genome Editing, Base/Prime Editing & Synthetic Circuits',
+        titleAr: 'تحرير الجينوم بـ CRISPR، التحرير القاعدي والأولي والدوائر التخليقية',
+        pageRange: 'pp. 165–246',
+        topicsCount: 3,
+      },
+      {
+        id: 'egbac_biotechnology_ch4',
+        titleEn: 'Bioprocess Fluid Dynamics, CAR-T Engineering & Global Biosafety',
+        titleAr: 'ديناميكا موائع المعالجة الحيوية، هندسة خلايا CAR-T والأمان الحيوي الدولي',
+        pageRange: 'pp. 247–328',
+        topicsCount: 3,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Genomic Engineering, Computational Bioinformatics & Synthetic Biology: Illumina reversible terminator chemistry, Oxford Nanopore ionic current translocation, RNA-Seq TPM transcriptomic normalization, Needleman-Wunsch global dynamic programming, Smith-Waterman local alignment, Karlin-Altschul BLAST E-value statistics, AlphaFold 3D protein structure prediction with Evoformer modules, CRISPR-Cas9 RuvC/HNH endonuclease cleavage, Cytosine/Adenine Base Editing (CBE/ABE), pegRNA prime editing, synthetic biology toggle switches, volumetric oxygen transfer kLa modeling, CAR-T scFv cell therapy engineering, and Cartagena Protocol biosafety governance.',
+    descriptionAr: 'كتاب البكالوريا المصرية المتقدم في الهندسة الجينومية والمعلوماتية الحيوية والبيولوجيا التخليقية: كيمياء النهايات العكوسة في إلومينا، انتقال التيار الأيوني في مساير النانوبور، معايرة تعبير RNA-Seq بوحدة TPM، البرمجة الديناميكية لـ Needleman-Wunsch و Smith-Waterman، إحصاءات E-value في BLAST، التنبؤ بالبنية البروتينية ثلاثية الأبعاد بنموذج AlphaFold ووحدات Evoformer، قطع إنزيم Cas9، التحرير القاعدي للنيوكليوتيدات CBE و ABE، التحرير الأولي بـ pegRNA، المفاتيح الجينية التخليقية، نمذجة انتقال الأكسجين kLa، هندسة خلايا CAR-T، وحوكمة السلامة الحيوية وفق بروتوكول قرطاجنة.',
+    highlightsEn: [
+      'Flow cell bridge amplification gigabase throughput and RNA-Seq TPM normalization',
+      'Dynamic programming recurrence matrix equations and AlphaFold pLDDT confidence scores',
+      'Cas9 PAM recognition kinetics, base editing deamination, and prime editing pegRNA design',
+      'Bioreactor volumetric oxygen transfer rate (OTR) hydrodynamics and CAR-T cytolytic activity',
+    ],
+    highlightsAr: [
+      'إنتاجية الجيجابايت بشرائح التدفق الجسرية ومعايرة التعبير الترانسكريبتومي بـ TPM',
+      'معادلات التكرار بمصفوفات البرمجة الديناميكية ودرجات ثقة طي البروتينات بـ AlphaFold',
+      'حركية تعرف Cas9 على تتابع PAM، تحويل القواعد بالديأمينيز، وتصميم بوادئ pegRNA للتحرير الأولي',
+      'ديناميكا معدل انتقال الأكسجين الحجمي بالمفاعلات الحيوية والنشاط السام لخلايا CAR-T',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -5139,6 +5285,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_electronics_iot' && (b.branchId === 'egbac_electronics_iot' || b.id === 'egbac-electronics-iot-g12')) return true;
     if (branchId === 'thanaweya_ai_data_science' && (b.branchId === 'thanaweya_ai_data_science' || b.id === 'th-ai-data-science-g12')) return true;
     if (branchId === 'egbac_ai_data_science' && (b.branchId === 'egbac_ai_data_science' || b.id === 'egbac-ai-data-science-g12')) return true;
+    if (branchId === 'thanaweya_biotechnology' && (b.branchId === 'thanaweya_biotechnology' || b.id === 'th-biotechnology-g12')) return true;
+    if (branchId === 'egbac_biotechnology' && (b.branchId === 'egbac_biotechnology' || b.id === 'egbac-biotechnology-g12')) return true;
     return false;
   });
 }
@@ -5148,7 +5296,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'stem_capstone' | 'robotics_mechatronics' | 'electronics_iot' | 'ai_data_science' | 'biotechnology'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

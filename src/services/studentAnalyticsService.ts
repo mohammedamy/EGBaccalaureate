@@ -33,7 +33,8 @@ export type SubjectCategory =
   | 'stem_capstone'
   | 'robotics_mechatronics'
   | 'electronics_iot'
-  | 'ai_data_science';
+  | 'ai_data_science'
+  | 'biotechnology';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -64,7 +65,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26' | 'all27' | 'all28';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23' | 'all24' | 'all25' | 'all26' | 'all27' | 'all28' | 'all29';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -80,6 +81,36 @@ export interface MasteryRadarPoint {
  */
 export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
   const text = branchTitleOrId.toLowerCase();
+
+  if (
+    text.includes('biotechnology') ||
+    text.includes('biotech') ||
+    text.includes('تكنولوجيا حيوية') ||
+    text.includes('التكنولوجيا الحيوية') ||
+    text.includes('تكنولوجيا_حيوية') ||
+    text.includes('هندسة وراثية') ||
+    text.includes('الهندسة الوراثية') ||
+    text.includes('الوراثة التطبيقية') ||
+    text.includes('وراثة تطبيقية') ||
+    text.includes('genetic engineering') ||
+    text.includes('bioinformatics') ||
+    text.includes('معلوماتية حيوية') ||
+    text.includes('المعلوماتية الحيوية') ||
+    text.includes('crispr')
+  ) {
+    return 'biotechnology';
+  }
+
+  if (
+    text.includes('cs_informatics') ||
+    text.includes('thanaweya_cs_informatics') ||
+    text.includes('egbac_cs_informatics') ||
+    text.includes('computer science') ||
+    text.includes('حاسب') ||
+    (text.includes('informatic') && !text.includes('bioinformatics') && !text.includes('معلوماتية حيوية'))
+  ) {
+    return 'cs_informatics';
+  }
 
   if (
     text.includes('ai_data_science') ||
@@ -890,7 +921,7 @@ export function getMasteryRadarData(
     color: string;
   }> = [
     ...all24Dimensions,
-    { key: 'stem_capstone', ar: 'مشروع التخرج والابتكار STEM', en: 'STEM Capstone & Innovation', color: '#0284C7' },
+    { key: 'stem_capstone', ar: 'مشروع كابستون والتحديات الكبرى', en: 'STEM Capstone & Innovation', color: '#0284C7' },
   ];
 
   const all26Dimensions: Array<{
@@ -923,9 +954,21 @@ export function getMasteryRadarData(
     { key: 'ai_data_science', ar: 'الذكاء الاصطناعي وعلم البيانات', en: 'AI & Data Science', color: '#8B5CF6' },
   ];
 
+  const all29Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all28Dimensions,
+    { key: 'biotechnology', ar: 'التكنولوجيا الحيوية والهندسة الوراثية', en: 'Biotechnology & Genetics', color: '#10B981' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all29'
+      ? all29Dimensions
       : mode === 'all28'
       ? all28Dimensions
       : mode === 'all27'

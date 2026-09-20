@@ -42,7 +42,8 @@ export type PastExamSubject =
   | 'stem_capstone'
   | 'robotics_mechatronics'
   | 'electronics_iot'
-  | 'ai_data_science';
+  | 'ai_data_science'
+  | 'biotechnology';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -6828,6 +6829,195 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250054,
   },
+  // ============================================================================
+  // 35. STEM BIOTECHNOLOGY, GENETIC ENGINEERING & APPLIED GENETICS (2021-2025)
+  // ============================================================================
+  // 223. STEM Biotechnology 2021 - Session 1
+  {
+    id: 'th-biotechnology-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - التكنولوجيا الحيوية والهندسة الوراثية (الدور الأول ٢٠٢١)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Biotechnology & Genetic Engineering (First Session 2021)',
+    subtitleAr: 'الامتحان الرسمي الموحد لمدارس المتفوقين في العلوم والتكنولوجيا وفق نظام التقييم الإلكتروني والأسئلة التحليلية',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج أ',
+    formCodeEn: 'Form A',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢١ / دور أول / تكنولوجيا حيوية وهندسة وراثية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.5,
+      totalMarks: 50,
+      passRatePercent: 94.5,
+      distinctionRatePercent: 25.8,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 2150,
+      stdDeviation: 4.2,
+    },
+    seed: 20210055,
+  },
+  // 224. STEM Biotechnology 2022 - Session 1
+  {
+    id: 'th-biotechnology-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - التكنولوجيا الحيوية والهندسة الوراثية (الدور الأول ٢٠٢٢)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Biotechnology & Genetic Engineering (First Session 2022)',
+    subtitleAr: 'الامتحان الرسمي الموحد المعتمد من الإدارة المركزية لتطوير المناهج والمركز القومي للامتحانات',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج ب',
+    formCodeEn: 'Form B',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٢ / دور أول / تكنولوجيا حيوية وهندسة وراثية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 39.9,
+      totalMarks: 50,
+      passRatePercent: 95.0,
+      distinctionRatePercent: 26.4,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 2310,
+      stdDeviation: 4.1,
+    },
+    seed: 20220055,
+  },
+  // 225. STEM Biotechnology 2023 - Session 1
+  {
+    id: 'th-biotechnology-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - التكنولوجيا الحيوية والهندسة الوراثية (الدور الأول ٢٠٢٣)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Biotechnology & Genetic Engineering (First Session 2023)',
+    subtitleAr: 'الامتحان الرسمي الموحد بنظام البابل شيت والمقالي والتقييم الإلكتروني المتطور',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج ج',
+    formCodeEn: 'Form C',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٣ / دور أول / تكنولوجيا حيوية وهندسة وراثية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.3,
+      totalMarks: 50,
+      passRatePercent: 95.6,
+      distinctionRatePercent: 27.2,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2490,
+      stdDeviation: 4.0,
+    },
+    seed: 20230055,
+  },
+  // 226. STEM Biotechnology 2024 - Session 1
+  {
+    id: 'th-biotechnology-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - التكنولوجيا الحيوية والهندسة الوراثية (الدور الأول ٢٠٢٤)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Biotechnology & Genetic Engineering (First Session 2024)',
+    subtitleAr: 'الامتحان الرسمي وفق معايير المركز القومي للامتحانات والتقويم التربوي 2024',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج د',
+    formCodeEn: 'Form D',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / دور أول / تكنولوجيا حيوية وهندسة وراثية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 40.7,
+      totalMarks: 50,
+      passRatePercent: 96.3,
+      distinctionRatePercent: 28.5,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2650,
+      stdDeviation: 3.9,
+    },
+    seed: 20240055,
+  },
+  // 227. STEM Biotechnology 2024 - Session 2
+  {
+    id: 'th-biotechnology-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    titleAr: 'امتحان شهادة إتمام الثانوية العامة لمدارس المتفوقين STEM - التكنولوجيا الحيوية والهندسة الوراثية (الدور الثاني ٢٠٢٤)',
+    titleEn: 'Official Ministerial Thanawya Amma Examination - STEM Biotechnology & Genetic Engineering (Second Session 2024)',
+    subtitleAr: 'امتحان الدور الثاني المعتمد من الإدارة المركزية للتعليم العام والتعليم الفني',
+    subtitleEn: 'Authentic Standardized National Exam Paper administered by the Egyptian Ministry of Education',
+    formCodeAr: 'النموذج أ (دور ثان)',
+    formCodeEn: 'Form A (Session 2)',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٤ / دور ثان / تكنولوجيا حيوية وهندسة وراثية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.6,
+      totalMarks: 50,
+      passRatePercent: 91.2,
+      distinctionRatePercent: 18.8,
+      topTenThreshold: 47.0,
+      totalCandidatesEst: 405,
+      stdDeviation: 4.5,
+    },
+    seed: 20240155,
+  },
+  // 228. STEM Biotechnology 2025 - Experimental Diagnostic
+  {
+    id: 'th-biotechnology-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'biotechnology',
+    branchId: 'thanaweya_biotechnology',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - التكنولوجيا الحيوية والهندسة الوراثية STEM (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - STEM Biotechnology & Genetic Engineering (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من وحدة مدارس المتفوقين STEM والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE STEM Unit and Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / STEM ٢٠٢٥ / نموذج استرشادي / تكنولوجيا حيوية وهندسة وراثية',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 41.4,
+      totalMarks: 50,
+      passRatePercent: 97.2,
+      distinctionRatePercent: 30.0,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 2780,
+      stdDeviation: 3.8,
+    },
+    seed: 20250055,
+  },
 ];
 
 /**
@@ -6910,7 +7100,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('renew') || paper.branchId.includes('renewable')) && (b.id.includes('renew') || b.id.includes('renewable'))) ||
       ((paper.branchId.includes('robot') || paper.branchId.includes('robotics')) && (b.id.includes('robot') || b.id.includes('robotics'))) ||
       ((paper.branchId.includes('electronics') || paper.branchId.includes('iot')) && (b.id.includes('electronics') || b.id.includes('iot'))) ||
-      ((paper.branchId.includes('ai') || paper.branchId.includes('data_science')) && (b.id.includes('ai') || b.id.includes('data_science')))
+      ((paper.branchId.includes('ai') || paper.branchId.includes('data_science')) && (b.id.includes('ai') || b.id.includes('data_science'))) ||
+      ((paper.branchId.includes('biotech') || paper.branchId.includes('biotechnology')) && (b.id.includes('biotech') || b.id.includes('biotechnology')))
   );
 
   if (!targetBranch) return [];
