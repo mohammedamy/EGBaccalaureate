@@ -568,45 +568,198 @@ export const IndustrialEngineeringStudio: React.FC<Props> = ({
             </div>
 
             {/* Specimen SVG Simulation */}
-            <div className="w-full h-64 flex items-center justify-center relative">
-              <svg viewBox="0 0 200 240" className="w-full h-full max-h-60">
-                {/* Upper Crosshead Grippers */}
-                <rect x="50" y="10" width="100" height="25" fill="#475569" rx="3" stroke="#94A3B8" strokeWidth="1.5" />
-                <rect x="75" y="35" width="50" height="15" fill="#334155" />
-                <text x="100" y="27" textAnchor="middle" fill="#CBD5E1" fontSize="9" fontWeight="bold">HYDRAULIC GRIP</text>
+            <div className="w-full h-72 flex items-center justify-center relative">
+              <svg viewBox="0 0 240 260" className="w-full h-full max-h-72">
+                <defs>
+                  {/* Chrome Guide Column Metallic Gradient */}
+                  <linearGradient id="utmColumnGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#334155" />
+                    <stop offset="25%" stopColor="#94a3b8" />
+                    <stop offset="50%" stopColor="#f8fafc" />
+                    <stop offset="75%" stopColor="#64748b" />
+                    <stop offset="100%" stopColor="#1e293b" />
+                  </linearGradient>
 
-                {/* Tensile Specimen Dogbone */}
-                {/* Upper shoulder */}
-                <path d="M 75 50 L 125 50 L 115 80 L 85 80 Z" fill={selectedMaterial.color} opacity="0.85" />
-                
-                {/* Gauge Section with necking calculation */}
+                  {/* Heavy Crosshead Cast Steel Gradient */}
+                  <linearGradient id="utmCrossheadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#475569" />
+                    <stop offset="50%" stopColor="#334155" />
+                    <stop offset="100%" stopColor="#1e293b" />
+                  </linearGradient>
+
+                  {/* Hydraulic Grip Wedge Gradient */}
+                  <linearGradient id="utmGripGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#64748b" />
+                    <stop offset="100%" stopColor="#0f172a" />
+                  </linearGradient>
+
+                  {/* Specimen Metallic Shading */}
+                  <linearGradient id="specimenShine" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={selectedMaterial.color} stopOpacity="0.75" />
+                    <stop offset="35%" stopColor="#ffffff" stopOpacity="0.45" />
+                    <stop offset="70%" stopColor={selectedMaterial.color} stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#0f172a" stopOpacity="0.6" />
+                  </linearGradient>
+
+                  {/* Wedge Grip Knurl Pattern */}
+                  <pattern id="knurlGrip" width="4" height="4" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="4" y2="4" stroke="#94a3b8" strokeWidth="0.6" opacity="0.6" />
+                    <line x1="4" y1="0" x2="0" y2="4" stroke="#94a3b8" strokeWidth="0.6" opacity="0.6" />
+                  </pattern>
+
+                  {/* Extensometer Laser Beam Glow */}
+                  <filter id="laserGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="1.5" result="glow" />
+                    <feComposite in="SourceGraphic" in2="glow" operator="over" />
+                  </filter>
+                </defs>
+
+                {/* --- Rigid Frame Base & Upper Crossbar --- */}
+                {/* Heavy Cast Iron Machine Bed / Platen */}
+                <rect x="20" y="235" width="200" height="22" rx="3" fill="url(#utmCrossheadGrad)" stroke="#64748b" strokeWidth="1.2" />
+                <rect x="30" y="247" width="180" height="4" fill="#0f172a" rx="1" />
+                {/* Anchor T-slots */}
+                <rect x="45" y="239" width="16" height="5" fill="#0f172a" rx="1" />
+                <rect x="179" y="239" width="16" height="5" fill="#0f172a" rx="1" />
+
+                {/* Upper Stationary Machine Arch */}
+                <rect x="20" y="3" width="200" height="18" rx="3" fill="url(#utmCrossheadGrad)" stroke="#64748b" strokeWidth="1.2" />
+                <text x="120" y="15" textAnchor="middle" fill="#94a3b8" fontSize="8" fontWeight="bold" letterSpacing="1">
+                  INSTRON-E8 DUAL COLUMN UTM
+                </text>
+
+                {/* Precision Ground Columns (Left & Right) with Vernier Scale */}
+                {/* Left Column */}
+                <rect x="25" y="18" width="16" height="218" fill="url(#utmColumnGrad)" stroke="#475569" strokeWidth="0.8" />
+                {/* Right Column */}
+                <rect x="199" y="18" width="16" height="218" fill="url(#utmColumnGrad)" stroke="#475569" strokeWidth="0.8" />
+
+                {/* Column Millimeter Ticks */}
+                {[30, 50, 70, 90, 110, 130, 150, 170, 190, 210].map((tickY) => (
+                  <g key={tickY} opacity="0.6">
+                    <line x1="37" y1={tickY} x2="41" y2={tickY} stroke="#1e293b" strokeWidth="1" />
+                    <line x1="199" y1={tickY} x2="203" y2={tickY} stroke="#1e293b" strokeWidth="1" />
+                  </g>
+                ))}
+
+                {/* --- Movable Upper Crosshead with Load Cell --- */}
+                {/* Load Cell Ring Transducer */}
+                <rect x="98" y="23" width="44" height="14" rx="2" fill="#0f172a" stroke="#06b6d4" strokeWidth="1.2" />
+                <circle cx="106" cy="30" r="2.5" fill="#06b6d4" className="animate-pulse" />
+                <text x="123" y="33" textAnchor="middle" fill="#22d3ee" fontSize="6.5" fontWeight="bold" fontFamily="monospace">
+                  {appliedForceKn.toFixed(1)} kN
+                </text>
+
+                {/* Upper Crosshead Block */}
+                <rect x="48" y="38" width="144" height="24" rx="3" fill="url(#utmCrossheadGrad)" stroke="#64748b" strokeWidth="1.2" />
+                {/* Bushing holes on columns */}
+                <rect x="23" y="36" width="20" height="28" rx="2" fill="#334155" stroke="#94a3b8" strokeWidth="0.8" opacity="0.85" />
+                <rect x="197" y="36" width="20" height="28" rx="2" fill="#334155" stroke="#94a3b8" strokeWidth="0.8" opacity="0.85" />
+
+                {/* Upper Hydraulic Wedge Grip Body */}
+                <polygon points="86,62 154,62 144,82 96,82" fill="url(#utmGripGrad)" stroke="#94a3b8" strokeWidth="1" />
+                {/* Upper Knurled Serrated Grip Jaws Clamping Upper Tab */}
+                <rect x="96" y="70" width="14" height="16" fill="#1e293b" stroke="#cbd5e1" strokeWidth="0.8" />
+                <rect x="96" y="70" width="14" height="16" fill="url(#knurlGrip)" />
+                <rect x="130" y="70" width="14" height="16" fill="#1e293b" stroke="#cbd5e1" strokeWidth="0.8" />
+                <rect x="130" y="70" width="14" height="16" fill="url(#knurlGrip)" />
+
+                {/* --- ASTM E8 Tensile Dogbone Specimen --- */}
+                {/* Upper Grip Tab */}
+                <rect x="110" y="72" width="20" height="14" fill="url(#specimenShine)" stroke={selectedMaterial.color} strokeWidth="1" />
+                {/* Upper Shoulder Transition (Fillet Radius R) */}
+                <path d="M 110 86 Q 110 96 114 100 L 126 100 Q 130 96 130 86 Z" fill="url(#specimenShine)" stroke={selectedMaterial.color} strokeWidth="1" />
+
+                {/* Gauge Section & Necking Geometry */}
                 {materialRegime.regime === 'fractured' ? (
-                  <>
-                    <path d="M 85 80 L 115 80 L 105 110 L 95 110 Z" fill={selectedMaterial.color} opacity="0.85" />
-                    <path d="M 93 125 L 107 125 L 115 155 L 85 155 Z" fill={selectedMaterial.color} opacity="0.85" />
-                    <line x1="88" y1="117" x2="112" y2="117" stroke="#EF4444" strokeWidth="2" strokeDasharray="3,3" />
-                  </>
+                  <g>
+                    {/* Upper Fractured Stub (Cup profile at 45 deg shear lip) */}
+                    <path
+                      d="M 114 100 L 126 100 L 124 122 L 121 123 L 118 120 L 115 123 L 114 121 Z"
+                      fill="url(#specimenShine)"
+                      stroke={selectedMaterial.color}
+                      strokeWidth="1"
+                    />
+                    {/* Lower Fractured Stub (Cone profile) */}
+                    <path
+                      d="M 115 133 L 118 131 L 121 134 L 123 132 L 126 152 L 114 152 Z"
+                      fill="url(#specimenShine)"
+                      stroke={selectedMaterial.color}
+                      strokeWidth="1"
+                    />
+                    {/* Fracture Plane Stress Energy Sparks */}
+                    <line x1="108" y1="127" x2="132" y2="127" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="2,2" />
+                    <circle cx="120" cy="127" r="2.5" fill="#ef4444" className="animate-ping" />
+                    <text x="144" y="129" fill="#ef4444" fontSize="7" fontWeight="bold">RUPTURE (σ_uts)</text>
+                  </g>
                 ) : (
-                  <path
-                    d={`M 85 80 L 115 80 Q ${100 + (materialRegime.regime === 'necking' ? 8 : 12)} 117.5 115 155 L 85 155 Q ${100 - (materialRegime.regime === 'necking' ? 8 : 12)} 117.5 85 80 Z`}
-                    fill={selectedMaterial.color}
-                    opacity="0.9"
-                  />
+                  <g>
+                    {/* Continuous Gauge Section with Physical Necking Profile */}
+                    {(() => {
+                      const isNecking = materialRegime.regime === 'necking';
+                      const isYielding = materialRegime.regime === 'yielding' || materialRegime.regime === 'strain_hardening';
+                      const waistInset = isNecking ? 3.5 : isYielding ? 1.2 : 0;
+                      return (
+                        <path
+                          d={`M 114 100 Q ${114 + waistInset} 126 114 152 L 126 152 Q ${126 - waistInset} 126 126 100 Z`}
+                          fill="url(#specimenShine)"
+                          stroke={selectedMaterial.color}
+                          strokeWidth="1.2"
+                        />
+                      );
+                    })()}
+
+                    {/* Gauge Length Fiducial Punch Marks (L0 = 50mm) */}
+                    <line x1="112" y1="104" x2="128" y2="104" stroke="#94a3b8" strokeWidth="1" strokeDasharray="1,1" />
+                    <line x1="112" y1="148" x2="128" y2="148" stroke="#94a3b8" strokeWidth="1" strokeDasharray="1,1" />
+
+                    {/* Clip-on Extensometer Sensor */}
+                    <g opacity="0.9">
+                      {/* Top knife-edge */}
+                      <polygon points="107,104 113,103 113,105" fill="#10b981" />
+                      <line x1="94" y1="104" x2="107" y2="104" stroke="#10b981" strokeWidth="1.5" />
+                      {/* Bottom knife-edge */}
+                      <polygon points="107,148 113,147 113,149" fill="#10b981" />
+                      <line x1="94" y1="148" x2="107" y2="148" stroke="#10b981" strokeWidth="1.5" />
+                      {/* Extensometer transducer body */}
+                      <rect x="84" y="100" width="10" height="52" rx="2" fill="#0f172a" stroke="#10b981" strokeWidth="1" />
+                      <text x="89" y="128" textAnchor="middle" fill="#34d399" fontSize="5" fontWeight="bold" transform="rotate(-90 89 128)">
+                        EXTENSOMETER ΔL
+                      </text>
+                    </g>
+
+                    {/* Plastic Strain Heat/Dislocation Glow during Necking */}
+                    {materialRegime.regime === 'necking' && (
+                      <ellipse cx="120" cy="126" rx="6" ry="10" fill="#f59e0b" opacity="0.3" filter="url(#laserGlow)" />
+                    )}
+                  </g>
                 )}
 
-                {/* Lower shoulder */}
-                <path d="M 85 155 L 115 155 L 125 185 L 75 185 Z" fill={selectedMaterial.color} opacity="0.85" />
+                {/* Lower Shoulder Transition */}
+                <path d="M 114 152 Q 110 156 110 166 L 130 166 Q 130 156 126 152 Z" fill="url(#specimenShine)" stroke={selectedMaterial.color} strokeWidth="1" />
+                {/* Lower Grip Tab */}
+                <rect x="110" y="166" width="20" height="14" fill="url(#specimenShine)" stroke={selectedMaterial.color} strokeWidth="1" />
 
-                {/* Lower Fixed Crosshead */}
-                <rect x="75" y="185" width="50" height="15" fill="#334155" />
-                <rect x="50" y="200" width="100" height="25" fill="#475569" rx="3" stroke="#94A3B8" strokeWidth="1.5" />
-                <text x="100" y="217" textAnchor="middle" fill="#CBD5E1" fontSize="9" fontWeight="bold">FIXED BASE</text>
+                {/* Lower Hydraulic Wedge Grip Body */}
+                <polygon points="96,170 144,170 154,190 86,190" fill="url(#utmGripGrad)" stroke="#94a3b8" strokeWidth="1" />
+                {/* Lower Knurled Serrated Grip Jaws Clamping Lower Tab */}
+                <rect x="96" y="166" width="14" height="16" fill="#1e293b" stroke="#cbd5e1" strokeWidth="0.8" />
+                <rect x="96" y="166" width="14" height="16" fill="url(#knurlGrip)" />
+                <rect x="130" y="166" width="14" height="16" fill="#1e293b" stroke="#cbd5e1" strokeWidth="0.8" />
+                <rect x="130" y="166" width="14" height="16" fill="url(#knurlGrip)" />
 
-                {/* Dynamic Tension Arrows */}
-                <g stroke="#F59E0B" strokeWidth="2" fill="#F59E0B">
-                  <line x1="100" y1="5" x2="100" y2="0" />
-                  <polygon points="96,2 104,2 100,-4" />
+                {/* Lower Fixed Crosshead Platen */}
+                <rect x="48" y="190" width="144" height="24" rx="3" fill="url(#utmCrossheadGrad)" stroke="#64748b" strokeWidth="1.2" />
+                <text x="120" y="205" textAnchor="middle" fill="#cbd5e1" fontSize="8" fontWeight="bold">
+                  RIGID BASE ANVIL
+                </text>
+
+                {/* Dynamic Tension Vector Arrows */}
+                <g stroke="#f59e0b" strokeWidth="2" fill="#f59e0b">
+                  <line x1="120" y1="36" x2="120" y2="24" />
+                  <polygon points="116,26 124,26 120,20" />
                 </g>
+                <text x="133" y="26" fill="#f59e0b" fontSize="8" fontWeight="bold">+F_tensile</text>
               </svg>
             </div>
 
@@ -1052,56 +1205,168 @@ export const IndustrialEngineeringStudio: React.FC<Props> = ({
             </div>
 
             {/* Live SVG Cylinder Visualizer */}
-            <div className="w-full h-48 flex items-center justify-center">
-              <svg viewBox="0 0 450 140" className="w-full h-full">
-                {/* Cylinder Barrel */}
-                <rect x="50" y="30" width="220" height="80" rx="4" fill="#1E293B" stroke="#64748B" strokeWidth="3" />
+            <div className="w-full h-52 flex items-center justify-center">
+              <svg viewBox="0 0 450 145" className="w-full h-full">
+                <defs>
+                  {/* Chrome Rod Specular Cylindrical Gradient */}
+                  <linearGradient id="hydRodChrome" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#475569" />
+                    <stop offset="25%" stopColor="#cbd5e1" />
+                    <stop offset="50%" stopColor="#ffffff" />
+                    <stop offset="75%" stopColor="#94a3b8" />
+                    <stop offset="100%" stopColor="#334155" />
+                  </linearGradient>
 
-                {/* Ports A and B */}
-                <rect x="70" y="15" width="16" height="15" fill={dcvPosition === 'extend' ? '#EF4444' : '#3B82F6'} />
-                <text x="78" y="10" textAnchor="middle" fill="#94A3B8" fontSize="10" fontWeight="bold">A</text>
+                  {/* Pressurized Supply Oil Gradient (High Pressure P) */}
+                  <linearGradient id="fluidPressureHigh" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#dc2626" />
+                    <stop offset="50%" stopColor="#ef4444" />
+                    <stop offset="100%" stopColor="#b91c1c" />
+                  </linearGradient>
 
-                <rect x="234" y="15" width="16" height="15" fill={dcvPosition === 'retract' ? '#EF4444' : '#3B82F6'} />
-                <text x="242" y="10" textAnchor="middle" fill="#94A3B8" fontSize="10" fontWeight="bold">B</text>
+                  {/* Tank Return Oil Gradient (Low Pressure T) */}
+                  <linearGradient id="fluidReturnLow" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#1d4ed8" />
+                    <stop offset="50%" stopColor="#3b82f6" />
+                    <stop offset="100%" stopColor="#1e40af" />
+                  </linearGradient>
 
-                {/* Piston & Rod (animated by pistonPositionPct) */}
-                {/* Piston Head */}
-                <rect
-                  x={60 + (pistonPositionPct / 100) * 150}
-                  y="34"
-                  width="22"
-                  height="72"
-                  fill="#F59E0B"
-                  stroke="#D97706"
-                  strokeWidth="2"
-                  rx="2"
-                />
+                  {/* Piston Wear Band Bronze Gradient */}
+                  <linearGradient id="bronzeSealGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#b45309" />
+                    <stop offset="50%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#78350f" />
+                  </linearGradient>
+                </defs>
 
-                {/* Piston Rod */}
-                <rect
-                  x={82 + (pistonPositionPct / 100) * 150}
-                  y="55"
-                  width="200"
-                  height="30"
-                  fill="#94A3B8"
-                  stroke="#CBD5E1"
+                {/* External Tie Rods (Top & Bottom) with Hex Nuts */}
+                <line x1="38" y1="26" x2="278" y2="26" stroke="#64748b" strokeWidth="4" />
+                <rect x="34" y="23" width="8" height="6" fill="#94a3b8" stroke="#334155" strokeWidth="0.8" />
+                <rect x="274" y="23" width="8" height="6" fill="#94a3b8" stroke="#334155" strokeWidth="0.8" />
+
+                <line x1="38" y1="120" x2="278" y2="120" stroke="#64748b" strokeWidth="4" />
+                <rect x="34" y="117" width="8" height="6" fill="#94a3b8" stroke="#334155" strokeWidth="0.8" />
+                <rect x="274" y="117" width="8" height="6" fill="#94a3b8" stroke="#334155" strokeWidth="0.8" />
+
+                {/* Rear Blind End Cap (Cap End / Base) */}
+                <rect x="38" y="28" width="22" height="90" rx="3" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
+                {/* Front Rod End Cap / Gland Housing */}
+                <rect x="256" y="28" width="22" height="90" rx="3" fill="#1e293b" stroke="#64748b" strokeWidth="1.5" />
+
+                {/* Honed Steel Cylinder Bore Interior Cutaway */}
+                <rect x="60" y="36" width="196" height="74" fill="#0f172a" stroke="#475569" strokeWidth="1.5" />
+
+                {/* Dynamic Hydraulic Oil Infill in Chambers A & B */}
+                {(() => {
+                  const pistonX = 60 + (pistonPositionPct / 100) * 150;
+                  const chamberAWidth = Math.max(0, pistonX - 60);
+                  const chamberBWidth = Math.max(0, 256 - (pistonX + 24));
+                  const isExtend = dcvPosition === 'extend';
+                  const isRetract = dcvPosition === 'retract';
+
+                  return (
+                    <g>
+                      {/* Chamber A (Cap End Fluid Volume) */}
+                      {chamberAWidth > 0 && (
+                        <rect
+                          x="60"
+                          y="37"
+                          width={chamberAWidth}
+                          height="72"
+                          fill={isExtend ? 'url(#fluidPressureHigh)' : isRetract ? 'url(#fluidReturnLow)' : '#334155'}
+                          opacity="0.85"
+                        />
+                      )}
+
+                      {/* Chamber B (Rod End Annulus Fluid Volume) */}
+                      {chamberBWidth > 0 && (
+                        <rect
+                          x={pistonX + 24}
+                          y="37"
+                          width={chamberBWidth}
+                          height="72"
+                          fill={isRetract ? 'url(#fluidPressureHigh)' : isExtend ? 'url(#fluidReturnLow)' : '#334155'}
+                          opacity="0.85"
+                        />
+                      )}
+                    </g>
+                  );
+                })()}
+
+                {/* Port A (Cap End Fluid Port) with SAE flange */}
+                <rect x="70" y="16" width="18" height="20" rx="2" fill={dcvPosition === 'extend' ? '#ef4444' : '#3b82f6'} stroke="#94a3b8" strokeWidth="1" />
+                <text x="79" y="12" textAnchor="middle" fill="#f8fafc" fontSize="9" fontWeight="bold">PORT A</text>
+                {/* Port A Flow Indicator Arrow */}
+                <path
+                  d={dcvPosition === 'extend' ? 'M 79 19 L 79 33 M 76 29 L 79 34 L 82 29' : 'M 79 33 L 79 19 M 76 23 L 79 18 L 82 23'}
+                  stroke="#ffffff"
                   strokeWidth="1.5"
+                  fill="none"
                 />
 
-                {/* Front Rod Bushing */}
-                <rect x="270" y="45" width="15" height="50" fill="#475569" />
-
-                {/* Tooling Load at rod tip */}
-                <rect
-                  x={275 + (pistonPositionPct / 100) * 150}
-                  y="40"
-                  width="25"
-                  height="60"
-                  fill="#E2E8F0"
-                  stroke="#64748B"
-                  strokeWidth="2"
-                  rx="4"
+                {/* Port B (Rod End Fluid Port) with SAE flange */}
+                <rect x="230" y="16" width="18" height="20" rx="2" fill={dcvPosition === 'retract' ? '#ef4444' : '#3b82f6'} stroke="#94a3b8" strokeWidth="1" />
+                <text x="239" y="12" textAnchor="middle" fill="#f8fafc" fontSize="9" fontWeight="bold">PORT B</text>
+                {/* Port B Flow Indicator Arrow */}
+                <path
+                  d={dcvPosition === 'retract' ? 'M 239 19 L 239 33 M 236 29 L 239 34 L 242 29' : 'M 239 33 L 239 19 M 236 23 L 239 18 L 242 23'}
+                  stroke="#ffffff"
+                  strokeWidth="1.5"
+                  fill="none"
                 />
+
+                {/* Ground Chrome Piston Rod & Piston Head Assembly */}
+                {(() => {
+                  const pistonX = 60 + (pistonPositionPct / 100) * 150;
+                  return (
+                    <g>
+                      {/* Heavy Piston Head */}
+                      <rect x={pistonX} y="37" width="24" height="72" rx="2" fill="#334155" stroke="#cbd5e1" strokeWidth="1.5" />
+                      {/* Bronze Wear Rings on Piston Head */}
+                      <rect x={pistonX + 3} y="37" width="4" height="72" fill="url(#bronzeSealGrad)" />
+                      <rect x={pistonX + 17} y="37" width="4" height="72" fill="url(#bronzeSealGrad)" />
+                      {/* Center Elastomeric U-Cup Seal */}
+                      <rect x={pistonX + 9} y="38" width="6" height="70" fill="#0f172a" />
+
+                      {/* Hard Chrome Piston Rod */}
+                      <rect
+                        x={pistonX + 24}
+                        y="58"
+                        width={200}
+                        height="30"
+                        fill="url(#hydRodChrome)"
+                        stroke="#cbd5e1"
+                        strokeWidth="1.2"
+                      />
+
+                      {/* Front Rod Wiper & Bronze Bushing Gland */}
+                      <rect x="264" y="52" width="12" height="42" fill="#b45309" stroke="#f59e0b" strokeWidth="1" opacity="0.8" />
+                      <rect x="272" y="56" width="4" height="34" fill="#0f172a" />
+
+                      {/* Tooling Load Clevis / Rod End Eye */}
+                      <g transform={`translate(${pistonX + 224}, 51)`}>
+                        <path d="M 0 5 L 18 5 L 28 15 L 36 22 L 28 29 L 18 39 L 0 39 Z" fill="#475569" stroke="#94a3b8" strokeWidth="1.5" />
+                        <circle cx="24" cy="22" r="7" fill="#0f172a" stroke="#cbd5e1" strokeWidth="1.5" />
+                        <circle cx="24" cy="22" r="3" fill="#38bdf8" />
+                        <text x="24" y="49" textAnchor="middle" fill="#94a3b8" fontSize="7" fontWeight="bold">LOAD CLEVIS</text>
+                      </g>
+                    </g>
+                  );
+                })()}
+
+                {/* Stroke Scale Ruler at Bottom */}
+                <line x1="60" y1="130" x2="256" y2="130" stroke="#64748b" strokeWidth="1" />
+                {[0, 25, 50, 75, 100].map((pct) => {
+                  const sx = 60 + (pct / 100) * 196;
+                  return (
+                    <g key={pct}>
+                      <line x1={sx} y1="127" x2={sx} y2="133" stroke="#94a3b8" strokeWidth="1" />
+                      <text x={sx} y="141" textAnchor="middle" fill="#64748b" fontSize="7">
+                        {((pct / 100) * selectedFluidPreset.cylinderStrokeMm).toFixed(0)}mm
+                      </text>
+                    </g>
+                  );
+                })}
               </svg>
             </div>
 
@@ -1280,27 +1545,126 @@ export const IndustrialEngineeringStudio: React.FC<Props> = ({
               </div>
 
               {/* 2D Toolpath SVG */}
-              <div className="w-full h-48 flex items-center justify-center bg-slate-950 rounded-lg border border-slate-800">
-                <svg viewBox="0 0 200 160" className="w-full h-full p-2">
-                  {/* Workpiece boundary */}
-                  <rect x="30" y="20" width="140" height="120" fill="#1E293B" stroke="#475569" strokeWidth="1.5" strokeDasharray="3,3" />
+              <div className="w-full h-56 flex items-center justify-center bg-slate-950 rounded-lg border border-slate-800">
+                <svg viewBox="0 0 280 180" className="w-full h-full p-2">
+                  <defs>
+                    {/* Anodized Aluminum 6061-T6 Billet Gradient */}
+                    <linearGradient id="billetFaceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1e293b" />
+                      <stop offset="50%" stopColor="#334155" />
+                      <stop offset="100%" stopColor="#1e293b" />
+                    </linearGradient>
 
-                  {/* Cut Profile (Rectangular Pocket with fillets) */}
-                  <rect x="50" y="40" width="100" height="80" rx="15" fill="none" stroke="#06B6D4" strokeWidth="2.5" />
+                    {/* Milled Pocket Floor Texture */}
+                    <pattern id="milledFloor" width="10" height="10" patternUnits="userSpaceOnUse">
+                      <path d="M 0 5 Q 5 0 10 5 Q 5 10 0 5" fill="none" stroke="#0ea5e9" strokeWidth="0.5" opacity="0.3" />
+                    </pattern>
 
-                  {/* Rapid approach */}
-                  <line x1="30" y1="20" x2="50" y2="40" stroke="#F59E0B" strokeWidth="1" strokeDasharray="2,2" />
+                    {/* Carbide End Mill Gradient */}
+                    <linearGradient id="carbideCutterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#d97706" />
+                      <stop offset="50%" stopColor="#fef08a" />
+                      <stop offset="100%" stopColor="#b45309" />
+                    </linearGradient>
 
-                  {/* Cutter circle moving with line */}
-                  <circle
-                    cx={50 + (activeGCodeLine / selectedGCodePreset.gcodeLines.length) * 100}
-                    cy={40 + (activeGCodeLine % 2 === 0 ? 0 : 40)}
-                    r="8"
-                    fill="#F59E0B"
-                    opacity="0.8"
-                    stroke="#FBBF24"
-                    strokeWidth="1.5"
-                  />
+                    {/* Coolant Mist Jet */}
+                    <linearGradient id="coolantJet" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.8" />
+                      <stop offset="100%" stopColor="#0891b2" stopOpacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Machine Table T-Slot Surface */}
+                  <rect x="10" y="10" width="260" height="160" fill="#0b1120" stroke="#334155" strokeWidth="1" rx="4" />
+                  {/* T-Slots */}
+                  <line x1="10" y1="40" x2="270" y2="40" stroke="#1e293b" strokeWidth="4" />
+                  <line x1="10" y1="90" x2="270" y2="90" stroke="#1e293b" strokeWidth="4" />
+                  <line x1="10" y1="140" x2="270" y2="140" stroke="#1e293b" strokeWidth="4" />
+
+                  {/* Heavy Steel Step Clamps holding the billet */}
+                  <rect x="25" y="55" width="25" height="12" rx="2" fill="#475569" stroke="#94a3b8" strokeWidth="1" />
+                  <circle cx="34" cy="61" r="3" fill="#0f172a" stroke="#cbd5e1" strokeWidth="1" />
+                  <rect x="25" y="115" width="25" height="12" rx="2" fill="#475569" stroke="#94a3b8" strokeWidth="1" />
+                  <circle cx="34" cy="121" r="3" fill="#0f172a" stroke="#cbd5e1" strokeWidth="1" />
+
+                  {/* Workpiece Billet (Raw Stock Material) */}
+                  <rect x="45" y="25" width="190" height="130" rx="3" fill="url(#billetFaceGrad)" stroke="#64748b" strokeWidth="1.5" />
+                  
+                  {/* Work Coordinate Datum G54 Origin Symbol */}
+                  <g transform="translate(50, 30)">
+                    <circle cx="0" cy="0" r="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1.2" />
+                    <path d="M 0 -6 L 0 6 M -6 0 L 6 0" stroke="#f59e0b" strokeWidth="1.2" />
+                    <path d="M 0 -6 A 6 6 0 0 1 6 0 L 0 0 Z" fill="#f59e0b" />
+                    <path d="M 0 6 A 6 6 0 0 1 -6 0 L 0 0 Z" fill="#f59e0b" />
+                    <text x="9" y="4" fill="#f59e0b" fontSize="7" fontWeight="bold">G54 (X0,Y0)</text>
+                  </g>
+
+                  {/* Milled Cavity Pocket with Filleted Corners */}
+                  <rect x="75" y="45" width="130" height="90" rx="16" fill="#0f172a" stroke="#0284c7" strokeWidth="1.5" />
+                  <rect x="75" y="45" width="130" height="90" rx="16" fill="url(#milledFloor)" />
+
+                  {/* Rapid Traverse Approach Path (G00) */}
+                  <line x1="50" y1="30" x2="85" y2="45" stroke="#ef4444" strokeWidth="1.2" strokeDasharray="3,3" />
+                  <text x="64" y="34" fill="#ef4444" fontSize="6.5" fontWeight="bold">G00 RAPID</text>
+
+                  {/* Linear & Arc Cutting Paths (G01 / G02 / G03) */}
+                  <rect x="85" y="55" width="110" height="70" rx="12" fill="none" stroke="#06b6d4" strokeWidth="2" />
+                  
+                  {/* Toolpath Direction Arrows */}
+                  <polygon points="140,53 145,55 140,57" fill="#06b6d4" />
+                  <polygon points="197,90 195,95 193,90" fill="#06b6d4" />
+                  <polygon points="140,127 135,125 140,123" fill="#06b6d4" />
+                  <polygon points="83,90 85,85 87,90" fill="#06b6d4" />
+
+                  {/* Active CNC Spindle & Helical Carbide End Mill Position */}
+                  {(() => {
+                    const progress = activeGCodeLine / Math.max(1, selectedGCodePreset.gcodeLines.length);
+                    let cutterX = 85;
+                    let cutterY = 55;
+                    if (progress < 0.25) {
+                      cutterX = 85 + (progress / 0.25) * 110;
+                      cutterY = 55;
+                    } else if (progress < 0.5) {
+                      cutterX = 195;
+                      cutterY = 55 + ((progress - 0.25) / 0.25) * 70;
+                    } else if (progress < 0.75) {
+                      cutterX = 195 - ((progress - 0.5) / 0.25) * 110;
+                      cutterY = 125;
+                    } else {
+                      cutterX = 85;
+                      cutterY = 125 - ((progress - 0.75) / 0.25) * 70;
+                    }
+
+                    return (
+                      <g>
+                        {/* Coolant Mist Jet Spray onto Cutting Point */}
+                        <path
+                          d={`M ${cutterX - 20} ${cutterY - 20} L ${cutterX} ${cutterY} L ${cutterX - 10} ${cutterY - 25} Z`}
+                          fill="url(#coolantJet)"
+                        />
+
+                        {/* Spindle Collet Chuck Ring */}
+                        <circle cx={cutterX} cy={cutterY} r="14" fill="#334155" stroke="#94a3b8" strokeWidth="1.2" opacity="0.7" />
+                        
+                        {/* Rotating 4-Flute End Mill Tool */}
+                        <circle cx={cutterX} cy={cutterY} r="8" fill="url(#carbideCutterGrad)" stroke="#f59e0b" strokeWidth="1.5" />
+                        {/* Flute Cross */}
+                        <line x1={cutterX - 7} y1={cutterY} x2={cutterX + 7} y2={cutterY} stroke="#78350f" strokeWidth="1.2" />
+                        <line x1={cutterX} y1={cutterY - 7} x2={cutterX} y2={cutterY + 7} stroke="#78350f" strokeWidth="1.2" />
+
+                        {/* Machining Flying Chips tangential particles */}
+                        <circle cx={cutterX + 9} cy={cutterY - 4} r="1.2" fill="#fef08a" />
+                        <circle cx={cutterX + 13} cy={cutterY - 2} r="1" fill="#f59e0b" />
+                        <circle cx={cutterX + 11} cy={cutterY + 6} r="1.5" fill="#fef08a" />
+
+                        {/* Coordinate Display Overlay next to cutter */}
+                        <rect x={cutterX + 16} y={cutterY - 14} width="58" height="15" rx="2" fill="#0f172a" stroke="#06b6d4" strokeWidth="0.8" opacity="0.9" />
+                        <text x={cutterX + 45} y={cutterY - 4} textAnchor="middle" fill="#22d3ee" fontSize="6.5" fontFamily="monospace">
+                          X:{cutterX.toFixed(0)} Y:{cutterY.toFixed(0)}
+                        </text>
+                      </g>
+                    );
+                  })()}
                 </svg>
               </div>
             </div>
@@ -1398,38 +1762,81 @@ export const IndustrialEngineeringStudio: React.FC<Props> = ({
               </div>
 
               {/* X-Bar SVG Chart */}
-              <div className="w-full h-44 bg-slate-950 rounded-lg p-2 border border-slate-800">
-                <svg viewBox="0 0 400 120" className="w-full h-full">
-                  {/* UCL, Centerline, LCL */}
-                  <line x1="20" y1="25" x2="380" y2="25" stroke="#EF4444" strokeWidth="1.5" strokeDasharray="4,4" />
-                  <text x="385" y="28" fill="#EF4444" fontSize="8" fontWeight="bold">UCL</text>
+              <div className="w-full h-48 bg-slate-950 rounded-lg p-2 border border-slate-800">
+                <svg viewBox="0 0 400 125" className="w-full h-full">
+                  <defs>
+                    {/* Zone A / B / C 6-Sigma Shading */}
+                    <linearGradient id="spcZoneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ef4444" stopOpacity="0.18" />
+                      <stop offset="25%" stopColor="#f59e0b" stopOpacity="0.12" />
+                      <stop offset="50%" stopColor="#10b981" stopOpacity="0.08" />
+                      <stop offset="75%" stopColor="#f59e0b" stopOpacity="0.12" />
+                      <stop offset="100%" stopColor="#ef4444" stopOpacity="0.18" />
+                    </linearGradient>
+                  </defs>
 
-                  <line x1="20" y1="60" x2="380" y2="60" stroke="#10B981" strokeWidth="1.5" />
-                  <text x="385" y="63" fill="#10B981" fontSize="8" fontWeight="bold">X̄̄</text>
+                  {/* 6-Sigma Zone Fill Band */}
+                  <rect x="25" y="25" width="355" height="70" fill="url(#spcZoneGrad)" rx="2" />
 
-                  <line x1="20" y1="95" x2="380" y2="95" stroke="#EF4444" strokeWidth="1.5" strokeDasharray="4,4" />
-                  <text x="385" y="98" fill="#EF4444" fontSize="8" fontWeight="bold">LCL</text>
+                  {/* Grid Lines */}
+                  {[25, 42.5, 60, 77.5, 95].map((gy) => (
+                    <line key={gy} x1="25" y1={gy} x2="380" y2={gy} stroke="#1e293b" strokeWidth="0.8" strokeDasharray="2,2" />
+                  ))}
 
-                  {/* Subgroup Points & Connecting Polyline */}
+                  {/* UCL (+3 Sigma) */}
+                  <line x1="25" y1="25" x2="380" y2="25" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,4" />
+                  <text x="384" y="28" fill="#ef4444" fontSize="7.5" fontWeight="bold">UCL (+3σ)</text>
+
+                  {/* +2 Sigma / +1 Sigma Indicators */}
+                  <text x="12" y="44" fill="#f59e0b" fontSize="6.5">+2σ</text>
+                  <text x="12" y="52" fill="#10b981" fontSize="6.5">+1σ</text>
+
+                  {/* Centerline X-Double-Bar */}
+                  <line x1="25" y1="60" x2="380" y2="60" stroke="#10b981" strokeWidth="1.8" />
+                  <text x="384" y="63" fill="#10b981" fontSize="7.5" fontWeight="bold">X̄̄ (CL)</text>
+
+                  {/* -1 Sigma / -2 Sigma Indicators */}
+                  <text x="12" y="70" fill="#10b981" fontSize="6.5">-1σ</text>
+                  <text x="12" y="79" fill="#f59e0b" fontSize="6.5">-2σ</text>
+
+                  {/* LCL (-3 Sigma) */}
+                  <line x1="25" y1="95" x2="380" y2="95" stroke="#ef4444" strokeWidth="1.5" strokeDasharray="4,4" />
+                  <text x="384" y="98" fill="#ef4444" fontSize="7.5" fontWeight="bold">LCL (-3σ)</text>
+
+                  {/* Subgroup Points & Connecting Polyline with Rule Violation Highlighting */}
                   {selectedSpcDataset.subgroups.map((sg, idx) => {
-                    const cx = 30 + idx * 23;
+                    const cx = 35 + idx * 23;
                     const yOffset = (sg.mean + meanShiftDelta - spcMetrics.xDoubleBar) * 2000;
                     const cy = Math.max(10, Math.min(110, 60 - yOffset));
                     const isOOC = cy <= 25 || cy >= 95;
 
                     return (
                       <g key={sg.subgroupId}>
-                        <circle cx={cx} cy={cy} r={isOOC ? 4 : 2.5} fill={isOOC ? '#EF4444' : '#F59E0B'} />
+                        {/* Connecting Line to Previous Point */}
                         {idx > 0 && (
                           <line
-                            x1={30 + (idx - 1) * 23}
+                            x1={35 + (idx - 1) * 23}
                             y1={Math.max(10, Math.min(110, 60 - (selectedSpcDataset.subgroups[idx - 1].mean + meanShiftDelta - spcMetrics.xDoubleBar) * 2000))}
                             x2={cx}
                             y2={cy}
-                            stroke="#F59E0B"
-                            strokeWidth="1"
+                            stroke={isOOC ? '#ef4444' : '#f59e0b'}
+                            strokeWidth="1.5"
                           />
                         )}
+                        {/* Data Point with Out-of-Control Pulse */}
+                        {isOOC && <circle cx={cx} cy={cy} r="6" fill="#ef4444" className="animate-ping" opacity="0.6" />}
+                        <circle
+                          cx={cx}
+                          cy={cy}
+                          r={isOOC ? 4.5 : 3}
+                          fill={isOOC ? '#ef4444' : '#f59e0b'}
+                          stroke="#ffffff"
+                          strokeWidth="1"
+                        />
+                        {/* Subgroup number on x-axis */}
+                        <text x={cx} y="115" textAnchor="middle" fill="#64748b" fontSize="6.5">
+                          #{idx + 1}
+                        </text>
                       </g>
                     );
                   })}

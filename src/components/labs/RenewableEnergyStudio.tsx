@@ -953,60 +953,160 @@ export const RenewableEnergyStudio: React.FC<Props> = ({
                 </div>
 
                 {/* SVG Wind Simulation Animation */}
-                <div className="h-64 w-full bg-slate-950/80 rounded-xl p-4 flex items-center justify-center border border-slate-800/80 relative overflow-hidden">
-                  <svg className="w-full h-full" viewBox="0 0 500 220" preserveAspectRatio="none">
-                    {/* Background Grid */}
-                    <line x1="40" y1="20" x2="40" y2="190" stroke="#334155" strokeWidth="1" />
-                    <line x1="40" y1="190" x2="480" y2="190" stroke="#334155" strokeWidth="1" />
+                <div className="h-72 w-full bg-slate-950/90 rounded-xl p-3 flex items-center justify-center border border-slate-800/80 relative overflow-hidden">
+                  <svg className="w-full h-full" viewBox="0 0 540 220">
+                    <defs>
+                      {/* Tower Steel Gradient */}
+                      <linearGradient id="windTowerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#475569" />
+                        <stop offset="35%" stopColor="#e2e8f0" />
+                        <stop offset="70%" stopColor="#94a3b8" />
+                        <stop offset="100%" stopColor="#334155" />
+                      </linearGradient>
 
-                    {/* Betz Limit Theoretical Envelope Line (Cyan Dashed) */}
-                    <path
-                      d="M 40 190 Q 200 170 320 30"
-                      fill="none"
-                      stroke="#06b6d4"
-                      strokeDasharray="4 4"
-                      strokeWidth="2"
-                    />
-                    <text x="325" y="35" fill="#06b6d4" fontSize="10">
-                      أقصى حد نظري لبيتز (Betz Cp=0.593)
-                    </text>
+                      {/* Blade Carbon Fiber Gradient */}
+                      <linearGradient id="windBladeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#f8fafc" />
+                        <stop offset="60%" stopColor="#cbd5e1" />
+                        <stop offset="100%" stopColor="#64748b" />
+                      </linearGradient>
 
-                    {/* Actual Turbine Power Curve (Teal Solid) */}
-                    {/* Cut-in to Rated to Cut-out */}
-                    <path
-                      d="M 40 190 L 100 190 Q 220 180 300 70 L 400 70 L 400 190 L 480 190"
-                      fill="none"
-                      stroke="#14b8a6"
-                      strokeWidth="3.5"
-                    />
+                      {/* Wind Streamline Cyan Gradient */}
+                      <linearGradient id="windStreamGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.1" />
+                      </linearGradient>
+                    </defs>
 
-                    {/* Current Operating Point Marker */}
-                    {(() => {
-                      const curX = Math.min(460, Math.max(40, 40 + (windSpeedMs / 30) * 440));
-                      let curY = 190;
-                      if (windSpeedMs >= selectedWindPreset.cutInWindSpeedMs && windSpeedMs < selectedWindPreset.ratedWindSpeedMs) {
-                        const ratio = (windSpeedMs - selectedWindPreset.cutInWindSpeedMs) / (selectedWindPreset.ratedWindSpeedMs - selectedWindPreset.cutInWindSpeedMs);
-                        curY = 190 - Math.pow(ratio, 2.5) * 120;
-                      } else if (windSpeedMs >= selectedWindPreset.ratedWindSpeedMs && windSpeedMs <= selectedWindPreset.cutOutWindSpeedMs) {
-                        curY = 70;
-                      }
-                      return (
-                        <>
-                          <circle cx={curX} cy={curY} r="7" fill="#f43f5e" className="animate-ping" />
-                          <circle cx={curX} cy={curY} r="5" fill="#f43f5e" />
-                          <line x1={curX} y1={curY} x2={curX} y2="190" stroke="#f43f5e" strokeDasharray="3 3" strokeWidth="1.5" />
-                          <text x={curX - 25} y={Math.max(25, curY - 12)} fill="#f43f5e" fontSize="11" fontWeight="bold">
-                            {(windCalculations.electricalOutputMw)} MW
-                          </text>
-                        </>
-                      );
-                    })()}
+                    {/* Left Pane: Aerodynamic Turbine & Flow Streamlines */}
+                    <g transform="translate(10, 0)">
+                      {/* Horizon & Desert Base */}
+                      <line x1="5" y1="205" x2="160" y2="205" stroke="#475569" strokeWidth="1.5" />
+                      <rect x="5" y="205" width="155" height="12" fill="#0f172a" />
+                      
+                      {/* Foundation Concrete Plinth */}
+                      <rect x="68" y="200" width="28" height="6" rx="1" fill="#334155" stroke="#64748b" strokeWidth="0.8" />
 
-                    {/* Zone markers */}
-                    <text x="50" y="205" fill="#64748b" fontSize="9">منطقة السكون</text>
-                    <text x="180" y="205" fill="#14b8a6" fontSize="9">منطقة التتبع المكعبي v³</text>
-                    <text x="330" y="205" fill="#38bdf8" fontSize="9">منطقة القدرة الاسمية الثابتة</text>
-                    <text x="420" y="205" fill="#ef4444" fontSize="9">منطقة القطع</text>
+                      {/* Tapered Monopole Tower (Height ~140m scale) */}
+                      <polygon points="78,75 86,75 92,200 72,200" fill="url(#windTowerGrad)" stroke="#475569" strokeWidth="0.8" />
+
+                      {/* Nacelle Machine Housing */}
+                      <rect x="68" y="68" width="32" height="14" rx="3" fill="#e2e8f0" stroke="#64748b" strokeWidth="1" />
+                      {/* Rear Anemometer & Warning Light */}
+                      <line x1="94" y1="68" x2="94" y2="62" stroke="#64748b" strokeWidth="1" />
+                      <circle cx="94" cy="62" r="1.8" fill="#ef4444" className="animate-ping" />
+                      <circle cx="94" cy="62" r="1.5" fill="#ef4444" />
+
+                      {/* Rotor Hub Spinner Cone (Facing Left into the wind) */}
+                      <path d="M 68 70 Q 58 75 68 80 Z" fill="#e2e8f0" stroke="#64748b" strokeWidth="1" />
+                      <circle cx="67" cy="75" r="3.5" fill="#0f172a" stroke="#cbd5e1" strokeWidth="1" />
+
+                      {/* 3 Aerodynamic Blades with Rotation based on speed */}
+                      {(() => {
+                        const isRotating = windSpeedMs >= selectedWindPreset.cutInWindSpeedMs && windSpeedMs <= selectedWindPreset.cutOutWindSpeedMs;
+                        const baseAngle = isRotating ? (windSpeedMs * 18) % 360 : 0;
+                        return (
+                          <g transform={`rotate(${baseAngle} 67 75)`}>
+                            {/* Blade 1 */}
+                            <path d="M 67 75 Q 63 45 65 18 Q 67 15 69 18 Q 71 45 67 75 Z" fill="url(#windBladeGrad)" stroke="#64748b" strokeWidth="0.8" />
+                            {/* Red tip warning marking */}
+                            <path d="M 65 24 L 69 24 L 68 17 L 66 17 Z" fill="#ef4444" />
+
+                            {/* Blade 2 (120 deg) */}
+                            <g transform="rotate(120 67 75)">
+                              <path d="M 67 75 Q 63 45 65 18 Q 67 15 69 18 Q 71 45 67 75 Z" fill="url(#windBladeGrad)" stroke="#64748b" strokeWidth="0.8" />
+                              <path d="M 65 24 L 69 24 L 68 17 L 66 17 Z" fill="#ef4444" />
+                            </g>
+
+                            {/* Blade 3 (240 deg) */}
+                            <g transform="rotate(240 67 75)">
+                              <path d="M 67 75 Q 63 45 65 18 Q 67 15 69 18 Q 71 45 67 75 Z" fill="url(#windBladeGrad)" stroke="#64748b" strokeWidth="0.8" />
+                              <path d="M 65 24 L 69 24 L 68 17 L 66 17 Z" fill="#ef4444" />
+                            </g>
+                          </g>
+                        );
+                      })()}
+
+                      {/* Aerodynamic Wind Streamlines Decelerating through Rotor Plane */}
+                      <path d="M 10 50 C 35 50, 55 60, 100 65" fill="none" stroke="url(#windStreamGrad)" strokeWidth="1.5" strokeDasharray="3,3" />
+                      <path d="M 10 75 C 35 75, 55 75, 100 75" fill="none" stroke="url(#windStreamGrad)" strokeWidth="2" strokeDasharray="4,2" />
+                      <path d="M 10 100 C 35 100, 55 90, 100 85" fill="none" stroke="url(#windStreamGrad)" strokeWidth="1.5" strokeDasharray="3,3" />
+
+                      {/* Wind Speed Vector Badge */}
+                      <rect x="10" y="15" width="62" height="18" rx="3" fill="#0f172a" stroke="#0284c7" strokeWidth="1" opacity="0.9" />
+                      <text x="41" y="27" textAnchor="middle" fill="#38bdf8" fontSize="7.5" fontWeight="bold" fontFamily="monospace">
+                        v = {windSpeedMs.toFixed(1)} m/s
+                      </text>
+                    </g>
+
+                    {/* Divider between Turbine Visual and Power Chart */}
+                    <line x1="175" y1="15" x2="175" y2="205" stroke="#334155" strokeWidth="1" strokeDasharray="2,2" />
+
+                    {/* Right Pane: Betz Law Power Curve & Operating Point */}
+                    <g transform="translate(180, 0)">
+                      {/* Background Chart Grid */}
+                      <line x1="30" y1="20" x2="30" y2="185" stroke="#334155" strokeWidth="1" />
+                      <line x1="30" y1="185" x2="350" y2="185" stroke="#334155" strokeWidth="1" />
+                      {[50, 95, 140].map((gy) => (
+                        <line key={gy} x1="30" y1={gy} x2="350" y2={gy} stroke="#1e293b" strokeDasharray="3 3" strokeWidth="1" />
+                      ))}
+                      {[100, 170, 240, 310].map((gx) => (
+                        <line key={gx} x1={gx} y1="20" x2={gx} y2="185" stroke="#1e293b" strokeDasharray="3 3" strokeWidth="1" />
+                      ))}
+
+                      {/* Theoretical Betz Limit Envelope (Cp = 16/27 = 0.593) */}
+                      <path
+                        d="M 30 185 Q 160 170 260 25"
+                        fill="none"
+                        stroke="#06b6d4"
+                        strokeDasharray="4 4"
+                        strokeWidth="1.8"
+                      />
+                      <text x="245" y="22" fill="#06b6d4" fontSize="8" fontWeight="bold">
+                        Betz Limit (Cp = 59.3%)
+                      </text>
+
+                      {/* Actual Wind Turbine 4-Regime Power Curve */}
+                      <path
+                        d="M 30 185 L 75 185 Q 165 178 225 65 L 305 65 L 305 185 L 345 185"
+                        fill="none"
+                        stroke="#14b8a6"
+                        strokeWidth="3.2"
+                      />
+
+                      {/* Operational Regime Zones Text & Shading */}
+                      <text x="45" y="198" fill="#64748b" fontSize="7.5">I: Calm</text>
+                      <text x="120" y="198" fill="#14b8a6" fontSize="7.5">II: v³ MPPT</text>
+                      <text x="240" y="198" fill="#38bdf8" fontSize="7.5">III: Pitch Rated</text>
+                      <text x="315" y="198" fill="#ef4444" fontSize="7.5">IV: Cut-Out</text>
+
+                      {/* Live Operating Point Marker */}
+                      {(() => {
+                        const curX = Math.min(345, Math.max(30, 30 + (windSpeedMs / 30) * 315));
+                        let curY = 185;
+                        if (windSpeedMs >= selectedWindPreset.cutInWindSpeedMs && windSpeedMs < selectedWindPreset.ratedWindSpeedMs) {
+                          const ratio = (windSpeedMs - selectedWindPreset.cutInWindSpeedMs) / (selectedWindPreset.ratedWindSpeedMs - selectedWindPreset.cutInWindSpeedMs);
+                          curY = 185 - Math.pow(ratio, 2.5) * 120;
+                        } else if (windSpeedMs >= selectedWindPreset.ratedWindSpeedMs && windSpeedMs <= selectedWindPreset.cutOutWindSpeedMs) {
+                          curY = 65;
+                        }
+                        return (
+                          <g>
+                            <circle cx={curX} cy={curY} r="7" fill="#f43f5e" className="animate-ping" opacity="0.6" />
+                            <circle cx={curX} cy={curY} r="4.5" fill="#f43f5e" stroke="#ffffff" strokeWidth="1.2" />
+                            <line x1={curX} y1={curY} x2={curX} y2="185" stroke="#f43f5e" strokeDasharray="2 2" strokeWidth="1.2" />
+                            <rect x={Math.max(32, curX - 35)} y={Math.max(8, curY - 22)} width="70" height="15" rx="2" fill="#0f172a" stroke="#f43f5e" strokeWidth="0.8" />
+                            <text x={Math.max(32, curX - 35) + 35} y={Math.max(8, curY - 22) + 11} textAnchor="middle" fill="#fb7185" fontSize="8" fontWeight="bold" fontFamily="monospace">
+                              {windCalculations.electricalOutputMw.toFixed(1)} MW
+                            </text>
+                          </g>
+                        );
+                      })()}
+
+                      {/* Axes Labels */}
+                      <text x="35" y="15" fill="#14b8a6" fontSize="8">Power P (MW)</text>
+                      <text x="315" y="180" fill="#94a3b8" fontSize="8">v (m/s)</text>
+                    </g>
                   </svg>
                 </div>
 
@@ -1240,70 +1340,206 @@ export const RenewableEnergyStudio: React.FC<Props> = ({
                     : 'Process Flow Diagram: Water Electrolysis to Power-to-X Derivatives'}
                 </h4>
 
-                <div className="h-64 w-full bg-slate-950/80 rounded-xl p-4 flex items-center justify-center border border-slate-800/80 relative overflow-hidden">
-                  <svg className="w-full h-full" viewBox="0 0 520 200">
-                    {/* Box 1: Renewable Power Feed */}
-                    <rect x="20" y="30" width="110" height="60" rx="8" fill="#1e293b" stroke="#38bdf8" strokeWidth="2" />
-                    <text x="75" y="55" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
-                      طاقة متجددة
+                <div className="h-72 w-full bg-slate-950/90 rounded-xl p-3 flex items-center justify-center border border-slate-800/80 relative overflow-hidden">
+                  <svg className="w-full h-full" viewBox="0 0 560 210">
+                    <defs>
+                      {/* Flow Arrowheads */}
+                      <marker id="arrowCyan" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                        <polygon points="0 0, 6 3, 0 6" fill="#38bdf8" />
+                      </marker>
+                      <marker id="arrowBlue" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                        <polygon points="0 0, 6 3, 0 6" fill="#60a5fa" />
+                      </marker>
+                      <marker id="arrowGreen" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto">
+                        <polygon points="0 0, 6 3, 0 6" fill="#34d399" />
+                      </marker>
+
+                      {/* Stack Bipolar Plate Texture */}
+                      <linearGradient id="stackPlatesGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#1e293b" />
+                        <stop offset="20%" stopColor="#475569" />
+                        <stop offset="40%" stopColor="#334155" />
+                        <stop offset="60%" stopColor="#1e293b" />
+                        <stop offset="80%" stopColor="#475569" />
+                        <stop offset="100%" stopColor="#0f172a" />
+                      </linearGradient>
+
+                      {/* Chemical Reactor Gradient */}
+                      <linearGradient id="reactorBodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#065f46" />
+                        <stop offset="50%" stopColor="#047857" />
+                        <stop offset="100%" stopColor="#064e3b" />
+                      </linearGradient>
+                    </defs>
+
+                    {/* --- MODULE 1: RENEWABLE POWER & RECTIFIER --- */}
+                    <g transform="translate(10, 20)">
+                      <rect x="0" y="0" width="85" height="65" rx="5" fill="#0f172a" stroke="#0284c7" strokeWidth="1.5" />
+                      {/* Transformer Coils Symbol */}
+                      <circle cx="28" cy="24" r="10" fill="none" stroke="#38bdf8" strokeWidth="1.5" />
+                      <circle cx="42" cy="24" r="10" fill="none" stroke="#38bdf8" strokeWidth="1.5" />
+                      <text x="65" y="28" fill="#38bdf8" fontSize="8" fontWeight="bold">AC/DC</text>
+                      <text x="42" y="47" textAnchor="middle" fill="#cbd5e1" fontSize="8" fontWeight="bold">
+                        {isArabic ? 'محول وتقويم DC' : 'Rectifier Substation'}
+                      </text>
+                      <text x="42" y="58" textAnchor="middle" fill="#38bdf8" fontSize="7.5" fontFamily="monospace">
+                        {inputRenewablePowerMw} MW
+                      </text>
+                    </g>
+
+                    {/* --- MODULE 2: RO SEAWATER DESALINATION --- */}
+                    <g transform="translate(10, 115)">
+                      <rect x="0" y="0" width="85" height="65" rx="5" fill="#0f172a" stroke="#06b6d4" strokeWidth="1.5" />
+                      {/* RO Pressure Vessel Cylinder */}
+                      <rect x="12" y="14" width="45" height="15" rx="7.5" fill="#1e293b" stroke="#06b6d4" strokeWidth="1" />
+                      <line x1="26" y1="14" x2="26" y2="29" stroke="#06b6d4" strokeWidth="1" strokeDasharray="1,1" />
+                      <line x1="42" y1="14" x2="42" y2="29" stroke="#06b6d4" strokeWidth="1" strokeDasharray="1,1" />
+                      <text x="65" y="25" fill="#06b6d4" fontSize="7" fontWeight="bold">RO</text>
+                      <text x="42" y="45" textAnchor="middle" fill="#cbd5e1" fontSize="8" fontWeight="bold">
+                        {isArabic ? 'تحلية فائقة النقاوة' : 'Ultra-Pure RO'}
+                      </text>
+                      <text x="42" y="56" textAnchor="middle" fill="#22d3ee" fontSize="7" fontFamily="monospace">
+                        &lt;0.1 µS/cm | H₂O
+                      </text>
+                    </g>
+
+                    {/* Feed Conduits to Electrolyzer */}
+                    <path d="M 95 52 L 140 75" stroke="#38bdf8" strokeWidth="2" fill="none" markerEnd="url(#arrowCyan)" />
+                    <text x="110" y="56" fill="#38bdf8" fontSize="6.5" fontWeight="bold">DC BUS</text>
+
+                    <path d="M 95 147 L 140 120" stroke="#06b6d4" strokeWidth="2" fill="none" markerEnd="url(#arrowCyan)" />
+                    <text x="105" y="140" fill="#22d3ee" fontSize="6.5" fontWeight="bold">H₂O PUMP</text>
+
+                    {/* --- MODULE 3: MULTI-CELL INDUSTRIAL ELECTROLYZER STACK --- */}
+                    <g transform="translate(145, 45)">
+                      {/* Stack Outer Compression Shell */}
+                      <rect x="0" y="0" width="135" height="105" rx="6" fill="#0b1329" stroke="#3b82f6" strokeWidth="2" />
+                      
+                      {/* Left & Right Heavy Stainless End Plates with Tie-Rods */}
+                      <rect x="4" y="8" width="10" height="89" rx="2" fill="#475569" stroke="#94a3b8" strokeWidth="1" />
+                      <rect x="121" y="8" width="10" height="89" rx="2" fill="#475569" stroke="#94a3b8" strokeWidth="1" />
+                      <line x1="4" y1="15" x2="131" y2="15" stroke="#94a3b8" strokeWidth="1.5" />
+                      <line x1="4" y1="90" x2="131" y2="90" stroke="#94a3b8" strokeWidth="1.5" />
+
+                      {/* Internal Repeating Bipolar Plates & Catalyst Membrane */}
+                      <rect x="18" y="20" width="99" height="65" fill="url(#stackPlatesGrad)" />
+
+                      {/* Anode (+) and Cathode (-) Zones */}
+                      <rect x="22" y="24" width="42" height="57" fill="#047857" opacity="0.3" />
+                      <text x="43" y="38" textAnchor="middle" fill="#34d399" fontSize="8" fontWeight="bold">ANODE (+)</text>
+                      <text x="43" y="52" textAnchor="middle" fill="#a7f3d0" fontSize="6.5">2H₂O → O₂</text>
+                      <text x="43" y="62" textAnchor="middle" fill="#a7f3d0" fontSize="6.5">+ 4H⁺ + 4e⁻</text>
+
+                      {/* Center Proton Exchange Membrane (PEM / Diaphragm) */}
+                      <line x1="67" y1="20" x2="67" y2="85" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="3,2" />
+                      <text x="67" y="16" textAnchor="middle" fill="#f59e0b" fontSize="6" fontWeight="bold">PEM (H⁺)</text>
+
+                      <rect x="71" y="24" width="42" height="57" fill="#1d4ed8" opacity="0.3" />
+                      <text x="92" y="38" textAnchor="middle" fill="#60a5fa" fontSize="8" fontWeight="bold">CATHODE (-)</text>
+                      <text x="92" y="52" textAnchor="middle" fill="#93c5fd" fontSize="6.5">4H⁺ + 4e⁻</text>
+                      <text x="92" y="62" textAnchor="middle" fill="#93c5fd" fontSize="6.5">→ 2H₂ ↑</text>
+
+                      {/* Stack Spec Badge */}
+                      <rect x="18" y="87" width="99" height="15" fill="#0f172a" rx="2" />
+                      <text x="67" y="98" textAnchor="middle" fill="#93c5fd" fontSize="7" fontWeight="bold" fontFamily="monospace">
+                        {selectedH2Preset.technology.toUpperCase()} | {selectedH2Preset.operatingPressureBar} bar | η={selectedH2Preset.cellEfficiencyPercent}%
+                      </text>
+                    </g>
+
+                    {/* --- MODULE 4: GAS SEPARATION & DEOXO DRYING --- */}
+                    {/* Top O2 Stream to Knockout Separator */}
+                    <path d="M 188 45 L 188 18 L 310 18" stroke="#10b981" strokeWidth="2" fill="none" markerEnd="url(#arrowGreen)" />
+                    {/* O2 Separator Tank */}
+                    <rect x="310" y="8" width="22" height="36" rx="6" fill="#064e3b" stroke="#34d399" strokeWidth="1" />
+                    <text x="321" y="28" textAnchor="middle" fill="#34d399" fontSize="6.5" fontWeight="bold">O₂</text>
+                    <path d="M 332 26 L 360 26" stroke="#10b981" strokeWidth="1.5" fill="none" markerEnd="url(#arrowGreen)" />
+                    <text x="365" y="24" fill="#34d399" fontSize="7.5" fontWeight="bold">
+                      {isArabic ? 'أكسجين نقي' : 'Pure O₂'}
                     </text>
-                    <text x="75" y="73" fill="#94a3b8" fontSize="10" textAnchor="middle">
-                      {inputRenewablePowerMw} MW كهرباء
+                    <text x="365" y="33" fill="#a7f3d0" fontSize="6.5" fontFamily="monospace">
+                      {h2Calculations.o2CoProductKgPerHour} kg/h
                     </text>
 
-                    {/* Box 2: Water Desalination Feed */}
-                    <rect x="20" y="110" width="110" height="60" rx="8" fill="#1e293b" stroke="#06b6d4" strokeWidth="2" />
-                    <text x="75" y="135" fill="#06b6d4" fontSize="11" fontWeight="bold" textAnchor="middle">
-                      تحلية مياه RO
-                    </text>
-                    <text x="75" y="153" fill="#94a3b8" fontSize="10" textAnchor="middle">
-                      H₂O فائقة النقاوة
-                    </text>
+                    {/* Cathode H2 Stream to H2 Separator & DeOxo Unit */}
+                    <path d="M 280 97 L 315 97" stroke="#3b82f6" strokeWidth="2.5" fill="none" markerEnd="url(#arrowBlue)" />
+                    
+                    {/* H2 Knock-out Drum */}
+                    <rect x="315" y="78" width="22" height="38" rx="6" fill="#1e3a8a" stroke="#60a5fa" strokeWidth="1" />
+                    <text x="326" y="100" textAnchor="middle" fill="#93c5fd" fontSize="7" fontWeight="bold">H₂</text>
 
-                    {/* Flow Arrows into Electrolyzer */}
-                    <path d="M 130 60 L 180 85" stroke="#38bdf8" strokeWidth="2" markerEnd="url(#arrow)" />
-                    <path d="M 130 140 L 180 115" stroke="#06b6d4" strokeWidth="2" markerEnd="url(#arrow)" />
+                    {/* DeOxo Catalytic Purifier & Dual Desiccant Towers */}
+                    <path d="M 337 97 L 352 97" stroke="#3b82f6" strokeWidth="2" fill="none" />
+                    <rect x="352" y="82" width="16" height="30" rx="2" fill="#1e293b" stroke="#38bdf8" strokeWidth="1" />
+                    <text x="360" y="99" textAnchor="middle" fill="#38bdf8" fontSize="5.5" fontWeight="bold">TSA</text>
+                    <rect x="371" y="82" width="16" height="30" rx="2" fill="#1e293b" stroke="#38bdf8" strokeWidth="1" />
+                    <text x="379" y="99" textAnchor="middle" fill="#38bdf8" fontSize="5.5" fontWeight="bold">DeOxo</text>
+                    <text x="369" y="122" textAnchor="middle" fill="#38bdf8" fontSize="6.5" fontWeight="bold">99.999% H₂</text>
 
-                    {/* Box 3: Central Electrolyzer Stack */}
-                    <rect x="180" y="60" width="140" height="80" rx="10" fill="#0f172a" stroke="#3b82f6" strokeWidth="3" />
-                    <text x="250" y="90" fill="#60a5fa" fontSize="12" fontWeight="bold" textAnchor="middle">
-                      محلل {selectedH2Preset.technology.toUpperCase()}
-                    </text>
-                    <text x="250" y="110" fill="#93c5fd" fontSize="10" textAnchor="middle">
-                      كفاءة: {selectedH2Preset.cellEfficiencyPercent}%
-                    </text>
-                    <text x="250" y="125" fill="#cbd5e1" fontSize="9" textAnchor="middle">
-                      {selectedH2Preset.operatingPressureBar} bar | {selectedH2Preset.operatingTempC}°C
-                    </text>
+                    {/* H2 Conduit from DeOxo to Downstream PtX */}
+                    <path d="M 387 97 L 420 97" stroke="#3b82f6" strokeWidth="2.5" fill="none" markerEnd="url(#arrowBlue)" />
 
-                    {/* Top Co-product: Pure O2 */}
-                    <path d="M 250 60 L 250 20 L 360 20" stroke="#10b981" strokeWidth="2" strokeDasharray="3 3" />
-                    <text x="410" y="24" fill="#34d399" fontSize="10">
-                      O₂ نقي للمستشفيات ({h2Calculations.o2CoProductKgPerHour} kg/h)
-                    </text>
+                    {/* --- MODULE 5: DOWNSTREAM SYNTHESIS UNIT (HABER-BOSCH / SAF / STORAGE) --- */}
+                    <g transform="translate(425, 45)">
+                      <rect x="0" y="0" width="125" height="120" rx="6" fill="#0f172a" stroke="#10b981" strokeWidth="1.8" />
+                      
+                      {/* Synthesis Reactor Vessel Graphic */}
+                      {ptxMode === 'green_ammonia' && (
+                        <g>
+                          {/* Haber-Bosch Converter Column */}
+                          <rect x="14" y="18" width="34" height="60" rx="10" fill="url(#reactorBodyGrad)" stroke="#34d399" strokeWidth="1.2" />
+                          <line x1="14" y1="38" x2="48" y2="38" stroke="#34d399" strokeWidth="0.8" strokeDasharray="2,2" />
+                          <line x1="14" y1="58" x2="48" y2="58" stroke="#34d399" strokeWidth="0.8" strokeDasharray="2,2" />
+                          <text x="31" y="50" textAnchor="middle" fill="#ffffff" fontSize="7" fontWeight="bold">Fe/Ru</text>
+                          {/* Refrigerated Spherical Bullet Tank */}
+                          <circle cx="85" cy="48" r="22" fill="#1e293b" stroke="#34d399" strokeWidth="1.2" />
+                          <line x1="85" y1="26" x2="85" y2="70" stroke="#34d399" strokeWidth="0.8" opacity="0.6" />
+                          <text x="85" y="51" textAnchor="middle" fill="#34d399" fontSize="8" fontWeight="bold">NH₃</text>
+                        </g>
+                      )}
 
-                    {/* H2 Outflow into Haber-Bosch / Synthesis */}
-                    <path d="M 320 100 L 370 100" stroke="#3b82f6" strokeWidth="3" />
-                    <text x="345" y="92" fill="#93c5fd" fontSize="9" textAnchor="middle">
-                      H₂ غاز
-                    </text>
+                      {ptxMode === 'saf_synfuel' && (
+                        <g>
+                          {/* Fischer-Tropsch Reactor Column */}
+                          <rect x="18" y="16" width="30" height="64" rx="4" fill="url(#reactorBodyGrad)" stroke="#10b981" strokeWidth="1.2" />
+                          <text x="33" y="50" textAnchor="middle" fill="#ffffff" fontSize="7" fontWeight="bold">FT</text>
+                          {/* Fractionator Column */}
+                          <rect x="62" y="24" width="22" height="56" rx="2" fill="#1e293b" stroke="#38bdf8" strokeWidth="1" />
+                          <text x="73" y="54" textAnchor="middle" fill="#38bdf8" fontSize="6.5" fontWeight="bold">JET</text>
+                        </g>
+                      )}
 
-                    {/* Box 4: Downstream Synthesis (NH3 / SAF) */}
-                    <rect x="370" y="60" width="130" height="80" rx="10" fill="#1e293b" stroke="#10b981" strokeWidth="2" />
-                    <text x="435" y="90" fill="#34d399" fontSize="11" fontWeight="bold" textAnchor="middle">
-                      {ptxMode === 'green_ammonia'
-                        ? 'مفاعل هابر-بوش (NH₃)'
-                        : ptxMode === 'saf_synfuel'
-                        ? 'تفاعل فيشر-تروبش (SAF)'
-                        : 'خزانات H₂ مضغوطة'}
-                    </text>
-                    <text x="435" y="110" fill="#a7f3d0" fontSize="10" textAnchor="middle">
-                      {ptxMode === 'green_ammonia'
-                        ? `${h2Calculations.ammoniaTonsDaily} طن/يوم أمونيا`
-                        : ptxMode === 'saf_synfuel'
-                        ? `${h2Calculations.safBarrelsDaily} برميل/يوم`
-                        : `${h2Calculations.h2DailyTons} طن/يوم`}
-                    </text>
+                      {ptxMode === 'h2_pure' && (
+                        <g>
+                          {/* 4 Multi-Stage Compression Cylinders */}
+                          {[16, 40, 64, 88].map((cx) => (
+                            <rect key={cx} x={cx} y="22" width="18" height="54" rx="4" fill="#1e3a8a" stroke="#60a5fa" strokeWidth="1" />
+                          ))}
+                          <text x="61" y="52" textAnchor="middle" fill="#ffffff" fontSize="8" fontWeight="bold">700 BAR</text>
+                        </g>
+                      )}
+
+                      {/* Header Title */}
+                      <text x="62" y="14" textAnchor="middle" fill="#34d399" fontSize="7.5" fontWeight="bold">
+                        {ptxMode === 'green_ammonia'
+                          ? (isArabic ? 'مفاعل هابر-بوش (NH₃)' : 'Haber-Bosch Loop')
+                          : ptxMode === 'saf_synfuel'
+                          ? (isArabic ? 'تفاعل فيشر-تروبش (SAF)' : 'Fischer-Tropsch (SAF)')
+                          : (isArabic ? 'محطة ضغط وتخزين H₂' : 'High-Pressure Buffer')}
+                      </text>
+
+                      {/* Quantitative Output Badge */}
+                      <rect x="10" y="86" width="105" height="24" rx="3" fill="#022c22" stroke="#059669" strokeWidth="1" />
+                      <text x="62" y="98" textAnchor="middle" fill="#6ee7b7" fontSize="7.5" fontWeight="bold">
+                        {ptxMode === 'green_ammonia'
+                          ? `${h2Calculations.ammoniaTonsDaily} t/day Green NH₃`
+                          : ptxMode === 'saf_synfuel'
+                          ? `${h2Calculations.safBarrelsDaily} bbl/day SAF`
+                          : `${h2Calculations.h2DailyTons} t/day Compressed H₂`}
+                      </text>
+                      <text x="62" y="106" textAnchor="middle" fill="#a7f3d0" fontSize="6.5">
+                        SCZONE Ain Sokhna Export Hub
+                      </text>
+                    </g>
                   </svg>
                 </div>
 
