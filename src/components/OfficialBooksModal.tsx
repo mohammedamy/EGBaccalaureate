@@ -2,7 +2,12 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import type { OfficialBook } from '../data/officialBooksData';
-import { officialBooksList, getBookDownloadUrl, getBookGithubUrl } from '../data/officialBooksData';
+import {
+  officialBooksList,
+  getFullTextbookDownloadUrl,
+  getFullTextbookPreviewUrl,
+  getCompendiumDownloadUrl,
+} from '../data/officialBooksData';
 import { toHindiDigits } from '../utils/arabicNumerals';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-3.5 h-3.5' }) => (
@@ -534,62 +539,76 @@ export const OfficialBooksModal: React.FC<Props> = ({
 
                       {/* Action Download & Preview Buttons */}
                       <div className="pt-3 border-t border-slate-100 dark:border-slate-700/60 flex flex-col gap-2">
-                        {/* 1. Primary Direct Official Textbook PDF Download */}
+                        {/* 1. PRIMARY: Full Ministry Official Textbook (~20MB, 200+ pages) Direct Download */}
                         <a
-                          href={getBookDownloadUrl(book)}
-                          download={book.filename}
+                          href={getFullTextbookDownloadUrl(book)}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="w-full inline-flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-white shadow-md transition-all hover:opacity-95 active:scale-[0.99] group"
                           style={{
                             background: `linear-gradient(135deg, ${book.accentColor}, ${book.accentColor}dd)`,
                           }}
-                          title={t.downloadOfficialTextbook}
+                          title={t.downloadFullTextbookDirect}
                         >
                           <div className="flex items-center gap-2">
                             <Download className="w-4 h-4 animate-bounce" />
-                            <span>{t.downloadOfficialTextbook}</span>
+                            <div className="flex flex-col text-left rtl:text-right">
+                              <span className="font-extrabold">{t.downloadFullTextbookDirect}</span>
+                              <span className="text-[10px] font-normal opacity-90">
+                                {isArabic ? 'النسخة الوزارية الكاملة والأصلية' : 'Genuine Complete Official Copy'}
+                              </span>
+                            </div>
                           </div>
-                          <div className="flex items-center gap-1.5 text-[11px] font-mono opacity-90">
-                            <span>{isArabic ? `${toHindiDigits(book.pagesCount)} ص • ${book.fileSize}` : `${book.pagesCount}p • ${book.fileSize}`}</span>
-                            <FileText className="w-3.5 h-3.5 opacity-80" />
+                          <div className="flex flex-col items-end text-[11px] font-mono opacity-95">
+                            <span className="font-bold">
+                              {isArabic
+                                ? `${toHindiDigits(book.fullTextbookPages)} صفحة • ${book.fullTextbookSize}`
+                                : `${book.fullTextbookPages}p • ${book.fullTextbookSize}`}
+                            </span>
+                            <span className="text-[9px] px-1.5 py-0.5 bg-white/20 rounded font-sans uppercase font-bold tracking-wider">
+                              Anti-403
+                            </span>
                           </div>
                         </a>
 
-                        {/* 2. Secondary Row: GitHub Anti-403 Mirror Download */}
+                        {/* 2. SECONDARY: Quick Concept Compendium & Formula Guide (20KB, 8 pages) */}
                         <a
-                          href={getBookGithubUrl(book)}
+                          href={getCompendiumDownloadUrl(book)}
                           download={book.filename}
-                          target="_blank"
-                          rel="noopener noreferrer"
                           className={`w-full inline-flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all ${
                             isLight
-                              ? 'bg-slate-900 hover:bg-slate-800 text-white border-slate-900 shadow-xs'
-                              : 'bg-slate-800/90 hover:bg-slate-700 text-slate-100 border-slate-700 hover:border-slate-500 shadow-xs'
+                              ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 shadow-2xs'
+                              : 'bg-slate-800/90 hover:bg-slate-700 text-slate-100 border-slate-700 hover:border-slate-500 shadow-2xs'
                           }`}
-                          title={t.githubMirrorTooltip}
+                          title={t.downloadConceptCompendium}
                         >
-                          <div className="flex items-center gap-1.5">
-                            <GithubIcon className="w-3.5 h-3.5 text-emerald-400" />
-                            <span>{t.downloadGithubMirror}</span>
+                          <div className="flex items-center gap-2">
+                            <FileText className="w-3.5 h-3.5 text-emerald-400" />
+                            <span>{t.downloadConceptCompendium}</span>
                           </div>
-                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">
-                            Anti-403
+                          <span className="text-[11px] font-mono text-slate-400 dark:text-slate-400">
+                            {isArabic
+                              ? `${toHindiDigits(book.pagesCount)} صفحات • ${book.fileSize}`
+                              : `${book.pagesCount}p • ${book.fileSize}`}
                           </span>
                         </a>
 
-                        {/* 3. Tertiary Row: In-App Preview & External Ministry Portal */}
+                        {/* 3. TERTIARY ROW: Full Textbook Online Reader, Compendium Preview, and WAF Info */}
                         <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => window.open(getBookDownloadUrl(book), '_blank')}
+                          <a
+                            href={getFullTextbookPreviewUrl(book)}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className={`flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
                               isLight
-                                ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
-                                : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700 hover:border-slate-600'
+                                ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
+                                : 'bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border-indigo-800/60'
                             }`}
-                            title={t.previewBookPdf}
+                            title={t.previewFullTextbook}
                           >
-                            <FileText className="w-3.5 h-3.5 text-blue-500" />
-                            <span>{t.previewBookPdf}</span>
-                          </button>
+                            <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                            <span>{t.previewFullTextbook}</span>
+                          </a>
 
                           <button
                             type="button"
@@ -691,28 +710,44 @@ export const OfficialBooksModal: React.FC<Props> = ({
             </div>
 
             <div className="flex flex-col gap-2 pt-2">
-              {/* GitHub Anti-403 Mirror Button */}
+              {/* Primary Action: Direct Full Textbook Download (~20MB) */}
               <a
-                href={getBookGithubUrl(showWafModal)}
-                download={showWafModal.filename}
+                href={getFullTextbookDownloadUrl(showWafModal)}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setShowWafModal(null)}
+                className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-indigo-600 hover:bg-indigo-500 shadow-md transition-all flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <Download className="w-4 h-4 text-white animate-bounce" />
+                  <span>{isArabic ? 'تحميل كتاب الوزارة الكامل (~20MB)' : 'Download Full Official Textbook (~20MB)'}</span>
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-700 text-indigo-100 font-bold">
+                  {showWafModal.fullTextbookSize} • Anti-403
+                </span>
+              </a>
+
+              {/* Online Full Textbook Reader */}
+              <a
+                href={getFullTextbookPreviewUrl(showWafModal)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setShowWafModal(null)}
                 className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-slate-800 hover:bg-slate-700 border border-slate-600 shadow-md transition-all flex items-center justify-center gap-2"
               >
-                <GithubIcon className="w-4 h-4 text-emerald-400" />
-                <span>{isArabic ? 'تحميل مباشر عبر سيرفر GitHub (مضمون بدون خطأ 403)' : 'Download via GitHub Mirror (Zero 403 Guaranteed)'}</span>
+                <BookOpen className="w-4 h-4 text-cyan-400" />
+                <span>{isArabic ? 'معاينة وقراءة الكتاب الكامل أونلاين (PDF)' : 'Read Full Textbook Online (PDF)'}</span>
               </a>
 
               <div className="flex flex-col sm:flex-row items-center gap-2">
                 <a
-                  href={getBookDownloadUrl(showWafModal)}
+                  href={getCompendiumDownloadUrl(showWafModal)}
                   download={showWafModal.filename}
                   onClick={() => setShowWafModal(null)}
-                  className="w-full sm:flex-1 py-2.5 px-4 rounded-xl text-xs font-bold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full sm:flex-1 py-2 px-3 rounded-xl text-xs font-semibold text-center text-slate-200 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 transition-all flex items-center justify-center gap-2"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>{isArabic ? 'تحميل النسخة المدمجة (PDF)' : 'Download Bundled PDF'}</span>
+                  <FileText className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>{isArabic ? `كتيب المفاهيم (${showWafModal.fileSize})` : `Concept Guide (${showWafModal.fileSize})`}</span>
                 </a>
 
                 <a
@@ -720,10 +755,10 @@ export const OfficialBooksModal: React.FC<Props> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setShowWafModal(null)}
-                  className="w-full sm:w-auto py-2.5 px-3 rounded-xl text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-center flex items-center justify-center gap-1.5"
+                  className="w-full sm:w-auto py-2 px-3 rounded-xl text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-center flex items-center justify-center gap-1.5"
                 >
                   <span>{isArabic ? 'فتح moe.gov.eg رغم ذلك' : 'Open moe.gov.eg anyway'}</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
             </div>

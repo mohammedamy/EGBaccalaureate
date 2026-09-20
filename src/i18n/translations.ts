@@ -145,7 +145,11 @@ export interface Translations {
   officialCurriculumCode: string;
   downloadFullTextbook: string;
   downloadOfficialTextbook: string;
+  downloadFullTextbookDirect: string;
+  downloadFullTextbookDirectShort: string;
   downloadConceptCompendium: string;
+  previewFullTextbook: string;
+  previewConceptGuide: string;
   downloadGithubMirror: string;
   downloadGithubMirrorShort: string;
   githubMirrorDesc: string;
@@ -302,19 +306,23 @@ export const translations: Record<Language, Translations> = {
     officialMinistryBadge: 'Authorized by Ministry of Education',
     officialCurriculumCode: 'Curriculum Code',
     downloadFullTextbook: 'Visit Ministry Portal (External)',
-    downloadOfficialTextbook: 'Download Official Textbook (Direct PDF)',
-    downloadConceptCompendium: 'Download Concept Compendium (PDF)',
-    downloadGithubMirror: 'Download via GitHub Mirror (Zero 403)',
-    downloadGithubMirrorShort: 'GitHub Mirror',
-    githubMirrorDesc: 'Permanent up-to-date mirror preserved in the GitHub repository, guaranteeing 100% unrestricted downloads without ministerial Azure WAF 403 blocks.',
-    githubMirrorTooltip: 'Direct download from GitHub CDN repository (Zero 403)',
-    githubMirrorActiveBadge: 'GitHub Anti-403 Mirror Synchronized',
-    moePortalNotice: 'Complete official textbooks (200–300 pages) are published and authorized by the Egyptian Ministry of Education & Technical Education. Certified digital versions are bundled directly within this platform.',
-    moeWafNotice: 'Note: The external Ministry server (moe.gov.eg) employs Azure firewall policies that frequently reject direct connections with Error 403. Use the Direct PDF button above for guaranteed instant access.',
-    conceptCompendiumLabel: 'Official Concept Compendium',
-    fullTextbookLabel: 'Full Ministerial Textbook',
+    downloadOfficialTextbook: 'Download Full Textbook (~20MB)',
+    downloadFullTextbookDirect: 'Download Full Ministry Textbook (~20MB)',
+    downloadFullTextbookDirectShort: 'Full Book (~20MB)',
+    downloadConceptCompendium: 'Download Concept Compendium (20KB)',
+    previewFullTextbook: 'Read Full Textbook Online (PDF)',
+    previewConceptGuide: 'Preview Concept Guide (20KB)',
+    downloadGithubMirror: 'Download via Mirror (Zero 403)',
+    downloadGithubMirrorShort: 'Direct Mirror',
+    githubMirrorDesc: 'Permanent up-to-date mirror preserving the full official textbook, guaranteeing 100% unrestricted downloads without ministerial Azure WAF 403 blocks.',
+    githubMirrorTooltip: 'Direct download from cloud repository (Zero 403 Guaranteed)',
+    githubMirrorActiveBadge: 'Anti-403 Direct Mirror Synchronized',
+    moePortalNotice: 'Complete official textbooks (200–300 pages, ~20MB) are published and authorized by the Egyptian Ministry of Education & Technical Education. Certified digital versions are available for direct download and preview.',
+    moeWafNotice: 'Note: The external Ministry server (moe.gov.eg) employs Azure firewall policies that frequently reject direct connections with Error 403. Use the Full Textbook button above for guaranteed instant access.',
+    conceptCompendiumLabel: 'Official Concept Compendium (20KB)',
+    fullTextbookLabel: 'Full Ministerial Textbook (~20MB)',
     moePortalElearning: 'Ministry E-Learning Portal',
-    inAppCompendiumSubtitle: 'Certified Exam Formula & Concept Sheet',
+    inAppCompendiumSubtitle: 'Certified Exam Formula & Concept Sheet (20KB)',
 
     copyright: '© 2026 Egyptian Mathematics Educational Portal. Standardized on the Egyptian Ministry of Education Mathematics Framework.',
     moeReferenceNote: 'All curriculum topics, formulas, and problem structures directly adhere to the official textbooks issued by the Ministry of Education of Egypt (وزارة التربية والتعليم والتعليم الفني المصري).',
@@ -458,19 +466,23 @@ export const translations: Record<Language, Translations> = {
     officialMinistryBadge: 'معتمد رسمياً من وزارة التربية والتعليم',
     officialCurriculumCode: 'كود المنهج',
     downloadFullTextbook: 'زيارة بوابة الوزارة (رابط خارجي)',
-    downloadOfficialTextbook: 'تحميل الكتاب المدرسي المعتمد (PDF مباشر)',
-    downloadConceptCompendium: 'تحميل كتيب المفاهيم والقوانين (PDF)',
-    downloadGithubMirror: 'تحميل عبر سيرفر GitHub المباشر (تجاوز خطأ 403)',
-    downloadGithubMirrorShort: 'سيرفر GitHub',
-    githubMirrorDesc: 'نسخة رقمية رسمية محدثة محفوظة في مستودع GitHub تضمن تحميلاً فورياً بنسبة إتاحة ١٠٠٪ دون التعرض لحجب جدار حماية الوزارة (Error 403).',
-    githubMirrorTooltip: 'تحميل مباشر من سيرفر ومستودع GitHub (مضمون بدون حجب أو 403)',
-    githubMirrorActiveBadge: 'نسخة GitHub الاحتياطية محدثة ومزامنة (مضاد لـ 403)',
-    moePortalNotice: 'الكتب والمقررات المدرسية الرسمية صادرة ومعتمدة من وزارة التربية والتعليم والتعليم الفني المصرية، والنسخ الرقمية المعتمدة مدمجة بالكامل ومتاحة للتحميل المباشر من المنصة.',
-    moeWafNotice: 'تنبيه: بوابة الوزارة الخارجية (moe.gov.eg) تطبق جدار حماية سحابي (Azure Firewall) قد يُظهر خطأ 403 عند الدخول المباشر. يرجى استخدام زر التحميل المباشر بصيغة PDF للوصول الفوري المضمون.',
-    conceptCompendiumLabel: 'كتيب المفاهيم المعتمد',
-    fullTextbookLabel: 'الكتاب المدرسي الوزاري الكامل',
+    downloadOfficialTextbook: 'تحميل كتاب الوزارة الكامل (~20MB)',
+    downloadFullTextbookDirect: 'تحميل كتاب الوزارة الكامل (~20MB)',
+    downloadFullTextbookDirectShort: 'الكتاب الكامل (~20MB)',
+    downloadConceptCompendium: 'كتيب المفاهيم وملخص القوانين (20KB)',
+    previewFullTextbook: 'معاينة الكتاب الكامل أونلاين (PDF)',
+    previewConceptGuide: 'معاينة كتيب المفاهيم (20KB)',
+    downloadGithubMirror: 'تحميل عبر سيرفر بديل (تجاوز خطأ 403)',
+    downloadGithubMirrorShort: 'سيرفر بديل',
+    githubMirrorDesc: 'نسخة رقمية رسمية كاملة محدثة تضمن تحميلاً فورياً بنسبة إتاحة ١٠٠٪ دون التعرض لحجب جدار حماية الوزارة (Error 403).',
+    githubMirrorTooltip: 'تحميل مباشر من سيرفر سحابي بديل (مضمون بدون حجب أو 403)',
+    githubMirrorActiveBadge: 'النسخة السحابية المحدثة متزامنة (مضاد لـ 403)',
+    moePortalNotice: 'الكتب والمقررات المدرسية الرسمية الكاملة (200–300 صفحة، ~20MB) صادرة ومعتمدة من وزارة التربية والتعليم والتعليم الفني المصرية، والنسخ الرقمية الأصلية متاحة للتحميل المباشر والمعاينة الفورية.',
+    moeWafNotice: 'تنبيه: بوابة الوزارة الخارجية (moe.gov.eg) تطبق جدار حماية سحابي (Azure Firewall) قد يُظهر خطأ 403 عند الدخول المباشر. يرجى استخدام زر تحميل كتاب الوزارة الكامل بالأعلى للوصول الفوري المضمون.',
+    conceptCompendiumLabel: 'كتيب المفاهيم المعتمد (20KB)',
+    fullTextbookLabel: 'الكتاب المدرسي الوزاري الكامل (~20MB)',
     moePortalElearning: 'بوابة التعليم الإلكتروني للوزارة',
-    inAppCompendiumSubtitle: 'كتيب القوانين والمفاهيم المركزة للامتحانات',
+    inAppCompendiumSubtitle: 'كتيب القوانين والمفاهيم المركزة للامتحانات (20KB)',
 
     copyright: '© 2026 بوابة الرياضيات للتعليم المصري. مطور وفق الإطار العام للمناهج بوزارة التربية والتعليم والتعليم الفني المصرية.',
     moeReferenceNote: 'جميع الموضوعات والقوانين والأسئلة مستمدة ومطابقة مباشرة للكتب الرسمية الصادرة من وزارة التربية والتعليم المصرية.',

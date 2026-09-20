@@ -22,10 +22,14 @@ export interface OfficialBook {
   filename: string;
   downloadUrl: string;
   githubMirrorUrl?: string;
-  // Full Official Ministry Textbook via E-Learning Portal
+  // Full Official Ministry Textbook via E-Learning Portal & Anti-403 Direct Mirrors
   fullTextbookPages: number;
   fullTextbookSize: string;
   officialPortalUrl: string;
+  fullTextbookDownloadUrl?: string;
+  fullTextbookDriveId?: string;
+  fullTextbookPreviewUrl?: string;
+  githubReleaseUrl?: string;
   coverGradient: string;
   accentColor: string;
   chapters: {
@@ -65,6 +69,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 224,
     fullTextbookSize: '18.4 MB',
+    fullTextbookDriveId: '1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U/preview',
     filename: 'thanaweya-algebra-solid-geometry.pdf',
     downloadUrl: './books/thanaweya-algebra-solid-geometry.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -146,6 +153,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 208,
     fullTextbookSize: '16.9 MB',
+    fullTextbookDriveId: '12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz/preview',
     filename: 'thanaweya-calculus-integration.pdf',
     downloadUrl: './books/thanaweya-calculus-integration.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -220,6 +230,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 196,
     fullTextbookSize: '15.7 MB',
+    fullTextbookDriveId: '1c3odalouhrrghpkmU3BOtBX9tWvNmGrT',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1c3odalouhrrghpkmU3BOtBX9tWvNmGrT&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1c3odalouhrrghpkmU3BOtBX9tWvNmGrT/preview',
     filename: 'thanaweya-statics.pdf',
     downloadUrl: './books/thanaweya-statics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -308,6 +321,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 216,
     fullTextbookSize: '19.5 MB',
+    fullTextbookDriveId: '1c3odalouhrrghpkmU3BOtBX9tWvNmGrT',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1c3odalouhrrghpkmU3BOtBX9tWvNmGrT&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1c3odalouhrrghpkmU3BOtBX9tWvNmGrT/preview',
     filename: 'thanaweya-dynamics.pdf',
     downloadUrl: './books/thanaweya-dynamics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -382,6 +398,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 240,
     fullTextbookSize: '20.8 MB',
+    fullTextbookDriveId: '1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U/preview',
     filename: 'egbac-discrete-math-linear-systems.pdf',
     downloadUrl: './books/egbac-discrete-math-linear-systems.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -442,6 +461,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 256,
     fullTextbookSize: '21.3 MB',
+    fullTextbookDriveId: '12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz/preview',
     filename: 'egbac-real-analysis-differential-calculus.pdf',
     downloadUrl: './books/egbac-real-analysis-differential-calculus.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -502,6 +524,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 264,
     fullTextbookSize: '22.4 MB',
+    fullTextbookDriveId: '1c3odalouhrrghpkmU3BOtBX9tWvNmGrT',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1c3odalouhrrghpkmU3BOtBX9tWvNmGrT&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1c3odalouhrrghpkmU3BOtBX9tWvNmGrT/preview',
     filename: 'egbac-theoretical-mechanics.pdf',
     downloadUrl: './books/egbac-theoretical-mechanics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -562,6 +587,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 220,
     fullTextbookSize: '19.2 MB',
+    fullTextbookDriveId: '17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk/preview',
     filename: 'egbac-probability-advanced-statistics.pdf',
     downloadUrl: './books/egbac-probability-advanced-statistics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -621,6 +649,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'مجلد مفاهيم الثانوية العامة المعتمد: الرياضيات',
     fullTextbookPages: 96,
     fullTextbookSize: '8.5 MB',
+    fullTextbookDriveId: '1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1Xcg5M-PUuOZmQWa6FNbswFp32vqhtv6U/preview',
     filename: 'official-ministry-formula-compendium.pdf',
     downloadUrl: './books/official-ministry-formula-compendium.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -680,6 +711,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'دليل المعلم ومواصفات الورقة الامتحانية الرسمية',
     fullTextbookPages: 144,
     fullTextbookSize: '12.8 MB',
+    fullTextbookDriveId: '12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/12teaHs9T4jJ-7bu8I9kbZOJ7DHcc30Vz/preview',
     filename: 'official-ministry-teacher-guide.pdf',
     downloadUrl: './books/official-ministry-teacher-guide.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -739,6 +773,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 288,
     fullTextbookSize: '24.2 MB',
+    fullTextbookDriveId: '1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96/preview',
     filename: 'thanaweya-physics.pdf',
     downloadUrl: './books/thanaweya-physics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -827,6 +864,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 272,
     fullTextbookSize: '23.6 MB',
+    fullTextbookDriveId: '1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK/preview',
     filename: 'thanaweya-chemistry.pdf',
     downloadUrl: './books/thanaweya-chemistry.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -908,6 +948,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 256,
     fullTextbookSize: '22.1 MB',
+    fullTextbookDriveId: '1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC/preview',
     filename: 'thanaweya-biology.pdf',
     downloadUrl: './books/thanaweya-biology.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -989,6 +1032,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 296,
     fullTextbookSize: '26.8 MB',
+    fullTextbookDriveId: '1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96/preview',
     filename: 'egbac-physics-quantum-mechanics.pdf',
     downloadUrl: './books/egbac-physics-quantum-mechanics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -1049,6 +1095,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 280,
     fullTextbookSize: '24.5 MB',
+    fullTextbookDriveId: '1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1EjQbMiEeFfU1Y7J4GXTKGiKsBElvyQXK/preview',
     filename: 'egbac-chemistry-thermodynamics.pdf',
     downloadUrl: './books/egbac-chemistry-thermodynamics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -1109,6 +1158,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'كتيب المفاهيم وملخص القوانين المعتمد',
     fullTextbookPages: 260,
     fullTextbookSize: '23.0 MB',
+    fullTextbookDriveId: '1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1XsuNts-efmeS9zGpMNmKE2-1pjpKeDZC/preview',
     filename: 'egbac-biology-molecular-genetics.pdf',
     downloadUrl: './books/egbac-biology-molecular-genetics.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -1182,6 +1234,9 @@ export const officialBooksList: OfficialBook[] = [
     compendiumTitleAr: 'مجلد مفاهيم الثانوية العامة المعتمد: العلوم',
     fullTextbookPages: 112,
     fullTextbookSize: '10.2 MB',
+    fullTextbookDriveId: '1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1d1jb0m6wzrUHfnk1GLLWQbx0dwsfZa96/preview',
     filename: 'official-ministry-science-compendium.pdf',
     downloadUrl: './books/official-ministry-science-compendium.pdf',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
@@ -1250,6 +1305,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-arabic.pdf',
     fullTextbookPages: 420,
     fullTextbookSize: '45.2 MB',
+    fullTextbookDriveId: '1VoZpb8rvd-IagtiIWjPZdgWX0ZR-Kql8',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1VoZpb8rvd-IagtiIWjPZdgWX0ZR-Kql8&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1VoZpb8rvd-IagtiIWjPZdgWX0ZR-Kql8/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-amber-600 via-orange-600 to-yellow-600',
     accentColor: '#d97706',
@@ -1300,6 +1358,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-arabic.pdf',
     fullTextbookPages: 395,
     fullTextbookSize: '41.6 MB',
+    fullTextbookDriveId: '1VoZpb8rvd-IagtiIWjPZdgWX0ZR-Kql8',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1VoZpb8rvd-IagtiIWjPZdgWX0ZR-Kql8&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1VoZpb8rvd-IagtiIWjPZdgWX0ZR-Kql8/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-amber-600 via-orange-600 to-yellow-600',
     accentColor: '#d97706',
@@ -1350,6 +1411,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-english.pdf',
     fullTextbookPages: 360,
     fullTextbookSize: '52.1 MB',
+    fullTextbookDriveId: '1rpCqGF95DxE21-3UnnKZKGGGyL9xHxdf',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1rpCqGF95DxE21-3UnnKZKGGGyL9xHxdf&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1rpCqGF95DxE21-3UnnKZKGGGyL9xHxdf/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-violet-600 via-purple-600 to-indigo-700',
     accentColor: '#7c3aed',
@@ -1402,6 +1466,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-english.pdf',
     fullTextbookPages: 380,
     fullTextbookSize: '48.0 MB',
+    fullTextbookDriveId: '1rpCqGF95DxE21-3UnnKZKGGGyL9xHxdf',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1rpCqGF95DxE21-3UnnKZKGGGyL9xHxdf&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1rpCqGF95DxE21-3UnnKZKGGGyL9xHxdf/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-violet-600 via-purple-600 to-indigo-700',
     accentColor: '#7c3aed',
@@ -1454,6 +1521,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-french.pdf',
     fullTextbookPages: 250,
     fullTextbookSize: '36.8 MB',
+    fullTextbookDriveId: '1ECfSeJVO6Zu7eJ69lgtTVusfg5T04K44',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1ECfSeJVO6Zu7eJ69lgtTVusfg5T04K44&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1ECfSeJVO6Zu7eJ69lgtTVusfg5T04K44/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-blue-600 via-sky-600 to-rose-600',
     accentColor: '#0284c7',
@@ -1504,6 +1574,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-french.pdf',
     fullTextbookPages: 275,
     fullTextbookSize: '39.2 MB',
+    fullTextbookDriveId: '1ECfSeJVO6Zu7eJ69lgtTVusfg5T04K44',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1ECfSeJVO6Zu7eJ69lgtTVusfg5T04K44&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1ECfSeJVO6Zu7eJ69lgtTVusfg5T04K44/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-blue-600 via-sky-600 to-rose-600',
     accentColor: '#0284c7',
@@ -1554,6 +1627,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-history.pdf',
     fullTextbookPages: 254,
     fullTextbookSize: '34.2 MB',
+    fullTextbookDriveId: '1GcWpGXQo_soZ1VNI8hvI1OSL_A_52Y5Q',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1GcWpGXQo_soZ1VNI8hvI1OSL_A_52Y5Q&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1GcWpGXQo_soZ1VNI8hvI1OSL_A_52Y5Q/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/thanaweya/history/',
     coverGradient: 'from-amber-800 via-yellow-800 to-stone-900',
     accentColor: '#b45309',
@@ -1608,6 +1684,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-history.pdf',
     fullTextbookPages: 268,
     fullTextbookSize: '37.5 MB',
+    fullTextbookDriveId: '1GcWpGXQo_soZ1VNI8hvI1OSL_A_52Y5Q',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1GcWpGXQo_soZ1VNI8hvI1OSL_A_52Y5Q&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1GcWpGXQo_soZ1VNI8hvI1OSL_A_52Y5Q/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/history/',
     coverGradient: 'from-stone-900 via-amber-900 to-yellow-950',
     accentColor: '#d97706',
@@ -1662,6 +1741,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-geography.pdf',
     fullTextbookPages: 196,
     fullTextbookSize: '28.6 MB',
+    fullTextbookDriveId: '1sufZllmFLW4wWjiAILTO5OjYZKsGc8xW',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1sufZllmFLW4wWjiAILTO5OjYZKsGc8xW&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1sufZllmFLW4wWjiAILTO5OjYZKsGc8xW/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/thanaweya/geography/',
     coverGradient: 'from-teal-800 via-emerald-800 to-slate-900',
     accentColor: '#0d9488',
@@ -1713,6 +1795,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-geography.pdf',
     fullTextbookPages: 212,
     fullTextbookSize: '31.2 MB',
+    fullTextbookDriveId: '1sufZllmFLW4wWjiAILTO5OjYZKsGc8xW',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1sufZllmFLW4wWjiAILTO5OjYZKsGc8xW&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1sufZllmFLW4wWjiAILTO5OjYZKsGc8xW/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/geography/',
     coverGradient: 'from-emerald-900 via-teal-900 to-cyan-950',
     accentColor: '#14b8a6',
@@ -1764,6 +1849,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-geology.pdf',
     fullTextbookPages: 208,
     fullTextbookSize: '29.4 MB',
+    fullTextbookDriveId: '1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/thanaweya/geology/',
     coverGradient: 'from-amber-800 via-stone-800 to-emerald-950',
     accentColor: '#d97706',
@@ -1817,6 +1905,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-geology.pdf',
     fullTextbookPages: 248,
     fullTextbookSize: '34.2 MB',
+    fullTextbookDriveId: '1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1VVZTeD1ukBGuYe69v3GwczTmoGnmpeX5/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/geology/',
     coverGradient: 'from-amber-950 via-stone-900 to-teal-950',
     accentColor: '#f59e0b',
@@ -1870,6 +1961,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/th-philosophy.pdf',
     fullTextbookPages: 220,
     fullTextbookSize: '26.4 MB',
+    fullTextbookDriveId: '0B_bUUbEkDThldV9TNk1RUUVvbFU',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=0B_bUUbEkDThldV9TNk1RUUVvbFU&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/0B_bUUbEkDThldV9TNk1RUUVvbFU/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/sec3/philosophy/',
     coverGradient: 'from-purple-950 via-indigo-950 to-slate-900',
     accentColor: '#9333ea',
@@ -1926,6 +2020,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-philosophy.pdf',
     fullTextbookPages: 240,
     fullTextbookSize: '29.1 MB',
+    fullTextbookDriveId: '0B_bUUbEkDThldV9TNk1RUUVvbFU',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=0B_bUUbEkDThldV9TNk1RUUVvbFU&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/0B_bUUbEkDThldV9TNk1RUUVvbFU/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/philosophy/',
     coverGradient: 'from-violet-950 via-purple-900 to-indigo-950',
     accentColor: '#a855f7',
@@ -1982,6 +2079,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/th-psychology.pdf',
     fullTextbookPages: 216,
     fullTextbookSize: '25.8 MB',
+    fullTextbookDriveId: '1gpcroZEJ9iPaMCAqfBVFCAvvy9XlBImN',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1gpcroZEJ9iPaMCAqfBVFCAvvy9XlBImN&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1gpcroZEJ9iPaMCAqfBVFCAvvy9XlBImN/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/sec3/psychology/',
     coverGradient: 'from-pink-950 via-rose-950 to-slate-900',
     accentColor: '#ec4899',
@@ -2040,6 +2140,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-psychology.pdf',
     fullTextbookPages: 236,
     fullTextbookSize: '28.4 MB',
+    fullTextbookDriveId: '1gpcroZEJ9iPaMCAqfBVFCAvvy9XlBImN',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1gpcroZEJ9iPaMCAqfBVFCAvvy9XlBImN&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1gpcroZEJ9iPaMCAqfBVFCAvvy9XlBImN/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/psychology/',
     coverGradient: 'from-rose-950 via-pink-900 to-indigo-950',
     accentColor: '#f43f5e',
@@ -2098,6 +2201,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-economics-statistics.pdf',
     fullTextbookPages: 240,
     fullTextbookSize: '26.8 MB',
+    fullTextbookDriveId: '17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
     coverGradient: 'from-amber-600 via-orange-600 to-yellow-700',
     accentColor: '#f59e0b',
@@ -2162,6 +2268,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-economics-statistics.pdf',
     fullTextbookPages: 260,
     fullTextbookSize: '29.5 MB',
+    fullTextbookDriveId: '17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/17ukJhCcYZD4A7yggEt5lj6dv2uRArLMk/preview',
     officialPortalUrl: 'https://moe.gov.eg/ar/elearning/egbac/economics/',
     coverGradient: 'from-amber-700 via-yellow-700 to-orange-800',
     accentColor: '#d97706',
@@ -2478,6 +2587,7 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-german.pdf',
     fullTextbookPages: 245,
     fullTextbookSize: '35.4 MB',
+    fullTextbookDownloadUrl: 'https://download.ministrybook.net/2020/04/german-third-grade-secondary.html',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-amber-600 via-yellow-600 to-zinc-900',
     accentColor: '#d97706',
@@ -2528,6 +2638,7 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-german.pdf',
     fullTextbookPages: 270,
     fullTextbookSize: '38.5 MB',
+    fullTextbookDownloadUrl: 'https://download.ministrybook.net/2020/04/german-third-grade-secondary.html',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-amber-600 via-yellow-600 to-zinc-900',
     accentColor: '#d97706',
@@ -2578,6 +2689,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-civics.pdf',
     fullTextbookPages: 180,
     fullTextbookSize: '24.2 MB',
+    fullTextbookDriveId: '1MDSNu0g0ZWC6QrDWjKdTAiGXN7GJzsac',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1MDSNu0g0ZWC6QrDWjKdTAiGXN7GJzsac&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1MDSNu0g0ZWC6QrDWjKdTAiGXN7GJzsac/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-emerald-700 via-teal-800 to-amber-800',
     accentColor: '#059669',
@@ -2632,6 +2746,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-civics.pdf',
     fullTextbookPages: 250,
     fullTextbookSize: '31.0 MB',
+    fullTextbookDriveId: '1MDSNu0g0ZWC6QrDWjKdTAiGXN7GJzsac',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1MDSNu0g0ZWC6QrDWjKdTAiGXN7GJzsac&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1MDSNu0g0ZWC6QrDWjKdTAiGXN7GJzsac/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-amber-700 via-emerald-800 to-slate-900',
     accentColor: '#10b981',
@@ -2686,6 +2803,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-italian.pdf',
     fullTextbookPages: 180,
     fullTextbookSize: '23.8 MB',
+    fullTextbookDriveId: '1Ql888421vgfIpS5uJVilmmlGBW8iPVZz',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1Ql888421vgfIpS5uJVilmmlGBW8iPVZz&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1Ql888421vgfIpS5uJVilmmlGBW8iPVZz/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-emerald-700 via-stone-100 to-rose-700',
     accentColor: '#059669',
@@ -2736,6 +2856,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-italian.pdf',
     fullTextbookPages: 250,
     fullTextbookSize: '36.2 MB',
+    fullTextbookDriveId: '1Ql888421vgfIpS5uJVilmmlGBW8iPVZz',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=1Ql888421vgfIpS5uJVilmmlGBW8iPVZz&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/1Ql888421vgfIpS5uJVilmmlGBW8iPVZz/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-green-700 via-rose-600 to-zinc-900',
     accentColor: '#16a34a',
@@ -2786,6 +2909,7 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-spanish.pdf',
     fullTextbookPages: 180,
     fullTextbookSize: '24.5 MB',
+    fullTextbookDownloadUrl: 'https://download.ministrybook.net/2020/04/spanish-third-grade-secondary.html',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-red-700 via-amber-600 to-yellow-600',
     accentColor: '#dc2626',
@@ -2836,6 +2960,7 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-spanish.pdf',
     fullTextbookPages: 250,
     fullTextbookSize: '37.8 MB',
+    fullTextbookDownloadUrl: 'https://download.ministrybook.net/2020/04/spanish-third-grade-secondary.html',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-red-900 via-amber-800 to-yellow-700',
     accentColor: '#b91c1c',
@@ -2986,6 +3111,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-islamic.pdf',
     fullTextbookPages: 220,
     fullTextbookSize: '28.5 MB',
+    fullTextbookDriveId: '0B_bUUbEkDThlbHFSa0hnTUlNSG8',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=0B_bUUbEkDThlbHFSa0hnTUlNSG8&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/0B_bUUbEkDThlbHFSa0hnTUlNSG8/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-emerald-900 via-teal-800 to-green-700',
     accentColor: '#059669',
@@ -3036,6 +3164,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-islamic.pdf',
     fullTextbookPages: 245,
     fullTextbookSize: '34.6 MB',
+    fullTextbookDriveId: '0B_bUUbEkDThlbHFSa0hnTUlNSG8',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=0B_bUUbEkDThlbHFSa0hnTUlNSG8&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/0B_bUUbEkDThlbHFSa0hnTUlNSG8/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-teal-950 via-emerald-900 to-green-800',
     accentColor: '#047857',
@@ -3086,6 +3217,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/thanaweya-christian.pdf',
     fullTextbookPages: 215,
     fullTextbookSize: '27.4 MB',
+    fullTextbookDriveId: '0B_bUUbEkDThld3JhTjc2a0JYWFU',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=0B_bUUbEkDThld3JhTjc2a0JYWFU&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/0B_bUUbEkDThld3JhTjc2a0JYWFU/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-amber-900 via-rose-800 to-purple-800',
     accentColor: '#d97706',
@@ -3136,6 +3270,9 @@ export const officialBooksList: OfficialBook[] = [
     downloadUrl: './books/egbac-christian.pdf',
     fullTextbookPages: 240,
     fullTextbookSize: '33.8 MB',
+    fullTextbookDriveId: '0B_bUUbEkDThld3JhTjc2a0JYWFU',
+    fullTextbookDownloadUrl: 'https://drive.google.com/uc?id=0B_bUUbEkDThld3JhTjc2a0JYWFU&export=download',
+    fullTextbookPreviewUrl: 'https://drive.google.com/file/d/0B_bUUbEkDThld3JhTjc2a0JYWFU/preview',
     officialPortalUrl: 'https://moe.gov.eg',
     coverGradient: 'from-purple-950 via-rose-900 to-amber-800',
     accentColor: '#b45309',
@@ -4221,6 +4358,43 @@ export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'ph
 export const GITHUB_REPO_URL = 'https://github.com/mohammedamy/EGBaccalaureate';
 export const GITHUB_BOOKS_RAW_BASE =
   'https://raw.githubusercontent.com/mohammedamy/EGBaccalaureate/main/public/books/';
+export const GITHUB_RELEASE_BASE =
+  'https://github.com/mohammedamy/EGBaccalaureate/releases/download/v1.0.0-textbooks/';
+
+/**
+ * Direct download link for the full official ministry textbook (~15–30 MB, 200+ pages).
+ * Bypasses Azure WAF 403 blocks via Google Drive direct export and GitHub Releases.
+ */
+export function getFullTextbookDownloadUrl(book?: OfficialBook): string {
+  if (!book) return '';
+  if (book.fullTextbookDownloadUrl) return book.fullTextbookDownloadUrl;
+  if (book.fullTextbookDriveId) {
+    return `https://drive.google.com/uc?id=${book.fullTextbookDriveId}&export=download`;
+  }
+  if (book.githubReleaseUrl) return book.githubReleaseUrl;
+  if (book.filename) return `${GITHUB_RELEASE_BASE}${book.filename}`;
+  return book.officialPortalUrl || '';
+}
+
+/**
+ * Interactive in-browser reader URL for the full textbook (200+ pages) with zoom and search.
+ */
+export function getFullTextbookPreviewUrl(book?: OfficialBook): string {
+  if (!book) return '';
+  if (book.fullTextbookPreviewUrl) return book.fullTextbookPreviewUrl;
+  if (book.fullTextbookDriveId) {
+    return `https://drive.google.com/file/d/${book.fullTextbookDriveId}/preview`;
+  }
+  return getFullTextbookDownloadUrl(book);
+}
+
+/**
+ * Direct download link for the in-app fast concept & formula compendium (~20 KB, 8 pages).
+ */
+export function getCompendiumDownloadUrl(book?: OfficialBook): string {
+  if (!book) return '';
+  return getBookDownloadUrl(book, false);
+}
 
 export function getBookGithubUrl(book?: OfficialBook | { filename?: string }): string {
   if (!book?.filename) return '';
@@ -4245,5 +4419,6 @@ export function getBookDownloadUrl(
   const cleanUrl = url.startsWith('./') ? url.slice(2) : url.startsWith('/') ? url.slice(1) : url;
   return cleanBase + cleanUrl;
 }
+
 
 

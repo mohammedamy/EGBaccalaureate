@@ -3,6 +3,9 @@ import path from 'path';
 import { PDFDocument } from 'pdf-lib';
 import {
   officialBooksList,
+  getFullTextbookDownloadUrl,
+  getFullTextbookPreviewUrl,
+  getCompendiumDownloadUrl,
   getBookDownloadUrl,
   getBookGithubUrl,
   GITHUB_BOOKS_RAW_BASE,
@@ -68,6 +71,27 @@ async function runVerification() {
       `Book [${book.id}] getBookDownloadUrl must return valid string containing filename, got: ${downloadUrl}`
     );
 
+    // Compendium Download URL integrity
+    const compendiumUrl = getCompendiumDownloadUrl(book);
+    assert(
+      typeof compendiumUrl === 'string' && compendiumUrl.length > 0 && compendiumUrl.includes(book.filename),
+      `Book [${book.id}] getCompendiumDownloadUrl must return valid string containing filename, got: ${compendiumUrl}`
+    );
+
+    // Full Textbook Direct Download URL integrity (~20MB anti-403)
+    const fullDownloadUrl = getFullTextbookDownloadUrl(book);
+    assert(
+      typeof fullDownloadUrl === 'string' && fullDownloadUrl.startsWith('http'),
+      `Book [${book.id}] getFullTextbookDownloadUrl must return valid http(s) URL, got: ${fullDownloadUrl}`
+    );
+
+    // Full Textbook Online Preview URL integrity
+    const fullPreviewUrl = getFullTextbookPreviewUrl(book);
+    assert(
+      typeof fullPreviewUrl === 'string' && fullPreviewUrl.startsWith('http'),
+      `Book [${book.id}] getFullTextbookPreviewUrl must return valid http(s) URL, got: ${fullPreviewUrl}`
+    );
+
     // GitHub Mirror URL integrity
     const githubUrl = getBookGithubUrl(book);
     assert(
@@ -82,6 +106,10 @@ async function runVerification() {
       typeof book.officialPortalUrl === 'string' && book.officialPortalUrl.startsWith('http'),
       `Book [${book.id}] must have officialPortalUrl starting with http, got: ${book.officialPortalUrl}`
     );
+
+    // Full Textbook size & pages checks
+    assert(book.fullTextbookPages >= 50, `Book [${book.id}] fullTextbookPages must be >= 50, got: ${book.fullTextbookPages}`);
+    assert(typeof book.fullTextbookSize === 'string' && book.fullTextbookSize.includes('MB'), `Book [${book.id}] fullTextbookSize must specify MB, got: ${book.fullTextbookSize}`);
 
     // Metadata checks
     assert(book.chapters && book.chapters.length > 0, `Book [${book.id}] must have chapter list`);
