@@ -1,8 +1,8 @@
 export interface OfficialBook {
   id: string;
   curriculum: 'thanaweya' | 'egbac' | 'both';
-  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences';
-  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial';
+  category: 'pure_math' | 'applied_math' | 'advanced_math' | 'compendium' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'languages' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agricultural_sciences' | 'industrial_engineering' | 'commercial_sciences' | 'tourism_hospitality';
+  subjectId: 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism';
   branchId?: string;
   code: string;
   titleEn: string;
@@ -3839,6 +3839,152 @@ export const officialBooksList: OfficialBook[] = [
       'المدفوعات اللحظية إنستاباي وسجلات البلوكتشين ومعايير التقارير المالية الدولية IFRS',
     ],
   },
+  // 66. Thanaweya Tourism, Hospitality & Cultural Heritage Management
+  {
+    id: 'th-tour-g12',
+    curriculum: 'thanaweya',
+    category: 'tourism_hospitality',
+    subjectId: 'tourism',
+    branchId: 'thanaweya_tourism',
+    code: 'TH-TOUR-2025',
+    titleEn: 'Tourism, Hospitality & Cultural Heritage Management',
+    titleAr: 'السياحة والضيافة وإدارة التراث الثقافي',
+    subtitleEn: 'Official Egyptian General Secondary Education Textbook (Grade 12)',
+    subtitleAr: 'كتاب الوزارة الرسمي للثانوية العامة - الصف الثالث الثانوي',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Grade 12 (Third Secondary)',
+    gradeAr: 'الصف الثالث الثانوي',
+    publisherEn: 'Ministry of Education & Technical Education - Arab Republic of Egypt',
+    publisherAr: 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني',
+    pagesCount: 8,
+    fileSize: '28.4 KB',
+    compendiumTitleEn: 'Official Tourism & Hospitality Formulas & Standards Compendium',
+    compendiumTitleAr: 'المفاهيم والمعايير الرسمية لإدارة السياحة والضيافة والتراث',
+    fullTextbookPages: 260,
+    fullTextbookSize: '31.4 MB',
+    filename: 'thanaweya-tourism-hospitality.pdf',
+    downloadUrl: './books/thanaweya-tourism-hospitality.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-amber-900 via-orange-800 to-yellow-700',
+    accentColor: '#d97706',
+    chapters: [
+      {
+        id: 'th-tour-ch1',
+        titleEn: 'Tourism Industry Fundamentals, Egyptian Geography & Destination Management',
+        titleAr: 'أسس صناعة السياحة وجغرافية المقاصد السياحية وإدارتها في مصر',
+        pageRange: 'pp. 1–65',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-tour-ch2',
+        titleEn: 'Hospitality Operations, Front Office & Food Service Systems',
+        titleAr: 'عمليات الضيافة وإدارة المكاتب الأمامية ونظم خدمات الأغذية والمشروبات',
+        pageRange: 'pp. 66–130',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-tour-ch3',
+        titleEn: 'Egyptian Cultural Heritage, Antiquities & UNESCO World Heritage Sites',
+        titleAr: 'التراث الثقافي المصري والآثار ومواقع التراث العالمي لليونسكو',
+        pageRange: 'pp. 131–195',
+        topicsCount: 4,
+      },
+      {
+        id: 'th-tour-ch4',
+        titleEn: 'Sustainable Ecotourism, Carrying Capacity & Environmental Conservation',
+        titleAr: 'السياحة البيئية المستدامة والطاقة الاستيعابية وحماية البيئة والتراث',
+        pageRange: 'pp. 196–260',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Official Egyptian Ministry textbook for Tourism, Hospitality & Cultural Heritage Management: Destination management, hotel revenue and yield KPIs (RevPAR, ADR, GOPPAR), tour packaging and costing break-even analysis, UNESCO antiquities preservation, and sustainable carrying capacity.',
+    descriptionAr: 'كتاب وزارة التربية والتعليم الرسمي في السياحة والضيافة وإدارة التراث الثقافي: إدارة المقاصد السياحية، مؤشرات العائد الفندقي (RevPAR، ADR، GOPPAR)، تسعير البرامج السياحية ونقطة التعادل، صون آثار التراث العالمي لليونسكو، والحمولة الاستيعابية المستدامة.',
+    highlightsEn: [
+      'Tourism multiplier effect, balance of payments, and destination marketing',
+      'Hotel Yield Management, Average Daily Rate (ADR), RevPAR, and GOPPAR formulas',
+      'Tour itinerary costing, break-even passenger quota, and markup pricing',
+      'UNESCO World Heritage criteria, Venice Charter 1964, and Carrying Capacity equations',
+    ],
+    highlightsAr: [
+      'مضاعف الدخل السياحي، ميزان المدفوعات، وتسويق وترويج المقاصد السياحية المصرية',
+      'إدارة العائد الفندقي ومعدل السعر اليومي ADR وعائد الغرفة RevPAR والربح التشغيلي GOPPAR',
+      'تسعير البرامج السياحية، نقطة التعادل للفوج السياحي، وهوامش ربح شركات السياحة',
+      'معايير التراث العالمي لليونسكو، ميثاق فينيسيا ١٩٦٤ للترميم، ومعادلات الطاقة الاستيعابية البيئية',
+    ],
+  },
+  // 67. EG-Bac Advanced Tourism, Hospitality Operations & Heritage Preservation
+  {
+    id: 'egbac-tour-g12',
+    curriculum: 'egbac',
+    category: 'tourism_hospitality',
+    subjectId: 'tourism',
+    branchId: 'egbac_tourism',
+    code: 'EGBAC-TOUR-2025',
+    titleEn: 'Advanced Tourism, Hospitality Operations & Heritage Preservation',
+    titleAr: 'السياحة المتقدمة وعمليات الضيافة وصون التراث الحضاري',
+    subtitleEn: 'New Egyptian Baccalaureate Curriculum (Stage 3)',
+    subtitleAr: 'منهج البكالوريا المصرية المطورة - المرحلة الثالثة',
+    academicYear: '2024 / 2025',
+    gradeEn: 'Baccalaureate Stage 3',
+    gradeAr: 'المرحلة الثالثة للبكالوريا',
+    publisherEn: 'Supreme Council for Baccalaureate Education & Ministry of Education',
+    publisherAr: 'المجلس الأعلى للبكالوريا المصرية ووزارة التربية والتعليم',
+    pagesCount: 8,
+    fileSize: '29.2 KB',
+    compendiumTitleEn: 'Advanced Tourism, Revenue Management & Heritage Standards Compendium',
+    compendiumTitleAr: 'مفاهيم إدارة العائد السياحي والأنظمة الفندقية وصون التراث',
+    fullTextbookPages: 284,
+    fullTextbookSize: '33.8 MB',
+    filename: 'egbac-tourism-heritage.pdf',
+    downloadUrl: './books/egbac-tourism-heritage.pdf',
+    officialPortalUrl: 'https://moe.gov.eg/ar/elearning-content/',
+    coverGradient: 'from-stone-900 via-amber-800 to-orange-700',
+    accentColor: '#b45309',
+    chapters: [
+      {
+        id: 'egbac-tour-ch1',
+        titleEn: 'Global Tourism Economics, Revenue & Dynamic Pricing Models',
+        titleAr: 'اقتصاديات السياحة العالمية وإدارة العائد والتسعير الديناميكي',
+        pageRange: 'pp. 1–70',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-tour-ch2',
+        titleEn: 'Advanced Hospitality Systems, International Hotel Chains & Asset Management',
+        titleAr: 'نظم الضيافة المتقدمة وإدارة سلاسل الفنادق العالمية والأصول الفندقية',
+        pageRange: 'pp. 71–142',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-tour-ch3',
+        titleEn: 'Cultural Heritage Preservation, Museology & Archaeological Site Governance',
+        titleAr: 'صون التراث الحضاري وعلم المتاحف وإدارة المواقع الأثرية الكبرى',
+        pageRange: 'pp. 143–212',
+        topicsCount: 4,
+      },
+      {
+        id: 'egbac-tour-ch4',
+        titleEn: 'Smart Tourism Destinations, Digital Travel Ecosystems & Crisis Resilience',
+        titleAr: 'المقاصد السياحية الذكية والنظم الرقمية للسفر والمرونة وإدارة الأزمات',
+        pageRange: 'pp. 213–284',
+        topicsCount: 4,
+      },
+    ],
+    descriptionEn: 'Advanced Egyptian Baccalaureate textbook in Tourism Economics & Heritage Governance: Machine learning dynamic revenue pricing, international hotel chain management contracts vs REITs, museology preventive conservation (GEM & NMEC standards), smart destination IoT telemetry, and crisis resilience protocols.',
+    descriptionAr: 'كتاب البكالوريا المصرية المطور في اقتصاديات السياحة وحوكمة التراث: التسعير الديناميكي الذكي، عقود إدارة سلاسل الفنادق وصناديق الاستثمار العقاري REITs، الصون الوقائي وإدارة المتاحف الكبرى، المقاصد الذكية وإنترنت الأشياء، وبروتوكولات إدارة الأزمات السياحية.',
+    highlightsEn: [
+      'Econometric travel forecasting, price elasticity, and algorithmic dynamic pricing',
+      'Hotel asset management, franchise vs management agreements, and TrevPAR optimization',
+      'Preventive conservation microclimate control, non-destructive laser cleaning, and UNESCO OUV integrity',
+      'Smart tourism destination IoT sensor grids, biometric airport processing, and crisis communication',
+    ],
+    highlightsAr: [
+      'التنبؤ القياسي بالطلب السياحي، مرونة الأسعار، ونماذج التسعير الديناميكي الخوارزمي',
+      'إدارة أصول الضيافة، عقود الإدارة مقابل الامتياز التجاري وصناديق REITs، وتحسين TrevPAR',
+      'التحكم بالمناخ الدقيق لحماية المومياوات والبرديات، التنظيف غير الإتلافي بالليزر، وصون قيمة اليونسكو',
+      'شبكات حساسات المقاصد الذكية، أنظمة الهوية البيومترية بالمطارات، والجاهزية والاستجابة للأزمات',
+    ],
+  },
 ];
 
 export function getOfficialBookById(id: string): OfficialBook | undefined {
@@ -3904,6 +4050,8 @@ export function getOfficialBookByBranch(branchId: string): OfficialBook | undefi
     if (branchId === 'egbac_industrial' && (b.branchId === 'egbac_industrial' || b.id === 'egbac-ind-g12')) return true;
     if (branchId === 'thanaweya_commercial' && (b.branchId === 'thanaweya_commercial' || b.id === 'th-comm-g12')) return true;
     if (branchId === 'egbac_commercial' && (b.branchId === 'egbac_commercial' || b.id === 'egbac-comm-g12')) return true;
+    if (branchId === 'thanaweya_tourism' && (b.branchId === 'thanaweya_tourism' || b.id === 'th-tour-g12')) return true;
+    if (branchId === 'egbac_tourism' && (b.branchId === 'egbac_tourism' || b.id === 'egbac-tour-g12')) return true;
     return false;
   });
 }
@@ -3913,7 +4061,7 @@ export function getOfficialBooksByCurriculum(curriculum: 'thanaweya' | 'egbac' |
   return officialBooksList.filter((b) => b.curriculum === curriculum || b.curriculum === 'both');
 }
 
-export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial'): OfficialBook[] {
+export function getOfficialBooksBySubject(subjectId: 'all' | 'mathematics' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'arabic' | 'english' | 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'islamic_studies' | 'christian_studies' | 'religious_education' | 'history' | 'geography' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'business_entrepreneurship' | 'fine_arts_architecture' | 'music_theory' | 'agriculture' | 'industrial' | 'commercial' | 'tourism'): OfficialBook[] {
   if (subjectId === 'all') return officialBooksList;
   if (subjectId === 'religious_education') {
     return officialBooksList.filter((b) => b.subjectId === 'religious_education' || b.subjectId === 'islamic_studies' || b.subjectId === 'christian_studies');

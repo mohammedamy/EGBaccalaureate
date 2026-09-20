@@ -43,6 +43,7 @@ import { MusicTheoryStudio } from './labs/MusicTheoryStudio';
 import { AgriculturalTechnologyStudio } from './labs/AgriculturalTechnologyStudio';
 import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio';
 import { CommercialFinanceStudio } from './labs/CommercialFinanceStudio';
+import { TourismHospitalityStudio } from './labs/TourismHospitalityStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
@@ -425,6 +426,18 @@ export const LessonView: React.FC<Props> = ({
           return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="banking_credit" />;
         case 'comm_portfolio_risk_lab':
           return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={false} initialStation="portfolio_risk" />;
+        case 'tourism_hospitality_studio':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="hotel_yield" />;
+        case 'tour_yield_management_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="hotel_yield" />;
+        case 'tour_package_costing_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="tour_costing" />;
+        case 'tour_heritage_explorer_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="heritage_explorer" />;
+        case 'tour_carrying_capacity_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="carrying_capacity" />;
+        case 'tour_gds_booking_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={false} initialStation="gds_terminal" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
@@ -813,6 +826,18 @@ export const LessonView: React.FC<Props> = ({
           return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="banking_credit" />;
         case 'comm_portfolio_risk_lab':
           return <CommercialFinanceStudio lang={lang} theme={theme} isFullscreen={true} initialStation="portfolio_risk" />;
+        case 'tourism_hospitality_studio':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="hotel_yield" />;
+        case 'tour_yield_management_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="hotel_yield" />;
+        case 'tour_package_costing_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="tour_costing" />;
+        case 'tour_heritage_explorer_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="heritage_explorer" />;
+        case 'tour_carrying_capacity_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="carrying_capacity" />;
+        case 'tour_gds_booking_lab':
+          return <TourismHospitalityStudio lang={lang} theme={theme} isFullscreen={true} initialStation="gds_terminal" />;
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (

@@ -29,7 +29,8 @@ export type SubjectId =
   | 'music_theory'
   | 'agriculture'
   | 'industrial'
-  | 'commercial';
+  | 'commercial'
+  | 'tourism';
 
 export interface SubjectDefinition {
   id: SubjectId;
@@ -38,7 +39,7 @@ export interface SubjectDefinition {
   shortTitleEn: string;
   shortTitleAr: string;
   emoji: string;
-  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench';
+  iconName: 'Calculator' | 'Atom' | 'FlaskConical' | 'Dna' | 'Languages' | 'BookA' | 'BookOpen' | 'Landmark' | 'Globe' | 'Mountain' | 'Brain' | 'Users' | 'TrendingUp' | 'Binary' | 'Orbit' | 'Scale' | 'Briefcase' | 'Palette' | 'Music' | 'Sprout' | 'Wrench' | 'Hotel';
   badgeColor: string;
   gradient: string;
   lightBg: string;
@@ -695,6 +696,29 @@ export const SUBJECTS: SubjectDefinition[] = [
     branchIds: {
       thanaweya: ['thanaweya_commercial'],
       egbac: ['egbac_commercial'],
+    },
+  },
+
+  // 29. Tourism, Hospitality & Cultural Heritage Management (السياحة والضيافة وإدارة التراث الثقافي)
+  {
+    id: 'tourism',
+    titleEn: 'Tourism, Hospitality & Cultural Heritage Management',
+    titleAr: 'السياحة والضيافة وإدارة التراث الثقافي',
+    shortTitleEn: 'Tourism & Hospitality',
+    shortTitleAr: 'سياحة وضيافة وتراث',
+    emoji: '🏨',
+    iconName: 'Hotel',
+    badgeColor: 'amber',
+    gradient: 'from-amber-700 via-orange-600 to-yellow-600',
+    lightBg: 'bg-amber-50 text-amber-950 border-amber-200',
+    darkBg: 'bg-amber-950/80 text-amber-200 border-amber-800/60',
+    borderColor: 'border-amber-500/50',
+    textColor: 'text-amber-400',
+    descriptionEn: 'Official Egyptian secondary tourism and hospitality curriculum: Tourism economics & travel agency operations, hotel front office & food service management, Egyptology & world heritage guiding, destination marketing, strategic hospitality yield management (RevPAR/ADR), cultural heritage conservation & museology, sustainable eco-tourism carrying capacity, and GDS digital reservation systems.',
+    descriptionAr: 'المنهج الوزاري المعتمد لمادة السياحة والضيافة وإدارة التراث الثقافي: اقتصاديات السياحة ووكالات السفر وشركات الطيران، إدارة الفنادق والمكاتب الأمامية وقطاع الأغذية والمشروبات، الإرشاد السياحي وعلم المصريات ومواقع التراث العالمي، التسويق السياحي وإدارة الفعاليات، إدارة العائد الفندقي الاستراتيجي (RevPAR/ADR)، صيانة وإدارة التراث الثقافي وعلم المتاحف، السياحة البيئية المستدامة والطاقة الاستيعابية للوجهات، والتحول الرقمي وأنظمة التوزيع العالمية (GDS).',
+    branchIds: {
+      thanaweya: ['thanaweya_tourism'],
+      egbac: ['egbac_tourism'],
     },
   },
 ];

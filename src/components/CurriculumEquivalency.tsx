@@ -35,6 +35,7 @@ import {
   Music,
   Sprout,
   Wrench,
+  Hotel,
 } from 'lucide-react';
 
 
@@ -1493,6 +1494,50 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
         'Direct accreditation and top-tier foundational competitive advantage for Faculties of Commerce and Business Administration (Accounting, Finance, Banking, Actuarial Sciences, FinTech), Economics and Political Science, Management Information Systems (MIS), and international financial certifications (CFA, CMA, CPA).',
       universityAdvantageAr:
         'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات التجارة وإدارة الأعمال (شعب المحاسبة، التمويل والاستثمار، المصارف والأسواق المالية، والعلوم الإكتوارية)، كليات الاقتصاد والعلوم السياسية، كليات نظم معلومات الأعمال (BIS/FMI)، وبرامج الإعداد المسبق للشهادات المهنية الدولية (CFA, CMA, CPA).',
+    },
+    {
+      id: 'tourism_bridge',
+      titleEn: 'Tourism, Hospitality & Cultural Heritage Management',
+      titleAr: 'السياحة والضيافة وإدارة التراث الثقافي',
+      icon: <Hotel className="w-5 h-5 text-amber-400" />,
+      thanaweyaBranchId: 'thanaweya_tourism',
+      egBacBranchId: 'egbac_tourism',
+      thanaweyaTitleEn: 'Tourism Geography, Hotel Operations & Heritage Fundamentals (4 Grade 12 Chapters)',
+      thanaweyaTitleAr: 'جغرافية السياحة وعمليات الضيافة وأسس التراث للثانوية العامة (٤ فصول)',
+      thanaweyaTopicsEn: [
+        'Ch.1 Tourism Industry Fundamentals & Destination Geography: Tourist multiplier effect, balance of payments, Red Sea, Nile Valley, and Western Desert oases',
+        'Ch.2 Hospitality Operations & Food Service Systems: Front office reservation cycle, night audit, ADR, RevPAR, food safety HACCP, and banquet service',
+        'Ch.3 Egyptian Cultural Heritage & UNESCO Antiquities: Outstanding Universal Value (OUV), Giza pyramids, Karnak, Abu Simbel, Islamic Cairo, and Venice Charter 1964',
+        'Ch.4 Sustainable Ecotourism & Carrying Capacity: Protected areas law 102/1983, Physical (PCC), Real (RCC), and Effective (ECC) carrying capacity equations',
+      ],
+      thanaweyaTopicsAr: [
+        'فصل ١ أسس صناعة السياحة وجغرافية المقاصد: مضاعف الدخل السياحي، ميزان المدفوعات، السياحة الشاطئية بالبحر الأحمر، وسياحة الآثار والواحات',
+        'فصل ٢ عمليات الضيافة والمكاتب الأمامية وخدمات الأغذية: دورة الحجز والاستقبال، التدقيق الليلي، مؤشرات ADR وRevPAR، وسلامة الغذاء بنظام HACCP',
+        'فصل ٣ التراث الثقافي المصري ومواقع اليونسكو العالمية: القيمة العالمية الاستثنائية، مجمعات أهرام الجيزة، الكرنك، معابد النوبة بأبو سمبل، وميثاق فينيسيا',
+        'فصل ٤ السياحة البيئية المستدامة والطاقة الاستيعابية: قانون المحميات الطبيعية رقم ١٠٢، ومعادلات الطاقة المادية (PCC) والحقيقية (RCC) والفعالة (ECC)',
+      ],
+      egBacTitleEn: 'Advanced Tourism Economics, Heritage Governance & Smart Destinations (4 Modules)',
+      egBacTitleAr: 'اقتصاديات السياحة المتقدمة وحوكمة التراث والمقاصد الذكية (٤ وحدات)',
+      egBacTopicsEn: [
+        'Mod.1 Global Tourism Economics & Dynamic Revenue Management: Econometric demand elasticity, machine learning pricing algorithms, and TrevPAR optimization',
+        'Mod.2 Advanced Hospitality Systems & Hotel Real Estate Asset Management: International chain management contracts vs franchise, REITs, and corporate branding',
+        'Mod.3 Cultural Heritage Preservation, Museology & Archaeological Site Governance: GEM and NMEC curatorial standards, laser non-destructive cleaning, and visitor flow telemetry',
+        'Mod.4 Smart Tourism Destinations, Digital Travel Ecosystems & Crisis Resilience: IoT sensor grids, biometric airport processing, GDS protocols, and crisis contingency plans',
+      ],
+      egBacTopicsAr: [
+        'وحدة ١ اقتصاديات السياحة العالمية وإدارة العائد الديناميكي: التنبؤ القياسي بالطلب، خوارزميات التسعير الذكي، وتعظيم مؤشرات TrevPAR وGOPPAR',
+        'وحدة ٢ نظم الضيافة المتقدمة وإدارة أصول الفنادق: عقود الإدارة الدولية مقابل حقوق الامتياز، صناديق الاستثمار العقاري الفندقي REITs، والحوكمة الفندقية',
+        'وحدة ٣ صون التراث الحضاري وعلم المتاحف وحوكمة المواقع الكبرى: المعايير الدولية لمتحفي GEM وNMEC، التنظيف غير الإتلافي بالليزر، والتحكم بالتدفق السياحي',
+        'وحدة ٤ المقاصد السياحية الذكية ونظم السفر الرقمية والمرونة: شبكات حساسات إنترنت الأشياء، الجوازات البيومترية بالمطارات، ونظم إدارة الأزمات والتعافي',
+      ],
+      bridgeInsightEn:
+        'Thanaweya delivers essential mastery in destination geography, front office operational metrics, UNESCO antiquities protection, and carrying capacity formulas. EG-Bac elevates learners into algorithmic revenue yield management, international hotel real estate asset valuation, high-tech museum conservation, and smart destination IoT resilience.',
+      bridgeInsightAr:
+        'تمنح الثانوية العامة تأسيساً شاملاً في جغرافية المقاصد، المعايير التشغيلية للمكاتب الأمامية والأغذية، حماية آثار اليونسكو، ونماذج الحمولة الاستيعابية. بينما ترتقي البكالوريا المصرية بالطالب إلى إدارة العائد الخوارزمي، تقييم أصول الضيافة والاستثمار العقاري، تقنيات صون المتاحف الكبرى، والمقاصد السياحية الذكية المرنة للأزمات.',
+      universityAdvantageEn:
+        'Direct accreditation and premier competitive advantage for Faculties of Tourism and Hotels (Tourism Studies, Hotel Management, Tourist Guidance), Faculties of Archaeology and Cultural Heritage, International Hospitality Academies, and global airline operations and hotel chain leadership programs.',
+      universityAdvantageAr:
+        'تأهيل أكاديمي وتطبيقي استثنائي للالتحاق بكليات السياحة والفنادق (أقسام الدراسات السياحية، إدارة الفنادق، والإرشاد السياحي)، كليات الآثار وإدارة التراث الثقافي، الأكاديميات الدولية للضيافة وعلوم الطيران، والمسارات القيادية في كبرى المجموعات الفندقية العالمية.',
     },
   ];
 

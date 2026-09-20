@@ -635,6 +635,30 @@ export function getOfficialMockConfig(subjectId: string = 'all', branchId: strin
     };
   }
 
+  if (
+    normSubject === 'tourism' ||
+    normSubject === 'tourism_hospitality' ||
+    normSubject.includes('tour') ||
+    normSubject.includes('سياح') ||
+    normSubject.includes('ضياف') ||
+    normSubject.includes('فندق') ||
+    normBranch.includes('tour') ||
+    normBranch.includes('سياح')
+  ) {
+    return {
+      subjectId: 'tourism',
+      totalQuestions: 40,
+      totalMarks: 50,
+      durationMinutes: 180,
+      section1Count: 30, // 30 * 1 = 30 marks
+      section2Count: 10, // 10 * 2 = 20 marks (Total: 50 marks)
+      titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة السياحة والضيافة وإدارة التراث الثقافي',
+      titleEn: 'Official Thanawya Amma Examination - Tourism, Hospitality & Cultural Heritage Management',
+      descAr: '٤٠ سؤالاً (٣٠ سؤالاً بدرجة واحدة + ١٠ أسئلة بدرجتين) بإجمالي ٥٠ درجة في ٣ ساعات كاملة بنظام البابل شيت الرسمي.',
+      descEn: '40 questions (30 items @ 1 mark + 10 items @ 2 marks) totaling 50 marks over 3 hours conforming to official ministerial specifications.',
+    };
+  }
+
   // 5. Default / Comprehensive All-Subjects Mock (50 Questions, 60 Marks, 3 Hours)
   return {
     subjectId: 'all',

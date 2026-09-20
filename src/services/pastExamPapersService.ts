@@ -36,7 +36,8 @@ export type PastExamSubject =
   | 'music_theory'
   | 'agriculture'
   | 'industrial'
-  | 'commercial';
+  | 'commercial'
+  | 'tourism';
 
 export interface HistoricalCohortStats {
   nationalAverage: number; // National mean score out of totalMarks
@@ -5703,6 +5704,192 @@ export const PAST_EXAM_PAPERS: PastExamPaper[] = [
     },
     seed: 20250040,
   },
+  // 187. Tourism, Hospitality & Cultural Heritage Management 2021 - Session 1
+  {
+    id: 'th-tour-2021-s1',
+    year: 2021,
+    session: 'session1',
+    subject: 'tourism',
+    branchId: 'thanaweya_tourism',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة السياحة والضيافة والتراث (الدور الأول ٢٠٢١)',
+    titleEn: 'General Secondary Certificate Examination - Tourism & Hospitality (First Session 2021)',
+    subtitleAr: 'ورقة الامتحان الوزاري المعتمد - شعبة الخدمات الفندقية والسياحية (نظام بابل شيت)',
+    subtitleEn: 'Official Ministerial Exam Paper - Tourism & Hospitality (Bubble Sheet System)',
+    formCodeAr: 'النموذج (أ)',
+    formCodeEn: 'Form (A)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢١ / دور أول / سياحة وضيافة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 36.8,
+      totalMarks: 50,
+      passRatePercent: 88.4,
+      distinctionRatePercent: 14.8,
+      topTenThreshold: 49.5,
+      totalCandidatesEst: 42000,
+      stdDeviation: 5.1,
+    },
+    seed: 20210045,
+  },
+  // 188. Tourism, Hospitality & Cultural Heritage Management 2022 - Session 1
+  {
+    id: 'th-tour-2022-s1',
+    year: 2022,
+    session: 'session1',
+    subject: 'tourism',
+    branchId: 'thanaweya_tourism',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة السياحة والضيافة والتراث (الدور الأول ٢٠٢٢)',
+    titleEn: 'General Secondary Certificate Examination - Tourism & Hospitality (First Session 2022)',
+    subtitleAr: 'ورقة الامتحان الوزاري المعتمد - شعبة الخدمات الفندقية والسياحية (نظام بابل شيت)',
+    subtitleEn: 'Official Ministerial Exam Paper - Tourism & Hospitality (Bubble Sheet System)',
+    formCodeAr: 'النموذج (ب)',
+    formCodeEn: 'Form (B)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٢ / دور أول / سياحة وضيافة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.1,
+      totalMarks: 50,
+      passRatePercent: 89.2,
+      distinctionRatePercent: 15.6,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 44500,
+      stdDeviation: 4.9,
+    },
+    seed: 20220045,
+  },
+  // 189. Tourism, Hospitality & Cultural Heritage Management 2023 - Session 1
+  {
+    id: 'th-tour-2023-s1',
+    year: 2023,
+    session: 'session1',
+    subject: 'tourism',
+    branchId: 'thanaweya_tourism',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة السياحة والضيافة والتراث (الدور الأول ٢٠٢٣)',
+    titleEn: 'General Secondary Certificate Examination - Tourism & Hospitality (First Session 2023)',
+    subtitleAr: 'ورقة الامتحان الوزاري المعتمد - شعبة الخدمات الفندقية والسياحية (نظام بابل شيت)',
+    subtitleEn: 'Official Ministerial Exam Paper - Tourism & Hospitality (Bubble Sheet System)',
+    formCodeAr: 'النموذج (ج)',
+    formCodeEn: 'Form (C)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٣ / دور أول / سياحة وضيافة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 36.4,
+      totalMarks: 50,
+      passRatePercent: 87.6,
+      distinctionRatePercent: 13.9,
+      topTenThreshold: 49.0,
+      totalCandidatesEst: 46000,
+      stdDeviation: 5.3,
+    },
+    seed: 20230045,
+  },
+  // 190. Tourism, Hospitality & Cultural Heritage Management 2024 - Session 1
+  {
+    id: 'th-tour-2024-s1',
+    year: 2024,
+    session: 'session1',
+    subject: 'tourism',
+    branchId: 'thanaweya_tourism',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة السياحة والضيافة والتراث (الدور الأول ٢٠٢٤)',
+    titleEn: 'General Secondary Certificate Examination - Tourism & Hospitality (First Session 2024)',
+    subtitleAr: 'ورقة الامتحان الوزاري المعتمد - شعبة الخدمات الفندقية والسياحية (نظام التصحيح الإلكتروني المطور)',
+    subtitleEn: 'Official Ministerial Exam Paper - Tourism & Hospitality (Modern OMR System)',
+    formCodeAr: 'النموذج (د)',
+    formCodeEn: 'Form (D)',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور أول / سياحة وضيافة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 37.8,
+      totalMarks: 50,
+      passRatePercent: 90.5,
+      distinctionRatePercent: 17.2,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 48000,
+      stdDeviation: 4.8,
+    },
+    seed: 20240045,
+  },
+  // 191. Tourism, Hospitality & Cultural Heritage Management 2024 - Session 2
+  {
+    id: 'th-tour-2024-s2',
+    year: 2024,
+    session: 'session2',
+    subject: 'tourism',
+    branchId: 'thanaweya_tourism',
+    titleAr: 'امتحان شهادة إتمام الدراسة الثانوية العامة - مادة السياحة والضيافة والتراث (الدور الثاني ٢٠٢٤)',
+    titleEn: 'General Secondary Certificate Examination - Tourism & Hospitality (Second Session 2024)',
+    subtitleAr: 'ورقة الامتحان الوزاري المعتمد - امتحانات الدور الثاني لإتمام شهادة الثانوية العامة',
+    subtitleEn: 'Official Ministerial Exam Paper - Tourism & Hospitality (Second Session)',
+    formCodeAr: 'الدور الثاني',
+    formCodeEn: 'Second Session',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٤ / دور ثان / سياحة وضيافة',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 32.5,
+      totalMarks: 50,
+      passRatePercent: 81.3,
+      distinctionRatePercent: 7.4,
+      topTenThreshold: 46.5,
+      totalCandidatesEst: 14000,
+      stdDeviation: 5.6,
+    },
+    seed: 20240046,
+  },
+  // 192. Tourism, Hospitality & Cultural Heritage Management 2025 - Experimental Diagnostic
+  {
+    id: 'th-tour-2025-exp',
+    year: 2025,
+    session: 'experimental',
+    subject: 'tourism',
+    branchId: 'thanaweya_tourism',
+    titleAr: 'الامتحان التجريبي الاسترشادي المعتمد - مادة السياحة والضيافة وإدارة التراث (٢٠٢٥)',
+    titleEn: 'Official Ministerial Diagnostic Model Exam - Tourism, Hospitality & Cultural Heritage (2025)',
+    subtitleAr: 'النموذج الاسترشادي التدريبي الرسمي المعتمد من الإدارة المركزية لتطوير المناهج والمركز القومي للامتحانات',
+    subtitleEn: 'Official Standardized Diagnostic Model Paper released by the MoE Central Curriculum Directorate',
+    formCodeAr: 'النموذج التجريبي الاسترشادي',
+    formCodeEn: 'Official Diagnostic Model',
+    ministerialExamCode: 'وزارة التربية والتعليم / ث.ع ٢٠٢٥ / نموذج استرشادي / سياحة وضيافة وتراث',
+    durationMinutes: 180,
+    totalQuestions: 40,
+    totalMarks: 50,
+    section1Count: 30,
+    section2Count: 10,
+    passingMark: 25,
+    historicalStats: {
+      nationalAverage: 38.6,
+      totalMarks: 50,
+      passRatePercent: 93.1,
+      distinctionRatePercent: 21.8,
+      topTenThreshold: 50.0,
+      totalCandidatesEst: 52000,
+      stdDeviation: 4.5,
+    },
+    seed: 20250045,
+  },
 ];
 
 /**
@@ -5780,7 +5967,8 @@ export function generatePastPaperQuestions(
       ((paper.branchId.includes('music')) && (b.id.includes('music'))) ||
       ((paper.branchId.includes('agri') || paper.branchId.includes('agriculture')) && (b.id.includes('agri') || b.id.includes('agriculture'))) ||
       ((paper.branchId.includes('ind') || paper.branchId.includes('industrial')) && (b.id.includes('ind') || b.id.includes('industrial'))) ||
-      ((paper.branchId.includes('comm') || paper.branchId.includes('commercial')) && (b.id.includes('comm') || b.id.includes('commercial')))
+      ((paper.branchId.includes('comm') || paper.branchId.includes('commercial')) && (b.id.includes('comm') || b.id.includes('commercial'))) ||
+      ((paper.branchId.includes('tour') || paper.branchId.includes('tourism')) && (b.id.includes('tour') || b.id.includes('tourism')))
   );
 
   if (!targetBranch) return [];

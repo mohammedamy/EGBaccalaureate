@@ -8,21 +8,21 @@
 
 **ClipSAT EGBaccalaureate** is an advanced, accredited educational platform designed to bridge traditional ministerial rigor with contemporary STEM inquiry and quantitative humanities. It fully models the curricula of both the Egyptian Ministry of Education (**الثانوية العامة المصرية**) and the New Egyptian Baccalaureate (**البكالوريا المصرية الحديثة**).
 
-- **28 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, and Commercial Sciences, Financial Accounting & Banking).
-- **62 Total Branches** (31 Thanaweya Amma + 31 EG-Baccalaureate).
-- **321 Fully Equipped Chapters** (167 Thanaweya + 154 EG-Bac).
-- **64,200 Total Curriculum Problems**:
-  - 3,210 Solved Examples with step-by-step bilingual pedagogical rationales.
-  - 4,815 Practice Exercises with hints, scaffolding, and verification.
-  - 56,175 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
-- **26 Interactive Virtual Laboratories & Simulation Studios**.
-- **65 Official Ministry Textbooks & Formula Compendiums**.
-- **186 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 31 disciplines).
+- **29 Accredited Subject Tracks** (Islamic Religious Education, Christian Religious Education, Mathematics, Physics, Chemistry, Biology, Geology, History, Geography, Philosophy, Psychology, Arabic, English, French, German, Italian, Spanish, Chinese, Economics & Applied Statistics, Computer Science & Informatics, Earth & Planetary Space Sciences, National Civics & Constitution, Business Administration & Entrepreneurship, Fine Arts & Visual Architecture, Music Theory & Musicology, Agricultural Sciences & Agrotechnology, Industrial Technology & Applied Engineering, Commercial Sciences, Financial Accounting & Banking, and Tourism, Hospitality & Cultural Heritage Management).
+- **64 Total Branches** (32 Thanaweya Amma + 32 EG-Baccalaureate).
+- **329 Fully Equipped Chapters** (171 Thanaweya + 158 EG-Bac).
+- **65,800 Total Curriculum Problems**:
+  - 3,290 Solved Examples with step-by-step bilingual pedagogical rationales.
+  - 4,935 Practice Exercises with hints, scaffolding, and verification.
+  - 57,575 Verified Databank MCQs across Easy, Medium, and Higher-Order Thinking Skills (HOTS) tiers.
+- **27 Interactive Virtual Laboratories & Simulation Studios**.
+- **67 Official Ministry Textbooks & Formula Compendiums**.
+- **192 Authentic Past Ministerial Exam Papers** (Session 1, Session 2, and Experimental models across 32 disciplines).
 - **Official Ministerial Mock Exam Simulation Room** with OMR Bubble Sheet, automatic grading, and Bloom's Taxonomy analytics.
 
 ---
 
-## 📚 Accredited Subject Tracks (28 Core Disciplines)
+## 📚 Accredited Subject Tracks (29 Core Disciplines)
 
 | # | Subject | Title (Ar) | Thanaweya Branches | EG-Bac Branches | Chapters | Problems |
 |---|---|---|---|---|---|---|
@@ -54,7 +54,8 @@
 | **26** | **Agricultural Sciences & Agrotechnology** | التربية الزراعية والتكنولوجيا الزراعية | Agricultural Sciences & Soil Fertility | Agrotechnology & Hydroponic Systems | 8 | 1,600 |
 | **27** | **Industrial Technology & Applied Engineering** | التربية الصناعية والتكنولوجيا التطبيقية والهندسية | Industrial Technology & Manufacturing | Applied Engineering & Robotics Automation | 8 | 1,600 |
 | **28** | **Commercial Sciences & Banking** | العلوم التجارية والمحاسبة والمالية والمصرفية | Commercial Sciences & Financial Accounting | Corporate Finance, Banking Operations & FinTech | 8 | 1,600 |
-| **Total** | **28 Subjects** | **٢٨ مادة معتمدة** | **31 Branches (167 Chapters)** | **31 Branches (154 Chapters)** | **321** | **64,200** |
+| **29** | **Tourism, Hospitality & Heritage** | السياحة والضيافة وإدارة التراث الثقافي | Tourism, Hospitality & Cultural Heritage Management | Sustainable Tourism Economics & Heritage Conservation | 8 | 1,600 |
+| **Total** | **29 Subjects** | **٢٩ مادة معتمدة** | **32 Branches (171 Chapters)** | **32 Branches (158 Chapters)** | **329** | **65,800** |
 
 ---
 
@@ -166,6 +167,12 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
     - **Corporate Financial Management & Capital Budgeting**: Dynamic Net Present Value (NPV), Internal Rate of Return (IRR), Payback Period, and WACC hurdle rate sensitivity analysis.
     - **Commercial Banking Operations & Credit Risk Analyzer**: Basel III capital adequacy ratio ($CAR$) validator, fractional reserve money multiplier, and debt service coverage ratio (DSCR) credit scoring.
     - **FinTech Digital Banking & Capital Asset Pricing (CAPM)**: Stock beta ($\beta$), expected portfolio return vs. security market line (SML), and digital blockchain payment transaction validation.
+27. **Tourism, Hospitality & Cultural Heritage Studio** (`TourismHospitalityStudio.tsx`):
+    - **Hotel Revenue Management & Dynamic Yield Pricing Lab**: ADR, RevPAR, GOPPAR, Occupancy Rate curves, dynamic seasonal multiplier matrix.
+    - **Comprehensive Tourism Package Costing & Quotation**: Itinerary markup, transport, lodging, guided excursions, currency conversion, gross margin.
+    - **Egyptian Cultural Heritage & Archaeological Site Explorer**: Giza, Karnak, Abu Simbel, Islamic Cairo 3D/interactive highlights, UNESCO conservation charter rules.
+    - **Tourism Carrying Capacity (TCC) & Environmental Impact**: Physical Carrying Capacity (PCC), Real Carrying Capacity (RCC), Effective Carrying Capacity (ECC) with limiting environmental factors.
+    - **Global Distribution Systems (GDS) & Airline Reservation Sandbox**: PNR generation, flight segment ticketing, IATA fare construction, cancellation rules.
 
 ---
 
@@ -174,7 +181,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Official Time & Scoring Blueprints**: Replicates Egyptian Ministry examination blueprints:
   - 46 questions, 60 marks, 180 minutes (Science & Humanities).
   - 55 questions, 80 marks, 180 minutes (Arabic).
-  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, Business Administration, Agricultural Sciences, Industrial Technology, and Commercial Sciences).
+  - 40 questions, 50 marks, 180 minutes (Economics & Statistics, Computer Science & Informatics, Earth & Space Sciences, Business Administration, Agricultural Sciences, Industrial Technology, Commercial Sciences, and Tourism, Hospitality & Cultural Heritage Management).
   - 31 questions, 40 marks, 120 minutes (Second Foreign Languages: French, German, Italian, Spanish & Chinese).
   - 25 questions, 30 marks, 90 minutes (National Civics & Constitution, Islamic Studies, Christian Studies, Fine Arts & Visual Architecture, and Music Theory).
   - 20 questions, 30 marks, 120 minutes (Individual Mathematics Branches).
@@ -190,7 +197,7 @@ ClipSAT provides immersive digital laboratories equipped with real-time math, ph
 - **Styling**: Tailwind CSS v4, Vanilla CSS design tokens, Lucide Icons.
 - **Mathematical Typography**: KaTeX CDN (`katex.min.css`) with LaTeX parser.
 - **Code Architecture**: Modular chunk splitting for textbooks, databanks, and laboratories via Rollup/Vite configuration.
-- **Zero-Dependency Core**: All 64,200 problems and 321 chapters run natively clientside with high-speed instant search and offline PWA support.
+- **Zero-Dependency Core**: All 65,800 problems and 329 chapters run natively clientside with high-speed instant search and offline PWA support.
 
 ---
 
@@ -210,7 +217,7 @@ npm run build
 
 ### Running Test Verification Suites
 ```bash
-# Run comprehensive test suite (48 test scripts)
+# Run comprehensive test suite (49 test scripts)
 npm test
 
 # Verify Economics & Statistics Subject specifically
@@ -260,6 +267,9 @@ npm run test:industrial
 
 # Verify Commercial Sciences Subject specifically
 npm run test:commercial
+
+# Verify Tourism, Hospitality & Heritage Subject specifically
+npm run test:tourism
 ```
 
 ---

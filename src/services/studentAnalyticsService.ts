@@ -27,7 +27,8 @@ export type SubjectCategory =
   | 'music_theory'
   | 'agricultural_sciences'
   | 'industrial_engineering'
-  | 'commercial_sciences';
+  | 'commercial_sciences'
+  | 'tourism_hospitality';
 
 export interface ChapterPerformanceRecord {
   chapterId: string;
@@ -58,7 +59,7 @@ export interface StudentAnalyticsState {
   lastUpdated: number;
 }
 
-export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22';
+export type RadarTrackMode = 'stem5' | 'stem6' | 'humanities' | 'all8' | 'all9' | 'all10' | 'all11' | 'all12' | 'all13' | 'all14' | 'all15' | 'all16' | 'all17' | 'all18' | 'all19' | 'all20' | 'all21' | 'all22' | 'all23';
 
 export interface MasteryRadarPoint {
   dimensionKey: SubjectCategory;
@@ -172,6 +173,24 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
     text.includes('استثمار ومحافظ')
   ) {
     return 'commercial_sciences';
+  }
+
+  if (
+    text.includes('سياح') ||
+    text.includes('ضياف') ||
+    text.includes('فندق') ||
+    text.includes('تراث') ||
+    text.includes('tourism') ||
+    text.includes('hospitality') ||
+    text.includes('heritage') ||
+    text.includes('hotel') ||
+    text.includes('revpar') ||
+    text.includes('unesco') ||
+    text.includes('متاحف') ||
+    text.includes('أثرية') ||
+    text.includes('طيران')
+  ) {
+    return 'tourism_hospitality';
   }
 
   if (
@@ -355,6 +374,8 @@ export function categorizeBranch(branchTitleOrId: string): SubjectCategory {
   // Default to pure math for algebra, calculus, geometry, analysis
   return 'pure_math';
 }
+
+export const inferSubjectCategory = categorizeBranch;
 
 /**
  * Classifies curriculum items into subject categories based on multiple metadata fields.
@@ -763,9 +784,21 @@ export function getMasteryRadarData(
     { key: 'commercial_sciences', ar: 'العلوم التجارية والمصرفية', en: 'Commercial Sciences & Banking', color: '#14B8A6' },
   ];
 
+  const all23Dimensions: Array<{
+    key: SubjectCategory;
+    ar: string;
+    en: string;
+    color: string;
+  }> = [
+    ...all22Dimensions,
+    { key: 'tourism_hospitality', ar: 'السياحة والضيافة والتراث', en: 'Tourism, Hospitality & Heritage', color: '#D97706' },
+  ];
+
   const dimensions =
     mode === 'humanities'
       ? humanitiesDimensions
+      : mode === 'all23'
+      ? all23Dimensions
       : mode === 'all22'
       ? all22Dimensions
       : mode === 'all21'

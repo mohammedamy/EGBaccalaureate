@@ -34,6 +34,7 @@ export type BranchId =
   | 'thanaweya_agriculture'
   | 'thanaweya_industrial'
   | 'thanaweya_commercial'
+  | 'thanaweya_tourism'
   | 'egbac_analysis'
   | 'egbac_vectors_geometry'
   | 'egbac_mechanics'
@@ -65,7 +66,8 @@ export type BranchId =
   | 'egbac_music'
   | 'egbac_agriculture'
   | 'egbac_industrial'
-  | 'egbac_commercial';
+  | 'egbac_commercial'
+  | 'egbac_tourism';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
@@ -179,9 +181,12 @@ export interface SolvedProblem {
   optionsEn?: string[];
   optionsAr?: string[];
   correctAnswer?: string;
+  correctAnswerEn?: string;
+  correctAnswerAr?: string;
   correctIndex?: number;
   hintEn?: string;
   hintAr?: string;
+  stepByStepSolution?: string[];
   stepByStepSolutionEn: string[];
   stepByStepSolutionAr: string[];
   teacherTipEn?: string;
@@ -189,6 +194,7 @@ export interface SolvedProblem {
   diagramType?: DiagramType;
   explanationEn?: string;
   explanationAr?: string;
+  bloomLevel?: string;
 }
 
 export interface ExerciseProblem {
@@ -201,9 +207,12 @@ export interface ExerciseProblem {
   optionsEn?: string[];
   optionsAr?: string[];
   correctAnswer?: string;
+  correctAnswerEn?: string;
+  correctAnswerAr?: string;
   correctIndex?: number;
   hintEn?: string;
   hintAr?: string;
+  stepByStepSolution?: string[];
   stepByStepSolutionEn?: string[];
   stepByStepSolutionAr?: string[];
   teacherTipEn?: string;
@@ -211,6 +220,7 @@ export interface ExerciseProblem {
   diagramType?: DiagramType;
   explanationEn?: string;
   explanationAr?: string;
+  bloomLevel?: string;
 }
 
 export interface Worksheet {
@@ -347,7 +357,13 @@ export type InteractiveWidgetType =
   | 'comm_compound_interest_lab'
   | 'comm_capital_budgeting_lab'
   | 'comm_banking_credit_lab'
-  | 'comm_portfolio_risk_lab';
+  | 'comm_portfolio_risk_lab'
+  | 'tourism_hospitality_studio'
+  | 'tour_yield_management_lab'
+  | 'tour_package_costing_lab'
+  | 'tour_heritage_explorer_lab'
+  | 'tour_carrying_capacity_lab'
+  | 'tour_gds_booking_lab';
 
 export interface InteractiveWidgetConfig {
   type: InteractiveWidgetType | string;
