@@ -15,8 +15,89 @@
     <!-- KaTeX CDN stylesheet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
   </head>
-  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
-    <div id="root"></div>
+  <body class="bg-slate-950 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white" style="background-color: #020617; margin: 0; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;">
+    <div id="root">
+      <div id="egbac-initial-splash" style="position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at center, #0f172a 0%, #020617 100%); color: #f8fafc; z-index: 9999; padding: 24px; text-align: center;">
+        <style>
+          @keyframes egbac-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+          }
+          @keyframes egbac-pulse {
+            0%, 100% { opacity: 0.6; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); }
+          }
+          @keyframes egbac-shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+          }
+          .egbac-loader-spinner {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 3px solid rgba(99, 102, 241, 0.15);
+            border-top: 3px solid #6366f1;
+            border-right: 3px solid #d97706;
+            animation: egbac-spin 1s cubic-bezier(0.55, 0.15, 0.45, 0.85) infinite;
+            margin-bottom: 24px;
+            position: relative;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+          }
+          .egbac-loader-glow {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.35) 0%, transparent 70%);
+            animation: egbac-pulse 2s ease-in-out infinite;
+          }
+          .egbac-progress-bar {
+            width: 240px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+            margin-top: 20px;
+          }
+          .egbac-progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #d97706, #10b981);
+            border-radius: 999px;
+            animation: egbac-shimmer 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+          }
+        </style>
+        <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+          <div class="egbac-loader-glow"></div>
+          <div class="egbac-loader-spinner"></div>
+          <img src="./clipsat-logo.png" alt="ClipSAT" style="position: absolute; width: 34px; height: 34px; border-radius: 8px; object-fit: contain; margin-bottom: 24px;" onerror="this.style.display='none'" />
+        </div>
+        <div style="max-width: 440px;">
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #d97706; margin-bottom: 6px;">
+            جمهورية مصر العربية • وزارة التربية والتعليم والتعليم الفني
+          </div>
+          <h1 style="font-size: 19px; font-weight: 800; margin: 0 0 6px; color: #ffffff; letter-spacing: -0.01em;">
+            منصة البكالوريا المصرية والثانوية العامة
+          </h1>
+          <div style="font-size: 13px; font-weight: 600; color: #94a3b8; margin-bottom: 16px;">
+            ClipSAT EGBaccalaureate Educational Platform
+          </div>
+          <div style="font-size: 12px; color: #cbd5e1; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #10b981; box-shadow: 0 0 8px #10b981;"></span>
+            <span>جاري تحميل المناهج وبنوك الأسئلة المعتمدة...</span>
+          </div>
+          <div class="egbac-progress-bar" style="margin-left: auto; margin-right: auto;">
+            <div class="egbac-progress-fill"></div>
+          </div>
+          <div style="font-size: 10px; color: #64748b; margin-top: 14px;">
+            ٢٥٧ فصلاً معتمداً • ٥١,٤٠٠ مسألة رسمية • معامل تفاعلية ثلاثية الأبعاد
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

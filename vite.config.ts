@@ -11,6 +11,20 @@ export default defineConfig({
   ],
   build: {
     chunkSizeWarningLimit: 1500,
+    modulePreload: {
+      resolveDependencies(_filename, deps) {
+        // Prevent preloading massive databanks, textbooks, and labs on initial page load
+        return deps.filter(
+          (dep) =>
+            !dep.includes('databank') &&
+            !dep.includes('textbook') &&
+            !dep.includes('virtual-labs') &&
+            !dep.includes('studio') &&
+            !dep.includes('exam-') &&
+            !dep.includes('curriculum-')
+        );
+      },
+    },
     rolldownOptions: {
       output: {
         codeSplitting: {
@@ -87,10 +101,98 @@ export default defineConfig({
             { name: 'curriculum-econstat', test: /src\/data\/(thanaweya|egBac)EconomicsStat/, priority: 20 },
             { name: 'econstat-studio', test: /EconomicsStatisticsStudio/, priority: 30 },
 
+            // Computer Science & Informatics
+            { name: 'databank-cs-informatics', test: /databanks\/(thanaweya|egbac)\/.*csInformatics/i, priority: 30 },
+            { name: 'textbook-cs-informatics', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*csInformatics/i, priority: 30 },
+            { name: 'curriculum-cs-informatics', test: /src\/data\/(thanaweya|egBac)CsInformatics/, priority: 20 },
+
+            // Earth & Planetary Space Sciences
+            { name: 'databank-earth-space', test: /databanks\/(thanaweya|egbac)\/.*earthSpace/i, priority: 30 },
+            { name: 'textbook-earth-space', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*earthSpace/i, priority: 30 },
+            { name: 'curriculum-earth-space', test: /src\/data\/(thanaweya|egBac)EarthSpace/, priority: 20 },
+
+            // German Language & Culture
+            { name: 'databank-german', test: /databanks\/(thanaweya|egbac)\/.*german/i, priority: 30 },
+            { name: 'textbook-german', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*german/i, priority: 30 },
+            { name: 'curriculum-german', test: /src\/data\/(thanaweya|egBac)German/, priority: 20 },
+
+            // Italian Language & Culture
+            { name: 'databank-italian', test: /databanks\/(thanaweya|egbac)\/.*italian/i, priority: 30 },
+            { name: 'textbook-italian', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*italian/i, priority: 30 },
+            { name: 'curriculum-italian', test: /src\/data\/(thanaweya|egBac)Italian/, priority: 20 },
+
+            // Spanish Language & Culture
+            { name: 'databank-spanish', test: /databanks\/(thanaweya|egbac)\/.*spanish/i, priority: 30 },
+            { name: 'textbook-spanish', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*spanish/i, priority: 30 },
+            { name: 'curriculum-spanish', test: /src\/data\/(thanaweya|egBac)Spanish/, priority: 20 },
+
+            // Chinese Language & Culture
+            { name: 'databank-chinese', test: /databanks\/(thanaweya|egbac)\/.*chinese/i, priority: 30 },
+            { name: 'textbook-chinese', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*chinese/i, priority: 30 },
+            { name: 'curriculum-chinese', test: /src\/data\/(thanaweya|egBac)Chinese/, priority: 20 },
+
+            // Islamic Religious Education
+            { name: 'databank-islamic', test: /databanks\/(thanaweya|egbac)\/.*islamic/i, priority: 30 },
+            { name: 'textbook-islamic', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*islamic/i, priority: 30 },
+            { name: 'curriculum-islamic', test: /src\/data\/(thanaweya|egBac)Islamic/, priority: 20 },
+
+            // Christian Religious Education
+            { name: 'databank-christian', test: /databanks\/(thanaweya|egbac)\/.*christian/i, priority: 30 },
+            { name: 'textbook-christian', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*christian/i, priority: 30 },
+            { name: 'curriculum-christian', test: /src\/data\/(thanaweya|egBac)Christian/, priority: 20 },
+
+            // National Civics & Constitutional Law
+            { name: 'databank-civics', test: /databanks\/(thanaweya|egbac)\/.*civics/i, priority: 30 },
+            { name: 'textbook-civics', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*civics/i, priority: 30 },
+            { name: 'curriculum-civics', test: /src\/data\/(thanaweya|egBac)Civics/, priority: 20 },
+
+            // Business Administration & Entrepreneurship
+            { name: 'databank-business', test: /databanks\/(thanaweya|egbac)\/.*business/i, priority: 30 },
+            { name: 'textbook-business', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*business/i, priority: 30 },
+            { name: 'curriculum-business', test: /src\/data\/(thanaweya|egBac)Business/, priority: 20 },
+
+            // Fine Arts, Architecture & Design
+            { name: 'databank-fine-arts', test: /databanks\/(thanaweya|egbac)\/.*fineArts/i, priority: 30 },
+            { name: 'textbook-fine-arts', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*fineArts/i, priority: 30 },
+            { name: 'curriculum-fine-arts', test: /src\/data\/(thanaweya|egBac)FineArts/, priority: 20 },
+
+            // Music & Musicology
+            { name: 'databank-music', test: /databanks\/(thanaweya|egbac)\/.*music/i, priority: 30 },
+            { name: 'textbook-music', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*music/i, priority: 30 },
+            { name: 'curriculum-music', test: /src\/data\/(thanaweya|egBac)Music/, priority: 20 },
+
+            // Agricultural Sciences & Agrotechnology
+            { name: 'databank-agriculture', test: /databanks\/(thanaweya|egbac)\/.*agri/i, priority: 30 },
+            { name: 'textbook-agriculture', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*agri/i, priority: 30 },
+            { name: 'curriculum-agriculture', test: /src\/data\/(thanaweya|egBac)Agriculture/, priority: 20 },
+
+            // Industrial Technology & Engineering
+            { name: 'databank-industrial', test: /databanks\/(thanaweya|egbac)\/.*ind/i, priority: 30 },
+            { name: 'textbook-industrial', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*ind/i, priority: 30 },
+            { name: 'curriculum-industrial', test: /src\/data\/(thanaweya|egBac)Industrial/, priority: 20 },
+
+            // Commercial Studies & Finance
+            { name: 'databank-commercial', test: /databanks\/(thanaweya|egbac)\/.*comm/i, priority: 30 },
+            { name: 'textbook-commercial', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*comm/i, priority: 30 },
+            { name: 'curriculum-commercial', test: /src\/data\/(thanaweya|egBac)Commercial/, priority: 20 },
+
+            // Tourism, Hospitality & Heritage
+            { name: 'databank-tourism', test: /databanks\/(thanaweya|egbac)\/.*tour/i, priority: 30 },
+            { name: 'textbook-tourism', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*tour/i, priority: 30 },
+            { name: 'curriculum-tourism', test: /src\/data\/(thanaweya|egBac)Tourism/, priority: 20 },
+
+            // Renewable Energy & Sustainable Engineering
+            { name: 'databank-renewable', test: /databanks\/(thanaweya|egbac)\/.*renew/i, priority: 30 },
+            { name: 'textbook-renewable', test: /src\/data\/textbook\/(thanaweya|egbac)\/.*renew/i, priority: 30 },
+            { name: 'curriculum-renewable', test: /src\/data\/(thanaweya|egBac)Renewable/, priority: 20 },
+
             // Textbooks
             { name: 'textbook-thanaweya-math', test: /src\/data\/textbook\/thanaweya\/(alg|calc|dyn|solid|stat)/, priority: 30 },
             { name: 'textbook-thanaweya-science', test: /src\/data\/textbook\/thanaweya\/(thChem|thPhys)/, priority: 30 },
             { name: 'textbook-egbac', test: /src\/data\/textbook\/egbac\//, priority: 30 },
+
+            // Specialized 3D & Advanced Vocational Studios
+            { name: 'specialized-studios', test: /InductionSimulator3D|OpticsBench3D|ElectrochemistryCell3D|MusicTheoryStudio|AgriculturalTechnologyStudio|IndustrialEngineeringStudio|CommercialFinanceStudio|TourismHospitalityStudio|RenewableEnergyStudio|SpanishLanguageLab|ChineseLanguageStudio|GermanInteractiveStudio|ItalianInteractiveStudio/, priority: 30 },
 
             // Virtual Labs
             { name: 'virtual-labs-biology', test: /src\/components\/labs\/(Bio|Dna|Endocrine|GeneticsLab|Immunity|Menstrual|Plant|Sarcomere|Skeleton)/, priority: 30 },
@@ -109,7 +211,7 @@ export default defineConfig({
             { name: 'curriculum-egbac-math', test: /src\/data\/egBac(Vectors|Probability|Mechanics|Analysis)/, priority: 20 },
             { name: 'curriculum-languages', test: /src\/data\/(thanaweya|egBac)(English|French|Arabic)/, priority: 20 },
 
-            // Features
+            // Features & Workstations
             { name: 'exam-workstation', test: /src\/components\/(TestGenerator|OfficialPerformanceCertificate|CertificateVerificationModal|BubbleSheetSimulator)/, priority: 20 },
             { name: 'exam-past-papers', test: /pastExamPapersService/, priority: 20 },
             { name: 'student-analytics', test: /StudentAnalyticsDashboard/, priority: 20 },

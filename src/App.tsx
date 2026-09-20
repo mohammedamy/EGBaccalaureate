@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import type { CurriculumType, Branch, Lesson, ThemeMode, FontSizeMode } from './types/curriculum';
 import type { Language, UserRole } from './i18n/translations';
 import { translations } from './i18n/translations';
@@ -7,29 +7,44 @@ import { egBacCurriculum } from './data/egBacData';
 import { SUBJECTS, getBranchesForSubject, getSubjectForBranch } from './data/subjects';
 import { Navbar } from './components/Navbar';
 import { CurriculumOverview } from './components/CurriculumOverview';
-import { LessonView } from './components/LessonView';
-import { TestGenerator, type BlueprintMode } from './components/TestGenerator';
-import { SearchModal } from './components/SearchModal';
-import { CurriculumEquivalency } from './components/CurriculumEquivalency';
-import { FormulaHandbook } from './components/FormulaHandbook';
-import { DesmosSuite, type DesmosMode, type DesmosLayout } from './components/DesmosSuite';
-import { OfficialBooksModal } from './components/OfficialBooksModal';
+import type { BlueprintMode } from './components/TestGenerator';
+import type { DesmosMode, DesmosLayout } from './components/DesmosSuite';
 import { VisitorCounter } from './components/VisitorCounter';
 import { SiteTutorialModal } from './components/SiteTutorialModal';
 import { Search, ShieldCheck, Command, Mail, X } from 'lucide-react';
 import clipsatLogo from './assets/clipsat-logo.png';
 import { EgyptFlag } from './components/EgyptFlag';
-import { VirtualLabsHub } from './components/VirtualLabsHub';
-import { StudentAnalyticsDashboard } from './components/StudentAnalyticsDashboard';
-import { MathScratchpad } from './core/math/MathScratchpad';
-import { CertificateVerificationModal } from './components/CertificateVerificationModal';
-import { EnglishDictionaryModal } from './components/EnglishDictionaryModal';
-import { EnglishAudioLabModal } from './components/EnglishAudioLabModal';
-import { FrenchListeningStationModal } from './components/FrenchListeningStationModal';
-import { ArabicGrammarModal } from './components/ArabicGrammarModal';
-import { AccessibilitySettingsModal } from './components/AccessibilitySettingsModal';
 import { registerServiceWorker } from './core/pwa/pwaManager';
 import { forceReleaseAllScrollLocks } from './core/labs/useNativeLabFullscreen';
+
+// Lazy-loaded heavy components, workstations & secondary modals
+const LessonView = lazy(() => import('./components/LessonView').then(m => ({ default: m.LessonView })));
+const TestGenerator = lazy(() => import('./components/TestGenerator').then(m => ({ default: m.TestGenerator })));
+const VirtualLabsHub = lazy(() => import('./components/VirtualLabsHub').then(m => ({ default: m.VirtualLabsHub })));
+const StudentAnalyticsDashboard = lazy(() => import('./components/StudentAnalyticsDashboard').then(m => ({ default: m.StudentAnalyticsDashboard })));
+const DesmosSuite = lazy(() => import('./components/DesmosSuite').then(m => ({ default: m.DesmosSuite })));
+const OfficialBooksModal = lazy(() => import('./components/OfficialBooksModal').then(m => ({ default: m.OfficialBooksModal })));
+const SearchModal = lazy(() => import('./components/SearchModal').then(m => ({ default: m.SearchModal })));
+const FormulaHandbook = lazy(() => import('./components/FormulaHandbook').then(m => ({ default: m.FormulaHandbook })));
+const CurriculumEquivalency = lazy(() => import('./components/CurriculumEquivalency').then(m => ({ default: m.CurriculumEquivalency })));
+const CertificateVerificationModal = lazy(() => import('./components/CertificateVerificationModal').then(m => ({ default: m.CertificateVerificationModal })));
+const EnglishDictionaryModal = lazy(() => import('./components/EnglishDictionaryModal').then(m => ({ default: m.EnglishDictionaryModal })));
+const EnglishAudioLabModal = lazy(() => import('./components/EnglishAudioLabModal').then(m => ({ default: m.EnglishAudioLabModal })));
+const FrenchListeningStationModal = lazy(() => import('./components/FrenchListeningStationModal').then(m => ({ default: m.FrenchListeningStationModal })));
+const ArabicGrammarModal = lazy(() => import('./components/ArabicGrammarModal').then(m => ({ default: m.ArabicGrammarModal })));
+const AccessibilitySettingsModal = lazy(() => import('./components/AccessibilitySettingsModal').then(m => ({ default: m.AccessibilitySettingsModal })));
+const MathScratchpad = lazy(() => import('./core/math/MathScratchpad').then(m => ({ default: m.MathScratchpad })));
+
+const ViewLoadingFallback: React.FC<{ messageAr?: string; messageEn?: string }> = ({
+  messageAr = 'جاري تحميل المحتوى...',
+  messageEn = 'Loading content...',
+}) => (
+  <div className="flex flex-col items-center justify-center min-h-[400px] p-8 text-center">
+    <div className="w-12 h-12 rounded-full border-2 border-indigo-500/20 border-t-indigo-500 border-r-amber-500 animate-spin mb-4 shadow-lg shadow-indigo-500/20" />
+    <p className="text-sm font-semibold text-slate-300 mb-1">{messageAr}</p>
+    <p className="text-xs text-slate-500">{messageEn}</p>
+  </div>
+);
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
@@ -652,97 +667,133 @@ export const App: React.FC = () => {
         </div>
 
         {/* Global Instant Search Modal */}
-        <SearchModal
-          isOpen={isSearchOpen}
-          onClose={() => setIsSearchOpen(false)}
-          lang={lang}
-          theme={theme}
-          onNavigate={handleSearchNavigate}
-        />
+        {isSearchOpen && (
+          <Suspense fallback={null}>
+            <SearchModal
+              isOpen={isSearchOpen}
+              onClose={() => setIsSearchOpen(false)}
+              lang={lang}
+              theme={theme}
+              onNavigate={handleSearchNavigate}
+            />
+          </Suspense>
+        )}
 
         {/* Global Formula Sheet Handbook Modal */}
-        <FormulaHandbook
-          isOpen={isFormulaHandbookOpen}
-          onClose={() => setIsFormulaHandbookOpen(false)}
-          lang={lang}
-          theme={theme}
-          currentCurriculum={curriculum}
-          onNavigateToLesson={(curType, b, l) => {
-            if (curriculum !== curType) {
-              setCurriculum(curType);
-            }
-            setSelectedBranch(b);
-            setSelectedLesson(l);
-            setActiveTab('theory');
-          }}
-        />
+        {isFormulaHandbookOpen && (
+          <Suspense fallback={null}>
+            <FormulaHandbook
+              isOpen={isFormulaHandbookOpen}
+              onClose={() => setIsFormulaHandbookOpen(false)}
+              lang={lang}
+              theme={theme}
+              currentCurriculum={curriculum}
+              onNavigateToLesson={(curType, b, l) => {
+                if (curriculum !== curType) {
+                  setCurriculum(curType);
+                }
+                setSelectedBranch(b);
+                setSelectedLesson(l);
+                setActiveTab('theory');
+              }}
+            />
+          </Suspense>
+        )}
 
         {/* Global Desmos Math Suite Widget / Modal */}
-        <DesmosSuite
-          isOpen={isDesmosOpen}
-          onClose={() => setIsDesmosOpen(false)}
-          lang={lang}
-          theme={theme}
-          initialMode={desmosMode}
-          initialPresetId={desmosPresetId}
-          layout={desmosLayout}
-          onLayoutChange={setDesmosLayout}
-        />
+        {isDesmosOpen && (
+          <Suspense fallback={null}>
+            <DesmosSuite
+              isOpen={isDesmosOpen}
+              onClose={() => setIsDesmosOpen(false)}
+              lang={lang}
+              theme={theme}
+              initialMode={desmosMode}
+              initialPresetId={desmosPresetId}
+              layout={desmosLayout}
+              onLayoutChange={setDesmosLayout}
+            />
+          </Suspense>
+        )}
 
         {/* Global Official Ministry PDF Books Modal */}
-        <OfficialBooksModal
-          isOpen={isOfficialBooksOpen}
-          onClose={() => {
-            setIsOfficialBooksOpen(false);
-            setTargetOfficialBookId(undefined);
-          }}
-          lang={lang}
-          theme={theme}
-          initialBookId={targetOfficialBookId}
-        />
+        {isOfficialBooksOpen && (
+          <Suspense fallback={null}>
+            <OfficialBooksModal
+              isOpen={isOfficialBooksOpen}
+              onClose={() => {
+                setIsOfficialBooksOpen(false);
+                setTargetOfficialBookId(undefined);
+              }}
+              lang={lang}
+              theme={theme}
+              initialBookId={targetOfficialBookId}
+            />
+          </Suspense>
+        )}
 
         {/* Global English Academic Dictionary Modal */}
-        <EnglishDictionaryModal
-          isOpen={isEnglishDictionaryOpen}
-          onClose={() => setIsEnglishDictionaryOpen(false)}
-          lang={lang}
-          theme={theme}
-        />
+        {isEnglishDictionaryOpen && (
+          <Suspense fallback={null}>
+            <EnglishDictionaryModal
+              isOpen={isEnglishDictionaryOpen}
+              onClose={() => setIsEnglishDictionaryOpen(false)}
+              lang={lang}
+              theme={theme}
+            />
+          </Suspense>
+        )}
 
         {/* Global English Audio & Phonetics Lab Modal */}
-        <EnglishAudioLabModal
-          isOpen={isEnglishAudioLabOpen}
-          onClose={() => setIsEnglishAudioLabOpen(false)}
-          lang={lang}
-          theme={theme}
-        />
+        {isEnglishAudioLabOpen && (
+          <Suspense fallback={null}>
+            <EnglishAudioLabModal
+              isOpen={isEnglishAudioLabOpen}
+              onClose={() => setIsEnglishAudioLabOpen(false)}
+              lang={lang}
+              theme={theme}
+            />
+          </Suspense>
+        )}
 
         {/* Global French Listening & Audio Studio Modal */}
-        <FrenchListeningStationModal
-          isOpen={isFrenchListeningOpen}
-          onClose={() => setIsFrenchListeningOpen(false)}
-          lang={lang}
-          theme={theme}
-        />
+        {isFrenchListeningOpen && (
+          <Suspense fallback={null}>
+            <FrenchListeningStationModal
+              isOpen={isFrenchListeningOpen}
+              onClose={() => setIsFrenchListeningOpen(false)}
+              lang={lang}
+              theme={theme}
+            />
+          </Suspense>
+        )}
 
         {/* Global Arabic Grammar & Rhetoric Studio Modal */}
-        <ArabicGrammarModal
-          isOpen={isArabicGrammarOpen}
-          onClose={() => setIsArabicGrammarOpen(false)}
-          lang={lang}
-          theme={theme}
-        />
+        {isArabicGrammarOpen && (
+          <Suspense fallback={null}>
+            <ArabicGrammarModal
+              isOpen={isArabicGrammarOpen}
+              onClose={() => setIsArabicGrammarOpen(false)}
+              lang={lang}
+              theme={theme}
+            />
+          </Suspense>
+        )}
 
         {/* Global Universal Accessibility & Visual Calibration Suite Modal */}
-        <AccessibilitySettingsModal
-          isOpen={isAccessibilityOpen}
-          onClose={() => setIsAccessibilityOpen(false)}
-          lang={lang}
-          theme={theme}
-          onThemeChange={setTheme}
-          fontSize={fontSize}
-          onFontSizeChange={setFontSize}
-        />
+        {isAccessibilityOpen && (
+          <Suspense fallback={null}>
+            <AccessibilitySettingsModal
+              isOpen={isAccessibilityOpen}
+              onClose={() => setIsAccessibilityOpen(false)}
+              lang={lang}
+              theme={theme}
+              onThemeChange={setTheme}
+              fontSize={fontSize}
+              onFontSizeChange={setFontSize}
+            />
+          </Suspense>
+        )}
 
         {/* Interactive Site Navigation Tutorial Modal (PCs, Mobiles, Tablets, Smartboards) */}
         <SiteTutorialModal
@@ -778,30 +829,36 @@ export const App: React.FC = () => {
 
         {/* Global Math & KaTeX Scratchpad Modal */}
         {isMathScratchpadOpen && (
-          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-            <div className="relative w-full max-w-3xl">
-              <button
-                onClick={() => setIsMathScratchpadOpen(false)}
-                className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shadow-xl cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-              <MathScratchpad lang={lang} />
+          <Suspense fallback={null}>
+            <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="relative w-full max-w-3xl">
+                <button
+                  onClick={() => setIsMathScratchpadOpen(false)}
+                  className="absolute -top-3 -right-3 z-10 p-2 rounded-full bg-slate-800 text-slate-300 hover:text-white border border-slate-700 shadow-xl cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                <MathScratchpad lang={lang} />
+              </div>
             </div>
-          </div>
+          </Suspense>
         )}
 
         {/* Global Ministerial Certificate Verification Portal Modal */}
-        <CertificateVerificationModal
-          isOpen={isCertificateVerificationOpen}
-          onClose={handleCloseCertificateVerification}
-          initialSerial={verificationTargetSerial}
-          lang={lang}
-          onViewCertificate={(_cert) => {
-            handleCloseCertificateVerification();
-            setActiveTab('analytics');
-          }}
-        />
+        {isCertificateVerificationOpen && (
+          <Suspense fallback={null}>
+            <CertificateVerificationModal
+              isOpen={isCertificateVerificationOpen}
+              onClose={handleCloseCertificateVerification}
+              initialSerial={verificationTargetSerial}
+              lang={lang}
+              onViewCertificate={(_cert) => {
+                handleCloseCertificateVerification();
+                setActiveTab('analytics');
+              }}
+            />
+          </Suspense>
+        )}
 
         {/* Tab View Router */}
         {activeTab === 'overview' && (
@@ -818,24 +875,26 @@ export const App: React.FC = () => {
         )}
 
         {activeTab === 'equivalency' && (
-          <CurriculumEquivalency
-            lang={lang}
-            theme={theme}
-            onNavigateTrack={(track, branchId) => {
-              if (curriculum !== track) {
-                setCurriculum(track);
-              }
-              const data = track === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
-              let targetBranch = data.branches[0];
-              if (branchId) {
-                const found = data.branches.find((b) => b.id === branchId);
-                if (found) targetBranch = found;
-              }
-              setSelectedBranch(targetBranch);
-              setSelectedLesson(targetBranch.chapters[0].lessons[0]);
-              setActiveTab('overview');
-            }}
-          />
+          <Suspense fallback={<ViewLoadingFallback messageAr="جاري تحميل دليل المعادلات ومنظومة المقارنة..." messageEn="Loading curriculum equivalency framework..." />}>
+            <CurriculumEquivalency
+              lang={lang}
+              theme={theme}
+              onNavigateTrack={(track, branchId) => {
+                if (curriculum !== track) {
+                  setCurriculum(track);
+                }
+                const data = track === 'thanaweya' ? thanaweyaCurriculum : egBacCurriculum;
+                let targetBranch = data.branches[0];
+                if (branchId) {
+                  const found = data.branches.find((b) => b.id === branchId);
+                  if (found) targetBranch = found;
+                }
+                setSelectedBranch(targetBranch);
+                setSelectedLesson(targetBranch.chapters[0].lessons[0]);
+                setActiveTab('overview');
+              }}
+            />
+          </Suspense>
         )}
 
         {(activeTab === 'theory' ||
@@ -844,69 +903,77 @@ export const App: React.FC = () => {
           activeTab === 'databank' ||
           activeTab === 'lessonPlan' ||
           activeTab === 'worksheet') && (
-          <LessonView
-            lang={lang}
-            theme={theme}
-            role={role}
-            lesson={selectedLesson}
-            branch={selectedBranch}
-            curriculum={activeCurriculumData}
-            activeSubTab={activeTab}
-            onSubTabChange={setActiveTab}
-            onSelectLesson={handleSelectLesson}
-            onOpenDesmos={(targetMode = '2d') => {
-              setDesmosMode(targetMode);
-              setIsDesmosOpen(true);
-            }}
-            onOpenOfficialBooks={handleOpenOfficialBooks}
-          />
+          <Suspense fallback={<ViewLoadingFallback messageAr="جاري تحميل محتوى الدرس..." messageEn="Loading lesson workspace..." />}>
+            <LessonView
+              lang={lang}
+              theme={theme}
+              role={role}
+              lesson={selectedLesson}
+              branch={selectedBranch}
+              curriculum={activeCurriculumData}
+              activeSubTab={activeTab}
+              onSubTabChange={setActiveTab}
+              onSelectLesson={handleSelectLesson}
+              onOpenDesmos={(targetMode = '2d') => {
+                setDesmosMode(targetMode);
+                setIsDesmosOpen(true);
+              }}
+              onOpenOfficialBooks={handleOpenOfficialBooks}
+            />
+          </Suspense>
         )}
 
         {activeTab === 'interactive' && (
-          <VirtualLabsHub
-            lang={lang}
-            theme={theme}
-            currentCurriculum={activeCurriculumData}
-            selectedSubject={selectedSubject}
-            onOpenDesmos={(targetMode = '2d') => {
-              setDesmosMode(targetMode);
-              setIsDesmosOpen(true);
-            }}
-          />
+          <Suspense fallback={<ViewLoadingFallback messageAr="جاري تحميل معامل المحاكاة ثلاثية الأبعاد..." messageEn="Loading 3D interactive virtual laboratories..." />}>
+            <VirtualLabsHub
+              lang={lang}
+              theme={theme}
+              currentCurriculum={activeCurriculumData}
+              selectedSubject={selectedSubject}
+              onOpenDesmos={(targetMode = '2d') => {
+                setDesmosMode(targetMode);
+                setIsDesmosOpen(true);
+              }}
+            />
+          </Suspense>
         )}
 
         {activeTab === 'testGenerator' && (
-          <TestGenerator
-            lang={lang}
-            currentCurriculum={curriculum}
-            onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
-            onOpenDesmos={(targetMode = '2d') => {
-              setDesmosMode(targetMode);
-              setIsDesmosOpen(true);
-            }}
-            initialSubject={selectedSubject}
-            initialBlueprint={testBlueprint}
-          />
+          <Suspense fallback={<ViewLoadingFallback messageAr="جاري تحميل محطة الاختبارات ونموذج البابل شيت..." messageEn="Loading exam workstation & OMR bubble sheet simulator..." />}>
+            <TestGenerator
+              lang={lang}
+              currentCurriculum={curriculum}
+              onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
+              onOpenDesmos={(targetMode = '2d') => {
+                setDesmosMode(targetMode);
+                setIsDesmosOpen(true);
+              }}
+              initialSubject={selectedSubject}
+              initialBlueprint={testBlueprint}
+            />
+          </Suspense>
         )}
 
         {activeTab === 'analytics' && (
-          <StudentAnalyticsDashboard
-            lang={lang}
-            theme={theme}
-            curriculum={curriculum}
-            onNavigateTab={setActiveTab}
-            onStartTargetedQuiz={(subjectId) => {
-              setSelectedSubject(subjectId);
-              setTestBlueprint('all');
-              setActiveTab('testGenerator');
-            }}
-            onStartDiagnosticExam={() => {
-              setSelectedSubject('all');
-              setTestBlueprint('diagnostic_benchmark');
-              setActiveTab('testGenerator');
-            }}
-            onStartPastPapers={handleOpenPastPapers}
-          />
+          <Suspense fallback={<ViewLoadingFallback messageAr="جاري تحميل لوحة المؤشرات والتحليلات الأكاديمية..." messageEn="Loading academic analytics dashboard & mastery radar..." />}>
+            <StudentAnalyticsDashboard
+              lang={lang}
+              theme={theme}
+              curriculum={curriculum}
+              onNavigateTab={setActiveTab}
+              onStartTargetedQuiz={(subjectId) => {
+                setSelectedSubject(subjectId);
+                setTestBlueprint('all');
+                setActiveTab('testGenerator');
+              }}
+              onStartDiagnosticExam={() => {
+                setSelectedSubject('all');
+                setTestBlueprint('diagnostic_benchmark');
+                setActiveTab('testGenerator');
+              }}
+              onStartPastPapers={handleOpenPastPapers}
+            />
+          </Suspense>
         )}
       </main>
 
