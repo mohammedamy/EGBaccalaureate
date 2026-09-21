@@ -766,7 +766,7 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveMode(tab.id as StudioMode)}
-                className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                className={`flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isSelected
                     ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-md shadow-teal-500/30'
                     : isLight
@@ -782,7 +782,7 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-400 hover:text-white hover:bg-slate-800/60 cursor-pointer"
+            className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-400 hover:text-white hover:bg-slate-800/60 cursor-pointer"
             title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
           >
             {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-teal-400" />}
