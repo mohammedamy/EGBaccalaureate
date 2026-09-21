@@ -99,12 +99,12 @@ export const PhysicsLab: React.FC<Props> = ({
               <Zap className="w-3.5 h-3.5 text-blue-500" />
               <span>{isArabic ? 'بيئة الظاهرة الكهروضوئية ومعادلة أينشتاين:' : 'Photoelectric Effect & Einstein Equations:'}</span>
             </span>
-            <div className={`flex items-center gap-1 p-1 rounded-lg border text-xs ${
+            <div className={`flex items-center gap-1.5 p-1 rounded-xl border text-xs flex-wrap ${
               isLight ? 'bg-slate-100 border-slate-200' : 'bg-[#0D1117] border-[#30363D]'
             }`}>
               <button
                 onClick={() => setPhotoelectricView('studio')}
-                className={`px-3 py-1.5 rounded-md font-semibold transition-colors cursor-pointer ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg font-semibold transition-colors cursor-pointer flex items-center ${
                   photoelectricView === 'studio' 
                     ? 'bg-blue-600 text-white shadow-xs' 
                     : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
@@ -114,7 +114,7 @@ export const PhysicsLab: React.FC<Props> = ({
               </button>
               <button
                 onClick={() => setPhotoelectricView('apparatus')}
-                className={`px-3 py-1.5 rounded-md font-semibold transition-colors cursor-pointer ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg font-semibold transition-colors cursor-pointer flex items-center ${
                   photoelectricView === 'apparatus' 
                     ? 'bg-blue-600 text-white shadow-xs' 
                     : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
@@ -300,7 +300,7 @@ export const PhysicsLab: React.FC<Props> = ({
 
             <button
               onClick={() => setShowConstants(!showConstants)}
-              className="px-3 py-2 rounded-xl bg-amber-950/40 text-amber-300 border border-amber-800/60 hover:bg-amber-900/50 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-amber-950/40 text-amber-300 border border-amber-800/60 hover:bg-amber-900/50 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
               title={isArabic ? 'عرض الثوابت الفيزيائية ومحول الوحدات' : 'View Physical Constants & Unit Converter'}
             >
               <BookOpen className="w-4 h-4 text-amber-400" />
@@ -312,7 +312,7 @@ export const PhysicsLab: React.FC<Props> = ({
               onClick={exitFullscreen}
               title={isArabic ? 'تصغير (Esc)' : 'Exit Fullscreen (Esc)'}
               aria-label={isArabic ? 'تصغير الشاشة' : 'Exit Fullscreen'}
-              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
             >
               <Minimize2 className="w-4 h-4 text-cyan-400" />
               <span className="hidden sm:inline">{isArabic ? 'تصغير' : 'Exit'}</span>
@@ -390,7 +390,7 @@ export const PhysicsLab: React.FC<Props> = ({
               value={activeTab}
               onChange={(e) => handleTabChange(e.target.value as PhysicsTab)}
               aria-label={isArabic ? 'اختر الوحدة الفيزيائية' : 'Select Physics Module'}
-              className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
+              className={`min-h-[44px] w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
                 isContrast
                   ? 'bg-black text-white border-cyan-400'
                   : isLight
@@ -407,7 +407,7 @@ export const PhysicsLab: React.FC<Props> = ({
 
           <button
             onClick={() => setShowConstants(!showConstants)}
-            className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer border ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer border ${
               showConstants
                 ? isContrast
                   ? 'bg-amber-400 text-black border-amber-300 font-black'
@@ -418,7 +418,7 @@ export const PhysicsLab: React.FC<Props> = ({
             }`}
             title={isArabic ? 'عرض الثوابت الفيزيائية ومحول الوحدات' : 'View Physical Constants & Unit Converter'}
           >
-            <BookOpen className="w-3.5 h-3.5" />
+            <BookOpen className="w-4 h-4 text-amber-400" />
             <span className="hidden sm:inline">{isArabic ? 'الثوابت والتحويلات' : 'Constants & Units'}</span>
           </button>
 
@@ -426,9 +426,9 @@ export const PhysicsLab: React.FC<Props> = ({
             onClick={toggleFullscreen}
             title={isArabic ? 'ملء الشاشة' : 'Fullscreen Workstation'}
             aria-label={isArabic ? 'ملء الشاشة' : 'Fullscreen Workstation'}
-            className="px-3 py-2 rounded-xl text-xs font-bold bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+            className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-300 border border-cyan-500/40 flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
           >
-            <Maximize2 className="w-3.5 h-3.5 text-cyan-400" />
+            <Maximize2 className="w-4 h-4 text-cyan-400" />
             <span className="hidden sm:inline">{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>
           </button>
         </div>

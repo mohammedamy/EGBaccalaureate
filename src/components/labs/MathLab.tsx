@@ -88,7 +88,7 @@ export const MathLab: React.FC<Props> = ({
                 value={activeTab}
                 onChange={(e) => handleTabChange(e.target.value as MathTab)}
                 aria-label={isArabic ? 'اختر الوحدة الرياضية' : 'Select Math Module'}
-                className="w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
+                className="min-h-[44px] w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-700 bg-slate-800 text-slate-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500"
               >
                 <option value="calculus" className="bg-slate-900 text-white">
                   🧭 {isArabic ? 'التفاضل والتكامل' : 'Calculus & Real Analysis'}
@@ -122,14 +122,14 @@ export const MathLab: React.FC<Props> = ({
               <div className="hidden md:flex items-center gap-1.5">
                 <button
                   onClick={() => onOpenDesmos('2d')}
-                  className="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600/80 hover:bg-indigo-600 text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
+                  className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600/80 hover:bg-indigo-600 text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
                 >
                   <span>Desmos 2D</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </button>
                 <button
                   onClick={() => onOpenDesmos('3d')}
-                  className="px-3 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-600/80 hover:bg-cyan-600 text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
+                  className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-600/80 hover:bg-cyan-600 text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
                 >
                   <span>Desmos 3D</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export const MathLab: React.FC<Props> = ({
               onClick={exitFullscreen}
               title={isArabic ? 'تصغير (Esc)' : 'Exit Fullscreen (Esc)'}
               aria-label={isArabic ? 'تصغير الشاشة' : 'Exit Fullscreen'}
-              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
             >
               <Minimize2 className="w-4 h-4 text-indigo-400" />
               <span className="hidden sm:inline">{isArabic ? 'تصغير' : 'Exit'}</span>
@@ -218,7 +218,7 @@ export const MathLab: React.FC<Props> = ({
               value={activeTab}
               onChange={(e) => handleTabChange(e.target.value as MathTab)}
               aria-label={isArabic ? 'اختر الوحدة الرياضية' : 'Select Math Module'}
-              className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+              className={`min-h-[44px] w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
                 isContrast
                   ? 'bg-black text-white border-indigo-400'
                   : isLight
@@ -257,7 +257,7 @@ export const MathLab: React.FC<Props> = ({
             onClick={toggleFullscreen}
             title={isArabic ? 'ملء الشاشة' : 'Fullscreen Workstation'}
             aria-label={isArabic ? 'ملء الشاشة' : 'Fullscreen Workstation'}
-            className="px-3 py-2 rounded-xl text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+            className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
           >
             <Maximize2 className="w-3.5 h-3.5 text-indigo-400" />
             <span className="hidden sm:inline">{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>
@@ -288,17 +288,17 @@ export const MathLab: React.FC<Props> = ({
           <div className="flex items-center gap-2 shrink-0">
             <button
               onClick={() => onOpenDesmos('2d')}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white flex items-center gap-1 transition-all cursor-pointer"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 hover:bg-indigo-500 text-white flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <span>Desmos 2D</span>
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3.5 h-3.5" />
             </button>
             <button
               onClick={() => onOpenDesmos('3d')}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-600 hover:bg-cyan-500 text-white flex items-center gap-1 transition-all cursor-pointer"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-cyan-600 hover:bg-cyan-500 text-white flex items-center gap-1.5 transition-all cursor-pointer"
             >
               <span>Desmos 3D</span>
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

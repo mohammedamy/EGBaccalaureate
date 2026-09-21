@@ -98,10 +98,10 @@ export const ChemistryLab: React.FC<Props> = ({
               <span>💧</span>
               <span>{isArabic ? 'بيئة معايرة الأحماض والقواعد ومخططات pH:' : 'Acid-Base Titration & pH Environment:'}</span>
             </span>
-            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+            <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs flex-wrap">
               <button
                 onClick={() => setTitrationView('studio')}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center ${
                   titrationView === 'studio' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -109,7 +109,7 @@ export const ChemistryLab: React.FC<Props> = ({
               </button>
               <button
                 onClick={() => setTitrationView('apparatus')}
-                className={`px-3 py-1.5 rounded-lg font-bold transition-all cursor-pointer ${
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center ${
                   titrationView === 'apparatus' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -252,7 +252,7 @@ export const ChemistryLab: React.FC<Props> = ({
 
             <button
               onClick={() => setIsConstantsOpen(true)}
-              className="px-3 py-2 rounded-xl bg-cyan-950/40 text-cyan-300 border border-cyan-800/60 hover:bg-cyan-900/50 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-cyan-950/40 text-cyan-300 border border-cyan-800/60 hover:bg-cyan-900/50 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
               title={isArabic ? 'ثوابت وقوانين الكيمياء' : 'Constants & Calculators'}
             >
               <BookOpen className="w-4 h-4 text-cyan-400" />
@@ -264,7 +264,7 @@ export const ChemistryLab: React.FC<Props> = ({
               onClick={exitFullscreen}
               title={isArabic ? 'تصغير (Esc)' : 'Exit Fullscreen (Esc)'}
               aria-label={isArabic ? 'تصغير الشاشة' : 'Exit Fullscreen'}
-              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5 text-xs sm:text-sm font-bold shadow-xs"
             >
               <Minimize2 className="w-4 h-4 text-emerald-400" />
               <span className="hidden sm:inline">{isArabic ? 'تصغير' : 'Exit'}</span>
@@ -339,7 +339,7 @@ export const ChemistryLab: React.FC<Props> = ({
         <div className="flex flex-wrap items-center gap-2 self-stretch md:self-auto">
           <button
             onClick={() => setIsConstantsOpen(true)}
-            className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all flex items-center gap-1.5 cursor-pointer shrink-0 shadow-sm ${
               isContrast
                 ? 'bg-black border-cyan-400 text-cyan-400 hover:bg-cyan-950'
                 : isLight
@@ -357,7 +357,7 @@ export const ChemistryLab: React.FC<Props> = ({
               value={activeTab}
               onChange={(e) => handleTabChange(e.target.value as ChemTab)}
               aria-label={isArabic ? 'اختر الوحدة الكيميائية' : 'Select Chemistry Module'}
-              className={`w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-emerald-500 ${
+              className={`min-h-[44px] w-full appearance-none pl-3.5 pr-9 rtl:pr-3.5 rtl:pl-9 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-emerald-500 ${
                 isContrast
                   ? 'bg-black text-white border-emerald-400'
                   : isLight
@@ -376,7 +376,7 @@ export const ChemistryLab: React.FC<Props> = ({
             onClick={toggleFullscreen}
             title={isArabic ? 'ملء الشاشة' : 'Fullscreen Workstation'}
             aria-label={isArabic ? 'ملء الشاشة' : 'Fullscreen Workstation'}
-            className="px-3 py-2 rounded-xl text-xs font-bold bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
+            className="min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 transition-all cursor-pointer shrink-0"
           >
             <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
             <span className="hidden sm:inline">{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>

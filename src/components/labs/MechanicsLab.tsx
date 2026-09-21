@@ -3374,7 +3374,7 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
               <select
                 value={params.module}
                 onChange={(e) => updateParam('module', e.target.value as MechanicsModule)}
-                className={`w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
+                className={`min-h-[44px] w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-indigo-500 ${
                   isContrast
                     ? 'bg-black text-white border-indigo-400'
                     : isLight
@@ -3407,15 +3407,15 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
             </div>
           </div>
 
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950 border border-slate-800 text-[10px]">
+          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950 border border-slate-800 text-xs flex-wrap">
             <Compass className="w-3.5 h-3.5 text-indigo-400 ml-1.5 rtl:ml-0 rtl:mr-1.5" />
             {(['normal_reaction', 'friction_force', 'resultant_reaction', 'support_reactions'] as const).map((mode) => (
               <button
                 key={mode}
                 onClick={() => setDmmMode(mode)}
-                className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                className={`min-h-[44px] px-3 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center ${
                   dmmMode === mode
-                    ? 'bg-indigo-600 text-white font-black'
+                    ? 'bg-indigo-600 text-white font-black shadow'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -3449,10 +3449,10 @@ export const MechanicsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
           <button
             type="button"
             onClick={handleOpenOfficialReportModal}
-            className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20 shrink-0"
+            className="min-h-[44px] px-3.5 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-emerald-600/20 shrink-0"
             title={isArabic ? 'معاينة واستخراج تقرير المعمل الوزاري A4' : 'Official MoE A4 Lab Report'}
           >
-            <Printer className="w-3.5 h-3.5 text-emerald-200" />
+            <Printer className="w-4 h-4 text-emerald-200" />
             <span>{isArabic ? 'تقرير معملي A4' : 'Lab Report A4'}</span>
           </button>
         </div>
