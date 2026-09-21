@@ -36,7 +36,7 @@ import { RealisticVocalTractSchematic } from './RealisticVocalTractSchematic';
 
 interface Props {
   lang?: Language;
-  theme?: 'dark' | 'light' | 'high-contrast';
+  theme?: 'dark' | 'light' | 'high-contrast' | 'contrast';
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
 }
@@ -54,7 +54,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
   });
   const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const isLight = theme === 'light';
-  const isContrast = theme === 'high-contrast';
+  const isContrast = theme === 'high-contrast' || (theme as string) === 'contrast';
 
   // Active Tab
   const [activeTab, setActiveTab] = useState<StudioTab>('nasales');
@@ -154,28 +154,48 @@ export const FrenchAudioStudio: React.FC<Props> = ({
         isContrast
           ? 'bg-black border-amber-400 text-white'
           : isLight
-          ? 'bg-slate-50 border-slate-200 text-slate-900'
+          ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
           : 'bg-slate-950/95 border-slate-800 text-slate-100'
       }`}
       dir="ltr"
       data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
-      <div className="p-4 sm:p-5 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
+      <div className={`p-4 sm:p-5 border-b flex flex-wrap items-center justify-between gap-4 ${
+        isLight
+          ? 'border-slate-200 bg-slate-50/80'
+          : isContrast
+          ? 'border-amber-400/50 bg-black'
+          : 'border-slate-800/80 bg-slate-900/40'
+      }`}>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-rose-600 flex items-center justify-center shadow-lg shadow-blue-500/20 text-white">
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-rose-600 flex items-center justify-center shadow-lg shadow-blue-500/20 text-white shrink-0">
             <Headphones className="w-5 h-5" />
           </div>
           <div>
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 border border-blue-500/30">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className={`text-xs font-extrabold px-2.5 py-0.5 rounded border ${
+                isLight
+                  ? 'bg-blue-100 text-blue-900 border-blue-200'
+                  : isContrast
+                  ? 'bg-black text-amber-300 border-amber-400'
+                  : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+              }`}>
                 FR-3È SEC • CLUB @DOS PLUS 3
               </span>
-              <span className="text-xs font-mono text-slate-400">🇫🇷 Parisien (fr-FR)</span>
+              <span className={`text-xs font-mono font-medium ${
+                isLight ? 'text-slate-700' : isContrast ? 'text-amber-200' : 'text-slate-400'
+              }`}>
+                🇫🇷 Parisien (fr-FR)
+              </span>
             </div>
-            <h2 className="text-base sm:text-lg font-bold text-slate-100 flex items-center gap-2 mt-0.5">
+            <h2 className={`text-base sm:text-lg font-bold flex items-center gap-2 mt-1 ${
+              isLight ? 'text-slate-950' : isContrast ? 'text-white' : 'text-slate-100'
+            }`}>
               Station d'Écoute & Phonétique Française
-              <span className="text-xs font-normal text-slate-400 hidden sm:inline" dir="rtl">
+              <span className={`text-xs font-medium hidden sm:inline ${
+                isLight ? 'text-slate-600' : isContrast ? 'text-amber-300/80' : 'text-slate-400'
+              }`} dir="rtl">
                 (معمل الصوتيات والاستماع للثانوية العامة)
               </span>
             </h2>
@@ -185,23 +205,43 @@ export const FrenchAudioStudio: React.FC<Props> = ({
         {/* Playback Rate & Audio Quick Controls */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
           {/* AI Vocal Engine Badge */}
-          <div className="flex items-center gap-1.5 bg-blue-950/60 border border-blue-500/30 px-2.5 py-1.5 rounded-xl text-xs text-blue-300 font-semibold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
-            <span className="text-[11px]">AI Vocal Engine (HD)</span>
+          <div className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border shadow-xs min-h-[44px] ${
+            isLight
+              ? 'bg-blue-50 border-blue-200 text-blue-900'
+              : isContrast
+              ? 'bg-stone-900 border-amber-400 text-amber-300'
+              : 'bg-blue-950/60 border-blue-500/30 text-blue-300'
+          }`}>
+            <Sparkles className={`w-3.5 h-3.5 animate-pulse ${
+              isLight ? 'text-blue-700' : isContrast ? 'text-amber-400' : 'text-blue-400'
+            }`} />
+            <span className="text-xs">AI Vocal Engine (HD)</span>
           </div>
 
-          <div className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl text-xs">
-            <Sliders className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-slate-400 hidden sm:inline">Vitesse:</span>
+          <div className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs border min-h-[44px] ${
+            isLight
+              ? 'bg-white border-slate-300 text-slate-800 shadow-xs'
+              : isContrast
+              ? 'bg-black border-amber-400 text-white'
+              : 'bg-slate-900 border-slate-800 text-slate-200'
+          }`}>
+            <Sliders className={`w-3.5 h-3.5 ${
+              isLight ? 'text-slate-600' : isContrast ? 'text-amber-400' : 'text-slate-400'
+            }`} />
+            <span className={`hidden sm:inline font-semibold ${
+              isLight ? 'text-slate-700' : isContrast ? 'text-white' : 'text-slate-400'
+            }`}>Vitesse:</span>
             <select
               value={speechRate}
               onChange={(e) => setSpeechRate(parseFloat(e.target.value))}
-              className="bg-transparent text-blue-400 font-bold focus:outline-none cursor-pointer text-xs"
+              className={`bg-transparent font-bold focus:outline-none cursor-pointer text-xs ${
+                isLight ? 'text-blue-800' : isContrast ? 'text-amber-300' : 'text-blue-400'
+              }`}
             >
-              <option value="0.75" className="bg-slate-900">0.75x (Lent)</option>
-              <option value="0.9" className="bg-slate-900">0.90x (Idéal)</option>
-              <option value="1.0" className="bg-slate-900">1.00x (Normal)</option>
-              <option value="1.2" className="bg-slate-900">1.20x (Rapide)</option>
+              <option value="0.75" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>0.75x (Lent)</option>
+              <option value="0.9" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>0.90x (Idéal)</option>
+              <option value="1.0" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>1.00x (Normal)</option>
+              <option value="1.2" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>1.20x (Rapide)</option>
             </select>
           </div>
 
@@ -209,9 +249,15 @@ export const FrenchAudioStudio: React.FC<Props> = ({
             <button
               type="button"
               onClick={stopAudio}
-              className="px-3 py-1.5 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-bold flex items-center gap-1.5 hover:bg-rose-500/30 transition-all cursor-pointer"
+              className={`px-3.5 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer min-h-[44px] ${
+                isLight
+                  ? 'bg-rose-100 border-rose-300 text-rose-900 hover:bg-rose-200 shadow-xs'
+                  : isContrast
+                  ? 'bg-black border-rose-400 text-rose-300 hover:bg-rose-950'
+                  : 'bg-rose-500/20 border-rose-500/40 text-rose-300 hover:bg-rose-500/30'
+              }`}
             >
-              <Pause className="w-3.5 h-3.5" />
+              <Pause className="w-4 h-4" />
               Arrêter
             </button>
           )}
@@ -219,17 +265,33 @@ export const FrenchAudioStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition-all cursor-pointer"
+            className={`p-2.5 rounded-xl border transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center ${
+              isLight
+                ? 'bg-white border-slate-300 text-slate-700 hover:text-slate-950 hover:bg-slate-100 shadow-xs'
+                : isContrast
+                ? 'bg-black border-amber-400 text-amber-300 hover:bg-stone-900'
+                : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
+            }`}
             title={isFullscreen ? 'Quitter Plein Écran' : 'Plein Écran'}
             aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           >
-            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-blue-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
+            {isFullscreen ? (
+              <Minimize2 className={`w-4 h-4 ${isLight ? 'text-blue-700' : isContrast ? 'text-amber-400' : 'text-blue-400'}`} />
+            ) : (
+              <Maximize2 className="w-4 h-4" />
+            )}
           </button>
         </div>
       </div>
 
       {/* Mode Navigation Tabs */}
-      <div className="px-4 border-b border-slate-800/80 bg-slate-900/40 flex overflow-x-auto no-scrollbar gap-1 pt-2">
+      <div className={`px-4 border-b flex overflow-x-auto no-scrollbar gap-1.5 pt-2 ${
+        isLight
+          ? 'border-slate-200 bg-slate-100/90'
+          : isContrast
+          ? 'border-amber-400/50 bg-black'
+          : 'border-slate-800/80 bg-slate-900/40'
+      }`}>
         {[
           { id: 'nasales', labelFr: '1. Voyelles Nasales', labelAr: 'الحركات الأنفية', icon: Volume2 },
           { id: 'liaisons', labelFr: '2. Liaisons & Élisions', labelAr: 'الوصل والإدغام', icon: Zap },
@@ -247,15 +309,27 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                 stopAudio();
                 setActiveTab(tab.id as StudioTab);
               }}
-              className={`px-3.5 py-2.5 rounded-t-xl text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
+              className={`px-4 py-3 rounded-t-xl text-xs font-bold flex items-center gap-2 border-b-2 transition-all cursor-pointer whitespace-nowrap min-h-[44px] ${
                 isActive
-                  ? 'border-blue-500 text-blue-400 bg-blue-500/10'
+                  ? isLight
+                    ? 'border-blue-600 text-blue-800 bg-white shadow-xs font-black'
+                    : isContrast
+                    ? 'border-amber-400 text-amber-300 bg-stone-900 font-black'
+                    : 'border-blue-500 text-blue-400 bg-blue-500/10'
+                  : isLight
+                  ? 'border-transparent text-slate-700 hover:text-slate-950 hover:bg-white/60 font-semibold'
+                  : isContrast
+                  ? 'border-transparent text-stone-300 hover:text-white hover:bg-stone-900'
                   : 'border-transparent text-slate-400 hover:text-slate-200 hover:bg-slate-800/30'
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon className="w-4 h-4 shrink-0" />
               <span>{tab.labelFr}</span>
-              <span className="text-[10px] text-slate-500 hidden md:inline" dir="rtl">({tab.labelAr})</span>
+              <span className={`text-[11px] font-medium hidden md:inline ${
+                isActive
+                  ? isLight ? 'text-blue-700' : isContrast ? 'text-amber-300' : 'text-blue-400'
+                  : isLight ? 'text-slate-600' : isContrast ? 'text-stone-400' : 'text-slate-500'
+              }`} dir="rtl">({tab.labelAr})</span>
             </button>
           );
         })}
@@ -267,38 +341,81 @@ export const FrenchAudioStudio: React.FC<Props> = ({
         {activeTab === 'nasales' && (
           <div className="space-y-6">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {FRENCH_NASAL_VOWELS.map((nasal) => (
-                <button
-                  key={nasal.ipa}
-                  type="button"
-                  onClick={() => {
-                    setSelectedNasal(nasal);
-                    speakFrench(nasal.exemplarWords[0].word);
-                  }}
-                  className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
-                    selectedNasal.ipa === nasal.ipa
-                      ? 'bg-blue-500/15 border-blue-500/50 shadow-lg shadow-blue-500/10 text-white'
-                      : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-300'
-                  }`}
-                >
-                  <div className="text-xl font-bold font-mono text-blue-400 mb-1">{nasal.ipa}</div>
-                  <div className="text-xs font-semibold text-slate-200">{nasal.spellingPatterns.join(', ')}</div>
-                  <div className="text-[11px] text-slate-400 mt-1 truncate" dir="rtl">{nasal.nameAr}</div>
-                </button>
-              ))}
+              {FRENCH_NASAL_VOWELS.map((nasal) => {
+                const isSelected = selectedNasal.ipa === nasal.ipa;
+                return (
+                  <button
+                    key={nasal.ipa}
+                    type="button"
+                    onClick={() => {
+                      setSelectedNasal(nasal);
+                      speakFrench(nasal.exemplarWords[0].word);
+                    }}
+                    className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer min-h-[44px] ${
+                      isSelected
+                        ? isLight
+                          ? 'bg-blue-50 border-2 border-blue-600 shadow-md ring-2 ring-blue-600/20 text-slate-900'
+                          : isContrast
+                          ? 'bg-stone-900 border-2 border-amber-400 text-white shadow-md'
+                          : 'bg-blue-500/15 border-blue-500/50 shadow-lg shadow-blue-500/10 text-white'
+                        : isLight
+                        ? 'bg-white border border-slate-300 hover:border-blue-400 hover:bg-blue-50/40 text-slate-800 shadow-xs'
+                        : isContrast
+                        ? 'bg-black border border-stone-700 hover:border-amber-400 text-stone-200'
+                        : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-300'
+                    }`}
+                  >
+                    <div className={`text-xl font-bold font-mono mb-1 ${
+                      isSelected
+                        ? isLight ? 'text-blue-800 font-extrabold' : isContrast ? 'text-amber-300 font-extrabold' : 'text-blue-400'
+                        : isLight ? 'text-blue-700 font-bold' : isContrast ? 'text-amber-300' : 'text-blue-400'
+                    }`}>{nasal.ipa}</div>
+                    <div className={`text-xs font-bold ${
+                      isSelected
+                        ? isLight ? 'text-slate-950 font-black' : isContrast ? 'text-white' : 'text-slate-100'
+                        : isLight ? 'text-slate-900 font-semibold' : isContrast ? 'text-stone-300' : 'text-slate-200'
+                    }`}>{nasal.spellingPatterns.join(', ')}</div>
+                    <div className={`text-[11px] mt-1 truncate font-medium ${
+                      isSelected
+                        ? isLight ? 'text-slate-800 font-bold' : isContrast ? 'text-amber-200' : 'text-slate-300'
+                        : isLight ? 'text-slate-700' : isContrast ? 'text-stone-400' : 'text-slate-400'
+                    }`} dir="rtl">{nasal.nameAr}</div>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Selected Nasal Deep Dive */}
-            <div className="p-5 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+            <div className={`p-5 rounded-3xl border space-y-4 shadow-sm ${
+              isLight
+                ? 'bg-white border-slate-200 text-slate-900'
+                : isContrast
+                ? 'bg-black border-amber-400 text-white'
+                : 'bg-slate-900/70 border-slate-800 text-slate-100'
+            }`}>
+              <div className={`flex flex-wrap items-center justify-between gap-2 pb-3 border-b ${
+                isLight ? 'border-slate-200' : isContrast ? 'border-amber-400/40' : 'border-slate-800/80'
+              }`}>
                 <div>
-                  <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                    <span className="text-xl font-mono text-blue-400">{selectedNasal.ipa}</span>
+                  <h3 className={`text-base font-bold flex items-center gap-2 ${
+                    isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-100'
+                  }`}>
+                    <span className={`text-xl font-mono font-black ${
+                      isLight ? 'text-blue-700' : isContrast ? 'text-amber-300' : 'text-blue-400'
+                    }`}>{selectedNasal.ipa}</span>
                     <span>{selectedNasal.nameEn}</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5" dir="rtl">{selectedNasal.nameAr}</p>
+                  <p className={`text-xs font-medium mt-0.5 ${
+                    isLight ? 'text-slate-700' : isContrast ? 'text-amber-200' : 'text-slate-400'
+                  }`} dir="rtl">{selectedNasal.nameAr}</p>
                 </div>
-                <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                <span className={`text-xs font-mono font-bold px-2.5 py-1 rounded-lg border ${
+                  isLight
+                    ? 'bg-blue-50 text-blue-900 border-blue-200'
+                    : isContrast
+                    ? 'bg-stone-900 text-amber-300 border-amber-400'
+                    : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+                }`}>
                   Graphies: {selectedNasal.spellingPatterns.join(', ')}
                 </span>
               </div>
@@ -308,17 +425,29 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                 {selectedNasal.exemplarWords.map((item) => (
                   <div
                     key={item.word}
-                    className="p-3 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-3 group hover:border-blue-500/40 transition-all"
+                    className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 group transition-all ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-200 text-slate-900 hover:border-blue-400 hover:bg-blue-50/30 shadow-xs'
+                        : isContrast
+                        ? 'bg-stone-950 border-stone-800 text-white hover:border-amber-400'
+                        : 'bg-slate-950/80 border-slate-800 text-slate-100 hover:border-blue-500/40'
+                    }`}
                   >
                     <div>
-                      <div className="text-sm font-bold text-slate-100">{item.word}</div>
-                      <div className="text-xs font-mono text-blue-400">{item.phonetic}</div>
-                      <div className="text-[11px] text-slate-400" dir="rtl">{item.translationAr}</div>
+                      <div className={`text-sm font-bold ${isLight ? 'text-slate-950' : 'text-slate-100'}`}>{item.word}</div>
+                      <div className={`text-xs font-mono font-bold ${isLight ? 'text-blue-800' : 'text-blue-400'}`}>{item.phonetic}</div>
+                      <div className={`text-[11px] font-medium ${isLight ? 'text-slate-700' : 'text-slate-400'}`} dir="rtl">{item.translationAr}</div>
                     </div>
                     <button
                       type="button"
                       onClick={() => speakFrench(item.word)}
-                      className="p-2 rounded-xl bg-blue-500/20 text-blue-300 hover:bg-blue-500/30 transition-all cursor-pointer"
+                      className={`p-2.5 rounded-xl border transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center ${
+                        isLight
+                          ? 'bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 shadow-xs'
+                          : isContrast
+                          ? 'bg-stone-900 border-amber-400 text-amber-300 hover:bg-stone-800'
+                          : 'bg-blue-500/20 border-transparent text-blue-300 hover:bg-blue-500/30'
+                      }`}
                       title="Écouter la prononciation"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -328,12 +457,26 @@ export const FrenchAudioStudio: React.FC<Props> = ({
               </div>
 
               {/* Egyptian Trap Warning Alert */}
-              <div className="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-3 text-xs">
-                <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div className={`p-4 rounded-2xl border flex items-start gap-3 text-xs ${
+                isLight
+                  ? 'bg-amber-50/90 border-2 border-amber-300 text-amber-950 shadow-xs'
+                  : isContrast
+                  ? 'bg-black border-2 border-amber-400 text-amber-200'
+                  : 'bg-amber-500/10 border border-amber-500/30 text-slate-300'
+              }`}>
+                <AlertTriangle className={`w-4 h-4 shrink-0 mt-0.5 ${
+                  isLight ? 'text-amber-800' : isContrast ? 'text-amber-400' : 'text-amber-400'
+                }`} />
                 <div className="space-y-1">
-                  <div className="font-bold text-amber-300">Piège Fréquent à l'Examen :</div>
-                  <div className="text-slate-300 leading-relaxed">{selectedNasal.trapWarningEn}</div>
-                  <div className="text-amber-200/90 leading-relaxed font-arabic" dir="rtl">
+                  <div className={`font-bold ${
+                    isLight ? 'text-amber-950 font-black' : isContrast ? 'text-amber-300' : 'text-amber-300'
+                  }`}>Piège Fréquent à l'Examen :</div>
+                  <div className={`leading-relaxed font-medium ${
+                    isLight ? 'text-slate-800' : isContrast ? 'text-stone-200' : 'text-slate-300'
+                  }`}>{selectedNasal.trapWarningEn}</div>
+                  <div className={`leading-relaxed font-arabic font-semibold ${
+                    isLight ? 'text-amber-950' : isContrast ? 'text-amber-200' : 'text-amber-200/90'
+                  }`} dir="rtl">
                     {selectedNasal.trapWarningAr}
                   </div>
                 </div>
@@ -358,7 +501,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                   isNasal={true}
                   audioExampleWord={selectedNasal.exemplarWords[0]?.word}
                   language="fr"
-                  isLight={theme === 'light'}
+                  isLight={isLight}
                 />
               </div>
             </div>
@@ -369,60 +512,113 @@ export const FrenchAudioStudio: React.FC<Props> = ({
         {activeTab === 'liaisons' && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
-              {FRENCH_LIAISON_RULES.map((rule) => (
-                <button
-                  key={rule.id}
-                  type="button"
-                  onClick={() => setSelectedLiaison(rule)}
-                  className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
-                    selectedLiaison.id === rule.id
-                      ? 'bg-blue-500/15 border-blue-500/50 shadow-lg text-white'
-                      : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-300'
-                  }`}
-                >
-                  <span
-                    className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider mb-2 inline-block ${
-                      rule.type === 'obligatoire'
-                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                        : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
+              {FRENCH_LIAISON_RULES.map((rule) => {
+                const isSelected = selectedLiaison.id === rule.id;
+                return (
+                  <button
+                    key={rule.id}
+                    type="button"
+                    onClick={() => setSelectedLiaison(rule)}
+                    className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer min-h-[44px] ${
+                      isSelected
+                        ? isLight
+                          ? 'bg-blue-50 border-2 border-blue-600 shadow-md ring-2 ring-blue-600/20 text-slate-900'
+                          : isContrast
+                          ? 'bg-stone-900 border-2 border-amber-400 text-white shadow-md'
+                          : 'bg-blue-500/15 border-blue-500/50 shadow-lg text-white'
+                        : isLight
+                        ? 'bg-white border border-slate-300 hover:border-blue-400 hover:bg-blue-50/40 text-slate-800 shadow-xs'
+                        : isContrast
+                        ? 'bg-black border border-stone-700 hover:border-amber-400 text-stone-200'
+                        : 'bg-slate-900/60 border-slate-800 hover:border-slate-700 text-slate-300'
                     }`}
                   >
-                    {rule.type}
-                  </span>
-                  <div className="text-xs font-bold text-slate-200 line-clamp-1">{rule.titleFr}</div>
-                  <div className="text-[11px] text-slate-400 mt-1 truncate" dir="rtl">{rule.titleAr}</div>
-                </button>
-              ))}
+                    <span
+                      className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider mb-2 inline-block border ${
+                        rule.type === 'obligatoire'
+                          ? isLight
+                            ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                            : isContrast
+                            ? 'bg-black text-emerald-300 border-emerald-400'
+                            : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                          : isLight
+                          ? 'bg-rose-100 text-rose-900 border-rose-300'
+                          : isContrast
+                          ? 'bg-black text-rose-300 border-rose-400'
+                          : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                      }`}
+                    >
+                      {rule.type}
+                    </span>
+                    <div className={`text-xs font-bold line-clamp-1 ${
+                      isSelected
+                        ? isLight ? 'text-slate-950 font-black' : 'text-slate-100'
+                        : isLight ? 'text-slate-900' : 'text-slate-200'
+                    }`}>{rule.titleFr}</div>
+                    <div className={`text-[11px] mt-1 truncate font-medium ${
+                      isSelected
+                        ? isLight ? 'text-slate-800' : 'text-slate-300'
+                        : isLight ? 'text-slate-700' : 'text-slate-400'
+                    }`} dir="rtl">{rule.titleAr}</div>
+                  </button>
+                );
+              })}
             </div>
 
-            <div className="p-5 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-4">
-              <div className="border-b border-slate-800/80 pb-3">
-                <h3 className="text-base font-bold text-slate-100">{selectedLiaison.titleFr}</h3>
-                <p className="text-xs text-blue-400 mt-1" dir="rtl">{selectedLiaison.titleAr}</p>
-                <p className="text-xs text-slate-300 mt-2 leading-relaxed">{selectedLiaison.ruleExplanationFr}</p>
-                <p className="text-xs text-slate-400 mt-1 leading-relaxed" dir="rtl">{selectedLiaison.ruleExplanationAr}</p>
+            <div className={`p-5 rounded-3xl border space-y-4 shadow-sm ${
+              isLight
+                ? 'bg-white border-slate-200 text-slate-900'
+                : isContrast
+                ? 'bg-black border-amber-400 text-white'
+                : 'bg-slate-900/70 border-slate-800 text-slate-100'
+            }`}>
+              <div className={`border-b pb-3 ${
+                isLight ? 'border-slate-200' : isContrast ? 'border-amber-400/40' : 'border-slate-800/80'
+              }`}>
+                <h3 className={`text-base font-bold ${isLight ? 'text-slate-950' : 'text-slate-100'}`}>{selectedLiaison.titleFr}</h3>
+                <p className={`text-xs font-bold mt-1 ${isLight ? 'text-blue-800' : 'text-blue-400'}`} dir="rtl">{selectedLiaison.titleAr}</p>
+                <p className={`text-xs mt-2 leading-relaxed font-medium ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>{selectedLiaison.ruleExplanationFr}</p>
+                <p className={`text-xs mt-1 leading-relaxed font-medium ${isLight ? 'text-slate-700' : 'text-slate-400'}`} dir="rtl">{selectedLiaison.ruleExplanationAr}</p>
               </div>
 
               <div className="space-y-2.5">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Exemples Pratiques d'Application :</div>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>Exemples Pratiques d'Application :</div>
                 {selectedLiaison.examples.map((eg, idx) => (
                   <div
                     key={idx}
-                    className="p-3.5 rounded-2xl bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-4"
+                    className={`p-3.5 rounded-2xl border flex items-center justify-between gap-4 ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-xs'
+                        : isContrast
+                        ? 'bg-stone-950 border-stone-800 text-white'
+                        : 'bg-slate-950/80 border-slate-800 text-slate-100'
+                    }`}
                   >
                     <div className="space-y-1">
-                      <div className="text-sm font-bold text-slate-100 flex items-center gap-2">
+                      <div className={`text-sm font-bold flex items-center gap-2 flex-wrap ${isLight ? 'text-slate-950' : 'text-slate-100'}`}>
                         <span>{eg.phraseFr}</span>
-                        <span className="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                        <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded border ${
+                          isLight
+                            ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                            : isContrast
+                            ? 'bg-black text-emerald-300 border-emerald-400'
+                            : 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                        }`}>
                           {eg.phoneticAlert}
                         </span>
                       </div>
-                      <div className="text-xs text-slate-400" dir="rtl">{eg.translationAr}</div>
+                      <div className={`text-xs font-medium ${isLight ? 'text-slate-700' : 'text-slate-400'}`} dir="rtl">{eg.translationAr}</div>
                     </div>
                     <button
                       type="button"
                       onClick={() => speakFrench(eg.phraseFr)}
-                      className="p-2.5 rounded-xl bg-blue-500/20 text-blue-300 hover:bg-blue-500/30 transition-all cursor-pointer shrink-0"
+                      className={`p-2.5 rounded-xl border transition-all cursor-pointer shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center ${
+                        isLight
+                          ? 'bg-blue-100 border-blue-300 text-blue-900 hover:bg-blue-200 shadow-xs'
+                          : isContrast
+                          ? 'bg-stone-900 border-amber-400 text-amber-300 hover:bg-stone-800'
+                          : 'bg-blue-500/20 border-transparent text-blue-300 hover:bg-blue-500/30'
+                      }`}
                       title="Écouter la phrase complète"
                     >
                       <Volume2 className="w-4 h-4" />
@@ -439,88 +635,163 @@ export const FrenchAudioStudio: React.FC<Props> = ({
           <div className="space-y-6">
             {/* Pronoun Category Picker */}
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
-              {FRENCH_PRONOUN_RULES.map((rule) => (
-                <button
-                  key={rule.id}
-                  type="button"
-                  onClick={() => setSelectedPronounRule(rule)}
-                  className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
-                    selectedPronounRule.id === rule.id
-                      ? 'bg-blue-500/20 border-blue-500 text-blue-300 shadow-md font-bold'
-                      : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  <div className="text-base font-mono font-bold">{rule.category}</div>
-                  <div className="text-[11px] truncate mt-0.5">{rule.titleAr}</div>
-                </button>
-              ))}
+              {FRENCH_PRONOUN_RULES.map((rule) => {
+                const isSelected = selectedPronounRule.id === rule.id;
+                return (
+                  <button
+                    key={rule.id}
+                    type="button"
+                    onClick={() => setSelectedPronounRule(rule)}
+                    className={`p-3 rounded-2xl border text-center transition-all cursor-pointer min-h-[44px] ${
+                      isSelected
+                        ? isLight
+                          ? 'bg-blue-50 border-2 border-blue-600 text-blue-900 shadow-md font-black ring-2 ring-blue-600/20'
+                          : isContrast
+                          ? 'bg-stone-900 border-2 border-amber-400 text-amber-300 shadow-md font-bold'
+                          : 'bg-blue-500/20 border-blue-500 text-blue-300 shadow-md font-bold'
+                        : isLight
+                        ? 'bg-white border border-slate-300 text-slate-800 hover:border-blue-400 hover:text-slate-950 shadow-xs font-semibold'
+                        : isContrast
+                        ? 'bg-black border border-stone-700 text-stone-400 hover:text-white'
+                        : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    <div className="text-base font-mono font-bold">{rule.category}</div>
+                    <div className="text-[11px] truncate mt-0.5 font-medium">{rule.titleAr}</div>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Selected Rule Explanation */}
-            <div className="p-5 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+            <div className={`p-5 rounded-3xl border space-y-4 shadow-sm ${
+              isLight
+                ? 'bg-white border-slate-200 text-slate-900'
+                : isContrast
+                ? 'bg-black border-amber-400 text-white'
+                : 'bg-slate-900/70 border-slate-800 text-slate-100'
+            }`}>
+              <div className={`flex flex-wrap items-center justify-between gap-2 pb-3 border-b ${
+                isLight ? 'border-slate-200' : isContrast ? 'border-amber-400/40' : 'border-slate-800/80'
+              }`}>
                 <div>
-                  <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
+                  <h3 className={`text-base font-bold flex items-center gap-2 ${
+                    isLight ? 'text-slate-950' : 'text-slate-100'
+                  }`}>
                     <span>{selectedPronounRule.titleFr}</span>
-                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">
+                    <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded border ${
+                      isLight
+                        ? 'bg-blue-100 text-blue-900 border-blue-200'
+                        : isContrast
+                        ? 'bg-stone-900 text-amber-300 border-amber-400'
+                        : 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+                    }`}>
                       {selectedPronounRule.category}
                     </span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5" dir="rtl">{selectedPronounRule.titleAr}</p>
+                  <p className={`text-xs font-medium mt-0.5 ${
+                    isLight ? 'text-slate-700' : isContrast ? 'text-amber-200' : 'text-slate-400'
+                  }`} dir="rtl">{selectedPronounRule.titleAr}</p>
                 </div>
-                <div className="text-xs font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-xl border border-slate-800">
+                <div className={`text-xs font-mono font-bold px-3 py-1.5 rounded-xl border ${
+                  isLight
+                    ? 'bg-slate-100 text-slate-800 border-slate-300'
+                    : isContrast
+                    ? 'bg-black text-amber-200 border-amber-400'
+                    : 'bg-slate-950 text-slate-400 border-slate-800'
+                }`}>
                   {selectedPronounRule.replacedForms}
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800">
-                  <div className="font-bold text-slate-300 mb-1">Règle d'or (Français) :</div>
-                  <p className="text-slate-400 leading-relaxed">{selectedPronounRule.ruleFr}</p>
+                <div className={`p-3 rounded-xl border ${
+                  isLight
+                    ? 'bg-slate-50 border-slate-200 text-slate-900'
+                    : isContrast
+                    ? 'bg-stone-950 border-stone-800 text-stone-200'
+                    : 'bg-slate-950/70 border-slate-800 text-slate-300'
+                }`}>
+                  <div className={`font-bold mb-1 ${isLight ? 'text-slate-900' : 'text-slate-300'}`}>Règle d'or (Français) :</div>
+                  <p className={`leading-relaxed font-medium ${isLight ? 'text-slate-800' : 'text-slate-400'}`}>{selectedPronounRule.ruleFr}</p>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-950/70 border border-slate-800" dir="rtl">
-                  <div className="font-bold text-slate-300 mb-1">الشرح والتطبيق (العربية) :</div>
-                  <p className="text-slate-400 leading-relaxed font-arabic">{selectedPronounRule.ruleAr}</p>
+                <div className={`p-3 rounded-xl border ${
+                  isLight
+                    ? 'bg-slate-50 border-slate-200 text-slate-900'
+                    : isContrast
+                    ? 'bg-stone-950 border-stone-800 text-stone-200'
+                    : 'bg-slate-950/70 border-slate-800 text-slate-300'
+                }`} dir="rtl">
+                  <div className={`font-bold mb-1 ${isLight ? 'text-slate-900' : 'text-slate-300'}`}>الشرح والتطبيق (العربية) :</div>
+                  <p className={`leading-relaxed font-arabic font-medium ${isLight ? 'text-slate-800' : 'text-slate-400'}`}>{selectedPronounRule.ruleAr}</p>
                 </div>
               </div>
 
               {/* Interactive Audio Examples */}
               <div className="space-y-3 pt-2">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400">Modèles de Questions / Réponses :</div>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>Modèles de Questions / Réponses :</div>
                 {selectedPronounRule.examples.map((item, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2"
+                    className={`p-4 rounded-2xl border space-y-2.5 ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-xs'
+                        : isContrast
+                        ? 'bg-stone-950 border-stone-800 text-stone-200'
+                        : 'bg-slate-950/80 border-slate-800 text-slate-200'
+                    }`}
                   >
                     <div className="flex items-center justify-between gap-3">
-                      <div className="text-xs sm:text-sm font-semibold text-slate-200">
-                        <span className="text-blue-400 font-bold">Q :</span> {item.questionFr}
+                      <div className={`text-xs sm:text-sm font-semibold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
+                        <span className={`font-bold ${isLight ? 'text-blue-800' : 'text-blue-400'}`}>Q :</span> {item.questionFr}
                       </div>
                       <button
                         type="button"
                         onClick={() => speakFrench(item.questionFr)}
-                        className="p-1.5 rounded-lg bg-slate-900 text-slate-400 hover:text-blue-300 transition-all cursor-pointer"
+                        className={`p-2 rounded-xl border transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center ${
+                          isLight
+                            ? 'bg-white border-slate-300 text-slate-700 hover:text-blue-900 hover:bg-blue-50 shadow-xs'
+                            : isContrast
+                            ? 'bg-black border-stone-700 text-stone-300 hover:text-white'
+                            : 'bg-slate-900 border-transparent text-slate-400 hover:text-blue-300'
+                        }`}
                         title="Écouter la question"
                       >
-                        <Volume2 className="w-3.5 h-3.5" />
+                        <Volume2 className="w-4 h-4" />
                       </button>
                     </div>
 
-                    <div className="flex items-center justify-between gap-3 pt-1 border-t border-slate-900">
-                      <div className="text-xs sm:text-sm font-bold text-emerald-300">
-                        <span className="text-emerald-400">R :</span> {item.answerFr}
+                    <div className={`flex items-center justify-between gap-3 pt-2 border-t ${
+                      isLight ? 'border-slate-200' : isContrast ? 'border-stone-800' : 'border-slate-900'
+                    }`}>
+                      <div className={`text-xs sm:text-sm font-bold ${
+                        isLight ? 'text-emerald-950' : 'text-emerald-300'
+                      }`}>
+                        <span className={isLight ? 'text-emerald-800' : 'text-emerald-400'}>R :</span> {item.answerFr}
                       </div>
                       <button
                         type="button"
                         onClick={() => speakFrench(item.answerFr)}
-                        className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500/30 transition-all cursor-pointer"
+                        className={`p-2 rounded-xl border transition-all cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center ${
+                          isLight
+                            ? 'bg-emerald-100 border-emerald-300 text-emerald-900 hover:bg-emerald-200 shadow-xs'
+                            : isContrast
+                            ? 'bg-stone-900 border-emerald-400 text-emerald-300 hover:bg-stone-800'
+                            : 'bg-emerald-500/20 border-transparent text-emerald-300 hover:bg-emerald-500/30'
+                        }`}
                         title="Écouter la réponse"
                       >
-                        <Volume2 className="w-3.5 h-3.5" />
+                        <Volume2 className="w-4 h-4" />
                       </button>
                     </div>
 
-                    <div className="text-[11px] text-slate-400 bg-slate-900/50 p-2 rounded-lg" dir="rtl">
+                    <div className={`text-xs p-2.5 rounded-xl font-medium border ${
+                      isLight
+                        ? 'bg-white border-slate-200 text-slate-800'
+                        : isContrast
+                        ? 'bg-black border-stone-800 text-stone-300'
+                        : 'bg-slate-900/50 border-slate-800 text-slate-300'
+                    }`} dir="rtl">
                       💡 {item.explanationAr}
                     </div>
                   </div>
@@ -534,11 +805,19 @@ export const FrenchAudioStudio: React.FC<Props> = ({
         {activeTab === 'situations' && (
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-blue-400">
+              <span className={`text-xs font-bold ${
+                isLight ? 'text-blue-800' : isContrast ? 'text-amber-300' : 'text-blue-400'
+              }`}>
                 Situation {currentSitIndex + 1} sur {FRENCH_SITUATION_SCENARIOS.length}
               </span>
-              <div className="flex items-center gap-1.5 text-xs font-mono bg-blue-500/10 text-blue-300 px-3 py-1 rounded-xl border border-blue-500/20">
-                <Award className="w-3.5 h-3.5" />
+              <div className={`flex items-center gap-1.5 text-xs font-mono font-bold px-3 py-1.5 rounded-xl border ${
+                isLight
+                  ? 'bg-blue-50 text-blue-900 border-blue-200'
+                  : isContrast
+                  ? 'bg-black text-amber-300 border-amber-400'
+                  : 'bg-blue-500/10 text-blue-300 border-blue-500/20'
+              }`}>
+                <Award className="w-4 h-4" />
                 Score: {situationScore}
               </div>
             </div>
@@ -547,11 +826,23 @@ export const FrenchAudioStudio: React.FC<Props> = ({
             {(() => {
               const sit = FRENCH_SITUATION_SCENARIOS[currentSitIndex];
               return (
-                <div className="p-6 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-5 shadow-xl">
+                <div className={`p-6 rounded-3xl border space-y-5 shadow-lg ${
+                  isLight
+                    ? 'bg-white border-slate-200 text-slate-900'
+                    : isContrast
+                    ? 'bg-black border-amber-400 text-white'
+                    : 'bg-slate-900/70 border-slate-800 text-slate-100'
+                }`}>
                   <div className="space-y-1.5">
-                    <span className="text-[10px] font-mono text-blue-400 uppercase tracking-wider">{sit.unitTitle}</span>
-                    <h3 className="text-base font-bold text-slate-100">{sit.situationPromptFr}</h3>
-                    <p className="text-xs text-slate-400" dir="rtl">{sit.situationPromptAr}</p>
+                    <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+                      isLight ? 'text-blue-800' : isContrast ? 'text-amber-300' : 'text-blue-400'
+                    }`}>{sit.unitTitle}</span>
+                    <h3 className={`text-base font-bold ${
+                      isLight ? 'text-slate-950' : isContrast ? 'text-white' : 'text-slate-100'
+                    }`}>{sit.situationPromptFr}</h3>
+                    <p className={`text-xs font-medium ${
+                      isLight ? 'text-slate-700' : isContrast ? 'text-amber-200' : 'text-slate-400'
+                    }`} dir="rtl">{sit.situationPromptAr}</p>
                   </div>
 
                   {/* Choice Buttons */}
@@ -564,21 +855,35 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                         setSituationScore((prev) => prev + 1);
                         speakFrench(sit.correctResponseFr);
                       }}
-                      className={`w-full p-4 rounded-2xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-3 cursor-pointer ${
+                      className={`w-full p-4 rounded-2xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-3 cursor-pointer min-h-[44px] ${
                         chosenSitChoice === 'correct'
-                          ? 'bg-emerald-500/20 border-emerald-500/60 text-emerald-300'
+                          ? isLight
+                            ? 'bg-emerald-50 border-2 border-emerald-600 text-emerald-950 shadow-md font-bold'
+                            : isContrast
+                            ? 'bg-stone-900 border-2 border-emerald-400 text-emerald-300 shadow-md font-bold'
+                            : 'bg-emerald-500/20 border-emerald-500/60 text-emerald-300'
                           : chosenSitChoice !== null
-                          ? 'opacity-60 bg-slate-900 border-slate-800 text-slate-300'
+                          ? isLight
+                            ? 'opacity-60 bg-slate-100 border-slate-300 text-slate-600'
+                            : isContrast
+                            ? 'opacity-50 bg-stone-900 border-stone-800 text-stone-400'
+                            : 'opacity-60 bg-slate-900 border-slate-800 text-slate-300'
+                          : isLight
+                          ? 'bg-slate-50 border border-slate-300 hover:border-blue-500 hover:bg-blue-50/40 text-slate-900 shadow-xs'
+                          : isContrast
+                          ? 'bg-black border border-stone-700 hover:border-amber-400 text-white'
                           : 'bg-slate-950 border-slate-800 hover:border-blue-500/40 text-slate-200'
                       }`}
                     >
                       <div className="space-y-1">
                         <div>A) {sit.correctResponseFr}</div>
                         {chosenSitChoice !== null && (
-                          <div className="text-xs font-normal text-slate-400" dir="rtl">{sit.correctResponseAr}</div>
+                          <div className={`text-xs font-medium ${
+                            isLight ? 'text-slate-700' : isContrast ? 'text-stone-300' : 'text-slate-400'
+                          }`} dir="rtl">{sit.correctResponseAr}</div>
                         )}
                       </div>
-                      {chosenSitChoice === 'correct' && <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />}
+                      {chosenSitChoice === 'correct' && <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />}
                     </button>
 
                     <button
@@ -588,23 +893,37 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                         setChosenSitChoice('trap');
                         speakFrench(sit.trapDistractorFr);
                       }}
-                      className={`w-full p-4 rounded-2xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-3 cursor-pointer ${
+                      className={`w-full p-4 rounded-2xl border text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between gap-3 cursor-pointer min-h-[44px] ${
                         chosenSitChoice === 'trap'
-                          ? 'bg-rose-500/20 border-rose-500/60 text-rose-300'
+                          ? isLight
+                            ? 'bg-rose-50 border-2 border-rose-600 text-rose-950 shadow-md font-bold'
+                            : isContrast
+                            ? 'bg-stone-900 border-2 border-rose-400 text-rose-300 shadow-md font-bold'
+                            : 'bg-rose-500/20 border-rose-500/60 text-rose-300'
                           : chosenSitChoice !== null
-                          ? 'opacity-60 bg-slate-900 border-slate-800 text-slate-300'
+                          ? isLight
+                            ? 'opacity-60 bg-slate-100 border-slate-300 text-slate-600'
+                            : isContrast
+                            ? 'opacity-50 bg-stone-900 border-stone-800 text-stone-400'
+                            : 'opacity-60 bg-slate-900 border-slate-800 text-slate-300'
+                          : isLight
+                          ? 'bg-slate-50 border border-slate-300 hover:border-blue-500 hover:bg-blue-50/40 text-slate-900 shadow-xs'
+                          : isContrast
+                          ? 'bg-black border border-stone-700 hover:border-amber-400 text-white'
                           : 'bg-slate-950 border-slate-800 hover:border-blue-500/40 text-slate-200'
                       }`}
                     >
                       <div className="space-y-1">
                         <div>B) {sit.trapDistractorFr}</div>
                         {chosenSitChoice !== null && (
-                          <div className="text-xs font-normal text-rose-300/80" dir="rtl">
+                          <div className={`text-xs font-medium ${
+                            isLight ? 'text-rose-950' : isContrast ? 'text-rose-300' : 'text-rose-300/80'
+                          }`} dir="rtl">
                             ⚠️ {sit.trapExplanationAr}
                           </div>
                         )}
                       </div>
-                      {chosenSitChoice === 'trap' && <XCircle className="w-5 h-5 text-rose-400 shrink-0" />}
+                      {chosenSitChoice === 'trap' && <XCircle className="w-5 h-5 text-rose-600 shrink-0" />}
                     </button>
                   </div>
 
@@ -617,7 +936,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                           setChosenSitChoice(null);
                           setCurrentSitIndex((prev) => (prev + 1) % FRENCH_SITUATION_SCENARIOS.length);
                         }}
-                        className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center gap-2 cursor-pointer transition-all shadow-lg shadow-blue-500/20"
+                        className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center gap-2 cursor-pointer transition-all shadow-md min-h-[44px]"
                       >
                         Situation Suivante
                         <RotateCcw className="w-3.5 h-3.5" />
@@ -635,45 +954,80 @@ export const FrenchAudioStudio: React.FC<Props> = ({
           <div className="space-y-6">
             {/* Track Selector Bar */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5">
-              {FRENCH_LISTENING_TRACKS.map((t) => (
-                <button
-                  key={t.id}
-                  type="button"
-                  onClick={() => {
-                    stopAudio();
-                    setActiveTrack(t);
-                    setExamAnswers({});
-                  }}
-                  className={`p-3 rounded-2xl border text-left transition-all cursor-pointer ${
-                    activeTrack.id === t.id
-                      ? 'bg-blue-500/15 border-blue-500/50 text-white shadow-md'
-                      : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  <div className="text-xs font-bold text-slate-200 line-clamp-1">{t.titleFr}</div>
-                  <div className="text-[10px] text-slate-400 mt-0.5 truncate" dir="rtl">{t.titleAr}</div>
-                </button>
-              ))}
+              {FRENCH_LISTENING_TRACKS.map((t) => {
+                const isSelected = activeTrack.id === t.id;
+                return (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => {
+                      stopAudio();
+                      setActiveTrack(t);
+                      setExamAnswers({});
+                    }}
+                    className={`p-3 rounded-2xl border text-left transition-all cursor-pointer min-h-[44px] ${
+                      isSelected
+                        ? isLight
+                          ? 'bg-blue-50 border-2 border-blue-600 text-slate-950 shadow-md font-bold ring-2 ring-blue-600/20'
+                          : isContrast
+                          ? 'bg-stone-900 border-2 border-amber-400 text-white shadow-md font-bold'
+                          : 'bg-blue-500/15 border-blue-500/50 text-white shadow-md'
+                        : isLight
+                        ? 'bg-white border border-slate-300 text-slate-800 hover:border-blue-400 hover:text-slate-950 shadow-xs'
+                        : isContrast
+                        ? 'bg-black border border-stone-700 text-stone-400 hover:text-white'
+                        : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    <div className={`text-xs font-bold line-clamp-1 ${
+                      isSelected ? (isLight ? 'text-slate-950 font-black' : 'text-slate-100') : (isLight ? 'text-slate-900' : 'text-slate-200')
+                    }`}>{t.titleFr}</div>
+                    <div className={`text-[10px] mt-0.5 truncate font-medium ${
+                      isSelected ? (isLight ? 'text-slate-800' : 'text-slate-300') : (isLight ? 'text-slate-600' : 'text-slate-400')
+                    }`} dir="rtl">{t.titleAr}</div>
+                  </button>
+                );
+              })}
             </div>
 
             {/* Active Audio Player Deck */}
-            <div className="p-5 rounded-3xl bg-slate-900/70 border border-slate-800 space-y-4">
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
+            <div className={`p-5 rounded-3xl border space-y-4 shadow-sm ${
+              isLight
+                ? 'bg-white border-slate-200 text-slate-900'
+                : isContrast
+                ? 'bg-black border-amber-400 text-white'
+                : 'bg-slate-900/70 border-slate-800 text-slate-100'
+            }`}>
+              <div className={`flex flex-wrap items-center justify-between gap-3 pb-3 border-b ${
+                isLight ? 'border-slate-200' : isContrast ? 'border-amber-400/40' : 'border-slate-800/80'
+              }`}>
                 <div>
-                  <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                    <Headphones className="w-4 h-4 text-blue-400" />
+                  <h3 className={`text-base font-bold flex items-center gap-2 ${
+                    isLight ? 'text-slate-950' : 'text-slate-100'
+                  }`}>
+                    <Headphones className={`w-4 h-4 ${isLight ? 'text-blue-700' : 'text-blue-400'}`} />
                     <span>{activeTrack.titleFr}</span>
                   </h3>
-                  <p className="text-xs text-slate-400 mt-0.5" dir="rtl">{activeTrack.titleAr}</p>
+                  <p className={`text-xs font-medium mt-0.5 ${
+                    isLight ? 'text-slate-700' : 'text-slate-400'
+                  }`} dir="rtl">{activeTrack.titleAr}</p>
                 </div>
 
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setShowTranscript(!showTranscript)}
-                    className={`px-3 py-1.5 rounded-xl border text-xs font-semibold cursor-pointer transition-all ${
+                    className={`px-3.5 py-2 rounded-xl border text-xs font-bold cursor-pointer transition-all min-h-[44px] ${
                       showTranscript
-                        ? 'bg-blue-500/20 border-blue-500/40 text-blue-300'
+                        ? isLight
+                          ? 'bg-blue-100 border-blue-300 text-blue-900'
+                          : isContrast
+                          ? 'bg-stone-900 border-amber-400 text-amber-300'
+                          : 'bg-blue-500/20 border-blue-500/40 text-blue-300'
+                        : isLight
+                        ? 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
+                        : isContrast
+                        ? 'bg-black border-stone-700 text-stone-300'
                         : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -689,13 +1043,17 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                         playDialogueTrack(activeTrack);
                       }
                     }}
-                    className={`px-4 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-2 transition-all cursor-pointer ${
+                    className={`px-4 py-2 rounded-xl border text-xs font-bold flex items-center gap-2 transition-all cursor-pointer min-h-[44px] ${
                       isPlayingTrack
-                        ? 'bg-rose-500/20 border-rose-500/40 text-rose-300'
-                        : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'
+                        ? isLight
+                          ? 'bg-rose-100 border-rose-300 text-rose-900'
+                          : isContrast
+                          ? 'bg-black border-rose-400 text-rose-300'
+                          : 'bg-rose-500/20 border-rose-500/40 text-rose-300'
+                        : 'bg-blue-600 hover:bg-blue-700 text-white shadow-md'
                     }`}
                   >
-                    {isPlayingTrack ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                    {isPlayingTrack ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
                     {isPlayingTrack ? 'Pause' : 'Écouter le dialogue'}
                   </button>
                 </div>
@@ -711,22 +1069,38 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                         key={idx}
                         className={`p-3 rounded-xl border transition-all ${
                           isCurrent
-                            ? 'bg-blue-500/20 border-blue-500/60 shadow-md text-white'
+                            ? isLight
+                              ? 'bg-blue-50 border-2 border-blue-600 text-slate-950 shadow-md ring-1 ring-blue-600/30'
+                              : isContrast
+                              ? 'bg-stone-900 border-2 border-amber-400 text-white shadow-md'
+                              : 'bg-blue-500/20 border-blue-500/60 shadow-md text-white'
+                            : isLight
+                            ? 'bg-slate-50 border-slate-200 text-slate-800'
+                            : isContrast
+                            ? 'bg-black border-stone-800 text-stone-300'
                             : 'bg-slate-950/60 border-slate-800/80 text-slate-300'
                         }`}
                       >
-                        <div className="flex items-center justify-between gap-2 text-xs font-bold text-blue-400 mb-0.5">
-                          <span>{turn.speaker} <span className="text-slate-500 font-normal">({turn.speakerRoleFr})</span></span>
+                        <div className={`flex items-center justify-between gap-2 text-xs font-bold mb-0.5 ${
+                          isLight ? 'text-blue-800' : 'text-blue-400'
+                        }`}>
+                          <span>{turn.speaker} <span className={`font-normal ${isLight ? 'text-slate-600' : 'text-slate-500'}`}>({turn.speakerRoleFr})</span></span>
                           <button
                             type="button"
                             onClick={() => speakFrench(turn.textFr)}
-                            className="p-1 rounded text-slate-400 hover:text-blue-300 transition-all cursor-pointer"
+                            className={`p-1.5 rounded transition-all cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center ${
+                              isLight
+                                ? 'text-slate-700 hover:text-blue-900 hover:bg-blue-100'
+                                : isContrast
+                                ? 'text-stone-300 hover:text-amber-300'
+                                : 'text-slate-400 hover:text-blue-300'
+                            }`}
                           >
-                            <Volume2 className="w-3 h-3" />
+                            <Volume2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <div className="text-xs sm:text-sm font-medium">{turn.textFr}</div>
-                        <div className="text-xs text-slate-400 mt-1" dir="rtl">{turn.textAr}</div>
+                        <div className={`text-xs sm:text-sm font-medium ${isLight ? 'text-slate-950 font-semibold' : ''}`}>{turn.textFr}</div>
+                        <div className={`text-xs font-medium mt-1 ${isLight ? 'text-slate-700' : 'text-slate-400'}`} dir="rtl">{turn.textAr}</div>
                       </div>
                     );
                   })}
@@ -734,9 +1108,13 @@ export const FrenchAudioStudio: React.FC<Props> = ({
               )}
 
               {/* Comprehension Exam Items */}
-              <div className="pt-3 border-t border-slate-800/80 space-y-4">
-                <div className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                  <HelpCircle className="w-3.5 h-3.5 text-blue-400" />
+              <div className={`pt-3 border-t space-y-4 ${
+                isLight ? 'border-slate-200' : isContrast ? 'border-amber-400/40' : 'border-slate-800/80'
+              }`}>
+                <div className={`text-xs font-bold uppercase tracking-wider flex items-center gap-2 ${
+                  isLight ? 'text-slate-700' : 'text-slate-400'
+                }`}>
+                  <HelpCircle className={`w-3.5 h-3.5 ${isLight ? 'text-blue-700' : 'text-blue-400'}`} />
                   Questions de Compréhension (Style Examen du Bac) :
                 </div>
 
@@ -746,10 +1124,16 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                   const isCorrect = selectedIdx === q.correctIndex;
 
                   return (
-                    <div key={q.id} className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-3">
-                      <div className="text-xs sm:text-sm font-bold text-slate-200">
+                    <div key={q.id} className={`p-4 rounded-2xl border space-y-3 ${
+                      isLight
+                        ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-xs'
+                        : isContrast
+                        ? 'bg-stone-950 border-stone-800 text-stone-200'
+                        : 'bg-slate-950/80 border-slate-800 text-slate-200'
+                    }`}>
+                      <div className={`text-xs sm:text-sm font-bold ${isLight ? 'text-slate-950' : 'text-slate-200'}`}>
                         {q.questionFr}
-                        <div className="text-xs font-normal text-slate-400 mt-0.5" dir="rtl">{q.questionAr}</div>
+                        <div className={`text-xs font-medium mt-0.5 ${isLight ? 'text-slate-700' : 'text-slate-400'}`} dir="rtl">{q.questionAr}</div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -763,13 +1147,23 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                                 if (hasAnswered) return;
                                 setExamAnswers((prev) => ({ ...prev, [q.id]: optIdx }));
                               }}
-                              className={`p-2.5 rounded-xl border text-left text-xs transition-all cursor-pointer ${
+                              className={`p-3 rounded-xl border text-left text-xs transition-all cursor-pointer min-h-[44px] flex items-center ${
                                 isOptionSelected
                                   ? optIdx === q.correctIndex
-                                    ? 'bg-emerald-500/20 border-emerald-500/60 text-emerald-300 font-bold'
+                                    ? isLight
+                                      ? 'bg-emerald-50 border-2 border-emerald-600 text-emerald-950 font-bold shadow-xs'
+                                      : 'bg-emerald-500/20 border-emerald-500/60 text-emerald-300 font-bold'
+                                    : isLight
+                                    ? 'bg-rose-50 border-2 border-rose-600 text-rose-950 font-bold shadow-xs'
                                     : 'bg-rose-500/20 border-rose-500/60 text-rose-300'
                                   : hasAnswered && optIdx === q.correctIndex
-                                  ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                                  ? isLight
+                                    ? 'bg-emerald-50/80 border border-emerald-400 text-emerald-950 font-semibold'
+                                    : 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300'
+                                  : isLight
+                                  ? 'bg-white border-slate-300 text-slate-800 hover:border-blue-400 hover:bg-blue-50/50 shadow-xs'
+                                  : isContrast
+                                  ? 'bg-black border-stone-700 text-stone-300 hover:border-amber-400'
                                   : 'bg-slate-900/60 border-slate-800 text-slate-300 hover:border-slate-700'
                               }`}
                             >
@@ -781,18 +1175,24 @@ export const FrenchAudioStudio: React.FC<Props> = ({
 
                       {hasAnswered && (
                         <div
-                          className={`p-3 rounded-xl text-xs flex items-start gap-2.5 ${
-                            isCorrect ? 'bg-emerald-500/10 text-emerald-300' : 'bg-rose-500/10 text-rose-300'
+                          className={`p-3 rounded-xl text-xs flex items-start gap-2.5 font-medium border ${
+                            isCorrect
+                              ? isLight
+                                ? 'bg-emerald-50 border-emerald-300 text-emerald-950'
+                                : 'bg-emerald-500/10 border-transparent text-emerald-300'
+                              : isLight
+                              ? 'bg-rose-50 border-rose-300 text-rose-950'
+                              : 'bg-rose-500/10 border-transparent text-rose-300'
                           }`}
                         >
                           {isCorrect ? (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                            <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
                           ) : (
-                            <XCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                            <XCircle className={`w-4 h-4 shrink-0 mt-0.5 ${isLight ? 'text-rose-700' : 'text-rose-400'}`} />
                           )}
                           <div className="space-y-0.5">
                             <div>{q.explanationFr}</div>
-                            <div className="text-slate-400" dir="rtl">{q.explanationAr}</div>
+                            <div className={isLight ? 'text-slate-700' : 'text-slate-400'} dir="rtl">{q.explanationAr}</div>
                           </div>
                         </div>
                       )}
