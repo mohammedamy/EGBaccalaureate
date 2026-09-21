@@ -110,7 +110,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
   const [activeMathTab, setActiveMathTab] = useState<MathTab>('calculus');
   const [activePhysTab, setActivePhysTab] = useState<PhysicsTab>('circuits');
   const [activeChemTab, setActiveChemTab] = useState<ChemTab>('equilibrium');
-  const [activeBioTab, setActiveBioTab] = useState<BioTab>('skeleton');
+  const [activeBioTab, setActiveBioTab] = useState<BioTab>('anatomy_atlas');
   const [activeLangSubLab, setActiveLangSubLab] = useState<'english' | 'french' | 'arabic' | 'german' | 'italian' | 'spanish' | 'chinese'>('english');
   const [isGuidedModalOpen, setIsGuidedModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
@@ -212,6 +212,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     }
     if (activeLab === 'biology') {
       switch (activeBioTab) {
+        case 'anatomy_atlas':
         case 'sarcomere':
         case 'skeleton':
         case 'plant':
@@ -1233,6 +1234,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                   }`}
                 >
                   {[
+                    { id: 'anatomy_atlas' as BioTab, emoji: '🫀', labelEn: 'Human Body Anatomy Atlas (Hi-Res)', labelAr: 'أطلس تشريح جسم الإنسان عالي الدقة (أعضاء وأجهزة)' },
                     { id: 'skeleton' as BioTab, emoji: '🦴', labelEn: 'Skeleton Anatomy & Bone Studio (206)', labelAr: 'الهيكل العظمي والمفاصل (206)' },
                     { id: 'sarcomere' as BioTab, emoji: '💪', labelEn: 'Sarcomere Contraction', labelAr: 'انقباض الساركومير' },
                     { id: 'dna' as BioTab, emoji: '🧬', labelEn: 'DNA Studio & Replication (Central Dogma)', labelAr: 'استوديو DNA وتضاعف الشفرة والترجمة' },

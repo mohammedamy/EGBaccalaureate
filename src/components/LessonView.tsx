@@ -221,7 +221,7 @@ export const LessonView: React.FC<Props> = ({
       return <ChemistryLab lang={lang} theme={theme} />;
     }
     if (branch.id === 'thanaweya_biology' || branch.id === 'egbac_biology') {
-      let initialTab: BioTab = 'skeleton';
+      let initialTab: BioTab = 'anatomy_atlas';
       if (wType === 'biology_endocrine' || currentChapter?.id === 'th_bio_ch2') {
         initialTab = 'endocrine';
       } else if (wType === 'biology_menstrual' || currentChapter?.id === 'th_bio_ch3') {
@@ -240,6 +240,8 @@ export const LessonView: React.FC<Props> = ({
         initialTab = 'plant';
       } else if (wType === 'biology_skeleton' || lesson.id === 'th_bio_ch1_l1') {
         initialTab = 'skeleton';
+      } else if (wType === 'biology_anatomy_atlas') {
+        initialTab = 'anatomy_atlas';
       }
       return <BiologyLab lang={lang} theme={theme} initialTab={initialTab} />;
     }

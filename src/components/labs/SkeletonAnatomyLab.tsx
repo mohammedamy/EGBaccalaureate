@@ -26,6 +26,9 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import skeletonImg from '../../assets/biology/human_skeleton_anatomy.jpg';
+import skullImg from '../../assets/biology/human_skull_cranial_anatomy.jpg';
+import spineImg from '../../assets/biology/human_spine_vertebral_anatomy.jpg';
+import kneeImg from '../../assets/biology/human_knee_joint_anatomy.jpg';
 
 interface Props {
   lang?: Language;
@@ -761,6 +764,7 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
   const [selectedAtlasPinId, setSelectedAtlasPinId] = useState<string>('skull');
   const [hoveredAtlasPinId, setHoveredAtlasPinId] = useState<string | null>(null);
   const [atlasFilter, setAtlasFilter] = useState<'all' | 'axial' | 'appendicular'>('all');
+  const [atlasPlateView, setAtlasPlateView] = useState<'full_skeleton' | 'skull' | 'spine' | 'knee'>('full_skeleton');
 
   const selectedAtlasPin = useMemo(() => {
     return SKELETON_HOTSPOTS.find((p) => p.id === selectedAtlasPinId) || SKELETON_HOTSPOTS[0];
@@ -1879,6 +1883,54 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 p-2">
             {/* Left Column: Image with Interactive Numbered Pins & Directory */}
             <div className="lg:col-span-6 flex flex-col items-center gap-3">
+              {/* Plate View Selector */}
+              <div className="w-full flex items-center gap-1.5 p-1.5 rounded-xl bg-slate-900 border border-slate-800 text-xs font-bold">
+                <button
+                  type="button"
+                  onClick={() => setAtlasPlateView('full_skeleton')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasPlateView === 'full_skeleton'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  }`}
+                >
+                  {isArabic ? 'الهيكل كاملاً' : 'Full Skeleton'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAtlasPlateView('skull')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasPlateView === 'skull'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  }`}
+                >
+                  {isArabic ? 'الجمجمة' : 'Skull'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAtlasPlateView('spine')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasPlateView === 'spine'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  }`}
+                >
+                  {isArabic ? 'العمود الفقري' : 'Spine'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setAtlasPlateView('knee')}
+                  className={`flex-1 py-1.5 px-2 rounded-lg transition-all text-center cursor-pointer ${
+                    atlasPlateView === 'knee'
+                      ? 'bg-rose-600 text-white shadow-md'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                  }`}
+                >
+                  {isArabic ? 'مفصل الركبة' : 'Knee Joint'}
+                </button>
+              </div>
+
               <div
                 className={`relative w-full rounded-2xl overflow-hidden border shadow-2xl flex items-center justify-center p-2 group ${
                   isContrast
@@ -1888,92 +1940,145 @@ export const SkeletonAnatomyLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark
                     : 'bg-black/95 border-slate-800'
                 }`}
               >
-                {/* Anatomical Orientation Tags */}
-                <div className="absolute top-3 left-3 z-10 px-2 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-slate-300 pointer-events-none select-none">
-                  {isArabic ? 'المنظر الأمامي (Anterior)' : 'Anterior (Frontal) View'}
-                </div>
-                <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-slate-300 pointer-events-none select-none">
-                  {isArabic ? 'المنظر الخلفي (Posterior)' : 'Posterior (Dorsal) View'}
-                </div>
-
-                <img
-                  src={skeletonImg}
-                  alt="Human Skeleton Macroscopic Anatomy"
-                  className="w-full max-h-[640px] object-contain rounded-xl select-none"
-                />
-
-                {/* Sleek Numbered Circular Target Pins */}
-                {SKELETON_HOTSPOTS.map((pin, idx) => {
-                  const isSelected = selectedAtlasPin.id === pin.id;
-                  const isHovered = hoveredAtlasPinId === pin.id;
-                  const isAxial = pin.categoryEn === 'Axial Skeleton';
-
-                  // If category filter is active, fade out non-matching pins
-                  const matchesFilter =
-                    atlasFilter === 'all' ||
-                    (atlasFilter === 'axial' && isAxial) ||
-                    (atlasFilter === 'appendicular' && !isAxial);
-
-                  if (!matchesFilter) return null;
-
-                  return (
-                    <div
-                      key={pin.id}
-                      style={{
-                        top: `${pin.pinY}%`,
-                        left: `${pin.pinX}%`,
-                      }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 z-20 group/pin"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setSelectedAtlasPinId(pin.id)}
-                        onMouseEnter={() => setHoveredAtlasPinId(pin.id)}
-                        onMouseLeave={() => setHoveredAtlasPinId(null)}
-                        aria-label={isArabic ? pin.nameAr : pin.nameEn}
-                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono font-black text-xs cursor-pointer transition-all duration-200 select-none ${
-                          isSelected
-                            ? 'bg-rose-500 text-white ring-4 ring-rose-400/80 scale-125 shadow-[0_0_20px_rgba(244,63,94,0.9)] z-30'
-                            : isAxial
-                            ? 'bg-slate-950/90 text-rose-300 border-2 border-rose-500/70 hover:border-rose-400 hover:bg-rose-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
-                            : 'bg-slate-950/90 text-cyan-300 border-2 border-cyan-500/70 hover:border-cyan-400 hover:bg-cyan-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
-                        }`}
-                      >
-                        {isSelected && (
-                          <span className="absolute -inset-1.5 rounded-full bg-rose-400/40 animate-ping pointer-events-none" />
-                        )}
-                        <span>{idx + 1}</span>
-                      </button>
-
-                      {/* Floating Tooltip Label (Appears ONLY on active or hovered pin) */}
-                      {(isSelected || isHovered) && (
-                        <div
-                          className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-40 whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-black shadow-2xl backdrop-blur-md pointer-events-none transition-all flex items-center gap-1.5 ${
-                            isSelected
-                              ? 'bg-rose-600 text-white border border-rose-300 shadow-rose-950/60'
-                              : 'bg-slate-950/95 text-slate-100 border border-slate-700 shadow-black'
-                          }`}
-                        >
-                          <span>{isArabic ? pin.nameAr : pin.nameEn}</span>
-                          <span className="text-[9px] opacity-80 font-mono">
-                            ({isArabic ? toHindiDigits(pin.count) : pin.count})
-                          </span>
-                        </div>
-                      )}
+                {atlasPlateView === 'full_skeleton' && (
+                  <>
+                    {/* Anatomical Orientation Tags */}
+                    <div className="absolute top-3 left-3 z-10 px-2 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-slate-300 pointer-events-none select-none">
+                      {isArabic ? 'المنظر الأمامي (Anterior)' : 'Anterior (Frontal) View'}
                     </div>
-                  );
-                })}
+                    <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded-md bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-bold text-slate-300 pointer-events-none select-none">
+                      {isArabic ? 'المنظر الخلفي (Posterior)' : 'Posterior (Dorsal) View'}
+                    </div>
+
+                    <img
+                      src={skeletonImg}
+                      alt="Human Skeleton Macroscopic Anatomy"
+                      className="w-full max-h-[640px] object-contain rounded-xl select-none"
+                    />
+
+                    {/* Sleek Numbered Circular Target Pins */}
+                    {SKELETON_HOTSPOTS.map((pin, idx) => {
+                      const isSelected = selectedAtlasPin.id === pin.id;
+                      const isHovered = hoveredAtlasPinId === pin.id;
+                      const isAxial = pin.categoryEn === 'Axial Skeleton';
+
+                      // If category filter is active, fade out non-matching pins
+                      const matchesFilter =
+                        atlasFilter === 'all' ||
+                        (atlasFilter === 'axial' && isAxial) ||
+                        (atlasFilter === 'appendicular' && !isAxial);
+
+                      if (!matchesFilter) return null;
+
+                      return (
+                        <div
+                          key={pin.id}
+                          style={{
+                            top: `${pin.pinY}%`,
+                            left: `${pin.pinX}%`,
+                          }}
+                          className="absolute -translate-x-1/2 -translate-y-1/2 z-20 group/pin"
+                        >
+                          <button
+                            type="button"
+                            onClick={() => setSelectedAtlasPinId(pin.id)}
+                            onMouseEnter={() => setHoveredAtlasPinId(pin.id)}
+                            onMouseLeave={() => setHoveredAtlasPinId(null)}
+                            aria-label={isArabic ? pin.nameAr : pin.nameEn}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-mono font-black text-xs cursor-pointer transition-all duration-200 select-none ${
+                              isSelected
+                                ? 'bg-rose-500 text-white ring-4 ring-rose-400/80 scale-125 shadow-[0_0_20px_rgba(244,63,94,0.9)] z-30'
+                                : isAxial
+                                ? 'bg-slate-950/90 text-rose-300 border-2 border-rose-500/70 hover:border-rose-400 hover:bg-rose-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                                : 'bg-slate-950/90 text-cyan-300 border-2 border-cyan-500/70 hover:border-cyan-400 hover:bg-cyan-950 hover:scale-115 hover:text-white shadow-lg backdrop-blur-sm'
+                            }`}
+                          >
+                            {isSelected && (
+                              <span className="absolute -inset-1.5 rounded-full bg-rose-400/40 animate-ping pointer-events-none" />
+                            )}
+                            <span>{idx + 1}</span>
+                          </button>
+
+                          {/* Floating Tooltip Label (Appears ONLY on active or hovered pin) */}
+                          {(isSelected || isHovered) && (
+                            <div
+                              className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-40 whitespace-nowrap px-2.5 py-1 rounded-lg text-[11px] font-black shadow-2xl backdrop-blur-md pointer-events-none transition-all flex items-center gap-1.5 ${
+                                isSelected
+                                  ? 'bg-rose-600 text-white border border-rose-300 shadow-rose-950/60'
+                                  : 'bg-slate-950/95 text-slate-100 border border-slate-700 shadow-black'
+                              }`}
+                            >
+                              <span>{isArabic ? pin.nameAr : pin.nameEn}</span>
+                              <span className="text-[9px] opacity-80 font-mono">
+                                ({isArabic ? toHindiDigits(pin.count) : pin.count})
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </>
+                )}
+
+                {atlasPlateView === 'skull' && (
+                  <div className="relative w-full flex flex-col items-center">
+                    <img
+                      src={skullImg}
+                      alt="Human Skull Cranial Anatomy"
+                      className="w-full max-h-[640px] object-contain rounded-xl select-none"
+                    />
+                    <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-[11px] font-bold text-rose-300 pointer-events-none">
+                      {isArabic ? 'الجزء المخي (٨ عظام مسننة) + الجزء الوجهي (١٤ عظمة)' : 'Neurocranium (8 bones) + Facial (14 bones)'}
+                    </div>
+                  </div>
+                )}
+
+                {atlasPlateView === 'spine' && (
+                  <div className="relative w-full flex flex-col items-center">
+                    <img
+                      src={spineImg}
+                      alt="Human Vertebral Column Anatomy"
+                      className="w-full max-h-[640px] object-contain rounded-xl select-none"
+                    />
+                    <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-[11px] font-bold text-rose-300 pointer-events-none">
+                      {isArabic ? 'العمود الفقري (٣٣ فقرة: ٧ عنقية، ١٢ ظهرية، ٥ قطنية، ٥ عجزية، ٤ عصعصية)' : 'Spine (33 Vertebrae: 7 Cerv, 12 Thor, 5 Lumb, 5 Sacr, 4 Cocc)'}
+                    </div>
+                  </div>
+                )}
+
+                {atlasPlateView === 'knee' && (
+                  <div className="relative w-full flex flex-col items-center">
+                    <img
+                      src={kneeImg}
+                      alt="Human Knee Joint Biomechanics"
+                      className="w-full max-h-[640px] object-contain rounded-xl select-none"
+                    />
+                    <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-md bg-black/80 backdrop-blur-md border border-white/15 text-[11px] font-bold text-rose-300 pointer-events-none">
+                      {isArabic ? 'مفصل الركبة الزلالي: الأربطة (صليبي أمامي/خلفي، وسطي/جانبي)' : 'Knee Joint: Ligaments (ACL, PCL, MCL, LCL) & Menisci'}
+                    </div>
+                  </div>
+                )}
 
                 {/* Bottom OSD Bar */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-[10px] text-white select-none">
                   <span className="flex items-center gap-1.5 font-semibold text-slate-300">
                     <ZoomIn className="w-3.5 h-3.5 text-rose-400" />
-                    {isArabic
-                      ? 'اضغط على النقاط المرقمة (١-١٣) لفحص العظام'
-                      : 'Click numbered pins (1-13) to inspect bones'}
+                    {atlasPlateView === 'full_skeleton'
+                      ? isArabic
+                        ? 'اضغط على النقاط المرقمة (١-١٣) لفحص العظام'
+                        : 'Click numbered pins (1-13) to inspect bones'
+                      : isArabic
+                      ? 'صورة علمية فائقة الدقة للمعاينة المجهرية'
+                      : 'Ultra-high-resolution medical scientific plate'}
                   </span>
                   <span className="font-mono text-rose-300 font-bold bg-rose-950/60 px-2 py-0.5 rounded border border-rose-800/50">
-                    {isArabic ? `${toHindiDigits(206)} عظمة في البالغين` : '206 Bones in Adult'}
+                    {atlasPlateView === 'full_skeleton'
+                      ? isArabic ? `${toHindiDigits(206)} عظمة في البالغين` : '206 Bones in Adult'
+                      : atlasPlateView === 'skull'
+                      ? isArabic ? '٢٩ عظمة' : '29 Bones'
+                      : atlasPlateView === 'spine'
+                      ? isArabic ? '٣٣ فقرة (٢٦ عظمة)' : '33 Vertebrae (26 bones)'
+                      : isArabic ? 'مفصل زلالي محدود' : 'Synovial Hinge Joint'}
                   </span>
                 </div>
               </div>

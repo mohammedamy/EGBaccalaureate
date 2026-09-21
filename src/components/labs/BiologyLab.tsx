@@ -22,11 +22,13 @@ import { VirtualMicroscope } from '../../core/instruments/VirtualMicroscope';
 import { SarcomereZoomLab } from './SarcomereZoomLab';
 import { PlantHistologyLab } from './PlantHistologyLab';
 import { SkeletonAnatomyLab } from './SkeletonAnatomyLab';
+import { HumanBodyAnatomyAtlas } from './HumanBodyAnatomyAtlas';
 import { DnaReplicationLab } from './DnaReplicationLab';
 import { Interactive3DBioMacromoleculeStudio } from '../Interactive3DBioMacromoleculeStudio';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 export type BioTab =
+  | 'anatomy_atlas'
   | 'skeleton'
   | 'sarcomere'
   | 'dna'
@@ -61,7 +63,7 @@ export const BiologyLab: React.FC<Props> = ({
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  const [activeTab, setActiveTab] = useState<BioTab>(initialTab || 'skeleton');
+  const [activeTab, setActiveTab] = useState<BioTab>(initialTab || 'anatomy_atlas');
   const [geneticsView, setGeneticsView] = useState<'studio' | 'apparatus'>('studio');
 
   const { isFullscreen: isNativeFs, toggleFullscreen, exitFullscreen } = useNativeLabFullscreen({
@@ -82,6 +84,13 @@ export const BiologyLab: React.FC<Props> = ({
 
   const renderTabContent = (inFullscreen: boolean) => (
     <>
+      {/* TAB 0: HUMAN BODY ANATOMY ATLAS & ORGAN SYSTEMS */}
+      {activeTab === 'anatomy_atlas' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <HumanBodyAnatomyAtlas lang={lang} theme={theme} isFullscreen={inFullscreen} />
+        </div>
+      )}
+
       {/* TAB 1: HUMAN SKELETON ANATOMY & BONE STUDIO */}
       {activeTab === 'skeleton' && (
         <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
@@ -249,6 +258,9 @@ export const BiologyLab: React.FC<Props> = ({
 
   const subtabsOptions = (
     <>
+      <option value="anatomy_atlas" className="bg-slate-900 text-white">
+        [00] {isArabic ? 'أطلس تشريح جسم الإنسان عالي الدقة (أعضاء وأجهزة)' : 'Human Body Anatomy Atlas (Hi-Res)'}
+      </option>
       <option value="skeleton" className="bg-slate-900 text-white">
         [01] {isArabic ? 'الهيكل العظمي البشري (٢٠٦ عظمة)' : 'Human Skeleton (206 Bones)'}
       </option>
