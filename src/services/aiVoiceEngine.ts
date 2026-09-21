@@ -1,7 +1,7 @@
 /**
  * AI Vocal Engine Service (محرك النطق الصوتي المتقدم بالذكاء الاصطناعي)
  * 
- * Provides high-definition, human-realistic vocal synthesis across all languages:
+ * Provides high-definition, natural human-realistic vocal synthesis across all languages:
  * - English (UK Received Pronunciation & US General American)
  * - French (Parisian Standard & Liaison)
  * - German (Standard Hochdeutsch)
@@ -10,10 +10,14 @@
  * - Chinese (Mandarin Putonghua)
  * - Arabic (Modern Standard Classical Fusha / الفصحى)
  * 
- * Multi-tiered architecture:
- * 1. Tier 1: Neural Cloud HD Vocal Streamer (Direct high-fidelity neural MP3 stream with chunking and in-memory caching)
- * 2. Tier 2: Browser Neural / Natural AI Voice Selector (Prioritizing Edge Online Natural, Apple Siri Enhanced, Google Neural)
- * 3. Tier 3: Web Audio Studio Mastering (Presence, warmth, and dynamic compression)
+ * Key Architecture Highlights:
+ * 1. Immediate Synchronous Dispatch: Invoked directly within user interaction tick so browsers (Chrome/Safari/Edge)
+ *    never block audio playback due to autoplay or lost user activation policies.
+ * 2. Intelligent Neural/Natural Voice Discovery: Scans and ranks all system, browser, and cloud-synced voices,
+ *    prioritizing Edge Natural AI, Apple Siri Enhanced/Premium, and Google Neural voices over low-bitrate mechanical synths.
+ * 3. Chromium Keepalive Fix: Automatically pings pause/resume to eliminate the 15-second speech synthesis cutoff bug.
+ * 4. Humanized Cadence & Prosody: Smooths punctuation, natural speech rates (0.85x - 1.05x), and optimal pitch.
+ * 5. Sequential Dialogue Sequencer: Seamlessly chains conversational turns with natural turn-taking pauses.
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react';
@@ -36,13 +40,11 @@ export type VoiceLanguageCode =
   | 'ar-SA'
   | 'ar-EG';
 
-export type VoiceEngineMode = 'ai_neural_hd' | 'system_neural' | 'auto';
-
 export interface SpeakOptions {
   lang?: VoiceLanguageCode | string;
   rate?: number; // 0.5 to 2.0 (default 1.0)
-  pitch?: number;
-  engine?: VoiceEngineMode;
+  pitch?: number; // 0.5 to 1.5 (default 1.0)
+  voiceName?: string;
   onStart?: () => void;
   onEnd?: () => void;
   onError?: (err: any) => void;
@@ -58,7 +60,6 @@ export interface DialogueTurnItem {
 
 export interface DialogueOptions {
   rate?: number;
-  engine?: VoiceEngineMode;
   onTurnStart?: (index: number, turn: DialogueTurnItem) => void;
   onTurnEnd?: (index: number, turn: DialogueTurnItem) => void;
   onComplete?: () => void;
@@ -68,28 +69,20 @@ export interface DialogueOptions {
 // ---------------------------------------------------------------------------
 // Language Normalization Helper
 // ---------------------------------------------------------------------------
-export function normalizeLanguageCode(lang?: string): { apiLang: string; bcp47: string } {
+export function normalizeLanguageCode(lang?: string): { bcp47: string; langPrefix: string } {
   const l = (lang || 'en').toLowerCase().trim();
 
-  if (l.startsWith('ar')) return { apiLang: 'ar', bcp47: 'ar-SA' };
-  if (l.startsWith('zh') || l.includes('chinese') || l.includes('mandarin')) return { apiLang: 'zh-CN', bcp47: 'zh-CN' };
-  if (l.startsWith('fr')) return { apiLang: 'fr', bcp47: 'fr-FR' };
-  if (l.startsWith('de')) return { apiLang: 'de', bcp47: 'de-DE' };
-  if (l.startsWith('it')) return { apiLang: 'it', bcp47: 'it-IT' };
-  if (l.startsWith('es')) return { apiLang: 'es', bcp47: 'es-ES' };
-  if (l === 'en-us' || l.includes('us')) return { apiLang: 'en', bcp47: 'en-US' };
-  if (l === 'en-gb' || l.includes('gb') || l.includes('uk')) return { apiLang: 'en-GB', bcp47: 'en-GB' };
+  if (l.startsWith('ar')) return { bcp47: 'ar-SA', langPrefix: 'ar' };
+  if (l.startsWith('zh') || l.includes('chinese') || l.includes('mandarin')) return { bcp47: 'zh-CN', langPrefix: 'zh' };
+  if (l.startsWith('fr')) return { bcp47: 'fr-FR', langPrefix: 'fr' };
+  if (l.startsWith('de')) return { bcp47: 'de-DE', langPrefix: 'de' };
+  if (l.startsWith('it')) return { bcp47: 'it-IT', langPrefix: 'it' };
+  if (l.startsWith('es')) return { bcp47: 'es-ES', langPrefix: 'es' };
+  if (l === 'en-us' || l.includes('us') || l.includes('american')) return { bcp47: 'en-US', langPrefix: 'en' };
+  if (l === 'en-gb' || l.includes('gb') || l.includes('uk') || l.includes('british')) return { bcp47: 'en-GB', langPrefix: 'en' };
 
-  return { apiLang: 'en', bcp47: 'en-US' };
+  return { bcp47: 'en-US', langPrefix: 'en' };
 }
-
-// ---------------------------------------------------------------------------
-// In-Memory Audio Cache & Playback State
-// ---------------------------------------------------------------------------
-const audioCache = new Map<string, string>(); // key -> audio object URL or stream URL
-let activeAudioElement: HTMLAudioElement | null = null;
-let activeUtterance: SpeechSynthesisUtterance | null = null;
-let activeDialogueAbortController: AbortController | null = null;
 
 // Clean text for speech synthesis (remove markdown formatting, brackets, etc.)
 export function sanitizeSpeechText(text: string): string {
@@ -100,382 +93,375 @@ export function sanitizeSpeechText(text: string): string {
     .trim();
 }
 
-// Break long passages into natural phrases (<= 160 chars) along punctuation
-export function chunkText(text: string, maxLen = 160): string[] {
-  const clean = sanitizeSpeechText(text);
-  if (clean.length <= maxLen) return [clean];
-
-  const chunks: string[] = [];
-  const sentences = clean.split(/(?<=[.!?,;:\u060C\u061B\u3002\uFF0C])/g);
-
-  let current = '';
-  for (const part of sentences) {
-    if ((current + ' ' + part).trim().length <= maxLen) {
-      current = (current + ' ' + part).trim();
-    } else {
-      if (current) chunks.push(current);
-      if (part.length <= maxLen) {
-        current = part.trim();
-      } else {
-        // Break by words
-        const words = part.split(' ');
-        let sub = '';
-        for (const w of words) {
-          if ((sub + ' ' + w).trim().length <= maxLen) {
-            sub = (sub + ' ' + w).trim();
-          } else {
-            if (sub) chunks.push(sub);
-            sub = w;
-          }
-        }
-        current = sub.trim();
-      }
-    }
-  }
-  if (current) chunks.push(current);
-  return chunks.filter((c) => c.length > 0);
-}
-
 // ---------------------------------------------------------------------------
-// Tier 2: Best Browser Voice Ranker (Edge Natural / Siri Enhanced / Google Neural)
+// Eager Synchronous Voice Discovery & Ranking Engine
 // ---------------------------------------------------------------------------
 let cachedVoices: SpeechSynthesisVoice[] = [];
 
-function loadVoices(): Promise<SpeechSynthesisVoice[]> {
-  return new Promise((resolve) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      resolve([]);
-      return;
-    }
-    const current = window.speechSynthesis.getVoices();
-    if (current.length > 0) {
-      cachedVoices = current;
-      resolve(current);
-      return;
-    }
-    const onVoicesChanged = () => {
-      cachedVoices = window.speechSynthesis.getVoices();
-      window.speechSynthesis.removeEventListener('voiceschanged', onVoicesChanged);
-      resolve(cachedVoices);
-    };
-    window.speechSynthesis.addEventListener('voiceschanged', onVoicesChanged);
-    // Fallback timeout in case voiceschanged never fires
-    setTimeout(() => {
-      cachedVoices = window.speechSynthesis.getVoices();
-      resolve(cachedVoices);
-    }, 400);
-  });
-}
+// List of robotic or novelty synthesizer voices to exclude/demote
+const ROBOTIC_VOICE_BLACKLIST = new Set([
+  'albert', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos',
+  'deranged', 'good news', 'hysterical', 'junior', 'pipe organ',
+  'trinoids', 'whisper', 'zarvox', 'ralph', 'fred', 'espeak', 'klatt'
+]);
 
-// Initialize voices listener eagerly
-if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-  loadVoices();
-}
-
-export function findBestBrowserVoice(targetBcp47: string): SpeechSynthesisVoice | null {
-  if (cachedVoices.length === 0 && typeof window !== 'undefined' && 'speechSynthesis' in window) {
-    cachedVoices = window.speechSynthesis.getVoices();
+function refreshVoices() {
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    try {
+      const v = window.speechSynthesis.getVoices();
+      if (v && v.length > 0) {
+        cachedVoices = v;
+      }
+    } catch {
+      // ignore
+    }
   }
+}
+
+// Eager initialization on module load
+if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+  refreshVoices();
+  window.speechSynthesis.onvoiceschanged = () => {
+    refreshVoices();
+  };
+  if (window.speechSynthesis.addEventListener) {
+    window.speechSynthesis.addEventListener('voiceschanged', () => {
+      refreshVoices();
+    });
+  }
+}
+
+/**
+ * Score and rank voices to pick the most natural, human-like voice available.
+ */
+export function scoreVoice(v: SpeechSynthesisVoice, targetBcp47: string): number {
+  const name = v.name.toLowerCase();
+  const vLang = v.lang.toLowerCase().replace('_', '-');
+  const target = targetBcp47.toLowerCase();
+  const prefix = target.split('-')[0];
+
+  let score = 0;
+
+  // Exact language match (e.g. en-GB == en-GB)
+  if (vLang === target) score += 60;
+  // Prefix language match (e.g. en-US matches en)
+  else if (vLang.startsWith(prefix)) score += 30;
+  else return -1000; // Incompatible language
+
+  // Demote known robotic / toy voices
+  for (const blacklisted of ROBOTIC_VOICE_BLACKLIST) {
+    if (name.includes(blacklisted)) return -500;
+  }
+
+  // Tier 1: Microsoft Edge Online Natural AI voices
+  if (name.includes('online (natural)') || (name.includes('natural') && !name.includes('desktop'))) {
+    score += 150;
+  }
+
+  // Tier 2: Apple Siri Enhanced / High-Definition Voices
+  if (name.includes('enhanced') || name.includes('premium') || name.includes('siri')) {
+    score += 120;
+  }
+
+  // Tier 3: Google High-Fidelity Neural Voices in Chrome
+  if (name.includes('google')) {
+    score += 100;
+  }
+
+  // Tier 4: Quality OS voices (Daniel, Eddy, Flo, Samantha, Alice, Anna, Mónica, Majed, Tingting)
+  const premiumNames = [
+    'daniel', 'eddy', 'flo', 'samantha', 'alice', 'anna', 'monica', 'mónica',
+    'audrey', 'aurelie', 'thomas', 'jorge', 'tingting', 'majed', 'maged', 'tarik', 'laila',
+    'reed', 'sandy', 'shelley'
+  ];
+  for (const pName of premiumNames) {
+    if (name.includes(pName)) {
+      score += 80;
+      break;
+    }
+  }
+
+  // Prefer default voice if marked by system
+  if (v.default) score += 10;
+
+  return score;
+}
+
+/**
+ * Find best available voice for language code.
+ */
+export function findBestVoice(lang?: string, preferredVoiceName?: string): SpeechSynthesisVoice | null {
+  refreshVoices();
   if (cachedVoices.length === 0) return null;
 
-  const targetPrefix = targetBcp47.split('-')[0].toLowerCase();
-  const exactCode = targetBcp47.toLowerCase();
+  const { bcp47, langPrefix } = normalizeLanguageCode(lang);
 
-  // Candidate voices matching language
+  // If user explicitly requested a specific voice by name
+  if (preferredVoiceName) {
+    const found = cachedVoices.find((v) => v.name.toLowerCase() === preferredVoiceName.toLowerCase());
+    if (found) return found;
+  }
+
+  // Filter voices that match language prefix or target code
   const candidates = cachedVoices.filter((v) => {
-    const vLang = v.lang.toLowerCase();
-    return vLang === exactCode || vLang.startsWith(targetPrefix);
+    const vLang = v.lang.toLowerCase().replace('_', '-');
+    return vLang.startsWith(langPrefix) || vLang === bcp47.toLowerCase();
   });
 
-  if (candidates.length === 0) return null;
+  if (candidates.length === 0) {
+    // Return null so the browser defaults to its native locale provider rather than an incompatible language voice
+    return null;
+  }
 
-  // Rank candidate voices
-  const scoreVoice = (v: SpeechSynthesisVoice): number => {
-    const name = v.name.toLowerCase();
-    let score = 0;
+  // Sort by score descending
+  candidates.sort((a, b) => scoreVoice(b, bcp47) - scoreVoice(a, bcp47));
 
-    // Exact language/country match
-    if (v.lang.toLowerCase() === exactCode) score += 50;
-
-    // Microsoft Edge Online Natural Voices (top fidelity)
-    if (name.includes('online (natural)') || name.includes('natural')) score += 100;
-    // Apple Siri Enhanced / Premium
-    if (name.includes('enhanced') || name.includes('premium') || name.includes('siri')) score += 80;
-    // Google Neural Voices
-    if (name.includes('google')) score += 60;
-    // Microsoft Neural
-    if (name.includes('neural')) score += 70;
-
-    // Demote robotic/espeak
-    if (name.includes('espeak') || name.includes('klatt') || name.includes('desktop')) score -= 40;
-
-    return score;
-  };
-
-  candidates.sort((a, b) => scoreVoice(b) - scoreVoice(a));
   return candidates[0] || null;
 }
 
+/**
+ * Get all available quality voices for a given language.
+ */
+export function getAvailableVoicesForLanguage(lang?: string): SpeechSynthesisVoice[] {
+  refreshVoices();
+  const { bcp47, langPrefix } = normalizeLanguageCode(lang);
+
+  const candidates = cachedVoices.filter((v) => {
+    const vLang = v.lang.toLowerCase().replace('_', '-');
+    if (!vLang.startsWith(langPrefix) && vLang !== bcp47.toLowerCase()) return false;
+    for (const b of ROBOTIC_VOICE_BLACKLIST) {
+      if (v.name.toLowerCase().includes(b)) return false;
+    }
+    return true;
+  });
+
+  return candidates.sort((a, b) => scoreVoice(b, bcp47) - scoreVoice(a, bcp47));
+}
+
 // ---------------------------------------------------------------------------
-// Global Audio Player Core
+// AI Voice Engine Core Singleton
 // ---------------------------------------------------------------------------
 class AiVoiceEngineCore {
   private currentPlayingText: string | null = null;
   private isCurrentlyPlaying = false;
-  private subscribers = new Set<(playing: boolean, text: string | null) => void>();
+  private currentVoiceName: string | null = null;
+  private keepaliveTimer: ReturnType<typeof setInterval> | null = null;
+  private activeUtterance: SpeechSynthesisUtterance | null = null;
+  private activeDialogueAbortController: AbortController | null = null;
+  private subscribers = new Set<(playing: boolean, text: string | null, voice: string | null) => void>();
 
-  public subscribe(cb: (playing: boolean, text: string | null) => void) {
+  public subscribe(cb: (playing: boolean, text: string | null, voice: string | null) => void) {
     this.subscribers.add(cb);
-    cb(this.isCurrentlyPlaying, this.currentPlayingText);
+    cb(this.isCurrentlyPlaying, this.currentPlayingText, this.currentVoiceName);
     return () => this.subscribers.delete(cb);
   }
 
-  private notify(playing: boolean, text: string | null) {
+  private notify(playing: boolean, text: string | null, voice: string | null = this.currentVoiceName) {
     this.isCurrentlyPlaying = playing;
     this.currentPlayingText = text;
-    this.subscribers.forEach((cb) => cb(playing, text));
+    this.currentVoiceName = voice;
+    this.subscribers.forEach((cb) => cb(playing, text, voice));
+  }
+
+  private clearKeepalive() {
+    if (this.keepaliveTimer) {
+      clearInterval(this.keepaliveTimer);
+      this.keepaliveTimer = null;
+    }
+  }
+
+  private startKeepalive() {
+    this.clearKeepalive();
+    // Chromium 15-second speech cutoff bug fix:
+    // Periodically pause and instantly resume to keep the speech synthesis channel active
+    this.keepaliveTimer = setInterval(() => {
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window && window.speechSynthesis.speaking) {
+        window.speechSynthesis.pause();
+        window.speechSynthesis.resume();
+      } else {
+        this.clearKeepalive();
+      }
+    }, 10000);
   }
 
   public stopAll(): void {
-    if (activeDialogueAbortController) {
-      activeDialogueAbortController.abort();
-      activeDialogueAbortController = null;
+    this.clearKeepalive();
+
+    if (this.activeDialogueAbortController) {
+      this.activeDialogueAbortController.abort();
+      this.activeDialogueAbortController = null;
     }
 
-    if (activeAudioElement) {
+    if (this.activeUtterance) {
       try {
-        activeAudioElement.pause();
-        activeAudioElement.currentTime = 0;
-        activeAudioElement.src = '';
+        this.activeUtterance.onend = null;
+        this.activeUtterance.onerror = null;
+        this.activeUtterance.onstart = null;
       } catch {
         // ignore
       }
-      activeAudioElement = null;
+      this.activeUtterance = null;
     }
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      try {
+        if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+          window.speechSynthesis.cancel();
+        }
+      } catch {
+        // ignore
+      }
+    }
+
+    this.notify(false, null, this.currentVoiceName);
+  }
+
+  /**
+   * Speak text immediately using synchronous dispatch to preserve user activation.
+   */
+  public speak(text: string, options: SpeakOptions = {}): void {
+    const clean = sanitizeSpeechText(text);
+    if (!clean) return;
+
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      options.onError?.(new Error('SpeechSynthesis not supported'));
+      return;
+    }
+
+    const { bcp47 } = normalizeLanguageCode(options.lang);
+    const bestVoice = findBestVoice(options.lang, options.voiceName);
+
+    const utterance = new SpeechSynthesisUtterance(clean);
+    utterance.lang = bcp47;
+    utterance.rate = Math.max(0.6, Math.min(1.4, options.rate || 0.95));
+    utterance.pitch = Math.max(0.8, Math.min(1.2, options.pitch || 1.0));
+
+    if (bestVoice) {
+      utterance.voice = bestVoice;
+      this.currentVoiceName = bestVoice.name;
+    }
+
+    utterance.onstart = () => {
+      this.notify(true, clean, bestVoice?.name || 'Natural Vocal');
+      this.startKeepalive();
+      options.onStart?.();
+    };
+
+    utterance.onend = () => {
+      this.clearKeepalive();
+      this.activeUtterance = null;
+      this.notify(false, null, bestVoice?.name || null);
+      options.onEnd?.();
+    };
+
+    utterance.onerror = (err: any) => {
+      this.clearKeepalive();
+      this.activeUtterance = null;
+      this.notify(false, null, null);
+      // 'canceled' or 'interrupted' errors happen naturally when a user clicks another audio button
+      if (err?.error !== 'canceled' && err?.error !== 'interrupted') {
+        options.onError?.(err);
+      }
+    };
+
+    // Retain utterance reference in instance variable to prevent V8 GC prematurely terminating speech
+    this.activeUtterance = utterance;
+
+    const executeSpeak = () => {
+      try {
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+        }
+        window.speechSynthesis.speak(utterance);
+        if (window.speechSynthesis.paused) {
+          window.speechSynthesis.resume();
+        }
+      } catch (e) {
+        console.error('[AiVoiceEngine] Failed to speak:', e);
+        this.stopAll();
+        options.onError?.(e);
+      }
+    };
+
+    const isSpeakingAlready = window.speechSynthesis.speaking || window.speechSynthesis.pending;
+
+    if (isSpeakingAlready) {
+      this.clearKeepalive();
+      if (this.activeDialogueAbortController) {
+        this.activeDialogueAbortController.abort();
+        this.activeDialogueAbortController = null;
+      }
       try {
         window.speechSynthesis.cancel();
       } catch {
         // ignore
       }
-    }
-    if (activeUtterance) {
-      try {
-        activeUtterance.onend = null;
-        activeUtterance.onerror = null;
-      } catch {
-        // ignore
-      }
-      activeUtterance = null;
-    }
-    this.notify(false, null);
-  }
-
-  /**
-   * Speak a text string using Tier 1 Neural Stream with seamless fallback to Tier 2 Browser Neural Voice.
-   */
-  public async speak(text: string, options: SpeakOptions = {}): Promise<void> {
-    this.stopAll();
-
-    const clean = sanitizeSpeechText(text);
-    if (!clean) return;
-
-    const { apiLang, bcp47 } = normalizeLanguageCode(options.lang);
-    const rate = Math.max(0.5, Math.min(2.0, options.rate || 1.0));
-    const engineMode = options.engine || 'auto';
-
-    this.notify(true, clean);
-    options.onStart?.();
-
-    // Strategy 1: Try Tier 1 Neural Cloud Audio Stream (Unless forced to system_neural)
-    if (engineMode !== 'system_neural') {
-      try {
-        await this.playViaNeuralStream(clean, apiLang, rate);
-        this.notify(false, null);
-        options.onEnd?.();
-        return;
-      } catch (streamError) {
-        console.warn('[AiVoiceEngine] Neural stream failed, falling back to Browser Neural Voice:', streamError);
-      }
-    }
-
-    // Strategy 2: Tier 2 Browser Neural Voice Selector
-    try {
-      await this.playViaBrowserSynthesis(clean, bcp47, rate, options.pitch || 1.0);
-      this.notify(false, null);
-      options.onEnd?.();
-    } catch (synthError) {
-      console.error('[AiVoiceEngine] Speech synthesis failed:', synthError);
-      this.notify(false, null);
-      options.onError?.(synthError);
+      // 40ms micro-delay to let Chromium engine flush the cancellation IPC message
+      setTimeout(executeSpeak, 40);
+    } else {
+      // Immediate synchronous execution in the user click tick
+      executeSpeak();
     }
   }
 
   /**
-   * Tier 1: Neural Cloud Stream via Google High-Fidelity Audio API
+   * Play sequential dialogue turns with natural human pacing and turn highlighting.
    */
-  private async playViaNeuralStream(text: string, apiLang: string, rate: number): Promise<void> {
-    const chunks = chunkText(text, 160);
-
-    for (let i = 0; i < chunks.length; i++) {
-      const chunk = chunks[i];
-      const cacheKey = `${apiLang}:${chunk}`;
-      let audioUrl = audioCache.get(cacheKey);
-
-      if (!audioUrl) {
-        audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${encodeURIComponent(
-          apiLang
-        )}&q=${encodeURIComponent(chunk)}`;
-        audioCache.set(cacheKey, audioUrl);
-      }
-
-      await new Promise<void>((resolve, reject) => {
-        const audio = new Audio(audioUrl);
-        activeAudioElement = audio;
-        audio.playbackRate = rate;
-
-        const onEnded = () => {
-          cleanup();
-          resolve();
-        };
-
-        const onError = (e: any) => {
-          cleanup();
-          reject(e);
-        };
-
-        const cleanup = () => {
-          audio.removeEventListener('ended', onEnded);
-          audio.removeEventListener('error', onError);
-          if (activeAudioElement === audio) {
-            activeAudioElement = null;
-          }
-        };
-
-        audio.addEventListener('ended', onEnded);
-        audio.addEventListener('error', onError);
-
-        audio.play().catch((playErr) => {
-          cleanup();
-          reject(playErr);
-        });
-      });
-    }
-  }
-
-  /**
-   * Tier 2: Enhanced Browser Synthesis with Intelligent Neural Voice Selector
-   */
-  private async playViaBrowserSynthesis(
-    text: string,
-    bcp47: string,
-    rate: number,
-    pitch: number
-  ): Promise<void> {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
-      throw new Error('SpeechSynthesis not supported in this environment');
-    }
-
-    await loadVoices();
-    const bestVoice = findBestBrowserVoice(bcp47);
-
-    return new Promise<void>((resolve, reject) => {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = bcp47;
-      utterance.rate = rate;
-      utterance.pitch = pitch;
-
-      if (bestVoice) {
-        utterance.voice = bestVoice;
-      }
-
-      utterance.onend = () => {
-        activeUtterance = null;
-        resolve();
-      };
-
-      utterance.onerror = (e) => {
-        activeUtterance = null;
-        reject(e);
-      };
-
-      activeUtterance = utterance;
-      window.speechSynthesis.speak(utterance);
-    });
-  }
-
-  /**
-   * Play sequential dialogue turns with precise timing, turn highlighting, and cancellation support.
-   */
-  public async playDialogue(
+  public playDialogue(
     turns: DialogueTurnItem[],
     defaultLang: VoiceLanguageCode | string,
     options: DialogueOptions = {}
-  ): Promise<void> {
+  ): void {
     this.stopAll();
 
+    if (turns.length === 0) return;
+
     const abortController = new AbortController();
-    activeDialogueAbortController = abortController;
+    this.activeDialogueAbortController = abortController;
 
-    const rate = options.rate || 1.0;
-    const engine = options.engine || 'auto';
+    let currentIndex = 0;
 
-    try {
-      for (let i = 0; i < turns.length; i++) {
-        if (abortController.signal.aborted) break;
-
-        const turn = turns[i];
-        options.onTurnStart?.(i, turn);
-
-        await this.speak(turn.text, {
-          lang: turn.lang || defaultLang,
-          rate,
-          engine,
-        });
-
-        if (abortController.signal.aborted) break;
-        options.onTurnEnd?.(i, turn);
-
-        // Turn separation pause
-        const pauseMs = turn.delayAfterMs || 600;
-        await new Promise((r) => setTimeout(r, pauseMs));
+    const playNextTurn = () => {
+      if (abortController.signal.aborted || currentIndex >= turns.length) {
+        if (!abortController.signal.aborted) {
+          options.onComplete?.();
+        }
+        this.notify(false, null, this.currentVoiceName);
+        return;
       }
 
-      if (!abortController.signal.aborted) {
-        options.onComplete?.();
-      }
-    } catch (err) {
-      if (!abortController.signal.aborted) {
-        options.onError?.(err);
-      }
-    } finally {
-      if (activeDialogueAbortController === abortController) {
-        activeDialogueAbortController = null;
-      }
-      this.notify(false, null);
-    }
+      const turn = turns[currentIndex];
+      options.onTurnStart?.(currentIndex, turn);
+
+      this.speak(turn.text, {
+        lang: turn.lang || defaultLang,
+        rate: options.rate || 0.95,
+        onEnd: () => {
+          if (abortController.signal.aborted) return;
+          options.onTurnEnd?.(currentIndex, turn);
+          currentIndex++;
+
+          const delay = turn.delayAfterMs || 650;
+          setTimeout(() => {
+            if (!abortController.signal.aborted) {
+              playNextTurn();
+            }
+          }, delay);
+        },
+        onError: (err) => {
+          if (!abortController.signal.aborted) {
+            options.onError?.(err);
+          }
+          this.stopAll();
+        },
+      });
+    };
+
+    playNextTurn();
   }
 
-  /**
-   * Preload audio for key terms to make UI clicks instant.
-   */
-  public preload(text: string, lang?: VoiceLanguageCode | string): void {
-    if (typeof window === 'undefined') return;
-    const clean = sanitizeSpeechText(text);
-    if (!clean) return;
-    const { apiLang } = normalizeLanguageCode(lang);
-    const key = `${apiLang}:${clean}`;
-    if (!audioCache.has(key)) {
-      const url = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${encodeURIComponent(
-        apiLang
-      )}&q=${encodeURIComponent(clean)}`;
-      audioCache.set(key, url);
-      // Create a background preloader audio object
-      const preloader = new Audio();
-      preloader.preload = 'auto';
-      preloader.src = url;
-    }
+  public getActiveVoice(): string | null {
+    return this.currentVoiceName;
   }
 }
 
@@ -488,15 +474,16 @@ export const aiVoiceEngine = new AiVoiceEngineCore();
 export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [activeText, setActiveText] = useState<string | null>(null);
-  const [engineMode, setEngineMode] = useState<VoiceEngineMode>('auto');
-  const [voiceRate, setVoiceRate] = useState<number>(1.0);
+  const [activeVoice, setActiveVoice] = useState<string | null>(null);
+  const [voiceRate, setVoiceRate] = useState<number>(0.95);
   const defaultLangRef = useRef(defaultLang);
   defaultLangRef.current = defaultLang;
 
   useEffect(() => {
-    const unsubscribe = aiVoiceEngine.subscribe((playing, text) => {
+    const unsubscribe = aiVoiceEngine.subscribe((playing, text, voice) => {
       setIsPlaying(playing);
       setActiveText(text);
+      setActiveVoice(voice);
     });
     return () => {
       unsubscribe();
@@ -506,14 +493,13 @@ export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
 
   const speak = useCallback(
     (text: string, options?: Partial<SpeakOptions>) => {
-      return aiVoiceEngine.speak(text, {
+      aiVoiceEngine.speak(text, {
         lang: options?.lang || defaultLangRef.current,
         rate: options?.rate ?? voiceRate,
-        engine: options?.engine ?? engineMode,
         ...options,
       });
     },
-    [voiceRate, engineMode]
+    [voiceRate]
   );
 
   const stop = useCallback(() => {
@@ -522,29 +508,22 @@ export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
 
   const playDialogue = useCallback(
     (turns: DialogueTurnItem[], options?: DialogueOptions) => {
-      return aiVoiceEngine.playDialogue(turns, defaultLangRef.current || 'en', {
+      aiVoiceEngine.playDialogue(turns, defaultLangRef.current || 'en', {
         rate: voiceRate,
-        engine: engineMode,
         ...options,
       });
     },
-    [voiceRate, engineMode]
+    [voiceRate]
   );
-
-  const preload = useCallback((text: string, lang?: VoiceLanguageCode | string) => {
-    aiVoiceEngine.preload(text, lang || defaultLangRef.current);
-  }, []);
 
   return {
     isPlaying,
     activeText,
-    engineMode,
-    setEngineMode,
+    activeVoice,
     voiceRate,
     setVoiceRate,
     speak,
     stop,
     playDialogue,
-    preload,
   };
 }
