@@ -2837,7 +2837,7 @@ export const egBacGeologyBranch: Branch = {
             ]
           },
           interactiveWidget: {
-            type: "geology_plate_tectonics",
+            type: "seismic_shadow_zone_simulator",
             titleEn: "Interactive Geology & Earth Studio: " + "Plate Tectonics Theory, Plate Boundaries & Seismology",
             titleAr: "استوديو علوم الأرض التفاعلي: " + "نظرية تكتونية الصفائح وحدود الألواح والزلازل ورصدها",
             descriptionEn: "Interactive simulation for testing mineral crystals, rock suites, plate tectonic boundaries, or ecological trophic pyramids.",

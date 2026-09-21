@@ -495,26 +495,45 @@ export const LessonView: React.FC<Props> = ({
           );
         case 'crystal_system_inspector':
         case 'mohs_hardness_tester':
+        case 'geology_crystal_systems':
         case 'bowen_reaction_series':
+        case 'geology_rock_cycle':
         case 'plate_tectonics_simulator':
         case 'isostasy_root_calculator':
+        case 'geology_plate_tectonics':
         case 'stratigraphic_cross_section':
         case 'geological_dating_solver':
+        case 'geology_stratigraphy_cross_section':
         case 'marine_pressure_calculator':
         case 'ecosystem_energy_pyramid':
+        case 'environmental_ecosystem_energy':
+        case 'geology_seismology_lab':
+        case 'seismic_shadow_zone_simulator':
+        case 'earthquake_epicenter_triangulator':
           return (
             <GeologyEarthStudio
               lang={lang}
               theme={theme}
               isFullscreen={false}
               initialMode={
-                lesson.interactiveWidget.type === 'bowen_reaction_series'
+                lesson.interactiveWidget.type === 'geology_seismology_lab' ||
+                lesson.interactiveWidget.type === 'seismic_shadow_zone_simulator' ||
+                lesson.interactiveWidget.type === 'earthquake_epicenter_triangulator'
+                  ? 'seismology'
+                  : lesson.interactiveWidget.type === 'bowen_reaction_series' ||
+                    lesson.interactiveWidget.type === 'geology_rock_cycle'
                   ? 'bowen'
-                  : lesson.interactiveWidget.type === 'plate_tectonics_simulator' || lesson.interactiveWidget.type === 'isostasy_root_calculator'
+                  : lesson.interactiveWidget.type === 'plate_tectonics_simulator' ||
+                    lesson.interactiveWidget.type === 'isostasy_root_calculator' ||
+                    lesson.interactiveWidget.type === 'geology_plate_tectonics'
                   ? 'tectonics'
-                  : lesson.interactiveWidget.type === 'stratigraphic_cross_section' || lesson.interactiveWidget.type === 'geological_dating_solver'
+                  : lesson.interactiveWidget.type === 'stratigraphic_cross_section' ||
+                    lesson.interactiveWidget.type === 'geological_dating_solver' ||
+                    lesson.interactiveWidget.type === 'geology_stratigraphy_cross_section'
                   ? 'stratigraphy'
-                  : lesson.interactiveWidget.type === 'marine_pressure_calculator' || lesson.interactiveWidget.type === 'ecosystem_energy_pyramid'
+                  : lesson.interactiveWidget.type === 'marine_pressure_calculator' ||
+                    lesson.interactiveWidget.type === 'ecosystem_energy_pyramid' ||
+                    lesson.interactiveWidget.type === 'environmental_ecosystem_energy'
                   ? 'ecosystem'
                   : 'crystals'
               }
@@ -907,26 +926,45 @@ export const LessonView: React.FC<Props> = ({
           );
         case 'crystal_system_inspector':
         case 'mohs_hardness_tester':
+        case 'geology_crystal_systems':
         case 'bowen_reaction_series':
+        case 'geology_rock_cycle':
         case 'plate_tectonics_simulator':
         case 'isostasy_root_calculator':
+        case 'geology_plate_tectonics':
         case 'stratigraphic_cross_section':
         case 'geological_dating_solver':
+        case 'geology_stratigraphy_cross_section':
         case 'marine_pressure_calculator':
         case 'ecosystem_energy_pyramid':
+        case 'environmental_ecosystem_energy':
+        case 'geology_seismology_lab':
+        case 'seismic_shadow_zone_simulator':
+        case 'earthquake_epicenter_triangulator':
           return (
             <GeologyEarthStudio
               lang={lang}
               theme={theme}
               isFullscreen={true}
               initialMode={
-                lesson.interactiveWidget.type === 'bowen_reaction_series'
+                lesson.interactiveWidget.type === 'geology_seismology_lab' ||
+                lesson.interactiveWidget.type === 'seismic_shadow_zone_simulator' ||
+                lesson.interactiveWidget.type === 'earthquake_epicenter_triangulator'
+                  ? 'seismology'
+                  : lesson.interactiveWidget.type === 'bowen_reaction_series' ||
+                    lesson.interactiveWidget.type === 'geology_rock_cycle'
                   ? 'bowen'
-                  : lesson.interactiveWidget.type === 'plate_tectonics_simulator' || lesson.interactiveWidget.type === 'isostasy_root_calculator'
+                  : lesson.interactiveWidget.type === 'plate_tectonics_simulator' ||
+                    lesson.interactiveWidget.type === 'isostasy_root_calculator' ||
+                    lesson.interactiveWidget.type === 'geology_plate_tectonics'
                   ? 'tectonics'
-                  : lesson.interactiveWidget.type === 'stratigraphic_cross_section' || lesson.interactiveWidget.type === 'geological_dating_solver'
+                  : lesson.interactiveWidget.type === 'stratigraphic_cross_section' ||
+                    lesson.interactiveWidget.type === 'geological_dating_solver' ||
+                    lesson.interactiveWidget.type === 'geology_stratigraphy_cross_section'
                   ? 'stratigraphy'
-                  : lesson.interactiveWidget.type === 'marine_pressure_calculator' || lesson.interactiveWidget.type === 'ecosystem_energy_pyramid'
+                  : lesson.interactiveWidget.type === 'marine_pressure_calculator' ||
+                    lesson.interactiveWidget.type === 'ecosystem_energy_pyramid' ||
+                    lesson.interactiveWidget.type === 'environmental_ecosystem_energy'
                   ? 'ecosystem'
                   : 'crystals'
               }
