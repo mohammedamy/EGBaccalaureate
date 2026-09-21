@@ -25,8 +25,10 @@ import {
   Feather,
   Maximize2,
   Minimize2,
+  Volume2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 
 // =========================================================================
 // VECTOR SCHEMATIC 1: ARABIC SYNTAX PARSE TREE (شجرة الإعراب والتحليل التركيبي)
@@ -755,7 +757,13 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          {/* AI Vocal Engine Badge */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-950/80 border border-amber-500/30 text-xs text-amber-300 font-semibold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+            <span className="text-[11px]">محرك نطق الفصحى بالذكاء الاصطناعي (HD)</span>
+          </div>
+
           <button
             type="button"
             onClick={toggleFullscreen}
@@ -872,10 +880,21 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
 
             {/* Interactive Sentence Board */}
             <div className="bg-gradient-to-b from-slate-900 via-slate-900/90 to-amber-950/20 p-6 rounded-3xl border border-amber-500/20 shadow-inner">
-              <div className="text-center mb-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
                 <span className="text-xs text-amber-400 font-bold tracking-wider uppercase">
                   {currentSentence.titleAr}
                 </span>
+                <button
+                  onClick={() => {
+                    const fullText = currentSentence.tokens.map((t) => t.word).join(' ');
+                    aiVoiceEngine.speak(fullText, { lang: 'ar-SA' });
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold transition cursor-pointer"
+                  title="استمع إلى النطق الصوتي الفصيح بالذكاء الاصطناعي"
+                >
+                  <Volume2 className="w-3.5 h-3.5 text-amber-400" />
+                  <span>نطق الجملة بالفصحى (AI)</span>
+                </button>
               </div>
 
               <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 py-4 text-lg sm:text-2xl font-bold font-serif leading-relaxed">
@@ -920,8 +939,17 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                 <div className="md:col-span-1 border-b md:border-b-0 md:border-l border-slate-800 pb-4 md:pb-0 md:pl-4 flex flex-col justify-between">
                   <div>
                     <div className="text-[11px] text-slate-400 uppercase font-mono">الكلمة المحددة</div>
-                    <div className="text-2xl sm:text-3xl font-black text-amber-400 font-serif mt-1">
-                      {currentToken.word}
+                    <div className="flex items-center justify-between gap-2 mt-1">
+                      <div className="text-2xl sm:text-3xl font-black text-amber-400 font-serif">
+                        {currentToken.word}
+                      </div>
+                      <button
+                        onClick={() => aiVoiceEngine.speak(currentToken.word, { lang: 'ar-SA' })}
+                        className="p-2 min-h-[44px] min-w-[44px] rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 cursor-pointer flex items-center justify-center"
+                        title="نطق الكلمة"
+                      >
+                        <Volume2 className="w-4 h-4" />
+                      </button>
                     </div>
                     <div className="text-xs text-slate-400 mt-1">{currentToken.roleEn}</div>
                   </div>

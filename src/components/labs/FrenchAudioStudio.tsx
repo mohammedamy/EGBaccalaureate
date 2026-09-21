@@ -31,6 +31,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 
 interface Props {
   lang?: Language;
@@ -84,63 +85,56 @@ export const FrenchAudioStudio: React.FC<Props> = ({
 
   const trackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Web Speech API French pronunciation
+  // AI Vocal Engine French pronunciation
   const speakFrench = (text: string, customRate?: number) => {
-    if (!('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'fr-FR';
-    utterance.rate = customRate || speechRate;
-    utterance.pitch = 1.0;
-
-    utterance.onstart = () => setCurrentlyPlayingText(text);
-    utterance.onend = () => setCurrentlyPlayingText(null);
-    utterance.onerror = () => setCurrentlyPlayingText(null);
-
-    window.speechSynthesis.speak(utterance);
+    aiVoiceEngine.speak(text, {
+      lang: 'fr-FR',
+      rate: customRate || speechRate,
+      onStart: () => setCurrentlyPlayingText(text),
+      onEnd: () => setCurrentlyPlayingText(null),
+      onError: () => setCurrentlyPlayingText(null),
+    });
   };
 
   const stopAudio = () => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    aiVoiceEngine.stopAll();
     setCurrentlyPlayingText(null);
     setIsPlayingTrack(false);
+    setCurrentTurnIndex(-1);
     if (trackTimeoutRef.current) clearTimeout(trackTimeoutRef.current);
   };
 
-  // Automated Sequential Playback for Dialogue Tracks
+  // Automated Sequential Playback for Dialogue Tracks with AI Vocal Engine
   const playDialogueTrack = (track: FrenchListeningTrack) => {
     stopAudio();
     setIsPlayingTrack(true);
-    let index = 0;
 
-    const playNextTurn = () => {
-      if (index >= track.dialogueTurns.length) {
+    const turns = track.dialogueTurns.map((turn) => ({
+      text: turn.textFr,
+      lang: 'fr-FR',
+      delayAfterMs: 650,
+    }));
+
+    aiVoiceEngine.playDialogue(turns, 'fr-FR', {
+      rate: speechRate,
+      onTurnStart: (idx, turn) => {
+        setCurrentTurnIndex(idx);
+        setCurrentlyPlayingText(turn.text);
+      },
+      onTurnEnd: () => {
+        setCurrentlyPlayingText(null);
+      },
+      onComplete: () => {
         setIsPlayingTrack(false);
         setCurrentTurnIndex(-1);
-        return;
-      }
-      setCurrentTurnIndex(index);
-      const turn = track.dialogueTurns[index];
-      const utterance = new SpeechSynthesisUtterance(turn.textFr);
-      utterance.lang = 'fr-FR';
-      utterance.rate = speechRate;
-
-      utterance.onend = () => {
-        index++;
-        trackTimeoutRef.current = setTimeout(playNextTurn, 600);
-      };
-      utterance.onerror = () => {
+        setCurrentlyPlayingText(null);
+      },
+      onError: () => {
         setIsPlayingTrack(false);
         setCurrentTurnIndex(-1);
-      };
-
-      window.speechSynthesis.speak(utterance);
-    };
-
-    playNextTurn();
+        setCurrentlyPlayingText(null);
+      },
+    });
   };
 
   useEffect(() => {
@@ -188,7 +182,13 @@ export const FrenchAudioStudio: React.FC<Props> = ({
         </div>
 
         {/* Playback Rate & Audio Quick Controls */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          {/* AI Vocal Engine Badge */}
+          <div className="flex items-center gap-1.5 bg-blue-950/60 border border-blue-500/30 px-2.5 py-1.5 rounded-xl text-xs text-blue-300 font-semibold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-blue-400 animate-pulse" />
+            <span className="text-[11px]">AI Vocal Engine (HD)</span>
+          </div>
+
           <div className="flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-xl text-xs">
             <Sliders className="w-3.5 h-3.5 text-slate-400" />
             <span className="text-slate-400 hidden sm:inline">Vitesse:</span>

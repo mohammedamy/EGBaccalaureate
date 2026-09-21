@@ -34,6 +34,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 
 interface Props {
   lang?: Language;
@@ -511,26 +512,22 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
   const [recognitionError, setRecognitionError] = useState<string | null>(null);
   const recognitionRef = useRef<any>(null);
 
-  // Native Speech Synthesis Player
+  // AI Vocal Engine Player
   const playAudio = (text: string, forcedAccent?: 'en-GB' | 'en-US', rateOverride?: number) => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = forcedAccent || accent;
-      utterance.rate = rateOverride || speechRate;
-      utterance.onstart = () => setCurrentlyPlayingWord(text);
-      utterance.onend = () => setCurrentlyPlayingWord(null);
-      utterance.onerror = () => setCurrentlyPlayingWord(null);
-      window.speechSynthesis.speak(utterance);
-    }
+    setCurrentlyPlayingWord(text);
+    aiVoiceEngine.speak(text, {
+      lang: forcedAccent || accent,
+      rate: rateOverride || speechRate,
+      onStart: () => setCurrentlyPlayingWord(text),
+      onEnd: () => setCurrentlyPlayingWord(null),
+      onError: () => setCurrentlyPlayingWord(null),
+    });
   };
 
   // Stop all audio on tab switch or unmount
   useEffect(() => {
     return () => {
-      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
+      aiVoiceEngine.stopAll();
       if (recognitionRef.current) {
         try {
           recognitionRef.current.abort();
@@ -589,13 +586,24 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
 
   const toggleTrackAudio = () => {
     if (isPlayingTrack) {
-      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
+      aiVoiceEngine.stopAll();
       setIsPlayingTrack(false);
     } else {
       setIsPlayingTrack(true);
-      playAudio(currentTrack.fullText, currentTrack.recommendedVoice, speechRate);
+      setCurrentlyPlayingWord(currentTrack.fullText);
+      aiVoiceEngine.speak(currentTrack.fullText, {
+        lang: currentTrack.recommendedVoice,
+        rate: speechRate,
+        onStart: () => setIsPlayingTrack(true),
+        onEnd: () => {
+          setIsPlayingTrack(false);
+          setCurrentlyPlayingWord(null);
+        },
+        onError: () => {
+          setIsPlayingTrack(false);
+          setCurrentlyPlayingWord(null);
+        },
+      });
     }
   };
 
@@ -712,6 +720,14 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
 
         {/* Global Audio Controls Bar */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 bg-slate-850/80 p-2 rounded-xl border border-slate-700/50 text-xs">
+          {/* AI Vocal Engine Badge */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-violet-950/60 border border-violet-500/30 text-violet-300 font-semibold">
+            <Sparkles className="w-3.5 h-3.5 text-violet-400 animate-pulse" />
+            <span className="text-[11px] tracking-wide">AI Neural HD Engine</span>
+          </div>
+
+          <div className="w-px h-6 bg-slate-700 mx-1 hidden sm:block" />
+
           {/* Accent Selector (min-h-[44px]) */}
           <div className="flex items-center gap-1.5">
             <span className="text-slate-400 font-bold">Accent:</span>
@@ -1470,10 +1486,9 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
 
                 <button
                   onClick={() => {
-                    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-                      window.speechSynthesis.cancel();
-                    }
+                    aiVoiceEngine.stopAll();
                     setIsPlayingTrack(false);
+                    setCurrentlyPlayingWord(null);
                   }}
                   className="p-2.5 min-h-[44px] min-w-[44px] rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer flex items-center justify-center"
                   title="Reset Audio"

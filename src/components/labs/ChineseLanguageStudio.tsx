@@ -31,6 +31,7 @@ import {
   Award,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 
 export type ChineseStudioTab = 'pinyin_tones' | 'radicals' | 'grammar' | 'situations' | 'listening';
 
@@ -86,33 +87,25 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
 
   const trackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Speech synthesis in zh-CN
+  // AI Vocal Engine Mandarin pronunciation (zh-CN)
   const speakMandarin = (text: string, customRate?: number) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'zh-CN';
-    utterance.rate = customRate || speechRate;
-    utterance.pitch = 1.0;
-
-    utterance.onstart = () => setCurrentlyPlayingText(text);
-    utterance.onend = () => {
-      setCurrentlyPlayingText(null);
-      setIsPlayingScript(false);
-    };
-    utterance.onerror = () => {
-      setCurrentlyPlayingText(null);
-      setIsPlayingScript(false);
-    };
-
-    window.speechSynthesis.speak(utterance);
+    aiVoiceEngine.speak(text, {
+      lang: 'zh-CN',
+      rate: customRate || speechRate,
+      onStart: () => setCurrentlyPlayingText(text),
+      onEnd: () => {
+        setCurrentlyPlayingText(null);
+        setIsPlayingScript(false);
+      },
+      onError: () => {
+        setCurrentlyPlayingText(null);
+        setIsPlayingScript(false);
+      },
+    });
   };
 
   const stopAudio = () => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    aiVoiceEngine.stopAll();
     setCurrentlyPlayingText(null);
     setIsPlayingScript(false);
     if (trackTimeoutRef.current) clearTimeout(trackTimeoutRef.current);
@@ -158,8 +151,14 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Action controls */}
-        <div className="flex items-center gap-2">
+        {/* Action controls & AI Vocal Engine */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          {/* AI Vocal Engine Badge */}
+          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-red-950/70 border border-red-500/30 text-xs text-red-300 font-semibold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-red-400 animate-pulse" />
+            <span className="text-[11px]">AI Vocal Engine (HD)</span>
+          </div>
+
           {/* Audio Speech Rate Selector */}
           <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs text-slate-300">
             <span>سرعة النطق:</span>

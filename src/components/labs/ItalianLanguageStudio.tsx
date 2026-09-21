@@ -33,6 +33,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 
 interface Props {
   lang?: Language;
@@ -92,67 +93,58 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
 
   const trackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Web Speech API Italian pronunciation
+  // AI Vocal Engine Italian pronunciation
   const speakItalian = (text: string, customRate?: number) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'it-IT';
-    utterance.rate = customRate || speechRate;
-    utterance.pitch = 1.0;
-
-    utterance.onstart = () => setCurrentlyPlayingText(text);
-    utterance.onend = () => setCurrentlyPlayingText(null);
-    utterance.onerror = () => setCurrentlyPlayingText(null);
-
-    window.speechSynthesis.speak(utterance);
+    aiVoiceEngine.speak(text, {
+      lang: 'it-IT',
+      rate: customRate || speechRate,
+      onStart: () => setCurrentlyPlayingText(text),
+      onEnd: () => setCurrentlyPlayingText(null),
+      onError: () => setCurrentlyPlayingText(null),
+    });
   };
 
   const stopAudio = () => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    aiVoiceEngine.stopAll();
     setCurrentlyPlayingText(null);
     setIsPlayingTrack(false);
+    setCurrentTurnIndex(-1);
     if (trackTimeoutRef.current) {
       clearTimeout(trackTimeoutRef.current);
     }
   };
 
-  // Play dialogue sequentially
+  // Play dialogue sequentially with AI Vocal Engine
   const playListeningTrack = (track: ItalianListeningTrack) => {
     stopAudio();
     setIsPlayingTrack(true);
 
-    let idx = 0;
-    const playTurn = () => {
-      if (idx >= track.turns.length) {
+    const turns = track.turns.map((turn) => ({
+      text: turn.textIt,
+      lang: 'it-IT',
+      delayAfterMs: 650,
+    }));
+
+    aiVoiceEngine.playDialogue(turns, 'it-IT', {
+      rate: speechRate * 0.95,
+      onTurnStart: (idx, turn) => {
+        setCurrentTurnIndex(idx);
+        setCurrentlyPlayingText(turn.text);
+      },
+      onTurnEnd: () => {
+        setCurrentlyPlayingText(null);
+      },
+      onComplete: () => {
         setIsPlayingTrack(false);
         setCurrentTurnIndex(-1);
-        return;
-      }
-
-      setCurrentTurnIndex(idx);
-      const turn = track.turns[idx];
-      const utterance = new SpeechSynthesisUtterance(turn.textIt);
-      utterance.lang = 'it-IT';
-      utterance.rate = speechRate * 0.95;
-
-      utterance.onend = () => {
-        idx++;
-        trackTimeoutRef.current = setTimeout(playTurn, 650);
-      };
-
-      utterance.onerror = () => {
+        setCurrentlyPlayingText(null);
+      },
+      onError: () => {
         setIsPlayingTrack(false);
         setCurrentTurnIndex(-1);
-      };
-
-      window.speechSynthesis.speak(utterance);
-    };
-
-    playTurn();
+        setCurrentlyPlayingText(null);
+      },
+    });
   };
 
   const handleSituationChoice = (choice: 'correct' | 'trap') => {
@@ -201,23 +193,31 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Global Speech Speed Controller */}
-        <div className="flex items-center gap-2 bg-slate-900/80 px-3 py-1.5 rounded-2xl border border-slate-800 text-xs">
-          <Volume2 className="w-4 h-4 text-emerald-400" />
-          <span className="font-bold text-slate-300">سرعة الصوت:</span>
-          {[0.75, 0.85, 1.0].map((rate) => (
-            <button
-              key={rate}
-              onClick={() => setSpeechRate(rate)}
-              className={`px-2 py-0.5 rounded-lg font-mono font-bold transition-all ${
-                speechRate === rate
-                  ? 'bg-emerald-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-white'
-              }`}
-            >
-              {rate}x
-            </button>
-          ))}
+        {/* Global Controls & AI Vocal Engine */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          {/* AI Vocal Engine Badge */}
+          <div className="flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-1.5 rounded-2xl text-xs text-emerald-300 font-semibold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+            <span className="text-[11px]">AI Vocal Engine (HD)</span>
+          </div>
+
+          <div className="flex items-center gap-2 bg-slate-900/80 px-3 py-1.5 rounded-2xl border border-slate-800 text-xs">
+            <Volume2 className="w-4 h-4 text-emerald-400" />
+            <span className="font-bold text-slate-300">سرعة الصوت:</span>
+            {[0.75, 0.85, 1.0].map((rate) => (
+              <button
+                key={rate}
+                onClick={() => setSpeechRate(rate)}
+                className={`px-2 py-0.5 rounded-lg font-mono font-bold transition-all ${
+                  speechRate === rate
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : 'text-slate-400 hover:text-white'
+                }`}
+              >
+                {rate}x
+              </button>
+            ))}
+          </div>
         </div>
 
         <button

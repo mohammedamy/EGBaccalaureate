@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
+import { aiVoiceEngine } from '../services/aiVoiceEngine';
 
 interface Props {
   type: 'english_dictionary' | 'english_translation' | 'english_grammar_lab' | 'english_audio_lab';
@@ -53,15 +54,9 @@ export const EnglishLessonInteractiveWidget: React.FC<Props> = ({
   const [selectedGrammarId, setSelectedGrammarId] = useState<number>(0);
   const [isTransformed, setIsTransformed] = useState(false);
 
-  // Audio Pronunciation
+  // AI Vocal Engine Audio Pronunciation
   const playAudio = (word: string) => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = 'en-GB';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
-    }
+    aiVoiceEngine.speak(word, { lang: 'en-GB', rate: 0.95 });
   };
 
   const copyToClipboard = (id: string, text: string) => {

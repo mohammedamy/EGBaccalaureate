@@ -28,6 +28,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 
 interface Props {
   lang?: Language;
@@ -77,27 +78,19 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
   const [chosenSitChoice, setChosenSitChoice] = useState<'correct' | 'trap' | null>(null);
   const [situationScore, setSituationScore] = useState<number>(0);
 
-  // Web Speech API Spanish pronunciation
+  // AI Vocal Engine Spanish pronunciation
   const speakSpanish = (text: string, customRate?: number) => {
-    if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
-    window.speechSynthesis.cancel();
-
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = 'es-ES';
-    utterance.rate = customRate || speechRate;
-    utterance.pitch = 1.0;
-
-    utterance.onstart = () => setCurrentlyPlayingText(text);
-    utterance.onend = () => setCurrentlyPlayingText(null);
-    utterance.onerror = () => setCurrentlyPlayingText(null);
-
-    window.speechSynthesis.speak(utterance);
+    aiVoiceEngine.speak(text, {
+      lang: 'es-ES',
+      rate: customRate || speechRate,
+      onStart: () => setCurrentlyPlayingText(text),
+      onEnd: () => setCurrentlyPlayingText(null),
+      onError: () => setCurrentlyPlayingText(null),
+    });
   };
 
   const stopAudio = () => {
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
+    aiVoiceEngine.stopAll();
     setCurrentlyPlayingText(null);
   };
 
@@ -158,11 +151,18 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Speed Controls & Audio Feedback */}
-        <div className={`flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs ${
-          isLight ? 'bg-white border border-stone-300 shadow-2xs' : 'bg-stone-900/90 border border-stone-800'
-        }`}>
-          <Headphones className={`w-4 h-4 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
+        {/* Speed Controls & AI Vocal Engine */}
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          {/* AI Vocal Engine Badge */}
+          <div className="flex items-center gap-1.5 bg-amber-950/80 border border-amber-500/30 px-2.5 py-1.5 rounded-xl text-xs text-amber-300 font-semibold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+            <span className="text-[11px]">AI Vocal Engine (HD)</span>
+          </div>
+
+          <div className={`flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs ${
+            isLight ? 'bg-white border border-stone-300 shadow-2xs' : 'bg-stone-900/90 border border-stone-800'
+          }`}>
+            <Headphones className={`w-4 h-4 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
           <span className={`font-bold ${isLight ? 'text-stone-800' : 'text-stone-300'}`}>سرعة النطق:</span>
           {[0.7, 0.85, 1.0].map((rate) => (
             <button
@@ -189,8 +189,9 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
             </button>
           )}
         </div>
+      </div>
 
-        <button
+      <button
           type="button"
           onClick={toggleFullscreen}
           className={`p-2 rounded-xl transition-all cursor-pointer ${

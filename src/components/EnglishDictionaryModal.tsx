@@ -4,6 +4,7 @@ import {
   searchEnglishDictionary,
   type DictionaryEntry,
 } from '../data/dictionary/englishDictionary';
+import { aiVoiceEngine } from '../services/aiVoiceEngine';
 import {
   X,
   Search,
@@ -81,13 +82,7 @@ export const EnglishDictionaryModal: React.FC<Props> = ({
   }, [results, selectedWord]);
 
   const handleSpeak = (text: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-GB';
-      utterance.rate = 0.9;
-      window.speechSynthesis.speak(utterance);
-    }
+    aiVoiceEngine.speak(text, { lang: 'en-GB', rate: 0.95 });
   };
 
   const handleCopy = (entry: DictionaryEntry) => {
