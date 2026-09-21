@@ -1133,7 +1133,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
           {/* Sound Toggle */}
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
-            className={`p-2 rounded-lg border text-xs font-semibold flex items-center gap-1.5 transition-colors ${
+            className={`px-3 py-2 min-h-[44px] min-w-[44px] rounded-lg border text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${
               soundEnabled
                 ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40 hover:bg-emerald-500/30'
                 : 'bg-rose-500/20 text-rose-400 border-rose-500/40 hover:bg-rose-500/30'
@@ -1149,7 +1149,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
           {/* Fullscreen Toggle */}
           <button
             onClick={toggleFullscreen}
-            className="p-2 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors"
+            className="p-2 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
             title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
@@ -1180,7 +1180,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                   setSelectedInstrument(inst.id);
                   playInstrumentTone(261.63, inst.id, 0.6); // Sample note preview
                 }}
-                className={`p-2.5 rounded-xl border flex items-center gap-2.5 transition-all text-start ${
+                className={`p-2.5 min-h-[44px] rounded-xl border flex items-center gap-2.5 transition-all text-start cursor-pointer ${
                   isSel
                     ? 'bg-gradient-to-r from-amber-500/25 to-purple-600/25 border-amber-400 text-white font-bold shadow-lg shadow-amber-500/10 scale-102 ring-1 ring-amber-400/50'
                     : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
@@ -1218,7 +1218,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as MusicStudioTab)}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
+              className={`flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-xl text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                 isActive
                   ? 'bg-gradient-to-r from-amber-500 to-purple-600 text-white shadow-md shadow-amber-500/20'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -1255,7 +1255,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               <div className="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
                 <button
                   onClick={() => setOctavesCount(2)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+                  className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-bold transition-colors cursor-pointer flex items-center justify-center ${
                     octavesCount === 2 ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1263,7 +1263,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 </button>
                 <button
                   onClick={() => setOctavesCount(3)}
-                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+                  className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-bold transition-colors cursor-pointer flex items-center justify-center ${
                     octavesCount === 3 ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1276,26 +1276,26 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 <button
                   onClick={() => setBaseOctave((o) => Math.max(2, o - 1))}
                   disabled={baseOctave <= 2}
-                  className="px-2 py-1 rounded hover:bg-slate-700 disabled:opacity-40"
+                  className="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded hover:bg-slate-700 disabled:opacity-40 cursor-pointer"
                   title="Octave Down"
                 >
-                  <ChevronLeft className="w-3.5 h-3.5" />
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="px-1 text-amber-300 font-mono">C{baseOctave} - C{baseOctave + octavesCount}</span>
+                <span className="px-1.5 text-amber-300 font-mono">C{baseOctave} - C{baseOctave + octavesCount}</span>
                 <button
                   onClick={() => setBaseOctave((o) => Math.min(4, o + 1))}
                   disabled={baseOctave >= 4}
-                  className="px-2 py-1 rounded hover:bg-slate-700 disabled:opacity-40"
+                  className="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded hover:bg-slate-700 disabled:opacity-40 cursor-pointer"
                   title="Octave Up"
                 >
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
 
               {/* Quarter-tone Overlay Toggle */}
               <button
                 onClick={() => setShowQuarterToneOverlay(!showQuarterToneOverlay)}
-                className={`px-3 py-1 rounded-xl text-xs font-bold border transition-colors ${
+                className={`px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-bold border transition-colors cursor-pointer flex items-center justify-center ${
                   showQuarterToneOverlay
                     ? 'bg-purple-600/30 text-purple-300 border-purple-500/50'
                     : 'bg-slate-800 text-slate-400 border-slate-700'
@@ -1826,7 +1826,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                       setTimeout(() => playChord([196.0, 246.94, 293.66], 1.2), 650);
                     }
                   }}
-                  className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-500/40 text-xs font-bold transition-colors"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 min-h-[44px] rounded-xl bg-purple-600/30 hover:bg-purple-600/50 text-purple-200 border border-purple-500/40 text-xs font-bold transition-colors cursor-pointer"
                 >
                   <Play className="w-3.5 h-3.5" />
                   <span>{isArabic ? `عزف القفلة (${cad.progression})` : `Play Cadence (${cad.progression})`}</span>
@@ -1901,7 +1901,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                         playInstrumentTone(261.63, selectedInstrument, 0.8);
                       }
                     }}
-                    className="w-full py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors"
+                    className="w-full py-2.5 min-h-[44px] rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                   >
                     <span>🎹</span>
                     <span>{isArabic ? 'عزف وتجربة الآلة على البيانو' : 'Play this Instrument on Piano'}</span>
@@ -1951,7 +1951,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                       key={idx}
                       onClick={() => handleAnswer(idx)}
                       disabled={selectedAnswer !== null}
-                      className={`w-full text-start p-4 rounded-xl border transition-all text-xs md:text-sm ${btnStyle}`}
+                      className={`w-full text-start p-4 min-h-[44px] rounded-xl border transition-all text-xs md:text-sm cursor-pointer ${btnStyle}`}
                     >
                       {isArabic ? optAr : optEn}
                     </button>
@@ -1973,7 +1973,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 <div className="flex justify-end">
                   <button
                     onClick={nextQuiz}
-                    className="px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition-colors"
+                    className="px-6 py-2.5 min-h-[44px] rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition-colors cursor-pointer flex items-center justify-center"
                   >
                     {quizIndex < MUSIC_STUDIO_QUIZ.length - 1
                       ? isArabic
@@ -1999,7 +1999,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               </p>
               <button
                 onClick={resetQuiz}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 min-h-[44px] rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-4 h-4" />
                 <span>{isArabic ? 'إعادة الاختبار' : 'Retake Quiz'}</span>
