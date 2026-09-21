@@ -895,6 +895,21 @@ export const GeologyEarthStudio: React.FC<Props> = ({
 
   // Unconformities State
   const [selectedUnconformity, setSelectedUnconformity] = useState<'angular' | 'disconformity' | 'nonconformity'>('angular');
+  const [unconformityStage, setUnconformityStage] = useState<number>(3); // 0: Initial Rocks, 1: Tectonics, 2: Hiatus/Erosion, 3: Transgression & Deposition
+  const [isChronologyPlaying, setIsChronologyPlaying] = useState<boolean>(false);
+
+  // Auto-play timer for geological chronology
+  useEffect(() => {
+    let timer: ReturnType<typeof setInterval> | null = null;
+    if (isChronologyPlaying) {
+      timer = setInterval(() => {
+        setUnconformityStage((prev) => (prev + 1) % 4);
+      }, 2600);
+    }
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [isChronologyPlaying]);
 
   // Card theme classes
   const containerBg = isLight
@@ -3071,7 +3086,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     structSubTab === 'faults'
                       ? 'bg-violet-600 text-white shadow-xs'
                       : isLight
-                      ? 'text-stone-700 hover:text-stone-950'
+                      ? 'text-stone-800 hover:text-stone-950 hover:bg-white/80'
                       : 'text-stone-400 hover:text-stone-200'
                   }`}
                 >
@@ -3083,7 +3098,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     structSubTab === 'folds'
                       ? 'bg-violet-600 text-white shadow-xs'
                       : isLight
-                      ? 'text-stone-700 hover:text-stone-950'
+                      ? 'text-stone-800 hover:text-stone-950 hover:bg-white/80'
                       : 'text-stone-400 hover:text-stone-200'
                   }`}
                 >
@@ -3095,7 +3110,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     structSubTab === 'unconformities'
                       ? 'bg-violet-600 text-white shadow-xs'
                       : isLight
-                      ? 'text-stone-700 hover:text-stone-950'
+                      ? 'text-stone-800 hover:text-stone-950 hover:bg-white/80'
                       : 'text-stone-400 hover:text-stone-200'
                   }`}
                 >
@@ -3111,15 +3126,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div className="lg:col-span-7 flex flex-col gap-4 min-w-0">
                   <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-stone-400">
+                      <span className={`text-xs font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
                         {isArabic ? 'المقطع التكتوني التفاعلي للكسر والإزاحة' : 'Interactive Tectonic Slip Cross-Section'}
                       </span>
                       <button
                         onClick={() => setShowWallLabels(!showWallLabels)}
                         className={`text-[11px] px-3 py-1.5 rounded-lg border font-mono transition-colors cursor-pointer min-h-[44px] flex items-center justify-center ${
                           showWallLabels
-                            ? 'bg-violet-950/60 border-violet-700 text-violet-300'
-                            : 'bg-stone-800 border-stone-700 text-stone-400'
+                            ? isLight ? 'bg-violet-100 border-violet-400 text-violet-900 font-bold' : 'bg-violet-950/60 border-violet-700 text-violet-300'
+                            : isLight ? 'bg-stone-100 border-stone-300 text-stone-700 hover:bg-stone-200 font-medium' : 'bg-stone-800 border-stone-700 text-stone-400'
                         }`}
                       >
                         {isArabic ? 'تمييز الحائط العلوي والسفلي' : 'Hanging/Footwall Labels'}
@@ -3155,7 +3170,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                             <g>
                               {/* Tension Force Arrows */}
                               <g stroke="#f43f5e" strokeWidth="3" fill="#f43f5e">
-                                <line x1="100" y1="35" x2="40" y2="35" markerEnd="url(#arrow-red)" />
+                                <line x1="100" y1="35" x2="40" y2="35" />
                                 <polygon points="35,35 45,30 45,40" />
                                 <line x1="400" y1="35" x2="460" y2="35" />
                                 <polygon points="465,35 455,30 455,40" />
@@ -3444,12 +3459,14 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     </div>
 
                     {/* Displacement Slider */}
-                    <div className="flex flex-col gap-1.5 p-3 rounded-lg bg-stone-900 border border-stone-800">
+                    <div className={`flex flex-col gap-1.5 p-3 rounded-lg border ${
+                      isLight ? 'bg-stone-100 border-stone-300' : 'bg-stone-900 border border-stone-800'
+                    }`}>
                       <div className="flex justify-between items-center text-xs">
-                        <span className="font-bold text-stone-300">
+                        <span className={`font-bold ${isLight ? 'text-stone-800' : 'text-stone-300'}`}>
                           {isArabic ? 'مقدار الإزاحة التكتونية (Displacement):' : 'Tectonic Slip Displacement:'}
                         </span>
-                        <span className="font-mono text-amber-400 font-bold">{faultDisplacement} mm</span>
+                        <span className={`font-mono font-bold ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{faultDisplacement} mm</span>
                       </div>
                       <input
                         type="range"
@@ -3457,7 +3474,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                         max="50"
                         value={faultDisplacement}
                         onChange={(e) => setFaultDisplacement(Number(e.target.value))}
-                        className="w-full accent-violet-500 cursor-pointer h-2 bg-stone-800 rounded"
+                        className={`w-full accent-violet-500 cursor-pointer h-2 rounded ${isLight ? 'bg-stone-300' : 'bg-stone-800'}`}
                       />
                     </div>
                   </div>
@@ -3466,7 +3483,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Right: Fault Type Controls & Ministerial Traps */}
                 <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
                   <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
-                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                    <h4 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
                       {isArabic ? 'أنواع الفوالق التكتونية (Tectonic Faults)' : 'Tectonic Fault Types'}
                     </h4>
 
@@ -3486,7 +3503,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                             selectedFault === item.key
                               ? 'bg-violet-600 text-white shadow-md'
                               : isLight
-                              ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                              ? 'bg-stone-100 text-stone-800 hover:bg-stone-200 border border-stone-300 font-semibold'
                               : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
                           }`}
                         >
@@ -3496,10 +3513,12 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     </div>
 
                     {/* Kinematic Analysis Card */}
-                    <div className="p-3 rounded-lg bg-stone-900 border border-stone-800 space-y-2 text-xs">
-                      <div className="flex justify-between border-b border-stone-800 pb-1.5">
-                        <span className="text-stone-400">{isArabic ? 'نوع القوة المؤثرة:' : 'Stress Type:'}</span>
-                        <span className="font-bold text-amber-300">
+                    <div className={`p-3 rounded-lg border space-y-2 text-xs ${
+                      isLight ? 'bg-stone-100 border-stone-300' : 'bg-stone-900 border border-stone-800'
+                    }`}>
+                      <div className={`flex justify-between border-b pb-1.5 ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
+                        <span className={isLight ? 'text-stone-700 font-medium' : 'text-stone-400'}>{isArabic ? 'نوع القوة المؤثرة:' : 'Stress Type:'}</span>
+                        <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-300'}`}>
                           {selectedFault === 'normal' || selectedFault === 'horst' || selectedFault === 'graben'
                             ? (isArabic ? 'قوى شد تكتونية (Tension)' : 'Extensional Tension')
                             : selectedFault === 'strike_slip'
@@ -3507,9 +3526,9 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                             : (isArabic ? 'قوى ضغط تكتونية (Compression)' : 'Compressional Stress')}
                         </span>
                       </div>
-                      <div className="flex justify-between border-b border-stone-800 pb-1.5">
-                        <span className="text-stone-400">{isArabic ? 'التأثير على مساحة القشرة:' : 'Crustal Area Effect:'}</span>
-                        <span className="font-bold text-emerald-400">
+                      <div className={`flex justify-between border-b pb-1.5 ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
+                        <span className={isLight ? 'text-stone-700 font-medium' : 'text-stone-400'}>{isArabic ? 'التأثير على مساحة القشرة:' : 'Crustal Area Effect:'}</span>
+                        <span className={`font-bold ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>
                           {selectedFault === 'normal'
                             ? (isArabic ? 'زيادة واتساع في المساحة' : 'Crustal Extension (Widening)')
                             : selectedFault === 'reverse' || selectedFault === 'thrust'
@@ -3518,17 +3537,21 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                         </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-stone-400">{isArabic ? 'شواهد ميدانية مصاحبة:' : 'Field Associated Evidence:'}</span>
-                        <span className="text-stone-300 text-[11px] text-end">
+                        <span className={isLight ? 'text-stone-700 font-medium' : 'text-stone-400'}>{isArabic ? 'شواهد ميدانية مصاحبة:' : 'Field Associated Evidence:'}</span>
+                        <span className={`text-[11px] text-end ${isLight ? 'text-stone-800 font-medium' : 'text-stone-300'}`}>
                           {isArabic ? 'صقال + بريشيا الفوالق + نافورات ساخنة + ترسب الكالسيت' : 'Slickensides, Fault Breccia, Hot Springs, Calcite'}
                         </span>
                       </div>
                     </div>
 
                     {/* Ministerial Trap Alert */}
-                    <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800 text-amber-200 text-xs space-y-1">
-                      <span className="font-bold text-amber-300 block">{isArabic ? '⚠️ فخ امتحاني وزاري حاسم:' : '⚠️ Ministerial Exam Trap:'}</span>
-                      <p className="text-[11px] leading-relaxed">
+                    <div className={`p-3 rounded-lg border text-xs space-y-1 ${
+                      isLight
+                        ? 'bg-amber-50 border-amber-300 text-amber-950'
+                        : 'bg-amber-950/30 border-amber-800 text-amber-200'
+                    }`}>
+                      <span className={`font-bold block ${isLight ? 'text-amber-900 font-black' : 'text-amber-300'}`}>{isArabic ? '⚠️ فخ امتحاني وزاري حاسم:' : '⚠️ Ministerial Exam Trap:'}</span>
+                      <p className={`text-[11px] leading-relaxed ${isLight ? 'text-amber-950 font-medium' : ''}`}>
                         {isArabic
                           ? 'لمعرفة نوع الفالق بدقة: حدد أولاً "صخور الحائط العلوي" (الصخور التي تعلو مستوى الكسر المائل). إذا تحركت لأسفل = فالق عادي، وإذا تحركت لأعلى = فالق معكوس (أو دسر إذا كانت زاوية الميل قليلة)!'
                           : 'Rule: First identify the hanging wall (rock mass resting on top of the inclined fault plane). If displaced downwards = Normal fault; if displaced upwards = Reverse/Thrust fault!'}
@@ -3546,15 +3569,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div className="lg:col-span-7 flex flex-col gap-4 min-w-0">
                   <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-stone-400">
+                      <span className={`text-xs font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
                         {isArabic ? 'المقطع البنائي المتناظر للثنيات والطبقات' : 'Symmetrical Fold Cross-Section'}
                       </span>
                       <button
                         onClick={() => setShowFoldElements(!showFoldElements)}
                         className={`text-[11px] px-3 py-1.5 rounded-lg border font-mono transition-colors cursor-pointer min-h-[44px] flex items-center justify-center ${
                           showFoldElements
-                            ? 'bg-violet-950/60 border-violet-700 text-violet-300'
-                            : 'bg-stone-800 border-stone-700 text-stone-400'
+                            ? isLight ? 'bg-violet-100 border-violet-400 text-violet-900 font-bold' : 'bg-violet-950/60 border-violet-700 text-violet-300'
+                            : isLight ? 'bg-stone-100 border-stone-300 text-stone-700 hover:bg-stone-200 font-medium' : 'bg-stone-800 border-stone-700 text-stone-400'
                         }`}
                       >
                         {isArabic ? 'إظهار العناصر التركيبية الثلاثة' : 'Show Structural Elements'}
@@ -3644,11 +3667,13 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     </div>
 
                     {/* Controls: Strain & Layers */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-lg bg-stone-900 border border-stone-800 text-xs">
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-lg border text-xs ${
+                      isLight ? 'bg-stone-100 border-stone-300' : 'bg-stone-900 border border-stone-800'
+                    }`}>
                       <div>
                         <div className="flex justify-between font-bold mb-1">
-                          <span className="text-stone-300">{isArabic ? 'شدة الانثناء والانضغاط:' : 'Fold Curvature Strain:'}</span>
-                          <span className="font-mono text-violet-400">{foldStrain}%</span>
+                          <span className={isLight ? 'text-stone-800' : 'text-stone-300'}>{isArabic ? 'شدة الانثناء والانضغاط:' : 'Fold Curvature Strain:'}</span>
+                          <span className={`font-mono font-bold ${isLight ? 'text-violet-800' : 'text-violet-400'}`}>{foldStrain}%</span>
                         </div>
                         <input
                           type="range"
@@ -3656,14 +3681,14 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           max="95"
                           value={foldStrain}
                           onChange={(e) => setFoldStrain(Number(e.target.value))}
-                          className="w-full accent-violet-500 cursor-pointer h-2 bg-stone-800 rounded"
+                          className={`w-full accent-violet-500 cursor-pointer h-2 rounded ${isLight ? 'bg-stone-300' : 'bg-stone-800'}`}
                         />
                       </div>
 
                       <div>
                         <div className="flex justify-between font-bold mb-1">
-                          <span className="text-stone-300">{isArabic ? 'عدد الطبقات المطوية (N):' : 'Number of Layers (N):'}</span>
-                          <span className="font-mono text-cyan-400">{foldLayerCount}</span>
+                          <span className={isLight ? 'text-stone-800' : 'text-stone-300'}>{isArabic ? 'عدد الطبقات المطوية (N):' : 'Number of Layers (N):'}</span>
+                          <span className={`font-mono font-bold ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>{foldLayerCount}</span>
                         </div>
                         <input
                           type="range"
@@ -3671,7 +3696,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           max="6"
                           value={foldLayerCount}
                           onChange={(e) => setFoldLayerCount(Number(e.target.value))}
-                          className="w-full accent-cyan-500 cursor-pointer h-2 bg-stone-800 rounded"
+                          className={`w-full accent-cyan-500 cursor-pointer h-2 rounded ${isLight ? 'bg-stone-300' : 'bg-stone-800'}`}
                         />
                       </div>
                     </div>
@@ -3681,7 +3706,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Right: Fold Mathematical Ratio & Elements Breakdown */}
                 <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
                   <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
-                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                    <h4 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
                       {isArabic ? 'نوع الطية (Fold Geometry)' : 'Fold Type'}
                     </h4>
 
@@ -3692,11 +3717,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           selectedFold === 'anticline'
                             ? 'bg-violet-600 text-white shadow-md'
                             : isLight
-                            ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                            ? 'bg-stone-100 text-stone-800 hover:bg-stone-200 border border-stone-300 font-semibold'
                             : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
                         }`}
                       >
-                        <span className="text-sm">∩ {isArabic ? 'طية محدبة' : 'Anticline'}</span>
+                        <span className="text-sm font-extrabold">∩ {isArabic ? 'طية محدبة' : 'Anticline'}</span>
                         <span className="text-[10px] opacity-80">{isArabic ? 'أقدم الطبقات بالمركز' : 'Oldest in core'}</span>
                       </button>
 
@@ -3706,42 +3731,50 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           selectedFold === 'syncline'
                             ? 'bg-violet-600 text-white shadow-md'
                             : isLight
-                            ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                            ? 'bg-stone-100 text-stone-800 hover:bg-stone-200 border border-stone-300 font-semibold'
                             : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
                         }`}
                       >
-                        <span className="text-sm">∪ {isArabic ? 'طية مقعرة' : 'Syncline'}</span>
+                        <span className="text-sm font-extrabold">∪ {isArabic ? 'طية مقعرة' : 'Syncline'}</span>
                         <span className="text-[10px] opacity-80">{isArabic ? 'أحدث الطبقات بالمركز' : 'Youngest in core'}</span>
                       </button>
                     </div>
 
                     {/* Structural Symmetry Elements Ratio Breakdown */}
-                    <div className="p-3 rounded-lg bg-stone-900 border border-stone-800 space-y-2 text-xs">
-                      <span className="font-bold text-cyan-300 block">{isArabic ? 'قانون النسبة التركيبية لعناصر الطية:' : 'Structural Symmetry Ratio:'}</span>
+                    <div className={`p-3 rounded-lg border space-y-2 text-xs ${
+                      isLight ? 'bg-stone-100 border-stone-300' : 'bg-stone-900 border border-stone-800'
+                    }`}>
+                      <span className={`font-bold block ${isLight ? 'text-cyan-900 font-black' : 'text-cyan-300'}`}>
+                        {isArabic ? 'قانون النسبة التركيبية لعناصر الطية:' : 'Structural Symmetry Ratio:'}
+                      </span>
                       <div className="grid grid-cols-3 gap-2 text-center pt-1">
-                        <div className="p-2 rounded bg-stone-800/80 border border-stone-700">
-                          <span className="text-[10px] text-stone-400 block">{isArabic ? 'مستوى محوري' : 'Axial Plane'}</span>
-                          <span className="text-lg font-black font-mono text-cyan-400">1</span>
+                        <div className={`p-2 rounded border ${isLight ? 'bg-white border-stone-300' : 'bg-stone-800/80 border-stone-700'}`}>
+                          <span className={`text-[10px] block ${isLight ? 'text-stone-600 font-semibold' : 'text-stone-400'}`}>{isArabic ? 'مستوى محوري' : 'Axial Plane'}</span>
+                          <span className={`text-lg font-black font-mono ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`}>1</span>
                         </div>
-                        <div className="p-2 rounded bg-stone-800/80 border border-stone-700">
-                          <span className="text-[10px] text-stone-400 block">{isArabic ? 'الجناحان' : 'Limbs'}</span>
-                          <span className="text-lg font-black font-mono text-amber-400">2</span>
+                        <div className={`p-2 rounded border ${isLight ? 'bg-white border-stone-300' : 'bg-stone-800/80 border-stone-700'}`}>
+                          <span className={`text-[10px] block ${isLight ? 'text-stone-600 font-semibold' : 'text-stone-400'}`}>{isArabic ? 'الجناحان' : 'Limbs'}</span>
+                          <span className={`text-lg font-black font-mono ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>2</span>
                         </div>
-                        <div className="p-2 rounded bg-stone-800/80 border border-stone-700">
-                          <span className="text-[10px] text-stone-400 block">{isArabic ? 'المحاور (N)' : 'Axes (N)'}</span>
-                          <span className="text-lg font-black font-mono text-emerald-400">{foldLayerCount}</span>
+                        <div className={`p-2 rounded border ${isLight ? 'bg-white border-stone-300' : 'bg-stone-800/80 border-stone-700'}`}>
+                          <span className={`text-[10px] block ${isLight ? 'text-stone-600 font-semibold' : 'text-stone-400'}`}>{isArabic ? 'المحاور (N)' : 'Axes (N)'}</span>
+                          <span className={`text-lg font-black font-mono ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>{foldLayerCount}</span>
                         </div>
                       </div>
 
-                      <div className="p-2 rounded bg-stone-950 text-center font-mono font-bold text-stone-300 border border-stone-800 mt-2">
+                      <div className={`p-2 rounded text-center font-mono font-bold border mt-2 ${
+                        isLight ? 'bg-white text-stone-900 border-stone-300' : 'bg-stone-950 text-stone-300 border-stone-800'
+                      }`}>
                         {isArabic ? `النسبة العددية لهذه الطية = 1 : 2 : ${foldLayerCount}` : `Element Ratio = 1 : 2 : ${foldLayerCount}`}
                       </div>
                     </div>
 
                     {/* Ministerial Trap Alert */}
-                    <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-800 text-emerald-200 text-xs space-y-1">
-                      <span className="font-bold text-emerald-300 block">{isArabic ? '💡 أهمية اقتصادية وجيولوجية:' : '💡 Economic Importance:'}</span>
-                      <p className="text-[11px] leading-relaxed">
+                    <div className={`p-3 rounded-lg border text-xs space-y-1 ${
+                      isLight ? 'bg-emerald-50 border-emerald-300 text-emerald-950' : 'bg-emerald-950/30 border-emerald-800 text-emerald-200'
+                    }`}>
+                      <span className={`font-bold block ${isLight ? 'text-emerald-900 font-black' : 'text-emerald-300'}`}>{isArabic ? '💡 أهمية اقتصادية وجيولوجية:' : '💡 Economic Importance:'}</span>
+                      <p className={`text-[11px] leading-relaxed ${isLight ? 'text-emerald-950 font-medium' : ''}`}>
                         {isArabic
                           ? 'تعتبر الطيات أهم المصايد والمكامن التي يتجمع فيها زيت البترول الخام، والغاز الطبيعي، والمياه الجوفية، وترسب الخامات المعدنية.'
                           : 'Folds represent the primary geological reservoirs and structural traps for petroleum oil, natural gas, and artesian groundwater accumulation.'}
@@ -3752,108 +3785,364 @@ export const GeologyEarthStudio: React.FC<Props> = ({
               </div>
             )}
 
-            {/* SUB-TAB 3: UNCONFORMITIES & BASAL CONGLOMERATE */}
+            {/* SUB-TAB 3: UNCONFORMITIES & BASAL CONGLOMERATE (CHRONOLOGICAL SIMULATOR) */}
             {structSubTab === 'unconformities' && (
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full max-w-full min-w-0">
-                {/* Left: Unconformity Cross-Section SVG */}
+                {/* Left: Unconformity Cross-Section SVG with 4 Stages */}
                 <div className="lg:col-span-7 flex flex-col gap-4 min-w-0">
                   <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
-                    <span className="text-xs font-bold text-stone-400">
-                      {isArabic ? 'المقطع الجيولوجي لسطح عدم التوافق والشواهد الميدانية' : 'Unconformity Stratigraphic Cross-Section'}
-                    </span>
+                    {/* Header with Chronology Control */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <span className={`text-xs font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
+                        {isArabic ? 'المقطع الجيولوجي التفاعلي للتتابع الزمني لعدم التوافق' : 'Interactive Unconformity Chronological Timeline'}
+                      </span>
 
+                      {/* Play / Pause Auto-Play */}
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setIsChronologyPlaying(!isChronologyPlaying)}
+                          className={`px-3 py-1.5 rounded-lg border text-xs font-bold transition-all cursor-pointer min-h-[44px] flex items-center gap-1.5 ${
+                            isChronologyPlaying
+                              ? 'bg-rose-600 text-white border-rose-500 shadow-xs'
+                              : isLight
+                              ? 'bg-stone-100 text-stone-800 border-stone-300 hover:bg-stone-200'
+                              : 'bg-stone-800 text-stone-300 border-stone-700 hover:bg-stone-700'
+                          }`}
+                        >
+                          {isChronologyPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                          <span>
+                            {isChronologyPlaying
+                              ? isArabic ? 'إيقاف مؤقت' : 'Pause'
+                              : isArabic ? 'تشغيل التتابع' : 'Play Timeline'}
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* 4 Chronological Stage Step Buttons */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                      {[
+                        { stage: 0, ar: '١. الترسيب القديم', en: '1. Old Strata' },
+                        { stage: 1, ar: '٢. تشوه تكتوني', en: '2. Tectonics' },
+                        { stage: 2, ar: '٣. انحسار وتعرية', en: '3. Hiatus & Erosion' },
+                        { stage: 3, ar: '٤. تقدم البحر والترسيب', en: '4. Transgression' },
+                      ].map((st) => (
+                        <button
+                          key={st.stage}
+                          onClick={() => {
+                            setUnconformityStage(st.stage);
+                            setIsChronologyPlaying(false);
+                          }}
+                          className={`p-2 rounded-lg text-xs font-bold transition-all cursor-pointer min-h-[44px] flex items-center justify-center text-center ${
+                            unconformityStage === st.stage
+                              ? 'bg-amber-600 text-white shadow-xs'
+                              : isLight
+                              ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-300'
+                              : 'bg-stone-900 text-stone-400 hover:bg-stone-800 border border-stone-800'
+                          }`}
+                        >
+                          <span>{isArabic ? st.ar : st.en}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* SVG Graphic with Dynamic Stages */}
                     <div className="w-full h-80 rounded-lg bg-stone-950 border border-stone-800 overflow-hidden relative flex items-center justify-center p-2">
                       <svg viewBox="0 0 500 300" className="w-full h-full select-none">
+                        {/* Ancient Marine Basin Water Header (Stages 0 & 3) */}
+                        {(unconformityStage === 0 || unconformityStage === 3) && (
+                          <g>
+                            <rect x="30" y="30" width="440" height="35" fill="#0284c7" opacity="0.25" />
+                            <path d="M 30 35 Q 70 30 110 35 T 190 35 T 270 35 T 350 35 T 430 35 T 470 35" stroke="#38bdf8" strokeWidth="1.5" fill="none" />
+                            <text x="250" y="52" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {unconformityStage === 0
+                                ? (isArabic ? 'بيئة بحرية ترسبية قديمة (Old Marine Basin)' : 'Ancient Sedimentary Marine Basin')
+                                : (isArabic ? 'تقدم البحر الجديد (Marine Transgression) وترسيب الطبقات الحديثة' : 'Marine Transgression & Younger Sedimentation')}
+                            </text>
+                          </g>
+                        )}
+
+                        {/* Sea Regressed / Subaerial Exposure (Stage 2) */}
+                        {unconformityStage === 2 && (
+                          <g>
+                            <rect x="30" y="30" width="440" height="40" fill="#f59e0b" opacity="0.1" />
+                            <text x="250" y="55" fill="#f59e0b" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'انحسار مياه البحر (Marine Regression) + فجوة انقطاع ترسيب وتعرية هوائية' : 'Marine Regression: Subaerial Weathering & Erosional Hiatus'}
+                            </text>
+                          </g>
+                        )}
+
+                        {/* 1. ANGULAR UNCONFORMITY STAGES */}
                         {selectedUnconformity === 'angular' && (
                           <g>
-                            {/* Angular Unconformity: Tilted older beds beneath horizontal younger beds */}
-                            {/* Older Tilted Beds below */}
-                            <g transform="rotate(-18 250 200)">
-                              <rect x="-50" y="160" width="600" height="40" fill="#d97706" opacity="0.8" />
-                              <rect x="-50" y="200" width="600" height="40" fill="#0284c7" opacity="0.8" />
-                              <rect x="-50" y="240" width="600" height="50" fill="#65a30d" opacity="0.8" />
-                            </g>
+                            {unconformityStage === 0 && (
+                              /* Stage 0: Pristine horizontal older beds */
+                              <g>
+                                <rect x="30" y="160" width="440" height="35" fill="#d97706" opacity="0.85" />
+                                <rect x="30" y="195" width="440" height="35" fill="#0284c7" opacity="0.85" />
+                                <rect x="30" y="230" width="440" height="40" fill="#65a30d" opacity="0.85" />
+                                <text x="250" y="182" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'ترسيب أفقي للمجموعة القديمة (حجر رملي / جيري / طيني)' : 'Pristine Older Horizontal Sedimentary Beds'}
+                                </text>
+                              </g>
+                            )}
 
-                            {/* Eroded Angular Unconformity Surface (Wavy Red Line) */}
-                            <path d="M 30 160 Q 150 150 250 162 T 470 158" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+                            {unconformityStage === 1 && (
+                              /* Stage 1: Tectonic Tilting */
+                              <g>
+                                <g stroke="#ef4444" strokeWidth="2.5" fill="#ef4444">
+                                  <line x1="40" y1="100" x2="90" y2="100" />
+                                  <polygon points="95,100 85,95 85,105" />
+                                  <line x1="460" y1="100" x2="410" y2="100" />
+                                  <polygon points="405,100 415,95 415,105" />
+                                  <text x="250" y="90" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                    {isArabic ? 'حركات تكتونية أرضية أمالت الطبقات بزاوية ميل واضحة' : 'Tectonic Forces Tilt & Fold the Older Sequences'}
+                                  </text>
+                                </g>
 
-                            {/* Basal Conglomerate Layer (Rounded Pebbles) immediately above unconformity */}
-                            {Array.from({ length: 18 }).map((_, i) => (
-                              <ellipse
-                                key={i}
-                                cx={50 + i * 23}
-                                cy={150 + Math.sin(i * 1.3) * 4}
-                                rx="7"
-                                ry="5"
-                                fill="#fbbf24"
-                                stroke="#78350f"
-                                strokeWidth="1.5"
-                              />
-                            ))}
+                                <g transform="rotate(-18 250 200)">
+                                  <rect x="-50" y="160" width="600" height="40" fill="#d97706" opacity="0.85" />
+                                  <rect x="-50" y="200" width="600" height="40" fill="#0284c7" opacity="0.85" />
+                                  <rect x="-50" y="240" width="600" height="50" fill="#65a30d" opacity="0.85" />
+                                </g>
+                              </g>
+                            )}
 
-                            {/* Younger Horizontal Beds above */}
-                            <rect x="30" y="70" width="440" height="40" fill="#a855f7" opacity="0.8" />
-                            <rect x="30" y="110" width="440" height="35" fill="#06b6d4" opacity="0.8" />
+                            {unconformityStage === 2 && (
+                              /* Stage 2: Erosional Hiatus Cutting Tops of Tilted Beds */
+                              <g>
+                                <g transform="rotate(-18 250 200)">
+                                  <rect x="-50" y="160" width="600" height="40" fill="#d97706" opacity="0.85" />
+                                  <rect x="-50" y="200" width="600" height="40" fill="#0284c7" opacity="0.85" />
+                                  <rect x="-50" y="240" width="600" height="50" fill="#65a30d" opacity="0.85" />
+                                </g>
+                                {/* Erosional Wavy Surface Line */}
+                                <path d="M 30 160 Q 150 150 250 162 T 470 158" stroke="#ef4444" strokeWidth="4" fill="none" />
+                                <text x="250" y="145" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'عوامل التعرية تنحت قمم الطبقات المائلة وتشكل سطحاً متعرجاً' : 'Erosion Truncates the Inclined Beds into an Irregular Contact'}
+                                </text>
+                              </g>
+                            )}
 
-                            <text x="250" y="185" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
-                              {isArabic ? 'سطح عدم توافق زاوي (طبقات مائلة تحت أفقية)' : 'Angular Unconformity Surface'}
-                            </text>
-                            <text x="250" y="140" fill="#fbbf24" fontSize="10" fontWeight="bold" textAnchor="middle">
-                              {isArabic ? 'طبقة الكونجلوميرات (حصى مستدير شاهد مباشر)' : 'Basal Conglomerate (Direct Field Marker)'}
-                            </text>
+                            {unconformityStage === 3 && (
+                              /* Stage 3: Full Unconformity with Transgression, Conglomerate, & Young Beds */
+                              <g>
+                                <g transform="rotate(-18 250 200)">
+                                  <rect x="-50" y="160" width="600" height="40" fill="#d97706" opacity="0.8" />
+                                  <rect x="-50" y="200" width="600" height="40" fill="#0284c7" opacity="0.8" />
+                                  <rect x="-50" y="240" width="600" height="50" fill="#65a30d" opacity="0.8" />
+                                </g>
+
+                                {/* Eroded Angular Unconformity Surface */}
+                                <path d="M 30 160 Q 150 150 250 162 T 470 158" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+
+                                {/* Basal Conglomerate Rounded Pebbles */}
+                                {Array.from({ length: 18 }).map((_, i) => (
+                                  <ellipse
+                                    key={i}
+                                    cx={50 + i * 23}
+                                    cy={150 + Math.sin(i * 1.3) * 4}
+                                    rx="7"
+                                    ry="5"
+                                    fill="#fbbf24"
+                                    stroke="#78350f"
+                                    strokeWidth="1.5"
+                                  />
+                                ))}
+
+                                {/* Younger Horizontal Beds above */}
+                                <rect x="30" y="70" width="440" height="40" fill="#a855f7" opacity="0.8" />
+                                <rect x="30" y="110" width="440" height="35" fill="#06b6d4" opacity="0.8" />
+
+                                <text x="250" y="185" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'سطح عدم توافق زاوي (طبقات مائلة تحت أفقية)' : 'Angular Unconformity Surface'}
+                                </text>
+                                <text x="250" y="140" fill="#fbbf24" fontSize="10" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'طبقة الكونجلوميرات (حصى مستدير شاهد مباشر)' : 'Basal Conglomerate (Direct Field Marker)'}
+                                </text>
+                              </g>
+                            )}
                           </g>
                         )}
 
+                        {/* 2. DISCONFORMITY STAGES */}
                         {selectedUnconformity === 'disconformity' && (
                           <g>
-                            {/* Parallel sedimentary beds with erosional gap */}
-                            <rect x="30" y="180" width="440" height="45" fill="#d97706" opacity="0.8" />
-                            <rect x="30" y="225" width="440" height="45" fill="#0284c7" opacity="0.8" />
+                            {unconformityStage === 0 && (
+                              /* Lower Parallel Sedimentary Sequence Deposited */
+                              <g>
+                                <rect x="30" y="180" width="440" height="45" fill="#d97706" opacity="0.85" />
+                                <rect x="30" y="225" width="440" height="45" fill="#0284c7" opacity="0.85" />
+                                <text x="250" y="210" fill="#ffffff" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'المجموعة الرسوبية السفلى (العصر السيلوري والديدفوني)' : 'Lower Marine Sequence Deposited (Silurian/Devonian)'}
+                                </text>
+                              </g>
+                            )}
 
-                            {/* Erosional Gap Line */}
-                            <path d="M 30 180 Q 100 170 180 185 T 350 175 T 470 180" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+                            {unconformityStage === 1 && (
+                              /* Regional Uplift Above Sea Level */
+                              <g>
+                                <rect x="30" y="170" width="440" height="50" fill="#d97706" opacity="0.85" />
+                                <rect x="30" y="220" width="440" height="50" fill="#0284c7" opacity="0.85" />
+                                <g stroke="#38bdf8" strokeWidth="2.5" fill="#38bdf8">
+                                  <line x1="120" y1="140" x2="120" y2="100" />
+                                  <polygon points="120,95 115,105 125,105" />
+                                  <line x1="380" y1="140" x2="380" y2="100" />
+                                  <polygon points="380,95 375,105 385,105" />
+                                  <text x="250" y="115" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                    {isArabic ? '↑ حركات أرضية رافعة رفعت المنطقة فوق مستوى سطح البحر ↑' : '↑ Regional Epeirogenic Uplift Above Sea Level ↑'}
+                                  </text>
+                                </g>
+                              </g>
+                            )}
 
-                            {/* Basal Conglomerate */}
-                            {Array.from({ length: 16 }).map((_, i) => (
-                              <ellipse key={i} cx={55 + i * 26} cy={172} rx="6" ry="4" fill="#fbbf24" stroke="#78350f" />
-                            ))}
+                            {unconformityStage === 2 && (
+                              /* Hiatus & Weathering Erosional Gap */
+                              <g>
+                                <rect x="30" y="180" width="440" height="45" fill="#d97706" opacity="0.85" />
+                                <rect x="30" y="225" width="440" height="45" fill="#0284c7" opacity="0.85" />
+                                <path d="M 30 180 Q 100 170 180 185 T 350 175 T 470 180" stroke="#ef4444" strokeWidth="4" fill="none" />
+                                <text x="250" y="160" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'فجوة انقطاع ترسيب وتآكل أدت لاختفاء حفريات عصر كامل (الكربوني مثلاً)' : 'Erosional Hiatus: Total Loss of Carboniferous Index Fossils'}
+                                </text>
+                              </g>
+                            )}
 
-                            <rect x="30" y="75" width="440" height="45" fill="#84cc16" opacity="0.8" />
-                            <rect x="30" y="120" width="440" height="45" fill="#a855f7" opacity="0.8" />
+                            {unconformityStage === 3 && (
+                              /* Full Disconformity */
+                              <g>
+                                <rect x="30" y="180" width="440" height="45" fill="#d97706" opacity="0.8" />
+                                <rect x="30" y="225" width="440" height="45" fill="#0284c7" opacity="0.8" />
 
-                            <text x="250" y="200" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
-                              {isArabic ? 'سطح عدم توافق انقطاعي (مجموعتان رسوبيتان متوازيتان يفصل بينهما انقطاع ترسيب)' : 'Disconformity (Parallel Sedimentary Sequences with Missing Fossil Era)'}
-                            </text>
+                                <path d="M 30 180 Q 100 170 180 185 T 350 175 T 470 180" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+
+                                {Array.from({ length: 16 }).map((_, i) => (
+                                  <ellipse key={i} cx={55 + i * 26} cy={172} rx="6" ry="4" fill="#fbbf24" stroke="#78350f" />
+                                ))}
+
+                                <rect x="30" y="75" width="440" height="45" fill="#84cc16" opacity="0.8" />
+                                <rect x="30" y="120" width="440" height="45" fill="#a855f7" opacity="0.8" />
+
+                                <text x="250" y="200" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'سطح عدم توافق انقطاعي (مجموعتان رسوبيتان متوازيتان يفصل بينهما انقطاع ترسيب)' : 'Disconformity (Parallel Sedimentary Sequences with Missing Fossil Era)'}
+                                </text>
+                              </g>
+                            )}
                           </g>
                         )}
 
+                        {/* 3. NONCONFORMITY STAGES */}
                         {selectedUnconformity === 'nonconformity' && (
                           <g>
-                            {/* Igneous / Metamorphic Basement below */}
-                            <rect x="30" y="165" width="440" height="105" fill="#475569" />
-                            {/* Granite Crystal Crosses */}
-                            {Array.from({ length: 24 }).map((_, i) => (
-                              <text key={i} x={60 + (i % 8) * 50} y={190 + Math.floor(i / 8) * 28} fill="#94a3b8" fontSize="14">
-                                +
-                              </text>
-                            ))}
-                            <text x="250" y="235" fill="#cbd5e1" fontSize="11" fontWeight="bold" textAnchor="middle">
-                              {isArabic ? 'صخور نارية أو متحولة أقدم (جرانيت / بازلت)' : 'Older Igneous / Metamorphic Basement'}
-                            </text>
+                            {unconformityStage === 0 && (
+                              /* Magma Pluton Intrusion */
+                              <g>
+                                <rect x="30" y="140" width="440" height="130" fill="#475569" />
+                                {Array.from({ length: 24 }).map((_, i) => (
+                                  <text key={i} x={60 + (i % 8) * 50} y={170 + Math.floor(i / 8) * 28} fill="#94a3b8" fontSize="14">
+                                    +
+                                  </text>
+                                ))}
+                                <text x="250" y="210" fill="#cbd5e1" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'تبلور وتجمد صخور نارية جوفية (جرانيت) في باطن الأرض' : 'Deep-Seated Plutonic Granite Crystallization in Basement'}
+                                </text>
+                              </g>
+                            )}
 
-                            {/* Wavy Contact Line */}
-                            <path d="M 30 165 Q 120 155 240 168 T 470 165" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+                            {unconformityStage === 1 && (
+                              /* Tectonic Uplift Elevating the Granite */
+                              <g>
+                                <rect x="30" y="140" width="440" height="130" fill="#475569" />
+                                {Array.from({ length: 24 }).map((_, i) => (
+                                  <text key={i} x={60 + (i % 8) * 50} y={170 + Math.floor(i / 8) * 28} fill="#94a3b8" fontSize="14">
+                                    +
+                                  </text>
+                                ))}
+                                <g stroke="#38bdf8" strokeWidth="2.5" fill="#38bdf8">
+                                  <line x1="120" y1="120" x2="120" y2="80" />
+                                  <polygon points="120,75 115,85 125,85" />
+                                  <line x1="380" y1="120" x2="380" y2="80" />
+                                  <polygon points="380,75 375,85 385,85" />
+                                  <text x="250" y="95" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                    {isArabic ? 'حركات أرضية ترفع الصخر الناري نحو السطح وتزيل الغطاء القديم' : 'Uplift Elevates Crystalline Basement Towards Surface'}
+                                  </text>
+                                </g>
+                              </g>
+                            )}
 
-                            {/* Younger Sedimentary Strata above */}
-                            <rect x="30" y="65" width="440" height="45" fill="#d97706" opacity="0.85" />
-                            <rect x="30" y="110" width="440" height="50" fill="#0284c7" opacity="0.85" />
+                            {unconformityStage === 2 && (
+                              /* Subaerial Weathering Carves the Granite Surface */
+                              <g>
+                                <rect x="30" y="165" width="440" height="105" fill="#475569" />
+                                {Array.from({ length: 20 }).map((_, i) => (
+                                  <text key={i} x={60 + (i % 8) * 50} y={195 + Math.floor(i / 8) * 28} fill="#94a3b8" fontSize="14">
+                                    +
+                                  </text>
+                                ))}
+                                <path d="M 30 165 Q 120 155 240 168 T 470 165" stroke="#ef4444" strokeWidth="4" fill="none" />
+                                <text x="250" y="140" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'تعرية شديدة تنحت سطح الجرانيت القديم وتسويه' : 'Severe Erosion Levels the Surface of the Older Granite'}
+                                </text>
+                              </g>
+                            )}
 
-                            <text x="250" y="150" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
-                              {isArabic ? 'سطح عدم توافق متباين (رسوبي أحدث يعلو ناري أقدم)' : 'Nonconformity (Sedimentary Overlying Igneous)'}
-                            </text>
+                            {unconformityStage === 3 && (
+                              /* Full Nonconformity with Marine Sediments */
+                              <g>
+                                <rect x="30" y="165" width="440" height="105" fill="#475569" />
+                                {Array.from({ length: 24 }).map((_, i) => (
+                                  <text key={i} x={60 + (i % 8) * 50} y={190 + Math.floor(i / 8) * 28} fill="#94a3b8" fontSize="14">
+                                    +
+                                  </text>
+                                ))}
+                                <text x="250" y="235" fill="#cbd5e1" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'صخور نارية أو متحولة أقدم (جرانيت / بازلت)' : 'Older Igneous / Metamorphic Basement'}
+                                </text>
+
+                                <path d="M 30 165 Q 120 155 240 168 T 470 165" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+
+                                <rect x="30" y="65" width="440" height="45" fill="#d97706" opacity="0.85" />
+                                <rect x="30" y="110" width="440" height="50" fill="#0284c7" opacity="0.85" />
+
+                                <text x="250" y="150" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'سطح عدم توافق متباين (رسوبي أحدث يعلو ناري أقدم)' : 'Nonconformity (Sedimentary Overlying Igneous)'}
+                                </text>
+                              </g>
+                            )}
                           </g>
                         )}
                       </svg>
+                    </div>
+
+                    {/* Pedagogical Stage Explanation */}
+                    <div className={`p-3 rounded-lg border text-xs space-y-1 ${
+                      isLight ? 'bg-stone-100 border-stone-300 text-stone-900' : 'bg-stone-900 border border-stone-800 text-stone-200'
+                    }`}>
+                      <span className={`font-bold block ${isLight ? 'text-violet-900 font-black' : 'text-violet-300'}`}>
+                        {isArabic ? '📖 التسلسل الجيولوجي المعتمد للمرحلة الحالية:' : '📖 Certified Geological Sequence for This Stage:'}
+                      </span>
+                      <p className="text-[11px] leading-relaxed">
+                        {unconformityStage === 0 && (
+                          isArabic
+                            ? 'المرحلة الأولى: ترسيب المجموعة الصخرية القديمة في حوض ترسيبي هادئ، أو تبلور الصخور النارية العميقة في باطن الأرض.'
+                            : 'Stage 1: Pristine sedimentation of the older group in a marine basin, or deep-seated plutonic crystallization.'
+                        )}
+                        {unconformityStage === 1 && (
+                          isArabic
+                            ? 'المرحلة الثانية: تعرض المنطقة لحركات أرضية تكتونية (إمالة بالشد أو الطي بالضغط، أو حركات رافعة ترفع القاع فوق مستوى سطح البحر).'
+                            : 'Stage 2: Regional tectonic deformation: orogenic tilting/folding or epeirogenic uplift above sea level.'
+                        )}
+                        {unconformityStage === 2 && (
+                          isArabic
+                            ? 'المرحلة الثالثة: انحسار مياه البحر وتوقف الترسيب (فترة انقطاع / Hiatus) ونشاط عوامل التجوية والتعرية التي تنحت السطح وتزيل جزءاً من السجل الحفري.'
+                            : 'Stage 3: Marine regression and hiatus: subaerial weathering cuts an irregular contact line with missing index fossils.'
+                        )}
+                        {unconformityStage === 3 && (
+                          isArabic
+                            ? 'المرحلة الرابعة: تقدم مياه البحر مجدداً (Marine Transgression)، فيترسب الكونجلوميرات كشاهد مباشر، تعلوه طبقات رسوبية أفقية حديثة.'
+                            : 'Stage 4: Marine transgression: sea advances, basal conglomerate forms directly on contact, and younger flat beds deposit on top.'
+                        )}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -3861,7 +4150,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Right: Unconformity Type Selector & Field Criteria */}
                 <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
                   <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
-                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                    <h4 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
                       {isArabic ? 'أنواع أسطح عدم التوافق' : 'Unconformity Types'}
                     </h4>
 
@@ -3896,20 +4185,24 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                             selectedUnconformity === item.key
                               ? 'bg-violet-600 text-white shadow-md'
                               : isLight
-                              ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                              ? 'bg-stone-100 text-stone-800 hover:bg-stone-200 border border-stone-300 font-semibold'
                               : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
                           }`}
                         >
                           <span className="font-extrabold">{isArabic ? item.ar : item.en}</span>
-                          <span className="text-[11px] opacity-80 font-normal">{isArabic ? item.descAr : item.descEn}</span>
+                          <span className={`text-[11px] font-normal ${isLight ? 'text-stone-600 font-medium' : 'opacity-80'}`}>{isArabic ? item.descAr : item.descEn}</span>
                         </button>
                       ))}
                     </div>
 
                     {/* 4 Diagnostic Field Evidences */}
-                    <div className="p-3 rounded-lg bg-stone-900 border border-stone-800 space-y-1.5 text-xs">
-                      <span className="font-bold text-amber-400 block">{isArabic ? 'شواهد الاستدلال على عدم التوافق في الحقل:' : 'Field Diagnostic Markers:'}</span>
-                      <ul className="list-disc list-inside text-[11px] text-stone-300 space-y-1">
+                    <div className={`p-3 rounded-lg border space-y-1.5 text-xs ${
+                      isLight ? 'bg-stone-100 border-stone-300' : 'bg-stone-900 border border-stone-800'
+                    }`}>
+                      <span className={`font-bold block ${isLight ? 'text-amber-800 font-extrabold' : 'text-amber-400'}`}>
+                        {isArabic ? 'شواهد الاستدلال على عدم التوافق في الحقل:' : 'Field Diagnostic Markers:'}
+                      </span>
+                      <ul className={`list-disc list-inside text-[11px] space-y-1 ${isLight ? 'text-stone-800 font-medium' : 'text-stone-300'}`}>
                         <li>{isArabic ? 'وجود طبقة من الحصى المستدير (الكونجلوميرات) فوق السطح مباشرة.' : 'Presence of a basal conglomerate layer directly overlying the surface.'}</li>
                         <li>{isArabic ? 'تغير مفاجئ في تتابع المحتوى الحفري للطبقات.' : 'Abrupt vertical leap/gap in index fossil succession.'}</li>
                         <li>{isArabic ? 'اختفاء تراكيب جيولوجية (عروق قاطعة، فوالق، طيات) في الطبقات السفلى دون العليا.' : 'Truncation of intrusive dykes, faults, or folds at the unconformity line.'}</li>
