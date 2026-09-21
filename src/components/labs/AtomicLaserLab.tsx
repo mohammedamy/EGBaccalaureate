@@ -872,7 +872,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         ctx.stroke();
 
         // Level label left: n = X
-        ctx.fillStyle = isSelected ? '#ffffff' : '#94a3b8';
+        ctx.fillStyle = isSelected ? (isLight ? '#0f172a' : '#ffffff') : (isLight ? '#334155' : '#94a3b8');
         ctx.font = isSelected ? 'bold 12px sans-serif' : '11px sans-serif';
         ctx.textAlign = 'right';
         ctx.fillText(`n = ${n}`, ladderLeft - 12, y + 4);
@@ -880,20 +880,20 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         // Level energy right: -X.XX eV
         ctx.textAlign = 'left';
         ctx.font = isSelected ? 'bold 11px monospace' : '10px monospace';
-        ctx.fillStyle = isSelected ? '#38bdf8' : '#64748b';
+        ctx.fillStyle = isSelected ? (isLight ? '#0369a1' : '#38bdf8') : (isLight ? '#475569' : '#64748b');
         ctx.fillText(`${enEv.toFixed(2)} eV`, ladderRight + 12, y + 4);
       }
 
       // Ionization Level n = ∞
       const yIon = height - 315;
-      ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+      ctx.strokeStyle = isLight ? 'rgba(100, 116, 139, 0.5)' : 'rgba(148, 163, 184, 0.4)';
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
       ctx.moveTo(ladderLeft, yIon);
       ctx.lineTo(ladderRight, yIon);
       ctx.stroke();
       ctx.setLineDash([]);
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = isLight ? '#475569' : '#94a3b8';
       ctx.font = '10px sans-serif';
       ctx.textAlign = 'right';
       ctx.fillText('n = ∞', ladderLeft - 12, yIon + 4);
@@ -998,6 +998,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           ? '#38bdf8'
           : isSelectedUpper
           ? seriesInfo.colorHex
+          : isLight
+          ? 'rgba(148, 163, 184, 0.6)'
           : 'rgba(71, 85, 105, 0.4)';
         ctx.lineWidth = isSelected ? 2 : 1;
         ctx.setLineDash(isSelected ? [] : [3, 4]);
@@ -1008,8 +1010,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         ctx.setLineDash([]);
 
         // Orbit label
-        ctx.fillStyle = isSelected ? '#ffffff' : '#64748b';
-        ctx.font = '10px sans-serif';
+        ctx.fillStyle = isSelected ? (isLight ? '#0f172a' : '#ffffff') : (isLight ? '#475569' : '#64748b');
+        ctx.font = 'bold 10px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(`n=${n}`, centerX, centerY - r - 4);
 
@@ -1060,8 +1062,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const specWidth = specRight - specLeft;
 
     // Background housing
-    ctx.fillStyle = '#0f172a';
-    ctx.strokeStyle = '#334155';
+    ctx.fillStyle = isLight ? '#f1f5f9' : '#0f172a';
+    ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.roundRect(specLeft - 4, specY - 18, specWidth + 8, specHeight + 32, 8);
@@ -1069,7 +1071,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.stroke();
 
     // Spectrogram Title
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = isLight ? '#334155' : '#94a3b8';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'left';
     ctx.fillText(
@@ -1116,14 +1118,14 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     // Draw faint tick marks for series lines
     for (const tick of calibTicks) {
       const tx = mapWavelengthToX(tick.nm);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      ctx.strokeStyle = isLight ? 'rgba(0, 0, 0, 0.35)' : 'rgba(255, 255, 255, 0.25)';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(tx, specY);
       ctx.lineTo(tx, specY + specHeight);
       ctx.stroke();
 
-      ctx.fillStyle = '#64748b';
+      ctx.fillStyle = isLight ? '#334155' : '#64748b';
       ctx.font = '8px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(tick.label, tx, specY + specHeight + 10);
@@ -1136,7 +1138,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.save();
       ctx.shadowColor = seriesInfo.colorHex;
       ctx.shadowBlur = 14;
-      ctx.strokeStyle = '#ffffff';
+      ctx.strokeStyle = isLight ? '#0f172a' : '#ffffff';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
       ctx.moveTo(lineX, specY - 3);
@@ -1174,16 +1176,16 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const tubeHeight = 85;
     const tubeTop = centerY - tubeHeight / 2;
 
-    // 1. Quartz Discharge Tube Body with realistic 3D glass caustics
+    // 1. Quartz Discharge Tube Glass Envelope
     const tubeGrad = ctx.createLinearGradient(0, tubeTop, 0, tubeTop + tubeHeight);
-    tubeGrad.addColorStop(0, 'rgba(51, 65, 85, 0.45)');
+    tubeGrad.addColorStop(0, 'rgba(51, 65, 85, 0.4)');
     tubeGrad.addColorStop(0.15, 'rgba(148, 163, 184, 0.2)');
-    tubeGrad.addColorStop(0.5, 'rgba(15, 23, 42, 0.95)');
-    tubeGrad.addColorStop(0.85, 'rgba(15, 23, 42, 0.7)');
+    tubeGrad.addColorStop(0.5, isLight ? 'rgba(241, 245, 249, 0.95)' : 'rgba(15, 23, 42, 0.95)');
+    tubeGrad.addColorStop(0.85, isLight ? 'rgba(241, 245, 249, 0.7)' : 'rgba(15, 23, 42, 0.7)');
     tubeGrad.addColorStop(1, 'rgba(51, 65, 85, 0.5)');
 
     ctx.fillStyle = tubeGrad;
-    ctx.strokeStyle = '#94a3b8';
+    ctx.strokeStyle = isLight ? '#64748b' : '#94a3b8';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.roundRect(tubeLeft, tubeTop, tubeWidth, tubeHeight, 10);
@@ -1192,7 +1194,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Specular glass reflection arc
     ctx.save();
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+    ctx.strokeStyle = isLight ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.35)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(tubeLeft + 12, tubeTop + 6);
@@ -1201,7 +1203,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.restore();
 
     // Gas label
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = isLight ? '#1e293b' : '#94a3b8';
     ctx.font = 'bold 10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(
@@ -1218,7 +1220,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const electrodeY = tubeTop - 35;
 
     // Electrodes wiring
-    ctx.strokeStyle = '#475569';
+    ctx.strokeStyle = isLight ? '#64748b' : '#475569';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(anodeX, tubeTop);
@@ -1232,15 +1234,15 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     // DC Power Supply Box
     const psBoxX = tubeLeft + tubeWidth * 0.4 - 15;
     const psBoxWidth = tubeWidth * 0.2 + 30;
-    ctx.fillStyle = '#0f172a';
-    ctx.strokeStyle = highVoltageDC ? '#06b6d4' : '#334155';
+    ctx.fillStyle = isLight ? '#ffffff' : '#0f172a';
+    ctx.strokeStyle = highVoltageDC ? (isLight ? '#0284c7' : '#06b6d4') : (isLight ? '#cbd5e1' : '#334155');
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.roundRect(psBoxX, electrodeY - 14, psBoxWidth, 26, 6);
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = highVoltageDC ? '#38bdf8' : '#64748b';
+    ctx.fillStyle = highVoltageDC ? (isLight ? '#0369a1' : '#38bdf8') : (isLight ? '#64748b' : '#64748b');
     ctx.font = 'bold 10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(
@@ -1283,7 +1285,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillRect(r1X + 11, centerY - 50, 2, 100);
     ctx.restore();
 
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('R₁ = 99.9%', r1X + 7, centerY + 70);
@@ -1300,7 +1302,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
     ctx.fillRect(-6, -50, 2, 100);
 
-    ctx.fillStyle = '#cbd5e1';
+    ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('R₂ = 98%', 0, 70);
@@ -1323,7 +1325,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.stroke();
 
       // Longitudinal standing wave envelope
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
+      ctx.strokeStyle = isLight ? 'rgba(220, 38, 38, 0.85)' : 'rgba(255, 255, 255, 0.75)';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       const waveCount = 28;
@@ -1405,8 +1407,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       const step = steps[s];
       const sx = 60 + s * cardWidth;
 
-      ctx.fillStyle = '#0b1329';
-      ctx.strokeStyle = '#1e293b';
+      ctx.fillStyle = isLight ? '#ffffff' : '#0b1329';
+      ctx.strokeStyle = isLight ? '#cbd5e1' : '#1e293b';
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.roundRect(sx + 4, cardY, cardWidth - 8, 55, 6);
@@ -1418,7 +1420,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.textAlign = 'left';
       ctx.fillText(`${step.num}. ${isArabic ? step.titleAr : step.titleEn}`, sx + 12, cardY + 18);
 
-      ctx.fillStyle = '#94a3b8';
+      ctx.fillStyle = isLight ? '#475569' : '#94a3b8';
       ctx.font = '9px sans-serif';
       ctx.fillText(isArabic ? step.subAr : step.subEn, sx + 12, cardY + 36);
     }
@@ -1458,8 +1460,12 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       renderCustomControls={() => (
         <div className="space-y-4">
           {/* SYSTEM MODE TOGGLE */}
-          <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 space-y-2">
-            <label className="text-[11px] font-black uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+          <div className={`p-3 rounded-xl border space-y-2 ${
+            isLight ? 'bg-white border-slate-200 shadow-xs' : isContrast ? 'bg-black border-white' : 'bg-slate-900/90 border-slate-800'
+          }`}>
+            <label className={`text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 ${
+              isLight ? 'text-cyan-900' : 'text-cyan-400'
+            }`}>
               <Layers className="w-3.5 h-3.5" />
               <span>{isArabic ? 'النظام التجريبي الفعال' : 'Active Physical System'}</span>
             </label>
@@ -1468,7 +1474,11 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 onClick={() => lab.updateParam('systemMode', 'bohr')}
                 className={`min-h-[44px] py-2 px-3 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   systemMode === 'bohr'
-                    ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                    ? isLight
+                      ? 'bg-cyan-600 text-white shadow-md font-black'
+                      : 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 shadow-2xs font-bold'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
                 }`}
               >
@@ -1479,7 +1489,11 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 onClick={() => lab.updateParam('systemMode', 'laser')}
                 className={`min-h-[44px] py-2 px-3 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   systemMode === 'laser'
-                    ? 'bg-red-500 text-white shadow-md shadow-red-500/20'
+                    ? isLight
+                      ? 'bg-rose-600 text-white shadow-md font-black'
+                      : 'bg-red-500 text-white shadow-md shadow-red-500/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 shadow-2xs font-bold'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
                 }`}
               >
@@ -1491,18 +1505,26 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
           {/* BOHR ATOMIC CONTROLS */}
           {isBohr && (
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
+            <div className={`p-4 rounded-xl border space-y-4 ${
+              isLight ? 'bg-white border-slate-200 shadow-xs' : isContrast ? 'bg-black border-white' : 'bg-slate-900/90 border-slate-800'
+            }`}>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-black text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                  isLight ? 'text-cyan-900' : 'text-cyan-400'
+                }`}>
                   <Sliders className="w-3.5 h-3.5" />
                   <span>{isArabic ? 'مستويات الانتقال الكمي' : 'Quantum Transitions'}</span>
                 </span>
                 <div className="flex gap-1">
                   <button
                     onClick={() => lab.updateParam('viewMode', 'ladder')}
-                    className={`min-h-[44px] min-w-[44px] px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all flex items-center justify-center ${
+                    className={`min-h-[44px] min-w-[44px] px-3 py-1.5 rounded-lg text-xs cursor-pointer transition-all flex items-center justify-center ${
                       viewMode === 'ladder'
-                        ? 'bg-cyan-500 text-slate-950 font-black'
+                        ? isLight
+                          ? 'bg-cyan-600 text-white font-black shadow-xs'
+                          : 'bg-cyan-500 text-slate-950 font-black'
+                        : isLight
+                        ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 font-bold'
                         : 'bg-slate-950 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -1510,9 +1532,13 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                   </button>
                   <button
                     onClick={() => lab.updateParam('viewMode', 'orbitals')}
-                    className={`min-h-[44px] min-w-[44px] px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all flex items-center justify-center ${
+                    className={`min-h-[44px] min-w-[44px] px-3 py-1.5 rounded-lg text-xs cursor-pointer transition-all flex items-center justify-center ${
                       viewMode === 'orbitals'
-                        ? 'bg-cyan-500 text-slate-950 font-black'
+                        ? isLight
+                          ? 'bg-cyan-600 text-white font-black shadow-xs'
+                          : 'bg-cyan-500 text-slate-950 font-black'
+                        : isLight
+                        ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 font-bold'
                         : 'bg-slate-950 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -1524,8 +1550,12 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {/* Lower Level n1 */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-300">{isArabic ? 'المستوى النهائي (n₁):' : 'Final Lower Level (n₁):'}</span>
-                  <span className="font-mono text-sky-400 font-black">n₁ = {effectiveN1}</span>
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'المستوى النهائي (n₁):' : 'Final Lower Level (n₁):'}
+                  </span>
+                  <span className={`font-mono font-black ${isLight ? 'text-sky-800' : 'text-sky-400'}`}>
+                    n₁ = {effectiveN1}
+                  </span>
                 </div>
                 <div className="grid grid-cols-5 gap-1.5">
                   {[1, 2, 3, 4, 5].map((lvl) => (
@@ -1537,7 +1567,11 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                       }}
                       className={`min-h-[44px] py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center ${
                         effectiveN1 === lvl
-                          ? 'bg-sky-500 text-slate-950 shadow-md'
+                          ? isLight
+                            ? 'bg-sky-600 text-white shadow-md'
+                            : 'bg-sky-500 text-slate-950 shadow-md'
+                          : isLight
+                          ? 'bg-white text-slate-800 hover:bg-slate-100 border border-slate-300 shadow-2xs font-bold'
                           : 'bg-slate-950 text-slate-300 hover:bg-slate-800 border border-slate-800'
                       }`}
                     >
@@ -1550,8 +1584,12 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {/* Upper Level n2 */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-300">{isArabic ? 'المستوى الابتدائي المثار (n₂):' : 'Initial Excited (n₂):'}</span>
-                  <span className="font-mono text-cyan-400 font-black">n₂ = {effectiveN2}</span>
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'المستوى الابتدائي المثار (n₂):' : 'Initial Excited (n₂):'}
+                  </span>
+                  <span className={`font-mono font-black ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>
+                    n₂ = {effectiveN2}
+                  </span>
                 </div>
                 <div className="grid grid-cols-5 gap-1.5">
                   {[2, 3, 4, 5, 6].map((lvl) => (
@@ -1561,9 +1599,15 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                       onClick={() => lab.updateParam('n2', lvl)}
                       className={`min-h-[44px] py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center ${
                         effectiveN2 === lvl
-                          ? 'bg-cyan-500 text-slate-950 shadow-md'
+                          ? isLight
+                            ? 'bg-cyan-600 text-white shadow-md'
+                            : 'bg-cyan-500 text-slate-950 shadow-md'
                           : lvl <= effectiveN1
-                          ? 'opacity-25 cursor-not-allowed bg-slate-950 text-slate-600 border border-slate-900'
+                          ? isLight
+                            ? 'opacity-35 cursor-not-allowed bg-slate-100 text-slate-400 border border-slate-200'
+                            : 'opacity-25 cursor-not-allowed bg-slate-950 text-slate-600 border border-slate-900'
+                          : isLight
+                          ? 'bg-white text-slate-800 hover:bg-slate-100 border border-slate-300 shadow-2xs font-bold'
                           : 'bg-slate-950 text-slate-300 hover:bg-slate-800 border border-slate-800'
                       }`}
                     >
@@ -1574,30 +1618,42 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               </div>
 
               {/* Active Series Badge */}
-              <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-1.5">
+              <div className={`p-3 rounded-xl border space-y-1.5 ${
+                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+              }`}>
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase text-slate-400">
+                  <span className={`text-[10px] font-black uppercase ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                     {isArabic ? 'السلسلة الطيفية' : 'Spectral Series'}
                   </span>
                   <span
-                    className="text-xs font-black px-2 py-0.5 rounded-md"
-                    style={{ backgroundColor: `${seriesInfo.colorHex}22`, color: seriesInfo.colorHex }}
+                    className={`text-xs font-black px-2 py-0.5 rounded-md ${
+                      isLight ? 'border' : ''
+                    }`}
+                    style={{
+                      backgroundColor: isLight ? `${seriesInfo.colorHex}22` : `${seriesInfo.colorHex}22`,
+                      color: isLight ? (seriesInfo.colorHex === '#ffffff' ? '#0f172a' : seriesInfo.colorHex) : seriesInfo.colorHex,
+                      borderColor: isLight ? `${seriesInfo.colorHex}66` : 'transparent',
+                    }}
                   >
                     {isArabic ? seriesInfo.nameAr : seriesInfo.nameEn}
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-xs font-bold">
-                  <span className="text-slate-400">{isArabic ? 'نطاق الإشعاع:' : 'Radiation Band:'}</span>
-                  <span className="text-slate-200">{isArabic ? seriesInfo.regionAr : seriesInfo.regionEn}</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>{isArabic ? 'نطاق الإشعاع:' : 'Radiation Band:'}</span>
+                  <span className={isLight ? 'text-slate-900 font-bold' : 'text-slate-200'}>{isArabic ? seriesInfo.regionAr : seriesInfo.regionEn}</span>
                 </div>
               </div>
 
               {/* Record Point to Lab Notebook Button */}
               <button
                 onClick={handleRecordBohrPoint}
-                className="w-full min-h-[44px] py-2.5 px-3 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-xs"
+                className={`w-full min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-xs ${
+                  isLight
+                    ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm font-bold'
+                    : 'bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40'
+                }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+                <Sparkles className={`w-3.5 h-3.5 ${isLight ? 'text-white' : 'text-emerald-400'}`} />
                 <span>
                   {isArabic
                     ? 'تسجيل النقطة في كشكول المعمل (لحساب ريدبرج)'
@@ -1609,23 +1665,33 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
           {/* LASER CONTROLS */}
           {!isBohr && (
-            <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-4">
-              <span className="text-xs font-black text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+            <div className={`p-4 rounded-xl border space-y-4 ${
+              isLight ? 'bg-white border-slate-200 shadow-xs' : isContrast ? 'bg-black border-white' : 'bg-slate-900/90 border-slate-800'
+            }`}>
+              <span className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                isLight ? 'text-rose-900' : 'text-rose-400'
+              }`}>
                 <Radio className="w-3.5 h-3.5" />
                 <span>{isArabic ? 'محددات تشغيل ليزر He-Ne' : 'He-Ne Resonator Controls'}</span>
               </span>
 
               {/* HV Discharge Switch */}
-              <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
-                <span className="text-xs font-bold text-slate-200 flex items-center gap-1.5">
-                  <Zap className={`w-3.5 h-3.5 ${highVoltageDC ? 'text-amber-400' : 'text-slate-500'}`} />
+              <div className={`flex items-center justify-between p-3 rounded-xl border ${
+                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+              }`}>
+                <span className={`text-xs font-bold flex items-center gap-1.5 ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
+                  <Zap className={`w-3.5 h-3.5 ${highVoltageDC ? (isLight ? 'text-amber-600' : 'text-amber-400') : 'text-slate-500'}`} />
                   <span>{isArabic ? 'مصدر الجهد العالي (HV):' : 'HV Power (1.5 kV):'}</span>
                 </span>
                 <button
                   onClick={() => lab.updateParam('highVoltageDC', !highVoltageDC)}
                   className={`min-h-[44px] px-4 py-2 rounded-xl text-xs font-black cursor-pointer transition-all flex items-center justify-center ${
                     highVoltageDC
-                      ? 'bg-rose-500 text-white shadow-md shadow-rose-500/30'
+                      ? isLight
+                        ? 'bg-rose-600 text-white shadow-md font-black'
+                        : 'bg-rose-500 text-white shadow-md shadow-rose-500/30'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 font-bold'
                       : 'bg-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
@@ -1636,8 +1702,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {/* Pumping Power Slider */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-300">{isArabic ? 'شدة الضخ الكهربي:' : 'Pumping Power:'}</span>
-                  <span className="font-mono text-cyan-400 font-black">{pumpPower}%</span>
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>{isArabic ? 'شدة الضخ الكهربي:' : 'Pumping Power:'}</span>
+                  <span className={`font-mono font-black ${isLight ? 'text-rose-800' : 'text-cyan-400'}`}>{pumpPower}%</span>
                 </div>
                 <input
                   type="range"
@@ -1654,8 +1720,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {/* Mirror Tilt Alignment Slider */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-300">{isArabic ? 'حيود زاوية المرآة (θ):' : 'Cavity Tilt (θ):'}</span>
-                  <span className="font-mono text-amber-400 font-black">{cavityAlignment.toFixed(1)} mrad</span>
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>{isArabic ? 'حيود زاوية المرآة (θ):' : 'Cavity Tilt (θ):'}</span>
+                  <span className={`font-mono font-black ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{cavityAlignment.toFixed(1)} mrad</span>
                 </div>
                 <input
                   type="range"
@@ -1666,9 +1732,9 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                   onChange={(e) => lab.updateParam('cavityAlignment', Number(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
                 />
-                <div className="flex justify-between text-[10px] text-slate-500">
+                <div className={`flex justify-between text-[10px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-500'}`}>
                   <span>0.0 mrad ({isArabic ? 'مثالي' : 'Aligned'})</span>
-                  <span className="text-amber-500">1.5 mrad ({isArabic ? 'العتبة' : 'Threshold'})</span>
+                  <span className={isLight ? 'text-amber-700 font-bold' : 'text-amber-500'}>1.5 mrad ({isArabic ? 'العتبة' : 'Threshold'})</span>
                   <span>3.0 mrad ({isArabic ? 'فاقد' : 'Quenched'})</span>
                 </div>
               </div>
@@ -1677,7 +1743,11 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {cavityAlignment > 0 && (
                 <button
                   onClick={() => lab.updateParam('cavityAlignment', 0.0)}
-                  className="w-full min-h-[44px] py-2 px-3 rounded-xl bg-slate-950 border border-cyan-500/30 hover:border-cyan-500/60 text-cyan-300 text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-xs"
+                  className={`w-full min-h-[44px] py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-all shadow-xs ${
+                    isLight
+                      ? 'bg-white border border-cyan-600 text-cyan-800 hover:bg-cyan-50 shadow-2xs font-bold'
+                      : 'bg-slate-950 border border-cyan-500/30 hover:border-cyan-500/60 text-cyan-300'
+                  }`}
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                   <span>{isArabic ? 'ضبط التوازي التام (θ = 0.0)' : 'Auto-Align Mirrors (θ = 0.0)'}</span>
@@ -1688,14 +1758,18 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               <div
                 className={`p-3 rounded-xl border flex items-center gap-2.5 ${
                   isLasing
-                    ? 'bg-rose-950/30 border-rose-500/40 text-rose-200'
+                    ? isLight
+                      ? 'bg-rose-100/90 border-rose-300 text-rose-950 shadow-2xs'
+                      : 'bg-rose-950/30 border-rose-500/40 text-rose-200'
+                    : isLight
+                    ? 'bg-slate-100/90 border-slate-300 text-slate-800 shadow-2xs'
                     : 'bg-slate-950 border-slate-800 text-slate-400'
                 }`}
               >
                 {isLasing ? (
-                  <CheckCircle2 className="w-4 h-4 text-rose-400 shrink-0" />
+                  <CheckCircle2 className={`w-4 h-4 shrink-0 ${isLight ? 'text-rose-600' : 'text-rose-400'}`} />
                 ) : (
-                  <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                  <AlertCircle className={`w-4 h-4 shrink-0 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
                 )}
                 <div className="text-[11px] leading-tight">
                   <span className="font-bold block">
@@ -1703,7 +1777,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                       ? (isArabic ? 'تضخيم ليزري متماسك نشط' : 'Coherent Laser Amplification Active')
                       : (isArabic ? 'لا يحدث تضخيم ليزري' : 'No Laser Oscillation')}
                   </span>
-                  <span className="text-[10px] opacity-75">
+                  <span className={`text-[10px] ${isLight ? 'text-slate-600 font-medium' : 'opacity-75'}`}>
                     {isLasing
                       ? (isArabic ? 'الشعاع متماسك زمنياً ومكانياً بطول موجي 632.8 nm' : 'TEM₀₀ Gaussian beam output at 632.8 nm')
                       : !highVoltageDC

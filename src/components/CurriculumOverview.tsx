@@ -483,12 +483,28 @@ export const CurriculumOverview: React.FC<Props> = ({
                   isSubActive
                     ? isContrast
                       ? 'bg-black border-2 border-yellow-400 text-yellow-300 ring-2 ring-yellow-400'
+                      : isLight
+                      ? sub.id === 'physics'
+                        ? 'bg-gradient-to-br from-cyan-50/90 via-sky-50/70 to-white border-2 border-cyan-500 text-slate-900 shadow-md ring-2 ring-cyan-400/30'
+                        : sub.id === 'chemistry'
+                        ? 'bg-gradient-to-br from-emerald-50/90 via-teal-50/70 to-white border-2 border-emerald-500 text-slate-900 shadow-md ring-2 ring-emerald-400/30'
+                        : sub.id === 'biology'
+                        ? 'bg-gradient-to-br from-rose-50/90 via-pink-50/70 to-white border-2 border-rose-500 text-slate-900 shadow-md ring-2 ring-rose-400/30'
+                        : sub.id === 'geography'
+                        ? 'bg-gradient-to-br from-teal-50/90 via-emerald-50/70 to-white border-2 border-teal-500 text-slate-900 shadow-md ring-2 ring-teal-400/30'
+                        : sub.id === 'history'
+                        ? 'bg-gradient-to-br from-amber-50/90 via-yellow-50/70 to-white border-2 border-amber-500 text-slate-900 shadow-md ring-2 ring-amber-400/30'
+                        : 'bg-gradient-to-br from-indigo-50/90 via-blue-50/70 to-white border-2 border-indigo-500 text-slate-900 shadow-md ring-2 ring-indigo-400/30'
                       : sub.id === 'physics'
                       ? 'bg-gradient-to-br from-cyan-950/80 via-slate-900 to-sky-950/80 border-2 border-cyan-400 text-white shadow-xl shadow-cyan-500/20 ring-2 ring-cyan-400/40'
                       : sub.id === 'chemistry'
                       ? 'bg-gradient-to-br from-emerald-950/80 via-slate-900 to-teal-950/80 border-2 border-emerald-400 text-white shadow-xl shadow-emerald-500/20 ring-2 ring-emerald-400/40'
                       : sub.id === 'biology'
                       ? 'bg-gradient-to-br from-rose-950/80 via-slate-900 to-pink-950/80 border-2 border-rose-400 text-white shadow-xl shadow-rose-500/20 ring-2 ring-rose-400/40'
+                      : sub.id === 'geography'
+                      ? 'bg-gradient-to-br from-teal-950/80 via-slate-900 to-cyan-950/80 border-2 border-teal-400 text-white shadow-xl shadow-teal-500/20 ring-2 ring-teal-400/40'
+                      : sub.id === 'history'
+                      ? 'bg-gradient-to-br from-amber-950/80 via-slate-900 to-stone-900 border-2 border-amber-400 text-white shadow-xl shadow-amber-500/20 ring-2 ring-amber-400/40'
                       : 'bg-gradient-to-br from-indigo-950/80 via-slate-900 to-violet-950/80 border-2 border-indigo-400 text-white shadow-xl shadow-indigo-500/20 ring-2 ring-indigo-400/40'
                     : isContrast
                     ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
@@ -501,7 +517,19 @@ export const CurriculumOverview: React.FC<Props> = ({
                   <div className="flex items-center justify-between">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
                       isSubActive
-                        ? 'bg-white/15 border-white/30 text-white'
+                        ? isLight
+                          ? sub.id === 'physics'
+                            ? 'bg-cyan-600 border-cyan-600 text-white shadow-xs'
+                            : sub.id === 'chemistry'
+                            ? 'bg-emerald-600 border-emerald-600 text-white shadow-xs'
+                            : sub.id === 'biology'
+                            ? 'bg-rose-600 border-rose-600 text-white shadow-xs'
+                            : sub.id === 'geography'
+                            ? 'bg-teal-600 border-teal-600 text-white shadow-xs'
+                            : sub.id === 'history'
+                            ? 'bg-amber-600 border-amber-600 text-white shadow-xs'
+                            : 'bg-indigo-600 border-indigo-600 text-white shadow-xs'
+                          : 'bg-white/15 border-white/30 text-white'
                         : isLight
                         ? `${sub.lightBg}`
                         : `${sub.darkBg}`
@@ -509,7 +537,11 @@ export const CurriculumOverview: React.FC<Props> = ({
                       {getBranchIcon(sub.iconName)}
                     </div>
                     {isSubActive ? (
-                      <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
+                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border flex items-center gap-1 ${
+                        isLight
+                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-2xs'
+                          : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                      }`}>
                         <Check className="w-3 h-3" />
                         <span>{isArabic ? 'المسار النشط' : 'Active'}</span>
                       </span>
@@ -519,28 +551,42 @@ export const CurriculumOverview: React.FC<Props> = ({
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-black flex items-center gap-1.5">
+                    <h4 className={`text-sm font-black flex items-center gap-1.5 ${
+                      isSubActive && isLight ? 'text-slate-900' : ''
+                    }`}>
                       <span>{isArabic ? sub.titleAr : sub.titleEn}</span>
-                      <span className="text-xs opacity-70">({isArabic ? sub.shortTitleEn : sub.shortTitleAr})</span>
+                      <span className={`text-xs ${
+                        isSubActive && isLight ? 'text-slate-500' : 'opacity-70'
+                      }`}>({isArabic ? sub.shortTitleEn : sub.shortTitleAr})</span>
                     </h4>
                     <p className={`text-[11px] line-clamp-2 mt-1 leading-snug ${
-                      isSubActive ? 'text-slate-200' : isLight ? 'text-slate-500' : 'text-slate-400'
+                      isSubActive
+                        ? isLight ? 'text-slate-600 font-medium' : 'text-slate-200'
+                        : isLight ? 'text-slate-500' : 'text-slate-400'
                     }`}>
                       {isArabic ? sub.descriptionAr : sub.descriptionEn}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-3 pt-2.5 border-t border-slate-200/40 dark:border-slate-800/80 space-y-1.5">
-                  <div className="flex items-center justify-between text-[11px] font-mono">
-                    <span className="opacity-75">{isArabic ? 'الفصول والمسائل:' : 'Chapters & Items:'}</span>
-                    <span className="font-bold">
+                <div className={`mt-3 pt-2.5 border-t space-y-1.5 ${
+                  isLight ? 'border-slate-200/80' : 'border-slate-200/40 dark:border-slate-800/80'
+                }`}>
+                  <div className={`flex items-center justify-between text-[11px] font-mono ${
+                    isLight ? 'text-slate-700' : ''
+                  }`}>
+                    <span className={isLight ? 'text-slate-600 font-medium' : 'opacity-75'}>
+                      {isArabic ? 'الفصول والمسائل:' : 'Chapters & Items:'}
+                    </span>
+                    <span className={`font-bold ${isLight ? 'text-slate-900' : ''}`}>
                       {isArabic ? `${toHindiDigits(stats.totalChapters)} فصول • ${toHindiDigits(stats.totalProblems)} مسألة` : `${stats.totalChapters} Ch • ${stats.totalProblems} Items`}
                     </span>
                   </div>
                   <div className={`text-[10px] font-semibold truncate ${
                     isSubActive
-                      ? (sub.id === 'physics' ? 'text-cyan-300' : sub.id === 'chemistry' ? 'text-emerald-300' : sub.id === 'biology' ? 'text-rose-300' : 'text-indigo-300')
+                      ? isLight
+                        ? (sub.id === 'physics' ? 'text-cyan-800 font-bold' : sub.id === 'chemistry' ? 'text-emerald-800 font-bold' : sub.id === 'biology' ? 'text-rose-800 font-bold' : sub.id === 'geography' ? 'text-teal-800 font-bold' : sub.id === 'history' ? 'text-amber-800 font-bold' : 'text-indigo-800 font-bold')
+                        : (sub.id === 'physics' ? 'text-cyan-300' : sub.id === 'chemistry' ? 'text-emerald-300' : sub.id === 'biology' ? 'text-rose-300' : sub.id === 'geography' ? 'text-teal-300' : sub.id === 'history' ? 'text-amber-300' : 'text-indigo-300')
                       : (isLight ? 'text-slate-600' : 'text-slate-400')
                   }`}>
                     {featureNote}
@@ -551,27 +597,61 @@ export const CurriculumOverview: React.FC<Props> = ({
           })}
         </div>
 
-        {/* Action strip when a specific subject (e.g. Physics) is active */}
+        {/* Action strip when a specific subject (e.g. Physics, Geography) is active */}
         {currentSubject && selectedSubject !== 'all' && (
           <div className={`p-3.5 sm:p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs transition-all ${
-            selectedSubject === 'physics'
+            isContrast
+              ? 'bg-black border-2 border-yellow-400 text-yellow-300 shadow-md'
+              : isLight
+              ? selectedSubject === 'physics'
+                ? 'bg-gradient-to-r from-cyan-50/95 via-sky-50/70 to-white border border-cyan-300 text-slate-900 shadow-sm'
+                : selectedSubject === 'chemistry'
+                ? 'bg-gradient-to-r from-emerald-50/95 via-teal-50/70 to-white border border-emerald-300 text-slate-900 shadow-sm'
+                : selectedSubject === 'biology'
+                ? 'bg-gradient-to-r from-rose-50/95 via-pink-50/70 to-white border border-rose-300 text-slate-900 shadow-sm'
+                : selectedSubject === 'geography'
+                ? 'bg-gradient-to-r from-teal-50/95 via-emerald-50/70 to-white border border-teal-300 text-slate-900 shadow-sm'
+                : selectedSubject === 'history'
+                ? 'bg-gradient-to-r from-amber-50/95 via-yellow-50/70 to-white border border-amber-300 text-slate-900 shadow-sm'
+                : 'bg-gradient-to-r from-indigo-50/95 via-blue-50/70 to-white border border-indigo-200 text-slate-900 shadow-sm'
+              : selectedSubject === 'physics'
               ? 'bg-gradient-to-r from-cyan-950/70 via-slate-900 to-sky-950/70 border-cyan-500/50 text-cyan-100 shadow-md shadow-cyan-950/40'
               : selectedSubject === 'chemistry'
               ? 'bg-gradient-to-r from-emerald-950/70 via-slate-900 to-teal-950/70 border-emerald-500/50 text-emerald-100 shadow-md shadow-emerald-950/40'
               : selectedSubject === 'biology'
               ? 'bg-gradient-to-r from-rose-950/70 via-slate-900 to-pink-950/70 border-rose-500/50 text-rose-100 shadow-md shadow-rose-950/40'
+              : selectedSubject === 'geography'
+              ? 'bg-gradient-to-r from-teal-950/70 via-slate-900 to-cyan-950/70 border-teal-500/50 text-teal-100 shadow-md shadow-teal-950/40'
+              : selectedSubject === 'history'
+              ? 'bg-gradient-to-r from-amber-950/70 via-slate-900 to-yellow-950/70 border-amber-500/50 text-amber-100 shadow-md shadow-amber-950/40'
               : 'bg-gradient-to-r from-indigo-950/70 via-slate-900 to-blue-950/70 border-indigo-500/50 text-indigo-100 shadow-md shadow-indigo-950/40'
           }`}>
             <div className="flex items-center gap-3 min-w-0">
               <span className="text-2xl shrink-0">{currentSubject.emoji}</span>
               <div>
-                <span className="font-extrabold text-sm block">
-                  {isArabic ? `مسار ${currentSubject.titleAr}` : `${currentSubject.titleEn} Track`}:{' '}
-                  <span className="font-normal text-xs opacity-90">
+                <span className={`font-extrabold text-sm block ${isLight ? 'text-slate-900' : ''}`}>
+                  <span className={
+                    isLight
+                      ? selectedSubject === 'physics'
+                        ? 'text-cyan-800 font-black'
+                        : selectedSubject === 'chemistry'
+                        ? 'text-emerald-800 font-black'
+                        : selectedSubject === 'biology'
+                        ? 'text-rose-800 font-black'
+                        : selectedSubject === 'geography'
+                        ? 'text-teal-800 font-black'
+                        : selectedSubject === 'history'
+                        ? 'text-amber-800 font-black'
+                        : 'text-indigo-800 font-black'
+                      : ''
+                  }>
+                    {isArabic ? `مسار ${currentSubject.titleAr}` : `${currentSubject.titleEn} Track`}:{' '}
+                  </span>
+                  <span className={`font-normal text-xs ${isLight ? 'text-slate-700' : 'opacity-90'}`}>
                     {isArabic ? currentSubject.descriptionAr : currentSubject.descriptionEn}
                   </span>
                 </span>
-                <span className="text-[11px] opacity-75">
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'opacity-75'}`}>
                   {isArabic
                     ? `يتم الآن عرض فصول ومسائل واختبارات ومختبرات ${currentSubject.titleAr}`
                     : `Currently displaying ${currentSubject.titleEn} chapters, items, labs & simulators`}
@@ -582,14 +662,18 @@ export const CurriculumOverview: React.FC<Props> = ({
             <div className="flex items-center gap-2 shrink-0 flex-wrap">
               <button
                 onClick={() => onNavigateTab('interactive')}
-                className={`px-3 py-1.5 rounded-xl font-extrabold text-xs transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shadow-xs ${
+                className={`px-3 py-1.5 rounded-xl font-extrabold text-xs transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shadow-xs text-white ${
                   selectedSubject === 'physics'
-                    ? 'bg-cyan-600 hover:bg-cyan-500 text-white shadow-cyan-600/30'
+                    ? 'bg-cyan-600 hover:bg-cyan-500 shadow-cyan-600/30'
                     : selectedSubject === 'chemistry'
-                    ? 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-600/30'
+                    ? 'bg-emerald-600 hover:bg-emerald-500 shadow-emerald-600/30'
                     : selectedSubject === 'biology'
-                    ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-600/30'
-                    : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-600/30'
+                    ? 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/30'
+                    : selectedSubject === 'geography'
+                    ? 'bg-teal-600 hover:bg-teal-500 shadow-teal-600/30'
+                    : selectedSubject === 'history'
+                    ? 'bg-amber-600 hover:bg-amber-500 shadow-amber-600/30'
+                    : 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/30'
                 }`}
               >
                 <span>🔬</span>
@@ -599,7 +683,7 @@ export const CurriculumOverview: React.FC<Props> = ({
               <button
                 onClick={() => onNavigateTab('testGenerator')}
                 className={`px-3 py-1.5 rounded-xl font-bold text-xs border transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 ${
-                  isLight ? 'bg-white text-slate-800 border-slate-300 hover:bg-slate-100' : 'bg-slate-900 text-slate-200 border-slate-700 hover:bg-slate-800'
+                  isLight ? 'bg-white text-slate-800 border-slate-300 hover:bg-slate-100 shadow-2xs' : 'bg-slate-900 text-slate-200 border-slate-700 hover:bg-slate-800'
                 }`}
               >
                 <span>📝</span>
@@ -612,7 +696,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                   setSelectedBranchId('all');
                 }}
                 className={`px-2.5 py-1.5 rounded-xl font-bold text-xs border transition-all cursor-pointer ${
-                  isLight ? 'bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200' : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
+                  isLight ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 shadow-2xs' : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700'
                 }`}
               >
                 {isArabic ? 'عرض كل المواد ✕' : 'View All Tracks ✕'}
@@ -642,11 +726,11 @@ export const CurriculumOverview: React.FC<Props> = ({
                     : 'bg-slate-900 border-slate-700 text-slate-200'
                 }`}
               >
-                <option value="all" className="bg-slate-900 text-white">
+                <option value="all" className={isLight ? 'bg-white text-slate-800' : 'bg-slate-900 text-white'}>
                   {isArabic ? `جميع الفروع (${toHindiDigits(subjectBranches.length)})` : `All Branches (${subjectBranches.length})`}
                 </option>
                 {subjectBranches.map((b) => (
-                  <option key={b.id} value={b.id} className="bg-slate-900 text-white">
+                  <option key={b.id} value={b.id} className={isLight ? 'bg-white text-slate-800' : 'bg-slate-900 text-white'}>
                     {isArabic ? b.titleAr : b.titleEn}
                   </option>
                 ))}

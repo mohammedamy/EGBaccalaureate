@@ -16,6 +16,11 @@ import { MechanicsLab } from './MechanicsLab';
 import { InteractiveMatrixLab } from '../InteractiveMatrixLab';
 import { InteractivePascalTriangle } from '../InteractivePascalTriangle';
 import { InteractiveNormalDistribution } from '../InteractiveNormalDistribution';
+import { InteractiveSolidsOfRevolution } from '../InteractiveSolidsOfRevolution';
+import { InteractiveConicSections } from '../InteractiveConicSections';
+import { InteractiveFourierSeries } from '../InteractiveFourierSeries';
+import { InteractiveSlopeFields } from '../InteractiveSlopeFields';
+import { InteractiveLinearProgramming } from '../InteractiveLinearProgramming';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
 interface Props {
@@ -28,7 +33,19 @@ interface Props {
   isFullscreen?: boolean;
 }
 
-export type MathTab = 'calculus' | 'geometry3d' | 'complex' | 'mechanics' | 'matrix' | 'pascal' | 'probability';
+export type MathTab =
+  | 'calculus'
+  | 'geometry3d'
+  | 'complex'
+  | 'mechanics'
+  | 'matrix'
+  | 'pascal'
+  | 'probability'
+  | 'volumes_revolution'
+  | 'conics'
+  | 'fourier_series'
+  | 'slope_fields'
+  | 'linear_programming';
 
 export const MathLab: React.FC<Props> = ({
   lang,
@@ -111,6 +128,21 @@ export const MathLab: React.FC<Props> = ({
                 <option value="probability" className="bg-slate-900 text-white">
                   📊 {isArabic ? 'التوزيع الطبيعي وبايز' : 'Normal Distribution & Bayes'}
                 </option>
+                <option value="volumes_revolution" className="bg-slate-900 text-white">
+                  🏺 {isArabic ? 'حجوم الأجسام الدورانية وأقراص ريمان' : 'Solids of Revolution & Riemann Discs'}
+                </option>
+                <option value="conics" className="bg-slate-900 text-white">
+                  📐 {isArabic ? 'القطوع المخروطية وبصريات البؤرة' : 'Conic Sections & Focal Optics'}
+                </option>
+                <option value="fourier_series" className="bg-slate-900 text-white">
+                  🌊 {isArabic ? 'متسلسلات فورييه والتركيب النغمي' : 'Fourier Series & Acoustic Synthesis'}
+                </option>
+                <option value="slope_fields" className="bg-slate-900 text-white">
+                  📈 {isArabic ? 'المعادلات التفاضلية وحقول الميول (أويلر)' : 'Differential Equations & Slope Fields'}
+                </option>
+                <option value="linear_programming" className="bg-slate-900 text-white">
+                  📊 {isArabic ? 'البرمجة الخطية ومضلع الحل الأمثل' : 'Linear Programming & Feasible Polygon'}
+                </option>
               </select>
               <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                 <ChevronDown className="w-4 h-4" />
@@ -159,6 +191,11 @@ export const MathLab: React.FC<Props> = ({
           {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} isFullscreen={true} />}
           {activeTab === 'pascal' && <InteractivePascalTriangle lang={lang} theme={theme} isFullscreen={true} />}
           {activeTab === 'probability' && <InteractiveNormalDistribution lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'volumes_revolution' && <InteractiveSolidsOfRevolution lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'conics' && <InteractiveConicSections lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'fourier_series' && <InteractiveFourierSeries lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'slope_fields' && <InteractiveSlopeFields lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'linear_programming' && <InteractiveLinearProgramming lang={lang} theme={theme} isFullscreen={true} />}
         </div>
       </div>
     );
@@ -247,6 +284,21 @@ export const MathLab: React.FC<Props> = ({
               <option value="probability" className="bg-slate-900 text-white">
                 📊 {isArabic ? 'منحنى التوزيع الطبيعي ومبرهنة بايز' : 'Normal Distribution & Bayes'}
               </option>
+              <option value="volumes_revolution" className="bg-slate-900 text-white">
+                🏺 {isArabic ? 'حجوم الأجسام الدورانية وأقراص ريمان (التكامل المحوري)' : 'Solids of Revolution & Riemann Discs (Volume Integral)'}
+              </option>
+              <option value="conics" className="bg-slate-900 text-white">
+                📐 {isArabic ? 'القطوع المخروطية وبصريات الانعكاس البؤري (الاختلاف المركزي)' : 'Conic Sections & Focal Reflection Optics (Eccentricity)'}
+              </option>
+              <option value="fourier_series" className="bg-slate-900 text-white">
+                🌊 {isArabic ? 'متسلسلات فورييه والتركيب النغمي السمعي (تحليل التوافقيات)' : 'Fourier Series & Acoustic Harmonic Synthesis'}
+              </option>
+              <option value="slope_fields" className="bg-slate-900 text-white">
+                📈 {isArabic ? 'المعادلات التفاضلية وحقول الميول وطريقة أويلر' : 'Differential Equations, Slope Fields & Euler Method'}
+              </option>
+              <option value="linear_programming" className="bg-slate-900 text-white">
+                📊 {isArabic ? 'البرمجة الخطية ومضلع منطقة الحلول الممكنة والأمثلية' : 'Linear Programming & Feasible Polygon Optimization'}
+              </option>
             </select>
             <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
               <ChevronDown className="w-4 h-4" />
@@ -313,6 +365,11 @@ export const MathLab: React.FC<Props> = ({
         {activeTab === 'matrix' && <InteractiveMatrixLab lang={lang} theme={theme} />}
         {activeTab === 'pascal' && <InteractivePascalTriangle lang={lang} theme={theme} />}
         {activeTab === 'probability' && <InteractiveNormalDistribution lang={lang} theme={theme} />}
+        {activeTab === 'volumes_revolution' && <InteractiveSolidsOfRevolution lang={lang} theme={theme} />}
+        {activeTab === 'conics' && <InteractiveConicSections lang={lang} theme={theme} />}
+        {activeTab === 'fourier_series' && <InteractiveFourierSeries lang={lang} theme={theme} />}
+        {activeTab === 'slope_fields' && <InteractiveSlopeFields lang={lang} theme={theme} />}
+        {activeTab === 'linear_programming' && <InteractiveLinearProgramming lang={lang} theme={theme} />}
       </div>
     </div>
   );

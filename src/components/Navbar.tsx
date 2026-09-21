@@ -89,6 +89,19 @@ export const Navbar: React.FC<Props> = ({
   const fontRef = useRef<HTMLDivElement>(null);
   const toolsRef = useRef<HTMLDivElement>(null);
   const tabMenuRef = useRef<HTMLDivElement>(null);
+  const tabListRef = useRef<HTMLDivElement>(null);
+  const activeTabBtnRef = useRef<HTMLButtonElement>(null);
+
+  // Auto-scroll active tab into view in the horizontal ribbon
+  useEffect(() => {
+    if (activeTabBtnRef.current) {
+      activeTabBtnRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  }, [activeTab]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -340,7 +353,7 @@ export const Navbar: React.FC<Props> = ({
         ? 'bg-white/95 text-slate-800 border-slate-200 shadow-sm'
         : 'bg-slate-950/95 text-slate-100 border-slate-800 shadow-xl'
     }`}>
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 w-full">
+      <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         {/* Top Announcement Bar */}
         <div className={`py-1.5 border-b flex items-center justify-between gap-1.5 sm:gap-2 text-[11px] transition-colors min-w-0 ${
           isHighContrast
@@ -350,11 +363,11 @@ export const Navbar: React.FC<Props> = ({
             : 'border-slate-800/60 text-slate-400'
         }`}>
           {/* Left Column: Official MOE Reference */}
-          <div className="flex items-center gap-1.5 sm:gap-2 truncate min-w-0 shrink">
+          <div className="flex items-center gap-1.5 sm:gap-2 truncate min-w-0 flex-1">
             <span className={`inline-block w-2 h-2 rounded-full shrink-0 animate-pulse ${
               isHighContrast ? 'bg-cyan-400' : 'bg-emerald-500'
             }`}></span>
-            <span className={`font-semibold truncate min-w-0 max-w-[130px] xs:max-w-[200px] sm:max-w-none text-[10px] sm:text-[11px] ${
+            <span className={`font-semibold truncate min-w-0 text-[10px] sm:text-[11px] ${
               isHighContrast ? 'text-cyan-300 font-black' : isLight ? 'text-emerald-700' : 'text-emerald-400'
             }`}>{t.moeBadge}</span>
             <span className={`hidden lg:inline ${
@@ -579,7 +592,7 @@ export const Navbar: React.FC<Props> = ({
                 title={isArabic ? 'الأدوات والمراجع السريعة' : 'Quick Tools & References'}
               >
                 <Compass className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <span>{isArabic ? 'الأدوات' : 'Tools'}</span>
+                <span className="hidden xs:inline">{isArabic ? 'الأدوات' : 'Tools'}</span>
                 <span className={`text-[9px] font-mono px-1 py-0.2 rounded-full shrink-0 ${
                   isHighContrast
                     ? 'bg-cyan-900 text-cyan-200'
@@ -896,7 +909,7 @@ export const Navbar: React.FC<Props> = ({
                 />
               </a>
               <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-                <span className={`text-sm sm:text-base xl:text-lg font-black tracking-tight whitespace-nowrap ${
+                <span className={`text-xs xs:text-sm sm:text-base xl:text-lg font-black tracking-tight whitespace-nowrap truncate min-w-0 ${
                   isLight ? 'text-slate-900' : 'text-white'
                 }`}>
                   ClipSAT EGBaccalaureate
@@ -915,7 +928,7 @@ export const Navbar: React.FC<Props> = ({
               href="https://clipsat.org"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex lg:hidden 2xl:inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
+              className={`hidden sm:inline-flex lg:hidden 2xl:inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-extrabold px-2 sm:px-2.5 py-0.5 rounded-full border transition-all hover:scale-105 active:scale-95 shadow-xs shrink-0 ${
                 isHighContrast
                   ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
                   : isLight
@@ -953,53 +966,38 @@ export const Navbar: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Tab Navigation Section: Responsive Dropdown Menu on Mobile/Tablet/A++, Clean Row on Wide Screens */}
-        <div className="py-2 border-t border-slate-200/50 dark:border-slate-800/80">
-          {/* Tab Dropdown Menu: Active on screens below 2xl when large/xlarge font size is used, or below xl normally */}
-          <div ref={tabMenuRef} className={`relative ${isLargeOrXLarge ? '2xl:hidden' : 'xl:hidden'}`}>
+        {/* Tab Navigation Section: Responsive Horizontal Ribbon with Auto-Scroll & Quick Dropdown */}
+        <div className="py-2 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center gap-1.5 sm:gap-2 min-w-0 w-full">
+          {/* Quick Module Catalog Dropdown Trigger */}
+          <div ref={tabMenuRef} className="relative shrink-0">
             <button
               type="button"
               onClick={() => setIsTabMenuOpen((prev) => !prev)}
               aria-haspopup="true"
               aria-expanded={isTabMenuOpen}
-              className={`w-full flex items-center justify-between p-2.5 rounded-xl text-xs font-black transition-all cursor-pointer shadow-xs active:scale-95 border ${
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-xs active:scale-95 border min-w-0 ${
                 isHighContrast
                   ? 'bg-black border-2 border-yellow-400 text-yellow-300 hover:bg-zinc-950'
                   : isLight
-                  ? 'bg-white border-slate-300 text-slate-900 hover:border-slate-400 hover:bg-slate-50'
-                  : 'bg-slate-900 border-slate-800 text-white hover:border-slate-700'
+                  ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
+                  : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700'
               }`}
+              title={isArabic ? 'جميع أقسام المنصة (١١ قسماً)' : 'All Platform Modules (11 Modules)'}
             >
-              <div className="flex items-center gap-2.5 min-w-0">
-                <activeTabObj.Icon className="w-4 h-4 shrink-0 text-slate-500" />
-                <div className="text-left rtl:text-right min-w-0">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-extrabold truncate">{activeTabObj.label}</span>
-                    <span className={`text-[9px] px-1.5 py-0.2 rounded font-mono ${
-                      isHighContrast
-                        ? 'bg-yellow-400 text-black font-black'
-                        : isLight
-                        ? 'bg-slate-200 text-slate-800 font-bold'
-                        : 'bg-slate-800 text-slate-300 font-bold'
-                    }`}>
-                      {isArabic ? 'القسم النشط' : 'Active'}
-                    </span>
-                  </div>
-                  <p className="text-[10px] text-slate-400 truncate">
-                    {isArabic ? activeTabObj.descAr : activeTabObj.descEn}
-                  </p>
-                </div>
-              </div>
-
-              <ChevronDown className={`w-4 h-4 shrink-0 transition-transform duration-200 opacity-70 ${
-                isTabMenuOpen ? 'rotate-180' : ''
-              }`} />
+              <activeTabObj.Icon className={`w-3.5 h-3.5 shrink-0 ${isHighContrast ? 'text-yellow-400' : 'text-indigo-500'}`} />
+              <span className="inline sm:hidden font-extrabold truncate max-w-[85px] xs:max-w-[110px]">
+                {activeTabObj.label}
+              </span>
+              <span className="hidden sm:inline font-extrabold">
+                {isArabic ? 'الأقسام' : 'Modules'}
+              </span>
+              <ChevronDown className={`w-3 h-3 opacity-70 transition-transform duration-200 shrink-0 ${isTabMenuOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {isTabMenuOpen && (
               <div
                 role="menu"
-                className={`absolute left-0 right-0 mt-2 rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 max-h-[70vh] overflow-y-auto ${
+                className={`absolute ${isArabic ? 'right-0' : 'left-0'} mt-1.5 w-72 sm:w-80 max-w-[calc(100vw-2rem)] rounded-2xl p-2 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-150 max-h-[70vh] overflow-y-auto ${
                   isHighContrast
                     ? 'bg-black border-2 border-yellow-400 text-white'
                     : isLight
@@ -1007,10 +1005,13 @@ export const Navbar: React.FC<Props> = ({
                     : 'bg-slate-950/95 border-slate-800 text-slate-100 shadow-2xl shadow-black/80'
                 }`}
               >
-                <div className="px-3 py-1.5 border-b border-slate-200 dark:border-slate-800 mb-1">
+                <div className="px-3 py-1.5 border-b border-slate-200 dark:border-slate-800 mb-1 flex items-center justify-between">
                   <p className="text-xs font-black text-slate-400">
                     {isArabic ? 'أقسام المنصة التعليمية' : 'Platform Modules'}
                   </p>
+                  <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-indigo-500/15 text-indigo-400 border border-indigo-500/30">
+                    {isArabic ? `${toHindiDigits(navTabs.length)} أقسام` : `${navTabs.length} Modules`}
+                  </span>
                 </div>
                 <div className="space-y-1">
                   {navTabs.map((tab) => {
@@ -1054,11 +1055,12 @@ export const Navbar: React.FC<Props> = ({
             )}
           </div>
 
-          {/* Desktop Tab Navigation (Visible on xl+ normally, 2xl+ when large font, with flex-wrap safeguard) */}
+          <div className="h-5 w-px bg-slate-200 dark:bg-slate-800 shrink-0" />
+
+          {/* Horizontal Scrollable Tabs Bar */}
           <nav
-            className={`items-center gap-1 xl:gap-1.5 flex-wrap text-xs font-semibold ${
-              isLargeOrXLarge ? 'hidden 2xl:flex' : 'hidden xl:flex'
-            }`}
+            ref={tabListRef}
+            className="flex-1 flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-0.5 min-w-0 touch-pan-x"
           >
             {navTabs.map((tab) => {
               const isActive = activeTab === tab.id;
@@ -1066,8 +1068,9 @@ export const Navbar: React.FC<Props> = ({
               return (
                 <button
                   key={tab.id}
+                  ref={isActive ? activeTabBtnRef : null}
                   onClick={() => onTabChange(tab.id)}
-                  className={`px-2.5 xl:px-3 py-1.5 rounded-lg whitespace-nowrap transition-all shrink-0 active:scale-95 text-[11px] xl:text-xs flex items-center gap-1.5 ${
+                  className={`px-2.5 sm:px-3 py-1.5 rounded-xl whitespace-nowrap transition-all shrink-0 active:scale-95 text-[11px] sm:text-xs flex items-center gap-1.5 font-semibold ${
                     isActive
                       ? isHighContrast
                         ? 'bg-yellow-400 text-black font-black shadow-xs border border-yellow-300'

@@ -101,7 +101,8 @@
 
   /* Header containment & calibrated micro-typography to guarantee header items fit screen width at font size A++ */
   header {
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
@@ -546,12 +547,14 @@ html.light .hero-banner .hero-btn-secondary {
 }
 
 /* CARDS & PANELS IN LIGHT MODE */
+/* CARDS & PANELS IN LIGHT MODE */
 html.light .bg-slate-900,
 html.light .bg-slate-900\/95,
 html.light .bg-slate-900\/90,
 html.light .bg-slate-900\/80,
 html.light .bg-slate-900\/70,
 html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/50,
 html.light .bg-slate-950,
 html.light .bg-slate-950\/95,
 html.light .bg-slate-950\/90,
@@ -560,14 +563,40 @@ html.light .bg-slate-950\/80,
 html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/60,
 html.light .bg-slate-950\/50,
-html.light .bg-slate-950\/40 {
+html.light .bg-slate-950\/40,
+html.light .bg-stone-900,
+html.light .bg-stone-900\/95,
+html.light .bg-stone-900\/90,
+html.light .bg-stone-900\/80,
+html.light .bg-stone-900\/70,
+html.light .bg-stone-900\/60,
+html.light .bg-stone-900\/50,
+html.light .bg-stone-900\/40,
+html.light .bg-stone-950,
+html.light .bg-stone-950\/95,
+html.light .bg-stone-950\/90,
+html.light .bg-stone-950\/80,
+html.light .bg-stone-950\/70,
+html.light .bg-stone-950\/60,
+html.light .bg-stone-950\/50,
+html.light .bg-stone-950\/40,
+html.light [class*="bg-stone-900"],
+html.light [class*="bg-stone-950"],
+html.light [class*="bg-zinc-900"],
+html.light [class*="bg-zinc-950"],
+html.light [class*="bg-gray-900"],
+html.light [class*="bg-gray-950"],
+html.light [class*="bg-neutral-900"],
+html.light [class*="bg-neutral-950"] {
   background-color: #ffffff !important;
   color: #0f172a !important;
 }
 
 /* EXCEPTION: Elements inside hero-banner must remain styled by hero-banner */
 html.light .hero-banner .bg-slate-900,
-html.light .hero-banner .bg-slate-950 {
+html.light .hero-banner .bg-slate-950,
+html.light .hero-banner .bg-stone-900,
+html.light .hero-banner .bg-stone-950 {
   background-color: transparent !important;
 }
 
@@ -577,13 +606,28 @@ html.light .bg-slate-800\/90,
 html.light .bg-slate-800\/80,
 html.light .bg-slate-800\/70,
 html.light .bg-slate-800\/60,
-html.light .bg-slate-800\/50 {
+html.light .bg-slate-800\/50,
+html.light .bg-stone-800,
+html.light .bg-stone-800\/90,
+html.light .bg-stone-800\/80,
+html.light .bg-stone-800\/70,
+html.light .bg-stone-800\/60,
+html.light .bg-stone-800\/50,
+html.light [class*="bg-slate-800"],
+html.light [class*="bg-stone-800"],
+html.light [class*="bg-zinc-800"],
+html.light [class*="bg-gray-800"],
+html.light [class*="bg-neutral-800"] {
   background-color: #f8fafc !important;
   color: #0f172a !important;
 }
 
 /* BADGES & CIRCLE INDICATORS IN LIGHT MODE */
-html.light .bg-slate-700 {
+html.light .bg-slate-700,
+html.light .bg-stone-700,
+html.light .bg-zinc-700,
+html.light .bg-gray-700,
+html.light .bg-neutral-700 {
   background-color: #e2e8f0 !important;
   color: #1e293b !important;
 }
@@ -596,22 +640,58 @@ html.light .border-slate-800\/70,
 html.light .border-slate-800\/60,
 html.light .border-slate-700,
 html.light .border-slate-700\/80,
-html.light .border-slate-700\/60 {
+html.light .border-slate-700\/60,
+html.light .border-stone-800,
+html.light .border-stone-800\/90,
+html.light .border-stone-800\/80,
+html.light .border-stone-800\/70,
+html.light .border-stone-800\/60,
+html.light .border-stone-700,
+html.light .border-stone-700\/80,
+html.light .border-stone-700\/60,
+html.light [class*="border-slate-800"],
+html.light [class*="border-slate-700"],
+html.light [class*="border-stone-800"],
+html.light [class*="border-stone-700"],
+html.light [class*="border-zinc-800"],
+html.light [class*="border-zinc-700"],
+html.light [class*="border-neutral-800"],
+html.light [class*="border-neutral-700"] {
   border-color: #cbd5e1 !important;
 }
 
 /* TYPOGRAPHY CONTRAST IN LIGHT MODE */
 html.light .text-slate-100,
-html.light .text-slate-200 {
+html.light .text-slate-200,
+html.light .text-stone-100,
+html.light .text-stone-200,
+html.light .text-zinc-100,
+html.light .text-zinc-200,
+html.light .text-neutral-100,
+html.light .text-neutral-200,
+html.light .text-gray-100,
+html.light .text-gray-200 {
   color: #0f172a !important;
 }
 
-html.light .text-slate-300 {
+html.light .text-slate-300,
+html.light .text-stone-300,
+html.light .text-zinc-300,
+html.light .text-neutral-300,
+html.light .text-gray-300 {
   color: #1e293b !important;
 }
 
 html.light .text-slate-400,
-html.light .text-slate-500 {
+html.light .text-slate-500,
+html.light .text-stone-400,
+html.light .text-stone-500,
+html.light .text-zinc-400,
+html.light .text-zinc-500,
+html.light .text-neutral-400,
+html.light .text-neutral-500,
+html.light .text-gray-400,
+html.light .text-gray-500 {
   color: #475569 !important;
 }
 
@@ -672,65 +752,169 @@ html.light .text-teal-400 {
   color: #0f766e !important;
 }
 
+/* PRESERVE WHITE & LIGHT TEXT IN LIGHT MODE ON DARK SURFACES & BUTTONS */
+html.light .text-white,
+html.light .text-white *,
+html.light button.bg-indigo-600,
+html.light button.bg-indigo-600 *,
+html.light button.bg-teal-600,
+html.light button.bg-teal-600 *,
+html.light button.bg-emerald-600,
+html.light button.bg-emerald-600 *,
+html.light button.bg-cyan-600,
+html.light button.bg-cyan-600 *,
+html.light button.bg-rose-600,
+html.light button.bg-rose-600 *,
+html.light button.bg-amber-600,
+html.light button.bg-amber-600 *,
+html.light [class*="bg-indigo-600"] .text-white,
+html.light [class*="bg-teal-600"] .text-white,
+html.light [class*="bg-emerald-600"] .text-white,
+html.light [class*="bg-cyan-600"] .text-white,
+html.light [class*="bg-rose-600"] .text-white,
+html.light [class*="bg-amber-600"] .text-white {
+  color: #ffffff !important;
+}
+
+/* Ensure buttons with solid brand background colors keep white text */
+html.light .bg-indigo-600,
+html.light .bg-indigo-700,
+html.light .bg-teal-600,
+html.light .bg-teal-700,
+html.light .bg-emerald-600,
+html.light .bg-cyan-600,
+html.light .bg-rose-600,
+html.light .bg-blue-600 {
+  color: #ffffff !important;
+}
+
 /* PILL BADGES & TINTED BOXES IN LIGHT MODE */
-html.light .bg-indigo-950,
-html.light .bg-indigo-950\/60,
-html.light .bg-indigo-950\/40,
-html.light .bg-indigo-950\/30,
-html.light .bg-indigo-950\/20 {
+html.light [class*="bg-indigo-950"],
+html.light .bg-indigo-950 {
   background-color: #e0e7ff !important;
   color: #3730a3 !important;
   border-color: #c7d2fe !important;
 }
 
-html.light .bg-amber-950,
-html.light .bg-amber-950\/60,
-html.light .bg-amber-950\/40,
-html.light .bg-amber-950\/30,
-html.light .bg-amber-950\/20 {
+html.light [class*="bg-amber-950"],
+html.light .bg-amber-950 {
   background-color: #fef3c7 !important;
   color: #92400e !important;
   border-color: #fde68a !important;
 }
 
-html.light .bg-emerald-950,
-html.light .bg-emerald-950\/60,
-html.light .bg-emerald-950\/40,
-html.light .bg-emerald-950\/30,
-html.light .bg-emerald-950\/20 {
+html.light [class*="bg-emerald-950"],
+html.light .bg-emerald-950 {
   background-color: #d1fae5 !important;
   color: #065f46 !important;
   border-color: #a7f3d0 !important;
 }
 
-html.light .bg-cyan-950,
-html.light .bg-cyan-950\/60,
-html.light .bg-cyan-950\/40,
-html.light .bg-cyan-950\/30,
-html.light .bg-cyan-950\/20 {
+html.light [class*="bg-cyan-950"],
+html.light .bg-cyan-950 {
   background-color: #e0f2fe !important;
   color: #0369a1 !important;
   border-color: #bae6fd !important;
 }
 
-html.light .bg-rose-950,
-html.light .bg-rose-950\/60,
-html.light .bg-rose-950\/40,
-html.light .bg-rose-950\/30,
-html.light .bg-rose-950\/20 {
+html.light [class*="bg-sky-950"],
+html.light .bg-sky-950 {
+  background-color: #e0f2fe !important;
+  color: #0369a1 !important;
+  border-color: #bae6fd !important;
+}
+
+html.light [class*="bg-rose-950"],
+html.light .bg-rose-950 {
   background-color: #ffe4e6 !important;
   color: #9f1239 !important;
   border-color: #fecdd3 !important;
 }
 
-html.light .bg-purple-950,
-html.light .bg-purple-950\/60,
-html.light .bg-purple-950\/40,
-html.light .bg-purple-950\/30,
-html.light .bg-purple-950\/20 {
+html.light [class*="bg-purple-950"],
+html.light .bg-purple-950 {
   background-color: #f3e8ff !important;
   color: #6b21a8 !important;
   border-color: #e9d5ff !important;
+}
+
+html.light [class*="bg-teal-950"],
+html.light .bg-teal-950 {
+  background-color: #ccfbf1 !important;
+  color: #0f766e !important;
+  border-color: #99f6e4 !important;
+}
+
+/* FORM CONTROLS IN LIGHT MODE */
+html.light select,
+html.light input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+html.light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light input[type="range"] {
+  background-color: #e2e8f0 !important;
+}
+
+/* GRADIENTS IN LIGHT MODE: Neutralize accidental dark gradient backgrounds on light surfaces */
+html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-zinc-900"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-zinc-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-teal-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-amber-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container) {
+  background-image: none !important;
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p {
+  color: #0f172a !important;
 }
 
 /* KATEX MATH FORMULAS IN LIGHT MODE - Pure crisp black text by default */
@@ -1825,6 +2009,21 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     margin: 0 auto !important;
     padding: 8pt 10pt !important;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Universal Musical Notation, Piano & Scales LTR Guard
+   Ensures piano keys and musical scales always read low-to-high from Left to Right
+   regardless of document RTL/LTR direction or language translation.
+   --------------------------------------------------------------------------- */
+.music-ltr,
+[data-music-ltr="true"] {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+.music-ltr > * {
+  unicode-bidi: isolate;
 }
 
 

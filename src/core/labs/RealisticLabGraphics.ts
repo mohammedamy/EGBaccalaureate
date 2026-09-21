@@ -302,7 +302,8 @@ export function drawMetallicCylinder(
 
 /**
  * Draws a photorealistic analog meter dial gauge with brushed metallic bezel, white enamel face,
- * radial calibration ticks, and a physics-damped needle with drop shadow.
+ * anti-parallax mirror band, radial calibration ticks, integrated high-contrast digital LCD readout,
+ * and a physics-damped knife-edge needle with drop shadow.
  */
 export function drawAnalogMeterGauge(
   ctx: CanvasRenderingContext2D,
@@ -319,39 +320,49 @@ export function drawAnalogMeterGauge(
 
   // 1. Bezel Drop Shadow
   ctx.save();
-  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
-  ctx.shadowBlur = 12;
-  ctx.shadowOffsetY = 4;
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.55)';
+  ctx.shadowBlur = Math.max(8, radius * 0.25);
+  ctx.shadowOffsetY = Math.max(3, radius * 0.08);
   ctx.beginPath();
   ctx.arc(cx, cy, radius, 0, Math.PI * 2);
   ctx.fillStyle = '#0f172a';
   ctx.fill();
   ctx.restore();
 
-  // 2. Outer Brushed Metal Bezel
+  // 2. Outer Heavy Brushed Metal Bezel Ring
   const bezelGrad = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
-  bezelGrad.addColorStop(0, '#64748b');
-  bezelGrad.addColorStop(0.3, '#cbd5e1');
-  bezelGrad.addColorStop(0.5, '#334155');
-  bezelGrad.addColorStop(0.7, '#94a3b8');
-  bezelGrad.addColorStop(1, '#1e293b');
+  bezelGrad.addColorStop(0, '#475569');
+  bezelGrad.addColorStop(0.2, '#94a3b8');
+  bezelGrad.addColorStop(0.4, '#e2e8f0');
+  bezelGrad.addColorStop(0.55, '#334155');
+  bezelGrad.addColorStop(0.75, '#64748b');
+  bezelGrad.addColorStop(0.9, '#cbd5e1');
+  bezelGrad.addColorStop(1, '#0f172a');
   ctx.fillStyle = bezelGrad;
   ctx.beginPath();
   ctx.arc(cx, cy, radius, 0, Math.PI * 2);
   ctx.fill();
 
-  // 3. Dial Face (Warm Enamel White)
-  const faceRadius = radius - 5;
-  const faceGrad = ctx.createRadialGradient(cx, cy, faceRadius * 0.2, cx, cy, faceRadius);
+  // Stepped Inner Bezel Rim (Machined Look)
+  ctx.strokeStyle = '#1e293b';
+  ctx.lineWidth = Math.max(1.2, radius * 0.04);
+  ctx.beginPath();
+  ctx.arc(cx, cy, radius - Math.max(3, radius * 0.08), 0, Math.PI * 2);
+  ctx.stroke();
+
+  // 3. Dial Face (Warm High-Grade Enamel White)
+  const faceRadius = radius - Math.max(4, radius * 0.1);
+  const faceGrad = ctx.createRadialGradient(cx, cy, faceRadius * 0.15, cx, cy, faceRadius);
   faceGrad.addColorStop(0, '#ffffff');
-  faceGrad.addColorStop(0.85, '#f8fafc');
-  faceGrad.addColorStop(1, '#e2e8f0');
+  faceGrad.addColorStop(0.75, '#f8fafc');
+  faceGrad.addColorStop(0.95, '#f1f5f9');
+  faceGrad.addColorStop(1, '#cbd5e1');
   ctx.fillStyle = faceGrad;
   ctx.beginPath();
   ctx.arc(cx, cy, faceRadius, 0, Math.PI * 2);
   ctx.fill();
-  ctx.strokeStyle = '#94a3b8';
-  ctx.lineWidth = 1.2;
+  ctx.strokeStyle = '#64748b';
+  ctx.lineWidth = 1.5;
   ctx.stroke();
 
   // 4. Dial Scale Arc & Tick Marks (240 degree sweep from -210° to 30°)
@@ -359,19 +370,46 @@ export function drawAnalogMeterGauge(
   const endAngle = Math.PI * 0.15;
   const sweep = endAngle - startAngle;
 
+  const tickFontSize = Math.max(9, Math.round(faceRadius * 0.17));
+  const titleFontSize = Math.max(11, Math.round(faceRadius * 0.21));
+  const lcdFontSize = Math.max(10, Math.round(faceRadius * 0.20));
+
+  // Anti-Parallax Polished Mirror Band (Class 0.5 Precision Meter Standard)
+  const mirrorR = faceRadius * 0.76;
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, mirrorR, startAngle, endAngle);
+  const mirrorGrad = ctx.createLinearGradient(cx - mirrorR, cy, cx + mirrorR, cy);
+  mirrorGrad.addColorStop(0, '#94a3b8');
+  mirrorGrad.addColorStop(0.3, '#f1f5f9');
+  mirrorGrad.addColorStop(0.5, '#e2e8f0');
+  mirrorGrad.addColorStop(0.8, '#cbd5e1');
+  mirrorGrad.addColorStop(1, '#94a3b8');
+  ctx.strokeStyle = mirrorGrad;
+  ctx.lineWidth = Math.max(2.5, faceRadius * 0.05);
+  ctx.stroke();
+  ctx.restore();
+
+  // Calibration Arc Line
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = Math.max(1.2, faceRadius * 0.025);
+  ctx.beginPath();
+  ctx.arc(cx, cy, faceRadius - 6, startAngle, endAngle);
+  ctx.stroke();
+
   const numTicks = 10;
   for (let i = 0; i <= numTicks; i++) {
     const angle = startAngle + (i / numTicks) * sweep;
     const isMajor = i % 2 === 0;
-    const tickLen = isMajor ? faceRadius * 0.2 : faceRadius * 0.12;
+    const tickLen = isMajor ? faceRadius * 0.19 : faceRadius * 0.11;
 
     const xInner = cx + Math.cos(angle) * (faceRadius - tickLen - 6);
     const yInner = cy + Math.sin(angle) * (faceRadius - tickLen - 6);
     const xOuter = cx + Math.cos(angle) * (faceRadius - 6);
     const yOuter = cy + Math.sin(angle) * (faceRadius - 6);
 
-    ctx.strokeStyle = isMajor ? '#0f172a' : '#64748b';
-    ctx.lineWidth = isMajor ? 1.8 : 1.0;
+    ctx.strokeStyle = isMajor ? '#0f172a' : '#475569';
+    ctx.lineWidth = isMajor ? Math.max(1.8, faceRadius * 0.035) : 1.0;
     ctx.beginPath();
     ctx.moveTo(xInner, yInner);
     ctx.lineTo(xOuter, yOuter);
@@ -379,64 +417,115 @@ export function drawAnalogMeterGauge(
 
     if (isMajor) {
       const valAtTick = minVal + (i / numTicks) * (maxVal - minVal);
-      const textX = cx + Math.cos(angle) * (faceRadius - tickLen - 14);
-      const textY = cy + Math.sin(angle) * (faceRadius - tickLen - 14);
-      ctx.fillStyle = '#1e293b';
-      ctx.font = 'bold 8px monospace';
+      const textOffset = Math.max(14, faceRadius * 0.32);
+      const textX = cx + Math.cos(angle) * (faceRadius - textOffset);
+      const textY = cy + Math.sin(angle) * (faceRadius - textOffset);
+      ctx.fillStyle = '#0f172a';
+      ctx.font = `bold ${tickFontSize}px ui-monospace, SFMono-Regular, Menlo, monospace`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.fillText(valAtTick.toFixed(valAtTick % 1 === 0 ? 0 : 1), textX, textY);
+      const formattedTick = valAtTick >= 100 ? valAtTick.toFixed(0) : valAtTick.toFixed(valAtTick % 1 === 0 ? 0 : 1);
+      ctx.fillText(formattedTick, textX, textY);
     }
   }
 
-  // 5. Dial Labels
-  ctx.fillStyle = '#334155';
-  ctx.font = 'bold 9px Inter, sans-serif';
+  // 5. Dial Meter Title
+  ctx.fillStyle = '#0f172a';
+  ctx.font = `900 ${titleFontSize}px Inter, system-ui, sans-serif`;
   ctx.textAlign = 'center';
-  ctx.fillText(title, cx, cy - faceRadius * 0.32);
+  ctx.textBaseline = 'middle';
+  ctx.fillText(title, cx, cy - faceRadius * 0.28);
 
-  ctx.fillStyle = '#0284c7';
-  ctx.font = 'bold 10px monospace';
-  ctx.fillText(unit, cx, cy + faceRadius * 0.38);
+  // 6. Integrated High-Contrast Digital LCD Sub-Display Window (Effortlessly Readable!)
+  const lcdW = Math.max(54, faceRadius * 1.15);
+  const lcdH = Math.max(17, faceRadius * 0.36);
+  const lcdY = cy + faceRadius * 0.44;
 
-  // 6. Needle with Drop Shadow
-  const fraction = Math.max(0, Math.min(1, (value - minVal) / (maxVal - minVal)));
-  const needleAngle = startAngle + fraction * sweep;
-  const needleLen = faceRadius * 0.78;
-
-  // Shadow
   ctx.save();
-  ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
-  ctx.shadowBlur = 4;
-  ctx.shadowOffsetX = 2;
-  ctx.shadowOffsetY = 2;
-  ctx.strokeStyle = '#dc2626';
-  ctx.lineWidth = 2.0;
+  // LCD Bezel & Inset Shadow
+  ctx.fillStyle = '#0f172a';
   ctx.beginPath();
-  ctx.moveTo(cx - Math.cos(needleAngle) * 8, cy - Math.sin(needleAngle) * 8);
-  ctx.lineTo(cx + Math.cos(needleAngle) * needleLen, cy + Math.sin(needleAngle) * needleLen);
-  ctx.stroke();
-  ctx.restore();
-
-  // 7. Center Pivot Hub
-  const hubGrad = ctx.createRadialGradient(cx - 1, cy - 1, 1, cx, cy, 6);
-  hubGrad.addColorStop(0, '#cbd5e1');
-  hubGrad.addColorStop(0.6, '#475569');
-  hubGrad.addColorStop(1, '#0f172a');
-  ctx.fillStyle = hubGrad;
-  ctx.beginPath();
-  ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+  ctx.roundRect(cx - lcdW / 2, lcdY - lcdH / 2, lcdW, lcdH, [4]);
   ctx.fill();
   ctx.strokeStyle = '#334155';
   ctx.lineWidth = 1;
   ctx.stroke();
 
-  // 8. Curved Glass Lens Reflection Arc
+  // LCD Screen Glass
+  const lcdGrad = ctx.createLinearGradient(cx - lcdW / 2, lcdY - lcdH / 2, cx + lcdW / 2, lcdY + lcdH / 2);
+  lcdGrad.addColorStop(0, '#042f2e'); // Deep emerald crystal LCD
+  lcdGrad.addColorStop(1, '#021e1a');
+  ctx.fillStyle = lcdGrad;
+  ctx.beginPath();
+  ctx.roundRect(cx - lcdW / 2 + 1.5, lcdY - lcdH / 2 + 1.5, lcdW - 3, lcdH - 3, [3]);
+  ctx.fill();
+
+  // Digital High-Contrast Illuminated Readout
+  const absVal = Math.abs(value);
+  const numStr = absVal >= 100 ? value.toFixed(1) : value.toFixed(2);
+  ctx.fillStyle = '#2dd4bf'; // Luminous turquoise LCD segments
+  ctx.font = `bold ${lcdFontSize}px "SF Mono", "Roboto Mono", Consolas, monospace`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(`${numStr} ${unit}`, cx, lcdY);
+
+  // LCD Glare Specular Highlight
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+  ctx.beginPath();
+  ctx.roundRect(cx - lcdW / 2 + 2, lcdY - lcdH / 2 + 2, lcdW - 4, (lcdH - 4) / 2, [2]);
+  ctx.fill();
+  ctx.restore();
+
+  // 7. Precision Physics-Damped Needle with Drop Shadow
+  const fraction = Math.max(0, Math.min(1, (value - minVal) / (maxVal - minVal || 1)));
+  const needleAngle = startAngle + fraction * sweep;
+  const needleLen = faceRadius * 0.82;
+
+  // Knife-edge Needle Shadow
+  ctx.save();
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+  ctx.shadowBlur = Math.max(3, faceRadius * 0.08);
+  ctx.shadowOffsetX = 2.5;
+  ctx.shadowOffsetY = 2.5;
+  ctx.strokeStyle = '#dc2626';
+  ctx.lineWidth = Math.max(2.2, faceRadius * 0.045);
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  // Counterweight tail
+  ctx.moveTo(cx - Math.cos(needleAngle) * (faceRadius * 0.2), cy - Math.sin(needleAngle) * (faceRadius * 0.2));
+  // Needle tip
+  ctx.lineTo(cx + Math.cos(needleAngle) * needleLen, cy + Math.sin(needleAngle) * needleLen);
+  ctx.stroke();
+  ctx.restore();
+
+  // 8. Machined Center Pivot Hub with Calibrated Zero Screw
+  const hubRadius = Math.max(6, faceRadius * 0.15);
+  const hubGrad = ctx.createRadialGradient(cx - 1.5, cy - 1.5, 1, cx, cy, hubRadius);
+  hubGrad.addColorStop(0, '#f1f5f9');
+  hubGrad.addColorStop(0.5, '#64748b');
+  hubGrad.addColorStop(1, '#0f172a');
+  ctx.fillStyle = hubGrad;
+  ctx.beginPath();
+  ctx.arc(cx, cy, hubRadius, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 1.2;
+  ctx.stroke();
+
+  // Zero-adjust screw slot (45 degree brass slot)
+  ctx.strokeStyle = '#0f172a';
+  ctx.lineWidth = Math.max(1.2, hubRadius * 0.2);
+  ctx.beginPath();
+  ctx.moveTo(cx - hubRadius * 0.5, cy - hubRadius * 0.5);
+  ctx.lineTo(cx + hubRadius * 0.5, cy + hubRadius * 0.5);
+  ctx.stroke();
+
+  // 9. Convex Glass Lens Specular Reflection Arch
   ctx.save();
   ctx.beginPath();
-  ctx.arc(cx, cy, faceRadius - 2, -Math.PI * 0.8, -Math.PI * 0.2);
-  ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-  ctx.lineWidth = 3;
+  ctx.arc(cx, cy, faceRadius - 2, -Math.PI * 0.85, -Math.PI * 0.15);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
+  ctx.lineWidth = Math.max(2.5, faceRadius * 0.06);
   ctx.stroke();
   ctx.restore();
 

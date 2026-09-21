@@ -1182,7 +1182,11 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 }}
                 className={`p-2.5 min-h-[44px] rounded-xl border flex items-center gap-2.5 transition-all text-start cursor-pointer ${
                   isSel
-                    ? 'bg-gradient-to-r from-amber-500/25 to-purple-600/25 border-amber-400 text-white font-bold shadow-lg shadow-amber-500/10 scale-102 ring-1 ring-amber-400/50'
+                    ? isLight
+                      ? 'bg-gradient-to-r from-amber-500 to-purple-600 text-white font-bold shadow-md scale-102 ring-1 ring-amber-500'
+                      : 'bg-gradient-to-r from-amber-500/25 to-purple-600/25 border-amber-400 text-white font-bold shadow-lg shadow-amber-500/10 scale-102 ring-1 ring-amber-400/50'
+                    : isLight
+                    ? 'bg-white border-slate-300 text-slate-700 hover:bg-slate-100 shadow-2xs font-semibold'
                     : 'bg-slate-900/70 border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
                 }`}
               >
@@ -1191,7 +1195,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                   <div className="text-xs md:text-sm font-bold truncate">
                     {isArabic ? inst.nameAr : inst.nameEn}
                   </div>
-                  <div className="text-[10px] text-slate-400 truncate opacity-80">
+                  <div className={`text-[10px] truncate ${isLight ? 'text-slate-500 font-medium' : 'text-slate-400 opacity-80'}`}>
                     {isArabic ? 'انقر للتفعيل والعزف' : 'Click to activate'}
                   </div>
                 </div>
@@ -1202,7 +1206,9 @@ export const MusicTheoryStudio: React.FC<Props> = ({
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-1 overflow-x-auto py-3 no-scrollbar border-b border-slate-800/60">
+      <div className={`flex items-center gap-1 overflow-x-auto py-3 no-scrollbar ${
+        isLight ? 'border-b border-slate-200' : 'border-b border-slate-800/60'
+      }`}>
         {[
           { id: 'maqamat', labelAr: 'المقامات الشرقية والبيانو', labelEn: 'Oriental Maqamat & Piano', icon: Compass },
           { id: 'piano', labelAr: 'البيانو التفاعلي (٢ - ٣ ديوان)', labelEn: 'Interactive Piano (2-3 Octaves)', icon: Music },
@@ -1221,6 +1227,8 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               className={`flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-xl text-xs md:text-sm font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
                 isActive
                   ? 'bg-gradient-to-r from-amber-500 to-purple-600 text-white shadow-md shadow-amber-500/20'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-200/70 font-semibold'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
             >
@@ -1233,17 +1241,29 @@ export const MusicTheoryStudio: React.FC<Props> = ({
 
       {/* RENDER INTERACTIVE PIANO COMPONENT (Used in both Maqamat tab and Piano tab) */}
       {(activeTab === 'maqamat' || activeTab === 'piano') && (
-        <div className="my-4 p-4 md:p-5 rounded-2xl bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border border-amber-500/30 shadow-2xl space-y-4">
+        <div className={`my-4 p-4 md:p-5 rounded-2xl space-y-4 ${
+          isLight
+            ? 'bg-slate-100 border border-slate-300 shadow-xl'
+            : 'bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border border-amber-500/30 shadow-2xl'
+        }`}>
           {/* Piano Controls Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          <div className={`flex flex-wrap items-center justify-between gap-3 pb-3 border-b ${
+            isLight ? 'border-slate-300' : 'border-slate-800'
+          }`}>
             <div className="flex items-center gap-3">
-              <span className="text-sm font-black text-amber-400 flex items-center gap-1.5">
+              <span className={`text-sm font-black flex items-center gap-1.5 ${
+                isLight ? 'text-amber-800 font-extrabold' : 'text-amber-400'
+              }`}>
                 <span>🎹</span>
                 <span>
                   {isArabic ? 'بيانو المقامات الميكروتونية (24-EDO Quarter-Tone Piano)' : '24-EDO Quarter-Tone Piano'}
                 </span>
               </span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-purple-500/20 text-purple-300 font-semibold border border-purple-500/40">
+              <span className={`text-xs px-2.5 py-0.5 rounded-full font-semibold border ${
+                isLight
+                  ? 'bg-purple-100 text-purple-900 border-purple-300 font-bold'
+                  : 'bg-purple-500/20 text-purple-300 border-purple-500/40'
+              }`}>
                 {isArabic
                   ? `الآلة: ${STUDIO_INSTRUMENTS.find((i) => i.id === selectedInstrument)?.nameAr}`
                   : `Synth: ${STUDIO_INSTRUMENTS.find((i) => i.id === selectedInstrument)?.nameEn}`}
@@ -1252,11 +1272,17 @@ export const MusicTheoryStudio: React.FC<Props> = ({
 
             <div className="flex items-center gap-2 flex-wrap">
               {/* Octave Count Switcher: 2 Octaves or 3 Octaves */}
-              <div className="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700">
+              <div className={`flex items-center gap-1 p-1 rounded-xl border ${
+                isLight ? 'bg-white border-slate-300 shadow-2xs' : 'bg-slate-800/80 border-slate-700'
+              }`}>
                 <button
                   onClick={() => setOctavesCount(2)}
                   className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-bold transition-colors cursor-pointer flex items-center justify-center ${
-                    octavesCount === 2 ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                    octavesCount === 2
+                      ? 'bg-amber-500 text-slate-950'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-950 font-bold'
+                      : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   {isArabic ? 'ديوانان (2 Octaves)' : '2 Octaves'}
@@ -1264,7 +1290,11 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 <button
                   onClick={() => setOctavesCount(3)}
                   className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-bold transition-colors cursor-pointer flex items-center justify-center ${
-                    octavesCount === 3 ? 'bg-amber-500 text-slate-950' : 'text-slate-400 hover:text-white'
+                    octavesCount === 3
+                      ? 'bg-amber-500 text-slate-950'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-950 font-bold'
+                      : 'text-slate-400 hover:text-white'
                   }`}
                 >
                   {isArabic ? '٣ دواوين (3 Octaves)' : '3 Octaves'}
@@ -1272,20 +1302,26 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               </div>
 
               {/* Octave Transpose Shift */}
-              <div className="flex items-center gap-1 bg-slate-800/80 p-1 rounded-xl border border-slate-700 text-xs font-bold text-slate-300">
+              <div className={`flex items-center gap-1 p-1 rounded-xl border text-xs font-bold music-ltr ${
+                isLight ? 'bg-white border-slate-300 text-slate-800 shadow-2xs' : 'bg-slate-800/80 border-slate-700 text-slate-300'
+              }`} dir="ltr" style={{ direction: 'ltr' }}>
                 <button
                   onClick={() => setBaseOctave((o) => Math.max(2, o - 1))}
                   disabled={baseOctave <= 2}
-                  className="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded hover:bg-slate-700 disabled:opacity-40 cursor-pointer"
+                  className={`w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded disabled:opacity-40 cursor-pointer ${
+                    isLight ? 'hover:bg-slate-100' : 'hover:bg-slate-700'
+                  }`}
                   title="Octave Down"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="px-1.5 text-amber-300 font-mono">C{baseOctave} - C{baseOctave + octavesCount}</span>
+                <span className={`px-1.5 font-mono ${isLight ? 'text-amber-800 font-black' : 'text-amber-300'}`} dir="ltr">C{baseOctave} - C{baseOctave + octavesCount}</span>
                 <button
                   onClick={() => setBaseOctave((o) => Math.min(4, o + 1))}
                   disabled={baseOctave >= 4}
-                  className="w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded hover:bg-slate-700 disabled:opacity-40 cursor-pointer"
+                  className={`w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center rounded disabled:opacity-40 cursor-pointer ${
+                    isLight ? 'hover:bg-slate-100' : 'hover:bg-slate-700'
+                  }`}
                   title="Octave Up"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -1297,7 +1333,11 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 onClick={() => setShowQuarterToneOverlay(!showQuarterToneOverlay)}
                 className={`px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-bold border transition-colors cursor-pointer flex items-center justify-center ${
                   showQuarterToneOverlay
-                    ? 'bg-purple-600/30 text-purple-300 border-purple-500/50'
+                    ? isLight
+                      ? 'bg-purple-600 text-white border-purple-700 shadow-xs'
+                      : 'bg-purple-600/30 text-purple-300 border-purple-500/50'
+                    : isLight
+                    ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 shadow-2xs'
                     : 'bg-slate-800 text-slate-400 border-slate-700'
                 }`}
               >
@@ -1307,15 +1347,15 @@ export const MusicTheoryStudio: React.FC<Props> = ({
           </div>
 
           {/* Piano Fallboard Wooden Brand Banner */}
-          <div className="h-6 rounded-t-lg bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 border-b-2 border-amber-600/40 flex items-center justify-center shadow-inner">
-            <span className="text-[10px] font-serif font-black tracking-widest text-amber-300/80 uppercase">
+          <div className="h-6 rounded-t-lg bg-gradient-to-r from-amber-950 via-amber-900 to-amber-950 border-b-2 border-amber-600/40 flex items-center justify-center shadow-inner music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
+            <span className="text-[10px] font-serif font-black tracking-widest text-amber-300/80 uppercase" dir="ltr">
               • CLIPSAT EGBACCALAUREATE GRAND CONCERT CONSOLE •
             </span>
           </div>
 
-          {/* Piano Keyboard Container with Horizontal Touch Scroll */}
-          <div className="relative overflow-x-auto pb-4 pt-1 no-scrollbar select-none">
-            <div className="relative inline-flex items-start min-w-[720px] md:min-w-full justify-center bg-slate-950 p-2 rounded-xl border border-slate-800 shadow-2xl">
+          {/* Piano Keyboard Container with Horizontal Touch Scroll - STRICTLY LTR IN ALL VIEWS */}
+          <div className="relative overflow-x-auto pb-4 pt-1 no-scrollbar select-none music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
+            <div className="relative inline-flex items-start min-w-[720px] md:min-w-full justify-center bg-slate-950 p-2 rounded-xl border border-slate-800 shadow-2xl music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
               {/* Render Keys */}
               {pianoKeys.map((k, idx) => {
                 const isInMaqam = isNoteInMaqam(k.note);
@@ -1325,7 +1365,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 if (!k.isBlack) {
                   // White Key
                   return (
-                    <div key={idx} className="relative flex-1 group">
+                    <div key={idx} className="relative flex-1 group music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
                       {/* Natural White Key Button */}
                       <button
                         onClick={() => {
@@ -1333,7 +1373,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                           playInstrumentTone(k.freq, selectedInstrument, 0.7);
                           setTimeout(() => setActiveKeyNote(null), 300);
                         }}
-                        className={`w-full h-44 md:h-52 rounded-b-md border transition-all flex flex-col justify-end p-2 text-center ${
+                        className={`w-full h-44 md:h-52 rounded-b-md border transition-all flex flex-col justify-end p-2 text-center cursor-pointer ${
                           isBeingPlayed
                             ? 'bg-gradient-to-b from-amber-300 to-amber-500 border-amber-600 text-slate-950 translate-y-1 shadow-inner'
                             : isInMaqam
@@ -1342,10 +1382,11 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                               : 'bg-gradient-to-b from-cyan-50 to-cyan-100 border-cyan-400 text-cyan-950 shadow-sm'
                             : 'bg-gradient-to-b from-slate-100 via-white to-slate-200 hover:from-white hover:to-slate-100 text-slate-800 border-slate-300'
                         }`}
+                        dir="ltr"
                       >
-                        <div className="text-[11px] font-black">{k.note}</div>
+                        <div className="text-[11px] font-black" dir="ltr">{k.note}</div>
                         <div className="text-[9px] text-slate-500 truncate">{k.arabicName}</div>
-                        <div className="text-[8px] font-mono text-slate-400 mt-0.5">{k.freq.toFixed(0)}Hz</div>
+                        <div className="text-[8px] font-mono text-slate-400 mt-0.5" dir="ltr">{k.freq.toFixed(0)}Hz</div>
                         {isRoot && (
                           <span className="mt-1 text-[8px] px-1 rounded bg-amber-500 text-white font-black">
                             {isArabic ? 'ركوز' : 'Root'}
@@ -1364,7 +1405,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                               setTimeout(() => setActiveKeyNote(null), 300);
                             }
                           }}
-                          className={`absolute -top-3 left-1/2 -translate-x-1/2 z-30 px-1.5 py-0.5 rounded-md text-[9px] font-black border shadow-lg transition-transform active:scale-95 ${
+                          className={`absolute -top-3 left-1/2 -translate-x-1/2 z-30 px-1.5 py-0.5 rounded-md text-[9px] font-black border shadow-lg transition-transform active:scale-95 cursor-pointer ${
                             activeMaqam.scaleNotes.some(
                               (sn) => sn.replace(/\d+$/, '') === k.quarterToneAlt?.note.replace(/\d+$/, '')
                             )
@@ -1372,6 +1413,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                               : 'bg-purple-950/90 text-purple-200 border-purple-500/70 hover:bg-purple-800'
                           }`}
                           title={`Quarter-Tone: ${k.quarterToneAlt.arabicName} (${k.quarterToneAlt.freq.toFixed(1)}Hz)`}
+                          dir="ltr"
                         >
                           𝄳 {k.quarterToneAlt.note.replace(/\d+$/, '')}
                         </button>
@@ -1383,8 +1425,9 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                   return (
                     <div
                       key={idx}
-                      className="relative -mx-3 md:-mx-4 z-20 w-6 md:w-8 group"
-                      style={{ height: '0px' }}
+                      className="relative -mx-3 md:-mx-4 z-20 w-6 md:w-8 group music-ltr"
+                      style={{ height: '0px', direction: 'ltr' }}
+                      dir="ltr"
                     >
                       <button
                         onClick={() => {
@@ -1392,16 +1435,17 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                           playInstrumentTone(k.freq, selectedInstrument, 0.7);
                           setTimeout(() => setActiveKeyNote(null), 300);
                         }}
-                        className={`w-full h-28 md:h-32 rounded-b-md border transition-all flex flex-col justify-end p-1 text-center shadow-xl ${
+                        className={`w-full h-28 md:h-32 rounded-b-md border transition-all flex flex-col justify-end p-1 text-center shadow-xl cursor-pointer ${
                           isBeingPlayed
                             ? 'bg-gradient-to-b from-amber-500 to-amber-600 border-amber-300 text-slate-950 translate-y-1'
                             : isInMaqam
                             ? 'bg-gradient-to-b from-indigo-700 to-indigo-900 border-indigo-400 text-indigo-100 ring-1 ring-indigo-400'
                             : 'bg-gradient-to-b from-slate-800 via-slate-900 to-black hover:from-slate-700 text-slate-300 border-slate-700'
                         }`}
+                        dir="ltr"
                       >
-                        <div className="text-[9px] font-black truncate">{k.note}</div>
-                        <div className="text-[7px] font-mono text-slate-400">{k.freq.toFixed(0)}</div>
+                        <div className="text-[9px] font-black truncate" dir="ltr">{k.note}</div>
+                        <div className="text-[7px] font-mono text-slate-400" dir="ltr">{k.freq.toFixed(0)}</div>
                       </button>
                     </div>
                   );
@@ -1441,7 +1485,9 @@ export const MusicTheoryStudio: React.FC<Props> = ({
         <div className="py-2 space-y-6">
           {/* Maqam Selector Pills */}
           <div>
-            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">
+            <div className={`text-xs font-bold uppercase tracking-wider mb-2 ${
+              isLight ? 'text-slate-700' : 'text-slate-400'
+            }`}>
               {isArabic ? 'اختر فصيلة المقام الشرقي للعرض والتطبيق الفوري على البيانو:' : 'Select Oriental Maqam Family:'}
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2">
@@ -1451,14 +1497,20 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                   <button
                     key={m.id}
                     onClick={() => setSelectedMaqamId(m.id)}
-                    className={`p-3 rounded-xl border text-center transition-all ${
+                    className={`p-3 rounded-xl border text-center transition-all cursor-pointer ${
                       isSel
-                        ? 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold shadow-lg shadow-amber-500/10 scale-102 ring-1 ring-amber-400/40'
+                        ? isLight
+                          ? 'bg-amber-500 text-white border-amber-600 font-black shadow-md scale-102 ring-1 ring-amber-500'
+                          : 'bg-amber-500/20 border-amber-400 text-amber-300 font-bold shadow-lg shadow-amber-500/10 scale-102 ring-1 ring-amber-400/40'
+                        : isLight
+                        ? 'bg-white border-slate-300 text-slate-800 hover:bg-slate-100 shadow-2xs font-semibold'
                         : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:bg-slate-800 hover:text-slate-200'
                     }`}
                   >
                     <div className="text-sm md:text-base font-bold">{isArabic ? m.nameAr : m.nameEn}</div>
-                    <div className="text-xs text-slate-400 mt-1">{isArabic ? m.rootNoteAr : m.rootNote}</div>
+                    <div className={`text-xs mt-1 ${isLight ? (isSel ? 'text-amber-100 font-bold' : 'text-slate-600 font-medium') : 'text-slate-400'}`}>
+                      {isArabic ? m.rootNoteAr : m.rootNote}
+                    </div>
                   </button>
                 );
               })}
@@ -1466,16 +1518,26 @@ export const MusicTheoryStudio: React.FC<Props> = ({
           </div>
 
           {/* Active Maqam Detailed Panel */}
-          <div className="rounded-2xl border border-amber-500/30 bg-slate-900/80 p-5 md:p-6 space-y-5">
+          <div className={`rounded-2xl border p-5 md:p-6 space-y-5 ${
+            isLight
+              ? 'bg-white border-slate-200 shadow-sm'
+              : 'border-amber-500/30 bg-slate-900/80'
+          }`}>
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h3 className="text-2xl font-black text-amber-400 flex items-center gap-3">
+                <h3 className={`text-2xl font-black flex items-center gap-3 ${
+                  isLight ? 'text-amber-800 font-extrabold' : 'text-amber-400'
+                }`}>
                   <span>{isArabic ? activeMaqam.nameAr : activeMaqam.nameEn}</span>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 font-medium border border-slate-700">
+                  <span className={`text-xs px-2.5 py-1 rounded-full font-bold border ${
+                    isLight
+                      ? 'bg-slate-100 text-slate-800 border-slate-300'
+                      : 'bg-slate-800 text-slate-300 border-slate-700'
+                  }`}>
                     {isArabic ? `الركوز: ${activeMaqam.rootNoteAr}` : `Root: ${activeMaqam.rootNote}`}
                   </span>
                 </h3>
-                <p className="text-sm text-slate-300 mt-1 italic">
+                <p className={`text-sm mt-1 italic ${isLight ? 'text-slate-700 font-medium' : 'text-slate-300'}`}>
                   {isArabic ? activeMaqam.moodAr : activeMaqam.moodEn}
                 </p>
               </div>
@@ -1484,7 +1546,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               <button
                 onClick={() => playMaqamScale(activeMaqam)}
                 disabled={isPlayingScale}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white shadow-lg transition-all ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm text-white shadow-lg transition-all cursor-pointer ${
                   isPlayingScale
                     ? 'bg-purple-700 opacity-80 cursor-wait'
                     : 'bg-gradient-to-r from-amber-500 to-purple-600 hover:from-amber-400 hover:to-purple-500 shadow-amber-500/25 active:scale-95'
@@ -1503,14 +1565,25 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               </button>
             </div>
 
-            {/* Interactive Scale Degrees Bar */}
+            {/* Interactive Scale Degrees Bar - STRICTLY LTR IN ALL VIEWS */}
             <div>
-              <label className="text-xs font-semibold text-slate-400 mb-2 block uppercase tracking-wider">
-                {isArabic
-                  ? 'درجات المقام الصوتية التفاعلية (انقر للعزف والاستماع بدقة الـ 24 ربع تون):'
-                  : 'Interactive Scale Degrees (Click to Play Quarter-Tones):'}
-              </label>
-              <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
+              <div className="flex items-center justify-between mb-2">
+                <label className={`text-xs font-semibold block uppercase tracking-wider ${
+                  isLight ? 'text-slate-700 font-bold' : 'text-slate-400'
+                }`}>
+                  {isArabic
+                    ? 'درجات المقام الصوتية التفاعلية (انقر للعزف والاستماع بدقة الـ 24 ربع تون):'
+                    : 'Interactive Scale Degrees (Click to Play Quarter-Tones):'}
+                </label>
+                <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded border music-ltr ${
+                  isLight
+                    ? 'text-amber-800 bg-amber-50 border-amber-300 font-black'
+                    : 'text-amber-400/90 bg-amber-500/10 border-amber-500/20'
+                }`} dir="ltr" style={{ direction: 'ltr' }}>
+                  {isArabic ? 'صعود السلم (يسار ⟵ يمين) #1 ⟶ #8' : 'Ascending #1 ⟶ #8 (Low ⟶ High)'}
+                </span>
+              </div>
+              <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
                 {activeMaqam.scaleNotes.map((note, idx) => {
                   const freq = activeMaqam.scaleFrequencies[idx];
                   const isQuarterTone = isNoteQuarterTone(note);
@@ -1522,17 +1595,25 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                         playInstrumentTone(freq, selectedInstrument, 0.7);
                         setTimeout(() => setActiveKeyNote(null), 300);
                       }}
-                      className={`p-3 rounded-xl border flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-95 ${
+                      className={`p-3 rounded-xl border flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer music-ltr ${
                         isQuarterTone
-                          ? 'bg-purple-950/70 border-purple-500/80 text-purple-300 ring-2 ring-purple-400/40 shadow-lg shadow-purple-500/20'
+                          ? isLight
+                            ? 'bg-purple-100 border-purple-400 text-purple-950 ring-2 ring-purple-300 shadow-xs'
+                            : 'bg-purple-950/70 border-purple-500/80 text-purple-300 ring-2 ring-purple-400/40 shadow-lg shadow-purple-500/20'
+                          : isLight
+                          ? 'bg-slate-50 border-slate-300 text-slate-900 hover:border-amber-500 shadow-2xs'
                           : 'bg-slate-800/80 border-slate-700 text-slate-200 hover:border-amber-400'
                       }`}
+                      dir="ltr"
+                      style={{ direction: 'ltr' }}
                     >
-                      <span className="text-xs text-slate-400 font-mono">#{idx + 1}</span>
-                      <span className="text-lg font-black tracking-tight">{note}</span>
-                      <span className="text-[11px] font-mono text-amber-400/90">{freq.toFixed(1)} Hz</span>
+                      <span className={`text-xs font-mono ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'}`} dir="ltr">#{idx + 1}</span>
+                      <span className="text-lg font-black tracking-tight" dir="ltr">{note}</span>
+                      <span className={`text-[11px] font-mono ${isLight ? 'text-amber-800 font-black' : 'text-amber-400/90'}`} dir="ltr">{freq.toFixed(1)} Hz</span>
                       {isQuarterTone && (
-                        <span className="text-[10px] px-1.5 py-0.2 mt-1 rounded bg-purple-500/30 text-purple-200 font-bold">
+                        <span className={`text-[10px] px-1.5 py-0.5 mt-1 rounded font-bold ${
+                          isLight ? 'bg-purple-200 text-purple-900' : 'bg-purple-500/30 text-purple-200'
+                        }`}>
                           {isArabic ? '𝄳 ربع تون' : '𝄳 1/4 Tone'}
                         </span>
                       )}
@@ -1543,31 +1624,54 @@ export const MusicTheoryStudio: React.FC<Props> = ({
             </div>
 
             {/* Structure & Ajnas Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-slate-800">
-              <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700/60">
-                <div className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">
-                  {isArabic ? 'صيغة الأبعاد النغمية' : 'Scale Formula'}
+            <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t ${
+              isLight ? 'border-slate-200' : 'border-slate-800'
+            }`}>
+              <div className={`p-4 rounded-xl border ${
+                isLight ? 'bg-slate-50 border-slate-200 shadow-2xs' : 'bg-slate-800/50 border-slate-700/60'
+              }`}>
+                <div className="flex items-center justify-between mb-1">
+                  <div className={`text-xs font-semibold uppercase tracking-wider ${
+                    isLight ? 'text-amber-800 font-black' : 'text-amber-400'
+                  }`}>
+                    {isArabic ? 'صيغة الأبعاد النغمية' : 'Scale Formula'}
+                  </div>
+                  <span className={`text-[10px] font-mono music-ltr ${
+                    isLight ? 'text-amber-800 font-bold' : 'text-amber-300/80'
+                  }`} dir="ltr">
+                    (1 ⟶ 8)
+                  </span>
                 </div>
-                <div className="text-sm font-bold text-slate-100">
+                <div className={`text-sm font-bold font-mono music-ltr ${
+                  isLight ? 'text-slate-900 font-black' : 'text-slate-100'
+                }`} dir="ltr" style={{ direction: 'ltr', textAlign: 'left' }}>
                   {isArabic ? activeMaqam.formulaAr : activeMaqam.formulaEn}
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700/60">
-                <div className="text-xs font-semibold text-purple-400 uppercase tracking-wider mb-1">
+              <div className={`p-4 rounded-xl border ${
+                isLight ? 'bg-slate-50 border-slate-200 shadow-2xs' : 'bg-slate-800/50 border-slate-700/60'
+              }`}>
+                <div className={`text-xs font-semibold uppercase tracking-wider mb-1 ${
+                  isLight ? 'text-purple-800 font-black' : 'text-purple-400'
+                }`}>
                   {isArabic ? 'جنس الأصل وجنس الفرع' : 'Ajnas (Tetrachords)'}
                 </div>
-                <div className="text-xs font-medium text-slate-200 space-y-1">
-                  <div>{isArabic ? activeMaqam.jinsAsasAr : activeMaqam.jinsAsasEn}</div>
-                  <div className="text-slate-400">{isArabic ? activeMaqam.jinsFarAr : activeMaqam.jinsFarEn}</div>
+                <div className={`text-xs font-medium space-y-1 ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
+                  <div className={isLight ? 'text-slate-900 font-bold' : 'text-slate-200'}>{isArabic ? activeMaqam.jinsAsasAr : activeMaqam.jinsAsasEn}</div>
+                  <div className={isLight ? 'text-slate-700 font-medium' : 'text-slate-400'}>{isArabic ? activeMaqam.jinsFarAr : activeMaqam.jinsFarEn}</div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-800/50 border border-slate-700/60">
-                <div className="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-1">
+              <div className={`p-4 rounded-xl border ${
+                isLight ? 'bg-slate-50 border-slate-200 shadow-2xs' : 'bg-slate-800/50 border-slate-700/60'
+              }`}>
+                <div className={`text-xs font-semibold uppercase tracking-wider mb-1 ${
+                  isLight ? 'text-emerald-800 font-black' : 'text-emerald-400'
+                }`}>
                   {isArabic ? 'من شوارد التراث الموسيقي المصري' : 'Masterpiece Reference'}
                 </div>
-                <div className="text-xs font-medium text-slate-200">
+                <div className={`text-xs font-medium ${isLight ? 'text-slate-900 font-bold' : 'text-slate-200'}`}>
                   {isArabic ? activeMaqam.famousPieceAr : activeMaqam.famousPieceEn}
                 </div>
               </div>
@@ -1676,12 +1780,17 @@ export const MusicTheoryStudio: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* Animated Rhythm Step Sequencer Grid */}
+            {/* Animated Rhythm Step Sequencer Grid - STRICTLY LTR IN ALL VIEWS */}
             <div className="space-y-2">
-              <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                {isArabic ? 'شريط نبضات الضرب الموسيقي (دم وتك وسكتات)' : 'Drum Beat Sequence (Dum, Tak & Sakta)'}
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                  {isArabic ? 'شريط نبضات الضرب الموسيقي (دم وتك وسكتات)' : 'Drum Beat Sequence (Dum, Tak & Sakta)'}
+                </div>
+                <span className="text-[11px] font-mono text-purple-400 font-bold px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
+                  Beat #1 ⟶ #{activeIqa.pattern.length}
+                </span>
               </div>
-              <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-10 gap-2">
+              <div className="grid grid-cols-4 sm:grid-cols-8 md:grid-cols-10 gap-2 music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
                 {activeIqa.pattern.map((beat, idx) => {
                   const isActiveBeat = currentBeatIdx === idx;
                   const isDum = beat.type === 'dum';
@@ -1691,7 +1800,7 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                     <div
                       key={idx}
                       onClick={() => playPercussion(beat.type)}
-                      className={`cursor-pointer p-4 rounded-xl border flex flex-col items-center justify-center transition-all ${
+                      className={`cursor-pointer p-4 rounded-xl border flex flex-col items-center justify-center transition-all music-ltr ${
                         isActiveBeat ? 'ring-4 ring-amber-400 scale-105 shadow-xl shadow-amber-500/30' : ''
                       } ${
                         isDum
@@ -1700,8 +1809,10 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                           ? 'bg-purple-950/70 border-purple-500 text-purple-300'
                           : 'bg-slate-900 border-slate-800 text-slate-600'
                       }`}
+                      dir="ltr"
+                      style={{ direction: 'ltr' }}
                     >
-                      <span className="text-[10px] text-slate-500 font-mono">#{idx + 1}</span>
+                      <span className="text-[10px] text-slate-500 font-mono" dir="ltr">#{idx + 1}</span>
                       <span className="text-xl font-black mt-1">
                         {isDum ? (isArabic ? 'دُمْ' : 'DUM') : isTak ? (isArabic ? 'تَكْ' : 'TAK') : isArabic ? 'ـ' : 'REST'}
                       </span>
@@ -1746,19 +1857,24 @@ export const MusicTheoryStudio: React.FC<Props> = ({
       {/* Tab 4: Staff Notation & Solfège Pitch Studio */}
       {activeTab === 'solfege' && (
         <div className="py-4 space-y-6">
-          <div className="p-4 rounded-xl bg-slate-900 border border-slate-800">
-            <h3 className="text-lg font-bold text-amber-400 mb-1">
-              {isArabic ? 'لوحة النغمات الميكروتونية والصولفيج (سلم الـ ٢٤ ربع تون)' : '24-EDO Quarter-Tone & Solfège Keyboard'}
-            </h3>
-            <p className="text-xs text-slate-400">
-              {isArabic
-                ? 'انقر على أي درجة صوتية لسماع ترددها الهيرتزي بدقة متناهية وفق معيار مؤتمر القاهرة ١٩٣٢ بالآلة المختارة.'
-                : 'Click any note to play its exact microtonal frequency via the active synthesizer instrument.'}
-            </p>
+          <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <h3 className="text-lg font-bold text-amber-400 mb-1">
+                {isArabic ? 'لوحة النغمات الميكروتونية والصولفيج (سلم الـ ٢٤ ربع تون)' : '24-EDO Quarter-Tone & Solfège Keyboard'}
+              </h3>
+              <p className="text-xs text-slate-400">
+                {isArabic
+                  ? 'انقر على أي درجة صوتية لسماع ترددها الهيرتزي بدقة متناهية وفق معيار مؤتمر القاهرة ١٩٣٢ بالآلة المختارة.'
+                  : 'Click any note to play its exact microtonal frequency via the active synthesizer instrument.'}
+              </p>
+            </div>
+            <span className="text-xs font-mono text-amber-400 font-bold px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20 music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
+              C4 (261.6 Hz) ⟶ C5 (523.3 Hz)
+            </span>
           </div>
 
-          {/* Chromatic 24-EDO Keyboard Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+          {/* Chromatic 24-EDO Keyboard Grid - STRICTLY LTR IN ALL VIEWS */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 music-ltr" dir="ltr" style={{ direction: 'ltr' }}>
             {QUARTER_TONE_PITCHES.map((p, idx) => {
               const isQuarter = p.accidental === 'half-flat' || p.accidental === 'half-sharp';
               const isAccidental = p.accidental === '#' || p.accidental === 'b';
@@ -1766,17 +1882,19 @@ export const MusicTheoryStudio: React.FC<Props> = ({
                 <button
                   key={idx}
                   onClick={() => playInstrumentTone(p.frequency, selectedInstrument, 0.6)}
-                  className={`p-3 rounded-xl border text-center transition-all hover:scale-105 active:scale-95 ${
+                  className={`p-3 rounded-xl border text-center transition-all hover:scale-105 active:scale-95 music-ltr ${
                     isQuarter
                       ? 'bg-purple-950/80 border-purple-500 text-purple-200'
                       : isAccidental
                       ? 'bg-indigo-950/70 border-indigo-600 text-indigo-200'
                       : 'bg-slate-800 border-slate-700 text-white'
                   }`}
+                  dir="ltr"
+                  style={{ direction: 'ltr' }}
                 >
-                  <div className="text-base font-black">{p.note}</div>
+                  <div className="text-base font-black" dir="ltr">{p.note}</div>
                   <div className="text-xs font-medium text-amber-300 mt-0.5">{p.arabicName}</div>
-                  <div className="text-[10px] font-mono text-slate-400 mt-1">{p.frequency.toFixed(1)} Hz</div>
+                  <div className="text-[10px] font-mono text-slate-400 mt-1" dir="ltr">{p.frequency.toFixed(1)} Hz</div>
                 </button>
               );
             })}

@@ -251,6 +251,16 @@ export const VirtualLabsHub: React.FC<Props> = ({
         return 'math-exp-4';
       case 'complex':
         return 'math-exp-5';
+      case 'volumes_revolution':
+        return 'math-exp-6';
+      case 'conics':
+        return 'math-exp-7';
+      case 'fourier_series':
+        return 'math-exp-8';
+      case 'slope_fields':
+        return 'math-exp-9';
+      case 'linear_programming':
+        return 'math-exp-10';
       default:
         return 'math-exp-1';
     }
@@ -1098,6 +1108,11 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'matrix' as MathTab, emoji: '🔢', labelEn: 'Matrix Algebra Solver', labelAr: 'جبر المصفوفات ومحدد كرامر' },
                     { id: 'pascal' as MathTab, emoji: '🔺', labelEn: 'Pascal Triangle & Binomial Combinatorics', labelAr: 'مثلث باسكال ومفكوك ذات الحدين' },
                     { id: 'probability' as MathTab, emoji: '📊', labelEn: 'Normal Distribution & Bayesian Tree', labelAr: 'التوزيع الطبيعي وشجرة بايز' },
+                    { id: 'volumes_revolution' as MathTab, emoji: '🏺', labelEn: 'Solids of Revolution & Riemann Discs', labelAr: 'حجوم الأجسام الدورانية وأقراص ريمان' },
+                    { id: 'conics' as MathTab, emoji: '📐', labelEn: 'Conic Sections & Focal Optics', labelAr: 'القطوع المخروطية وبصريات البؤرة' },
+                    { id: 'fourier_series' as MathTab, emoji: '🌊', labelEn: 'Fourier Series & Acoustic Synthesis', labelAr: 'متسلسلات فورييه والتركيب النغمي' },
+                    { id: 'slope_fields' as MathTab, emoji: '📈', labelEn: 'Differential Equations & Slope Fields', labelAr: 'المعادلات التفاضلية وحقول الميول (أويلر)' },
+                    { id: 'linear_programming' as MathTab, emoji: '📊', labelEn: 'Linear Programming & Feasible Polygon', labelAr: 'البرمجة الخطية ومضلع الحل الأمثل' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
                       {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}

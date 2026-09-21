@@ -13,6 +13,10 @@ import {
   drawMetallicCylinder,
   drawGlowingParticle,
   drawVolumetricBeam,
+  drawAnalogMeterGauge,
+  drawHeavyInsulatedCable,
+  drawBrassTerminalStud,
+  drawAxialCeramicResistor,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -998,33 +1002,41 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
       const cy = height * 0.44;
 
       if (params.diodeMode === 'iv_curve') {
-        const boxW = Math.min(width * 0.75, 480);
-        const boxH = 140;
-        const boxX = cx - boxW / 2;
-        const boxY = cy - 70;
+        // Module 1A: p-n Diode Crystal, Circuit Loop, and Bench Avometers
+        const boxW = Math.min(width * 0.65, 420);
+        const boxH = 130;
+        const boxX = cx - boxW / 2 - 40;
+        const boxY = cy - 90;
 
+        // 1. Crystal Slab Chassis
+        ctx.save();
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+        ctx.shadowBlur = 10;
+        ctx.shadowOffsetY = 4;
         ctx.fillStyle = isLight ? '#f1f5f9' : '#0f172a';
-        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
-        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.roundRect(boxX, boxY, boxW, boxH, 12);
+        ctx.roundRect(boxX, boxY, boxW, boxH, [12]);
         ctx.fill();
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.lineWidth = 2.5;
         ctx.stroke();
+        ctx.restore();
 
         const pWidth = (boxW / 2) * (1 - (state.depletionWidthRatio * 0.25));
-        ctx.fillStyle = isLight ? 'rgba(239, 68, 68, 0.12)' : 'rgba(239, 68, 68, 0.2)';
+        ctx.fillStyle = isLight ? 'rgba(239, 68, 68, 0.16)' : 'rgba(239, 68, 68, 0.25)';
         ctx.fillRect(boxX, boxY, pWidth, boxH);
 
         const nWidth = (boxW / 2) * (1 - (state.depletionWidthRatio * 0.25));
-        ctx.fillStyle = isLight ? 'rgba(59, 130, 246, 0.12)' : 'rgba(59, 130, 246, 0.2)';
+        ctx.fillStyle = isLight ? 'rgba(59, 130, 246, 0.16)' : 'rgba(59, 130, 246, 0.25)';
         ctx.fillRect(boxX + boxW - nWidth, boxY, nWidth, boxH);
 
+        // Depletion Layer with electric field gradient
         const depW = boxW - pWidth - nWidth;
         const depX = boxX + pWidth;
         const depGrad = ctx.createLinearGradient(depX, boxY, depX + depW, boxY);
-        depGrad.addColorStop(0, 'rgba(239, 68, 68, 0.35)');
-        depGrad.addColorStop(0.5, 'rgba(234, 179, 8, 0.45)');
-        depGrad.addColorStop(1, 'rgba(59, 130, 246, 0.35)');
+        depGrad.addColorStop(0, 'rgba(239, 68, 68, 0.45)');
+        depGrad.addColorStop(0.5, 'rgba(234, 179, 8, 0.55)');
+        depGrad.addColorStop(1, 'rgba(59, 130, 246, 0.45)');
         ctx.fillStyle = depGrad;
         ctx.fillRect(depX, boxY, depW, boxH);
 
@@ -1039,97 +1051,172 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
         ctx.stroke();
         ctx.setLineDash([]);
 
-        ctx.font = 'bold 15px sans-serif';
+        // Region Headings
+        ctx.font = 'bold 14px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillStyle = '#ef4444';
-        ctx.fillText(isArabic ? 'المنطقة الموجبة P (فجوات)' : 'P-Type (Holes Majority)', boxX + pWidth / 2, boxY + 28);
+        ctx.fillText(isArabic ? 'البلورة P (فجوات موجبة)' : 'P-Type (Holes +)', boxX + pWidth / 2, boxY + 24);
 
         ctx.fillStyle = '#38bdf8';
-        ctx.fillText(isArabic ? 'المنطقة السالبة N (إلكترونات)' : 'N-Type (Electrons Majority)', boxX + boxW - nWidth / 2, boxY + 28);
+        ctx.fillText(isArabic ? 'البلورة N (إلكترونات حرة)' : 'N-Type (Electrons -)', boxX + boxW - nWidth / 2, boxY + 24);
 
-        ctx.font = 'bold 12px sans-serif';
+        ctx.font = 'bold 11px monospace';
         ctx.fillStyle = '#f59e0b';
         ctx.fillText(
           isArabic
-            ? `منطقة النضوب (الحاجز الجهدي ${state.barrierPotentialV}V)`
-            : `Depletion Layer (Barrier ${state.barrierPotentialV}V)`,
-          cx,
+            ? `منطقة النضوب (الحاجز ${state.barrierPotentialV}V)`
+            : `Depletion Zone (Vbi = ${state.barrierPotentialV}V)`,
+          boxX + boxW / 2,
           boxY + boxH - 12
         );
 
-        const holeCount = 8;
+        // Mobile Carrier Particles
+        const holeCount = 7;
         for (let i = 0; i < holeCount; i++) {
-          const hx = boxX + 25 + ((i * 37) % (pWidth - 50));
-          const hy = boxY + 45 + ((i * 29) % (boxH - 80));
-          drawGlowingParticle(ctx, hx, hy, 6, '#ef4444', 8);
+          const hx = boxX + 22 + ((i * 35) % (pWidth - 44));
+          const hy = boxY + 42 + ((i * 26) % (boxH - 74));
+          drawGlowingParticle(ctx, hx, hy, 5.5, '#ef4444', 8);
           ctx.fillStyle = '#ffffff';
           ctx.font = 'bold 9px sans-serif';
           ctx.fillText('+', hx, hy + 3);
         }
 
-        const electronCount = 8;
+        const electronCount = 7;
         for (let i = 0; i < electronCount; i++) {
-          const ex = boxX + boxW - nWidth + 25 + ((i * 37) % (nWidth - 50));
-          const ey = boxY + 45 + ((i * 29) % (boxH - 80));
+          const ex = boxX + boxW - nWidth + 22 + ((i * 35) % (nWidth - 44));
+          const ey = boxY + 42 + ((i * 26) % (boxH - 74));
           drawGlowingParticle(ctx, ex, ey, 5, '#38bdf8', 8);
           ctx.fillStyle = '#ffffff';
           ctx.font = 'bold 9px sans-serif';
           ctx.fillText('-', ex, ey + 3);
         }
 
+        // Internal Built-in Electric Field Vector Ei
         ctx.strokeStyle = '#eab308';
         ctx.lineWidth = 2.5;
         ctx.beginPath();
-        ctx.moveTo(depX + depW - 15, cy);
-        ctx.lineTo(depX + 15, cy);
+        ctx.moveTo(depX + depW - 12, boxY + boxH / 2);
+        ctx.lineTo(depX + 12, boxY + boxH / 2);
         ctx.stroke();
         ctx.fillStyle = '#eab308';
         ctx.beginPath();
-        ctx.moveTo(depX + 10, cy);
-        ctx.lineTo(depX + 22, cy - 6);
-        ctx.lineTo(depX + 22, cy + 6);
+        ctx.moveTo(depX + 8, boxY + boxH / 2);
+        ctx.lineTo(depX + 18, boxY + boxH / 2 - 5);
+        ctx.lineTo(depX + 18, boxY + boxH / 2 + 5);
         ctx.closePath();
         ctx.fill();
-        ctx.font = '11px sans-serif';
-        ctx.fillText(isArabic ? 'مجال الحاجز الداخلي Ei' : 'Internal Field Ei', cx, cy - 8);
 
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 3;
+        // Brass Contact End Plates
+        drawMetallicCylinder(ctx, boxX - 10, boxY + 15, 10, boxH - 30, 'brass', 'vertical');
+        drawMetallicCylinder(ctx, boxX + boxW, boxY + 15, 10, boxH - 30, 'brass', 'vertical');
+
+        // Brass Terminal Binding Studs on Diode
+        const diodeAnodeStudX = boxX - 5;
+        const diodeAnodeStudY = boxY + boxH / 2;
+        const diodeCathodeStudX = boxX + boxW + 5;
+        const diodeCathodeStudY = boxY + boxH / 2;
+        drawBrassTerminalStud(ctx, diodeAnodeStudX, diodeAnodeStudY);
+        drawBrassTerminalStud(ctx, diodeCathodeStudX, diodeCathodeStudY);
+
+        // Lower External Loop & DC Bench Supply
+        const loopBottomY = boxY + boxH + 85;
+        const psWidth = 160;
+        const psHeight = 65;
+        const psX = boxX + boxW / 2 - psWidth / 2;
+        const psY = loopBottomY - psHeight / 2;
+
+        // Bench Power Supply Unit
+        ctx.save();
+        ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+        ctx.shadowBlur = 8;
+        ctx.fillStyle = isLight ? '#e2e8f0' : '#1e293b';
         ctx.beginPath();
-        ctx.moveTo(boxX, cy);
-        ctx.lineTo(boxX - 40, cy);
-        ctx.lineTo(boxX - 40, boxY + boxH + 40);
-        ctx.lineTo(cx - 30, boxY + boxH + 40);
+        ctx.roundRect(psX, psY, psWidth, psHeight, [8]);
+        ctx.fill();
+        ctx.strokeStyle = isLight ? '#94a3b8' : '#475569';
+        ctx.lineWidth = 2;
         ctx.stroke();
 
-        ctx.beginPath();
-        ctx.moveTo(boxX + boxW, cy);
-        ctx.lineTo(boxX + boxW + 40, cy);
-        ctx.lineTo(boxX + boxW + 40, boxY + boxH + 40);
-        ctx.lineTo(cx + 30, boxY + boxH + 40);
-        ctx.stroke();
+        // PS Title & Voltage LCD
+        ctx.fillStyle = '#0f172a';
+        ctx.fillRect(psX + 15, psY + 12, 70, 24);
+        ctx.fillStyle = '#22c55e';
+        ctx.font = 'bold 12px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`${params.biasVoltageV >= 0 ? '+' : ''}${params.biasVoltageV.toFixed(2)}V`, psX + 50, psY + 28);
 
-        ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
-        ctx.font = 'bold 13px sans-serif';
-        ctx.fillText(
-          `${params.biasVoltageV >= 0 ? '+' : ''}${params.biasVoltageV.toFixed(2)} V`,
-          cx,
-          boxY + boxH + 65
+        ctx.font = 'bold 9px sans-serif';
+        ctx.fillStyle = isLight ? '#475569' : '#cbd5e1';
+        ctx.fillText(isArabic ? 'مصدر جهد مستمر' : 'DC POWER SUPPLY', psX + psWidth / 2, psY + psHeight - 8);
+        ctx.restore();
+
+        const psStudPosX = psX + psWidth - 40;
+        const psStudNegX = psX + 40;
+        const psStudY = psY + 24;
+        drawBrassTerminalStud(ctx, psStudPosX, psStudY);
+        drawBrassTerminalStud(ctx, psStudNegX, psStudY);
+
+        ctx.font = 'bold 10px monospace';
+        ctx.fillStyle = '#ef4444';
+        ctx.fillText('(+)', psStudPosX, psStudY + 16);
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillText('(-)', psStudNegX, psStudY + 16);
+
+        // Protective Resistor Rs (100 Ohm) in series with Anode
+        const rsX = boxX - 55;
+        const rsY = (diodeAnodeStudY + loopBottomY) / 2;
+        drawAxialCeramicResistor(ctx, rsX, rsY, 44, 14, 100, 'Rs', Math.abs(state.diodeCurrentMa * 0.1));
+
+        // Heavy Insulated Wires with 7.5px jacket and specular sheen
+        // Anode Wire (Red) from Diode to Rs to Supply (+)
+        drawHeavyInsulatedCable(ctx, diodeAnodeStudX, diodeAnodeStudY, rsX, diodeAnodeStudY, '#dc2626', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, rsX, diodeAnodeStudY, rsX, rsY - 20, '#dc2626', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, rsX, rsY + 20, rsX, loopBottomY, '#dc2626', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, rsX, loopBottomY, psStudPosX, loopBottomY, '#dc2626', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, psStudPosX, loopBottomY, psStudPosX, psStudY, '#dc2626', state.diodeCurrentMa > 0.1);
+
+        // Cathode Wire (Blue) from Diode to Supply (-)
+        const catCornerX = boxX + boxW + 45;
+        drawHeavyInsulatedCable(ctx, diodeCathodeStudX, diodeCathodeStudY, catCornerX, diodeCathodeStudY, '#2563eb', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, catCornerX, diodeCathodeStudY, catCornerX, loopBottomY, '#2563eb', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, catCornerX, loopBottomY, psStudNegX, loopBottomY, '#2563eb', state.diodeCurrentMa > 0.1);
+        drawHeavyInsulatedCable(ctx, psStudNegX, loopBottomY, psStudNegX, psStudY, '#2563eb', state.diodeCurrentMa > 0.1);
+
+        // TWO LARGE READABLE AVOMETERS (Right side panel, 48px radius each)
+        const meterRadius = 48;
+        const meter1X = Math.min(width - meterRadius - 20, cx + boxW / 2 + 75);
+        const meter1Y = boxY + 25;
+        const meter2X = meter1X;
+        const meter2Y = meter1Y + meterRadius * 2 + 35;
+
+        // Voltmeter V_D across Diode
+        drawAnalogMeterGauge(
+          ctx,
+          meter1X,
+          meter1Y,
+          meterRadius,
+          params.biasVoltageV,
+          params.biasVoltageV >= 0 ? 0 : -10,
+          params.biasVoltageV >= 0 ? 2 : 0,
+          isArabic ? 'فولتميتر الوصلة' : 'DIODE VOLTMETER',
+          'V'
         );
 
-        ctx.strokeStyle = '#38bdf8';
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        ctx.moveTo(cx - 10, boxY + boxH + 25);
-        ctx.lineTo(cx - 10, boxY + boxH + 55);
-        ctx.stroke();
-
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(cx + 10, boxY + boxH + 32);
-        ctx.lineTo(cx + 10, boxY + boxH + 48);
-        ctx.stroke();
+        // Milliammeter I_D in series
+        const maxMa = params.biasVoltageV >= 0 ? 50 : 2;
+        drawAnalogMeterGauge(
+          ctx,
+          meter2X,
+          meter2Y,
+          meterRadius,
+          Math.abs(state.diodeCurrentMa),
+          0,
+          maxMa,
+          isArabic ? 'مللي أميتر التيار' : 'MILLIAMMETER',
+          'mA'
+        );
       } else {
+        // Module 1B: Full-Wave Bridge or Half-Wave Rectifier Circuit
         ctx.font = 'bold 16px sans-serif';
         ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
         ctx.textAlign = 'center';
@@ -1142,97 +1229,127 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
             ? '4-Diode Full-Wave Bridge Rectifier'
             : 'Single-Diode Half-Wave Rectifier',
           cx,
-          cy - 90
+          cy - 110
         );
 
-        const bSize = 65;
+        const bSize = 85;
+        const bridgeX = cx - 50;
+
+        // AC Input Terminals on Left
+        const acInX = bridgeX - bSize - 60;
+        const acTopY = cy - bSize / 2;
+        const acBotY = cy + bSize / 2;
+        drawBrassTerminalStud(ctx, acInX, acTopY);
+        drawBrassTerminalStud(ctx, acInX, acBotY);
+
+        ctx.font = 'bold 12px monospace';
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillText(`~ AC IN (${params.acAmplitudeV}V, ${params.acFrequencyHz}Hz)`, acInX - 25, cy);
+
+        // Heavy AC input wires
+        drawHeavyInsulatedCable(ctx, acInX, acTopY, bridgeX - bSize, cy, '#ea580c', true);
+        drawHeavyInsulatedCable(ctx, acInX, acBotY, bridgeX, cy + bSize, '#2563eb', true);
+
+        // Bridge Diamond Rails with 6px thick traces
         ctx.strokeStyle = '#38bdf8';
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 4;
         ctx.beginPath();
-        ctx.moveTo(cx, cy - bSize);
-        ctx.lineTo(cx + bSize, cy);
-        ctx.lineTo(cx, cy + bSize);
-        ctx.lineTo(cx - bSize, cy);
+        ctx.moveTo(bridgeX, cy - bSize);
+        ctx.lineTo(bridgeX + bSize, cy);
+        ctx.lineTo(bridgeX, cy + bSize);
+        ctx.lineTo(bridgeX - bSize, cy);
         ctx.closePath();
         ctx.stroke();
 
-        const drawDiode = (dx: number, dy: number, angle: number) => {
+        // Realistic Molded Diodes (1N4007 Black Cylinder with Silver Cathode Band)
+        const drawMoldedDiode = (dx: number, dy: number, angle: number) => {
           ctx.save();
           ctx.translate(dx, dy);
           ctx.rotate(angle);
-          ctx.fillStyle = '#0284c7';
+
+          // Diode cylindrical epoxy body
+          ctx.fillStyle = '#0f172a';
           ctx.beginPath();
-          ctx.moveTo(-10, -8);
-          ctx.lineTo(10, 0);
-          ctx.lineTo(-10, 8);
-          ctx.closePath();
+          ctx.roundRect(-16, -7, 32, 14, [3]);
           ctx.fill();
-          ctx.strokeStyle = '#0284c7';
-          ctx.lineWidth = 2.5;
+          ctx.strokeStyle = '#475569';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          // Cathode Silver Band
+          ctx.fillStyle = '#e2e8f0';
+          ctx.fillRect(8, -7, 5, 14);
+
+          // Terminal lead wires
+          ctx.strokeStyle = '#94a3b8';
+          ctx.lineWidth = 2.4;
           ctx.beginPath();
-          ctx.moveTo(10, -9);
-          ctx.lineTo(10, 9);
+          ctx.moveTo(-24, 0);
+          ctx.lineTo(-16, 0);
+          ctx.moveTo(16, 0);
+          ctx.lineTo(24, 0);
           ctx.stroke();
           ctx.restore();
         };
 
-        drawDiode(cx - bSize / 2, cy - bSize / 2, -Math.PI / 4);
-        drawDiode(cx + bSize / 2, cy - bSize / 2, Math.PI / 4);
-        drawDiode(cx - bSize / 2, cy + bSize / 2, -3 * Math.PI / 4);
-        drawDiode(cx + bSize / 2, cy + bSize / 2, 3 * Math.PI / 4);
+        if (params.rectifierType === 'full_wave_bridge') {
+          drawMoldedDiode(bridgeX - bSize / 2, cy - bSize / 2, -Math.PI / 4);
+          drawMoldedDiode(bridgeX + bSize / 2, cy - bSize / 2, Math.PI / 4);
+          drawMoldedDiode(bridgeX - bSize / 2, cy + bSize / 2, -3 * Math.PI / 4);
+          drawMoldedDiode(bridgeX + bSize / 2, cy + bSize / 2, 3 * Math.PI / 4);
+        } else {
+          drawMoldedDiode(bridgeX, cy - bSize / 2, 0);
+        }
 
-        const capX = cx + bSize + 70;
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(cx + bSize, cy);
-        ctx.lineTo(capX, cy);
-        ctx.lineTo(capX, cy - 35);
-        ctx.moveTo(capX, cy);
-        ctx.lineTo(capX, cy + 35);
-        ctx.stroke();
+        // Filter Capacitor (Realistic Aluminum Can with Top Vent)
+        const capX = bridgeX + bSize + 85;
+        drawHeavyInsulatedCable(ctx, bridgeX + bSize, cy, capX, cy, '#dc2626', true);
+        drawHeavyInsulatedCable(ctx, capX, cy, capX, cy - 40, '#dc2626', true);
+        drawHeavyInsulatedCable(ctx, capX, cy, capX, cy + 40, '#2563eb', true);
 
-        ctx.strokeStyle = params.isCapacitorActive ? '#10b981' : '#64748b';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(capX - 8, cy - 18);
-        ctx.lineTo(capX - 8, cy + 18);
-        ctx.moveTo(capX + 8, cy - 18);
-        ctx.lineTo(capX + 8, cy + 18);
-        ctx.stroke();
+        if (params.isCapacitorActive) {
+          // Aluminum Can Body
+          drawMetallicCylinder(ctx, capX - 14, cy - 28, 28, 56, 'steel', 'vertical');
+          // Cathode negative black stripe
+          ctx.fillStyle = '#0f172a';
+          ctx.fillRect(capX + 6, cy - 28, 8, 56);
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 9px sans-serif';
+          ctx.fillText('-', capX + 10, cy);
 
-        ctx.font = 'bold 11px sans-serif';
-        ctx.fillStyle = params.isCapacitorActive ? '#10b981' : '#64748b';
-        ctx.fillText(`C = ${params.filterCapacitanceUf} μF`, capX, cy + 34);
+          ctx.font = 'bold 11px monospace';
+          ctx.fillStyle = '#10b981';
+          ctx.fillText(`C = ${params.filterCapacitanceUf} μF`, capX, cy + 48);
+        }
 
-        const resX = capX + 70;
-        ctx.strokeStyle = '#94a3b8';
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.moveTo(capX, cy - 35);
-        ctx.lineTo(resX, cy - 35);
-        ctx.lineTo(resX, cy - 18);
-        ctx.moveTo(capX, cy + 35);
-        ctx.lineTo(resX, cy + 35);
-        ctx.lineTo(resX, cy + 18);
-        ctx.stroke();
+        // Load Resistor (Axial Ceramic Resistor)
+        const resX = capX + 90;
+        drawHeavyInsulatedCable(ctx, capX, cy - 40, resX, cy - 40, '#dc2626', true);
+        drawHeavyInsulatedCable(ctx, capX, cy + 40, resX, cy + 40, '#2563eb', true);
 
-        ctx.strokeStyle = '#f59e0b';
-        ctx.lineWidth = 2.5;
-        ctx.beginPath();
-        ctx.moveTo(resX, cy - 18);
-        ctx.lineTo(resX - 6, cy - 10);
-        ctx.lineTo(resX + 6, cy);
-        ctx.lineTo(resX - 6, cy + 10);
-        ctx.lineTo(resX, cy + 18);
-        ctx.stroke();
+        drawAxialCeramicResistor(ctx, resX, cy, 54, 18, params.loadResistorOhm, 'RL', state.rectifiedVdc);
+        drawBrassTerminalStud(ctx, resX, cy - 40);
+        drawBrassTerminalStud(ctx, resX, cy + 40);
 
-        ctx.font = 'bold 11px sans-serif';
-        ctx.fillStyle = '#f59e0b';
-        ctx.fillText(`RL = ${params.loadResistorOhm} Ω`, resX, cy + 42);
+        // Large Output DC Avometer (Top-Right, 50px radius)
+        const outMeterR = 50;
+        const outMeterX = Math.min(width - outMeterR - 25, resX + 105);
+        const outMeterY = cy;
+        drawAnalogMeterGauge(
+          ctx,
+          outMeterX,
+          outMeterY,
+          outMeterR,
+          state.rectifiedVdc,
+          0,
+          Math.max(12, params.acAmplitudeV),
+          isArabic ? 'جهد الخرج DC' : 'DC OUTPUT VOLTMETER',
+          'V'
+        );
       }
     } else if (params.module === 'transistor_bjt') {
-      const cx = width / 2;
+      // Module 2: BJT Common-Emitter Transistor with Large Avometers & Pilot Lamp
+      const cx = width / 2 - 40;
       const cy = height * 0.44;
 
       ctx.font = 'bold 16px sans-serif';
@@ -1246,174 +1363,244 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
           : params.transistorMode === 'amplifier'
           ? 'Common-Emitter BJT Small-Signal Amplifier (180° Phase Shift)'
           : 'Transistor as an Electronic Inverter (NOT Gate Switch)',
-        cx,
-        cy - 100
+        cx + 40,
+        cy - 120
       );
 
-      const tRadius = 46;
-      ctx.strokeStyle = isLight ? '#475569' : '#64748b';
-      ctx.lineWidth = 3;
+      // 1. Transistor Package Enclosure (TO-220 Metal Backplate + Molded Epoxy)
+      const tRadius = 52;
+      ctx.save();
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetY = 4;
       ctx.beginPath();
       ctx.arc(cx, cy, tRadius, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.7)' : 'rgba(15, 23, 42, 0.7)';
+      ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.85)' : 'rgba(15, 23, 42, 0.85)';
       ctx.fill();
+      ctx.strokeStyle = isLight ? '#475569' : '#64748b';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.restore();
 
-      const barX = cx - 12;
+      // Transistor Symbol Internals
+      const barX = cx - 14;
       ctx.strokeStyle = isLight ? '#0f172a' : '#f8fafc';
-      ctx.lineWidth = 4;
+      ctx.lineWidth = 4.5;
       ctx.beginPath();
-      ctx.moveTo(barX, cy - 26);
-      ctx.lineTo(barX, cy + 26);
+      ctx.moveTo(barX, cy - 30);
+      ctx.lineTo(barX, cy + 30);
       ctx.stroke();
 
-      ctx.lineWidth = 3;
+      // Base Lead
+      ctx.lineWidth = 3.5;
       ctx.beginPath();
       ctx.moveTo(barX, cy);
       ctx.lineTo(barX - 45, cy);
       ctx.stroke();
 
+      // Collector Lead (Top)
       ctx.beginPath();
-      ctx.moveTo(barX, cy - 14);
-      ctx.lineTo(cx + 20, cy - 32);
-      ctx.lineTo(cx + 20, cy - 65);
+      ctx.moveTo(barX, cy - 16);
+      ctx.lineTo(cx + 24, cy - 36);
+      ctx.lineTo(cx + 24, cy - 75);
       ctx.stroke();
 
+      // Emitter Lead (Bottom with NPN Outward Arrow)
       ctx.beginPath();
-      ctx.moveTo(barX, cy + 14);
-      ctx.lineTo(cx + 20, cy + 32);
-      ctx.lineTo(cx + 20, cy + 65);
+      ctx.moveTo(barX, cy + 16);
+      ctx.lineTo(cx + 24, cy + 36);
+      ctx.lineTo(cx + 24, cy + 75);
       ctx.stroke();
 
+      // NPN Outward Emitter Arrow
       ctx.fillStyle = '#ef4444';
       ctx.beginPath();
-      ctx.moveTo(cx + 17, cy + 29);
-      ctx.lineTo(cx + 7, cy + 25);
-      ctx.lineTo(cx + 14, cy + 18);
+      ctx.moveTo(cx + 20, cy + 33);
+      ctx.lineTo(cx + 8, cy + 28);
+      ctx.lineTo(cx + 17, cy + 20);
       ctx.closePath();
       ctx.fill();
 
+      // Terminal Labels
       ctx.font = 'bold 12px sans-serif';
       ctx.fillStyle = '#38bdf8';
       ctx.fillText('B (Base)', barX - 58, cy + 4);
       ctx.fillStyle = '#ef4444';
-      ctx.fillText('C (Collector)', cx + 20, cy - 74);
+      ctx.fillText('C (Collector)', cx + 24, cy - 84);
       ctx.fillStyle = '#10b981';
-      ctx.fillText('E (Emitter)', cx + 20, cy + 82);
+      ctx.fillText('E (Emitter)', cx + 24, cy + 92);
 
-      const rcTop = cy - 120;
-      ctx.strokeStyle = '#94a3b8';
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(cx + 20, cy - 65);
-      ctx.lineTo(cx + 20, rcTop + 35);
-      ctx.stroke();
+      // Brass Binding Studs on Transistor Terminals
+      drawBrassTerminalStud(ctx, barX - 45, cy);
+      drawBrassTerminalStud(ctx, cx + 24, cy - 75);
+      drawBrassTerminalStud(ctx, cx + 24, cy + 75);
 
-      ctx.strokeStyle = '#f59e0b';
-      ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(cx + 20, rcTop + 35);
-      ctx.lineTo(cx + 14, rcTop + 25);
-      ctx.lineTo(cx + 26, rcTop + 15);
-      ctx.lineTo(cx + 14, rcTop + 5);
-      ctx.lineTo(cx + 20, rcTop);
-      ctx.stroke();
+      // Base Input Circuit with Resistor Rb
+      const rbX = barX - 110;
+      drawAxialCeramicResistor(ctx, rbX, cy, 46, 14, 10000, 'Rb');
+      drawHeavyInsulatedCable(ctx, barX - 45, cy, rbX + 23, cy, '#fbbf24', state.ibMicroA > 1);
 
-      ctx.font = 'bold 11px sans-serif';
-      ctx.fillStyle = '#f59e0b';
-      ctx.fillText(`Rc = ${params.collectorResistorKOhm} kΩ`, cx + 64, rcTop + 18);
+      // Collector Load Resistor Rc
+      const rcTop = cy - 150;
+      const rcY = (cy - 75 + rcTop) / 2;
+      drawAxialCeramicResistor(ctx, cx + 24, rcY, 48, 16, params.collectorResistorKOhm * 1000, 'Rc');
+      drawHeavyInsulatedCable(ctx, cx + 24, cy - 75, cx + 24, rcY + 24, '#dc2626', state.icMilliA > 0.1);
+      drawHeavyInsulatedCable(ctx, cx + 24, rcY - 24, cx + 24, rcTop, '#dc2626', state.icMilliA > 0.1);
 
+      // +Vcc Supply Rail
       ctx.strokeStyle = '#ef4444';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 4;
       ctx.beginPath();
-      ctx.moveTo(cx - 30, rcTop);
-      ctx.lineTo(cx + 70, rcTop);
+      ctx.moveTo(cx - 20, rcTop);
+      ctx.lineTo(cx + 90, rcTop);
       ctx.stroke();
+      drawBrassTerminalStud(ctx, cx + 24, rcTop);
+
       ctx.fillStyle = '#ef4444';
-      ctx.font = 'bold 12px sans-serif';
-      ctx.fillText(`+Vcc = ${params.vccSupplyV}V`, cx + 75, rcTop - 6);
+      ctx.font = 'bold 13px monospace';
+      ctx.fillText(`+Vcc = ${params.vccSupplyV}V`, cx + 95, rcTop - 8);
 
-      const outX = cx + 110;
-      ctx.strokeStyle = '#38bdf8';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(cx + 20, cy - 50);
-      ctx.lineTo(outX, cy - 50);
-      ctx.stroke();
-
-      const isOutputHigh = state.notGateOutputBit === 1 || state.vceVolts > 4.0;
-      ctx.fillStyle = isOutputHigh ? '#10b981' : '#475569';
-      ctx.beginPath();
-      ctx.arc(outX + 20, cy - 50, 10, 0, Math.PI * 2);
-      ctx.fill();
-      if (isOutputHigh) {
-        drawGlowingParticle(ctx, outX + 20, cy - 50, 12, '#10b981', 12);
-      }
-
-      ctx.font = 'bold 11px sans-serif';
-      ctx.fillStyle = isOutputHigh ? '#10b981' : '#64748b';
-      ctx.fillText(
-        params.transistorMode === 'inverter_not_gate'
-          ? `Vout = ${state.vceVolts.toFixed(1)}V (Bit: ${state.notGateOutputBit})`
-          : `Vce = ${state.vceVolts.toFixed(2)}V`,
-        outX + 20,
-        cy - 30
-      );
-
+      // Emitter Ground Return
+      drawHeavyInsulatedCable(ctx, cx + 24, cy + 75, cx + 24, cy + 115, '#2563eb', true);
+      drawBrassTerminalStud(ctx, cx + 24, cy + 115);
       ctx.strokeStyle = '#64748b';
       ctx.lineWidth = 2.5;
-      ctx.beginPath();
-      ctx.moveTo(cx + 20, cy + 65);
-      ctx.lineTo(cx + 20, cy + 105);
-      ctx.stroke();
       for (let g = 0; g < 3; g++) {
         ctx.beginPath();
-        ctx.moveTo(cx + 20 - (14 - g * 5), cy + 105 + g * 5);
-        ctx.lineTo(cx + 20 + (14 - g * 5), cy + 105 + g * 5);
+        ctx.moveTo(cx + 24 - (16 - g * 5), cy + 115 + g * 5);
+        ctx.lineTo(cx + 24 + (16 - g * 5), cy + 115 + g * 5);
         ctx.stroke();
       }
+
+      // Output Stage: Pilot Light (NOT Gate) or Small-Signal Tap
+      const outX = cx + 125;
+      drawHeavyInsulatedCable(ctx, cx + 24, cy - 50, outX, cy - 50, '#10b981', true);
+      drawBrassTerminalStud(ctx, outX, cy - 50);
+
+      const isOutputHigh = state.notGateOutputBit === 1 || state.vceVolts > 3.0;
+      if (params.transistorMode === 'inverter_not_gate') {
+        // High-Power Panel Pilot Lamp
+        ctx.save();
+        ctx.shadowColor = isOutputHigh ? '#10b981' : '#f59e0b';
+        ctx.shadowBlur = isOutputHigh ? 16 : 4;
+        ctx.fillStyle = isOutputHigh ? '#10b981' : '#334155';
+        ctx.beginPath();
+        ctx.arc(outX + 30, cy - 50, 14, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#cbd5e1';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.font = 'bold 12px monospace';
+        ctx.fillStyle = isOutputHigh ? '#10b981' : '#64748b';
+        ctx.fillText(
+          `OUT BIT: ${state.notGateOutputBit} (${state.vceVolts.toFixed(1)}V)`,
+          outX + 30,
+          cy - 24
+        );
+      }
+
+      // TWO LARGE READABLE AVOMETERS (Right side panel, 48px radius each)
+      const tMeterR = 48;
+      const tMeterX = Math.min(width - tMeterR - 20, cx + 220);
+      const tMeter1Y = cy - 55;
+      const tMeter2Y = cy + 65;
+
+      // Voltmeter Vce
+      drawAnalogMeterGauge(
+        ctx,
+        tMeterX,
+        tMeter1Y,
+        tMeterR,
+        state.vceVolts,
+        0,
+        params.vccSupplyV,
+        isArabic ? 'فولتميتر Vce' : 'Vce VOLTMETER',
+        'V'
+      );
+
+      // Milliammeter Ic
+      const maxIc = (params.vccSupplyV / params.collectorResistorKOhm);
+      drawAnalogMeterGauge(
+        ctx,
+        tMeterX,
+        tMeter2Y,
+        tMeterR,
+        state.icMilliA,
+        0,
+        Math.max(10, Math.ceil(maxIc)),
+        isArabic ? 'مللي أميتر Ic' : 'Ic MILLIAMMETER',
+        'mA'
+      );
     } else if (params.module === 'coolidge_xray') {
-      const cx = width / 2;
+      // Module 3: Coolidge Vacuum Tube with High-Voltage Kilovoltmeter
+      const cx = width / 2 - 40;
       const cy = height * 0.38;
 
-      const tubeW = Math.min(width * 0.75, 460);
-      const tubeH = 110;
+      const tubeW = Math.min(width * 0.65, 460);
+      const tubeH = 120;
       const tubeX = cx - tubeW / 2;
       const tubeY = cy - tubeH / 2;
 
+      // Heavy Borosilicate Glass Vacuum Envelope
+      ctx.save();
+      ctx.shadowColor = 'rgba(56, 189, 248, 0.3)';
+      ctx.shadowBlur = 14;
       ctx.strokeStyle = isLight ? '#94a3b8' : '#38bdf8';
-      ctx.lineWidth = 2.5;
-      ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.4)' : 'rgba(15, 23, 42, 0.5)';
+      ctx.lineWidth = 3;
+      ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.45)' : 'rgba(15, 23, 42, 0.65)';
       ctx.beginPath();
-      ctx.roundRect(tubeX, tubeY, tubeW, tubeH, 30);
+      ctx.roundRect(tubeX, tubeY, tubeW, tubeH, [34]);
       ctx.fill();
       ctx.stroke();
+      ctx.restore();
 
-      const filX = tubeX + 45;
+      // Filament Cathode (-) with Parabolic Focusing Cup
+      const filX = tubeX + 50;
       const filY = cy;
+
+      // Focusing Cup (Steel)
+      drawMetallicCylinder(ctx, filX - 25, filY - 25, 20, 50, 'steel', 'vertical');
       ctx.strokeStyle = '#f97316';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 3.5;
       ctx.beginPath();
       ctx.arc(filX, filY, 14, -Math.PI / 2, Math.PI / 2);
       ctx.stroke();
-      const filHeat = params.filamentCurrentA / 6.0;
-      drawGlowingParticle(ctx, filX, filY, 18 * filHeat, '#f97316', 15 * filHeat);
 
+      const filHeat = params.filamentCurrentA / 6.0;
+      drawGlowingParticle(ctx, filX, filY, 20 * filHeat, '#f97316', 16 * filHeat);
+
+      // Heavy HT Shielded Cable to Filament
+      drawHeavyInsulatedCable(ctx, tubeX - 45, filY, filX - 25, filY, '#334155', true);
+      drawBrassTerminalStud(ctx, tubeX - 45, filY);
       ctx.font = 'bold 11px sans-serif';
       ctx.fillStyle = '#f97316';
       ctx.textAlign = 'center';
-      ctx.fillText(isArabic ? 'فتيلة الكاثود (-)' : 'Heated Filament (-)', filX, tubeY - 10);
+      ctx.fillText(isArabic ? 'فتيلة الكاثود (-)' : 'Cathode Filament (-)', filX, tubeY - 12);
 
-      const anodeX = tubeX + tubeW - 70;
+      // Anode (+) Heavy Copper Cooling Block & Target
+      const anodeX = tubeX + tubeW - 75;
       const anodeY = cy;
-      drawMetallicCylinder(ctx, anodeX, anodeY - 35, 45, 70, 'copper', 'horizontal');
 
+      // Multi-Fin Copper Cooling Radiator
+      for (let fin = 0; fin < 4; fin++) {
+        const finX = anodeX + 35 + fin * 10;
+        drawMetallicCylinder(ctx, finX, anodeY - 32, 5, 64, 'copper', 'vertical');
+      }
+      drawMetallicCylinder(ctx, anodeX, anodeY - 35, 40, 70, 'copper', 'horizontal');
+
+      // Heavy HT Silicone Cable to Anode
+      drawHeavyInsulatedCable(ctx, anodeX + 75, anodeY, anodeX + 40, anodeY, '#dc2626', true);
+      drawBrassTerminalStud(ctx, anodeX + 75, anodeY);
+
+      // Angled Target Metal Block (45° angle)
       const target = TARGET_ELEMENT_DATA[params.targetElement];
       ctx.fillStyle = target.colorHex;
       ctx.beginPath();
-      ctx.moveTo(anodeX - 10, anodeY - 30);
-      ctx.lineTo(anodeX - 25, anodeY + 30);
-      ctx.lineTo(anodeX - 10, anodeY + 30);
+      ctx.moveTo(anodeX - 12, anodeY - 30);
+      ctx.lineTo(anodeX - 28, anodeY + 30);
+      ctx.lineTo(anodeX - 12, anodeY + 30);
       ctx.closePath();
       ctx.fill();
 
@@ -1422,29 +1609,31 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
       ctx.fillText(
         isArabic ? `هدف ${target.nameAr} (+)` : `${target.nameEn} Target (+)`,
         anodeX + 5,
-        tubeY - 10
+        tubeY - 12
       );
 
-      const beamStartX = filX + 15;
-      const beamEndX = anodeX - 18;
-      const beamSpeed = 120 + params.acceleratingVoltageKv * 2;
-      const electronCount = 14;
+      // High-Velocity Accelerated Electron Beam
+      const beamStartX = filX + 16;
+      const beamEndX = anodeX - 20;
+      const beamSpeed = 130 + params.acceleratingVoltageKv * 2.5;
+      const electronCount = 16;
 
       for (let i = 0; i < electronCount; i++) {
-        const ex = beamStartX + (((t * beamSpeed + i * 35) % (beamEndX - beamStartX)));
-        const ey = cy + Math.sin(t * 8 + i) * 5;
-        drawGlowingParticle(ctx, ex, ey, 4, '#38bdf8', 6);
+        const ex = beamStartX + (((t * beamSpeed + i * 32) % (beamEndX - beamStartX)));
+        const ey = cy + Math.sin(t * 8 + i) * 4;
+        drawGlowingParticle(ctx, ex, ey, 4.5, '#38bdf8', 7);
       }
 
+      // Volumetric X-Ray Emission Cone
       drawVolumetricBeam(
         ctx,
-        anodeX - 18,
+        anodeX - 20,
         cy + 10,
         cx,
         cy + tubeH + 20,
         '#a855f7',
-        4,
-        18,
+        5,
+        22,
         0
       );
 
@@ -1452,12 +1641,29 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
       ctx.fillStyle = '#c084fc';
       ctx.fillText(
         isArabic
-          ? `حزمة الأشعة السينية (أدنى طول موجي: ${state.duaneHuntLambdaMinAngstrom.toFixed(3)} Å)`
+          ? `حزمة الأشعة السينية (عتبة دوين-هانت: ${state.duaneHuntLambdaMinAngstrom.toFixed(3)} Å)`
           : `X-Ray Cone (Duane-Hunt Cutoff: ${state.duaneHuntLambdaMinAngstrom.toFixed(3)} Å)`,
         cx,
-        cy + tubeH + 35
+        cy + tubeH + 34
       );
 
+      // Large High-Voltage Kilovoltmeter (Top-Right, 52px radius)
+      const kvMeterR = 52;
+      const kvMeterX = Math.min(width - kvMeterR - 20, cx + tubeW / 2 + 75);
+      const kvMeterY = cy;
+      drawAnalogMeterGauge(
+        ctx,
+        kvMeterX,
+        kvMeterY,
+        kvMeterR,
+        params.acceleratingVoltageKv,
+        0,
+        100,
+        isArabic ? 'كيلو فولتميتر التسارع' : 'ACCEL KILOVOLTMETER',
+        'kV'
+      );
+
+      // Spectrum Plot at Bottom
       const plotX = tubeX;
       const plotY = height * 0.73;
       const plotW = tubeW;
@@ -1467,7 +1673,7 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
       ctx.strokeStyle = isLight ? '#cbd5e1' : '#1e293b';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.roundRect(plotX, plotY, plotW, plotH, 8);
+      ctx.roundRect(plotX, plotY, plotW, plotH, [8]);
       ctx.fill();
       ctx.stroke();
 

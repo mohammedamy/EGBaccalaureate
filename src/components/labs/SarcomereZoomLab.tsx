@@ -361,7 +361,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
       ctx.fillStyle = '#0f172a';
       ctx.font = 'bold 9px sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('1.0 kg', handX, loadY + 4);
+      ctx.fillText(isArabic ? '١.٠ كجم' : '1.0 kg', handX, loadY + 4);
       ctx.restore();
 
       // 6. Biceps Brachii Muscle Belly & Glistening Tendons
@@ -541,10 +541,10 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
       ctx.fillText(isArabic ? 'العضلة ذات الرأسين (Biceps)' : 'Biceps Brachii', midBellyX + nx * (bulgeFactor + 14), midBellyY + ny * (bulgeFactor + 14));
 
       ctx.fillStyle = '#10b981';
-      ctx.fillText('F_biceps', insertX + fNormX * forceMag + 8, insertY + fNormY * forceMag);
+      ctx.fillText(isArabic ? 'قوة الشد (ق_العضلة)' : 'F_biceps', insertX + fNormX * forceMag + 8, insertY + fNormY * forceMag);
 
       ctx.fillStyle = '#f59e0b';
-      ctx.fillText('W = mg (9.8 N)', handX + 8, handY + 42);
+      ctx.fillText(isArabic ? 'الوزن و = ك × جـ (٩.٨ نيوتن)' : 'W = mg (9.8 N)', handX + 8, handY + 42);
 
       ctx.fillStyle = '#94a3b8';
       ctx.font = '10px sans-serif';
@@ -1345,7 +1345,7 @@ export const SarcomereZoomLab: React.FC<Props> = ({ lang, theme = 'dark', defaul
           ctx.font = 'bold 8px sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
-          ctx.fillText(isTropomyosinShifted ? 'TnC+Ca²⁺' : 'TnC', bx, by - beadRadius - 6);
+          ctx.fillText(isArabic ? (isTropomyosinShifted ? 'تروبونين+Ca²⁺' : 'تروبونين') : (isTropomyosinShifted ? 'TnC+Ca²⁺' : 'TnC'), bx, by - beadRadius - 6);
         }
       }
       ctx.restore();

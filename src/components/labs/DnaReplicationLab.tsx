@@ -1000,12 +1000,12 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     // Draw Antiparallel Strand Labels
     ctx.fillStyle = '#f43f5e';
     ctx.font = 'bold 11px monospace';
-    ctx.fillText("5' [P]", startX - 45, centerY - amplitude - separation - 8);
-    ctx.fillText("3' [OH]", startX + (numBases - 1) * stepX + 15, centerY + amplitude - separation - 8);
+    ctx.fillText(isArabic ? "5' [فوسفات P]" : "5' [P]", startX - 45, centerY - amplitude - separation - 8);
+    ctx.fillText(isArabic ? "3' [هيدروكسيل OH]" : "3' [OH]", startX + (numBases - 1) * stepX + 15, centerY + amplitude - separation - 8);
 
     ctx.fillStyle = '#38bdf8';
-    ctx.fillText("3' [OH]", startX - 45, centerY + amplitude + separation + 16);
-    ctx.fillText("5' [P]", startX + (numBases - 1) * stepX + 15, centerY - amplitude + separation + 16);
+    ctx.fillText(isArabic ? "3' [هيدروكسيل OH]" : "3' [OH]", startX - 45, centerY + amplitude + separation + 16);
+    ctx.fillText(isArabic ? "5' [فوسفات P]" : "5' [P]", startX + (numBases - 1) * stepX + 15, centerY - amplitude + separation + 16);
 
     const getBaseColor = (base: string) => {
       return base === 'A' ? '#e11d48' : base === 'T' ? '#d97706' : base === 'G' ? '#0284c7' : '#059669';
@@ -1247,8 +1247,8 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.font = 'bold 8px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('HELICASE', forkApexX, centerY - 4);
-    ctx.fillText(isArabic ? 'إنزيم اللولب' : 'Unzipping', forkApexX, centerY + 6);
+    ctx.fillText(isArabic ? 'إنزيم اللولب' : 'HELICASE', forkApexX, centerY - 4);
+    ctx.fillText(isArabic ? 'فك الروابط' : 'Unzipping', forkApexX, centerY + 6);
 
     // Cleavage energy sparks at the apex
     for (let s = 0; s < 4; s++) {
@@ -1282,7 +1282,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.stroke();
     ctx.fillStyle = '#000000';
     ctx.font = 'bold 8px sans-serif';
-    ctx.fillText('POL III', leadingEndX, centerY - 50);
+    ctx.fillText(isArabic ? 'إنزيم البلمرة' : 'POL III', leadingEndX, centerY - 50);
 
     // Incoming dNTP precursors floating in at 60 FPS
     for (let d = 0; d < 3; d++) {
@@ -1324,8 +1324,8 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.stroke();
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 7px sans-serif';
-    ctx.fillText('LIGASE', ligaseX, ligaseY - 2);
-    ctx.fillText(isArabic ? 'ربط' : 'Nick', ligaseX, ligaseY + 6);
+    ctx.fillText(isArabic ? 'إنزيم الربط' : 'LIGASE', ligaseX, ligaseY - 2);
+    ctx.fillText(isArabic ? 'لحام الفجوة' : 'Nick', ligaseX, ligaseY + 6);
 
     // Labels & Direction Arrows
     ctx.fillStyle = '#38bdf8';
@@ -1423,7 +1423,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.strokeRect(riboX - 45, mrnaY - 80, 40, 45);
     ctx.fillStyle = '#e0f2fe';
     ctx.font = 'black 10px sans-serif';
-    ctx.fillText('P-Site', riboX - 25, mrnaY - 60);
+    ctx.fillText(isArabic ? 'موقع P' : 'P-Site', riboX - 25, mrnaY - 60);
 
     // A-site Cavity (Aminoacyl site)
     ctx.fillStyle = '#0c4a6e';
@@ -1432,7 +1432,7 @@ export const DnaReplicationLab: React.FC<Props> = ({ lang, theme = 'dark' }) => 
     ctx.strokeRect(riboX + 5, mrnaY - 80, 40, 45);
     ctx.fillStyle = '#e0f2fe';
     ctx.font = 'black 10px sans-serif';
-    ctx.fillText('A-Site', riboX + 25, mrnaY - 60);
+    ctx.fillText(isArabic ? 'موقع A' : 'A-Site', riboX + 25, mrnaY - 60);
 
     // Emerging Polypeptide Chain with 60 FPS undulation
     let chainY = mrnaY - 105;

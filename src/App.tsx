@@ -387,6 +387,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const root = document.documentElement;
     root.classList.remove('light', 'dark', 'high-contrast');
+    root.setAttribute('data-theme', theme);
     if (theme === 'light') {
       root.classList.add('light');
     } else if (theme === 'high-contrast') {
@@ -1021,7 +1022,7 @@ export const App: React.FC = () => {
           ? 'border-slate-200 bg-white text-slate-600'
           : 'border-slate-800 bg-slate-950 text-slate-400'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 space-y-8">
           {/* Visitor Counter - strictly displayed at the footer of the Home Page only */}
           {activeTab === 'overview' && (
             <div className="animate-in fade-in duration-300">

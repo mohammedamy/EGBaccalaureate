@@ -1860,7 +1860,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
         isContrast
           ? 'bg-black border-2 border-yellow-400 text-yellow-300'
           : isLight
-          ? 'bg-gradient-to-r from-blue-700 via-indigo-600 to-teal-600 border border-indigo-400/40 text-white shadow-xl shadow-indigo-100/50'
+          ? 'bg-gradient-to-r from-blue-50 via-indigo-50/80 to-teal-50 border border-indigo-200 text-slate-900 shadow-lg shadow-indigo-100/50'
           : 'bg-gradient-to-br from-slate-900 via-indigo-950/40 to-slate-950 border border-slate-800 text-slate-100'
       }`}>
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -1871,7 +1871,7 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
             isContrast
               ? 'bg-black text-cyan-300 border-cyan-400'
               : isLight
-              ? 'bg-white/20 text-white border-white/30 backdrop-blur-xs'
+              ? 'bg-indigo-100/90 text-indigo-900 border-indigo-300 font-extrabold shadow-2xs'
               : 'border-indigo-500/30 bg-indigo-950/60 text-indigo-300'
           }`}>
             <GitCompare className="w-3.5 h-3.5" />
@@ -1881,13 +1881,13 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
           </div>
 
           <h2 className={`text-2xl sm:text-3xl font-black tracking-tight ${
-            isLight ? 'text-white' : 'text-slate-100'
+            isLight ? 'text-slate-900' : 'text-slate-100'
           }`}>
             {isArabic ? 'مقارنة المسارات والجسور المعرفية بين الثانوية العامة والبكالوريا' : 'Egyptian Secondary Tracks Comparison & Topic Bridges'}
           </h2>
 
           <p className={`text-xs sm:text-sm leading-relaxed ${
-            isLight ? 'text-indigo-100 font-medium' : 'text-slate-300'
+            isLight ? 'text-slate-700 font-medium' : 'text-slate-300'
           }`}>
             {isArabic
               ? 'دليل استراتيجي يوضح التكافؤ العلمي، النقلة البيداغوجية، والجاهزية الجامعية بين مسار الثانوية العامة العريق ومسار البكالوريا المصرية الحديث لمدارس المتفوقين والعلوم والتكنولوجيا (STEM).'
@@ -1897,53 +1897,53 @@ export const CurriculumEquivalency: React.FC<Props> = ({ lang, theme = 'dark', o
 
         {/* Global Stats Matrix */}
         <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t ${
-          isContrast ? 'border-yellow-400/50' : isLight ? 'border-white/30' : 'border-slate-800/80'
+          isContrast ? 'border-yellow-400/50' : isLight ? 'border-indigo-200/80' : 'border-slate-800/80'
         }`}>
           <div className={`p-4 rounded-2xl border space-y-1 ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/90 backdrop-blur-md border border-slate-200/90 text-slate-900 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'
           }`}>
-            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'إجمالي الفصول المعتمدة' : 'Total Official Chapters'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-white' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(385) : '385'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? '(١٩٩ ثانوية + ١٨٦ بكالوريا)' : '(199 Thanaweya + 186 Bac)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>{isArabic ? toHindiDigits(385) : '385'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-slate-500 font-medium' : 'text-slate-500'}`}>{isArabic ? '(١٩٩ ثانوية + ١٨٦ بكالوريا)' : '(199 Thanaweya + 186 Bac)'}</span>
             </div>
           </div>
 
           <div className={`p-4 rounded-2xl border space-y-1 ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/90 backdrop-blur-md border border-slate-200/90 text-slate-900 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'
           }`}>
-            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'بنك المسائل المفحوصة' : 'Verified Problem Bank'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-emerald-200' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(77000) : '77,000'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>{isArabic ? toHindiDigits(77000) : '77,000'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-slate-500 font-medium' : 'text-slate-500'}`}>{isArabic ? 'مسألة ثنائية اللغة' : 'Bilingual items'}</span>
             </div>
           </div>
 
           <div className={`p-4 rounded-2xl border space-y-1 ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/90 backdrop-blur-md border border-slate-200/90 text-slate-900 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'
           }`}>
-            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'المواد والفروع الدراسية' : 'Curriculum Subjects & Branches'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-cyan-200' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(36) : '36'}</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مادة (٣٧ فرعاً لكل مسار)' : 'Subjects (37 branches/track)'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`}>{isArabic ? toHindiDigits(36) : '36'}</span>
+              <span className={`text-[10px] ${isLight ? 'text-slate-500 font-medium' : 'text-slate-500'}`}>{isArabic ? 'مادة (٣٧ فرعاً لكل مسار)' : 'Subjects (37 branches/track)'}</span>
             </div>
           </div>
 
           <div className={`p-4 rounded-2xl border space-y-1 ${
-            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/15 backdrop-blur-md border-white/25 text-white' : 'bg-slate-950/60 border-slate-800/80'
+            isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-white/90 backdrop-blur-md border border-slate-200/90 text-slate-900 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'
           }`}>
-            <span className={`text-[11px] font-semibold block ${isLight ? 'text-indigo-100 font-bold' : 'text-slate-400'}`}>
+            <span className={`text-[11px] font-semibold block ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'}`}>
               {isArabic ? 'الجاهزية للجامعات والـ AI' : 'STEM & University Readiness'}
             </span>
             <div className="flex items-baseline gap-2">
-              <span className={`text-xl font-black ${isLight ? 'text-amber-200' : 'text-amber-400'}`}>99%</span>
-              <span className={`text-[10px] ${isLight ? 'text-indigo-200' : 'text-slate-500'}`}>{isArabic ? 'مطابقة المعايير الدولية' : 'International Accreditation'}</span>
+              <span className={`text-xl font-black ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>99%</span>
+              <span className={`text-[10px] ${isLight ? 'text-slate-500 font-medium' : 'text-slate-500'}`}>{isArabic ? 'مطابقة المعايير الدولية' : 'International Accreditation'}</span>
             </div>
           </div>
         </div>

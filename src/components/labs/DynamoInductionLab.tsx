@@ -11,6 +11,8 @@ import {
   drawMetallicCylinder,
   drawAnalogMeterGauge,
   drawGlowingParticle,
+  drawHeavyInsulatedCable,
+  drawBrassTerminalStud,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -387,103 +389,173 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     ctx.fillStyle = isContrast ? '#000000' : isLight ? '#f8fafc' : '#020617';
     ctx.fillRect(0, 0, w, h);
 
+    // Grid backdrop for precision physics bench feel
+    ctx.strokeStyle = isLight ? 'rgba(148, 163, 184, 0.15)' : 'rgba(30, 41, 59, 0.35)';
+    ctx.lineWidth = 1;
+    const gridSpacing = 40;
+    for (let gx = 0; gx < w; gx += gridSpacing) {
+      ctx.beginPath();
+      ctx.moveTo(gx, 0);
+      ctx.lineTo(gx, h);
+      ctx.stroke();
+    }
+    for (let gy = 0; gy < h; gy += gridSpacing) {
+      ctx.beginPath();
+      ctx.moveTo(0, gy);
+      ctx.lineTo(w, gy);
+      ctx.stroke();
+    }
+
     ctx.save();
-    ctx.translate(w / 2 + vp.panX, h / 2 - 20 + vp.panY);
+    const dynamoCenterX = w / 2 + vp.panX - 40;
+    const dynamoCenterY = h / 2 - 35 + vp.panY;
+    ctx.translate(dynamoCenterX, dynamoCenterY);
     ctx.scale(vp.zoom, vp.zoom);
 
-    // 1. Draw Magnetic Poles (Concave Pole Shoes: North Red, South Blue)
-    const poleW = 90;
-    const poleH = 150;
-    const poleGap = 260;
+    // 0. Heavy Cast-Iron Magnetic Yoke Base (Structural horseshoe frame)
+    const yokeW = 440;
+    const yokeH = 210;
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+    ctx.shadowBlur = 12;
+    ctx.shadowOffsetY = 6;
+    ctx.fillStyle = isLight ? '#334155' : '#0f172a';
+    ctx.beginPath();
+    ctx.roundRect(-yokeW / 2, -yokeH / 2 - 15, yokeW, yokeH + 30, [18]);
+    ctx.fill();
+    ctx.strokeStyle = isLight ? '#475569' : '#1e293b';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    ctx.restore();
 
-    // North Pole (Left) with concave pole shoe
+    // 1. Draw Massive Magnetic Poles (Concave Pole Shoes: North Red, South Blue)
+    const poleW = 105;
+    const poleH = 180;
+    const poleGap = 280;
+
+    // North Pole (Left) with deep concave pole shoe
     const nX = -poleGap / 2 - poleW;
     const nGrad = ctx.createLinearGradient(nX, 0, nX + poleW, 0);
     nGrad.addColorStop(0, '#7f1d1d');
-    nGrad.addColorStop(0.7, '#dc2626');
+    nGrad.addColorStop(0.65, '#dc2626');
     nGrad.addColorStop(1, '#ef4444');
     ctx.fillStyle = nGrad;
     ctx.beginPath();
     ctx.moveTo(nX, -poleH / 2);
     ctx.lineTo(nX + poleW, -poleH / 2);
     // Concave arc facing coil
-    ctx.arcTo(nX + poleW - 14, 0, nX + poleW, poleH / 2, poleH * 0.6);
+    ctx.arcTo(nX + poleW - 18, 0, nX + poleW, poleH / 2, poleH * 0.65);
     ctx.lineTo(nX + poleW, poleH / 2);
     ctx.lineTo(nX, poleH / 2);
     ctx.closePath();
     ctx.fill();
-    ctx.strokeStyle = '#f87171';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#fca5a5';
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
+    // North Pole Bevel & Label
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 28px sans-serif';
+    ctx.font = '900 32px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('N', nX + poleW / 2 - 8, 0);
+    ctx.fillText('N', nX + poleW / 2 - 10, 0);
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillStyle = '#fecaca';
+    ctx.fillText(isArabic ? 'قطب شمالي' : 'NORTH POLE', nX + poleW / 2 - 10, 32);
 
-    // South Pole (Right) with concave pole shoe
+    // South Pole (Right) with deep concave pole shoe
     const sX = poleGap / 2;
     const sGrad = ctx.createLinearGradient(sX, 0, sX + poleW, 0);
     sGrad.addColorStop(0, '#2563eb');
-    sGrad.addColorStop(0.3, '#1d4ed8');
+    sGrad.addColorStop(0.35, '#1d4ed8');
     sGrad.addColorStop(1, '#1e3a8a');
     ctx.fillStyle = sGrad;
     ctx.beginPath();
     ctx.moveTo(sX + poleW, -poleH / 2);
     ctx.lineTo(sX, -poleH / 2);
     // Concave arc facing coil
-    ctx.arcTo(sX + 14, 0, sX, poleH / 2, poleH * 0.6);
+    ctx.arcTo(sX + 18, 0, sX, poleH / 2, poleH * 0.65);
     ctx.lineTo(sX, poleH / 2);
     ctx.lineTo(sX + poleW, poleH / 2);
     ctx.closePath();
     ctx.fill();
-    ctx.strokeStyle = '#60a5fa';
-    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#93c5fd';
+    ctx.lineWidth = 2.5;
     ctx.stroke();
 
+    // South Pole Bevel & Label
     ctx.fillStyle = '#ffffff';
-    ctx.fillText('S', sX + poleW / 2 + 8, 0);
+    ctx.font = '900 32px sans-serif';
+    ctx.fillText('S', sX + poleW / 2 + 10, 0);
+    ctx.font = 'bold 11px sans-serif';
+    ctx.fillStyle = '#bfdbfe';
+    ctx.fillText(isArabic ? 'قطب جنوبي' : 'SOUTH POLE', sX + poleW / 2 + 10, 32);
 
-    // 2. Magnetic Field Lines (Left to Right, N to S with flux glow)
-    ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
-    ctx.lineWidth = 1.5;
-    const numLines = 7;
+    // 2. Magnetic Field Lines (N to S with streaming flux particles)
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
+    ctx.lineWidth = 2;
+    const numLines = 9;
     for (let i = 0; i < numLines; i++) {
-      const lineY = -poleH / 2 + 15 + ((poleH - 30) / (numLines - 1)) * i;
+      const lineY = -poleH / 2 + 18 + ((poleH - 36) / (numLines - 1)) * i;
       ctx.beginPath();
-      ctx.moveTo(-poleGap / 2 + 5, lineY);
-      ctx.lineTo(poleGap / 2 - 5, lineY);
+      ctx.moveTo(-poleGap / 2 + 8, lineY);
+      ctx.lineTo(poleGap / 2 - 8, lineY);
       ctx.stroke();
 
-      // Field direction arrow
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.55)';
+      // Field direction arrows
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.7)';
       ctx.beginPath();
-      ctx.moveTo(12, lineY);
-      ctx.lineTo(0, lineY - 4);
-      ctx.lineTo(0, lineY + 4);
+      ctx.moveTo(14, lineY);
+      ctx.lineTo(0, lineY - 5);
+      ctx.lineTo(0, lineY + 5);
       ctx.closePath();
       ctx.fill();
+
+      // Animated magnetic flux particle
+      const pX = -poleGap / 2 + 15 + ((t * 180 + i * 45) % (poleGap - 30));
+      drawGlowingParticle(ctx, pX, lineY, 2.5, '#38bdf8', 6);
     }
 
-    // 3. Central Rotating Armature Coil (Continuous 60 FPS rotation)
+    // 3. Central Rotating Armature Coil (Large multi-turn copper windings)
     const curAngleRad = (t * frequencyF * 2 * Math.PI) % (Math.PI * 2);
     const cosAngle = Math.cos(curAngleRad);
     const sinAngle = Math.sin(curAngleRad);
 
-    const coilHalfW = 75;
-    const coilHalfH = 50;
+    const coilHalfW = 95;
+    const coilHalfH = 65;
 
     // Projected horizontal width based on angle
     const projW = coilHalfW * cosAngle;
 
-    // Soft iron cylindrical core inside coil
-    drawMetallicCylinder(ctx, -14, -coilHalfH + 6, 28, coilHalfH * 2 - 12, 'steel', 'vertical');
+    // Laminated Soft Iron Cylinder Core inside coil
+    drawMetallicCylinder(ctx, -18, -coilHalfH + 8, 36, coilHalfH * 2 - 16, 'steel', 'vertical');
+    // Core lamination lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+    ctx.lineWidth = 1;
+    for (let ly = -coilHalfH + 18; ly < coilHalfH - 12; ly += 12) {
+      ctx.beginPath();
+      ctx.moveTo(-18, ly);
+      ctx.lineTo(18, ly);
+      ctx.stroke();
+    }
+
+    // Upper and Lower Heavy Steel Drive Shaft
+    drawMetallicCylinder(ctx, -6, -coilHalfH - 45, 12, 45, 'steel', 'vertical');
+    drawMetallicCylinder(ctx, -6, coilHalfH, 12, 40, 'steel', 'vertical');
+
+    // Pillow block bearing housing at top
+    ctx.fillStyle = '#475569';
+    ctx.fillRect(-16, -coilHalfH - 48, 32, 10);
+    ctx.strokeStyle = '#64748b';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(-16, -coilHalfH - 48, 32, 10);
 
     ctx.save();
-    // Coil wire with 3D copper sheen
-    ctx.strokeStyle = '#f59e0b';
-    ctx.lineWidth = 4;
+    // Coil multi-layer copper windings
+    // Outer turn
+    ctx.strokeStyle = '#d97706';
+    ctx.lineWidth = 5.5;
+    ctx.lineJoin = 'round';
     ctx.beginPath();
     ctx.moveTo(-projW, -coilHalfH);
     ctx.lineTo(projW, -coilHalfH);
@@ -492,99 +564,317 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
     ctx.closePath();
     ctx.stroke();
 
+    // Inner bright copper highlight turn
+    ctx.strokeStyle = '#f59e0b';
+    ctx.lineWidth = 2.4;
+    ctx.stroke();
+
     // Coil fill sheen
-    ctx.fillStyle = cosAngle >= 0 ? 'rgba(251, 191, 36, 0.15)' : 'rgba(217, 119, 6, 0.2)';
+    ctx.fillStyle = cosAngle >= 0 ? 'rgba(251, 191, 36, 0.18)' : 'rgba(217, 119, 6, 0.22)';
     ctx.fill();
 
-    // Axis of rotation (dashed line)
-    ctx.strokeStyle = 'rgba(148, 163, 184, 0.5)';
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([4, 4]);
+    // Rotation direction arc vector (top)
+    ctx.strokeStyle = '#fde68a';
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(0, -coilHalfH - 35);
-    ctx.lineTo(0, coilHalfH + 60);
+    ctx.ellipse(0, -coilHalfH - 24, 26, 9, 0, 0, Math.PI * 1.5);
     ctx.stroke();
-    ctx.setLineDash([]);
+    ctx.fillStyle = '#fde68a';
+    ctx.beginPath();
+    ctx.moveTo(26, -coilHalfH - 24);
+    ctx.lineTo(22, -coilHalfH - 30);
+    ctx.lineTo(32, -coilHalfH - 28);
+    ctx.closePath();
+    ctx.fill();
+    ctx.font = 'bold 11px monospace';
+    ctx.fillText('ω', 36, -coilHalfH - 24);
 
-    // 4. Current Direction Arrows on Coil Sides (Fleming Right-Hand Rule)
+    // Fleming Right-Hand Rule Current Flow Direction Markers
     if (Math.abs(sinAngle) > 0.15) {
       const s1Y = -coilHalfH / 2;
-      drawGlowingParticle(ctx, -projW, s1Y, 3.5, '#22c55e', 8);
+      drawGlowingParticle(ctx, -projW, s1Y, 4.5, '#22c55e', 10);
 
       const s2Y = coilHalfH / 2;
-      drawGlowingParticle(ctx, projW, s2Y, 3.5, '#22c55e', 8);
+      drawGlowingParticle(ctx, projW, s2Y, 4.5, '#22c55e', 10);
     }
 
-    // 5. Commutator / Slip Rings (Bottom of Axis)
-    const shaftBottomY = coilHalfH + 18;
+    // 4. Commutator / Slip Rings (Bottom of Axis)
+    const shaftBottomY = coilHalfH + 20;
+    const brushLeftX = -24;
+    const brushRightX = 18;
+    const brushY = shaftBottomY + 4;
+
     if (dynamoMode === 'ac') {
       // Dual Slip Rings (AC Brass Cylinders)
-      drawMetallicCylinder(ctx, -14, shaftBottomY, 14, 8, 'brass', 'horizontal');
-      drawMetallicCylinder(ctx, 0, shaftBottomY + 14, 14, 8, 'brass', 'horizontal');
+      drawMetallicCylinder(ctx, -16, shaftBottomY - 2, 16, 10, 'brass', 'horizontal');
+      drawMetallicCylinder(ctx, 0, shaftBottomY + 14, 16, 10, 'brass', 'horizontal');
 
-      // Carbon Brushes (Graphite blocks)
-      ctx.fillStyle = '#1e293b';
-      ctx.strokeStyle = '#475569';
-      ctx.lineWidth = 1;
-      ctx.fillRect(-24, shaftBottomY - 2, 9, 10);
-      ctx.strokeRect(-24, shaftBottomY - 2, 9, 10);
-      ctx.fillRect(15, shaftBottomY + 12, 9, 10);
-      ctx.strokeRect(15, shaftBottomY + 12, 9, 10);
+      // Carbon Brushes (Graphite blocks with copper holders)
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(brushLeftX - 8, shaftBottomY - 4, 12, 14);
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.lineWidth = 1.2;
+      ctx.strokeRect(brushLeftX - 8, shaftBottomY - 4, 12, 14);
+
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(brushRightX, shaftBottomY + 12, 12, 14);
+      ctx.strokeRect(brushRightX, shaftBottomY + 12, 12, 14);
+
+      // Sparkle at brush contact points
+      if (Math.abs(sinAngle) > 0.3) {
+        drawGlowingParticle(ctx, -16, shaftBottomY + 2, 3, '#38bdf8', 8);
+        drawGlowingParticle(ctx, 16, shaftBottomY + 18, 3, '#38bdf8', 8);
+      }
     } else {
       // Split-Ring Commutator (DC Brass)
-      drawMetallicCylinder(ctx, -12, shaftBottomY, 24, 12, 'brass', 'horizontal');
+      drawMetallicCylinder(ctx, -16, shaftBottomY, 32, 16, 'brass', 'horizontal');
 
       // Commutator insulation split gap
       ctx.fillStyle = '#020617';
-      ctx.fillRect(-1.5, shaftBottomY - 1, 3, 14);
+      ctx.fillRect(-2, shaftBottomY - 1, 4, 18);
 
       // Carbon Brushes on opposite sides
-      ctx.fillStyle = '#1e293b';
-      ctx.strokeStyle = '#475569';
-      ctx.lineWidth = 1;
-      ctx.fillRect(-22, shaftBottomY, 9, 10);
-      ctx.strokeRect(-22, shaftBottomY, 9, 10);
-      ctx.fillRect(13, shaftBottomY, 9, 10);
-      ctx.strokeRect(13, shaftBottomY, 9, 10);
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(brushLeftX - 8, shaftBottomY + 1, 12, 14);
+      ctx.strokeStyle = '#cbd5e1';
+      ctx.lineWidth = 1.2;
+      ctx.strokeRect(brushLeftX - 8, shaftBottomY + 1, 12, 14);
+
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(brushRightX, shaftBottomY + 1, 12, 14);
+      ctx.strokeRect(brushRightX, shaftBottomY + 1, 12, 14);
+
+      // Commutation spark when passing zero/neutral axis
+      if (Math.abs(cosAngle) < 0.25) {
+        drawGlowingParticle(ctx, -16, shaftBottomY + 8, 4, '#fbbf24', 10);
+        drawGlowingParticle(ctx, 16, shaftBottomY + 8, 4, '#fbbf24', 10);
+      }
     }
 
+    // Terminal Mounting Block Below Commutator
+    const termBlockY = shaftBottomY + 38;
+    ctx.fillStyle = '#1e293b';
+    ctx.beginPath();
+    ctx.roundRect(-50, termBlockY, 100, 26, [6]);
+    ctx.fill();
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    // Brass Binding Posts on Dynamo Base
+    const termNegX = -30;
+    const termPosX = 30;
+    const termStudY = termBlockY + 13;
+    drawBrassTerminalStud(ctx, termNegX, termStudY);
+    drawBrassTerminalStud(ctx, termPosX, termStudY);
+
+    // Labels (-) and (+)
+    ctx.font = 'bold 11px monospace';
+    ctx.fillStyle = '#38bdf8';
+    ctx.fillText('(-)', termNegX, termStudY + 22);
+    ctx.fillStyle = '#ef4444';
+    ctx.fillText('(+)', termPosX, termStudY + 22);
+
+    // Heavy Insulated Pigtail Leads from Brushes to Terminal Block
+    drawHeavyInsulatedCable(
+      ctx,
+      brushLeftX - 2,
+      brushY,
+      termNegX,
+      termStudY,
+      '#2563eb',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      brushRightX + 2,
+      brushY,
+      termPosX,
+      termStudY,
+      '#dc2626',
+      Math.abs(sinAngle) > 0.1
+    );
+
+    ctx.restore(); // Restore from dynamo center coordinate system
+
+    // 5. External Heavy Insulated Cables to Meter and Load Circuit
+    // Convert terminal positions to screen coordinates
+    const screenTermNegX = dynamoCenterX + (-30 * vp.zoom);
+    const screenTermPosX = dynamoCenterX + (30 * vp.zoom);
+    const screenTermY = dynamoCenterY + ((coilHalfH + 20 + 38 + 13) * vp.zoom);
+
+    // Meter coordinates (Top-Right of viewport, generously enlarged to 54px radius)
+    const meterR = 54;
+    const meterX = Math.min(w - meterR - 28, w - 85);
+    const meterY = meterR + 24;
+
+    // Meter Brass Binding Studs
+    const meterStudNegX = meterX - 26;
+    const meterStudPosX = meterX + 26;
+    const meterStudY = meterY + meterR + 14;
+
+    // Meter mounting panel
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+    ctx.shadowBlur = 10;
+    ctx.shadowOffsetY = 4;
+    ctx.fillStyle = isLight ? '#f1f5f9' : '#0f172a';
+    ctx.beginPath();
+    ctx.roundRect(meterX - meterR - 16, meterY - meterR - 12, (meterR + 16) * 2, meterR * 2 + 50, [14]);
+    ctx.fill();
+    ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+    ctx.lineWidth = 2;
+    ctx.stroke();
     ctx.restore();
 
-    // 6. Analog Center-Zero Galvanometer Gauge (Top-Right of viewport)
+    drawBrassTerminalStud(ctx, meterStudNegX, meterStudY);
+    drawBrassTerminalStud(ctx, meterStudPosX, meterStudY);
+    ctx.font = 'bold 9px monospace';
+    ctx.fillStyle = '#38bdf8';
+    ctx.textAlign = 'center';
+    ctx.fillText('COM (-)', meterStudNegX, meterStudY + 14);
+    ctx.fillStyle = '#ef4444';
+    ctx.fillText('V (+)', meterStudPosX, meterStudY + 14);
+
+    // External Heavy Insulated Cables Routing across Bench
+    // Negative (Blue) Cable: from Dynamo Negative Terminal to Meter COM
+    drawHeavyInsulatedCable(
+      ctx,
+      screenTermNegX,
+      screenTermY,
+      screenTermNegX,
+      screenTermY + 30,
+      '#2563eb',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      screenTermNegX,
+      screenTermY + 30,
+      meterStudNegX - 40,
+      screenTermY + 30,
+      '#2563eb',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      meterStudNegX - 40,
+      screenTermY + 30,
+      meterStudNegX - 40,
+      meterStudY + 25,
+      '#2563eb',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      meterStudNegX - 40,
+      meterStudY + 25,
+      meterStudNegX,
+      meterStudY,
+      '#2563eb',
+      Math.abs(sinAngle) > 0.1
+    );
+
+    // Positive (Red) Cable: from Dynamo Positive Terminal to Meter V(+)
+    drawHeavyInsulatedCable(
+      ctx,
+      screenTermPosX,
+      screenTermY,
+      screenTermPosX,
+      screenTermY + 15,
+      '#dc2626',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      screenTermPosX,
+      screenTermY + 15,
+      meterStudPosX + 30,
+      screenTermY + 15,
+      '#dc2626',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      meterStudPosX + 30,
+      screenTermY + 15,
+      meterStudPosX + 30,
+      meterStudY + 25,
+      '#dc2626',
+      Math.abs(sinAngle) > 0.1
+    );
+    drawHeavyInsulatedCable(
+      ctx,
+      meterStudPosX + 30,
+      meterStudY + 25,
+      meterStudPosX,
+      meterStudY,
+      '#dc2626',
+      Math.abs(sinAngle) > 0.1
+    );
+
+    // 6. Photorealistic Analog Center-Zero Avometer / Galvanometer (54px Radius)
     const instEmf = sinAngle * emfMax;
     const meterVal = dynamoMode === 'ac' ? instEmf : Math.abs(instEmf);
     drawAnalogMeterGauge(
       ctx,
-      w - 65,
-      60,
-      36,
+      meterX,
+      meterY,
+      meterR,
       meterVal,
       dynamoMode === 'ac' ? -emfMax : 0,
       emfMax,
-      'V',
-      'GALV'
+      isArabic ? 'جلفانومتر الجهد' : 'GALVANOMETER',
+      'V'
     );
 
-    // 7. Mini Waveform Strip at the Bottom
-    const waveH = 70;
+    // 7. Mini CRT Oscilloscope Waveform Strip at the Bottom
+    const waveH = 76;
     const waveY = h - waveH - 12;
     const waveW = w - 24;
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-    ctx.strokeStyle = 'rgba(51, 65, 85, 0.8)';
-    ctx.lineWidth = 1;
-    ctx.fillRect(12, waveY, waveW, waveH);
-    ctx.strokeRect(12, waveY, waveW, waveH);
 
-    // Center zero line
-    ctx.strokeStyle = 'rgba(100, 116, 139, 0.3)';
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.4)';
+    ctx.shadowBlur = 10;
+    ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+    ctx.beginPath();
+    ctx.roundRect(12, waveY, waveW, waveH, [10]);
+    ctx.fill();
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.restore();
+
+    // Phosphor Reticle Grid Lines
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.15)';
+    ctx.lineWidth = 1;
+    for (let rx = 12; rx < 12 + waveW; rx += 40) {
+      ctx.beginPath();
+      ctx.moveTo(rx, waveY);
+      ctx.lineTo(rx, waveY + waveH);
+      ctx.stroke();
+    }
+    for (let ry = waveY; ry < waveY + waveH; ry += 20) {
+      ctx.beginPath();
+      ctx.moveTo(12, ry);
+      ctx.lineTo(12 + waveW, ry);
+      ctx.stroke();
+    }
+
+    // Center Zero Line
+    ctx.strokeStyle = 'rgba(148, 163, 184, 0.4)';
+    ctx.lineWidth = 1.5;
     ctx.beginPath();
     ctx.moveTo(12, waveY + waveH / 2);
     ctx.lineTo(12 + waveW, waveY + waveH / 2);
     ctx.stroke();
 
-    // Waveform curve
+    // Waveform curve with volumetric phosphorescent glow
+    ctx.save();
+    ctx.shadowColor = dynamoMode === 'ac' ? '#38bdf8' : '#fbbf24';
+    ctx.shadowBlur = 8;
     ctx.strokeStyle = dynamoMode === 'ac' ? '#38bdf8' : '#fbbf24';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 2.5;
     ctx.beginPath();
     for (let px = 0; px < waveW; px++) {
       const waveAngle = curAngleRad - ((waveW - px) / 40);
@@ -592,28 +882,36 @@ export const DynamoInductionLab: React.FC<Props> = ({ lang, theme = 'dark' }) =>
       if (dynamoMode === 'dc') {
         sVal = Math.abs(sVal);
       }
-      const py = waveY + waveH / 2 - sVal * (waveH * 0.4);
+      const py = waveY + waveH / 2 - sVal * (waveH * 0.38);
       if (px === 0) ctx.moveTo(12 + px, py);
       else ctx.lineTo(12 + px, py);
     }
     ctx.stroke();
+    ctx.restore();
 
     // Live tracker dot on wave
     let curS = Math.sin(curAngleRad);
     if (dynamoMode === 'dc') curS = Math.abs(curS);
-    const dotY = waveY + waveH / 2 - curS * (waveH * 0.4);
-    drawGlowingParticle(ctx, 12 + waveW, dotY, 4.5, '#ef4444', 12);
+    const dotY = waveY + waveH / 2 - curS * (waveH * 0.38);
+    drawGlowingParticle(ctx, 12 + waveW, dotY, 5, '#ef4444', 14);
 
-    // Waveform Legend
-    ctx.fillStyle = '#94a3b8';
-    ctx.font = '10px monospace';
+    // Waveform CRT Legend
+    ctx.fillStyle = '#cbd5e1';
+    ctx.font = 'bold 11px monospace';
     ctx.textAlign = 'left';
     ctx.fillText(
       dynamoMode === 'ac'
-        ? (isArabic ? 'إشارة الجهد المتردد AC (جيبي)' : 'AC Sinusoidal Voltage Output')
-        : (isArabic ? 'إشارة الجهد المقوم DC (موحد الاتجاه)' : 'Pulsating DC Voltage Output'),
-      20,
-      waveY + 16
+        ? (isArabic ? 'إشارة الجهد المتردد AC (جيبي متناوب) | Oscilloscope CH1' : 'AC Sinusoidal Voltage Output | Oscilloscope CH1')
+        : (isArabic ? 'إشارة الجهد المقوم DC (موحد الاتجاه بنصف موجات) | Oscilloscope CH1' : 'Pulsating DC Voltage Output | Oscilloscope CH1'),
+      24,
+      waveY + 18
+    );
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px monospace';
+    ctx.fillText(
+      `E_max = ${emfMax.toFixed(1)} V | E_eff = ${emfEff.toFixed(1)} V | f = ${frequencyF} Hz`,
+      24,
+      waveY + 34
     );
 
     ctx.restore();

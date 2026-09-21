@@ -12,6 +12,9 @@ import {
   type LabPreset,
   drawMetallicCylinder,
   drawGlowingParticle,
+  drawAnalogMeterGauge,
+  drawHeavyInsulatedCable,
+  drawBrassTerminalStud,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -1363,6 +1366,20 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
         // Wire physical deflection offset
         const deflectionY = -Math.sin(rad) * (state.lorentzForceN * 18);
 
+        // Heavy flexible power feed cables to conductor rod
+        drawHeavyInsulatedCable(ctx, wx1 - 60, cy + 140, wx1, wy1 + deflectionY, '#dc2626', true);
+        drawHeavyInsulatedCable(ctx, wx2 + 60, cy + 140, wx2, wy2 + deflectionY, '#2563eb', true);
+        drawBrassTerminalStud(ctx, wx1 - 60, cy + 140);
+        drawBrassTerminalStud(ctx, wx2 + 60, cy + 140);
+        drawBrassTerminalStud(ctx, wx1, wy1 + deflectionY);
+        drawBrassTerminalStud(ctx, wx2, wy2 + deflectionY);
+
+        ctx.font = 'bold 10px monospace';
+        ctx.fillStyle = '#ef4444';
+        ctx.fillText('(+)', wx1 - 60, cy + 155);
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillText('(-)', wx2 + 60, cy + 155);
+
         // Conductor copper rod
         ctx.strokeStyle = '#b45309';
         ctx.lineWidth = 11;
@@ -1544,6 +1561,17 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
         ctx.restore();
 
+        // Heavy external connection cables to hairsprings & chassis binding posts
+        drawBrassTerminalStud(ctx, cx - 180, cy + 160);
+        drawBrassTerminalStud(ctx, cx + 180, cy + 160);
+        drawHeavyInsulatedCable(ctx, cx - 180, cy + 160, cx - 35, cy + 50, '#2563eb', params.galvCurrentMa > 0.05);
+        drawHeavyInsulatedCable(ctx, cx + 180, cy + 160, cx + 35, cy + 50, '#dc2626', params.galvCurrentMa > 0.05);
+        ctx.font = 'bold 10px monospace';
+        ctx.fillStyle = '#38bdf8';
+        ctx.fillText('COM (-)', cx - 180, cy + 176);
+        ctx.fillStyle = '#ef4444';
+        ctx.fillText('INPUT (+)', cx + 180, cy + 176);
+
         // 5. Curved Zero-Centered Scale with Anti-Parallax Mirror Strip
         const scaleRadius = 200;
         const scaleCenterY = cy + 40;
@@ -1597,6 +1625,58 @@ export const MagnetismLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =
 
         ctx.fillStyle = '#ef4444';
         ctx.font = 'bold 12px monospace';
+      }
+
+      // Top-Right Precision Laboratory Avometer (Radius 48px, with knife needle and LCD readout)
+      const meterR = 48;
+      const meterX = Math.min(width - meterR - 22, width - 75);
+      const meterY = meterR + 20;
+
+      if (params.magnetismMode === 'field_sources') {
+        const activeI =
+          params.conductorType === 'straight_wire'
+            ? params.wireCurrent
+            : params.conductorType === 'dual_wires'
+            ? params.wire1Current
+            : params.conductorType === 'circular_loop'
+            ? params.loopCurrent
+            : params.solenoidCurrent;
+
+        drawAnalogMeterGauge(
+          ctx,
+          meterX,
+          meterY,
+          meterR,
+          activeI,
+          0,
+          30,
+          isArabic ? 'أميتـر التيـار' : 'DC AMMETER',
+          'A'
+        );
+      } else if (params.magnetismMode === 'lorentz_force') {
+        drawAnalogMeterGauge(
+          ctx,
+          meterX,
+          meterY,
+          meterR,
+          params.forceCurrent,
+          0,
+          20,
+          isArabic ? 'أميتـر التيـار' : 'DC AMMETER',
+          'A'
+        );
+      } else if (params.magnetismMode === 'galvanometer') {
+        drawAnalogMeterGauge(
+          ctx,
+          meterX,
+          meterY,
+          meterR,
+          params.galvCurrentMa,
+          0,
+          10,
+          isArabic ? 'مللي أميتر الدخل' : 'CURRENT METER',
+          'mA'
+        );
       }
 
       // =========================================================================

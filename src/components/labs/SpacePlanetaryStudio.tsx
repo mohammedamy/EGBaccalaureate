@@ -14,8 +14,21 @@ import {
   TrendingUp,
   Maximize2,
   Minimize2,
+  X,
+  ZoomIn,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+
+import sunImg from '../../assets/space/sun.jpg';
+import moonImg from '../../assets/space/moon.jpg';
+import earthImg from '../../assets/space/earth.jpg';
+import marsImg from '../../assets/space/mars.jpg';
+import jupiterImg from '../../assets/space/jupiter.jpg';
+import saturnImg from '../../assets/space/saturn.jpg';
+import venusImg from '../../assets/space/venus.jpg';
+import mercuryImg from '../../assets/space/mercury.jpg';
+import uranusImg from '../../assets/space/uranus.jpg';
+import neptuneImg from '../../assets/space/neptune.jpg';
 
 interface Props {
   lang: Language;
@@ -43,20 +56,275 @@ interface PlanetData {
   atmosphereEn: string;
   atmosphereAr: string;
   tempC: number;
-  typeEn: 'Terrestrial' | 'Gas Giant' | 'Ice Giant';
-  typeAr: 'صخري أرضي' | 'عملاق غازي' | 'عملاق جليدي';
+  typeEn: string;
+  typeAr: string;
   color: string;
+  imageSrc: string;
+  highlightsEn: string[];
+  highlightsAr: string[];
 }
 
 const PLANETS: PlanetData[] = [
-  { id: 'mercury', nameEn: 'Mercury', nameAr: 'عطارد', distAU: 0.387, radiusKm: 2439.7, massEarth: 0.055, orbitalPeriodDays: 87.97, atmosphereEn: 'Trace exosphere (Na, He)', atmosphereAr: 'غلاف خارجي ضئيل (صوديوم وهيديوم)', tempC: 167, typeEn: 'Terrestrial', typeAr: 'صخري أرضي', color: '#94A3B8' },
-  { id: 'venus', nameEn: 'Venus', nameAr: 'الزهرة', distAU: 0.723, radiusKm: 6051.8, massEarth: 0.815, orbitalPeriodDays: 224.7, atmosphereEn: '96.5% CO2, 92 atm runaway greenhouse', atmosphereAr: '96.5% CO2، ضغط 92 ضغط جوي، احتباس جامح', tempC: 464, typeEn: 'Terrestrial', typeAr: 'صخري أرضي', color: '#F59E0B' },
-  { id: 'earth', nameEn: 'Earth', nameAr: 'الأرض', distAU: 1.000, radiusKm: 6371.0, massEarth: 1.000, orbitalPeriodDays: 365.26, atmosphereEn: '78% N2, 21% O2, 1 atm, liquid water oceans', atmosphereAr: '78% نيتروجين، 21% أكسجين، 1 ضغط جوي، ماء سائل', tempC: 15, typeEn: 'Terrestrial', typeAr: 'صخري أرضي', color: '#3B82F6' },
-  { id: 'mars', nameEn: 'Mars', nameAr: 'المريخ', distAU: 1.524, radiusKm: 3389.5, massEarth: 0.107, orbitalPeriodDays: 686.98, atmosphereEn: '95% CO2, 6 mbar, desiccated riverbeds', atmosphereAr: '95% CO2، ضغط 6 مليبار، قنوات مائية قديمة', tempC: -65, typeEn: 'Terrestrial', typeAr: 'صخري أرضي', color: '#EF4444' },
-  { id: 'jupiter', nameEn: 'Jupiter', nameAr: 'المشتري', distAU: 5.204, radiusKm: 69911, massEarth: 317.8, orbitalPeriodDays: 4332.6, atmosphereEn: '89% H2, 10% He, metallic hydrogen interior', atmosphereAr: '89% H2، 10% He، وشاح هيدروجين فلزي', tempC: -110, typeEn: 'Gas Giant', typeAr: 'عملاق غازي', color: '#F97316' },
-  { id: 'saturn', nameEn: 'Saturn', nameAr: 'زحل', distAU: 9.582, radiusKm: 58232, massEarth: 95.2, orbitalPeriodDays: 10759, atmosphereEn: '96% H2, 3% He, extensive icy ring system', atmosphereAr: '96% H2، 3% He، حلقات جليدية واسعة', tempC: -140, typeEn: 'Gas Giant', typeAr: 'عملاق غازي', color: '#EAB308' },
-  { id: 'uranus', nameEn: 'Uranus', nameAr: 'أورانوس', distAU: 19.22, radiusKm: 25362, massEarth: 14.5, orbitalPeriodDays: 30685, atmosphereEn: 'H2, He, methane ice, 97.8° extreme axial tilt', atmosphereAr: 'H2، He، جليد ميثان، ميل محوري 97.8°', tempC: -195, typeEn: 'Ice Giant', typeAr: 'عملاق جليدي', color: '#06B6D4' },
-  { id: 'neptune', nameEn: 'Neptune', nameAr: 'نبتون', distAU: 30.05, radiusKm: 24622, massEarth: 17.1, orbitalPeriodDays: 60190, atmosphereEn: 'Water, ammonia, methane ices, supersonic winds', atmosphereAr: 'جليد ماء وأمونيا وميثان، رياح تفوق سرعة الصوت', tempC: -200, typeEn: 'Ice Giant', typeAr: 'عملاق جليدي', color: '#6366F1' },
+  {
+    id: 'sun',
+    nameEn: 'The Sun',
+    nameAr: 'الشمس (نجم المجموعة)',
+    distAU: 0.000,
+    radiusKm: 696340,
+    massEarth: 333000,
+    orbitalPeriodDays: 0,
+    atmosphereEn: '73% H, 25% He, thermonuclear plasma & glowing corona',
+    atmosphereAr: '٧٣٪ هيدروجين، ٢٥٪ هيليوم، بلازما حرارية نووية وهالة شمسية متوهجة',
+    tempC: 5505,
+    typeEn: 'Yellow Dwarf Star (G2V)',
+    typeAr: 'نجم قزم أصفر (G2V)',
+    color: '#F59E0B',
+    imageSrc: sunImg,
+    highlightsEn: [
+      'Thermonuclear Core converting 600M tons of H to He per sec',
+      'Coronal Mass Ejections & Prominences shooting 100,000s of km',
+      'Photosphere Granulation & Magnetic Sunspots Cycle (11 yrs)',
+    ],
+    highlightsAr: [
+      'قلب الاندماج النووي يحول ٦٠٠ مليون طن هيدروجين لهيليوم كل ثانية',
+      'انبعاثات كتلية إكليلية وشواظ شمسي يقذف بلازما لمئات آلاف الكيلومترات',
+      'تحبب طبقة الفوتوسفير ودورة البقع الشمسية المغناطيسية (١١ عاماً)',
+    ],
+  },
+  {
+    id: 'mercury',
+    nameEn: 'Mercury',
+    nameAr: 'عطارد',
+    distAU: 0.387,
+    radiusKm: 2439.7,
+    massEarth: 0.055,
+    orbitalPeriodDays: 87.97,
+    atmosphereEn: 'Trace exosphere (Na, He, O, H)',
+    atmosphereAr: 'غلاف خارجي ضئيل جداً (صوديوم، هيليوم، أكسجين، هيدروجين)',
+    tempC: 167,
+    typeEn: 'Terrestrial Planet',
+    typeAr: 'كوكب صخري أرضي',
+    color: '#94A3B8',
+    imageSrc: mercuryImg,
+    highlightsEn: [
+      'Caloris Basin: Massive 1,550 km wide impact basin',
+      'Giant Iron Core accounting for >70% of total planetary mass',
+      'Extreme Temperature Swing: -180°C night to +430°C day',
+    ],
+    highlightsAr: [
+      'حوض كالوريس الصدمي الهائل بعرض ١٥٥٠ كم',
+      'قلب حديدي عملاق يمثل أكثر من ٧٠٪ من إجمالي كتلة الكوكب',
+      'أعنف تفاوت حراري يومي: -١٨٠°س ليلاً إلى +٤٣٠°س نهاراً',
+    ],
+  },
+  {
+    id: 'venus',
+    nameEn: 'Venus',
+    nameAr: 'الزهرة',
+    distAU: 0.723,
+    radiusKm: 6051.8,
+    massEarth: 0.815,
+    orbitalPeriodDays: 224.7,
+    atmosphereEn: '96.5% CO2, 92 atm runaway greenhouse, sulfuric acid clouds',
+    atmosphereAr: '٩٦.٥٪ ثنائي أكسيد الكربون، ٩٢ ضغط جوي، احتباس حراري جامح وسحب كبريتية',
+    tempC: 464,
+    typeEn: 'Terrestrial Planet',
+    typeAr: 'كوكب صخري أرضي',
+    color: '#F59E0B',
+    imageSrc: venusImg,
+    highlightsEn: [
+      'Hottest Planet in Solar System via Runaway Greenhouse',
+      'Retrograde Rotation: Spins East to West, day longer than year',
+      'Over 1,600 major volcanoes & massive tectonic coronae',
+    ],
+    highlightsAr: [
+      'أعلى كواكب المجموعة حرارة على الإطلاق بسبب الاحتباس الحراري الجامح',
+      'دوران مغزلي تراجعي شاذ (من الشرق للغرب)، يومه أطول من سنته',
+      'أكثر من ١٦٠٠ بركان رئيسي وقباب تكتونية لافية متجددة',
+    ],
+  },
+  {
+    id: 'earth',
+    nameEn: 'Earth',
+    nameAr: 'الأرض (كوكب الحياة)',
+    distAU: 1.000,
+    radiusKm: 6371.0,
+    massEarth: 1.000,
+    orbitalPeriodDays: 365.26,
+    atmosphereEn: '78% N2, 21% O2, 1 atm, liquid water oceans, magnetosphere',
+    atmosphereAr: '٧٨٪ نيتروجين، ٢١٪ أكسجين، ١ ضغط جوي، محيطات مائية وغلاف مغناطيسي واقٍ',
+    tempC: 15,
+    typeEn: 'Terrestrial Planet',
+    typeAr: 'كوكب صخري أرضي',
+    color: '#3B82F6',
+    imageSrc: earthImg,
+    highlightsEn: [
+      'Dynamic Hydrosphere with liquid oceans covering 70.8% of surface',
+      'Active Plate Tectonics continually recycling crustal rock',
+      'Robust Dynamo Magnetosphere deflecting lethal solar wind',
+    ],
+    highlightsAr: [
+      'غلاف مائي ديناميكي بمحيطات سائلة تغطي ٧٠.٨٪ من مساحة السطح',
+      'حركات تكتونية مستمرة للصفائح الأرضية تعيد تدوير القشرة الصخرية',
+      'مجال مغناطيسي ديناميكي يحرف الرياح الشمسية ويحمي الغلاف الحيوي',
+    ],
+  },
+  {
+    id: 'moon',
+    nameEn: 'The Moon',
+    nameAr: 'القمر (تابع الأرض)',
+    distAU: 1.000,
+    radiusKm: 1737.4,
+    massEarth: 0.0123,
+    orbitalPeriodDays: 27.32,
+    atmosphereEn: 'Ultra-tenuous vacuum / trace noble gases',
+    atmosphereAr: 'فراغ فضائي شبه تام / آثار ضئيلة للغاية من الغازات الخاملة',
+    tempC: -20,
+    typeEn: 'Natural Satellite',
+    typeAr: 'قمر طبيعي',
+    color: '#CBD5E1',
+    imageSrc: moonImg,
+    highlightsEn: [
+      'Dark Basaltic Maria formed by ancient volcanic flood basalt',
+      'Tidally Locked: Synchronous rotation always facing same side',
+      'Pristine Impact Regolith preserving 4.5 billion years of history',
+    ],
+    highlightsAr: [
+      'بحار قمرية بازلتية مظلمة تشكلت من طفوح بركانية قديمة هائلة',
+      'تقييد جذبي مدي متزامن يجعل نفس الوجه مقابلاً للأرض على الدوام',
+      'ثرى قمري محفوظ يسجل تاريخ الاصطدامات النيزكية منذ ٤.٥ مليار سنة',
+    ],
+  },
+  {
+    id: 'mars',
+    nameEn: 'Mars',
+    nameAr: 'المريخ (الكوكب الأحمر)',
+    distAU: 1.524,
+    radiusKm: 3389.5,
+    massEarth: 0.107,
+    orbitalPeriodDays: 686.98,
+    atmosphereEn: '95% CO2, 6 mbar, desiccated river valleys, global dust storms',
+    atmosphereAr: '٩٥٪ ثنائي أكسيد الكربون، ضغط ٦ مليبار، أودية نهرية جافة وعواصف غبارية',
+    tempC: -65,
+    typeEn: 'Terrestrial Planet',
+    typeAr: 'كوكب صخري أرضي',
+    color: '#EF4444',
+    imageSrc: marsImg,
+    highlightsEn: [
+      'Olympus Mons: Tallest shield volcano in Solar System (21.9 km)',
+      'Valles Marineris: Grand canyon stretching over 4,000 km',
+      'Subsurface Water Ice & seasonal CO2 polar caps',
+    ],
+    highlightsAr: [
+      'بركان أوليمبوس مونز: أضخم بركان درعي في النظام الشمسي (بارتفاع ٢٢ كم)',
+      'وادي مارينر: أخدود صدعي هائل يمتد لأكثر من ٤٠٠٠ كم',
+      'جليد مائي تحت السطح وقمم قطبية موسمية من ثنائي أكسيد الكربون المتجمد',
+    ],
+  },
+  {
+    id: 'jupiter',
+    nameEn: 'Jupiter',
+    nameAr: 'المشتري (عملاق الكواكب)',
+    distAU: 5.204,
+    radiusKm: 69911,
+    massEarth: 317.8,
+    orbitalPeriodDays: 4332.6,
+    atmosphereEn: '89% H2, 10% He, metallic hydrogen mantle, intense magnetosphere',
+    atmosphereAr: '٨٩٪ هيدروجين، ١٠٪ هيليوم، وشاح هيدروجين فلزي ومجال مغناطيسي جبار',
+    tempC: -110,
+    typeEn: 'Gas Giant',
+    typeAr: 'عملاق غازي',
+    color: '#F97316',
+    imageSrc: jupiterImg,
+    highlightsEn: [
+      'Great Red Spot: Anticyclonic super-storm raging for over 350 years',
+      'Metallic Hydrogen Interior generating immense magnetic fields',
+      '95+ Moons including ocean worlds Europa & Ganymede',
+    ],
+    highlightsAr: [
+      'البقعة الحمراء العظيمة: إعصار مضاد هائل ومستمر منذ أكثر من ٣٥٠ عاماً',
+      'باطن من الهيدروجين الفلزي فائق التوصيل يولد مجالات مغناطيسية خارقة',
+      'أكثر من ٩٥ قمراً تدور حوله بينها عوالم المحيطات السائلة (أوروبا وغانيميد)',
+    ],
+  },
+  {
+    id: 'saturn',
+    nameEn: 'Saturn',
+    nameAr: 'زحل (سيد الحلقات)',
+    distAU: 9.582,
+    radiusKm: 58232,
+    massEarth: 95.2,
+    orbitalPeriodDays: 10759,
+    atmosphereEn: '96% H2, 3% He, extensive icy ring system, density < water',
+    atmosphereAr: '٩٦٪ هيدروجين، ٣٪ هيليوم، حلقات جليدية مهيبة، كثافة أقل من الماء',
+    tempC: -140,
+    typeEn: 'Gas Giant',
+    typeAr: 'عملاق غازي',
+    color: '#EAB308',
+    imageSrc: saturnImg,
+    highlightsEn: [
+      'Magnificent Ring System spanning 282,000 km, composed of water ice',
+      'Lowest Mean Density (0.687 g/cm³): would float in water ocean',
+      'North Polar Hexagon: Geometric atmospheric jet stream feature',
+    ],
+    highlightsAr: [
+      'نظام حلقات ساحر يمتد على مسافة ٢٨٢ ألف كم ويتكون من جليد الماء النقي',
+      'أقل كثافة كوكبية (٠.٦٨٧ جم/سم٣) حيث يطفو على سطح الماء إن وجد بحر يتسع له',
+      'العاصفة السداسية القطبية الشمالية: ظاهرة جوية هندسية فريدة',
+    ],
+  },
+  {
+    id: 'uranus',
+    nameEn: 'Uranus',
+    nameAr: 'أورانوس (العملاق المتدحرج)',
+    distAU: 19.22,
+    radiusKm: 25362,
+    massEarth: 14.5,
+    orbitalPeriodDays: 30685,
+    atmosphereEn: 'H2, He, methane ice haze, 97.8° extreme axial tilt',
+    atmosphereAr: 'هيدروجين، هيليوم، جليد الميثان، ميل محوري شاذ ٩٧.٨° يجعله يدور متدحرجاً',
+    tempC: -195,
+    typeEn: 'Ice Giant',
+    typeAr: 'عملاق جليدي',
+    color: '#06B6D4',
+    imageSrc: uranusImg,
+    highlightsEn: [
+      'Extreme 97.8° Axial Tilt causing 42-year long seasonal polar nights',
+      'Atmospheric Methane absorbing red light creating pale cyan color',
+      'Coldest atmosphere in Solar System dropping to -224°C',
+    ],
+    highlightsAr: [
+      'ميل محوري استثنائي ٩٧.٨° يجعل قطبيه يتعرضان لليل ونهار مستمر لـ ٤٢ عاماً',
+      'غاز الميثان يمتص الضوء الأحمر ويعكس اللون الفيروزي السماوي',
+      'أبرد غلاف جوي في النظام الشمسي تنخفض حرارته إلى -٢٢٤°س',
+    ],
+  },
+  {
+    id: 'neptune',
+    nameEn: 'Neptune',
+    nameAr: 'نبتون (الكوكب الأزرق العاصف)',
+    distAU: 30.05,
+    radiusKm: 24622,
+    massEarth: 17.1,
+    orbitalPeriodDays: 60190,
+    atmosphereEn: 'Water, ammonia, methane ices, supersonic winds >2,100 km/h',
+    atmosphereAr: 'جليد ماء وأمونيا وميثان، رياح تفوق سرعة الصوت تتجاوز ٢١٠٠ كم/س',
+    tempC: -200,
+    typeEn: 'Ice Giant',
+    typeAr: 'عملاق جليدي',
+    color: '#6366F1',
+    imageSrc: neptuneImg,
+    highlightsEn: [
+      'Fastest Recorded Winds in Solar System exceeding supersonic speeds',
+      'Deep Vivid Azure Blue color from high-altitude methane crystals',
+      'Active Cryovolcanic Moon Triton in retrograde inclined orbit',
+    ],
+    highlightsAr: [
+      'أعتى رياح كوكبية في النظام الشمسي تفوق سرعة الصوت (> ٢١٠٠ كم/س)',
+      'لون أزرق لازوردي غامق مشرق ناتج عن بلورات الميثان الجليدية في الأعالي',
+      'قمره تريتون يمتلك براكين جليدية تثور بالنيتروجين ويدور في اتجاه معاكس',
+    ],
+  },
 ];
 
 export const SpacePlanetaryStudio: React.FC<Props> = ({
@@ -75,6 +343,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
   const isContrast = theme === 'high-contrast';
 
   const [activeMode, setActiveMode] = useState<SpaceStudioMode>(initialMode);
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; title: string; subtitle?: string } | null>(null);
 
   // =========================================================================
   // Engine 1: Keplerian Orbit & Planetary Mechanics Simulator
@@ -580,7 +849,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                               strokeDasharray="2,2"
                             />
                             <text x={(-a + sunX) / 2} y="-12" fill="#34d399" fontSize="9" fontWeight="bold" fontFamily="monospace">
-                              Area A₁
+                              {isArabic ? 'المساحة (م١)' : 'Area A₁'}
                             </text>
 
                             {/* Kepler II: Equal Swept Area Sector at Aphelion */}
@@ -592,7 +861,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                               strokeDasharray="2,2"
                             />
                             <text x={(a + sunX) / 2 + 10} y="16" fill="#34d399" fontSize="9" fontWeight="bold" fontFamily="monospace">
-                              Area A₂
+                              {isArabic ? 'المساحة (م٢)' : 'Area A₂'}
                             </text>
 
                             {/* Elliptical Orbit Path */}
@@ -610,29 +879,33 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                             {/* Semi-Major Axis Dimension Marker */}
                             <line x1="0" y1="0" x2={a} y2="0" stroke="#818cf8" strokeWidth="1.5" opacity="0.7" />
                             <text x={a / 2} y="-6" fill="#a5b4fc" fontSize="9" textAnchor="middle" fontFamily="monospace">
-                              a = {keplerCalc.a} AU
+                              {isArabic ? `نصف المحور الأكبر أ = ${keplerCalc.a} و.ف` : `a = ${keplerCalc.a} AU`}
                             </text>
 
                             {/* Empty Secondary Focus at (+c, 0) */}
                             <circle cx={c} cy="0" r="3.5" fill="#64748b" />
                             <text x={c} y="14" fill="#94a3b8" fontSize="8" textAnchor="middle" fontFamily="monospace">
-                              F₂
+                              {isArabic ? 'ب٢' : 'F₂'}
                             </text>
 
-                            {/* Primary Focus (Sun with High-Res Corona) at (-c, 0) */}
-                            <circle cx={sunX} cy="0" r="28" fill="url(#sunCoronaGrad)" opacity="0.4" />
-                            <circle cx={sunX} cy="0" r="16" fill="url(#sunCoronaGrad)" opacity="0.8" />
-                            <circle cx={sunX} cy="0" r="10" fill="#fef08a" filter="url(#solarGlow)" />
+                            {/* Primary Focus (Sun with Realistic Photo & Corona) at (-c, 0) */}
+                            <clipPath id="sunFocalClip">
+                              <circle cx={sunX} cy="0" r="16" />
+                            </clipPath>
+                            <circle cx={sunX} cy="0" r="32" fill="url(#sunCoronaGrad)" opacity="0.4" />
+                            <circle cx={sunX} cy="0" r="22" fill="url(#sunCoronaGrad)" opacity="0.7" />
+                            <image href={sunImg} x={sunX - 16} y="-16" width="32" height="32" clipPath="url(#sunFocalClip)" />
+                            <circle cx={sunX} cy="0" r="16" fill="none" stroke="#fef08a" strokeWidth="1.5" opacity="0.8" />
                             {/* Solar Flare Spikes */}
                             {[-45, 0, 45, 90, 135, 180, 225, 270].map((deg, i) => {
                               const rad = (deg * Math.PI) / 180;
                               return (
                                 <line
                                   key={i}
-                                  x1={sunX + 11 * Math.cos(rad)}
-                                  y1={11 * Math.sin(rad)}
-                                  x2={sunX + 17 * Math.cos(rad)}
-                                  y2={17 * Math.sin(rad)}
+                                  x1={sunX + 17 * Math.cos(rad)}
+                                  y1={17 * Math.sin(rad)}
+                                  x2={sunX + 23 * Math.cos(rad)}
+                                  y2={23 * Math.sin(rad)}
                                   stroke="#f59e0b"
                                   strokeWidth="1.5"
                                   opacity="0.75"
@@ -640,22 +913,25 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                               );
                             })}
                             <text x={sunX} y="32" fill="#fef08a" fontSize="10" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                              {isArabic ? 'الشمس (البؤرة F₁)' : 'Sun Focus (F₁)'}
+                              {isArabic ? 'الشمس (البؤرة ب١)' : 'Sun Focus (F₁)'}
                             </text>
 
-                            {/* Perihelion Planet with Realistic 3D Atmosphere & Velocity Vector */}
+                            {/* Perihelion Planet with Realistic Atmosphere & Velocity Vector */}
                             <g transform={`translate(-${a}, 0)`}>
                               {/* Velocity Vector Arrow pointing downward */}
                               <line x1="0" y1="0" x2="0" y2="42" stroke="#10b981" strokeWidth="2.5" />
                               <polygon points="0,46 -4,38 4,38" fill="#10b981" />
                               <text x="-8" y="28" fill="#34d399" fontSize="8" fontWeight="bold" textAnchor="end" fontFamily="monospace">
-                                v_max
+                                {isArabic ? 'ع_عظمى' : 'v_max'}
                               </text>
-                              {/* Planet Body */}
-                              <circle cx="0" cy="0" r="9.5" fill="url(#planetShading)" />
-                              <circle cx="0" cy="0" r="11" fill="none" stroke="#67e8f9" strokeWidth="1" opacity="0.6" />
+                              {/* Planet Body with Real Texture */}
+                              <clipPath id="periPlanetClip">
+                                <circle cx="0" cy="0" r="9.5" />
+                              </clipPath>
+                              <image href={earthImg} x="-9.5" y="-9.5" width="19" height="19" clipPath="url(#periPlanetClip)" />
+                              <circle cx="0" cy="0" r="10.5" fill="none" stroke="#67e8f9" strokeWidth="1.2" opacity="0.8" />
                               <text x="0" y="-16" fill="#34d399" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                                Perihelion ({keplerCalc.periSpeed} km/s)
+                                {isArabic ? `الحضيض (${keplerCalc.periSpeed} كم/ث)` : `Perihelion (${keplerCalc.periSpeed} km/s)`}
                               </text>
                             </g>
 
@@ -665,12 +941,16 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                               <line x1="0" y1="0" x2="0" y2="-24" stroke="#f43f5e" strokeWidth="2" />
                               <polygon points="0,-28 -3.5,-21 3.5,-21" fill="#f43f5e" />
                               <text x="8" y="-14" fill="#fb7185" fontSize="8" fontWeight="bold" textAnchor="start" fontFamily="monospace">
-                                v_min
+                                {isArabic ? 'ع_صغرى' : 'v_min'}
                               </text>
                               {/* Planet Body */}
-                              <circle cx="0" cy="0" r="7.5" fill="url(#planetShading)" opacity="0.9" />
+                              <clipPath id="aphPlanetClip">
+                                <circle cx="0" cy="0" r="8" />
+                              </clipPath>
+                              <image href={earthImg} x="-8" y="-8" width="16" height="16" clipPath="url(#aphPlanetClip)" opacity="0.85" />
+                              <circle cx="0" cy="0" r="8" fill="none" stroke="#f43f5e" strokeWidth="1" opacity="0.7" />
                               <text x="0" y="24" fill="#fb7185" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                                Aphelion ({keplerCalc.aphSpeed} km/s)
+                                {isArabic ? `الأوج (${keplerCalc.aphSpeed} كم/ث)` : `Aphelion (${keplerCalc.aphSpeed} km/s)`}
                               </text>
                             </g>
                           </g>
@@ -696,22 +976,166 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
         {/* ================================================================= */}
         {activeMode === 'planet_explorer' && (
           <div className="space-y-6">
-            {/* Planet selector tabs */}
-            <div className="flex flex-wrap items-center gap-2 p-2 rounded-xl bg-slate-800/40 border border-slate-700/60">
-              {PLANETS.map((planet) => (
-                <button
-                  key={planet.id}
-                  onClick={() => setSelectedPlanetId(planet.id)}
-                  className={`px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-2 transition-all ${
-                    selectedPlanetId === planet.id
-                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                      : 'bg-slate-900/60 text-slate-300 hover:bg-slate-700'
-                  }`}
-                >
-                  <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: planet.color }} />
-                  <span>{isArabic ? planet.nameAr : planet.nameEn}</span>
-                </button>
-              ))}
+            {/* Planet selector tabs with realistic photo avatars */}
+            <div className="flex flex-wrap items-center gap-2 p-2.5 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-md shadow-lg">
+              {PLANETS.map((planet) => {
+                const isSelected = selectedPlanetId === planet.id;
+                return (
+                  <button
+                    key={planet.id}
+                    onClick={() => setSelectedPlanetId(planet.id)}
+                    className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2.5 transition-all duration-200 cursor-pointer select-none ${
+                      isSelected
+                        ? 'bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 text-white shadow-lg shadow-cyan-500/25 ring-2 ring-cyan-400 scale-[1.03]'
+                        : 'bg-slate-950/80 text-slate-300 hover:bg-slate-800 hover:text-white border border-slate-800 hover:border-slate-700'
+                    }`}
+                  >
+                    <img
+                      src={planet.imageSrc}
+                      alt={planet.nameEn}
+                      className={`w-5 h-5 rounded-full object-cover shrink-0 border ${
+                        isSelected ? 'border-white ring-2 ring-white/40' : 'border-white/30'
+                      }`}
+                    />
+                    <span>{isArabic ? planet.nameAr : planet.nameEn}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Featured Ultra-Realistic High-Resolution Celestial Viewport */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+              {/* Main Realistic Photographic Display */}
+              <div className="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-800 bg-gradient-to-b from-slate-950 via-slate-900 to-black p-5 relative shadow-2xl flex flex-col justify-between group">
+                {/* Header tags */}
+                <div className="flex items-center justify-between z-10">
+                  <div className="px-3 py-1 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-xs font-bold text-slate-200 flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                    <span>
+                      {isArabic
+                        ? 'صورة فوتوغرافية حقيقية فائقة الدقة (NASA / JPL)'
+                        : 'Ultra High-Res NASA / JPL Photography'}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setLightboxImage({
+                        src: activePlanet.imageSrc,
+                        title: isArabic ? activePlanet.nameAr : activePlanet.nameEn,
+                        subtitle: isArabic ? activePlanet.typeAr : activePlanet.typeEn,
+                      })
+                    }
+                    className="px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-cyan-600 text-slate-200 hover:text-white border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
+                  >
+                    <ZoomIn className="w-3.5 h-3.5" />
+                    <span>{isArabic ? 'تكبير كامل الشاشة' : 'Zoom HD'}</span>
+                  </button>
+                </div>
+
+                {/* Celestial Sphere Graphic with Atmospheric Shading */}
+                <div className="my-6 relative flex items-center justify-center">
+                  {/* Outer atmospheric aura */}
+                  <div
+                    className="w-56 h-56 sm:w-72 sm:h-72 rounded-full absolute pointer-events-none blur-2xl opacity-40 transition-all duration-700"
+                    style={{
+                      backgroundColor:
+                        activePlanet.id === 'sun'
+                          ? '#f59e0b'
+                          : activePlanet.id === 'earth'
+                          ? '#38bdf8'
+                          : activePlanet.id === 'mars'
+                          ? '#ef4444'
+                          : activePlanet.id === 'uranus'
+                          ? '#22d3ee'
+                          : activePlanet.id === 'neptune'
+                          ? '#3b82f6'
+                          : activePlanet.id === 'saturn'
+                          ? '#facc15'
+                          : '#a855f7',
+                    }}
+                  />
+                  {/* Photo Container */}
+                  <div className="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.9)] border border-white/20 group-hover:scale-[1.02] transition-transform duration-500">
+                    <img
+                      src={activePlanet.imageSrc}
+                      alt={activePlanet.nameEn}
+                      className="w-full h-full object-cover select-none"
+                    />
+                    {/* Realistic subtle day-night terminator shadow if not Sun */}
+                    {activePlanet.id !== 'sun' && (
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-black/60 via-transparent to-white/10 pointer-events-none" />
+                    )}
+                  </div>
+                </div>
+
+                {/* Bottom Footer Info */}
+                <div className="flex items-center justify-between text-xs z-10 pt-3 border-t border-slate-800/80">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: activePlanet.color }} />
+                    <span className="font-bold text-white text-sm">{isArabic ? activePlanet.nameAr : activePlanet.nameEn}</span>
+                    <span className="text-slate-400 font-mono text-[11px]">({isArabic ? activePlanet.typeAr : activePlanet.typeEn})</span>
+                  </div>
+                  <span className="font-mono text-cyan-400 font-semibold text-xs">
+                    {activePlanet.id === 'sun'
+                      ? isArabic
+                        ? 'النجم المركزي للمجموعة'
+                        : 'Primary Central Star'
+                      : activePlanet.id === 'moon'
+                      ? isArabic
+                        ? 'قمر الأرض التابع'
+                        : 'Natural Satellite'
+                      : isArabic
+                      ? `${(activePlanet.radiusKm / 6371).toFixed(2)} × حجم الأرض`
+                      : `${(activePlanet.radiusKm / 6371).toFixed(2)} × Earth Radius`}
+                  </span>
+                </div>
+              </div>
+
+              {/* Surface Landmarks & Geological Highlights Card */}
+              <div className="lg:col-span-5 flex flex-col justify-between gap-3">
+                {/* Highlights Card */}
+                <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 shadow-xl space-y-3">
+                  <h4 className="text-xs font-bold text-cyan-400 flex items-center gap-2 uppercase tracking-wider">
+                    <Globe className="w-4 h-4 text-cyan-400" />
+                    <span>{isArabic ? 'أبرز المعالم الجيولوجية والسطحية:' : 'Geological & Surface Highlights:'}</span>
+                  </h4>
+                  <ul className="space-y-2.5 text-xs text-slate-300">
+                    {(isArabic ? activePlanet.highlightsAr : activePlanet.highlightsEn).map((h, i) => (
+                      <li key={i} className="flex items-start gap-2.5 leading-relaxed">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 shrink-0 mt-1.5" />
+                        <span className="font-medium">{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Physical Comparison Card */}
+                <div className="p-5 rounded-2xl bg-slate-950/80 border border-slate-800 shadow-xl space-y-3">
+                  <h4 className="text-xs font-bold text-amber-400 flex items-center gap-2 uppercase tracking-wider">
+                    <Sparkles className="w-4 h-4 text-amber-400" />
+                    <span>{isArabic ? 'المعايير المدارية والكتلية المقارنة:' : 'Orbital & Mass Comparative Metrics:'}</span>
+                  </h4>
+                  <div className="grid grid-cols-2 gap-3 text-xs font-mono">
+                    <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                      <span className="text-slate-400 block mb-1 text-[11px]">{isArabic ? 'الكتلة (مقارنة بالأرض):' : 'Mass (Earths):'}</span>
+                      <span className="text-indigo-300 font-bold text-sm">{activePlanet.massEarth.toLocaleString()} M⊕</span>
+                    </div>
+                    <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+                      <span className="text-slate-400 block mb-1 text-[11px]">{isArabic ? 'زمن الدورة المدارية:' : 'Orbital Period:'}</span>
+                      <span className="text-cyan-300 font-bold text-sm">
+                        {activePlanet.orbitalPeriodDays === 0
+                          ? isArabic
+                            ? 'مركز الجاذبية'
+                            : 'Barycenter'
+                          : isArabic
+                          ? `${activePlanet.orbitalPeriodDays.toLocaleString()} يوم أرضي`
+                          : `${activePlanet.orbitalPeriodDays.toLocaleString()} Days`}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Planet Details Card */}
@@ -738,23 +1162,6 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                 <span className="text-xs text-slate-400">{isArabic ? 'درجة الحرارة والغلاف:' : 'Surface Temp & Atmosphere:'}</span>
                 <div className="text-sm font-bold text-amber-400 font-mono">{activePlanet.tempC}°C</div>
                 <p className="text-[11px] text-slate-400 truncate">{isArabic ? activePlanet.atmosphereAr : activePlanet.atmosphereEn}</p>
-              </div>
-            </div>
-
-            <div className="p-5 rounded-xl bg-slate-950/60 border border-slate-800/80 space-y-3">
-              <h4 className="text-xs font-semibold text-slate-300 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-indigo-400" />
-                <span>{isArabic ? 'الخصائص الجيوفيزيائية والغلافية المقارنة:' : 'Planetary Geophysics & Atmosphere Summary:'}</span>
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-slate-400 block mb-1">{isArabic ? 'الكتلة مقارنة بالأرض:' : 'Mass Ratio:'}</span>
-                  <span className="text-indigo-300 font-bold">{activePlanet.massEarth} M⊕</span>
-                </div>
-                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-slate-400 block mb-1">{isArabic ? 'زمن الدورة المدارية:' : 'Orbital Period:'}</span>
-                  <span className="text-indigo-300 font-bold">{activePlanet.orbitalPeriodDays.toLocaleString()} Earth Days</span>
-                </div>
               </div>
             </div>
           </div>
@@ -885,28 +1292,28 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
 
                       {/* Axis Titles */}
                       <text x="18" y="130" fill="#38bdf8" fontSize="9" fontWeight="bold" fontFamily="monospace" transform="rotate(-90, 18, 130)" textAnchor="middle">
-                        Luminosity (L / L☉)
+                        {isArabic ? 'اللمعان النجمي (L / L☉)' : 'Luminosity (L / L☉)'}
                       </text>
                       <text x="518" y="130" fill="#64748b" fontSize="8" fontFamily="monospace" transform="rotate(90, 518, 130)" textAnchor="middle">
-                        Abs. Magnitude (M_V)
+                        {isArabic ? 'القدر المطلق (M_V)' : 'Abs. Magnitude (M_V)'}
                       </text>
 
                       {/* Supergiants Region (Ia / Ib) */}
                       <path d="M 75 32 Q 260 30 465 48 L 465 72 Q 260 55 75 58 Z" fill="#ef4444" fillOpacity="0.12" stroke="#ef4444" strokeWidth="1" strokeDasharray="3,2" />
                       <text x="270" y="44" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                        SUPERGIANTS (العمالقة الفائقة)
+                        {isArabic ? 'العمالقة الفائقة (SUPERGIANTS)' : 'SUPERGIANTS (العمالقة الفائقة)'}
                       </text>
 
                       {/* Red Giants Region (III) */}
                       <path d="M 330 65 Q 410 70 465 85 L 465 130 Q 400 115 330 100 Z" fill="#f97316" fillOpacity="0.14" stroke="#f97316" strokeWidth="1" strokeDasharray="3,2" />
                       <text x="400" y="98" fill="#fb923c" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                        RED GIANTS (العمالقة الحمر)
+                        {isArabic ? 'العمالقة الحمر (RED GIANTS)' : 'RED GIANTS (العمالقة الحمر)'}
                       </text>
 
                       {/* White Dwarfs Region (VII) */}
                       <path d="M 75 170 Q 150 178 210 190 L 210 230 Q 140 220 75 210 Z" fill="#38bdf8" fillOpacity="0.14" stroke="#38bdf8" strokeWidth="1" strokeDasharray="3,2" />
                       <text x="140" y="202" fill="#7dd3fc" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                        WHITE DWARFS (الأقزام البيضاء)
+                        {isArabic ? 'الأقزام البيضاء (WHITE DWARFS)' : 'WHITE DWARFS (الأقزام البيضاء)'}
                       </text>
 
                       {/* Main Sequence (V) S-Curve Ribbon */}
@@ -918,41 +1325,53 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                         strokeLinecap="round"
                       />
                       <text x="210" y="116" fill="#e0e7ff" fontSize="10" fontWeight="bold" fontFamily="monospace" transform="rotate(22, 210, 116)">
-                        MAIN SEQUENCE • التتابع الرئيسي (V)
+                        {isArabic ? 'التتابع الرئيسي • MAIN SEQUENCE (V)' : 'MAIN SEQUENCE • التتابع الرئيسي (V)'}
                       </text>
 
                       {/* Benchmark Canonical Stars */}
                       {/* Betelgeuse (M2I) */}
                       <circle cx="430" cy="52" r="5" fill="#ef4444" />
-                      <text x="430" y="44" fill="#fca5a5" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Betelgeuse</text>
+                      <text x="430" y="44" fill="#fca5a5" fontSize="7.5" textAnchor="middle" fontFamily="monospace">
+                        {isArabic ? 'منكب الجوزاء' : 'Betelgeuse'}
+                      </text>
 
                       {/* Rigel (B8I) */}
                       <circle cx="130" cy="40" r="5" fill="#38bdf8" />
-                      <text x="130" y="32" fill="#bae6fd" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Rigel</text>
+                      <text x="130" y="32" fill="#bae6fd" fontSize="7.5" textAnchor="middle" fontFamily="monospace">
+                        {isArabic ? 'رجل الجوزاء' : 'Rigel'}
+                      </text>
 
                       {/* Aldebaran (K5III) */}
                       <circle cx="390" cy="90" r="4" fill="#fb923c" />
-                      <text x="390" y="82" fill="#fed7aa" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Aldebaran</text>
+                      <text x="390" y="82" fill="#fed7aa" fontSize="7.5" textAnchor="middle" fontFamily="monospace">
+                        {isArabic ? 'الدبران' : 'Aldebaran'}
+                      </text>
 
                       {/* Vega (A0V) */}
                       <circle cx="180" cy="92" r="3.5" fill="#e0e7ff" />
-                      <text x="180" y="84" fill="#f1f5f9" fontSize="7.5" textAnchor="middle" fontFamily="monospace">Vega</text>
+                      <text x="180" y="84" fill="#f1f5f9" fontSize="7.5" textAnchor="middle" fontFamily="monospace">
+                        {isArabic ? 'النسر الواقع' : 'Vega'}
+                      </text>
 
                       {/* The SUN (G2V, L=1, T=5778K, center of diagram) */}
                       <circle cx="290" cy="140" r="7" fill="url(#sunGlow)" />
                       <circle cx="290" cy="140" r="3.5" fill="#facc15" />
                       <circle cx="290" cy="140" r="5.5" fill="none" stroke="#fef08a" strokeWidth="1" />
                       <text x="290" y="156" fill="#fde047" fontSize="8.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                        ☉ Sun (شمسنا 1L)
+                        {isArabic ? '☉ الشمس (شمسنا 1L)' : '☉ Sun (1 L☉)'}
                       </text>
 
                       {/* Sirius B (White Dwarf) */}
                       <circle cx="120" cy="195" r="2.5" fill="#7dd3fc" />
-                      <text x="120" y="188" fill="#bae6fd" fontSize="7" textAnchor="middle" fontFamily="monospace">Sirius B</text>
+                      <text x="120" y="188" fill="#bae6fd" fontSize="7" textAnchor="middle" fontFamily="monospace">
+                        {isArabic ? 'الشعرى اليمانية ب' : 'Sirius B'}
+                      </text>
 
                       {/* Proxima Centauri (M5V) */}
                       <circle cx="450" cy="220" r="2.5" fill="#f87171" />
-                      <text x="450" y="213" fill="#fca5a5" fontSize="7" textAnchor="middle" fontFamily="monospace">Proxima Cen</text>
+                      <text x="450" y="213" fill="#fca5a5" fontSize="7" textAnchor="middle" fontFamily="monospace">
+                        {isArabic ? 'قنطور الأقرب' : 'Proxima Cen'}
+                      </text>
 
                       {/* Active Dynamic Star Position Marker */}
                       {(() => {
@@ -1149,7 +1568,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                       <circle cx="0" cy="0" r="14" fill="#fef08a" />
                       <circle cx="0" cy="0" r="10" fill="#facc15" />
                       <text x="0" y="24" fill="#fde047" fontSize="8.5" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                        ☉ Sun
+                        {isArabic ? '☉ الشمس' : '☉ Sun'}
                       </text>
 
                       {/* Departure Orbit (Earth Orbit r1 = 60 AU-scaled) */}
@@ -1157,7 +1576,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                       {/* Orbit direction arrow */}
                       <polygon points="0,-60 -5,-57 -5,-63" fill="#60a5fa" />
                       <text x="0" y="-65" fill="#93c5fd" fontSize="8" textAnchor="middle" fontFamily="monospace">
-                        Departure Orbit (r₁ = 1.00 AU)
+                        {isArabic ? 'مدار الانطلاق (ن_١ = ١.٠٠ و.ف)' : 'Departure Orbit (r₁ = 1.00 AU)'}
                       </text>
 
                       {/* Arrival Orbit (Target Planet Orbit r2 = 135 AU-scaled) */}
@@ -1165,7 +1584,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                       {/* Orbit direction arrow */}
                       <polygon points="0,135 5,132 5,138" fill="#f87171" />
                       <text x="0" y="148" fill="#fca5a5" fontSize="8" textAnchor="middle" fontFamily="monospace">
-                        Target Orbit (r₂ = 1.52 AU)
+                        {isArabic ? 'المدار الهدف (ن_٢ = ١.٥٢ و.ف)' : 'Target Orbit (r₂ = 1.52 AU)'}
                       </text>
 
                       {/* Hohmann Semi-Elliptical Transfer Trajectory Path */}
@@ -1180,7 +1599,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                       {/* Mid-trajectory velocity vector */}
                       <polygon points="-37.5,-55 -30,-50 -30,-60" fill="#34d399" />
                       <text x="-37.5" y="-63" fill="#34d399" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                        Hohmann Trajectory (Δv_total = Δv₁ + Δv₂)
+                        {isArabic ? 'مسار هوهمان الانتقالي (Δv الإجمالية)' : 'Hohmann Trajectory (Δv_total = Δv₁ + Δv₂)'}
                       </text>
 
                       {/* Earth at Departure (r1 = 60, 0) */}
@@ -1196,7 +1615,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                           Δv₁ (+2.94 km/s)
                         </text>
                         <text x="0" y="20" fill="#93c5fd" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                          Earth (الانطلاق)
+                          {isArabic ? 'الأرض (نقطة الانطلاق)' : 'Earth (Departure)'}
                         </text>
                       </g>
 
@@ -1215,7 +1634,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                           Δv₂ (+2.65 km/s)
                         </text>
                         <text x="0" y="20" fill="#fca5a5" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                          Mars (الالتقاء المداري)
+                          {isArabic ? 'المريخ (الالتقاء المداري)' : 'Mars (Rendezvous)'}
                         </text>
                       </g>
 
@@ -1228,7 +1647,7 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                         strokeDasharray="2,2"
                       />
                       <text x="36" y="-14" fill="#fbbf24" fontSize="8" fontWeight="bold" fontFamily="monospace">
-                        Phase Angle φ ≈ 44°
+                        {isArabic ? 'زاوية الطور φ ≈ 44°' : 'Phase Angle φ ≈ 44°'}
                       </text>
                     </svg>
                   </div>
@@ -1264,10 +1683,10 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                     onChange={(e) => setSurfaceType(e.target.value as any)}
                     className="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-indigo-500"
                   >
-                    <option value="forest">Dense Vegetation Forest (غابات كثيفة)</option>
-                    <option value="desert">Arid Desert Sand (صحراء وتربة مكشوفة)</option>
-                    <option value="water">Deep Water / Ocean (مسطح مائي عميق)</option>
-                    <option value="urban">Urban Concrete Settlement (منطقة عمرانية)</option>
+                    <option value="forest">{isArabic ? 'غابات ونباتات كثيفة' : 'Dense Vegetation Forest'}</option>
+                    <option value="desert">{isArabic ? 'صحراء وتربة مكشوفة' : 'Arid Desert Sand'}</option>
+                    <option value="water">{isArabic ? 'مسطح مائي عميق' : 'Deep Water / Ocean'}</option>
+                    <option value="urban">{isArabic ? 'منطقة عمرانية وخرسانية' : 'Urban Concrete Settlement'}</option>
                   </select>
                 </div>
 
@@ -1308,28 +1727,28 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-[11px] font-mono text-slate-400">~5%</span>
                       <div style={{ height: '30px' }} className="w-14 rounded-t-lg bg-blue-500/80 shadow-md shadow-blue-500/30" />
-                      <span className="text-[10px] font-mono text-slate-400">Blue (480nm)</span>
+                      <span className="text-[10px] font-mono text-slate-400">{isArabic ? 'الأزرق (480nm)' : 'Blue (480nm)'}</span>
                     </div>
 
                     {/* Green Band Bar */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-[11px] font-mono text-slate-400">~12%</span>
                       <div style={{ height: '55px' }} className="w-14 rounded-t-lg bg-emerald-500/80 shadow-md shadow-emerald-500/30" />
-                      <span className="text-[10px] font-mono text-slate-400">Green (560nm)</span>
+                      <span className="text-[10px] font-mono text-slate-400">{isArabic ? 'الأخضر (560nm)' : 'Green (560nm)'}</span>
                     </div>
 
                     {/* Red Band Bar */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-[11px] font-mono text-rose-400 font-bold">{spectralData.redReflect * 100}%</span>
                       <div style={{ height: `${spectralData.redReflect * 180}px` }} className="w-14 rounded-t-lg bg-rose-500 shadow-lg shadow-rose-500/40" />
-                      <span className="text-[10px] font-mono text-slate-400">Red (660nm)</span>
+                      <span className="text-[10px] font-mono text-slate-400">{isArabic ? 'الأحمر (660nm)' : 'Red (660nm)'}</span>
                     </div>
 
                     {/* NIR Band Bar */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-[11px] font-mono text-emerald-300 font-bold">{spectralData.nirReflect * 100}%</span>
                       <div style={{ height: `${spectralData.nirReflect * 180}px` }} className="w-14 rounded-t-lg bg-gradient-to-t from-emerald-600 to-teal-400 shadow-lg shadow-emerald-500/50" />
-                      <span className="text-[10px] font-mono text-slate-400">NIR (840nm)</span>
+                      <span className="text-[10px] font-mono text-slate-400">{isArabic ? 'تحت الحمراء (840nm)' : 'NIR (840nm)'}</span>
                     </div>
                   </div>
                 </div>
@@ -1340,6 +1759,49 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
                     : 'Active chlorophyll absorbs visible red photons for photosynthesis while cellular structures reflect near-infrared (NIR), creating high NDVI values for healthy biomass.'}
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {/* Full-Screen High-Resolution Lightbox Modal */}
+        {lightboxImage && (
+          <div
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            onClick={() => setLightboxImage(null)}
+          >
+            <div
+              className="relative max-w-2xl w-full bg-slate-950/95 border border-slate-700/80 rounded-3xl p-6 shadow-2xl flex flex-col items-center gap-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="w-full flex items-center justify-between pb-3 border-b border-slate-800">
+                <div>
+                  <h3 className="text-xl font-bold text-white tracking-wide">{lightboxImage.title}</h3>
+                  {lightboxImage.subtitle && (
+                    <p className="text-xs text-cyan-400 font-mono mt-0.5">{lightboxImage.subtitle}</p>
+                  )}
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setLightboxImage(null)}
+                  className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-2 border-slate-700/60 shadow-[0_0_80px_rgba(0,0,0,0.95)] flex items-center justify-center">
+                <img
+                  src={lightboxImage.src}
+                  alt={lightboxImage.title}
+                  className="w-full h-full object-cover select-none"
+                />
+              </div>
+
+              <p className="text-xs text-slate-400 text-center max-w-md">
+                {isArabic
+                  ? 'تصوير فلكي فائق الدقة (NASA/JPL) يوضح المعالم التضاريسية والغلاف الجوي بدقة متناهية.'
+                  : 'High-resolution celestial photographic imaging (NASA/JPL) showcasing planetary morphology and atmospheric structure.'}
+              </p>
             </div>
           </div>
         )}

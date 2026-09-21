@@ -809,17 +809,24 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     }
     ctx.restore();
 
-    // 7. External Circuit & Precision Analog Gauges
+    // 7. External Circuit & Precision Analog Gauges (Heavy Insulated Cabling & Large Meters)
     ctx.save();
-    ctx.strokeStyle = '#64748b';
-    ctx.lineWidth = 2.5;
+    // Heavy insulated copper wire
+    ctx.strokeStyle = '#b45309';
+    ctx.lineWidth = 6.5;
+    ctx.lineCap = 'round';
     ctx.beginPath();
     ctx.moveTo(cathodeX - 60, 260);
-    ctx.lineTo(200, 260);
-    ctx.moveTo(280, 260);
+    ctx.lineTo(190, 260);
+    ctx.moveTo(290, 260);
     ctx.lineTo(330, 260);
-    ctx.moveTo(410, 260);
+    ctx.moveTo(430, 260);
     ctx.lineTo(anodeX + 30, 260);
+    ctx.stroke();
+
+    // Metallic specular highlight
+    ctx.strokeStyle = '#fef08a';
+    ctx.lineWidth = 2.0;
     ctx.stroke();
 
     // Realistic Analog Precision Microammeter Gauge (Curved Scale & Needle)
@@ -827,7 +834,7 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx,
       240,
       260,
-      36,
+      48,
       measuredCurrentUA,
       0,
       150,
@@ -838,9 +845,9 @@ export const PhotoelectricLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     // Realistic Analog Precision Voltmeter Gauge (Curved Scale & Needle)
     drawAnalogMeterGauge(
       ctx,
-      370,
+      380,
       260,
-      36,
+      48,
       params.biasVoltage,
       -5,
       5,

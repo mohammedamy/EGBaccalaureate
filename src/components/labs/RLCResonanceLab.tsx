@@ -438,7 +438,7 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // --- Heavy Laboratory Copper Connecting Wire Loop ---
     ctx.strokeStyle = '#b45309';
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 7.5;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
     ctx.beginPath();
@@ -455,7 +455,7 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
     // Inner wire highlight for metallic reflection
     ctx.strokeStyle = '#fef08a';
-    ctx.lineWidth = 1.5;
+    ctx.lineWidth = 2.4;
     ctx.beginPath();
     ctx.moveTo(lx, ty);
     ctx.lineTo(rx, ty);
@@ -635,12 +635,12 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx,
       voltMeterX,
       voltMeterY,
-      34,
+      48,
       vSourceRms,
       0,
       250,
-      'V',
-      'AC Voltmeter'
+      isArabic ? 'فولتميتر AC' : 'AC VOLTS',
+      'V'
     );
 
     // AC Ammeter Gauge (I_rms)
@@ -651,12 +651,12 @@ export const RLCResonanceLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx,
       ammeterX,
       ammeterY,
-      34,
+      48,
       currentRms,
       0,
       maxScaleI,
-      'A',
-      'AC Ammeter'
+      isArabic ? 'أميتر AC' : 'AC AMPS',
+      'A'
     );
 
     // --- 6. Continuous 60 FPS Electron Current Flow ---

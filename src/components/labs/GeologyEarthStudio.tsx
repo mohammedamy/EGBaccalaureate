@@ -357,19 +357,19 @@ export const GeologyEarthStudio: React.FC<Props> = ({
   return (
     <div className={`flex flex-col w-full rounded-2xl border ${containerBg} p-4 md:p-6 transition-all duration-300 ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-4 md:p-6' : ''}`} data-fullscreen-lab={isFullscreen ? 'true' : undefined} dir={isArabic ? 'rtl' : 'ltr'}>
       {/* Studio Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b border-stone-800">
+      <div className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
         <div className="flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-gradient-to-tr from-amber-600 via-stone-700 to-emerald-700 text-white shadow-lg shadow-amber-900/20">
             <Mountain className="w-7 h-7" />
           </div>
           <div>
             <h2 className="text-xl md:text-2xl font-bold flex items-center gap-2">
-              <span>{isArabic ? 'استوديو علوم الأرض والبيئة التفاعلي' : 'Earth Science & Environmental Studio'}</span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full font-medium bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              <span className={isLight ? 'text-stone-900 font-extrabold' : ''}>{isArabic ? 'استوديو علوم الأرض والبيئة التفاعلي' : 'Earth Science & Environmental Studio'}</span>
+              <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'}`}>
                 {isArabic ? 'الجيولوجيا الرسمية' : 'Official Geology & Eco'}
               </span>
             </h2>
-            <p className="text-xs md:text-sm text-stone-400">
+            <p className={`text-xs md:text-sm ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
               {isArabic
                 ? 'محاكاة تفاعلية للأنظمة البلورية السبعة، متسلسلة بوين، تكتونية الصفائح، القطاعات الطبقية، وهرم الطاقة البيئية'
                 : 'Interactive simulator for 7 Crystal Systems, Bowen Reaction Series, Plate Tectonics, Stratigraphy, and Eco-Energy Pyramids'}
@@ -378,12 +378,14 @@ export const GeologyEarthStudio: React.FC<Props> = ({
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-stone-900 border border-stone-800">
+        <div className={`flex flex-wrap gap-1.5 p-1 rounded-xl ${isLight ? 'bg-stone-200/90 border border-stone-300' : 'bg-stone-900 border border-stone-800'}`}>
           <button
             onClick={() => setActiveMode('crystals')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
               activeMode === 'crystals'
                 ? 'bg-amber-600 text-white shadow-md'
+                : isLight
+                ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90 font-bold'
                 : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
             }`}
           >
@@ -392,9 +394,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('bowen')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
               activeMode === 'bowen'
                 ? 'bg-orange-600 text-white shadow-md'
+                : isLight
+                ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90 font-bold'
                 : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
             }`}
           >
@@ -403,9 +407,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('tectonics')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
               activeMode === 'tectonics'
                 ? 'bg-emerald-600 text-white shadow-md'
+                : isLight
+                ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90 font-bold'
                 : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
             }`}
           >
@@ -414,9 +420,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('stratigraphy')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
               activeMode === 'stratigraphy'
                 ? 'bg-stone-600 text-white shadow-md'
+                : isLight
+                ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90 font-bold'
                 : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
             }`}
           >
@@ -425,9 +433,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('ecosystem')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all ${
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
               activeMode === 'ecosystem'
                 ? 'bg-cyan-600 text-white shadow-md'
+                : isLight
+                ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90 font-bold'
                 : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
             }`}
           >
@@ -437,7 +447,9 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs md:text-sm font-medium transition-all text-stone-400 hover:text-stone-200 hover:bg-stone-800/50 cursor-pointer"
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+              isLight ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90' : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
             title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4 text-amber-400" /> : <Maximize2 className="w-4 h-4 text-amber-400" />}
@@ -457,11 +469,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className="lg:col-span-7 flex flex-col gap-4">
               <div className={`p-5 rounded-xl border ${cardBg}`}>
                 <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                  <span className="flex items-center gap-2 text-amber-400">
+                  <span className={`flex items-center gap-2 ${isLight ? 'text-amber-800 font-extrabold' : 'text-amber-400'}`}>
                     <Gem className="w-5 h-5" />
                     {isArabic ? 'فاحص الأنظمة البلورية السبعة' : '7 Crystal Systems Inspector'}
                   </span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/50">
+                  <span className={`text-xs px-2 py-0.5 rounded font-bold ${isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-amber-950/60 text-amber-300 border border-amber-800/50'}`}>
                     {isArabic ? 'الهندسة البلورية' : 'Crystallography'}
                   </span>
                 </h3>
@@ -472,9 +484,13 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     <button
                       key={key}
                       onClick={() => setSelectedSystem(key)}
-                      className={`px-3 py-2 rounded-lg text-xs font-medium border text-start transition-all ${
+                      className={`px-3 py-2 rounded-lg text-xs font-medium border text-start transition-all cursor-pointer ${
                         selectedSystem === key
-                          ? 'bg-amber-600/30 border-amber-500 text-amber-200 shadow-sm'
+                          ? isLight
+                            ? 'bg-amber-500 text-white border-amber-600 shadow-md font-bold'
+                            : 'bg-amber-600/30 border-amber-500 text-amber-200 shadow-sm font-bold'
+                          : isLight
+                          ? 'border-stone-300 bg-white text-stone-800 hover:bg-stone-100 hover:text-stone-950 font-semibold shadow-2xs'
                           : 'border-stone-800 bg-stone-900/50 text-stone-400 hover:text-stone-200 hover:border-stone-700'
                       }`}
                     >
@@ -484,7 +500,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 </div>
 
                 {/* Crystal 3D SVG Projection & Structural Parameters */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-stone-950/60 p-4 rounded-xl border border-stone-800">
+                <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-center p-4 rounded-xl border ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/60 border-stone-800'}`}>
                   {/* High-Resolution Realistic 3D Faceted Crystal Viewport */}
                   <div className="h-60 flex items-center justify-center relative overflow-hidden rounded-xl bg-gradient-to-b from-stone-900 via-stone-950 to-black p-4 border border-stone-800 shadow-2xl">
                     <svg viewBox="-120 -110 240 220" className="w-56 h-56 drop-shadow-2xl">
@@ -512,9 +528,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                       <line x1="0" y1="90" x2="0" y2="-90" stroke="#f59e0b" strokeWidth="1.8" strokeDasharray="4 3" opacity="0.6" />
                       <line x1="-80" y1="45" x2="80" y2="-45" stroke="#10b981" strokeWidth="1.8" strokeDasharray="4 3" opacity="0.6" />
                       <line x1="-90" y1="-25" x2="90" y2="25" stroke="#3b82f6" strokeWidth="1.8" strokeDasharray="4 3" opacity="0.6" />
-                      <text x="5" y="-88" fill="#f59e0b" fontSize="9" fontWeight="bold" fontFamily="monospace">c-axis</text>
-                      <text x="82" y="-43" fill="#10b981" fontSize="9" fontWeight="bold" fontFamily="monospace">b-axis</text>
-                      <text x="88" y="27" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace">a-axis</text>
+                      <text x="5" y="-88" fill="#f59e0b" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                        {isArabic ? (selectedSystem === 'cubic' ? 'المحور الرأسي أ٣ (c)' : 'المحور الرأسي جـ (c)') : 'c-axis'}
+                      </text>
+                      <text x="82" y="-43" fill="#10b981" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                        {isArabic ? (selectedSystem === 'cubic' ? 'المحور الأفقي أ٢ (b)' : 'المحور الأفقي ب (b)') : 'b-axis'}
+                      </text>
+                      <text x="88" y="27" fill="#3b82f6" fontSize="9" fontWeight="bold" fontFamily="monospace">
+                        {isArabic ? (selectedSystem === 'cubic' ? 'المحور الأفقي أ١ (a)' : 'المحور الأفقي أ (a)') : 'a-axis'}
+                      </text>
 
                       {/* 1. CUBIC SYSTEM (Halite / Pyrite) - Isometric Hexahedron with Beveled Facets */}
                       {selectedSystem === 'cubic' && (
@@ -563,7 +585,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           {/* Rhombic Bevel Edge */}
                           <line x1="0" y1="-50" x2="0" y2="60" stroke="#fef08a" strokeWidth="1.8" />
                           <text x="0" y="80" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                            Orthorhombic • أحادي الميل القائم (Topaz)
+                            {isArabic ? 'منشور معيني قائم • التوباز (Topaz)' : 'Orthorhombic Prism • Topaz'}
                           </text>
                         </g>
                       )}
@@ -592,37 +614,35 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           {/* Oblique Skewed Top */}
                           <polygon points="28,-58 70,-15 15,18 -40,-25" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
                           {/* Skewed Right Face */}
-                          <polygon points="15,18 70,-15 40,50 -15,82" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          <polygon points="15,18 70,-15 48,50 -08,78" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
                           {/* Skewed Left Face */}
-                          <polygon points="15,18 -40,-25 -65,42 -15,82" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
-                          <text x="0" y="100" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                            Triclinic • ثلاثي الميل (Microcline)
+                          <polygon points="15,18 -40,-25 -65,38 -08,78" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
+                          <text x="0" y="96" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
+                            Triclinic Pinacoid • ثلاثي الميل (Feldspar)
                           </text>
                         </g>
                       )}
 
-                      {/* 6. HEXAGONAL SYSTEM (Beryl / Emerald) - 6-Sided Di-Hexagonal Prism */}
+                      {/* 6. HEXAGONAL SYSTEM (Beryl / Apatite) - 4-Axis Hexagonal Prism with Basal Pinacoid */}
                       {selectedSystem === 'hexagonal' && (
                         <g>
-                          {/* Top Hexagonal Basal Pinacoid */}
-                          <polygon points="0,-82 42,-64 42,-22 0,-4 -42,-22 -42,-64" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
-                          {/* Front Center Column Facet */}
-                          <polygon points="0,-4 42,-22 42,48 0,66" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
-                          {/* Front Left Column Facet */}
-                          <polygon points="0,-4 -42,-22 -42,48 0,66" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
-                          {/* Right Side Facet */}
-                          <polygon points="42,-22 68,-38 68,32 42,48" fill="url(#facetShadow)" stroke="#78350f" strokeWidth="1.5" />
+                          {/* Top Regular Hexagonal Base */}
+                          <polygon points="0,-65 48,-42 48,5 0,-18 -48,5 -48,-42" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* Front Right Face */}
+                          <polygon points="0,-18 48,5 48,65 0,42" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
+                          {/* Front Left Face */}
+                          <polygon points="0,-18 -48,5 -48,65 0,42" fill="url(#facetShadow)" stroke="#b45309" strokeWidth="1.5" />
                           <text x="0" y="85" fill="#fef08a" fontSize="9" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
                             Hexagonal Prism • سداسي الأوجه (Beryl)
                           </text>
                         </g>
                       )}
 
-                      {/* 7. TRIGONAL SYSTEM (Calcite / Quartz) - Rhombohedron with 3-Fold Symmetry */}
+                      {/* 7. TRIGONAL SYSTEM (Calcite / Quartz) - 3-Fold Axis Rhombohedron */}
                       {selectedSystem === 'trigonal' && (
                         <g>
-                          {/* Rhombohedral Vertex Top Facet */}
-                          <polygon points="0,-78 50,-40 0,-2 -50,-40" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
+                          {/* 3-Fold Apex Rhomb */}
+                          <polygon points="0,-75 50,-40 0,-2 -50,-40" fill="url(#facetHighlight)" stroke="#fef3c7" strokeWidth="1.5" />
                           {/* 3-Fold Rhomb Face Right */}
                           <polygon points="0,-2 50,-40 45,35 0,72" fill="url(#facetMidtone)" stroke="#d97706" strokeWidth="1.5" />
                           {/* 3-Fold Rhomb Face Left */}
@@ -644,26 +664,26 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   {/* System Parameters Details */}
                   <div className="flex flex-col gap-2 text-xs">
                     <div>
-                      <span className="text-stone-400 font-medium">{isArabic ? 'المحاور البلورية:' : 'Crystallographic Axes:'}</span>
-                      <p className="font-semibold text-amber-300 font-mono">
+                      <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400 font-medium'}`}>{isArabic ? 'المحاور البلورية:' : 'Crystallographic Axes:'}</span>
+                      <p className={`font-semibold font-mono ${isLight ? 'text-amber-800 font-bold' : 'text-amber-300'}`}>
                         {isArabic ? crystalSystemsData[selectedSystem].axesAr : crystalSystemsData[selectedSystem].axesEn}
                       </p>
                     </div>
                     <div>
-                      <span className="text-stone-400 font-medium">{isArabic ? 'الزوايا بين المحاور:' : 'Interaxial Angles:'}</span>
-                      <p className="font-semibold text-emerald-300 font-mono">
+                      <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400 font-medium'}`}>{isArabic ? 'الزوايا بين المحاور:' : 'Interaxial Angles:'}</span>
+                      <p className={`font-semibold font-mono ${isLight ? 'text-emerald-800 font-bold' : 'text-emerald-300'}`}>
                         {isArabic ? crystalSystemsData[selectedSystem].anglesAr : crystalSystemsData[selectedSystem].anglesEn}
                       </p>
                     </div>
                     <div>
-                      <span className="text-stone-400 font-medium">{isArabic ? 'درجة التماثل البلوري:' : 'Symmetry Characteristics:'}</span>
-                      <p className="text-stone-300">
+                      <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400 font-medium'}`}>{isArabic ? 'درجة التماثل البلوري:' : 'Symmetry Characteristics:'}</span>
+                      <p className={isLight ? 'text-stone-900 font-semibold' : 'text-stone-300'}>
                         {isArabic ? crystalSystemsData[selectedSystem].symmetryAr : crystalSystemsData[selectedSystem].symmetryEn}
                       </p>
                     </div>
                     <div>
-                      <span className="text-stone-400 font-medium">{isArabic ? 'أشهر الأمثلة في المنهج:' : 'Textbook Mineral Examples:'}</span>
-                      <p className="font-semibold text-sky-300">
+                      <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400 font-medium'}`}>{isArabic ? 'أشهر الأمثلة في المنهج:' : 'Textbook Mineral Examples:'}</span>
+                      <p className={`font-semibold ${isLight ? 'text-sky-800 font-bold' : 'text-sky-300'}`}>
                         {isArabic ? crystalSystemsData[selectedSystem].examplesAr : crystalSystemsData[selectedSystem].examplesEn}
                       </p>
                     </div>
@@ -676,24 +696,24 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className="lg:col-span-5 flex flex-col gap-4">
               <div className={`p-5 rounded-xl border ${cardBg}`}>
                 <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                  <span className="flex items-center gap-2 text-emerald-400">
+                  <span className={`flex items-center gap-2 ${isLight ? 'text-emerald-800 font-extrabold' : 'text-emerald-400'}`}>
                     <Activity className="w-5 h-5" />
                     {isArabic ? 'مختبر اختبار الخدش بمقياس موهس' : 'Mohs Scratch Testing Lab'}
                   </span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                  <span className={`text-xs px-2 py-0.5 rounded font-bold ${isLight ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-emerald-950/60 text-emerald-300 border border-emerald-800/50'}`}>
                     {isArabic ? 'الصلادة النسبية' : 'Relative Hardness'}
                   </span>
                 </h3>
 
                 {/* Select Mineral Dropdown */}
                 <div className="mb-4">
-                  <label className="block text-xs text-stone-400 mb-1 font-medium">
+                  <label className={`block text-xs mb-1 ${isLight ? 'text-stone-700 font-bold' : 'text-stone-400 font-medium'}`}>
                     {isArabic ? '١. اختر المعدن المراد اختباره:' : '1. Select Mineral to Test:'}
                   </label>
                   <select
                     value={selectedMineral}
                     onChange={(e) => setSelectedMineral(Number(e.target.value))}
-                    className="w-full bg-stone-900 border border-stone-700 rounded-lg p-2.5 text-xs text-stone-200 focus:outline-none focus:border-amber-500"
+                    className={`w-full rounded-lg p-2.5 text-xs focus:outline-none ${isLight ? 'bg-white border border-stone-300 text-stone-900 focus:border-amber-600 shadow-2xs font-semibold' : 'bg-stone-900 border border-stone-700 text-stone-200 focus:border-amber-500'}`}
                   >
                     {mohsMinerals.map((m) => (
                       <option key={m.rank} value={m.rank}>
@@ -705,13 +725,13 @@ export const GeologyEarthStudio: React.FC<Props> = ({
 
                 {/* Select Tool Dropdown */}
                 <div className="mb-5">
-                  <label className="block text-xs text-stone-400 mb-1 font-medium">
+                  <label className={`block text-xs mb-1 ${isLight ? 'text-stone-700 font-bold' : 'text-stone-400 font-medium'}`}>
                     {isArabic ? '٢. اختر أداة الخدش الشائعة:' : '2. Select Common Scratching Tool:'}
                   </label>
                   <select
                     value={selectedScratchTool}
                     onChange={(e) => setSelectedScratchTool(Number(e.target.value))}
-                    className="w-full bg-stone-900 border border-stone-700 rounded-lg p-2.5 text-xs text-stone-200 focus:outline-none focus:border-emerald-500"
+                    className={`w-full rounded-lg p-2.5 text-xs focus:outline-none ${isLight ? 'bg-white border border-stone-300 text-stone-900 focus:border-emerald-600 shadow-2xs font-semibold' : 'bg-stone-900 border border-stone-700 text-stone-200 focus:border-emerald-500'}`}
                   >
                     {scratchTools.map((t) => (
                       <option key={t.hardness} value={t.hardness}>
@@ -725,20 +745,24 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div
                   className={`p-4 rounded-xl border flex flex-col gap-3 transition-all ${
                     isMineralScratched
-                      ? 'bg-red-950/20 border-red-800/60 text-red-200'
-                      : 'bg-emerald-950/20 border-emerald-800/60 text-emerald-200'
+                      ? isLight
+                        ? 'bg-rose-50 border-rose-300 text-rose-950 font-medium shadow-2xs'
+                        : 'bg-red-950/20 border-red-800/60 text-red-200'
+                      : isLight
+                        ? 'bg-emerald-50 border-emerald-300 text-emerald-950 font-medium shadow-2xs'
+                        : 'bg-emerald-950/20 border-emerald-800/60 text-emerald-200'
                   }`}
                 >
                   <div className="flex items-center gap-2 font-bold text-sm">
                     {isMineralScratched ? (
                       <>
-                        <RotateCcw className="w-5 h-5 text-red-400" />
-                        <span>{isArabic ? 'النتيجة: تم خدش المعدن بنجاح!' : 'Result: Mineral is SCRATCHED!'}</span>
+                        <RotateCcw className={`w-5 h-5 ${isLight ? 'text-rose-700' : 'text-red-400'}`} />
+                        <span className={isLight ? 'text-rose-950 font-black' : ''}>{isArabic ? 'النتيجة: تم خدش المعدن بنجاح!' : 'Result: Mineral is SCRATCHED!'}</span>
                       </>
                     ) : (
                       <>
-                        <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                        <span>{isArabic ? 'النتيجة: المعدن يقاوم الخدش ويثلم الأداة!' : 'Result: Mineral RESISTS Scratching!'}</span>
+                        <ShieldCheck className={`w-5 h-5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
+                        <span className={isLight ? 'text-emerald-950 font-black' : ''}>{isArabic ? 'النتيجة: المعدن يقاوم الخدش ويثلم الأداة!' : 'Result: Mineral RESISTS Scratching!'}</span>
                       </>
                     )}
                   </div>
@@ -753,14 +777,14 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                         } ${currentMineralObj.nameEn} (Mohs ${currentMineralObj.rank}). Harder substances scratch softer ones.`}
                   </p>
 
-                  <div className="pt-2 border-t border-stone-800/50 grid grid-cols-2 gap-2 text-xs text-stone-300">
+                  <div className={`pt-2 border-t ${isLight ? 'border-stone-200' : 'border-stone-800/50'} grid grid-cols-2 gap-2 text-xs`}>
                     <div>
-                      <span className="text-stone-400 block">{isArabic ? 'لون المخدش التشخيصي:' : 'Diagnostic Streak:'}</span>
-                      <span className="font-semibold text-amber-300">{isArabic ? currentMineralObj.streakAr : currentMineralObj.streakEn}</span>
+                      <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'} block`}>{isArabic ? 'لون المخدش التشخيصي:' : 'Diagnostic Streak:'}</span>
+                      <span className={`font-semibold ${isLight ? 'text-amber-800 font-bold' : 'text-amber-300'}`}>{isArabic ? currentMineralObj.streakAr : currentMineralObj.streakEn}</span>
                     </div>
                     <div>
-                      <span className="text-stone-400 block">{isArabic ? 'نوع البريق:' : 'Luster Type:'}</span>
-                      <span className="font-semibold text-sky-300">{isArabic ? currentMineralObj.lusterAr : currentMineralObj.lusterEn}</span>
+                      <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'} block`}>{isArabic ? 'نوع البريق:' : 'Luster Type:'}</span>
+                      <span className={`font-semibold ${isLight ? 'text-sky-800 font-bold' : 'text-sky-300'}`}>{isArabic ? currentMineralObj.lusterAr : currentMineralObj.lusterEn}</span>
                     </div>
                   </div>
                 </div>
@@ -780,23 +804,23 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div>
                   <h3 className="text-base font-semibold flex items-center gap-2 text-orange-400">
                     <Flame className="w-5 h-5" />
-                    <span>{isArabic ? 'متسلسلة تفاعلات بوين الحرارية لتبلور الصهارة' : "Bowen's Reaction Series Temperature Ladder"}</span>
+                    <span className={isLight ? 'text-orange-950 font-black' : ''}>{isArabic ? 'متسلسلة تفاعلات بوين الحرارية لتبلور الصهارة' : "Bowen's Reaction Series Temperature Ladder"}</span>
                   </h3>
-                  <p className="text-xs text-stone-400">
+                  <p className={`text-xs ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
                     {isArabic
                       ? 'حرك مؤشر درجة الحرارة لاستكشاف المعادن المتبلورة في الفرعين المتصل وغير المتصل'
                       : 'Slide the temperature control to inspect active crystallization across discontinuous & continuous branches'}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 bg-stone-900 border border-stone-800 px-3 py-1.5 rounded-lg">
-                  <span className="text-xs text-stone-400">{isArabic ? 'درجة الحرارة الحالية:' : 'Current Temp:'}</span>
-                  <span className="text-sm font-bold text-orange-400 font-mono">{bowenTemp}°C</span>
+                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${isLight ? 'bg-stone-100 border-stone-300 shadow-2xs' : 'bg-stone-900 border-stone-800'}`}>
+                  <span className={`text-xs ${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'}`}>{isArabic ? 'درجة الحرارة الحالية:' : 'Current Temp:'}</span>
+                  <span className={`text-sm font-black font-mono ${isLight ? 'text-orange-700' : 'text-orange-400'}`}>{bowenTemp}°C</span>
                 </div>
               </div>
 
               {/* Temperature Slider */}
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-xs font-mono text-stone-400">1200°C ({isArabic ? 'بداية التبلور' : 'Early'})</span>
+                <span className={`text-xs font-mono font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>1200°C ({isArabic ? 'بداية التبلور' : 'Early'})</span>
                 <input
                   type="range"
                   min="750"
@@ -804,18 +828,18 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   step="25"
                   value={bowenTemp}
                   onChange={(e) => setBowenTemp(Number(e.target.value))}
-                  className="flex-1 accent-orange-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                  className={`flex-1 accent-orange-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                 />
-                <span className="text-xs font-mono text-stone-400">750°C ({isArabic ? 'نهاية التبلور' : 'Late'})</span>
+                <span className={`text-xs font-mono font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>750°C ({isArabic ? 'نهاية التبلور' : 'Late'})</span>
               </div>
 
               {/* Two Branches Visualization Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Discontinuous Branch (Mafic) */}
-                <div className="p-4 rounded-xl bg-stone-950/60 border border-stone-800 flex flex-col gap-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400 flex items-center justify-between">
+                <div className={`p-4 rounded-xl border flex flex-col gap-3 ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/60 border-stone-800'}`}>
+                  <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center justify-between ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                     <span>{isArabic ? 'الفرع غير المتصل (غني بالحديد والماغنسيوم)' : 'Discontinuous Branch (Fe-Mg Mafic)'}</span>
-                    <span className="text-[10px] font-normal text-stone-500">Olivine → Biotite</span>
+                    <span className={`text-[10px] font-semibold ${isLight ? 'text-stone-600' : 'text-stone-500'}`}>Olivine → Biotite</span>
                   </h4>
                   <div className="flex flex-col gap-2">
                     {[
@@ -828,15 +852,19 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                         key={idx}
                         className={`p-2.5 rounded-lg border flex items-center justify-between text-xs transition-all ${
                           bowenTemp <= item.temp
-                            ? 'bg-amber-950/30 border-amber-600/60 text-amber-200'
+                            ? isLight
+                              ? 'bg-amber-100/90 border-amber-400 text-amber-950 font-medium shadow-2xs'
+                              : 'bg-amber-950/30 border-amber-600/60 text-amber-200'
+                            : isLight
+                            ? 'bg-white border-stone-200 text-stone-500'
                             : 'bg-stone-900/40 border-stone-800 text-stone-500'
                         }`}
                       >
                         <div>
-                          <span className="font-bold block">{isArabic ? item.nameAr : item.nameEn}</span>
-                          <span className="text-[11px] text-stone-400">{isArabic ? item.descAr : item.descEn}</span>
+                          <span className={`font-bold block ${bowenTemp <= item.temp && isLight ? 'text-amber-950 font-black' : ''}`}>{isArabic ? item.nameAr : item.nameEn}</span>
+                          <span className={`text-[11px] ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>{isArabic ? item.descAr : item.descEn}</span>
                         </div>
-                        <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-stone-900 text-stone-300">
+                        <span className={`font-mono text-[11px] px-2 py-0.5 rounded font-bold ${isLight ? 'bg-white text-stone-800 border border-stone-200 shadow-2xs' : 'bg-stone-900 text-stone-300'}`}>
                           ~{item.temp}°C
                         </span>
                       </div>
@@ -845,10 +873,10 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 </div>
 
                 {/* Continuous Branch (Feldspar Plagioclase) */}
-                <div className="p-4 rounded-xl bg-stone-950/60 border border-stone-800 flex flex-col gap-3">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-sky-400 flex items-center justify-between">
+                <div className={`p-4 rounded-xl border flex flex-col gap-3 ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/60 border-stone-800'}`}>
+                  <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center justify-between ${isLight ? 'text-sky-900 font-black' : 'text-sky-400'}`}>
                     <span>{isArabic ? 'الفرع المتصل (الفلسبار البلاجيوكليزي)' : 'Continuous Branch (Plagioclase Feldspar)'}</span>
-                    <span className="text-[10px] font-normal text-stone-500">Ca-rich → Na-rich</span>
+                    <span className={`text-[10px] font-semibold ${isLight ? 'text-stone-600' : 'text-stone-500'}`}>Ca-rich → Na-rich</span>
                   </h4>
                   <div className="flex flex-col gap-2">
                     {[
@@ -860,15 +888,19 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                         key={idx}
                         className={`p-2.5 rounded-lg border flex items-center justify-between text-xs transition-all ${
                           bowenTemp <= item.temp
-                            ? 'bg-sky-950/30 border-sky-600/60 text-sky-200'
+                            ? isLight
+                              ? 'bg-sky-100/90 border-sky-400 text-sky-950 font-medium shadow-2xs'
+                              : 'bg-sky-950/30 border-sky-600/60 text-sky-200'
+                            : isLight
+                            ? 'bg-white border-stone-200 text-stone-500'
                             : 'bg-stone-900/40 border-stone-800 text-stone-500'
                         }`}
                       >
                         <div>
-                          <span className="font-bold block">{isArabic ? item.nameAr : item.nameEn}</span>
-                          <span className="text-[11px] text-stone-400">{isArabic ? item.descAr : item.descEn}</span>
+                          <span className={`font-bold block ${bowenTemp <= item.temp && isLight ? 'text-sky-950 font-black' : ''}`}>{isArabic ? item.nameAr : item.nameEn}</span>
+                          <span className={`text-[11px] ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>{isArabic ? item.descAr : item.descEn}</span>
                         </div>
-                        <span className="font-mono text-[11px] px-2 py-0.5 rounded bg-stone-900 text-stone-300">
+                        <span className={`font-mono text-[11px] px-2 py-0.5 rounded font-bold ${isLight ? 'bg-white text-stone-800 border border-stone-200 shadow-2xs' : 'bg-stone-900 text-stone-300'}`}>
                           ~{item.temp}°C
                         </span>
                       </div>
@@ -876,11 +908,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   </div>
 
                   {/* Late Crystallization Stage Box */}
-                  <div className="mt-1 p-3 rounded-lg border border-pink-900/40 bg-pink-950/10 text-xs">
-                    <span className="text-pink-400 font-bold block mb-1">
+                  <div className={`mt-1 p-3 rounded-lg border text-xs ${isLight ? 'bg-pink-100/80 border-pink-300 text-stone-900 shadow-2xs' : 'bg-pink-950/10 border-pink-900/40 text-stone-300'}`}>
+                    <span className={`font-bold block mb-1 ${isLight ? 'text-pink-900 font-black' : 'text-pink-400'}`}>
                       {isArabic ? 'المرحلة الأخيرة من التبلور (عند حوالي ٧٥٠°م):' : 'Final Magma Phase (~800°C - 750°C):'}
                     </span>
-                    <p className="text-stone-300 text-[11px]">
+                    <p className={`text-[11px] ${isLight ? 'text-stone-800 font-medium' : 'text-stone-300'}`}>
                       {isArabic
                         ? 'الفلسبار البوتاسي (الأرثوكليز) ← الميكا البيضاء (المسكوفيت) ← الكوارتز (آخر المعادن تبلوراً بنسبة ٢٥٪ في الجرانيت).'
                         : 'K-Feldspar (Orthoclase) → Muscovite (White Mica) → Quartz (Final mineral to crystallize, ~25% in Granite).'}
@@ -893,11 +925,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             {/* Bottom Igneous Rock Catalog */}
             <div className={`p-5 rounded-xl border ${cardBg}`}>
               <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                <span className="flex items-center gap-2 text-stone-200">
+                <span className={`flex items-center gap-2 ${isLight ? 'text-stone-900 font-extrabold' : 'text-stone-200'}`}>
                   <Mountain className="w-5 h-5 text-amber-500" />
                   {isArabic ? 'كتالوج ومطياف الصخور النارية' : 'Igneous Rocks Petrology Matrix'}
                 </span>
-                <span className="text-xs px-2 py-0.5 rounded bg-stone-800 text-stone-300">
+                <span className={`text-xs px-2 py-0.5 rounded ${isLight ? 'bg-stone-200 text-stone-900 border border-stone-300 font-bold' : 'bg-stone-800 text-stone-300'}`}>
                   {isArabic ? 'نسبة السيليكا ومكان التبلور' : 'Silica % & Texture'}
                 </span>
               </h3>
@@ -910,7 +942,9 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     onClick={() => setSelectedRock(key)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
                       selectedRock === key
-                        ? 'bg-amber-600 border-amber-500 text-white shadow'
+                        ? 'bg-amber-600 border-amber-500 text-white shadow-sm font-bold'
+                        : isLight
+                        ? 'bg-white border-stone-300 text-stone-700 hover:bg-stone-100 hover:text-stone-950 font-semibold'
                         : 'bg-stone-900 border-stone-800 text-stone-400 hover:text-stone-200'
                     }`}
                   >
@@ -920,22 +954,24 @@ export const GeologyEarthStudio: React.FC<Props> = ({
               </div>
 
               {/* Rock Specimen Card */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-stone-950/60 p-4 rounded-xl border border-stone-800 text-xs">
+              <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 p-4 rounded-xl border text-xs ${
+                isLight ? 'bg-stone-50 border-stone-200 text-stone-900 shadow-2xs' : 'bg-stone-950/60 border-stone-800'
+              }`}>
                 <div>
-                  <span className="text-stone-400 block">{isArabic ? 'التصنيف الكيميائي ومحتوى السيليكا:' : 'Chemical Classification & Silica:'}</span>
-                  <span className="font-bold text-amber-300 text-sm">{currentRockObj.silica}</span>
-                  <span className="text-stone-400 block mt-2">{isArabic ? 'حرارة التبلور:' : 'Crystallization Temp:'}</span>
-                  <span className="font-semibold text-orange-400">{currentRockObj.tempC}</span>
+                  <span className={`block ${isLight ? 'text-stone-600 font-bold' : 'text-stone-400'}`}>{isArabic ? 'التصنيف الكيميائي ومحتوى السيليكا:' : 'Chemical Classification & Silica:'}</span>
+                  <span className={`text-sm ${isLight ? 'text-amber-900 font-black' : 'text-amber-300 font-bold'}`}>{currentRockObj.silica}</span>
+                  <span className={`block mt-2 ${isLight ? 'text-stone-600 font-bold' : 'text-stone-400'}`}>{isArabic ? 'حرارة التبلور:' : 'Crystallization Temp:'}</span>
+                  <span className={`font-semibold ${isLight ? 'text-orange-900 font-bold' : 'text-orange-400'}`}>{currentRockObj.tempC}</span>
                 </div>
                 <div>
-                  <span className="text-stone-400 block">{isArabic ? 'النسيج ومكان التبلور:' : 'Texture & Origin:'}</span>
-                  <span className="font-semibold text-stone-200">{isArabic ? currentRockObj.textureAr : currentRockObj.textureEn}</span>
-                  <span className="text-stone-400 block mt-2">{isArabic ? 'اللون المميز:' : 'Diagnostic Color:'}</span>
-                  <span className="font-semibold text-stone-300">{isArabic ? currentRockObj.colorAr : currentRockObj.colorEn}</span>
+                  <span className={`block ${isLight ? 'text-stone-600 font-bold' : 'text-stone-400'}`}>{isArabic ? 'النسيج ومكان التبلور:' : 'Texture & Origin:'}</span>
+                  <span className={`font-semibold ${isLight ? 'text-stone-900 font-bold' : 'text-stone-200'}`}>{isArabic ? currentRockObj.textureAr : currentRockObj.textureEn}</span>
+                  <span className={`block mt-2 ${isLight ? 'text-stone-600 font-bold' : 'text-stone-400'}`}>{isArabic ? 'اللون المميز:' : 'Diagnostic Color:'}</span>
+                  <span className={`font-semibold ${isLight ? 'text-stone-900 font-bold' : 'text-stone-300'}`}>{isArabic ? currentRockObj.colorAr : currentRockObj.colorEn}</span>
                 </div>
                 <div>
-                  <span className="text-stone-400 block">{isArabic ? 'المعادن المكونة الرئيسية:' : 'Key Mineral Composition:'}</span>
-                  <span className="font-semibold text-emerald-300">{isArabic ? currentRockObj.mineralsAr : currentRockObj.mineralsEn}</span>
+                  <span className={`block ${isLight ? 'text-stone-600 font-bold' : 'text-stone-400'}`}>{isArabic ? 'المعادن المكونة الرئيسية:' : 'Key Mineral Composition:'}</span>
+                  <span className={`font-semibold ${isLight ? 'text-emerald-900 font-bold' : 'text-emerald-300'}`}>{isArabic ? currentRockObj.mineralsAr : currentRockObj.mineralsEn}</span>
                 </div>
               </div>
             </div>
@@ -951,16 +987,16 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className="lg:col-span-6 flex flex-col gap-4">
               <div className={`p-5 rounded-xl border ${cardBg}`}>
                 <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                  <span className="flex items-center gap-2 text-emerald-400">
+                  <span className={`flex items-center gap-2 ${isLight ? 'text-emerald-800 font-extrabold' : 'text-emerald-400'}`}>
                     <Compass className="w-5 h-5" />
                     {isArabic ? 'محاكي اتساع البحر الأحمر (حافة تباعدية بناءة)' : 'Red Sea Divergent Rift Simulator'}
                   </span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                  <span className={`text-xs px-2 py-0.5 rounded font-bold ${isLight ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-emerald-950/60 text-emerald-300 border border-emerald-800/50'}`}>
                     2.5 cm/yr
                   </span>
                 </h3>
 
-                <p className="text-xs text-stone-400 mb-4">
+                <p className={`text-xs mb-4 ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
                   {isArabic
                     ? 'تباعد اللوح العربي عن اللوح الأفريقي بمعدل ٢٫٥ سم سنوياً يحول البحر الأحمر تدريجياً إلى محيط شاسع مستقبلاً.'
                     : 'The Arabian plate diverges from the African plate at 2.5 cm/year, gradually widening the Red Sea into a future ocean.'}
@@ -969,8 +1005,8 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Rift Time Slider */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-stone-300 font-medium">{isArabic ? 'الزمن الجيولوجي المنقضي:' : 'Geological Elapsed Time:'}</span>
-                    <span className="font-bold text-amber-400 font-mono">{riftTimeMillionYears} {isArabic ? 'مليون سنة' : 'Million Years'}</span>
+                    <span className={`font-bold ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'الزمن الجيولوجي المنقضي:' : 'Geological Elapsed Time:'}</span>
+                    <span className={`font-black font-mono ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{riftTimeMillionYears} {isArabic ? 'مليون سنة' : 'Million Years'}</span>
                   </div>
                   <input
                     type="range"
@@ -979,19 +1015,19 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     step="1"
                     value={riftTimeMillionYears}
                     onChange={(e) => setRiftTimeMillionYears(Number(e.target.value))}
-                    className="w-full accent-emerald-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                    className={`w-full accent-emerald-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                   />
                 </div>
 
                 {/* Calculated Rift Width Display */}
-                <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 flex items-center justify-between">
+                <div className={`p-4 rounded-xl border flex items-center justify-between ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/70 border-stone-800'}`}>
                   <div>
-                    <span className="text-xs text-stone-400 block">{isArabic ? 'الاتساع المحسوب للأخدود:' : 'Calculated Rift Width:'}</span>
-                    <span className="text-2xl font-black text-emerald-400 font-mono">{redSeaWidthKm.toFixed(1)} km</span>
+                    <span className={`text-xs block ${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'}`}>{isArabic ? 'الاتساع المحسوب للأخدود:' : 'Calculated Rift Width:'}</span>
+                    <span className={`text-2xl font-black font-mono ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>{redSeaWidthKm.toFixed(1)} km</span>
                   </div>
-                  <div className="text-end text-xs text-stone-400">
+                  <div className={`text-end text-xs ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>
                     <span>{isArabic ? 'معادلة الإزاحة:' : 'Displacement Formula:'}</span>
-                    <span className="block font-mono text-stone-300">ΔW = 2.5 cm/yr × Time</span>
+                    <span className={`block font-mono font-bold ${isLight ? 'text-stone-900' : 'text-stone-300'}`}>ΔW = 2.5 cm/yr × Time</span>
                   </div>
                 </div>
 
@@ -1051,7 +1087,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           {/* Divergence Motion Vector Arrow */}
                           <line x1={leftX + 90} y1="-18" x2={leftX + 65} y2="-18" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#divergenceArrow)" />
                           <text x={leftX + 75} y="-30" fill="#fca5a5" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                            ← 2.5 cm/yr
+                            {isArabic ? '← ٢.٥ سم/سنة' : '← 2.5 cm/yr'}
                           </text>
                         </g>
                       );
@@ -1081,7 +1117,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                           {/* Divergence Motion Vector Arrow */}
                           <line x1={rightX + 15} y1="-18" x2={rightX + 40} y2="-18" stroke="#ef4444" strokeWidth="2.5" markerEnd="url(#divergenceArrow)" />
                           <text x={rightX + 28} y="-30" fill="#fca5a5" fontSize="8" fontWeight="bold" textAnchor="middle" fontFamily="monospace">
-                            2.5 cm/yr →
+                            {isArabic ? '٢.٥ سم/سنة →' : '2.5 cm/yr →'}
                           </text>
                         </g>
                       );
@@ -1106,16 +1142,16 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className="lg:col-span-6 flex flex-col gap-4">
               <div className={`p-5 rounded-xl border ${cardBg}`}>
                 <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                  <span className="flex items-center gap-2 text-amber-400">
+                  <span className={`flex items-center gap-2 ${isLight ? 'text-amber-800 font-extrabold' : 'text-amber-400'}`}>
                     <Mountain className="w-5 h-5" />
                     {isArabic ? 'حاسبة التوازن الإيزوستاتيكي (للبروفيسور إيري)' : "Airy's Isostasy Root Depth Calculator"}
                   </span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/50">
+                  <span className={`text-xs px-2 py-0.5 rounded font-bold ${isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-amber-950/60 text-amber-300 border border-amber-800/50'}`}>
                     Root = 4H
                   </span>
                 </h3>
 
-                <p className="text-xs text-stone-400 mb-4">
+                <p className={`text-xs mb-4 ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
                   {isArabic
                     ? 'سلاسل الجبال تمتلك جذوراً تغوص في صخور الوشاح عالية الكثافة لعمق يعادل ٤ أمثال ارتفاعها فوق مستوى سطح البحر.'
                     : 'Mountain chains possess deep subterranean granite roots sinking into the dense mantle to a depth 4 times their elevation.'}
@@ -1124,8 +1160,8 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Elevation Input Slider */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-stone-300 font-medium">{isArabic ? 'ارتفاع الجبل فوق سطح البحر (H):' : 'Mountain Elevation Above Sea Level (H):'}</span>
-                    <span className="font-bold text-amber-400 font-mono">{mountainElevation} m</span>
+                    <span className={`font-bold ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'ارتفاع الجبل فوق سطح البحر (H):' : 'Mountain Elevation Above Sea Level (H):'}</span>
+                    <span className={`font-black font-mono ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{mountainElevation} m</span>
                   </div>
                   <input
                     type="range"
@@ -1134,7 +1170,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     step="50"
                     value={mountainElevation}
                     onChange={(e) => setMountainElevation(Number(e.target.value))}
-                    className="w-full accent-amber-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                    className={`w-full accent-amber-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                   />
                 </div>
 
@@ -1142,29 +1178,33 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div className="flex flex-wrap gap-2 mb-4 text-xs">
                   <button
                     onClick={() => setMountainElevation(2629)}
-                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                    className={`px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                      isLight ? 'bg-white border-stone-300 text-stone-800 hover:bg-stone-100 font-semibold shadow-2xs' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white'
+                    }`}
                   >
                     {isArabic ? 'جبل كاترين بمصر (٢٦٢٩ م)' : 'Mount Catherine, Sinai (2,629m)'}
                   </button>
                   <button
                     onClick={() => setMountainElevation(8848)}
-                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                    className={`px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                      isLight ? 'bg-white border-stone-300 text-stone-800 hover:bg-stone-100 font-semibold shadow-2xs' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white'
+                    }`}
                   >
                     {isArabic ? 'قمة إيفرست بالهيمالايا (٨٨٤٨ م)' : 'Mount Everest, Himalayas (8,848m)'}
                   </button>
                 </div>
 
                 {/* Output Metrics */}
-                <div className="grid grid-cols-2 gap-3 p-4 rounded-xl bg-stone-950/70 border border-stone-800 text-xs">
+                <div className={`grid grid-cols-2 gap-3 p-4 rounded-xl border text-xs ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/70 border-stone-800'}`}>
                   <div>
-                    <span className="text-stone-400 block">{isArabic ? 'عمق الجذر الغاطس في الوشاح (4H):' : 'Subterranean Root Depth (4H):'}</span>
-                    <span className="text-xl font-bold text-sky-400 font-mono">{mountainRootDepth.toLocaleString()} m</span>
-                    <span className="text-[10px] text-stone-500 block">{(mountainRootDepth / 1000).toFixed(2)} km</span>
+                    <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'} block`}>{isArabic ? 'عمق الجذر الغاطس في الوشاح (4H):' : 'Subterranean Root Depth (4H):'}</span>
+                    <span className={`text-xl font-black font-mono ${isLight ? 'text-sky-800' : 'text-sky-400'}`}>{mountainRootDepth.toLocaleString()} m</span>
+                    <span className={`text-[10px] ${isLight ? 'text-stone-600' : 'text-stone-500'} block`}>{(mountainRootDepth / 1000).toFixed(2)} km</span>
                   </div>
                   <div>
-                    <span className="text-stone-400 block">{isArabic ? 'السمك الكلي للكتلة الجبلية (5H):' : 'Total Lithospheric Mass (5H):'}</span>
-                    <span className="text-xl font-bold text-amber-400 font-mono">{totalMountainCrust.toLocaleString()} m</span>
-                    <span className="text-[10px] text-stone-500 block">{(totalMountainCrust / 1000).toFixed(2)} km</span>
+                    <span className={`${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'} block`}>{isArabic ? 'السمك الكلي للكتلة الجبلية (5H):' : 'Total Lithospheric Mass (5H):'}</span>
+                    <span className={`text-xl font-black font-mono ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{totalMountainCrust.toLocaleString()} m</span>
+                    <span className={`text-[10px] ${isLight ? 'text-stone-600' : 'text-stone-500'} block`}>{(totalMountainCrust / 1000).toFixed(2)} km</span>
                   </div>
                 </div>
               </div>
@@ -1180,11 +1220,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className={`p-5 rounded-xl border ${cardBg}`}>
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-base font-semibold flex items-center gap-2 text-stone-200">
+                  <h3 className="text-base font-semibold flex items-center gap-2">
                     <Layers className="w-5 h-5 text-amber-500" />
-                    <span>{isArabic ? 'محاكي القطاعات الجيولوجية والتحليل الطبقي' : 'Stratigraphic Cross-Section & Tectonic History Simulator'}</span>
+                    <span className={isLight ? 'text-stone-900 font-black' : 'text-stone-200'}>{isArabic ? 'محاكي القطاعات الجيولوجية والتحليل الطبقي' : 'Stratigraphic Cross-Section & Tectonic History Simulator'}</span>
                   </h3>
-                  <p className="text-xs text-stone-400">
+                  <p className={`text-xs ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
                     {isArabic
                       ? 'تحكم في قوى الطي التكتونية، مقدار رمية الفالق، التداخلات النارية، واستنتج التسلسل الزمني للأحداث'
                       : 'Simulate compressional folds, fault slip throw, igneous dykes, and deduce chronological history'}
@@ -1193,27 +1233,27 @@ export const GeologyEarthStudio: React.FC<Props> = ({
               </div>
 
               {/* Tectonic Controls Bar */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-stone-950 border border-stone-800 mb-6 text-xs">
+              <div className={`grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl border mb-6 text-xs ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950 border-stone-800'}`}>
                 <div>
-                  <label className="block text-stone-400 mb-1 font-medium">{isArabic ? 'شدة الطي والانثناء:' : 'Fold Compression:'}</label>
+                  <label className={`block mb-1 font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>{isArabic ? 'شدة الطي والانثناء:' : 'Fold Compression:'}</label>
                   <input
                     type="range"
                     min="0"
                     max="100"
                     value={foldCompression}
                     onChange={(e) => setFoldCompression(Number(e.target.value))}
-                    className="w-full accent-amber-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                    className={`w-full accent-amber-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                   />
                 </div>
                 <div>
-                  <label className="block text-stone-400 mb-1 font-medium">{isArabic ? 'إزاحة الفالق (الرمية):' : 'Fault Throw (px):'}</label>
+                  <label className={`block mb-1 font-bold ${isLight ? 'text-stone-700' : 'text-stone-400'}`}>{isArabic ? 'إزاحة الفالق (الرمية):' : 'Fault Throw (px):'}</label>
                   <input
                     type="range"
                     min="0"
                     max="60"
                     value={faultThrow}
                     onChange={(e) => setFaultThrow(Number(e.target.value))}
-                    className="w-full accent-red-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                    className={`w-full accent-red-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                   />
                 </div>
                 <div className="flex items-center gap-2 pt-4">
@@ -1224,7 +1264,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     onChange={(e) => setHasBasaltDyke(e.target.checked)}
                     className="accent-amber-500 w-4 h-4 rounded cursor-pointer"
                   />
-                  <label htmlFor="chkDyke" className="text-stone-300 cursor-pointer">
+                  <label htmlFor="chkDyke" className={`cursor-pointer ${isLight ? 'text-stone-900 font-bold' : 'text-stone-300'}`}>
                     {isArabic ? 'تداخل عرق ناري قاطع' : 'Intrusive Basalt Dyke'}
                   </label>
                 </div>
@@ -1236,7 +1276,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     onChange={(e) => setHasUpperUnconformity(e.target.checked)}
                     className="accent-amber-500 w-4 h-4 rounded cursor-pointer"
                   />
-                  <label htmlFor="chkUnconf" className="text-stone-300 cursor-pointer">
+                  <label htmlFor="chkUnconf" className={`cursor-pointer ${isLight ? 'text-stone-900 font-bold' : 'text-stone-300'}`}>
                     {isArabic ? 'سطح عدم توافق زاوي' : 'Angular Unconformity'}
                   </label>
                 </div>
@@ -1321,7 +1361,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                       {/* Downthrow Slip Arrow */}
                       <polygon points="315,190 325,185 320,195" fill="#ef4444" />
                       <text x="345" y="195" fill="#fca5a5" fontSize="9" fontWeight="bold" fontFamily="monospace">
-                        Fault Slip (Throw: {faultThrow}m)
+                        {isArabic ? `إزاحة الفالق (المقدار: ${faultThrow} م)` : `Fault Slip (Throw: ${faultThrow}m)`}
                       </text>
                     </g>
                   )}
@@ -1370,21 +1410,21 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   <text x="25" y="210" fill="#fef3c7" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">
                     {isArabic ? 'حجر رملي كامبري (طية محدبة مطوية)' : 'Cambrian Sandstone (Folded Anticline)'}
                   </text>
-                  <text x="25" y="170" fill="#bfdbfe" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                  <text x="25" y="170" fill="#bfdbfe" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">
                     {isArabic ? 'حجر جيري أوردوفيشي' : 'Ordovician Limestone'}
                   </text>
-                  <text x="25" y="132" fill="#a7f3d0" fontSize="10" fontWeight="bold" fontFamily="sans-serif">
+                  <text x="25" y="132" fill="#a7f3d0" fontSize="10.5" fontWeight="bold" fontFamily="sans-serif">
                     {isArabic ? 'طفلة/شيل سيلوري' : 'Silurian Shale'}
                   </text>
                 </svg>
               </div>
 
               {/* Deductions Chronometer */}
-              <div className="mt-4 p-4 rounded-xl bg-stone-950/70 border border-stone-800 text-xs">
-                <span className="font-bold text-amber-400 block mb-2">
+              <div className={`mt-4 p-4 rounded-xl border text-xs ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/70 border-stone-800'}`}>
+                <span className={`font-black block mb-2 ${isLight ? 'text-amber-900' : 'text-amber-400'}`}>
                   {isArabic ? 'الاستنتاج الجيولوجي للتتابع الزمني للأحداث (من الأقدم للأحدث):' : 'Geological Chronological Sequence of Events (Oldest to Youngest):'}
                 </span>
-                <ol className="list-decimal list-inside space-y-1 text-stone-300">
+                <ol className={`list-decimal list-inside space-y-1 ${isLight ? 'text-stone-800 font-medium' : 'text-stone-300'}`}>
                   <li>{isArabic ? 'ترسيب المجموعات الصخرية السفلية في وضع أفقي في أحواض الترسيب.' : 'Deposition of lower sedimentary beds in horizontal basin.'}</li>
                   <li>{isArabic ? 'تعرض المنطقة لقوى ضغط تكتونية سببت انثناء الطبقات وتكوين الطية المحدبة.' : 'Tectonic lateral compression folding strata into an anticline.'}</li>
                   {hasBasaltDyke && (
@@ -1411,11 +1451,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className="lg:col-span-6 flex flex-col gap-4">
               <div className={`p-5 rounded-xl border ${cardBg}`}>
                 <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                  <span className="flex items-center gap-2 text-cyan-400">
+                  <span className={`flex items-center gap-2 ${isLight ? 'text-cyan-900 font-extrabold' : 'text-cyan-400'}`}>
                     <Droplets className="w-5 h-5" />
                     {isArabic ? 'حاسبة الضغط الهيدروستاتيكي المائي' : 'Marine Hydrostatic Pressure Lab'}
                   </span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/50">
+                  <span className={`text-xs px-2 py-0.5 rounded font-bold ${isLight ? 'bg-cyan-100 text-cyan-900 border border-cyan-300' : 'bg-cyan-950/60 text-cyan-300 border border-cyan-800/50'}`}>
                     P = D/10 + 1
                   </span>
                 </h3>
@@ -1423,8 +1463,8 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Depth Slider */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-stone-300 font-medium">{isArabic ? 'عمق المياه بالأمتار (D):' : 'Ocean Depth in Meters (D):'}</span>
-                    <span className="font-bold text-cyan-400 font-mono">{oceanDepthMeters} m</span>
+                    <span className={`font-bold ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'عمق المياه بالأمتار (D):' : 'Ocean Depth in Meters (D):'}</span>
+                    <span className={`font-black font-mono ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>{oceanDepthMeters} m</span>
                   </div>
                   <input
                     type="range"
@@ -1433,7 +1473,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     step="50"
                     value={oceanDepthMeters}
                     onChange={(e) => setOceanDepthMeters(Number(e.target.value))}
-                    className="w-full accent-cyan-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                    className={`w-full accent-cyan-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                   />
                 </div>
 
@@ -1441,45 +1481,53 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div className="flex flex-wrap gap-2 mb-4 text-xs">
                   <button
                     onClick={() => setOceanDepthMeters(10)}
-                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                    className={`px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                      isLight ? 'bg-white border-stone-300 text-stone-800 hover:bg-stone-100 font-semibold shadow-2xs' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white'
+                    }`}
                   >
                     10m (2 atm)
                   </button>
                   <button
                     onClick={() => setOceanDepthMeters(200)}
-                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                    className={`px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                      isLight ? 'bg-white border-stone-300 text-stone-800 hover:bg-stone-100 font-semibold shadow-2xs' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white'
+                    }`}
                   >
                     200m ({isArabic ? 'الرف القاري' : 'Shelf limit'})
                   </button>
                   <button
                     onClick={() => setOceanDepthMeters(2000)}
-                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                    className={`px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                      isLight ? 'bg-white border-stone-300 text-stone-800 hover:bg-stone-100 font-semibold shadow-2xs' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white'
+                    }`}
                   >
                     2000m ({isArabic ? 'المنحدر القاري' : 'Slope limit'})
                   </button>
                   <button
                     onClick={() => setOceanDepthMeters(11000)}
-                    className="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-stone-300 hover:text-white"
+                    className={`px-2.5 py-1 rounded border transition-all cursor-pointer ${
+                      isLight ? 'bg-white border-stone-300 text-stone-800 hover:bg-stone-100 font-semibold shadow-2xs' : 'bg-stone-900 border-stone-800 text-stone-300 hover:text-white'
+                    }`}
                   >
                     11000m ({isArabic ? 'خندق ماريانا' : 'Mariana Trench'})
                   </button>
                 </div>
 
                 {/* Calculated Results */}
-                <div className="p-4 rounded-xl bg-stone-950/70 border border-stone-800 grid grid-cols-2 gap-4 text-xs">
+                <div className={`p-4 rounded-xl border grid grid-cols-2 gap-4 text-xs ${isLight ? 'bg-stone-100/90 border-stone-300' : 'bg-stone-950/70 border-stone-800'}`}>
                   <div>
-                    <span className="text-stone-400 block">{isArabic ? 'الضغط الكلي الواقع على الكائن:' : 'Total Hydrostatic Pressure:'}</span>
-                    <span className="text-2xl font-black text-cyan-300 font-mono">{hydrostaticPressureAtm.toFixed(1)} atm</span>
-                    <span className="text-[10px] text-stone-500 block">
+                    <span className={`block ${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'}`}>{isArabic ? 'الضغط الكلي الواقع على الكائن:' : 'Total Hydrostatic Pressure:'}</span>
+                    <span className={`text-2xl font-black font-mono ${isLight ? 'text-cyan-800' : 'text-cyan-300'}`}>{hydrostaticPressureAtm.toFixed(1)} atm</span>
+                    <span className={`text-[10px] ${isLight ? 'text-stone-600' : 'text-stone-500'} block`}>
                       {isArabic ? 'يشمل ١ ضغط جوي للغلاف السطحي' : 'Includes 1 atm surface pressure'}
                     </span>
                   </div>
                   <div>
-                    <span className="text-stone-400 block">{isArabic ? 'النطاق البحري المعتمد:' : 'Marine Depth Zone:'}</span>
-                    <span className="font-semibold text-stone-200">
+                    <span className={`block ${isLight ? 'text-stone-700 font-bold' : 'text-stone-400'}`}>{isArabic ? 'النطاق البحري المعتمد:' : 'Marine Depth Zone:'}</span>
+                    <span className={`font-bold ${isLight ? 'text-stone-900' : 'text-stone-200'}`}>
                       {isArabic ? getMarineZone(oceanDepthMeters).ar : getMarineZone(oceanDepthMeters).en}
                     </span>
-                    <span className="text-[10px] text-stone-500 block mt-1">
+                    <span className={`text-[10px] ${isLight ? 'text-stone-600 font-medium' : 'text-stone-500'} block mt-1`}>
                       {isArabic ? `نفاذ الضوء: ${lightPercent.toFixed(1)}%` : `Light Transmission: ${lightPercent.toFixed(1)}%`}
                     </span>
                   </div>
@@ -1491,11 +1539,11 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <div className="lg:col-span-6 flex flex-col gap-4">
               <div className={`p-5 rounded-xl border ${cardBg}`}>
                 <h3 className="text-base font-semibold flex items-center justify-between mb-4">
-                  <span className="flex items-center gap-2 text-emerald-400">
+                  <span className={`flex items-center gap-2 ${isLight ? 'text-emerald-900 font-extrabold' : 'text-emerald-400'}`}>
                     <Sun className="w-5 h-5" />
                     {isArabic ? 'هرم الطاقة الغذائية وقاعدة العشر (١٠٪)' : 'Trophic Food Web Energy Pyramid'}
                   </span>
-                  <span className="text-xs px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/50">
+                  <span className={`text-xs px-2 py-0.5 rounded font-bold ${isLight ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-emerald-950/60 text-emerald-300 border border-emerald-800/50'}`}>
                     90% Dissipation
                   </span>
                 </h3>
@@ -1503,8 +1551,8 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 {/* Base Energy Input */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between text-xs mb-1">
-                    <span className="text-stone-300 font-medium">{isArabic ? 'طاقة المنتجين الأساسية (سعر حراري):' : 'Base Primary Producer Energy (kcal):'}</span>
-                    <span className="font-bold text-amber-400 font-mono">{baseSolarEnergyKcal.toLocaleString()} kcal</span>
+                    <span className={`font-bold ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'طاقة المنتجين الأساسية (سعر حراري):' : 'Base Primary Producer Energy (kcal):'}</span>
+                    <span className={`font-black font-mono ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{baseSolarEnergyKcal.toLocaleString()} kcal</span>
                   </div>
                   <input
                     type="range"
@@ -1513,30 +1561,38 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                     step="10000"
                     value={baseSolarEnergyKcal}
                     onChange={(e) => setBaseSolarEnergyKcal(Number(e.target.value))}
-                    className="w-full accent-emerald-500 h-2 bg-stone-800 rounded-lg cursor-pointer"
+                    className={`w-full accent-emerald-500 h-2 rounded-lg cursor-pointer ${isLight ? 'bg-stone-200' : 'bg-stone-800'}`}
                   />
                 </div>
 
                 {/* 4-Tier Energy Pyramid Levels */}
                 <div className="flex flex-col gap-2">
                   {[
-                    { level: 4, nameEn: 'Top Predators (Sharks, Whales)', nameAr: 'المستهلك الثالث (الحيتان وأسماك القرش)', factor: 0.001, color: 'bg-red-950/30 border-red-800 text-red-200' },
-                    { level: 3, nameEn: 'Secondary Consumers (Predatory Fish)', nameAr: 'المستهلك الثاني (الأسماك الكبيرة المفترسة)', factor: 0.01, color: 'bg-orange-950/30 border-orange-800 text-orange-200' },
-                    { level: 2, nameEn: 'Primary Consumers (Zooplankton)', nameAr: 'المستهلك الأول (الهائمات الحيوانية)', factor: 0.1, color: 'bg-yellow-950/30 border-yellow-800 text-yellow-200' },
-                    { level: 1, nameEn: 'Primary Producers (Phytoplankton)', nameAr: 'المنتجون (الهائمات النباتية والطحالب)', factor: 1.0, color: 'bg-emerald-950/30 border-emerald-800 text-emerald-200' }
+                    { level: 4, nameEn: 'Top Predators (Sharks, Whales)', nameAr: 'المستهلك الثالث (الحيتان وأسماك القرش)', factor: 0.001 },
+                    { level: 3, nameEn: 'Secondary Consumers (Predatory Fish)', nameAr: 'المستهلك الثاني (الأسماك الكبيرة المفترسة)', factor: 0.01 },
+                    { level: 2, nameEn: 'Primary Consumers (Zooplankton)', nameAr: 'المستهلك الأول (الهائمات الحيوانية)', factor: 0.1 },
+                    { level: 1, nameEn: 'Primary Producers (Phytoplankton)', nameAr: 'المنتجون (الهائمات النباتية والطحالب)', factor: 1.0 }
                   ].map((tier) => {
                     const energy = baseSolarEnergyKcal * tier.factor;
+                    const tierStyle = tier.level === 4
+                      ? (isLight ? 'bg-rose-100/90 border-rose-300 text-rose-950 shadow-2xs' : 'bg-red-950/30 border-red-800 text-red-200')
+                      : tier.level === 3
+                      ? (isLight ? 'bg-orange-100/90 border-orange-300 text-orange-950 shadow-2xs' : 'bg-orange-950/30 border-orange-800 text-orange-200')
+                      : tier.level === 2
+                      ? (isLight ? 'bg-amber-100/90 border-amber-300 text-amber-950 shadow-2xs' : 'bg-yellow-950/30 border-yellow-800 text-yellow-200')
+                      : (isLight ? 'bg-emerald-100/90 border-emerald-300 text-emerald-950 shadow-2xs' : 'bg-emerald-950/30 border-emerald-800 text-emerald-200');
+
                     return (
-                      <div key={tier.level} className={`p-2.5 rounded-lg border flex items-center justify-between text-xs ${tier.color}`}>
+                      <div key={tier.level} className={`p-2.5 rounded-lg border flex items-center justify-between text-xs ${tierStyle}`}>
                         <div>
                           <span className="font-bold block">{isArabic ? tier.nameAr : tier.nameEn}</span>
-                          <span className="text-[10px] text-stone-400">
+                          <span className={`text-[10px] ${isLight ? 'text-stone-700 font-semibold' : 'text-stone-400'}`}>
                             {isArabic ? `المستوى الغذائي ${tier.level}` : `Trophic Level ${tier.level}`}
                           </span>
                         </div>
                         <div className="text-end">
                           <span className="font-mono font-bold text-sm block">{energy.toLocaleString()} kcal</span>
-                          <span className="text-[10px] opacity-75">
+                          <span className="text-[10px] opacity-80 font-medium">
                             {tier.factor === 1 ? '100% Base' : `${(tier.factor * 100).toFixed(1)}% Available`}
                           </span>
                         </div>

@@ -10,9 +10,17 @@ import {
   type LabViewportState,
   type LabParameterSchema,
   type LabPreset,
-  drawMetallicCylinder,
   drawAnalogMeterGauge,
   drawGlowingParticle,
+  drawHeavyInsulatedCable,
+  drawInsulatedCablePolyline,
+  drawBrassTerminalStud,
+  drawHeavyLabBattery,
+  drawWireWoundSliderRheostat,
+  drawAxialCeramicResistor,
+  drawIndustrialKnifeSwitch,
+  drawIncandescentEdisonBulb,
+  drawCenterZeroGalvanometer,
 } from '../../core/labs';
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
@@ -930,8 +938,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
     [simState.pLoad, simState.pTotal, isArabic]
   );
 
-  // Canvas Drawing Routine
-  // Canvas Drawing Routine with Continuous 60 FPS Animation & Realistic Apparatus
+  // Canvas Drawing Routine with Continuous 60 FPS Animation & Photorealistic Apparatus
   const handleRenderCanvas = useCallback(
     (
       ctx: CanvasRenderingContext2D,
@@ -974,25 +981,743 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ? 'القدرة الكهربية وإضاءة المصابيح (P = V²/R = I²R)'
           : 'Electric Power Dissipation & Lamp Brightness (P = V²/R = I²R)';
       }
-      ctx.fillText(moduleHeader, centerX, 26);
+      ctx.fillText(moduleHeader, centerX, 24);
 
-      // Draw Heavy Copper Circuit Frame
-      const boxW = Math.min(width - 140, 560);
-      const boxH = Math.min(height - 130, 280);
-      const startX = centerX - boxW / 2;
-      const startY = centerY - boxH / 2 + 15;
+      // --- 1. Sizing Layout: Big Drawings, High Visibility ---
+      const vmRadius = 50;
+      const ammeterRadius = 52;
+      const leftMargin = vmRadius * 2 + 36; // 136px for large voltmeter
+      const rightMargin = 70;
+      const boxW = Math.min(width - leftMargin - rightMargin, 740);
+      const boxH = Math.min(height - 120, 360);
+      const startX = centerX - boxW / 2 + (leftMargin - rightMargin) / 2;
+      const startY = centerY - boxH / 2 - 4;
 
-      ctx.strokeStyle = params.isSwitchClosed ? (isLight ? '#0284c7' : '#38bdf8') : '#475569';
-      ctx.lineWidth = 3.5;
-      ctx.beginPath();
-      ctx.roundRect(startX, startY, boxW, boxH, [16]);
-      ctx.stroke();
+      const leftX = startX;
+      const rightX = startX + boxW;
+      const topY = startY;
+      const botY = startY + boxH;
 
-      // Continuous 60 FPS Golden Electron Drift Animation
-      if (params.isSwitchClosed && simState.iTotal > 0) {
+      const isEnergized = params.isSwitchClosed && simState.iTotal > 0;
+
+      // Left Battery Position
+      const batX = leftX;
+      const batY = centerY;
+      const batW = 70;
+      const batH = 126;
+      const batTopPostY = batY - batH / 2 - 4;
+      const batBotPostY = batY + batH / 2 + 4;
+
+      // Voltmeter Position (Tapped across Battery 1)
+      const vmX = leftX - 76;
+      const vmY = centerY;
+
+      // Ammeter Position (Bottom Return Rail)
+      const botCenterX = centerX;
+
+      // Switch Position (Right Rail)
+      const switchX = rightX;
+      const switchY = centerY;
+      const switchW = 56;
+      const switchH = 92;
+      const switchTopY = switchY - 26;
+      const switchBotY = switchY + 26;
+
+      // =========================================================
+      // MODULE SPECIFIC DRAWING LOGIC
+      // =========================================================
+
+      if (mod === 'closed_ohm') {
+        // --- A. CLOSED CIRCUIT OHM'S LAW ---
+        const rheoW = Math.min(boxW - 140, 380);
+        const rheoY = topY;
+        const rheoLeft = centerX - rheoW / 2;
+
+        // Wires
+        // Positive Red Cable: Battery (+) -> Top Rail Corner -> Rheostat Left Pillar
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: batX, y: batTopPostY },
+            { x: leftX, y: topY },
+            { x: rheoLeft + 8, y: topY },
+          ],
+          '#dc2626',
+          isEnergized
+        );
+
+        // Variable Wiper Contact X
+        const clampedRFrac = Math.max(0, Math.min(1, params.rheostatR / 50));
+        const wiperContactX = rheoLeft + 24 + clampedRFrac * (rheoW - 48);
+
+        // Red Cable: Rheostat Wiper -> Top Right Corner -> Switch Top Jaw
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: wiperContactX, y: topY - 10 },
+            { x: wiperContactX, y: topY - 24 },
+            { x: rightX, y: topY - 24 },
+            { x: rightX, y: switchTopY },
+          ],
+          '#dc2626',
+          isEnergized
+        );
+
+        // Blue Return Cable: Switch Bottom Pivot -> Bottom Right Corner -> Ammeter Right Stud
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: rightX, y: switchBotY },
+            { x: rightX, y: botY },
+            { x: botCenterX + ammeterRadius + 8, y: botY },
+          ],
+          '#2563eb',
+          isEnergized
+        );
+
+        // Blue Return Cable: Ammeter Left Stud -> Bottom Left Corner -> Battery (-) Post
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: botCenterX - ammeterRadius - 8, y: botY },
+            { x: leftX, y: botY },
+            { x: batX, y: batBotPostY },
+          ],
+          '#2563eb',
+          isEnergized
+        );
+
+        // Flexible Voltmeter Probes across Battery Terminals
+        drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
+        drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+
+        // Apparatus
+        drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
+        drawWireWoundSliderRheostat(ctx, centerX, rheoY, rheoW, 34, params.rheostatR, 50, isArabic ? 'روستات Rv' : 'Rheostat Rv');
+        drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
+        drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
+        drawAnalogMeterGauge(ctx, botCenterX, botY, ammeterRadius, simState.iTotal, 0, Math.max(3, Math.ceil(simState.iTotal * 1.5)), isArabic ? 'أميتر كلي I_tot' : 'AMMETER I_tot', 'A');
+
+        // Central Telemetry Glass Card
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(centerX - 150, centerY - 46, 300, 92, [12]);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+        ctx.font = 'bold 12px Inter, system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(isArabic ? 'قياسات الدائرة المغلقة (V = VB - Ir):' : "Closed Circuit Telemetry (V = VB - Ir):", centerX, centerY - 26);
+
+        ctx.fillStyle = '#10b981';
+        ctx.font = 'bold 13px ui-monospace, monospace';
+        ctx.fillText(
+          isArabic
+            ? `الهبوط الداخلي: Ir = ${simState.vDropInternal1.toFixed(2)} V`
+            : `Internal Loss: Ir = ${simState.vDropInternal1.toFixed(2)} V`,
+          centerX,
+          centerY - 5
+        );
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = 'bold 13px ui-monospace, monospace';
+        ctx.fillText(
+          isArabic
+            ? `مقاومة الروستات: Rv = ${simState.rEquivalent.toFixed(1)} Ω`
+            : `Rheostat Load: Rv = ${simState.rEquivalent.toFixed(1)} Ω`,
+          centerX,
+          centerY + 16
+        );
+
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 12px ui-monospace, monospace';
+        ctx.fillText(
+          isArabic
+            ? `كفاءة البطارية: ${simState.efficiencyPercent}%`
+            : `Battery Efficiency: ${simState.efficiencyPercent}%`,
+          centerX,
+          centerY + 35
+        );
+      } else if (mod === 'resistor_networks') {
+        // --- B. RESISTOR NETWORKS (SERIES / PARALLEL / WHEATSTONE) ---
+        if (params.networkType === 'series') {
+          const r1X = centerX - 160;
+          const r2X = centerX;
+          const r3X = centerX + 160;
+
+          // Wires
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: batX, y: batTopPostY },
+              { x: leftX, y: topY },
+              { x: r1X - 44, y: topY },
+            ],
+            '#dc2626',
+            isEnergized
+          );
+
+          drawHeavyInsulatedCable(ctx, r1X + 44, topY, r2X - 44, topY, '#dc2626', isEnergized);
+          drawHeavyInsulatedCable(ctx, r2X + 44, topY, r3X - 44, topY, '#dc2626', isEnergized);
+
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: r3X + 44, y: topY },
+              { x: rightX, y: topY },
+              { x: rightX, y: switchTopY },
+            ],
+            '#dc2626',
+            isEnergized
+          );
+
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: rightX, y: switchBotY },
+              { x: rightX, y: botY },
+              { x: botCenterX + ammeterRadius + 8, y: botY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: botCenterX - ammeterRadius - 8, y: botY },
+              { x: leftX, y: botY },
+              { x: batX, y: batBotPostY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          // Voltmeter test leads
+          drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+
+          // Resistors
+          drawAxialCeramicResistor(ctx, r1X, topY, 74, 22, params.r1, 'R1', simState.iTotal * params.r1);
+          drawAxialCeramicResistor(ctx, r2X, topY, 74, 22, params.r2, 'R2', simState.iTotal * params.r2);
+          drawAxialCeramicResistor(ctx, r3X, topY, 74, 22, params.r3, 'R3', simState.iTotal * params.r3);
+
+          // Apparatus
+          drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
+          drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
+          drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
+          drawAnalogMeterGauge(ctx, botCenterX, botY, ammeterRadius, simState.iTotal, 0, Math.max(3, Math.ceil(simState.iTotal * 1.5)), isArabic ? 'أميتر كلي I_tot' : 'AMMETER I_tot', 'A');
+
+          // Series Rule HUD
+          ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
+          ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(centerX - 160, centerY - 45, 320, 90, [12]);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#38bdf8';
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(isArabic ? 'خواص التوصيل على التوالي:' : 'Series Connection Characteristics:', centerX, centerY - 25);
+
+          ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+          ctx.font = 'bold 12px ui-monospace, monospace';
+          ctx.fillText(
+            isArabic
+              ? `ثبات شدة التيار: I = ${simState.iTotal.toFixed(2)} A في جميع المقاومات`
+              : `Constant Current: I = ${simState.iTotal.toFixed(2)} A through all resistors`,
+            centerX,
+            centerY - 5
+          );
+
+          ctx.fillStyle = '#10b981';
+          ctx.font = 'bold 12px ui-monospace, monospace';
+          ctx.fillText(
+            isArabic
+              ? `المقاومة المكافئة: Req = R1 + R2 + R3 = ${simState.rEquivalent.toFixed(1)} Ω`
+              : `Req = R1 + R2 + R3 = ${simState.rEquivalent.toFixed(1)} Ω`,
+            centerX,
+            centerY + 15
+          );
+
+          ctx.fillStyle = '#f59e0b';
+          ctx.font = 'bold 11px ui-monospace, monospace';
+          ctx.fillText(
+            isArabic
+              ? `تجزئة فرق الجهد: V = V1 + V2 + V3 = ${simState.vTerminal1.toFixed(1)} V`
+              : `Voltage Division: V = V1 + V2 + V3 = ${simState.vTerminal1.toFixed(1)} V`,
+            centerX,
+            centerY + 33
+          );
+        } else if (params.networkType === 'parallel') {
+          // Parallel Busbars
+          const midY = topY + 130;
+          const px1 = centerX - 160;
+          const px2 = centerX;
+          const px3 = centerX + 160;
+
+          // Top Positive Busbar Cable
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: batX, y: batTopPostY },
+              { x: leftX, y: topY },
+              { x: px3, y: topY },
+            ],
+            '#dc2626',
+            isEnergized
+          );
+
+          // Return Negative Busbar Cable
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: px1, y: midY },
+              { x: rightX, y: midY },
+              { x: rightX, y: switchTopY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          // 3 Parallel Vertical Branch Rungs
+          [
+            { x: px1, r: params.r1, i: simState.iBranch1, label: 'R1' },
+            { x: px2, r: params.r2, i: simState.iBranch2, label: 'R2' },
+            { x: px3, r: params.r3, i: simState.iBranch3, label: 'R3' },
+          ].forEach((br) => {
+            drawHeavyInsulatedCable(ctx, br.x, topY, br.x, topY + 40, '#dc2626', isEnergized);
+            drawHeavyInsulatedCable(ctx, br.x, topY + 90, br.x, midY, '#2563eb', isEnergized);
+            drawAxialCeramicResistor(ctx, br.x, topY + 65, 68, 20, br.r, br.label, simState.vTerminal1);
+
+            // Branch Current Arrow Tag
+            ctx.fillStyle = '#10b981';
+            ctx.font = 'bold 10px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(`I = ${br.i.toFixed(2)}A ↓`, br.x, midY + 16);
+          });
+
+          // Rest of loop: Switch to Ammeter to Battery (-)
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: rightX, y: switchBotY },
+              { x: rightX, y: botY },
+              { x: botCenterX + ammeterRadius + 8, y: botY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: botCenterX - ammeterRadius - 8, y: botY },
+              { x: leftX, y: botY },
+              { x: batX, y: batBotPostY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          // Voltmeter
+          drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+
+          drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
+          drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
+          drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
+          drawAnalogMeterGauge(ctx, botCenterX, botY, ammeterRadius, simState.iTotal, 0, Math.max(3, Math.ceil(simState.iTotal * 1.5)), isArabic ? 'أميتر كلي I_tot' : 'AMMETER I_tot', 'A');
+
+          // Parallel Rule HUD
+          ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
+          ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(centerX - 160, centerY + 30, 320, 80, [12]);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#38bdf8';
+          ctx.font = 'bold 12px Inter, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(isArabic ? 'توصيل التوازي: ثبات فرق الجهد وتجزئة التيار' : 'Parallel: Constant Voltage & Current Division', centerX, centerY + 50);
+
+          ctx.fillStyle = '#10b981';
+          ctx.font = 'bold 12px ui-monospace, monospace';
+          ctx.fillText(
+            isArabic
+              ? `المقاومة المكافئة: Req = ${simState.rEquivalent.toFixed(2)} Ω (أصغر من أصغر مقاومة)`
+              : `Req = ${simState.rEquivalent.toFixed(2)} Ω (Smaller than smallest)`,
+            centerX,
+            centerY + 70
+          );
+
+          ctx.fillStyle = '#f59e0b';
+          ctx.font = 'bold 11px ui-monospace, monospace';
+          ctx.fillText(
+            isArabic
+              ? `التيار الكلي: Itot = I1 + I2 + I3 = ${simState.iTotal.toFixed(2)} A`
+              : `Total Current Itot = I1 + I2 + I3 = ${simState.iTotal.toFixed(2)} A`,
+            centerX,
+            centerY + 90
+          );
+        } else {
+          // --- WHEATSTONE BRIDGE ---
+          const nodeA = { x: centerX - 160, y: centerY - 15 };
+          const nodeB = { x: centerX + 160, y: centerY - 15 };
+          const nodeC = { x: centerX, y: topY + 5 };
+          const nodeD = { x: centerX, y: centerY + 65 };
+
+          // Supply to Node A
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: batX, y: batTopPostY },
+              { x: leftX, y: topY },
+              { x: nodeA.x, y: topY },
+              { x: nodeA.x, y: nodeA.y },
+            ],
+            '#dc2626',
+            isEnergized
+          );
+
+          // Output from Node B to Switch
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: nodeB.x, y: nodeB.y },
+              { x: nodeB.x, y: topY },
+              { x: rightX, y: topY },
+              { x: rightX, y: switchTopY },
+            ],
+            '#dc2626',
+            isEnergized
+          );
+
+          // Bridge Diamond Diagonal Arms
+          drawHeavyInsulatedCable(ctx, nodeA.x, nodeA.y, nodeC.x, nodeC.y, '#dc2626', isEnergized);
+          drawHeavyInsulatedCable(ctx, nodeC.x, nodeC.y, nodeB.x, nodeB.y, '#2563eb', isEnergized);
+          drawHeavyInsulatedCable(ctx, nodeA.x, nodeA.y, nodeD.x, nodeD.y, '#dc2626', isEnergized);
+          drawHeavyInsulatedCable(ctx, nodeD.x, nodeD.y, nodeB.x, nodeB.y, '#2563eb', isEnergized);
+
+          // Central Galvanometer Vertical Branch C-D
+          drawHeavyInsulatedCable(ctx, nodeC.x, nodeC.y, nodeC.x, (nodeC.y + nodeD.y) / 2 - 38, '#ca8a04', isEnergized);
+          drawHeavyInsulatedCable(ctx, nodeD.x, (nodeC.y + nodeD.y) / 2 + 38, nodeD.x, nodeD.y, '#ca8a04', isEnergized);
+
+          // Diagonal Arm Resistors
+          drawAxialCeramicResistor(ctx, (nodeA.x + nodeC.x) / 2, (nodeA.y + nodeC.y) / 2, 60, 18, params.r1, 'R1');
+          drawAxialCeramicResistor(ctx, (nodeC.x + nodeB.x) / 2, (nodeC.y + nodeB.y) / 2, 60, 18, params.r2, 'R2');
+          drawAxialCeramicResistor(ctx, (nodeA.x + nodeD.x) / 2, (nodeA.y + nodeD.y) / 2, 60, 18, params.r3, 'R3');
+          drawAxialCeramicResistor(ctx, (nodeD.x + nodeB.x) / 2, (nodeD.y + nodeB.y) / 2, 60, 18, params.r4, 'R4');
+
+          // Central Galvanometer
+          drawCenterZeroGalvanometer(ctx, centerX, (nodeC.y + nodeD.y) / 2, 42, simState.iBranch3, simState.isBridgeBalanced);
+
+          // Return from Switch through Ammeter
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: rightX, y: switchBotY },
+              { x: rightX, y: botY },
+              { x: botCenterX + ammeterRadius + 8, y: botY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          drawInsulatedCablePolyline(
+            ctx,
+            [
+              { x: botCenterX - ammeterRadius - 8, y: botY },
+              { x: leftX, y: botY },
+              { x: batX, y: batBotPostY },
+            ],
+            '#2563eb',
+            isEnergized
+          );
+
+          // Voltmeter
+          drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+
+          drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
+          drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
+          drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
+          drawAnalogMeterGauge(ctx, botCenterX, botY, ammeterRadius, simState.iTotal, 0, Math.max(3, Math.ceil(simState.iTotal * 1.5)), isArabic ? 'أميتر كلي I_tot' : 'AMMETER I_tot', 'A');
+
+          // Bridge HUD Banner
+          ctx.fillStyle = simState.isBridgeBalanced ? 'rgba(6, 78, 59, 0.95)' : 'rgba(30, 41, 59, 0.95)';
+          ctx.strokeStyle = simState.isBridgeBalanced ? '#10b981' : '#f59e0b';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(centerX - 180, centerY + 85, 360, 48, [10]);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 11px system-ui, sans-serif';
+          ctx.textAlign = 'center';
+          const bridgeRatioText = `R1/R2 = ${(params.r1 / params.r2).toFixed(2)} | R3/R4 = ${(params.r3 / params.r4).toFixed(2)}`;
+          ctx.fillText(bridgeRatioText, centerX, centerY + 102);
+
+          ctx.fillStyle = simState.isBridgeBalanced ? '#34d399' : '#38bdf8';
+          ctx.font = '900 11px system-ui, sans-serif';
+          const bridgeStatusText = simState.isBridgeBalanced
+            ? isArabic ? '✓ القنطرة متزنة: IG = 0 وتحذف المقاومة المركزية' : '✓ Bridge Balanced: IG = 0 (Null Condition)'
+            : isArabic ? 'القنطرة غير متزنة: يمر تيار في الجلفانومتر' : 'Bridge Unbalanced: Current Flows Through Center';
+          ctx.fillText(bridgeStatusText, centerX, centerY + 122);
+        }
+      } else if (mod === 'kirchhoff') {
+        // --- C. KIRCHHOFF'S TWO-LOOP MESH SOLVER ---
+        // Left Loop 1: Battery 1 & Resistor R1
+        // Right Loop 2: Battery 2 & Resistor R2
+        // Center Shared Branch: Resistor R3
+        const r1CenterX = (leftX + centerX) / 2;
+        const r2CenterX = (centerX + rightX) / 2;
+
+        // Top Horizontal Rails
+        drawHeavyInsulatedCable(ctx, leftX, topY, r1CenterX - 42, topY, '#dc2626', isEnergized);
+        drawHeavyInsulatedCable(ctx, r1CenterX + 42, topY, centerX, topY, '#dc2626', isEnergized);
+        drawHeavyInsulatedCable(ctx, centerX, topY, r2CenterX - 42, topY, '#2563eb', isEnergized);
+        drawHeavyInsulatedCable(ctx, r2CenterX + 42, topY, rightX, topY, '#2563eb', isEnergized);
+
+        // Center Vertical Branch with Resistor R3
+        drawHeavyInsulatedCable(ctx, centerX, topY, centerX, centerY - 38, '#10b981', isEnergized);
+        drawHeavyInsulatedCable(ctx, centerX, centerY + 38, centerX, botY, '#10b981', isEnergized);
+        drawAxialCeramicResistor(ctx, centerX, centerY, 74, 22, params.r3, 'R3', Math.abs(simState.iBranch3 * params.r3));
+
+        // Bottom Horizontal Rails
+        drawHeavyInsulatedCable(ctx, leftX, botY, centerX, botY, '#dc2626', isEnergized);
+        drawHeavyInsulatedCable(ctx, centerX, botY, rightX, botY, '#2563eb', isEnergized);
+
+        // Left Vertical Branch (Battery 1)
+        drawHeavyInsulatedCable(ctx, leftX, topY, leftX, batTopPostY, '#dc2626', isEnergized);
+        drawHeavyInsulatedCable(ctx, leftX, botY, leftX, batBotPostY, '#dc2626', isEnergized);
+
+        // Right Vertical Branch (Battery 2)
+        const bat2TopPostY = centerY - batH / 2 - 4;
+        const bat2BotPostY = centerY + batH / 2 + 4;
+        drawHeavyInsulatedCable(ctx, rightX, topY, rightX, bat2TopPostY, '#2563eb', isEnergized);
+        drawHeavyInsulatedCable(ctx, rightX, botY, rightX, bat2BotPostY, '#2563eb', isEnergized);
+
+        // Top Resistors R1 & R2
+        drawAxialCeramicResistor(ctx, r1CenterX, topY, 74, 20, params.r1, 'R1', Math.abs(simState.iBranch1 * params.r1));
+        drawAxialCeramicResistor(ctx, r2CenterX, topY, 74, 20, params.r2, 'R2', Math.abs(simState.iBranch2 * params.r2));
+
+        // Both Batteries
+        drawHeavyLabBattery(ctx, leftX, centerY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, simState.battery1StateEn === 'Discharging', isArabic);
+        drawHeavyLabBattery(ctx, rightX, centerY, batW, batH, params.vb2, params.rInternal2, simState.battery2StateEn, simState.battery2StateAr, simState.battery2StateEn === 'Discharging', isArabic);
+
+        // Junction Nodes
+        drawBrassTerminalStud(ctx, centerX, topY);
+        drawBrassTerminalStud(ctx, centerX, botY);
+
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = '900 11px system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Node A (تفرع)', centerX, topY - 12);
+        ctx.fillText('Node B (تجمع)', centerX, botY + 18);
+
+        // Left Voltmeter
+        drawHeavyInsulatedCable(ctx, leftX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
+        drawHeavyInsulatedCable(ctx, leftX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+        drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
+
+        // Loop 1 & Loop 2 KVL Traversal Rings
+        // Loop 1 Ring (Left)
+        ctx.save();
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.arc(r1CenterX, centerY, 34, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = 'bold 10px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('Loop 1 (KVL)', r1CenterX, centerY - 6);
+        ctx.fillText(`I₁ = ${simState.iBranch1.toFixed(2)}A`, r1CenterX, centerY + 10);
+
+        // Loop 2 Ring (Right)
+        ctx.save();
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.arc(r2CenterX, centerY, 34, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 10px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('Loop 2 (KVL)', r2CenterX, centerY - 6);
+        ctx.fillText(`I₂ = ${simState.iBranch2.toFixed(2)}A`, r2CenterX, centerY + 10);
+
+        // Center Branch Current Label
+        ctx.fillStyle = '#10b981';
+        ctx.font = '900 11px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText(`I₃ = I₁ + I₂ = ${simState.iBranch3.toFixed(2)}A ↓`, centerX, centerY + 28);
+
+        // Bottom Kirchhoff Status HUD
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(centerX - 170, botY + 28, 340, 52, [10]);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = 'bold 11px system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(
+          isArabic
+            ? `المصدر ١: ${simState.battery1StateAr} (V₁ = ${simState.vTerminal1}V)`
+            : `Battery 1: ${simState.battery1StateEn} (V1 = ${simState.vTerminal1}V)`,
+          centerX,
+          botY + 46
+        );
+
+        const bat2Color = simState.battery2StateEn === 'Charging' ? '#34d399' : '#f59e0b';
+        ctx.fillStyle = bat2Color;
+        ctx.font = '900 11px system-ui, sans-serif';
+        ctx.fillText(
+          isArabic
+            ? `المصدر ٢: ${simState.battery2StateAr} (${simState.battery2StateEn === 'Charging' ? 'V₂ = VB2 + Ir2' : 'V₂ = VB2 - Ir2'} = ${simState.vTerminal2}V)`
+            : `Battery 2: ${simState.battery2StateEn} (${simState.battery2StateEn === 'Charging' ? 'V2 = VB2 + Ir2' : 'V2 = VB2 - Ir2'} = ${simState.vTerminal2}V)`,
+          centerX,
+          botY + 66
+        );
+      } else {
+        // --- D. ELECTRIC POWER & HOUSEHOLD LAMPS ---
+        const lamp1X = centerX - 100;
+        const lamp2X = centerX + 100;
+
+        // Wires
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: batX, y: batTopPostY },
+            { x: leftX, y: topY },
+            { x: lamp1X - 25, y: topY },
+          ],
+          '#dc2626',
+          isEnergized
+        );
+
+        drawHeavyInsulatedCable(ctx, lamp1X + 25, topY, lamp2X - 25, topY, '#dc2626', isEnergized);
+
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: lamp2X + 25, y: topY },
+            { x: rightX, y: topY },
+            { x: rightX, y: switchTopY },
+          ],
+          '#dc2626',
+          isEnergized
+        );
+
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: rightX, y: switchBotY },
+            { x: rightX, y: botY },
+            { x: botCenterX + ammeterRadius + 8, y: botY },
+          ],
+          '#2563eb',
+          isEnergized
+        );
+
+        drawInsulatedCablePolyline(
+          ctx,
+          [
+            { x: botCenterX - ammeterRadius - 8, y: botY },
+            { x: leftX, y: botY },
+            { x: batX, y: batBotPostY },
+          ],
+          '#2563eb',
+          isEnergized
+        );
+
+        // Voltmeter
+        drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
+        drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+
+        // Lamps
+        const pLamp1 = isEnergized ? simState.pLoad * 0.6 : 0;
+        const pLamp2 = isEnergized ? simState.pLoad * 0.4 : 0;
+        drawIncandescentEdisonBulb(ctx, lamp1X, topY, 26, pLamp1, 40, isArabic ? 'مصباح ١' : 'Lamp 1');
+        drawIncandescentEdisonBulb(ctx, lamp2X, topY, 26, pLamp2, 40, isArabic ? 'مصباح ٢' : 'Lamp 2');
+
+        // Apparatus
+        drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
+        drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
+        drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
+        drawAnalogMeterGauge(ctx, botCenterX, botY, ammeterRadius, simState.iTotal, 0, Math.max(3, Math.ceil(simState.iTotal * 1.5)), isArabic ? 'أميتر كلي I_tot' : 'AMMETER I_tot', 'A');
+
+        // Power Telemetry HUD
+        ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
+        ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(centerX - 150, centerY - 46, 300, 92, [12]);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 12px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(isArabic ? 'القدرة الكهربية المستهلكة (P = V²/R = I²R):' : 'Electric Power Dissipation (P = V²/R = I²R):', centerX, centerY - 25);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 13px monospace';
+        ctx.fillText(
+          isArabic
+            ? `إجمالي القدرة الضوئية: P = ${simState.pLoad.toFixed(1)} W`
+            : `Total Light Power: P = ${simState.pLoad.toFixed(1)} W`,
+          centerX,
+          centerY - 5
+        );
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = 'bold 12px monospace';
+        ctx.fillText(
+          isArabic
+            ? `القدرة المفقودة داخلياً: Ir² = ${simState.pInternalLoss.toFixed(1)} W`
+            : `Internal Battery Heat: Ir² = ${simState.pInternalLoss.toFixed(1)} W`,
+          centerX,
+          centerY + 16
+        );
+
+        ctx.fillStyle = '#10b981';
+        ctx.font = 'bold 12px monospace';
+        ctx.fillText(
+          isArabic
+            ? `كفاءة التحويل: ${simState.efficiencyPercent}%`
+            : `Luminous Efficiency: ${simState.efficiencyPercent}%`,
+          centerX,
+          centerY + 35
+        );
+      }
+
+      // =========================================================
+      // CONTINUOUS 60 FPS GOLDEN ELECTRON DRIFT PARTICLES
+      // =========================================================
+      if (isEnergized) {
         const perimeter = 2 * (boxW + boxH);
-        const numElectrons = 22;
-        const driftSpeed = Math.min(240, Math.max(30, simState.iTotal * 80));
+        const numElectrons = 26;
+        const driftSpeed = Math.min(260, Math.max(35, simState.iTotal * 75));
         const currentOffset = (t * driftSpeed) % perimeter;
 
         for (let i = 0; i < numElectrons; i++) {
@@ -1014,241 +1739,9 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             ey = startY + boxH - (d - (2 * boxW + boxH));
           }
 
-          drawGlowingParticle(ctx, ex, ey, 3.5, '#facc15', 8);
+          drawGlowingParticle(ctx, ex, ey, 4.5, '#facc15', 10);
         }
       }
-
-      // 1. Draw Left Battery (VB1, r1) - 3D Heavy Cell with Terminal Posts
-      const batX = startX;
-      const batY = startY + boxH / 2;
-
-      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
-      ctx.fillRect(batX - 32, batY - 55, 64, 110);
-
-      // Battery 3D Metallic Body
-      drawMetallicCylinder(ctx, batX - 16, batY - 38, 32, 76, 'steel', 'vertical');
-
-      // Positive Red Terminal Cap
-      ctx.fillStyle = '#ef4444';
-      ctx.beginPath();
-      ctx.roundRect(batX - 8, batY - 46, 16, 8, [3]);
-      ctx.fill();
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 9px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('+', batX, batY - 39);
-
-      // Negative Terminal Base
-      ctx.fillStyle = '#1e293b';
-      ctx.fillRect(batX - 12, batY + 38, 24, 6);
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillText('-', batX, batY + 44);
-
-      // Battery label
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 10px monospace';
-      ctx.fillText(`${params.vb1}V`, batX, batY - 4);
-      ctx.fillStyle = '#94a3b8';
-      ctx.font = '8px monospace';
-      ctx.fillText(`r=${params.rInternal1}Ω`, batX, batY + 12);
-
-      // Voltmeter across battery terminals - Realistic Analog Meter Gauge
-      ctx.strokeStyle = '#a855f7';
-      ctx.lineWidth = 1.5;
-      ctx.setLineDash([3, 3]);
-      ctx.beginPath();
-      ctx.moveTo(batX - 16, batY - 42);
-      ctx.lineTo(batX - 60, batY - 42);
-      ctx.lineTo(batX - 60, batY - 12);
-      ctx.moveTo(batX - 16, batY + 38);
-      ctx.lineTo(batX - 60, batY + 38);
-      ctx.lineTo(batX - 60, batY + 48);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      drawAnalogMeterGauge(
-        ctx,
-        batX - 60,
-        batY + 18,
-        28,
-        simState.vTerminal1,
-        0,
-        Math.max(12, params.vb1 * 1.2),
-        'V₁',
-        'V'
-      );
-
-      // 2. Draw Top Component: Resistor or Incandescent Lamp
-      const topCenterX = startX + boxW / 2;
-      const topY = startY;
-
-      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
-      ctx.fillRect(topCenterX - 65, topY - 35, 130, 70);
-
-      if (mod === 'power_energy') {
-        // --- Realistic Incandescent Glass Bulb with Glowing Tungsten Filament ---
-        const bulbR = 22;
-        const lampP = simState.pLoad;
-        const glowFrac = Math.min(1.0, lampP / 40);
-
-        // Metallic screw base
-        drawMetallicCylinder(ctx, topCenterX - 7, topY + 4, 14, 12, 'brass', 'vertical');
-
-        // Glass Bulb Envelope
-        ctx.save();
-        ctx.beginPath();
-        ctx.arc(topCenterX, topY - 12, bulbR, 0, Math.PI * 2);
-        const glassFill = ctx.createRadialGradient(topCenterX, topY - 12, 4, topCenterX, topY - 12, bulbR);
-        glassFill.addColorStop(0, `rgba(254, 240, 138, ${0.15 + glowFrac * 0.75})`);
-        glassFill.addColorStop(1, 'rgba(255, 255, 255, 0.15)');
-        ctx.fillStyle = glassFill;
-        ctx.fill();
-
-        // Bulb glass specular reflection arc
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.55)';
-        ctx.lineWidth = 1.8;
-        ctx.beginPath();
-        ctx.arc(topCenterX, topY - 12, bulbR - 2, -Math.PI * 0.75, -Math.PI * 0.25);
-        ctx.stroke();
-
-        // Hot glowing tungsten filament
-        if (params.isSwitchClosed && simState.iTotal > 0) {
-          ctx.shadowColor = '#f59e0b';
-          ctx.shadowBlur = 12 + glowFrac * 24;
-          ctx.strokeStyle = glowFrac > 0.6 ? '#ffffff' : '#fbbf24';
-          ctx.lineWidth = 2.5;
-          ctx.beginPath();
-          ctx.moveTo(topCenterX - 8, topY - 6);
-          ctx.lineTo(topCenterX - 4, topY - 18);
-          ctx.lineTo(topCenterX + 4, topY - 18);
-          ctx.lineTo(topCenterX + 8, topY - 6);
-          ctx.stroke();
-        }
-        ctx.restore();
-
-        ctx.fillStyle = '#f59e0b';
-        ctx.font = 'bold 10px monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText(`Lamp (${lampP.toFixed(1)}W)`, topCenterX, topY - 38);
-      } else {
-        // --- 3D Ceramic Resistor Cylinder with Precision Tolerance Bands ---
-        drawMetallicCylinder(ctx, topCenterX - 45, topY - 9, 90, 18, 'steel', 'horizontal');
-
-        // Resistor color bands
-        const bandColors = ['#ef4444', '#f59e0b', '#3b82f6', '#d97706'];
-        bandColors.forEach((bColor, bIdx) => {
-          ctx.fillStyle = bColor;
-          ctx.fillRect(topCenterX - 28 + bIdx * 16, topY - 9, 6, 18);
-        });
-
-        ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
-        ctx.font = 'bold 11px font-mono';
-        ctx.textAlign = 'center';
-        ctx.fillText(
-          mod === 'closed_ohm' ? `Rv = ${params.rheostatR} Ω` : `R1 = ${params.r1} Ω`,
-          topCenterX,
-          topY - 18
-        );
-      }
-
-      // 3. Draw Right Knife Switch (K)
-      const rightX = startX + boxW;
-      const rightY = startY + boxH / 2;
-
-      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
-      ctx.fillRect(rightX - 30, rightY - 30, 60, 60);
-
-      // Brass terminal studs
-      ctx.fillStyle = '#ca8a04';
-      ctx.beginPath();
-      ctx.arc(rightX, rightY - 16, 5, 0, Math.PI * 2);
-      ctx.arc(rightX, rightY + 16, 5, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Switch blade
-      ctx.strokeStyle = params.isSwitchClosed ? '#10b981' : '#ef4444';
-      ctx.lineWidth = 4;
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ctx.moveTo(rightX, rightY + 16);
-      if (params.isSwitchClosed) {
-        ctx.lineTo(rightX, rightY - 16);
-      } else {
-        ctx.lineTo(rightX + 18, rightY - 8);
-      }
-      ctx.stroke();
-
-      ctx.fillStyle = params.isSwitchClosed ? '#10b981' : '#ef4444';
-      ctx.font = 'bold 10px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(
-        params.isSwitchClosed ? (isArabic ? 'مفتاح K مغلق' : 'K Closed') : (isArabic ? 'مفتاح K مفتوح' : 'K Open'),
-        rightX,
-        rightY + 36
-      );
-
-      // 4. Realistic Analog Precision Ammeter on Bottom Wire
-      const botCenterX = startX + boxW / 2;
-      const botY = startY + boxH;
-
-      ctx.fillStyle = isLight ? '#f8fafc' : '#070b14';
-      ctx.fillRect(botCenterX - 45, botY - 35, 90, 70);
-
-      drawAnalogMeterGauge(
-        ctx,
-        botCenterX,
-        botY,
-        32,
-        simState.iTotal,
-        0,
-        Math.max(3, Math.ceil(simState.iTotal * 1.4)),
-        'I_tot',
-        'A'
-      );
-
-      // 5. Central Live Metrics Telemetry Card
-      ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.85)';
-      ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.roundRect(centerX - 130, centerY - 45, 260, 90, [12]);
-      ctx.fill();
-      ctx.stroke();
-
-      ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
-      ctx.font = 'bold 11px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(isArabic ? 'حالة الدائرة الحالية:' : 'Active Circuit Telemetry:', centerX, centerY - 25);
-
-      ctx.fillStyle = '#10b981';
-      ctx.font = 'bold 12px font-mono';
-      ctx.fillText(
-        isArabic
-          ? `الهبوط الداخلي: Ir = ${simState.vDropInternal1} V`
-          : `Internal Loss: Ir = ${simState.vDropInternal1} V`,
-        centerX,
-        centerY - 5
-      );
-
-      ctx.fillStyle = '#38bdf8';
-      ctx.font = 'bold 12px font-mono';
-      ctx.fillText(
-        isArabic
-          ? `المقاومة المكافئة: Req = ${simState.rEquivalent} Ω`
-          : `Equivalent Req = ${simState.rEquivalent} Ω`,
-        centerX,
-        centerY + 15
-      );
-
-      ctx.fillStyle = '#f59e0b';
-      ctx.font = 'bold 11px font-mono';
-      ctx.fillText(
-        isArabic
-          ? `كفاءة البطارية: ${simState.efficiencyPercent}%`
-          : `Battery Efficiency: ${simState.efficiencyPercent}%`,
-        centerX,
-        centerY + 33
-      );
     },
     [isArabic, isContrast, isLight, params, simState]
   );

@@ -1199,7 +1199,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             drawGlowingParticle(ctx, pos.x, pos.y + orbitOffset, 8, '#f59e0b', 6);
             ctx.fillStyle = '#ffffff';
             ctx.font = 'bold 8px sans-serif';
-            ctx.fillText('Lys', pos.x, pos.y + orbitOffset + 3);
+            ctx.fillText(isArabic ? 'ليسوسوم' : 'Lys', pos.x, pos.y + orbitOffset + 3);
           });
 
           // Stage 0 & 1: Extracellular or Ingested Bacterium
@@ -1263,7 +1263,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
             ctx.fillStyle = '#f59e0b';
             ctx.font = 'bold 9px monospace';
-            ctx.fillText('HYDROLYSIS', phagX, phagY + 4);
+            ctx.fillText(isArabic ? 'تحلل إنزيمي' : 'HYDROLYSIS', phagX, phagY + 4);
           } else if (stage >= 3) {
             // MHC-II loaded complexes on membrane surface
             const mhcCount = 3;
@@ -1326,7 +1326,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
                 ctx.fillStyle = '#38bdf8';
                 ctx.font = 'bold 10px monospace';
-                ctx.fillText('INTERLEUKINS (IL-1, IL-2)', thX + 65, thY - 45);
+                ctx.fillText(isArabic ? 'إنترلوكين (IL-1, IL-2)' : 'INTERLEUKINS (IL-1, IL-2)', thX + 65, thY - 45);
               }
             }
           }
@@ -1828,7 +1828,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
             ctx.fillStyle = '#38bdf8';
             ctx.font = 'bold 12px sans-serif';
-            ctx.fillText('H2O Inflow (انفجار غشائي)', bX, bY + 5);
+            ctx.fillText(isArabic ? 'تدفق الماء H₂O (انفجار غشائي)' : 'H2O Inflow (Osmotic Lysis)', bX, bY + 5);
 
             ctx.font = 'bold 12px sans-serif';
             ctx.fillStyle = '#ef4444';
@@ -1910,7 +1910,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
         for (let d = 0; d <= 30; d += 5) {
           const gx = padding + (d / 30) * plotW;
-          ctx.fillText(`Day ${d}`, gx, padding + 35 + plotH);
+          ctx.fillText(isArabic ? `يوم ${d}` : `Day ${d}`, gx, padding + 35 + plotH);
         }
 
         ctx.strokeStyle = '#38bdf8';
@@ -1945,7 +1945,7 @@ export const ImmunityLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
 
         ctx.fillStyle = '#f59e0b';
         ctx.font = 'bold 11px sans-serif';
-        ctx.fillText(`Day ${timeDay}`, curX, padding + 15);
+        ctx.fillText(isArabic ? `يوم ${timeDay}` : `Day ${timeDay}`, curX, padding + 15);
 
         ctx.fillStyle = '#ef4444';
         ctx.fillText(isArabic ? '💉 حقن أولي (يوم ٠)' : '💉 1st Exposure (Day 0)', padding + 40, padding + 40);

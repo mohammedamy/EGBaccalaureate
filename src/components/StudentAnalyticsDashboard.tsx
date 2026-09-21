@@ -55,6 +55,7 @@ interface Props {
 
 export const StudentAnalyticsDashboard: React.FC<Props> = ({
   lang,
+  theme = 'dark',
   curriculum: _curriculum,
   onNavigateTab,
   onStartTargetedQuiz,
@@ -62,6 +63,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   onStartPastPapers,
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
 
   const [analyticsState, setAnalyticsState] = useState<StudentAnalyticsState>(() =>
     getStudentAnalytics()
@@ -200,25 +202,33 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
     if (readinessScore >= 85) {
       return {
         label: isAr ? 'جاهزية متقدمة للتفوق والدرجة النهائية 🏆' : 'Advanced Final Exam Mastery 🏆',
-        color: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
+        color: isLight
+          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+          : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40',
       };
     } else if (readinessScore >= 70) {
       return {
         label: isAr ? 'مستوى واعد وقريب من الإتقان التام 🎯' : 'Promising Near-Mastery Level 🎯',
-        color: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
+        color: isLight
+          ? 'bg-cyan-100 text-cyan-800 border-cyan-300'
+          : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40',
       };
     } else if (readinessScore >= 50) {
       return {
         label: isAr ? 'مستوى متوسط يحتاج لتعزيز بعض الفصول 📈' : 'Moderate - Targeted Practice Recommended 📈',
-        color: 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+        color: isLight
+          ? 'bg-amber-100 text-amber-800 border-amber-300'
+          : 'bg-amber-500/20 text-amber-300 border-amber-500/40',
       };
     } else {
       return {
         label: isAr ? 'مرحلة البناء الأولي - ابدأ الاختبارات التجريبية 🚀' : 'Baseline - Start Practice Quizzes 🚀',
-        color: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
+        color: isLight
+          ? 'bg-indigo-100 text-indigo-800 border-indigo-200'
+          : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40',
       };
     }
-  }, [readinessScore, isAr]);
+  }, [readinessScore, isAr, isLight]);
 
   // Filtered chapters
   const allChapterRecords = useMemo(() => {
@@ -232,23 +242,31 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   return (
     <div className="space-y-8" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Hero Diagnostic & Readiness Command Center */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-950 via-indigo-950/80 to-slate-900 border-2 border-indigo-800/40 p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+      <div className={`relative overflow-hidden rounded-3xl border-2 p-6 sm:p-8 shadow-2xl backdrop-blur-md ${
+        isLight
+          ? 'bg-gradient-to-br from-indigo-50/90 via-slate-50 to-cyan-50/80 border-indigo-200/80 shadow-md'
+          : 'bg-gradient-to-br from-slate-950 via-indigo-950/80 to-slate-900 border-indigo-800/40'
+      }`}>
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Left / Info & Title */}
           <div className="space-y-4 max-w-2xl text-center lg:text-start">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-xs font-bold uppercase tracking-wider">
-              <BrainCircuit className="w-4 h-4 text-indigo-400" />
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+              isLight
+                ? 'bg-indigo-100 text-indigo-800 border border-indigo-200'
+                : 'bg-indigo-500/20 border border-indigo-500/40 text-indigo-300'
+            }`}>
+              <BrainCircuit className={`w-4 h-4 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
               <span>{isAr ? 'رادار الإتقان والتحليلات الأكاديمية' : 'Student Mastery Radar & Analytics'}</span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl font-black text-slate-100 tracking-tight leading-tight">
+            <h1 className={`text-2xl sm:text-4xl font-black tracking-tight leading-tight ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
               {isAr ? 'مؤشر الجاهزية للامتحانات الرسمية 🎯' : 'Curriculum Examination Readiness Index 🎯'}
             </h1>
 
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p className={`text-xs sm:text-sm leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
               {isAr
                 ? 'تشخيص فوري شامل لمستوى الطالب المعرفي والمهاري، مبني على أوزان مواصفات الورقة الامتحانية لوزارة التربية والتعليم، مع رصد دقيق لدقة الإجابات، والمهارات العليا HOTS، ونقاط القوة والضعف.'
                 : 'Comprehensive multidimensional diagnostic engine calibrated against official Ministry examination blueprints, computing real-time readiness across accuracy, cognitive tiers, and High Order Thinking Skills.'}
@@ -295,7 +313,11 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
               <button
                 onClick={handlePrint}
-                className="no-print px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+                className={`no-print px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  isLight
+                    ? 'bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 shadow-xs'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700'
+                }`}
               >
                 <Printer className="w-3.5 h-3.5" />
                 <span>{isAr ? 'طباعة تقرير الجاهزية' : 'Print Readiness Card'}</span>
@@ -304,7 +326,11 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               {analyticsState.totalAttempted > 0 && (
                 <button
                   onClick={handleReset}
-                  className="no-print px-2.5 py-1.5 rounded-xl bg-slate-800/40 hover:bg-rose-950/40 text-slate-400 hover:text-rose-400 border border-slate-800 text-xs font-semibold transition-all cursor-pointer"
+                  className={`no-print px-2.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    isLight
+                      ? 'bg-white hover:bg-rose-50 text-slate-500 hover:text-rose-600 border border-slate-300'
+                      : 'bg-slate-800/40 hover:bg-rose-950/40 text-slate-400 hover:text-rose-400 border border-slate-800'
+                  }`}
                   title={isAr ? 'إعادة تعيين السجل' : 'Reset History'}
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
@@ -322,7 +348,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   cx="80"
                   cy="80"
                   r="68"
-                  className="stroke-slate-800"
+                  className={isLight ? 'stroke-slate-200' : 'stroke-slate-800'}
                   strokeWidth="12"
                   fill="transparent"
                 />
@@ -349,10 +375,10 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               </svg>
 
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-                <span className="text-3xl sm:text-4xl font-black text-slate-100 tracking-tight">
+                <span className={`text-3xl sm:text-4xl font-black tracking-tight ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                   {isAr ? `${toHindiDigits(readinessScore)}%` : `${readinessScore}%`}
                 </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-400 mt-1">
+                <span className={`text-[11px] font-extrabold uppercase tracking-wider mt-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                   {isAr ? 'مؤشر الجاهزية' : 'Readiness'}
                 </span>
               </div>
@@ -361,61 +387,73 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
         </div>
 
         {/* 4 Core Quantitative KPIs */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t border-slate-800/80">
-          <div className="p-3 sm:p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-            <span className="text-[11px] font-bold text-slate-400 block mb-1">
+        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 pt-6 border-t ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
+          <div className={`p-3 sm:p-4 rounded-2xl border text-center ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-900/80 border-slate-800'}`}>
+            <span className={`text-[11px] font-bold block mb-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isAr ? 'الأسئلة المنجزة' : 'Practiced Questions'}
             </span>
-            <span className="text-xl sm:text-2xl font-black text-slate-100">
+            <span className={`text-xl sm:text-2xl font-black ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
               {isAr ? toHindiDigits(analyticsState.totalAttempted) : analyticsState.totalAttempted}
             </span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-            <span className="text-[11px] font-bold text-slate-400 block mb-1">
+          <div className={`p-3 sm:p-4 rounded-2xl border text-center ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-900/80 border-slate-800'}`}>
+            <span className={`text-[11px] font-bold block mb-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isAr ? 'دقة الإجابات' : 'Overall Accuracy'}
             </span>
-            <span className="text-xl sm:text-2xl font-black text-emerald-400">
+            <span className={`text-xl sm:text-2xl font-black ${isLight ? 'text-emerald-600' : 'text-emerald-400'}`}>
               {isAr ? `${toHindiDigits(overallAccuracy)}%` : `${overallAccuracy}%`}
             </span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-            <span className="text-[11px] font-bold text-slate-400 block mb-1">
+          <div className={`p-3 sm:p-4 rounded-2xl border text-center ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-900/80 border-slate-800'}`}>
+            <span className={`text-[11px] font-bold block mb-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isAr ? 'متوسط سرعة السؤال' : 'Avg Pace / Question'}
             </span>
-            <span className="text-xl sm:text-2xl font-black text-cyan-400">
+            <span className={`text-xl sm:text-2xl font-black ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`}>
               {isAr ? `${toHindiDigits(avgPaceSeconds)}ث` : `${avgPaceSeconds}s`}
             </span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-            <span className="text-[11px] font-bold text-slate-400 block mb-1">
+          <div className={`p-3 sm:p-4 rounded-2xl border text-center ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-900/80 border-slate-800'}`}>
+            <span className={`text-[11px] font-bold block mb-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
               {isAr ? 'الاختبارات المكتملة' : 'Quizzes Completed'}
             </span>
-            <span className="text-xl sm:text-2xl font-black text-indigo-400">
+            <span className={`text-xl sm:text-2xl font-black ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`}>
               {isAr ? toHindiDigits(analyticsState.quizzesCompleted) : analyticsState.quizzesCompleted}
             </span>
           </div>
         </div>
 
         {/* AI Thanaweya Predictive Total Score & University Tier Card */}
-        <div className="mt-4 p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-indigo-950/60 via-slate-900 to-amber-950/40 border border-indigo-500/30 shadow-2xl">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-slate-800">
+        <div className={`mt-4 p-5 sm:p-6 rounded-3xl border shadow-xl ${
+          isLight
+            ? 'bg-gradient-to-br from-amber-50/80 via-white to-indigo-50/70 border-amber-200/90 shadow-md'
+            : 'bg-gradient-to-br from-indigo-950/60 via-slate-900 to-amber-950/40 border-indigo-500/30 shadow-2xl'
+        }`}>
+          <div className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 font-black shadow-lg">
-                <Trophy className="w-6 h-6" />
+                <Trophy className="w-6 h-6 text-slate-950" />
               </div>
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+                  <span className={`text-xs font-bold uppercase tracking-wider ${
+                    isLight ? 'text-amber-800' : 'text-amber-400'
+                  }`}>
                     {isAr ? 'محرك التنبؤ الذكي لمجموع الثانوية العامة' : 'AI Thanaweya Score Predictor Engine'}
                   </span>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                    isLight
+                      ? 'bg-indigo-100 text-indigo-800 border-indigo-200'
+                      : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
+                  }`}>
                     {isAr ? 'المقياس الرسمي: ٤١٠ درجة' : 'Official 410-Mark Standard'}
                   </span>
                 </div>
-                <h3 className="text-base sm:text-lg font-black text-white">
+                <h3 className={`text-base sm:text-lg font-black ${isLight ? 'text-slate-900' : 'text-white'}`}>
                   {isAr ? 'التوقع التراكمي لنتيجة مكتب التنسيق' : 'Projected Ministerial Score & University Admission Tier'}
                 </h3>
               </div>
@@ -423,16 +461,16 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
             <div className="flex items-center gap-3 self-end md:self-auto">
               <div className="text-right rtl:text-right">
-                <span className="text-[11px] text-slate-400 block">{isAr ? 'المجموع المتوقع' : 'Projected Score'}</span>
-                <span className="text-2xl sm:text-3xl font-black text-amber-400 font-mono">
+                <span className={`text-[11px] block ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{isAr ? 'المجموع المتوقع' : 'Projected Score'}</span>
+                <span className={`text-2xl sm:text-3xl font-black font-mono ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>
                   {isAr ? toHindiDigits(predictiveScore.predictedTotalMarks) : predictiveScore.predictedTotalMarks}
-                  <span className="text-sm text-slate-400 font-bold"> / {isAr ? '٤١٠' : '410'}</span>
+                  <span className={`text-sm font-bold ${isLight ? 'text-slate-500' : 'text-slate-400'}`}> / {isAr ? '٤١٠' : '410'}</span>
                 </span>
               </div>
-              <div className="h-10 w-px bg-slate-800 hidden sm:block" />
+              <div className={`h-10 w-px hidden sm:block ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`} />
               <div className="text-right rtl:text-right">
-                <span className="text-[11px] text-slate-400 block">{isAr ? 'النسبة المئوية' : 'Percentage'}</span>
-                <span className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">
+                <span className={`text-[11px] block ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{isAr ? 'النسبة المئوية' : 'Percentage'}</span>
+                <span className={`text-2xl sm:text-3xl font-black font-mono ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>
                   {isAr ? `${toHindiDigits(predictiveScore.predictedPercentage)}%` : `${predictiveScore.predictedPercentage}%`}
                 </span>
               </div>
@@ -440,24 +478,28 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
-            <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-              <span className="text-slate-400 font-bold block mb-1">
+            <div className={`p-3.5 rounded-2xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'}`}>
+              <span className={`font-bold block mb-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                 {isAr ? 'الشريحة والتصنيف المتوقع:' : 'Predicted Admission Tier:'}
               </span>
-              <p className="text-sm font-black text-indigo-300">
+              <p className={`text-sm font-black ${isLight ? 'text-indigo-800' : 'text-indigo-300'}`}>
                 {isAr ? predictiveScore.universityTrackTierAr : predictiveScore.universityTrackTierEn}
               </p>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800/80">
-              <span className="text-slate-400 font-bold block mb-1.5">
+            <div className={`p-3.5 rounded-2xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'}`}>
+              <span className={`font-bold block mb-1.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                 {isAr ? 'الكليات والقطاعات المستهدفة الموصى بها:' : 'Target Faculty Recommendations:'}
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {(isAr ? predictiveScore.targetFacultyRecommendationsAr : predictiveScore.targetFacultyRecommendationsEn).map((fac: string, idx: number) => (
                   <span
                     key={idx}
-                    className="px-2 py-0.5 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 text-[11px] font-medium"
+                    className={`px-2 py-0.5 rounded-lg border text-[11px] font-medium ${
+                      isLight
+                        ? 'bg-slate-100 text-slate-800 border-slate-200'
+                        : 'bg-slate-800 text-slate-200 border-slate-700'
+                    }`}
                   >
                     {fac}
                   </span>
@@ -470,37 +512,55 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
       {/* First-Time Diagnostic Calibration Hero Card (When 0 Attempted) */}
       {analyticsState.totalAttempted === 0 && (
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-cyan-950/70 via-slate-900 to-indigo-950/70 border-2 border-cyan-500/40 p-6 sm:p-8 shadow-2xl space-y-4">
+        <div className={`relative overflow-hidden rounded-3xl border-2 p-6 sm:p-8 shadow-2xl space-y-4 ${
+          isLight
+            ? 'bg-gradient-to-r from-cyan-50/90 via-white to-indigo-50/80 border-cyan-300/80 shadow-md'
+            : 'bg-gradient-to-r from-cyan-950/70 via-slate-900 to-indigo-950/70 border-cyan-500/40 shadow-2xl'
+        }`}>
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-start max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-extrabold">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-extrabold ${
+                isLight
+                  ? 'bg-cyan-100 border-cyan-300 text-cyan-800'
+                  : 'bg-cyan-500/20 border-cyan-500/40 text-cyan-300'
+              }`}>
+                <Sparkles className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
                 <span>{isAr ? 'معايرة رادار الإتقان لأول مرة' : 'First-Time Mastery Radar Calibration'}</span>
               </div>
-              <h2 className="text-xl sm:text-2xl font-black text-white">
+              <h2 className={`text-xl sm:text-2xl font-black ${isLight ? 'text-slate-900' : 'text-white'}`}>
                 {isAr
                   ? 'خض اختبار تحديد المستوى والتشخيص الشامل (٢٠ سؤالاً) 🎯'
                   : 'Take the 20-Q Comprehensive Diagnostic Benchmark Exam 🎯'}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              <p className={`text-xs sm:text-sm leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
                 {isAr
                   ? 'لم تقم بعد بأداء اختبارات تدريبية. تم تصميم هذا الاختبار المتوازن خصيصاً لتفعيل رادار الإتقان الخماسي وحساب مؤشر جاهزيتك بدقة، بواقع ٤ أسئلة لكل فرع من فروع الثانوية العامة موزعة بالتساوي على مستويات بلوم المعرفية (تأسيسي، قياسي، تفكير عليا).'
                   : 'You have not taken any practice quizzes yet. This balanced diagnostic exam was specifically engineered to calibrate all 5 radar vertices and compute your genuine readiness index with 4 questions per domain across Bloom cognitive tiers.'}
               </p>
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1">
-                <span className="px-2.5 py-1 rounded-lg bg-blue-950/80 border border-blue-800 text-blue-300 text-[11px] font-bold">
+                <span className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold ${
+                  isLight ? 'bg-blue-50 border-blue-200 text-blue-800' : 'bg-blue-950/80 border-blue-800 text-blue-300'
+                }`}>
                   📐 {isAr ? 'الرياضيات البحتة (٤)' : 'Pure Math (4)'}
                 </span>
-                <span className="px-2.5 py-1 rounded-lg bg-indigo-950/80 border border-indigo-800 text-indigo-300 text-[11px] font-bold">
+                <span className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold ${
+                  isLight ? 'bg-indigo-50 border-indigo-200 text-indigo-800' : 'bg-indigo-950/80 border-indigo-800 text-indigo-300'
+                }`}>
                   ⚙️ {isAr ? 'الرياضيات التطبيقية (٤)' : 'Applied Math (4)'}
                 </span>
-                <span className="px-2.5 py-1 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-300 text-[11px] font-bold">
+                <span className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold ${
+                  isLight ? 'bg-cyan-50 border-cyan-200 text-cyan-800' : 'bg-cyan-950/80 border-cyan-800 text-cyan-300'
+                }`}>
                   ⚡ {isAr ? 'الفيزياء (٤)' : 'Physics (4)'}
                 </span>
-                <span className="px-2.5 py-1 rounded-lg bg-emerald-950/80 border border-emerald-800 text-emerald-300 text-[11px] font-bold">
+                <span className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold ${
+                  isLight ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : 'bg-emerald-950/80 border-emerald-800 text-emerald-300'
+                }`}>
                   🧪 {isAr ? 'الكيمياء (٤)' : 'Chemistry (4)'}
                 </span>
-                <span className="px-2.5 py-1 rounded-lg bg-purple-950/80 border border-purple-800 text-purple-300 text-[11px] font-bold">
+                <span className={`px-2.5 py-1 rounded-lg border text-[11px] font-bold ${
+                  isLight ? 'bg-purple-50 border-purple-200 text-purple-800' : 'bg-purple-950/80 border-purple-800 text-purple-300'
+                }`}>
                   🧬 {isAr ? 'الأحياء (٤)' : 'Biology (4)'}
                 </span>
               </div>
@@ -515,9 +575,9 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                     onNavigateTab('testGenerator');
                   }
                 }}
-                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-extrabold text-sm shadow-xl hover:shadow-cyan-500/25 transition-all flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
+                className="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 text-white font-extrabold text-sm shadow-xl hover:shadow-cyan-500/25 transition-all flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <Target className="w-5 h-5" />
+                <Target className="w-5 h-5 text-white" />
                 <span>{isAr ? 'بدء اختبار التشخيص الشامل (٣٠ دقيقة) 🚀' : 'Start Diagnostic Exam (30 Min) 🚀'}</span>
               </button>
             </div>
@@ -528,10 +588,16 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
       {/* Grid Layout: Mastery Radar Pentagon + Cognitive Level Tiers */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left / Pentagon Mastery Radar (7 Cols) */}
-        <div className="lg:col-span-7 bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-3 flex-wrap gap-2">
-            <div className="flex items-center gap-2 text-slate-100 font-bold text-base sm:text-lg">
-              <Target className="w-5 h-5 text-indigo-400" />
+        <div className={`lg:col-span-7 border rounded-3xl p-6 shadow-xl space-y-4 ${
+          isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/90 border-slate-800'
+        }`}>
+          <div className={`flex items-center justify-between border-b pb-3 flex-wrap gap-2 ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
+            <div className={`flex items-center gap-2 font-bold text-base sm:text-lg ${
+              isLight ? 'text-slate-900' : 'text-slate-100'
+            }`}>
+              <Target className={`w-5 h-5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
               <span>
                 {radarTrackMode === 'stem5'
                   ? (isAr ? 'رادار الإتقان الخماسي (علمي)' : '5-Point STEM Mastery Radar')
@@ -542,13 +608,15 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             </div>
 
             {/* Radar Track Mode Selector */}
-            <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs">
+            <div className={`flex items-center gap-1 p-1 rounded-xl border text-xs ${
+              isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950 border-slate-800'
+            }`}>
               <button
                 onClick={() => setRadarTrackMode('stem5')}
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   radarTrackMode === 'stem5'
                     ? 'bg-indigo-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {isAr ? 'علمي (٥ مواد)' : 'STEM (5)'}
@@ -558,7 +626,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   radarTrackMode === 'humanities'
                     ? 'bg-amber-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {isAr ? 'أدبي (٤ مواد)' : 'Humanities (4)'}
@@ -568,7 +636,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
                   radarTrackMode === 'all8'
                     ? 'bg-emerald-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-white'
                 }`}
               >
                 {isAr ? 'الشامل (٨ مواد)' : 'All 8 Core'}
@@ -588,7 +656,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   key={ring.level}
                   points={ring.points}
                   fill="none"
-                  stroke="#334155"
+                  stroke={isLight ? '#cbd5e1' : '#334155'}
                   strokeWidth="1"
                   strokeDasharray={ring.level < 100 ? '3 3' : 'none'}
                 />
@@ -602,7 +670,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   y1={ray.y1}
                   x2={ray.x2}
                   y2={ray.y2}
-                  stroke="#334155"
+                  stroke={isLight ? '#cbd5e1' : '#334155'}
                   strokeWidth="1"
                 />
               ))}
@@ -623,7 +691,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   cx={pt.x}
                   cy={pt.y}
                   r="5"
-                  className="fill-cyan-400 stroke-slate-900"
+                  className={`fill-cyan-500 ${isLight ? 'stroke-white' : 'stroke-slate-900'}`}
                   strokeWidth="2"
                 />
               ))}
@@ -642,7 +710,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   <text
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-[10px] sm:text-[11px] font-black fill-slate-200"
+                    className={`text-[10px] sm:text-[11px] font-black ${isLight ? 'fill-slate-800' : 'fill-slate-200'}`}
                   >
                     {isAr ? lbl.labelAr : lbl.labelEn}
                   </text>
@@ -650,7 +718,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                     y="14"
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="text-[10px] font-bold fill-cyan-400"
+                    className={`text-[10px] font-bold ${isLight ? 'fill-cyan-700 font-extrabold' : 'fill-cyan-400'}`}
                   >
                     {isAr ? `${toHindiDigits(lbl.scorePct)}%` : `${lbl.scorePct}%`}
                   </text>
@@ -660,7 +728,9 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
 
           <div
-            className={`grid gap-2 pt-3 border-t border-slate-800 text-center ${
+            className={`grid gap-2 pt-3 border-t text-center ${
+              isLight ? 'border-slate-200' : 'border-slate-800'
+            } ${
               radarPoints.length === 4
                 ? 'grid-cols-2 sm:grid-cols-4'
                 : radarPoints.length === 8
@@ -669,8 +739,12 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             }`}
           >
             {radarPoints.map((pt) => (
-              <div key={pt.dimensionKey} className="p-2 rounded-xl bg-slate-950/60 border border-slate-800">
-                <span className="text-[10px] font-bold text-slate-400 block truncate">
+              <div key={pt.dimensionKey} className={`p-2 rounded-xl border ${
+                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800'
+              }`}>
+                <span className={`text-[10px] font-bold block truncate ${
+                  isLight ? 'text-slate-600' : 'text-slate-400'
+                }`}>
                   {isAr ? pt.labelAr : pt.labelEn}
                 </span>
                 <span className="text-sm font-black" style={{ color: pt.color }}>
@@ -684,13 +758,17 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
         {/* Right / Cognitive Distribution & Strategic Priorities (5 Cols) */}
         <div className="lg:col-span-5 space-y-6">
           {/* Cognitive Level Tiers (Bloom's Taxonomy / Ministry Blueprint) */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-            <div className="border-b border-slate-800 pb-3">
-              <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-emerald-400" />
+          <div className={`border rounded-3xl p-6 shadow-xl space-y-4 ${
+            isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/90 border-slate-800'
+          }`}>
+            <div className={`border-b pb-3 ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
+              <h3 className={`text-base font-bold flex items-center gap-2 ${
+                isLight ? 'text-slate-900' : 'text-slate-100'
+              }`}>
+                <BarChart3 className={`w-5 h-5 ${isLight ? 'text-emerald-600' : 'text-emerald-400'}`} />
                 <span>{isAr ? 'مستويات التفكير المعرفي (بلوم)' : 'Cognitive Thinking Tiers'}</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                 {isAr ? 'المواصفة الوزارية: ۳۰٪ تأسيسي، ٤۰٪ معياري، ۳۰٪ مستويات عليا' : 'Ministry Specs: 30% Foundational, 40% Standard, 30% HOTS'}
               </p>
             </div>
@@ -703,12 +781,12 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 return (
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-xs font-bold">
-                      <span className="text-emerald-400">{isAr ? 'المستوى التأسيسي (سهل)' : 'Foundational (Easy)'}</span>
-                      <span className="text-slate-300">
+                      <span className={isLight ? 'text-emerald-700' : 'text-emerald-400'}>{isAr ? 'المستوى التأسيسي (سهل)' : 'Foundational (Easy)'}</span>
+                      <span className={isLight ? 'text-slate-700' : 'text-slate-300'}>
                         {isAr ? `${toHindiDigits(pct)}% (${toHindiDigits(cog.correct)}/${toHindiDigits(cog.attempted)})` : `${pct}% (${cog.correct}/${cog.attempted})`}
                       </span>
                     </div>
-                    <div className="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800">
+                    <div className={`w-full h-2.5 rounded-full overflow-hidden border ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
                       <div className="bg-emerald-500 h-full rounded-full transition-all duration-700" style={{ width: `${pct}%` }} />
                     </div>
                   </div>
@@ -722,12 +800,12 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 return (
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-xs font-bold">
-                      <span className="text-sky-400">{isAr ? 'المستوى المعياري (متوسط)' : 'Standard (Medium)'}</span>
-                      <span className="text-slate-300">
+                      <span className={isLight ? 'text-sky-700' : 'text-sky-400'}>{isAr ? 'المستوى المعياري (متوسط)' : 'Standard (Medium)'}</span>
+                      <span className={isLight ? 'text-slate-700' : 'text-slate-300'}>
                         {isAr ? `${toHindiDigits(pct)}% (${toHindiDigits(cog.correct)}/${toHindiDigits(cog.attempted)})` : `${pct}% (${cog.correct}/${cog.attempted})`}
                       </span>
                     </div>
-                    <div className="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800">
+                    <div className={`w-full h-2.5 rounded-full overflow-hidden border ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
                       <div className="bg-sky-500 h-full rounded-full transition-all duration-700" style={{ width: `${pct}%` }} />
                     </div>
                   </div>
@@ -741,12 +819,12 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 return (
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-xs font-bold">
-                      <span className="text-amber-400">{isAr ? 'المستويات العليا (HOTS للتفوق)' : 'High Order Skills (HOTS)'}</span>
-                      <span className="text-slate-300">
+                      <span className={isLight ? 'text-amber-700' : 'text-amber-400'}>{isAr ? 'المستويات العليا (HOTS للتفوق)' : 'High Order Skills (HOTS)'}</span>
+                      <span className={isLight ? 'text-slate-700' : 'text-slate-300'}>
                         {isAr ? `${toHindiDigits(pct)}% (${toHindiDigits(cog.correct)}/${toHindiDigits(cog.attempted)})` : `${pct}% (${cog.correct}/${cog.attempted})`}
                       </span>
                     </div>
-                    <div className="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden border border-slate-800">
+                    <div className={`w-full h-2.5 rounded-full overflow-hidden border ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950 border-slate-800'}`}>
                       <div className="bg-amber-500 h-full rounded-full transition-all duration-700" style={{ width: `${pct}%` }} />
                     </div>
                   </div>
@@ -756,21 +834,25 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
 
           {/* Strategic Remediation Queue (Top 3 Weakest Chapters) */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
-            <div className="border-b border-slate-800 pb-3">
-              <h3 className="text-base font-bold text-slate-100 flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-rose-400" />
+          <div className={`border rounded-3xl p-6 shadow-xl space-y-4 ${
+            isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/90 border-slate-800'
+          }`}>
+            <div className={`border-b pb-3 ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
+              <h3 className={`text-base font-bold flex items-center gap-2 ${
+                isLight ? 'text-slate-900' : 'text-slate-100'
+              }`}>
+                <AlertTriangle className={`w-5 h-5 ${isLight ? 'text-rose-600' : 'text-rose-400'}`} />
                 <span>{isAr ? 'خطة التدريب الموصى بها اليوم' : 'Targeted Practice Queue'}</span>
               </h3>
-              <p className="text-xs text-slate-400 mt-0.5">
+              <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                 {isAr ? 'أهم الفصول المرشحة للمراجعة لرفع مؤشر الجاهزية' : 'Chapters with lowest accuracy needing immediate reinforcement'}
               </p>
             </div>
 
             {weakestChapters.length === 0 ? (
               <div className="text-center p-6 space-y-2">
-                <CheckCircle2 className="w-8 h-8 text-emerald-400 mx-auto" />
-                <p className="text-xs text-slate-300 font-semibold">
+                <CheckCircle2 className={`w-8 h-8 mx-auto ${isLight ? 'text-emerald-600' : 'text-emerald-400'}`} />
+                <p className={`text-xs font-semibold ${isLight ? 'text-slate-600' : 'text-slate-300'}`}>
                   {isAr ? 'لا توجد فصول متعثرة حالياً! أداؤك متوازن ومستقر.' : 'No struggling chapters detected. Great balance!'}
                 </p>
               </div>
@@ -784,12 +866,14 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   return (
                     <div
                       key={ch.chapterId}
-                      className="p-3.5 rounded-2xl bg-slate-950/70 border border-rose-900/40 flex items-center justify-between gap-3"
+                      className={`p-3.5 rounded-2xl border flex items-center justify-between gap-3 ${
+                        isLight ? 'bg-rose-50/60 border-rose-200' : 'bg-slate-950/70 border-rose-900/40'
+                      }`}
                     >
                       <div className="space-y-0.5">
-                        <div className="text-xs font-bold text-slate-200">{title}</div>
-                        <div className="text-[11px] text-slate-400">{branch}</div>
-                        <div className="text-[10px] font-bold text-rose-400">
+                        <div className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{title}</div>
+                        <div className={`text-[11px] ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{branch}</div>
+                        <div className={`text-[10px] font-bold ${isLight ? 'text-rose-700' : 'text-rose-400'}`}>
                           {isAr
                             ? `نسبة الدقة: ${toHindiDigits(acc)}% (${toHindiDigits(ch.correct)}/${toHindiDigits(ch.attempted)})`
                             : `Accuracy: ${acc}% (${ch.correct}/${ch.attempted})`}
@@ -819,19 +903,29 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
       </div>
 
       {/* Official Past Papers & Republic Cohort Benchmark Hub */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/30 border-2 border-amber-600/30 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden">
+      <div className={`border-2 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 relative overflow-hidden ${
+        isLight
+          ? 'bg-gradient-to-br from-amber-50/80 via-white to-amber-100/40 border-amber-300 shadow-md'
+          : 'bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/30 border-amber-600/30'
+      }`}>
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4 relative z-10">
+        <div className={`flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-4 relative z-10 ${
+          isLight ? 'border-slate-200' : 'border-slate-800'
+        }`}>
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-wider ${
+              isLight
+                ? 'bg-amber-100 text-amber-900 border-amber-300'
+                : 'bg-amber-500/20 border-amber-500/40 text-amber-300'
+            }`}>
               <EgyptFlag className="h-3.5 w-auto rounded-[2px]" />
-              <Award className="w-4 h-4 text-amber-400" />
+              <Award className={`w-4 h-4 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
               <span>{isAr ? 'محاكاة امتحانات إتمام الثانوية العامة (٢٠٢١ - ٢٠٢٥)' : 'Official Thanawya Amma Past Papers (2021-2025)'}</span>
             </div>
-            <h3 className="text-lg font-black text-slate-100 mt-2">
+            <h3 className={`text-lg font-black mt-2 ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
               {isAr ? 'بنك الاختبارات الرسمية ونماذج الإجابة الوزارية المعتمدة' : 'Authentic MoE Examination Papers & Ministerial Rubrics'}
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className={`text-xs ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isAr
                 ? 'امتحانات الدور الأول والدور الثاني والنماذج الاسترشادية التجريبية مطابقة تماماً للمواصفة الوزارية مع تصنيف الرتبة المئوية، ورقة بابل شيت (A4)، وشهادة تقدير وبيان درجات رسمي معتمد.'
                 : 'First & Second session papers and experimental models with national percentile rankings, printable A4 OMR bubble sheets, and official certified grade transcripts.'}
@@ -866,14 +960,24 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 if (onStartPastPapers) onStartPastPapers(sub.id);
                 else onNavigateTab('testGenerator');
               }}
-              className="p-3 rounded-2xl bg-slate-950/80 hover:bg-amber-950/40 border border-slate-800 hover:border-amber-500/50 text-start space-y-1.5 transition-all cursor-pointer group"
+              className={`p-3 rounded-2xl border text-start space-y-1.5 transition-all cursor-pointer group ${
+                isLight
+                  ? 'bg-white hover:bg-amber-50/70 border-slate-200 hover:border-amber-300 shadow-xs'
+                  : 'bg-slate-950/80 hover:bg-amber-950/40 border-slate-800 hover:border-amber-500/50'
+              }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded border ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-800 border-amber-300'
+                    : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                }`}>
                   {sub.badge}
                 </span>
               </div>
-              <div className="text-xs font-black text-slate-200 group-hover:text-amber-300 transition-colors">
+              <div className={`text-xs font-black transition-colors ${
+                isLight ? 'text-slate-900 group-hover:text-amber-700' : 'text-slate-200 group-hover:text-amber-300'
+              }`}>
                 {isAr ? sub.titleAr : sub.titleEn}
               </div>
               <div className="text-[10px] text-slate-500 font-mono">
@@ -885,20 +989,32 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
       </div>
 
       {/* Official Accredited Certificates & Grade Transcripts Registry */}
-      <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/20 border-2 border-amber-500/30 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden">
+      <div className={`border-2 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden ${
+        isLight
+          ? 'bg-gradient-to-br from-amber-50/60 via-white to-emerald-50/40 border-amber-200 shadow-md'
+          : 'bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/20 border-amber-500/30'
+      }`}>
         <div className="absolute -top-24 -right-24 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4 relative z-10">
+        <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 relative z-10 ${
+          isLight ? 'border-slate-200' : 'border-slate-800'
+        }`}>
           <div className="space-y-1">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-bold uppercase tracking-wider ${
+              isLight
+                ? 'bg-amber-100 text-amber-900 border-amber-300'
+                : 'bg-amber-500/20 border-amber-500/40 text-amber-300'
+            }`}>
+              <ShieldCheck className={`w-4 h-4 ${isLight ? 'text-emerald-600' : 'text-emerald-400'}`} />
               <span>{isAr ? 'كنترول الثانوية العامة — الاعتماد الرسمي' : 'Central Examination Control Registry'}</span>
             </div>
-            <h3 className="text-lg font-black text-slate-100 flex items-center gap-2 mt-2">
-              <Award className="w-5 h-5 text-amber-400" />
+            <h3 className={`text-lg font-black flex items-center gap-2 mt-2 ${
+              isLight ? 'text-slate-900' : 'text-slate-100'
+            }`}>
+              <Award className={`w-5 h-5 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
               <span>{isAr ? 'سجل الشهادات وبيانات الدرجات الرسمية المعتمدة 📜' : 'Accredited Certificates & Grade Transcripts 📜'}</span>
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className={`text-xs ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isAr
                 ? 'شهادات معتمدة صادرة بختم شعار الجمهورية الإلكتروني والرقم المسلسل الموثق لكل امتحان وزاري أو نموذج محاكاة مكتمل.'
                 : 'Accredited certificates issued with digital Republic Seals and verifiable serials for all completed official exams.'}
@@ -925,52 +1041,74 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             {registeredCertificates.map((cert) => (
               <div
                 key={cert.certificateSerial}
-                className="bg-slate-950/90 border border-amber-500/30 hover:border-amber-500/60 rounded-2xl p-5 space-y-4 shadow-md transition-all hover:-translate-y-0.5"
+                className={`border rounded-2xl p-5 space-y-4 shadow-md transition-all hover:-translate-y-0.5 ${
+                  isLight
+                    ? 'bg-white border-amber-200 hover:border-amber-400 shadow-xs'
+                    : 'bg-slate-950/90 border-amber-500/30 hover:border-amber-500/60'
+                }`}
               >
                 {/* Header */}
-                <div className="flex items-start justify-between gap-2 border-b border-slate-800 pb-3">
+                <div className={`flex items-start justify-between gap-2 border-b pb-3 ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
                   <div className="space-y-0.5">
-                    <span className="text-[10px] font-mono text-amber-400/90 block">
+                    <span className={`text-[10px] font-mono block ${
+                      isLight ? 'text-amber-800 font-bold' : 'text-amber-400/90'
+                    }`}>
                       {cert.certificateSerial}
                     </span>
-                    <h4 className="text-sm font-black text-white">
+                    <h4 className={`text-sm font-black ${isLight ? 'text-slate-900' : 'text-white'}`}>
                       {isAr ? cert.subjectNameAr : cert.subjectNameEn}
                     </h4>
-                    <span className="text-[11px] text-slate-400 block">
+                    <span className={`text-[11px] block ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                       {cert.academicYear} — {isAr ? cert.sessionTitleAr : cert.sessionTitleEn}
                     </span>
                   </div>
 
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0">
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border shrink-0 ${
+                    isLight
+                      ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                  }`}>
                     {isAr ? 'معتمد 🛡️' : 'Accredited 🛡️'}
                   </span>
                 </div>
 
                 {/* Performance Stats */}
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
-                    <span className="text-[10px] text-slate-500 block">{isAr ? 'الدرجة والنسبة:' : 'Score & Accuracy:'}</span>
-                    <span className="text-emerald-400 font-mono font-black text-sm">
+                  <div className={`p-2.5 rounded-xl border ${
+                    isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/80 border-slate-800'
+                  }`}>
+                    <span className={`text-[10px] block ${isLight ? 'text-slate-500' : 'text-slate-500'}`}>{isAr ? 'الدرجة والنسبة:' : 'Score & Accuracy:'}</span>
+                    <span className={`font-mono font-black text-sm ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>
                       {cert.scoreReport ? `${cert.scoreReport.earnedMarks} / ${cert.scoreReport.totalMarks}` : `${cert.score} / ${cert.totalQuestions}`}{' '}
                       <span className="text-xs">({cert.scorePct}%)</span>
                     </span>
                   </div>
 
-                  <div className="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800">
-                    <span className="text-[10px] text-slate-500 block">{isAr ? 'الرتبة القومية:' : 'National Rank:'}</span>
-                    <span className="text-indigo-300 font-bold text-xs">
+                  <div className={`p-2.5 rounded-xl border ${
+                    isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/80 border-slate-800'
+                  }`}>
+                    <span className={`text-[10px] block ${isLight ? 'text-slate-500' : 'text-slate-500'}`}>{isAr ? 'الرتبة القومية:' : 'National Rank:'}</span>
+                    <span className={`font-bold text-xs ${isLight ? 'text-indigo-800' : 'text-indigo-300'}`}>
                       {cert.cohortReport ? `أعلى ${cert.cohortReport.percentileRank}%` : `${cert.scorePct}%`}
                     </span>
                   </div>
                 </div>
 
                 {/* Distinction Badge */}
-                <div className="p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold text-center">
+                <div className={`p-2 rounded-xl border text-xs font-bold text-center ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/10 border-amber-500/30 text-amber-300'
+                }`}>
                   {isAr ? cert.distinctionTier.labelAr : cert.distinctionTier.labelEn}
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-2 pt-1 border-t border-slate-800">
+                <div className={`flex items-center gap-2 pt-1 border-t ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
                   <button
                     onClick={() => setActiveCertificateToView(cert)}
                     className="flex-1 py-2 rounded-xl bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer"
@@ -984,22 +1122,28 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                       setVerificationTargetSerial(cert.certificateSerial);
                       setIsVerificationModalOpen(true);
                     }}
-                    className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
+                    className={`p-2 rounded-xl border transition-colors cursor-pointer ${
+                      isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                    }`}
                     title={isAr ? 'فحص كود التحقق الرسمي' : 'Inspect Accreditation Serial'}
                   >
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                    <ShieldCheck className={`w-4 h-4 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
                   </button>
                 </div>
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-8 bg-slate-950/60 border border-slate-800 rounded-2xl p-6 space-y-3">
-            <Award className="w-12 h-12 text-slate-600 mx-auto" />
-            <div className="text-sm font-bold text-slate-300">
+          <div className={`text-center py-8 rounded-2xl p-6 space-y-3 border ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800'
+          }`}>
+            <Award className={`w-12 h-12 mx-auto ${isLight ? 'text-slate-400' : 'text-slate-600'}`} />
+            <div className={`text-sm font-bold ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
               {isAr ? 'لم تصدر لك أي شهادات معتمدة بعد' : 'No Official Certificates Earned Yet'}
             </div>
-            <p className="text-xs text-slate-500 max-w-md mx-auto">
+            <p className={`text-xs max-w-md mx-auto ${isLight ? 'text-slate-500' : 'text-slate-500'}`}>
               {isAr
                 ? 'أكمل أي امتحان وزاري رسمي (٢٠٢١ - ٢٠٢٥) أو امتحان محاكاة شامل للحصول على شهادة تفوق وبيان درجات رسمي معتمد برقم مسلسل موثق.'
                 : 'Complete any official past exam paper or mock exam to earn an accredited performance certificate & transcript.'}
@@ -1009,14 +1153,20 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
       </div>
 
       {/* Achievement Badges Showcase ("شارات الإنجاز والتميز الأكاديمي") */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className={`border rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 ${
+        isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/90 border-slate-800'
+      }`}>
+        <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${
+          isLight ? 'border-slate-200' : 'border-slate-800'
+        }`}>
           <div className="space-y-1">
-            <h3 className="text-lg font-black text-slate-100 flex items-center gap-2">
-              <Award className="w-5 h-5 text-amber-400" />
+            <h3 className={`text-lg font-black flex items-center gap-2 ${
+              isLight ? 'text-slate-900' : 'text-slate-100'
+            }`}>
+              <Award className={`w-5 h-5 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
               <span>{isAr ? 'شارات الإنجاز والتفوق الأكاديمي 🏆' : 'Academic Achievement Badges 🏆'}</span>
             </h3>
-            <p className="text-xs text-slate-400">
+            <p className={`text-xs ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isAr
                 ? 'منظومة الأوسمة التحفيزية لمكافأة الإتقان في مهارات التفكير العليا، تدارك الأخطاء، وسرعة ودقة الحل'
                 : 'Motivational badges recognizing mastery in HOTS questions, mistake recovery, accuracy, and speed'}
@@ -1024,18 +1174,24 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
 
           {/* Badges Progress Pill */}
-          <div className="flex items-center gap-3 bg-slate-950/80 px-4 py-2 rounded-2xl border border-slate-800">
-            <Trophy className="w-5 h-5 text-amber-400 shrink-0" />
+          <div className={`flex items-center gap-3 px-4 py-2 rounded-2xl border ${
+            isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/80 border-slate-800'
+          }`}>
+            <Trophy className={`w-5 h-5 shrink-0 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
             <div className="space-y-1">
-              <div className="flex justify-between text-xs font-bold text-slate-200 gap-4">
+              <div className={`flex justify-between text-xs font-bold gap-4 ${
+                isLight ? 'text-slate-700' : 'text-slate-200'
+              }`}>
                 <span>{isAr ? 'الشارات المكتملة' : 'Unlocked Badges'}</span>
-                <span className="text-amber-400">
+                <span className={isLight ? 'text-amber-800 font-extrabold' : 'text-amber-400'}>
                   {isAr
                     ? `${toHindiDigits(badgeResult.unlockedCount)} / ${toHindiDigits(badgeResult.totalCount)}`
                     : `${badgeResult.unlockedCount} / ${badgeResult.totalCount}`}
                 </span>
               </div>
-              <div className="w-32 sm:w-40 bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+              <div className={`w-32 sm:w-40 h-2 rounded-full overflow-hidden border ${
+                isLight ? 'bg-slate-200 border-slate-200' : 'bg-slate-900 border-slate-800'
+              }`}>
                 <div
                   className="bg-gradient-to-r from-amber-500 to-yellow-400 h-full rounded-full transition-all duration-700"
                   style={{
@@ -1062,7 +1218,11 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               onClick={() => setBadgeFilter(cat.id)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                 badgeFilter === cat.id
-                  ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm'
+                  ? isLight
+                    ? 'bg-amber-100 text-amber-900 border border-amber-300 shadow-2xs'
+                    : 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm'
+                  : isLight
+                  ? 'text-slate-600 hover:text-slate-900 bg-white border border-slate-200'
                   : 'text-slate-400 hover:text-slate-200 bg-slate-950/60 border border-slate-800'
               }`}
             >
@@ -1077,39 +1237,55 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             const isUnlocked = b.unlocked;
 
             // Tier styling
-            let borderClass = 'border-slate-800 bg-slate-950/50 text-slate-300';
+            let borderClass = isLight ? 'border-slate-200 bg-white text-slate-800' : 'border-slate-800 bg-slate-950/50 text-slate-300';
             let tierTagAr = 'برونزية';
             let tierTagEn = 'Bronze';
-            let tierColor = 'text-orange-400 bg-orange-950/60 border-orange-800/60';
+            let tierColor = isLight ? 'text-amber-800 bg-amber-100 border-amber-300' : 'text-orange-400 bg-orange-950/60 border-orange-800/60';
 
             if (b.tier === 'diamond') {
               borderClass = isUnlocked
-                ? 'border-cyan-400/50 bg-gradient-to-br from-cyan-950/50 via-slate-950 to-purple-950/50 text-cyan-200 shadow-lg shadow-cyan-950/40'
+                ? isLight
+                  ? 'border-cyan-300 bg-gradient-to-br from-cyan-50 via-white to-indigo-50 text-cyan-900 shadow-xs'
+                  : 'border-cyan-400/50 bg-gradient-to-br from-cyan-950/50 via-slate-950 to-purple-950/50 text-cyan-200 shadow-lg shadow-cyan-950/40'
+                : isLight
+                ? 'border-slate-200 bg-slate-50 text-slate-500'
                 : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
               tierTagAr = 'ماسية 💎';
               tierTagEn = 'Diamond 💎';
-              tierColor = 'text-cyan-300 bg-cyan-950/80 border-cyan-800/80';
+              tierColor = isLight ? 'text-cyan-800 bg-cyan-100 border-cyan-300' : 'text-cyan-300 bg-cyan-950/80 border-cyan-800/80';
             } else if (b.tier === 'gold') {
               borderClass = isUnlocked
-                ? 'border-amber-500/50 bg-gradient-to-br from-amber-950/40 via-slate-950 to-yellow-950/40 text-amber-200 shadow-lg shadow-amber-950/40'
+                ? isLight
+                  ? 'border-amber-300 bg-gradient-to-br from-amber-50 via-white to-yellow-50 text-amber-900 shadow-xs'
+                  : 'border-amber-500/50 bg-gradient-to-br from-amber-950/40 via-slate-950 to-yellow-950/40 text-amber-200 shadow-lg shadow-amber-950/40'
+                : isLight
+                ? 'border-slate-200 bg-slate-50 text-slate-500'
                 : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
               tierTagAr = 'ذهبية 🥇';
               tierTagEn = 'Gold 🥇';
-              tierColor = 'text-amber-300 bg-amber-950/80 border-amber-800/80';
+              tierColor = isLight ? 'text-amber-800 bg-amber-100 border-amber-300' : 'text-amber-300 bg-amber-950/80 border-amber-800/80';
             } else if (b.tier === 'silver') {
               borderClass = isUnlocked
-                ? 'border-slate-400/50 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-slate-200 shadow-md'
+                ? isLight
+                  ? 'border-slate-300 bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-800 shadow-xs'
+                  : 'border-slate-400/50 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-slate-200 shadow-md'
+                : isLight
+                ? 'border-slate-200 bg-slate-50 text-slate-500'
                 : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
               tierTagAr = 'فضية 🥈';
               tierTagEn = 'Silver 🥈';
-              tierColor = 'text-slate-300 bg-slate-800/80 border-slate-700';
+              tierColor = isLight ? 'text-slate-700 bg-slate-200 border-slate-300' : 'text-slate-300 bg-slate-800/80 border-slate-700';
             } else {
               borderClass = isUnlocked
-                ? 'border-orange-600/50 bg-gradient-to-br from-orange-950/30 via-slate-950 to-slate-950 text-orange-200 shadow-md'
+                ? isLight
+                  ? 'border-orange-300 bg-gradient-to-br from-orange-50 via-white to-amber-50 text-orange-900 shadow-xs'
+                  : 'border-orange-600/50 bg-gradient-to-br from-orange-950/30 via-slate-950 to-slate-950 text-orange-200 shadow-md'
+                : isLight
+                ? 'border-slate-200 bg-slate-50 text-slate-500'
                 : 'border-slate-800/80 bg-slate-950/40 text-slate-400';
               tierTagAr = 'برونزية 🥉';
               tierTagEn = 'Bronze 🥉';
-              tierColor = 'text-orange-300 bg-orange-950/80 border-orange-800';
+              tierColor = isLight ? 'text-orange-800 bg-orange-100 border-orange-300' : 'text-orange-300 bg-orange-950/80 border-orange-800';
             }
 
             return (
@@ -1119,7 +1295,9 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               >
                 <div className="space-y-2">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-2xl p-2 rounded-xl bg-slate-900/80 border border-slate-800 shadow-inner">
+                    <span className={`text-2xl p-2 rounded-xl border ${
+                      isLight ? 'bg-slate-100 border-slate-200 shadow-2xs' : 'bg-slate-900/80 border-slate-800 shadow-inner'
+                    }`}>
                       {b.icon}
                     </span>
                     <div className="flex items-center gap-1.5">
@@ -1127,12 +1305,20 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                         {isAr ? tierTagAr : tierTagEn}
                       </span>
                       {isUnlocked ? (
-                        <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
+                        <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border flex items-center gap-1 ${
+                          isLight
+                            ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                            : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                        }`}>
                           <CheckCircle2 className="w-3 h-3" />
                           <span>{isAr ? 'مكتملة' : 'Earned'}</span>
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 rounded-md text-[10px] font-bold bg-slate-900 text-slate-400 border border-slate-800 flex items-center gap-1">
+                        <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border flex items-center gap-1 ${
+                          isLight
+                            ? 'bg-slate-100 text-slate-500 border-slate-200'
+                            : 'bg-slate-900 text-slate-400 border border-slate-800'
+                        }`}>
                           <Lock className="w-2.5 h-2.5" />
                           <span>{isAr ? 'مقفلة' : 'Locked'}</span>
                         </span>
@@ -1141,23 +1327,25 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-bold text-slate-100">{isAr ? b.titleAr : b.titleEn}</h4>
-                    <p className="text-[11px] text-slate-400 leading-relaxed mt-0.5 line-clamp-2">
+                    <h4 className={`text-sm font-bold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>{isAr ? b.titleAr : b.titleEn}</h4>
+                    <p className={`text-[11px] leading-relaxed mt-0.5 line-clamp-2 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                       {isAr ? b.descAr : b.descEn}
                     </p>
                   </div>
                 </div>
 
-                <div className="space-y-1 pt-1 border-t border-slate-800/60">
-                  <div className="flex justify-between text-[10px] font-semibold text-slate-400">
+                <div className={`space-y-1 pt-1 border-t ${isLight ? 'border-slate-200' : 'border-slate-800/60'}`}>
+                  <div className={`flex justify-between text-[10px] font-semibold ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                     <span>{isUnlocked ? (isAr ? 'مستوى الإتقان' : 'Mastery') : (isAr ? 'التقدم نحو الشارة' : 'Progress')}</span>
-                    <span className={isUnlocked ? 'text-emerald-400 font-bold' : 'text-slate-300'}>
+                    <span className={isUnlocked ? (isLight ? 'text-emerald-700 font-bold' : 'text-emerald-400 font-bold') : (isLight ? 'text-slate-700' : 'text-slate-300')}>
                       {isAr
                         ? `${toHindiDigits(b.currentProgress)} / ${toHindiDigits(b.target)} (${toHindiDigits(b.progressPct)}%)`
                         : `${b.currentProgress} / ${b.target} (${b.progressPct}%)`}
                     </span>
                   </div>
-                  <div className="w-full bg-slate-900 h-1.5 rounded-full overflow-hidden border border-slate-800">
+                  <div className={`w-full h-1.5 rounded-full overflow-hidden border ${
+                    isLight ? 'bg-slate-200 border-slate-200' : 'bg-slate-900 border-slate-800'
+                  }`}>
                     <div
                       className={`h-full rounded-full transition-all duration-700 ${
                         isUnlocked
@@ -1175,14 +1363,20 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
       </div>
 
       {/* Chapter-by-Chapter Comprehensive Proficiency Heatmap */}
-      <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+      <div className={`border rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 ${
+        isLight ? 'bg-white border-slate-200 shadow-sm' : 'bg-slate-900/90 border-slate-800'
+      }`}>
+        <div className={`flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4 ${
+          isLight ? 'border-slate-200' : 'border-slate-800'
+        }`}>
           <div>
-            <h3 className="text-lg sm:text-xl font-bold text-slate-100 flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-indigo-400" />
+            <h3 className={`text-lg sm:text-xl font-bold flex items-center gap-2 ${
+              isLight ? 'text-slate-900' : 'text-slate-100'
+            }`}>
+              <BookOpen className={`w-6 h-6 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
               <span>{isAr ? 'سجل إتقان فصول المنهاج الدراسي بالتفصيل' : 'Comprehensive Chapter Proficiency Heatmap'}</span>
             </h3>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className={`text-xs mt-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isAr
                 ? 'متابعة حية لكل فصل ومستوى تقدمك فيه من أصل ١١,٤٠٠ مسألة'
                 : 'Detailed tracking of your practice volume and accuracy across all 57 curriculum chapters'}
@@ -1190,7 +1384,9 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex items-center gap-1.5 p-1 bg-slate-950 rounded-xl border border-slate-800 overflow-x-auto">
+          <div className={`flex items-center gap-1.5 p-1 rounded-xl border overflow-x-auto ${
+            isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-950 border-slate-800'
+          }`}>
             {[
               { id: 'all', ar: 'الكل', en: 'All' },
               { id: 'pure_math', ar: 'بحتة', en: 'Pure Math' },
@@ -1204,8 +1400,8 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                 onClick={() => setSelectedSubjectFilter(f.id)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   selectedSubjectFilter === f.id
-                    ? 'bg-indigo-600 text-white shadow-md'
-                    : 'text-slate-400 hover:text-slate-200'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : isLight ? 'text-slate-600 hover:text-slate-900' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {isAr ? f.ar : f.en}
@@ -1216,8 +1412,8 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
 
         {allChapterRecords.length === 0 ? (
           <div className="text-center py-10 space-y-3">
-            <Sparkles className="w-8 h-8 text-slate-500 mx-auto" />
-            <p className="text-sm text-slate-400 font-semibold">
+            <Sparkles className={`w-8 h-8 mx-auto ${isLight ? 'text-slate-400' : 'text-slate-500'}`} />
+            <p className={`text-sm font-semibold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isAr
                 ? 'لم يتم تسجيل تدريبات في هذا القسم بعد. ابدأ باختبارات بنك الأسئلة ليتم بناء رادارك التحليلي!'
                 : 'No practice sessions recorded in this category yet. Start practicing to generate your analytics heatmap!'}
@@ -1237,25 +1433,35 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               const title = isAr ? ch.chapterTitleAr : ch.chapterTitleEn;
               const branch = isAr ? ch.branchTitleAr : ch.branchTitleEn;
 
-              let tierColor = 'text-emerald-400 bg-emerald-500/20 border-emerald-500/40';
+              let tierColor = isLight
+                ? 'text-emerald-800 bg-emerald-100 border-emerald-300'
+                : 'text-emerald-400 bg-emerald-500/20 border-emerald-500/40';
               let barColor = 'bg-emerald-500';
               if (acc < 60) {
-                tierColor = 'text-rose-400 bg-rose-500/20 border-rose-500/40';
+                tierColor = isLight
+                  ? 'text-rose-800 bg-rose-100 border-rose-300'
+                  : 'text-rose-400 bg-rose-500/20 border-rose-500/40';
                 barColor = 'bg-rose-500';
               } else if (acc < 80) {
-                tierColor = 'text-amber-400 bg-amber-500/20 border-amber-500/40';
+                tierColor = isLight
+                  ? 'text-amber-800 bg-amber-100 border-amber-300'
+                  : 'text-amber-400 bg-amber-500/20 border-amber-500/40';
                 barColor = 'bg-amber-500';
               }
 
               return (
                 <div
                   key={ch.chapterId}
-                  className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 hover:border-indigo-700/60 transition-all space-y-3"
+                  className={`p-4 rounded-2xl border transition-all space-y-3 ${
+                    isLight
+                      ? 'bg-slate-50 border-slate-200 hover:border-indigo-300 shadow-2xs'
+                      : 'bg-slate-950/60 border-slate-800 hover:border-indigo-700/60'
+                  }`}
                 >
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h4 className="text-sm font-bold text-slate-100 line-clamp-1">{title}</h4>
-                      <span className="text-[11px] font-semibold text-slate-400">{branch}</span>
+                      <h4 className={`text-sm font-bold line-clamp-1 ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>{title}</h4>
+                      <span className={`text-[11px] font-semibold ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{branch}</span>
                     </div>
 
                     <span className={`px-2 py-0.5 rounded-md text-[10px] font-black border ${tierColor}`}>
@@ -1264,7 +1470,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                   </div>
 
                   <div className="space-y-1">
-                    <div className="flex justify-between text-[10px] text-slate-400 font-semibold">
+                    <div className={`flex justify-between text-[10px] font-semibold ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
                       <span>{isAr ? 'الأسئلة الصحيحة' : 'Score'}</span>
                       <span>
                         {isAr
@@ -1272,7 +1478,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                           : `${ch.correct} / ${ch.attempted}`}
                       </span>
                     </div>
-                    <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                    <div className={`w-full h-2 rounded-full overflow-hidden border ${isLight ? 'bg-slate-200 border-slate-200' : 'bg-slate-900 border-slate-800'}`}>
                       <div className={`h-full rounded-full transition-all duration-700 ${barColor}`} style={{ width: `${acc}%` }} />
                     </div>
                   </div>
