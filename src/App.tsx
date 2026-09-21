@@ -609,7 +609,7 @@ export const App: React.FC = () => {
   const t = translations[lang];
 
   return (
-    <div className={`min-h-screen font-sans flex flex-col transition-colors duration-300 ${
+    <div className={`min-h-screen w-full max-w-full overflow-x-clip font-sans flex flex-col transition-colors duration-300 ${
       theme === 'high-contrast'
         ? 'bg-black text-white selection:bg-yellow-400 selection:text-black'
         : theme === 'light'
@@ -650,7 +650,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Workspace Body */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3.5 sm:px-6 lg:px-8 py-5 sm:py-8 space-y-6 sm:space-y-8 min-w-0 overflow-x-clip">
         {/* Quick Search Bar (Opens Universal Search Modal) */}
         <div className="relative no-print">
           <button
@@ -1015,17 +1015,17 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className={`border-t py-10 text-xs no-print transition-colors ${
+      <footer className={`w-full max-w-full overflow-x-clip border-t py-10 text-xs no-print transition-colors ${
         theme === 'high-contrast'
           ? 'border-cyan-500/50 bg-black text-white'
           : theme === 'light'
           ? 'border-slate-200 bg-white text-slate-600'
           : 'border-slate-800 bg-slate-950 text-slate-400'
       }`}>
-        <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 space-y-8">
+        <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 space-y-8 min-w-0">
           {/* Visitor Counter - strictly displayed at the footer of the Home Page only */}
           {activeTab === 'overview' && (
-            <div className="animate-in fade-in duration-300">
+            <div className="animate-in fade-in duration-300 w-full max-w-full min-w-0 overflow-x-clip">
               <VisitorCounter lang={lang} theme={theme} />
             </div>
           )}

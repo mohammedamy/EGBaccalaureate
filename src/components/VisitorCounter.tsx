@@ -118,7 +118,7 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
 
   return (
     <div
-      className={`w-full rounded-2xl p-4 sm:p-5 border transition-all shadow-md ${
+      className={`w-full max-w-full min-w-0 overflow-x-clip rounded-2xl p-4 sm:p-5 border transition-all shadow-md ${
         isContrast
           ? 'bg-black border-2 border-cyan-400 text-white'
           : isLight
@@ -128,9 +128,9 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       dir={isArabic ? 'rtl' : 'ltr'}
       aria-label={t.visitorCounterTitle}
     >
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 w-full min-w-0">
         {/* Left: Title & Subtitle Badge */}
-        <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 text-center sm:text-left rtl:sm:text-right">
+        <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 text-center sm:text-left rtl:sm:text-right min-w-0">
           <div
             className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm ${
               isContrast
@@ -143,13 +143,13 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
             <Users className="w-5 h-5" />
           </div>
 
-          <div>
+          <div className="min-w-0">
             <div className="flex items-center gap-2 justify-center sm:justify-start flex-wrap">
-              <span className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white">
+              <span className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white break-words">
                 {t.visitorCounterTitle}
               </span>
               <span
-                className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold border shrink-0 ${
                   isContrast
                     ? 'bg-black text-green-400 border-green-400'
                     : isLight
@@ -164,7 +164,7 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 </span>
               </span>
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 break-words">
               {isArabic
                 ? 'منصة التعليم التفاعلي للثانوية العامة والبكالوريا المصرية 2025/2026'
                 : 'Interactive learning portal for Egyptian Thanaweya Amma & EG-Bac'}
@@ -173,13 +173,13 @@ export const VisitorCounter: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         </div>
 
         {/* Center: Digital Odometer Digit Flip Cards */}
-        <div className="flex flex-col items-center gap-1.5 w-full sm:w-auto">
+        <div className="flex flex-col items-center gap-1.5 w-full sm:w-auto min-w-0 max-w-full overflow-hidden">
           <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
             {t.visitorCounterTotal}
           </span>
           {/* Numbers must strictly flow Left-to-Right in both English and Arabic */}
           <div
-            className="flex items-center justify-center gap-0.5 sm:gap-1 flex-nowrap"
+            className="flex items-center justify-center gap-0.5 sm:gap-1 flex-nowrap max-w-full overflow-x-auto no-scrollbar py-0.5"
             dir="ltr"
           >
             {digitsFormatted.map((digit, idx) => {

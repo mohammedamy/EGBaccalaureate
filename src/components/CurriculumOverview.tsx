@@ -209,18 +209,18 @@ export const CurriculumOverview: React.FC<Props> = ({
   }, [selectedSubject, selectedCategory]);
 
   return (
-    <div className="space-y-4 sm:space-y-6 md:space-y-8">
+    <div className="space-y-4 sm:space-y-6 md:space-y-8 w-full max-w-full min-w-0 overflow-x-clip">
       {/* Editorial Scientific Overview Dispatch */}
-      <div className={`hero-banner relative overflow-hidden rounded-2xl border transition-all ${
+      <div className={`hero-banner relative overflow-hidden rounded-2xl border transition-all w-full max-w-full min-w-0 ${
         isContrast
           ? 'bg-black border-2 border-yellow-400 text-yellow-300 p-4 sm:p-6'
           : isLight
           ? 'bg-white border-slate-200 text-slate-900 p-4 sm:p-6 md:p-8 shadow-xs'
           : 'bg-[#161B22] border-[#30363D] text-[#F0F6FC] p-4 sm:p-6 md:p-8 shadow-md'
       }`}>
-        <div className="relative z-10 flex flex-col-reverse md:flex-row md:items-center justify-between gap-4 sm:gap-6">
-          <div className="space-y-2.5 sm:space-y-3.5 max-w-2xl text-center sm:text-left rtl:sm:text-right">
-            <div className={`hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold text-center mx-auto sm:mx-0 border ${
+        <div className="relative z-10 flex flex-col-reverse md:flex-row md:items-center justify-between gap-4 sm:gap-6 w-full min-w-0">
+          <div className="space-y-2.5 sm:space-y-3.5 max-w-2xl text-center sm:text-left rtl:sm:text-right w-full min-w-0">
+            <div className={`hero-badge inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold text-center mx-auto sm:mx-0 border max-w-full flex-wrap justify-center sm:justify-start break-words ${
               isContrast
                 ? 'bg-black text-cyan-300 border-cyan-400'
                 : isLight
@@ -228,33 +228,33 @@ export const CurriculumOverview: React.FC<Props> = ({
                 : 'bg-slate-900 text-slate-300 border-slate-700'
             }`}>
               <BookOpen className="w-3.5 h-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
-              <span>
+              <span className="break-words">
                 {isArabic
                   ? `منظومة المناهج الرسمية: ${totalChapters} فصلاً معتمداً (${totalProblems.toLocaleString()} مسألة وتمرين وسؤال)`
                   : `Official Curriculum Repository: ${totalChapters} Accredited Chapters (${totalProblems.toLocaleString()} Problems & Items)`}
               </span>
             </div>
 
-            <h2 className="hero-title text-xl sm:text-2xl md:text-4xl font-extrabold tracking-tight">
+            <h2 className="hero-title text-xl sm:text-2xl md:text-4xl font-extrabold tracking-tight break-words">
               {isArabic ? curriculum.nameAr : curriculum.nameEn}
             </h2>
-            <p className={`hero-subtitle text-xs sm:text-sm md:text-base font-normal leading-relaxed ${
+            <p className={`hero-subtitle text-xs sm:text-sm md:text-base font-normal leading-relaxed break-words ${
               isLight ? 'text-slate-600' : 'text-slate-300'
             }`}>
               {isArabic ? curriculum.subtitleAr : curriculum.subtitleEn}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 sm:pt-2 flex-wrap">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 sm:pt-2 flex-wrap w-full min-w-0">
               <button
                 onClick={() => onNavigateTab('theory')}
-                className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer min-h-[44px] active:scale-[0.98]"
+                className="bg-blue-700 hover:bg-blue-800 text-white font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer min-h-[44px] active:scale-[0.98] min-w-0 break-words text-center"
               >
                 <BookOpen className="w-4 h-4 shrink-0" />
                 <span>{isArabic ? 'استكشف المنهج والشروحات' : 'Explore Theory & Notes'}</span>
               </button>
               <button
                 onClick={() => onNavigateTab('testGenerator')}
-                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] min-w-0 break-words text-center ${
                   isContrast
                     ? 'bg-black text-white border-white hover:bg-zinc-900'
                     : isLight
@@ -267,7 +267,7 @@ export const CurriculumOverview: React.FC<Props> = ({
               </button>
               <button
                 onClick={() => onNavigateTab('equivalency')}
-                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] min-w-0 break-words text-center ${
                   isContrast
                     ? 'bg-black text-white border-white hover:bg-zinc-900'
                     : isLight
@@ -280,7 +280,7 @@ export const CurriculumOverview: React.FC<Props> = ({
               </button>
               <button
                 onClick={() => onNavigateTab('interactive')}
-                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
+                className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] min-w-0 break-words text-center ${
                   isContrast
                     ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-zinc-900'
                     : isLight
@@ -294,7 +294,7 @@ export const CurriculumOverview: React.FC<Props> = ({
               {onOpenOfficialBooks && (
                 <button
                   onClick={onOpenOfficialBooks}
-                  className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] ${
+                  className={`font-bold py-2.5 px-4 rounded-xl text-xs sm:text-sm border transition-all flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-[0.98] min-w-0 break-words text-center ${
                     isContrast
                       ? 'bg-black text-amber-300 border-amber-400 hover:bg-zinc-900'
                       : isLight
@@ -309,20 +309,20 @@ export const CurriculumOverview: React.FC<Props> = ({
             </div>
           </div>
 
-          <div className="shrink-0 flex justify-center items-center">
+          <div className="shrink-0 flex justify-center items-center max-w-full">
             <img
               src={clipsatLogo}
               alt="ClipSAT Logo"
-              className="h-14 sm:h-20 md:h-24 w-auto object-contain opacity-95 transition-opacity"
+              className="h-14 sm:h-20 md:h-24 w-auto object-contain opacity-95 transition-opacity max-w-full"
             />
           </div>
         </div>
 
         {/* Global Stats Tabular Ribbon */}
-        <div className={`grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t text-center sm:text-left rtl:sm:text-right ${
+        <div className={`grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-4 sm:mt-6 pt-4 sm:pt-6 border-t text-center sm:text-left rtl:sm:text-right w-full min-w-0 ${
           isContrast ? 'border-yellow-400/50' : isLight ? 'border-slate-200' : 'border-slate-800'
         }`}>
-          <div className={`p-2.5 sm:p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border min-w-0 break-words overflow-hidden ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
@@ -334,7 +334,7 @@ export const CurriculumOverview: React.FC<Props> = ({
             </span>
           </div>
 
-          <div className={`p-2.5 sm:p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border min-w-0 break-words overflow-hidden ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
@@ -346,7 +346,7 @@ export const CurriculumOverview: React.FC<Props> = ({
             </span>
           </div>
 
-          <div className={`p-2.5 sm:p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border min-w-0 break-words overflow-hidden ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
@@ -358,14 +358,14 @@ export const CurriculumOverview: React.FC<Props> = ({
             </span>
           </div>
 
-          <div className={`p-2.5 sm:p-3 rounded-xl border ${
+          <div className={`p-2.5 sm:p-3 rounded-xl border min-w-0 break-words overflow-hidden ${
             isContrast ? 'bg-black border-yellow-400 text-white' : isLight ? 'bg-slate-50 border-slate-200 text-slate-900' : 'bg-slate-900/60 border-slate-800 text-slate-100'
           }`}>
             <span className="text-[10px] font-bold block text-slate-500 uppercase tracking-wider">
               {isArabic ? 'المسائل المميزة بنجمة:' : 'Starred Bookmarks:'}
             </span>
             <span className="text-sm sm:text-base font-black font-mono flex items-center justify-center sm:justify-start gap-1 text-amber-600 dark:text-amber-400">
-              <Star className="w-3.5 h-3.5 fill-current" />
+              <Star className="w-3.5 h-3.5 fill-current shrink-0" />
               <span>{isArabic ? toHindiDigits(userStats.bookmarkedCount) : userStats.bookmarkedCount}</span>
             </span>
           </div>
@@ -422,42 +422,44 @@ export const CurriculumOverview: React.FC<Props> = ({
         </div>
 
         {/* 📱 Mobile & Desktop Horizontal Quick Subject Category Pills */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 -mx-1 px-1 scrollbar-none touch-pan-x select-none">
-          {SUBJECT_CATEGORIES.map((cat) => {
-            const isCatActive = selectedCategory === cat.id && (!selectedSubject || selectedSubject === 'all');
-            const count = cat.id === 'all' ? SUBJECTS.length : (CATEGORY_MAP[cat.id]?.length || 0);
+        <div className="w-full max-w-full overflow-hidden">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 px-0.5 scrollbar-none touch-pan-x select-none w-full max-w-full">
+            {SUBJECT_CATEGORIES.map((cat) => {
+              const isCatActive = selectedCategory === cat.id && (!selectedSubject || selectedSubject === 'all');
+              const count = cat.id === 'all' ? SUBJECTS.length : (CATEGORY_MAP[cat.id]?.length || 0);
 
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => {
-                  setSelectedCategory(cat.id);
-                  if (onSelectSubject) onSelectSubject('all');
-                  setSelectedBranchId('all');
-                }}
-                className={`shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 border min-h-[36px] ${
-                  isCatActive
-                    ? isContrast
-                      ? 'bg-yellow-400 text-black font-black border-yellow-300 shadow-md shadow-yellow-500/20'
-                      : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md shadow-indigo-600/30 border-indigo-500'
-                    : isContrast
-                    ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
-                    : isLight
-                    ? 'bg-white border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-50 shadow-2xs'
-                    : 'bg-slate-900/90 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
-                }`}
-              >
-                <span>{cat.emoji}</span>
-                <span>{isArabic ? cat.labelAr : cat.labelEn}</span>
-                <span className="text-[10px] opacity-75 font-mono">({count})</span>
-              </button>
-            );
-          })}
+              return (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => {
+                    setSelectedCategory(cat.id);
+                    if (onSelectSubject) onSelectSubject('all');
+                    setSelectedBranchId('all');
+                  }}
+                  className={`shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 border min-h-[36px] ${
+                    isCatActive
+                      ? isContrast
+                        ? 'bg-yellow-400 text-black font-black border-yellow-300 shadow-md shadow-yellow-500/20'
+                        : 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md shadow-indigo-600/30 border-indigo-500'
+                      : isContrast
+                      ? 'bg-black border border-slate-700 text-white hover:border-yellow-400'
+                      : isLight
+                      ? 'bg-white border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-50 shadow-2xs'
+                      : 'bg-slate-900/90 border-slate-800 text-slate-300 hover:text-white hover:border-slate-700'
+                  }`}
+                >
+                  <span>{cat.emoji}</span>
+                  <span>{isArabic ? cat.labelAr : cat.labelEn}</span>
+                  <span className="text-[10px] opacity-75 font-mono">({count})</span>
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Grand Subject Cards (Filtered by category or specific subject selection) */}
-        <div className={`grid grid-cols-1 ${selectedSubject === 'all' ? 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'sm:grid-cols-1 lg:grid-cols-2 max-w-4xl'} gap-3 sm:gap-4`}>
+        <div className={`grid grid-cols-1 ${selectedSubject === 'all' ? 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'sm:grid-cols-1 lg:grid-cols-2 max-w-4xl'} gap-3 sm:gap-4 w-full min-w-0`}>
           {displayedSubjects.map((sub) => {
             const isSubActive = selectedSubject === sub.id;
             const stats = getSubjectStats(curriculum, sub.id);
@@ -479,7 +481,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                   if (onSelectSubject) onSelectSubject(sub.id);
                   setSelectedBranchId('all');
                 }}
-                className={`text-left rtl:text-right p-4 rounded-2xl border transition-all duration-200 cursor-pointer relative overflow-hidden group active:scale-[0.98] flex flex-col justify-between ${
+                className={`text-left rtl:text-right p-4 rounded-2xl border transition-all duration-200 cursor-pointer relative overflow-hidden group active:scale-[0.98] flex flex-col justify-between w-full max-w-full min-w-0 break-words ${
                   isSubActive
                     ? isContrast
                       ? 'bg-black border-2 border-yellow-400 text-yellow-300 ring-2 ring-yellow-400'
@@ -513,7 +515,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                     : 'bg-slate-900/70 border-slate-800 text-slate-200 hover:border-slate-700 hover:bg-slate-900'
                 }`}
               >
-                <div className="space-y-2.5">
+                <div className="space-y-2.5 w-full min-w-0">
                   <div className="flex items-center justify-between">
                     <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 border ${
                       isSubActive
@@ -537,7 +539,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                       {getBranchIcon(sub.iconName)}
                     </div>
                     {isSubActive ? (
-                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border flex items-center gap-1 ${
+                      <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border flex items-center gap-1 shrink-0 ${
                         isLight
                           ? 'bg-emerald-100 text-emerald-800 border-emerald-300 shadow-2xs'
                           : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
@@ -551,15 +553,15 @@ export const CurriculumOverview: React.FC<Props> = ({
                   </div>
 
                   <div>
-                    <h4 className={`text-sm font-black flex items-center gap-1.5 ${
+                    <h4 className={`text-sm font-black flex items-center gap-1.5 flex-wrap min-w-0 break-words ${
                       isSubActive && isLight ? 'text-slate-900' : ''
                     }`}>
-                      <span>{isArabic ? sub.titleAr : sub.titleEn}</span>
+                      <span className="break-words">{isArabic ? sub.titleAr : sub.titleEn}</span>
                       <span className={`text-xs ${
                         isSubActive && isLight ? 'text-slate-500' : 'opacity-70'
                       }`}>({isArabic ? sub.shortTitleEn : sub.shortTitleAr})</span>
                     </h4>
-                    <p className={`text-[11px] line-clamp-2 mt-1 leading-snug ${
+                    <p className={`text-[11px] line-clamp-2 mt-1 leading-snug break-words ${
                       isSubActive
                         ? isLight ? 'text-slate-600 font-medium' : 'text-slate-200'
                         : isLight ? 'text-slate-500' : 'text-slate-400'
@@ -569,10 +571,10 @@ export const CurriculumOverview: React.FC<Props> = ({
                   </div>
                 </div>
 
-                <div className={`mt-3 pt-2.5 border-t space-y-1.5 ${
+                <div className={`mt-3 pt-2.5 border-t space-y-1.5 w-full min-w-0 ${
                   isLight ? 'border-slate-200/80' : 'border-slate-200/40 dark:border-slate-800/80'
                 }`}>
-                  <div className={`flex items-center justify-between text-[11px] font-mono ${
+                  <div className={`flex items-center justify-between gap-1 text-[11px] font-mono flex-wrap min-w-0 ${
                     isLight ? 'text-slate-700' : ''
                   }`}>
                     <span className={isLight ? 'text-slate-600 font-medium' : 'opacity-75'}>
@@ -582,7 +584,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                       {isArabic ? `${toHindiDigits(stats.totalChapters)} فصول • ${toHindiDigits(stats.totalProblems)} مسألة` : `${stats.totalChapters} Ch • ${stats.totalProblems} Items`}
                     </span>
                   </div>
-                  <div className={`text-[10px] font-semibold truncate ${
+                  <div className={`text-[10px] font-semibold break-words leading-tight ${
                     isSubActive
                       ? isLight
                         ? (sub.id === 'physics' ? 'text-cyan-800 font-bold' : sub.id === 'chemistry' ? 'text-emerald-800 font-bold' : sub.id === 'biology' ? 'text-rose-800 font-bold' : sub.id === 'geography' ? 'text-teal-800 font-bold' : sub.id === 'history' ? 'text-amber-800 font-bold' : 'text-indigo-800 font-bold')
@@ -599,7 +601,7 @@ export const CurriculumOverview: React.FC<Props> = ({
 
         {/* Action strip when a specific subject (e.g. Physics, Geography) is active */}
         {currentSubject && selectedSubject !== 'all' && (
-          <div className={`p-3.5 sm:p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs transition-all ${
+          <div className={`p-3.5 sm:p-4 rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs transition-all w-full max-w-full min-w-0 ${
             isContrast
               ? 'bg-black border-2 border-yellow-400 text-yellow-300 shadow-md'
               : isLight
@@ -628,8 +630,8 @@ export const CurriculumOverview: React.FC<Props> = ({
           }`}>
             <div className="flex items-center gap-3 min-w-0">
               <span className="text-2xl shrink-0">{currentSubject.emoji}</span>
-              <div>
-                <span className={`font-extrabold text-sm block ${isLight ? 'text-slate-900' : ''}`}>
+              <div className="min-w-0">
+                <span className={`font-extrabold text-sm block break-words ${isLight ? 'text-slate-900' : ''}`}>
                   <span className={
                     isLight
                       ? selectedSubject === 'physics'
@@ -651,7 +653,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                     {isArabic ? currentSubject.descriptionAr : currentSubject.descriptionEn}
                   </span>
                 </span>
-                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'opacity-75'}`}>
+                <span className={`text-[11px] block break-words ${isLight ? 'text-slate-600 font-medium' : 'opacity-75'}`}>
                   {isArabic
                     ? `يتم الآن عرض فصول ومسائل واختبارات ومختبرات ${currentSubject.titleAr}`
                     : `Currently displaying ${currentSubject.titleEn} chapters, items, labs & simulators`}
@@ -659,7 +661,7 @@ export const CurriculumOverview: React.FC<Props> = ({
               </div>
             </div>
 
-            <div className="flex items-center gap-2 shrink-0 flex-wrap">
+            <div className="flex items-center gap-2 shrink-0 flex-wrap w-full sm:w-auto">
               <button
                 onClick={() => onNavigateTab('interactive')}
                 className={`px-3 py-1.5 rounded-xl font-extrabold text-xs transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shadow-xs text-white ${
@@ -708,13 +710,13 @@ export const CurriculumOverview: React.FC<Props> = ({
 
         {/* Sub-Branch Filter Dropdown */}
         {subjectBranches.length > 1 && (
-          <div className="flex items-center gap-2.5 flex-wrap">
+          <div className="flex items-center gap-2.5 flex-wrap w-full min-w-0">
             <span className={`text-xs font-bold whitespace-nowrap ${
               isLight ? 'text-slate-700' : 'text-slate-400'
             }`}>
               {isArabic ? 'تصفية الفروع:' : 'Filter Branch:'}
             </span>
-            <div className="relative min-w-[200px] sm:min-w-[240px]">
+            <div className="relative w-full sm:w-auto sm:min-w-[220px] max-w-full">
               <select
                 value={selectedBranchId}
                 onChange={(e) => setSelectedBranchId(e.target.value)}
@@ -743,12 +745,12 @@ export const CurriculumOverview: React.FC<Props> = ({
         )}
 
       {/* Branches & Chapters Grid */}
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="space-y-6 w-full max-w-full min-w-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full min-w-0">
           {displayedBranches.map((branch) => (
             <div
               key={branch.id}
-              className={`rounded-2xl p-6 transition-all duration-300 hover:translate-y-[-2px] flex flex-col justify-between space-y-4 border ${
+              className={`rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:translate-y-[-2px] flex flex-col justify-between space-y-4 border w-full max-w-full min-w-0 break-words ${
                 isContrast
                   ? 'bg-black border-2 border-yellow-400 text-white'
                   : isLight
@@ -756,27 +758,27 @@ export const CurriculumOverview: React.FC<Props> = ({
                   : 'glass-card border border-slate-800 shadow-xl bg-slate-900/60 text-slate-100'
               }`}
             >
-              <div className="space-y-4">
+              <div className="space-y-4 w-full min-w-0">
                 {/* Branch Header */}
-                <div className={`flex items-center justify-between border-b pb-3 ${
+                <div className={`flex items-center justify-between gap-2 border-b pb-3 flex-wrap ${
                   isLight ? 'border-slate-200' : 'border-slate-800'
                 }`}>
-                  <div className="flex items-center gap-2.5">
-                    <div className={`p-2.5 rounded-xl bg-gradient-to-r ${branch.colorGradient} text-white shadow-md`}>
+                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                    <div className={`p-2.5 rounded-xl bg-gradient-to-r ${branch.colorGradient} text-white shadow-md shrink-0`}>
                       {getBranchIcon(branch.iconName)}
                     </div>
-                    <div>
-                      <h4 className={`text-base font-bold ${isLight ? 'text-slate-900 font-extrabold' : 'text-slate-100'}`}>
+                    <div className="min-w-0">
+                      <h4 className={`text-base font-bold truncate ${isLight ? 'text-slate-900 font-extrabold' : 'text-slate-100'}`}>
                         {isArabic ? branch.titleAr : branch.titleEn}
                       </h4>
-                      <p className={`text-[11px] ${isLight ? 'text-slate-500 font-semibold' : 'text-slate-400'}`}>
+                      <p className={`text-[11px] truncate ${isLight ? 'text-slate-500 font-semibold' : 'text-slate-400'}`}>
                         {isArabic
                           ? `${toHindiDigits(branch.chapters.length)} فصول • ${toHindiDigits(branch.chapters.length * 175)} مسألة`
                           : `${branch.chapters.length} Chapters • ${branch.chapters.length * 175} Problems`}
                       </p>
                     </div>
                   </div>
-                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border ${
+                  <span className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border shrink-0 ${
                     isContrast
                       ? 'bg-black text-cyan-300 border-cyan-400'
                       : isLight
@@ -788,14 +790,14 @@ export const CurriculumOverview: React.FC<Props> = ({
                 </div>
 
                 {/* Chapter List */}
-                <div className="space-y-3">
+                <div className="space-y-3 w-full min-w-0">
                   {branch.chapters.map((ch) => {
                     const firstLesson = ch.lessons[0];
 
                     return (
                       <div
                         key={ch.id}
-                        className={`rounded-xl p-3.5 space-y-2.5 transition-all border ${
+                        className={`rounded-xl p-3.5 space-y-2.5 transition-all border w-full max-w-full min-w-0 break-words ${
                           isContrast
                             ? 'bg-black border-2 border-yellow-400/80 text-white'
                             : isLight
@@ -804,14 +806,14 @@ export const CurriculumOverview: React.FC<Props> = ({
                         }`}
                       >
                         {/* Chapter Title & Equipped Badge */}
-                        <div className="flex items-start justify-between gap-2">
-                          <span className={`text-xs font-bold flex items-start gap-1.5 leading-relaxed ${
+                        <div className="flex items-start justify-between gap-2 flex-wrap w-full min-w-0">
+                          <span className={`text-xs font-bold flex items-start gap-1.5 leading-relaxed flex-wrap min-w-0 break-words flex-1 ${
                             isLight ? 'text-slate-900 font-extrabold' : isContrast ? 'text-yellow-300' : 'text-indigo-300'
                           }`}>
                             <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
                               isLight ? 'text-emerald-600' : 'text-emerald-400'
                             }`} />
-                            <span>
+                            <span className="break-words">
                               {t.chapter} {isArabic ? toHindiDigits(ch.chapterNumber) : ch.chapterNumber}:{' '}
                               <MathRenderer math={cleanChapterTitle(isArabic ? ch.titleAr : ch.titleEn)} lang={lang} />
                             </span>
@@ -830,8 +832,8 @@ export const CurriculumOverview: React.FC<Props> = ({
                         </div>
 
                         {/* Content Metrics Badges */}
-                        <div className="flex flex-wrap items-center gap-1.5 text-[10px] pt-0.5">
-                          <span className={`px-2 py-0.5 rounded-md border font-semibold ${
+                        <div className="flex flex-wrap items-center gap-1.5 text-[10px] pt-0.5 w-full min-w-0">
+                          <span className={`px-2 py-0.5 rounded-md border font-semibold shrink-0 ${
                             isContrast
                               ? 'bg-black text-cyan-300 border-cyan-400'
                               : isLight
@@ -840,7 +842,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                           }`}>
                             {isArabic ? `${toHindiDigits(150)} بنك أسئلة` : `150 MCQs`}
                           </span>
-                          <span className={`px-2 py-0.5 rounded-md border font-semibold ${
+                          <span className={`px-2 py-0.5 rounded-md border font-semibold shrink-0 ${
                             isContrast
                               ? 'bg-black text-cyan-300 border-cyan-400'
                               : isLight
@@ -849,7 +851,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                           }`}>
                             {isArabic ? `${toHindiDigits(10)} أمثلة محلولة` : `10 Solved`}
                           </span>
-                          <span className={`px-2 py-0.5 rounded-md border font-semibold ${
+                          <span className={`px-2 py-0.5 rounded-md border font-semibold shrink-0 ${
                             isContrast
                               ? 'bg-black text-cyan-300 border-cyan-400'
                               : isLight
@@ -861,7 +863,7 @@ export const CurriculumOverview: React.FC<Props> = ({
                         </div>
 
                         {/* Direct 1-Click Sub-Tab Action Buttons */}
-                        <div className={`flex items-center gap-1.5 pt-1.5 border-t overflow-x-auto no-scrollbar ${
+                        <div className={`flex items-center gap-1.5 pt-1.5 border-t overflow-x-auto no-scrollbar w-full max-w-full min-w-0 ${
                           isLight ? 'border-slate-200' : 'border-slate-800/60'
                         }`}>
                           <button

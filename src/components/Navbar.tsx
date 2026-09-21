@@ -346,16 +346,16 @@ export const Navbar: React.FC<Props> = ({
   }>;
 
   return (
-    <header className={`sticky top-0 z-50 transition-colors duration-300 border-b backdrop-blur-md no-print ${
+    <header className={`sticky top-0 z-50 transition-colors duration-300 border-b backdrop-blur-md no-print w-full max-w-full overflow-x-clip ${
       isHighContrast
         ? 'bg-black text-white border-cyan-400/80 shadow-2xl'
         : isLight
         ? 'bg-white/95 text-slate-800 border-slate-200 shadow-sm'
         : 'bg-slate-950/95 text-slate-100 border-slate-800 shadow-xl'
     }`}>
-      <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 min-w-0">
         {/* Top Announcement Bar */}
-        <div className={`py-1.5 border-b flex items-center justify-between gap-1.5 sm:gap-2 text-[11px] transition-colors min-w-0 ${
+        <div className={`py-1.5 border-b flex items-center justify-between gap-1.5 sm:gap-2 text-[11px] transition-colors min-w-0 w-full max-w-full ${
           isHighContrast
             ? 'border-cyan-500/40 text-slate-200'
             : isLight
@@ -887,7 +887,7 @@ export const Navbar: React.FC<Props> = ({
         </div>
 
         {/* Main Nav Header */}
-        <div className={`py-2.5 flex flex-col ${isLargeOrXLarge ? '2xl:flex-row' : 'xl:flex-row'} items-stretch ${isLargeOrXLarge ? '2xl:items-center' : 'xl:items-center'} justify-between gap-2.5 sm:gap-4 w-full`}>
+        <div className={`py-2.5 flex flex-col ${isLargeOrXLarge ? '2xl:flex-row' : 'xl:flex-row'} items-stretch ${isLargeOrXLarge ? '2xl:items-center' : 'xl:items-center'} justify-between gap-2.5 sm:gap-4 w-full max-w-full min-w-0`}>
           {/* Logo & Brand Title */}
           <div className="flex items-center justify-between sm:justify-start gap-2 sm:gap-3 shrink-0 min-w-0">
             <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
@@ -967,7 +967,7 @@ export const Navbar: React.FC<Props> = ({
         </div>
 
         {/* Tab Navigation Section: Responsive Horizontal Ribbon with Auto-Scroll & Quick Dropdown */}
-        <div className="py-2 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center gap-1.5 sm:gap-2 min-w-0 w-full">
+        <div className="py-2 border-t border-slate-200/60 dark:border-slate-800/80 flex items-center gap-1.5 sm:gap-2 min-w-0 w-full max-w-full">
           {/* Quick Module Catalog Dropdown Trigger */}
           <div ref={tabMenuRef} className="relative shrink-0">
             <button
@@ -1060,7 +1060,7 @@ export const Navbar: React.FC<Props> = ({
           {/* Horizontal Scrollable Tabs Bar */}
           <nav
             ref={tabListRef}
-            className="flex-1 flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-0.5 min-w-0 touch-pan-x"
+            className="flex-1 flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-0.5 min-w-0 max-w-full touch-pan-x"
           >
             {navTabs.map((tab) => {
               const isActive = activeTab === tab.id;
