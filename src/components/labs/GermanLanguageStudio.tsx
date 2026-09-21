@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import type { Language } from '../../i18n/translations';
+import { RealisticVocalTractSchematic, type ArticulatoryPlace } from './RealisticVocalTractSchematic';
 import {
   GERMAN_PHONETICS,
   GERMAN_CASES,
@@ -69,6 +70,19 @@ export const GermanLanguageStudio: React.FC<Props> = ({
 
   // Tab 1: Phonetics
   const [selectedPhonetic, setSelectedPhonetic] = useState<GermanPhoneticRule>(GERMAN_PHONETICS[0]);
+
+  const germanPlace = useMemo<ArticulatoryPlace>(() => {
+    const sym = selectedPhonetic.symbol;
+    if (sym === 'ch') return 'palatal';
+    if (['ä', 'ö', 'ü'].includes(sym)) return 'vowel_front_high';
+    if (sym === 'r') return 'uvular';
+    if (sym === 'z') return 'alveolar';
+    if (sym === 'sch') return 'post_alveolar';
+    if (sym === 'sp') return 'bilabial';
+    if (sym === 'st') return 'alveolar';
+    if (['ei', 'eu', 'au'].includes(sym)) return 'vowel_central';
+    return 'alveolar';
+  }, [selectedPhonetic.symbol]);
 
   // Tab 2: Cases Trainer
   const [selectedCase, setSelectedCase] = useState<GermanCaseRule>(GERMAN_CASES[0]);
@@ -378,6 +392,21 @@ export const GermanLanguageStudio: React.FC<Props> = ({
                     </button>
                   </div>
                 ))}
+              </div>
+
+              {/* Realistic Sagittal Vocal Tract Articulatory Anatomy for German */}
+              <div className="mt-6 pt-4 border-t border-stone-800/40">
+                <RealisticVocalTractSchematic
+                  symbol={selectedPhonetic.symbol}
+                  name={`Deutsche Aussprache: ${selectedPhonetic.nameEn}`}
+                  manner={selectedPhonetic.ruleExplanationAr}
+                  place={germanPlace}
+                  isVoiced={!['sch', 'sp', 'st'].includes(selectedPhonetic.symbol)}
+                  isNasal={false}
+                  audioExampleWord={selectedPhonetic.exemplarWords[0]?.word}
+                  language="de"
+                  isLight={isLight}
+                />
               </div>
             </div>
           </div>

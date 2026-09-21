@@ -45,6 +45,8 @@ interface Props {
 
 type StudioTab = 'phonetics' | 'stress' | 'connected' | 'listening' | 'voice_test';
 
+import { RealisticVocalTractSchematic, type ArticulatoryPlace } from './RealisticVocalTractSchematic';
+
 // ---------------------------------------------------------------------------
 // 1. High-Resolution Vocal Tract Sagittal Articulatory Schematic
 // ---------------------------------------------------------------------------
@@ -54,158 +56,38 @@ interface VocalTractProps {
 }
 
 const VocalTractSagittalArticulatorySchematic: React.FC<VocalTractProps> = ({ phoneme, isLight }) => {
-  // Determine Articulatory Target Coordinates
-  const target = useMemo(() => {
-    const s = phoneme.symbol;
-    if (['/p/', '/b/', '/m/', '/w/'].includes(s)) {
-      return { x: 75, y: 155, name: 'Bilabial (Two Lips)', manner: 'Plosive / Labial Glide' };
-    }
-    if (['/f/', '/v/'].includes(s)) {
-      return { x: 88, y: 158, name: 'Labiodental (Upper Teeth & Lower Lip)', manner: 'Fricative' };
-    }
-    if (['/θ/', '/ð/'].includes(s)) {
-      return { x: 102, y: 150, name: 'Dental / Interdental (Tongue Tip between Incisors)', manner: 'Fricative' };
-    }
-    if (['/t/', '/d/', '/s/', '/z/', '/n/', '/l/'].includes(s)) {
-      return { x: 132, y: 125, name: 'Alveolar Ridge (Gum Ridge Behind Upper Teeth)', manner: 'Plosive / Fricative / Nasal' };
-    }
-    if (['/ʃ/', '/ʒ/', '/tʃ/', '/dʒ/', '/r/'].includes(s)) {
-      return { x: 160, y: 120, name: 'Post-Alveolar / Palato-Alveolar (Front Hard Palate)', manner: 'Affricate / Sibilant Fricative' };
-    }
-    if (['/j/'].includes(s)) {
-      return { x: 195, y: 115, name: 'Hard Palate (Center Roof of Mouth)', manner: 'Palatal Approximant' };
-    }
-    if (['/k/', '/g/', '/ŋ/'].includes(s)) {
-      return { x: 235, y: 130, name: 'Velar (Soft Palate / Velum)', manner: 'Velar Plosive / Nasal' };
-    }
-    if (['/h/'].includes(s)) {
-      return { x: 245, y: 265, name: 'Glottal (Vocal Folds / Larynx)', manner: 'Glottal Fricative' };
-    }
-    // Vowels / default:
-    return { x: 175, y: 145, name: 'Oral Resonator Cavity', manner: 'Vocalic Resonance' };
-  }, [phoneme]);
+  const s = phoneme.symbol;
+  let place: ArticulatoryPlace = 'alveolar';
+  if (['/p/', '/b/', '/m/', '/w/'].includes(s)) place = 'bilabial';
+  else if (['/f/', '/v/'].includes(s)) place = 'labiodental';
+  else if (['/θ/', '/ð/'].includes(s)) place = 'dental';
+  else if (['/t/', '/d/', '/s/', '/z/', '/n/', '/l/'].includes(s)) place = 'alveolar';
+  else if (['/ʃ/', '/ʒ/', '/tʃ/', '/dʒ/', '/r/'].includes(s)) place = 'post_alveolar';
+  else if (['/j/'].includes(s)) place = 'palatal';
+  else if (['/k/', '/g/', '/ŋ/'].includes(s)) place = 'velar';
+  else if (['/h/'].includes(s)) place = 'glottal';
+  else if (['/iː/', '/ɪ/'].includes(s)) place = 'vowel_front_high';
+  else if (['/uː/', '/ʊ/'].includes(s)) place = 'vowel_back_high';
+  else if (['/ɑː/', '/æ/', '/ʌ/', '/ɒ/'].includes(s)) place = 'vowel_open_low';
+  else if (phoneme.category.includes('vowel')) place = 'vowel_central';
 
-  const isVoiced = phoneme.category === 'voiced_consonant' || phoneme.category.includes('vowel') || phoneme.category === 'diphthong';
+  const isVoiced =
+    phoneme.category === 'voiced_consonant' ||
+    phoneme.category.includes('vowel') ||
+    phoneme.category === 'diphthong';
+  const isNasal = ['/m/', '/n/', '/ŋ/'].includes(s);
 
   return (
-    <div className={`p-4 rounded-2xl border shadow-lg flex flex-col items-center justify-center space-y-3 ${
-      isLight ? 'bg-slate-50 border-violet-200' : 'bg-slate-950 border-slate-800'
-    }`}>
-      <div className="w-full flex items-center justify-between text-xs">
-        <span className="font-bold flex items-center gap-1.5 text-violet-400">
-          <Activity className="w-4 h-4" />
-          <span>Sagittal Vocal Tract Cross-Section</span>
-        </span>
-        <span className={`text-[11px] font-mono px-2 py-0.5 rounded-full font-bold border ${
-          isVoiced
-            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
-            : 'bg-amber-500/10 text-amber-400 border-amber-500/30'
-        }`}>
-          {isVoiced ? 'VOICED (Vibrating Cords)' : 'VOICELESS (Open Glottis)'}
-        </span>
-      </div>
-
-      <div className="relative w-full max-w-[340px] aspect-[4/3] flex items-center justify-center">
-        <svg viewBox="0 0 360 300" className="w-full h-full select-none">
-          <defs>
-            <linearGradient id="palateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#4c1d95" />
-              <stop offset="100%" stopColor="#2e1065" />
-            </linearGradient>
-            <linearGradient id="tongueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#be123c" stopOpacity="0.85" />
-              <stop offset="100%" stopColor="#881337" stopOpacity="0.95" />
-            </linearGradient>
-            <radialGradient id="targetPulse" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#0284c7" stopOpacity="0.1" />
-            </radialGradient>
-          </defs>
-
-          {/* Craniofacial Outline / Head Profile */}
-          <path
-            d="M 50,40 Q 90,20 170,20 Q 270,20 290,90 L 300,280 L 260,280 L 255,240 Q 250,180 230,170 Q 210,165 170,165 L 140,195 Q 120,225 100,240 L 70,240 Q 60,180 65,160 Q 75,150 65,140 Q 55,130 50,120 Z"
-            fill="none"
-            stroke="#334155"
-            strokeWidth="2.5"
-          />
-
-          {/* Nasal Cavity (تجويف الأنف) */}
-          <path
-            d="M 80,95 Q 120,60 190,65 Q 230,70 240,110 L 210,110 Q 180,85 120,85 Q 90,90 80,95 Z"
-            fill="#0369a1"
-            opacity="0.15"
-            stroke="#0284c7"
-            strokeWidth="1.5"
-            strokeDasharray="3 2"
-          />
-          <text x="145" y="80" fill="#38bdf8" fontSize="10" fontWeight="bold">Nasal Cavity</text>
-
-          {/* Hard Palate & Alveolar Ridge (الحنك الصلب ولثة الأسنان) */}
-          <path
-            d="M 95,145 Q 125,125 180,120 Q 220,120 235,135 Q 240,150 238,160"
-            fill="none"
-            stroke="url(#palateGrad)"
-            strokeWidth="6"
-            strokeLinecap="round"
-          />
-          {/* Uvula Hanging (اللهاة) */}
-          <path d="M 238,155 Q 242,168 238,175" fill="none" stroke="#be185d" strokeWidth="4" strokeLinecap="round" />
-
-          {/* Upper Lip & Teeth */}
-          <path d="M 70,140 Q 80,145 88,152" fill="none" stroke="#e2e8f0" strokeWidth="4" strokeLinecap="round" />
-          <rect x="88" y="148" width="6" height="8" rx="1.5" fill="#f8fafc" />
-
-          {/* Lower Lip & Teeth */}
-          <path d="M 72,175 Q 82,170 88,165" fill="none" stroke="#e2e8f0" strokeWidth="4" strokeLinecap="round" />
-          <rect x="88" y="160" width="6" height="8" rx="1.5" fill="#f8fafc" />
-
-          {/* Tongue Body (اللسان) - Dynamic Articulatory Shaping */}
-          <path
-            d="M 95,170 Q 120,160 150,150 Q 190,145 220,175 Q 235,210 230,240 L 170,240 Q 120,230 100,195 Z"
-            fill="url(#tongueGrad)"
-            stroke="#fda4af"
-            strokeWidth="1.5"
-          />
-
-          {/* Pharynx & Epiglottis (البلعوم ولسان المزمار) */}
-          <path d="M 235,215 Q 230,230 225,245" fill="none" stroke="#9333ea" strokeWidth="3.5" strokeLinecap="round" />
-
-          {/* Vocal Folds / Glottis (الحبال الصوتية) */}
-          <g transform="translate(230, 260)">
-            <ellipse cx="15" cy="5" rx="12" ry="6" fill="#1e1b4b" stroke={isVoiced ? '#10b981' : '#f59e0b'} strokeWidth="2" />
-            {isVoiced ? (
-              // Vibrating sine wave
-              <path d="M 5,5 Q 10,1 15,5 T 25,5" fill="none" stroke="#34d399" strokeWidth="2" className="animate-pulse" />
-            ) : (
-              // Open glottis slit
-              <line x1="15" y1="1" x2="15" y2="9" stroke="#f59e0b" strokeWidth="2" />
-            )}
-            <text x="15" y="-6" textAnchor="middle" fill={isVoiced ? '#6ee7b7' : '#fde68a'} fontSize="9" fontWeight="bold">
-              Glottis
-            </text>
-          </g>
-
-          {/* Dynamic Articulatory Target Pulse */}
-          <g transform={`translate(${target.x}, ${target.y})`}>
-            <circle cx="0" cy="0" r="18" fill="url(#targetPulse)" className="animate-ping origin-center" />
-            <circle cx="0" cy="0" r="8" fill="#0284c7" stroke="#ffffff" strokeWidth="2" />
-            <circle cx="0" cy="0" r="3" fill="#ffffff" />
-          </g>
-
-          {/* Active Articulation Text Callout */}
-          <rect x="15" y="260" width="180" height="28" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1" opacity="0.9" />
-          <text x="25" y="278" fill="#e2e8f0" fontSize="10" fontWeight="bold">
-            Target: {target.name.split(' ')[0]}
-          </text>
-        </svg>
-      </div>
-
-      <div className="w-full text-center p-2 rounded-xl bg-violet-500/10 border border-violet-500/20 text-xs">
-        <span className="text-violet-300 font-bold">{target.name}</span>
-        <span className="text-slate-400 block text-[11px] mt-0.5">Manner: {target.manner}</span>
-      </div>
-    </div>
+    <RealisticVocalTractSchematic
+      symbol={phoneme.symbol}
+      name={phoneme.name}
+      place={place}
+      isVoiced={isVoiced}
+      isNasal={isNasal}
+      audioExampleWord={phoneme.audioTriggerWord}
+      language="en"
+      isLight={isLight}
+    />
   );
 };
 

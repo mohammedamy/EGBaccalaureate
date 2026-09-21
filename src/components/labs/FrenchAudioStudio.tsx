@@ -32,6 +32,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { RealisticVocalTractSchematic } from './RealisticVocalTractSchematic';
 
 interface Props {
   lang?: Language;
@@ -336,6 +337,29 @@ export const FrenchAudioStudio: React.FC<Props> = ({
                     {selectedNasal.trapWarningAr}
                   </div>
                 </div>
+              </div>
+
+              {/* Realistic Sagittal Vocal Tract Articulatory Anatomy for French Nasals & Consonants */}
+              <div className="pt-2">
+                <RealisticVocalTractSchematic
+                  symbol={selectedNasal.ipa}
+                  name={`Voyelle Nasale Française: ${selectedNasal.nameEn}`}
+                  manner="Nasal Vowel Resonance (Lowered Velum & Airflow through Nasal Cavity)"
+                  place={
+                    selectedNasal.ipa === '/ɑ̃/'
+                      ? 'vowel_open_low'
+                      : selectedNasal.ipa === '/ɔ̃/'
+                      ? 'vowel_back_high'
+                      : selectedNasal.ipa === '/ɛ̃/'
+                      ? 'vowel_front_high'
+                      : 'vowel_central'
+                  }
+                  isVoiced={true}
+                  isNasal={true}
+                  audioExampleWord={selectedNasal.exemplarWords[0]?.word}
+                  language="fr"
+                  isLight={theme === 'light'}
+                />
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import type { Language } from '../../i18n/translations';
+import { RealisticVocalTractSchematic, type ArticulatoryPlace } from './RealisticVocalTractSchematic';
 import {
   ITALIAN_PHONETICS,
   ITALIAN_VERB_TENSES,
@@ -68,6 +69,17 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
 
   // Tab 1: Phonetics
   const [selectedPhonetic, setSelectedPhonetic] = useState<ItalianPhoneticRule>(ITALIAN_PHONETICS[0]);
+
+  const italianPlace = useMemo<ArticulatoryPlace>(() => {
+    const sym = selectedPhonetic.symbol.toLowerCase();
+    if (sym.includes('gli')) return 'palatal';
+    if (sym.includes('gn')) return 'palatal';
+    if (sym.includes('ci') || sym.includes('ce') || sym.includes('gi') || sym.includes('ge')) return 'post_alveolar';
+    if (sym.includes('chi') || sym.includes('che') || sym.includes('ghi') || sym.includes('ghe')) return 'velar';
+    if (sym.includes('sc')) return 'post_alveolar';
+    if (sym.includes('z')) return 'alveolar';
+    return 'alveolar';
+  }, [selectedPhonetic.symbol]);
 
   // Tab 2: Verb Tenses
   const [selectedTense, setSelectedTense] = useState<ItalianVerbTenseRule>(ITALIAN_VERB_TENSES[0]);
@@ -368,6 +380,21 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
                       );
                     })}
                   </div>
+                </div>
+
+                {/* Realistic Sagittal Vocal Tract Articulatory Anatomy for Italian */}
+                <div className="pt-4 border-t border-slate-800">
+                  <RealisticVocalTractSchematic
+                    symbol={selectedPhonetic.symbol}
+                    name={`Fonetica Italiana: ${selectedPhonetic.nameEn}`}
+                    manner={selectedPhonetic.ruleExplanationAr}
+                    place={italianPlace}
+                    isVoiced={!selectedPhonetic.symbol.toLowerCase().includes('sc')}
+                    isNasal={selectedPhonetic.symbol.toLowerCase().includes('gn')}
+                    audioExampleWord={selectedPhonetic.exemplarWords[0]?.word}
+                    language="it"
+                    isLight={theme === 'light'}
+                  />
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { Language } from '../../i18n/translations';
+import { RealisticVocalTractSchematic, type ArticulatoryPlace } from './RealisticVocalTractSchematic';
 import {
   SPANISH_PHONETICS_DATA,
   SPANISH_VERB_TENSES_DATA,
@@ -62,6 +63,18 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
 
   // Tab 1: Phonetics
   const [selectedPhonetic, setSelectedPhonetic] = useState<SpanishPhoneticRule>(SPANISH_PHONETICS_DATA[0]);
+
+  const spanishPlace = useMemo<ArticulatoryPlace>(() => {
+    const sym = selectedPhonetic.symbol.toLowerCase();
+    if (sym.includes('ñ')) return 'palatal';
+    if (sym.includes('ll') || sym.includes('y')) return 'palatal';
+    if (sym.includes('ch')) return 'post_alveolar';
+    if (sym.includes('j') || sym.includes('g')) return 'velar';
+    if (sym.includes('z') || sym.includes('c')) return 'dental';
+    if (sym.includes('b') || sym.includes('v')) return 'bilabial';
+    if (sym.includes('rr') || sym.includes('r')) return 'alveolar';
+    return 'alveolar';
+  }, [selectedPhonetic.symbol]);
 
   // Tab 2: Verb Tenses
   const [selectedTense, setSelectedTense] = useState<SpanishVerbTenseRule>(SPANISH_VERB_TENSES_DATA[0]);
@@ -426,6 +439,21 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
                 <p className={`leading-normal ${isLight ? 'text-stone-800 font-medium' : 'text-stone-300'}`}>{selectedPhonetic.trapWarningAr}</p>
                 <p className={`italic text-[11px] ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>{selectedPhonetic.trapWarningEn}</p>
               </div>
+            </div>
+
+            {/* Realistic Sagittal Vocal Tract Articulatory Anatomy for Spanish */}
+            <div className="mt-5 pt-4 border-t border-stone-800/40">
+              <RealisticVocalTractSchematic
+                symbol={selectedPhonetic.symbol}
+                name={`Fonética Española: ${selectedPhonetic.nameEn}`}
+                manner={selectedPhonetic.ruleExplanationAr}
+                place={spanishPlace}
+                isVoiced={!['c', 'z', 'j'].includes(selectedPhonetic.symbol.toLowerCase())}
+                isNasal={selectedPhonetic.symbol.toLowerCase().includes('ñ')}
+                audioExampleWord={selectedPhonetic.exemplarWords[0]?.word}
+                language="es"
+                isLight={isLight}
+              />
             </div>
           </div>
         </div>

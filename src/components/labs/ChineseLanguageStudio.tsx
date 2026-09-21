@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import type { Language } from '../../i18n/translations';
+import { RealisticVocalTractSchematic, type ArticulatoryPlace } from './RealisticVocalTractSchematic';
 import {
   CHINESE_PINYIN_TONES_DATA,
   CHINESE_RADICALS_DATA,
@@ -67,6 +68,18 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
   // Tab 1: Pinyin & Tones
   const [selectedPinyinTone, setSelectedPinyinTone] = useState<ChinesePinyinToneRule>(CHINESE_PINYIN_TONES_DATA[0]);
   const [pinyinCategoryFilter, setPinyinCategoryFilter] = useState<'all' | 'tones' | 'sandhi' | 'initials' | 'finals'>('all');
+
+  const chinesePlace = useMemo<ArticulatoryPlace>(() => {
+    const sym = selectedPinyinTone.symbol.toLowerCase();
+    if (sym.includes('zh') || sym.includes('ch') || sym.includes('sh') || sym === 'r') return 'retroflex';
+    if (sym.includes('j') || sym.includes('q') || sym.includes('x')) return 'palatal';
+    if (sym.includes('g') || sym.includes('k') || sym.includes('h')) return 'velar';
+    if (sym.includes('z') || sym.includes('c') || sym.includes('s')) return 'alveolar';
+    if (sym.includes('b') || sym.includes('p') || sym.includes('m')) return 'bilabial';
+    if (sym.includes('f')) return 'labiodental';
+    if (selectedPinyinTone.category === 'tones') return 'glottal';
+    return 'vowel_central';
+  }, [selectedPinyinTone.symbol, selectedPinyinTone.category]);
 
   // Tab 2: Radicals
   const [selectedRadical, setSelectedRadical] = useState<ChineseRadicalItem>(CHINESE_RADICALS_DATA[0]);
@@ -357,6 +370,21 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
                   <p className="text-slate-200">{selectedPinyinTone.trapTipAr}</p>
                   <p className="text-slate-400 mt-1 italic">{selectedPinyinTone.trapTipEn}</p>
                 </div>
+              </div>
+
+              {/* Realistic Sagittal Vocal Tract Articulatory Anatomy for Chinese */}
+              <div className="pt-2 border-t border-slate-800">
+                <RealisticVocalTractSchematic
+                  symbol={selectedPinyinTone.symbol}
+                  name={`汉语拼音发音 (Pinyin Articulation): ${selectedPinyinTone.nameEn}`}
+                  manner={selectedPinyinTone.explanationAr}
+                  place={chinesePlace}
+                  isVoiced={['m', 'n', 'l', 'r'].some((c) => selectedPinyinTone.symbol.includes(c)) || selectedPinyinTone.category === 'tones'}
+                  isNasal={selectedPinyinTone.symbol.includes('n') || selectedPinyinTone.symbol.includes('m') || selectedPinyinTone.symbol.includes('ng')}
+                  audioExampleWord={selectedPinyinTone.examples[0]?.audioText}
+                  language="zh"
+                  isLight={false}
+                />
               </div>
             </div>
           </div>
