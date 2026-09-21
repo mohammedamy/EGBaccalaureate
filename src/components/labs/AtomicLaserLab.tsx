@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
 import {
@@ -20,10 +20,12 @@ import {
   Radio,
   Sparkles,
   Layers,
-  CheckCircle2,
-  AlertCircle,
   Sliders,
   RotateCcw,
+  Flame,
+  Sun,
+  Target,
+  Activity,
 } from 'lucide-react';
 
 interface Props {
@@ -32,21 +34,31 @@ interface Props {
 }
 
 interface AtomicLaserParams {
-  systemMode: 'bohr' | 'laser';
+  systemMode: 'bohr' | 'laser_hene' | 'laser_ruby' | 'xray_coolidge';
   // Bohr Mode Parameters
   n1: number; // Lower level: 1 to 5
   n2: number; // Upper level: 2 to 6 (n2 > n1)
   viewMode: 'ladder' | 'orbitals';
+  bohrSpectrumType: 'emission' | 'absorption' | 'fraunhofer';
   // He-Ne Laser Parameters
   pumpPower: number; // 0 to 100%
   highVoltageDC: boolean; // ON / OFF
   cavityAlignment: number; // mrad (0.0 to 3.0 mrad, threshold ~1.5 mrad)
+  // Ruby Laser Parameters
+  rubyFlashEnergyJ: number; // 50 to 500 J
+  // Coolidge X-Ray Tube Parameters
+  xrayVoltageKv: number; // 15 to 90 kV
+  xrayFilamentCurrentA: number; // 2.5 to 5.0 A
+  xrayTargetElement: 'tungsten' | 'molybdenum' | 'copper';
 }
 
 interface AtomicLaserState {
   laserOutputPowerMw: number;
   isLasing: boolean;
   photonsCount: number;
+  rubyPulseIntensity: number;
+  xrayLambdaMinNm: number;
+  xrayCharacteristicKaNm: number;
 }
 
 // Physical Constants
@@ -113,6 +125,61 @@ function getSeriesInfo(n1: number, n2: number): SeriesInfo {
   };
 }
 
+// Target elements data for Coolidge X-ray tube
+interface XRayTargetInfo {
+  elementEn: string;
+  elementAr: string;
+  symbol: string;
+  z: number;
+  kAlphaNm: number;
+  kBetaNm: number;
+  criticalKv: number;
+}
+
+const XRAY_TARGETS: Record<'tungsten' | 'molybdenum' | 'copper', XRayTargetInfo> = {
+  tungsten: {
+    elementEn: 'Tungsten',
+    elementAr: 'تنجستن',
+    symbol: 'W',
+    z: 74,
+    kAlphaNm: 0.021, // 0.21 Å
+    kBetaNm: 0.018, // 0.18 Å
+    criticalKv: 69.5,
+  },
+  molybdenum: {
+    elementEn: 'Molybdenum',
+    elementAr: 'موليبدنوم',
+    symbol: 'Mo',
+    z: 42,
+    kAlphaNm: 0.071, // 0.71 Å
+    kBetaNm: 0.063, // 0.63 Å
+    criticalKv: 20.0,
+  },
+  copper: {
+    elementEn: 'Copper',
+    elementAr: 'نحاس',
+    symbol: 'Cu',
+    z: 29,
+    kAlphaNm: 0.154, // 1.54 Å
+    kBetaNm: 0.139, // 1.39 Å
+    criticalKv: 8.98,
+  },
+};
+
+// Prominent Fraunhofer solar absorption lines
+const FRAUNHOFER_LINES = [
+  { id: 'C', name: 'H-α (C)', element: 'Hydrogen', nm: 656.3, color: '#ef4444' },
+  { id: 'D1', name: 'Na (D₁)', element: 'Sodium', nm: 589.6, color: '#f59e0b' },
+  { id: 'D2', name: 'Na (D₂)', element: 'Sodium', nm: 589.0, color: '#f59e0b' },
+  { id: 'D3', name: 'He (D₃)', element: 'Helium', nm: 587.6, color: '#eab308' },
+  { id: 'b1', name: 'Mg (b₁)', element: 'Magnesium', nm: 518.4, color: '#10b981' },
+  { id: 'F', name: 'H-β (F)', element: 'Hydrogen', nm: 486.1, color: '#06b6d4' },
+  { id: 'G', name: 'H-γ (G\')', element: 'Hydrogen', nm: 434.0, color: '#3b82f6' },
+  { id: 'h', name: 'H-δ (h)', element: 'Hydrogen', nm: 410.2, color: '#8b5cf6' },
+  { id: 'H', name: 'Ca⁺ (H)', element: 'Calcium', nm: 396.8, color: '#a855f7' },
+  { id: 'K', name: 'Ca⁺ (K)', element: 'Calcium', nm: 393.4, color: '#9333ea' },
+];
+
 interface PhotonPacket {
   x: number;
   y: number;
@@ -130,6 +197,9 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
+  // Transient flash animation trigger for Ruby laser
+  const [, setRubyFlashTrigger] = useState<number>(0);
+
   const simRef = useRef<{
     photons: PhotonPacket[];
     lastTransitionTime: number;
@@ -137,7 +207,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     lastN1: number;
     lastN2: number;
     laserPhase: number;
-    sparkGlow: number;
+    rubyPulseProgress: number; // 0 to 1
+    xrayElectrons: { x: number; y: number; vx: number; vy: number; progress: number }[];
   }>({
     photons: [],
     lastTransitionTime: 0,
@@ -145,19 +216,22 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     lastN1: 2,
     lastN2: 3,
     laserPhase: 0,
-    sparkGlow: 0,
+    rubyPulseProgress: 0,
+    xrayElectrons: [],
   });
 
   const definition: LabDefinition<AtomicLaserParams, AtomicLaserState> = {
     id: 'bohr-laser-quantum',
     subject: 'physics',
-    chapterRef: 'Ch. 6 & 7: Atomic Spectra & Lasers',
-    titleEn: 'Bohr Hydrogen Spectra & He-Ne Laser Cavity Laboratory',
-    titleAr: 'مختبر أطياف بور الذرية للهيدروجين وليزر الهيليوم-نيون',
-    subtitleEn: 'Explore quantized atomic transitions, Rydberg constant determination, and optical cavity population inversion',
-    subtitleAr: 'استكشاف الانتقالات الذرية المكممة، وتعيين ثابت ريدبرج، والإسكان المعكوس وتضخيم الليزر بالتجويف الرنيني',
-    taglineEn: 'Bohr Quantum Model (1913) & Maiman / Javan Laser Resonators (1960)',
-    taglineAr: 'نموذج بور الذري (١٩١٣) ومضخمات الليزر الرنينية (١٩٦٠)',
+    chapterRef: 'Ch. 6 & 7: Atomic Spectra, X-Rays & Lasers',
+    titleEn: 'Modern Atomic Physics, Coolidge X-Ray & Quantum Lasers Laboratory',
+    titleAr: 'مختبر الفيزياء الذرية الحديثة، وأشعة إكس لكولدج، والليزر الكمي',
+    subtitleEn:
+      'Quantized Bohr transitions, Fraunhofer solar absorption, Duane-Hunt X-ray spectrometry, and He-Ne / Ruby laser cavities',
+    subtitleAr:
+      'انتقالات بور المكممة، خطوط فرانهوفر لامتصاص الشمس، قانون دوين-هنت لأشعة إكس، ورنانات ليزر الهيليوم-نيون والياقوت',
+    taglineEn: 'Bohr Model (1913), Coolidge Tube (1913), Maiman Ruby (1960) & He-Ne Gas Lasers',
+    taglineAr: 'نموذج بور (١٩١٣)، أنبوبة كولدج (١٩١٣)، ليزر الياقوت لمايمان (١٩٦٠) وليزر الغازات',
     objectives: [
       {
         id: 'obj-bohr-levels',
@@ -170,19 +244,19 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         textAr: 'تعيين ثابت ريدبرج عملياً من ميل الخط المستقيم للعدد الموجي مقابل (1/n₁² - 1/n₂²)',
       },
       {
-        id: 'obj-spectral-series',
-        textEn: 'Distinguish the five hydrogen series (Lyman UV, Balmer Visible, Paschen NIR, Brackett IR, Pfund Far-IR)',
-        textAr: 'التمييز بين متسلسلات طيف الهيدروجين الخمس (ليمان، بالمر، باشن، براكت، بفوند) ومدى كل منها',
+        id: 'obj-fraunhofer',
+        textEn: 'Distinguish continuous, line emission, and line absorption spectra (Fraunhofer solar absorption lines)',
+        textAr: 'التمييز بين الطيف المستمر وطيف الانبعاث الخطي وطيف الامتصاص الخطي (خطوط فرانهوفر الشمسية)',
+      },
+      {
+        id: 'obj-duane-hunt-xray',
+        textEn: 'Investigate the Coolidge X-ray tube: Duane-Hunt cutoff λ_min = hc / (eV) and characteristic K_α / K_β target peaks',
+        textAr: 'دراسة أشعة إكس في أنبوبة كولدج: حد دوين-هنت الأدنى للطول الموجي λ_min = hc/eV والأطياف الخطية المميزة للهدف',
       },
       {
         id: 'obj-laser-inversion',
-        textEn: 'Demonstrate population inversion (N₂ > N₁) and threshold condition for stimulated emission in a 4-level He-Ne laser',
-        textAr: 'إثبات حدوث الإسكان المعكوس (N₂ > N₁) وشرط العتبة للانبعاث المستحث في ليزر الهيليوم-نيون',
-      },
-      {
-        id: 'obj-optical-cavity',
-        textEn: 'Investigate the resonant cavity role (R₁ = 99.9%, R₂ = 98%) and alignment tolerance for coherent laser amplification',
-        textAr: 'دراسة دور التجويف الرنيني ونسبة انعكاس المرآتين والتسامح الزاوي للتوازي في تضخيم الشعاع المتماسك',
+        textEn: 'Demonstrate population inversion (N₂ > N₁) and threshold condition for stimulated emission in He-Ne and Ruby lasers',
+        textAr: 'إثبات حدوث الإسكان المعكوس (N₂ > N₁) وشرط العتبة للانبعاث المستحث في ليزر الهيليوم-نيون وليزر الياقوت',
       },
     ],
     defaultParams: {
@@ -190,9 +264,14 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       n1: 2,
       n2: 3,
       viewMode: 'ladder',
+      bohrSpectrumType: 'emission',
       pumpPower: 85,
       highVoltageDC: true,
       cavityAlignment: 0.0,
+      rubyFlashEnergyJ: 250,
+      xrayVoltageKv: 50,
+      xrayFilamentCurrentA: 3.5,
+      xrayTargetElement: 'tungsten',
     },
     paramSchema: {
       systemMode: {
@@ -200,11 +279,13 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         type: 'select',
         defaultValue: 'bohr',
         options: [
-          { value: 'bohr', labelEn: 'Bohr Hydrogen Atomic Spectra', labelAr: 'أطياف بور وانتقالات ذرة الهيدروجين' },
-          { value: 'laser', labelEn: 'He-Ne Optical Laser Cavity', labelAr: 'تجويف ليزر الهيليوم-نيون الرنيني' },
+          { value: 'bohr', labelEn: '1. Bohr Hydrogen & Fraunhofer Spectra', labelAr: '١. أطياف بور الشمسية وفرانهوفر' },
+          { value: 'laser_hene', labelEn: '2. He-Ne Gas Resonator Laser', labelAr: '٢. ليزر الهيليوم-نيون الغازي' },
+          { value: 'laser_ruby', labelEn: '3. Maiman Ruby Solid-State Laser', labelAr: '٣. ليزر الياقوت الصلب (مايمان)' },
+          { value: 'xray_coolidge', labelEn: '4. Coolidge Tube & X-Ray Spectrometer', labelAr: '٤. أنبوبة كولدج ومطياف أشعة إكس' },
         ],
-        labelEn: 'Experimental Apparatus',
-        labelAr: 'الجهاز التجريبي قيد التشغيل',
+        labelEn: 'Apparatus Suite',
+        labelAr: 'الجهاز قيد التشغيل',
         category: 'primary',
       },
       n1: {
@@ -252,6 +333,20 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         category: 'secondary',
         visibleIf: (p) => p.systemMode === 'bohr',
       },
+      bohrSpectrumType: {
+        key: 'bohrSpectrumType',
+        type: 'select',
+        defaultValue: 'emission',
+        options: [
+          { value: 'emission', labelEn: 'Line Emission Spectrum', labelAr: 'طيف انبعاث خطي' },
+          { value: 'absorption', labelEn: 'Line Absorption Spectrum', labelAr: 'طيف امتصاص خطي' },
+          { value: 'fraunhofer', labelEn: 'Solar Fraunhofer Lines', labelAr: 'خطوط فرانهوفر الشمسية' },
+        ],
+        labelEn: 'Spectral Dispersion Type',
+        labelAr: 'نوع الطيف البصري',
+        category: 'primary',
+        visibleIf: (p) => p.systemMode === 'bohr',
+      },
       pumpPower: {
         key: 'pumpPower',
         type: 'number',
@@ -263,7 +358,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Electric Discharge Power',
         labelAr: 'شدة التفريغ الكهربي (الضخ)',
         category: 'primary',
-        visibleIf: (p) => p.systemMode === 'laser',
+        visibleIf: (p) => p.systemMode === 'laser_hene',
       },
       highVoltageDC: {
         key: 'highVoltageDC',
@@ -272,7 +367,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'HV Power Supply (1.5 kV)',
         labelAr: 'مصدر الجهد العالي المستمر (1.5 kV)',
         category: 'primary',
-        visibleIf: (p) => p.systemMode === 'laser',
+        visibleIf: (p) => p.systemMode === 'laser_hene',
       },
       cavityAlignment: {
         key: 'cavityAlignment',
@@ -285,7 +380,60 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Mirror Angular Tilt (θ)',
         labelAr: 'حيود توازي المرآتين (θ)',
         category: 'secondary',
-        visibleIf: (p) => p.systemMode === 'laser',
+        visibleIf: (p) => p.systemMode === 'laser_hene',
+      },
+      rubyFlashEnergyJ: {
+        key: 'rubyFlashEnergyJ',
+        type: 'number',
+        defaultValue: 250,
+        min: 50,
+        max: 500,
+        step: 25,
+        unit: 'J',
+        labelEn: 'Xenon Flash Capacitor Energy',
+        labelAr: 'طاقة مكثف الفلاش الزينون',
+        category: 'primary',
+        visibleIf: (p) => p.systemMode === 'laser_ruby',
+      },
+      xrayVoltageKv: {
+        key: 'xrayVoltageKv',
+        type: 'number',
+        defaultValue: 50,
+        min: 15,
+        max: 90,
+        step: 5,
+        unit: 'kV',
+        labelEn: 'Accelerating High Voltage (V)',
+        labelAr: 'فرق الجهد العالي المعجل (V)',
+        category: 'primary',
+        visibleIf: (p) => p.systemMode === 'xray_coolidge',
+      },
+      xrayFilamentCurrentA: {
+        key: 'xrayFilamentCurrentA',
+        type: 'number',
+        defaultValue: 3.5,
+        min: 2.0,
+        max: 5.0,
+        step: 0.1,
+        unit: 'A',
+        labelEn: 'Filament Heating Current (I_f)',
+        labelAr: 'تيار تسخين الفتيلة (I_f)',
+        category: 'secondary',
+        visibleIf: (p) => p.systemMode === 'xray_coolidge',
+      },
+      xrayTargetElement: {
+        key: 'xrayTargetElement',
+        type: 'select',
+        defaultValue: 'tungsten',
+        options: [
+          { value: 'tungsten', labelEn: 'Tungsten Target (W, Z=74)', labelAr: 'هدف التنجستن (W، العدد الذري 74)' },
+          { value: 'molybdenum', labelEn: 'Molybdenum Target (Mo, Z=42)', labelAr: 'هدف الموليبدنوم (Mo، العدد الذري 42)' },
+          { value: 'copper', labelEn: 'Copper Target (Cu, Z=29)', labelAr: 'هدف النحاس (Cu، العدد الذري 29)' },
+        ],
+        labelEn: 'Anode Target Material',
+        labelAr: 'مادة الهدف في المصعد',
+        category: 'primary',
+        visibleIf: (p) => p.systemMode === 'xray_coolidge',
       },
     },
     presets: [
@@ -293,52 +441,28 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         id: 'preset-balmer-alpha',
         nameEn: 'Balmer H-α Red Line (656.3 nm, n=3 → n=2)',
         nameAr: 'خط بالمر H-α الأحمر (656.3 nm، انتقال 3 ← 2)',
-        descriptionEn: 'The most prominent visible red emission line of atomic hydrogen in stellar nebulae',
-        descriptionAr: 'أشهر وأوضح خطوط الطيف المنظور لذرة الهيدروجين في السدم والنجوم',
+        descriptionEn: 'The most prominent visible red emission line of atomic hydrogen',
+        descriptionAr: 'أشهر وأوضح خطوط الطيف المنظور لذرة الهيدروجين',
         params: {
           systemMode: 'bohr',
           n1: 2,
           n2: 3,
           viewMode: 'ladder',
+          bohrSpectrumType: 'emission',
         },
       },
       {
-        id: 'preset-balmer-beta',
-        nameEn: 'Balmer H-β Cyan Line (486.1 nm, n=4 → n=2)',
-        nameAr: 'خط بالمر H-β السماوي (486.1 nm، انتقال 4 ← 2)',
-        descriptionEn: 'Cyan visible transition line in the Balmer series',
-        descriptionAr: 'خط الانتقال الأزرق المخضر (السماوي) في مجموعة بالمر',
+        id: 'preset-fraunhofer',
+        nameEn: 'Solar Fraunhofer Absorption Spectrum',
+        nameAr: 'طيف خطوط فرانهوفر الامتصاصية للشمس',
+        descriptionEn: 'Atmospheric elements absorb specific wavelengths from solar continuous spectrum',
+        descriptionAr: 'غازات الغلاف الجوي للشمس تمتص أطوالاً موجية محددة من طيفها المستمر',
         params: {
           systemMode: 'bohr',
           n1: 2,
-          n2: 4,
+          n2: 3,
           viewMode: 'ladder',
-        },
-      },
-      {
-        id: 'preset-lyman-alpha',
-        nameEn: 'Lyman-α UV Transition (121.6 nm, n=2 → n=1)',
-        nameAr: 'انتقال ليمان-ألفا فوق البنفسجي (121.6 nm، انتقال 2 ← 1)',
-        descriptionEn: 'High-energy ultraviolet transition down to the hydrogen ground state (ΔE = 10.2 eV)',
-        descriptionAr: 'انتقال فائق الطاقة في الأشعة فوق البنفسجية إلى المستوى الأرضي (10.2 eV)',
-        params: {
-          systemMode: 'bohr',
-          n1: 1,
-          n2: 2,
-          viewMode: 'ladder',
-        },
-      },
-      {
-        id: 'preset-paschen-alpha',
-        nameEn: 'Paschen-α Infrared (1875.1 nm, n=4 → n=3)',
-        nameAr: 'خط باشن-ألفا تحت الأحمر (1875.1 nm، انتقال 4 ← 3)',
-        descriptionEn: 'Near-infrared transition dropping into the third principal energy shell',
-        descriptionAr: 'انتقال في نطاق الأشعة تحت الحمراء القريبة هبوطاً إلى المستوى الثالث',
-        params: {
-          systemMode: 'bohr',
-          n1: 3,
-          n2: 4,
-          viewMode: 'ladder',
+          bohrSpectrumType: 'fraunhofer',
         },
       },
       {
@@ -348,23 +472,47 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         descriptionEn: 'High-voltage electric discharge creates population inversion in Ne via resonant He collisions',
         descriptionAr: 'تفريغ كهربي عالي الجهد يحقق الإسكان المعكوس في النيون عبر تصادمات الهيليوم الرنينية',
         params: {
-          systemMode: 'laser',
+          systemMode: 'laser_hene',
           pumpPower: 85,
           highVoltageDC: true,
           cavityAlignment: 0.0,
         },
       },
       {
-        id: 'preset-laser-misaligned',
-        nameEn: 'Cavity Misalignment Loss (Quenched Laser)',
-        nameAr: 'فقد التوازي بالتجويف الرنيني (توقف الليزر)',
-        descriptionEn: 'Tilting mirrors beyond threshold (θ > 1.5 mrad) causes round-trip loss to exceed gain',
-        descriptionAr: 'انحراف زاوية المرآتين يسبب هروب الفوتونات وتوقف التضخيم المستحث',
+        id: 'preset-ruby-pulse',
+        nameEn: 'Maiman Ruby Solid-State Laser (694.3 nm Deep Red)',
+        nameAr: 'ليزر الياقوت الصلب لمايمان (694.3 nm أحمر داكن)',
+        descriptionEn: 'Helical xenon flash lamp optical pumping excites Cr³⁺ ions in sapphire crystal rod',
+        descriptionAr: 'ضخ ضوئي بمصباح فلاش حلزوني يثير أيونات الكروم في قضيب الياقوت الصناعي',
         params: {
-          systemMode: 'laser',
-          pumpPower: 85,
-          highVoltageDC: true,
-          cavityAlignment: 2.2,
+          systemMode: 'laser_ruby',
+          rubyFlashEnergyJ: 300,
+        },
+      },
+      {
+        id: 'preset-xray-tungsten',
+        nameEn: 'Coolidge Tube X-Ray with Tungsten Target (50 kV, Z=74)',
+        nameAr: 'أشعة إكس بأنبوبة كولدج بهدف تنجستن (50 kV، Z=74)',
+        descriptionEn: 'Continuous Bremsstrahlung with Duane-Hunt cutoff and high-Z characteristic peaks',
+        descriptionAr: 'طيف أشعة الكبح المستمر بحد دوين-هنت والأطياف الخطية المميزة للعدد الذري الكبير',
+        params: {
+          systemMode: 'xray_coolidge',
+          xrayVoltageKv: 50,
+          xrayFilamentCurrentA: 3.5,
+          xrayTargetElement: 'tungsten',
+        },
+      },
+      {
+        id: 'preset-xray-molybdenum',
+        nameEn: 'Coolidge Tube X-Ray with Molybdenum (35 kV, Z=42)',
+        nameAr: 'أشعة إكس بأنبوبة كولدج بهدف موليبدنوم (35 kV، Z=42)',
+        descriptionEn: 'Shows shift of characteristic peaks to longer wavelengths (K_α = 0.071 nm)',
+        descriptionAr: 'يوضح إزاحة الخطوط المميزة نحو أطوال موجية أطول مع نقص العدد الذري',
+        params: {
+          systemMode: 'xray_coolidge',
+          xrayVoltageKv: 35,
+          xrayFilamentCurrentA: 3.5,
+          xrayTargetElement: 'molybdenum',
         },
       },
     ],
@@ -382,10 +530,16 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelAr: 'شرط بور للتردد وطاقة الفوتون المنبعث',
       },
       {
-        id: 'rydberg-equation',
-        tex: '\\bar{\\nu} = \\frac{1}{\\lambda} = R_H\\left(\\frac{1}{n_1^2} - \\frac{1}{n_2^2}\\right), \\quad R_H \\approx 1.097\\times 10^7\\,\\text{m}^{-1}',
-        labelEn: 'Rydberg Spectral Formula',
-        labelAr: 'قانون ريدبرج لتعيين الأطوال الموجية',
+        id: 'duane-hunt',
+        tex: '\\lambda_{\\min} = \\frac{hc}{eV} = \\frac{12400}{V\\,\\text{(Volts)}}\\,\\text{Å}',
+        labelEn: 'Duane-Hunt Law (Continuous X-Ray Cutoff)',
+        labelAr: 'قانون دوين-هنت (أقصر طول موجي لطيف الكبح)',
+      },
+      {
+        id: 'moseley-xray',
+        tex: '\\Delta E_{K} = h\\nu_K \\propto (Z - 1)^2 \\implies \\lambda_{K\\alpha} \\propto \\frac{1}{(Z - 1)^2}',
+        labelEn: 'Characteristic X-Ray Line Dependence on Z',
+        labelAr: 'اعتماد الطيف الخطي المميز على العدد الذري',
       },
       {
         id: 'laser-condition',
@@ -393,125 +547,91 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         labelEn: 'Population Inversion Condition',
         labelAr: 'شرط الإسكان المعكوس والحالة شبه المستقرة',
       },
-      {
-        id: 'cavity-resonance',
-        tex: 'L = m\\,\\frac{\\lambda}{2}, \\quad R_1 = 99.9\\%, \\; R_2 = 98\\%',
-        labelEn: 'Optical Cavity Standing Wave Condition',
-        labelAr: 'شرط رنين التجويف والموجات الموقوفة',
-      },
     ],
     poePrompts: [
       {
-        id: 'poe-balmer-visible',
-        titleEn: 'Spectral Series in the Visible Spectrum',
-        titleAr: 'متسلسلات الطيف الذري في نطاق الضوء المرئي',
+        id: 'poe-duane-hunt-dependence',
+        titleEn: 'Duane-Hunt Law and Target Material Independence',
+        titleAr: 'قانون دوين-هنت وعدم اعتماده على مادة الهدف',
         scenarioEn:
-          'When observing the emission spectrum of atomic hydrogen through an optical spectroscope, a student sees four distinct colored lines (Red, Cyan, Blue, Violet). Which spectral series is responsible for these visible lines, and what is the principal quantum number of its lower level?',
+          'In a Coolidge X-ray tube, the accelerating potential difference is kept constant at 50 kV. If the anode target is changed from Tungsten (Z=74) to Molybdenum (Z=42), what happens to the minimum continuous wavelength λ_min?',
         scenarioAr:
-          'عند فحص طيف انبعاث ذرة الهيدروجين بالمطياف البصري، يلاحظ الطالب أربعة خطوط ملونة مميزة (أحمر، سماوي، أزرق، بنفسجي). ما هي المجموعة الطيفية المسؤولة عن هذه الخطوط وما رقم المستوى الأدنى لها؟',
-        questionEn: 'Which series produces visible light, and what is its lower level n₁?',
-        questionAr: 'ما هي المجموعة المسؤولة وما رقم المستوى الأدنى (n₁)؟',
+          'في أنبوبة كولدج لتوليد الأشعة السينية، ثُبت فرق الجهد المعجل عند 50 kV. إذا تم استبدال مادة الهدف من التنجستن (Z=74) إلى الموليبدنوم (Z=42)، فماذا يحدث لأقصر طول موجي للطيف المستمر λ_min؟',
+        questionEn: 'What happens to the minimum wavelength λ_min?',
+        questionAr: 'ماذا يحدث لأقصر طول موجي λ_min؟',
         optionsEn: [
-          'Balmer series, with lower level n₁ = 2',
-          'Lyman series, with lower level n₁ = 1',
-          'Paschen series, with lower level n₁ = 3',
-          'Pfund series, with lower level n₁ = 5',
+          'It remains strictly unchanged because λ_min = hc/(eV) depends solely on voltage V, not on Z',
+          'It increases because Molybdenum has a smaller atomic number Z',
+          'It decreases because lighter atoms release faster photons',
+          'It drops to zero due to lack of bremsstrahlung',
         ],
         optionsAr: [
-          'مجموعة بالمر، حيث المستوى الأدنى الذي تهبط إليه الإلكترونات هو n₁ = 2',
-          'مجموعة ليمان، حيث المستوى الأدنى الذي تهبط إليه الإلكترونات هو n₁ = 1',
-          'مجموعة باشن، حيث المستوى الأدنى الذي تهبط إليه الإلكترونات هو n₁ = 3',
-          'مجموعة بفوند، حيث المستوى الأدنى الذي تهبط إليه الإلكترونات هو n₁ = 5',
+          'يظل ثابتاً دون أي تغيير لأن λ_min = hc/(eV) يعتمد حصرياً على فرق الجهد المعجل ولا علاقة له بالعدد الذري Z',
+          'يزداد لأن العدد الذري للموليبدنوم أقل من التنجستن',
+          'يقل لأن الذرات الخفيفة تشع فوتونات أسرع',
+          'ينعدم تماماً لغياب أشعة الكبح',
         ],
         correctOptionIndex: 0,
         scientificExplanationEn:
-          'Transitions ending at n₁ = 2 (Balmer series) have energy differences between 1.89 eV (n=3→2, 656.3 nm) and 3.40 eV (series limit, 364.6 nm), exactly spanning the visible spectrum. Lyman transitions release high UV energy (ΔE > 10.2 eV), while Paschen, Brackett, and Pfund release lower energies situated in the infrared spectrum.',
+          'The minimum continuous wavelength λ_min corresponds to the maximum kinetic energy lost by an electron in a single collision: K.E._max = eV = hc / λ_min. Therefore, λ_min depends strictly on the accelerating potential V and physical constants (h, c, e). The target material Z only affects the characteristic line wavelengths and total emission intensity.',
         scientificExplanationAr:
-          'الانتقالات التي تنتهي عند المستوى الثاني n₁ = 2 (مجموعة بالمر) تتراوح طاقاتها بين 1.89 إلكترون فولت (انتقال 3 إلى 2، 656.3 نانومتر) و3.40 إلكترون فولت، وهو النطاق الدقيق لطاقة فوتونات الضوء المرئي للإنسان. أما مجموعة ليمان فتقع في الأشعة فوق البنفسجية لطاقتها العالية (>10.2 eV)، وباقي المجموعات تقع في الأشعة تحت الحمراء.',
+          'أقصر طول موجي للطيف المستمر (أشعة الكبح) ينتج عندما يفقد الإلكترون المعجل طاقته الحركية كاملة في تصادم واحد: K.E._max = eV = hc/λ_min. لذلك يتوقف λ_min حصرياً على فرق الجهد بين الفتيلة والهدف وثوابت الطبيعة. أما مادة الهدف (العدد الذري Z) فتحدد فقط موقع الخطوط المميزة والشدة الكلية.',
       },
       {
-        id: 'poe-population-inversion',
-        titleEn: 'Requirement of a Metastable State for Laser Action',
-        titleAr: 'أهمية المستوى شبه المستقر لتحقيق الفعل الليزري',
+        id: 'poe-characteristic-line-voltage',
+        titleEn: 'Characteristic X-Ray Wavelength vs. Accelerating Voltage',
+        titleAr: 'علاقة الطول الموجي للطيف الخطي المميز بفرق الجهد',
         scenarioEn:
-          'In ordinary atomic systems without a metastable state, atoms remain in excited levels for only ~10⁻⁸ s before spontaneous emission occurs. Why is a metastable state (lifetime ~10⁻³ s) indispensable for creating laser amplification?',
+          'A Coolidge tube operates at 60 kV with a Tungsten target, showing a characteristic K_α peak at 0.021 nm. If the accelerating potential difference is increased to 80 kV, what happens to the wavelength of the K_α line?',
         scenarioAr:
-          'في الذرات العادية، تمكث الإلكترونات في مستويات الإثارة لفترة قصيرة جداً (~10⁻⁸ ثانية) ثم تهبط تلقائياً. لماذا يعد المستوى شبه المستقر (فترة عمره ~10⁻³ ثانية) شرطاً جوهرياً لتشغيل الليزر؟',
-        questionEn: 'Why is a metastable state required for laser action?',
-        questionAr: 'لماذا يشترط وجود مستوى شبه مستقر لإنتاج الليزر؟',
+          'تعمل أنبوبة كولدج بفرق جهد 60 kV مع هدف تنجستن وتظهر قمة خطية مميزة K_α عند 0.021 nm. إذا رُفع فرق الجهد المعجل إلى 80 kV، فماذا يحدث للطول الموجي لخط K_α؟',
+        questionEn: 'What happens to the characteristic line wavelength?',
+        questionAr: 'ماذا يحدث للطول الموجي للخط المميز K_α؟',
         optionsEn: [
-          'Its long lifetime allows excited atoms to accumulate faster than they decay, achieving Population Inversion (N₂ > N₁)',
-          'It completely suppresses all spontaneous emission so no photons are wasted',
-          'It eliminates the need for an external optical resonant cavity',
-          'It increases the mass of the emitting electron to boost photon momentum',
+          'It remains constant at 0.021 nm because characteristic lines depend solely on the atomic number Z of the target',
+          'It decreases because the higher voltage compresses the electron orbitals',
+          'It doubles because kinetic energy is proportional to voltage',
+          'It shifts into the visible optical range',
         ],
         optionsAr: [
-          'طول فترة عمره يسمح بتراكم الذرات المثارة بمعدل أكبر من هبوطها، فيتحقق الإسكان المعكوس (N₂ > N₁)',
-          'لأنه يمنع حدوث أي انبعاث تلقائي تماماً وبنسبة 100%',
-          'لأنه يلغي الحاجة إلى استخدام تجويف رنيني أو مرايا',
-          'لأنه يضاعف كتلة الإلكترون لزيادة كمية حركة الفوتونات',
+          'يظل ثابتاً تماماً عند 0.021 nm لأن الطيف المميز خاصية جوهرية لمادة الهدف تتوقف على العدد الذري Z فقط',
+          'يقل لأن الجهد الأعلى يضغط مدارات الإلكترونات في الذرة',
+          'يتضاعف لأن طاقة الحركة طردية مع فرق الجهد',
+          'ينزاح إلى نطاق الضوء المرئي المنظور',
         ],
         correctOptionIndex: 0,
         scientificExplanationEn:
-          'Stimulated emission can only amplify light if the rate of stimulated emission exceeds the rate of absorption. By Einstein coefficients (B₁₂ = B₂₁), amplification requires N₂ > N₁ (population inversion). A metastable state has a lifetime ~100,000 times longer than ordinary levels, enabling atoms pumped into this level to accumulate in high density before decaying.',
+          'Characteristic X-rays originate from electronic transitions between discrete atomic inner shells of target atoms (e.g. L → K). The transition energy ΔE = E_L - E_K is determined strictly by the target element atomic number Z. As long as eV exceeds the excitation threshold, increasing voltage increases the line intensity but does not alter its wavelength.',
         scientificExplanationAr:
-          'لكي يحدث تضخيم للضوء، يجب أن يتفوق معدل الانبعاث المستحث على معدل الامتصاص. وبما أن معاملي آينشتاين للامتصاص والانبعاث المستحث متساويان (B₁₂ = B₂₁)، فإن التضخيم يشترط حتماً أن يكون عدد الذرات في مستوى الإثارة أكبر من عددها في المستوى الأدنى (N₂ > N₁، الإسكان المعكوس). المستوى شبه المستقر يمتلك فترة عمر طويلة نسبياً (~10⁻³ ثانية، أي أطول بنحو 100 ألف مرة) مما يسمح بتراكم الذرات فيه بكثافة عالية.',
+          'الأشعة السينية المميزة تنتج من انتقال إلكترون من مستوى طاقة خارجي إلى فراغ في مستوى داخلي (مثل انتقال L إلى K). فرق الطاقة ΔE = E_L - E_K خاصية مميزة لنوع مادة الهدف وتتوقف على عدده الذري Z فقط. وطالما أن طاقة الإلكترونات كافية لإخراج إلكترون K، فإن زيادة الجهد تزيد من شدة الخط دون تغيير طوله الموجي إطلاقاً.',
       },
       {
-        id: 'poe-he-ne-role',
-        titleEn: 'The Strategic Role of Helium in the He-Ne Laser',
-        titleAr: 'الدور الاستراتيجي لذرات الهيليوم في ليزر الهيليوم-نيون',
+        id: 'poe-ruby-optical-pump',
+        titleEn: 'Optical Pumping Mechanism in the Ruby Laser',
+        titleAr: 'آلية الضخ الضوئي في ليزر الياقوت الصلب',
         scenarioEn:
-          'The He-Ne laser contains 10 parts Helium to 1 part Neon. Since the coherent 632.8 nm laser transition occurs strictly between energy levels of Neon atoms, why is Helium added at such a high ratio?',
+          'In Theodore Maiman\'s solid-state ruby laser, why is a high-power Xenon helical flash lamp used for pumping instead of applying an electric discharge directly across the ruby rod?',
         scenarioAr:
-          'يحتوي ليزر الهيليوم-نيون على خليط بنسبة 10 أجزاء هيليوم إلى جزء واحد نيون. وبما أن الانبعاث الليزري (632.8 نانومتر) يحدث حصرياً بين مستويات ذرات النيون، فلماذا يُضاف الهيليوم بهذه النسبة الكبيرة؟',
-        questionEn: 'What is the physical role of Helium in this laser?',
-        questionAr: 'ما هو الدور الفيزيائي الأساسي لذرات الهيليوم؟',
+          'في ليزر الياقوت الصلب (أول ليزر ابتكره مايمان عام ١٩٦٠)، لماذا يُستخدم مصباح وميضي حلزوني من الزينون لإجراء الضخ بدلاً من تمرير تيار كهربي مباشر في قضيب الياقوت؟',
+        questionEn: 'Why is optical pumping required for the ruby laser?',
+        questionAr: 'لماذا يُستخدم الضخ الضوئي في ليزر الياقوت؟',
         optionsEn: [
-          'He atoms are excited by electron collisions into a metastable state (20.61 eV) that resonantly transfers energy to Ne (20.66 eV) via inelastic collisions',
-          'He atoms act solely as a thermal coolant to prevent the glass tube from melting',
-          'He atoms emit the laser photons while Ne acts as the optical mirror',
-          'He atoms absorb the laser beam to increase its coherence',
+          'Ruby (aluminum oxide Al₂O₃) is an electrical insulator, making direct electric discharge impossible',
+          'Electric current would make the ruby rod magnetic and divert the photons',
+          'The flash lamp cools the ruby crystal to absolute zero',
+          'Photons from the lamp dissolve the chromium atoms inside the crystal',
         ],
         optionsAr: [
-          'تُثار ذرات الهيليوم بالتصادم مع الإلكترونات إلى مستوى شبه مستقر (20.61 eV) ينقل طاقته بالرنين لذرات النيون (20.66 eV) عبر التصادمات غير المرنة',
-          'تعمل ذرات الهيليوم فقط كوسيط تبريد حراري لحماية الأنبوبة من الانصهار',
-          'ذرات الهيليوم هي التي تشع فوتونات الليزر بينما يعمل النيون كمرآة عاكسة',
-          'تمتص ذرات الهيليوم الأشعة لتنقية الضوء وزيادة درجة تماسكه',
+          'لأن الياقوت (أكسيد الألومنيوم Al₂O₃) مادة صلبة عازلة تماماً للكهرباء، فيستحيل تمرير تفريغ كهربي خلالها',
+          'لأن التيار الكهربي يجعل الياقوت مغناطيساً يجذب الفوتونات ويحرفها',
+          'لأن المصباح الوميضي يبرد بلورة الياقوت إلى الصفر المطلق',
+          'لأن فوتونات المصباح تصهر ذرات الكروم داخل البلورة',
         ],
         correctOptionIndex: 0,
         scientificExplanationEn:
-          'Direct electron impact excitation of Neon is inefficient and populates multiple non-inverting levels. Helium atoms, having a light mass and a high excitation cross-section, are easily excited to their metastable 2¹S level (20.61 eV). Due to the near-perfect energy resonance with the 3s₂ level of Neon (20.66 eV, difference only 0.05 eV compensated by thermal motion), collisions between He* and ground-state Ne selectively pump the Ne 3s level, establishing the required population inversion.',
+          'Synthetic ruby consists of aluminum oxide (Al₂O₃) crystal doped with Cr³⁺ ions. As an ionic dielectric ceramic insulator, ruby cannot sustain an electrical discharge. Therefore, optical pumping with a high-intensity helical flash lamp (absorbing green and blue photons at ~550 nm and ~400 nm) is used to excite Cr³⁺ ions into their broad absorption bands, followed by rapid non-radiative relaxation into the metastable level (²E) with stimulated emission at 694.3 nm.',
         scientificExplanationAr:
-          'إثارة ذرات النيون مباشرة بالتفريغ الكهربي غير كفؤة وتوزع الطاقة على مستويات متعددة تمنع الإسكان المعكوس. بينما تتميز ذرات الهيليوم بخفة كتلتها وسهولة إثارتها بالتصادم مع الإلكترونات السريعة إلى مستواها شبه المستقر (20.61 إلكترون فولت). وللتقارب الشديد بين طاقة هذا المستوى ومستوى الإثارة شبه المستقر في النيون (20.66 إلكترون فولت، بفرق 0.05 eV فقط تعوضه طاقة الحركة الحرارية)، تصطدم ذرات الهيليوم المثارة بذرات النيون غير المثارة تصادماً غير مرن فتنقل إليها طاقتها بالرنين محققة الإسكان المعكوس بكفاءة عالية.',
-      },
-      {
-        id: 'poe-cavity-alignment',
-        titleEn: 'Cavity Mirror Parallelism and Threshold Loss',
-        titleAr: 'توازي مرآتي التجويف الرنيني وشرط التضخيم',
-        scenarioEn:
-          'The resonant cavity consists of a 99.9% high reflector mirror R₁ and a 98% output coupler mirror R₂. If mirror R₂ is misaligned by tilting it by 2.5 mrad, what happens to the laser output?',
-        scenarioAr:
-          'يتكون التجويف الرنيني من مرآة عاكسة تماماً R₁ بنسبة 99.9% ومرآة شبه منفذة R₂ بنسبة 98%. إذا حدث انحراف في توازي المرآة R₂ بمقدار 2.5 ملي راديان، فماذا يحدث لحزمة الليزر؟',
-        questionEn: 'What happens to the laser emission when mirrors are misaligned?',
-        questionAr: 'ماذا يحدث لانبعاث الليزر عند اختلال توازي المرآتين؟',
-        optionsEn: [
-          'Lasing stops completely because photons walk out laterally, causing round-trip cavity losses to exceed the active medium gain',
-          'The laser output power doubles due to increased beam diameter',
-          'The wavelength shifts from red (632.8 nm) to green (532 nm)',
-          'The laser beam reflects back into the power supply and explodes',
-        ],
-        optionsAr: [
-          'يتوقف انبعاث الليزر تماماً لأن الفوتونات تهرب جانبياً من التجويف فتتجاوز الخسائر مقدار التكبير (الكسب)',
-          'تتضاعف قدرة الليزر مرتين نتيجة زيادة قطر الحزمة الضوئية',
-          'يتغير الطول الموجي من الأحمر (632.8 nm) إلى الأخضر (532 nm)',
-          'ترتد حزمة الليزر نحو مصدر الجهد مما يسبب احتراقه',
-        ],
-        correctOptionIndex: 0,
-        scientificExplanationEn:
-          'In a laser cavity, light must make hundreds of round trips between R₁ and R₂ to undergo continuous avalanche stimulated amplification. If the mirrors deviate from strict parallelism by more than the critical walk-off angle (~1.5 mrad), bouncing photons walk out of the tube before accumulating sufficient gain. When cavity losses exceed optical gain, laser oscillation quenches.',
-        scientificExplanationAr:
-          'في التجويف الرنيني، يجب أن تنعكس الفوتونات ذهاباً وإياباً مئات المرات بين المرآتين لإحداث تضخيم متسلسل بالانبعاث المستحث. إذا اختل توازي المرآتين بزاوية تفوق حد التسامح (~1.5 ملي راديان)، فإن الفوتونات تنحرف وتهرب من جدران الأنبوبة قبل أن تحقق التكبير الكافي. وعندما تتجاوز خسائر التجويف معامل الكسب في الوسط الفعال، يتوقف الليزر تماماً.',
+          'الياقوت الصناعي عبارة عن بلورة من أكسيد الألومنيوم Al₂O₃ مطعمة بأيونات الكروم Cr³⁺، وهو مادة عازلة غير موصلة للتيار الكهربي نهائياً، لذا يستحيل إثارتها بالتفريغ الكهربي. وتُستخدم طاقة الضوء (الضخ الضوئي) عبر مصباح فلاش زينون قوي يحيط بالقضيب لامتصاص الضوء في النطاقين الأخضر والأزرق، فتهبط أيونات الكروم سريعاً إلى المستوى شبه المستقر (²E) لينطلق الليزر الأحمر المتماسك عند 694.3 nm.',
       },
     ],
     notebookConfig: {
@@ -527,28 +647,38 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       laserOutputPowerMw: 0.0,
       isLasing: false,
       photonsCount: 0,
+      rubyPulseIntensity: 0.0,
+      xrayLambdaMinNm: 0.0248,
+      xrayCharacteristicKaNm: 0.021,
     },
   };
 
   const lab = useVirtualLab({
     definition,
     onStep: (dt) => {
-      const { systemMode, n1, n2, pumpPower, highVoltageDC, cavityAlignment } = lab.params;
+      const {
+        systemMode,
+        n1,
+        n2,
+        pumpPower,
+        highVoltageDC,
+        cavityAlignment,
+        xrayVoltageKv,
+        xrayTargetElement,
+      } = lab.params;
       const sim = simRef.current;
 
-      // Synchronize n1 and n2 so n2 > n1 always in Bohr mode
+      // 1. Bohr Mode Dynamics
       if (systemMode === 'bohr') {
         if (n2 <= n1) {
           lab.updateParam('n2', Math.min(6, n1 + 1));
         }
 
-        // Check if transition changed
         if (n1 !== sim.lastN1 || n2 !== sim.lastN2) {
           sim.lastN1 = n1;
           sim.lastN2 = n2;
           sim.lastTransitionTime = 0;
 
-          // Spawn photon packet
           const e1 = -13.6 / (n1 * n1);
           const e2 = -13.6 / (n2 * n2);
           const deltaE = Math.max(0.1, e2 - e1);
@@ -567,18 +697,14 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
             mode: 'bohr',
           });
         }
-
-        // Advance orbit angle
         sim.orbitAngle += dt * (3.0 / Math.sqrt(n2));
-      } else {
-        // Laser Mode Dynamics
+      } else if (systemMode === 'laser_hene') {
+        // 2. He-Ne Laser Dynamics
         sim.laserPhase = (sim.laserPhase + dt * 20) % (2 * Math.PI);
         const thresholdPower = 35;
         const maxAlignment = 1.5; // mrad
         const isLasing =
-          highVoltageDC &&
-          pumpPower >= thresholdPower &&
-          cavityAlignment <= maxAlignment;
+          highVoltageDC && pumpPower >= thresholdPower && cavityAlignment <= maxAlignment;
 
         let outputMw = 0;
         if (isLasing) {
@@ -591,9 +717,12 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           laserOutputPowerMw: outputMw,
           isLasing,
           photonsCount: sim.photons.length,
+          rubyPulseIntensity: 0,
+          xrayLambdaMinNm: 0,
+          xrayCharacteristicKaNm: 0,
         });
 
-        // Spawn intracavity photons if active
+        // Spawn intracavity photons
         if (highVoltageDC && pumpPower > 20 && Math.random() < 0.4) {
           sim.photons.push({
             x: 90 + Math.random() * 300,
@@ -607,6 +736,53 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
             mode: 'laser',
           });
         }
+      } else if (systemMode === 'laser_ruby') {
+        // 3. Ruby Laser Dynamics
+        if (sim.rubyPulseProgress > 0) {
+          sim.rubyPulseProgress = Math.max(0, sim.rubyPulseProgress - dt * 2.2);
+        }
+
+        lab.setSimState({
+          laserOutputPowerMw: sim.rubyPulseProgress * 10000,
+          isLasing: sim.rubyPulseProgress > 0.05,
+          photonsCount: 0,
+          rubyPulseIntensity: sim.rubyPulseProgress,
+          xrayLambdaMinNm: 0,
+          xrayCharacteristicKaNm: 0,
+        });
+      } else if (systemMode === 'xray_coolidge') {
+        // 4. Coolidge X-Ray Dynamics
+        const lambdaMin = HC_EV_NM / (xrayVoltageKv * 1000); // in nm
+        const target = XRAY_TARGETS[xrayTargetElement];
+
+        lab.setSimState({
+          laserOutputPowerMw: 0,
+          isLasing: false,
+          photonsCount: 0,
+          rubyPulseIntensity: 0,
+          xrayLambdaMinNm: lambdaMin,
+          xrayCharacteristicKaNm: target.kAlphaNm,
+        });
+
+        // Electron ray bombardment particles
+        if (sim.xrayElectrons.length < 24) {
+          sim.xrayElectrons.push({
+            x: 130,
+            y: 155 + (Math.random() - 0.5) * 35,
+            vx: 380 + Math.random() * 80,
+            vy: (Math.random() - 0.5) * 15,
+            progress: 0,
+          });
+        }
+
+        for (let i = sim.xrayElectrons.length - 1; i >= 0; i--) {
+          const el = sim.xrayElectrons[i];
+          el.x += el.vx * dt;
+          el.y += el.vy * dt;
+          if (el.x > 360) {
+            sim.xrayElectrons.splice(i, 1);
+          }
+        }
       }
 
       // Update active photons
@@ -617,29 +793,44 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         p.phase += dt * 15;
 
         if (p.mode === 'laser') {
-          // Bounce between R1 (x=80) and R2 (x=420)
           if (p.x <= 85 && p.vx < 0) {
-            p.vx = -p.vx; // Total reflector
+            p.vx = -p.vx;
           } else if (p.x >= 415 && p.vx > 0) {
-            // 98% reflects back, 2% transmits out as laser beam
             if (Math.random() < 0.85) {
               p.vx = -p.vx;
             } else {
-              // Exiting right
               p.vx = 550;
             }
           }
         }
 
-        if (p.x > 600 || p.x < 20 || p.y < 20 || p.y > 380) {
+        if (p.x > 640 || p.x < 20 || p.y < 20 || p.y > 400) {
           sim.photons.splice(i, 1);
         }
       }
     },
   });
 
-  const { systemMode, n1, n2, viewMode, pumpPower, highVoltageDC, cavityAlignment } = lab.params;
-  const isBohr = systemMode === 'bohr';
+  const {
+    systemMode,
+    n1,
+    n2,
+    viewMode,
+    bohrSpectrumType,
+    pumpPower,
+    highVoltageDC,
+    cavityAlignment,
+    rubyFlashEnergyJ,
+    xrayVoltageKv,
+    xrayFilamentCurrentA,
+    xrayTargetElement,
+  } = lab.params;
+
+  // Trigger Flash Pulse on Ruby Laser
+  const handleTriggerRubyFlash = () => {
+    simRef.current.rubyPulseProgress = 1.0;
+    setRubyFlashTrigger((c) => c + 1);
+  };
 
   // Calculations for Bohr Mode
   const effectiveN1 = Math.min(n1, 5);
@@ -650,125 +841,256 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   const deltaE_eV = Math.max(0, e2 - e1);
   const deltaE_J = deltaE_eV * E_CHARGE;
   const lambda_nm = deltaE_eV > 0 ? HC_EV_NM / deltaE_eV : 0;
-  const freq_14Hz = deltaE_eV > 0 ? (deltaE_J / H_PLANCK) / 1e14 : 0;
+  const freq_14Hz = deltaE_eV > 0 ? deltaE_J / H_PLANCK / 1e14 : 0;
   const seriesInfo = getSeriesInfo(effectiveN1, effectiveN2);
 
-  // Wavenumber in units of 10^7 m^-1 for Notebook
   const termDiff = 1 / (effectiveN1 * effectiveN1) - 1 / (effectiveN2 * effectiveN2);
   const wavenumber_10_7_m = lambda_nm > 0 ? 100 / lambda_nm : 0;
 
-  // Laser Mode Output & Threshold
-  const isLasing = lab.simState.isLasing;
-  const laserOutputMw = lab.simState.laserOutputPowerMw;
+  // Calculations for X-Ray
+  const xrayLambdaMinNm = HC_EV_NM / (xrayVoltageKv * 1000);
+  const currentTarget = XRAY_TARGETS[xrayTargetElement];
+  const hasCharacteristicLines = xrayVoltageKv >= currentTarget.criticalKv;
+
+  // Telemetry metrics per mode
+  let telemetry: LabTelemetryMetric[] = [];
+  if (systemMode === 'bohr') {
+    telemetry = [
+      {
+        id: 'photon-energy',
+        labelEn: 'Transition Energy (ΔE)',
+        labelAr: 'طاقة الانتقال (ΔE)',
+        symbolTex: '\\Delta E',
+        value: deltaE_eV.toFixed(3),
+        unit: 'eV',
+        status: 'optimal',
+        precision: 3,
+      },
+      {
+        id: 'wavelength',
+        labelEn: 'Spectral Wavelength (λ)',
+        labelAr: 'الطول الموجي للطيف (λ)',
+        symbolTex: '\\lambda',
+        value: lambda_nm.toFixed(1),
+        unit: 'nm',
+        status: 'normal',
+        precision: 1,
+      },
+      {
+        id: 'frequency',
+        labelEn: 'Photon Frequency (ν)',
+        labelAr: 'تردد الفوتون (ν)',
+        symbolTex: '\\nu',
+        value: freq_14Hz.toFixed(2),
+        unit: '×10¹⁴ Hz',
+        status: 'normal',
+        precision: 2,
+      },
+      {
+        id: 'series-name',
+        labelEn: 'Series & Dispersion',
+        labelAr: 'المجموعة ونوع الطيف',
+        symbolTex: '\\text{Series}',
+        value: `${isArabic ? seriesInfo.nameAr : seriesInfo.nameEn}`,
+        status: 'normal',
+      },
+    ];
+  } else if (systemMode === 'laser_hene') {
+    telemetry = [
+      {
+        id: 'laser-status',
+        labelEn: 'Lasing Oscillation',
+        labelAr: 'حالة التذبذب الليزري',
+        symbolTex: '\\text{Status}',
+        value: lab.simState.isLasing
+          ? isArabic
+            ? 'تضخيم نشط (ON)'
+            : 'Lasing (ON)'
+          : isArabic
+          ? 'خامد (OFF)'
+          : 'Quenched (OFF)',
+        status: lab.simState.isLasing ? 'optimal' : 'alert',
+      },
+      {
+        id: 'output-power',
+        labelEn: 'Output Optical Power',
+        labelAr: 'القدرة الضوئية الخارجة',
+        symbolTex: 'P_{\\text{opt}}',
+        value: lab.simState.laserOutputPowerMw.toFixed(2),
+        unit: 'mW',
+        status: lab.simState.isLasing ? 'optimal' : 'normal',
+        precision: 2,
+      },
+      {
+        id: 'inversion-status',
+        labelEn: 'Population Inversion',
+        labelAr: 'الإسكان المعكوس',
+        symbolTex: 'N_2 / N_1',
+        value: lab.simState.isLasing
+          ? isArabic
+            ? 'متحقق N₂ > N₁'
+            : 'Achieved N₂ > N₁'
+          : isArabic
+          ? 'توازن حراري'
+          : 'Thermal Eq.',
+        status: lab.simState.isLasing ? 'optimal' : 'warning',
+      },
+      {
+        id: 'cavity-alignment',
+        labelEn: 'Mirror Tilt Angle',
+        labelAr: 'زاوية حيود المرآة',
+        symbolTex: '\\theta',
+        value: cavityAlignment.toFixed(1),
+        unit: 'mrad',
+        status: cavityAlignment <= 1.5 ? 'normal' : 'alert',
+        precision: 1,
+      },
+    ];
+  } else if (systemMode === 'laser_ruby') {
+    const isPulsing = simRef.current.rubyPulseProgress > 0.05;
+    telemetry = [
+      {
+        id: 'ruby-pulse-status',
+        labelEn: 'Laser Pulse State',
+        labelAr: 'حالة نبضة الليزر',
+        symbolTex: '\\text{State}',
+        value: isPulsing
+          ? isArabic
+            ? 'نبضة عملاقة نشطة'
+            : 'Giant Pulse Active'
+          : isArabic
+          ? 'شحن المكثف'
+          : 'Capacitor Ready',
+        status: isPulsing ? 'optimal' : 'normal',
+      },
+      {
+        id: 'ruby-energy',
+        labelEn: 'Flash Pump Energy',
+        labelAr: 'طاقة فلاش الزينون',
+        symbolTex: 'E_{\\text{pump}}',
+        value: rubyFlashEnergyJ.toString(),
+        unit: 'J',
+        status: 'normal',
+      },
+      {
+        id: 'ruby-wavelength',
+        labelEn: 'Laser Emission Wavelength',
+        labelAr: 'الطول الموجي لليزر',
+        symbolTex: '\\lambda',
+        value: '694.3',
+        unit: 'nm',
+        status: 'optimal',
+      },
+      {
+        id: 'ruby-active-medium',
+        labelEn: 'Active Ionic Center',
+        labelAr: 'الوسط الفعال',
+        symbolTex: 'Cr^{3+}\\text{ in } Al_2O_3',
+        value: isArabic ? 'أيونات الكروم (٠٫٠٥٪)' : 'Cr³⁺ (0.05%)',
+        status: 'normal',
+      },
+    ];
+  } else {
+    // xray_coolidge
+    telemetry = [
+      {
+        id: 'xray-lambda-min',
+        labelEn: 'Duane-Hunt Cutoff (λ_min)',
+        labelAr: 'أقصر طول موجي (دوين-هنت)',
+        symbolTex: '\\lambda_{\\min}',
+        value: xrayLambdaMinNm.toFixed(4),
+        unit: 'nm',
+        status: 'optimal',
+        precision: 4,
+      },
+      {
+        id: 'xray-ke-max',
+        labelEn: 'Max Kinetic Energy (eV)',
+        labelAr: 'أقصى طاقة حركة للإلكترون',
+        symbolTex: 'E_{\\max}',
+        value: xrayVoltageKv.toFixed(1),
+        unit: 'keV',
+        status: 'normal',
+        precision: 1,
+      },
+      {
+        id: 'xray-target',
+        labelEn: 'Anode Target & Z',
+        labelAr: 'مادة الهدف والعدد الذري',
+        symbolTex: 'Z',
+        value: `${currentTarget.symbol} (Z = ${currentTarget.z})`,
+        status: 'normal',
+      },
+      {
+        id: 'xray-char-ka',
+        labelEn: 'Characteristic K_α Peak',
+        labelAr: 'الخط الخطي المميز K_α',
+        symbolTex: '\\lambda_{K\\alpha}',
+        value: hasCharacteristicLines
+          ? `${currentTarget.kAlphaNm.toFixed(3)} nm`
+          : isArabic
+          ? 'غير مثار (V < V_c)'
+          : 'Below V_c',
+        status: hasCharacteristicLines ? 'optimal' : 'warning',
+      },
+    ];
+  }
 
   // Multimeter reading
   const dmmReading: DMMReading = {
-    voltageDC: isBohr ? deltaE_eV : isLasing ? laserOutputMw * 0.5 : 0.015,
+    voltageDC:
+      systemMode === 'bohr'
+        ? deltaE_eV
+        : systemMode === 'laser_hene'
+        ? lab.simState.isLasing
+          ? lab.simState.laserOutputPowerMw * 0.5
+          : 0.015
+        : systemMode === 'laser_ruby'
+        ? simRef.current.rubyPulseProgress * 4.8
+        : xrayVoltageKv * 1000,
     voltageAC: 0.0,
-    currentDC: isBohr ? 0.001 : isLasing ? (laserOutputMw / 5.0) * 0.005 : 0.0,
+    currentDC:
+      systemMode === 'bohr'
+        ? 0.001
+        : systemMode === 'laser_hene'
+        ? (lab.simState.laserOutputPowerMw / 5.0) * 0.005
+        : systemMode === 'laser_ruby'
+        ? simRef.current.rubyPulseProgress * 2.5
+        : xrayFilamentCurrentA,
     resistance: 1000,
     continuityBeep: false,
   };
 
-  // Dual Trace Oscilloscope Waveforms
+  // Oscilloscope Signals
   const oscCh1: WaveformSignal = {
-    amplitude: isBohr ? deltaE_eV / 2 : isLasing ? (laserOutputMw / 5) * 4 : 0.2,
-    frequency: isBohr ? 1000 : 5000,
+    amplitude:
+      systemMode === 'bohr'
+        ? deltaE_eV / 2
+        : systemMode === 'laser_hene'
+        ? (lab.simState.laserOutputPowerMw / 5) * 4
+        : systemMode === 'laser_ruby'
+        ? simRef.current.rubyPulseProgress * 5
+        : (xrayVoltageKv / 90) * 4,
+    frequency: systemMode === 'bohr' ? 1000 : systemMode === 'xray_coolidge' ? 100 : 5000,
     phaseDeg: 0,
-    type: 'sine',
+    type: systemMode === 'laser_ruby' ? 'triangle' : 'sine',
   };
 
   const oscCh2: WaveformSignal = {
-    amplitude: isBohr ? 1.5 : highVoltageDC ? (pumpPower / 100) * 3 : 0,
-    frequency: isBohr ? 1000 : 5000,
+    amplitude:
+      systemMode === 'bohr'
+        ? 1.5
+        : systemMode === 'laser_hene'
+        ? highVoltageDC
+          ? (pumpPower / 100) * 3
+          : 0
+        : systemMode === 'xray_coolidge'
+        ? (xrayFilamentCurrentA / 5.0) * 3
+        : 2.0,
+    frequency: 1000,
     phaseDeg: 90,
     type: 'sine',
   };
-
-  // Telemetry metrics
-  const telemetry: LabTelemetryMetric[] = isBohr
-    ? [
-        {
-          id: 'photon-energy',
-          labelEn: 'Transition Energy (ΔE)',
-          labelAr: 'طاقة الانتقال (ΔE)',
-          symbolTex: '\\Delta E',
-          value: deltaE_eV.toFixed(3),
-          unit: 'eV',
-          status: 'optimal',
-          precision: 3,
-        },
-        {
-          id: 'wavelength',
-          labelEn: 'Emission Wavelength (λ)',
-          labelAr: 'الطول الموجي (λ)',
-          symbolTex: '\\lambda',
-          value: lambda_nm.toFixed(1),
-          unit: 'nm',
-          status: 'normal',
-          precision: 1,
-        },
-        {
-          id: 'frequency',
-          labelEn: 'Photon Frequency (ν)',
-          labelAr: 'تردد الفوتون (ν)',
-          symbolTex: '\\nu',
-          value: freq_14Hz.toFixed(2),
-          unit: '×10¹⁴ Hz',
-          status: 'normal',
-          precision: 2,
-        },
-        {
-          id: 'series-name',
-          labelEn: 'Spectral Series',
-          labelAr: 'المجموعة الطيفية',
-          symbolTex: '\\text{Series}',
-          value: isArabic ? seriesInfo.nameAr : seriesInfo.nameEn,
-          status: 'normal',
-        },
-      ]
-    : [
-        {
-          id: 'laser-status',
-          labelEn: 'Lasing Oscillation',
-          labelAr: 'حالة التذبذب الليزري',
-          symbolTex: '\\text{Status}',
-          value: isLasing
-            ? (isArabic ? 'تضخيم نشط (ON)' : 'Lasing (ON)')
-            : (isArabic ? 'خامد (OFF)' : 'Quenched (OFF)'),
-          status: isLasing ? 'optimal' : 'alert',
-        },
-        {
-          id: 'output-power',
-          labelEn: 'Output Optical Power',
-          labelAr: 'القدرة الضوئية الخارجة',
-          symbolTex: 'P_{\\text{opt}}',
-          value: laserOutputMw.toFixed(2),
-          unit: 'mW',
-          status: isLasing ? 'optimal' : 'normal',
-          precision: 2,
-        },
-        {
-          id: 'inversion-status',
-          labelEn: 'Population Inversion',
-          labelAr: 'الإسكان المعكوس',
-          symbolTex: 'N_2 / N_1',
-          value: isLasing
-            ? (isArabic ? 'متحقق N₂ > N₁' : 'Achieved N₂ > N₁')
-            : (isArabic ? 'توازن حراري' : 'Thermal Eq.'),
-          status: isLasing ? 'optimal' : 'warning',
-        },
-        {
-          id: 'cavity-alignment',
-          labelEn: 'Mirror Tilt Angle',
-          labelAr: 'زاوية حيود المرآة',
-          symbolTex: '\\theta',
-          value: cavityAlignment.toFixed(1),
-          unit: 'mrad',
-          status: cavityAlignment <= 1.5 ? 'normal' : 'alert',
-          precision: 1,
-        },
-      ];
 
   // Canvas High-DPI Rendering
   const handleRenderCanvas = (
@@ -777,8 +1099,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     height: number,
     _viewport: LabViewportState,
     _dpr: number = 1,
-    time: number = 0,
-    _frame: number = 0
+    time: number = 0
   ) => {
     const t = (time ? time : performance.now()) * 0.001;
     simRef.current.orbitAngle = (simRef.current.orbitAngle + 0.035) % (Math.PI * 2);
@@ -802,7 +1123,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
-    // Faint scientific alignment grid
+    // Alignment grid
     ctx.strokeStyle = isLight ? 'rgba(203, 213, 225, 0.6)' : 'rgba(30, 41, 59, 0.4)';
     ctx.lineWidth = 1;
     const gridStep = 40;
@@ -819,38 +1140,39 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.stroke();
     }
 
-    if (isBohr) {
+    if (systemMode === 'bohr') {
       renderBohrScene(ctx, width, height, t);
+    } else if (systemMode === 'laser_hene') {
+      renderHeNeLaserScene(ctx, width, height, t);
+    } else if (systemMode === 'laser_ruby') {
+      renderRubyLaserScene(ctx, width, height, t);
     } else {
-      renderLaserScene(ctx, width, height, t);
+      renderCoolidgeXRayScene(ctx, width, height, t);
     }
 
     ctx.restore();
   };
 
   /**
-   * Renders Bohr Atomic Transitions (Ladder or Concentric Orbits) + Spectrometer Bar
+   * 1. BOHR ATOMIC TRANSITIONS & CONTINUOUS/ABSORPTION/FRAUNHOFER SPECTROGRAPH
    */
   const renderBohrScene = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const sim = simRef.current;
 
     if (viewMode === 'ladder') {
-      // 1. ENERGY LEVEL LADDER VIEW
       const ladderLeft = 70;
       const ladderRight = width - 80;
       const ladderWidth = ladderRight - ladderLeft;
 
-      // Realistic non-linear energy scaling from n=1 (-13.6 eV) to n=6 (-0.38 eV)
       const levelYMap: Record<number, number> = {
-        1: height - 120, // Ground state n=1
-        2: height - 190, // n=2
-        3: height - 235, // n=3
-        4: height - 265, // n=4
-        5: height - 285, // n=5
-        6: height - 300, // n=6
+        1: height - 120,
+        2: height - 190,
+        3: height - 235,
+        4: height - 265,
+        5: height - 285,
+        6: height - 300,
       };
 
-      // Draw horizontal energy levels n=1 to 6 + ionization limit n=∞
       for (let n = 1; n <= 6; n++) {
         const y = levelYMap[n];
         const isSelectedLower = n === effectiveN1;
@@ -865,22 +1187,31 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
           : '#475569';
         ctx.lineWidth = n === 1 ? 3.5 : isSelected ? 2.5 : 1.5;
 
-        // Level line
         ctx.beginPath();
         ctx.moveTo(ladderLeft, y);
         ctx.lineTo(ladderRight, y);
         ctx.stroke();
 
-        // Level label left: n = X
-        ctx.fillStyle = isSelected ? (isLight ? '#0f172a' : '#ffffff') : (isLight ? '#334155' : '#94a3b8');
+        ctx.fillStyle = isSelected
+          ? isLight
+            ? '#0f172a'
+            : '#ffffff'
+          : isLight
+          ? '#334155'
+          : '#94a3b8';
         ctx.font = isSelected ? 'bold 12px sans-serif' : '11px sans-serif';
         ctx.textAlign = 'right';
         ctx.fillText(`n = ${n}`, ladderLeft - 12, y + 4);
 
-        // Level energy right: -X.XX eV
         ctx.textAlign = 'left';
         ctx.font = isSelected ? 'bold 11px monospace' : '10px monospace';
-        ctx.fillStyle = isSelected ? (isLight ? '#0369a1' : '#38bdf8') : (isLight ? '#475569' : '#64748b');
+        ctx.fillStyle = isSelected
+          ? isLight
+            ? '#0369a1'
+            : '#38bdf8'
+          : isLight
+          ? '#475569'
+          : '#64748b';
         ctx.fillText(`${enEv.toFixed(2)} eV`, ladderRight + 12, y + 4);
       }
 
@@ -900,40 +1231,38 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.textAlign = 'left';
       ctx.fillText('0.00 eV (Ionization)', ladderRight + 12, yIon + 4);
 
-      // Downward quantum jump arrow (from n2 to n1)
+      // Downward quantum jump arrow (Emission) or Upward (Absorption)
       const transX = ladderLeft + ladderWidth * 0.45;
       const yUpper = levelYMap[effectiveN2];
       const yLower = levelYMap[effectiveN1];
+      const isAbsorption = bohrSpectrumType === 'absorption';
 
-      // Glow behind downward transition arrow
       ctx.save();
       ctx.shadowColor = seriesInfo.colorHex;
       ctx.shadowBlur = 12;
       ctx.strokeStyle = seriesInfo.colorHex;
       ctx.lineWidth = 3.5;
       ctx.beginPath();
-      ctx.moveTo(transX, yUpper);
-      ctx.lineTo(transX, yLower);
+      ctx.moveTo(transX, isAbsorption ? yLower : yUpper);
+      ctx.lineTo(transX, isAbsorption ? yUpper : yLower);
       ctx.stroke();
 
-      // Arrow head at lower level
+      // Arrow head
       ctx.fillStyle = seriesInfo.colorHex;
       ctx.beginPath();
-      ctx.moveTo(transX, yLower);
-      ctx.lineTo(transX - 6, yLower - 12);
-      ctx.lineTo(transX + 6, yLower - 12);
+      const targetY = isAbsorption ? yUpper : yLower;
+      const dir = isAbsorption ? 1 : -1;
+      ctx.moveTo(transX, targetY);
+      ctx.lineTo(transX - 6, targetY + dir * 12);
+      ctx.lineTo(transX + 6, targetY + dir * 12);
       ctx.closePath();
       ctx.fill();
       ctx.restore();
 
-      // Pulsing initial electron at upper level
-      const pulseR = 5 + Math.sin(t * 5) * 1.5;
-      drawGlowingParticle(ctx, transX, yUpper, pulseR, seriesInfo.colorHex, 14);
+      // Electron at target level
+      drawGlowingParticle(ctx, transX, targetY, 5, seriesInfo.colorHex, 14);
 
-      // Final electron rest at lower level
-      drawGlowingParticle(ctx, transX, yLower, 4.5, '#38bdf8', 10);
-
-      // Emitted photon sinusoidal wave packet traveling toward spectrometer
+      // Emitted/Absorbed photon wave packet
       const waveStartX = transX + 15;
       const waveY = (yUpper + yLower) / 2;
       ctx.save();
@@ -950,29 +1279,23 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       }
       ctx.stroke();
 
-      // Glowing photon packet head particle
-      drawGlowingParticle(
-        ctx,
-        waveStartX + 68,
-        waveY + Math.sin(68 * 0.25 - t * 15) * 8,
-        4,
-        seriesInfo.colorHex,
-        12
-      );
+      drawGlowingParticle(ctx, waveStartX + 68, waveY + Math.sin(68 * 0.25 - t * 15) * 8, 4, seriesInfo.colorHex, 12);
 
-      // Photon packet label
       ctx.fillStyle = seriesInfo.colorHex;
       ctx.font = 'bold 11px sans-serif';
       ctx.textAlign = 'left';
-      ctx.fillText(`h·ν (${lambda_nm.toFixed(1)} nm)`, waveStartX + 78, waveY + 4);
+      ctx.fillText(
+        `${isAbsorption ? 'h·ν (Absorbed)' : 'h·ν (Emitted)'} ${lambda_nm.toFixed(1)} nm`,
+        waveStartX + 78,
+        waveY + 4
+      );
       ctx.restore();
     } else {
-      // 2. BOHR CONCENTRIC ORBITS & DE BROGLIE STANDING WAVES VIEW
+      // Concentric orbits
       const centerX = width / 2;
       const centerY = (height - 90) / 2 + 10;
       const maxRadius = Math.min(width, height - 120) * 0.42;
 
-      // Positive nucleus (+e proton)
       ctx.save();
       ctx.shadowColor = '#f59e0b';
       ctx.shadowBlur = 18;
@@ -986,9 +1309,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.fillText('+e', centerX, centerY + 4);
       ctx.restore();
 
-      // Concentric orbital rings n=1 to 6
       for (let n = 1; n <= 6; n++) {
-        // Scaled radius r_n = r0 * (0.2 + 0.8 * (n / 6))
         const r = maxRadius * (0.2 + 0.8 * ((n - 1) / 5));
         const isSelectedLower = n === effectiveN1;
         const isSelectedUpper = n === effectiveN2;
@@ -1009,13 +1330,17 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         ctx.stroke();
         ctx.setLineDash([]);
 
-        // Orbit label
-        ctx.fillStyle = isSelected ? (isLight ? '#0f172a' : '#ffffff') : (isLight ? '#475569' : '#64748b');
+        ctx.fillStyle = isSelected
+          ? isLight
+            ? '#0f172a'
+            : '#ffffff'
+          : isLight
+          ? '#475569'
+          : '#64748b';
         ctx.font = 'bold 10px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(`n=${n}`, centerX, centerY - r - 4);
 
-        // De Broglie standing waves around upper selected level
         if (isSelectedUpper) {
           ctx.save();
           ctx.strokeStyle = `${seriesInfo.colorHex}66`;
@@ -1035,118 +1360,137 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         }
       }
 
-      // Orbiting electron on initial upper orbit (n2)
       const rUpper = maxRadius * (0.2 + 0.8 * ((effectiveN2 - 1) / 5));
       const elX = centerX + Math.cos(sim.orbitAngle) * rUpper;
       const elY = centerY + Math.sin(sim.orbitAngle) * rUpper;
-
       drawGlowingParticle(ctx, elX, elY, 6, seriesInfo.colorHex, 16);
-
-      // Quantum jump spiral trajectory to lower orbit (n1)
-      const rLower = maxRadius * (0.2 + 0.8 * ((effectiveN1 - 1) / 5));
-      ctx.save();
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.4)';
-      ctx.setLineDash([2, 3]);
-      ctx.beginPath();
-      ctx.arc(centerX, centerY, rLower, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.restore();
     }
 
-    // 3. PRECISION OPTICAL SPECTROMETER / DIFFRACTION GRATING STRIP
+    // Spectrograph Strip at bottom
+    renderSpectrographBar(ctx, width, height);
+  };
+
+  /**
+   * Continuous / Line Emission / Line Absorption / Fraunhofer Spectrograph Strip
+   */
+  const renderSpectrographBar = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
     const specLeft = 60;
     const specRight = width - 60;
     const specY = height - 55;
-    const specHeight = 22;
+    const specHeight = 24;
     const specWidth = specRight - specLeft;
 
-    // Background housing
     ctx.fillStyle = isLight ? '#f1f5f9' : '#0f172a';
     ctx.strokeStyle = isLight ? '#cbd5e1' : '#334155';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.roundRect(specLeft - 4, specY - 18, specWidth + 8, specHeight + 32, 8);
+    ctx.roundRect(specLeft - 4, specY - 20, specWidth + 8, specHeight + 36, 8);
     ctx.fill();
     ctx.stroke();
 
-    // Spectrogram Title
+    const titleText =
+      bohrSpectrumType === 'emission'
+        ? isArabic
+          ? 'مطياف الانبعاث الخطي (خلفية مظلمة مع خطوط ملونة ساطعة)'
+          : 'Line Emission Spectrograph (Dark Background with Discrete Bright Lines)'
+        : bohrSpectrumType === 'absorption'
+        ? isArabic
+          ? 'مطياف الامتصاص الخطي (طيف مستمر مع خطوط مظلمة)'
+          : 'Line Absorption Spectrograph (Continuous Spectrum with Dark Lines)'
+        : isArabic
+        ? 'طيف خطوط فرانهوفر الشمسية (امتصاص غازات الغلاف الشمسي)'
+        : 'Solar Fraunhofer Absorption Lines (Solar Atmospheric Element Signatures)';
+
     ctx.fillStyle = isLight ? '#334155' : '#94a3b8';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'left';
-    ctx.fillText(
-      isArabic ? 'مطياف الحيود البصري المستمر (١٠٠ - ٢٠٠٠ نانومتر)' : 'Diffraction Spectrograph Scale (100 - 2000 nm)',
-      specLeft,
-      specY - 6
-    );
+    ctx.fillText(titleText, specLeft, specY - 6);
 
-    // Continuous Spectral Gradient Strip
-    const specGrad = ctx.createLinearGradient(specLeft, specY, specRight, specY);
-    specGrad.addColorStop(0.0, '#3b0764'); // Far UV (< 350 nm)
-    specGrad.addColorStop(0.12, '#8b5cf6'); // Violet (400 nm)
-    specGrad.addColorStop(0.22, '#3b82f6'); // Blue (460 nm)
-    specGrad.addColorStop(0.32, '#06b6d4'); // Cyan (500 nm)
-    specGrad.addColorStop(0.42, '#10b981'); // Green (540 nm)
-    specGrad.addColorStop(0.55, '#f59e0b'); // Yellow-Orange (590 nm)
-    specGrad.addColorStop(0.68, '#ef4444'); // Red (650 nm)
-    specGrad.addColorStop(0.82, '#881337'); // Deep Red / NIR (750 nm)
-    specGrad.addColorStop(1.0, '#1e1b4b'); // IR (> 1000 nm)
-
-    ctx.fillStyle = specGrad;
-    ctx.beginPath();
-    ctx.roundRect(specLeft, specY, specWidth, specHeight, 4);
-    ctx.fill();
-
-    // Calibration markers: 200nm, 400nm, 600nm, 800nm, 1200nm, 1800nm
-    const calibTicks = [
-      { nm: 121.6, label: 'Lyman-α' },
-      { nm: 380, label: 'UV Limit' },
-      { nm: 486.1, label: 'H-β' },
-      { nm: 656.3, label: 'H-α' },
-      { nm: 750, label: 'IR Limit' },
-      { nm: 1875.1, label: 'Paschen-α' },
-    ];
-
-    // Log-like or piecewise mapping for full 100 to 2000 nm visibility
     const mapWavelengthToX = (lambda: number): number => {
-      const minL = 90;
-      const maxL = 2000;
+      const minL = 100;
+      const maxL = 1900;
       const norm = (Math.log(lambda) - Math.log(minL)) / (Math.log(maxL) - Math.log(minL));
       return specLeft + Math.max(0, Math.min(1, norm)) * specWidth;
     };
 
-    // Draw faint tick marks for series lines
-    for (const tick of calibTicks) {
-      const tx = mapWavelengthToX(tick.nm);
-      ctx.strokeStyle = isLight ? 'rgba(0, 0, 0, 0.35)' : 'rgba(255, 255, 255, 0.25)';
-      ctx.lineWidth = 1;
+    if (bohrSpectrumType === 'emission') {
+      // Dark strip for emission
+      ctx.fillStyle = '#05070e';
       ctx.beginPath();
-      ctx.moveTo(tx, specY);
-      ctx.lineTo(tx, specY + specHeight);
-      ctx.stroke();
+      ctx.roundRect(specLeft, specY, specWidth, specHeight, 4);
+      ctx.fill();
 
-      ctx.fillStyle = isLight ? '#334155' : '#64748b';
-      ctx.font = '8px sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(tick.label, tx, specY + specHeight + 10);
+      // Balmer 4 visible lines background
+      const balmerLines = [
+        { nm: 656.3, color: '#ef4444', label: 'H-α' },
+        { nm: 486.1, color: '#06b6d4', label: 'H-β' },
+        { nm: 434.0, color: '#3b82f6', label: 'H-γ' },
+        { nm: 410.2, color: '#8b5cf6', label: 'H-δ' },
+      ];
+
+      for (const line of balmerLines) {
+        const lx = mapWavelengthToX(line.nm);
+        ctx.strokeStyle = `${line.color}55`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(lx, specY);
+        ctx.lineTo(lx, specY + specHeight);
+        ctx.stroke();
+      }
+    } else {
+      // Continuous rainbow background for Absorption and Fraunhofer
+      const specGrad = ctx.createLinearGradient(specLeft, specY, specRight, specY);
+      specGrad.addColorStop(0.0, '#3b0764');
+      specGrad.addColorStop(0.12, '#8b5cf6');
+      specGrad.addColorStop(0.22, '#3b82f6');
+      specGrad.addColorStop(0.32, '#06b6d4');
+      specGrad.addColorStop(0.42, '#10b981');
+      specGrad.addColorStop(0.55, '#f59e0b');
+      specGrad.addColorStop(0.68, '#ef4444');
+      specGrad.addColorStop(0.82, '#881337');
+      specGrad.addColorStop(1.0, '#1e1b4b');
+
+      ctx.fillStyle = specGrad;
+      ctx.beginPath();
+      ctx.roundRect(specLeft, specY, specWidth, specHeight, 4);
+      ctx.fill();
+
+      // Fraunhofer dark absorption notches
+      if (bohrSpectrumType === 'fraunhofer') {
+        for (const f of FRAUNHOFER_LINES) {
+          const fx = mapWavelengthToX(f.nm);
+          ctx.strokeStyle = '#000000';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(fx, specY);
+          ctx.lineTo(fx, specY + specHeight);
+          ctx.stroke();
+
+          ctx.fillStyle = isLight ? '#0f172a' : '#cbd5e1';
+          ctx.font = 'bold 8px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText(f.name, fx, specY + specHeight + 11);
+        }
+      }
     }
 
-    // Prominent Glowing Spectral Line of Current Transition
-    if (lambda_nm > 0) {
+    // Highlight Current Transition Line
+    if (lambda_nm > 0 && bohrSpectrumType !== 'fraunhofer') {
       const lineX = mapWavelengthToX(lambda_nm);
+      const isAbs = bohrSpectrumType === 'absorption';
 
       ctx.save();
-      ctx.shadowColor = seriesInfo.colorHex;
-      ctx.shadowBlur = 14;
-      ctx.strokeStyle = isLight ? '#0f172a' : '#ffffff';
-      ctx.lineWidth = 2.5;
+      ctx.shadowColor = isAbs ? '#000000' : seriesInfo.colorHex;
+      ctx.shadowBlur = isAbs ? 0 : 14;
+      ctx.strokeStyle = isAbs ? '#000000' : '#ffffff';
+      ctx.lineWidth = isAbs ? 3.5 : 2.5;
       ctx.beginPath();
       ctx.moveTo(lineX, specY - 3);
       ctx.lineTo(lineX, specY + specHeight + 3);
       ctx.stroke();
 
       // Top indicator triangle pointer
-      ctx.fillStyle = seriesInfo.colorHex;
+      ctx.fillStyle = isAbs ? '#000000' : seriesInfo.colorHex;
       ctx.beginPath();
       ctx.moveTo(lineX, specY - 1);
       ctx.lineTo(lineX - 5, specY - 8);
@@ -1155,18 +1499,22 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.fill();
 
       // Bottom wavelength readout
-      ctx.fillStyle = seriesInfo.colorHex;
+      ctx.fillStyle = isAbs ? (isLight ? '#0f172a' : '#f8fafc') : seriesInfo.colorHex;
       ctx.font = 'bold 10px monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(`${lambda_nm.toFixed(1)} nm`, lineX, specY + specHeight + 22);
+      ctx.fillText(
+        `${lambda_nm.toFixed(1)} nm ${isAbs ? '(Absorbed)' : ''}`,
+        lineX,
+        specY + specHeight + 22
+      );
       ctx.restore();
     }
   };
 
   /**
-   * Renders He-Ne Gas Laser Cavity with Plasma Glow, Standing Waves & Stimulated Beams
+   * 2. HE-NE GAS LASER CAVITY (632.8 nm)
    */
-  const renderLaserScene = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
+  const renderHeNeLaserScene = (ctx: CanvasRenderingContext2D, width: number, height: number, t: number) => {
     const sim = simRef.current;
     const centerY = height / 2 - 25;
 
@@ -1176,7 +1524,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const tubeHeight = 85;
     const tubeTop = centerY - tubeHeight / 2;
 
-    // 1. Quartz Discharge Tube Glass Envelope
+    // Glass envelope
     const tubeGrad = ctx.createLinearGradient(0, tubeTop, 0, tubeTop + tubeHeight);
     tubeGrad.addColorStop(0, 'rgba(51, 65, 85, 0.4)');
     tubeGrad.addColorStop(0.15, 'rgba(148, 163, 184, 0.2)');
@@ -1192,16 +1540,6 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fill();
     ctx.stroke();
 
-    // Specular glass reflection arc
-    ctx.save();
-    ctx.strokeStyle = isLight ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.35)';
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(tubeLeft + 12, tubeTop + 6);
-    ctx.lineTo(tubeRight - 12, tubeTop + 6);
-    ctx.stroke();
-    ctx.restore();
-
     // Gas label
     ctx.fillStyle = isLight ? '#1e293b' : '#94a3b8';
     ctx.font = 'bold 10px sans-serif';
@@ -1214,12 +1552,11 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       tubeTop - 15
     );
 
-    // 2. High Voltage Electrodes & Glow
+    // Electrodes wiring
     const anodeX = tubeLeft + 50;
     const cathodeX = tubeRight - 50;
     const electrodeY = tubeTop - 35;
 
-    // Electrodes wiring
     ctx.strokeStyle = isLight ? '#64748b' : '#475569';
     ctx.lineWidth = 2.5;
     ctx.beginPath();
@@ -1235,25 +1572,39 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     const psBoxX = tubeLeft + tubeWidth * 0.4 - 15;
     const psBoxWidth = tubeWidth * 0.2 + 30;
     ctx.fillStyle = isLight ? '#ffffff' : '#0f172a';
-    ctx.strokeStyle = highVoltageDC ? (isLight ? '#0284c7' : '#06b6d4') : (isLight ? '#cbd5e1' : '#334155');
+    ctx.strokeStyle = highVoltageDC
+      ? isLight
+        ? '#0284c7'
+        : '#06b6d4'
+      : isLight
+      ? '#cbd5e1'
+      : '#334155';
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.roundRect(psBoxX, electrodeY - 14, psBoxWidth, 26, 6);
     ctx.fill();
     ctx.stroke();
 
-    ctx.fillStyle = highVoltageDC ? (isLight ? '#0369a1' : '#38bdf8') : (isLight ? '#64748b' : '#64748b');
+    ctx.fillStyle = highVoltageDC
+      ? isLight
+        ? '#0369a1'
+        : '#38bdf8'
+      : isLight
+      ? '#64748b'
+      : '#64748b';
     ctx.font = 'bold 10px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText(
       highVoltageDC
         ? `${isArabic ? 'جهد عالي مستمر' : 'DC HV'} 1.5 kV (${pumpPower}%)`
-        : (isArabic ? 'المصدر متوقف' : 'HV OFF'),
+        : isArabic
+        ? 'المصدر متوقف'
+        : 'HV OFF',
       psBoxX + psBoxWidth / 2,
       electrodeY + 3
     );
 
-    // 3. Plasma Discharge Inside Tube
+    // Plasma discharge
     if (highVoltageDC && pumpPower > 0) {
       const plasmaAlpha = (pumpPower / 100) * 0.65;
       const plasmaGrad = ctx.createRadialGradient(
@@ -1274,34 +1625,20 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.fill();
     }
 
-    // 4. Optical Cavity Mirrors
-    // Left Mirror R1: Total Reflector 99.9% (Steel metallic cylinder)
+    // Mirrors
     const r1X = tubeLeft - 14;
     drawMetallicCylinder(ctx, r1X, centerY - 55, 14, 110, 'steel', 'vertical');
-
-    // Mirror face dielectric reflection
-    ctx.save();
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-    ctx.fillRect(r1X + 11, centerY - 50, 2, 100);
-    ctx.restore();
-
     ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'center';
     ctx.fillText('R₁ = 99.9%', r1X + 7, centerY + 70);
     ctx.fillText(isArabic ? 'عاكسة تماماً' : 'Total Reflector', r1X + 7, centerY + 82);
 
-    // Right Mirror R2: Output Coupler 98% (tilted slightly if misaligned)
     const r2X = tubeRight;
     ctx.save();
     ctx.translate(r2X + 7, centerY);
-    ctx.rotate(cavityAlignment * 0.03); // visualize tilt
+    ctx.rotate(cavityAlignment * 0.03);
     drawMetallicCylinder(ctx, -7, -55, 14, 110, 'brass', 'vertical');
-
-    // Partial reflection sheen
-    ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
-    ctx.fillRect(-6, -50, 2, 100);
-
     ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
     ctx.font = 'bold 9px sans-serif';
     ctx.textAlign = 'center';
@@ -1309,22 +1646,18 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
     ctx.fillText(isArabic ? 'شبه منفذة' : 'Output Coupler', 0, 82);
     ctx.restore();
 
-    // 5. Intracavity Coherent Standing Wave & Photons
-    if (isLasing) {
-      // Standing wave lines
+    // Standing wave & output beam
+    if (lab.simState.isLasing) {
       ctx.save();
       ctx.shadowColor = '#ef4444';
       ctx.shadowBlur = 18;
       ctx.strokeStyle = '#ef4444';
       ctx.lineWidth = 3;
-
-      // Central coherent beam
       ctx.beginPath();
       ctx.moveTo(tubeLeft, centerY);
       ctx.lineTo(tubeRight, centerY);
       ctx.stroke();
 
-      // Longitudinal standing wave envelope
       ctx.strokeStyle = isLight ? 'rgba(220, 38, 38, 0.85)' : 'rgba(255, 255, 255, 0.75)';
       ctx.lineWidth = 1.5;
       ctx.beginPath();
@@ -1338,34 +1671,32 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       ctx.stroke();
       ctx.restore();
 
-      // Output Collimated Coherent Beam (Exiting right through R2)
       const beamRight = width - 20;
       drawVolumetricBeam(ctx, tubeRight + 14, centerY, beamRight, centerY, '#ef4444', 3.5, 20);
-
-      // Target Optical Detector Screen on far right
       drawMetallicCylinder(ctx, beamRight - 8, centerY - 35, 12, 70, 'steel', 'vertical');
-
-      // Gaussian Spot on Screen
       drawGlowingParticle(ctx, beamRight - 2, centerY, 5, '#ffffff', 22);
 
-      // Beam Wavelength & Power Banner
       ctx.fillStyle = '#ef4444';
       ctx.font = 'bold 10px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(
-        `λ = 632.8 nm (${laserOutputMw.toFixed(2)} mW)`,
+        `λ = 632.8 nm (${lab.simState.laserOutputPowerMw.toFixed(2)} mW)`,
         (tubeRight + beamRight) / 2,
         centerY - 12
       );
     }
 
-    // 6. Photons Streaming Back and Forth with glowing flare
+    // Photons
     for (const p of sim.photons) {
       if (p.mode !== 'laser') continue;
       drawGlowingParticle(ctx, p.x, p.y, 3.5, p.colorHex || '#ef4444', 10);
     }
 
-    // 7. He-Ne 4-Level Step Pipeline Card at Bottom
+    // Bottom 4-step card
+    renderHeNeStepsCard(ctx, width, height);
+  };
+
+  const renderHeNeStepsCard = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
     const cardY = height - 70;
     const cardWidth = (width - 120) / 4;
     const steps = [
@@ -1373,8 +1704,8 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         num: '1',
         titleEn: 'He Excitation',
         titleAr: 'إثارة الهيليوم',
-        subEn: 'Inelastic e⁻ collision (20.61 eV)',
-        subAr: 'تصادم إلكترونات سريعة (20.61 eV)',
+        subEn: 'e⁻ collision (20.61 eV)',
+        subAr: 'تصادم إلكترونات (20.61 eV)',
         color: '#38bdf8',
       },
       {
@@ -1382,7 +1713,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         titleEn: 'Resonant Transfer',
         titleAr: 'نقل الطاقة بالرنين',
         subEn: 'He*(20.61) + Ne → Ne*(20.66)',
-        subAr: 'تصادم رنيني بين ذرات He* و Ne',
+        subAr: 'تصادم رنيني بين He* و Ne',
         color: '#f59e0b',
       },
       {
@@ -1398,7 +1729,7 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
         titleEn: 'Stimulated Emission',
         titleAr: 'الانبعاث المستحث',
         subEn: 'Coherent 632.8 nm photon cascade',
-        subAr: 'هبوط إلى 2p بشعاع 632.8 nm متماسك',
+        subAr: 'هبوط إلى 2p بشعاع 632.8 nm',
         color: '#ef4444',
       },
     ];
@@ -1427,16 +1758,570 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
   };
 
   /**
-   * Records Current Bohr Transition into the Lab Notebook for Rydberg Linear Regression
+   * 3. MAIMAN RUBY SOLID-STATE LASER (694.3 nm)
    */
-  const handleRecordBohrPoint = () => {
-    if (termDiff > 0 && wavenumber_10_7_m > 0) {
+  const renderRubyLaserScene = (ctx: CanvasRenderingContext2D, width: number, height: number, _t: number) => {
+    const centerY = height / 2 - 25;
+    const rodLeft = 110;
+    const rodRight = width - 150;
+    const rodWidth = rodRight - rodLeft;
+    const rodHeight = 46;
+    const rodTop = centerY - rodHeight / 2;
+
+    const pulseProgress = simRef.current.rubyPulseProgress;
+
+    // Flash illumination bloom if pulsing
+    if (pulseProgress > 0) {
+      const flashGrad = ctx.createRadialGradient(
+        rodLeft + rodWidth / 2,
+        centerY,
+        20,
+        rodLeft + rodWidth / 2,
+        centerY,
+        width * 0.6
+      );
+      flashGrad.addColorStop(0, `rgba(255, 255, 255, ${pulseProgress * 0.9})`);
+      flashGrad.addColorStop(0.3, `rgba(56, 189, 248, ${pulseProgress * 0.6})`);
+      flashGrad.addColorStop(0.7, `rgba(244, 63, 94, ${pulseProgress * 0.3})`);
+      flashGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = flashGrad;
+      ctx.fillRect(0, 0, width, height);
+    }
+
+    // Cylindrical Pink Synthetic Ruby Rod (Al2O3:Cr3+)
+    const rubyGrad = ctx.createLinearGradient(0, rodTop, 0, rodTop + rodHeight);
+    rubyGrad.addColorStop(0, '#fda4af');
+    rubyGrad.addColorStop(0.2, '#f43f5e');
+    rubyGrad.addColorStop(0.5, '#be123c');
+    rubyGrad.addColorStop(0.8, '#9f1239');
+    rubyGrad.addColorStop(1, '#4c0519');
+
+    ctx.fillStyle = rubyGrad;
+    ctx.strokeStyle = '#e11d48';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.roundRect(rodLeft, rodTop, rodWidth, rodHeight, 6);
+    ctx.fill();
+    ctx.stroke();
+
+    // Rod specular reflection streak
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(rodLeft + 6, rodTop + 6);
+    ctx.lineTo(rodRight - 6, rodTop + 6);
+    ctx.stroke();
+    ctx.restore();
+
+    // Helical Xenon Flash Tube Coiled around Ruby Rod
+    const coilTurns = 12;
+    const turnWidth = rodWidth / coilTurns;
+    ctx.save();
+    for (let c = 0; c < coilTurns; c++) {
+      const cx = rodLeft + c * turnWidth;
+      ctx.strokeStyle = pulseProgress > 0 ? '#38bdf8' : isLight ? '#94a3b8' : '#64748b';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.ellipse(cx + turnWidth / 2, centerY, turnWidth * 0.45, rodHeight * 0.65, 0, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Inner flash highlight
+      ctx.strokeStyle = pulseProgress > 0 ? '#ffffff' : 'rgba(255, 255, 255, 0.5)';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // Silvered Mirror Coatings on Ruby Rod End Faces
+    // Back mirror: 100% Silvered (Left)
+    ctx.fillStyle = '#94a3b8';
+    ctx.fillRect(rodLeft - 6, rodTop - 4, 6, rodHeight + 8);
+    ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
+    ctx.font = 'bold 9px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('R₁ = 100%', rodLeft - 3, centerY + 45);
+    ctx.fillText(isArabic ? 'فضية عاكسة تماماً' : 'Total Silvered', rodLeft - 3, centerY + 57);
+
+    // Front mirror: 90% Semi-Silvered Output Coupler (Right)
+    ctx.fillStyle = '#64748b';
+    ctx.fillRect(rodRight, rodTop - 4, 6, rodHeight + 8);
+    ctx.fillText('R₂ = 90%', rodRight + 3, centerY + 45);
+    ctx.fillText(isArabic ? 'شبه منفذة' : 'Partial Silvered', rodRight + 3, centerY + 57);
+
+    // Deep Red Coherent Output Beam (694.3 nm) when pulsing
+    if (pulseProgress > 0.05) {
+      const beamRight = width - 20;
+      const beamAlpha = Math.min(1, pulseProgress * 1.5);
+      ctx.save();
+      ctx.shadowColor = '#e11d48';
+      ctx.shadowBlur = 25;
+      drawVolumetricBeam(
+        ctx,
+        rodRight + 6,
+        centerY,
+        beamRight,
+        centerY,
+        `rgba(225, 29, 72, ${beamAlpha})`,
+        6,
+        28
+      );
+
+      // Target screen
+      drawMetallicCylinder(ctx, beamRight - 8, centerY - 35, 12, 70, 'steel', 'vertical');
+      drawGlowingParticle(ctx, beamRight - 2, centerY, 6, '#ffffff', 25);
+      ctx.restore();
+
+      ctx.fillStyle = '#f43f5e';
+      ctx.font = 'bold 11px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(`λ = 694.3 nm Deep Red (Maiman Laser Pulse)`, (rodRight + beamRight) / 2, centerY - 14);
+    }
+
+    // Labeling
+    ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+      isArabic
+        ? 'قضيب الياقوت الصناعي (Al₂O₃:Cr³⁺) مع مصباح فلاش زينون حلزوني للضخ الضوئي'
+        : 'Synthetic Pink Ruby Crystal Rod (Al₂O₃:Cr³⁺) with Helical Xenon Flash Tube',
+      rodLeft + rodWidth / 2,
+      rodTop - 25
+    );
+
+    // Bottom 3-Level Diagram Card
+    renderRuby3LevelCard(ctx, width, height);
+  };
+
+  const renderRuby3LevelCard = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+    const cardY = height - 70;
+    const cardWidth = (width - 120) / 3;
+    const steps = [
+      {
+        num: '1',
+        titleEn: 'Optical Pumping',
+        titleAr: 'الضخ الضوئي',
+        subEn: 'Xenon flash (400 & 550 nm) excites Cr³⁺ ground state ⁴A₂ → ⁴F bands',
+        subAr: 'مصباح الزينون يثير أيونات الكروم من المستوى الأرضي ⁴A₂ إلى حزم ⁴F',
+        color: '#38bdf8',
+      },
+      {
+        num: '2',
+        titleEn: 'Metastable Population',
+        titleAr: 'تراكم الإسكان المعكوس',
+        subEn: 'Fast non-radiative decay (~10⁻¹¹ s) to ²E metastable state (τ ≈ 3 ms)',
+        subAr: 'هبوط سريع غير إشعاعي للمستوى شبه المستقر ²E (فترة عمره ٣ مللي ثانية)',
+        color: '#f59e0b',
+      },
+      {
+        num: '3',
+        titleEn: 'Stimulated Cascade',
+        titleAr: 'انبعاث مستحث متماسك',
+        subEn: 'Stimulated emission ²E → ⁴A₂ yields coherent 694.3 nm deep red beam',
+        subAr: 'هبوط مستحث من ²E إلى ⁴A₂ يُطلق فوتونات 694.3 nm متماسكة',
+        color: '#e11d48',
+      },
+    ];
+
+    for (let s = 0; s < 3; s++) {
+      const step = steps[s];
+      const sx = 60 + s * cardWidth;
+
+      ctx.fillStyle = isLight ? '#ffffff' : '#0b1329';
+      ctx.strokeStyle = isLight ? '#cbd5e1' : '#1e293b';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.roundRect(sx + 4, cardY, cardWidth - 8, 55, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = step.color;
+      ctx.font = 'bold 10px sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`${step.num}. ${isArabic ? step.titleAr : step.titleEn}`, sx + 12, cardY + 18);
+
+      ctx.fillStyle = isLight ? '#475569' : '#94a3b8';
+      ctx.font = '8px sans-serif';
+      ctx.fillText(isArabic ? step.subAr : step.subEn, sx + 12, cardY + 36);
+    }
+  };
+
+  /**
+   * 4. COOLIDGE X-RAY TUBE & DUAL-SPECTRUM GRAPH (CONTINUOUS BREMSSTRAHLUNG & CHARACTERISTIC PEAKS)
+   */
+  const renderCoolidgeXRayScene = (ctx: CanvasRenderingContext2D, width: number, height: number, _t: number) => {
+    const sim = simRef.current;
+    const splitX = Math.round(width * 0.52);
+
+    // LEFT HALF: Physical Coolidge Tube Apparatus
+    const tubeW = splitX - 40;
+    const tubeCenterX = 20 + tubeW / 2;
+    const tubeCenterY = (height - 80) / 2 + 10;
+
+    // Glass Bulb Envelope
+    ctx.save();
+    const bulbGrad = ctx.createRadialGradient(
+      tubeCenterX,
+      tubeCenterY,
+      30,
+      tubeCenterX,
+      tubeCenterY,
+      120
+    );
+    bulbGrad.addColorStop(0, isLight ? 'rgba(241, 245, 249, 0.9)' : 'rgba(15, 23, 42, 0.85)');
+    bulbGrad.addColorStop(0.8, isLight ? 'rgba(226, 232, 240, 0.4)' : 'rgba(30, 41, 59, 0.4)');
+    bulbGrad.addColorStop(1, isLight ? 'rgba(203, 213, 225, 0.8)' : 'rgba(71, 85, 105, 0.6)');
+
+    ctx.fillStyle = bulbGrad;
+    ctx.strokeStyle = isLight ? '#64748b' : '#94a3b8';
+    ctx.lineWidth = 2.5;
+
+    // Sphere bulb with horizontal necks
+    ctx.beginPath();
+    ctx.arc(tubeCenterX, tubeCenterY, 75, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Cathode Neck (Left)
+    ctx.fillRect(tubeCenterX - 130, tubeCenterY - 24, 70, 48);
+    ctx.strokeRect(tubeCenterX - 130, tubeCenterY - 24, 70, 48);
+
+    // Anode Neck (Right)
+    ctx.fillRect(tubeCenterX + 60, tubeCenterY - 28, 70, 56);
+    ctx.strokeRect(tubeCenterX + 60, tubeCenterY - 28, 70, 56);
+
+    // Specular glass sheen
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(tubeCenterX, tubeCenterY, 65, Math.PI * 1.1, Math.PI * 1.6);
+    ctx.stroke();
+    ctx.restore();
+
+    // Hot Cathode Filament & Focusing Cup (Left)
+    const catX = tubeCenterX - 75;
+    drawMetallicCylinder(ctx, catX - 18, tubeCenterY - 20, 14, 40, 'steel', 'vertical');
+
+    // Filament golden thermal glow
+    const filGlowAlpha = (xrayFilamentCurrentA / 5.0) * 0.9;
+    ctx.save();
+    ctx.shadowColor = '#f59e0b';
+    ctx.shadowBlur = 18;
+    ctx.fillStyle = `rgba(251, 191, 36, ${filGlowAlpha})`;
+    ctx.beginPath();
+    ctx.arc(catX, tubeCenterY, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
+    ctx.font = 'bold 9px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Cathode (-)', catX - 5, tubeCenterY + 36);
+    ctx.fillText(`I_f = ${xrayFilamentCurrentA.toFixed(1)} A`, catX - 5, tubeCenterY + 48);
+
+    // Anode Target Block & Cooling Radiator Fins (Right)
+    const targetX = tubeCenterX + 45;
+    ctx.save();
+    // Copper Stalk
+    drawMetallicCylinder(ctx, targetX + 16, tubeCenterY - 14, 45, 28, 'copper', 'horizontal');
+
+    // Cooling radiator fins
+    for (let f = 0; f < 5; f++) {
+      const fx = targetX + 35 + f * 7;
+      ctx.fillStyle = '#b45309';
+      ctx.fillRect(fx, tubeCenterY - 28, 4, 56);
+    }
+
+    // Angled Anode Face (45 deg bevel)
+    ctx.fillStyle = '#d97706'; // copper block
+    ctx.beginPath();
+    ctx.moveTo(targetX, tubeCenterY - 26);
+    ctx.lineTo(targetX + 18, tubeCenterY - 26);
+    ctx.lineTo(targetX + 18, tubeCenterY + 26);
+    ctx.lineTo(targetX - 8, tubeCenterY + 26);
+    ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
+
+    // Target Metal Plate on the face
+    const targetColor =
+      xrayTargetElement === 'tungsten'
+        ? '#94a3b8'
+        : xrayTargetElement === 'molybdenum'
+        ? '#38bdf8'
+        : '#ea580c';
+    ctx.fillStyle = targetColor;
+    ctx.beginPath();
+    ctx.moveTo(targetX, tubeCenterY - 20);
+    ctx.lineTo(targetX + 4, tubeCenterY - 20);
+    ctx.lineTo(targetX - 4, tubeCenterY + 20);
+    ctx.lineTo(targetX - 8, tubeCenterY + 20);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    ctx.fillStyle = isLight ? '#1e293b' : '#cbd5e1';
+    ctx.font = 'bold 9px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(`Target: ${currentTarget.symbol} (Z=${currentTarget.z})`, targetX + 12, tubeCenterY + 45);
+    ctx.fillText(`Anode (+) ${xrayVoltageKv} kV`, targetX + 12, tubeCenterY + 57);
+
+    // Electron rays streaming from Cathode to Target
+    for (const el of sim.xrayElectrons) {
+      drawGlowingParticle(ctx, el.x, el.y, 2.5, '#38bdf8', 8);
+    }
+
+    // X-Ray Cone emerging downward through lead collimator slit
+    ctx.save();
+    ctx.fillStyle = 'rgba(168, 85, 247, 0.2)';
+    ctx.beginPath();
+    ctx.moveTo(targetX - 2, tubeCenterY);
+    ctx.lineTo(tubeCenterX - 25, tubeCenterY + 115);
+    ctx.lineTo(tubeCenterX + 45, tubeCenterY + 115);
+    ctx.closePath();
+    ctx.fill();
+
+    // Central ray
+    ctx.strokeStyle = '#a855f7';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([3, 3]);
+    ctx.beginPath();
+    ctx.moveTo(targetX - 2, tubeCenterY);
+    ctx.lineTo(tubeCenterX + 10, tubeCenterY + 115);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.restore();
+
+    // Lead Aperture Window
+    ctx.fillStyle = '#475569';
+    ctx.fillRect(tubeCenterX - 35, tubeCenterY + 75, 20, 8);
+    ctx.fillRect(tubeCenterX + 35, tubeCenterY + 75, 20, 8);
+    ctx.fillStyle = isLight ? '#475569' : '#94a3b8';
+    ctx.font = '8px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Lead Shield Slit', tubeCenterX + 10, tubeCenterY + 82);
+
+    // RIGHT HALF: REAL-TIME DUAL X-RAY SPECTRUM GRAPH (I vs λ)
+    renderXRaySpectrumGraph(ctx, splitX + 15, 25, width - splitX - 35, height - 60);
+  };
+
+  /**
+   * Continuous Bremsstrahlung curve + Sharp Characteristic Peaks
+   */
+  const renderXRaySpectrumGraph = (
+    ctx: CanvasRenderingContext2D,
+    gx: number,
+    gy: number,
+    gw: number,
+    gh: number
+  ) => {
+    // Housing background
+    ctx.fillStyle = isLight ? '#ffffff' : '#080d1a';
+    ctx.strokeStyle = isLight ? '#cbd5e1' : '#1e293b';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(gx, gy, gw, gh, 8);
+    ctx.fill();
+    ctx.stroke();
+
+    // Graph Title
+    ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(
+      isArabic
+        ? `طيف أشعة إكس: المستمر (الكبح) والخط المميز (هدف ${currentTarget.elementAr})`
+        : `X-Ray Spectrum: Continuous & Characteristic (${currentTarget.elementEn} Target)`,
+      gx + 12,
+      gy + 18
+    );
+
+    // Plot area
+    const plotLeft = gx + 42;
+    const plotRight = gx + gw - 18;
+    const plotBottom = gy + gh - 35;
+    const plotTop = gy + 32;
+    const plotW = plotRight - plotLeft;
+    const plotH = plotBottom - plotTop;
+
+    // Coordinate Axes
+    ctx.strokeStyle = isLight ? '#94a3b8' : '#475569';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(plotLeft, plotTop);
+    ctx.lineTo(plotLeft, plotBottom);
+    ctx.lineTo(plotRight, plotBottom);
+    ctx.stroke();
+
+    // Axis Labels
+    ctx.fillStyle = isLight ? '#475569' : '#94a3b8';
+    ctx.font = '9px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(
+      isArabic ? 'الطول الموجي λ (نانومتر)' : 'Wavelength λ (nm)',
+      plotLeft + plotW / 2,
+      plotBottom + 26
+    );
+
+    ctx.save();
+    ctx.translate(gx + 12, plotTop + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText(isArabic ? 'الشدة الإشعاعية (I)' : 'Relative Intensity (I)', 0, 0);
+    ctx.restore();
+
+    // Wavelength range: 0.00 nm to 0.20 nm
+    const maxLambda = 0.2;
+    const lambdaToPx = (l: number) => plotLeft + (l / maxLambda) * plotW;
+
+    // Grid ticks: 0.05, 0.10, 0.15, 0.20 nm
+    for (let tickL = 0.05; tickL <= maxLambda; tickL += 0.05) {
+      const tx = lambdaToPx(tickL);
+      ctx.strokeStyle = isLight ? '#e2e8f0' : '#1e293b';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(tx, plotTop);
+      ctx.lineTo(tx, plotBottom);
+      ctx.stroke();
+
+      ctx.fillStyle = isLight ? '#64748b' : '#64748b';
+      ctx.font = '8px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(tickL.toFixed(2), tx, plotBottom + 12);
+    }
+
+    // Continuous Bremsstrahlung curve
+    // Function: I_cont(lambda) = C * Z * ((lambda - lambdaMin) / lambdaMin^2) * e^(-k * lambda)
+    const lambdaMin = xrayLambdaMinNm; // in nm
+    ctx.save();
+    ctx.strokeStyle = '#38bdf8';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+
+    let started = false;
+    for (let px = plotLeft; px <= plotRight; px += 2) {
+      const l = ((px - plotLeft) / plotW) * maxLambda;
+      if (l < lambdaMin) {
+        if (!started) {
+          ctx.moveTo(px, plotBottom);
+        } else {
+          ctx.lineTo(px, plotBottom);
+        }
+      } else {
+        // Bremsstrahlung shape formula
+        const dL = l - lambdaMin;
+        const normL = dL / (0.04 + lambdaMin * 0.5);
+        const curve = normL * Math.exp(-normL) * 2.5; // peaks around 1.5 lambdaMin
+        const py = plotBottom - Math.min(plotH * 0.65, curve * plotH * 0.65);
+        if (!started) {
+          ctx.moveTo(px, py);
+          started = true;
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+    }
+    ctx.stroke();
+    ctx.restore();
+
+    // Duane-Hunt Minimum Cutoff Marker
+    const cutX = lambdaToPx(lambdaMin);
+    if (cutX >= plotLeft && cutX <= plotRight) {
+      ctx.save();
+      ctx.strokeStyle = '#ef4444';
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([3, 3]);
+      ctx.beginPath();
+      ctx.moveTo(cutX, plotTop);
+      ctx.lineTo(cutX, plotBottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.fillStyle = '#ef4444';
+      ctx.font = 'bold 8px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(`λ_min = ${lambdaMin.toFixed(3)} nm`, cutX, plotTop + 10);
+      ctx.restore();
+    }
+
+    // Characteristic Spectral Peaks (K_alpha & K_beta)
+    if (hasCharacteristicLines) {
+      const kaX = lambdaToPx(currentTarget.kAlphaNm);
+      const kbX = lambdaToPx(currentTarget.kBetaNm);
+
+      // K_alpha peak (taller)
+      if (kaX >= plotLeft && kaX <= plotRight) {
+        ctx.save();
+        ctx.shadowColor = '#f59e0b';
+        ctx.shadowBlur = 10;
+        ctx.strokeStyle = '#f59e0b';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(kaX, plotBottom);
+        ctx.lineTo(kaX, plotTop + 8);
+        ctx.stroke();
+
+        ctx.fillStyle = '#f59e0b';
+        ctx.font = 'bold 9px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(`K_α (${currentTarget.kAlphaNm.toFixed(3)} nm)`, kaX, plotTop - 2);
+        ctx.restore();
+      }
+
+      // K_beta peak (slightly shorter)
+      if (kbX >= plotLeft && kbX <= plotRight) {
+        ctx.save();
+        ctx.strokeStyle = '#ec4899';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.moveTo(kbX, plotBottom);
+        ctx.lineTo(kbX, plotTop + plotH * 0.2);
+        ctx.stroke();
+
+        ctx.fillStyle = '#ec4899';
+        ctx.font = 'bold 8px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(`K_β`, kbX, plotTop + plotH * 0.2 - 4);
+        ctx.restore();
+      }
+    }
+
+    // Footnote explaining Duane-Hunt vs Characteristic physics
+    ctx.fillStyle = isLight ? '#64748b' : '#94a3b8';
+    ctx.font = '8px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(
+      isArabic
+        ? `• قانون دوين-هنت: λ_min يتناسب عكسياً مع فرق الجهد V ومستقل عن مادة الهدف Z`
+        : `• Duane-Hunt Law: λ_min ∝ 1/V (independent of target element Z)`,
+      plotLeft,
+      gy + gh - 8
+    );
+  };
+
+  /**
+   * Records Bohr or Coolidge Point to Lab Notebook
+   */
+  const handleRecordPoint = () => {
+    if (systemMode === 'bohr') {
+      if (termDiff > 0 && wavenumber_10_7_m > 0) {
+        lab.notebookState.logDataPoint(
+          Number(termDiff.toFixed(5)),
+          Number(wavenumber_10_7_m.toFixed(5)),
+          isArabic
+            ? `${seriesInfo.nameAr} (${effectiveN2}←${effectiveN1}، ${lambda_nm.toFixed(1)} نانومتر)`
+            : `${seriesInfo.nameEn} (${effectiveN2}→${effectiveN1}, ${lambda_nm.toFixed(1)} nm)`
+        );
+      }
+    } else if (systemMode === 'xray_coolidge') {
+      const invV = 1 / (xrayVoltageKv * 1000);
       lab.notebookState.logDataPoint(
-        Number(termDiff.toFixed(5)),
-        Number(wavenumber_10_7_m.toFixed(5)),
+        Number(invV.toExponential(3)),
+        Number(xrayLambdaMinNm.toFixed(4)),
         isArabic
-          ? `${seriesInfo.nameAr} (${effectiveN2}←${effectiveN1}، ${lambda_nm.toFixed(1)} نانومتر)`
-          : `${seriesInfo.nameEn} (${effectiveN2}→${effectiveN1}, ${lambda_nm.toFixed(1)} nm)`
+          ? `أشعة إكس (V = ${xrayVoltageKv} kV، هدف ${currentTarget.elementAr})`
+          : `X-Ray Duane-Hunt (V = ${xrayVoltageKv} kV, ${currentTarget.symbol} target)`
       );
     }
   };
@@ -1451,28 +2336,37 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
       multimeterReading={dmmReading}
       oscilloscopeCh1={oscCh1}
       oscilloscopeCh2={oscCh2}
-      currentXValue={termDiff}
-      currentYValue={wavenumber_10_7_m}
+      currentXValue={systemMode === 'bohr' ? termDiff : 1 / (xrayVoltageKv * 1000)}
+      currentYValue={systemMode === 'bohr' ? wavenumber_10_7_m : xrayLambdaMinNm}
       onResetSimulation={() => {
         lab.resetParams();
         simRef.current.photons = [];
+        simRef.current.rubyPulseProgress = 0;
       }}
       renderCustomControls={() => (
         <div className="space-y-4">
-          {/* SYSTEM MODE TOGGLE */}
-          <div className={`p-3 rounded-xl border space-y-2 ${
-            isLight ? 'bg-white border-slate-200 shadow-xs' : isContrast ? 'bg-black border-white' : 'bg-slate-900/90 border-slate-800'
-          }`}>
-            <label className={`text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 ${
-              isLight ? 'text-cyan-900' : 'text-cyan-400'
-            }`}>
+          {/* APPARATUS SELECTOR TABS */}
+          <div
+            className={`p-3 rounded-xl border space-y-2 ${
+              isLight
+                ? 'bg-white border-slate-200 shadow-xs'
+                : isContrast
+                ? 'bg-black border-white'
+                : 'bg-slate-900/90 border-slate-800'
+            }`}
+          >
+            <label
+              className={`text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                isLight ? 'text-cyan-900' : 'text-cyan-400'
+              }`}
+            >
               <Layers className="w-3.5 h-3.5" />
-              <span>{isArabic ? 'النظام التجريبي الفعال' : 'Active Physical System'}</span>
+              <span>{isArabic ? 'الجهاز التجريبي الفعال' : 'Active Physical System'}</span>
             </label>
             <div className="grid grid-cols-2 gap-1.5">
               <button
                 onClick={() => lab.updateParam('systemMode', 'bohr')}
-                className={`min-h-[44px] py-2 px-3 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                className={`min-h-[44px] py-2 px-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   systemMode === 'bohr'
                     ? isLight
                       ? 'bg-cyan-600 text-white shadow-md font-black'
@@ -1486,9 +2380,9 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 <span>{isArabic ? 'أطياف بور' : 'Bohr Spectra'}</span>
               </button>
               <button
-                onClick={() => lab.updateParam('systemMode', 'laser')}
-                className={`min-h-[44px] py-2 px-3 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-                  systemMode === 'laser'
+                onClick={() => lab.updateParam('systemMode', 'laser_hene')}
+                className={`min-h-[44px] py-2 px-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  systemMode === 'laser_hene'
                     ? isLight
                       ? 'bg-rose-600 text-white shadow-md font-black'
                       : 'bg-red-500 text-white shadow-md shadow-red-500/20'
@@ -1500,18 +2394,56 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 <Radio className="w-3.5 h-3.5" />
                 <span>{isArabic ? 'ليزر He-Ne' : 'He-Ne Laser'}</span>
               </button>
+              <button
+                onClick={() => lab.updateParam('systemMode', 'laser_ruby')}
+                className={`min-h-[44px] py-2 px-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  systemMode === 'laser_ruby'
+                    ? isLight
+                      ? 'bg-rose-700 text-white shadow-md font-black'
+                      : 'bg-pink-600 text-white shadow-md shadow-pink-600/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 shadow-2xs font-bold'
+                    : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
+                }`}
+              >
+                <Sun className="w-3.5 h-3.5" />
+                <span>{isArabic ? 'ليزر الياقوت' : 'Ruby Laser'}</span>
+              </button>
+              <button
+                onClick={() => lab.updateParam('systemMode', 'xray_coolidge')}
+                className={`min-h-[44px] py-2 px-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                  systemMode === 'xray_coolidge'
+                    ? isLight
+                      ? 'bg-purple-600 text-white shadow-md font-black'
+                      : 'bg-purple-500 text-slate-950 shadow-md shadow-purple-500/20'
+                    : isLight
+                    ? 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-300 shadow-2xs font-bold'
+                    : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
+                }`}
+              >
+                <Activity className="w-3.5 h-3.5" />
+                <span>{isArabic ? 'أشعة إكس كولدج' : 'Coolidge X-Ray'}</span>
+              </button>
             </div>
           </div>
 
-          {/* BOHR ATOMIC CONTROLS */}
-          {isBohr && (
-            <div className={`p-4 rounded-xl border space-y-4 ${
-              isLight ? 'bg-white border-slate-200 shadow-xs' : isContrast ? 'bg-black border-white' : 'bg-slate-900/90 border-slate-800'
-            }`}>
+          {/* 1. BOHR ATOMIC CONTROLS */}
+          {systemMode === 'bohr' && (
+            <div
+              className={`p-4 rounded-xl border space-y-4 ${
+                isLight
+                  ? 'bg-white border-slate-200 shadow-xs'
+                  : isContrast
+                  ? 'bg-black border-white'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}
+            >
               <div className="flex items-center justify-between">
-                <span className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
-                  isLight ? 'text-cyan-900' : 'text-cyan-400'
-                }`}>
+                <span
+                  className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                    isLight ? 'text-cyan-900' : 'text-cyan-400'
+                  }`}
+                >
                   <Sliders className="w-3.5 h-3.5" />
                   <span>{isArabic ? 'مستويات الانتقال الكمي' : 'Quantum Transitions'}</span>
                 </span>
@@ -1543,6 +2475,57 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                     }`}
                   >
                     {isArabic ? 'مدارات بور' : 'Orbits'}
+                  </button>
+                </div>
+              </div>
+
+              {/* Spectrum Dispersion Type: Emission / Absorption / Fraunhofer */}
+              <div className="space-y-1.5">
+                <span className={`text-xs font-bold ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
+                  {isArabic ? 'نوع الطيف المعروض بالمطياف:' : 'Spectrograph Dispersion Mode:'}
+                </span>
+                <div className="grid grid-cols-3 gap-1.5">
+                  <button
+                    onClick={() => lab.updateParam('bohrSpectrumType', 'emission')}
+                    className={`min-h-[40px] py-1.5 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                      bohrSpectrumType === 'emission'
+                        ? isLight
+                          ? 'bg-cyan-600 text-white shadow-md'
+                          : 'bg-cyan-500 text-slate-950 shadow-md'
+                        : isLight
+                        ? 'bg-white text-slate-700 border border-slate-300'
+                        : 'bg-slate-950 text-slate-400 border border-slate-800'
+                    }`}
+                  >
+                    {isArabic ? 'انبعاث خطي' : 'Emission'}
+                  </button>
+                  <button
+                    onClick={() => lab.updateParam('bohrSpectrumType', 'absorption')}
+                    className={`min-h-[40px] py-1.5 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                      bohrSpectrumType === 'absorption'
+                        ? isLight
+                          ? 'bg-cyan-600 text-white shadow-md'
+                          : 'bg-cyan-500 text-slate-950 shadow-md'
+                        : isLight
+                        ? 'bg-white text-slate-700 border border-slate-300'
+                        : 'bg-slate-950 text-slate-400 border border-slate-800'
+                    }`}
+                  >
+                    {isArabic ? 'امتصاص خطي' : 'Absorption'}
+                  </button>
+                  <button
+                    onClick={() => lab.updateParam('bohrSpectrumType', 'fraunhofer')}
+                    className={`min-h-[40px] py-1.5 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center ${
+                      bohrSpectrumType === 'fraunhofer'
+                        ? isLight
+                          ? 'bg-amber-600 text-white shadow-md'
+                          : 'bg-amber-500 text-slate-950 shadow-md'
+                        : isLight
+                        ? 'bg-white text-slate-700 border border-slate-300'
+                        : 'bg-slate-950 text-slate-400 border border-slate-800'
+                    }`}
+                  >
+                    {isArabic ? 'خطوط فرانهوفر' : 'Fraunhofer'}
                   </button>
                 </div>
               </div>
@@ -1617,36 +2600,9 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 </div>
               </div>
 
-              {/* Active Series Badge */}
-              <div className={`p-3 rounded-xl border space-y-1.5 ${
-                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
-              }`}>
-                <div className="flex items-center justify-between">
-                  <span className={`text-[10px] font-black uppercase ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
-                    {isArabic ? 'السلسلة الطيفية' : 'Spectral Series'}
-                  </span>
-                  <span
-                    className={`text-xs font-black px-2 py-0.5 rounded-md ${
-                      isLight ? 'border' : ''
-                    }`}
-                    style={{
-                      backgroundColor: isLight ? `${seriesInfo.colorHex}22` : `${seriesInfo.colorHex}22`,
-                      color: isLight ? (seriesInfo.colorHex === '#ffffff' ? '#0f172a' : seriesInfo.colorHex) : seriesInfo.colorHex,
-                      borderColor: isLight ? `${seriesInfo.colorHex}66` : 'transparent',
-                    }}
-                  >
-                    {isArabic ? seriesInfo.nameAr : seriesInfo.nameEn}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-xs font-bold">
-                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>{isArabic ? 'نطاق الإشعاع:' : 'Radiation Band:'}</span>
-                  <span className={isLight ? 'text-slate-900 font-bold' : 'text-slate-200'}>{isArabic ? seriesInfo.regionAr : seriesInfo.regionEn}</span>
-                </div>
-              </div>
-
               {/* Record Point to Lab Notebook Button */}
               <button
-                onClick={handleRecordBohrPoint}
+                onClick={handleRecordPoint}
                 className={`w-full min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-xs ${
                   isLight
                     ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm font-bold'
@@ -1656,31 +2612,49 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                 <Sparkles className={`w-3.5 h-3.5 ${isLight ? 'text-white' : 'text-emerald-400'}`} />
                 <span>
                   {isArabic
-                    ? 'تسجيل النقطة في كشكول المعمل (لحساب ريدبرج)'
+                    ? 'تسجيل النقطة في كشكول المعمل (لحساب ريدبرج R_H)'
                     : 'Record Point in Lab Notebook (R_H Regression)'}
                 </span>
               </button>
             </div>
           )}
 
-          {/* LASER CONTROLS */}
-          {!isBohr && (
-            <div className={`p-4 rounded-xl border space-y-4 ${
-              isLight ? 'bg-white border-slate-200 shadow-xs' : isContrast ? 'bg-black border-white' : 'bg-slate-900/90 border-slate-800'
-            }`}>
-              <span className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
-                isLight ? 'text-rose-900' : 'text-rose-400'
-              }`}>
+          {/* 2. HE-NE LASER CONTROLS */}
+          {systemMode === 'laser_hene' && (
+            <div
+              className={`p-4 rounded-xl border space-y-4 ${
+                isLight
+                  ? 'bg-white border-slate-200 shadow-xs'
+                  : isContrast
+                  ? 'bg-black border-white'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}
+            >
+              <span
+                className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                  isLight ? 'text-rose-900' : 'text-rose-400'
+                }`}
+              >
                 <Radio className="w-3.5 h-3.5" />
                 <span>{isArabic ? 'محددات تشغيل ليزر He-Ne' : 'He-Ne Resonator Controls'}</span>
               </span>
 
               {/* HV Discharge Switch */}
-              <div className={`flex items-center justify-between p-3 rounded-xl border ${
-                isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
-              }`}>
-                <span className={`text-xs font-bold flex items-center gap-1.5 ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
-                  <Zap className={`w-3.5 h-3.5 ${highVoltageDC ? (isLight ? 'text-amber-600' : 'text-amber-400') : 'text-slate-500'}`} />
+              <div
+                className={`flex items-center justify-between p-3 rounded-xl border ${
+                  isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950 border-slate-800'
+                }`}
+              >
+                <span
+                  className={`text-xs font-bold flex items-center gap-1.5 ${
+                    isLight ? 'text-slate-900' : 'text-slate-200'
+                  }`}
+                >
+                  <Zap
+                    className={`w-3.5 h-3.5 ${
+                      highVoltageDC ? (isLight ? 'text-amber-600' : 'text-amber-400') : 'text-slate-500'
+                    }`}
+                  />
                   <span>{isArabic ? 'مصدر الجهد العالي (HV):' : 'HV Power (1.5 kV):'}</span>
                 </span>
                 <button
@@ -1695,15 +2669,19 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                       : 'bg-slate-800 text-slate-400 hover:text-slate-200'
                   }`}
                 >
-                  {highVoltageDC ? (isArabic ? 'تشغيل ON' : 'ACTIVE') : (isArabic ? 'إيقاف OFF' : 'STANDBY')}
+                  {highVoltageDC ? (isArabic ? 'تشغيل ON' : 'ACTIVE') : isArabic ? 'إيقاف OFF' : 'STANDBY'}
                 </button>
               </div>
 
               {/* Pumping Power Slider */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>{isArabic ? 'شدة الضخ الكهربي:' : 'Pumping Power:'}</span>
-                  <span className={`font-mono font-black ${isLight ? 'text-rose-800' : 'text-cyan-400'}`}>{pumpPower}%</span>
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'شدة الضخ الكهربي:' : 'Pumping Power:'}
+                  </span>
+                  <span className={`font-mono font-black ${isLight ? 'text-rose-800' : 'text-cyan-400'}`}>
+                    {pumpPower}%
+                  </span>
                 </div>
                 <input
                   type="range"
@@ -1720,8 +2698,12 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
               {/* Mirror Tilt Alignment Slider */}
               <div className="space-y-1.5">
                 <div className="flex justify-between text-xs font-bold">
-                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>{isArabic ? 'حيود زاوية المرآة (θ):' : 'Cavity Tilt (θ):'}</span>
-                  <span className={`font-mono font-black ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{cavityAlignment.toFixed(1)} mrad</span>
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'حيود زاوية المرآة (θ):' : 'Cavity Tilt (θ):'}
+                  </span>
+                  <span className={`font-mono font-black ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
+                    {cavityAlignment.toFixed(1)} mrad
+                  </span>
                 </div>
                 <input
                   type="range"
@@ -1732,9 +2714,15 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                   onChange={(e) => lab.updateParam('cavityAlignment', Number(e.target.value))}
                   className="w-full accent-amber-500 cursor-pointer"
                 />
-                <div className={`flex justify-between text-[10px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-500'}`}>
+                <div
+                  className={`flex justify-between text-[10px] ${
+                    isLight ? 'text-slate-600 font-medium' : 'text-slate-500'
+                  }`}
+                >
                   <span>0.0 mrad ({isArabic ? 'مثالي' : 'Aligned'})</span>
-                  <span className={isLight ? 'text-amber-700 font-bold' : 'text-amber-500'}>1.5 mrad ({isArabic ? 'العتبة' : 'Threshold'})</span>
+                  <span className={isLight ? 'text-amber-700 font-bold' : 'text-amber-500'}>
+                    1.5 mrad ({isArabic ? 'العتبة' : 'Threshold'})
+                  </span>
                   <span>3.0 mrad ({isArabic ? 'فاقد' : 'Quenched'})</span>
                 </div>
               </div>
@@ -1753,41 +2741,196 @@ export const AtomicLaserLab: React.FC<Props> = ({ lang, theme = 'dark' }) => {
                   <span>{isArabic ? 'ضبط التوازي التام (θ = 0.0)' : 'Auto-Align Mirrors (θ = 0.0)'}</span>
                 </button>
               )}
+            </div>
+          )}
 
-              {/* Active Lasing Status Banner */}
-              <div
-                className={`p-3 rounded-xl border flex items-center gap-2.5 ${
-                  isLasing
-                    ? isLight
-                      ? 'bg-rose-100/90 border-rose-300 text-rose-950 shadow-2xs'
-                      : 'bg-rose-950/30 border-rose-500/40 text-rose-200'
-                    : isLight
-                    ? 'bg-slate-100/90 border-slate-300 text-slate-800 shadow-2xs'
-                    : 'bg-slate-950 border-slate-800 text-slate-400'
+          {/* 3. RUBY SOLID-STATE LASER CONTROLS */}
+          {systemMode === 'laser_ruby' && (
+            <div
+              className={`p-4 rounded-xl border space-y-4 ${
+                isLight
+                  ? 'bg-white border-slate-200 shadow-xs'
+                  : isContrast
+                  ? 'bg-black border-white'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}
+            >
+              <span
+                className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                  isLight ? 'text-rose-900' : 'text-rose-400'
                 }`}
               >
-                {isLasing ? (
-                  <CheckCircle2 className={`w-4 h-4 shrink-0 ${isLight ? 'text-rose-600' : 'text-rose-400'}`} />
-                ) : (
-                  <AlertCircle className={`w-4 h-4 shrink-0 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
-                )}
-                <div className="text-[11px] leading-tight">
-                  <span className="font-bold block">
-                    {isLasing
-                      ? (isArabic ? 'تضخيم ليزري متماسك نشط' : 'Coherent Laser Amplification Active')
-                      : (isArabic ? 'لا يحدث تضخيم ليزري' : 'No Laser Oscillation')}
+                <Sun className="w-3.5 h-3.5" />
+                <span>{isArabic ? 'محددات ليزر الياقوت الصلب (مايمان)' : 'Maiman Ruby Laser Controls'}</span>
+              </span>
+
+              {/* Flash Energy Slider */}
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'طاقة تفريغ فلاش الزينون:' : 'Xenon Flash Energy:'}
                   </span>
-                  <span className={`text-[10px] ${isLight ? 'text-slate-600 font-medium' : 'opacity-75'}`}>
-                    {isLasing
-                      ? (isArabic ? 'الشعاع متماسك زمنياً ومكانياً بطول موجي 632.8 nm' : 'TEM₀₀ Gaussian beam output at 632.8 nm')
-                      : !highVoltageDC
-                      ? (isArabic ? 'مصدر الجهد العالي متوقف' : 'HV Power supply is switched off')
-                      : pumpPower < 35
-                      ? (isArabic ? 'شدة الضخ دون عتبة التشغيل (<35%)' : 'Pump power below threshold (<35%)')
-                      : (isArabic ? 'فقد التجويف يتجاوز الكسب بسبب حيود المرآة (>1.5 mrad)' : 'Cavity walk-off loss exceeds gain (>1.5 mrad)')}
+                  <span className={`font-mono font-black ${isLight ? 'text-rose-800' : 'text-pink-400'}`}>
+                    {rubyFlashEnergyJ} J
                   </span>
                 </div>
+                <input
+                  type="range"
+                  min="50"
+                  max="500"
+                  step="25"
+                  value={rubyFlashEnergyJ}
+                  onChange={(e) => lab.updateParam('rubyFlashEnergyJ', Number(e.target.value))}
+                  className="w-full accent-pink-600 cursor-pointer"
+                />
               </div>
+
+              {/* TRIGGER OPTICAL FLASH PULSE BUTTON */}
+              <button
+                onClick={handleTriggerRubyFlash}
+                className={`w-full min-h-[48px] py-3 px-4 rounded-xl text-sm font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md active:scale-95 ${
+                  isLight
+                    ? 'bg-rose-600 hover:bg-rose-700 text-white shadow-rose-600/30'
+                    : 'bg-pink-600 hover:bg-pink-500 text-white shadow-pink-600/40'
+                }`}
+              >
+                <Flame className="w-4 h-4 text-amber-300" />
+                <span>{isArabic ? 'إطلاق ومضة الضخ الضوئي (فلاش زينون)' : 'Trigger Optical Flash Pulse'}</span>
+              </button>
+
+              <div
+                className={`p-3 rounded-xl border text-xs leading-relaxed ${
+                  isLight ? 'bg-slate-50 border-slate-200 text-slate-700' : 'bg-slate-950 border-slate-800 text-slate-300'
+                }`}
+              >
+                <span className="font-bold block mb-1 text-pink-500">
+                  {isArabic ? 'خصائص ليزر الياقوت (١٩٦٠):' : 'Ruby Laser Fundamentals:'}
+                </span>
+                {isArabic
+                  ? 'يستخدم نظام الياقوت ٣ مستويات طاقة؛ حيث تمتص أيونات الكروم الضوء الأخضر والأزرق، ثم تهبط سريعاً للمستوى شبه المستقر (²E) بفترة عمر ٣ مللي ثانية لينطلق شعاع أحمر متماسك عند 694.3 nm.'
+                  : 'Ruby operates as a 3-level laser; Cr³⁺ ions absorb green/blue flash photons, decay non-radiatively to the ²E metastable level (τ ≈ 3 ms), yielding pulsed 694.3 nm stimulated emission.'}
+              </div>
+            </div>
+          )}
+
+          {/* 4. COOLIDGE X-RAY TUBE CONTROLS */}
+          {systemMode === 'xray_coolidge' && (
+            <div
+              className={`p-4 rounded-xl border space-y-4 ${
+                isLight
+                  ? 'bg-white border-slate-200 shadow-xs'
+                  : isContrast
+                  ? 'bg-black border-white'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}
+            >
+              <span
+                className={`text-xs font-black uppercase tracking-wider flex items-center gap-1.5 ${
+                  isLight ? 'text-purple-900' : 'text-purple-400'
+                }`}
+              >
+                <Activity className="w-3.5 h-3.5" />
+                <span>{isArabic ? 'محددات تشغيل أنبوبة كولدج' : 'Coolidge X-Ray Controls'}</span>
+              </span>
+
+              {/* Anode Target Element Selector */}
+              <div className="space-y-1.5">
+                <span className={`text-xs font-bold ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
+                  {isArabic ? 'مادة الهدف (المصعد):' : 'Anode Target Material:'}
+                </span>
+                <div className="grid grid-cols-3 gap-1.5">
+                  {(['tungsten', 'molybdenum', 'copper'] as const).map((el) => (
+                    <button
+                      key={el}
+                      onClick={() => lab.updateParam('xrayTargetElement', el)}
+                      className={`min-h-[44px] py-2 px-1.5 rounded-xl text-xs font-black transition-all cursor-pointer flex flex-col items-center justify-center ${
+                        xrayTargetElement === el
+                          ? isLight
+                            ? 'bg-purple-600 text-white shadow-md'
+                            : 'bg-purple-500 text-slate-950 shadow-md'
+                          : isLight
+                          ? 'bg-white text-slate-700 border border-slate-300'
+                          : 'bg-slate-950 text-slate-400 border border-slate-800'
+                      }`}
+                    >
+                      <span>{XRAY_TARGETS[el].symbol}</span>
+                      <span className="text-[10px] font-medium">
+                        Z={XRAY_TARGETS[el].z}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Accelerating High Voltage Slider */}
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'فرق الجهد المعجل (V):' : 'Accelerating Voltage (V):'}
+                  </span>
+                  <span className={`font-mono font-black ${isLight ? 'text-purple-800' : 'text-purple-400'}`}>
+                    {xrayVoltageKv} kV
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="15"
+                  max="90"
+                  step="5"
+                  value={xrayVoltageKv}
+                  onChange={(e) => lab.updateParam('xrayVoltageKv', Number(e.target.value))}
+                  className="w-full accent-purple-500 cursor-pointer"
+                />
+                <div
+                  className={`flex justify-between text-[10px] ${
+                    isLight ? 'text-slate-600 font-medium' : 'text-slate-500'
+                  }`}
+                >
+                  <span>15 kV</span>
+                  <span className="font-mono">
+                    λ_min = {xrayLambdaMinNm.toFixed(3)} nm
+                  </span>
+                  <span>90 kV</span>
+                </div>
+              </div>
+
+              {/* Filament Current Slider */}
+              <div className="space-y-1.5">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className={isLight ? 'text-slate-800 font-bold' : 'text-slate-300'}>
+                    {isArabic ? 'تيار تسخين الفتيلة (I_f):' : 'Filament Heating Current:'}
+                  </span>
+                  <span className={`font-mono font-black ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
+                    {xrayFilamentCurrentA.toFixed(1)} A
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min="2.0"
+                  max="5.0"
+                  step="0.1"
+                  value={xrayFilamentCurrentA}
+                  onChange={(e) => lab.updateParam('xrayFilamentCurrentA', Number(e.target.value))}
+                  className="w-full accent-amber-500 cursor-pointer"
+                />
+              </div>
+
+              {/* Record Duane-Hunt Point to Notebook Button */}
+              <button
+                onClick={handleRecordPoint}
+                className={`w-full min-h-[44px] py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer transition-all shadow-xs ${
+                  isLight
+                    ? 'bg-purple-600 hover:bg-purple-700 text-white shadow-sm font-bold'
+                    : 'bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40'
+                }`}
+              >
+                <Target className={`w-3.5 h-3.5 ${isLight ? 'text-white' : 'text-purple-400'}`} />
+                <span>
+                  {isArabic
+                    ? 'تسجيل نقطة دوين-هنت (λ_min مقابل 1/V)'
+                    : 'Record Duane-Hunt Point (λ_min vs 1/V)'}
+                </span>
+              </button>
             </div>
           )}
         </div>
