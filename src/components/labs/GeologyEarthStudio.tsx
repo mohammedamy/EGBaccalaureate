@@ -3067,7 +3067,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
               <div className={`flex items-center gap-1.5 p-1 rounded-lg ${isLight ? 'bg-stone-200' : 'bg-stone-900 border border-stone-800'}`}>
                 <button
                   onClick={() => setStructSubTab('faults')}
-                  className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                  className={`px-3 py-2 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[44px] flex items-center justify-center ${
                     structSubTab === 'faults'
                       ? 'bg-violet-600 text-white shadow-xs'
                       : isLight
@@ -3079,7 +3079,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 </button>
                 <button
                   onClick={() => setStructSubTab('folds')}
-                  className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                  className={`px-3 py-2 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[44px] flex items-center justify-center ${
                     structSubTab === 'folds'
                       ? 'bg-violet-600 text-white shadow-xs'
                       : isLight
@@ -3091,7 +3091,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 </button>
                 <button
                   onClick={() => setStructSubTab('unconformities')}
-                  className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                  className={`px-3 py-2 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[44px] flex items-center justify-center ${
                     structSubTab === 'unconformities'
                       ? 'bg-violet-600 text-white shadow-xs'
                       : isLight
@@ -3116,7 +3116,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                       </span>
                       <button
                         onClick={() => setShowWallLabels(!showWallLabels)}
-                        className={`text-[11px] px-2.5 py-1 rounded border font-mono transition-colors cursor-pointer ${
+                        className={`text-[11px] px-3 py-1.5 rounded-lg border font-mono transition-colors cursor-pointer min-h-[44px] flex items-center justify-center ${
                           showWallLabels
                             ? 'bg-violet-950/60 border-violet-700 text-violet-300'
                             : 'bg-stone-800 border-stone-700 text-stone-400'
@@ -3551,7 +3551,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                       </span>
                       <button
                         onClick={() => setShowFoldElements(!showFoldElements)}
-                        className={`text-[11px] px-2.5 py-1 rounded border font-mono transition-colors cursor-pointer ${
+                        className={`text-[11px] px-3 py-1.5 rounded-lg border font-mono transition-colors cursor-pointer min-h-[44px] flex items-center justify-center ${
                           showFoldElements
                             ? 'bg-violet-950/60 border-violet-700 text-violet-300'
                             : 'bg-stone-800 border-stone-700 text-stone-400'
