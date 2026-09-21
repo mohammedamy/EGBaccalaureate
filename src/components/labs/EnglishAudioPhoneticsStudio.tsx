@@ -28,7 +28,6 @@ import {
   Sparkles,
   Zap,
   Layers,
-  HelpCircle,
   Activity,
   Award,
   Maximize2,
@@ -45,6 +44,420 @@ interface Props {
 
 type StudioTab = 'phonetics' | 'stress' | 'connected' | 'listening' | 'voice_test';
 
+// ---------------------------------------------------------------------------
+// 1. High-Resolution Vocal Tract Sagittal Articulatory Schematic
+// ---------------------------------------------------------------------------
+interface VocalTractProps {
+  phoneme: Phoneme;
+  isLight: boolean;
+}
+
+const VocalTractSagittalArticulatorySchematic: React.FC<VocalTractProps> = ({ phoneme, isLight }) => {
+  // Determine Articulatory Target Coordinates
+  const target = useMemo(() => {
+    const s = phoneme.symbol;
+    if (['/p/', '/b/', '/m/', '/w/'].includes(s)) {
+      return { x: 75, y: 155, name: 'Bilabial (Two Lips)', manner: 'Plosive / Labial Glide' };
+    }
+    if (['/f/', '/v/'].includes(s)) {
+      return { x: 88, y: 158, name: 'Labiodental (Upper Teeth & Lower Lip)', manner: 'Fricative' };
+    }
+    if (['/θ/', '/ð/'].includes(s)) {
+      return { x: 102, y: 150, name: 'Dental / Interdental (Tongue Tip between Incisors)', manner: 'Fricative' };
+    }
+    if (['/t/', '/d/', '/s/', '/z/', '/n/', '/l/'].includes(s)) {
+      return { x: 132, y: 125, name: 'Alveolar Ridge (Gum Ridge Behind Upper Teeth)', manner: 'Plosive / Fricative / Nasal' };
+    }
+    if (['/ʃ/', '/ʒ/', '/tʃ/', '/dʒ/', '/r/'].includes(s)) {
+      return { x: 160, y: 120, name: 'Post-Alveolar / Palato-Alveolar (Front Hard Palate)', manner: 'Affricate / Sibilant Fricative' };
+    }
+    if (['/j/'].includes(s)) {
+      return { x: 195, y: 115, name: 'Hard Palate (Center Roof of Mouth)', manner: 'Palatal Approximant' };
+    }
+    if (['/k/', '/g/', '/ŋ/'].includes(s)) {
+      return { x: 235, y: 130, name: 'Velar (Soft Palate / Velum)', manner: 'Velar Plosive / Nasal' };
+    }
+    if (['/h/'].includes(s)) {
+      return { x: 245, y: 265, name: 'Glottal (Vocal Folds / Larynx)', manner: 'Glottal Fricative' };
+    }
+    // Vowels / default:
+    return { x: 175, y: 145, name: 'Oral Resonator Cavity', manner: 'Vocalic Resonance' };
+  }, [phoneme]);
+
+  const isVoiced = phoneme.category === 'voiced_consonant' || phoneme.category.includes('vowel') || phoneme.category === 'diphthong';
+
+  return (
+    <div className={`p-4 rounded-2xl border shadow-lg flex flex-col items-center justify-center space-y-3 ${
+      isLight ? 'bg-slate-50 border-violet-200' : 'bg-slate-950 border-slate-800'
+    }`}>
+      <div className="w-full flex items-center justify-between text-xs">
+        <span className="font-bold flex items-center gap-1.5 text-violet-400">
+          <Activity className="w-4 h-4" />
+          <span>Sagittal Vocal Tract Cross-Section</span>
+        </span>
+        <span className={`text-[11px] font-mono px-2 py-0.5 rounded-full font-bold border ${
+          isVoiced
+            ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
+            : 'bg-amber-500/10 text-amber-400 border-amber-500/30'
+        }`}>
+          {isVoiced ? 'VOICED (Vibrating Cords)' : 'VOICELESS (Open Glottis)'}
+        </span>
+      </div>
+
+      <div className="relative w-full max-w-[340px] aspect-[4/3] flex items-center justify-center">
+        <svg viewBox="0 0 360 300" className="w-full h-full select-none">
+          <defs>
+            <linearGradient id="palateGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#4c1d95" />
+              <stop offset="100%" stopColor="#2e1065" />
+            </linearGradient>
+            <linearGradient id="tongueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#be123c" stopOpacity="0.85" />
+              <stop offset="100%" stopColor="#881337" stopOpacity="0.95" />
+            </linearGradient>
+            <radialGradient id="targetPulse" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="#38bdf8" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#0284c7" stopOpacity="0.1" />
+            </radialGradient>
+          </defs>
+
+          {/* Craniofacial Outline / Head Profile */}
+          <path
+            d="M 50,40 Q 90,20 170,20 Q 270,20 290,90 L 300,280 L 260,280 L 255,240 Q 250,180 230,170 Q 210,165 170,165 L 140,195 Q 120,225 100,240 L 70,240 Q 60,180 65,160 Q 75,150 65,140 Q 55,130 50,120 Z"
+            fill="none"
+            stroke="#334155"
+            strokeWidth="2.5"
+          />
+
+          {/* Nasal Cavity (تجويف الأنف) */}
+          <path
+            d="M 80,95 Q 120,60 190,65 Q 230,70 240,110 L 210,110 Q 180,85 120,85 Q 90,90 80,95 Z"
+            fill="#0369a1"
+            opacity="0.15"
+            stroke="#0284c7"
+            strokeWidth="1.5"
+            strokeDasharray="3 2"
+          />
+          <text x="145" y="80" fill="#38bdf8" fontSize="10" fontWeight="bold">Nasal Cavity</text>
+
+          {/* Hard Palate & Alveolar Ridge (الحنك الصلب ولثة الأسنان) */}
+          <path
+            d="M 95,145 Q 125,125 180,120 Q 220,120 235,135 Q 240,150 238,160"
+            fill="none"
+            stroke="url(#palateGrad)"
+            strokeWidth="6"
+            strokeLinecap="round"
+          />
+          {/* Uvula Hanging (اللهاة) */}
+          <path d="M 238,155 Q 242,168 238,175" fill="none" stroke="#be185d" strokeWidth="4" strokeLinecap="round" />
+
+          {/* Upper Lip & Teeth */}
+          <path d="M 70,140 Q 80,145 88,152" fill="none" stroke="#e2e8f0" strokeWidth="4" strokeLinecap="round" />
+          <rect x="88" y="148" width="6" height="8" rx="1.5" fill="#f8fafc" />
+
+          {/* Lower Lip & Teeth */}
+          <path d="M 72,175 Q 82,170 88,165" fill="none" stroke="#e2e8f0" strokeWidth="4" strokeLinecap="round" />
+          <rect x="88" y="160" width="6" height="8" rx="1.5" fill="#f8fafc" />
+
+          {/* Tongue Body (اللسان) - Dynamic Articulatory Shaping */}
+          <path
+            d="M 95,170 Q 120,160 150,150 Q 190,145 220,175 Q 235,210 230,240 L 170,240 Q 120,230 100,195 Z"
+            fill="url(#tongueGrad)"
+            stroke="#fda4af"
+            strokeWidth="1.5"
+          />
+
+          {/* Pharynx & Epiglottis (البلعوم ولسان المزمار) */}
+          <path d="M 235,215 Q 230,230 225,245" fill="none" stroke="#9333ea" strokeWidth="3.5" strokeLinecap="round" />
+
+          {/* Vocal Folds / Glottis (الحبال الصوتية) */}
+          <g transform="translate(230, 260)">
+            <ellipse cx="15" cy="5" rx="12" ry="6" fill="#1e1b4b" stroke={isVoiced ? '#10b981' : '#f59e0b'} strokeWidth="2" />
+            {isVoiced ? (
+              // Vibrating sine wave
+              <path d="M 5,5 Q 10,1 15,5 T 25,5" fill="none" stroke="#34d399" strokeWidth="2" className="animate-pulse" />
+            ) : (
+              // Open glottis slit
+              <line x1="15" y1="1" x2="15" y2="9" stroke="#f59e0b" strokeWidth="2" />
+            )}
+            <text x="15" y="-6" textAnchor="middle" fill={isVoiced ? '#6ee7b7' : '#fde68a'} fontSize="9" fontWeight="bold">
+              Glottis
+            </text>
+          </g>
+
+          {/* Dynamic Articulatory Target Pulse */}
+          <g transform={`translate(${target.x}, ${target.y})`}>
+            <circle cx="0" cy="0" r="18" fill="url(#targetPulse)" className="animate-ping origin-center" />
+            <circle cx="0" cy="0" r="8" fill="#0284c7" stroke="#ffffff" strokeWidth="2" />
+            <circle cx="0" cy="0" r="3" fill="#ffffff" />
+          </g>
+
+          {/* Active Articulation Text Callout */}
+          <rect x="15" y="260" width="180" height="28" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="1" opacity="0.9" />
+          <text x="25" y="278" fill="#e2e8f0" fontSize="10" fontWeight="bold">
+            Target: {target.name.split(' ')[0]}
+          </text>
+        </svg>
+      </div>
+
+      <div className="w-full text-center p-2 rounded-xl bg-violet-500/10 border border-violet-500/20 text-xs">
+        <span className="text-violet-300 font-bold">{target.name}</span>
+        <span className="text-slate-400 block text-[11px] mt-0.5">Manner: {target.manner}</span>
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// 2. High-Resolution Acoustic Vowel Trapezoid & Diphthong Vector Schematic
+// ---------------------------------------------------------------------------
+interface VowelTrapezoidProps {
+  phoneme: Phoneme;
+  isLight: boolean;
+  onSelectVowel: (p: Phoneme) => void;
+}
+
+const AcousticVowelTrapezoidSchematic: React.FC<VowelTrapezoidProps> = ({
+  phoneme,
+  isLight,
+  onSelectVowel,
+}) => {
+  // IPA Coordinate Mapping (F2 Front-Back x F1 Close-Open)
+  const vowelCoords: Record<string, { x: number; y: number }> = {
+    '/iː/': { x: 70, y: 55 },
+    '/ɪ/': { x: 110, y: 85 },
+    '/e/': { x: 95, y: 130 },
+    '/æ/': { x: 120, y: 225 },
+    '/ʌ/': { x: 215, y: 185 },
+    '/ɑː/': { x: 265, y: 225 },
+    '/ɒ/': { x: 275, y: 195 },
+    '/ɔː/': { x: 280, y: 145 },
+    '/ʊ/': { x: 250, y: 85 },
+    '/uː/': { x: 290, y: 55 },
+    '/ɜː/': { x: 185, y: 155 },
+    '/ə/': { x: 185, y: 125 }, // Schwa center
+  };
+
+  // Diphthong Glides: Start & End points
+  const diphthongGlides: Record<string, { from: { x: number; y: number }; to: { x: number; y: number } }> = {
+    '/eɪ/': { from: { x: 95, y: 130 }, to: { x: 110, y: 85 } },
+    '/aɪ/': { from: { x: 120, y: 225 }, to: { x: 110, y: 85 } },
+    '/ɔɪ/': { from: { x: 280, y: 145 }, to: { x: 110, y: 85 } },
+    '/əʊ/': { from: { x: 185, y: 125 }, to: { x: 250, y: 85 } },
+    '/aʊ/': { from: { x: 170, y: 225 }, to: { x: 250, y: 85 } },
+    '/ɪə/': { from: { x: 110, y: 85 }, to: { x: 185, y: 125 } },
+    '/eə/': { from: { x: 95, y: 130 }, to: { x: 185, y: 125 } },
+    '/ʊə/': { from: { x: 250, y: 85 }, to: { x: 185, y: 125 } },
+  };
+
+  const isDiphthong = phoneme.category === 'diphthong';
+  const activeGlide = diphthongGlides[phoneme.symbol];
+
+  return (
+    <div className={`p-4 rounded-2xl border shadow-lg flex flex-col items-center justify-center space-y-3 ${
+      isLight ? 'bg-slate-50 border-violet-200' : 'bg-slate-950 border-slate-800'
+    }`}>
+      <div className="w-full flex items-center justify-between text-xs">
+        <span className="font-bold flex items-center gap-1.5 text-indigo-400">
+          <Zap className="w-4 h-4" />
+          <span>IPA Acoustic Vowel Quadrilateral (F1 vs. F2 Space)</span>
+        </span>
+        <span className="text-[11px] font-mono text-slate-400">
+          {isDiphthong ? 'DIPHTHONG GLIDE VECTOR' : 'MONOPHTHONG TARGET'}
+        </span>
+      </div>
+
+      <div className="relative w-full max-w-[360px] aspect-[4/3] flex items-center justify-center">
+        <svg viewBox="0 0 360 270" className="w-full h-full select-none">
+          <defs>
+            <marker id="vowelArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="#818cf8" />
+            </marker>
+          </defs>
+
+          {/* Vowel Trapezoid Outline */}
+          {/* Top (Close): 50 to 300; Bottom (Open): 120 to 280 */}
+          <polygon
+            points="50,45 300,45 280,240 120,240"
+            fill="#1e1b4b"
+            opacity="0.3"
+            stroke="#6366f1"
+            strokeWidth="2"
+          />
+
+          {/* Horizontal Height Grids: Close-Mid, Open-Mid */}
+          <line x1="75" y1="110" x2="293" y2="110" stroke="#4338ca" strokeWidth="1" strokeDasharray="3 3" />
+          <line x1="97" y1="175" x2="286" y2="175" stroke="#4338ca" strokeWidth="1" strokeDasharray="3 3" />
+
+          {/* Vertical Backness Grids: Central line */}
+          <line x1="175" y1="45" x2="200" y2="240" stroke="#4338ca" strokeWidth="1" strokeDasharray="3 3" />
+
+          {/* Grid Labels */}
+          <text x="45" y="35" fill="#a5b4fc" fontSize="9" fontWeight="bold">FRONT (High F2)</text>
+          <text x="175" y="35" fill="#a5b4fc" fontSize="9" fontWeight="bold" textAnchor="middle">CENTRAL</text>
+          <text x="300" y="35" fill="#a5b4fc" fontSize="9" fontWeight="bold" textAnchor="end">BACK (Low F2)</text>
+
+          <text x="25" y="50" fill="#94a3b8" fontSize="8" fontWeight="bold">CLOSE</text>
+          <text x="35" y="113" fill="#94a3b8" fontSize="8" fontWeight="bold">C-MID</text>
+          <text x="50" y="178" fill="#94a3b8" fontSize="8" fontWeight="bold">O-MID</text>
+          <text x="80" y="243" fill="#94a3b8" fontSize="8" fontWeight="bold">OPEN</text>
+
+          {/* All Monophthong Nodes */}
+          {Object.entries(vowelCoords).map(([sym, pt]) => {
+            const isSelected = phoneme.symbol === sym;
+            const matchingPhoneme = IPA_PHONEMES.find((p) => p.symbol === sym);
+            return (
+              <g
+                key={sym}
+                className="cursor-pointer"
+                onClick={() => matchingPhoneme && onSelectVowel(matchingPhoneme)}
+              >
+                {isSelected && (
+                  <circle cx={pt.x} cy={pt.y} r="16" fill="none" stroke="#38bdf8" strokeWidth="2" className="animate-ping origin-center" />
+                )}
+                <circle
+                  cx={pt.x}
+                  cy={pt.y}
+                  r={isSelected ? '10' : '6'}
+                  fill={isSelected ? '#38bdf8' : sym === '/ə/' ? '#f59e0b' : '#312e81'}
+                  stroke={isSelected ? '#ffffff' : '#818cf8'}
+                  strokeWidth="1.5"
+                />
+                <text
+                  x={pt.x}
+                  y={pt.y - 12}
+                  textAnchor="middle"
+                  fill={isSelected ? '#38bdf8' : sym === '/ə/' ? '#fde68a' : '#c7d2fe'}
+                  fontSize={isSelected ? '12' : '10'}
+                  fontWeight="black"
+                  fontFamily="monospace"
+                >
+                  {sym}
+                </text>
+              </g>
+            );
+          })}
+
+          {/* Diphthong Glide Trajectory Arrow */}
+          {isDiphthong && activeGlide && (
+            <g>
+              <line
+                x1={activeGlide.from.x}
+                y1={activeGlide.from.y}
+                x2={activeGlide.to.x}
+                y2={activeGlide.to.y}
+                stroke="#38bdf8"
+                strokeWidth="3.5"
+                strokeDasharray="5 3"
+                markerEnd="url(#vowelArrow)"
+              />
+              <circle cx={activeGlide.from.x} cy={activeGlide.from.y} r="5" fill="#38bdf8" />
+              <text
+                x={(activeGlide.from.x + activeGlide.to.x) / 2 + 10}
+                y={(activeGlide.from.y + activeGlide.to.y) / 2}
+                fill="#fde68a"
+                fontSize="11"
+                fontWeight="bold"
+              >
+                Glide {phoneme.symbol}
+              </text>
+            </g>
+          )}
+        </svg>
+      </div>
+
+      <div className="w-full text-center p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-xs text-indigo-200">
+        <span className="font-bold">{phoneme.name} ({phoneme.symbol})</span>
+        <span className="text-slate-400 block text-[11px] mt-0.5">
+          {isDiphthong ? 'Dynamic vocalic glide from nucleus to offglide target' : 'Stable acoustic formant frequency coordinate'}
+        </span>
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// 3. High-Resolution Connected Speech Waveform & Liaison Vector Schematic
+// ---------------------------------------------------------------------------
+interface ConnectedWaveformProps {
+  isLight: boolean;
+}
+
+const ConnectedSpeechWaveformVectorSchematic: React.FC<ConnectedWaveformProps> = ({ isLight }) => {
+  return (
+    <div className={`p-5 rounded-2xl border shadow-lg space-y-3 ${
+      isLight ? 'bg-slate-50 border-violet-200' : 'bg-slate-950 border-slate-800'
+    }`}>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Activity className="w-4 h-4 text-violet-400" />
+          <h4 className="text-xs font-bold text-violet-300 uppercase tracking-wider">
+            Acoustic Waveform & Co-articulation Liaison Architecture
+          </h4>
+        </div>
+        <span className="text-[11px] font-mono text-emerald-400 px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
+          CONTINUOUS PHONOLOGY
+        </span>
+      </div>
+
+      <div className="relative w-full aspect-[21/6] rounded-xl overflow-hidden bg-slate-900 border border-slate-800 flex items-center justify-center">
+        <svg viewBox="0 0 760 160" className="w-full h-full select-none">
+          <defs>
+            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="35%" stopColor="#ec4899" />
+              <stop offset="70%" stopColor="#06b6d4" />
+              <stop offset="100%" stopColor="#10b981" />
+            </linearGradient>
+          </defs>
+
+          {/* Oscilloscope Grid Lines */}
+          <line x1="0" y1="80" x2="760" y2="80" stroke="#334155" strokeWidth="1" strokeDasharray="4 4" />
+          <line x1="190" y1="10" x2="190" y2="150" stroke="#334155" strokeWidth="1" strokeDasharray="2 2" />
+          <line x1="380" y1="10" x2="380" y2="150" stroke="#334155" strokeWidth="1" strokeDasharray="2 2" />
+          <line x1="570" y1="10" x2="570" y2="150" stroke="#334155" strokeWidth="1" strokeDasharray="2 2" />
+
+          {/* Time-Domain Waveform Envelope */}
+          <path
+            d="M 10,80 Q 30,30 50,80 T 90,80 T 130,20 T 160,120 T 190,80 Q 230,40 260,80 T 310,130 T 350,30 T 380,80 Q 420,50 450,110 T 500,80 T 540,25 T 570,80 Q 610,60 640,120 T 690,40 T 730,100 L 750,80"
+            fill="none"
+            stroke="url(#waveGrad)"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+
+          {/* Phase 1: Schwa Vowel Reduction */}
+          <g transform="translate(40, 20)">
+            <rect x="0" y="0" width="110" height="24" rx="6" fill="#1e1b4b" stroke="#6366f1" strokeWidth="1" />
+            <text x="55" y="16" textAnchor="middle" fill="#c7d2fe" fontSize="10" fontWeight="bold">1. Schwa Reduction</text>
+          </g>
+
+          {/* Phase 2: Intrusive /r/ Linking */}
+          <g transform="translate(230, 20)">
+            <rect x="0" y="0" width="110" height="24" rx="6" fill="#4a044e" stroke="#c026d3" strokeWidth="1" />
+            <text x="55" y="16" textAnchor="middle" fill="#f5d0fe" fontSize="10" fontWeight="bold">2. Linking /r/ & /j/</text>
+          </g>
+
+          {/* Phase 3: Consonant Elision */}
+          <g transform="translate(420, 20)">
+            <rect x="0" y="0" width="110" height="24" rx="6" fill="#083344" stroke="#06b6d4" strokeWidth="1" />
+            <text x="55" y="16" textAnchor="middle" fill="#a5f3fc" fontSize="10" fontWeight="bold">3. Alveolar Elision</text>
+          </g>
+
+          {/* Phase 4: Regressive Assimilation */}
+          <g transform="translate(610, 20)">
+            <rect x="0" y="0" width="125" height="24" rx="6" fill="#064e3b" stroke="#10b981" strokeWidth="1" />
+            <text x="62" y="16" textAnchor="middle" fill="#a7f3d0" fontSize="10" fontWeight="bold">4. Assimilation</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+// ---------------------------------------------------------------------------
+// Main EnglishAudioPhoneticsStudio Component
+// ---------------------------------------------------------------------------
 export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
   lang: _lang = 'en',
   theme = 'dark',
@@ -259,6 +672,8 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
     }
   };
 
+  const isVowelCategory = selectedPhoneme.category.includes('vowel') || selectedPhoneme.category === 'diphthong';
+
   return (
     <div
       className={`w-full border transition-all ${
@@ -286,23 +701,23 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 English Audio & Phonetic Pronunciation Lab
               </h2>
               <span className="text-xs px-2.5 py-0.5 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30 font-semibold">
-                Secondary 3
+                Secondary 3 & EG-Bac
               </span>
             </div>
             <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-              Interactive 44-IPA chart, heteronym stress shifts, minimal pair drills, and academic listening comprehension.
+              Interactive 44-IPA chart, articulatory sagittal cross-section, vowel trapezoid, heteronym stress shifts, and academic listening comprehension.
             </p>
           </div>
         </div>
 
         {/* Global Audio Controls Bar */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 bg-slate-850/80 p-2 rounded-xl border border-slate-700/50 text-xs">
-          {/* Accent Selector */}
+          {/* Accent Selector (min-h-[44px]) */}
           <div className="flex items-center gap-1.5">
             <span className="text-slate-400 font-bold">Accent:</span>
             <button
               onClick={() => setAccent('en-GB')}
-              className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+              className={`px-3 py-2 min-h-[44px] rounded-lg font-bold transition-all cursor-pointer flex items-center justify-center ${
                 accent === 'en-GB'
                   ? 'bg-violet-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
@@ -312,7 +727,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </button>
             <button
               onClick={() => setAccent('en-US')}
-              className={`px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+              className={`px-3 py-2 min-h-[44px] rounded-lg font-bold transition-all cursor-pointer flex items-center justify-center ${
                 accent === 'en-US'
                   ? 'bg-violet-600 text-white shadow-sm'
                   : 'text-slate-400 hover:text-slate-200'
@@ -322,16 +737,16 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </button>
           </div>
 
-          <div className="w-px h-4 bg-slate-700 mx-1" />
+          <div className="w-px h-6 bg-slate-700 mx-1" />
 
-          {/* Speed Selector */}
+          {/* Speed Selector (min-h-[44px]) */}
           <div className="flex items-center gap-1">
             <span className="text-slate-400 font-bold">Speed:</span>
             {[0.75, 0.95, 1.2].map((rate) => (
               <button
                 key={rate}
                 onClick={() => setSpeechRate(rate)}
-                className={`px-2 py-0.5 rounded font-mono font-bold text-[11px] cursor-pointer ${
+                className={`px-3 py-2 min-h-[44px] rounded font-mono font-bold text-xs cursor-pointer flex items-center justify-center ${
                   speechRate === rate
                     ? 'bg-slate-700 text-violet-300 border border-violet-500/40'
                     : 'text-slate-400 hover:text-slate-200'
@@ -342,12 +757,12 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             ))}
           </div>
 
-          <div className="w-px h-4 bg-slate-700 mx-1" />
+          <div className="w-px h-6 bg-slate-700 mx-1" />
 
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="p-1 text-slate-400 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors"
+            className="p-2 min-h-[44px] min-w-[44px] text-slate-400 hover:text-white rounded-lg hover:bg-slate-700/50 transition-colors flex items-center justify-center cursor-pointer"
             title={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
             aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           >
@@ -356,7 +771,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* Primary Tab Navigation */}
+      {/* Primary Tab Navigation (min-h-[44px]) */}
       <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-6 scrollbar-thin border-b border-slate-800">
         {[
           { id: 'phonetics', label: '1. IPA & Minimal Pairs', icon: Zap },
@@ -371,7 +786,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as StudioTab)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
+              className={`flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap cursor-pointer ${
                 isActive
                   ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-900/30'
                   : isLight
@@ -391,7 +806,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
       {/* ------------------------------------------------------------- */}
       {activeTab === 'phonetics' && (
         <div className="space-y-6">
-          {/* Sub-header Filter */}
+          {/* Sub-header Filter (min-h-[44px]) */}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-1.5">
               {[
@@ -405,9 +820,9 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 <button
                   key={filter.id}
                   onClick={() => setSelectedPhonemeCategory(filter.id)}
-                  className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center justify-center ${
                     selectedPhonemeCategory === filter.id
-                      ? 'bg-violet-600 text-white'
+                      ? 'bg-violet-600 text-white shadow-sm'
                       : isLight
                       ? 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                       : 'bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-slate-200'
@@ -420,7 +835,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
 
             <button
               onClick={generateEarTest}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold hover:bg-amber-500/30 cursor-pointer"
+              className="flex items-center gap-1.5 px-4 py-2 min-h-[44px] rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-bold hover:bg-amber-500/30 cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>Start Minimal Pair Ear Drill</span>
@@ -458,7 +873,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                       key={opt}
                       onClick={() => submitEarTestAnswer(opt)}
                       disabled={hasAnswered}
-                      className={`p-3 rounded-xl border text-center font-bold text-sm transition-all cursor-pointer ${
+                      className={`p-3 min-h-[48px] rounded-xl border text-center font-bold text-sm transition-all cursor-pointer flex items-center justify-center ${
                         !hasAnswered
                           ? 'bg-slate-800/80 border-slate-700 hover:bg-violet-600/30 hover:border-violet-500'
                           : isTarget
@@ -492,10 +907,10 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </div>
           )}
 
-          {/* IPA Soundboard Grid & Active Inspector */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Grid of Phonemes (2 Cols on desktop) */}
-            <div className="lg:col-span-2 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
+          {/* IPA Soundboard Grid & Active Articulatory Inspector */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            {/* Grid of Phonemes (7 cols) */}
+            <div className="lg:col-span-7 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5">
               {filteredPhonemes.map((item) => {
                 const isSelected = selectedPhoneme.symbol === item.symbol;
                 const isCurrentlyVoicing = currentlyPlayingWord === item.audioTriggerWord;
@@ -506,7 +921,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                       setSelectedPhoneme(item);
                       playAudio(item.audioTriggerWord, accent, speechRate);
                     }}
-                    className={`p-3 rounded-xl border flex flex-col items-center justify-center gap-1 text-center transition-all cursor-pointer relative group ${
+                    className={`p-3 min-h-[64px] rounded-xl border flex flex-col items-center justify-center gap-1 text-center transition-all cursor-pointer relative group ${
                       isSelected
                         ? 'bg-violet-600 text-white border-violet-400 shadow-md shadow-violet-900/40 ring-2 ring-violet-400/40'
                         : isLight
@@ -519,7 +934,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                       {item.examples[0]}
                     </span>
                     {item.arabicContrastWarning && (
-                      <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-amber-400" />
+                      <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-amber-400" />
                     )}
                     {isCurrentlyVoicing && (
                       <span className="absolute inset-0 rounded-xl ring-2 ring-emerald-400 animate-pulse" />
@@ -529,66 +944,83 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
               })}
             </div>
 
-            {/* Phoneme Inspector Detail Card */}
-            <div className="p-5 rounded-2xl border border-violet-500/30 bg-violet-950/20 space-y-4">
-              <div className="flex items-start justify-between">
-                <div>
-                  <span className="text-3xl font-mono font-black text-violet-300">
-                    {selectedPhoneme.symbol}
-                  </span>
-                  <h4 className="text-sm font-bold text-white mt-1">{selectedPhoneme.name}</h4>
-                  <span className="inline-block mt-1 text-[11px] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30 capitalize">
-                    {selectedPhoneme.category.replace('_', ' ')}
-                  </span>
-                </div>
+            {/* Phoneme Inspector Detail & Vector Schematic Card (5 cols) */}
+            <div className="lg:col-span-5 space-y-4">
+              {/* High-Resolution Scientific Vector Schematic: Vocal Tract or Vowel Trapezoid */}
+              {isVowelCategory ? (
+                <AcousticVowelTrapezoidSchematic
+                  phoneme={selectedPhoneme}
+                  isLight={isLight}
+                  onSelectVowel={(p) => {
+                    setSelectedPhoneme(p);
+                    playAudio(p.audioTriggerWord, accent, speechRate);
+                  }}
+                />
+              ) : (
+                <VocalTractSagittalArticulatorySchematic phoneme={selectedPhoneme} isLight={isLight} />
+              )}
 
-                <button
-                  onClick={() => playAudio(selectedPhoneme.audioTriggerWord, accent, 0.85)}
-                  className="p-3 rounded-xl bg-violet-600 text-white hover:bg-violet-500 transition-all shadow-md cursor-pointer"
-                  title="Play Phoneme Pronunciation"
-                >
-                  <Volume2 className="w-5 h-5" />
-                </button>
-              </div>
-
-              <div>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                  Articulation Guide:
-                </span>
-                <p className="text-xs text-slate-200 mt-1 leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
-                  {selectedPhoneme.articulationGuide}
-                </p>
-              </div>
-
-              <div>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                  Exemplar Words:
-                </span>
-                <div className="flex flex-wrap gap-2 mt-1.5">
-                  {selectedPhoneme.examples.map((word) => (
-                    <button
-                      key={word}
-                      onClick={() => playAudio(word, accent, speechRate)}
-                      className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-violet-700 text-slate-200 hover:text-white border border-slate-700 text-xs font-medium flex items-center gap-1.5 cursor-pointer"
-                    >
-                      <Volume2 className="w-3 h-3 text-violet-400" />
-                      <span>{word}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {selectedPhoneme.arabicContrastWarning && (
-                <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs space-y-1">
-                  <div className="flex items-center gap-1.5 font-bold">
-                    <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Egyptian ESL Examination Alert:</span>
+              {/* Textual Inspection Details */}
+              <div className="p-5 rounded-2xl border border-violet-500/30 bg-violet-950/20 space-y-4">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <span className="text-3xl font-mono font-black text-violet-300">
+                      {selectedPhoneme.symbol}
+                    </span>
+                    <h4 className="text-sm font-bold text-white mt-1">{selectedPhoneme.name}</h4>
+                    <span className="inline-block mt-1 text-[11px] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30 capitalize">
+                      {selectedPhoneme.category.replace('_', ' ')}
+                    </span>
                   </div>
-                  <p className="text-[11px] leading-relaxed text-amber-200/90">
-                    {selectedPhoneme.arabicContrastWarning}
+
+                  <button
+                    onClick={() => playAudio(selectedPhoneme.audioTriggerWord, accent, 0.85)}
+                    className="p-3 min-h-[44px] min-w-[44px] rounded-xl bg-violet-600 text-white hover:bg-violet-500 transition-all shadow-md cursor-pointer flex items-center justify-center"
+                    title="Play Phoneme Pronunciation"
+                  >
+                    <Volume2 className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <div>
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    Articulation Guide:
+                  </span>
+                  <p className="text-xs text-slate-200 mt-1 leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+                    {selectedPhoneme.articulationGuide}
                   </p>
                 </div>
-              )}
+
+                <div>
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                    Exemplar Words:
+                  </span>
+                  <div className="flex flex-wrap gap-2 mt-1.5">
+                    {selectedPhoneme.examples.map((word) => (
+                      <button
+                        key={word}
+                        onClick={() => playAudio(word, accent, speechRate)}
+                        className="px-3 py-1.5 min-h-[44px] rounded-lg bg-slate-800 hover:bg-violet-700 text-slate-200 hover:text-white border border-slate-700 text-xs font-medium flex items-center gap-1.5 cursor-pointer"
+                      >
+                        <Volume2 className="w-3.5 h-3.5 text-violet-400" />
+                        <span>{word}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {selectedPhoneme.arabicContrastWarning && (
+                  <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs space-y-1">
+                    <div className="flex items-center gap-1.5 font-bold">
+                      <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+                      <span>Egyptian ESL Examination Alert:</span>
+                    </div>
+                    <p className="text-[11px] leading-relaxed text-amber-200/90">
+                      {selectedPhoneme.arabicContrastWarning}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -604,18 +1036,18 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                   onClick={() =>
                     setMinimalPairIndex((prev) => (prev > 0 ? prev - 1 : MINIMAL_PAIRS.length - 1))
                   }
-                  className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold cursor-pointer"
+                  className="px-3 py-2 min-h-[44px] rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold cursor-pointer flex items-center justify-center"
                 >
                   ← Prev
                 </button>
-                <span className="text-xs text-slate-400 font-mono">
+                <span className="text-xs text-slate-400 font-mono px-1">
                   {minimalPairIndex + 1} / {MINIMAL_PAIRS.length}
                 </span>
                 <button
                   onClick={() =>
                     setMinimalPairIndex((prev) => (prev < MINIMAL_PAIRS.length - 1 ? prev + 1 : 0))
                   }
-                  className="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold cursor-pointer"
+                  className="px-3 py-2 min-h-[44px] rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold cursor-pointer flex items-center justify-center"
                 >
                   Next →
                 </button>
@@ -634,9 +1066,9 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                       </span>
                       <button
                         onClick={() => playAudio(pair.word1, accent, 0.85)}
-                        className="flex items-center gap-1 text-xs text-violet-300 hover:text-white cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-violet-300 hover:text-white cursor-pointer"
                       >
-                        <Volume2 className="w-3.5 h-3.5" />
+                        <Volume2 className="w-4 h-4" />
                         <span>Listen</span>
                       </button>
                     </div>
@@ -655,9 +1087,9 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                       </span>
                       <button
                         onClick={() => playAudio(pair.word2, accent, 0.85)}
-                        className="flex items-center gap-1 text-xs text-indigo-300 hover:text-white cursor-pointer"
+                        className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-indigo-300 hover:text-white cursor-pointer"
                       >
-                        <Volume2 className="w-3.5 h-3.5" />
+                        <Volume2 className="w-4 h-4" />
                         <span>Listen</span>
                       </button>
                     </div>
@@ -699,13 +1131,13 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </div>
           </div>
 
-          {/* Interactive Heteronym Word Selector */}
+          {/* Interactive Heteronym Word Selector (min-h-[44px]) */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2">
             {STRESS_SHIFT_WORDS.map((item) => (
               <button
                 key={item.id}
                 onClick={() => setSelectedStressWord(item)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold border transition-all whitespace-nowrap cursor-pointer flex items-center justify-center ${
                   selectedStressWord.id === item.id
                     ? 'bg-violet-600 text-white border-violet-400 shadow-sm'
                     : isLight
@@ -728,7 +1160,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 </span>
                 <button
                   onClick={() => playAudio(selectedStressWord.word, accent, 0.85)}
-                  className="flex items-center gap-1 text-xs text-violet-300 hover:text-white font-bold cursor-pointer"
+                  className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-violet-300 hover:text-white font-bold cursor-pointer"
                 >
                   <Volume2 className="w-4 h-4" />
                   <span>Audio</span>
@@ -748,36 +1180,34 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                     >
                       <span>{syl.text}</span>
                     </div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400">
-                      {syl.stressed ? 'ˈPrimary Stress' : 'Unstressed'}
+                    <span className="text-[10px] font-mono text-slate-400">
+                      {syl.stressed ? 'PRIMARY STRESS (1st)' : 'Weak Syllable'}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="space-y-1">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-base font-bold text-white font-mono">
-                    {selectedStressWord.nounPhonetic}
-                  </span>
-                  <span className="text-xs text-slate-400">({selectedStressWord.word})</span>
-                </div>
-                <p className="text-xs text-slate-300">{selectedStressWord.nounDefinition}</p>
-                <p className="text-xs text-violet-200 italic mt-1 bg-violet-950/30 p-2 rounded border border-violet-500/20">
-                  &quot;{selectedStressWord.nounExample}&quot;
+              <div>
+                <span className="text-xs font-bold text-slate-400 uppercase">Meaning in Context:</span>
+                <p className="text-xs text-slate-200 mt-1 leading-relaxed bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
+                  {selectedStressWord.nounDefinition}
                 </p>
+              </div>
+
+              <div className="text-xs text-slate-300 italic bg-violet-950/20 p-2.5 rounded-lg border border-violet-500/20">
+                &quot;{selectedStressWord.nounExample}&quot;
               </div>
             </div>
 
             {/* Verb Form Card */}
             <div className="p-5 rounded-2xl border border-slate-700 bg-slate-800/80 space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-bold uppercase">
+                <span className="text-xs px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-bold uppercase">
                   Verb Form
                 </span>
                 <button
-                  onClick={() => playAudio(`to ${selectedStressWord.word}`, accent, 0.85)}
-                  className="flex items-center gap-1 text-xs text-emerald-300 hover:text-white font-bold cursor-pointer"
+                  onClick={() => playAudio(selectedStressWord.verbExample, accent, 0.85)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-indigo-300 hover:text-white font-bold cursor-pointer"
                 >
                   <Volume2 className="w-4 h-4" />
                   <span>Audio</span>
@@ -791,78 +1221,92 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                     <div
                       className={`rounded-lg transition-all flex items-center justify-center font-black ${
                         syl.stressed
-                          ? 'w-24 h-16 bg-gradient-to-t from-emerald-600 to-teal-500 text-white text-lg shadow-lg shadow-emerald-900/50'
+                          ? 'w-24 h-16 bg-gradient-to-t from-indigo-600 to-violet-500 text-white text-lg shadow-lg shadow-indigo-900/50'
                           : 'w-16 h-10 bg-slate-800 text-slate-400 text-sm border border-slate-700'
                       }`}
                     >
                       <span>{syl.text}</span>
                     </div>
-                    <span className="text-[10px] uppercase font-bold text-slate-400">
-                      {syl.stressed ? 'ˈPrimary Stress' : 'Unstressed'}
+                    <span className="text-[10px] font-mono text-slate-400">
+                      {syl.stressed ? 'PRIMARY STRESS (2nd)' : 'Weak / Reduced'}
                     </span>
                   </div>
                 ))}
               </div>
 
-              <div className="space-y-1">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-base font-bold text-white font-mono">
-                    {selectedStressWord.verbPhonetic}
-                  </span>
-                  <span className="text-xs text-slate-400">(to {selectedStressWord.word})</span>
-                </div>
-                <p className="text-xs text-slate-300">{selectedStressWord.verbDefinition}</p>
-                <p className="text-xs text-emerald-200 italic mt-1 bg-emerald-950/30 p-2 rounded border border-emerald-500/20">
-                  &quot;{selectedStressWord.verbExample}&quot;
+              <div>
+                <span className="text-xs font-bold text-slate-400 uppercase">Meaning in Context:</span>
+                <p className="text-xs text-slate-200 mt-1 leading-relaxed bg-slate-900/50 p-2.5 rounded-lg border border-slate-800">
+                  {selectedStressWord.verbDefinition}
                 </p>
+              </div>
+
+              <div className="text-xs text-slate-300 italic bg-indigo-950/20 p-2.5 rounded-lg border border-indigo-500/20">
+                &quot;{selectedStressWord.verbExample}&quot;
               </div>
             </div>
           </div>
 
-          {/* Suffix Stress Rules Reference */}
+          {/* Suffix-Driven Accent Rules Grid */}
           <div className="pt-4 border-t border-slate-800 space-y-4">
             <h3 className="text-base font-bold flex items-center gap-2">
               <BookOpen className="w-4 h-4 text-violet-400" />
-              <span>Suffix-Driven Stress Placement Rules</span>
+              <span>Suffix-Driven Accent Placement Rules (Ministerial High-Yield)</span>
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {SUFFIX_STRESS_RULES.map((rule) => (
-                <div key={rule.id} className="p-4 rounded-xl border border-slate-700 bg-slate-800/60 space-y-2">
+                <div
+                  key={rule.id}
+                  className="p-4 rounded-xl border border-slate-700 bg-slate-800/60 space-y-3"
+                >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono font-bold text-violet-300">
-                      {rule.suffixGroup}
-                    </span>
-                    <span className="text-[10px] uppercase px-2 py-0.5 rounded bg-slate-700 text-slate-300 font-bold">
+                    <h4 className="text-sm font-bold text-white">{rule.ruleName}</h4>
+                    <span className="text-xs px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-mono">
                       {rule.stressPosition}
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-white">{rule.ruleName}</h4>
                   <p className="text-xs text-slate-300 leading-relaxed">{rule.ruleExplanation}</p>
 
-                  <div className="pt-2 border-t border-slate-700/50 flex flex-wrap gap-1.5">
-                    {rule.examples.map((ex) => (
-                      <button
-                        key={ex.word}
-                        onClick={() => playAudio(ex.word, accent, speechRate)}
-                        className="px-2 py-1 rounded bg-slate-900/60 hover:bg-violet-700 text-slate-300 hover:text-white text-[11px] font-mono border border-slate-800 cursor-pointer"
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {rule.suffixGroup.split(',').map((suf) => (
+                      <span
+                        key={suf.trim()}
+                        className="px-2 py-0.5 rounded bg-slate-900 text-violet-300 border border-slate-700 text-xs font-mono font-bold"
                       >
-                        {ex.word}
-                      </button>
+                        {suf.trim()}
+                      </span>
                     ))}
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-750">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase">Exemplars:</span>
+                    <div className="flex flex-wrap gap-1.5 mt-1">
+                      {rule.examples.map((ex) => (
+                        <button
+                          key={ex.word}
+                          onClick={() => playAudio(ex.word, accent, 0.85)}
+                          className="px-2.5 py-1.5 min-h-[44px] rounded bg-slate-900 hover:bg-slate-700 text-xs text-slate-300 hover:text-white border border-slate-700 font-mono cursor-pointer flex flex-col items-center justify-center"
+                          title={ex.phonetic}
+                        >
+                          <span className="font-bold">{ex.word}</span>
+                          <span className="text-[10px] text-violet-400 font-sans">{ex.phonetic}</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Interactive Stress Quiz Workstation */}
-          <div className="p-5 rounded-2xl border border-indigo-500/30 bg-indigo-950/20 space-y-3">
+          {/* Interactive Syllable Stress Challenge */}
+          <div className="p-5 rounded-2xl border border-indigo-500/40 bg-indigo-950/20 space-y-4">
             <div className="flex items-center justify-between">
-              <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
-                <HelpCircle className="w-4 h-4 text-indigo-400" />
-                <span>Interactive Syllable Stress Challenge</span>
-              </h4>
+              <span className="text-xs font-black uppercase text-indigo-300 flex items-center gap-1.5">
+                <Award className="w-4 h-4" />
+                <span>Interactive Stress Placement Challenge</span>
+              </span>
               <button
                 onClick={() => {
                   setQuizWordIndex((prev) => (prev + 1) % STRESS_SHIFT_WORDS.length);
@@ -876,17 +1320,17 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </div>
 
             <p className="text-xs text-slate-300">
-              Click the syllable that carries the primary stress in the noun form of &quot;{currentQuizItem.word}&quot;:
+              Identify where the primary stress falls when <strong>&quot;{currentQuizItem.word}&quot;</strong> is used as a <strong>VERB</strong>:
             </p>
 
-            <div className="flex items-center gap-3">
-              {currentQuizItem.nounSyllables.map((syl, idx) => (
+            <div className="flex gap-3 max-w-sm">
+              {currentQuizItem.verbSyllables.map((syl, idx) => (
                 <button
                   key={idx}
-                  onClick={() => checkStressQuiz(idx, true)}
-                  className={`px-5 py-3 rounded-xl border text-sm font-bold transition-all cursor-pointer ${
+                  onClick={() => checkStressQuiz(idx, false)}
+                  className={`flex-1 p-3 min-h-[48px] rounded-xl border text-center font-bold text-sm transition-all cursor-pointer flex items-center justify-center ${
                     selectedSyllableIdx === idx
-                      ? idx === 0
+                      ? idx === 1
                         ? 'bg-emerald-600 text-white border-emerald-400'
                         : 'bg-rose-600 text-white border-rose-400'
                       : 'bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700'
@@ -918,6 +1362,9 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </p>
           </div>
 
+          {/* Connected Speech Waveform Vector Schematic */}
+          <ConnectedSpeechWaveformVectorSchematic isLight={isLight} />
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {CONNECTED_SPEECH_DATA.map((item) => (
               <div
@@ -930,9 +1377,9 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                   </span>
                   <button
                     onClick={() => playAudio(item.audioPrompt, accent, speechRate)}
-                    className="flex items-center gap-1 text-xs text-violet-300 hover:text-white cursor-pointer font-bold"
+                    className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-violet-300 hover:text-white cursor-pointer font-bold"
                   >
-                    <Volume2 className="w-3.5 h-3.5" />
+                    <Volume2 className="w-4 h-4" />
                     <span>Listen</span>
                   </button>
                 </div>
@@ -963,7 +1410,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
       {/* ------------------------------------------------------------- */}
       {activeTab === 'listening' && (
         <div className="space-y-6">
-          {/* Track Selection Bar */}
+          {/* Track Selection Bar (min-h-[44px]) */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2">
             {LISTENING_TRACKS.map((track) => (
               <button
@@ -975,7 +1422,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                   setSelectedTrackAnswers({});
                   setTrackScoreSubmitted(false);
                 }}
-                className={`px-4 py-2 rounded-xl text-xs font-bold border transition-all whitespace-nowrap cursor-pointer ${
+                className={`px-4 py-2.5 min-h-[44px] rounded-xl text-xs font-bold border transition-all whitespace-nowrap cursor-pointer flex items-center justify-center ${
                   selectedTrackId === track.id
                     ? 'bg-violet-600 text-white border-violet-400 shadow-md'
                     : isLight
@@ -998,11 +1445,11 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 <h3 className="text-lg font-bold text-white mt-0.5">{currentTrack.titleEn}</h3>
               </div>
 
-              {/* Play / Pause Button */}
+              {/* Play / Pause Button (min-h-[44px]) */}
               <div className="flex items-center gap-3">
                 <button
                   onClick={toggleTrackAudio}
-                  className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-lg transition-all cursor-pointer ${
+                  className={`flex items-center gap-2 px-5 py-2.5 min-h-[44px] rounded-xl font-bold text-xs sm:text-sm shadow-lg transition-all cursor-pointer ${
                     isPlayingTrack
                       ? 'bg-amber-600 hover:bg-amber-500 text-white'
                       : 'bg-violet-600 hover:bg-violet-500 text-white'
@@ -1028,7 +1475,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                     }
                     setIsPlayingTrack(false);
                   }}
-                  className="p-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer"
+                  className="p-2.5 min-h-[44px] min-w-[44px] rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 cursor-pointer flex items-center justify-center"
                   title="Reset Audio"
                 >
                   <RotateCcw className="w-4 h-4" />
@@ -1043,7 +1490,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
               </span>
               <button
                 onClick={() => setShowTranscript(!showTranscript)}
-                className="text-xs font-bold text-violet-400 hover:text-violet-300 underline cursor-pointer"
+                className="text-xs font-bold text-violet-400 hover:text-violet-300 underline cursor-pointer p-2"
               >
                 {showTranscript ? 'Hide Auditory Script' : 'Reveal Auditory Script'}
               </button>
@@ -1094,7 +1541,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                     )}
                   </div>
 
-                  {/* Options */}
+                  {/* Options (min-h-[48px]) */}
                   <div className="space-y-2">
                     {q.options.map((opt, optIndex) => {
                       const isSelected = selectedOpt === optIndex;
@@ -1123,7 +1570,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                               });
                             }
                           }}
-                          className={`w-full p-3 rounded-xl border text-left text-xs transition-all flex items-center justify-between cursor-pointer ${btnStyle}`}
+                          className={`w-full p-3.5 min-h-[48px] rounded-xl border text-left text-xs transition-all flex items-center justify-between cursor-pointer ${btnStyle}`}
                         >
                           <span>{opt}</span>
                         </button>
@@ -1142,12 +1589,12 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
               );
             })}
 
-            {/* Submit Quiz Score */}
+            {/* Submit Quiz Score (min-h-[44px]) */}
             <div className="pt-2 flex justify-end">
               <button
                 onClick={() => setTrackScoreSubmitted(true)}
                 disabled={trackScoreSubmitted || Object.keys(selectedTrackAnswers).length === 0}
-                className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md disabled:opacity-50 cursor-pointer"
+                className="px-6 py-3 min-h-[44px] rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-xs shadow-md disabled:opacity-50 cursor-pointer flex items-center justify-center"
               >
                 Submit Answers & Evaluate Marks
               </button>
@@ -1170,7 +1617,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
             </p>
           </div>
 
-          {/* Word Selector Bar */}
+          {/* Word Selector Bar (min-h-[44px]) */}
           <div className="space-y-2">
             <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">
               Choose Target Practice Word:
@@ -1195,7 +1642,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                     setTranscribedSpeech('');
                     setPronunciationScore(null);
                   }}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all whitespace-nowrap cursor-pointer ${
+                  className={`px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-bold border transition-all whitespace-nowrap cursor-pointer flex items-center justify-center ${
                     testWord === w
                       ? 'bg-violet-600 text-white border-violet-400 shadow-sm'
                       : isLight
@@ -1219,10 +1666,10 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 <h2 className="text-3xl font-black text-white">{testWord}</h2>
                 <button
                   onClick={() => playAudio(testWord, accent, 0.85)}
-                  className="p-2 rounded-lg bg-slate-750 hover:bg-violet-600 text-slate-300 hover:text-white transition-all cursor-pointer"
+                  className="p-2.5 min-h-[44px] min-w-[44px] rounded-xl bg-slate-750 hover:bg-violet-600 text-slate-300 hover:text-white transition-all cursor-pointer flex items-center justify-center"
                   title="Listen to Model Pronunciation"
                 >
-                  <Volume2 className="w-4 h-4" />
+                  <Volume2 className="w-5 h-5" />
                 </button>
               </div>
             </div>
