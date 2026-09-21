@@ -465,7 +465,7 @@ export const LessonView: React.FC<Props> = ({
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
-            <ArabicGrammarStudio />
+            <ArabicGrammarStudio lang={lang} theme={theme} isFullscreen={false} />
           );
         case 'history_timeline_lab':
           return (
@@ -896,7 +896,7 @@ export const LessonView: React.FC<Props> = ({
         case 'arabic_grammar_lab':
         case 'arabic_rhetoric_lab':
           return (
-            <ArabicGrammarStudio />
+            <ArabicGrammarStudio lang={lang} theme={theme} isFullscreen={true} />
           );
         case 'history_timeline_lab':
           return (
@@ -2120,7 +2120,7 @@ export const LessonView: React.FC<Props> = ({
                       href={lang === 'en' ? getFullTextbookDownloadUrl(matchingBook) : getFullTextbookEnglishDownloadUrl(matchingBook)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-700 dark:text-amber-300 font-bold py-2 px-3 rounded-xl text-xs flex items-center gap-1.5 border border-amber-500/40 shadow-xs transition-all active:scale-95"
+                      className="no-print bg-amber-500/20 hover:bg-amber-500/30 text-amber-700 dark:text-amber-300 font-bold py-2 px-3 rounded-xl text-xs flex items-center gap-1.5 border border-amber-500/40 shadow-xs transition-all active:scale-95"
                       title={lang === 'en' ? 'Download Arabic Edition' : 'تحميل نسخة مدارس اللغات باللغة الإنجليزية'}
                     >
                       <Languages className="w-3.5 h-3.5" />
@@ -2131,7 +2131,7 @@ export const LessonView: React.FC<Props> = ({
               )}
               <button
                 onClick={() => window.print()}
-                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg"
+                className="no-print bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg cursor-pointer"
               >
                 <Printer className="w-4 h-4" />
                 <span>{t.printWorksheet}</span>

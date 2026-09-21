@@ -117,34 +117,34 @@ const DupontPyramidSchematic: React.FC<{
         <line x1="630" y1="110" x2="630" y2="135" stroke="#a855f7" strokeWidth="2" />
 
         {/* Multiplier Operator Badges on Bus */}
-        <circle cx="255" cy="110" r="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
-        <text x="255" y="114" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">×</text>
-        <circle cx="505" cy="110" r="10" fill="#0f172a" stroke="#38bdf8" strokeWidth="1.5" />
-        <text x="505" y="114" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">×</text>
+        <circle cx="255" cy="110" r="10" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#0284c7' : '#38bdf8'} strokeWidth="1.5" />
+        <text x="255" y="114" fill={isLight ? '#0369a1' : '#38bdf8'} fontSize="11" fontWeight="bold" textAnchor="middle">×</text>
+        <circle cx="505" cy="110" r="10" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#0284c7' : '#38bdf8'} strokeWidth="1.5" />
+        <text x="505" y="114" fill={isLight ? '#0369a1' : '#38bdf8'} fontSize="11" fontWeight="bold" textAnchor="middle">×</text>
 
         {/* Connecting Lines from Middle to Bottom */}
-        <line x1="130" y1="200" x2="130" y2="225" stroke="#14b8a6" strokeWidth="1.5" strokeDasharray="2 2" />
-        <path d="M 70 225 L 190 225" stroke="#14b8a6" strokeWidth="1.5" />
-        <line x1="70" y1="225" x2="70" y2="240" stroke="#14b8a6" strokeWidth="1.5" />
-        <line x1="190" y1="225" x2="190" y2="240" stroke="#14b8a6" strokeWidth="1.5" />
+        <line x1="130" y1="200" x2="130" y2="225" stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M 70 225 L 190 225" stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth="1.5" />
+        <line x1="70" y1="225" x2="70" y2="240" stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth="1.5" />
+        <line x1="190" y1="225" x2="190" y2="240" stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth="1.5" />
 
-        <line x1="380" y1="200" x2="380" y2="225" stroke="#f59e0b" strokeWidth="1.5" strokeDasharray="2 2" />
-        <path d="M 320 225 L 440 225" stroke="#f59e0b" strokeWidth="1.5" />
-        <line x1="320" y1="225" x2="320" y2="240" stroke="#f59e0b" strokeWidth="1.5" />
-        <line x1="440" y1="225" x2="440" y2="240" stroke="#f59e0b" strokeWidth="1.5" />
+        <line x1="380" y1="200" x2="380" y2="225" stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M 320 225 L 440 225" stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth="1.5" />
+        <line x1="320" y1="225" x2="320" y2="240" stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth="1.5" />
+        <line x1="440" y1="225" x2="440" y2="240" stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth="1.5" />
 
-        <line x1="630" y1="200" x2="630" y2="225" stroke="#a855f7" strokeWidth="1.5" strokeDasharray="2 2" />
-        <path d="M 570 225 L 690 225" stroke="#a855f7" strokeWidth="1.5" />
-        <line x1="570" y1="225" x2="570" y2="240" stroke="#a855f7" strokeWidth="1.5" />
-        <line x1="690" y1="225" x2="690" y2="240" stroke="#a855f7" strokeWidth="1.5" />
+        <line x1="630" y1="200" x2="630" y2="225" stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth="1.5" strokeDasharray="2 2" />
+        <path d="M 570 225 L 690 225" stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth="1.5" />
+        <line x1="570" y1="225" x2="570" y2="240" stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth="1.5" />
+        <line x1="690" y1="225" x2="690" y2="240" stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth="1.5" />
 
         {/* Division badges */}
-        <circle cx="130" cy="225" r="8" fill="#0f172a" stroke="#14b8a6" strokeWidth="1" />
-        <text x="130" y="228" fill="#14b8a6" fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
-        <circle cx="380" cy="225" r="8" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
-        <text x="380" y="228" fill="#f59e0b" fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
-        <circle cx="630" cy="225" r="8" fill="#0f172a" stroke="#a855f7" strokeWidth="1" />
-        <text x="630" y="228" fill="#a855f7" fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
+        <circle cx="130" cy="225" r="8" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth={isLight ? '1.5' : '1'} />
+        <text x="130" y="228" fill={isLight ? '#0f766e' : '#14b8a6'} fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
+        <circle cx="380" cy="225" r="8" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth={isLight ? '1.5' : '1'} />
+        <text x="380" y="228" fill={isLight ? '#b45309' : '#f59e0b'} fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
+        <circle cx="630" cy="225" r="8" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth={isLight ? '1.5' : '1'} />
+        <text x="630" y="228" fill={isLight ? '#7e22ce' : '#a855f7'} fontSize="9" fontWeight="bold" textAnchor="middle">÷</text>
 
         {/* LEVEL 1: TOP ROE APEX CARD */}
         <g transform="translate(380, 48)">
@@ -242,66 +242,66 @@ const DupontPyramidSchematic: React.FC<{
         {/* LEVEL 3: RAW ACCOUNTING INPUT NODES */}
         {/* Node 1: Net Income */}
         <g transform="translate(70, 265)">
-          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#14b8a6" strokeWidth="1" />
-          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth={isLight ? '1.5' : '1'} />
+          <text x="0" y="-5" fill={isLight ? '#475569' : '#94a3b8'} fontSize="7" fontWeight={isLight ? 'bold' : 'normal'} textAnchor="middle">
             {isArabic ? 'صافي الدخل' : 'Net Income'}
           </text>
-          <text x="0" y="9" fill="#14b8a6" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <text x="0" y="9" fill={isLight ? '#0f766e' : '#14b8a6'} fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             {(netIncome / 1000).toFixed(0)}k EGP
           </text>
         </g>
 
         {/* Node 2: Sales Revenue */}
         <g transform="translate(190, 265)">
-          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#14b8a6" strokeWidth="1" />
-          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#0d9488' : '#14b8a6'} strokeWidth={isLight ? '1.5' : '1'} />
+          <text x="0" y="-5" fill={isLight ? '#475569' : '#94a3b8'} fontSize="7" fontWeight={isLight ? 'bold' : 'normal'} textAnchor="middle">
             {isArabic ? 'المبيعات' : 'Sales Revenue'}
           </text>
-          <text x="0" y="9" fill="#14b8a6" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <text x="0" y="9" fill={isLight ? '#0f766e' : '#14b8a6'} fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             {(sales / 1000).toFixed(0)}k EGP
           </text>
         </g>
 
         {/* Node 3: Sales (for Turnover) */}
         <g transform="translate(320, 265)">
-          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
-          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth={isLight ? '1.5' : '1'} />
+          <text x="0" y="-5" fill={isLight ? '#475569' : '#94a3b8'} fontSize="7" fontWeight={isLight ? 'bold' : 'normal'} textAnchor="middle">
             {isArabic ? 'المبيعات' : 'Sales Revenue'}
           </text>
-          <text x="0" y="9" fill="#f59e0b" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <text x="0" y="9" fill={isLight ? '#b45309' : '#f59e0b'} fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             {(sales / 1000).toFixed(0)}k EGP
           </text>
         </g>
 
         {/* Node 4: Total Assets */}
         <g transform="translate(440, 265)">
-          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#f59e0b" strokeWidth="1" />
-          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#d97706' : '#f59e0b'} strokeWidth={isLight ? '1.5' : '1'} />
+          <text x="0" y="-5" fill={isLight ? '#475569' : '#94a3b8'} fontSize="7" fontWeight={isLight ? 'bold' : 'normal'} textAnchor="middle">
             {isArabic ? 'إجمالي الأصول' : 'Total Assets'}
           </text>
-          <text x="0" y="9" fill="#f59e0b" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <text x="0" y="9" fill={isLight ? '#b45309' : '#f59e0b'} fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             {(totalAssets / 1000).toFixed(0)}k EGP
           </text>
         </g>
 
         {/* Node 5: Total Assets for Leverage */}
         <g transform="translate(570, 265)">
-          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#a855f7" strokeWidth="1" />
-          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth={isLight ? '1.5' : '1'} />
+          <text x="0" y="-5" fill={isLight ? '#475569' : '#94a3b8'} fontSize="7" fontWeight={isLight ? 'bold' : 'normal'} textAnchor="middle">
             {isArabic ? 'إجمالي الأصول' : 'Total Assets'}
           </text>
-          <text x="0" y="9" fill="#a855f7" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <text x="0" y="9" fill={isLight ? '#7e22ce' : '#a855f7'} fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             {(totalAssets / 1000).toFixed(0)}k EGP
           </text>
         </g>
 
         {/* Node 6: Total Equity */}
         <g transform="translate(690, 265)">
-          <rect x="-50" y="-18" width="100" height="36" rx="6" fill="#0f172a" stroke="#a855f7" strokeWidth="1" />
-          <text x="0" y="-5" fill="#94a3b8" fontSize="7" textAnchor="middle">
+          <rect x="-50" y="-18" width="100" height="36" rx="6" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#9333ea' : '#a855f7'} strokeWidth={isLight ? '1.5' : '1'} />
+          <text x="0" y="-5" fill={isLight ? '#475569' : '#94a3b8'} fontSize="7" fontWeight={isLight ? 'bold' : 'normal'} textAnchor="middle">
             {isArabic ? 'حقوق الملكية' : 'Total Equity'}
           </text>
-          <text x="0" y="9" fill="#a855f7" fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
+          <text x="0" y="9" fill={isLight ? '#7e22ce' : '#a855f7'} fontSize="8.5" fontWeight="bold" fontFamily="monospace" textAnchor="middle">
             {(totalEquity / 1000).toFixed(0)}k EGP
           </text>
         </g>
@@ -1799,46 +1799,46 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
 
             {/* Quick KPI Bar */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-              <div className="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
-                <span className="text-[11px] text-slate-400 block">{isArabic ? 'إجمالي الأصول' : 'Total Assets'}</span>
-                <span className="text-base font-bold text-teal-400 tabular-nums">
+              <div className={`p-3 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'border-slate-800 bg-slate-900/40'}`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'} block`}>{isArabic ? 'إجمالي الأصول' : 'Total Assets'}</span>
+                <span className={`text-base font-bold tabular-nums ${isLight ? 'text-teal-700' : 'text-teal-400'}`}>
                   {fsMetrics.totalAssets.toLocaleString()} EGP
                 </span>
               </div>
-              <div className="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
-                <span className="text-[11px] text-slate-400 block">{isArabic ? 'إجمالي الالتزامات' : 'Total Liabilities'}</span>
-                <span className="text-base font-bold text-amber-400 tabular-nums">
+              <div className={`p-3 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'border-slate-800 bg-slate-900/40'}`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'} block`}>{isArabic ? 'إجمالي الالتزامات' : 'Total Liabilities'}</span>
+                <span className={`text-base font-bold tabular-nums ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                   {fsMetrics.totalLiabilities.toLocaleString()} EGP
                 </span>
               </div>
-              <div className="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
-                <span className="text-[11px] text-slate-400 block">{isArabic ? 'حقوق الملكية' : 'Total Equity'}</span>
-                <span className="text-base font-bold text-emerald-400 tabular-nums">
+              <div className={`p-3 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'border-slate-800 bg-slate-900/40'}`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'} block`}>{isArabic ? 'حقوق الملكية' : 'Total Equity'}</span>
+                <span className={`text-base font-bold tabular-nums ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>
                   {fsMetrics.totalEquity.toLocaleString()} EGP
                 </span>
               </div>
-              <div className="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
-                <span className="text-[11px] text-slate-400 block">{isArabic ? 'صافي الدخل' : 'Net Income'}</span>
-                <span className="text-base font-bold text-sky-400 tabular-nums">
+              <div className={`p-3 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'border-slate-800 bg-slate-900/40'}`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'} block`}>{isArabic ? 'صافي الدخل' : 'Net Income'}</span>
+                <span className={`text-base font-bold tabular-nums ${isLight ? 'text-sky-700' : 'text-sky-400'}`}>
                   {fsMetrics.netIncome.toLocaleString()} EGP
                 </span>
               </div>
-              <div className="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
-                <span className="text-[11px] text-slate-400 block">{isArabic ? 'نسبة التداول (CR)' : 'Current Ratio'}</span>
-                <span className={`text-base font-bold tabular-nums ${fsMetrics.currentRatio >= 1.5 ? 'text-emerald-400' : 'text-rose-400'}`}>
+              <div className={`p-3 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'border-slate-800 bg-slate-900/40'}`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'} block`}>{isArabic ? 'نسبة التداول (CR)' : 'Current Ratio'}</span>
+                <span className={`text-base font-bold tabular-nums ${fsMetrics.currentRatio >= 1.5 ? (isLight ? 'text-emerald-700' : 'text-emerald-400') : (isLight ? 'text-rose-700' : 'text-rose-400')}`}>
                   {fsMetrics.currentRatio.toFixed(2)}x
                 </span>
               </div>
-              <div className="p-3 rounded-xl border border-slate-800 bg-slate-900/40">
-                <span className="text-[11px] text-slate-400 block">{isArabic ? 'العائد على الملكية' : 'Return on Equity'}</span>
-                <span className="text-base font-bold text-purple-400 tabular-nums">
+              <div className={`p-3 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'border-slate-800 bg-slate-900/40'}`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-semibold' : 'text-slate-400'} block`}>{isArabic ? 'العائد على الملكية' : 'Return on Equity'}</span>
+                <span className={`text-base font-bold tabular-nums ${isLight ? 'text-purple-700' : 'text-purple-400'}`}>
                   {fsMetrics.roePct.toFixed(1)}%
                 </span>
               </div>
             </div>
 
             {/* High-Resolution DuPont ROE Decomposition Schematic */}
-            <div className="p-4 rounded-xl border border-slate-800 bg-slate-900/40">
+            <div className={`p-4 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-sm' : 'border-slate-800 bg-slate-900/40'}`}>
               <DupontPyramidSchematic
                 roePct={fsMetrics.roePct}
                 netMarginPct={fsMetrics.netMarginPct}
@@ -1856,9 +1856,9 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
             {/* Interactive Sliders & Equation Check */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Asset & Revenue Sliders */}
-              <div className="p-5 rounded-xl border border-slate-800 bg-slate-900/30 space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                  <DollarSign className="w-4 h-4 text-teal-400" />
+              <div className={`p-5 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-sm' : 'border-slate-800 bg-slate-900/30'} space-y-4`}>
+                <h4 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-700' : 'text-slate-400'} flex items-center gap-2`}>
+                  <DollarSign className={`w-4 h-4 ${isLight ? 'text-teal-700' : 'text-teal-400'}`} />
                   {isArabic ? 'تعديل بنود الأصول والإيرادات' : 'Assets & Revenue Adjustments'}
                 </h4>
 
@@ -1928,9 +1928,9 @@ export const CommercialFinanceStudio: React.FC<Props> = ({
               </div>
 
               {/* Liabilities & Cost Sliders */}
-              <div className="p-5 rounded-xl border border-slate-800 bg-slate-900/30 space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-amber-400" />
+              <div className={`p-5 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-sm' : 'border-slate-800 bg-slate-900/30'} space-y-4`}>
+                <h4 className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-700' : 'text-slate-400'} flex items-center gap-2`}>
+                  <Building2 className={`w-4 h-4 ${isLight ? 'text-amber-800' : 'text-amber-400'}`} />
                   {isArabic ? 'تعديل الخصوم والتكاليف' : 'Liabilities & Operational Costs'}
                 </h4>
 

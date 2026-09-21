@@ -42,6 +42,7 @@ export interface BubbleSheetSimulatorProps {
   answerKey?: ExamAnswerKey[];
   timeLimitMinutes?: number;
   lang?: 'en' | 'ar';
+  theme?: 'dark' | 'light' | 'high-contrast';
   studentName?: string;
   seatingNumber?: string;
   questions?: GeneratedQuestion[];
@@ -55,6 +56,7 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
   answerKey = [],
   timeLimitMinutes = 180,
   lang = 'ar',
+  theme = 'dark',
   studentName = 'طالب الثانوية العامة',
   seatingNumber = '1048592',
   questions = [],
@@ -63,6 +65,7 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
   onExamSubmitted,
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
   const effectiveTotalQuestions = questions.length > 0 ? questions.length : propTotalQuestions;
 
   // Active question index in tablet mode (0-based)
@@ -343,7 +346,11 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
 
   return (
     <div
-      className="bg-slate-950 border-2 border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl text-slate-100 font-sans space-y-6"
+      className={`bubble-sheet-container print-exam-sheet border-2 rounded-3xl p-4 sm:p-6 shadow-2xl font-sans space-y-6 ${
+        isLight
+          ? 'bg-slate-100 border-slate-300 text-slate-900'
+          : 'bg-slate-950 border-slate-800 text-slate-100'
+      }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* Official OMR Sheet & Tablet Header */}
@@ -657,29 +664,33 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
               viewMode === 'dual' ? 'lg:col-span-7 xl:col-span-8' : 'w-full'
             }`}
           >
-            <div className="bg-slate-900/90 border-2 border-slate-800 rounded-3xl p-5 shadow-xl relative overflow-hidden">
+            <div className={`border-2 rounded-3xl p-5 shadow-xl relative overflow-hidden ${
+              isLight ? 'bg-white border-slate-200 text-slate-900' : 'bg-slate-900/90 border-slate-800 text-slate-100'
+            }`}>
               {/* Question Navigation Header */}
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3.5">
+              <div className={`flex flex-wrap items-center justify-between gap-3 border-b pb-3.5 ${
+                isLight ? 'border-slate-200' : 'border-slate-800'
+              }`}>
                 <div className="flex items-center gap-2.5">
-                  <span className="w-8 h-8 rounded-xl bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 font-black flex items-center justify-center font-mono text-sm">
+                  <span className="w-8 h-8 rounded-xl bg-indigo-600/30 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40 font-black flex items-center justify-center font-mono text-sm">
                     {isAr ? toHindiDigits(activeQuestionNum) : activeQuestionNum}
                   </span>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-slate-200">
+                      <span className={`text-xs font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
                         {isAr ? activeQuestion.chapterTitleAr : activeQuestion.chapterTitleEn}
                       </span>
                       {activePoints === 2 ? (
-                        <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">
+                        <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 font-bold">
                           {isAr ? 'القسم الثاني: درجتان (HOTS)' : 'Section 2: 2 Marks'}
                         </span>
                       ) : (
-                        <span className="text-[10px] px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 font-bold">
+                        <span className="text-[10px] px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-800 dark:text-cyan-300 border border-cyan-500/30 font-bold">
                           {isAr ? 'القسم الأول: درجة واحدة' : 'Section 1: 1 Mark'}
                         </span>
                       )}
                     </div>
-                    <div className="flex items-center gap-2 mt-0.5 text-[10px] text-slate-400">
+                    <div className="flex items-center gap-2 mt-0.5 text-[10px] text-slate-600 dark:text-slate-400">
                       <span className={bloomMeta.color}>
                         {isAr ? `مستوى بلوم: ${bloomMeta.shortLabelAr}` : `Bloom: ${bloomMeta.shortLabelEn}`}
                       </span>
@@ -700,7 +711,9 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                     onClick={() => toggleFlag(activeQuestionNum)}
                     className={`px-3 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                       flaggedQuestions[activeQuestionNum]
-                        ? 'bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-sm'
+                        ? 'bg-amber-500/20 border-amber-500/40 text-amber-600 dark:text-amber-300 shadow-xs'
+                        : isLight
+                        ? 'bg-slate-100 border-slate-300 text-slate-700 hover:text-slate-900'
                         : 'bg-slate-800 border-slate-700 text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -716,10 +729,14 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                     <button
                       type="button"
                       onClick={onOpenScratchpad}
-                      className="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-all"
+                      className={`px-3 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-all ${
+                        isLight
+                          ? 'border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-800'
+                          : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white'
+                      }`}
                       title={isAr ? 'المسودة الحسابية' : 'Math Scratchpad'}
                     >
-                      <Edit3 className="w-3.5 h-3.5 text-emerald-400" />
+                      <Edit3 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                       <span className="hidden sm:inline">{isAr ? 'المسودة' : 'Scratchpad'}</span>
                     </button>
                   )}
@@ -728,10 +745,14 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                     <button
                       type="button"
                       onClick={onOpenDesmos}
-                      className="px-3 py-1.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-all"
+                      className={`px-3 py-1.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-all ${
+                        isLight
+                          ? 'border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-800'
+                          : 'border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white'
+                      }`}
                       title={isAr ? 'الحاسبة البيانية' : 'Desmos Calculator'}
                     >
-                      <Calculator className="w-3.5 h-3.5 text-cyan-400" />
+                      <Calculator className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
                       <span className="hidden sm:inline">{isAr ? 'الحاسبة' : 'Desmos'}</span>
                     </button>
                   )}
@@ -740,13 +761,17 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
 
               {/* Question Text Body */}
               <div className="py-4 space-y-4">
-                <div className="text-slate-100 text-sm sm:text-base leading-relaxed font-medium">
+                <div className={`text-sm sm:text-base leading-relaxed font-medium ${
+                  isLight ? 'text-slate-900' : 'text-slate-100'
+                }`}>
                   <MathRenderer text={isAr ? activeQuestion.questionAr : activeQuestion.questionEn} />
                 </div>
 
                 {/* Optional Textbook Diagram */}
                 {activeQuestion.diagramType && (
-                  <div className="flex justify-center p-3 bg-slate-950/60 rounded-2xl border border-slate-800">
+                  <div className={`flex justify-center p-3 rounded-2xl border ${
+                    isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800'
+                  }`}>
                     <TextbookDiagram type={activeQuestion.diagramType} lang={lang} />
                   </div>
                 )}
@@ -775,6 +800,8 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                               : 'bg-indigo-950/60 border-indigo-500 text-white shadow-lg shadow-indigo-500/20 ring-2 ring-indigo-500/30'
                             : isCorrectAnswer
                             ? 'bg-emerald-950/30 border-emerald-500/80 text-emerald-200 ring-2 ring-emerald-500/30'
+                            : isLight
+                            ? 'bg-slate-50 border-slate-300 hover:border-indigo-400 text-slate-900 hover:bg-slate-100'
                             : 'bg-slate-950/60 border-slate-800 hover:border-slate-700 text-slate-300 hover:bg-slate-900/60'
                         }`}
                       >
@@ -789,6 +816,8 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                                 : 'bg-indigo-500 border-indigo-400 text-white shadow-inner'
                               : isCorrectAnswer
                               ? 'border-emerald-400 bg-emerald-900 text-emerald-200 font-black'
+                              : isLight
+                              ? 'border-slate-400 text-slate-700 font-bold'
                               : 'border-slate-600 text-slate-400'
                           }`}
                         >
@@ -806,12 +835,14 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
 
                 {/* Explanation Card upon submission */}
                 {isSubmitted && (
-                  <div className="mt-4 p-4 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-                    <div className="flex items-center gap-2 font-bold text-indigo-300">
+                  <div className={`mt-4 p-4 rounded-2xl border space-y-2 text-xs ${
+                    isLight ? 'bg-indigo-50/70 border-indigo-200 text-slate-900' : 'bg-slate-950 border-slate-800'
+                  }`}>
+                    <div className="flex items-center gap-2 font-bold text-indigo-600 dark:text-indigo-300">
                       <HelpCircle className="w-4 h-4" />
                       <span>{isAr ? 'خطوات الحل والتعليل الوزاري النموذجي:' : 'Ministry Step-by-Step Solution:'}</span>
                     </div>
-                    <div className="space-y-1.5 text-slate-300 font-sans">
+                    <div className={`space-y-1.5 font-sans ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
                       {(isAr ? activeQuestion.explanationAr : activeQuestion.explanationEn)?.map((step, idx) => (
                         <div key={idx}>
                           <MathRenderer text={step} />
@@ -823,18 +854,26 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
               </div>
 
               {/* Tablet Footer: Previous / Next Navigation */}
-              <div className="flex items-center justify-between pt-3.5 border-t border-slate-800">
+              <div className={`flex items-center justify-between pt-3.5 border-t ${
+                isLight ? 'border-slate-200' : 'border-slate-800'
+              }`}>
                 <button
                   type="button"
                   onClick={() => setActiveQuestionIdx((prev) => Math.max(0, prev - 1))}
                   disabled={activeQuestionIdx === 0}
-                  className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-200 text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-all"
+                  className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer transition-all disabled:opacity-40 disabled:cursor-not-allowed ${
+                    isLight
+                      ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-200'
+                  }`}
                 >
                   <ChevronRight className={`w-4 h-4 ${isAr ? '' : 'rotate-180'}`} />
                   <span>{isAr ? 'السؤال السابق' : 'Previous'}</span>
                 </button>
 
-                <div className="text-[11px] text-slate-500 hidden sm:block font-mono">
+                <div className={`text-[11px] hidden sm:block font-mono ${
+                  isLight ? 'text-slate-600' : 'text-slate-500'
+                }`}>
                   {isAr
                     ? 'اختصارات: [1-4] للاختيار • [←/→] للتنقل • [F] للمراجعة'
                     : 'Shortcuts: [1-4] Select • [←/→] Navigate • [F] Flag'}

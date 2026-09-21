@@ -979,6 +979,7 @@ export const App: React.FC = () => {
           <Suspense fallback={<ViewLoadingFallback messageAr="جاري تحميل محطة الاختبارات ونموذج البابل شيت..." messageEn="Loading exam workstation & OMR bubble sheet simulator..." />}>
             <TestGenerator
               lang={lang}
+              theme={theme}
               currentCurriculum={curriculum}
               onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
               onOpenDesmos={(targetMode = '2d') => {

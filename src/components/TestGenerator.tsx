@@ -108,6 +108,7 @@ export type BlueprintMode =
 interface Props {
   lang: Language;
   currentCurriculum: CurriculumType;
+  theme?: 'dark' | 'light' | 'high-contrast';
   onOpenFormulaHandbook?: () => void;
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
   initialSubject?: string;
@@ -118,12 +119,14 @@ interface Props {
 export const TestGenerator: React.FC<Props> = ({
   lang,
   currentCurriculum,
+  theme = 'dark',
   onOpenFormulaHandbook,
   onOpenDesmos,
   initialSubject = 'all',
   initialBlueprint,
   initialQuestionCount,
 }) => {
+  const isLight = theme === 'light';
   const t = translations[lang];
 
   // Filter selections
@@ -2321,17 +2324,25 @@ export const TestGenerator: React.FC<Props> = ({
 
       {/* Printable Exam Paper View */}
       {examMode === 'printable' && (
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 md:p-8 shadow-2xl space-y-6 print-exam-sheet">
+        <div className={`${
+          isLight
+            ? 'bg-slate-100/90 border-slate-300 text-slate-900 shadow-xl'
+            : 'bg-slate-900 border-slate-800 text-slate-100 shadow-2xl'
+        } border rounded-2xl p-4 sm:p-6 md:p-8 space-y-6 print-exam-sheet`}>
           {/* Printable Mode Controls & Teacher Toolbar (Hidden during actual print) */}
-          <div className="bg-slate-950/90 border border-slate-800 rounded-2xl p-4 space-y-4 no-print shadow-xl">
-            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-3">
+          <div className={`${
+            isLight
+              ? 'bg-white border-slate-200 text-slate-800 shadow-md'
+              : 'bg-slate-950/90 border-slate-800 text-slate-100 shadow-xl'
+          } border rounded-2xl p-4 space-y-4 no-print`}>
+            <div className={`flex flex-wrap items-center justify-between gap-3 border-b ${isLight ? 'border-slate-200' : 'border-slate-800'} pb-3`}>
               <div className="flex items-center gap-2.5">
-                <Printer className="w-5 h-5 text-emerald-400" />
+                <Printer className={`w-5 h-5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
                 <div>
-                  <h4 className="text-sm font-bold text-slate-100">
+                  <h4 className={`text-sm font-bold ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                     {lang === 'ar' ? 'أدوات الطباعة وإعداد ورقة الامتحان' : 'Printable Worksheet & Exam Controls'}
                   </h4>
-                  <p className="text-[11px] text-slate-400">
+                  <p className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'}`}>
                     {lang === 'ar'
                       ? 'تخصيص الكليشة الرسمية، نموذج الإجابة، الشرح التفصيلي، والتنسيق الموفر للورق'
                       : 'Customize official header, answer key sheet, model solutions, and paper-saving layouts'}
@@ -2346,19 +2357,19 @@ export const TestGenerator: React.FC<Props> = ({
                   onClick={handleCopyExamMarkdown}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer border ${
                     isCopiedNotification
-                      ? 'bg-emerald-950 border-emerald-500 text-emerald-300'
-                      : 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-200'
+                      ? isLight ? 'bg-emerald-100 border-emerald-500 text-emerald-950' : 'bg-emerald-950 border-emerald-500 text-emerald-300'
+                      : isLight ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800' : 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-200'
                   }`}
                   title={lang === 'ar' ? 'نسخ نص الامتحان بالكامل إلى الحافظة' : 'Copy entire exam text to clipboard'}
                 >
                   {isCopiedNotification ? (
                     <>
-                      <CheckCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      <CheckCheck className={`w-3.5 h-3.5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
                       <span>{lang === 'ar' ? 'تم النسخ بنجاح!' : 'Copied to Clipboard!'}</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3.5 h-3.5 text-indigo-400" />
+                      <Copy className={`w-3.5 h-3.5 ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`} />
                       <span>{lang === 'ar' ? 'نسخ الامتحان (Markdown)' : 'Copy Exam (Text)'}</span>
                     </>
                   )}
@@ -2370,11 +2381,11 @@ export const TestGenerator: React.FC<Props> = ({
                   onClick={() => setIsCustomizerOpen((prev) => !prev)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer border ${
                     isCustomizerOpen
-                      ? 'bg-indigo-950 border-indigo-500 text-indigo-300'
-                      : 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-200'
+                      ? isLight ? 'bg-indigo-100 border-indigo-500 text-indigo-950 font-bold' : 'bg-indigo-950 border-indigo-500 text-indigo-300'
+                      : isLight ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-800' : 'bg-slate-900 hover:bg-slate-800 border-slate-700 text-slate-200'
                   }`}
                 >
-                  <SlidersHorizontal className="w-3.5 h-3.5 text-indigo-400" />
+                  <SlidersHorizontal className={`w-3.5 h-3.5 ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`} />
                   <span>{lang === 'ar' ? 'تخصيص الكليشة والاسم' : 'Customize Header'}</span>
                   {isCustomizerOpen ? <ChevronUp className="w-3 h-3 ml-1" /> : <ChevronDown className="w-3 h-3 ml-1" />}
                 </button>
@@ -2394,36 +2405,36 @@ export const TestGenerator: React.FC<Props> = ({
             <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-semibold">
               <div className="flex flex-wrap items-center gap-3 sm:gap-5">
                 {/* Toggle Answer Key */}
-                <label className="flex items-center gap-2 cursor-pointer select-none text-slate-300 hover:text-white transition-colors">
+                <label className={`flex items-center gap-2 cursor-pointer select-none ${isLight ? 'text-slate-700 hover:text-slate-950 font-semibold' : 'text-slate-300 hover:text-white'} transition-colors`}>
                   <input
                     type="checkbox"
                     checked={showAnswerKeyOnPrint}
                     onChange={(e) => setShowAnswerKeyOnPrint(e.target.checked)}
-                    className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                    className={`w-4 h-4 rounded ${isLight ? 'border-slate-300 bg-white text-indigo-600' : 'border-slate-700 bg-slate-900 text-indigo-600'} focus:ring-indigo-500 cursor-pointer`}
                   />
                   <span>{lang === 'ar' ? 'تضمين ملحق نموذج الإجابة الرسمي في الطباعة' : 'Include Model Answer Key Sheet on Print'}</span>
                 </label>
 
                 {/* Toggle Step-by-Step Solutions */}
                 {showAnswerKeyOnPrint && (
-                  <label className="flex items-center gap-2 cursor-pointer select-none text-slate-300 hover:text-white transition-colors">
+                  <label className={`flex items-center gap-2 cursor-pointer select-none ${isLight ? 'text-slate-700 hover:text-slate-950 font-semibold' : 'text-slate-300 hover:text-white'} transition-colors`}>
                     <input
                       type="checkbox"
                       checked={showExplanationsOnPrint}
                       onChange={(e) => setShowExplanationsOnPrint(e.target.checked)}
-                      className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                      className={`w-4 h-4 rounded ${isLight ? 'border-slate-300 bg-white text-emerald-600' : 'border-slate-700 bg-slate-900 text-emerald-600'} focus:ring-emerald-500 cursor-pointer`}
                     />
                     <span>{lang === 'ar' ? 'تضمين خطوات الحل والشرح التفصيلي' : 'Include Step-by-Step Solutions on Print'}</span>
                   </label>
                 )}
 
                 {/* Toggle Printable OMR Bubble Sheet */}
-                <label className="flex items-center gap-2 cursor-pointer select-none text-slate-300 hover:text-white transition-colors">
+                <label className={`flex items-center gap-2 cursor-pointer select-none ${isLight ? 'text-slate-700 hover:text-slate-950 font-semibold' : 'text-slate-300 hover:text-white'} transition-colors`}>
                   <input
                     type="checkbox"
                     checked={showPrintableOmrSheet}
                     onChange={(e) => setShowPrintableOmrSheet(e.target.checked)}
-                    className="w-4 h-4 rounded border-slate-700 bg-slate-900 text-amber-500 focus:ring-amber-500 cursor-pointer"
+                    className={`w-4 h-4 rounded ${isLight ? 'border-slate-300 bg-white text-amber-600' : 'border-slate-700 bg-slate-900 text-amber-500'} focus:ring-amber-500 cursor-pointer`}
                   />
                   <span>
                     {lang === 'ar'
@@ -2434,15 +2445,15 @@ export const TestGenerator: React.FC<Props> = ({
               </div>
 
               {/* Layout Switcher: Standard vs Compact 2-Col */}
-              <div className="flex items-center gap-1.5 bg-slate-900 p-1 rounded-xl border border-slate-800">
-                <span className="text-[11px] text-slate-400 px-1.5">{lang === 'ar' ? 'تنسيق الطباعة:' : 'Layout:'}</span>
+              <div className={`flex items-center gap-1.5 ${isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-800'} p-1 rounded-xl border`}>
+                <span className={`text-[11px] ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'} px-1.5`}>{lang === 'ar' ? 'تنسيق الطباعة:' : 'Layout:'}</span>
                 <button
                   type="button"
                   onClick={() => setPrintLayout('standard')}
                   className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                     printLayout === 'standard'
                       ? 'bg-indigo-600 text-white shadow'
-                      : 'text-slate-400 hover:text-slate-200'
+                      : isLight ? 'text-slate-700 hover:text-slate-950 font-semibold' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   {lang === 'ar' ? 'قياسي (عمود واحد)' : 'Standard (1-Col)'}
@@ -2453,7 +2464,7 @@ export const TestGenerator: React.FC<Props> = ({
                   className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
                     printLayout === 'compact'
                       ? 'bg-indigo-600 text-white shadow'
-                      : 'text-slate-400 hover:text-slate-200'
+                      : isLight ? 'text-slate-700 hover:text-slate-950 font-semibold' : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   <Columns className="w-3 h-3" />
@@ -2464,10 +2475,10 @@ export const TestGenerator: React.FC<Props> = ({
 
             {/* Collapsible Teacher / Academy Customizer Drawer */}
             {isCustomizerOpen && (
-              <div className="bg-slate-900/90 border border-indigo-500/30 rounded-xl p-4 sm:p-5 mt-3 space-y-4 animate-fadeIn">
-                <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-                  <div className="flex items-center gap-2 text-xs font-bold text-indigo-300">
-                    <FileText className="w-4 h-4 text-indigo-400" />
+              <div className={`${isLight ? 'bg-slate-50 border-indigo-300 shadow-sm' : 'bg-slate-900/90 border-indigo-500/30'} border rounded-xl p-4 sm:p-5 mt-3 space-y-4 animate-fadeIn`}>
+                <div className={`flex items-center justify-between border-b ${isLight ? 'border-slate-200' : 'border-slate-800'} pb-2.5`}>
+                  <div className={`flex items-center gap-2 text-xs font-bold ${isLight ? 'text-indigo-900' : 'text-indigo-300'}`}>
+                    <FileText className={`w-4 h-4 ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`} />
                     <span>{lang === 'ar' ? 'تخصيص بيانات ترويسة ورقة الامتحان (كليشة المعلم والسنتر)' : 'Customize Exam Paper Header & Teacher Branding'}</span>
                   </div>
                   <button
@@ -2479,7 +2490,7 @@ export const TestGenerator: React.FC<Props> = ({
                       setCustomAcademicYear('2025 - 2026');
                       setCustomGradeSection('');
                     }}
-                    className="text-[11px] text-amber-400 hover:text-amber-300 font-semibold cursor-pointer underline"
+                    className={`text-[11px] ${isLight ? 'text-amber-800' : 'text-amber-400 hover:text-amber-300'} font-semibold cursor-pointer underline`}
                   >
                     {lang === 'ar' ? 'استعادة الافتراضيات الرسمية' : 'Reset to Official Defaults'}
                   </button>
@@ -2487,7 +2498,7 @@ export const TestGenerator: React.FC<Props> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs">
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">
+                    <label className={`block ${isLight ? 'text-slate-800 font-bold' : 'text-slate-300 font-semibold'} mb-1`}>
                       {lang === 'ar' ? 'اسم المدرسة / السنتر / الأكاديمية' : 'School / Academy / Center Name'}
                     </label>
                     <input
@@ -2495,12 +2506,12 @@ export const TestGenerator: React.FC<Props> = ({
                       value={customSchoolName}
                       onChange={(e) => setCustomSchoolName(e.target.value)}
                       placeholder={lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم' : 'Ministry of Education & Technical Education'}
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                      className={`w-full ${isLight ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400' : 'bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600'} border rounded-lg p-2 focus:border-indigo-500`}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">
+                    <label className={`block ${isLight ? 'text-slate-800 font-bold' : 'text-slate-300 font-semibold'} mb-1`}>
                       {lang === 'ar' ? 'اسم المعلم / واضع الامتحان' : 'Teacher / Instructor Name'}
                     </label>
                     <input
@@ -2508,12 +2519,12 @@ export const TestGenerator: React.FC<Props> = ({
                       value={customTeacherName}
                       onChange={(e) => setCustomTeacherName(e.target.value)}
                       placeholder={lang === 'ar' ? 'إعداد: الأستاذ / ...' : 'Prepared by: Teacher ...'}
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                      className={`w-full ${isLight ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400' : 'bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600'} border rounded-lg p-2 focus:border-indigo-500`}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">
+                    <label className={`block ${isLight ? 'text-slate-800 font-bold' : 'text-slate-300 font-semibold'} mb-1`}>
                       {lang === 'ar' ? 'عنوان الامتحان الرئيسي' : 'Main Exam Title'}
                     </label>
                     <input
@@ -2521,12 +2532,12 @@ export const TestGenerator: React.FC<Props> = ({
                       value={customExamTitle}
                       onChange={(e) => setCustomExamTitle(e.target.value)}
                       placeholder={lang === 'ar' ? 'امتحان شهادة إتمام الدراسة الثانوية العامة' : 'Official Mock Examination'}
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                      className={`w-full ${isLight ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400' : 'bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600'} border rounded-lg p-2 focus:border-indigo-500`}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">
+                    <label className={`block ${isLight ? 'text-slate-800 font-bold' : 'text-slate-300 font-semibold'} mb-1`}>
                       {lang === 'ar' ? 'العام الدراسي' : 'Academic Year'}
                     </label>
                     <input
@@ -2534,12 +2545,12 @@ export const TestGenerator: React.FC<Props> = ({
                       value={customAcademicYear}
                       onChange={(e) => setCustomAcademicYear(e.target.value)}
                       placeholder="2025 - 2026"
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                      className={`w-full ${isLight ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400' : 'bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600'} border rounded-lg p-2 focus:border-indigo-500`}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-300 font-semibold mb-1">
+                    <label className={`block ${isLight ? 'text-slate-800 font-bold' : 'text-slate-300 font-semibold'} mb-1`}>
                       {lang === 'ar' ? 'الصف والشعبة' : 'Grade & Track'}
                     </label>
                     <input
@@ -2547,12 +2558,12 @@ export const TestGenerator: React.FC<Props> = ({
                       value={customGradeSection}
                       onChange={(e) => setCustomGradeSection(e.target.value)}
                       placeholder={lang === 'ar' ? 'الصف الثالث الثانوي (علمي علوم / علمي رياضة)' : 'Grade 12 (Thanaweya Amma)'}
-                      className="w-full bg-slate-950 border border-slate-800 rounded-lg p-2 text-slate-200 focus:border-indigo-500 placeholder:text-slate-600"
+                      className={`w-full ${isLight ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400' : 'bg-slate-950 border-slate-800 text-slate-200 placeholder:text-slate-600'} border rounded-lg p-2 focus:border-indigo-500`}
                     />
                   </div>
 
                   <div className="flex items-end">
-                    <p className="text-[11px] text-slate-400 leading-tight">
+                    <p className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'} leading-tight`}>
                       {lang === 'ar'
                         ? 'يتم حفظ هذه البيانات تلقائياً في متصفحك وستظهر في ترويسة ورقة الأسئلة وملحق الإجابة المطبوعة.'
                         : 'Custom branding is auto-saved locally and will appear on both printed question sheets and answer appendices.'}
@@ -2564,45 +2575,47 @@ export const TestGenerator: React.FC<Props> = ({
           </div>
 
           {/* Official Egyptian MoE & ClipSAT Header on Printable Paper */}
-          <div className="border-4 border-double border-slate-700 p-4 sm:p-6 rounded-xl space-y-4 bg-slate-950/40 text-center print-exam-header print-avoid-break">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold border-b border-slate-700 pb-4 text-center md:text-left">
+          <div className={`border-4 border-double ${
+            isLight ? 'border-slate-400 bg-white text-slate-900 shadow-xs' : 'border-slate-700 bg-slate-950/40 text-slate-100'
+          } p-4 sm:p-6 rounded-xl space-y-4 text-center print-exam-header print-avoid-break`}>
+            <div className={`flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-bold border-b ${isLight ? 'border-slate-300' : 'border-slate-700'} pb-4 text-center md:text-left`}>
               <div className="flex items-center gap-3 text-left">
                 <img src={clipsatLogo} alt="ClipSAT Logo" className="h-10 sm:h-12 w-auto object-contain" />
                 <div>
-                  <p className="text-base font-black text-indigo-400">ClipSAT for Egypt</p>
-                  <p className="text-xs text-slate-300">Ministry of Education Secondary Framework</p>
+                  <p className={`text-base font-black ${isLight ? 'text-indigo-800' : 'text-indigo-400'}`}>ClipSAT for Egypt</p>
+                  <p className={`text-xs ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>Ministry of Education Secondary Framework</p>
                 </div>
               </div>
 
               <div className="text-center">
-                <h2 className="text-base sm:text-lg font-black text-amber-400">
+                <h2 className={`text-base sm:text-lg font-black ${isLight ? 'text-amber-950' : 'text-amber-400'}`}>
                   {customSchoolName || (lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني' : 'Arab Republic of Egypt - Ministry of Education')}
                 </h2>
-                <p className="text-xs sm:text-sm font-bold text-slate-200 mt-1">
+                <p className={`text-xs sm:text-sm font-bold ${isLight ? 'text-slate-800' : 'text-slate-200'} mt-1`}>
                   {customExamTitle || t.officialExamHeader}
                 </p>
                 {customTeacherName && (
-                  <p className="text-xs font-bold text-indigo-300 mt-0.5">
+                  <p className={`text-xs font-bold ${isLight ? 'text-indigo-800' : 'text-indigo-300'} mt-0.5`}>
                     {customTeacherName}
                   </p>
                 )}
-                <p className="text-[11px] text-slate-300 mt-0.5">
+                <p className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'} mt-0.5`}>
                   {customAcademicYear} {customGradeSection ? `• ${customGradeSection}` : ''}
                 </p>
               </div>
 
               <div className="text-right text-xs space-y-1">
-                <p className="font-bold text-emerald-400">
+                <p className={`font-bold ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>
                   {lang === 'ar'
                     ? `الدرجة الكلية: ${toHindiDigits(activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0))} درجة`
                     : `Total Marks: ${activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0)}`}
                 </p>
-                <p className="font-bold text-cyan-400">
+                <p className={`font-bold ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>
                   {lang === 'ar'
                     ? `الزمن: ${toHindiDigits(durationPreset === 180 ? 3 : durationPreset === 120 ? 2 : Math.round((activeQuestions.length * 2) / 60) || 1)} ساعة`
                     : `Time Allowed: ${durationPreset === 180 ? 3 : durationPreset === 120 ? 2 : Math.round((activeQuestions.length * 2) / 60) || 1} Hours`}
                 </p>
-                <p className="font-semibold text-slate-400 text-[11px]">
+                <p className={`font-semibold ${isLight ? 'text-slate-600' : 'text-slate-400'} text-[11px]`}>
                   {lang === 'ar'
                     ? `عدد الأسئلة: ${toHindiDigits(activeQuestions.length)} سؤالاً`
                     : `Questions: ${activeQuestions.length}`}
@@ -2611,10 +2624,10 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
 
             <div className="flex flex-col sm:flex-row justify-between items-center gap-3 text-sm pt-2 font-semibold">
-              <div className="border-2 border-slate-700 p-2.5 rounded-lg bg-slate-900 text-slate-200 w-full sm:w-auto text-center sm:text-left">
+              <div className={`border-2 ${isLight ? 'border-slate-300 bg-slate-100 text-slate-900 font-bold' : 'border-slate-700 bg-slate-900 text-slate-200'} p-2.5 rounded-lg w-full sm:w-auto text-center sm:text-left`}>
                 {t.studentSeatNo} [ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ]
               </div>
-              <div className="text-slate-200 w-full sm:w-auto text-center sm:text-right">
+              <div className={`${isLight ? 'text-slate-900 font-bold' : 'text-slate-200'} w-full sm:w-auto text-center sm:text-right`}>
                 {lang === 'ar'
                   ? 'اسم الطالب: .................................................'
                   : 'Student Name: .................................................'}
@@ -2635,7 +2648,9 @@ export const TestGenerator: React.FC<Props> = ({
                   </span>
                   <div className="flex items-center gap-2">
                     {q.points !== undefined && (
-                      <span className="text-[10px] px-2 py-0.5 rounded border font-bold text-amber-300 border-amber-500/40 bg-amber-950/30">
+                      <span className={`text-[10px] px-2 py-0.5 rounded border font-bold ${
+                        isLight ? 'text-amber-900 border-amber-300 bg-amber-100' : 'text-amber-300 border-amber-500/40 bg-amber-950/30'
+                      }`}>
                         {q.points === 2
                           ? (lang === 'ar' ? 'درجتان (تفكير عليا)' : '2 Marks (HOTS)')
                           : (lang === 'ar' ? 'درجة واحدة' : '1 Mark')}
@@ -2664,12 +2679,16 @@ export const TestGenerator: React.FC<Props> = ({
                   {(lang === 'ar' ? q.optionsAr : q.optionsEn).map((opt, optIdx) => (
                     <div
                       key={optIdx}
-                      className="border border-slate-800 p-3 rounded-lg flex items-center gap-2 bg-slate-900/60 text-xs text-slate-200"
+                      className={`border ${
+                        isLight
+                          ? 'border-slate-200 bg-slate-50 text-slate-900 shadow-2xs'
+                          : 'border-slate-800 bg-slate-900/60 text-slate-200'
+                      } p-3 rounded-lg flex items-center gap-2 text-xs`}
                     >
-                      <span className="font-bold text-indigo-400">
+                      <span className={`font-bold ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`}>
                         {lang === 'ar' ? `(${['أ', 'ب', 'ج', 'د'][optIdx]})` : `(${String.fromCharCode(65 + optIdx)})`}
                       </span>
-                      <span className="font-semibold text-slate-100">
+                      <span className={`font-semibold ${isLight ? 'text-slate-950' : 'text-slate-100'}`}>
                         <MathRenderer math={opt} lang={lang} />
                       </span>
                     </div>
@@ -2681,31 +2700,31 @@ export const TestGenerator: React.FC<Props> = ({
 
           {/* Printable Model Answer Key & Solution Appendix Sheet */}
           {showAnswerKeyOnPrint && (
-            <div className="mt-12 pt-8 border-t-4 border-double border-slate-700 print-page-break-before space-y-6 print-avoid-break">
+            <div className={`mt-12 pt-8 border-t-4 border-double ${isLight ? 'border-slate-300' : 'border-slate-700'} print-page-break-before space-y-6 print-avoid-break`}>
               {/* Appendix Header */}
-              <div className="border-4 border-double border-slate-700 p-4 sm:p-5 rounded-xl bg-slate-950/40 text-center print-exam-header print-avoid-break">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 border-b border-slate-700 pb-3">
+              <div className={`border-4 border-double ${isLight ? 'border-slate-400 bg-white text-slate-900 shadow-xs' : 'border-slate-700 bg-slate-950/40 text-slate-100'} p-4 sm:p-5 rounded-xl text-center print-exam-header print-avoid-break`}>
+                <div className={`flex flex-col sm:flex-row justify-between items-center gap-3 border-b ${isLight ? 'border-slate-300' : 'border-slate-700'} pb-3`}>
                   <div className="text-left rtl:text-right">
-                    <p className="text-xs font-black text-indigo-400">
+                    <p className={`text-xs font-black ${isLight ? 'text-indigo-800' : 'text-indigo-400'}`}>
                       {customSchoolName || (lang === 'ar' ? 'جمهورية مصر العربية - وزارة التربية والتعليم والتعليم الفني' : 'Arab Republic of Egypt - Ministry of Education')}
                     </p>
-                    <p className="text-[11px] text-slate-300">
+                    <p className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-300'}`}>
                       {customAcademicYear} {customGradeSection ? `• ${customGradeSection}` : ''}
                     </p>
                   </div>
                   <div>
-                    <h3 className="text-base sm:text-lg font-black text-amber-400">
+                    <h3 className={`text-base sm:text-lg font-black ${isLight ? 'text-amber-950' : 'text-amber-400'}`}>
                       {lang === 'ar' ? 'نموذج الإجابة الرسمي والحلول المعتمدة' : 'Official Model Answer Key & Solution Appendix'}
                     </h3>
-                    <p className="text-xs font-bold text-slate-200 mt-0.5">
+                    <p className={`text-xs font-bold ${isLight ? 'text-slate-800' : 'text-slate-200'} mt-0.5`}>
                       {customExamTitle || t.officialExamHeader}
                     </p>
                   </div>
                   <div className="text-right rtl:text-left text-xs space-y-0.5">
-                    <span className="font-bold text-emerald-400 block">
+                    <span className={`font-bold ${isLight ? 'text-emerald-800' : 'text-emerald-400'} block`}>
                       {lang === 'ar' ? `إجمالي الأسئلة: ${toHindiDigits(activeQuestions.length)}` : `Total Questions: ${activeQuestions.length}`}
                     </span>
-                    <span className="font-bold text-cyan-400 block">
+                    <span className={`font-bold ${isLight ? 'text-cyan-800' : 'text-cyan-400'} block`}>
                       {lang === 'ar'
                         ? `الدرجة العظمى: ${toHindiDigits(activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0))}`
                         : `Max Marks: ${activeQuestions.reduce((s, q) => s + (q.points ?? 2), 0)}`}
@@ -2713,7 +2732,7 @@ export const TestGenerator: React.FC<Props> = ({
                   </div>
                 </div>
                 {customTeacherName && (
-                  <p className="text-xs font-bold text-slate-300 pt-1 text-center">
+                  <p className={`text-xs font-bold ${isLight ? 'text-indigo-800' : 'text-slate-300'} pt-1 text-center`}>
                     {lang === 'ar' ? `إعداد وتدقيق: ${customTeacherName}` : `Prepared & Reviewed by: ${customTeacherName}`}
                   </p>
                 )}
@@ -2722,11 +2741,11 @@ export const TestGenerator: React.FC<Props> = ({
               {/* Quick Answer Key Matrix Table */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between no-print">
-                  <h4 className="text-xs font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <h4 className={`text-xs font-bold ${isLight ? 'text-slate-800' : 'text-slate-300'} uppercase tracking-wider flex items-center gap-2`}>
+                    <CheckCircle2 className={`w-4 h-4 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
                     <span>{lang === 'ar' ? 'جدول مفتاح الإجابات السريع (Quick Scoring Grid)' : 'Quick Scoring Matrix'}</span>
                   </h4>
-                  <span className="text-[11px] text-slate-400">
+                  <span className={`text-[11px] ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'}`}>
                     {activeQuestions.some(q => q.points !== undefined)
                       ? (lang === 'ar' ? 'توزيع درجات الامتحان الرسمي (درجة ودرجتان)' : 'Official Exam Weighting (1 & 2 Marks)')
                       : (lang === 'ar' ? 'درجتان لكل سؤال' : '2 Marks per Question')}
@@ -2734,15 +2753,15 @@ export const TestGenerator: React.FC<Props> = ({
                 </div>
 
                 <div className="overflow-x-auto">
-                  <table className="w-full border-collapse border border-slate-700 text-xs text-center print-answer-key-table">
+                  <table className={`w-full border-collapse border ${isLight ? 'border-slate-300 bg-white' : 'border-slate-700'} text-xs text-center print-answer-key-table`}>
                     <thead>
-                      <tr className="bg-slate-800 text-slate-200 border-b border-slate-700">
-                        <th className="p-2 border border-slate-700 w-12 font-black">{lang === 'ar' ? 'رقم' : 'Q#'}</th>
-                        <th className="p-2 border border-slate-700 w-16 font-black">{lang === 'ar' ? 'الرمز' : 'Key'}</th>
-                        <th className="p-2 border border-slate-700 w-16 font-black">{lang === 'ar' ? 'الدرجة' : 'Mark'}</th>
-                        <th className="p-2 border border-slate-700 text-left rtl:text-right font-black">{lang === 'ar' ? 'الإجابة النموذجية المعتمدة' : 'Correct Answer Option'}</th>
-                        <th className="p-2 border border-slate-700 w-24 font-black">{lang === 'ar' ? 'المستوى' : 'Level'}</th>
-                        <th className="p-2 border border-slate-700 text-left rtl:text-right font-black">{lang === 'ar' ? 'الفصل / الوحدة' : 'Chapter / Branch'}</th>
+                      <tr className={`${isLight ? 'bg-slate-100 text-slate-900 border-b border-slate-300' : 'bg-slate-800 text-slate-200 border-b border-slate-700'}`}>
+                        <th className={`p-2 border ${isLight ? 'border-slate-300' : 'border-slate-700'} w-12 font-black`}>{lang === 'ar' ? 'رقم' : 'Q#'}</th>
+                        <th className={`p-2 border ${isLight ? 'border-slate-300' : 'border-slate-700'} w-16 font-black`}>{lang === 'ar' ? 'الرمز' : 'Key'}</th>
+                        <th className={`p-2 border ${isLight ? 'border-slate-300' : 'border-slate-700'} w-16 font-black`}>{lang === 'ar' ? 'الدرجة' : 'Mark'}</th>
+                        <th className={`p-2 border ${isLight ? 'border-slate-300' : 'border-slate-700'} text-left rtl:text-right font-black`}>{lang === 'ar' ? 'الإجابة النموذجية المعتمدة' : 'Correct Answer Option'}</th>
+                        <th className={`p-2 border ${isLight ? 'border-slate-300' : 'border-slate-700'} w-24 font-black`}>{lang === 'ar' ? 'المستوى' : 'Level'}</th>
+                        <th className={`p-2 border ${isLight ? 'border-slate-300' : 'border-slate-700'} text-left rtl:text-right font-black`}>{lang === 'ar' ? 'الفصل / الوحدة' : 'Chapter / Branch'}</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -2758,36 +2777,40 @@ export const TestGenerator: React.FC<Props> = ({
                         return (
                           <tr
                             key={q.id}
-                            className={`border-b border-slate-800 ${idx % 2 === 0 ? 'bg-slate-900/40' : 'bg-slate-950/40'}`}
+                            className={`border-b ${
+                              isLight
+                                ? 'border-slate-200' + (idx % 2 === 0 ? ' bg-white' : ' bg-slate-50')
+                                : 'border-slate-800' + (idx % 2 === 0 ? ' bg-slate-900/40' : ' bg-slate-950/40')
+                            }`}
                           >
-                            <td className="p-2 border border-slate-800 font-bold text-slate-300">
+                            <td className={`p-2 border ${isLight ? 'border-slate-200 text-slate-900 font-bold' : 'border-slate-800 font-bold text-slate-300'}`}>
                               {lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}
                             </td>
-                            <td className="p-2 border border-slate-800 font-black text-emerald-400 text-sm">
+                            <td className={`p-2 border ${isLight ? 'border-slate-200 text-emerald-800' : 'border-slate-800 text-emerald-400'} font-black text-sm`}>
                               ({correctLetter})
                             </td>
-                            <td className="p-2 border border-slate-800 font-black text-amber-400 text-xs">
+                            <td className={`p-2 border ${isLight ? 'border-slate-200 text-amber-800' : 'border-slate-800 text-amber-400'} font-black text-xs`}>
                               {q.points !== undefined
                                 ? (lang === 'ar' ? `${toHindiDigits(q.points)} د` : `${q.points} pt`)
                                 : (lang === 'ar' ? '٢ د' : '2 pt')}
                             </td>
-                            <td className="p-2 border border-slate-800 text-left rtl:text-right font-medium text-slate-200">
+                            <td className={`p-2 border ${isLight ? 'border-slate-200 text-slate-950' : 'border-slate-800 text-slate-200'} text-left rtl:text-right font-medium`}>
                               <MathRenderer math={correctText} lang={lang} />
                             </td>
-                            <td className="p-2 border border-slate-800 text-[11px] font-semibold text-slate-400">
+                            <td className={`p-2 border ${isLight ? 'border-slate-200 text-slate-700' : 'border-slate-800 text-slate-400'} text-[11px] font-semibold`}>
                               <span
                                 className={`px-2 py-0.5 rounded border inline-block ${
                                   q.difficulty === 'hots'
-                                    ? 'border-amber-500/40 text-amber-300 bg-amber-950/20'
+                                    ? isLight ? 'border-amber-300 text-amber-900 bg-amber-100 font-bold' : 'border-amber-500/40 text-amber-300 bg-amber-950/20'
                                     : q.difficulty === 'easy'
-                                    ? 'border-emerald-500/40 text-emerald-300 bg-emerald-950/20'
-                                    : 'border-slate-700 text-slate-300 bg-slate-900/40'
+                                    ? isLight ? 'border-emerald-300 text-emerald-900 bg-emerald-100 font-bold' : 'border-emerald-500/40 text-emerald-300 bg-emerald-950/20'
+                                    : isLight ? 'border-slate-300 text-slate-800 bg-slate-100 font-semibold' : 'border-slate-700 text-slate-300 bg-slate-900/40'
                                 }`}
                               >
                                 {diffLabel}
                               </span>
                             </td>
-                            <td className="p-2 border border-slate-800 text-left rtl:text-right text-[11px] text-slate-400">
+                            <td className={`p-2 border ${isLight ? 'border-slate-200 text-slate-600' : 'border-slate-800 text-slate-400'} text-left rtl:text-right text-[11px]`}>
                               {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}
                             </td>
                           </tr>
@@ -2801,12 +2824,12 @@ export const TestGenerator: React.FC<Props> = ({
               {/* Detailed Step-by-Step Explanations Section */}
               {showExplanationsOnPrint && (
                 <div className="space-y-6 pt-6 print-page-break-before">
-                  <div className="border-b border-slate-700 pb-2">
-                    <h4 className="text-sm font-black text-amber-400 flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-amber-400" />
+                  <div className={`border-b ${isLight ? 'border-slate-300' : 'border-slate-700'} pb-2`}>
+                    <h4 className={`text-sm font-black ${isLight ? 'text-amber-950' : 'text-amber-400'} flex items-center gap-2`}>
+                      <Sparkles className={`w-4 h-4 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
                       <span>{lang === 'ar' ? 'الشرح النموذجي وخطوات الحل المفصلة' : 'Step-by-Step Solutions & Mathematical Explanations'}</span>
                     </h4>
-                    <p className="text-xs text-slate-400 mt-0.5">
+                    <p className={`text-xs ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'} mt-0.5`}>
                       {lang === 'ar' ? 'خطوات الاستنتاج الرياضي والعلمي وفقاً لمعايير التصحيح الوزاري' : 'Full ministerial marking guide and conceptual derivations'}
                     </p>
                   </div>
@@ -2820,35 +2843,41 @@ export const TestGenerator: React.FC<Props> = ({
                       return (
                         <div
                           key={q.id}
-                          className="border border-slate-300 dark:border-slate-800 rounded-xl p-4 bg-white dark:bg-slate-950/60 space-y-3 printable-problem print-avoid-break"
+                          className={`border ${
+                            isLight ? 'border-slate-300 bg-white shadow-xs' : 'border-slate-800 bg-slate-950/60'
+                          } rounded-xl p-4 space-y-3 printable-problem print-avoid-break`}
                         >
-                          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 pb-2">
-                            <span className="font-black text-indigo-400 text-xs">
+                          <div className={`flex items-center justify-between border-b ${isLight ? 'border-slate-200' : 'border-slate-800/80'} pb-2`}>
+                            <span className={`font-black ${isLight ? 'text-indigo-800' : 'text-indigo-400'} text-xs`}>
                               {lang === 'ar' ? `إجابة السؤال رقم (${toHindiDigits(idx + 1)})` : `Solution to Question (${idx + 1})`}
                             </span>
-                            <span className="bg-emerald-950/40 text-emerald-300 border border-emerald-500/40 px-2.5 py-0.5 rounded text-xs font-bold">
+                            <span className={`${
+                              isLight ? 'bg-emerald-100 text-emerald-950 border-emerald-400' : 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40'
+                            } px-2.5 py-0.5 rounded text-xs font-bold border`}>
                               {lang === 'ar' ? `الاختيار الصحيح: (${correctLetter})` : `Correct Choice: (${correctLetter})`}
                             </span>
                           </div>
 
-                          <div className="text-xs font-semibold text-slate-200">
+                          <div className={`text-xs font-semibold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
                             <MathRenderer math={lang === 'ar' ? q.questionAr : q.questionEn} lang={lang} />
                           </div>
 
-                          <div className="bg-emerald-950/20 border-r-2 rtl:border-r-2 rtl:border-l-0 border-emerald-500 p-2 text-xs font-bold text-emerald-300">
+                          <div className={`${
+                            isLight ? 'bg-emerald-50 text-emerald-950 border-emerald-600' : 'bg-emerald-950/20 text-emerald-300 border-emerald-500'
+                          } border-r-2 rtl:border-r-2 rtl:border-l-0 p-2 text-xs font-bold`}>
                             <span>{lang === 'ar' ? 'الإجابة المعتمدة:' : 'Selected Answer:'} </span>
                             <MathRenderer math={correctText} lang={lang} />
                           </div>
 
                           {steps && steps.length > 0 && (
-                            <div className="space-y-1.5 pt-1 text-xs text-slate-300">
-                              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                            <div className={`space-y-1.5 pt-1 text-xs ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
+                              <span className={`text-[11px] font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'} uppercase tracking-wider block`}>
                                 {lang === 'ar' ? 'خطوات الحل والتعليل:' : 'Derivation Steps:'}
                               </span>
                               {steps.map((step, sIdx) => (
                                 <div
                                   key={sIdx}
-                                  className="pl-3 rtl:pr-3 rtl:pl-0 border-l-2 rtl:border-r-2 rtl:border-l-0 border-indigo-500/40 py-0.5"
+                                  className={`pl-3 rtl:pr-3 rtl:pl-0 border-l-2 rtl:border-r-2 rtl:border-l-0 ${isLight ? 'border-indigo-400 text-slate-900 font-medium' : 'border-indigo-500/40'} py-0.5`}
                                 >
                                   <MathRenderer math={step} lang={lang} />
                                 </div>
@@ -3882,6 +3911,7 @@ export const TestGenerator: React.FC<Props> = ({
                   {showPrintableCertificate && (
                     <OfficialPerformanceCertificate
                       studentName={customTeacherName || (lang === 'ar' ? 'طالب الثانوية العامة' : 'Thanaweya Student')}
+                      theme={theme}
                       subjectId={selectedSubject}
                       subjectNameAr={
                         selectedSubject === 'physics'
@@ -4257,6 +4287,7 @@ export const TestGenerator: React.FC<Props> = ({
           <BubbleSheetSimulator
             totalQuestions={activeQuestions.length > 0 ? activeQuestions.length : questionCount}
             questions={activeQuestions}
+            theme={theme}
             answerKey={activeQuestions.map((q, idx) => ({
               questionIndex: idx + 1,
               correctOption: (['A', 'B', 'C', 'D'][q.correctIndex] || 'A') as 'A' | 'B' | 'C' | 'D',

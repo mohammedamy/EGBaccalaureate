@@ -65,6 +65,18 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
+  const inputClass = isLight
+    ? 'w-full text-xs p-2.5 rounded-xl bg-slate-100 border border-slate-300 text-slate-900 placeholder:text-slate-500 focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 outline-hidden'
+    : 'w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden';
+
+  const tableHeaderClass = isLight
+    ? 'bg-slate-100 border-b border-slate-300 text-slate-800'
+    : 'bg-slate-950/80 border-b border-slate-800 text-slate-300';
+
+  const tableInputClass = isLight
+    ? 'w-full text-center p-1.5 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 font-mono text-xs focus:border-indigo-600 outline-hidden'
+    : 'w-full text-center p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 font-mono text-xs focus:border-indigo-500 outline-hidden';
+
   const [activeTab, setActiveTab] = useState<'editor' | 'preview'>('editor');
   const [selectedExpId, setSelectedExpId] = useState<string>(initialExperimentId);
   const [report, setReport] = useState<LabReportData>(() => loadLabReportDraft(initialExperimentId));
@@ -360,7 +372,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-400 mb-1">
+                    <label className={`block text-[11px] font-semibold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                       {isArabic ? 'اسم الطالب:' : 'Student Name:'}
                     </label>
                     <input
@@ -368,11 +380,11 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                       value={report.studentName}
                       onChange={(e) => handleMetadataChange('studentName', e.target.value)}
                       placeholder={isArabic ? 'أدخل اسمك ثلاثياً' : 'Full Student Name'}
-                      className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden"
+                      className={inputClass}
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-400 mb-1">
+                    <label className={`block text-[11px] font-semibold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                       {isArabic ? 'رقم الجلوس / الكود:' : 'Seat / Student ID:'}
                     </label>
                     <input
@@ -380,11 +392,11 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                       value={report.seatNumber}
                       onChange={(e) => handleMetadataChange('seatNumber', e.target.value)}
                       placeholder={isArabic ? 'مثال: ٥٤١٢٠' : 'e.g. 54120'}
-                      className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden"
+                      className={inputClass}
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-400 mb-1">
+                    <label className={`block text-[11px] font-semibold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                       {isArabic ? 'المدرسة / السنتر:' : 'School / Center:'}
                     </label>
                     <input
@@ -392,11 +404,11 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                       value={report.schoolName}
                       onChange={(e) => handleMetadataChange('schoolName', e.target.value)}
                       placeholder={isArabic ? 'مدرسة المتفوقين / الثانوية' : 'STEM Academy / School'}
-                      className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden"
+                      className={inputClass}
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-400 mb-1">
+                    <label className={`block text-[11px] font-semibold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                       {isArabic ? 'معلم المادة / المشرف:' : 'Instructor / Teacher:'}
                     </label>
                     <input
@@ -404,18 +416,18 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                       value={report.instructorName}
                       onChange={(e) => handleMetadataChange('instructorName', e.target.value)}
                       placeholder={isArabic ? 'أستاذ المادة' : 'Lab Instructor'}
-                      className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 placeholder:text-slate-500 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden"
+                      className={inputClass}
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-semibold text-slate-400 mb-1">
+                    <label className={`block text-[11px] font-semibold mb-1 ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                       {isArabic ? 'تاريخ إجراء التجربة:' : 'Experiment Date:'}
                     </label>
                     <input
                       type="date"
                       value={report.date}
                       onChange={(e) => handleMetadataChange('date', e.target.value)}
-                      className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden"
+                      className={inputClass}
                     />
                   </div>
                 </div>
@@ -438,7 +450,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     onChange={(e) =>
                       handleMetadataChange(isArabic ? 'hypothesisAr' : 'hypothesisEn', e.target.value)
                     }
-                    className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-hidden"
+                    className={inputClass}
                   />
                 </div>
 
@@ -527,7 +539,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 <div className="overflow-x-auto rounded-xl border border-slate-800">
                   <table className="w-full text-xs border-collapse">
                     <thead>
-                      <tr className="bg-slate-950/80 border-b border-slate-800 text-slate-300">
+                      <tr className={tableHeaderClass}>
                         {report.dataTableColumns.map((col) => (
                           <th key={col.key} className="p-3 text-center font-bold">
                             <div>{isArabic ? col.labelAr : col.labelEn}</div>
@@ -539,14 +551,14 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     </thead>
                     <tbody className="divide-y divide-slate-800/60">
                       {report.dataTableRows.map((row, rIdx) => (
-                        <tr key={rIdx} className="hover:bg-slate-900/40 transition-colors">
+                        <tr key={rIdx} className={isLight ? 'hover:bg-slate-50 transition-colors' : 'hover:bg-slate-900/40 transition-colors'}>
                           {report.dataTableColumns.map((col) => (
                             <td key={col.key} className="p-2 text-center">
                               <input
                                 type="text"
                                 value={row[col.key] || ''}
                                 onChange={(e) => handleTableCellChange(rIdx, col.key, e.target.value)}
-                                className="w-full text-center p-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 font-mono text-xs focus:border-indigo-500 outline-hidden"
+                                className={tableInputClass}
                               />
                             </td>
                           ))}
@@ -583,7 +595,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     onChange={(e) =>
                       handleMetadataChange(isArabic ? 'observationsAr' : 'observationsEn', e.target.value)
                     }
-                    className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:border-indigo-500 outline-hidden"
+                    className={inputClass}
                   />
                 </div>
 
@@ -602,7 +614,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     onChange={(e) =>
                       handleMetadataChange(isArabic ? 'conclusionAr' : 'conclusionEn', e.target.value)
                     }
-                    className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:border-indigo-500 outline-hidden"
+                    className={inputClass}
                   />
                 </div>
               </div>
@@ -624,7 +636,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     onChange={(e) =>
                       handleMetadataChange(isArabic ? 'errorAnalysisAr' : 'errorAnalysisEn', e.target.value)
                     }
-                    className="w-full text-xs p-2.5 rounded-xl bg-slate-950 border border-slate-700 text-slate-100 focus:border-indigo-500 outline-hidden"
+                    className={inputClass}
                   />
                 </div>
 

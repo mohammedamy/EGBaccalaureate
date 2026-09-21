@@ -1519,6 +1519,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               testDate={new Date(activeCertificateToView.testDateIso)}
               onClose={() => setActiveCertificateToView(null)}
               lang={lang}
+              theme={theme}
             />
           </div>
         </div>

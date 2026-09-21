@@ -1330,12 +1330,13 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     size: A4 portrait;
   }
 
-  /* Reset layout and force crisp pure white background with pitch-black ink across all day/night/contrast views */
+  /* Reset root containers to crisp pure white background with pitch-black ink across all day/night/contrast views */
   html, html.dark, html.high-contrast, html.light,
   body, body.dark, body.high-contrast, body.light,
   .dark, .high-contrast, .light,
-  #root, main, div, section, article, p, span, h1, h2, h3, h4, h5, h6,
+  #root, main,
   .printable-root, .printable-sheet, .printable-page, .exam-paper, .worksheet-page,
+  .print-exam-sheet, .print-worksheet-sheet, .print-lab-report, .print-official-certificate,
   .bubble-sheet-container, .certificate-container, .lab-report-sheet {
     background: #ffffff !important;
     background-color: #ffffff !important;
@@ -1343,13 +1344,50 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     -webkit-text-fill-color: #000000 !important;
     text-shadow: none !important;
     box-shadow: none !important;
-    font-size: 11pt !important;
-    line-height: 1.5 !important;
     width: 100% !important;
     height: auto !important;
     overflow: visible !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+
+  body {
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    color: #000000 !important;
+  }
+
+  p, li {
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+    color: #000000 !important;
+  }
+
+  h1 { font-size: 16pt !important; font-weight: 900 !important; color: #000000 !important; }
+  h2 { font-size: 13pt !important; font-weight: 800 !important; color: #000000 !important; }
+  h3 { font-size: 11.5pt !important; font-weight: 700 !important; color: #000000 !important; }
+  h4, h5, h6 { font-size: 10.5pt !important; font-weight: 700 !important; color: #000000 !important; }
+
+  /* Protect KaTeX mathematical formatting from print width/font resets */
+  .katex,
+  .katex * {
+    width: auto !important;
+    max-width: none !important;
+    line-height: normal !important;
+    text-align: initial !important;
+    display: inline-block !important;
+    font-size: inherit !important;
+    background: transparent !important;
+  }
+  .katex-display {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 6pt 0 !important;
+  }
+  .katex-display > .katex {
+    display: inline-block !important;
+    text-align: initial !important;
   }
 
   /* Strip all dark backgrounds from Tailwind utility classes */
@@ -1381,6 +1419,13 @@ html.high-contrast input[type='range']::-moz-range-thumb {
   *[class*="text-teal-"] {
     color: #000000 !important;
     -webkit-text-fill-color: #000000 !important;
+  }
+
+  /* Preserve badges and pills from being 100% full width */
+  span[class*="rounded"],
+  .badge {
+    width: auto !important;
+    display: inline-flex !important;
   }
 
   /* Borders printed with crisp dark lines */

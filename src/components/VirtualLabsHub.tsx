@@ -1406,6 +1406,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
             {activeLangSubLab === 'arabic' && (
               <ArabicGrammarStudio
                 lang={lang}
+                theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
                 isFullscreen={isHubFullscreen}
               />
             )}

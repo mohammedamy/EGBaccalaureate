@@ -112,49 +112,49 @@ const UsdaSoilTextureTriangle: React.FC<{
           </filter>
         </defs>
 
-        <polygon points="40,285 380,285 210,35" fill={isLight ? '#f8fafc' : '#0b0f19'} stroke="#475569" strokeWidth="2" />
+        <polygon points="40,285 380,285 210,35" fill={isLight ? '#f8fafc' : '#0b0f19'} stroke={isLight ? '#334155' : '#475569'} strokeWidth="2" />
 
         {zones.map((z) => (
           <polygon
             key={z.id}
             points={poly(z.pts)}
             fill={z.fill}
-            fillOpacity={isLight ? '0.2' : '0.28'}
-            stroke="#475569"
+            fillOpacity={isLight ? '0.22' : '0.28'}
+            stroke={isLight ? '#64748b' : '#475569'}
             strokeWidth="0.8"
             strokeDasharray="2 2"
           />
         ))}
 
-        <text x="210" y="65" fill="#f87171" fontSize="9" fontWeight="bold" textAnchor="middle">
+        <text x="210" y="65" fill={isLight ? '#991b1b' : '#f87171'} fontSize="9" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'طين (Clay)' : 'Clay'}
         </text>
-        <text x="310" y="140" fill="#fb923c" fontSize="8" fontWeight="bold" textAnchor="middle">
+        <text x="310" y="140" fill={isLight ? '#c2410c' : '#fb923c'} fontSize="8" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'طين سلتي' : 'Silty Clay'}
         </text>
-        <text x="120" y="160" fill="#fbbf24" fontSize="8" fontWeight="bold" textAnchor="middle">
+        <text x="120" y="160" fill={isLight ? '#b45309' : '#fbbf24'} fontSize="8" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'طين رملي' : 'Sandy Clay'}
         </text>
-        <text x="210" y="190" fill="#34d399" fontSize="8.5" fontWeight="bold" textAnchor="middle">
+        <text x="210" y="190" fill={isLight ? '#065f46' : '#34d399'} fontSize="8.5" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'طمي (Loam)' : 'Loam'}
         </text>
-        <text x="320" y="240" fill="#2dd4bf" fontSize="8" fontWeight="bold" textAnchor="middle">
+        <text x="320" y="240" fill={isLight ? '#0f766e' : '#2dd4bf'} fontSize="8" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'طمي سلتي' : 'Silt Loam'}
         </text>
-        <text x="120" y="250" fill="#facc15" fontSize="8" fontWeight="bold" textAnchor="middle">
+        <text x="120" y="250" fill={isLight ? '#a16207' : '#facc15'} fontSize="8" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'طمي رملي' : 'Sandy Loam'}
         </text>
-        <text x="75" y="280" fill="#f59e0b" fontSize="8" fontWeight="bold" textAnchor="middle">
+        <text x="75" y="280" fill={isLight ? '#b45309' : '#f59e0b'} fontSize="8" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'رمل' : 'Sand'}
         </text>
 
-        <text x="210" y="20" fill="#ef4444" fontSize="10" fontWeight="bold" textAnchor="middle">
+        <text x="210" y="20" fill={isLight ? '#dc2626' : '#ef4444'} fontSize="10" fontWeight="bold" textAnchor="middle">
           ▲ {isArabic ? 'نسبة الطين Clay %' : 'Clay % (0-100)'}
         </text>
-        <text x="25" y="305" fill="#f59e0b" fontSize="10" fontWeight="bold" textAnchor="middle">
+        <text x="25" y="305" fill={isLight ? '#d97706' : '#f59e0b'} fontSize="10" fontWeight="bold" textAnchor="middle">
           ◀ {isArabic ? 'رمل Sand %' : 'Sand %'}
         </text>
-        <text x="395" y="305" fill="#38bdf8" fontSize="10" fontWeight="bold" textAnchor="middle">
+        <text x="395" y="305" fill={isLight ? '#0284c7' : '#38bdf8'} fontSize="10" fontWeight="bold" textAnchor="middle">
           {isArabic ? 'غرين Silt %' : 'Silt %'} ▶
         </text>
 
@@ -163,7 +163,7 @@ const UsdaSoilTextureTriangle: React.FC<{
           y1={curY}
           x2={380 * (1 - clay / 100) + 210 * (clay / 100)}
           y2={curY}
-          stroke="#ef4444"
+          stroke={isLight ? '#dc2626' : '#ef4444'}
           strokeWidth="1.2"
           strokeDasharray="3 3"
           opacity="0.8"
@@ -173,8 +173,8 @@ const UsdaSoilTextureTriangle: React.FC<{
         <circle cx={curX} cy={curY} r="5" fill="#10b981" stroke="#ffffff" strokeWidth="1.8" filter="url(#usdaGlow)" />
 
         <g transform={`translate(${Math.max(80, Math.min(340, curX))}, ${Math.max(45, curY - 18)})`}>
-          <rect x="-65" y="-12" width="130" height="18" rx="4" fill="#0f172a" stroke="#10b981" strokeWidth="1.2" />
-          <text x="0" y="1" fill="#10b981" fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+          <rect x="-65" y="-12" width="130" height="18" rx="4" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#059669' : '#10b981'} strokeWidth={isLight ? '1.5' : '1.2'} />
+          <text x="0" y="1" fill={isLight ? '#065f46' : '#10b981'} fontSize="8.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
             {soilName}
           </text>
         </g>
@@ -193,7 +193,7 @@ const SoilProfileHorizonColumn: React.FC<{
 }> = ({ soilEsp, targetEsp, gypsumTons, soilEc, isArabic, isLight = false }) => {
   return (
     <div className="flex flex-col items-center">
-      <div className="text-[11px] font-bold text-slate-400 mb-2 font-mono">
+      <div className={`text-[11px] font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'} mb-2 font-mono`}>
         {isArabic ? 'قطاع التربة الاستصلاحي (Soil Profile Monolith)' : 'Reclamation Soil Profile Monolith'}
       </div>
       <svg viewBox="0 0 200 300" className="w-full max-w-[200px] h-auto overflow-visible select-none">
@@ -240,13 +240,13 @@ const SoilProfileHorizonColumn: React.FC<{
           width="156"
           height="106"
           fill="url(#gypsumGlow)"
-          stroke="#38bdf8"
+          stroke={isLight ? '#0284c7' : '#38bdf8'}
           strokeWidth="1.2"
           strokeDasharray="4 2"
         />
         <g transform="translate(100, 90)">
-          <rect x="-48" y="-10" width="96" height="20" rx="3" fill="#0f172a" stroke="#38bdf8" strokeWidth="0.8" />
-          <text x="0" y="3" fill="#38bdf8" fontSize="7.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
+          <rect x="-48" y="-10" width="96" height="20" rx="3" fill={isLight ? '#ffffff' : '#0f172a'} stroke={isLight ? '#0284c7' : '#38bdf8'} strokeWidth={isLight ? '1.5' : '0.8'} />
+          <text x="0" y="3" fill={isLight ? '#0369a1' : '#38bdf8'} fontSize="7.5" fontFamily="monospace" fontWeight="bold" textAnchor="middle">
             Ca²⁺ ⇄ 2Na⁺ ({gypsumTons} {isArabic ? 'طن' : 't'})
           </text>
         </g>
@@ -272,7 +272,7 @@ const SoilProfileHorizonColumn: React.FC<{
         ].map((peb, i) => (
           <circle key={i} cx={peb.cx} cy={peb.cy} r={peb.r} fill="#e7e5e4" stroke="#78716c" strokeWidth="0.8" />
         ))}
-        <text x="25" y="236" fill="#e7e5e4" fontSize="8" fontWeight="bold">
+        <text x="25" y="236" fill={isLight ? '#1c1917' : '#e7e5e4'} fontSize="8" fontWeight="bold">
           {isArabic ? 'أفق C (مادة الأصل 70-100سم)' : 'C (Parent 70-100cm)'}
         </text>
 
@@ -283,14 +283,14 @@ const SoilProfileHorizonColumn: React.FC<{
           { label: '1m', y: 280 },
         ].map((t) => (
           <g key={t.label}>
-            <line x1="15" y1={t.y} x2="20" y2={t.y} stroke="#94a3b8" strokeWidth="1" />
-            <text x="12" y={t.y + 3} fill="#94a3b8" fontSize="7" textAnchor="end" fontFamily="monospace">
+            <line x1="15" y1={t.y} x2="20" y2={t.y} stroke={isLight ? '#475569' : '#94a3b8'} strokeWidth="1" />
+            <text x="12" y={t.y + 3} fill={isLight ? '#334155' : '#94a3b8'} fontSize="7" textAnchor="end" fontFamily="monospace" fontWeight={isLight ? 'bold' : 'normal'}>
               {t.label}
             </text>
           </g>
         ))}
       </svg>
-      <div className="mt-2 text-[10px] text-slate-400 font-mono text-center">
+      <div className={`mt-2 text-[10px] ${isLight ? 'text-slate-700 font-bold' : 'text-slate-400 font-mono'} text-center`}>
         ECe: {soilEc.toFixed(1)} dS/m • ESP: {soilEsp.toFixed(1)}% → {targetEsp}%
       </div>
     </div>
@@ -1041,7 +1041,11 @@ export const AgriculturalTechnologyStudio: React.FC<Props> = ({
                       : 'USDA Soil Texture Ternary Triangle & Reclamation Soil Monolith'}
                   </span>
                 </div>
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-500 font-bold border border-emerald-500/30">
+                <span className={`text-xs px-2.5 py-0.5 rounded-full border ${
+                  isLight
+                    ? 'bg-emerald-100 text-emerald-950 font-black border-emerald-400 shadow-xs'
+                    : 'bg-emerald-500/20 text-emerald-400 font-bold border-emerald-500/30'
+                }`}>
                   {selectedSoilPreset.nameAr} ({soilSand}% {isArabic ? 'رمل' : 'Sand'} | {soilSilt}% {isArabic ? 'غرين' : 'Silt'} | {soilClay}% {isArabic ? 'طين' : 'Clay'})
                 </span>
               </div>

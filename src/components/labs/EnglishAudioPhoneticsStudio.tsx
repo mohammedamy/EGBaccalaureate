@@ -859,14 +859,36 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
               )}
 
               {/* Textual Inspection Details */}
-              <div className="p-5 rounded-2xl border border-violet-500/30 bg-violet-950/20 space-y-4">
+              <div
+                className={`p-5 rounded-2xl border space-y-4 ${
+                  isLight
+                    ? 'border-violet-300 bg-violet-50/70 shadow-sm'
+                    : 'border-violet-500/30 bg-violet-950/20'
+                }`}
+              >
                 <div className="flex items-start justify-between">
                   <div>
-                    <span className="text-3xl font-mono font-black text-violet-300">
+                    <span
+                      className={`text-3xl font-mono font-black ${
+                        isLight ? 'text-violet-950' : 'text-violet-300'
+                      }`}
+                    >
                       {selectedPhoneme.symbol}
                     </span>
-                    <h4 className="text-sm font-bold text-white mt-1">{selectedPhoneme.name}</h4>
-                    <span className="inline-block mt-1 text-[11px] px-2 py-0.5 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30 capitalize">
+                    <h4
+                      className={`text-sm font-bold mt-1 ${
+                        isLight ? 'text-slate-900 font-extrabold' : 'text-white'
+                      }`}
+                    >
+                      {selectedPhoneme.name}
+                    </h4>
+                    <span
+                      className={`inline-block mt-1 text-[11px] px-2.5 py-0.5 rounded-full capitalize font-bold border ${
+                        isLight
+                          ? 'bg-violet-100 text-violet-950 border-violet-300'
+                          : 'bg-violet-500/20 text-violet-300 border-violet-500/30'
+                      }`}
+                    >
                       {selectedPhoneme.category.replace('_', ' ')}
                     </span>
                   </div>
@@ -881,16 +903,30 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <span
+                    className={`text-xs font-bold uppercase tracking-wider ${
+                      isLight ? 'text-slate-700' : 'text-slate-400'
+                    }`}
+                  >
                     Articulation Guide:
                   </span>
-                  <p className="text-xs text-slate-200 mt-1 leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800">
+                  <p
+                    className={`text-xs mt-1 leading-relaxed p-2.5 rounded-lg border ${
+                      isLight
+                        ? 'bg-white border-slate-300 text-slate-800 shadow-2xs'
+                        : 'bg-slate-900/60 border-slate-800 text-slate-200'
+                    }`}
+                  >
                     {selectedPhoneme.articulationGuide}
                   </p>
                 </div>
 
                 <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <span
+                    className={`text-xs font-bold uppercase tracking-wider ${
+                      isLight ? 'text-slate-700' : 'text-slate-400'
+                    }`}
+                  >
                     Exemplar Words:
                   </span>
                   <div className="flex flex-wrap gap-2 mt-1.5">
@@ -898,9 +934,13 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                       <button
                         key={word}
                         onClick={() => playAudio(word, accent, speechRate)}
-                        className="px-3 py-1.5 min-h-[44px] rounded-lg bg-slate-800 hover:bg-violet-700 text-slate-200 hover:text-white border border-slate-700 text-xs font-medium flex items-center gap-1.5 cursor-pointer"
+                        className={`px-3 py-1.5 min-h-[44px] rounded-lg border text-xs font-semibold flex items-center gap-1.5 cursor-pointer transition-colors ${
+                          isLight
+                            ? 'bg-white hover:bg-violet-100 text-violet-950 border-slate-300 shadow-2xs'
+                            : 'bg-slate-800 hover:bg-violet-700 text-slate-200 hover:text-white border-slate-700'
+                        }`}
                       >
-                        <Volume2 className="w-3.5 h-3.5 text-violet-400" />
+                        <Volume2 className={`w-3.5 h-3.5 ${isLight ? 'text-violet-700' : 'text-violet-400'}`} />
                         <span>{word}</span>
                       </button>
                     ))}
@@ -908,12 +948,18 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                 </div>
 
                 {selectedPhoneme.arabicContrastWarning && (
-                  <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs space-y-1">
+                  <div
+                    className={`p-3 rounded-xl text-xs space-y-1 border ${
+                      isLight
+                        ? 'bg-amber-100/90 border-amber-400 text-amber-950'
+                        : 'bg-amber-500/10 border-amber-500/30 text-amber-300'
+                    }`}
+                  >
                     <div className="flex items-center gap-1.5 font-bold">
-                      <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+                      <AlertTriangle className={`w-3.5 h-3.5 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
                       <span>Egyptian ESL Examination Alert:</span>
                     </div>
-                    <p className="text-[11px] leading-relaxed text-amber-200/90">
+                    <p className={`text-[11px] leading-relaxed ${isLight ? 'text-amber-900' : 'text-amber-200/90'}`}>
                       {selectedPhoneme.arabicContrastWarning}
                     </p>
                   </div>
@@ -925,8 +971,8 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
           {/* Minimal Pairs Exploration Carousel */}
           <div className="pt-4 border-t border-slate-800">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-base font-bold flex items-center gap-2">
-                <Layers className="w-4 h-4 text-violet-400" />
+              <h3 className={`text-base font-bold flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
+                <Layers className="w-4 h-4 text-violet-500" />
                 <span>High-Yield Minimal Pairs (Contrastive Phonology)</span>
               </h3>
               <div className="flex items-center gap-2">
@@ -934,18 +980,26 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                   onClick={() =>
                     setMinimalPairIndex((prev) => (prev > 0 ? prev - 1 : MINIMAL_PAIRS.length - 1))
                   }
-                  className="px-3 py-2 min-h-[44px] rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold cursor-pointer flex items-center justify-center"
+                  className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-bold cursor-pointer flex items-center justify-center border transition-colors ${
+                    isLight
+                      ? 'bg-white hover:bg-slate-100 text-slate-800 border-slate-300 shadow-2xs'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+                  }`}
                 >
                   ← Prev
                 </button>
-                <span className="text-xs text-slate-400 font-mono px-1">
+                <span className={`text-xs font-mono px-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                   {minimalPairIndex + 1} / {MINIMAL_PAIRS.length}
                 </span>
                 <button
                   onClick={() =>
                     setMinimalPairIndex((prev) => (prev < MINIMAL_PAIRS.length - 1 ? prev + 1 : 0))
                   }
-                  className="px-3 py-2 min-h-[44px] rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold cursor-pointer flex items-center justify-center"
+                  className={`px-3 py-2 min-h-[44px] rounded-lg text-xs font-bold cursor-pointer flex items-center justify-center border transition-colors ${
+                    isLight
+                      ? 'bg-white hover:bg-slate-100 text-slate-800 border-slate-300 shadow-2xs'
+                      : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+                  }`}
                 >
                   Next →
                 </button>
@@ -957,45 +1011,73 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
               return (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Word 1 Card */}
-                  <div className="p-4 rounded-xl border border-slate-700 bg-slate-800/60 space-y-2">
+                  <div
+                    className={`p-4 rounded-xl border space-y-2 ${
+                      isLight
+                        ? 'bg-white border-slate-200 shadow-xs'
+                        : 'bg-slate-800/60 border-slate-700'
+                    }`}
+                  >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs px-2 py-0.5 rounded bg-violet-500/20 text-violet-300 font-mono font-bold">
+                      <span
+                        className={`text-xs px-2 py-0.5 rounded font-mono font-bold ${
+                          isLight
+                            ? 'bg-violet-100 text-violet-950 border border-violet-300'
+                            : 'bg-violet-500/20 text-violet-300'
+                        }`}
+                      >
                         Phoneme: {pair.phoneme1}
                       </span>
                       <button
                         onClick={() => playAudio(pair.word1, accent, 0.85)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-violet-300 hover:text-white cursor-pointer"
+                        className={`flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs cursor-pointer font-bold ${
+                          isLight ? 'text-violet-950 hover:text-violet-700' : 'text-violet-300 hover:text-white'
+                        }`}
                       >
                         <Volume2 className="w-4 h-4" />
                         <span>Listen</span>
                       </button>
                     </div>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-xl font-bold text-white">{pair.word1}</span>
-                      <span className="text-xs text-slate-400 font-mono">{pair.phonetic1}</span>
+                      <span className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>{pair.word1}</span>
+                      <span className={`text-xs font-mono ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{pair.phonetic1}</span>
                     </div>
-                    <p className="text-xs text-slate-300 italic">&quot;{pair.sentence1}&quot;</p>
+                    <p className={`text-xs italic ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>&quot;{pair.sentence1}&quot;</p>
                   </div>
 
                   {/* Word 2 Card */}
-                  <div className="p-4 rounded-xl border border-slate-700 bg-slate-800/60 space-y-2">
+                  <div
+                    className={`p-4 rounded-xl border space-y-2 ${
+                      isLight
+                        ? 'bg-white border-slate-200 shadow-xs'
+                        : 'bg-slate-800/60 border-slate-700'
+                    }`}
+                  >
                     <div className="flex items-center justify-between">
-                      <span className="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono font-bold">
+                      <span
+                        className={`text-xs px-2 py-0.5 rounded font-mono font-bold ${
+                          isLight
+                            ? 'bg-indigo-100 text-indigo-950 border border-indigo-300'
+                            : 'bg-indigo-500/20 text-indigo-300'
+                        }`}
+                      >
                         Phoneme: {pair.phoneme2}
                       </span>
                       <button
                         onClick={() => playAudio(pair.word2, accent, 0.85)}
-                        className="flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs text-indigo-300 hover:text-white cursor-pointer"
+                        className={`flex items-center gap-1.5 px-3 py-1.5 min-h-[44px] text-xs cursor-pointer font-bold ${
+                          isLight ? 'text-indigo-950 hover:text-indigo-700' : 'text-indigo-300 hover:text-white'
+                        }`}
                       >
                         <Volume2 className="w-4 h-4" />
                         <span>Listen</span>
                       </button>
                     </div>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-xl font-bold text-white">{pair.word2}</span>
-                      <span className="text-xs text-slate-400 font-mono">{pair.phonetic2}</span>
+                      <span className={`text-xl font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>{pair.word2}</span>
+                      <span className={`text-xs font-mono ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>{pair.phonetic2}</span>
                     </div>
-                    <p className="text-xs text-slate-300 italic">&quot;{pair.sentence2}&quot;</p>
+                    <p className={`text-xs italic ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>&quot;{pair.sentence2}&quot;</p>
                   </div>
                 </div>
               );

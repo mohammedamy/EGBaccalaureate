@@ -53,6 +53,7 @@ export interface OfficialPerformanceCertificateProps {
   testDate?: Date;
   onClose?: () => void;
   lang: 'ar' | 'en';
+  theme?: 'dark' | 'light' | 'high-contrast';
 }
 
 /**
@@ -280,7 +281,9 @@ export const OfficialPerformanceCertificate: React.FC<OfficialPerformanceCertifi
   testDate = new Date(),
   onClose,
   lang,
+  theme = 'dark',
 }) => {
+  const isLight = theme === 'light';
   // Local editable student metadata backed by localStorage
   const [studentName, setStudentName] = useState<string>(() => {
     return (
@@ -505,23 +508,29 @@ ${lang === 'ar' ? 'رابط التحقق المباشر:' : 'Verification Link:'
   return (
     <div className="space-y-4 my-6">
       {/* Interactive Top Toolbar (Hidden during printing) */}
-      <div className="no-print bg-slate-900/95 border border-amber-500/40 rounded-2xl p-4 sm:p-5 shadow-2xl flex flex-wrap items-center justify-between gap-4">
+      <div className={`no-print border rounded-2xl p-4 sm:p-5 shadow-xl flex flex-wrap items-center justify-between gap-4 ${
+        isLight
+          ? 'bg-white border-amber-500/50 text-slate-900 shadow-md'
+          : 'bg-slate-900/95 border-amber-500/40 text-slate-100 shadow-2xl'
+      }`}>
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-lg shadow-amber-500/20">
             <Award className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h4 className="text-base font-black text-slate-100">
+              <h4 className={`text-base font-black ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                 {lang === 'ar'
                   ? 'شهادة التقدير وبيان الدرجات الرسمي المعتمد'
                   : 'Official Performance Certificate & Certified Transcript'}
               </h4>
-              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${
+                isLight ? 'bg-amber-100 text-amber-900 border-amber-300' : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+              }`}>
                 {lang === 'ar' ? 'نسخة طبق الأصل A4' : 'A4 Authentic Document'}
               </span>
             </div>
-            <p className="text-xs text-slate-400 mt-0.5">
+            <p className={`text-xs mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {lang === 'ar'
                 ? 'موثقة ومطابقة لمعايير وزارة التربية والتعليم والتعليم الفني والإدارة العامة للامتحانات.'
                 : 'Certified to Egyptian Ministry of Education & Examinations Sector blueprints.'}
@@ -533,34 +542,46 @@ ${lang === 'ar' ? 'رابط التحقق المباشر:' : 'Verification Link:'
           <button
             type="button"
             onClick={() => setIsEditingMetadata(!isEditingMetadata)}
-            className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 flex items-center gap-1.5 cursor-pointer transition-all"
+            className={`px-3.5 py-2 rounded-xl text-xs font-bold border flex items-center gap-1.5 cursor-pointer transition-all ${
+              isLight
+                ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
+                : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+            }`}
           >
-            <Edit3 className="w-3.5 h-3.5 text-amber-400" />
+            <Edit3 className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
             <span>{lang === 'ar' ? 'تعديل البيانات' : 'Edit Details'}</span>
           </button>
 
           <button
             type="button"
             onClick={() => setIsVerificationModalOpen(true)}
-            className="px-3.5 py-2 rounded-xl bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 text-xs font-bold border border-emerald-500/40 flex items-center gap-1.5 cursor-pointer transition-all shadow-xs"
+            className={`px-3.5 py-2 rounded-xl text-xs font-bold border flex items-center gap-1.5 cursor-pointer transition-all shadow-xs ${
+              isLight
+                ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
+                : 'bg-emerald-950/80 hover:bg-emerald-900/80 text-emerald-300 border-emerald-500/40'
+            }`}
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>{lang === 'ar' ? 'فحص الاعتماد الرقمي' : 'Verify Accreditation'}</span>
           </button>
 
           <button
             type="button"
             onClick={handleCopyVerification}
-            className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 flex items-center gap-1.5 cursor-pointer transition-all"
+            className={`px-3.5 py-2 rounded-xl text-xs font-bold border flex items-center gap-1.5 cursor-pointer transition-all ${
+              isLight
+                ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
+                : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+            }`}
           >
             {copiedLink ? (
               <>
-                <Check className="w-3.5 h-3.5 text-emerald-400" />
-                <span className="text-emerald-300">{lang === 'ar' ? 'تم النسخ!' : 'Copied!'}</span>
+                <Check className="w-3.5 h-3.5 text-emerald-500" />
+                <span className="text-emerald-600 dark:text-emerald-300">{lang === 'ar' ? 'تم النسخ!' : 'Copied!'}</span>
               </>
             ) : (
               <>
-                <Share2 className="w-3.5 h-3.5 text-indigo-400" />
+                <Share2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                 <span>{lang === 'ar' ? 'نسخ رقم التحقق' : 'Share Verification'}</span>
               </>
             )}
@@ -579,7 +600,11 @@ ${lang === 'ar' ? 'رابط التحقق المباشر:' : 'Verification Link:'
             <button
               type="button"
               onClick={onClose}
-              className="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border border-slate-700 cursor-pointer transition-colors"
+              className={`p-2 rounded-xl border cursor-pointer transition-colors ${
+                isLight
+                  ? 'bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border-slate-300'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-slate-200 border-slate-700'
+              }`}
               title={lang === 'ar' ? 'إغلاق المعاينة' : 'Close Preview'}
             >
               <X className="w-4 h-4" />
@@ -590,9 +615,11 @@ ${lang === 'ar' ? 'رابط التحقق المباشر:' : 'Verification Link:'
 
       {/* Inline Candidate Details Editor Drawer (Hidden during print) */}
       {isEditingMetadata && (
-        <div className="no-print bg-slate-950 p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-4 animate-fadeIn">
-          <div className="flex items-center justify-between border-b border-slate-800 pb-2.5">
-            <span className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+        <div className={`no-print p-4 sm:p-5 rounded-2xl border space-y-4 animate-fadeIn ${
+          isLight ? 'bg-slate-100 border-slate-300 text-slate-900' : 'bg-slate-950 border-slate-800 text-slate-100'
+        }`}>
+          <div className={`flex items-center justify-between border-b pb-2.5 ${isLight ? 'border-slate-300' : 'border-slate-800'}`}>
+            <span className={`text-xs font-bold flex items-center gap-1.5 ${isLight ? 'text-amber-900' : 'text-amber-400'}`}>
               <Edit3 className="w-4 h-4" />
               {lang === 'ar' ? 'تخصيص البيانات الرسمية للطالب والمدرسة:' : 'Customize Official Student & School Metadata:'}
             </span>
@@ -608,39 +635,47 @@ ${lang === 'ar' ? 'رابط التحقق المباشر:' : 'Verification Link:'
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
             <div>
-              <label className="block text-slate-400 mb-1 font-semibold">{lang === 'ar' ? 'اسم الطالب الرباعي:' : 'Student Full Name:'}</label>
+              <label className={`block mb-1 font-semibold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>{lang === 'ar' ? 'اسم الطالب الرباعي:' : 'Student Full Name:'}</label>
               <input
                 type="text"
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-hidden focus:ring-2 focus:ring-amber-500"
+                className={`w-full border rounded-lg px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-amber-500 ${
+                  isLight ? 'bg-white border-slate-300 text-slate-900' : 'bg-slate-900 border-slate-700 text-slate-100'
+                }`}
               />
             </div>
             <div>
-              <label className="block text-slate-400 mb-1 font-semibold">{lang === 'ar' ? 'رقم الجلوس (7 أرقام):' : 'Seating Number (7 Digits):'}</label>
+              <label className={`block mb-1 font-semibold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>{lang === 'ar' ? 'رقم الجلوس (7 أرقام):' : 'Seating Number (7 Digits):'}</label>
               <input
                 type="text"
                 value={seatingNumber}
                 onChange={(e) => setSeatingNumber(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 font-mono focus:outline-hidden focus:ring-2 focus:ring-amber-500"
+                className={`w-full border rounded-lg px-3 py-2 font-mono focus:outline-hidden focus:ring-2 focus:ring-amber-500 ${
+                  isLight ? 'bg-white border-slate-300 text-slate-900' : 'bg-slate-900 border-slate-700 text-slate-100'
+                }`}
               />
             </div>
             <div>
-              <label className="block text-slate-400 mb-1 font-semibold">{lang === 'ar' ? 'المدرسة:' : 'School Name:'}</label>
+              <label className={`block mb-1 font-semibold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>{lang === 'ar' ? 'المدرسة:' : 'School Name:'}</label>
               <input
                 type="text"
                 value={schoolName}
                 onChange={(e) => setSchoolName(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-hidden focus:ring-2 focus:ring-amber-500"
+                className={`w-full border rounded-lg px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-amber-500 ${
+                  isLight ? 'bg-white border-slate-300 text-slate-900' : 'bg-slate-900 border-slate-700 text-slate-100'
+                }`}
               />
             </div>
             <div>
-              <label className="block text-slate-400 mb-1 font-semibold">{lang === 'ar' ? 'الإدارة التعليمية:' : 'Educational Directorate:'}</label>
+              <label className={`block mb-1 font-semibold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>{lang === 'ar' ? 'الإدارة التعليمية:' : 'Educational Directorate:'}</label>
               <input
                 type="text"
                 value={directorateName}
                 onChange={(e) => setDirectorateName(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-100 focus:outline-hidden focus:ring-2 focus:ring-amber-500"
+                className={`w-full border rounded-lg px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-amber-500 ${
+                  isLight ? 'bg-white border-slate-300 text-slate-900' : 'bg-slate-900 border-slate-700 text-slate-100'
+                }`}
               />
             </div>
           </div>
