@@ -23,6 +23,7 @@ import {
   MapPin,
   Gauge,
   Info,
+  Split,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
@@ -31,10 +32,10 @@ interface Props {
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem' | 'seismology';
+  initialMode?: 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem' | 'seismology' | 'structures';
 }
 
-type StudioMode = 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem' | 'seismology';
+type StudioMode = 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem' | 'seismology' | 'structures';
 
 // ---------------------------------------------------------------------------
 // 3D Crystallography Math & Types
@@ -876,6 +877,25 @@ export const GeologyEarthStudio: React.FC<Props> = ({
   const seismicEnergyJoules = Math.pow(10, 4.8 + 1.5 * richterMagnitude);
   const tntTonsEquivalent = seismicEnergyJoules / (4.184 * 1e9);
 
+  // -------------------------------------------------------------
+  // Mode 7: 3D Structural Geology (Faults, Folds & Unconformities)
+  // -------------------------------------------------------------
+  const [structSubTab, setStructSubTab] = useState<'faults' | 'folds' | 'unconformities'>('faults');
+
+  // Faults State
+  const [selectedFault, setSelectedFault] = useState<'normal' | 'reverse' | 'thrust' | 'strike_slip' | 'horst' | 'graben'>('normal');
+  const [faultDisplacement, setFaultDisplacement] = useState<number>(24); // 0 to 48 px
+  const [showWallLabels, setShowWallLabels] = useState<boolean>(true);
+
+  // Folds State
+  const [selectedFold, setSelectedFold] = useState<'anticline' | 'syncline'>('anticline');
+  const [foldStrain, setFoldStrain] = useState<number>(65); // 15 to 90%
+  const [foldLayerCount, setFoldLayerCount] = useState<number>(4); // 2 to 6
+  const [showFoldElements, setShowFoldElements] = useState<boolean>(true);
+
+  // Unconformities State
+  const [selectedUnconformity, setSelectedUnconformity] = useState<'angular' | 'disconformity' | 'nonconformity'>('angular');
+
   // Card theme classes
   const containerBg = isLight
     ? 'bg-stone-50 border-stone-200 text-stone-900'
@@ -914,8 +934,8 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             </h2>
             <p className={`text-xs md:text-sm break-words ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
               {isArabic
-                ? 'محاكاة تفاعلية ثلاثية الأبعاد للأنظمة البلورية السبعة، اختبارات موهس والمخدش، بوين، تكتونية الصفائح، القطاعات، والزلازل ومناطق الظل'
-                : 'Interactive 3D simulator for 7 Crystal Systems, Mohs & Streak testing, Bowen Series, Plate Tectonics, Stratigraphy, and Seismology Shadow Zones'}
+                ? 'محاكاة تفاعلية ثلاثية الأبعاد للأنظمة البلورية السبعة، اختبارات موهس والمخدش، بوين، تكتونية الصفائح، الجيولوجيا التركيبية (الفوالق والطيات)، القطاعات، والزلازل ومناطق الظل'
+                : 'Interactive 3D simulator for 7 Crystal Systems, Mohs & Streak testing, Bowen Series, Plate Tectonics, Stratigraphy, Structural Geology (Faults & Folds), and Seismology Shadow Zones'}
             </p>
           </div>
         </div>
@@ -924,7 +944,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
         <div className={`flex flex-wrap gap-1.5 p-1 rounded-xl shrink-0 max-w-full ${isLight ? 'bg-stone-200/90 border border-stone-300' : 'bg-stone-900 border border-stone-800'}`}>
           <button
             onClick={() => setActiveMode('crystals')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               activeMode === 'crystals'
                 ? 'bg-amber-600 text-white shadow-md'
                 : isLight
@@ -936,8 +956,21 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <span>{isArabic ? 'البلورات ومقياس موهس للصلادة' : '3D Crystals & Mohs Hardness'}</span>
           </button>
           <button
+            onClick={() => setActiveMode('structures')}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
+              activeMode === 'structures'
+                ? 'bg-violet-600 text-white shadow-md'
+                : isLight
+                ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90 font-bold'
+                : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
+            }`}
+          >
+            <Split className="w-4 h-4" />
+            <span>{isArabic ? 'الجيولوجيا التركيبية (فوالق وطيات)' : 'Structures (Faults & Folds)'}</span>
+          </button>
+          <button
             onClick={() => setActiveMode('bowen')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               activeMode === 'bowen'
                 ? 'bg-orange-600 text-white shadow-md'
                 : isLight
@@ -950,7 +983,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('tectonics')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               activeMode === 'tectonics'
                 ? 'bg-emerald-600 text-white shadow-md'
                 : isLight
@@ -963,7 +996,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('stratigraphy')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               activeMode === 'stratigraphy'
                 ? 'bg-stone-600 text-white shadow-md'
                 : isLight
@@ -976,7 +1009,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('seismology')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               activeMode === 'seismology'
                 ? 'bg-rose-600 text-white shadow-md'
                 : isLight
@@ -989,7 +1022,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </button>
           <button
             onClick={() => setActiveMode('ecosystem')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               activeMode === 'ecosystem'
                 ? 'bg-cyan-600 text-white shadow-md'
                 : isLight
@@ -1003,7 +1036,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
               isLight ? 'text-stone-700 hover:text-stone-950 hover:bg-white/90' : 'text-stone-400 hover:text-stone-200 hover:bg-stone-800/50'
             }`}
             title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
@@ -3006,7 +3039,890 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             </div>
           </div>
         )}
+
+        {/* ========================================================= */}
+        {/* MODE 7: 3D Structural Geology (Faults, Folds & Unconformities) */}
+        {/* ========================================================= */}
+        {activeMode === 'structures' && (
+          <div className="flex flex-col gap-6 w-full max-w-full min-w-0">
+            {/* Header & Sub-Tab Navigation Ribbon */}
+            <div className={`p-4 rounded-xl border ${cardBg} flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4`}>
+              <div>
+                <h3 className="text-base font-bold text-violet-400 flex items-center gap-2">
+                  <Split className="w-5 h-5" />
+                  <span>
+                    {isArabic
+                      ? 'الجيولوجيا التركيبية ثلاثية الأبعاد: الفوالق والطيات وأسطح عدم التوافق'
+                      : '3D Structural Geology Studio: Faults, Folds & Unconformities'}
+                  </span>
+                </h3>
+                <p className={`text-xs ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
+                  {isArabic
+                    ? 'استكشف ميكانيكا القوى التكتونية (الشد والضغط والقص)، حركات الحائط العلوي والسفلي، والعناصر البنائية للطيات'
+                    : 'Interactive tectonic strain kinematics: fault hanging/footwall dynamics, fold symmetry elements, and unconformities'}
+                </p>
+              </div>
+
+              {/* Sub-Tab Switcher */}
+              <div className={`flex items-center gap-1.5 p-1 rounded-lg ${isLight ? 'bg-stone-200' : 'bg-stone-900 border border-stone-800'}`}>
+                <button
+                  onClick={() => setStructSubTab('faults')}
+                  className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                    structSubTab === 'faults'
+                      ? 'bg-violet-600 text-white shadow-xs'
+                      : isLight
+                      ? 'text-stone-700 hover:text-stone-950'
+                      : 'text-stone-400 hover:text-stone-200'
+                  }`}
+                >
+                  {isArabic ? 'الفوالق (Faults)' : '3D Faults'}
+                </button>
+                <button
+                  onClick={() => setStructSubTab('folds')}
+                  className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                    structSubTab === 'folds'
+                      ? 'bg-violet-600 text-white shadow-xs'
+                      : isLight
+                      ? 'text-stone-700 hover:text-stone-950'
+                      : 'text-stone-400 hover:text-stone-200'
+                  }`}
+                >
+                  {isArabic ? 'الطيات (Folds)' : '3D Folds'}
+                </button>
+                <button
+                  onClick={() => setStructSubTab('unconformities')}
+                  className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer min-h-[40px] ${
+                    structSubTab === 'unconformities'
+                      ? 'bg-violet-600 text-white shadow-xs'
+                      : isLight
+                      ? 'text-stone-700 hover:text-stone-950'
+                      : 'text-stone-400 hover:text-stone-200'
+                  }`}
+                >
+                  {isArabic ? 'عدم التوافق (Unconformities)' : 'Unconformities'}
+                </button>
+              </div>
+            </div>
+
+            {/* SUB-TAB 1: 3D FAULTS SIMULATOR */}
+            {structSubTab === 'faults' && (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full max-w-full min-w-0">
+                {/* Left: Interactive 2.5D Fault Canvas / Visualizer */}
+                <div className="lg:col-span-7 flex flex-col gap-4 min-w-0">
+                  <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-stone-400">
+                        {isArabic ? 'المقطع التكتوني التفاعلي للكسر والإزاحة' : 'Interactive Tectonic Slip Cross-Section'}
+                      </span>
+                      <button
+                        onClick={() => setShowWallLabels(!showWallLabels)}
+                        className={`text-[11px] px-2.5 py-1 rounded border font-mono transition-colors cursor-pointer ${
+                          showWallLabels
+                            ? 'bg-violet-950/60 border-violet-700 text-violet-300'
+                            : 'bg-stone-800 border-stone-700 text-stone-400'
+                        }`}
+                      >
+                        {isArabic ? 'تمييز الحائط العلوي والسفلي' : 'Hanging/Footwall Labels'}
+                      </button>
+                    </div>
+
+                    {/* SVG Kinematic Cross-Section */}
+                    <div className="w-full h-80 rounded-lg bg-stone-950 border border-stone-800 overflow-hidden relative flex items-center justify-center p-2">
+                      <svg viewBox="0 0 500 300" className="w-full h-full select-none">
+                        <defs>
+                          <pattern id="sandstone-pat" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="1" fill="#d97706" opacity="0.5" />
+                            <circle cx="7" cy="7" r="1" fill="#d97706" opacity="0.5" />
+                          </pattern>
+                          <pattern id="limestone-pat" width="20" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="5" x2="20" y2="5" stroke="#0284c7" strokeWidth="0.8" opacity="0.4" />
+                            <line x1="10" y1="0" x2="10" y2="5" stroke="#0284c7" strokeWidth="0.8" opacity="0.4" />
+                          </pattern>
+                          <pattern id="shale-pat" width="16" height="8" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="4" x2="16" y2="4" stroke="#65a30d" strokeWidth="1" strokeDasharray="3,3" opacity="0.5" />
+                          </pattern>
+                        </defs>
+
+                        {/* Background Grid */}
+                        <line x1="20" y1="280" x2="480" y2="280" stroke="#334155" strokeWidth="1" />
+                        <line x1="20" y1="20" x2="20" y2="280" stroke="#334155" strokeWidth="1" />
+
+                        {/* RENDER SPECIFIC FAULT ARCHITECTURE */}
+                        {selectedFault === 'normal' && (() => {
+                          const slipY = (faultDisplacement / 50) * 45;
+                          const slipX = slipY * 0.58;
+                          return (
+                            <g>
+                              {/* Tension Force Arrows */}
+                              <g stroke="#f43f5e" strokeWidth="3" fill="#f43f5e">
+                                <line x1="100" y1="35" x2="40" y2="35" markerEnd="url(#arrow-red)" />
+                                <polygon points="35,35 45,30 45,40" />
+                                <line x1="400" y1="35" x2="460" y2="35" />
+                                <polygon points="465,35 455,30 455,40" />
+                                <text x="250" y="38" fill="#f43f5e" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? '← قوى شد تكتونية (Tension) →' : '← Extensional Tectonic Tension →'}
+                                </text>
+                              </g>
+
+                              {/* Stationary Footwall Block (Left) */}
+                              <g>
+                                <polygon points="60,260 210,260 270,70 60,70" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                                {/* Strata 1 */}
+                                <polygon points="60,260 210,260 226,210 60,210" fill="#d97706" opacity="0.85" />
+                                <polygon points="60,260 210,260 226,210 60,210" fill="url(#sandstone-pat)" />
+                                {/* Strata 2 */}
+                                <polygon points="60,210 226,210 242,160 60,160" fill="#0284c7" opacity="0.85" />
+                                <polygon points="60,210 226,210 242,160 60,160" fill="url(#limestone-pat)" />
+                                {/* Strata 3 */}
+                                <polygon points="60,160 242,160 258,110 60,110" fill="#65a30d" opacity="0.85" />
+                                <polygon points="60,160 242,160 258,110 60,110" fill="url(#shale-pat)" />
+                                {/* Strata 4 Top */}
+                                <polygon points="60,110 258,110 270,70 60,70" fill="#9333ea" opacity="0.85" />
+
+                                {showWallLabels && (
+                                  <g>
+                                    <rect x="75" y="125" width="115" height="24" rx="4" fill="#0f172a" opacity="0.85" stroke="#38bdf8" />
+                                    <text x="132" y="141" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                      {isArabic ? 'صخور الحائط السفلي' : 'Footwall Block'}
+                                    </text>
+                                  </g>
+                                )}
+                              </g>
+
+                              {/* Fault Plane Line (Golden Glowing) */}
+                              <line x1="210" y1="260" x2="270" y2="70" stroke="#f59e0b" strokeWidth="3" strokeDasharray="5,3" />
+
+                              {/* Moving Hanging Wall Block (Right) - Slips Downward and Outward */}
+                              <g transform={`translate(${slipX}, ${slipY})`}>
+                                <polygon points="210,260 440,260 440,70 270,70" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                                {/* Strata 1 */}
+                                <polygon points="210,260 440,260 440,210 226,210" fill="#d97706" opacity="0.85" />
+                                <polygon points="210,260 440,260 440,210 226,210" fill="url(#sandstone-pat)" />
+                                {/* Strata 2 */}
+                                <polygon points="226,210 440,210 440,160 242,160" fill="#0284c7" opacity="0.85" />
+                                <polygon points="226,210 440,210 440,160 242,160" fill="url(#limestone-pat)" />
+                                {/* Strata 3 */}
+                                <polygon points="242,160 440,160 440,110 258,110" fill="#65a30d" opacity="0.85" />
+                                <polygon points="242,160 440,160 440,110 258,110" fill="url(#shale-pat)" />
+                                {/* Strata 4 */}
+                                <polygon points="258,110 440,110 440,70 270,70" fill="#9333ea" opacity="0.85" />
+
+                                {showWallLabels && (
+                                  <g>
+                                    <rect x="290" y="125" width="115" height="24" rx="4" fill="#0f172a" opacity="0.85" stroke="#f43f5e" />
+                                    <text x="347" y="141" fill="#f43f5e" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                      {isArabic ? 'صخور الحائط العلوي' : 'Hanging Wall Block'}
+                                    </text>
+                                  </g>
+                                )}
+
+                                {/* Slip Motion Arrow */}
+                                {faultDisplacement > 5 && (
+                                  <g stroke="#f43f5e" strokeWidth="3" fill="#f43f5e">
+                                    <line x1="260" y1="180" x2="245" y2="225" />
+                                    <polygon points="240,230 250,220 240,215" />
+                                    <text x="280" y="215" fill="#f43f5e" fontSize="10" fontWeight="bold">
+                                      {isArabic ? 'هبوط ↓' : 'Downthrow ↓'}
+                                    </text>
+                                  </g>
+                                )}
+                              </g>
+                            </g>
+                          );
+                        })()}
+
+                        {selectedFault === 'reverse' && (() => {
+                          const slipY = -(faultDisplacement / 50) * 45;
+                          const slipX = -((faultDisplacement / 50) * 45) * 0.58;
+                          return (
+                            <g>
+                              {/* Compression Force Arrows */}
+                              <g stroke="#38bdf8" strokeWidth="3" fill="#38bdf8">
+                                <line x1="40" y1="35" x2="100" y2="35" />
+                                <polygon points="105,35 95,30 95,40" />
+                                <line x1="460" y1="35" x2="400" y2="35" />
+                                <polygon points="395,35 405,30 405,40" />
+                                <text x="250" y="38" fill="#38bdf8" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? '→ قوى ضغط تكتونية (Compression) ←' : '→ Compressional Tectonic Stress ←'}
+                                </text>
+                              </g>
+
+                              {/* Stationary Footwall Block (Left) */}
+                              <g>
+                                <polygon points="60,260 210,260 270,70 60,70" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                                <polygon points="60,260 210,260 226,210 60,210" fill="#d97706" opacity="0.85" />
+                                <polygon points="60,210 226,210 242,160 60,160" fill="#0284c7" opacity="0.85" />
+                                <polygon points="60,160 242,160 258,110 60,110" fill="#65a30d" opacity="0.85" />
+                                <polygon points="60,110 258,110 270,70 60,70" fill="#9333ea" opacity="0.85" />
+
+                                {showWallLabels && (
+                                  <g>
+                                    <rect x="75" y="125" width="115" height="24" rx="4" fill="#0f172a" opacity="0.85" stroke="#38bdf8" />
+                                    <text x="132" y="141" fill="#38bdf8" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                      {isArabic ? 'صخور الحائط السفلي' : 'Footwall Block'}
+                                    </text>
+                                  </g>
+                                )}
+                              </g>
+
+                              {/* Fault Plane Line */}
+                              <line x1="210" y1="260" x2="270" y2="70" stroke="#f59e0b" strokeWidth="3" strokeDasharray="5,3" />
+
+                              {/* Moving Hanging Wall Block (Right) - Slips Upward and Inward */}
+                              <g transform={`translate(${slipX}, ${slipY})`}>
+                                <polygon points="210,260 440,260 440,70 270,70" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                                <polygon points="210,260 440,260 440,210 226,210" fill="#d97706" opacity="0.85" />
+                                <polygon points="226,210 440,210 440,160 242,160" fill="#0284c7" opacity="0.85" />
+                                <polygon points="242,160 440,160 440,110 258,110" fill="#65a30d" opacity="0.85" />
+                                <polygon points="258,110 440,110 440,70 270,70" fill="#9333ea" opacity="0.85" />
+
+                                {showWallLabels && (
+                                  <g>
+                                    <rect x="290" y="125" width="115" height="24" rx="4" fill="#0f172a" opacity="0.85" stroke="#a855f7" />
+                                    <text x="347" y="141" fill="#a855f7" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                      {isArabic ? 'صخور الحائط العلوي' : 'Hanging Wall Block'}
+                                    </text>
+                                  </g>
+                                )}
+
+                                {/* Upward Motion Indicator */}
+                                {faultDisplacement > 5 && (
+                                  <g stroke="#38bdf8" strokeWidth="3" fill="#38bdf8">
+                                    <line x1="240" y1="170" x2="255" y2="125" />
+                                    <polygon points="260,120 250,130 260,135" />
+                                    <text x="275" y="135" fill="#38bdf8" fontSize="10" fontWeight="bold">
+                                      {isArabic ? 'صعود ↑' : 'Upthrow ↑'}
+                                    </text>
+                                  </g>
+                                )}
+                              </g>
+                            </g>
+                          );
+                        })()}
+
+                        {selectedFault === 'thrust' && (() => {
+                          const slipX = -((faultDisplacement / 50) * 55);
+                          const slipY = -((faultDisplacement / 50) * 16);
+                          return (
+                            <g>
+                              {/* Severe Low-Angle Compression */}
+                              <text x="250" y="38" fill="#ec4899" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                {isArabic ? 'فالق دسر / زحفي (زاوية ميل قليلة < ٤٥° تسبب تكراراً رأسياً للطبقات)' : 'Low-Angle Thrust Fault (Dip < 45° - Causes Vertical Repetition)'}
+                              </text>
+
+                              {/* Stationary Footwall Block */}
+                              <polygon points="60,260 360,260 160,110 60,110" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                              <polygon points="60,260 360,260 310,210 60,210" fill="#d97706" opacity="0.85" />
+                              <polygon points="60,210 310,210 260,160 60,160" fill="#0284c7" opacity="0.85" />
+                              <polygon points="60,160 260,160 160,110 60,110" fill="#65a30d" opacity="0.85" />
+
+                              {/* Low-Angle Thrust Plane (15-20 deg) */}
+                              <line x1="360" y1="260" x2="160" y2="110" stroke="#f59e0b" strokeWidth="3.5" strokeDasharray="5,3" />
+
+                              {/* Sliding Thrust Sheet (Hanging Wall) */}
+                              <g transform={`translate(${slipX}, ${slipY})`}>
+                                <polygon points="360,260 440,260 440,110 160,110" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                                <polygon points="360,260 440,260 440,210 310,210" fill="#d97706" opacity="0.85" />
+                                <polygon points="310,210 440,210 440,160 260,160" fill="#0284c7" opacity="0.85" />
+                                <polygon points="260,160 440,160 440,110 160,110" fill="#65a30d" opacity="0.85" />
+
+                                {showWallLabels && (
+                                  <text x="320" y="145" fill="#ec4899" fontSize="11" fontWeight="bold" textAnchor="middle">
+                                    {isArabic ? 'صخور الحائط العلوي الزاحفة' : 'Thrust Hanging Sheet'}
+                                  </text>
+                                )}
+                              </g>
+                            </g>
+                          );
+                        })()}
+
+                        {selectedFault === 'strike_slip' && (() => {
+                          const offsetX = (faultDisplacement / 50) * 40;
+                          return (
+                            <g>
+                              <text x="250" y="38" fill="#10b981" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                {isArabic ? 'فالق ذو حركة أفقية (إزاحة أفقية دون أي حركة رأسية - زاوية ميل ٩٠°)' : 'Strike-Slip Fault (Horizontal Displacement Without Vertical Throw)'}
+                              </text>
+                              {/* North Block */}
+                              <polygon points="60,150 440,150 440,70 60,70" fill="#1e293b" stroke="#475569" strokeWidth="2" />
+                              {/* Offset River / Road */}
+                              <rect x={180 - offsetX} y="70" width="25" height="80" fill="#0284c7" opacity="0.8" />
+                              <text x="140" y="115" fill="#38bdf8" fontSize="10">
+                                {isArabic ? 'مجرى مائي مقتطع' : 'River'}
+                              </text>
+
+                              {/* Vertical Fault Line */}
+                              <line x1="60" y1="150" x2="440" y2="150" stroke="#f59e0b" strokeWidth="3" strokeDasharray="6,3" />
+
+                              {/* South Block */}
+                              <polygon points="60,250 440,250 440,150 60,150" fill="#0f172a" stroke="#475569" strokeWidth="2" />
+                              <rect x={180 + offsetX} y="150" width="25" height="100" fill="#0284c7" opacity="0.8" />
+
+                              {/* Lateral Arrows */}
+                              <g stroke="#10b981" strokeWidth="3" fill="#10b981">
+                                <line x1="280" y1="110" x2="340" y2="110" />
+                                <polygon points="345,110 335,105 335,115" />
+                                <line x1="220" y1="190" x2="160" y2="190" />
+                                <polygon points="155,190 165,185 165,195" />
+                              </g>
+                            </g>
+                          );
+                        })()}
+
+                        {selectedFault === 'horst' && (() => {
+                          const dropY = (faultDisplacement / 50) * 35;
+                          return (
+                            <g>
+                              <text x="250" y="38" fill="#f59e0b" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                {isArabic ? 'فالق بارز / ساتر (Horst): الحائط السفلي المشترك مرتفع بين فالقين عاديين' : 'Horst: Central Common Footwall Block Uplifted Between 2 Normal Faults'}
+                              </text>
+
+                              {/* Left Downthrown Block (Hanging Wall 1) */}
+                              <g transform={`translate(0, ${dropY})`}>
+                                <polygon points="50,260 170,260 210,120 50,120" fill="#334155" stroke="#475569" strokeWidth="2" />
+                                <text x="110" y="200" fill="#f43f5e" fontSize="10" textAnchor="middle">
+                                  {isArabic ? 'حائط علوي هابط' : 'Downthrown'}
+                                </text>
+                              </g>
+
+                              {/* Fault Planes */}
+                              <line x1="170" y1="260" x2="210" y2="120" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4,3" />
+                              <line x1="330" y1="260" x2="290" y2="120" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4,3" />
+
+                              {/* Center Uplifted Block (Common Footwall) */}
+                              <polygon points="170,260 330,260 290,120 210,120" fill="#0284c7" stroke="#38bdf8" strokeWidth="2.5" />
+                              <text x="250" y="190" fill="#ffffff" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                {isArabic ? 'الكتلة البارزة (Horst)' : 'Horst (Footwall)'}
+                              </text>
+
+                              {/* Right Downthrown Block (Hanging Wall 2) */}
+                              <g transform={`translate(0, ${dropY})`}>
+                                <polygon points="330,260 450,260 450,120 290,120" fill="#334155" stroke="#475569" strokeWidth="2" />
+                                <text x="390" y="200" fill="#f43f5e" fontSize="10" textAnchor="middle">
+                                  {isArabic ? 'حائط علوي هابط' : 'Downthrown'}
+                                </text>
+                              </g>
+                            </g>
+                          );
+                        })()}
+
+                        {selectedFault === 'graben' && (() => {
+                          const dropY = (faultDisplacement / 50) * 35;
+                          return (
+                            <g>
+                              <text x="250" y="38" fill="#06b6d4" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                {isArabic ? 'فالق خسفي / خندقي (Graben): الحائط العلوي المشترك منخفض بين فالقين عاديين' : 'Graben: Central Common Hanging Wall Block Dropped Between 2 Normal Faults'}
+                              </text>
+
+                              {/* Left Footwall Block */}
+                              <polygon points="50,260 210,260 170,120 50,120" fill="#334155" stroke="#475569" strokeWidth="2" />
+                              <text x="110" y="200" fill="#38bdf8" fontSize="10" textAnchor="middle">
+                                {isArabic ? 'حائط سفلي مرتفع' : 'Footwall'}
+                              </text>
+
+                              {/* Fault Planes */}
+                              <line x1="210" y1="260" x2="170" y2="120" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4,3" />
+                              <line x1="290" y1="260" x2="330" y2="120" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4,3" />
+
+                              {/* Center Dropped Block (Common Hanging Wall) */}
+                              <g transform={`translate(0, ${dropY})`}>
+                                <polygon points="210,260 290,260 330,120 170,120" fill="#e11d48" stroke="#fb7185" strokeWidth="2.5" />
+                                <text x="250" y="200" fill="#ffffff" fontSize="12" fontWeight="bold" textAnchor="middle">
+                                  {isArabic ? 'الكتلة الخسفية (Graben)' : 'Graben (Hanging)'}
+                                </text>
+                              </g>
+
+                              {/* Right Footwall Block */}
+                              <polygon points="290,260 450,260 450,120 330,120" fill="#334155" stroke="#475569" strokeWidth="2" />
+                              <text x="390" y="200" fill="#38bdf8" fontSize="10" textAnchor="middle">
+                                {isArabic ? 'حائط سفلي مرتفع' : 'Footwall'}
+                              </text>
+                            </g>
+                          );
+                        })()}
+                      </svg>
+                    </div>
+
+                    {/* Displacement Slider */}
+                    <div className="flex flex-col gap-1.5 p-3 rounded-lg bg-stone-900 border border-stone-800">
+                      <div className="flex justify-between items-center text-xs">
+                        <span className="font-bold text-stone-300">
+                          {isArabic ? 'مقدار الإزاحة التكتونية (Displacement):' : 'Tectonic Slip Displacement:'}
+                        </span>
+                        <span className="font-mono text-amber-400 font-bold">{faultDisplacement} mm</span>
+                      </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="50"
+                        value={faultDisplacement}
+                        onChange={(e) => setFaultDisplacement(Number(e.target.value))}
+                        className="w-full accent-violet-500 cursor-pointer h-2 bg-stone-800 rounded"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Fault Type Controls & Ministerial Traps */}
+                <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
+                  <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
+                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                      {isArabic ? 'أنواع الفوالق التكتونية (Tectonic Faults)' : 'Tectonic Fault Types'}
+                    </h4>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {[
+                        { key: 'normal', ar: 'فالق عادي', en: 'Normal Fault' },
+                        { key: 'reverse', ar: 'فالق معكوس', en: 'Reverse Fault' },
+                        { key: 'thrust', ar: 'فالق دسر/زحفي', en: 'Thrust Fault' },
+                        { key: 'strike_slip', ar: 'حركة أفقية', en: 'Strike-Slip' },
+                        { key: 'horst', ar: 'فالق بارز', en: 'Horst' },
+                        { key: 'graben', ar: 'فالق خسفي', en: 'Graben' },
+                      ].map((item) => (
+                        <button
+                          key={item.key}
+                          onClick={() => setSelectedFault(item.key as any)}
+                          className={`p-2 rounded-lg text-xs font-bold transition-all cursor-pointer min-h-[44px] flex flex-col items-center justify-center text-center ${
+                            selectedFault === item.key
+                              ? 'bg-violet-600 text-white shadow-md'
+                              : isLight
+                              ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                              : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
+                          }`}
+                        >
+                          <span>{isArabic ? item.ar : item.en}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Kinematic Analysis Card */}
+                    <div className="p-3 rounded-lg bg-stone-900 border border-stone-800 space-y-2 text-xs">
+                      <div className="flex justify-between border-b border-stone-800 pb-1.5">
+                        <span className="text-stone-400">{isArabic ? 'نوع القوة المؤثرة:' : 'Stress Type:'}</span>
+                        <span className="font-bold text-amber-300">
+                          {selectedFault === 'normal' || selectedFault === 'horst' || selectedFault === 'graben'
+                            ? (isArabic ? 'قوى شد تكتونية (Tension)' : 'Extensional Tension')
+                            : selectedFault === 'strike_slip'
+                            ? (isArabic ? 'قوى قص أفقية (Shear)' : 'Lateral Shear')
+                            : (isArabic ? 'قوى ضغط تكتونية (Compression)' : 'Compressional Stress')}
+                        </span>
+                      </div>
+                      <div className="flex justify-between border-b border-stone-800 pb-1.5">
+                        <span className="text-stone-400">{isArabic ? 'التأثير على مساحة القشرة:' : 'Crustal Area Effect:'}</span>
+                        <span className="font-bold text-emerald-400">
+                          {selectedFault === 'normal'
+                            ? (isArabic ? 'زيادة واتساع في المساحة' : 'Crustal Extension (Widening)')
+                            : selectedFault === 'reverse' || selectedFault === 'thrust'
+                            ? (isArabic ? 'نقص وانكماش في المساحة' : 'Crustal Shortening (Contraction)')
+                            : (isArabic ? 'ثبات المساحة دون تغير' : 'Constant Surface Area')}
+                        </span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-stone-400">{isArabic ? 'شواهد ميدانية مصاحبة:' : 'Field Associated Evidence:'}</span>
+                        <span className="text-stone-300 text-[11px] text-end">
+                          {isArabic ? 'صقال + بريشيا الفوالق + نافورات ساخنة + ترسب الكالسيت' : 'Slickensides, Fault Breccia, Hot Springs, Calcite'}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Ministerial Trap Alert */}
+                    <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800 text-amber-200 text-xs space-y-1">
+                      <span className="font-bold text-amber-300 block">{isArabic ? '⚠️ فخ امتحاني وزاري حاسم:' : '⚠️ Ministerial Exam Trap:'}</span>
+                      <p className="text-[11px] leading-relaxed">
+                        {isArabic
+                          ? 'لمعرفة نوع الفالق بدقة: حدد أولاً "صخور الحائط العلوي" (الصخور التي تعلو مستوى الكسر المائل). إذا تحركت لأسفل = فالق عادي، وإذا تحركت لأعلى = فالق معكوس (أو دسر إذا كانت زاوية الميل قليلة)!'
+                          : 'Rule: First identify the hanging wall (rock mass resting on top of the inclined fault plane). If displaced downwards = Normal fault; if displaced upwards = Reverse/Thrust fault!'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SUB-TAB 2: 3D FOLDS SIMULATOR */}
+            {structSubTab === 'folds' && (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full max-w-full min-w-0">
+                {/* Left: Interactive Fold Cross-Section & Elements */}
+                <div className="lg:col-span-7 flex flex-col gap-4 min-w-0">
+                  <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-stone-400">
+                        {isArabic ? 'المقطع البنائي المتناظر للثنيات والطبقات' : 'Symmetrical Fold Cross-Section'}
+                      </span>
+                      <button
+                        onClick={() => setShowFoldElements(!showFoldElements)}
+                        className={`text-[11px] px-2.5 py-1 rounded border font-mono transition-colors cursor-pointer ${
+                          showFoldElements
+                            ? 'bg-violet-950/60 border-violet-700 text-violet-300'
+                            : 'bg-stone-800 border-stone-700 text-stone-400'
+                        }`}
+                      >
+                        {isArabic ? 'إظهار العناصر التركيبية الثلاثة' : 'Show Structural Elements'}
+                      </button>
+                    </div>
+
+                    {/* SVG Fold Curve Visualization */}
+                    <div className="w-full h-80 rounded-lg bg-stone-950 border border-stone-800 overflow-hidden relative flex items-center justify-center p-2">
+                      <svg viewBox="0 0 500 300" className="w-full h-full select-none">
+                        {/* Axial Plane Center Line (Dashed Cyan) */}
+                        {showFoldElements && (
+                          <g>
+                            <line x1="250" y1="20" x2="250" y2="280" stroke="#06b6d4" strokeWidth="2" strokeDasharray="6,4" />
+                            <rect x="180" y="15" width="140" height="20" rx="4" fill="#0f172a" opacity="0.9" stroke="#06b6d4" />
+                            <text x="250" y="29" fill="#06b6d4" fontSize="10" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'المستوى المحوري (Axial Plane)' : 'Axial Plane (1 Plane)'}
+                            </text>
+                          </g>
+                        )}
+
+                        {/* Fold Strata Layers */}
+                        {Array.from({ length: foldLayerCount }).map((_, idx) => {
+                          const layerColors = ['#f59e0b', '#0284c7', '#84cc16', '#a855f7', '#ec4899', '#ef4444'];
+                          const color = layerColors[idx % layerColors.length];
+                          const baseHeight = 220 - idx * 28;
+                          const bend = (foldStrain / 100) * 75 * (selectedFold === 'anticline' ? 1 : -1);
+
+                          const p1 = `M 40 ${baseHeight}`;
+                          const p2 = `Q 250 ${baseHeight - bend} 460 ${baseHeight}`;
+                          const p3 = `L 460 ${baseHeight + 22}`;
+                          const p4 = `Q 250 ${baseHeight + 22 - bend} 40 ${baseHeight + 22} Z`;
+                          const pathD = `${p1} ${p2} ${p3} ${p4}`;
+
+                          return (
+                            <g key={idx}>
+                              <path d={pathD} fill={color} opacity="0.8" stroke="#1e293b" strokeWidth="1.5" />
+                              {/* Axis Dot at Hinge */}
+                              {showFoldElements && (
+                                <g>
+                                  <circle cx="250" cy={baseHeight - bend + 11} r="4" fill="#ffffff" stroke="#e11d48" strokeWidth="1.5" />
+                                  <text x="262" y={baseHeight - bend + 15} fill="#ffffff" fontSize="9" fontWeight="bold">
+                                    {isArabic ? `محور ${idx + 1}` : `Axis ${idx + 1}`}
+                                  </text>
+                                </g>
+                              )}
+                            </g>
+                          );
+                        })}
+
+                        {/* Limb Dip Direction Arrows */}
+                        {showFoldElements && (
+                          <g stroke="#f59e0b" strokeWidth="2.5" fill="#f59e0b">
+                            {selectedFold === 'anticline' ? (
+                              <>
+                                {/* Limbs dip away from axial plane */}
+                                <line x1="140" y1="130" x2="90" y2="170" />
+                                <polygon points="85,175 95,165 100,175" />
+                                <text x="110" y="125" fill="#f59e0b" fontSize="10" textAnchor="middle">
+                                  {isArabic ? 'جناح أيسر (ميل للخارج)' : 'Limb 1'}
+                                </text>
+
+                                <line x1="360" y1="130" x2="410" y2="170" />
+                                <polygon points="415,175 400,175 405,165" />
+                                <text x="390" y="125" fill="#f59e0b" fontSize="10" textAnchor="middle">
+                                  {isArabic ? 'جناح أيمن (ميل للخارج)' : 'Limb 2'}
+                                </text>
+                              </>
+                            ) : (
+                              <>
+                                {/* Limbs dip toward axial plane */}
+                                <line x1="90" y1="110" x2="140" y2="160" />
+                                <polygon points="145,165 140,155 130,160" />
+                                <text x="110" y="100" fill="#f59e0b" fontSize="10" textAnchor="middle">
+                                  {isArabic ? 'جناح أيسر (ميل للداخل)' : 'Limb 1'}
+                                </text>
+
+                                <line x1="410" y1="110" x2="360" y2="160" />
+                                <polygon points="355,165 370,160 360,155" />
+                                <text x="390" y="100" fill="#f59e0b" fontSize="10" textAnchor="middle">
+                                  {isArabic ? 'جناح أيمن (ميل للداخل)' : 'Limb 2'}
+                                </text>
+                              </>
+                            )}
+                          </g>
+                        )}
+                      </svg>
+                    </div>
+
+                    {/* Controls: Strain & Layers */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3 rounded-lg bg-stone-900 border border-stone-800 text-xs">
+                      <div>
+                        <div className="flex justify-between font-bold mb-1">
+                          <span className="text-stone-300">{isArabic ? 'شدة الانثناء والانضغاط:' : 'Fold Curvature Strain:'}</span>
+                          <span className="font-mono text-violet-400">{foldStrain}%</span>
+                        </div>
+                        <input
+                          type="range"
+                          min="20"
+                          max="95"
+                          value={foldStrain}
+                          onChange={(e) => setFoldStrain(Number(e.target.value))}
+                          className="w-full accent-violet-500 cursor-pointer h-2 bg-stone-800 rounded"
+                        />
+                      </div>
+
+                      <div>
+                        <div className="flex justify-between font-bold mb-1">
+                          <span className="text-stone-300">{isArabic ? 'عدد الطبقات المطوية (N):' : 'Number of Layers (N):'}</span>
+                          <span className="font-mono text-cyan-400">{foldLayerCount}</span>
+                        </div>
+                        <input
+                          type="range"
+                          min="2"
+                          max="6"
+                          value={foldLayerCount}
+                          onChange={(e) => setFoldLayerCount(Number(e.target.value))}
+                          className="w-full accent-cyan-500 cursor-pointer h-2 bg-stone-800 rounded"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Fold Mathematical Ratio & Elements Breakdown */}
+                <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
+                  <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
+                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                      {isArabic ? 'نوع الطية (Fold Geometry)' : 'Fold Type'}
+                    </h4>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        onClick={() => setSelectedFold('anticline')}
+                        className={`p-3 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[44px] flex flex-col items-center justify-center text-center ${
+                          selectedFold === 'anticline'
+                            ? 'bg-violet-600 text-white shadow-md'
+                            : isLight
+                            ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                            : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
+                        }`}
+                      >
+                        <span className="text-sm">∩ {isArabic ? 'طية محدبة' : 'Anticline'}</span>
+                        <span className="text-[10px] opacity-80">{isArabic ? 'أقدم الطبقات بالمركز' : 'Oldest in core'}</span>
+                      </button>
+
+                      <button
+                        onClick={() => setSelectedFold('syncline')}
+                        className={`p-3 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[44px] flex flex-col items-center justify-center text-center ${
+                          selectedFold === 'syncline'
+                            ? 'bg-violet-600 text-white shadow-md'
+                            : isLight
+                            ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                            : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
+                        }`}
+                      >
+                        <span className="text-sm">∪ {isArabic ? 'طية مقعرة' : 'Syncline'}</span>
+                        <span className="text-[10px] opacity-80">{isArabic ? 'أحدث الطبقات بالمركز' : 'Youngest in core'}</span>
+                      </button>
+                    </div>
+
+                    {/* Structural Symmetry Elements Ratio Breakdown */}
+                    <div className="p-3 rounded-lg bg-stone-900 border border-stone-800 space-y-2 text-xs">
+                      <span className="font-bold text-cyan-300 block">{isArabic ? 'قانون النسبة التركيبية لعناصر الطية:' : 'Structural Symmetry Ratio:'}</span>
+                      <div className="grid grid-cols-3 gap-2 text-center pt-1">
+                        <div className="p-2 rounded bg-stone-800/80 border border-stone-700">
+                          <span className="text-[10px] text-stone-400 block">{isArabic ? 'مستوى محوري' : 'Axial Plane'}</span>
+                          <span className="text-lg font-black font-mono text-cyan-400">1</span>
+                        </div>
+                        <div className="p-2 rounded bg-stone-800/80 border border-stone-700">
+                          <span className="text-[10px] text-stone-400 block">{isArabic ? 'الجناحان' : 'Limbs'}</span>
+                          <span className="text-lg font-black font-mono text-amber-400">2</span>
+                        </div>
+                        <div className="p-2 rounded bg-stone-800/80 border border-stone-700">
+                          <span className="text-[10px] text-stone-400 block">{isArabic ? 'المحاور (N)' : 'Axes (N)'}</span>
+                          <span className="text-lg font-black font-mono text-emerald-400">{foldLayerCount}</span>
+                        </div>
+                      </div>
+
+                      <div className="p-2 rounded bg-stone-950 text-center font-mono font-bold text-stone-300 border border-stone-800 mt-2">
+                        {isArabic ? `النسبة العددية لهذه الطية = 1 : 2 : ${foldLayerCount}` : `Element Ratio = 1 : 2 : ${foldLayerCount}`}
+                      </div>
+                    </div>
+
+                    {/* Ministerial Trap Alert */}
+                    <div className="p-3 rounded-lg bg-emerald-950/30 border border-emerald-800 text-emerald-200 text-xs space-y-1">
+                      <span className="font-bold text-emerald-300 block">{isArabic ? '💡 أهمية اقتصادية وجيولوجية:' : '💡 Economic Importance:'}</span>
+                      <p className="text-[11px] leading-relaxed">
+                        {isArabic
+                          ? 'تعتبر الطيات أهم المصايد والمكامن التي يتجمع فيها زيت البترول الخام، والغاز الطبيعي، والمياه الجوفية، وترسب الخامات المعدنية.'
+                          : 'Folds represent the primary geological reservoirs and structural traps for petroleum oil, natural gas, and artesian groundwater accumulation.'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SUB-TAB 3: UNCONFORMITIES & BASAL CONGLOMERATE */}
+            {structSubTab === 'unconformities' && (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full max-w-full min-w-0">
+                {/* Left: Unconformity Cross-Section SVG */}
+                <div className="lg:col-span-7 flex flex-col gap-4 min-w-0">
+                  <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
+                    <span className="text-xs font-bold text-stone-400">
+                      {isArabic ? 'المقطع الجيولوجي لسطح عدم التوافق والشواهد الميدانية' : 'Unconformity Stratigraphic Cross-Section'}
+                    </span>
+
+                    <div className="w-full h-80 rounded-lg bg-stone-950 border border-stone-800 overflow-hidden relative flex items-center justify-center p-2">
+                      <svg viewBox="0 0 500 300" className="w-full h-full select-none">
+                        {selectedUnconformity === 'angular' && (
+                          <g>
+                            {/* Angular Unconformity: Tilted older beds beneath horizontal younger beds */}
+                            {/* Older Tilted Beds below */}
+                            <g transform="rotate(-18 250 200)">
+                              <rect x="-50" y="160" width="600" height="40" fill="#d97706" opacity="0.8" />
+                              <rect x="-50" y="200" width="600" height="40" fill="#0284c7" opacity="0.8" />
+                              <rect x="-50" y="240" width="600" height="50" fill="#65a30d" opacity="0.8" />
+                            </g>
+
+                            {/* Eroded Angular Unconformity Surface (Wavy Red Line) */}
+                            <path d="M 30 160 Q 150 150 250 162 T 470 158" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+
+                            {/* Basal Conglomerate Layer (Rounded Pebbles) immediately above unconformity */}
+                            {Array.from({ length: 18 }).map((_, i) => (
+                              <ellipse
+                                key={i}
+                                cx={50 + i * 23}
+                                cy={150 + Math.sin(i * 1.3) * 4}
+                                rx="7"
+                                ry="5"
+                                fill="#fbbf24"
+                                stroke="#78350f"
+                                strokeWidth="1.5"
+                              />
+                            ))}
+
+                            {/* Younger Horizontal Beds above */}
+                            <rect x="30" y="70" width="440" height="40" fill="#a855f7" opacity="0.8" />
+                            <rect x="30" y="110" width="440" height="35" fill="#06b6d4" opacity="0.8" />
+
+                            <text x="250" y="185" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'سطح عدم توافق زاوي (طبقات مائلة تحت أفقية)' : 'Angular Unconformity Surface'}
+                            </text>
+                            <text x="250" y="140" fill="#fbbf24" fontSize="10" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'طبقة الكونجلوميرات (حصى مستدير شاهد مباشر)' : 'Basal Conglomerate (Direct Field Marker)'}
+                            </text>
+                          </g>
+                        )}
+
+                        {selectedUnconformity === 'disconformity' && (
+                          <g>
+                            {/* Parallel sedimentary beds with erosional gap */}
+                            <rect x="30" y="180" width="440" height="45" fill="#d97706" opacity="0.8" />
+                            <rect x="30" y="225" width="440" height="45" fill="#0284c7" opacity="0.8" />
+
+                            {/* Erosional Gap Line */}
+                            <path d="M 30 180 Q 100 170 180 185 T 350 175 T 470 180" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+
+                            {/* Basal Conglomerate */}
+                            {Array.from({ length: 16 }).map((_, i) => (
+                              <ellipse key={i} cx={55 + i * 26} cy={172} rx="6" ry="4" fill="#fbbf24" stroke="#78350f" />
+                            ))}
+
+                            <rect x="30" y="75" width="440" height="45" fill="#84cc16" opacity="0.8" />
+                            <rect x="30" y="120" width="440" height="45" fill="#a855f7" opacity="0.8" />
+
+                            <text x="250" y="200" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'سطح عدم توافق انقطاعي (مجموعتان رسوبيتان متوازيتان يفصل بينهما انقطاع ترسيب)' : 'Disconformity (Parallel Sedimentary Sequences with Missing Fossil Era)'}
+                            </text>
+                          </g>
+                        )}
+
+                        {selectedUnconformity === 'nonconformity' && (
+                          <g>
+                            {/* Igneous / Metamorphic Basement below */}
+                            <rect x="30" y="165" width="440" height="105" fill="#475569" />
+                            {/* Granite Crystal Crosses */}
+                            {Array.from({ length: 24 }).map((_, i) => (
+                              <text key={i} x={60 + (i % 8) * 50} y={190 + Math.floor(i / 8) * 28} fill="#94a3b8" fontSize="14">
+                                +
+                              </text>
+                            ))}
+                            <text x="250" y="235" fill="#cbd5e1" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'صخور نارية أو متحولة أقدم (جرانيت / بازلت)' : 'Older Igneous / Metamorphic Basement'}
+                            </text>
+
+                            {/* Wavy Contact Line */}
+                            <path d="M 30 165 Q 120 155 240 168 T 470 165" stroke="#ef4444" strokeWidth="3.5" fill="none" />
+
+                            {/* Younger Sedimentary Strata above */}
+                            <rect x="30" y="65" width="440" height="45" fill="#d97706" opacity="0.85" />
+                            <rect x="30" y="110" width="440" height="50" fill="#0284c7" opacity="0.85" />
+
+                            <text x="250" y="150" fill="#ef4444" fontSize="11" fontWeight="bold" textAnchor="middle">
+                              {isArabic ? 'سطح عدم توافق متباين (رسوبي أحدث يعلو ناري أقدم)' : 'Nonconformity (Sedimentary Overlying Igneous)'}
+                            </text>
+                          </g>
+                        )}
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right: Unconformity Type Selector & Field Criteria */}
+                <div className="lg:col-span-5 flex flex-col gap-4 min-w-0">
+                  <div className={`p-4 rounded-xl border ${cardBg} flex flex-col gap-3`}>
+                    <h4 className="text-xs font-bold text-stone-400 uppercase tracking-wider">
+                      {isArabic ? 'أنواع أسطح عدم التوافق' : 'Unconformity Types'}
+                    </h4>
+
+                    <div className="flex flex-col gap-2">
+                      {[
+                        {
+                          key: 'angular',
+                          ar: '١. عدم توافق زاوي (Angular)',
+                          en: '1. Angular Unconformity',
+                          descAr: 'طبقات رسوبية أقدم مائلة تعلوها طبقات رسوبية أحدث أفقية.',
+                          descEn: 'Tilted older sedimentary beds overlain by younger horizontal beds.',
+                        },
+                        {
+                          key: 'disconformity',
+                          ar: '٢. عدم توافق انقطاعي (Disconformity)',
+                          en: '2. Disconformity',
+                          descAr: 'مجموعتان من الصخور الرسوبية متوازيتان، يفصل بينهما انقطاع ترسيبي يستدل عليه باختفاء محتوى حفري مرشد.',
+                          descEn: 'Parallel sedimentary rock sequences separated by an erosional hiatus proven by fossil gaps.',
+                        },
+                        {
+                          key: 'nonconformity',
+                          ar: '٣. عدم توافق متباين (Nonconformity)',
+                          en: '3. Nonconformity',
+                          descAr: 'صخور رسوبية أحدث تعلو صخوراً نارية أو متحولة أقدم.',
+                          descEn: 'Younger sedimentary rocks deposited over older igneous or metamorphic basement rocks.',
+                        },
+                      ].map((item) => (
+                        <button
+                          key={item.key}
+                          onClick={() => setSelectedUnconformity(item.key as any)}
+                          className={`p-3 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[44px] flex flex-col text-start gap-1 ${
+                            selectedUnconformity === item.key
+                              ? 'bg-violet-600 text-white shadow-md'
+                              : isLight
+                              ? 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200'
+                              : 'bg-stone-800/80 text-stone-300 hover:bg-stone-800 border border-stone-700'
+                          }`}
+                        >
+                          <span className="font-extrabold">{isArabic ? item.ar : item.en}</span>
+                          <span className="text-[11px] opacity-80 font-normal">{isArabic ? item.descAr : item.descEn}</span>
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* 4 Diagnostic Field Evidences */}
+                    <div className="p-3 rounded-lg bg-stone-900 border border-stone-800 space-y-1.5 text-xs">
+                      <span className="font-bold text-amber-400 block">{isArabic ? 'شواهد الاستدلال على عدم التوافق في الحقل:' : 'Field Diagnostic Markers:'}</span>
+                      <ul className="list-disc list-inside text-[11px] text-stone-300 space-y-1">
+                        <li>{isArabic ? 'وجود طبقة من الحصى المستدير (الكونجلوميرات) فوق السطح مباشرة.' : 'Presence of a basal conglomerate layer directly overlying the surface.'}</li>
+                        <li>{isArabic ? 'تغير مفاجئ في تتابع المحتوى الحفري للطبقات.' : 'Abrupt vertical leap/gap in index fossil succession.'}</li>
+                        <li>{isArabic ? 'اختفاء تراكيب جيولوجية (عروق قاطعة، فوالق، طيات) في الطبقات السفلى دون العليا.' : 'Truncation of intrusive dykes, faults, or folds at the unconformity line.'}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
 };
+
