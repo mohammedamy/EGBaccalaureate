@@ -98,14 +98,15 @@ export function sanitizeSpeechText(text: string): string {
 // ---------------------------------------------------------------------------
 let cachedVoices: SpeechSynthesisVoice[] = [];
 
-// List of robotic or novelty synthesizer voices to exclude/demote
+// List of robotic, toy, or novelty synthesizer voices to exclude/demote
 const ROBOTIC_VOICE_BLACKLIST = new Set([
   'albert', 'bad news', 'bahh', 'bells', 'boing', 'bubbles', 'cellos',
   'deranged', 'good news', 'hysterical', 'junior', 'pipe organ',
-  'trinoids', 'whisper', 'zarvox', 'ralph', 'fred', 'espeak', 'klatt'
+  'trinoids', 'whisper', 'zarvox', 'ralph', 'fred', 'alex', 'victoria',
+  'espeak', 'klatt', 'jester', 'organ', 'superstar'
 ]);
 
-function refreshVoices() {
+function refreshVoices(): SpeechSynthesisVoice[] {
   if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
     try {
       const v = window.speechSynthesis.getVoices();
@@ -116,6 +117,7 @@ function refreshVoices() {
       // ignore
     }
   }
+  return cachedVoices;
 }
 
 // Eager initialization on module load
@@ -133,6 +135,7 @@ if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
 
 /**
  * Score and rank voices to pick the most natural, human-like voice available.
+ * Prioritizes 100% reliable local OS voices over external network-dependent cloud voices.
  */
 export function scoreVoice(v: SpeechSynthesisVoice, targetBcp47: string): number {
   const name = v.name.toLowerCase();
@@ -142,10 +145,9 @@ export function scoreVoice(v: SpeechSynthesisVoice, targetBcp47: string): number
 
   let score = 0;
 
-  // Exact language match (e.g. en-GB == en-GB)
-  if (vLang === target) score += 60;
-  // Prefix language match (e.g. en-US matches en)
-  else if (vLang.startsWith(prefix)) score += 30;
+  // Language matching
+  if (vLang === target) score += 80;
+  else if (vLang.startsWith(prefix)) score += 40;
   else return -1000; // Incompatible language
 
   // Demote known robotic / toy voices
@@ -153,32 +155,42 @@ export function scoreVoice(v: SpeechSynthesisVoice, targetBcp47: string): number
     if (name.includes(blacklisted)) return -500;
   }
 
-  // Tier 1: Microsoft Edge Online Natural AI voices
-  if (name.includes('online (natural)') || (name.includes('natural') && !name.includes('desktop'))) {
-    score += 150;
-  }
-
-  // Tier 2: Apple Siri Enhanced / High-Definition Voices
-  if (name.includes('enhanced') || name.includes('premium') || name.includes('siri')) {
-    score += 120;
-  }
-
-  // Tier 3: Google High-Fidelity Neural Voices in Chrome
-  if (name.includes('google')) {
-    score += 100;
-  }
-
-  // Tier 4: Quality OS voices (Daniel, Eddy, Flo, Samantha, Alice, Anna, Mónica, Majed, Tingting)
+  // Tier 1: Proven high-fidelity native human voices (macOS / iOS / Windows 11)
   const premiumNames = [
-    'daniel', 'eddy', 'flo', 'samantha', 'alice', 'anna', 'monica', 'mónica',
-    'audrey', 'aurelie', 'thomas', 'jorge', 'tingting', 'majed', 'maged', 'tarik', 'laila',
-    'reed', 'sandy', 'shelley'
+    // English (UK / US)
+    'samantha', 'daniel', 'oliver', 'serena', 'kate', 'karen', 'moira', 'tessa',
+    'jenny', 'guy', 'aria',
+    // French
+    'thomas', 'audrey', 'aurelie', 'jacques', 'denise', 'henri',
+    // German
+    'anna', 'katja', 'conrad',
+    // Italian
+    'alice', 'elsa', 'cosimo',
+    // Spanish
+    'monica', 'mónica', 'jorge', 'paulina', 'elvira', 'alvaro',
+    // Chinese
+    'tingting', 'meijia', 'sinji', 'xiaoxiao', 'yunxi',
+    // Arabic
+    'majed', 'maged', 'tarik', 'laila', 'mariam', 'shakir', 'salma'
   ];
   for (const pName of premiumNames) {
     if (name.includes(pName)) {
-      score += 80;
+      score += 120;
       break;
     }
+  }
+
+  // Apple Siri Enhanced / High-Definition Voices
+  if (name.includes('enhanced') || name.includes('premium') || name.includes('siri')) {
+    score += 50;
+  }
+
+  // Local voices get significant priority because they never fail due to network/firewall/CORS
+  if (v.localService) {
+    score += 40;
+  } else {
+    // Demote remote cloud voices so local reliable voices are always preferred
+    score -= 30;
   }
 
   // Prefer default voice if marked by system
@@ -209,7 +221,6 @@ export function findBestVoice(lang?: string, preferredVoiceName?: string): Speec
   });
 
   if (candidates.length === 0) {
-    // Return null so the browser defaults to its native locale provider rather than an incompatible language voice
     return null;
   }
 
@@ -305,9 +316,7 @@ class AiVoiceEngineCore {
 
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       try {
-        if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
-          window.speechSynthesis.cancel();
-        }
+        window.speechSynthesis.cancel();
       } catch {
         // ignore
       }
@@ -318,6 +327,7 @@ class AiVoiceEngineCore {
 
   /**
    * Speak text immediately using synchronous dispatch to preserve user activation.
+   * Includes automatic fallback to system default voice if a chosen voice fails.
    */
   public speak(text: string, options: SpeakOptions = {}): void {
     const clean = sanitizeSpeechText(text);
@@ -327,6 +337,9 @@ class AiVoiceEngineCore {
       options.onError?.(new Error('SpeechSynthesis not supported'));
       return;
     }
+
+    // Cancel any previous speech synchronously
+    this.stopAll();
 
     const { bcp47 } = normalizeLanguageCode(options.lang);
     const bestVoice = findBestVoice(options.lang, options.voiceName);
@@ -341,7 +354,10 @@ class AiVoiceEngineCore {
       this.currentVoiceName = bestVoice.name;
     }
 
+    let hasStarted = false;
+
     utterance.onstart = () => {
+      hasStarted = true;
       this.notify(true, clean, bestVoice?.name || 'Natural Vocal');
       this.startKeepalive();
       options.onStart?.();
@@ -358,49 +374,63 @@ class AiVoiceEngineCore {
       this.clearKeepalive();
       this.activeUtterance = null;
       this.notify(false, null, null);
-      // 'canceled' or 'interrupted' errors happen naturally when a user clicks another audio button
+
+      // Automatic fallback: If chosen voice errored before starting, retry with system default voice
+      if (!hasStarted && bestVoice && err?.error !== 'canceled' && err?.error !== 'interrupted') {
+        console.warn(`[AiVoiceEngine] Voice "${bestVoice.name}" failed to start. Retrying with system default...`);
+        try {
+          const fallback = new SpeechSynthesisUtterance(clean);
+          fallback.lang = bcp47;
+          fallback.rate = utterance.rate;
+          fallback.pitch = utterance.pitch;
+          fallback.onstart = () => {
+            this.notify(true, clean, 'System Default Voice');
+            this.startKeepalive();
+            options.onStart?.();
+          };
+          fallback.onend = () => {
+            this.clearKeepalive();
+            this.activeUtterance = null;
+            this.notify(false, null, null);
+            options.onEnd?.();
+          };
+          fallback.onerror = (e) => {
+            this.clearKeepalive();
+            this.activeUtterance = null;
+            this.notify(false, null, null);
+            if (e?.error !== 'canceled' && e?.error !== 'interrupted') {
+              options.onError?.(e);
+            }
+          };
+          this.activeUtterance = fallback;
+          window.speechSynthesis.speak(fallback);
+          if (window.speechSynthesis.paused) {
+            window.speechSynthesis.resume();
+          }
+          return;
+        } catch {
+          // ignore
+        }
+      }
+
       if (err?.error !== 'canceled' && err?.error !== 'interrupted') {
         options.onError?.(err);
       }
     };
 
-    // Retain utterance reference in instance variable to prevent V8 GC prematurely terminating speech
+    // Retain reference to prevent V8 GC bug
     this.activeUtterance = utterance;
 
-    const executeSpeak = () => {
-      try {
-        if (window.speechSynthesis.paused) {
-          window.speechSynthesis.resume();
-        }
-        window.speechSynthesis.speak(utterance);
-        if (window.speechSynthesis.paused) {
-          window.speechSynthesis.resume();
-        }
-      } catch (e) {
-        console.error('[AiVoiceEngine] Failed to speak:', e);
-        this.stopAll();
-        options.onError?.(e);
+    try {
+      // 100% synchronous dispatch in user gesture tick
+      window.speechSynthesis.speak(utterance);
+      if (window.speechSynthesis.paused) {
+        window.speechSynthesis.resume();
       }
-    };
-
-    const isSpeakingAlready = window.speechSynthesis.speaking || window.speechSynthesis.pending;
-
-    if (isSpeakingAlready) {
-      this.clearKeepalive();
-      if (this.activeDialogueAbortController) {
-        this.activeDialogueAbortController.abort();
-        this.activeDialogueAbortController = null;
-      }
-      try {
-        window.speechSynthesis.cancel();
-      } catch {
-        // ignore
-      }
-      // 40ms micro-delay to let Chromium engine flush the cancellation IPC message
-      setTimeout(executeSpeak, 40);
-    } else {
-      // Immediate synchronous execution in the user click tick
-      executeSpeak();
+    } catch (e) {
+      console.error('[AiVoiceEngine] Failed to speak:', e);
+      this.stopAll();
+      options.onError?.(e);
     }
   }
 
