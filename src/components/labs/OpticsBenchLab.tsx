@@ -1317,11 +1317,11 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
               <Radio className="w-3.5 h-3.5" />
               <span>{isArabic ? 'النظام التجريبي البصري' : 'Active Physical Optical Bench'}</span>
             </label>
-            <div className="grid grid-cols-3 gap-1.5">
+            <div className="grid grid-cols-3 gap-2">
               <button
                 type="button"
                 onClick={() => lab.updateParam('opticsMode', 'double_slit')}
-                className={`py-2 px-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                className={`min-h-[44px] py-2.5 px-2 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   params.opticsMode === 'double_slit'
                     ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
@@ -1334,7 +1334,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
               <button
                 type="button"
                 onClick={() => lab.updateParam('opticsMode', 'refraction')}
-                className={`py-2 px-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                className={`min-h-[44px] py-2.5 px-2 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   params.opticsMode === 'refraction'
                     ? 'bg-indigo-500 text-white shadow-md shadow-indigo-500/20'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'
@@ -1347,7 +1347,7 @@ export const OpticsBenchLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' })
               <button
                 type="button"
                 onClick={() => lab.updateParam('opticsMode', 'thin_lens')}
-                className={`py-2 px-2 rounded-lg text-xs font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                className={`min-h-[44px] py-2.5 px-2 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   params.opticsMode === 'thin_lens'
                     ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
                     : 'bg-slate-950 text-slate-400 hover:text-slate-200 border border-slate-800'

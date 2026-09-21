@@ -2333,7 +2333,7 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
               <select
                 value={params.module}
                 onChange={(e) => updateParam('module', e.target.value as TransitionModule)}
-                className={`w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
+                className={`min-h-[44px] w-full appearance-none pl-3 pr-8 rtl:pr-3 rtl:pl-8 py-2 rounded-xl text-xs sm:text-sm font-bold border transition-all cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-cyan-500 ${
                   isContrast
                     ? 'bg-black text-white border-cyan-400'
                     : isLight
@@ -2361,14 +2361,14 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
           </div>
 
           {/* DMM Mode Quick Switcher */}
-          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800">
+          <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800 flex-wrap">
             {(['apparent_mass', 'mass_delta', 'magnetic_moment', 'susceptibility'] as const).map((mode) => (
               <button
                 key={mode}
                 onClick={() => setDmmMode(mode)}
-                className={`px-2.5 py-0.5 rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
+                className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-bold cursor-pointer transition-all ${
                   dmmMode === mode
-                    ? 'bg-cyan-600 text-white font-black'
+                    ? 'bg-cyan-600 text-white font-black shadow'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
@@ -2411,7 +2411,7 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
                     updateParam('metalKey', key);
                     updateParam('oxidationState', el.defaultOxState);
                   }}
-                  className={`p-2 rounded-xl border flex flex-col items-center justify-center transition-all cursor-pointer ${
+                  className={`min-h-[50px] p-2 rounded-xl border flex flex-col items-center justify-center transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-cyan-600 text-white border-cyan-400 shadow-lg scale-105 font-black'
                       : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-cyan-500/50'
@@ -2460,12 +2460,12 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
                 <label className="block text-xs font-bold text-slate-300 mb-1">
                   {isArabic ? 'حالة التأكسد المحاكية:' : 'Oxidation State:'}
                 </label>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {currentMetal.availableOxStates.map((ox) => (
                     <button
                       key={ox}
                       onClick={() => updateParam('oxidationState', ox)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer border ${
+                      className={`min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer border ${
                         safeOxState === ox
                           ? 'bg-cyan-600 border-cyan-400 text-white shadow-md'
                           : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
@@ -2512,12 +2512,12 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
                 <label className="block text-xs font-bold text-slate-300 mb-1">
                   {isArabic ? 'حالة التأكسد للعينة:' : 'Sample Oxidation State:'}
                 </label>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {currentMetal.availableOxStates.map((ox) => (
                     <button
                       key={ox}
                       onClick={() => updateParam('oxidationState', ox)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer border ${
+                      className={`min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer border ${
                         safeOxState === ox
                           ? 'bg-cyan-600 border-cyan-400 text-white shadow-md'
                           : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'
@@ -2570,12 +2570,12 @@ export const TransitionMetalsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
                 <label className="block text-xs font-bold text-slate-300 mb-1">
                   {isArabic ? 'الأيون المائي المفحوص:' : 'Hydrated Ion Under Test:'}
                 </label>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {currentMetal.availableOxStates.map((ox) => (
                     <button
                       key={ox}
                       onClick={() => updateParam('oxidationState', ox)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer border ${
+                      className={`min-h-[44px] min-w-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer border ${
                         safeOxState === ox
                           ? 'bg-cyan-600 border-cyan-400 text-white shadow-md'
                           : 'bg-slate-950 border-slate-800 text-slate-300 hover:border-slate-700'

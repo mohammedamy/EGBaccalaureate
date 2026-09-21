@@ -1558,7 +1558,7 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
         <div className="flex items-center gap-1.5 flex-wrap">
           <button
             onClick={() => handleModuleChange('diode_rectifier')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               params.module === 'diode_rectifier'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-500/30'
                 : isLight
@@ -1566,13 +1566,13 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
                 : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
-            <Activity className="w-3.5 h-3.5" />
+            <Activity className="w-4 h-4" />
             <span>{isArabic ? 'الوصلة الثنائية والتقويم' : 'p-n Diode & Rectifier'}</span>
           </button>
 
           <button
             onClick={() => handleModuleChange('transistor_bjt')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               params.module === 'transistor_bjt'
                 ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/30'
                 : isLight
@@ -1580,13 +1580,13 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
                 : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
-            <Cpu className="w-3.5 h-3.5" />
+            <Cpu className="w-4 h-4" />
             <span>{isArabic ? 'الترانزستور والمفتاح العاكس' : 'BJT Transistor & Inverter'}</span>
           </button>
 
           <button
             onClick={() => handleModuleChange('coolidge_xray')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               params.module === 'coolidge_xray'
                 ? 'bg-cyan-600 text-white shadow-md shadow-cyan-500/30'
                 : isLight
@@ -1594,26 +1594,26 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
                 : 'text-slate-300 hover:bg-slate-800'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5" />
+            <Sparkles className="w-4 h-4" />
             <span>{isArabic ? 'أنبوبة كولدج وطيف أشعة إكس' : 'Coolidge Tube & X-Rays'}</span>
           </button>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           {params.module === 'diode_rectifier' && (
             <div className="flex items-center gap-1 bg-slate-800/40 p-1 rounded-xl border border-slate-700/50">
               <button
                 onClick={() => setParams((p) => ({ ...p, diodeMode: 'iv_curve' }))}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  params.diodeMode === 'iv_curve' ? 'bg-blue-500 text-white' : 'text-slate-400'
+                className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  params.diodeMode === 'iv_curve' ? 'bg-blue-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {isArabic ? 'المنحنى والبلورة' : 'Crystal & I-V'}
               </button>
               <button
                 onClick={() => setParams((p) => ({ ...p, diodeMode: 'rectifier' }))}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  params.diodeMode === 'rectifier' ? 'bg-blue-500 text-white' : 'text-slate-400'
+                className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  params.diodeMode === 'rectifier' ? 'bg-blue-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {isArabic ? 'تقويم التيار' : 'AC Rectifier'}
@@ -1625,16 +1625,16 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
             <div className="flex items-center gap-1 bg-slate-800/40 p-1 rounded-xl border border-slate-700/50">
               <button
                 onClick={() => setParams((p) => ({ ...p, transistorMode: 'amplifier' }))}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  params.transistorMode === 'amplifier' ? 'bg-indigo-500 text-white' : 'text-slate-400'
+                className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  params.transistorMode === 'amplifier' ? 'bg-indigo-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {isArabic ? 'مكبر الإشارات' : 'AC Amplifier'}
               </button>
               <button
                 onClick={() => setParams((p) => ({ ...p, transistorMode: 'inverter_not_gate' }))}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                  params.transistorMode === 'inverter_not_gate' ? 'bg-indigo-500 text-white' : 'text-slate-400'
+                className={`min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                  params.transistorMode === 'inverter_not_gate' ? 'bg-indigo-500 text-white shadow' : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
                 {isArabic ? 'مفتاح عاكس NOT' : 'NOT Gate Inverter'}
@@ -1643,14 +1643,14 @@ export const SemiconductorElectronicsLab: React.FC<Props> = ({
           )}
 
           {params.module === 'coolidge_xray' && (
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-slate-400">
                 {isArabic ? 'مادة الهدف:' : 'Target:'}
               </span>
               <select
                 value={params.targetElement}
                 onChange={(e) => setParams((p) => ({ ...p, targetElement: e.target.value as TargetElement }))}
-                className="bg-slate-800 text-white text-xs font-bold px-2 py-1 rounded-lg border border-slate-700 cursor-pointer"
+                className="min-h-[44px] bg-slate-800 text-white text-xs sm:text-sm font-bold px-3 py-2 rounded-xl border border-slate-700 cursor-pointer"
               >
                 <option value="tungsten">Tungsten (W, Z=74)</option>
                 <option value="molybdenum">Molybdenum (Mo, Z=42)</option>

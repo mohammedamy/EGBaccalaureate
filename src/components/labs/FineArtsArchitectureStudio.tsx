@@ -148,68 +148,68 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
         <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-950/40 border border-rose-500/20">
           <button
             onClick={() => setActiveTab('perspective')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
               activeTab === 'perspective'
                 ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
             }`}
           >
-            <Eye className="w-3.5 h-3.5" />
+            <Eye className="w-4 h-4" />
             {isArabic ? 'المنظور الحر' : 'Perspective'}
           </button>
           <button
             onClick={() => setActiveTab('colors')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
               activeTab === 'colors'
                 ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
             }`}
           >
-            <Brush className="w-3.5 h-3.5" />
+            <Brush className="w-4 h-4" />
             {isArabic ? 'دائرة الألوان' : 'Color Wheel'}
           </button>
           <button
             onClick={() => setActiveTab('golden_ratio')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
               activeTab === 'golden_ratio'
                 ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
             }`}
           >
-            <Building2 className="w-3.5 h-3.5" />
+            <Building2 className="w-4 h-4" />
             {isArabic ? 'النسبة الذهبية φ' : 'Golden Ratio'}
           </button>
           <button
             onClick={() => setActiveTab('tessellation')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
               activeTab === 'tessellation'
                 ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
             }`}
           >
-            <Compass className="w-3.5 h-3.5" />
+            <Compass className="w-4 h-4" />
             {isArabic ? 'الأطباق النجمية' : 'Islamic Stars'}
           </button>
           <button
             onClick={() => setActiveTab('quiz')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
               activeTab === 'quiz'
                 ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30'
-                : 'text-slate-400 hover:text-slate-200'
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
             }`}
           >
-            <Award className="w-3.5 h-3.5" />
+            <Award className="w-4 h-4" />
             {isArabic ? 'اختبار القدرات' : 'Aptitude Exam'}
           </button>
 
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800/60 transition-colors border border-rose-500/20"
+            className="min-h-[44px] min-w-[44px] p-2 text-slate-400 hover:text-white rounded-xl hover:bg-slate-800/60 transition-colors border border-rose-500/20 cursor-pointer flex items-center justify-center shrink-0"
             title={isFullscreen ? (isArabic ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isArabic ? 'ملء الشاشة' : 'Fullscreen')}
             aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           >
-            {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-rose-400" /> : <Maximize2 className="w-3.5 h-3.5" />}
+            {isFullscreen ? <Minimize2 className="w-4 h-4 text-rose-400" /> : <Maximize2 className="w-4 h-4" />}
           </button>
         </div>
       </div>
@@ -229,10 +229,10 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                   <button
                     key={preset.id}
                     onClick={() => handleSelectPerspPreset(preset)}
-                    className={`w-full text-start p-3 rounded-lg border text-xs transition-all ${
+                    className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border text-xs transition-all cursor-pointer ${
                       selectedPersp.id === preset.id
-                        ? 'bg-rose-500/20 border-rose-500 text-rose-300 font-semibold'
-                        : 'border-slate-700/50 hover:border-slate-600 text-slate-400'
+                        ? 'bg-rose-500/20 border-rose-500 text-rose-300 font-semibold shadow-xs'
+                        : 'border-slate-700/50 hover:border-slate-600 text-slate-400 hover:bg-slate-800/30'
                     }`}
                   >
                     <div className="font-bold text-slate-200">
@@ -298,8 +298,8 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                   <span className="text-xs text-slate-400">{isArabic ? 'إظهار خطوط الأشعة الشبكية:' : 'Show Ray Lines:'}</span>
                   <button
                     onClick={() => setShowWireframe(!showWireframe)}
-                    className={`px-2.5 py-1 text-xs rounded border ${
-                      showWireframe ? 'bg-rose-500/20 border-rose-500 text-rose-400' : 'border-slate-700 text-slate-400'
+                    className={`min-h-[44px] min-w-[70px] px-3 py-2 text-xs font-bold rounded-xl border cursor-pointer transition-all flex items-center justify-center ${
+                      showWireframe ? 'bg-rose-500/20 border-rose-500 text-rose-400 shadow-xs' : 'border-slate-700 text-slate-400 hover:border-slate-600'
                     }`}
                   >
                     {showWireframe ? (isArabic ? 'مفعّلة' : 'Active') : (isArabic ? 'معطلة' : 'Hidden')}
@@ -500,10 +500,10 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                       setSelectedScheme(scheme);
                       setActiveHueAngle(scheme.baseHue);
                     }}
-                    className={`w-full text-start p-3 rounded-lg border text-xs transition-all ${
+                    className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border text-xs transition-all cursor-pointer ${
                       selectedScheme.id === scheme.id
-                        ? 'bg-rose-500/20 border-rose-500 text-rose-300 font-semibold'
-                        : 'border-slate-700/50 hover:border-slate-600 text-slate-400'
+                        ? 'bg-rose-500/20 border-rose-500 text-rose-300 font-semibold shadow-xs'
+                        : 'border-slate-700/50 hover:border-slate-600 text-slate-400 hover:bg-slate-800/30'
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -666,20 +666,20 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                 <div className="flex gap-2">
                   <button
                     onClick={() => setDimensionMode('widthToHeight')}
-                    className={`flex-1 py-1.5 px-2 rounded border text-[11px] ${
+                    className={`flex-1 min-h-[44px] py-2 px-3 rounded-xl border text-xs font-bold cursor-pointer transition-all flex items-center justify-center ${
                       dimensionMode === 'widthToHeight'
-                        ? 'bg-rose-500/20 border-rose-500 text-rose-300'
-                        : 'border-slate-700 text-slate-400'
+                        ? 'bg-rose-500/20 border-rose-500 text-rose-300 shadow-xs'
+                        : 'border-slate-700 text-slate-400 hover:border-slate-600'
                     }`}
                   >
                     {isArabic ? 'العرض -> الارتفاع (÷ φ)' : 'Width -> Height (÷ φ)'}
                   </button>
                   <button
                     onClick={() => setDimensionMode('heightToWidth')}
-                    className={`flex-1 py-1.5 px-2 rounded border text-[11px] ${
+                    className={`flex-1 min-h-[44px] py-2 px-3 rounded-xl border text-xs font-bold cursor-pointer transition-all flex items-center justify-center ${
                       dimensionMode === 'heightToWidth'
-                        ? 'bg-rose-500/20 border-rose-500 text-rose-300'
-                        : 'border-slate-700 text-slate-400'
+                        ? 'bg-rose-500/20 border-rose-500 text-rose-300 shadow-xs'
+                        : 'border-slate-700 text-slate-400 hover:border-slate-600'
                     }`}
                   >
                     {isArabic ? 'الارتفاع -> العرض (× φ)' : 'Height -> Width (× φ)'}
@@ -808,33 +808,33 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
               <h4 className="text-xs font-bold text-amber-400">
                 {isArabic ? 'طراز التعشيق الرخامي (الأبلق):' : 'Ablaq Marble Colorways:'}
               </h4>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <button
                   onClick={() => setAblaqPalette('traditional')}
-                  className={`p-2 rounded border text-[11px] font-semibold text-center ${
+                  className={`min-h-[44px] p-2.5 rounded-xl border text-xs font-bold text-center cursor-pointer transition-all flex items-center justify-center ${
                     ablaqPalette === 'traditional'
-                      ? 'bg-amber-600/30 border-amber-500 text-amber-300'
-                      : 'border-slate-700 text-slate-400'
+                      ? 'bg-amber-600/30 border-amber-500 text-amber-300 shadow-xs'
+                      : 'border-slate-700 text-slate-400 hover:border-slate-600'
                   }`}
                 >
                   {isArabic ? 'أبلق تقليدي (أحمر وأبيض)' : 'Classic Ablaq'}
                 </button>
                 <button
                   onClick={() => setAblaqPalette('golden')}
-                  className={`p-2 rounded border text-[11px] font-semibold text-center ${
+                  className={`min-h-[44px] p-2.5 rounded-xl border text-xs font-bold text-center cursor-pointer transition-all flex items-center justify-center ${
                     ablaqPalette === 'golden'
-                      ? 'bg-yellow-600/30 border-yellow-500 text-yellow-300'
-                      : 'border-slate-700 text-slate-400'
+                      ? 'bg-yellow-600/30 border-yellow-500 text-yellow-300 shadow-xs'
+                      : 'border-slate-700 text-slate-400 hover:border-slate-600'
                   }`}
                 >
                   {isArabic ? 'مذهب مملوكي' : 'Mamluk Gold'}
                 </button>
                 <button
                   onClick={() => setAblaqPalette('turquoise')}
-                  className={`p-2 rounded border text-[11px] font-semibold text-center ${
+                  className={`min-h-[44px] p-2.5 rounded-xl border text-xs font-bold text-center cursor-pointer transition-all flex items-center justify-center ${
                     ablaqPalette === 'turquoise'
-                      ? 'bg-teal-600/30 border-teal-500 text-teal-300'
-                      : 'border-slate-700 text-slate-400'
+                      ? 'bg-teal-600/30 border-teal-500 text-teal-300 shadow-xs'
+                      : 'border-slate-700 text-slate-400 hover:border-slate-600'
                   }`}
                 >
                   {isArabic ? 'فيروزي فاطمي' : 'Fatimid Teal'}
@@ -1083,7 +1083,7 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                     key={optIdx}
                     disabled={isQuizSubmitted}
                     onClick={() => setSelectedQuizOption(optIdx)}
-                    className={`w-full text-start p-3.5 rounded-xl border text-xs transition-all flex items-start justify-between gap-3 ${optClass}`}
+                    className={`w-full min-h-[44px] text-start p-3.5 rounded-xl border text-xs transition-all cursor-pointer flex items-center justify-between gap-3 ${optClass}`}
                   >
                     <span>{optText}</span>
                     {isQuizSubmitted && isCorrect && (
@@ -1121,9 +1121,9 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                   setIsQuizSubmitted(false);
                   setQuizScore(0);
                 }}
-                className="px-3 py-1.5 rounded-lg border border-slate-700 text-slate-400 hover:text-slate-200 text-xs flex items-center gap-1.5"
+                className="min-h-[44px] px-3.5 py-2 rounded-xl border border-slate-700 text-slate-400 hover:text-slate-200 text-xs font-bold flex items-center gap-2 cursor-pointer transition-all"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-4 h-4" />
                 {isArabic ? 'إعادة الاختبار' : 'Reset'}
               </button>
 
@@ -1139,7 +1139,7 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                         }
                       }
                     }}
-                    className="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs disabled:opacity-50 transition-all shadow-md shadow-rose-600/30"
+                    className="min-h-[44px] px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs disabled:opacity-50 transition-all shadow-md shadow-rose-600/30 cursor-pointer flex items-center justify-center"
                   >
                     {isArabic ? 'تأكيد الإجابة' : 'Submit Answer'}
                   </button>
@@ -1153,7 +1153,7 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
                       }
                     }}
                     disabled={quizIndex >= FINE_ARTS_APTITUDE_QUIZ.length - 1}
-                    className="px-4 py-2 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs disabled:opacity-50 transition-all flex items-center gap-1.5 shadow-md shadow-rose-600/30"
+                    className="min-h-[44px] px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs disabled:opacity-50 transition-all flex items-center gap-1.5 shadow-md shadow-rose-600/30 cursor-pointer"
                   >
                     {isArabic ? 'السؤال التالي' : 'Next Question'}
                     <ChevronRight className="w-4 h-4" />
