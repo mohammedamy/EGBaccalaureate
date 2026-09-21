@@ -9,18 +9,18 @@ export const solidCh1SolvedExamples: SolvedProblem[] = [
     "questionEn": "For the point $A(3, -4, 12)$ in 3D rectangular coordinates, find:\n1. Its perpendicular distance to the $XY$-plane, $XZ$-plane, and $YZ$-plane.\n2. Its perpendicular distance to the $X$-axis, $Y$-axis, and $Z$-axis.",
     "questionAr": "بالنسبة للنقطة $A(٣، -٤، ١٢)$ في النظام الإحداثي المتعامد ثلاثي الأبعاد، أوجد:\n١. بعدها العمودي عن كل من المستويات: س ص، س ع، ص ع.\n٢. بعدها العمودي عن كل من محاور الإحداثيات: محور السينات، محور الصادات، محور العينات.",
     "optionsEn": [
-      "Planes: (12, 4, 3); Axes: (4*sqrt(10), 3*sqrt(17), 5)",
-      "Planes: (3, 4, 12); Axes: (5, 12, 13)",
-      "Planes: (12, -4, 3); Axes: (160, 153, 25)",
-      "Planes: (0, 0, 0); Axes: (3, 4, 12)"
+      "Planes: $(12, 4, 3)$; Axes: $(4\\sqrt{10}, 3\\sqrt{17}, 5)$",
+      "Planes: $(3, 4, 12)$; Axes: $(5, 12, 13)$",
+      "Planes: $(12, -4, 3)$; Axes: $(160, 153, 25)$",
+      "Planes: $(0, 0, 0)$; Axes: $(3, 4, 12)$"
     ],
     "optionsAr": [
-      "المستويات: (١٢، ٤، ٣)؛ المحاور: $(٤\\sqrt{١٠}، ٣\\sqrt{١٧}، ٥)$",
-      "المستويات: (٣، ٤، ١٢)؛ المحاور: $(٥، ١٢، ١٣)$",
-      "المستويات: (١٢، -٤، ٣)؛ المحاور: $(١٦٠، ١٥٣، ٢٥)$",
-      "المستويات: (٠، ٠، ٠)؛ المحاور: $(٣، ٤، ١٢)$"
+      "المستويات: $(١٢، ٤، ٣)$؛ المحاور: $(٤\\sqrt{١٠}، ٣\\sqrt{١٧}، ٥)$",
+      "المستويات: $(٣، ٤، ١٢)$؛ المحاور: $(٥، ١٢، ١٣)$",
+      "المستويات: $(١٢، -٤، ٣)$؛ المحاور: $(١٦٠، ١٥٣، ٢٥)$",
+      "المستويات: $(٠، ٠، ٠)$؛ المحاور: $(٣، ٤، ١٢)$"
     ],
-    "correctAnswer": "Planes: (12, 4, 3); Axes: (4*sqrt(10), 3*sqrt(17), 5)",
+    "correctAnswer": "Planes: $(12, 4, 3)$; Axes: $(4\\sqrt{10}, 3\\sqrt{17}, 5)$",
     "correctIndex": 0,
     "hintEn": "Distance to plane is absolute value of the missing coordinate: dist to XY is |z|. Distance to axis is sqrt of sum of squares of other two coordinates.",
     "hintAr": "البعد عن المستوى هو القيمة المطلقة للإحداثي الغائب: البعد عن س ص هو |ع|. والبعد عن المحور هو جذر مجموع مربعي الإحداثيين الآخرين.",
