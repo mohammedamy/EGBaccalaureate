@@ -933,7 +933,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             }`}
           >
             <Gem className="w-4 h-4" />
-            <span>{isArabic ? 'البلورات وموهس 3D' : '3D Crystals & Mohs'}</span>
+            <span>{isArabic ? 'البلورات ومقياس موهس للصلادة' : '3D Crystals & Mohs Hardness'}</span>
           </button>
           <button
             onClick={() => setActiveMode('bowen')}
@@ -946,7 +946,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             }`}
           >
             <Flame className="w-4 h-4" />
-            <span>{isArabic ? 'متسلسلة بوين' : 'Bowen & Rocks'}</span>
+            <span>{isArabic ? 'متسلسلة تفاعلات بوين' : 'Bowen Reaction Series'}</span>
           </button>
           <button
             onClick={() => setActiveMode('tectonics')}
@@ -1305,7 +1305,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   <h3 className="text-base font-semibold flex items-center gap-2">
                     <Activity className={`w-5 h-5 ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`} />
                     <span className={isLight ? 'text-emerald-950 font-black' : 'text-emerald-300'}>
-                      {isArabic ? 'مختبر موهس والمخدش والانفصام' : 'Mohs, Streak & Cleavage Lab'}
+                      {isArabic ? 'مختبر مقياس موهس للصلادة والمخدش والانفصام' : 'Mohs Hardness, Streak & Cleavage Lab'}
                     </span>
                   </h3>
                 </div>
@@ -1651,7 +1651,7 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 <div>
                   <h3 className="text-base font-semibold flex items-center gap-2 text-orange-400">
                     <Flame className="w-5 h-5" />
-                    <span className={isLight ? 'text-orange-950 font-black' : ''}>{isArabic ? 'متسلسلة تفاعلات بوين الحرارية لتبلور الصهارة' : "Bowen's Reaction Series Temperature Ladder"}</span>
+                    <span className={isLight ? 'text-orange-950 font-black' : ''}>{isArabic ? 'متسلسلة تفاعلات بوين الحرارية لتبلور الصهارة' : "Bowen Reaction Series (Bowen's Reaction Series) Temperature Ladder"}</span>
                   </h3>
                   <p className={`text-xs ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
                     {isArabic
