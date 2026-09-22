@@ -51,11 +51,39 @@ const TajweedPhoneticMakharijVectorSchematic: React.FC<{
   const isShafatayn =
     rule.id.includes('iqlab') || rule.letters.some((l) => ['ب', 'م', 'و', 'ف'].includes(l));
 
+  const mechanismText = isGhunnah
+    ? isArabic
+      ? 'جريان الصوت في الخيشوم بمقدار حركتين'
+      : '2-count nasal resonance airflow'
+    : isMadd
+    ? isArabic
+      ? 'امتداد الصوت بحرف المد في الجوف'
+      : 'Longitudinal airflow elongation in Jawf'
+    : isHalq
+    ? isArabic
+      ? 'إخراج الحرف من مخرجه بغير غنة ظاهرة'
+      : 'Clear throat release without nasalization'
+    : isQalqalah
+    ? isArabic
+      ? 'اضطراب المخرج عند النطق بالحرف ساكناً'
+      : 'Vocal tract impulse tremor on sukoon'
+    : isArabic
+    ? 'تطابق الشفتين مع قلب النون ميماً مخفاة'
+    : 'Labial assimilation with hidden meem';
+
+  const timingText = isMadd
+    ? 'حركتان إلى 6 حركات (2 - 6 Harakat)'
+    : isGhunnah
+    ? 'حركتان كاملتان (2 Harakat)'
+    : 'حركة اعتيادية منضبطة';
+
+  const timingPercent = isMadd ? '90%' : isGhunnah ? '65%' : '45%';
+
   return (
     <div
-      className={`border rounded-2xl p-4 sm:p-5 space-y-3 transition-all ${
+      className={`border rounded-2xl p-4 sm:p-5 space-y-4 transition-all ${
         isLight
-          ? 'bg-slate-50/80 border-emerald-200 shadow-xs'
+          ? 'bg-slate-50/90 border-emerald-200 shadow-xs'
           : 'bg-gradient-to-b from-slate-900/95 via-slate-950 to-emerald-950/30 border-emerald-500/30 shadow-xl'
       }`}
     >
@@ -87,259 +115,248 @@ const TajweedPhoneticMakharijVectorSchematic: React.FC<{
         </span>
       </div>
 
-      <div className="w-full overflow-x-auto">
-        <svg
-          viewBox="0 0 800 240"
-          className="w-full min-w-[660px] h-auto select-none"
-          style={{ maxHeight: '250px' }}
-        >
-          <defs>
-            <radialGradient id="nasalResonance" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#0f766e" stopOpacity="0" />
-            </radialGradient>
-            <radialGradient id="vocalTractGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#10b981" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#047857" stopOpacity="0" />
-            </radialGradient>
-            <filter id="makhrajGlow">
-              <feGaussianBlur stdDeviation="3" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          {/* Stylized Anatomical Head & Vocal Tract Cross-Section Outline */}
-          <path
-            d="M 120 220 C 110 180, 100 120, 130 70 C 160 30, 240 20, 300 35 C 330 45, 360 80, 370 120 C 375 140, 385 155, 410 160 C 420 162, 420 175, 400 180 C 375 185, 365 200, 365 220"
-            fill="none"
-            stroke={isLight ? '#94a3b8' : '#334155'}
-            strokeWidth="2"
-            strokeDasharray="4,4"
-          />
-
-          {/* 1. Al-Khayshoom (Nasal Cavity / الخيشوم) */}
-          <ellipse
-            cx="280"
-            cy="90"
-            rx="45"
-            ry="22"
-            fill={isGhunnah ? 'url(#nasalResonance)' : isLight ? '#f1f5f9' : '#0f172a'}
-            stroke={isGhunnah ? (isLight ? '#0d9488' : '#2dd4bf') : isLight ? '#cbd5e1' : '#475569'}
-            strokeWidth={isGhunnah ? '2.5' : '1.2'}
-            filter={isGhunnah ? 'url(#makhrajGlow)' : undefined}
-          />
-          <text
-            x="280"
-            y="94"
-            textAnchor="middle"
-            fill={isGhunnah ? (isLight ? '#042f2e' : '#ccfbf1') : isLight ? '#475569' : '#94a3b8'}
-            fontSize="11"
-            fontWeight="bold"
+      {/* Responsive Grid: Anatomical Vector Cross-Section + Native HTML Articulation Profile */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+        {/* Column 1: Anatomical Head & Vocal Tract Vector Illustration */}
+        <div className="lg:col-span-5 flex items-center justify-center p-2 rounded-xl overflow-hidden">
+          <svg
+            viewBox="0 0 380 240"
+            className="w-full max-w-[360px] h-auto select-none"
+            style={{ maxHeight: '240px' }}
           >
-            {isArabic ? 'الخَيْشُوم (مخرج الغنة)' : 'Nasal Cavity (Ghunnah)'}
-          </text>
+            <defs>
+              <radialGradient id="nasalResonance" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#2dd4bf" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#0f766e" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="vocalTractGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stopColor="#10b981" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#047857" stopOpacity="0" />
+              </radialGradient>
+              <filter id="makhrajGlow">
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
 
-          {/* 2. Al-Jawf (Oral & Throat Cavity / الجوف) */}
-          <ellipse
-            cx="250"
-            cy="140"
-            rx="55"
-            ry="25"
-            fill={isMadd ? 'url(#vocalTractGlow)' : isLight ? '#f1f5f9' : '#0f172a'}
-            stroke={isMadd ? (isLight ? '#059669' : '#10b981') : isLight ? '#cbd5e1' : '#475569'}
-            strokeWidth={isMadd ? '2.5' : '1.2'}
-            filter={isMadd ? 'url(#makhrajGlow)' : undefined}
-          />
-          <text
-            x="250"
-            y="144"
-            textAnchor="middle"
-            fill={isMadd ? (isLight ? '#064e3b' : '#d1fae5') : isLight ? '#475569' : '#94a3b8'}
-            fontSize="11"
-            fontWeight="bold"
-          >
-            {isArabic ? 'الجَوْف (حروف المد الثلاثة)' : 'Al-Jawf (Madd Cavity)'}
-          </text>
+            {/* Stylized Anatomical Head Profile Outline */}
+            <path
+              d="M 60 220 C 50 180, 40 120, 70 70 C 100 30, 180 20, 240 35 C 270 45, 300 80, 310 120 C 315 140, 325 155, 350 160 C 360 162, 360 175, 340 180 C 315 185, 305 200, 305 220"
+              fill="none"
+              stroke={isLight ? '#94a3b8' : '#334155'}
+              strokeWidth="2"
+              strokeDasharray="4,4"
+            />
 
-          {/* 3. Al-Lisan (The Tongue / اللسان) */}
-          <path
-            d="M 210 165 C 240 150, 290 150, 320 168 C 300 185, 230 185, 210 165 Z"
-            fill={!isHalq && !isMadd ? (isLight ? '#dcfce7' : '#064e3b') : isLight ? '#f1f5f9' : '#0f172a'}
-            stroke={!isHalq && !isMadd ? (isLight ? '#16a34a' : '#34d399') : isLight ? '#cbd5e1' : '#475569'}
-            strokeWidth="1.8"
-          />
-          <text
-            x="265"
-            y="172"
-            textAnchor="middle"
-            fill={!isHalq && !isMadd ? (isLight ? '#14532d' : '#a7f3d0') : isLight ? '#475569' : '#94a3b8'}
-            fontSize="10"
-            fontWeight="bold"
-          >
-            {isArabic ? 'اللِّسَان (10 مخارج لـ 18 حرفاً)' : 'Tongue (18 Letters)'}
-          </text>
-
-          {/* 4. Ash-Shafatayn (The Lips / الشفتان) */}
-          <circle
-            cx="370"
-            cy="165"
-            r="18"
-            fill={isShafatayn ? (isLight ? '#dcfce7' : '#047857') : isLight ? '#f1f5f9' : '#0f172a'}
-            stroke={isShafatayn ? (isLight ? '#16a34a' : '#34d399') : isLight ? '#cbd5e1' : '#475569'}
-            strokeWidth={isShafatayn ? '2.5' : '1.2'}
-            filter={isShafatayn ? 'url(#makhrajGlow)' : undefined}
-          />
-          <text
-            x="370"
-            y="169"
-            textAnchor="middle"
-            fill={isShafatayn ? (isLight ? '#14532d' : '#ecfdf5') : isLight ? '#475569' : '#94a3b8'}
-            fontSize="9"
-            fontWeight="bold"
-          >
-            {isArabic ? 'الشفتان' : 'Lips'}
-          </text>
-
-          {/* 5. Al-Halq (The Throat / الحلق) */}
-          <rect
-            x="180"
-            y="185"
-            width="60"
-            height="30"
-            rx="8"
-            fill={isHalq ? (isLight ? '#dcfce7' : '#065f46') : isLight ? '#f1f5f9' : '#0f172a'}
-            stroke={isHalq ? (isLight ? '#16a34a' : '#34d399') : isLight ? '#cbd5e1' : '#475569'}
-            strokeWidth={isHalq ? '2.5' : '1.2'}
-            filter={isHalq ? 'url(#makhrajGlow)' : undefined}
-          />
-          <text
-            x="210"
-            y="204"
-            textAnchor="middle"
-            fill={isHalq ? (isLight ? '#14532d' : '#ecfdf5') : isLight ? '#475569' : '#94a3b8'}
-            fontSize="10"
-            fontWeight="bold"
-          >
-            {isArabic ? 'الحَلْق' : 'Throat'}
-          </text>
-
-          {/* Acoustic Wave Vector Beams */}
-          <g transform="translate(420, 30)">
-            <rect
-              x="0"
-              y="0"
-              width="360"
-              height="180"
-              rx="16"
-              fill={isLight ? '#ffffff' : '#020617'}
-              stroke={isLight ? '#cbd5e1' : '#10b981'}
-              strokeWidth="1"
-              strokeOpacity={isLight ? '1' : '0.4'}
+            {/* 1. Al-Khayshoom (Nasal Cavity / الخيشوم) */}
+            <ellipse
+              cx="220"
+              cy="90"
+              rx="42"
+              ry="20"
+              fill={isGhunnah ? 'url(#nasalResonance)' : isLight ? '#f1f5f9' : '#0f172a'}
+              stroke={isGhunnah ? (isLight ? '#0d9488' : '#2dd4bf') : isLight ? '#cbd5e1' : '#475569'}
+              strokeWidth={isGhunnah ? '2.5' : '1.2'}
+              filter={isGhunnah ? 'url(#makhrajGlow)' : undefined}
             />
             <text
-              x="180"
-              y="24"
+              x="220"
+              y="94"
               textAnchor="middle"
-              fill={isLight ? '#0f766e' : '#34d399'}
-              fontSize="12"
+              fill={isGhunnah ? (isLight ? '#042f2e' : '#ccfbf1') : isLight ? '#475569' : '#94a3b8'}
+              fontSize="10"
               fontWeight="bold"
             >
-              {isArabic ? 'خصائص الصوت والأداء التجويدي' : 'Acoustic Attributes & Articulation Profile'}
+              {isArabic ? 'الخَيْشُوم (مخرج الغنة)' : 'Nasal Cavity (Ghunnah)'}
             </text>
 
-            <line x1="15" y1="36" x2="345" y2="36" stroke={isLight ? '#e2e8f0' : '#334155'} strokeWidth="1" />
-
-            {/* Feature 1: Target Letters */}
-            <text x="20" y="60" fill={isLight ? '#475569' : '#94a3b8'} fontSize="11" fontWeight={isLight ? '600' : 'normal'}>
-              {isArabic ? 'أحرف الحكم المعني:' : 'Target Letters:'}
-            </text>
-            <g transform="translate(130, 46)">
-              {rule.letters.map((lettr, idx) => (
-                <g key={idx}>
-                  <rect
-                    x={idx * 26}
-                    y="0"
-                    width="22"
-                    height="22"
-                    rx="6"
-                    fill={isLight ? '#ecfdf5' : '#064e3b'}
-                    stroke={isLight ? '#86efac' : '#34d399'}
-                    strokeWidth="1"
-                  />
-                  <text
-                    x={idx * 26 + 11}
-                    y="15"
-                    textAnchor="middle"
-                    fill={isLight ? '#065f46' : '#fef08a'}
-                    fontSize="12"
-                    fontWeight="bold"
-                    fontFamily="serif"
-                  >
-                    {lettr}
-                  </text>
-                </g>
-              ))}
-            </g>
-
-            {/* Feature 2: Articulatory Action */}
-            <text x="20" y="96" fill={isLight ? '#475569' : '#94a3b8'} fontSize="11" fontWeight={isLight ? '600' : 'normal'}>
-              {isArabic ? 'آلية النطق الصوتي:' : 'Phonetic Mechanism:'}
-            </text>
-            <text x="130" y="96" fill={isLight ? '#047857' : '#6ee7b7'} fontSize="11" fontWeight="bold">
-              {isGhunnah
-                ? isArabic
-                  ? 'جريان الصوت في الخيشوم بمقدار حركتين'
-                  : '2-count nasal resonance airflow'
-                : isMadd
-                ? isArabic
-                  ? 'امتداد الصوت بحرف المد في الجوف'
-                  : 'Longitudinal airflow elongation in Jawf'
-                : isHalq
-                ? isArabic
-                  ? 'إخراج الحرف من مخرجه بغير غنة ظاهرة'
-                  : 'Clear throat release without nasalization'
-                : isQalqalah
-                ? isArabic
-                  ? 'اضطراب المخرج عند النطق بالحرف ساكناً'
-                  : 'Vocal tract impulse tremor on sukoon'
-                : isArabic
-                ? 'تطابق الشفتين مع قلب النون ميماً مخفاة'
-                : 'Labial assimilation with hidden meem'}
-            </text>
-
-            {/* Feature 3: Measure / Duration */}
-            <text x="20" y="132" fill={isLight ? '#475569' : '#94a3b8'} fontSize="11" fontWeight={isLight ? '600' : 'normal'}>
-              {isArabic ? 'المقدار الزمني الدستوري:' : 'Metronomic Timing:'}
-            </text>
-            <text
-              x="130"
-              y="132"
-              fill={isLight ? '#0284c7' : '#38bdf8'}
-              fontSize="11"
-              fontWeight="bold"
-              fontFamily="mono"
-            >
-              {isMadd
-                ? 'حركتان إلى 6 حركات (2 - 6 Harakat)'
-                : isGhunnah
-                ? 'حركتان كاملتان (2 Harakat)'
-                : 'حركة اعتيادية منضبطة'}
-            </text>
-
-            <rect x="20" y="148" width="320" height="12" rx="6" fill={isLight ? '#e2e8f0' : '#0f172a'} />
-            <rect
-              x="20"
-              y="148"
-              width={isMadd ? '300' : isGhunnah ? '220' : '150'}
-              height="12"
-              rx="6"
-              fill={isLight ? '#059669' : '#10b981'}
+            {/* 2. Al-Jawf (Oral & Throat Cavity / الجوف) */}
+            <ellipse
+              cx="190"
+              cy="140"
+              rx="48"
+              ry="22"
+              fill={isMadd ? 'url(#vocalTractGlow)' : isLight ? '#f1f5f9' : '#0f172a'}
+              stroke={isMadd ? (isLight ? '#059669' : '#10b981') : isLight ? '#cbd5e1' : '#475569'}
+              strokeWidth={isMadd ? '2.5' : '1.2'}
+              filter={isMadd ? 'url(#makhrajGlow)' : undefined}
             />
-          </g>
-        </svg>
+            <text
+              x="190"
+              y="144"
+              textAnchor="middle"
+              fill={isMadd ? (isLight ? '#064e3b' : '#d1fae5') : isLight ? '#475569' : '#94a3b8'}
+              fontSize="10"
+              fontWeight="bold"
+            >
+              {isArabic ? 'الجَوْف (حروف المد)' : 'Al-Jawf (Madd Cavity)'}
+            </text>
+
+            {/* 3. Al-Lisan (The Tongue / اللسان) */}
+            <path
+              d="M 150 165 C 180 150, 230 150, 260 168 C 240 185, 170 185, 150 165 Z"
+              fill={!isHalq && !isMadd ? (isLight ? '#dcfce7' : '#064e3b') : isLight ? '#f1f5f9' : '#0f172a'}
+              stroke={!isHalq && !isMadd ? (isLight ? '#16a34a' : '#34d399') : isLight ? '#cbd5e1' : '#475569'}
+              strokeWidth="1.8"
+            />
+            <text
+              x="205"
+              y="172"
+              textAnchor="middle"
+              fill={!isHalq && !isMadd ? (isLight ? '#14532d' : '#a7f3d0') : isLight ? '#475569' : '#94a3b8'}
+              fontSize="9"
+              fontWeight="bold"
+            >
+              {isArabic ? 'اللِّسَان (10 مخارج)' : 'Tongue (18 Letters)'}
+            </text>
+
+            {/* 4. Ash-Shafatayn (The Lips / الشفتان) */}
+            <circle
+              cx="310"
+              cy="165"
+              r="17"
+              fill={isShafatayn ? (isLight ? '#dcfce7' : '#047857') : isLight ? '#f1f5f9' : '#0f172a'}
+              stroke={isShafatayn ? (isLight ? '#16a34a' : '#34d399') : isLight ? '#cbd5e1' : '#475569'}
+              strokeWidth={isShafatayn ? '2.5' : '1.2'}
+              filter={isShafatayn ? 'url(#makhrajGlow)' : undefined}
+            />
+            <text
+              x="310"
+              y="169"
+              textAnchor="middle"
+              fill={isShafatayn ? (isLight ? '#14532d' : '#ecfdf5') : isLight ? '#475569' : '#94a3b8'}
+              fontSize="9"
+              fontWeight="bold"
+            >
+              {isArabic ? 'الشفتان' : 'Lips'}
+            </text>
+
+            {/* 5. Al-Halq (The Throat / الحلق) */}
+            <rect
+              x="120"
+              y="185"
+              width="55"
+              height="28"
+              rx="7"
+              fill={isHalq ? (isLight ? '#dcfce7' : '#065f46') : isLight ? '#f1f5f9' : '#0f172a'}
+              stroke={isHalq ? (isLight ? '#16a34a' : '#34d399') : isLight ? '#cbd5e1' : '#475569'}
+              strokeWidth={isHalq ? '2.5' : '1.2'}
+              filter={isHalq ? 'url(#makhrajGlow)' : undefined}
+            />
+            <text
+              x="147"
+              y="203"
+              textAnchor="middle"
+              fill={isHalq ? (isLight ? '#14532d' : '#ecfdf5') : isLight ? '#475569' : '#94a3b8'}
+              fontSize="9.5"
+              fontWeight="bold"
+            >
+              {isArabic ? 'الحَلْق' : 'Throat'}
+            </text>
+          </svg>
+        </div>
+
+        {/* Column 2: Dedicated Acoustic Attributes & Articulation Profile (HTML / Native RTL) */}
+        <div
+          className={`lg:col-span-7 p-4 rounded-xl border flex flex-col gap-3 ${
+            isLight
+              ? 'bg-white border-slate-200 shadow-xs text-slate-800'
+              : 'bg-slate-950/80 border-emerald-500/30 text-slate-200'
+          }`}
+        >
+          {/* Panel Header */}
+          <div className="flex items-center justify-between pb-2 border-b border-slate-200/80 dark:border-slate-800">
+            <h5
+              className={`text-xs sm:text-sm font-bold flex items-center gap-1.5 ${
+                isLight ? 'text-emerald-950 font-black' : 'text-emerald-400'
+              }`}
+            >
+              <Volume2 className="w-4 h-4 text-emerald-600" />
+              <span>{isArabic ? 'خصائص الصوت والأداء التجويدي' : 'Acoustic Attributes & Articulation Profile'}</span>
+            </h5>
+            <span
+              className={`text-[11px] px-2 py-0.5 rounded font-mono font-bold ${
+                isGhunnah
+                  ? isLight
+                    ? 'bg-teal-100 text-teal-950 border border-teal-300'
+                    : 'bg-teal-950 text-teal-300 border border-teal-500/30'
+                  : isMadd
+                  ? isLight
+                    ? 'bg-emerald-100 text-emerald-950 border border-emerald-300'
+                    : 'bg-emerald-950 text-emerald-300 border border-emerald-500/30'
+                  : isLight
+                  ? 'bg-slate-100 text-slate-800 border border-slate-200'
+                  : 'bg-slate-900 text-slate-300 border border-slate-700'
+              }`}
+            >
+              {isGhunnah
+                ? isArabic ? 'غنة صوتية' : 'Ghunnah'
+                : isMadd
+                ? isArabic ? 'مد صوتي' : 'Madd'
+                : isArabic ? 'مخرج محقق' : 'Standard'}
+            </span>
+          </div>
+
+          {/* Feature 1: Target Letters */}
+          <div className="flex flex-col gap-1.5">
+            <div className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
+              {isArabic ? `أحرف الحكم المعني (${rule.letters.length} أحرف):` : `Target Letters (${rule.letters.length}):`}
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {rule.letters.map((lettr, idx) => (
+                <span
+                  key={idx}
+                  className={`w-7 h-7 flex items-center justify-center rounded-lg text-xs font-bold font-serif shadow-xs border transition-all ${
+                    isLight
+                      ? 'bg-emerald-50 border-emerald-300 text-emerald-950 hover:bg-emerald-100'
+                      : 'bg-emerald-950/80 border-emerald-500/40 text-emerald-200 hover:bg-emerald-900'
+                  }`}
+                >
+                  {lettr}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Feature 2: Articulatory Mechanism */}
+          <div className="flex flex-col gap-1">
+            <div className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
+              {isArabic ? 'آلية النطق الصوتي:' : 'Phonetic Mechanism:'}
+            </div>
+            <div
+              className={`text-xs sm:text-sm font-semibold p-2.5 rounded-xl border leading-relaxed ${
+                isLight
+                  ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950'
+                  : 'bg-emerald-950/40 border-emerald-500/30 text-emerald-200'
+              }`}
+            >
+              {mechanismText}
+            </div>
+          </div>
+
+          {/* Feature 3: Metronomic Duration / Timing */}
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center justify-between text-xs">
+              <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
+                {isArabic ? 'المقدار الزمني الدستوري:' : 'Metronomic Timing:'}
+              </span>
+              <span className={`font-mono font-bold ${isLight ? 'text-sky-900' : 'text-sky-300'}`}>
+                {timingText}
+              </span>
+            </div>
+            <div className={`w-full h-2.5 rounded-full overflow-hidden ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}>
+              <div
+                className={`h-full rounded-full transition-all duration-500 ${
+                  isLight ? 'bg-emerald-600' : 'bg-emerald-400'
+                }`}
+                style={{ width: timingPercent }}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -996,7 +1013,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                   <button
                     key={rule.id}
                     onClick={() => setSelectedTajweed(rule)}
-                    className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
+                    className={`w-full flex flex-col min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                       isSelected
                         ? isLight
                           ? 'bg-emerald-700 border-emerald-700 text-white shadow-md shadow-emerald-900/20'
@@ -1373,7 +1390,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                   <button
                     key={maqsad.id}
                     onClick={() => setSelectedMaqsad(maqsad)}
-                    className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
+                    className={`w-full flex flex-col min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                       isSelected
                         ? isLight
                           ? 'bg-emerald-700 border-emerald-700 text-white shadow-md'
@@ -1383,7 +1400,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                         : 'bg-slate-900/40 border-emerald-500/10 text-emerald-200/80 hover:bg-emerald-900/20'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="w-full flex items-center justify-between">
                       <span
                         className={`font-bold text-sm ${
                           isSelected ? 'text-white' : isLight ? 'text-slate-900' : 'text-slate-100'
@@ -1502,7 +1519,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                   <button
                     key={m.id}
                     onClick={() => setSelectedMilestone(m)}
-                    className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
+                    className={`w-full flex flex-col min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                       isSelected
                         ? isLight
                           ? 'bg-emerald-700 border-emerald-700 text-white shadow-md'
@@ -1512,7 +1529,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                         : 'bg-slate-900/40 border-emerald-500/10 text-emerald-200/80 hover:bg-emerald-900/20'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="w-full flex items-center justify-between">
                       <span
                         className={`font-bold text-sm ${
                           isSelected ? 'text-white' : isLight ? 'text-slate-900' : 'text-slate-100'
@@ -1631,7 +1648,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                   <button
                     key={issue.id}
                     onClick={() => setSelectedIssue(issue)}
-                    className={`min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
+                    className={`w-full flex flex-col min-h-[44px] p-3.5 rounded-xl text-start transition-all border ${
                       isSelected
                         ? isLight
                           ? 'bg-emerald-700 border-emerald-700 text-white shadow-md'
