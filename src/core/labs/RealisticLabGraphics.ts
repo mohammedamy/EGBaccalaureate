@@ -371,7 +371,7 @@ export function drawAnalogMeterGauge(
   const sweep = endAngle - startAngle;
 
   const tickFontSize = Math.max(9, Math.round(faceRadius * 0.17));
-  const titleFontSize = Math.max(11, Math.round(faceRadius * 0.21));
+  const titleFontSize = Math.min(11, Math.max(9, Math.round(faceRadius * 0.18)));
   const lcdFontSize = Math.max(10, Math.round(faceRadius * 0.20));
 
   // Anti-Parallax Polished Mirror Band (Class 0.5 Precision Meter Standard)
@@ -429,12 +429,12 @@ export function drawAnalogMeterGauge(
     }
   }
 
-  // 5. Dial Meter Title
+  // 5. Dial Meter Title (Cleanly centered above needle pivot)
   ctx.fillStyle = '#0f172a';
   ctx.font = `900 ${titleFontSize}px Inter, system-ui, sans-serif`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText(title, cx, cy - faceRadius * 0.28);
+  ctx.fillText(title, cx, cy - faceRadius * 0.40);
 
   // 6. Integrated High-Contrast Digital LCD Sub-Display Window (Effortlessly Readable!)
   const lcdW = Math.max(54, faceRadius * 1.15);

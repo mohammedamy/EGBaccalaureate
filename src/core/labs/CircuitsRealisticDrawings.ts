@@ -445,53 +445,16 @@ export function drawAxialCeramicResistor(
   bodyH: number,
   resistanceVal: number,
   label: string = 'R',
-  voltageDrop?: number
+  voltageDrop?: number,
+  isLight: boolean = false,
+  orientation: 'horizontal' | 'vertical' = 'horizontal'
 ): void {
   ctx.save();
 
-  const leadLen = 22;
+  const isVertical = orientation === 'vertical';
+  const leadLen = isVertical ? 14 : 22;
 
-  // 1. Tinned Axial Copper Leads Extending Out Left and Right
-  ctx.strokeStyle = '#cbd5e1';
-  ctx.lineWidth = 2.4;
-  ctx.beginPath();
-  ctx.moveTo(x - bodyW / 2 - leadLen, y);
-  ctx.lineTo(x + bodyW / 2 + leadLen, y);
-  ctx.stroke();
-
-  // Lead Solder Fillets
-  ctx.fillStyle = '#94a3b8';
-  ctx.beginPath();
-  ctx.arc(x - bodyW / 2, y, 3, 0, Math.PI * 2);
-  ctx.arc(x + bodyW / 2, y, 3, 0, Math.PI * 2);
-  ctx.fill();
-
-  // 2. Resistor Body Drop Shadow
-  ctx.save();
-  ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
-  ctx.shadowBlur = 8;
-  ctx.shadowOffsetY = 3;
-  ctx.fillStyle = '#0f172a';
-  ctx.beginPath();
-  ctx.roundRect(x - bodyW / 2, y - bodyH / 2, bodyW, bodyH, [bodyH / 2]);
-  ctx.fill();
-  ctx.restore();
-
-  // 3. Molded Ceramic Cylinder Body (Warm High-Grade Ceramic Tan/Beige)
-  const bodyGrad = ctx.createLinearGradient(x - bodyW / 2, y - bodyH / 2, x - bodyW / 2, y + bodyH / 2);
-  bodyGrad.addColorStop(0, '#f5ebe0');
-  bodyGrad.addColorStop(0.25, '#ffffff');
-  bodyGrad.addColorStop(0.7, '#e6ccb2');
-  bodyGrad.addColorStop(1, '#b08968');
-  ctx.fillStyle = bodyGrad;
-  ctx.beginPath();
-  ctx.roundRect(x - bodyW / 2, y - bodyH / 2, bodyW, bodyH, [bodyH / 2]);
-  ctx.fill();
-  ctx.strokeStyle = '#9c6644';
-  ctx.lineWidth = 1;
-  ctx.stroke();
-
-  // 4. Standard EIA 4-Band Color Bands
+  // Calculate EIA bands
   const val = Math.max(0.1, resistanceVal);
   let d1 = 1;
   let d2 = 0;
@@ -512,34 +475,148 @@ export function drawAxialCeramicResistor(
   const band2Color = EIA_COLORS[d2] || EIA_COLORS[0];
   const multColor = mult === 4 ? '#eab308' : EIA_COLORS[mult] || EIA_COLORS[0];
   const tolColor = '#eab308'; // 5% Gold tolerance band
-
   const bands = [band1Color, band2Color, multColor, tolColor];
-  const bandSpacing = bodyW * 0.18;
-  const bandW = Math.max(3.5, bodyW * 0.07);
-  const startBandX = x - bodyW * 0.28;
 
-  bands.forEach((bColor, idx) => {
-    const bx = startBandX + idx * bandSpacing;
-    ctx.fillStyle = bColor;
-    ctx.fillRect(bx - bandW / 2, y - bodyH / 2, bandW, bodyH);
-  });
+  if (isVertical) {
+    // 1. Tinned Axial Copper Leads Extending Out Top and Bottom
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    ctx.moveTo(x, y - bodyW / 2 - leadLen);
+    ctx.lineTo(x, y + bodyW / 2 + leadLen);
+    ctx.stroke();
 
-  // Top Specular Sheen on Resistor
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
-  ctx.fillRect(x - bodyW / 2 + 4, y - bodyH / 2 + 2, bodyW - 8, 3);
+    // Lead Solder Fillets
+    ctx.fillStyle = '#94a3b8';
+    ctx.beginPath();
+    ctx.arc(x, y - bodyW / 2, 3, 0, Math.PI * 2);
+    ctx.arc(x, y + bodyW / 2, 3, 0, Math.PI * 2);
+    ctx.fill();
 
-  // 5. Value and Label Callout Badge
-  ctx.fillStyle = '#f8fafc';
-  ctx.font = 'bold 11px "SF Mono", monospace';
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'bottom';
-  ctx.fillText(`${label} = ${resistanceVal.toFixed(1)} Ω`, x, y - bodyH / 2 - 5);
+    // 2. Resistor Body Drop Shadow
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetX = 3;
+    ctx.shadowOffsetY = 2;
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.roundRect(x - bodyH / 2, y - bodyW / 2, bodyH, bodyW, [bodyH / 2]);
+    ctx.fill();
+    ctx.restore();
 
-  if (voltageDrop !== undefined) {
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 10px monospace';
-    ctx.textBaseline = 'top';
-    ctx.fillText(`V = ${voltageDrop.toFixed(2)} V`, x, y + bodyH / 2 + 5);
+    // 3. Molded Ceramic Cylinder Body (Warm High-Grade Ceramic Tan/Beige)
+    const bodyGrad = ctx.createLinearGradient(x - bodyH / 2, y, x + bodyH / 2, y);
+    bodyGrad.addColorStop(0, '#f5ebe0');
+    bodyGrad.addColorStop(0.25, '#ffffff');
+    bodyGrad.addColorStop(0.7, '#e6ccb2');
+    bodyGrad.addColorStop(1, '#b08968');
+    ctx.fillStyle = bodyGrad;
+    ctx.beginPath();
+    ctx.roundRect(x - bodyH / 2, y - bodyW / 2, bodyH, bodyW, [bodyH / 2]);
+    ctx.fill();
+    ctx.strokeStyle = '#9c6644';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // 4. Standard EIA 4-Band Color Bands (Horizontal Stripes across vertical cylinder)
+    const bandSpacing = bodyW * 0.18;
+    const bandH = Math.max(3.5, bodyW * 0.07);
+    const startBandY = y - bodyW * 0.28;
+
+    bands.forEach((bColor, idx) => {
+      const by = startBandY + idx * bandSpacing;
+      ctx.fillStyle = bColor;
+      ctx.fillRect(x - bodyH / 2, by - bandH / 2, bodyH, bandH);
+    });
+
+    // Vertical Specular Sheen
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.fillRect(x - bodyH / 2 + 2, y - bodyW / 2 + 4, 3, bodyW - 8);
+
+    // 5. Value and Label Callout Badge (Cleanly placed to the right of the vertical resistor)
+    const textX = x + bodyH / 2 + 10;
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+    ctx.font = 'bold 11px "SF Mono", monospace';
+    const labelY = voltageDrop !== undefined ? y - 7 : y;
+    ctx.fillText(`${label} = ${resistanceVal.toFixed(1)} Ω`, textX, labelY);
+
+    if (voltageDrop !== undefined) {
+      ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
+      ctx.font = 'bold 10px monospace';
+      ctx.fillText(`V = ${voltageDrop.toFixed(2)} V`, textX, y + 8);
+    }
+  } else {
+    // 1. Tinned Axial Copper Leads Extending Out Left and Right
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    ctx.moveTo(x - bodyW / 2 - leadLen, y);
+    ctx.lineTo(x + bodyW / 2 + leadLen, y);
+    ctx.stroke();
+
+    // Lead Solder Fillets
+    ctx.fillStyle = '#94a3b8';
+    ctx.beginPath();
+    ctx.arc(x - bodyW / 2, y, 3, 0, Math.PI * 2);
+    ctx.arc(x + bodyW / 2, y, 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 2. Resistor Body Drop Shadow
+    ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetY = 3;
+    ctx.fillStyle = '#0f172a';
+    ctx.beginPath();
+    ctx.roundRect(x - bodyW / 2, y - bodyH / 2, bodyW, bodyH, [bodyH / 2]);
+    ctx.fill();
+    ctx.restore();
+
+    // 3. Molded Ceramic Cylinder Body (Warm High-Grade Ceramic Tan/Beige)
+    const bodyGrad = ctx.createLinearGradient(x - bodyW / 2, y - bodyH / 2, x - bodyW / 2, y + bodyH / 2);
+    bodyGrad.addColorStop(0, '#f5ebe0');
+    bodyGrad.addColorStop(0.25, '#ffffff');
+    bodyGrad.addColorStop(0.7, '#e6ccb2');
+    bodyGrad.addColorStop(1, '#b08968');
+    ctx.fillStyle = bodyGrad;
+    ctx.beginPath();
+    ctx.roundRect(x - bodyW / 2, y - bodyH / 2, bodyW, bodyH, [bodyH / 2]);
+    ctx.fill();
+    ctx.strokeStyle = '#9c6644';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // 4. Standard EIA 4-Band Color Bands (Vertical Stripes across horizontal cylinder)
+    const bandSpacing = bodyW * 0.18;
+    const bandW = Math.max(3.5, bodyW * 0.07);
+    const startBandX = x - bodyW * 0.28;
+
+    bands.forEach((bColor, idx) => {
+      const bx = startBandX + idx * bandSpacing;
+      ctx.fillStyle = bColor;
+      ctx.fillRect(bx - bandW / 2, y - bodyH / 2, bandW, bodyH);
+    });
+
+    // Top Specular Sheen on Resistor
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.fillRect(x - bodyW / 2 + 4, y - bodyH / 2 + 2, bodyW - 8, 3);
+
+    // 5. Value and Label Callout Badge
+    ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+    ctx.font = 'bold 11px "SF Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    ctx.fillText(`${label} = ${resistanceVal.toFixed(1)} Ω`, x, y - bodyH / 2 - 5);
+
+    if (voltageDrop !== undefined) {
+      ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
+      ctx.font = 'bold 10px monospace';
+      ctx.textBaseline = 'top';
+      ctx.fillText(`V = ${voltageDrop.toFixed(2)} V`, x, y + bodyH / 2 + 5);
+    }
   }
 
   ctx.restore();

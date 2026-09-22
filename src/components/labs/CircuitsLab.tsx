@@ -984,9 +984,9 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       ctx.fillText(moduleHeader, centerX, 24);
 
       // --- 1. Sizing Layout: Big Drawings, High Visibility ---
-      const vmRadius = 50;
+      const vmRadius = 46;
       const ammeterRadius = 52;
-      const leftMargin = vmRadius * 2 + 36; // 136px for large voltmeter
+      const leftMargin = 148; // 148px gives ample clearance for voltmeter without touching battery
       const rightMargin = 70;
       const boxW = Math.min(width - leftMargin - rightMargin, 740);
       const boxH = Math.min(height - 120, 360);
@@ -1008,8 +1008,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
       const batTopPostY = batY - batH / 2 - 4;
       const batBotPostY = batY + batH / 2 + 4;
 
-      // Voltmeter Position (Tapped across Battery 1)
-      const vmX = leftX - 76;
+      // Voltmeter Position (Tapped across Battery 1 with clean air clearance)
+      const vmX = leftX - 90;
       const vmY = centerY;
 
       // Ammeter Position (Bottom Return Rail)
@@ -1088,8 +1088,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         );
 
         // Flexible Voltmeter Probes across Battery Terminals
-        drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
-        drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+        drawHeavyInsulatedCable(ctx, batX - 4, batTopPostY, vmX + 26, vmY - 30, '#ef4444', isEnergized);
+        drawHeavyInsulatedCable(ctx, batX - 4, batBotPostY, vmX + 26, vmY + 30, '#0f172a', isEnergized);
 
         // Apparatus
         drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
@@ -1197,13 +1197,13 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           );
 
           // Voltmeter test leads
-          drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
-          drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 4, batTopPostY, vmX + 26, vmY - 30, '#ef4444', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 4, batBotPostY, vmX + 26, vmY + 30, '#0f172a', isEnergized);
 
           // Resistors
-          drawAxialCeramicResistor(ctx, r1X, topY, 74, 22, params.r1, 'R1', simState.iTotal * params.r1);
-          drawAxialCeramicResistor(ctx, r2X, topY, 74, 22, params.r2, 'R2', simState.iTotal * params.r2);
-          drawAxialCeramicResistor(ctx, r3X, topY, 74, 22, params.r3, 'R3', simState.iTotal * params.r3);
+          drawAxialCeramicResistor(ctx, r1X, topY, 74, 22, params.r1, 'R1', simState.iTotal * params.r1, isLight);
+          drawAxialCeramicResistor(ctx, r2X, topY, 74, 22, params.r2, 'R2', simState.iTotal * params.r2, isLight);
+          drawAxialCeramicResistor(ctx, r3X, topY, 74, 22, params.r3, 'R3', simState.iTotal * params.r3, isLight);
 
           // Apparatus
           drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
@@ -1293,11 +1293,11 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ].forEach((br) => {
             drawHeavyInsulatedCable(ctx, br.x, topY, br.x, topY + 40, '#dc2626', isEnergized);
             drawHeavyInsulatedCable(ctx, br.x, topY + 90, br.x, midY, '#2563eb', isEnergized);
-            drawAxialCeramicResistor(ctx, br.x, topY + 65, 68, 20, br.r, br.label, simState.vTerminal1);
+            drawAxialCeramicResistor(ctx, br.x, topY + 65, 36, 16, br.r, br.label, simState.vTerminal1, isLight, 'vertical');
 
             // Branch Current Arrow Tag
-            ctx.fillStyle = '#10b981';
-            ctx.font = 'bold 10px monospace';
+            ctx.fillStyle = isLight ? '#047857' : '#10b981';
+            ctx.font = 'bold 11px monospace';
             ctx.textAlign = 'center';
             ctx.fillText(`I = ${br.i.toFixed(2)}A ↓`, br.x, midY + 16);
           });
@@ -1326,8 +1326,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           );
 
           // Voltmeter
-          drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
-          drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 4, batTopPostY, vmX + 26, vmY - 30, '#ef4444', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 4, batBotPostY, vmX + 26, vmY + 30, '#0f172a', isEnergized);
 
           drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
           drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
@@ -1411,10 +1411,10 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           drawHeavyInsulatedCable(ctx, nodeD.x, (nodeC.y + nodeD.y) / 2 + 38, nodeD.x, nodeD.y, '#ca8a04', isEnergized);
 
           // Diagonal Arm Resistors
-          drawAxialCeramicResistor(ctx, (nodeA.x + nodeC.x) / 2, (nodeA.y + nodeC.y) / 2, 60, 18, params.r1, 'R1');
-          drawAxialCeramicResistor(ctx, (nodeC.x + nodeB.x) / 2, (nodeC.y + nodeB.y) / 2, 60, 18, params.r2, 'R2');
-          drawAxialCeramicResistor(ctx, (nodeA.x + nodeD.x) / 2, (nodeA.y + nodeD.y) / 2, 60, 18, params.r3, 'R3');
-          drawAxialCeramicResistor(ctx, (nodeD.x + nodeB.x) / 2, (nodeD.y + nodeB.y) / 2, 60, 18, params.r4, 'R4');
+          drawAxialCeramicResistor(ctx, (nodeA.x + nodeC.x) / 2, (nodeA.y + nodeC.y) / 2, 60, 18, params.r1, 'R1', undefined, isLight);
+          drawAxialCeramicResistor(ctx, (nodeC.x + nodeB.x) / 2, (nodeC.y + nodeB.y) / 2, 60, 18, params.r2, 'R2', undefined, isLight);
+          drawAxialCeramicResistor(ctx, (nodeA.x + nodeD.x) / 2, (nodeA.y + nodeD.y) / 2, 60, 18, params.r3, 'R3', undefined, isLight);
+          drawAxialCeramicResistor(ctx, (nodeD.x + nodeB.x) / 2, (nodeD.y + nodeB.y) / 2, 60, 18, params.r4, 'R4', undefined, isLight);
 
           // Central Galvanometer
           drawCenterZeroGalvanometer(ctx, centerX, (nodeC.y + nodeD.y) / 2, 42, simState.iBranch3, simState.isBridgeBalanced);
@@ -1443,8 +1443,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           );
 
           // Voltmeter
-          drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
-          drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 4, batTopPostY, vmX + 26, vmY - 30, '#ef4444', isEnergized);
+          drawHeavyInsulatedCable(ctx, batX - 4, batBotPostY, vmX + 26, vmY + 30, '#0f172a', isEnergized);
 
           drawHeavyLabBattery(ctx, batX, batY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, isEnergized, isArabic);
           drawIndustrialKnifeSwitch(ctx, switchX, switchY, switchW, switchH, params.isSwitchClosed, isArabic);
@@ -1487,10 +1487,10 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         drawHeavyInsulatedCable(ctx, centerX, topY, r2CenterX - 42, topY, '#2563eb', isEnergized);
         drawHeavyInsulatedCable(ctx, r2CenterX + 42, topY, rightX, topY, '#2563eb', isEnergized);
 
-        // Center Vertical Branch with Resistor R3
-        drawHeavyInsulatedCable(ctx, centerX, topY, centerX, centerY - 38, '#10b981', isEnergized);
-        drawHeavyInsulatedCable(ctx, centerX, centerY + 38, centerX, botY, '#10b981', isEnergized);
-        drawAxialCeramicResistor(ctx, centerX, centerY, 74, 22, params.r3, 'R3', Math.abs(simState.iBranch3 * params.r3));
+        // Center Vertical Branch with Resistor R3 (Drawn vertically connecting into branch terminals)
+        drawHeavyInsulatedCable(ctx, centerX, topY, centerX, centerY - 42, '#10b981', isEnergized);
+        drawHeavyInsulatedCable(ctx, centerX, centerY + 42, centerX, botY, '#10b981', isEnergized);
+        drawAxialCeramicResistor(ctx, centerX, centerY, 56, 20, params.r3, 'R3', Math.abs(simState.iBranch3 * params.r3), isLight, 'vertical');
 
         // Bottom Horizontal Rails
         drawHeavyInsulatedCable(ctx, leftX, botY, centerX, botY, '#dc2626', isEnergized);
@@ -1507,8 +1507,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         drawHeavyInsulatedCable(ctx, rightX, botY, rightX, bat2BotPostY, '#2563eb', isEnergized);
 
         // Top Resistors R1 & R2
-        drawAxialCeramicResistor(ctx, r1CenterX, topY, 74, 20, params.r1, 'R1', Math.abs(simState.iBranch1 * params.r1));
-        drawAxialCeramicResistor(ctx, r2CenterX, topY, 74, 20, params.r2, 'R2', Math.abs(simState.iBranch2 * params.r2));
+        drawAxialCeramicResistor(ctx, r1CenterX, topY, 74, 20, params.r1, 'R1', Math.abs(simState.iBranch1 * params.r1), isLight);
+        drawAxialCeramicResistor(ctx, r2CenterX, topY, 74, 20, params.r2, 'R2', Math.abs(simState.iBranch2 * params.r2), isLight);
 
         // Both Batteries
         drawHeavyLabBattery(ctx, leftX, centerY, batW, batH, params.vb1, params.rInternal1, simState.battery1StateEn, simState.battery1StateAr, simState.battery1StateEn === 'Discharging', isArabic);
@@ -1518,21 +1518,24 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         drawBrassTerminalStud(ctx, centerX, topY);
         drawBrassTerminalStud(ctx, centerX, botY);
 
-        ctx.fillStyle = '#f8fafc';
+        ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
         ctx.font = '900 11px system-ui, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Node A (تفرع)', centerX, topY - 12);
-        ctx.fillText('Node B (تجمع)', centerX, botY + 18);
+        ctx.fillText(isArabic ? 'نقطة تفرع (Node A)' : 'Node A (Branch)', centerX, topY - 12);
+        ctx.fillText(isArabic ? 'نقطة تجمع (Node B)' : 'Node B (Junction)', centerX, botY + 18);
 
-        // Left Voltmeter
-        drawHeavyInsulatedCable(ctx, leftX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
-        drawHeavyInsulatedCable(ctx, leftX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+        // Left Voltmeter (Clean probes avoiding battery body overlap)
+        drawHeavyInsulatedCable(ctx, leftX - 4, batTopPostY, vmX + 26, vmY - 30, '#ef4444', isEnergized);
+        drawHeavyInsulatedCable(ctx, leftX - 4, batBotPostY, vmX + 26, vmY + 30, '#0f172a', isEnergized);
         drawAnalogMeterGauge(ctx, vmX, vmY, vmRadius, simState.vTerminal1, 0, Math.max(12, Math.ceil(params.vb1 * 1.25)), isArabic ? 'فولتميتر V₁' : 'VOLTMETER V₁', 'V');
 
         // Loop 1 & Loop 2 KVL Traversal Rings
+        const loop1Color = isLight ? '#0284c7' : '#38bdf8';
+        const loop2Color = isLight ? '#d97706' : '#f59e0b';
+
         // Loop 1 Ring (Left)
         ctx.save();
-        ctx.strokeStyle = '#38bdf8';
+        ctx.strokeStyle = loop1Color;
         ctx.lineWidth = 2;
         ctx.setLineDash([4, 4]);
         ctx.beginPath();
@@ -1540,15 +1543,16 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.stroke();
         ctx.restore();
 
-        ctx.fillStyle = '#38bdf8';
-        ctx.font = 'bold 10px monospace';
+        ctx.fillStyle = loop1Color;
+        ctx.font = 'bold 11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText('Loop 1 (KVL)', r1CenterX, centerY - 6);
+        ctx.font = 'bold 11px "SF Mono", monospace';
         ctx.fillText(`I₁ = ${simState.iBranch1.toFixed(2)}A`, r1CenterX, centerY + 10);
 
         // Loop 2 Ring (Right)
         ctx.save();
-        ctx.strokeStyle = '#f59e0b';
+        ctx.strokeStyle = loop2Color;
         ctx.lineWidth = 2;
         ctx.setLineDash([4, 4]);
         ctx.beginPath();
@@ -1556,17 +1560,36 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.stroke();
         ctx.restore();
 
-        ctx.fillStyle = '#f59e0b';
-        ctx.font = 'bold 10px monospace';
+        ctx.fillStyle = loop2Color;
+        ctx.font = 'bold 11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText('Loop 2 (KVL)', r2CenterX, centerY - 6);
+        ctx.font = 'bold 11px "SF Mono", monospace';
         ctx.fillText(`I₂ = ${simState.iBranch2.toFixed(2)}A`, r2CenterX, centerY + 10);
 
-        // Center Branch Current Label
-        ctx.fillStyle = '#10b981';
-        ctx.font = '900 11px monospace';
+        // Center Branch Current Label with pill badge
+        const i3Y = centerY + 72;
+        const i3Dir = simState.iBranch3 >= 0 ? '↓' : '↑';
+        const i3Text = `I₃ = I₁ + I₂ = ${simState.iBranch3.toFixed(2)}A ${i3Dir}`;
+
+        ctx.save();
+        ctx.font = '900 11px "SF Mono", monospace';
+        const i3Metrics = ctx.measureText(i3Text);
+        const pillW = i3Metrics.width + 16;
+        const pillH = 22;
+        ctx.fillStyle = isLight ? 'rgba(241, 245, 249, 0.95)' : 'rgba(15, 23, 42, 0.92)';
+        ctx.strokeStyle = isLight ? '#059669' : '#10b981';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.roundRect(centerX - pillW / 2, i3Y - pillH / 2, pillW, pillH, [6]);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = isLight ? '#047857' : '#34d399';
         ctx.textAlign = 'center';
-        ctx.fillText(`I₃ = I₁ + I₂ = ${simState.iBranch3.toFixed(2)}A ↓`, centerX, centerY + 28);
+        ctx.textBaseline = 'middle';
+        ctx.fillText(i3Text, centerX, i3Y);
+        ctx.restore();
 
         // Bottom Kirchhoff Status HUD
         ctx.fillStyle = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(15, 23, 42, 0.9)';
@@ -1577,7 +1600,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fill();
         ctx.stroke();
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
         ctx.font = 'bold 11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(
@@ -1588,7 +1611,9 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           botY + 46
         );
 
-        const bat2Color = simState.battery2StateEn === 'Charging' ? '#34d399' : '#f59e0b';
+        const bat2Color = simState.battery2StateEn === 'Charging'
+          ? (isLight ? '#059669' : '#34d399')
+          : (isLight ? '#d97706' : '#f59e0b');
         ctx.fillStyle = bat2Color;
         ctx.font = '900 11px system-ui, sans-serif';
         ctx.fillText(
@@ -1651,8 +1676,8 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         );
 
         // Voltmeter
-        drawHeavyInsulatedCable(ctx, batX - 10, batTopPostY, vmX + 26, vmY - 34, '#ef4444', isEnergized);
-        drawHeavyInsulatedCable(ctx, batX - 10, batBotPostY, vmX + 26, vmY + 34, '#0f172a', isEnergized);
+        drawHeavyInsulatedCable(ctx, batX - 4, batTopPostY, vmX + 26, vmY - 30, '#ef4444', isEnergized);
+        drawHeavyInsulatedCable(ctx, batX - 4, batBotPostY, vmX + 26, vmY + 30, '#0f172a', isEnergized);
 
         // Lamps
         const pLamp1 = isEnergized ? simState.pLoad * 0.6 : 0;
