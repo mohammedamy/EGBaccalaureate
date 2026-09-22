@@ -54,6 +54,190 @@ const ALL_EXPERIMENTS = Object.values(EXPERIMENT_CONFIGS).sort((a, b) => {
   return a.id.localeCompare(b.id, undefined, { numeric: true });
 });
 
+/**
+ * Official Ministerial Circuit & Experimental Setup Vector Schematic
+ * Rendered with high-contrast, scalable vector graphics for printing.
+ */
+const LabCircuitSchematic: React.FC<{ experimentId: string; lang: Language }> = ({ experimentId, lang }) => {
+  const isArabic = lang === 'ar';
+
+  if (experimentId === 'phys-exp-1') {
+    return (
+      <div className="print-lab-schematic mb-4 border border-slate-900 rounded-lg p-3 bg-white">
+        <div className="flex items-center justify-between text-[11px] font-black text-slate-900 mb-2 border-b border-slate-300 pb-1">
+          <span>{isArabic ? 'المخطط الهندسي للدائرة الكهربية وقانون أوم للدائرة المغلقة' : 'Circuit Schematic: Ohm Law for Closed Circuit & Internal Resistance'}</span>
+          <span className="font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded border border-slate-300">V = V_B - I·r</span>
+        </div>
+        <svg viewBox="0 0 540 170" className="w-full max-w-[500px] mx-auto block lab-schematic-svg" aria-label="Closed Circuit Ohm Law Schematic">
+          {/* Main Circuit Loop Wires */}
+          <rect x="50" y="35" width="440" height="105" fill="none" stroke="#000000" strokeWidth="2.5" rx="4" />
+
+          {/* Battery + Internal Resistor Box (Top-Left) */}
+          <rect x="75" y="16" width="130" height="42" fill="#ffffff" stroke="#000000" strokeWidth="1.5" strokeDasharray="3 2" rx="3" />
+          <text x="140" y="30" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#000000">
+            {isArabic ? 'عمود كهربي (V_B, r)' : 'Battery (V_B, r)'}
+          </text>
+          {/* Battery Plates */}
+          <line x1="100" y1="36" x2="100" y2="52" stroke="#000000" strokeWidth="3" />
+          <line x1="110" y1="40" x2="110" y2="48" stroke="#000000" strokeWidth="1.5" />
+          <text x="96" y="34" fontSize="10" fontWeight="bold" fill="#000000">+</text>
+          <text x="113" y="34" fontSize="10" fontWeight="bold" fill="#000000">-</text>
+          {/* Internal Resistor r */}
+          <rect x="135" y="40" width="35" height="12" fill="#ffffff" stroke="#000000" strokeWidth="1.5" />
+          <text x="152" y="49" textAnchor="middle" fontSize="8.5" fontWeight="bold" fill="#000000">r</text>
+
+          {/* Voltmeter in Parallel across Battery Terminals */}
+          <path d="M 65 35 L 65 10 L 129 10" fill="none" stroke="#000000" strokeWidth="1.5" />
+          <path d="M 215 35 L 215 10 L 151 10" fill="none" stroke="#000000" strokeWidth="1.5" />
+          <circle cx="140" cy="10" r="11" fill="#ffffff" stroke="#000000" strokeWidth="2" />
+          <text x="140" y="14" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#000000">V</text>
+          <text x="140" y="-1" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#000000">
+            {isArabic ? 'فولتميتر القطبين' : 'Terminal Voltmeter'}
+          </text>
+
+          {/* Switch Key K (Top-Center) */}
+          <rect x="250" y="27" width="50" height="16" fill="#ffffff" stroke="none" />
+          <circle cx="255" cy="35" r="3" fill="#000000" />
+          <line x1="255" y1="35" x2="288" y2="24" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+          <circle cx="295" cy="35" r="3" fill="#000000" />
+          <text x="275" y="18" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#000000">
+            {isArabic ? 'مفتاح K' : 'Switch K'}
+          </text>
+
+          {/* Ammeter A in Series (Top-Right) */}
+          <rect x="360" y="27" width="40" height="16" fill="#ffffff" stroke="none" />
+          <circle cx="380" cy="35" r="13" fill="#ffffff" stroke="#000000" strokeWidth="2" />
+          <text x="380" y="39" textAnchor="middle" fontSize="11" fontWeight="bold" fill="#000000">A</text>
+          <text x="380" y="18" textAnchor="middle" fontSize="8.5" fontWeight="bold" fill="#000000">
+            {isArabic ? 'أميتر التوالي' : 'Series Ammeter'}
+          </text>
+
+          {/* Current Flow Arrows on Wires */}
+          <path d="M 430 35 L 445 35 M 440 31 L 446 35 L 440 39" fill="none" stroke="#000000" strokeWidth="2" />
+          <text x="440" y="24" fontSize="9" fontWeight="bold" fill="#000000">I</text>
+          <path d="M 490 85 L 490 95 M 486 90 L 490 96 L 494 90" fill="none" stroke="#000000" strokeWidth="2" />
+
+          {/* Rheostat (Variable Resistor R_ext) on Bottom Wire */}
+          <rect x="210" y="132" width="130" height="16" fill="#ffffff" stroke="none" />
+          <rect x="220" y="132" width="100" height="16" fill="#ffffff" stroke="#000000" strokeWidth="2" rx="2" />
+          <text x="270" y="144" textAnchor="middle" fontSize="9.5" fontWeight="bold" fill="#000000">
+            {isArabic ? 'ريوستات منزلق R_ext' : 'Rheostat R_ext'}
+          </text>
+          {/* Slider Arrow */}
+          <path d="M 270 114 L 270 128 M 266 123 L 270 129 L 274 123" fill="none" stroke="#000000" strokeWidth="2" />
+          <line x1="270" y1="114" x2="310" y2="114" stroke="#000000" strokeWidth="1.5" />
+          <line x1="310" y1="114" x2="310" y2="140" stroke="#000000" strokeWidth="1.5" />
+
+          {/* Return Current Arrow */}
+          <path d="M 140 140 L 125 140 M 130 136 L 124 140 L 130 144" fill="none" stroke="#000000" strokeWidth="2" />
+          <text x="132" y="156" fontSize="9" fontWeight="bold" fill="#000000">I</text>
+          <path d="M 50 95 L 50 85 M 46 90 L 50 84 L 54 90" fill="none" stroke="#000000" strokeWidth="2" />
+        </svg>
+      </div>
+    );
+  }
+
+  if (experimentId === 'phys-exp-4') {
+    return (
+      <div className="print-lab-schematic mb-4 border border-slate-900 rounded-lg p-3 bg-white">
+        <div className="flex items-center justify-between text-[11px] font-black text-slate-900 mb-2 border-b border-slate-300 pb-1">
+          <span>{isArabic ? 'المخطط الهندسي لدائرة التيار المتردد RLC وحالة الرنين الكهربي' : 'Circuit Schematic: Series RLC Alternating Current & Electrical Resonance'}</span>
+          <span className="font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded border border-slate-300">X_L = X_C \implies Z = R</span>
+        </div>
+        <svg viewBox="0 0 540 160" className="w-full max-w-[500px] mx-auto block lab-schematic-svg" aria-label="Series RLC Resonance Schematic">
+          {/* Main Circuit Loop Wires */}
+          <rect x="50" y="30" width="440" height="100" fill="none" stroke="#000000" strokeWidth="2.5" rx="4" />
+
+          {/* AC Power Source (Left) */}
+          <rect x="40" y="65" width="20" height="30" fill="#ffffff" stroke="none" />
+          <circle cx="50" cy="80" r="16" fill="#ffffff" stroke="#000000" strokeWidth="2" />
+          {/* Sine wave inside AC source */}
+          <path d="M 42 80 Q 46 72, 50 80 T 58 80" fill="none" stroke="#000000" strokeWidth="2" />
+          <text x="50" y="112" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#000000">
+            {isArabic ? 'مصدر متردد V(t)' : 'AC Source'}
+          </text>
+
+          {/* Resistor R (Top-Left) */}
+          <rect x="110" y="22" width="70" height="16" fill="#ffffff" stroke="#000000" strokeWidth="2" rx="2" />
+          <text x="145" y="34" textAnchor="middle" fontSize="9.5" fontWeight="bold" fill="#000000">
+            {isArabic ? 'مقاومة R' : 'Resistor R'}
+          </text>
+
+          {/* Inductor L (Top-Center) */}
+          <rect x="220" y="24" width="80" height="14" fill="#ffffff" stroke="none" />
+          {/* 4 curly coils for inductor */}
+          <path d="M 220 30 C 225 18, 235 18, 240 30 C 245 18, 255 18, 260 30 C 265 18, 275 18, 280 30 C 285 18, 295 18, 300 30" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" />
+          <text x="260" y="16" textAnchor="middle" fontSize="9.5" fontWeight="bold" fill="#000000">
+            {isArabic ? 'ملف حث L' : 'Inductor L'}
+          </text>
+
+          {/* Capacitor C (Top-Right) */}
+          <rect x="360" y="22" width="40" height="16" fill="#ffffff" stroke="none" />
+          <line x1="375" y1="20" x2="375" y2="40" stroke="#000000" strokeWidth="3" />
+          <line x1="385" y1="20" x2="385" y2="40" stroke="#000000" strokeWidth="3" />
+          <text x="380" y="14" textAnchor="middle" fontSize="9.5" fontWeight="bold" fill="#000000">
+            {isArabic ? 'مكثف C' : 'Capacitor C'}
+          </text>
+
+          {/* Current Flow oscillation */}
+          <path d="M 440 30 L 455 30 M 450 26 L 456 30 L 450 34" fill="none" stroke="#000000" strokeWidth="2" />
+          <text x="450" y="20" fontSize="9" fontWeight="bold" fill="#000000">i(t)</text>
+
+          {/* Bottom Measurement & Resonance Condition Box */}
+          <rect x="130" y="118" width="280" height="24" fill="#f8fafc" stroke="#000000" strokeWidth="1.5" rx="3" />
+          <text x="270" y="134" textAnchor="middle" fontSize="9.5" fontWeight="bold" fill="#000000">
+            {isArabic ? 'تردد الرنين: f_0 = 1 / (2π√(LC)) • زاوية الطور: ϕ = 0° • المعاوقة: Z = R' : 'Resonant Frequency: f_0 = 1 / (2π√(LC)) • Phase Angle: ϕ = 0° • Z = R'}
+          </text>
+        </svg>
+      </div>
+    );
+  }
+
+  // Generic/fallback clean ministerial apparatus schematic for other experiments
+  return (
+    <div className="print-lab-schematic mb-4 border border-slate-900 rounded-lg p-3 bg-white">
+      <div className="flex items-center justify-between text-[11px] font-black text-slate-900 mb-1 border-b border-slate-300 pb-1">
+        <span>{isArabic ? 'المخطط الهندسي للتجهيز المعملي المعتمد' : 'Standard Laboratory Apparatus & Experimental Setup Schematic'}</span>
+        <span className="text-[10px] text-slate-600 font-mono">Ministry Accredited Procedure</span>
+      </div>
+      <svg viewBox="0 0 540 100" className="w-full max-w-[480px] mx-auto block lab-schematic-svg" aria-label="Standard Experimental Setup Schematic">
+        {/* Step 1: Input / Sample Prep */}
+        <rect x="30" y="20" width="130" height="60" fill="#ffffff" stroke="#000000" strokeWidth="1.5" rx="4" />
+        <text x="95" y="45" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#000000">
+          {isArabic ? '١. ضبط العينات والأدوات' : '1. Calibration & Setup'}
+        </text>
+        <text x="95" y="62" textAnchor="middle" fontSize="8.5" fill="#000000">
+          {isArabic ? 'معايرة الصفر والتوصيل' : 'Zero calibration & leads'}
+        </text>
+
+        {/* Arrow 1 */}
+        <path d="M 160 50 L 195 50 M 190 46 L 196 50 L 190 54" fill="none" stroke="#000000" strokeWidth="2" />
+
+        {/* Step 2: Measurement & Variable Tuning */}
+        <rect x="200" y="20" width="140" height="60" fill="#ffffff" stroke="#000000" strokeWidth="2" rx="4" />
+        <text x="270" y="45" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#000000">
+          {isArabic ? '٢. رصد المتغيرات والقياس' : '2. Empirical Data Logging'}
+        </text>
+        <text x="270" y="62" textAnchor="middle" fontSize="8.5" fill="#000000">
+          {isArabic ? 'تدوين المحاولات المتكررة' : 'Multi-trial observation'}
+        </text>
+
+        {/* Arrow 2 */}
+        <path d="M 340 50 L 375 50 M 370 46 L 376 50 L 370 54" fill="none" stroke="#000000" strokeWidth="2" />
+
+        {/* Step 3: Mathematical Model & Slope */}
+        <rect x="380" y="20" width="130" height="60" fill="#ffffff" stroke="#000000" strokeWidth="1.5" rx="4" />
+        <text x="445" y="45" textAnchor="middle" fontSize="10" fontWeight="bold" fill="#000000">
+          {isArabic ? '٣. حساب الميل والاستنتاج' : '3. Analysis & Conclusion'}
+        </text>
+        <text x="445" y="62" textAnchor="middle" fontSize="8.5" fill="#000000">
+          {isArabic ? 'المعادلة الحاكمة ومصادر الخطأ' : 'Governing model & verification'}
+        </text>
+      </svg>
+    </div>
+  );
+};
+
 export const LabReportGeneratorModal: React.FC<Props> = ({
   isOpen,
   onClose,
@@ -200,13 +384,13 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in lab-report-modal-backdrop"
       role="dialog"
       aria-modal="true"
       dir={isArabic ? 'rtl' : 'ltr'}
     >
       <div
-        className={`relative w-full max-w-6xl h-[94vh] flex flex-col rounded-3xl shadow-2xl overflow-hidden border ${
+        className={`relative w-full max-w-6xl h-[94vh] flex flex-col rounded-3xl shadow-2xl overflow-hidden border lab-report-modal-content ${
           isLight
             ? 'bg-slate-50 border-slate-300 text-slate-900'
             : isContrast
@@ -216,7 +400,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
       >
         {/* Top Header Bar */}
         <div
-          className={`p-4 sm:p-5 border-b flex items-center justify-between gap-4 shrink-0 ${
+          className={`p-4 sm:p-5 border-b flex items-center justify-between gap-4 shrink-0 no-print ${
             isLight ? 'bg-white border-slate-200' : 'bg-slate-900/90 border-slate-800'
           }`}
         >
@@ -308,7 +492,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
 
         {/* Experiment Switcher Bar */}
         <div
-          className={`px-4 sm:px-6 py-2.5 border-b flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0 ${
+          className={`px-4 sm:px-6 py-2.5 border-b flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0 no-print ${
             isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-900/60 border-slate-800'
           }`}
         >
@@ -684,7 +868,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                       <p>وزارة التربية والتعليم والتعليم الفني</p>
                       <p>قطاع التعليم العام - التوجيه الفني للعلوم</p>
                     </div>
-                    <div className="w-14 h-14 rounded-full border-2 border-slate-800 flex items-center justify-center font-black text-xs text-slate-800 bg-slate-100">
+                    <div className="w-14 h-14 rounded-full border-2 border-slate-800 flex items-center justify-center font-black text-xs text-slate-800 bg-slate-100 print-lab-seal-box">
                       ختم المدرسة
                     </div>
                     <div className="text-left rtl:text-left ltr:text-right">
@@ -703,7 +887,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 </div>
 
                 {/* Student Info Box */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs border border-slate-800 p-2.5 rounded-lg mb-4 bg-slate-50">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs border border-slate-800 p-2.5 rounded-lg mb-4 bg-slate-50 print-lab-card">
                   <div>
                     <span className="font-bold">اسم الطالب: </span>
                     <span>{report.studentName || '................................'}</span>
@@ -724,14 +908,14 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
 
                 {/* Section 1 & 2: Hypothesis & Formula */}
                 <div className="space-y-3 mb-4 text-xs">
-                  <div className="p-2.5 border border-slate-800 rounded-lg">
+                  <div className="p-2.5 border border-slate-800 rounded-lg print-lab-card">
                     <h3 className="font-black text-slate-900 mb-1">١. الفرضية والهدف العلمي:</h3>
                     <div className="leading-relaxed text-slate-800">
                       <MathRenderer text={report.hypothesisAr} inline={true} lang={lang} />
                     </div>
                   </div>
 
-                  <div className="p-2.5 border border-slate-800 rounded-lg">
+                  <div className="p-2.5 border border-slate-800 rounded-lg print-lab-card">
                     <h3 className="font-black text-slate-900 mb-1">٢. القانون والنموذج الرياضي الحاكم:</h3>
                     <div className="text-center py-1">
                       <MathRenderer math={report.governingEquation} block={true} lang={lang} className="no-box !text-slate-900" />
@@ -740,7 +924,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 </div>
 
                 {/* Section 3: Apparatus */}
-                <div className="p-2.5 border border-slate-800 rounded-lg mb-4 text-xs">
+                <div className="p-2.5 border border-slate-800 rounded-lg mb-4 text-xs print-lab-card">
                   <h3 className="font-black text-slate-900 mb-1.5">٣. الأدوات والمواد المعملية:</h3>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5">
                     {report.apparatusAr.map((item, idx) => (
@@ -753,6 +937,9 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                     ))}
                   </div>
                 </div>
+
+                {/* Section 3-B: Official Circuit / Apparatus Setup Vector Schematic */}
+                <LabCircuitSchematic experimentId={report.experimentId} lang={lang} />
 
                 {/* Section 4: Quantitative Observation Table */}
                 <div className="mb-4">
@@ -783,13 +970,13 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
 
                 {/* Section 5 & 6: Observations & Conclusion */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4 text-xs">
-                  <div className="p-2.5 border border-slate-800 rounded-lg">
+                  <div className="p-2.5 border border-slate-800 rounded-lg print-lab-card print-observation-card">
                     <h3 className="font-black text-slate-900 mb-1">٥. الملاحظات والتحليل النوعي:</h3>
                     <div className="leading-relaxed text-slate-800">
                       <MathRenderer text={report.observationsAr} inline={true} lang={lang} />
                     </div>
                   </div>
-                  <div className="p-2.5 border border-slate-800 rounded-lg">
+                  <div className="p-2.5 border border-slate-800 rounded-lg print-lab-card print-conclusion-card">
                     <h3 className="font-black text-slate-900 mb-1">٦. الاستنتاج العلمي المعتمد:</h3>
                     <div className="leading-relaxed text-slate-800">
                       <MathRenderer text={report.conclusionAr} inline={true} lang={lang} />
@@ -798,7 +985,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 </div>
 
                 {/* Section 7: Error Sources */}
-                <div className="p-2.5 border border-slate-800 rounded-lg mb-4 text-xs">
+                <div className="p-2.5 border border-slate-800 rounded-lg mb-4 text-xs print-lab-card print-error-card">
                   <h3 className="font-black text-slate-900 mb-1">٧. مناقشة مصادر الخطأ والاحتياطات المعملية:</h3>
                   <div className="leading-relaxed text-slate-800">
                     <MathRenderer text={report.errorAnalysisAr} inline={true} lang={lang} />
@@ -854,7 +1041,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 </div>
 
                 {/* Signatures */}
-                <div className="flex items-center justify-between text-xs pt-3 border-t border-slate-800 font-bold text-slate-800">
+                <div className="flex items-center justify-between text-xs pt-3 border-t-2 border-slate-900 font-bold text-slate-800 break-inside-avoid">
                   <div>توقيع الطالب: .......................................</div>
                   <div>المعلم المشرف: {report.instructorName || '.......................................'}</div>
                   <div>توقيع الموجه الفني: .......................................</div>

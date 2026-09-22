@@ -1458,21 +1458,39 @@ html.high-contrast input[type='range']::-moz-range-thumb {
   }
 
   /* -------------------------------------------------------------------------
-     CRITICAL: NEVER DIVIDE A QUESTION, TABLE, OR DIAGRAM BETWEEN 2 PAGES
+     CRITICAL: NEVER DIVIDE A QUESTION, TABLE, DIAGRAM, OR OPTION BUBBLE ACROSS PAGES
      ------------------------------------------------------------------------- */
   .printable-question,
   .printable-problem,
   .worksheet-problem,
+  .worksheet-question-card,
   .exam-question,
+  .exam-question-item,
+  .question-card,
+  .print-question-block,
+  .mock-exam-question,
   .print-avoid-break,
+  .bubble-sheet-question,
+  .bubble-sheet-row,
+  .print-omr-row,
+  .print-omr-bubble-row,
+  .print-options-grid,
+  .print-options-grid > div,
+  .print-options-grid > button,
+  .print-options-grid > *,
   .textbook-diagram-card,
   .textbook-diagram,
-  .print-options-grid,
   .formula-card,
   .pacing-item,
   .misconception-card,
   .exit-ticket-card,
-  .step-by-step-box {
+  .step-by-step-box,
+  .print-lab-schematic,
+  .print-lab-card,
+  .print-conclusion-card,
+  .print-observation-card,
+  .print-error-card,
+  .print-rubric-matrix {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -1490,13 +1508,35 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     page-break-inside: avoid !important;
   }
 
-  /* Never orphan headings or question titles at the bottom of a page */
+  /* Never orphan headings, question titles, or stems at the bottom of a page */
   h1, h2, h3, h4, h5, h6,
   .print-heading,
   .print-exam-header,
-  .print-lesson-header {
+  .print-lesson-header,
+  .exam-section-header,
+  .question-header-row,
+  .printable-question > *:first-child,
+  .printable-problem > *:first-child,
+  .question-stem,
+  .question-title {
     break-after: avoid !important;
     page-break-after: avoid !important;
+  }
+
+  /* Option bubbles & OMR indicators must never split, deform, or clip */
+  .print-omr-bubble,
+  .print-omr-bubble-sm,
+  .omr-bubble-choice,
+  .print-option-bubble {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    flex-shrink: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 9999px !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
   }
 
   /* -------------------------------------------------------------------------
@@ -1575,7 +1615,7 @@ html.high-contrast input[type='range']::-moz-range-thumb {
   }
 
   /* -------------------------------------------------------------------------
-     Options Grid & Diagrams in Print
+     Options Grid & Diagrams in Print: Responsive 2x2 vs 1x4 Auto-Wrapping
      ------------------------------------------------------------------------- */
   .print-options-grid {
     display: grid !important;
@@ -1586,20 +1626,103 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     page-break-inside: avoid !important;
   }
 
-  .print-options-grid > div {
-    border: 1px solid #cbd5e1 !important;
-    background: #f8fafc !important;
-    color: #0f172a !important;
-    padding: 4pt 8pt !important;
-    border-radius: 4pt !important;
-    font-size: 10pt !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
+  /* Automatically switch to 1x4 vertical stack when options contain display math or tall formulas */
+  .print-options-grid:has(.katex-display),
+  .print-options-grid:has(.math-block-display),
+  .print-options-grid:has([data-multiline="true"]),
+  .print-options-grid:has(.print-option-multiline),
+  .print-options-grid:has(.mfrac),
+  .print-options-grid:has(table),
+  .print-options-grid.print-options-1col,
+  .print-options-grid.print-stack-1col {
+    grid-template-columns: 1fr !important;
   }
 
-  .print-options-grid > div * {
-    color: #0f172a !important;
-    -webkit-text-fill-color: #0f172a !important;
+  /* Explicit 4-column row for ultra-short single-character or single-number options */
+  .print-options-grid.print-options-4col {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  /* Individual wide option spanning both columns so neighboring options remain compact */
+  .print-options-grid > div:has(.katex-display),
+  .print-options-grid > button:has(.katex-display),
+  .print-options-grid > *:has(.katex-display),
+  .print-options-grid > div:has(.math-block-display),
+  .print-options-grid > button:has(.math-block-display),
+  .print-options-grid > *:has(.math-block-display),
+  .print-options-grid > .print-option-wide {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Option item container (supports div, button, and any wrapper) */
+  .print-options-grid > div,
+  .print-options-grid > button,
+  .print-options-grid > * {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 6pt !important;
+    border: 1pt solid #475569 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 5pt 8pt !important;
+    border-radius: 4pt !important;
+    font-size: 9.5pt !important;
+    line-height: 1.4 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    text-align: right !important;
+    cursor: default !important;
+  }
+
+  [dir="ltr"] .print-options-grid > div,
+  [dir="ltr"] .print-options-grid > button,
+  [dir="ltr"] .print-options-grid > * {
+    text-align: left !important;
+  }
+
+  .print-options-grid > * * {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+  }
+
+  /* Option bubble letter badge (أ, ب, ج, د / A, B, C, D) */
+  .print-options-grid > * > span:first-child,
+  .print-option-badge,
+  .print-option-letter {
+    flex-shrink: 0 !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    font-size: 9.5pt !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 16pt !important;
+  }
+
+  /* Option content & KaTeX expressions */
+  .print-options-grid > * > span:last-child,
+  .print-option-content {
+    flex: 1 1 auto !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    overflow: visible !important;
+    word-break: break-word !important;
+  }
+
+  .print-options-grid .katex,
+  .print-options-grid .katex * {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    overflow: visible !important;
+  }
+
+  .print-options-grid .katex-display {
+    margin: 2pt 0 !important;
+    padding: 0 !important;
   }
 
   .textbook-diagram-card {
@@ -1962,13 +2085,56 @@ html.high-contrast input[type='range']::-moz-range-thumb {
   /* -------------------------------------------------------------------------
      Official Practical Laboratory Report & Worksheet Print Styling
      ------------------------------------------------------------------------- */
+  /* Modal print normalization: unclip dialog overlays so lab report prints full-bleed A4 */
+  .lab-report-modal-backdrop,
+  div[role="dialog"]:has(.print-lab-report) {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    backdrop-filter: none !important;
+    z-index: auto !important;
+  }
+
+  .lab-report-modal-content,
+  div[role="dialog"]:has(.print-lab-report) > div {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .lab-report-modal-content > .overflow-y-auto,
+  div[role="dialog"]:has(.print-lab-report) .overflow-y-auto {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    padding: 0 !important;
+  }
+
   .print-lab-report {
     background: #ffffff !important;
     color: #000000 !important;
-    padding: 12pt !important;
-    border: 3.5pt double #0f172a !important;
+    padding: 14pt 16pt !important;
+    border: 3.5pt double #000000 !important;
     border-radius: 6pt !important;
-    margin-bottom: 16pt !important;
+    margin: 0 auto 16pt auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -1978,36 +2144,157 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     -webkit-text-fill-color: #000000 !important;
   }
 
+  /* Official Seal Box inside Lab Report */
+  .print-lab-report .border-2,
+  .print-lab-seal-box {
+    border: 1.5pt solid #000000 !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Lab Report Cards (Hypothesis, Apparatus, Observations, Conclusion, Error Analysis) */
+  .print-lab-card,
+  .print-conclusion-card,
+  .print-observation-card,
+  .print-error-card,
+  .print-lab-report .border-slate-800,
+  .print-lab-report .border-slate-900 {
+    border: 1.2pt solid #000000 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border-radius: 4pt !important;
+    padding: 6pt 8pt !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-conclusion-card {
+    border: 2pt solid #000000 !important;
+    background: #f8fafc !important;
+  }
+
+  /* Circuit Schematics & Experimental Apparatus Diagrams in Print */
+  .print-lab-schematic,
+  .lab-schematic-card {
+    background: #ffffff !important;
+    border: 1.5pt solid #000000 !important;
+    border-radius: 6pt !important;
+    padding: 8pt !important;
+    margin: 8pt auto !important;
+    max-width: 440pt !important;
+    width: 96% !important;
+    box-sizing: border-box !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-lab-schematic svg,
+  .lab-schematic-svg {
+    max-width: 420pt !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-lab-schematic svg * {
+    vector-effect: non-scaling-stroke !important;
+  }
+
+  .print-lab-schematic svg line,
+  .print-lab-schematic svg polyline,
+  .print-lab-schematic svg path:not([fill]) {
+    stroke: #000000 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  .print-lab-schematic svg circle,
+  .print-lab-schematic svg rect:not([fill*="url"]) {
+    stroke: #000000 !important;
+  }
+
+  .print-lab-schematic svg text {
+    fill: #000000 !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+  }
+
+  /* Quantitative Data Table in Print */
   .print-lab-table {
     width: 100% !important;
     border-collapse: collapse !important;
     margin: 8pt 0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-lab-table thead {
+    display: table-header-group !important;
+  }
+
+  .print-lab-table tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   .print-lab-table th {
     background-color: #f1f5f9 !important;
-    font-weight: 800 !important;
+    color: #000000 !important;
+    font-weight: 900 !important;
     text-align: center !important;
-    border: 1.5pt solid #0f172a !important;
+    border: 1.5pt solid #000000 !important;
     padding: 5pt 6pt !important;
     font-size: 9.5pt !important;
+    letter-spacing: -0.01em !important;
   }
 
   .print-lab-table td {
-    border: 1pt solid #334155 !important;
+    border: 1pt solid #000000 !important;
     text-align: center !important;
     padding: 4pt 6pt !important;
     font-size: 9pt !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+    color: #000000 !important;
   }
 
+  .print-lab-table tbody tr:nth-child(even) td {
+    background-color: #f8fafc !important;
+  }
+
+  /* Official Technical Evaluation Rubric Matrix */
   .print-rubric-matrix {
-    border: 2pt solid #0f172a !important;
+    border: 2pt solid #000000 !important;
     background-color: #ffffff !important;
-    padding: 6pt !important;
+    padding: 6pt 8pt !important;
     margin-top: 10pt !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+  }
+
+  .print-rubric-matrix table {
+    border: 1.5pt solid #000000 !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+
+  .print-rubric-matrix th {
+    background-color: #e2e8f0 !important;
+    border: 1pt solid #000000 !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+    padding: 4pt !important;
+    font-size: 8.5pt !important;
+  }
+
+  .print-rubric-matrix td {
+    border: 1pt solid #000000 !important;
+    color: #000000 !important;
+    padding: 3pt 4pt !important;
+    font-size: 8.5pt !important;
   }
 
   /* -------------------------------------------------------------------------
