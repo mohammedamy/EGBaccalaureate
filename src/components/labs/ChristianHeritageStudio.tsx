@@ -1285,7 +1285,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                 ✝️ {isArabic ? 'معتمد رسمياً' : 'Accredited'}
               </span>
             </div>
-            <p className="text-xs md:text-sm text-slate-400 mt-0.5">
+            <p className={`text-xs md:text-sm mt-0.5 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-400'}`}>
               {isArabic
                 ? 'استكشاف الأسرار الكنسية، مسار الرهبنة وتاريخ الكنيسة القبطية، مقارنة الأناجيل، والأخلاقيات الحيوية المعاصرة'
                 : 'Interactive exploration of Holy Sacraments, Coptic Monastic Heritage, Gospel Synoptics, and Bioethics'}
@@ -1294,12 +1294,14 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-900/60 border border-amber-500/20">
+        <div className={`flex flex-wrap items-center gap-1.5 p-1 rounded-xl border ${isLight ? 'bg-amber-100/70 border-amber-300' : 'bg-slate-900/60 border-amber-500/20'}`}>
           <button
             onClick={() => setActiveTab('sacraments')}
             className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-semibold transition-all ${
               activeTab === 'sacraments'
                 ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-amber-950 hover:bg-amber-200/70 font-semibold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
@@ -1312,6 +1314,8 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-semibold transition-all ${
               activeTab === 'monasticism'
                 ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-amber-950 hover:bg-amber-200/70 font-semibold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
@@ -1324,6 +1328,8 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-semibold transition-all ${
               activeTab === 'synoptics'
                 ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-amber-950 hover:bg-amber-200/70 font-semibold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
@@ -1336,6 +1342,8 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-semibold transition-all ${
               activeTab === 'scriptures'
                 ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-amber-950 hover:bg-amber-200/70 font-semibold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
@@ -1348,6 +1356,8 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-semibold transition-all ${
               activeTab === 'bioethics'
                 ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-amber-950 hover:bg-amber-200/70 font-semibold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
@@ -1360,6 +1370,8 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-semibold transition-all ${
               activeTab === 'quiz'
                 ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-amber-950 hover:bg-amber-200/70 font-semibold'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
@@ -1370,7 +1382,11 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center text-amber-300/80 hover:text-white rounded-lg hover:bg-amber-800/30 transition-colors border border-amber-500/30"
+            className={`p-2.5 min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg transition-colors border ${
+              isLight
+                ? 'text-amber-900 hover:text-black border-amber-300 hover:bg-amber-200/60'
+                : 'text-amber-300/80 hover:text-white hover:bg-amber-800/30 border-amber-500/30'
+            }`}
             title={isFullscreen ? (isArabic ? 'خروج من ملء الشاشة' : 'Exit Fullscreen') : (isArabic ? 'ملء الشاشة' : 'Fullscreen')}
             aria-label={isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
           >
@@ -1405,7 +1421,11 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                     onClick={() => setSelectedSacrament(sacrament)}
                     className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border transition-all duration-200 flex items-center justify-between ${
                       isSelected
-                        ? 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                        ? isLight
+                          ? 'bg-amber-100 border-amber-500 text-amber-950 font-bold shadow-md'
+                          : 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                        : isLight
+                        ? 'bg-white border-slate-200 hover:border-amber-300 text-slate-800'
                         : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300'
                     }`}
                   >
@@ -1419,7 +1439,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                         <div className="text-sm leading-tight">
                           {isArabic ? sacrament.nameAr : sacrament.nameEn}
                         </div>
-                        <div className="text-xs text-slate-400 mt-0.5">
+                        <div className={`text-xs mt-0.5 ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'}`}>
                           {isArabic ? sacrament.categoryAr : sacrament.categoryEn}
                         </div>
                       </div>
@@ -1451,12 +1471,12 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                   <span className="text-xs font-semibold px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">
                     {isArabic ? selectedSacrament.categoryAr : selectedSacrament.categoryEn}
                   </span>
-                  <h3 className="text-xl md:text-2xl font-black mt-2 text-white">
+                  <h3 className={`text-xl md:text-2xl font-black mt-2 ${isLight ? 'text-slate-900' : 'text-white'}`}>
                     {isArabic ? selectedSacrament.nameAr : selectedSacrament.nameEn}
                   </h3>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs text-slate-400">
+                  <span className={`text-xs ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                     {isArabic ? 'خاصية التكرار:' : 'Repeatability:'}
                   </span>
                   <span
@@ -1479,31 +1499,31 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
 
               {/* Core Duality: Visible Sign vs Invisible Grace */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-2">
-                  <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
+                <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-amber-50/80 border-amber-300 text-amber-950' : 'bg-amber-950/20 border-amber-500/30'}`}>
+                  <div className={`flex items-center gap-2 font-bold text-sm ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                     <Sparkles className="w-4 h-4" />
                     <span>{isArabic ? 'العلامة الظاهرة (المنظورة)' : 'The Visible Sign'}</span>
                   </div>
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-300'}`}>
                     {isArabic ? selectedSacrament.visibleSignAr : selectedSacrament.visibleSignEn}
                   </p>
                 </div>
 
-                <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-500/30 space-y-2">
-                  <div className="flex items-center gap-2 text-purple-400 font-bold text-sm">
+                <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-purple-50/80 border-purple-300 text-purple-950' : 'bg-purple-950/20 border-purple-500/30'}`}>
+                  <div className={`flex items-center gap-2 font-bold text-sm ${isLight ? 'text-purple-900 font-black' : 'text-purple-400'}`}>
                     <ShieldCheck className="w-4 h-4" />
                     <span>{isArabic ? 'النعمة الباطنة (غير المنظورة)' : 'The Invisible Grace'}</span>
                   </div>
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-300'}`}>
                     {isArabic ? selectedSacrament.invisibleGraceAr : selectedSacrament.invisibleGraceEn}
                   </p>
                 </div>
               </div>
 
               {/* Scripture Basis with Authentic Church Audio */}
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700/60 space-y-3">
+              <div className={`p-4 rounded-xl border space-y-3 ${isLight ? 'bg-amber-50/60 border-amber-200' : 'bg-slate-900/60 border-slate-700/60'}`}>
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                  <span className={`text-xs font-bold uppercase tracking-wider flex items-center gap-2 ${isLight ? 'text-slate-700 font-black' : 'text-slate-400'}`}>
                     <BookOpen className="w-4 h-4 text-amber-500" />
                     {isArabic ? 'السند الكتابي والتأسيس الإلهي' : 'Scriptural Foundation'}
                   </span>
@@ -1582,17 +1602,17 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                   </div>
                 )}
 
-                <blockquote className="text-sm md:text-base font-serif italic text-amber-200/90 leading-relaxed border-s-2 border-amber-500 ps-3">
+                <blockquote className={`text-sm md:text-base font-serif italic leading-relaxed border-s-2 border-amber-500 ps-3 ${isLight ? 'text-amber-950 font-semibold' : 'text-amber-200/90'}`}>
                   {isArabic ? selectedSacrament.scriptureBasisAr : selectedSacrament.scriptureBasisEn}
                 </blockquote>
               </div>
 
               {/* Theological & Pastoral Depth */}
-              <div className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-2">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+              <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-800/40 border-slate-700/50'}`}>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                   {isArabic ? 'العمق اللاهوتي والرعوي' : 'Theological & Pastoral Depth'}
                 </div>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-300'}`}>
                   {isArabic ? selectedSacrament.theologicalDepthAr : selectedSacrament.theologicalDepthEn}
                 </p>
               </div>
@@ -1627,17 +1647,21 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                     onClick={() => setSelectedMilestone(milestone)}
                     className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border transition-all duration-200 ${
                       isSelected
-                        ? 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                        ? isLight
+                          ? 'bg-amber-100 border-amber-500 text-amber-950 font-bold shadow-md'
+                          : 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                        : isLight
+                        ? 'bg-white border-slate-200 hover:border-amber-300 text-slate-800'
                         : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300'
                     }`}
                   >
-                    <div className="text-xs text-amber-400 font-mono mb-1">
+                    <div className={`text-xs font-mono mb-1 ${isLight ? 'text-amber-800 font-bold' : 'text-amber-400'}`}>
                       {isArabic ? milestone.eraAr : milestone.eraEn}
                     </div>
                     <div className="text-sm font-bold leading-tight">
                       {isArabic ? milestone.leaderAr : milestone.leaderEn}
                     </div>
-                    <div className="text-xs text-slate-400 mt-1">
+                    <div className={`text-xs mt-1 ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'}`}>
                       📍 {isArabic ? milestone.locationAr : milestone.locationEn}
                     </div>
                   </button>
@@ -1648,34 +1672,34 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             {/* Milestone Details Card */}
             <div className={`lg:col-span-8 ${cardClasses} p-5 md:p-6 rounded-2xl space-y-5`}>
               <div className="pb-3 border-b border-amber-500/20">
-                <span className="text-xs font-mono text-amber-400 font-semibold">
+                <span className={`text-xs font-mono font-semibold ${isLight ? 'text-amber-800 font-bold' : 'text-amber-400'}`}>
                   {isArabic ? selectedMilestone.eraAr : selectedMilestone.eraEn}
                 </span>
-                <h3 className="text-2xl font-black text-white mt-1">
+                <h3 className={`text-2xl font-black mt-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>
                   {isArabic ? selectedMilestone.leaderAr : selectedMilestone.leaderEn}
                 </h3>
-                <div className="text-sm text-slate-400 mt-1 flex items-center gap-1.5">
+                <div className={`text-sm mt-1 flex items-center gap-1.5 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-400'}`}>
                   <span>📍</span>
                   <span>{isArabic ? selectedMilestone.locationAr : selectedMilestone.locationEn}</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700/60 space-y-2">
-                <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+              <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-amber-50/60 border-amber-200' : 'bg-slate-900/60 border-slate-700/60'}`}>
+                <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                   <Compass className="w-4 h-4" />
                   {isArabic ? 'الدلالة التاريخية والتأسيس الروحي' : 'Historical & Spiritual Significance'}
                 </h4>
-                <p className="text-sm text-slate-200 leading-relaxed">
+                <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                   {isArabic ? selectedMilestone.significanceAr : selectedMilestone.significanceEn}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-500/30 space-y-2">
-                <h4 className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+              <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-purple-50/80 border-purple-200' : 'bg-purple-950/20 border-purple-500/30'}`}>
+                <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-purple-900 font-black' : 'text-purple-400'}`}>
                   <Award className="w-4 h-4" />
                   {isArabic ? 'الأثر الحضاري والتراث الإنساني الخالد' : 'Enduring Civilizational & Literary Legacy'}
                 </h4>
-                <p className="text-sm text-slate-200 leading-relaxed">
+                <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                   {isArabic ? selectedMilestone.legacyAr : selectedMilestone.legacyEn}
                 </p>
               </div>
@@ -1710,14 +1734,18 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                     onClick={() => setSelectedGospel(gospel)}
                     className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border transition-all duration-200 ${
                       isSelected
-                        ? 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                        ? isLight
+                          ? 'bg-amber-100 border-amber-500 text-amber-950 font-bold shadow-md'
+                          : 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                        : isLight
+                        ? 'bg-white border-slate-200 hover:border-amber-300 text-slate-800'
                         : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300'
                     }`}
                   >
                     <div className="text-sm font-bold leading-tight">
                       {isArabic ? gospel.gospelAr : gospel.gospelEn}
                     </div>
-                    <div className="text-xs text-amber-400 mt-1">
+                    <div className={`text-xs mt-1 ${isLight ? 'text-amber-800 font-bold' : 'text-amber-400'}`}>
                       {isArabic ? gospel.symbolAr : gospel.symbolEn}
                     </div>
                   </button>
@@ -1728,40 +1756,40 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             {/* Gospel Analysis Card */}
             <div className={`lg:col-span-8 ${cardClasses} p-5 md:p-6 rounded-2xl space-y-5`}>
             <div className="pb-3 border-b border-amber-500/20">
-              <div className="flex items-center gap-2 text-xs text-amber-400 font-semibold">
+              <div className={`flex items-center gap-2 text-xs font-semibold ${isLight ? 'text-amber-800 font-bold' : 'text-amber-400'}`}>
                 <span>{isArabic ? selectedGospel.symbolAr : selectedGospel.symbolEn}</span>
               </div>
-              <h3 className="text-2xl font-black text-white mt-1">
+              <h3 className={`text-2xl font-black mt-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>
                 {isArabic ? selectedGospel.gospelAr : selectedGospel.gospelEn}
               </h3>
-              <p className="text-sm text-slate-400 mt-1">
+              <p className={`text-sm mt-1 ${isLight ? 'text-slate-700 font-medium' : 'text-slate-400'}`}>
                 ✍️ {isArabic ? selectedGospel.authorAr : selectedGospel.authorEn}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700/60 space-y-1.5">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+              <div className={`p-4 rounded-xl border space-y-1.5 ${isLight ? 'bg-amber-50/60 border-amber-200' : 'bg-slate-900/60 border-slate-700/60'}`}>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                   {isArabic ? 'الجمهور المستهدف' : 'Target Audience'}
                 </div>
-                <p className="text-sm text-slate-200">
+                <p className={`text-sm ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                   {isArabic ? selectedGospel.targetAudienceAr : selectedGospel.targetAudienceEn}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700/60 space-y-1.5">
-                <div className="text-xs font-bold text-purple-400 uppercase tracking-wider">
+              <div className={`p-4 rounded-xl border space-y-1.5 ${isLight ? 'bg-purple-50/60 border-purple-200' : 'bg-slate-900/60 border-slate-700/60'}`}>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-purple-900 font-black' : 'text-purple-400'}`}>
                   {isArabic ? 'الموضوع والمحور اللاهوتي الرئيسي' : 'Central Theological Theme'}
                 </div>
-                <p className="text-sm text-slate-200">
+                <p className={`text-sm ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                   {isArabic ? selectedGospel.keyThemeAr : selectedGospel.keyThemeEn}
                 </p>
               </div>
             </div>
 
-            <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-3">
+            <div className={`p-4 rounded-xl border space-y-3 ${isLight ? 'bg-amber-50/80 border-amber-300' : 'bg-amber-950/20 border-amber-500/30'}`}>
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                <div className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                   <BookOpen className="w-4 h-4" />
                   {isArabic ? 'أبرز المقاطع والخصائص الأسلوبية' : 'Notable Passages & Characteristics'}
                 </div>
@@ -1834,7 +1862,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                 </div>
               )}
 
-              <p className="text-sm text-slate-200 leading-relaxed">
+              <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                 {isArabic ? selectedGospel.notablePassageAr : selectedGospel.notablePassageEn}
               </p>
             </div>
@@ -1861,7 +1889,11 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                   onClick={() => setSelectedScripture(rec)}
                   className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border transition-all duration-200 ${
                     isSelected
-                      ? 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                      ? isLight
+                        ? 'bg-amber-100 border-amber-500 text-amber-950 font-bold shadow-md'
+                        : 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                      : isLight
+                      ? 'bg-white border-slate-200 hover:border-amber-300 text-slate-800'
                       : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300'
                   }`}
                 >
@@ -1876,7 +1908,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                       </span>
                     )}
                   </div>
-                  <div className="text-xs text-amber-400/90 mt-1 flex items-center gap-1.5 font-sans">
+                  <div className={`text-xs mt-1 flex items-center gap-1.5 font-sans ${isLight ? 'text-amber-800 font-bold' : 'text-amber-400/90'}`}>
                     <BookOpen className="w-3 h-3 text-amber-500" />
                     <span>{isArabic ? rec.referenceAr : rec.referenceEn}</span>
                   </div>
@@ -1885,8 +1917,8 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             })}
 
             {/* Note badge */}
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] text-slate-400 space-y-1">
-              <div className="flex items-center gap-1.5 text-amber-400 font-semibold">
+            <div className={`p-3 rounded-xl border text-[11px] space-y-1 ${isLight ? 'bg-amber-50/60 border-amber-200 text-slate-700' : 'bg-slate-900/60 border-slate-800 text-slate-400'}`}>
+              <div className={`flex items-center gap-1.5 font-semibold ${isLight ? 'text-amber-900 font-bold' : 'text-amber-400'}`}>
                 <Radio className="w-3.5 h-3.5" />
                 <span>{isArabic ? 'تسجيلات صوتية حقيقية 100%' : '100% Authentic Voice'}</span>
               </div>
@@ -1903,14 +1935,14 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             {/* Header & Meta */}
             <div className="pb-3 border-b border-amber-500/20 flex flex-wrap items-start justify-between gap-3">
               <div>
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                   <BookOpen className="w-3.5 h-3.5" />
                   {isArabic ? selectedScripture.referenceAr : selectedScripture.referenceEn}
                 </span>
-                <h3 className="text-xl md:text-2xl font-black text-white mt-1">
+                <h3 className={`text-xl md:text-2xl font-black mt-1 ${isLight ? 'text-slate-900' : 'text-white'}`}>
                   {isArabic ? selectedScripture.titleAr : selectedScripture.titleEn}
                 </h3>
-                <p className="text-xs md:text-sm text-amber-200/80 mt-1">
+                <p className={`text-xs md:text-sm mt-1 ${isLight ? 'text-amber-900 font-medium' : 'text-amber-200/80'}`}>
                   ✨ {isArabic ? selectedScripture.themeAr : selectedScripture.themeEn}
                 </p>
               </div>
@@ -1989,9 +2021,9 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             )}
 
             {/* Scripture Full Biblical Text */}
-            <div className="p-5 md:p-6 rounded-xl bg-slate-900/80 border border-slate-700/60 space-y-3">
+            <div className={`p-5 md:p-6 rounded-xl border space-y-3 ${isLight ? 'bg-amber-50/60 border-amber-200' : 'bg-slate-900/80 border-slate-700/60'}`}>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                <span className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-slate-700 font-black' : 'text-slate-400'}`}>
                   <Scroll className="w-3.5 h-3.5 text-amber-400" />
                   {isArabic ? 'النص الإنجيلي المعتمد في المنهج الوزاري' : 'Ministry-Accredited Scripture Text'}
                 </span>
@@ -1999,27 +2031,27 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                   {isArabic ? 'ترجمة سميث وفانديك' : 'Smith & Van Dyck'}
                 </span>
               </div>
-              <blockquote className="text-base md:text-lg font-serif italic text-amber-100 leading-loose border-s-4 border-amber-500 ps-4 py-1">
+              <blockquote className={`text-base md:text-lg font-serif italic leading-loose border-s-4 border-amber-500 ps-4 py-1 ${isLight ? 'text-slate-900 font-medium' : 'text-amber-100'}`}>
                 {isArabic ? selectedScripture.textAr : selectedScripture.textEn}
               </blockquote>
             </div>
 
             {/* Secondary Language Translation & Theological Context */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-xl bg-slate-800/40 border border-slate-700/50 space-y-1.5">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+              <div className={`p-4 rounded-xl border space-y-1.5 ${isLight ? 'bg-slate-100 border-slate-200' : 'bg-slate-800/40 border-slate-700/50'}`}>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                   {isArabic ? 'الترجمة الإنجليزية الموازية' : 'Arabic Translation'}
                 </div>
-                <p className="text-xs md:text-sm text-slate-300 leading-relaxed italic">
+                <p className={`text-xs md:text-sm leading-relaxed italic ${isLight ? 'text-slate-800 font-medium' : 'text-slate-300'}`}>
                   {isArabic ? selectedScripture.textEn : selectedScripture.textAr}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30 space-y-1.5">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+              <div className={`p-4 rounded-xl border space-y-1.5 ${isLight ? 'bg-amber-50/80 border-amber-200' : 'bg-amber-950/20 border-amber-500/30'}`}>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                   {isArabic ? 'المدلول الروحي واللاهوتي' : 'Spiritual & Theological Reflection'}
                 </div>
-                <p className="text-xs md:text-sm text-slate-200 leading-relaxed">
+                <p className={`text-xs md:text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                   {isArabic ? selectedScripture.themeAr : selectedScripture.themeEn}
                 </p>
               </div>
@@ -2045,7 +2077,11 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                   onClick={() => setSelectedTopic(topic)}
                   className={`w-full text-start p-3.5 min-h-[44px] rounded-xl border transition-all duration-200 ${
                     isSelected
-                      ? 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                      ? isLight
+                        ? 'bg-amber-100 border-amber-500 text-amber-950 font-bold shadow-md'
+                        : 'bg-gradient-to-r from-amber-600/20 to-purple-600/20 border-amber-500 text-amber-300 font-bold shadow-md'
+                      : isLight
+                      ? 'bg-white border-slate-200 hover:border-amber-300 text-slate-800'
                       : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300'
                   }`}
                 >
@@ -2073,7 +2109,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
           {/* Bioethics Analysis Card */}
           <div className={`lg:col-span-8 ${cardClasses} p-5 md:p-6 rounded-2xl space-y-5`}>
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-amber-500/20">
-              <h3 className="text-xl md:text-2xl font-black text-white">
+              <h3 className={`text-xl md:text-2xl font-black ${isLight ? 'text-slate-900' : 'text-white'}`}>
                 {isArabic ? selectedTopic.titleAr : selectedTopic.titleEn}
               </h3>
               <span
@@ -2089,22 +2125,22 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
               </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-700/60 space-y-2">
-              <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+            <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-amber-50/60 border-amber-200' : 'bg-slate-900/60 border-slate-700/60'}`}>
+              <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                 <HeartHandshake className="w-4 h-4" />
                 {isArabic ? 'المبدأ اللاهوتي والكرامة الإنسانية' : 'Theological Principle & Human Dignity'}
               </h4>
-              <p className="text-sm text-slate-200 leading-relaxed">
+              <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                 {isArabic ? selectedTopic.theologicalPrincipleAr : selectedTopic.theologicalPrincipleEn}
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-purple-950/20 border border-purple-500/30 space-y-2">
-              <h4 className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-1.5">
+            <div className={`p-4 rounded-xl border space-y-2 ${isLight ? 'bg-purple-50/80 border-purple-200' : 'bg-purple-950/20 border-purple-500/30'}`}>
+              <h4 className={`text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 ${isLight ? 'text-purple-900 font-black' : 'text-purple-400'}`}>
                 <ShieldCheck className="w-4 h-4" />
                 {isArabic ? 'الضوابط الرعوية والتوجيه الأخلاقي' : 'Pastoral Guidance & Ethical Boundaries'}
               </h4>
-              <p className="text-sm text-slate-200 leading-relaxed">
+              <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-200'}`}>
                 {isArabic ? selectedTopic.pastoralGuidanceAr : selectedTopic.pastoralGuidanceEn}
               </p>
             </div>
@@ -2118,7 +2154,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
           <div className="flex items-center justify-between pb-4 border-b border-amber-500/20">
             <div className="flex items-center gap-2">
               <Brain className="w-5 h-5 text-amber-400" />
-              <h3 className="font-black text-lg">
+              <h3 className={`font-black text-lg ${isLight ? 'text-slate-900' : ''}`}>
                 {isArabic ? 'محاكي الأسئلة الوزارية وسيناريوهات الفكر المسيحي' : 'Ministerial Scenario & Reasoning Quiz'}
               </h3>
             </div>
@@ -2131,7 +2167,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
 
           {/* Current Question */}
           <div className="space-y-4">
-            <h4 className="text-base md:text-lg font-bold text-white leading-relaxed">
+            <h4 className={`text-base md:text-lg font-bold leading-relaxed ${isLight ? 'text-slate-900' : 'text-white'}`}>
               {isArabic
                 ? CHRISTIAN_SCENARIO_QUIZ[currentQIndex].questionAr
                 : CHRISTIAN_SCENARIO_QUIZ[currentQIndex].questionEn}
@@ -2146,15 +2182,23 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                 const isSelected = selectedOption === idx;
                 const isCorrect = idx === CHRISTIAN_SCENARIO_QUIZ[currentQIndex].correctIndex;
 
-                let btnStyles = 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300';
+                let btnStyles = isLight
+                  ? 'bg-slate-50 border-slate-200 hover:border-amber-300 text-slate-800 font-medium'
+                  : 'bg-slate-900/40 border-slate-800 hover:border-slate-700 text-slate-300';
                 if (isAnswerSubmitted) {
                   if (isCorrect) {
-                    btnStyles = 'bg-emerald-950/40 border-emerald-500 text-emerald-200 font-bold';
+                    btnStyles = isLight
+                      ? 'bg-emerald-100 border-emerald-500 text-emerald-950 font-bold'
+                      : 'bg-emerald-950/40 border-emerald-500 text-emerald-200 font-bold';
                   } else if (isSelected) {
-                    btnStyles = 'bg-red-950/40 border-red-500 text-red-200';
+                    btnStyles = isLight
+                      ? 'bg-red-100 border-red-500 text-red-950 font-medium'
+                      : 'bg-red-950/40 border-red-500 text-red-200';
                   }
                 } else if (isSelected) {
-                  btnStyles = 'bg-amber-600/30 border-amber-500 text-amber-300 font-bold';
+                  btnStyles = isLight
+                    ? 'bg-amber-100 border-amber-500 text-amber-950 font-bold'
+                    : 'bg-amber-600/30 border-amber-500 text-amber-300 font-bold';
                 }
 
                 return (
@@ -2178,11 +2222,11 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
 
             {/* Explanation & Next */}
             {isAnswerSubmitted && (
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-700 space-y-3 animate-fadeIn">
-                <div className="text-xs font-bold text-amber-400 uppercase tracking-wider">
+              <div className={`p-4 rounded-xl border space-y-3 animate-fadeIn ${isLight ? 'bg-amber-50/70 border-amber-200' : 'bg-slate-900/80 border-slate-700'}`}>
+                <div className={`text-xs font-bold uppercase tracking-wider ${isLight ? 'text-amber-900 font-black' : 'text-amber-400'}`}>
                   {isArabic ? 'التحليل المنهجي المعتمد' : 'Accredited Curriculum Analysis'}
                 </div>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-800 font-medium' : 'text-slate-300'}`}>
                   {isArabic
                     ? CHRISTIAN_SCENARIO_QUIZ[currentQIndex].explanationAr
                     : CHRISTIAN_SCENARIO_QUIZ[currentQIndex].explanationEn}

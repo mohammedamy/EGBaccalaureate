@@ -508,17 +508,25 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
 
       {/* Score Breakdown Banner & Bloom's Cognitive Report Card (Upon Submission) */}
       {scoreReport && (
-        <div className="p-5 rounded-3xl bg-slate-900 border-2 border-emerald-500/50 shadow-2xl space-y-5 animate-fadeIn">
+        <div className={`p-5 rounded-3xl border-2 shadow-2xl space-y-5 animate-fadeIn ${
+          isLight ? 'bg-white border-emerald-500 shadow-emerald-500/10' : 'bg-slate-900 border-emerald-500/50'
+        }`}>
           {/* Top Score Summary */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-slate-800">
+          <div className={`flex flex-wrap items-center justify-between gap-4 pb-4 border-b ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-emerald-500/20 text-emerald-400 rounded-2xl border border-emerald-500/30">
+              <div className={`p-3 rounded-2xl border ${
+                isLight ? 'bg-emerald-100 text-emerald-900 border-emerald-300' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+              }`}>
                 <Award className="w-8 h-8" />
               </div>
               <div>
-                <h4 className="text-lg font-black text-slate-100 flex items-center gap-2">
+                <h4 className={`text-lg font-black flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
                   <span>{isAr ? 'نتيجة الفحص والتصحيح الضوئي الإلكتروني (OMR)' : 'OMR Scoring & Verification Report'}</span>
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-500/40">
+                  <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold border ${
+                    isLight ? 'bg-emerald-100 text-emerald-900 border-emerald-300' : 'bg-emerald-950 text-emerald-400 border-emerald-500/40'
+                  }`}>
                     {scoreReport.percentage >= 85
                       ? isAr ? 'أوائل جمهورية 🏆' : 'Elite Republic 🏆'
                       : scoreReport.percentage >= 65
@@ -527,24 +535,24 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                   </span>
                 </h4>
                 <div className="flex flex-wrap items-center gap-4 mt-1.5 text-xs">
-                  <span className="text-emerald-400 font-bold">
+                  <span className={`font-bold ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>
                     {isAr ? 'الإجابات الصحيحة:' : 'Correct:'} {scoreReport.correctCount}
                   </span>
-                  <span className="text-rose-400 font-bold">
+                  <span className={`font-bold ${isLight ? 'text-rose-800' : 'text-rose-400'}`}>
                     {isAr ? 'الإجابات الخاطئة:' : 'Wrong:'} {scoreReport.wrongCount}
                   </span>
-                  <span className="text-amber-400 font-bold">
+                  <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                     {isAr ? 'الأسئلة المتروكة:' : 'Omitted:'} {scoreReport.omittedCount}
                   </span>
                   {scoreReport.section1Total !== undefined && (
-                    <span className="text-cyan-400 font-bold">
+                    <span className={`font-bold ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>
                       {isAr
                         ? `القسم الأول (١ د): ${scoreReport.section1Earned}/${scoreReport.section1Total}`
                         : `Sec 1 (1pt): ${scoreReport.section1Earned}/${scoreReport.section1Total}`}
                     </span>
                   )}
                   {scoreReport.section2Total !== undefined && (
-                    <span className="text-indigo-400 font-bold">
+                    <span className={`font-bold ${isLight ? 'text-indigo-800' : 'text-indigo-400'}`}>
                       {isAr
                         ? `القسم الثاني (٢ د): ${scoreReport.section2Earned}/${scoreReport.section2Total}`
                         : `Sec 2 (2pt): ${scoreReport.section2Earned}/${scoreReport.section2Total}`}
@@ -554,9 +562,11 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
               </div>
             </div>
 
-            <div className="flex items-baseline gap-2 bg-slate-950 px-6 py-3 rounded-2xl border border-emerald-500/30 font-mono shadow-inner">
-              <span className="text-4xl font-black text-emerald-300">{scoreReport.percentage}%</span>
-              <span className="text-xs text-slate-400">
+            <div className={`flex items-baseline gap-2 px-6 py-3 rounded-2xl font-mono shadow-inner border ${
+              isLight ? 'bg-emerald-50 border-emerald-300' : 'bg-slate-950 border-emerald-500/30'
+            }`}>
+              <span className={`text-4xl font-black ${isLight ? 'text-emerald-900' : 'text-emerald-300'}`}>{scoreReport.percentage}%</span>
+              <span className={`text-xs ${isLight ? 'text-slate-600 font-bold' : 'text-slate-400'}`}>
                 {scoreReport.totalPoints !== undefined
                   ? `(${scoreReport.earnedPoints}/${scoreReport.totalPoints} ${isAr ? 'درجة' : 'marks'})`
                   : `(${scoreReport.correctCount}/${effectiveTotalQuestions})`}
@@ -566,19 +576,21 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
 
           {/* Bloom's Taxonomy Cognitive Diagnostics Card */}
           {scoreReport.bloomDiagnostics && (
-            <div className="bg-slate-950/80 rounded-2xl p-4 sm:p-5 border border-slate-800 space-y-4">
+            <div className={`rounded-2xl p-4 sm:p-5 border space-y-4 ${
+              isLight ? 'bg-slate-50 border-slate-300' : 'bg-slate-950/80 border-slate-800'
+            }`}>
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-indigo-400" />
-                  <h5 className="text-sm font-bold text-slate-100">
+                  <TrendingUp className={`w-5 h-5 ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`} />
+                  <h5 className={`text-sm font-bold ${isLight ? 'text-slate-900 font-black' : 'text-slate-100'}`}>
                     {isAr
                       ? 'التقرير التشخيصي لمستويات بلوم المعرفية (Bloom’s Cognitive Taxonomy)'
                       : 'Bloom’s Cognitive Taxonomy Diagnostic Profile'}
                   </h5>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="text-slate-400">{isAr ? 'مؤشر النضج المعرفي:' : 'Cognitive Maturity Index:'}</span>
-                  <span className="font-mono font-black text-indigo-300 text-sm">
+                  <span className={isLight ? 'text-slate-700 font-bold' : 'text-slate-400'}>{isAr ? 'مؤشر النضج المعرفي:' : 'Cognitive Maturity Index:'}</span>
+                  <span className={`font-mono font-black text-sm ${isLight ? 'text-indigo-900' : 'text-indigo-300'}`}>
                     {scoreReport.bloomDiagnostics.overallCognitiveIndex}%
                   </span>
                 </div>
@@ -597,9 +609,11 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                       <div>
                         <div className="flex items-center justify-between text-xs font-bold mb-1">
                           <span className={meta.color}>{isAr ? meta.shortLabelAr : meta.shortLabelEn}</span>
-                          <span className="font-mono font-black text-slate-200">{score.accuracyPct}%</span>
+                          <span className={`font-mono font-black ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>{score.accuracyPct}%</span>
                         </div>
-                        <div className="w-full bg-slate-900/60 rounded-full h-2 overflow-hidden border border-slate-800">
+                        <div className={`w-full rounded-full h-2 overflow-hidden border ${
+                          isLight ? 'bg-slate-200 border-slate-300' : 'bg-slate-900/60 border-slate-800'
+                        }`}>
                           <div
                             className={`h-full transition-all duration-700 ${
                               score.accuracyPct >= 80
@@ -612,7 +626,9 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                           />
                         </div>
                       </div>
-                      <div className="mt-2 text-[10px] text-slate-400 flex items-center justify-between font-mono">
+                      <div className={`mt-2 text-[10px] flex items-center justify-between font-mono ${
+                        isLight ? 'text-slate-700 font-bold' : 'text-slate-400'
+                      }`}>
                         <span>
                           {isAr ? `${score.earnedMarks}/${score.totalMarks} درجة` : `${score.earnedMarks}/${score.totalMarks} pts`}
                         </span>
@@ -626,8 +642,10 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
               </div>
 
               {/* Tailored Diagnostic Advice */}
-              <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs text-slate-300 space-y-2">
-                <div className="flex items-center gap-2 font-bold text-amber-400">
+              <div className={`p-3.5 rounded-xl border text-xs space-y-2 ${
+                isLight ? 'bg-white border-slate-300 text-slate-800 shadow-2xs' : 'bg-slate-900/90 border-slate-800 text-slate-300'
+              }`}>
+                <div className={`flex items-center gap-2 font-bold ${isLight ? 'text-amber-900' : 'text-amber-400'}`}>
                   <Sparkles className="w-4 h-4" />
                   <span>{isAr ? 'التحليل الاستراتيجي وخطة التميز:' : 'Strategic Remediation & Action Plan:'}</span>
                 </div>
@@ -636,7 +654,9 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                     ? scoreReport.bloomDiagnostics.diagnosticSummaryAr
                     : scoreReport.bloomDiagnostics.diagnosticSummaryEn}
                 </p>
-                <ul className="list-disc list-inside space-y-1 text-slate-400 text-[11px] pt-1 border-t border-slate-800">
+                <ul className={`list-disc list-inside space-y-1 text-[11px] pt-1 border-t ${
+                  isLight ? 'text-slate-700 border-slate-200' : 'text-slate-400 border-slate-800'
+                }`}>
                   {(isAr ? scoreReport.bloomDiagnostics.actionPlanAr : scoreReport.bloomDiagnostics.actionPlanEn).map(
                     (step, sIdx) => (
                       <li key={sIdx}>{step}</li>

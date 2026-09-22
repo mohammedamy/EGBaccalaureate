@@ -1597,6 +1597,11 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     page-break-inside: avoid !important;
   }
 
+  .print-options-grid > div * {
+    color: #0f172a !important;
+    -webkit-text-fill-color: #0f172a !important;
+  }
+
   .textbook-diagram-card {
     background: #ffffff !important;
     border: 1.5pt solid #94a3b8 !important;
