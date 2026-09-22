@@ -1410,11 +1410,16 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           drawHeavyInsulatedCable(ctx, nodeC.x, nodeC.y, nodeC.x, (nodeC.y + nodeD.y) / 2 - 38, '#ca8a04', isEnergized);
           drawHeavyInsulatedCable(ctx, nodeD.x, (nodeC.y + nodeD.y) / 2 + 38, nodeD.x, nodeD.y, '#ca8a04', isEnergized);
 
-          // Diagonal Arm Resistors
-          drawAxialCeramicResistor(ctx, (nodeA.x + nodeC.x) / 2, (nodeA.y + nodeC.y) / 2, 60, 18, params.r1, 'R1', undefined, isLight);
-          drawAxialCeramicResistor(ctx, (nodeC.x + nodeB.x) / 2, (nodeC.y + nodeB.y) / 2, 60, 18, params.r2, 'R2', undefined, isLight);
-          drawAxialCeramicResistor(ctx, (nodeA.x + nodeD.x) / 2, (nodeA.y + nodeD.y) / 2, 60, 18, params.r3, 'R3', undefined, isLight);
-          drawAxialCeramicResistor(ctx, (nodeD.x + nodeB.x) / 2, (nodeD.y + nodeB.y) / 2, 60, 18, params.r4, 'R4', undefined, isLight);
+          // Diagonal Arm Resistors (aligned and rotated to match wire angles)
+          const angleAC = Math.atan2(nodeC.y - nodeA.y, nodeC.x - nodeA.x);
+          const angleCB = Math.atan2(nodeB.y - nodeC.y, nodeB.x - nodeC.x);
+          const angleAD = Math.atan2(nodeD.y - nodeA.y, nodeD.x - nodeA.x);
+          const angleDB = Math.atan2(nodeB.y - nodeD.y, nodeB.x - nodeD.x);
+
+          drawAxialCeramicResistor(ctx, (nodeA.x + nodeC.x) / 2, (nodeA.y + nodeC.y) / 2, 60, 18, params.r1, 'R1', undefined, isLight, angleAC);
+          drawAxialCeramicResistor(ctx, (nodeC.x + nodeB.x) / 2, (nodeC.y + nodeB.y) / 2, 60, 18, params.r2, 'R2', undefined, isLight, angleCB);
+          drawAxialCeramicResistor(ctx, (nodeA.x + nodeD.x) / 2, (nodeA.y + nodeD.y) / 2, 60, 18, params.r3, 'R3', undefined, isLight, angleAD);
+          drawAxialCeramicResistor(ctx, (nodeD.x + nodeB.x) / 2, (nodeD.y + nodeB.y) / 2, 60, 18, params.r4, 'R4', undefined, isLight, angleDB);
 
           // Central Galvanometer
           drawCenterZeroGalvanometer(ctx, centerX, (nodeC.y + nodeD.y) / 2, 42, simState.iBranch3, simState.isBridgeBalanced);

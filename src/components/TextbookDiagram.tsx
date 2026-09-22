@@ -882,20 +882,28 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             <line x1="290" y1="140" x2="370" y2="140" stroke="#38bdf8" strokeWidth="2.5" />
 
             {/* Resistor R1 on AB */}
-            <rect x="170" y="75" width="40" height="20" rx="3" transform="rotate(-40 190 85)" className="fill-cyan-950 stroke-cyan-400" strokeWidth="2" />
-            <text x="160" y="65" textAnchor="middle" className="text-[12px] font-black fill-cyan-300">R₁</text>
+            <g transform="rotate(-40 190 85)">
+              <rect x="170" y="75" width="40" height="20" rx="3" className="fill-cyan-950 stroke-cyan-400" strokeWidth="2" />
+              <text x="190" y="68" textAnchor="middle" className="text-[12px] font-black fill-cyan-300">R₁</text>
+            </g>
 
             {/* Resistor R2 on AC */}
-            <rect x="290" y="75" width="40" height="20" rx="3" transform="rotate(40 310 85)" className="fill-indigo-950 stroke-indigo-400" strokeWidth="2" />
-            <text x="340" y="65" textAnchor="middle" className="text-[12px] font-black fill-indigo-300">R₂</text>
+            <g transform="rotate(40 310 85)">
+              <rect x="290" y="75" width="40" height="20" rx="3" className="fill-indigo-950 stroke-indigo-400" strokeWidth="2" />
+              <text x="310" y="68" textAnchor="middle" className="text-[12px] font-black fill-indigo-300">R₂</text>
+            </g>
 
             {/* Resistor R3 on BD */}
-            <rect x="170" y="180" width="40" height="20" rx="3" transform="rotate(40 190 190)" className="fill-emerald-950 stroke-emerald-400" strokeWidth="2" />
-            <text x="160" y="215" textAnchor="middle" className="text-[12px] font-black fill-emerald-300">R₃</text>
+            <g transform="rotate(40 190 190)">
+              <rect x="170" y="180" width="40" height="20" rx="3" className="fill-emerald-950 stroke-emerald-400" strokeWidth="2" />
+              <text x="190" y="215" textAnchor="middle" className="text-[12px] font-black fill-emerald-300">R₃</text>
+            </g>
 
             {/* Resistor R4 on CD */}
-            <rect x="290" y="180" width="40" height="20" rx="3" transform="rotate(-40 310 190)" className="fill-amber-950 stroke-amber-400" strokeWidth="2" />
-            <text x="340" y="215" textAnchor="middle" className="text-[12px] font-black fill-amber-300">R₄</text>
+            <g transform="rotate(-40 310 190)">
+              <rect x="290" y="180" width="40" height="20" rx="3" className="fill-amber-950 stroke-amber-400" strokeWidth="2" />
+              <text x="310" y="215" textAnchor="middle" className="text-[12px] font-black fill-amber-300">R₄</text>
+            </g>
 
             {/* Nodes */}
             <circle cx="250" cy="40" r="5" className="fill-cyan-400" />

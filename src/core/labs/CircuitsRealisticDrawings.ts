@@ -447,11 +447,16 @@ export function drawAxialCeramicResistor(
   label: string = 'R',
   voltageDrop?: number,
   isLight: boolean = false,
-  orientation: 'horizontal' | 'vertical' = 'horizontal'
+  orientation: 'horizontal' | 'vertical' | number = 'horizontal'
 ): void {
   ctx.save();
 
   const isVertical = orientation === 'vertical';
+  let angleRad = typeof orientation === 'number' ? orientation : 0;
+  // Ensure readable text orientation (never upside down): map to [-pi/2, pi/2]
+  while (angleRad > Math.PI / 2) angleRad -= Math.PI;
+  while (angleRad < -Math.PI / 2) angleRad += Math.PI;
+
   const leadLen = isVertical ? 14 : 22;
 
   // Calculate EIA bands
@@ -497,8 +502,8 @@ export function drawAxialCeramicResistor(
     ctx.save();
     ctx.shadowColor = 'rgba(0, 0, 0, 0.45)';
     ctx.shadowBlur = 8;
-    ctx.shadowOffsetX = 3;
-    ctx.shadowOffsetY = 2;
+    ctx.shadowOffsetY = 3;
+    ctx.shadowOffsetX = 2;
     ctx.fillStyle = '#0f172a';
     ctx.beginPath();
     ctx.roundRect(x - bodyH / 2, y - bodyW / 2, bodyH, bodyW, [bodyH / 2]);
@@ -549,19 +554,24 @@ export function drawAxialCeramicResistor(
       ctx.fillText(`V = ${voltageDrop.toFixed(2)} V`, textX, y + 8);
     }
   } else {
-    // 1. Tinned Axial Copper Leads Extending Out Left and Right
+    ctx.translate(x, y);
+    if (angleRad !== 0) {
+      ctx.rotate(angleRad);
+    }
+
+    // 1. Tinned Axial Copper Leads Extending Out Left and Right along the axis
     ctx.strokeStyle = '#cbd5e1';
     ctx.lineWidth = 2.4;
     ctx.beginPath();
-    ctx.moveTo(x - bodyW / 2 - leadLen, y);
-    ctx.lineTo(x + bodyW / 2 + leadLen, y);
+    ctx.moveTo(-bodyW / 2 - leadLen, 0);
+    ctx.lineTo(bodyW / 2 + leadLen, 0);
     ctx.stroke();
 
     // Lead Solder Fillets
     ctx.fillStyle = '#94a3b8';
     ctx.beginPath();
-    ctx.arc(x - bodyW / 2, y, 3, 0, Math.PI * 2);
-    ctx.arc(x + bodyW / 2, y, 3, 0, Math.PI * 2);
+    ctx.arc(-bodyW / 2, 0, 3, 0, Math.PI * 2);
+    ctx.arc(bodyW / 2, 0, 3, 0, Math.PI * 2);
     ctx.fill();
 
     // 2. Resistor Body Drop Shadow
@@ -571,51 +581,63 @@ export function drawAxialCeramicResistor(
     ctx.shadowOffsetY = 3;
     ctx.fillStyle = '#0f172a';
     ctx.beginPath();
-    ctx.roundRect(x - bodyW / 2, y - bodyH / 2, bodyW, bodyH, [bodyH / 2]);
+    ctx.roundRect(-bodyW / 2, -bodyH / 2, bodyW, bodyH, [bodyH / 2]);
     ctx.fill();
     ctx.restore();
 
     // 3. Molded Ceramic Cylinder Body (Warm High-Grade Ceramic Tan/Beige)
-    const bodyGrad = ctx.createLinearGradient(x - bodyW / 2, y - bodyH / 2, x - bodyW / 2, y + bodyH / 2);
+    const bodyGrad = ctx.createLinearGradient(-bodyW / 2, -bodyH / 2, -bodyW / 2, bodyH / 2);
     bodyGrad.addColorStop(0, '#f5ebe0');
     bodyGrad.addColorStop(0.25, '#ffffff');
     bodyGrad.addColorStop(0.7, '#e6ccb2');
     bodyGrad.addColorStop(1, '#b08968');
     ctx.fillStyle = bodyGrad;
     ctx.beginPath();
-    ctx.roundRect(x - bodyW / 2, y - bodyH / 2, bodyW, bodyH, [bodyH / 2]);
+    ctx.roundRect(-bodyW / 2, -bodyH / 2, bodyW, bodyH, [bodyH / 2]);
     ctx.fill();
     ctx.strokeStyle = '#9c6644';
     ctx.lineWidth = 1;
     ctx.stroke();
 
-    // 4. Standard EIA 4-Band Color Bands (Vertical Stripes across horizontal cylinder)
+    // 4. Standard EIA 4-Band Color Bands (Perpendicular stripes across cylinder)
     const bandSpacing = bodyW * 0.18;
     const bandW = Math.max(3.5, bodyW * 0.07);
-    const startBandX = x - bodyW * 0.28;
+    const startBandX = -bodyW * 0.28;
 
     bands.forEach((bColor, idx) => {
       const bx = startBandX + idx * bandSpacing;
       ctx.fillStyle = bColor;
-      ctx.fillRect(bx - bandW / 2, y - bodyH / 2, bandW, bodyH);
+      ctx.fillRect(bx - bandW / 2, -bodyH / 2, bandW, bodyH);
     });
 
     // Top Specular Sheen on Resistor
     ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
-    ctx.fillRect(x - bodyW / 2 + 4, y - bodyH / 2 + 2, bodyW - 8, 3);
+    ctx.fillRect(-bodyW / 2 + 4, -bodyH / 2 + 2, bodyW - 8, 3);
 
-    // 5. Value and Label Callout Badge
-    ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+    // 5. Value and Label Callout Badge (Parallel and rotated with wire)
     ctx.font = 'bold 11px "SF Mono", monospace';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'bottom';
-    ctx.fillText(`${label} = ${resistanceVal.toFixed(1)} Ω`, x, y - bodyH / 2 - 5);
+
+    // Contrast text halo for crisp legibility over any underlying elements
+    ctx.strokeStyle = isLight ? 'rgba(248, 250, 252, 0.92)' : 'rgba(7, 11, 20, 0.92)';
+    ctx.lineWidth = 3;
+    ctx.lineJoin = 'round';
+    ctx.strokeText(`${label} = ${resistanceVal.toFixed(1)} Ω`, 0, -bodyH / 2 - 5);
+
+    ctx.fillStyle = isLight ? '#0f172a' : '#f8fafc';
+    ctx.fillText(`${label} = ${resistanceVal.toFixed(1)} Ω`, 0, -bodyH / 2 - 5);
 
     if (voltageDrop !== undefined) {
+      ctx.strokeStyle = isLight ? 'rgba(248, 250, 252, 0.92)' : 'rgba(7, 11, 20, 0.92)';
+      ctx.lineWidth = 3;
+      ctx.lineJoin = 'round';
+      ctx.textBaseline = 'top';
+      ctx.strokeText(`V = ${voltageDrop.toFixed(2)} V`, 0, bodyH / 2 + 5);
+
       ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
       ctx.font = 'bold 10px monospace';
-      ctx.textBaseline = 'top';
-      ctx.fillText(`V = ${voltageDrop.toFixed(2)} V`, x, y + bodyH / 2 + 5);
+      ctx.fillText(`V = ${voltageDrop.toFixed(2)} V`, 0, bodyH / 2 + 5);
     }
   }
 
