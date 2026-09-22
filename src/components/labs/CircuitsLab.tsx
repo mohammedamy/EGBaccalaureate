@@ -1112,7 +1112,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.textAlign = 'center';
         ctx.fillText(isArabic ? 'قياسات الدائرة المغلقة (V = VB - Ir):' : "Closed Circuit Telemetry (V = VB - Ir):", centerX, centerY - 26);
 
-        ctx.fillStyle = '#10b981';
+        ctx.fillStyle = isLight ? '#047857' : '#10b981';
         ctx.font = 'bold 13px ui-monospace, monospace';
         ctx.fillText(
           isArabic
@@ -1122,7 +1122,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           centerY - 5
         );
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
         ctx.font = 'bold 13px ui-monospace, monospace';
         ctx.fillText(
           isArabic
@@ -1132,7 +1132,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           centerY + 16
         );
 
-        ctx.fillStyle = '#f59e0b';
+        ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
         ctx.font = 'bold 12px ui-monospace, monospace';
         ctx.fillText(
           isArabic
@@ -1220,7 +1220,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fill();
           ctx.stroke();
 
-          ctx.fillStyle = '#38bdf8';
+          ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
           ctx.font = 'bold 12px Inter, sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText(isArabic ? 'خواص التوصيل على التوالي:' : 'Series Connection Characteristics:', centerX, centerY - 25);
@@ -1235,7 +1235,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             centerY - 5
           );
 
-          ctx.fillStyle = '#10b981';
+          ctx.fillStyle = isLight ? '#047857' : '#10b981';
           ctx.font = 'bold 12px ui-monospace, monospace';
           ctx.fillText(
             isArabic
@@ -1245,7 +1245,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             centerY + 15
           );
 
-          ctx.fillStyle = '#f59e0b';
+          ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
           ctx.font = 'bold 11px ui-monospace, monospace';
           ctx.fillText(
             isArabic
@@ -1343,12 +1343,12 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           ctx.fill();
           ctx.stroke();
 
-          ctx.fillStyle = '#38bdf8';
+          ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
           ctx.font = 'bold 12px Inter, sans-serif';
           ctx.textAlign = 'center';
           ctx.fillText(isArabic ? 'توصيل التوازي: ثبات فرق الجهد وتجزئة التيار' : 'Parallel: Constant Voltage & Current Division', centerX, centerY + 50);
 
-          ctx.fillStyle = '#10b981';
+          ctx.fillStyle = isLight ? '#047857' : '#10b981';
           ctx.font = 'bold 12px ui-monospace, monospace';
           ctx.fillText(
             isArabic
@@ -1358,7 +1358,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
             centerY + 70
           );
 
-          ctx.fillStyle = '#f59e0b';
+          ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
           ctx.font = 'bold 11px ui-monospace, monospace';
           ctx.fillText(
             isArabic
@@ -1452,21 +1452,27 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           drawAnalogMeterGauge(ctx, botCenterX, botY, ammeterRadius, simState.iTotal, 0, Math.max(3, Math.ceil(simState.iTotal * 1.5)), isArabic ? 'أميتر كلي I_tot' : 'AMMETER I_tot', 'A');
 
           // Bridge HUD Banner
-          ctx.fillStyle = simState.isBridgeBalanced ? 'rgba(6, 78, 59, 0.95)' : 'rgba(30, 41, 59, 0.95)';
-          ctx.strokeStyle = simState.isBridgeBalanced ? '#10b981' : '#f59e0b';
+          ctx.fillStyle = simState.isBridgeBalanced
+            ? (isLight ? 'rgba(236, 253, 245, 0.95)' : 'rgba(6, 78, 59, 0.95)')
+            : (isLight ? 'rgba(255, 251, 235, 0.95)' : 'rgba(30, 41, 59, 0.95)');
+          ctx.strokeStyle = simState.isBridgeBalanced
+            ? (isLight ? '#059669' : '#10b981')
+            : (isLight ? '#d97706' : '#f59e0b');
           ctx.lineWidth = 1.5;
           ctx.beginPath();
           ctx.roundRect(centerX - 180, centerY + 85, 360, 48, [10]);
           ctx.fill();
           ctx.stroke();
 
-          ctx.fillStyle = '#ffffff';
+          ctx.fillStyle = isLight ? '#0f172a' : '#ffffff';
           ctx.font = 'bold 11px system-ui, sans-serif';
           ctx.textAlign = 'center';
           const bridgeRatioText = `R1/R2 = ${(params.r1 / params.r2).toFixed(2)} | R3/R4 = ${(params.r3 / params.r4).toFixed(2)}`;
           ctx.fillText(bridgeRatioText, centerX, centerY + 102);
 
-          ctx.fillStyle = simState.isBridgeBalanced ? '#34d399' : '#38bdf8';
+          ctx.fillStyle = simState.isBridgeBalanced
+            ? (isLight ? '#047857' : '#34d399')
+            : (isLight ? '#b45309' : '#38bdf8');
           ctx.font = '900 11px system-ui, sans-serif';
           const bridgeStatusText = simState.isBridgeBalanced
             ? isArabic ? '✓ القنطرة متزنة: IG = 0 وتحذف المقاومة المركزية' : '✓ Bridge Balanced: IG = 0 (Null Condition)'
@@ -1700,12 +1706,12 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
         ctx.fill();
         ctx.stroke();
 
-        ctx.fillStyle = '#f59e0b';
+        ctx.fillStyle = isLight ? '#b45309' : '#f59e0b';
         ctx.font = 'bold 12px Inter, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(isArabic ? 'القدرة الكهربية المستهلكة (P = V²/R = I²R):' : 'Electric Power Dissipation (P = V²/R = I²R):', centerX, centerY - 25);
 
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = isLight ? '#0f172a' : '#ffffff';
         ctx.font = 'bold 13px monospace';
         ctx.fillText(
           isArabic
@@ -1715,7 +1721,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           centerY - 5
         );
 
-        ctx.fillStyle = '#38bdf8';
+        ctx.fillStyle = isLight ? '#0284c7' : '#38bdf8';
         ctx.font = 'bold 12px monospace';
         ctx.fillText(
           isArabic
@@ -1725,7 +1731,7 @@ export const CircuitsLab: React.FC<Props> = ({ lang = 'ar', theme = 'dark' }) =>
           centerY + 16
         );
 
-        ctx.fillStyle = '#10b981';
+        ctx.fillStyle = isLight ? '#047857' : '#10b981';
         ctx.font = 'bold 12px monospace';
         ctx.fillText(
           isArabic
