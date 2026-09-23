@@ -93,6 +93,7 @@ console.log('🔹 1. Verifying Default Profile Schema & Factory:');
 const defaultProfile = getDefaultUserProfile();
 assert(typeof defaultProfile.displayName === 'string' && defaultProfile.displayName.length > 0, 'Default profile has a valid displayName');
 assert(defaultProfile.isGoogleUser === false, 'Default profile starts as local guest (isGoogleUser = false)');
+assert(defaultProfile.role === 'student', 'Default profile role is initialized to student');
 assert(defaultProfile.academicTrack === 'scientific_science', 'Default academic track is scientific_science');
 assert(defaultProfile.targetPercentage >= 75 && defaultProfile.targetPercentage <= 100, 'Target percentage is in realistic 75%-100% range');
 assert(typeof defaultProfile.governorate === 'string', 'Default profile has assigned governorate');
@@ -104,11 +105,13 @@ console.log('\n🔹 2. Verifying Local Device Storage Persistence:');
 localStorage.clear();
 const loaded1 = loadLocalUserProfile();
 assert(loaded1.displayName === defaultProfile.displayName, 'Initial load without storage initializes defaults');
+assert(loaded1.role === 'student', 'Initial load preserves student role');
 assert(!!localStorage.getItem(USER_PROFILE_STORAGE_KEY), 'Profile is automatically committed to device localStorage');
 
 // Customization: Scientific Math, Medicine, Cairo, 98.5%
 const customized = saveLocalUserProfile({
   displayName: 'أحمد محمود النجار',
+  role: 'student',
   academicTrack: 'scientific_math',
   dreamCollege: 'كلية الهندسة جامعة القاهرة',
   targetPercentage: 98.5,
@@ -119,12 +122,43 @@ const customized = saveLocalUserProfile({
 });
 
 assert(customized.displayName === 'أحمد محمود النجار', 'DisplayName updated successfully');
+assert(customized.role === 'student', 'Role preserved as student');
 assert(customized.academicTrack === 'scientific_math', 'Track customized to scientific_math');
 assert(customized.dreamCollege === 'كلية الهندسة جامعة القاهرة', 'Dream college customized');
 assert(customized.targetPercentage === 98.5, 'Target percentage set to 98.5%');
 assert(customized.secondLanguage === 'german', 'Second foreign language set to German');
 assert(customized.governorate === 'alexandria', 'Governorate customized to Alexandria');
 assert(customized.avatarIcon === '📐', 'Avatar customized to engineering mascot');
+
+// Verify Teacher Persona Customization & Persistence
+console.log('\n🔹 2b. Verifying Teacher Persona Customization & Persistence:');
+const teacherProfile = saveLocalUserProfile({
+  displayName: 'أ. د/ محمد رمضان',
+  role: 'teacher',
+  teacherSubject: 'math',
+  teacherSchool: 'مدرسة المتفوقين للعلوم والتكنولوجيا STEM',
+  teacherBio: 'خبير إعداد وتدريب أوائل الجمهورية في مادة الرياضيات التطبيقية',
+  avatarIcon: '👨‍🏫',
+});
+
+assert(teacherProfile.role === 'teacher', 'Profile role successfully switched and saved as teacher');
+assert(teacherProfile.teacherSubject === 'math', 'Teacher subject saved as math');
+assert(teacherProfile.teacherSchool === 'مدرسة المتفوقين للعلوم والتكنولوجيا STEM', 'Teacher school saved');
+assert(teacherProfile.avatarIcon === '👨‍🏫', 'Teacher avatar saved');
+
+const reloadedTeacher = loadLocalUserProfile();
+assert(reloadedTeacher.role === 'teacher', 'Reload from localStorage preserves teacher role');
+assert(reloadedTeacher.teacherSubject === 'math', 'Reload from localStorage preserves teacher subject');
+assert(reloadedTeacher.displayName === 'أ. د/ محمد رمضان', 'Reload from localStorage preserves teacher name');
+
+// Switch back to student
+const switchedBack = saveLocalUserProfile({
+  displayName: 'أحمد محمود النجار',
+  role: 'student',
+  academicTrack: 'scientific_math',
+  governorate: 'alexandria',
+});
+assert(switchedBack.role === 'student', 'Profile role successfully switched back to student');
 
 // Verify re-reading from localStorage directly
 const reloaded = loadLocalUserProfile();

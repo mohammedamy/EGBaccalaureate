@@ -46,8 +46,8 @@ const DailyPrescriptionCard = lazy(() => import('./components/DailyPrescriptionC
 const DailyPrescriptionModal = lazy(() => import('./components/DailyPrescriptionModal').then(m => ({ default: m.DailyPrescriptionModal })));
 const SchoolOutreachModal = lazy(() => import('./components/SchoolOutreachModal').then(m => ({ default: m.SchoolOutreachModal })));
 const UserProfileModal = lazy(() => import('./components/UserProfileModal').then(m => ({ default: m.UserProfileModal })));
-import type { UserProfile } from './types/userProfile';
-import { loadLocalUserProfile, subscribeToUserProfile } from './services/userProfileService';
+import type { UserProfile, AcademicTrack } from './types/userProfile';
+import { loadLocalUserProfile, saveLocalUserProfile, subscribeToUserProfile } from './services/userProfileService';
 import type { Assignment } from './types/teacherAssignment';
 import type { PrescribedItem } from './types/adaptivePractice';
 import { getAdaptiveState, completePrescriptionItem } from './services/adaptivePracticeEngine';
@@ -65,7 +65,10 @@ const ViewLoadingFallback: React.FC<{ messageAr?: string; messageEn?: string }> 
 
 export const App: React.FC = () => {
   const [lang, setLang] = useState<Language>('en');
-  const [role, setRole] = useState<UserRole>('student');
+  const [role, setRole] = useState<UserRole>(() => {
+    const profile = loadLocalUserProfile();
+    return (profile.role === 'teacher' ? 'teacher' : 'student');
+  });
   const [theme, setTheme] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('egbac_theme');
     if (saved === 'dark' || saved === 'light' || saved === 'high-contrast') {
@@ -323,6 +326,9 @@ export const App: React.FC = () => {
   useEffect(() => {
     const unsubscribe = subscribeToUserProfile((newProfile) => {
       setUserProfile(newProfile);
+      if (newProfile.role && (newProfile.role === 'student' || newProfile.role === 'teacher')) {
+        setRole(newProfile.role);
+      }
     });
     return unsubscribe;
   }, []);
@@ -673,7 +679,27 @@ export const App: React.FC = () => {
   };
 
   const handleRoleToggle = () => {
-    setRole((prev) => (prev === 'student' ? 'teacher' : 'student'));
+    setRole((prev) => {
+      const nextRole: UserRole = prev === 'student' ? 'teacher' : 'student';
+      const updatedProfile: UserProfile = {
+        ...userProfile,
+        role: nextRole,
+        updatedAt: Date.now(),
+      };
+      saveLocalUserProfile(updatedProfile);
+      setUserProfile(updatedProfile);
+      return nextRole;
+    });
+  };
+
+  const handleTrackChange = (newTrack: AcademicTrack) => {
+    const updatedProfile: UserProfile = {
+      ...userProfile,
+      academicTrack: newTrack,
+      updatedAt: Date.now(),
+    };
+    saveLocalUserProfile(updatedProfile);
+    setUserProfile(updatedProfile);
   };
 
   const handleSelectLesson = (b: Branch, l: Lesson, tab?: string) => {
@@ -725,6 +751,8 @@ export const App: React.FC = () => {
         onFontSizeChange={setFontSize}
         curriculum={curriculum}
         onCurriculumChange={setCurriculum}
+        academicTrack={userProfile.academicTrack}
+        onTrackChange={handleTrackChange}
         activeTab={activeTab}
         onTabChange={setActiveTab}
         onOpenFormulaHandbook={() => setIsFormulaHandbookOpen(true)}
@@ -1137,7 +1165,12 @@ export const App: React.FC = () => {
               onClose={() => setIsUserProfileModalOpen(false)}
               lang={lang}
               theme={theme}
-              onProfileUpdated={(updated) => setUserProfile(updated)}
+              onProfileUpdated={(updated) => {
+                setUserProfile(updated);
+                if (updated.role && (updated.role === 'student' || updated.role === 'teacher')) {
+                  setRole(updated.role);
+                }
+              }}
             />
           </Suspense>
         )}

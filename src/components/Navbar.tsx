@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
-import type { UserProfile } from '../types/userProfile';
+import type { UserProfile, AcademicTrack } from '../types/userProfile';
+import { saveLocalUserProfile } from '../services/userProfileService';
 import { translations } from '../i18n/translations';
 import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare, HeartHandshake, BarChart2, BrainCircuit, Printer } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
@@ -21,6 +22,8 @@ interface Props {
   onFontSizeChange: (size: FontSizeMode) => void;
   curriculum: CurriculumType;
   onCurriculumChange: (curr: CurriculumType) => void;
+  academicTrack?: AcademicTrack;
+  onTrackChange?: (track: AcademicTrack) => void;
   activeTab: string;
   onTabChange: (tab: string) => void;
   onOpenFormulaHandbook?: () => void;
@@ -65,6 +68,8 @@ export const Navbar: React.FC<Props> = ({
   onFontSizeChange,
   curriculum,
   onCurriculumChange,
+  academicTrack,
+  onTrackChange,
   activeTab,
   onTabChange,
   onOpenFormulaHandbook,
@@ -109,6 +114,7 @@ export const Navbar: React.FC<Props> = ({
   const [isFontOpen, setIsFontOpen] = useState(false);
   const [isToolsOpen, setIsToolsOpen] = useState(false);
   const [isTabMenuOpen, setIsTabMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
 
   const themeRef = useRef<HTMLDivElement>(null);
   const fontRef = useRef<HTMLDivElement>(null);
@@ -116,6 +122,7 @@ export const Navbar: React.FC<Props> = ({
   const tabMenuRef = useRef<HTMLDivElement>(null);
   const tabListRef = useRef<HTMLDivElement>(null);
   const activeTabBtnRef = useRef<HTMLButtonElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
 
   // Auto-scroll active tab into view in the horizontal ribbon
   useEffect(() => {
@@ -144,6 +151,9 @@ export const Navbar: React.FC<Props> = ({
       if (tabMenuRef.current && !tabMenuRef.current.contains(target)) {
         setIsTabMenuOpen(false);
       }
+      if (langRef.current && !langRef.current.contains(target)) {
+        setIsLangOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -157,6 +167,7 @@ export const Navbar: React.FC<Props> = ({
         setIsFontOpen(false);
         setIsToolsOpen(false);
         setIsTabMenuOpen(false);
+        setIsLangOpen(false);
       }
     };
     document.addEventListener('keydown', handleKeyDown);
@@ -1009,10 +1020,10 @@ export const Navbar: React.FC<Props> = ({
                 </button>
               )}
 
-              {/* Role Toggle: Teacher / Student */}
+              {/* Role Toggle: Teacher / Student with Leading Tick Mark */}
               <button
                 onClick={onRoleToggle}
-                className={`flex items-center gap-1 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs ${
+                className={`flex items-center gap-1.5 px-2 xl:px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer active:scale-95 ${
                   isHighContrast
                     ? 'bg-black text-white border-white/60 hover:border-white'
                     : isLight
@@ -1021,6 +1032,7 @@ export const Navbar: React.FC<Props> = ({
                 }`}
                 title={role === 'student' ? t.roleStudent : t.roleTeacher}
               >
+                <span className="text-emerald-400 font-black text-xs shrink-0" title={isArabic ? 'الصفة النشطة' : 'Active Role'}>✓</span>
                 <UserCheck className={`w-3.5 h-3.5 shrink-0 ${isHighContrast ? 'text-yellow-400' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
                 <span className="hidden lg:inline">{role === 'student' ? t.roleStudent : t.roleTeacher}</span>
               </button>
@@ -1044,7 +1056,7 @@ export const Navbar: React.FC<Props> = ({
                     ? 'bg-white hover:bg-slate-100 text-slate-800 border-slate-300'
                     : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700'
                 }`}
-                title={isArabic ? 'الملف الشخصي وهوية الطالب وحفظ البيانات (Alt+L / ⌥L)' : 'Student Profile & Google Account (Alt+L / ⌥L)'}
+                title={isArabic ? 'الملف الشخصي وهوية المستخدم وحفظ البيانات (Alt+L / ⌥L)' : 'User Profile & Google Account (Alt+L / ⌥L)'}
               >
                 {userProfile?.photoURL ? (
                   <img
@@ -1053,7 +1065,7 @@ export const Navbar: React.FC<Props> = ({
                     className="w-4 h-4 rounded-full object-cover border border-emerald-400 shrink-0"
                   />
                 ) : userProfile?.isGoogleUser ? (
-                  <span className="text-xs shrink-0">🎓</span>
+                  <span className="text-xs shrink-0">{userProfile?.role === 'teacher' ? '👨‍🏫' : '🎓'}</span>
                 ) : (
                   /* Google Multi-Color G Icon */
                   <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24">
@@ -1090,20 +1102,92 @@ export const Navbar: React.FC<Props> = ({
               </button>
             )}
 
-            {/* Language Toggle */}
-            <button
-              onClick={onLanguageToggle}
-              className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-full font-extrabold text-[11px] transition-all border shadow-xs active:scale-95 shrink-0 ${
-                isHighContrast
-                  ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
-                  : isLight
-                  ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
-                  : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-200 border-indigo-700'
-              }`}
-            >
-              <Globe className={`w-3 h-3 shrink-0 ${isHighContrast ? 'text-cyan-400' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
-              <span>{t.languageToggle}</span>
-            </button>
+            {/* Language Dropdown Menu with Little Tick Mark */}
+            <div ref={langRef} className="relative inline-block text-left">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsLangOpen((prev) => !prev);
+                  setIsThemeOpen(false);
+                  setIsFontOpen(false);
+                  setIsToolsOpen(false);
+                }}
+                aria-haspopup="true"
+                aria-expanded={isLangOpen}
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full font-extrabold text-[11px] transition-all border shadow-xs active:scale-95 shrink-0 cursor-pointer ${
+                  isHighContrast
+                    ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-cyan-950/40'
+                    : isLight
+                    ? 'bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border-indigo-200'
+                    : 'bg-indigo-950/80 hover:bg-indigo-900 text-indigo-200 border-indigo-700'
+                }`}
+                title={isArabic ? 'تغيير لغة الواجهة (العربية / English)' : 'Change Language (العربية / English)'}
+              >
+                <span className="text-emerald-400 font-black text-xs shrink-0">✓</span>
+                <Globe className={`w-3 h-3 shrink-0 ${isHighContrast ? 'text-cyan-400' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
+                <span>{isArabic ? 'العربية' : 'English'}</span>
+                <ChevronDown className={`w-3 h-3 opacity-60 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {isLangOpen && (
+                <div
+                  role="menu"
+                  className={`absolute ${isArabic ? 'left-0' : 'right-0'} mt-1.5 w-36 rounded-xl p-1.5 shadow-xl border backdrop-blur-xl z-50 animate-in fade-in zoom-in-95 duration-100 ${
+                    isHighContrast
+                      ? 'bg-black border-2 border-cyan-400 text-white'
+                      : isLight
+                      ? 'bg-white/98 border-slate-200 text-slate-900 shadow-slate-200/60'
+                      : 'bg-slate-950/95 border-slate-800 text-slate-100 shadow-black/80'
+                  }`}
+                >
+                  <p className="px-2 py-1 text-[10px] font-bold text-slate-400 border-b border-slate-200 dark:border-slate-800 mb-1">
+                    {isArabic ? 'اختر لغة المنصة' : 'Platform Language'}
+                  </p>
+                  {[
+                    { id: 'ar', label: 'العربية', flag: '🇪🇬' },
+                    { id: 'en', label: 'English', flag: '🇬🇧' },
+                  ].map((langOpt) => {
+                    const isSelected = lang === langOpt.id;
+                    return (
+                      <button
+                        key={langOpt.id}
+                        type="button"
+                        onClick={() => {
+                          if (lang !== langOpt.id) {
+                            onLanguageToggle();
+                          }
+                          setIsLangOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                          isSelected
+                            ? isHighContrast
+                              ? 'bg-cyan-950 text-cyan-300 font-black'
+                              : isLight
+                              ? 'bg-indigo-50 text-indigo-900 font-bold'
+                              : 'bg-indigo-950/70 text-indigo-300 font-bold'
+                            : isLight
+                            ? 'hover:bg-slate-100 text-slate-700'
+                            : 'hover:bg-slate-900 text-slate-300'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          {/* Little tick mark in front of language */}
+                          {isSelected ? (
+                            <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[9px] font-black shrink-0 shadow-xs">
+                              ✓
+                            </span>
+                          ) : (
+                            <span className="w-3.5 h-3.5 rounded-full border border-slate-400/40 dark:border-slate-600/40 block shrink-0 opacity-30" />
+                          )}
+                          <span>{langOpt.flag}</span>
+                          <span>{langOpt.label}</span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -1180,6 +1264,15 @@ export const Navbar: React.FC<Props> = ({
             <CurriculumSelector
               curriculum={curriculum}
               onCurriculumChange={onCurriculumChange}
+              academicTrack={academicTrack || userProfile?.academicTrack}
+              onTrackChange={(newTrack) => {
+                if (onTrackChange) {
+                  onTrackChange(newTrack);
+                } else if (userProfile) {
+                  const updated = { ...userProfile, academicTrack: newTrack };
+                  saveLocalUserProfile(updated);
+                }
+              }}
               lang={lang}
               theme={theme}
               className="w-full sm:w-auto flex-1 sm:flex-none min-w-0"

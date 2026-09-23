@@ -2,6 +2,8 @@ export type AcademicTrack = 'scientific_science' | 'scientific_math' | 'literary
 
 export type SecondLanguage = 'french' | 'german' | 'italian' | 'spanish' | 'chinese' | 'none';
 
+export type ProfileRole = 'student' | 'teacher';
+
 export interface UserProfile {
   uid?: string;
   email?: string;
@@ -9,6 +11,10 @@ export interface UserProfile {
   photoURL?: string;
   avatarIcon?: string;
   isGoogleUser: boolean;
+  role?: ProfileRole;
+  teacherSubject?: string;
+  teacherSchool?: string;
+  teacherBio?: string;
   academicTrack: AcademicTrack;
   dreamCollege: string;
   targetPercentage: number;

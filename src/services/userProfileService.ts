@@ -31,6 +31,7 @@ export function getDefaultUserProfile(): UserProfile {
   return {
     displayName: 'طالب الثانوية العامة',
     isGoogleUser: false,
+    role: 'student',
     academicTrack: 'scientific_science',
     dreamCollege: 'كلية الطب البشري',
     targetPercentage: 95.0,
@@ -68,6 +69,7 @@ export function loadLocalUserProfile(): UserProfile {
     const merged: UserProfile = {
       ...defaultProfile,
       ...parsed,
+      role: parsed.role || 'student',
       updatedAt: parsed.updatedAt || Date.now(),
     };
     return merged;

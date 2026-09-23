@@ -45,13 +45,28 @@ interface Props {
 
 const AVATAR_OPTIONS = [
   { id: 'grad_cap', icon: '🎓', labelAr: 'طالب متفوق', labelEn: 'Honor Student' },
+  { id: 'teacher_male', icon: '👨‍🏫', labelAr: 'أستاذ المادة', labelEn: 'Teacher' },
+  { id: 'teacher_female', icon: '👩‍🏫', labelAr: 'معلمة فاضلة', labelEn: 'Teacher' },
   { id: 'doctor', icon: '👨‍⚕️', labelAr: 'طبيب بشري', labelEn: 'Medical Doctor' },
   { id: 'scientist', icon: '👩‍🔬', labelAr: 'عالمة أبحاث', labelEn: 'Scientist' },
   { id: 'engineer', icon: '📐', labelAr: 'مهندس تطبيقي', labelEn: 'Engineer' },
   { id: 'ai_tech', icon: '👨‍💻', labelAr: 'مهندس ذكاء اصطناعي', labelEn: 'AI & Software' },
   { id: 'diplomat', icon: '🏛️', labelAr: 'دبلوماسي وسياسي', labelEn: 'Diplomat' },
+  { id: 'books', icon: '📚', labelAr: 'مؤلف وأكاديمي', labelEn: 'Academic' },
   { id: 'artist', icon: '🎨', labelAr: 'فنون وتصميم', labelEn: 'Fine Arts' },
-  { id: 'astronomer', icon: '🚀', labelAr: 'علوم الفضاء والطيران', labelEn: 'Space Scientist' },
+  { id: 'astronomer', icon: '🚀', labelAr: 'علوم الفضاء', labelEn: 'Space Scientist' },
+];
+
+const TEACHER_SUBJECTS = [
+  { id: 'math', labelAr: 'الرياضيات التطبيقية والبحثية', labelEn: 'Mathematics', icon: '📐' },
+  { id: 'physics', labelAr: 'الفيزياء', labelEn: 'Physics', icon: '⚡' },
+  { id: 'chemistry', labelAr: 'الكيمياء', labelEn: 'Chemistry', icon: '🧪' },
+  { id: 'biology', labelAr: 'الأحياء والجيولوجيا', labelEn: 'Biology & Geology', icon: '🧬' },
+  { id: 'arabic', labelAr: 'اللغة العربية', labelEn: 'Arabic', icon: '📖' },
+  { id: 'english', labelAr: 'اللغة الإنجليزية', labelEn: 'English', icon: '🌐' },
+  { id: 'languages', labelAr: 'اللغات الأجنبية الثانية', labelEn: 'Second Languages', icon: '🇫🇷' },
+  { id: 'history_geo', labelAr: 'التاريخ والجغرافيا', labelEn: 'History & Geography', icon: '🏛️' },
+  { id: 'philosophy', labelAr: 'الفلسفة وعلم النفس', labelEn: 'Philosophy & Psychology', icon: '🧠' },
 ];
 
 const DREAM_FACULTIES = [
@@ -206,12 +221,18 @@ export const UserProfileModal: React.FC<Props> = ({
             </div>
             <div className="min-w-0">
               <h3 className={`text-base font-black truncate ${isLight ? 'text-slate-900' : 'text-white'}`}>
-                {isArabic ? 'الملف الشخصي وهوية الطالب الأكاديمية' : 'Student Identity & Local Profile'}
+                {profile.role === 'teacher'
+                  ? isArabic ? 'الملف المهني وهوية المعلم الأكاديمية' : 'Teacher Identity & Academic Profile'
+                  : isArabic ? 'الملف الشخصي وهوية الطالب الأكاديمية' : 'Student Identity & Local Profile'}
               </h3>
               <p className={`text-[11px] font-medium truncate ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                {isArabic
-                  ? 'تسجيل الدخول، تخصيص الشعبة والأهداف، وحفظ البيانات محلياً على جهازك'
-                  : 'Google sign-in, track goals & offline-first device storage'}
+                {profile.role === 'teacher'
+                  ? isArabic
+                    ? 'تسجيل الدخول، إدارة المادة التعليمية وتكليفات الطلاب، وحفظ البيانات محلياً'
+                    : 'Google sign-in, manage curriculum & homework assignments on device'
+                  : isArabic
+                    ? 'تسجيل الدخول، تخصيص الشعبة والأهداف، وحفظ البيانات محلياً على جهازك'
+                    : 'Google sign-in, track goals & offline-first device storage'}
               </p>
             </div>
           </div>
@@ -236,8 +257,16 @@ export const UserProfileModal: React.FC<Props> = ({
           isLight ? 'border-slate-200 bg-slate-50/50' : 'border-slate-800/80 bg-slate-900/40'
         }`}>
           {[
-            { id: 'profile', labelAr: '👤 الحساب والملف', labelEn: '👤 Account & Profile' },
-            { id: 'goals', labelAr: '🎯 الشعبة والهدف', labelEn: '🎯 Goals & Track' },
+            {
+              id: 'profile',
+              labelAr: profile.role === 'teacher' ? '👨‍🏫 حساب المعلم' : '👤 الحساب والملف',
+              labelEn: profile.role === 'teacher' ? '👨‍🏫 Teacher Profile' : '👤 Account & Profile',
+            },
+            {
+              id: 'goals',
+              labelAr: profile.role === 'teacher' ? '🎯 التخصص والتدريس' : '🎯 الشعبة والهدف',
+              labelEn: profile.role === 'teacher' ? '🎯 Teaching Focus' : '🎯 Goals & Track',
+            },
             { id: 'storage', labelAr: '💾 بيانات جهازي', labelEn: '💾 Device Data' },
           ].map((tab) => {
             const isSelected = activeTab === tab.id;
@@ -420,17 +449,104 @@ export const UserProfileModal: React.FC<Props> = ({
                 )}
               </div>
 
-              {/* Student Display Name */}
+              {/* Role Selection: Student vs Teacher */}
               <div className="space-y-1.5">
                 <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  {isArabic ? 'اسم الطالب / اللقب الأكاديمي' : 'Student Display Name'}
+                  {isArabic ? 'صفة الحساب / نوع الاستخدام' : 'Account Persona / Role'}
+                </label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {[
+                    {
+                      id: 'student',
+                      titleAr: 'طالب (الثانوية العامة / البكالوريا)',
+                      titleEn: 'Student (Thanaweya / Bac)',
+                      icon: '🎓',
+                      descAr: 'حفظ الحلول، الأهداف والنسبة، وتتبع كشكول الأخطاء',
+                      descEn: 'Save quiz progress, track targets & mistake notebook',
+                    },
+                    {
+                      id: 'teacher',
+                      titleAr: 'معلم / أستاذ المادة',
+                      titleEn: 'Teacher / Educator',
+                      icon: '👨‍🏫',
+                      descAr: 'إعداد الواجبات والتكليفات، ومتابعة الطلاب والمجموعات',
+                      descEn: 'Prepare homework, assign drills & track classes',
+                    },
+                  ].map((roleOption) => {
+                    const isSelected = (profile.role || 'student') === roleOption.id;
+                    return (
+                      <button
+                        key={roleOption.id}
+                        type="button"
+                        onClick={() => {
+                          const newRole = roleOption.id as 'student' | 'teacher';
+                          setProfile((prev) => ({
+                            ...prev,
+                            role: newRole,
+                            displayName:
+                              prev.displayName === 'طالب الثانوية العامة' && newRole === 'teacher'
+                                ? 'أستاذ المادة'
+                                : prev.displayName === 'أستاذ المادة' && newRole === 'student'
+                                ? 'طالب الثانوية العامة'
+                                : prev.displayName,
+                            avatarIcon:
+                              newRole === 'teacher' && (prev.avatarIcon === '🎓' || prev.avatarIcon === '📐')
+                                ? '👨‍🏫'
+                                : prev.avatarIcon,
+                          }));
+                        }}
+                        className={`p-3 rounded-xl border text-left rtl:text-right transition-all cursor-pointer relative ${
+                          isSelected
+                            ? isContrast
+                              ? 'border-yellow-400 bg-yellow-400/20 text-white shadow-md'
+                              : isLight
+                              ? 'border-indigo-500 bg-indigo-50/90 text-indigo-950 shadow-sm ring-2 ring-indigo-500/20'
+                              : 'border-indigo-400 bg-indigo-950/60 text-white shadow-md ring-2 ring-indigo-400/30'
+                            : isLight
+                            ? 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700'
+                            : 'border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-300'
+                        }`}
+                      >
+                        <div className="flex items-center gap-2 mb-1">
+                          {/* Little tick mark in front */}
+                          {isSelected ? (
+                            <span className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black shrink-0 shadow-xs">
+                              ✓
+                            </span>
+                          ) : (
+                            <span className="w-4 h-4 rounded-full border border-slate-400/40 dark:border-slate-600/40 block shrink-0 opacity-40" />
+                          )}
+                          <span className="text-base shrink-0">{roleOption.icon}</span>
+                          <span className="text-xs font-black truncate">
+                            {isArabic ? roleOption.titleAr : roleOption.titleEn}
+                          </span>
+                        </div>
+                        <p className={`text-[10px] leading-relaxed ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
+                          {isArabic ? roleOption.descAr : roleOption.descEn}
+                        </p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Display Name */}
+              <div className="space-y-1.5">
+                <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                  {profile.role === 'teacher'
+                    ? isArabic ? 'اسم المعلم / اللقب الأكاديمي' : 'Teacher Display Name'
+                    : isArabic ? 'اسم الطالب / اللقب الأكاديمي' : 'Student Display Name'}
                 </label>
                 <div className="relative">
                   <input
                     type="text"
                     value={profile.displayName}
                     onChange={(e) => setProfile({ ...profile, displayName: e.target.value })}
-                    placeholder={isArabic ? 'اكتب اسمك الثلاثي أو لقبك...' : 'Enter your name...'}
+                    placeholder={
+                      profile.role === 'teacher'
+                        ? isArabic ? 'اكتب اسمك مسبوقاً بـ أ. أو د. أو لقبك...' : 'Teacher name...'
+                        : isArabic ? 'اكتب اسمك الثلاثي أو لقبك...' : 'Student name...'
+                    }
                     className={`w-full px-3.5 py-2 rounded-xl text-xs font-bold border transition-all outline-none ${
                       isContrast
                         ? 'bg-black border-yellow-400 text-white focus:border-cyan-400'
@@ -443,10 +559,83 @@ export const UserProfileModal: React.FC<Props> = ({
                 </div>
               </div>
 
+              {/* Teacher-Specific Fields */}
+              {profile.role === 'teacher' && (
+                <div className="space-y-3 p-3.5 rounded-xl border border-indigo-500/20 bg-indigo-500/5">
+                  <div className="space-y-1.5">
+                    <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                      {isArabic ? 'المادة التخصصية التي تدرّسها' : 'Specialized Teaching Subject'}
+                    </label>
+                    <div className="flex flex-wrap gap-1.5">
+                      {TEACHER_SUBJECTS.map((sub) => {
+                        const isSubSelected = profile.teacherSubject === sub.labelAr;
+                        return (
+                          <button
+                            key={sub.id}
+                            type="button"
+                            onClick={() => setProfile({ ...profile, teacherSubject: sub.labelAr })}
+                            className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border transition-all flex items-center gap-1.5 cursor-pointer ${
+                              isSubSelected
+                                ? isLight
+                                  ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs'
+                                  : 'bg-indigo-500 text-white border-indigo-500'
+                                : isLight
+                                ? 'bg-white text-slate-700 border-slate-200 hover:bg-slate-100'
+                                : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800'
+                            }`}
+                          >
+                            {isSubSelected ? (
+                              <span className="font-black text-emerald-300">✓</span>
+                            ) : (
+                              <span className="w-2.5 h-2.5 rounded-full border border-slate-400/40 opacity-40" />
+                            )}
+                            <span>{sub.icon}</span>
+                            <span>{isArabic ? sub.labelAr : sub.labelEn}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div className="space-y-1">
+                      <label className={`text-[11px] font-bold block ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                        {isArabic ? 'المدرسة أو الإدارة التعليمية' : 'School / Educational Directorate'}
+                      </label>
+                      <input
+                        type="text"
+                        value={profile.teacherSchool || ''}
+                        onChange={(e) => setProfile({ ...profile, teacherSchool: e.target.value })}
+                        placeholder={isArabic ? 'مثال: مدرسة المتفوقين STEM / إدارة مصر الجديدة...' : 'School name...'}
+                        className={`w-full px-3 py-1.5 rounded-lg text-xs border outline-none ${
+                          isLight ? 'bg-white border-slate-300 text-slate-800' : 'bg-slate-900 border-slate-700 text-slate-100'
+                        }`}
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className={`text-[11px] font-bold block ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+                        {isArabic ? 'المسمى الوظيفي والدرجة' : 'Professional Title'}
+                      </label>
+                      <input
+                        type="text"
+                        value={profile.teacherBio || ''}
+                        onChange={(e) => setProfile({ ...profile, teacherBio: e.target.value })}
+                        placeholder={isArabic ? 'مثال: معلم خبير فيزياء / رئيس قسم...' : 'Title: e.g. Senior Teacher'}
+                        className={`w-full px-3 py-1.5 rounded-lg text-xs border outline-none ${
+                          isLight ? 'bg-white border-slate-300 text-slate-800' : 'bg-slate-900 border-slate-700 text-slate-100'
+                        }`}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Academic Avatar Selector */}
               <div className="space-y-2">
                 <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  {isArabic ? 'الرمز التعبيري للأيقونة الشخصية' : 'Academic Avatar & Mascot'}
+                  {profile.role === 'teacher'
+                    ? isArabic ? 'الرمز التعبيري لأيقونة المعلم' : 'Teacher Avatar & Mascot'
+                    : isArabic ? 'الرمز التعبيري للأيقونة الشخصية' : 'Academic Avatar & Mascot'}
                 </label>
                 <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
                   {AVATAR_OPTIONS.map((av) => {
@@ -505,94 +694,181 @@ export const UserProfileModal: React.FC<Props> = ({
           {/* TAB 2: Academic Goals & Track */}
           {activeTab === 'goals' && (
             <div className="space-y-4">
-              {/* Academic Track Selection */}
-              <div className="space-y-2">
-                <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  {isArabic ? 'الشعبة الأكاديمية بالثانوية العامة' : 'Thanaweya Amma Academic Track'}
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                  {[
-                    { id: 'scientific_science', titleAr: 'علمي علوم', titleEn: 'Scientific (Science)', icon: '🔬', descAr: 'الأحياء والجيولوجيا والفيزياء والكيمياء' },
-                    { id: 'scientific_math', titleAr: 'علمي رياضة', titleEn: 'Scientific (Math)', icon: '📐', descAr: 'التفاضل والهندسة الفراغية والاستاتيكا والديناميكا' },
-                    { id: 'literary', titleAr: 'الشعبة الأدبية', titleEn: 'Literary Track', icon: '🏛️', descAr: 'التاريخ والجغرافيا والفلسفة والمنطق وعلم النفس' },
-                  ].map((tr) => {
-                    const isSelected = profile.academicTrack === tr.id;
-                    return (
-                      <button
-                        key={tr.id}
-                        type="button"
-                        onClick={() => setProfile({ ...profile, academicTrack: tr.id as AcademicTrack })}
-                        className={`p-3 rounded-xl border text-right rtl:text-right ltr:text-left transition-all cursor-pointer ${
-                          isSelected
-                            ? isContrast
-                              ? 'border-yellow-400 bg-yellow-400/20 text-white shadow-md'
-                              : isLight
-                              ? 'border-indigo-500 bg-indigo-50/80 text-indigo-950 shadow-md ring-2 ring-indigo-500/20'
-                              : 'border-indigo-400 bg-indigo-950/50 text-white shadow-md ring-2 ring-indigo-400/30'
+              {profile.role === 'teacher' ? (
+                /* TEACHER GOALS & CURRICULUM */
+                <>
+                  <div className="space-y-2">
+                    <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                      {isArabic ? 'مسار ومنهج التدريس المعتمد' : 'Primary Teaching Curriculum'}
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {[
+                        {
+                          id: 'scientific_math',
+                          titleAr: 'الثانوية العامة (المنهج العام)',
+                          titleEn: 'National Thanaweya Track',
+                          icon: '🏆',
+                          descAr: 'المناهج الوزارية الرسمية المعتمدة لكافة الشعب 2026',
+                          descEn: 'Official national ministerial curriculum 2026',
+                        },
+                        {
+                          id: 'stem',
+                          titleAr: 'البكالوريا المصرية (STEM)',
+                          titleEn: 'EG-Baccalaureate (STEM)',
+                          icon: '🧪',
+                          descAr: 'المعايير المتقدمة لمدارس المتفوقين في العلوم والتكنولوجيا',
+                          descEn: 'Advanced STEM curriculum standards and capstones',
+                        },
+                      ].map((currOpt) => {
+                        const isSelected =
+                          currOpt.id === 'stem'
+                            ? profile.academicTrack === 'stem'
+                            : profile.academicTrack !== 'stem';
+                        return (
+                          <button
+                            key={currOpt.id}
+                            type="button"
+                            onClick={() =>
+                              setProfile({
+                                ...profile,
+                                academicTrack: currOpt.id === 'stem' ? 'stem' : 'scientific_science',
+                              })
+                            }
+                            className={`p-3 rounded-xl border text-right rtl:text-right ltr:text-left transition-all cursor-pointer ${
+                              isSelected
+                                ? isContrast
+                                  ? 'border-yellow-400 bg-yellow-400/20 text-white shadow-md'
+                                  : isLight
+                                  ? 'border-indigo-500 bg-indigo-50/80 text-indigo-950 shadow-md ring-2 ring-indigo-500/20'
+                                  : 'border-indigo-400 bg-indigo-950/50 text-white shadow-md ring-2 ring-indigo-400/30'
+                                : isLight
+                                ? 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700'
+                                : 'border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-300'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2 mb-1.5">
+                              {/* Little tick mark in front */}
+                              {isSelected ? (
+                                <span className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black shrink-0 shadow-xs">
+                                  ✓
+                                </span>
+                              ) : (
+                                <span className="w-4 h-4 rounded-full border border-slate-400/40 dark:border-slate-600/40 block shrink-0 opacity-40" />
+                              )}
+                              <span className="text-xl shrink-0">{currOpt.icon}</span>
+                              <p className="font-black text-xs truncate">
+                                {isArabic ? currOpt.titleAr : currOpt.titleEn}
+                              </p>
+                            </div>
+                            <p className={`text-[10px] line-clamp-2 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
+                              {currOpt.descAr}
+                            </p>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                /* STUDENT GOALS & TRACK */
+                <>
+                  {/* Academic Track Selection with Little Tick Mark in Front */}
+                  <div className="space-y-2">
+                    <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                      {isArabic ? 'الشعبة الأكاديمية بالثانوية العامة' : 'Thanaweya Amma Academic Track'}
+                    </label>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                      {[
+                        { id: 'scientific_science', titleAr: 'علمي علوم', titleEn: 'Scientific (Science)', icon: '🔬', descAr: 'الأحياء والجيولوجيا والفيزياء والكيمياء' },
+                        { id: 'scientific_math', titleAr: 'علمي رياضة', titleEn: 'Scientific (Math)', icon: '📐', descAr: 'التفاضل والهندسة الفراغية والاستاتيكا والديناميكا' },
+                        { id: 'literary', titleAr: 'الشعبة الأدبية', titleEn: 'Literary Track', icon: '🏛️', descAr: 'التاريخ والجغرافيا والفلسفة والمنطق وعلم النفس' },
+                      ].map((tr) => {
+                        const isSelected = profile.academicTrack === tr.id;
+                        return (
+                          <button
+                            key={tr.id}
+                            type="button"
+                            onClick={() => setProfile({ ...profile, academicTrack: tr.id as AcademicTrack })}
+                            className={`p-3 rounded-xl border text-right rtl:text-right ltr:text-left transition-all cursor-pointer ${
+                              isSelected
+                                ? isContrast
+                                  ? 'border-yellow-400 bg-yellow-400/20 text-white shadow-md'
+                                  : isLight
+                                  ? 'border-indigo-500 bg-indigo-50/80 text-indigo-950 shadow-md ring-2 ring-indigo-500/20'
+                                  : 'border-indigo-400 bg-indigo-950/50 text-white shadow-md ring-2 ring-indigo-400/30'
+                                : isLight
+                                ? 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700'
+                                : 'border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-300'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2 mb-1.5">
+                              {/* Little tick mark in front of track name */}
+                              {isSelected ? (
+                                <span className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black shrink-0 shadow-xs">
+                                  ✓
+                                </span>
+                              ) : (
+                                <span className="w-4 h-4 rounded-full border border-slate-400/40 dark:border-slate-600/40 block shrink-0 opacity-40" />
+                              )}
+                              <span className="text-xl shrink-0">{tr.icon}</span>
+                              <p className="font-black text-xs truncate">{isArabic ? tr.titleAr : tr.titleEn}</p>
+                            </div>
+                            <p className={`text-[10px] mt-0.5 line-clamp-2 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
+                              {tr.descAr}
+                            </p>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Dream College / Faculty */}
+                  <div className="space-y-2">
+                    <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                      {isArabic ? 'الكلية المستهدفة (حلم الثانوية العامة)' : 'Target / Dream Faculty'}
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        value={profile.dreamCollege}
+                        onChange={(e) => setProfile({ ...profile, dreamCollege: e.target.value })}
+                        placeholder={isArabic ? 'اكتب اسم كليتك المنشودة...' : 'Target college...'}
+                        className={`w-full px-3.5 py-2 rounded-xl text-xs font-bold border transition-all outline-none ${
+                          isContrast
+                            ? 'bg-black border-yellow-400 text-white focus:border-cyan-400'
                             : isLight
-                            ? 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-700'
-                            : 'border-slate-800 bg-slate-900/60 hover:bg-slate-900 text-slate-300'
+                            ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-indigo-500 focus:bg-white'
+                            : 'bg-slate-900 border-slate-700 text-slate-100 focus:border-indigo-400 focus:bg-slate-950'
                         }`}
-                      >
-                        <div className="flex items-center justify-between mb-1.5">
-                          <span className="text-xl">{tr.icon}</span>
-                          {isSelected && <Check className="w-4 h-4 text-indigo-500" />}
-                        </div>
-                        <p className="font-black text-xs">{isArabic ? tr.titleAr : tr.titleEn}</p>
-                        <p className={`text-[10px] mt-0.5 line-clamp-2 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
-                          {tr.descAr}
-                        </p>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
+                      />
+                      <Target className="w-4 h-4 text-slate-400 absolute left-3 rtl:left-auto rtl:right-3 top-2.5 pointer-events-none" />
+                    </div>
 
-              {/* Dream College / Faculty */}
-              <div className="space-y-2">
-                <label className={`text-xs font-bold block ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
-                  {isArabic ? 'الكلية المستهدفة (حلم الثانوية العامة)' : 'Target / Dream Faculty'}
-                </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={profile.dreamCollege}
-                    onChange={(e) => setProfile({ ...profile, dreamCollege: e.target.value })}
-                    placeholder={isArabic ? 'اكتب اسم كليتك المنشودة...' : 'Target college...'}
-                    className={`w-full px-3.5 py-2 rounded-xl text-xs font-bold border transition-all outline-none ${
-                      isContrast
-                        ? 'bg-black border-yellow-400 text-white focus:border-cyan-400'
-                        : isLight
-                        ? 'bg-slate-50 border-slate-300 text-slate-900 focus:border-indigo-500 focus:bg-white'
-                        : 'bg-slate-900 border-slate-700 text-slate-100 focus:border-indigo-400 focus:bg-slate-950'
-                    }`}
-                  />
-                  <Target className="w-4 h-4 text-slate-400 absolute left-3 rtl:left-auto rtl:right-3 top-2.5 pointer-events-none" />
-                </div>
-
-                {/* Quick Chips */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {DREAM_FACULTIES.slice(0, 6).map((fac) => (
-                    <button
-                      key={fac.titleAr}
-                      type="button"
-                      onClick={() => setProfile({ ...profile, dreamCollege: fac.titleAr })}
-                      className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer flex items-center gap-1 ${
-                        profile.dreamCollege === fac.titleAr
-                          ? isLight
-                            ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs'
-                            : 'bg-indigo-500 text-white border-indigo-500'
-                          : isLight
-                          ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
-                          : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800'
-                      }`}
-                    >
-                      <span>{fac.icon}</span>
-                      <span>{isArabic ? fac.titleAr : fac.titleEn}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+                    {/* Quick Chips */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {DREAM_FACULTIES.slice(0, 6).map((fac) => (
+                        <button
+                          key={fac.titleAr}
+                          type="button"
+                          onClick={() => setProfile({ ...profile, dreamCollege: fac.titleAr })}
+                          className={`text-[10px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer flex items-center gap-1 ${
+                            profile.dreamCollege === fac.titleAr
+                              ? isLight
+                                ? 'bg-indigo-600 text-white border-indigo-600 shadow-xs'
+                                : 'bg-indigo-500 text-white border-indigo-500'
+                              : isLight
+                              ? 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                              : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800'
+                          }`}
+                        >
+                          <span>{fac.icon}</span>
+                          <span>{isArabic ? fac.titleAr : fac.titleEn}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
 
               {/* Target Percentage & Daily Goal */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
