@@ -83,7 +83,12 @@ export function saveSubmissionLocally(submission: AssignmentSubmission): void {
   if (typeof localStorage === 'undefined') return;
   try {
     const submissions = getLocalSubmissions();
-    submissions.push(submission);
+    const index = submissions.findIndex((s) => s.submissionId === submission.submissionId);
+    if (index >= 0) {
+      submissions[index] = submission;
+    } else {
+      submissions.push(submission);
+    }
     localStorage.setItem(SUBMISSIONS_STORAGE_KEY, JSON.stringify(submissions));
   } catch (err) {
     console.warn('Failed to save submission locally:', err);
@@ -336,7 +341,17 @@ export function encodeAssignmentToShareableUrl(
     m: assignment.timeLimitMinutes,
     d: assignment.deadline,
     tn: assignment.teacherName,
-    tip: assignment.teacherTip,
+    cq: assignment.customQuestions?.map((q) => ({
+      id: q.id,
+      q: q.questionAr,
+      o: q.optionsAr,
+      a: q.correctOptionIndex,
+      e: q.explanationAr,
+      s: q.subjectId,
+      d: q.difficulty,
+      t: q.chapterTitleAr,
+      tip: q.teacherTipAr,
+    })),
   };
 
   try {
@@ -387,6 +402,20 @@ export function decodeAssignmentFromUrl(rawStr: string): Assignment | null {
       subjectId: p.s,
       chapterIds: p.ch || [],
       questionIds: p.q || [],
+      customQuestions: Array.isArray(p.cq)
+        ? p.cq.map((c: any) => ({
+            id: c.id,
+            questionAr: c.q,
+            optionsAr: c.o,
+            correctOptionIndex: c.a,
+            explanationAr: c.e,
+            subjectId: c.s || p.s,
+            difficulty: c.d || 'medium',
+            chapterTitleAr: c.t || p.ta || 'واجب المعلم',
+            teacherTipAr: c.tip,
+            createdAt: Date.now(),
+          }))
+        : undefined,
       totalPoints: p.p || 0,
       timeLimitMinutes: p.m || 0,
       deadline: p.d,

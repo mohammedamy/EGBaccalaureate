@@ -19,6 +19,7 @@ import {
   Download,
   GraduationCap,
   CheckCircle2,
+  QrCode,
 } from 'lucide-react';
 import { EgyptFlag } from './EgyptFlag';
 import { TeacherQuestionBankView } from './TeacherQuestionBankView';
@@ -31,6 +32,7 @@ import {
   getClassAnalytics,
   encodeAssignmentToShareableUrl,
   getLocalAssignments,
+  getLocalSubmissions,
   getSubmissionsForAssignment,
   getAtRiskStudents,
   getTopicGapHeatmap,
@@ -52,6 +54,129 @@ export type TeacherModalTab =
   | 'teacher_grading'
   | 'teacher_question_bank'
   | 'teacher_analytics';
+
+interface ClassroomAssignmentQRCodeProps {
+  code: string;
+  url: string;
+  title: string;
+  subject: string;
+  onClose: () => void;
+  lang: Language;
+}
+
+const ClassroomAssignmentQRCode: React.FC<ClassroomAssignmentQRCodeProps> = ({
+  code,
+  url,
+  title,
+  subject,
+  onClose,
+  lang,
+}) => {
+  const isAr = lang === 'ar';
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleWhatsApp = () => {
+    const text = `${isAr ? 'واجب منصة البكالوريا المصرية' : 'EGBaccalaureate Assignment'}: ${title}\nكود الواجب: ${code}\nرابط الدخول المباشر: ${url}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  return (
+    <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+      <div className="bg-slate-900 border-2 border-amber-500/50 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center animate-in zoom-in-95 duration-200">
+        <button
+          onClick={onClose}
+          className="absolute top-4 left-4 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+          {isAr ? 'رمز الاستجابة السريعة للسبورة الذكية' : 'Smartboard Classroom QR'}
+        </span>
+
+        <h3 className="text-lg font-bold text-white mt-3 mb-1 line-clamp-1">{title}</h3>
+        <p className="text-xs text-slate-400 capitalize">{subject}</p>
+
+        {/* QR Code Graphic */}
+        <div className="my-5 p-4 bg-white rounded-2xl inline-block shadow-lg mx-auto">
+          <svg viewBox="0 0 60 60" width="180" height="180" className="text-slate-900 block">
+            {/* Top Left Locator */}
+            <rect x="2" y="2" width="16" height="16" fill="currentColor" />
+            <rect x="5" y="5" width="10" height="10" fill="#ffffff" />
+            <rect x="7" y="7" width="6" height="6" fill="currentColor" />
+
+            {/* Top Right Locator */}
+            <rect x="42" y="2" width="16" height="16" fill="currentColor" />
+            <rect x="45" y="5" width="10" height="10" fill="#ffffff" />
+            <rect x="47" y="7" width="6" height="6" fill="currentColor" />
+
+            {/* Bottom Left Locator */}
+            <rect x="2" y="42" width="16" height="16" fill="currentColor" />
+            <rect x="5" y="45" width="10" height="10" fill="#ffffff" />
+            <rect x="7" y="47" width="6" height="6" fill="currentColor" />
+
+            {/* Timing Patterns */}
+            <line x1="20" y1="9" x2="40" y2="9" stroke="currentColor" strokeWidth="2" strokeDasharray="2 2" />
+            <line x1="9" y1="20" x2="9" y2="40" stroke="currentColor" strokeWidth="2" strokeDasharray="2 2" />
+
+            {/* Synthetic Data Grid */}
+            <rect x="22" y="22" width="4" height="4" fill="currentColor" />
+            <rect x="28" y="22" width="4" height="4" fill="currentColor" />
+            <rect x="34" y="22" width="4" height="4" fill="currentColor" />
+            <rect x="22" y="28" width="4" height="4" fill="currentColor" />
+            <rect x="34" y="28" width="4" height="4" fill="currentColor" />
+            <rect x="28" y="34" width="4" height="4" fill="currentColor" />
+            <rect x="22" y="40" width="4" height="4" fill="currentColor" />
+            <rect x="34" y="40" width="4" height="4" fill="currentColor" />
+            <rect x="42" y="24" width="4" height="4" fill="currentColor" />
+            <rect x="48" y="30" width="4" height="4" fill="currentColor" />
+            <rect x="44" y="38" width="4" height="4" fill="currentColor" />
+            <rect x="52" y="44" width="4" height="4" fill="currentColor" />
+            <rect x="24" y="48" width="4" height="4" fill="currentColor" />
+            <rect x="30" y="52" width="4" height="4" fill="currentColor" />
+            <rect x="38" y="50" width="4" height="4" fill="currentColor" />
+            <rect x="44" y="52" width="4" height="4" fill="currentColor" />
+            <rect x="50" y="52" width="4" height="4" fill="currentColor" />
+          </svg>
+        </div>
+
+        {/* Code display */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-800 border border-amber-400/40 text-amber-300 font-mono text-xl font-black tracking-widest mb-3">
+          <span>{code}</span>
+        </div>
+
+        <p className="text-xs text-slate-300 mb-5 leading-relaxed">
+          {isAr
+            ? 'وجّه كاميرا هاتفك نحو الرمز أو اكتب الكود أعلاه لبدء الاختبار فوراً بدون تسجيل دخول.'
+            : 'Scan the QR code or enter the code above to begin test immediately without login.'}
+        </p>
+
+        <div className="grid grid-cols-2 gap-2">
+          <button
+            onClick={handleCopy}
+            className="py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors border border-slate-700"
+          >
+            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+            <span>{copied ? (isAr ? 'تم النسخ!' : 'Copied!') : (isAr ? 'نسخ الرابط' : 'Copy URL')}</span>
+          </button>
+          <button
+            onClick={handleWhatsApp}
+            className="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-md shadow-emerald-600/30"
+          >
+            <Share2 className="w-4 h-4" />
+            <span>{isAr ? 'مشاركة واتساب' : 'WhatsApp'}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 interface Props {
   isOpen: boolean;
@@ -93,6 +218,21 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
   const [resolvingCode, setResolvingCode] = useState(false);
   const [resolvedAssignment, setResolvedAssignment] = useState<Assignment | null>(null);
   const [codeError, setCodeError] = useState<string | null>(null);
+  const [previousSubmissions, setPreviousSubmissions] = useState<AssignmentSubmission[]>([]);
+  const [showQrModal, setShowQrModal] = useState<boolean>(false);
+
+  // Auto-fill studentName from saved profile
+  useEffect(() => {
+    try {
+      const rawProfile = typeof localStorage !== 'undefined' ? localStorage.getItem('egbac_user_profile_v1') : null;
+      if (rawProfile) {
+        const parsed = JSON.parse(rawProfile);
+        if (parsed.displayName) {
+          setStudentName(parsed.displayName);
+        }
+      }
+    } catch {}
+  }, []);
 
   // Teacher Create state
   const [createSubjectId, setCreateSubjectId] = useState('physics');
@@ -140,6 +280,9 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
       const found = await getAssignmentByCode(code);
       if (found) {
         setResolvedAssignment(found);
+        const localSubs = getLocalSubmissions();
+        const past = localSubs.filter((s) => s.assignmentCode === code);
+        setPreviousSubmissions(past);
       } else {
         setCodeError(
           isAr
@@ -522,6 +665,59 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
                     </div>
                   )}
 
+                  {/* Previous Submission Status & Teacher Feedback Card */}
+                  {previousSubmissions.length > 0 && (
+                    <div
+                      className={`p-4 rounded-xl border mb-4 ${
+                        isLight ? 'bg-amber-50/80 border-amber-200' : 'bg-amber-950/30 border-amber-600/40'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-xs font-bold text-amber-400 flex items-center gap-1.5">
+                          <Award className="w-4 h-4" />
+                          {isAr ? 'آخر نتيجة مسجلة لك في هذا الواجب:' : 'Your Latest Recorded Result:'}
+                        </span>
+                        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300">
+                          {previousSubmissions[0].score} / {previousSubmissions[0].totalPoints} ({previousSubmissions[0].percentage}%)
+                        </span>
+                      </div>
+
+                      {previousSubmissions[0].teacherFeedback ? (
+                        <div
+                          className={`p-3 rounded-lg border text-xs mt-2 ${
+                            isLight
+                              ? 'bg-emerald-50 border-emerald-200 text-emerald-900'
+                              : 'bg-emerald-950/40 border-emerald-500/30 text-emerald-300'
+                          }`}
+                        >
+                          <div className="font-bold flex items-center gap-1.5 mb-1 text-emerald-400">
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                            <span>{isAr ? 'تم تدقيق الإجابة بواسطة المعلم' : 'Reviewed by Teacher'}</span>
+                            {previousSubmissions[0].teacherFeedback.teacherScoreAdjustment ? (
+                              <span className="mr-2 px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-300 font-mono">
+                                {previousSubmissions[0].teacherFeedback.teacherScoreAdjustment > 0
+                                  ? `+${previousSubmissions[0].teacherFeedback.teacherScoreAdjustment}`
+                                  : previousSubmissions[0].teacherFeedback.teacherScoreAdjustment}{' '}
+                                {isAr ? 'درجة إضافية' : 'marks'}
+                              </span>
+                            ) : null}
+                          </div>
+                          {previousSubmissions[0].teacherFeedback.teacherNotes && (
+                            <p className="text-[11px] leading-relaxed opacity-90 mt-1 italic">
+                              "{previousSubmissions[0].teacherFeedback.teacherNotes}"
+                            </p>
+                          )}
+                        </div>
+                      ) : (
+                        <p className="text-[11px] text-slate-400 mt-1">
+                          {isAr
+                            ? 'تم إرسال إجابتك بنجاح وفي انتظار مراجعة وتدقيق المعلم.'
+                            : 'Submission submitted and awaiting teacher review.'}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
                   {/* Student Name Input */}
                   <div className="mt-4 pt-4 border-t border-slate-800">
                     <label className="block text-xs font-semibold text-slate-300 mb-1.5">
@@ -543,7 +739,11 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
                       className="w-full py-3 rounded-xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30"
                     >
                       <FileCheck className="w-4 h-4" />
-                      <span>{isAr ? 'ابدأ حل الواجب الآن' : 'Start Assignment Test Now'}</span>
+                      <span>
+                        {previousSubmissions.length > 0
+                          ? (isAr ? 'إعادة حل الواجب لتحسين الدرجة' : 'Retake Assignment to Improve Score')
+                          : (isAr ? 'ابدأ حل الواجب الآن' : 'Start Assignment Test Now')}
+                      </span>
                     </button>
                   </div>
                 </div>
@@ -703,16 +903,23 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-amber-500/20 flex flex-col sm:flex-row gap-2">
+                  <div className="mt-4 pt-4 border-t border-amber-500/20 flex flex-wrap gap-2">
                     <button
                       onClick={() => {
                         const url = encodeAssignmentToShareableUrl(createdAssignment);
                         copyToClipboard(url, 'url');
                       }}
-                      className="flex-1 py-2 px-3 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                      className="flex-1 min-w-[140px] py-2 px-3 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
                     >
                       {copiedUrl ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
-                      <span>{copiedUrl ? (isAr ? 'تم نسخ الرابط!' : 'URL Copied!') : (isAr ? 'نسخ رابط واتساب المباشر' : 'Copy WhatsApp Direct Link')}</span>
+                      <span>{copiedUrl ? (isAr ? 'تم نسخ الرابط!' : 'URL Copied!') : (isAr ? 'نسخ رابط واتساب' : 'Copy WhatsApp URL')}</span>
+                    </button>
+                    <button
+                      onClick={() => setShowQrModal(true)}
+                      className="py-2 px-3 rounded-lg border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                    >
+                      <QrCode className="w-3.5 h-3.5" />
+                      <span>{isAr ? 'عرض QR للفصل' : 'Classroom QR'}</span>
                     </button>
                     <button
                       onClick={() => {
@@ -1048,6 +1255,18 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
           )}
         </div>
       </div>
+
+      {/* Classroom Smartboard QR Code Modal */}
+      {showQrModal && createdAssignment && (
+        <ClassroomAssignmentQRCode
+          code={createdAssignment.assignmentCode}
+          url={encodeAssignmentToShareableUrl(createdAssignment)}
+          title={isAr ? (createdAssignment.titleAr || createdAssignment.title) : createdAssignment.title}
+          subject={createdAssignment.subjectId}
+          onClose={() => setShowQrModal(false)}
+          lang={lang}
+        />
+      )}
     </div>
   );
 };

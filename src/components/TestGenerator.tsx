@@ -279,6 +279,21 @@ export const TestGenerator: React.FC<Props> = ({
     }
   }, [initialQuestionCount]);
 
+  // Sync initialAssignment (time limit & question count)
+  useEffect(() => {
+    if (initialAssignment) {
+      if (initialAssignment.timeLimitMinutes && initialAssignment.timeLimitMinutes > 0) {
+        setIsTimed(true);
+        setDurationPreset(initialAssignment.timeLimitMinutes);
+      }
+      if (initialAssignment.customQuestions && initialAssignment.customQuestions.length > 0) {
+        setQuestionCount(initialAssignment.customQuestions.length);
+      } else if (initialAssignment.questionIds && initialAssignment.questionIds.length > 0) {
+        setQuestionCount(initialAssignment.questionIds.length);
+      }
+    }
+  }, [initialAssignment]);
+
   // Sync initialPrescribedItem (branch, chapter, difficulty, count)
   useEffect(() => {
     if (initialPrescribedItem) {
@@ -473,6 +488,27 @@ export const TestGenerator: React.FC<Props> = ({
     }
     if (blueprintMode === 'official_past_papers') {
       return generatePastPaperQuestions(selectedPastPaperId, activeData);
+    }
+    if (initialAssignment?.customQuestions && initialAssignment.customQuestions.length > 0) {
+      return initialAssignment.customQuestions.map((cq) => ({
+        id: cq.id,
+        questionAr: cq.questionAr,
+        questionEn: cq.questionAr,
+        optionsAr: cq.optionsAr,
+        optionsEn: cq.optionsAr,
+        correctIndex: cq.correctOptionIndex,
+        explanationAr: [cq.explanationAr || (lang === 'ar' ? 'إجابة معتمدة من بنك أسئلة المعلم' : 'Verified solution from teacher question bank')],
+        explanationEn: [cq.explanationAr || 'Verified solution from teacher question bank'],
+        chapterTitleAr: cq.chapterTitleAr || (lang === 'ar' ? 'واجب المعلم' : 'Teacher Assignment'),
+        chapterTitleEn: cq.chapterTitleAr || 'Teacher Assignment',
+        branchTitleAr: lang === 'ar' ? 'واجب المعلم المخصص' : 'Teacher Assignment',
+        branchTitleEn: 'Teacher Assignment',
+        chapterId: cq.chapterTitleAr || 'custom',
+        difficulty: (cq.difficulty === 'hots' ? 'hots' : cq.difficulty === 'easy' ? 'easy' : 'medium') as DifficultyLevel,
+        subjectId: cq.subjectId,
+        points: 2,
+        source: 'teacher_custom_question',
+      }));
     }
     const pool: GeneratedQuestion[] = [];
     const candidateBranches = getBranchesForSubject(activeData, selectedSubject);
@@ -671,7 +707,9 @@ export const TestGenerator: React.FC<Props> = ({
 
     // Calculate time
     let allocatedMinutes = 20;
-    if (blueprintMode === 'quick_diagnostic_drill') {
+    if (initialAssignment && initialAssignment.timeLimitMinutes > 0) {
+      allocatedMinutes = initialAssignment.timeLimitMinutes;
+    } else if (blueprintMode === 'quick_diagnostic_drill') {
       allocatedMinutes = 10;
     } else if (durationPreset === 'auto') {
       allocatedMinutes = Math.max(5, qList.length * 2); // 2 minutes per question default
