@@ -17,7 +17,6 @@ import {
   CheckCircle2,
   XCircle,
   AlertTriangle,
-  Headphones,
   Sparkles,
   Zap,
   Layers,
@@ -30,6 +29,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 interface Props {
   lang?: Language;
@@ -59,6 +59,7 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
 
   // Audio Engine Settings
   const [speechRate, setSpeechRate] = useState<number>(0.85);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
   const [currentlyPlayingText, setCurrentlyPlayingText] = useState<string | null>(null);
 
   // Tab 1: Phonetics
@@ -95,6 +96,7 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
   const speakSpanish = (text: string, customRate?: number) => {
     aiVoiceEngine.speak(text, {
       lang: 'es-ES',
+      voiceName: selectedVoiceName || undefined,
       rate: customRate || speechRate,
       onStart: () => setCurrentlyPlayingText(text),
       onEnd: () => setCurrentlyPlayingText(null),
@@ -166,32 +168,17 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
 
         {/* Speed Controls & AI Vocal Engine */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          {/* AI Vocal Engine Badge */}
-          <div className="flex items-center gap-1.5 bg-amber-950/80 border border-amber-500/30 px-2.5 py-1.5 rounded-xl text-xs text-amber-300 font-semibold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span className="text-[11px]">AI Vocal Engine (HD)</span>
-          </div>
-
-          <div className={`flex items-center gap-2.5 px-3 py-1.5 rounded-xl text-xs ${
-            isLight ? 'bg-white border border-stone-300 shadow-2xs' : 'bg-stone-900/90 border border-stone-800'
-          }`}>
-            <Headphones className={`w-4 h-4 ${isLight ? 'text-amber-700' : 'text-amber-400'}`} />
-          <span className={`font-bold ${isLight ? 'text-stone-800' : 'text-stone-300'}`}>سرعة النطق:</span>
-          {[0.7, 0.85, 1.0].map((rate) => (
-            <button
-              key={rate}
-              onClick={() => setSpeechRate(rate)}
-              className={`px-2 py-0.5 rounded-md transition-all cursor-pointer ${
-                speechRate === rate
-                  ? 'bg-amber-500 text-stone-950 font-bold shadow-xs'
-                  : isLight
-                  ? 'text-stone-700 hover:text-stone-950 hover:bg-stone-100 font-semibold'
-                  : 'text-stone-400 hover:text-stone-200'
-              }`}
-            >
-              {rate === 0.7 ? 'بطيء' : rate === 0.85 ? 'طبيعي' : 'سريع'}
-            </button>
-          ))}
+          <StudioVoiceSelector
+            lang="es-ES"
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="amber"
+            isLight={isLight}
+            isContrast={isContrast}
+            sampleText="¡Hola! Bienvenido al laboratorio interactivo de lengua española."
+          />
           {currentlyPlayingText && (
             <button
               onClick={stopAudio}
@@ -202,7 +189,6 @@ export const SpanishLanguageStudio: React.FC<Props> = ({
             </button>
           )}
         </div>
-      </div>
 
       <button
           type="button"

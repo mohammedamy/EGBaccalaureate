@@ -8,11 +8,13 @@ import {
   ArrowRightLeft,
 } from 'lucide-react';
 import type { WaveformSignal } from './DualTraceOscilloscope';
+import type { ThemeMode } from '../../types/curriculum';
 
 export type WaveformType = 'sine' | 'square' | 'triangle' | 'sawtooth' | 'pulse' | 'noise';
 
 interface FunctionGeneratorProps {
   lang?: 'en' | 'ar';
+  theme?: ThemeMode;
   onSignalOutput?: (signal: WaveformSignal) => void;
   onClose?: () => void;
   initialFrequency?: number;
@@ -22,6 +24,7 @@ interface FunctionGeneratorProps {
 
 export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
   lang = 'en',
+  theme = 'dark',
   onSignalOutput,
   onClose,
   initialFrequency = 1000,
@@ -29,6 +32,8 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
   initialWaveform = 'sine',
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const previewCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Generator parameters
@@ -232,23 +237,37 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
 
   return (
     <div
-      className="w-full bg-slate-900/98 border-2 border-cyan-500/40 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 overflow-hidden"
+      className={`w-full rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden transition-all border-2 ${
+        isLight
+          ? 'bg-white border-cyan-500/40 text-slate-900 shadow-slate-200/50'
+          : isContrast
+          ? 'bg-black border-2 border-cyan-400 text-white'
+          : 'bg-slate-900/98 border-cyan-500/40 text-slate-100'
+      }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* 1. Instrument Bezel Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-slate-800">
+      <div className={`flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b ${
+        isLight ? 'border-slate-200' : isContrast ? 'border-slate-800' : 'border-slate-800'
+      }`}>
         <div className="flex items-center gap-3">
           <div className="p-2.5 bg-cyan-500/20 text-cyan-400 rounded-xl border border-cyan-500/30 shrink-0">
             <Waves className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-extrabold text-slate-100 flex items-center gap-2 truncate">
+            <h4 className={`text-sm sm:text-base font-extrabold flex items-center gap-2 truncate ${
+              isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-100'
+            }`}>
               <span>EG-SIG 3000 DDS • {isAr ? 'مولد الإشارات الرقمي الترددي' : 'Digital Synthesis Function Generator'}</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-950 text-cyan-300 border border-cyan-800 font-bold shrink-0">
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold shrink-0 ${
+                isLight ? 'bg-cyan-100 text-cyan-900 border border-cyan-300' : 'bg-cyan-950 text-cyan-300 border border-cyan-800'
+              }`}>
                 20 MHz DDS
               </span>
             </h4>
-            <p className="text-xs text-slate-400 truncate">
+            <p className={`text-xs truncate ${
+              isLight ? 'text-slate-600' : isContrast ? 'text-slate-300' : 'text-slate-400'
+            }`}>
               {isAr ? 'توليف دقيق للموجات الجيبية والمربعة والمثلثة ومسح الترددات' : 'Precision Sine/Square/Ramp synthesis, frequency sweep & oscilloscope coupling'}
             </p>
           </div>
@@ -262,10 +281,12 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
             className={`px-3 py-1.5 rounded-xl border text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer shadow-md ${
               isOutputActive
                 ? 'bg-emerald-600 hover:bg-emerald-500 text-white border-emerald-400 shadow-emerald-600/30'
+                : isLight
+                ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
                 : 'bg-slate-800 hover:bg-slate-700 text-slate-400 border-slate-700'
             }`}
           >
-            <Zap className={`w-3.5 h-3.5 ${isOutputActive ? 'text-emerald-200 fill-emerald-200' : 'text-slate-500'}`} />
+            <Zap className={`w-3.5 h-3.5 ${isOutputActive ? 'text-emerald-200 fill-emerald-200' : isLight ? 'text-slate-500' : 'text-slate-500'}`} />
             <span>{isOutputActive ? (isAr ? 'المخرج: مفعّل (LIVE)' : 'OUTPUT: ON') : (isAr ? 'المخرج: متوقف' : 'OUTPUT: OFF')}</span>
           </button>
 
@@ -273,7 +294,11 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
             <button
               type="button"
               onClick={onClose}
-              className="p-2 rounded-xl border border-slate-800 bg-slate-950 text-slate-400 hover:text-rose-400 hover:border-rose-500/40 transition-all cursor-pointer"
+              className={`p-2 rounded-xl border transition-all cursor-pointer ${
+                isLight
+                  ? 'border-slate-300 bg-slate-100 text-slate-700 hover:text-rose-600 hover:border-rose-400'
+                  : 'border-slate-800 bg-slate-950 text-slate-400 hover:text-rose-400 hover:border-rose-500/40'
+              }`}
               title={isAr ? 'إغلاق المولد' : 'Close Generator'}
             >
               <X className="w-4 h-4" />
@@ -285,25 +310,34 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
       {/* 2. Main Workstation Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-4 items-stretch min-w-0">
         {/* Left / Center Display Screen (DDS Monitor) */}
-        <div className="lg:col-span-6 flex flex-col justify-between space-y-3 bg-slate-950/80 border border-slate-800 rounded-2xl p-4 shadow-inner">
-          <div className="flex items-center justify-between pb-2 border-b border-slate-800/80 text-xs">
-            <span className="font-mono text-cyan-400 font-bold flex items-center gap-1.5">
+        <div className={`lg:col-span-6 flex flex-col justify-between space-y-3 rounded-2xl p-4 shadow-inner border ${
+          isLight ? 'bg-slate-50 border-slate-200' : isContrast ? 'bg-black border-slate-800' : 'bg-slate-950/80 border-slate-800'
+        }`}>
+          <div className={`flex items-center justify-between pb-2 border-b text-xs ${
+            isLight ? 'border-slate-200' : 'border-slate-800/80'
+          }`}>
+            <span className={`font-mono font-bold flex items-center gap-1.5 ${isLight ? 'text-cyan-800' : 'text-cyan-400'}`}>
               <Activity className="w-4 h-4" />
               <span>DDS REAL-TIME WAVEFORM MONITOR</span>
             </span>
-            <span className="text-[11px] font-mono text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+            <span className={`text-[11px] font-mono px-2 py-0.5 rounded border ${
+              isLight ? 'bg-white text-slate-700 border-slate-300 font-semibold' : 'text-slate-400 bg-slate-900 border-slate-800'
+            }`}>
               {frequency >= 1000 ? `${(frequency / 1000).toFixed(2)} kHz` : `${frequency} Hz`}
             </span>
           </div>
 
-          {/* CRT Waveform Canvas */}
+          {/* CRT Waveform Canvas - Always authentic dark display */}
           <div className="w-full h-44 sm:h-52 rounded-xl overflow-hidden border-2 border-slate-800 relative bg-[#050b14] shadow-md">
             <canvas ref={previewCanvasRef} className="w-full h-full block" />
-            <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] font-mono text-slate-400 bg-black/80 px-2 py-1 rounded-lg border border-slate-800 backdrop-blur-xs">
+            <div
+              data-preserve-dark="true"
+              className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] font-mono text-slate-200 bg-black/85 px-2 py-1 rounded-lg border border-slate-700 backdrop-blur-xs select-none"
+            >
               <span className="text-cyan-300 font-bold uppercase">{waveform}</span>
               <span>Vpp: <strong className="text-emerald-400">{amplitude.toFixed(1)} V</strong></span>
               <span>Vrms: <strong className="text-amber-400">{(amplitude * 0.707).toFixed(2)} V</strong></span>
-              <span>Offset: <strong className="text-slate-300">{dcOffset >= 0 ? `+${dcOffset}` : dcOffset} V</strong></span>
+              <span>Offset: <strong className="text-slate-200">{dcOffset >= 0 ? `+${dcOffset}` : dcOffset} V</strong></span>
             </div>
           </div>
 
@@ -319,6 +353,10 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                   className={`py-2 px-1 rounded-xl text-xs font-bold border transition-all flex flex-col items-center justify-center gap-1 cursor-pointer ${
                     isSelected
                       ? 'bg-cyan-600 text-white border-cyan-400 shadow-md shadow-cyan-600/30 scale-102'
+                      : isLight
+                      ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900 shadow-2xs'
+                      : isContrast
+                      ? 'bg-black text-white border-slate-700 hover:border-cyan-400'
                       : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200 hover:border-slate-700'
                   }`}
                 >
@@ -331,15 +369,19 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
         </div>
 
         {/* Right Controls Panel */}
-        <div className="lg:col-span-6 flex flex-col justify-between space-y-3 bg-slate-950/80 border border-slate-800 rounded-2xl p-4">
+        <div className={`lg:col-span-6 flex flex-col justify-between space-y-3 rounded-2xl p-4 border ${
+          isLight ? 'bg-slate-50 border-slate-200' : isContrast ? 'bg-black border-slate-800' : 'bg-slate-950/80 border-slate-800'
+        }`}>
           {/* Frequency Tuning Section */}
-          <div className="space-y-2 pb-3 border-b border-slate-800">
+          <div className={`space-y-2 pb-3 border-b ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
             <div className="flex items-center justify-between text-xs">
-              <span className="font-bold text-slate-200 flex items-center gap-1.5">
-                <Sliders className="w-3.5 h-3.5 text-cyan-400" />
+              <span className={`font-bold flex items-center gap-1.5 ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
+                <Sliders className="w-3.5 h-3.5 text-cyan-500" />
                 <span>{isAr ? 'التردد المستهدف (Frequency):' : 'Synthesized Frequency:'}</span>
               </span>
-              <span className="font-mono text-sm font-black text-cyan-300 bg-cyan-950 px-2.5 py-0.5 rounded-lg border border-cyan-800">
+              <span className={`font-mono text-sm font-black px-2.5 py-0.5 rounded-lg border ${
+                isLight ? 'bg-cyan-100 text-cyan-900 border-cyan-300' : 'text-cyan-300 bg-cyan-950 border-cyan-800'
+              }`}>
                 {frequency.toLocaleString()} Hz
               </span>
             </div>
@@ -352,7 +394,7 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                 step="1"
                 value={frequency}
                 onChange={(e) => setFrequency(parseFloat(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg accent-cyan-400 cursor-pointer"
+                className={`w-full h-2 rounded-lg accent-cyan-500 cursor-pointer ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
               />
             </div>
 
@@ -365,7 +407,13 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                   onClick={() => setFrequency(d.mult)}
                   className={`px-2 py-0.5 rounded-md text-[10px] font-mono font-semibold border transition-all cursor-pointer ${
                     frequency === d.mult
-                      ? 'bg-cyan-500 text-slate-950 font-bold border-cyan-400 shadow-xs'
+                      ? isLight
+                        ? 'bg-cyan-700 text-white font-bold border-cyan-700 shadow-2xs'
+                        : 'bg-cyan-500 text-slate-950 font-bold border-cyan-400 shadow-xs'
+                      : isLight
+                      ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900'
+                      : isContrast
+                      ? 'bg-black text-white border-slate-700 hover:border-cyan-400'
                       : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
                   }`}
                 >
@@ -376,12 +424,16 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
           </div>
 
           {/* Amplitude & Offset Sliders */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 pb-3 border-b ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
             {/* Amplitude Vpp */}
             <div className="space-y-1.5" dir="ltr">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-300 font-semibold">{isAr ? 'السعة Vpp:' : 'Amplitude (Vpp):'}</span>
-                <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800">
+                <span className={isLight ? 'text-slate-700 font-semibold' : 'text-slate-300 font-semibold'}>
+                  {isAr ? 'السعة Vpp:' : 'Amplitude (Vpp):'}
+                </span>
+                <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${
+                  isLight ? 'text-emerald-900 bg-emerald-50 border-emerald-300' : 'text-emerald-400 bg-emerald-950/80 border-emerald-800'
+                }`}>
                   {amplitude.toFixed(1)} V
                 </span>
               </div>
@@ -392,15 +444,19 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                 step="0.1"
                 value={amplitude}
                 onChange={(e) => setAmplitude(parseFloat(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg accent-emerald-400 cursor-pointer"
+                className={`w-full h-2 rounded-lg accent-emerald-500 cursor-pointer ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
               />
             </div>
 
             {/* DC Offset */}
             <div className="space-y-1.5" dir="ltr">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-300 font-semibold">{isAr ? 'إزاحة DC:' : 'DC Offset:'}</span>
-                <span className="font-mono text-xs font-bold text-amber-400 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-800">
+                <span className={isLight ? 'text-slate-700 font-semibold' : 'text-slate-300 font-semibold'}>
+                  {isAr ? 'إزاحة DC:' : 'DC Offset:'}
+                </span>
+                <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${
+                  isLight ? 'text-amber-900 bg-amber-50 border-amber-300' : 'text-amber-400 bg-amber-950/80 border-amber-800'
+                }`}>
                   {dcOffset >= 0 ? `+${dcOffset.toFixed(1)}` : dcOffset.toFixed(1)} V
                 </span>
               </div>
@@ -411,18 +467,22 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                 step="0.2"
                 value={dcOffset}
                 onChange={(e) => setDcOffset(parseFloat(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg accent-amber-400 cursor-pointer"
+                className={`w-full h-2 rounded-lg accent-amber-500 cursor-pointer ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
               />
             </div>
           </div>
 
           {/* Duty Cycle & Phase Shift */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pb-3 border-b border-slate-800">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-3 pb-3 border-b ${isLight ? 'border-slate-200' : 'border-slate-800'}`}>
             {/* Duty Cycle */}
             <div className="space-y-1.5" dir="ltr">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-300 font-semibold">{isAr ? 'دورة التشغيل:' : 'Duty Cycle:'}</span>
-                <span className="font-mono text-xs font-bold text-sky-400 bg-sky-950/80 px-2 py-0.5 rounded border border-sky-800">
+                <span className={isLight ? 'text-slate-700 font-semibold' : 'text-slate-300 font-semibold'}>
+                  {isAr ? 'دورة التشغيل:' : 'Duty Cycle:'}
+                </span>
+                <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${
+                  isLight ? 'text-sky-900 bg-sky-50 border-sky-300' : 'text-sky-400 bg-sky-950/80 border-sky-800'
+                }`}>
                   {dutyCycle}%
                 </span>
               </div>
@@ -433,15 +493,19 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                 step="1"
                 value={dutyCycle}
                 onChange={(e) => setDutyCycle(parseFloat(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg accent-sky-400 cursor-pointer"
+                className={`w-full h-2 rounded-lg accent-sky-500 cursor-pointer ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
               />
             </div>
 
             {/* Phase Shift */}
             <div className="space-y-1.5" dir="ltr">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-slate-300 font-semibold">{isAr ? 'فرق الطور φ:' : 'Phase Shift (φ):'}</span>
-                <span className="font-mono text-xs font-bold text-indigo-400 bg-indigo-950/80 px-2 py-0.5 rounded border border-indigo-800">
+                <span className={isLight ? 'text-slate-700 font-semibold' : 'text-slate-300 font-semibold'}>
+                  {isAr ? 'فرق الطور φ:' : 'Phase Shift (φ):'}
+                </span>
+                <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${
+                  isLight ? 'text-indigo-900 bg-indigo-50 border-indigo-300' : 'text-indigo-400 bg-indigo-950/80 border-indigo-800'
+                }`}>
                   {phaseDeg}°
                 </span>
               </div>
@@ -452,7 +516,7 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                 step="15"
                 value={phaseDeg}
                 onChange={(e) => setPhaseDeg(parseFloat(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg accent-indigo-400 cursor-pointer"
+                className={`w-full h-2 rounded-lg accent-indigo-500 cursor-pointer ${isLight ? 'bg-slate-200' : 'bg-slate-800'}`}
               />
             </div>
           </div>
@@ -466,6 +530,8 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                 className={`px-3 py-1 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                   isSweepActive
                     ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-600/30'
+                    : isLight
+                    ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100 hover:text-slate-900'
                     : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-slate-200'
                 }`}
               >
@@ -474,18 +540,20 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
               </button>
 
               {isSweepActive && (
-                <div className="flex bg-slate-900 p-0.5 rounded-lg border border-slate-800 text-[11px] font-mono">
+                <div className={`flex p-0.5 rounded-lg border text-[11px] font-mono ${
+                  isLight ? 'bg-white border-slate-300' : 'bg-slate-900 border-slate-800'
+                }`}>
                   <button
                     type="button"
                     onClick={() => setSweepMode('linear')}
-                    className={`px-2 py-0.5 rounded ${sweepMode === 'linear' ? 'bg-indigo-500 text-white font-bold' : 'text-slate-400'}`}
+                    className={`px-2 py-0.5 rounded ${sweepMode === 'linear' ? 'bg-indigo-600 text-white font-bold' : isLight ? 'text-slate-600' : 'text-slate-400'}`}
                   >
                     LIN
                   </button>
                   <button
                     type="button"
                     onClick={() => setSweepMode('log')}
-                    className={`px-2 py-0.5 rounded ${sweepMode === 'log' ? 'bg-indigo-500 text-white font-bold' : 'text-slate-400'}`}
+                    className={`px-2 py-0.5 rounded ${sweepMode === 'log' ? 'bg-indigo-600 text-white font-bold' : isLight ? 'text-slate-600' : 'text-slate-400'}`}
                   >
                     LOG
                   </button>
@@ -495,7 +563,7 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
 
             {isSweepActive && (
               <div className="flex items-center gap-2">
-                <span className="font-mono text-[11px] text-indigo-300">
+                <span className={`font-mono text-[11px] ${isLight ? 'text-indigo-800 font-semibold' : 'text-indigo-300'}`}>
                   {sweepStartHz} Hz ➜ {sweepStopHz} Hz ({sweepTimeSec}s)
                 </span>
                 <div className="flex items-center gap-1 text-[10px] font-mono">
@@ -506,7 +574,11 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                       setSweepStopHz(20000);
                       setSweepTimeSec(2.0);
                     }}
-                    className="px-1.5 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"
+                    className={`px-1.5 py-0.5 rounded border transition-all ${
+                      isLight
+                        ? 'bg-white hover:bg-slate-100 text-slate-700 border-slate-300'
+                        : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800'
+                    }`}
                   >
                     Audio
                   </button>
@@ -517,7 +589,11 @@ export const FunctionGenerator: React.FC<FunctionGeneratorProps> = ({
                       setSweepStopHz(100000);
                       setSweepTimeSec(1.0);
                     }}
-                    className="px-1.5 py-0.5 rounded bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"
+                    className={`px-1.5 py-0.5 rounded border transition-all ${
+                      isLight
+                        ? 'bg-white hover:bg-slate-100 text-slate-700 border-slate-300'
+                        : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800'
+                    }`}
                   >
                     RF
                   </button>

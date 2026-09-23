@@ -9,6 +9,8 @@ import {
   getWeakestChapters,
   resetStudentAnalytics,
   getPredictiveScore,
+  setActualScoreCalibration,
+  resetActualScoreCalibration,
   type StudentAnalyticsState,
   type RadarTrackMode,
 } from '../services/studentAnalyticsService';
@@ -34,6 +36,7 @@ import {
   Lock,
   ShieldCheck,
   FileCheck,
+  MessageSquare,
 } from 'lucide-react';
 import { EgyptFlag } from './EgyptFlag';
 import {
@@ -42,6 +45,7 @@ import {
 } from '../services/certificateRegistryService';
 import { CertificateVerificationModal } from './CertificateVerificationModal';
 import { OfficialPerformanceCertificate } from './OfficialPerformanceCertificate';
+import { ParentProgressReportModal } from './ParentProgressReportModal';
 
 interface Props {
   lang: Language;
@@ -77,6 +81,9 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   const [isVerificationModalOpen, setIsVerificationModalOpen] = useState<boolean>(false);
   const [verificationTargetSerial, setVerificationTargetSerial] = useState<string>('');
   const [activeCertificateToView, setActiveCertificateToView] = useState<OfficialCertificateRecord | null>(null);
+  const [showCalibrationInput, setShowCalibrationInput] = useState(false);
+  const [calibrationValue, setCalibrationValue] = useState('');
+  const [isParentReportModalOpen, setIsParentReportModalOpen] = useState<boolean>(false);
 
   const refreshAnalytics = () => {
     setAnalyticsState(getStudentAnalytics());
@@ -312,6 +319,14 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               </button>
 
               <button
+                onClick={() => setIsParentReportModalOpen(true)}
+                className="no-print px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white border border-emerald-400/40 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-emerald-200" />
+                <span>{isAr ? 'موجز ولي الأمر (واتساب) 💬' : 'Parent Weekly Digest 💬'}</span>
+              </button>
+
+              <button
                 onClick={handlePrint}
                 className={`no-print px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                   isLight
@@ -477,6 +492,21 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
             </div>
           </div>
 
+          {/* Statistical Confidence Interval Badge */}
+          {predictiveScore.confidenceInterval && predictiveScore.confidenceInterval.marginOfErrorPercentage > 0 && (
+            <div className="mt-2.5 flex items-center justify-end">
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold ${
+                isLight ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' : 'bg-indigo-500/15 text-indigo-300 border border-indigo-500/30'
+              }`}>
+                <span>{isAr ? 'فاصل الثقة الإحصائي (٩٥٪):' : '95% Confidence Interval:'}</span>
+                <strong className="font-mono">
+                  [{isAr ? toHindiDigits(predictiveScore.confidenceInterval.lowerPercentage) : predictiveScore.confidenceInterval.lowerPercentage}% - {isAr ? toHindiDigits(predictiveScore.confidenceInterval.upperPercentage) : predictiveScore.confidenceInterval.upperPercentage}%]
+                </strong>
+                <span className="text-slate-400 font-mono">(±{predictiveScore.confidenceInterval.marginOfErrorPercentage}%)</span>
+              </span>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs">
             <div className={`p-3.5 rounded-2xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/60 border-slate-800/80'}`}>
               <span className={`font-bold block mb-1 ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
@@ -507,6 +537,83 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
               </div>
             </div>
           </div>
+
+          {/* Model Calibration Row */}
+          <div className={`mt-4 pt-3 border-t flex flex-col sm:flex-row items-center justify-between gap-3 text-xs ${
+            isLight ? 'border-slate-200' : 'border-slate-800'
+          }`}>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setShowCalibrationInput(!showCalibrationInput)}
+                className={`px-3 py-1 rounded-lg border text-xs font-semibold transition-colors flex items-center gap-1.5 ${
+                  predictiveScore.hasCustomCalibration
+                    ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                    : isLight
+                    ? 'bg-slate-100 hover:bg-slate-200 text-slate-700 border-slate-300'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                }`}
+              >
+                <Target className="w-3.5 h-3.5 text-amber-400" />
+                <span>
+                  {predictiveScore.hasCustomCalibration
+                    ? (isAr ? 'تمت معايرة النموذج بنتيجتك الفعلية' : 'Calibrated with Real Exam Score')
+                    : (isAr ? 'معايرة التوقع بدرجة امتحان تجريبي' : 'Calibrate with Mock Exam Score')}
+                </span>
+              </button>
+              {predictiveScore.hasCustomCalibration && (
+                <button
+                  onClick={() => {
+                    resetActualScoreCalibration();
+                    refreshAnalytics();
+                  }}
+                  className="text-[11px] text-rose-400 hover:underline"
+                >
+                  {isAr ? 'إعادة ضبط' : 'Reset'}
+                </button>
+              )}
+            </div>
+
+            <p className="text-[11px] text-slate-500 text-center sm:text-start">
+              {isAr ? predictiveScore.disclaimerAr : predictiveScore.disclaimerEn}
+            </p>
+          </div>
+
+          {/* Inline Calibration Input */}
+          {showCalibrationInput && (
+            <div className={`mt-3 p-3 rounded-xl border flex flex-col sm:flex-row items-center gap-2.5 animate-in fade-in duration-200 ${
+              isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-900 border-slate-700'
+            }`}>
+              <span className="text-xs text-slate-300">
+                {isAr
+                  ? 'أدخل درجتك في أي امتحان تجريبي وزاري (من ٤١٠ أو كنسبة مئوية ٪):'
+                  : 'Enter your score on any ministerial mock exam (out of 410 or %):'}
+              </span>
+              <input
+                type="number"
+                value={calibrationValue}
+                onChange={(e) => setCalibrationValue(e.target.value)}
+                placeholder="مثال: 385 أو 94"
+                className={`px-3 py-1 text-xs rounded-lg border font-mono w-28 text-center ${
+                  isLight ? 'bg-white border-slate-300 text-slate-900' : 'bg-slate-800 border-slate-600 text-amber-300'
+                }`}
+              />
+              <button
+                onClick={() => {
+                  const val = parseFloat(calibrationValue);
+                  if (!isNaN(val) && val > 0) {
+                    const isPct = val <= 100;
+                    setActualScoreCalibration(val, isPct, analyticsState);
+                    setShowCalibrationInput(false);
+                    setCalibrationValue('');
+                    refreshAnalytics();
+                  }
+                }}
+                className="px-3.5 py-1 text-xs rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-colors"
+              >
+                {isAr ? 'حفظ ومعايرة' : 'Apply'}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -1538,6 +1645,16 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           onViewCertificate={(cert) => {
             setActiveCertificateToView(cert);
           }}
+        />
+      )}
+
+      {/* Parent Weekly Digest Modal */}
+      {isParentReportModalOpen && (
+        <ParentProgressReportModal
+          isOpen={isParentReportModalOpen}
+          onClose={() => setIsParentReportModalOpen(false)}
+          lang={lang}
+          theme={theme}
         />
       )}
     </div>

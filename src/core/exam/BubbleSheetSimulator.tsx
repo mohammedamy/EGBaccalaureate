@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { MathRenderer } from '../../components/MathRenderer';
 import { TextbookDiagram } from '../../components/TextbookDiagram';
+import { EgyptFlag } from '../../components/EgyptFlag';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 import type { GeneratedQuestion } from '../../services/mistakeNotebookService';
 import {
@@ -344,6 +345,75 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
   const flaggedCount = Object.keys(flaggedQuestions).filter((k) => flaggedQuestions[Number(k)]).length;
   const remainingCount = effectiveTotalQuestions - answeredCount;
 
+  // Seating number 7-digit array for optical matrix
+  const seating7 = useMemo(() => {
+    const digits = (seatingNumber || '1048592')
+      .replace(/[^\d\u0660-\u0669]/g, '')
+      .split('')
+      .map((ch) => {
+        const code = ch.charCodeAt(0);
+        if (code >= 0x0660 && code <= 0x0669) return String(code - 0x0660);
+        return ch;
+      });
+    while (digits.length < 7) digits.unshift('0');
+    return digits.slice(-7);
+  }, [seatingNumber]);
+
+  const totalExamMarks = useMemo(() => {
+    return Object.values(pointsMap).reduce((acc, pts) => acc + pts, 0);
+  }, [pointsMap]);
+
+  const subjectTitle = useMemo(() => {
+    if (questions.length > 0) {
+      const firstQ = questions[0];
+      return isAr
+        ? firstQ.chapterTitleAr || 'امتحان شهادة إتمام الدراسة الثانوية العامة'
+        : firstQ.chapterTitleEn || 'Egyptian Thanawya Amma Examination';
+    }
+    return isAr ? 'ورقة إجابة البابل شيت الرسمية' : 'Official OMR Answer Sheet';
+  }, [questions, isAr]);
+
+  const gridColumns = useMemo(() => {
+    const cols: number[][] = [];
+    const numCols =
+      effectiveTotalQuestions <= 15
+        ? 1
+        : effectiveTotalQuestions <= 30
+        ? 2
+        : effectiveTotalQuestions <= 60
+        ? 3
+        : 4;
+    const rowsPerCol = Math.ceil(effectiveTotalQuestions / numCols);
+    for (let c = 0; c < numCols; c++) {
+      const colList: number[] = [];
+      for (let r = 1; r <= rowsPerCol; r++) {
+        const qNum = c * rowsPerCol + r;
+        if (qNum <= effectiveTotalQuestions) {
+          colList.push(qNum);
+        }
+      }
+      if (colList.length > 0) {
+        cols.push(colList);
+      }
+    }
+    return cols;
+  }, [effectiveTotalQuestions]);
+
+  const handlePrintOMR = useCallback(() => {
+    document.body.classList.add('print-omr-only');
+    document.body.classList.remove('print-booklet-only');
+    window.print();
+    setTimeout(() => {
+      document.body.classList.remove('print-omr-only');
+    }, 1500);
+  }, []);
+
+  const handlePrintFullExam = useCallback(() => {
+    document.body.classList.remove('print-omr-only');
+    document.body.classList.remove('print-booklet-only');
+    window.print();
+  }, []);
+
   return (
     <div
       className={`bubble-sheet-container print-exam-sheet border-2 rounded-3xl p-4 sm:p-6 shadow-2xl font-sans space-y-6 ${
@@ -353,8 +423,10 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
       }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
-      {/* Official OMR Sheet & Tablet Header */}
-      <div className="bg-white text-slate-900 rounded-2xl p-4 sm:p-5 border-2 border-slate-300 shadow-md">
+      {/* On-Screen Interactive Workstation (Hidden in Print) */}
+      <div className="no-print space-y-6">
+        {/* Official OMR Sheet & Tablet Header */}
+        <div className="bg-white text-slate-900 rounded-2xl p-4 sm:p-5 border-2 border-slate-300 shadow-md">
         <div className="flex flex-wrap items-center justify-between gap-4 border-b-2 border-slate-900 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black text-lg shadow-md">
@@ -475,15 +547,38 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
               <span>{formatTimer(timeLeftSeconds)}</span>
             </div>
 
-            <button
-              type="button"
-              onClick={() => window.print()}
-              className="no-print px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold border border-slate-300 shadow-xs cursor-pointer transition-all flex items-center gap-1.5"
-              title={isAr ? 'طباعة ورقة البابل شيت' : 'Print OMR Sheet'}
-            >
-              <Printer className="w-3.5 h-3.5 text-slate-700" />
-              <span className="hidden sm:inline">{isAr ? 'طباعة البابل شيت' : 'Print OMR'}</span>
-            </button>
+            {questions.length > 0 ? (
+              <div className="no-print flex items-center gap-1.5">
+                <button
+                  type="button"
+                  onClick={handlePrintOMR}
+                  className="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold border border-slate-300 shadow-xs cursor-pointer transition-all flex items-center gap-1.5"
+                  title={isAr ? 'طباعة ورقة البابل شيت فقط (A4)' : 'Print OMR Sheet Only (A4)'}
+                >
+                  <Printer className="w-3.5 h-3.5 text-slate-700" />
+                  <span className="hidden sm:inline">{isAr ? 'طباعة البابل شيت' : 'Print OMR'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handlePrintFullExam}
+                  className="px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-900 font-bold border border-indigo-300 shadow-xs cursor-pointer transition-all flex items-center gap-1.5"
+                  title={isAr ? 'طباعة كراسة أسئلة الامتحان بالكامل + البابل شيت' : 'Print Full Exam Booklet + OMR Sheet'}
+                >
+                  <FileSpreadsheet className="w-3.5 h-3.5 text-indigo-700" />
+                  <span className="hidden sm:inline">{isAr ? 'طباعة الامتحان كاملاً' : 'Print Full Exam'}</span>
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={handlePrintOMR}
+                className="no-print px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold border border-slate-300 shadow-xs cursor-pointer transition-all flex items-center gap-1.5"
+                title={isAr ? 'طباعة ورقة البابل شيت' : 'Print OMR Sheet'}
+              >
+                <Printer className="w-3.5 h-3.5 text-slate-700" />
+                <span className="hidden sm:inline">{isAr ? 'طباعة البابل شيت' : 'Print OMR'}</span>
+              </button>
+            )}
 
             {!isSubmitted ? (
               <button
@@ -1039,6 +1134,338 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
             </div>
           </div>
         )}
+      </div>
+      </div> {/* /no-print */}
+
+      {/* =========================================================================
+          AUTHENTIC EGYPTIAN MINISTRY PRINT VIEW (VISIBLE ONLY WHEN PRINTING)
+          ========================================================================= */}
+      <div className="print-only hidden print:block space-y-8 w-full bg-white text-black font-sans" dir={isAr ? 'rtl' : 'ltr'}>
+        {/* SECTION A: Official Ministerial Exam Questions Booklet */}
+        {questions.length > 0 && (
+          <div className="print-exam-booklet space-y-5">
+            {/* Ministerial Booklet Header */}
+            <div className="border-2 border-black p-4 rounded-xl bg-white text-black print-avoid-break">
+              <div className="flex items-center justify-between border-b-2 border-black pb-3">
+                {/* Right side: Ministry info */}
+                <div className="text-start">
+                  <div className="text-[11pt] font-black">{isAr ? 'جمهورية مصر العربية' : 'Arab Republic of Egypt'}</div>
+                  <div className="text-[9.5pt] font-bold text-slate-800">{isAr ? 'وزارة التربية والتعليم والتعليم الفني' : 'Ministry of Education & Technical Education'}</div>
+                  <div className="text-[8.5pt] text-slate-600">{isAr ? 'الإدارة المركزية للتعليم العام • كراسة الأسئلة' : 'Central Administration of General Education'}</div>
+                </div>
+
+                {/* Center: Flag & Exam Title */}
+                <div className="text-center space-y-1">
+                  <div className="flex items-center justify-center gap-2">
+                    <EgyptFlag className="w-7 h-4.5 border border-black" />
+                    <span className="text-[11pt] font-black uppercase tracking-wider">
+                      {isAr ? 'امتحان شهادة إتمام الدراسة الثانوية العامة' : 'Thanawya Amma Official Examination'}
+                    </span>
+                  </div>
+                  <div className="text-[10pt] font-black text-slate-900">
+                    {isAr ? `المادة: ${subjectTitle}` : `Subject: ${subjectTitle}`}
+                  </div>
+                  <div className="inline-block px-3 py-0.5 border border-black rounded-md text-[9pt] font-mono font-black bg-slate-100">
+                    {isAr ? 'كود النموذج: (أ) - كود 101' : 'Exam Booklet Code: (A) - Code 101'}
+                  </div>
+                </div>
+
+                {/* Left side: Timing & Specs */}
+                <div className="text-end text-[9pt] space-y-0.5">
+                  <div><span className="font-bold">{isAr ? 'الزمن:' : 'Time:'}</span> {timeLimitMinutes} {isAr ? 'دقيقة' : 'mins'}</div>
+                  <div><span className="font-bold">{isAr ? 'الدرجة الكلية:' : 'Total Marks:'}</span> {totalExamMarks} {isAr ? 'درجة' : 'marks'}</div>
+                  <div><span className="font-bold">{isAr ? 'عدد الأسئلة:' : 'Questions:'}</span> {questions.length} {isAr ? 'سؤالاً' : 'questions'}</div>
+                </div>
+              </div>
+
+              {/* Student written fields */}
+              <div className="grid grid-cols-3 gap-3 pt-3 text-[9pt]">
+                <div className="border border-black p-1.5 rounded">
+                  <span className="font-bold">{isAr ? 'اسم الطالب:' : 'Student Name:'} </span>
+                  <span className="font-semibold">{studentName}</span>
+                </div>
+                <div className="border border-black p-1.5 rounded text-center">
+                  <span className="font-bold">{isAr ? 'رقم الجلوس:' : 'Seat Number:'} </span>
+                  <span className="font-mono font-bold">{isAr ? toHindiDigits(seatingNumber) : seatingNumber}</span>
+                </div>
+                <div className="border border-black p-1.5 rounded text-end">
+                  <span className="font-bold">{isAr ? 'المدرسة / الإدارة:' : 'School / District:'} </span>
+                  <span>................................</span>
+                </div>
+              </div>
+
+              {/* Ministerial Instructions */}
+              <div className="mt-2.5 pt-2 border-t border-slate-300 text-[8pt] text-slate-700 flex items-center justify-between">
+                <span>{isAr ? '• اقرأ كل سؤال بعناية وظلل دائرة واحدة فقط في ورقة الإجابة (البابل شيت).' : '• Read each question carefully and shade only one circle on the OMR answer sheet.'}</span>
+                <span>{isAr ? '• الأسئلة من نوع الاختيار من متعدد ذات 4 بدائل.' : '• Multiple-Choice Questions (4 options).'}</span>
+              </div>
+            </div>
+
+            {/* Questions List (1 to N) */}
+            <div className="space-y-4">
+              {questions.map((q, qIdx) => {
+                const qNum = qIdx + 1;
+                const pts = pointsMap[qNum] ?? 1;
+                return (
+                  <div
+                    key={qIdx}
+                    className="printable-question print-avoid-break p-3.5 border border-black rounded-lg bg-white text-black space-y-2.5"
+                  >
+                    {/* Question Header */}
+                    <div className="flex items-center justify-between border-b border-black pb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="px-2 py-0.5 border border-black rounded font-mono font-black text-xs bg-slate-100 text-black">
+                          {isAr ? `السؤال (${toHindiDigits(qNum)})` : `Question (${qNum})`}
+                        </span>
+                        <span className="text-[9pt] font-bold px-1.5 py-0.5 border border-slate-400 rounded bg-slate-50 text-slate-800">
+                          {pts === 2
+                            ? (isAr ? 'القسم الثاني: درجتان (HOTS)' : 'Section 2: 2 Marks')
+                            : (isAr ? 'القسم الأول: درجة واحدة' : 'Section 1: 1 Mark')}
+                        </span>
+                      </div>
+                      <span className="text-[9pt] font-semibold text-slate-700">
+                        {isAr ? q.chapterTitleAr : q.chapterTitleEn}
+                      </span>
+                    </div>
+
+                    {/* Question Stem */}
+                    <div className="text-[10pt] font-medium leading-relaxed text-black">
+                      <MathRenderer text={isAr ? q.questionAr : q.questionEn} />
+                    </div>
+
+                    {/* Diagram if present */}
+                    {q.diagramType && (
+                      <div className="textbook-diagram-card my-2">
+                        <TextbookDiagram type={q.diagramType} lang={lang} />
+                      </div>
+                    )}
+
+                    {/* 4 Options Grid */}
+                    <div className="print-options-grid">
+                      {idxToLetter.map((optLetter, optIdx) => {
+                        const optContent = isAr ? q.optionsAr[optIdx] : q.optionsEn[optIdx];
+                        return (
+                          <div
+                            key={optLetter}
+                            className="flex items-start gap-2 p-2 border border-black rounded bg-white text-black"
+                          >
+                            <span className="print-option-bubble w-5 h-5 rounded-full border border-black flex items-center justify-center font-bold text-xs shrink-0 bg-slate-100 text-black">
+                              {optionLabels[optLetter]}
+                            </span>
+                            <div className="text-[9.5pt] pt-0.5 leading-relaxed text-black flex-1">
+                              <MathRenderer text={optContent || ''} />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        {/* SECTION B: Authentic Egyptian Ministry A4 OMR Bubble Sheet */}
+        <div className={`print-omr-bubble-sheet ${questions.length > 0 ? 'print-page-break-before' : ''} border-[3pt] border-black p-4 bg-white text-black relative`}>
+          {/* 4 Corner Optical Calibration Markers */}
+          <div className="absolute top-2 start-2 w-5 h-5 border-t-4 border-s-4 border-black" />
+          <div className="absolute top-2 end-2 w-5 h-5 border-t-4 border-e-4 border-black" />
+          <div className="absolute bottom-2 start-2 w-5 h-5 border-b-4 border-s-4 border-black" />
+          <div className="absolute bottom-2 end-2 w-5 h-5 border-b-4 border-e-4 border-black" />
+
+          {/* OMR Sheet Header */}
+          <div className="flex items-center justify-between border-b-2 border-black pb-2 mb-3 px-3">
+            <div className="text-start">
+              <div className="text-[10pt] font-black">{isAr ? 'جمهورية مصر العربية' : 'Arab Republic of Egypt'}</div>
+              <div className="text-[8.5pt] font-bold text-slate-700">{isAr ? 'وزارة التربية والتعليم والتعليم الفني' : 'Ministry of Education & Technical Education'}</div>
+              <div className="text-[7.5pt] text-slate-600">{isAr ? 'الإدارة المركزية للامتحانات • نظام التصحيح الإلكتروني OMR' : 'Central Examination Administration • OMR Grading'}</div>
+            </div>
+
+            <div className="text-center space-y-0.5">
+              <div className="flex items-center justify-center gap-1.5">
+                <EgyptFlag className="w-6 h-4 border border-black" />
+                <h2 className="text-[12pt] font-black uppercase tracking-wider text-black m-0">
+                  {isAr ? 'ورقة إجابة البابل شيت الرسمية' : 'Official OMR Answer Sheet'}
+                </h2>
+              </div>
+              <div className="text-[9pt] font-black text-slate-800">
+                {isAr ? 'شهادة إتمام الدراسة الثانوية العامة' : 'General Secondary Certificate Examination'}
+              </div>
+              <div className="text-[8pt] font-bold text-slate-600">
+                {isAr ? `المادة: ${subjectTitle}` : `Subject: ${subjectTitle}`} • {isAr ? 'كود النموذج: أ' : 'Form Code: A'}
+              </div>
+            </div>
+
+            {/* Simulated Barcode & Seating Number */}
+            <div className="text-end">
+              <div className="text-[8pt] font-mono font-bold text-slate-700">{isAr ? toHindiDigits(seatingNumber) : seatingNumber}</div>
+              <div className="h-6 flex items-center justify-end gap-0.5 px-1 py-0.5 border border-black bg-white rounded">
+                {[2, 1, 3, 1, 2, 4, 1, 2, 3, 1, 2, 1, 3, 2, 1, 4, 2].map((w, i) => (
+                  <div key={i} className="bg-black h-4.5" style={{ width: `${w}px` }} />
+                ))}
+              </div>
+              <div className="text-[6.5pt] font-mono text-slate-500 uppercase">OMR-SCAN-2025</div>
+            </div>
+          </div>
+
+          {/* Student Metadata Box & 7-Digit Seating Number Matrix */}
+          <div className="grid grid-cols-12 gap-3 border-2 border-black p-2.5 rounded-lg mb-3">
+            {/* Right: Written Metadata (7 cols) */}
+            <div className="col-span-7 border-e border-black pe-3 space-y-1.5 text-[8.5pt]">
+              <div className="border-b border-slate-300 pb-1 flex items-center justify-between">
+                <span className="font-bold">{isAr ? 'اسم الطالب رباعياً:' : 'Student Name:'}</span>
+                <span className="font-semibold text-black">{studentName}</span>
+              </div>
+              <div className="border-b border-slate-300 pb-1 flex items-center justify-between">
+                <span className="font-bold">{isAr ? 'اسم المدرسة:' : 'School:'}</span>
+                <span className="text-slate-600">...................................................</span>
+              </div>
+              <div className="border-b border-slate-300 pb-1 flex items-center justify-between">
+                <span className="font-bold">{isAr ? 'الإدارة التعليمية:' : 'Educational Directorate:'}</span>
+                <span className="text-slate-600">...................................................</span>
+              </div>
+              <div className="flex items-center justify-between pt-0.5">
+                <div className="flex items-center gap-2">
+                  <span className="font-bold">{isAr ? 'رقم اللجنة:' : 'Committee No:'}</span>
+                  <span className="px-3 py-0.5 border border-black rounded text-[8pt] font-mono">.......</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold">{isAr ? 'توقيع الطالب:' : 'Student Signature:'}</span>
+                  <span className="text-slate-600">...........................</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Left: 7-Digit Seating Number Bubbling Matrix (5 cols) */}
+            <div className="col-span-5 ps-1 text-center">
+              <div className="text-[8pt] font-black mb-1 text-black">
+                {isAr ? 'تظليل رقم الجلوس (من اليسار لليمين)' : 'Seat Number Grid (Left to Right)'}
+              </div>
+              <div className="inline-block border border-black p-1 rounded bg-white">
+                {/* Top row: the 7 digits */}
+                <div className="grid grid-cols-7 gap-1 pb-1 border-b border-black text-center font-mono font-black text-[9pt]">
+                  {seating7.map((d, dIdx) => (
+                    <div key={dIdx} className="w-5 h-5 flex items-center justify-center border border-black rounded bg-slate-100">
+                      {isAr ? toHindiDigits(d) : d}
+                    </div>
+                  ))}
+                </div>
+                {/* 10 rows: digits 0 through 9 */}
+                <div className="space-y-0.5 pt-1">
+                  {Array.from({ length: 10 }).map((_, digit) => (
+                    <div key={digit} className="grid grid-cols-7 gap-1 text-center">
+                      {seating7.map((targetDigit, colIdx) => {
+                        const isMatch = Number(targetDigit) === digit;
+                        return (
+                          <div
+                            key={colIdx}
+                            className={`print-omr-bubble-sm w-5 h-5 rounded-full flex items-center justify-center text-[7.5pt] font-bold font-mono ${
+                              isMatch ? 'print-bubble-filled bg-black text-white font-black' : 'border border-black bg-white text-black'
+                            }`}
+                            data-filled={isMatch ? 'true' : undefined}
+                          >
+                            {isAr ? toHindiDigits(digit) : digit}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Multi-Column Question Bubble Grid */}
+          <div className="border-2 border-black p-2.5 rounded-lg mb-3">
+            <div className="flex items-center justify-between pb-1.5 border-b border-black mb-2 text-[8.5pt]">
+              <div className="font-black text-black">
+                {isAr ? 'إجابات أسئلة الاختيار من متعدد (ظلل دائرة واحدة فقط لكل سؤال):' : 'Multiple Choice Answers Grid (Shade ONE circle per question):'}
+              </div>
+              <div className="font-mono text-[8pt] font-bold text-slate-700">
+                {isAr ? `إجمالي ${effectiveTotalQuestions} سؤالاً` : `Total ${effectiveTotalQuestions} Questions`}
+              </div>
+            </div>
+
+            {/* Columns Layout */}
+            <div className={`grid gap-3 ${
+              gridColumns.length === 1 ? 'grid-cols-1' :
+              gridColumns.length === 2 ? 'grid-cols-2' :
+              gridColumns.length === 3 ? 'grid-cols-3' : 'grid-cols-4'
+            }`}>
+              {gridColumns.map((colQuestions, colIdx) => (
+                <div key={colIdx} className="space-y-1 border border-slate-300 p-1.5 rounded">
+                  {/* Column Header */}
+                  <div className="flex items-center justify-between text-[7.5pt] font-bold pb-1 border-b border-black text-slate-700">
+                    <span>{isAr ? 'رقم' : 'No.'}</span>
+                    <div className="flex items-center gap-2">
+                      <span>{optionLabels.A}</span>
+                      <span>{optionLabels.B}</span>
+                      <span>{optionLabels.C}</span>
+                      <span>{optionLabels.D}</span>
+                    </div>
+                  </div>
+
+                  {/* Rows in this column */}
+                  {colQuestions.map((qNum) => {
+                    const selected = selectedAnswers[qNum];
+                    const pts = pointsMap[qNum] ?? 1;
+                    return (
+                      <div
+                        key={qNum}
+                        className="flex items-center justify-between py-0.5 px-1 border-b border-slate-200 last:border-b-0 text-[8pt]"
+                      >
+                        <div className="flex items-center gap-1 font-mono font-black text-black w-8">
+                          <span>{qNum.toString().padStart(2, '0')}</span>
+                          {pts === 2 && (
+                            <span className="text-[6.5pt] px-0.5 rounded border border-black bg-slate-100">
+                              {isAr ? '٢د' : '2p'}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex items-center gap-1.5">
+                          {(['A', 'B', 'C', 'D'] as const).map((opt) => {
+                            const isFilled = selected === opt;
+                            return (
+                              <div
+                                key={opt}
+                                className={`print-omr-bubble w-4.5 h-4.5 rounded-full flex items-center justify-center text-[7.5pt] font-bold font-mono ${
+                                  isFilled ? 'print-bubble-filled bg-black text-white font-black' : 'border border-black bg-white text-black'
+                                }`}
+                                data-filled={isFilled ? 'true' : undefined}
+                              >
+                                {optionLabels[opt]}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Official Instructions & Invigilator Signatures Box */}
+          <div className="border border-black p-2 rounded text-[7.5pt] space-y-1 bg-white text-black">
+            <div className="font-bold text-black border-b border-slate-300 pb-0.5">
+              {isAr ? 'تعليمات وإرشادات هامة للمصحح الآلي:' : 'Critical OMR Scanner Instructions:'}
+            </div>
+            <div className="grid grid-cols-2 gap-2 text-slate-800">
+              <div>• {isAr ? 'ظلل الدائرة بالكامل بقلم رصاص 2B: [● صحيح]' : 'Shade completely with 2B pencil: [● Correct]'}</div>
+              <div>• {isAr ? 'لا تضع علامة صح أو خطأ أو نقطة: [✕ خطأ]' : 'Do not use checkmarks or crosses: [✕ Wrong]'}</div>
+              <div>• {isAr ? 'تظليل أكثر من دائرة لنفس السؤال يلغي درجته تماماً.' : 'Shading multiple circles voids the question score.'}</div>
+              <div>• {isAr ? 'يمنع منعاً باتاً استخدام أقلام الحبر الجاف أو السائل أو الكوريكتور.' : 'Strictly do not use ink pens or correction fluid.'}</div>
+            </div>
+            <div className="flex items-center justify-between pt-1 border-t border-slate-300 text-[8pt]">
+              <div>{isAr ? 'توقيع الملاحظ (١): .................................' : 'Invigilator 1 Signature: .............................'}</div>
+              <div>{isAr ? 'توقيع الملاحظ (٢): .................................' : 'Invigilator 2 Signature: .............................'}</div>
+              <div>{isAr ? 'توقيع رئيس الدور: .................................' : 'Head Supervisor: .............................'}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -152,7 +152,11 @@ export const DigitalMultimeter: React.FC<DigitalMultimeterProps> = ({
   };
 
   return (
-    <div className="w-64 bg-amber-500 rounded-3xl p-3.5 shadow-2xl border-4 border-amber-600 text-slate-900 font-sans select-none relative" dir={isAr ? 'rtl' : 'ltr'}>
+    <div
+      data-preserve-dark="true"
+      className="w-64 bg-amber-500 rounded-3xl p-3.5 shadow-2xl border-4 border-amber-600 text-slate-900 font-sans select-none relative"
+      dir={isAr ? 'rtl' : 'ltr'}
+    >
       {/* Inner rugged dark chassis */}
       <div className="bg-slate-900 rounded-2xl p-3 border-2 border-slate-950 text-slate-100 flex flex-col items-center gap-3">
         {/* Top Brand Bar */}

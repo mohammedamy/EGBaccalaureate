@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 // =========================================================================
 // VECTOR SCHEMATIC 1: ARABIC SYNTAX PARSE TREE (شجرة الإعراب والتحليل التركيبي)
@@ -817,6 +818,10 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
   const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
   const [activeTab, setActiveTab] = useState<'irab' | 'derivatives' | 'rhetoric' | 'orthography' | 'traps'>('irab');
 
+  // Audio Engine Settings
+  const [speechRate, setSpeechRate] = useState<number>(0.9);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
+
   // Tab 1: Irab state
   const [selectedSentenceIndex, setSelectedSentenceIndex] = useState(0);
   const [selectedTokenIndex, setSelectedTokenIndex] = useState<number | null>(0);
@@ -926,13 +931,16 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          {/* AI Vocal Engine Badge */}
-          <div className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border text-xs font-semibold shadow-sm ${
-            isLight ? 'bg-amber-100/80 border-amber-300 text-amber-950' : 'bg-amber-950/80 border-amber-500/30 text-amber-300'
-          }`}>
-            <Sparkles className={`w-3.5 h-3.5 ${isLight ? 'text-amber-700' : 'text-amber-400'} animate-pulse`} />
-            <span className="text-[11px]">محرك نطق الفصحى بالذكاء الاصطناعي (HD)</span>
-          </div>
+          <StudioVoiceSelector
+            lang="ar-EG"
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="amber"
+            isLight={isLight}
+            sampleText="أهلاً ومرحباً بكم في المختبر التفاعلي لقواعد اللغة العربية ونطقها الفصيح."
+          />
 
           <button
             type="button"
@@ -1077,7 +1085,11 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                 <button
                   onClick={() => {
                     const fullText = currentSentence.tokens.map((t) => t.word).join(' ');
-                    aiVoiceEngine.speak(fullText, { lang: 'ar-SA' });
+                    aiVoiceEngine.speak(fullText, {
+                      lang: 'ar-EG',
+                      voiceName: selectedVoiceName || undefined,
+                      rate: speechRate,
+                    });
                   }}
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl ${
                     isLight ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-300' : 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border-amber-500/40'
@@ -1143,7 +1155,11 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                         {currentToken.word}
                       </div>
                       <button
-                        onClick={() => aiVoiceEngine.speak(currentToken.word, { lang: 'ar-SA' })}
+                        onClick={() => aiVoiceEngine.speak(currentToken.word, {
+                          lang: 'ar-EG',
+                          voiceName: selectedVoiceName || undefined,
+                          rate: speechRate,
+                        })}
                         className={`p-2 min-h-[44px] min-w-[44px] rounded-xl ${
                           isLight ? 'bg-amber-100 hover:bg-amber-200 text-amber-950 border-amber-300' : 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border-amber-500/30'
                         } border cursor-pointer flex items-center justify-center`}

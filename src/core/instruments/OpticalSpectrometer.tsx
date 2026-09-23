@@ -8,6 +8,8 @@ import {
 
 export type LightSourceType = 'hydrogen' | 'sodium' | 'mercury' | 'neon' | 'solar_fraunhofer';
 
+import type { ThemeMode } from '../../types/curriculum';
+
 interface SpectralLine {
   wavelengthNm: number; // in nanometers
   relativeIntensity: number; // 0 to 1
@@ -17,6 +19,7 @@ interface SpectralLine {
 
 interface OpticalSpectrometerProps {
   lang?: 'en' | 'ar';
+  theme?: ThemeMode;
   onClose?: () => void;
   initialSource?: LightSourceType;
   gratingLinesPerMm?: number;
@@ -24,11 +27,14 @@ interface OpticalSpectrometerProps {
 
 export const OpticalSpectrometer: React.FC<OpticalSpectrometerProps> = ({
   lang = 'en',
+  theme = 'dark',
   onClose,
   initialSource = 'hydrogen',
   gratingLinesPerMm = 600, // 600 lines/mm -> d = 1666.67 nm
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const eyepieceCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const spectrumBarCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -325,23 +331,37 @@ export const OpticalSpectrometer: React.FC<OpticalSpectrometerProps> = ({
 
   return (
     <div
-      className="w-full bg-slate-900/98 border-2 border-emerald-500/40 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 overflow-hidden"
+      className={`w-full rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden transition-all border-2 ${
+        isLight
+          ? 'bg-white border-emerald-500/40 text-slate-900 shadow-slate-200/50'
+          : isContrast
+          ? 'bg-black border-2 border-emerald-400 text-white'
+          : 'bg-slate-900/98 border-emerald-500/40 text-slate-100'
+      }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* 1. Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-slate-800">
+      <div className={`flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b ${
+        isLight ? 'border-slate-200' : 'border-slate-800'
+      }`}>
         <div className="flex items-center gap-3">
           <div className="p-2.5 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30 shrink-0">
             <Compass className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-extrabold text-slate-100 flex items-center gap-2 truncate">
+            <h4 className={`text-sm sm:text-base font-extrabold flex items-center gap-2 truncate ${
+              isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-100'
+            }`}>
               <span>EG-SPEC 5000 • {isAr ? 'مطياف الحيود والتحليل الطيفي الدقيق' : 'High-Resolution Optical Grating Spectrometer'}</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold shrink-0">
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold shrink-0 ${
+                isLight ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-emerald-950 text-emerald-300 border border-emerald-800'
+              }`}>
                 N = {gratingLinesPerMm} lines/mm
               </span>
             </h4>
-            <p className="text-xs text-slate-400 truncate">
+            <p className={`text-xs truncate ${
+              isLight ? 'text-slate-600' : isContrast ? 'text-slate-300' : 'text-slate-400'
+            }`}>
               {isAr ? 'قياس أطوال موجات بالمر وفرانهوفر بدقة الورنية وحيود براج (d sin θ = m λ)' : 'Bragg grating diffraction, Balmer emission, Vernier angle reading & Fraunhofer solar analysis'}
             </p>
           </div>
@@ -349,7 +369,9 @@ export const OpticalSpectrometer: React.FC<OpticalSpectrometerProps> = ({
 
         {/* Source Switcher Quick Dropdown & Close */}
         <div className="flex items-center gap-2">
-          <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+          <div className={`flex p-1 rounded-xl border text-xs font-semibold ${
+            isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-950 border-slate-800'
+          }`}>
             {(['hydrogen', 'sodium', 'mercury', 'neon', 'solar_fraunhofer'] as const).map((src) => (
               <button
                 key={src}
@@ -357,7 +379,11 @@ export const OpticalSpectrometer: React.FC<OpticalSpectrometerProps> = ({
                 onClick={() => setSource(src)}
                 className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer font-bold ${
                   source === src
-                    ? 'bg-emerald-500 text-slate-950 shadow-xs'
+                    ? isLight
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : 'bg-emerald-500 text-slate-950 shadow-xs'
+                    : isLight
+                    ? 'text-slate-600 hover:text-slate-900'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >

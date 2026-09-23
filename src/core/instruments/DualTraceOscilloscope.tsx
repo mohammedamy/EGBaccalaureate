@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Activity, Radio, Sliders, Play, Pause, Columns, LayoutGrid, Maximize2, Minimize2, X } from 'lucide-react';
+import type { ThemeMode } from '../../types/curriculum';
 
 export interface WaveformSignal {
   amplitude: number;    // Peak Volts
@@ -13,6 +14,7 @@ interface DualTraceOscilloscopeProps {
   channel1Signal: WaveformSignal;
   channel2Signal?: WaveformSignal;
   lang?: 'en' | 'ar';
+  theme?: ThemeMode;
   onClose?: () => void;
 }
 
@@ -20,9 +22,12 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
   channel1Signal,
   channel2Signal,
   lang = 'en',
+  theme = 'dark',
   onClose,
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Oscilloscope parameters
@@ -474,27 +479,39 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
       )}
 
       <div
-        className={`w-full text-slate-100 font-sans transition-all duration-200 ${
-          isExpanded
-            ? 'fixed inset-2 sm:inset-6 z-50 overflow-y-auto bg-slate-900/98 border-2 border-emerald-500/50 rounded-3xl p-4 sm:p-6 shadow-2xl flex flex-col justify-between'
-            : 'w-full bg-slate-900/95 border-2 border-slate-800/80 rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden'
+        className={`w-full font-sans transition-all duration-200 border-2 rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden ${
+          isExpanded ? 'fixed inset-2 sm:inset-6 z-50 overflow-y-auto flex flex-col justify-between ' : ''
+        }${
+          isLight
+            ? 'bg-white border-emerald-500/40 text-slate-900 shadow-slate-200/50'
+            : isContrast
+            ? 'bg-black border-2 border-emerald-400 text-white'
+            : 'bg-slate-900/95 border-slate-800/80 text-slate-100'
         }`}
         dir={isAr ? 'rtl' : 'ltr'}
       >
         {/* Oscilloscope Header */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-slate-800 min-w-0">
+        <div className={`flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b min-w-0 ${
+          isLight ? 'border-slate-200' : 'border-slate-800'
+        }`}>
           <div className="flex items-center gap-3 min-w-0">
             <div className="p-2.5 bg-emerald-500/20 text-emerald-400 rounded-xl border border-emerald-500/30 shrink-0">
               <Activity className="w-5 h-5" />
             </div>
             <div className="min-w-0">
-              <h4 className="text-sm sm:text-base font-extrabold text-slate-100 flex items-center gap-2 truncate">
+              <h4 className={`text-sm sm:text-base font-extrabold flex items-center gap-2 truncate ${
+                isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-100'
+              }`}>
                 <span className="truncate">EG-SCOPE 2024D • {isAr ? 'راسم الإشارة ثنائي القناة' : 'Dual-Trace Digital Oscilloscope'}</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold shrink-0">
+                <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold shrink-0 ${
+                  isLight ? 'bg-emerald-100 text-emerald-900 border border-emerald-300' : 'bg-emerald-950 text-emerald-300 border border-emerald-800'
+                }`}>
                   100 MHz
                 </span>
               </h4>
-              <p className="text-xs text-slate-400 truncate">
+              <p className={`text-xs truncate ${
+                isLight ? 'text-slate-600' : isContrast ? 'text-slate-300' : 'text-slate-400'
+              }`}>
                 {isAr ? 'عرض فوري للجهد والتردد وفرق الطور وأشكال ليساجو' : 'Real-time Vpp, frequency, phase shift & Lissajous X-Y analysis'}
               </p>
             </div>
@@ -503,7 +520,9 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
           {/* Controls, Mode & Layout Switcher */}
           <div className="flex flex-wrap items-center gap-2">
             {/* Channels Mode Switcher */}
-            <div className="flex bg-slate-950 p-0.5 rounded-xl border border-slate-800 text-xs font-semibold">
+            <div className={`flex p-0.5 rounded-xl border text-xs font-semibold ${
+              isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-950 border-slate-800'
+            }`}>
               {(['CH1', 'CH2', 'DUAL', 'XY'] as const).map((mode) => (
                 <button
                   key={mode}
@@ -511,7 +530,11 @@ export const DualTraceOscilloscope: React.FC<DualTraceOscilloscopeProps> = ({
                   onClick={() => setDisplayMode(mode)}
                   className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer font-bold ${
                     displayMode === mode
-                      ? 'bg-emerald-500 text-slate-950 shadow-xs'
+                      ? isLight
+                        ? 'bg-emerald-600 text-white shadow-xs'
+                        : 'bg-emerald-500 text-slate-950 shadow-xs'
+                      : isLight
+                      ? 'text-slate-600 hover:text-slate-900'
                       : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >

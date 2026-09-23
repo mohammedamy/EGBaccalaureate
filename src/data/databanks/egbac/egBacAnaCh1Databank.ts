@@ -2036,41 +2036,43 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "teacherTipAr": "إذا صفرت القيمة البسط والمقام معاً بنفس التكرار، فإنها تمثل نقطة انفصال قابلة للإزالة (فجوة) وليس خط تقارب رأسي."
   },
   {
-    "id": "egbac_ana_ch1_db_easy_55",
-    "titleEn": "Horizontal Asymptote of an Exponential Function",
-    "titleAr": "خط التقارب الأفقي لدالة أسية",
-    "difficulty": "easy",
-    "questionEn": "Find the horizontal asymptote of $f(x) = \\frac{4e^x + 6}{2e^x + 3}$ as $x \\to -\\infty$.",
-    "questionAr": "أوجد خط التقارب الأفقي للدالة $f(x) = \\frac{4e^x + 6}{2e^x + 3}$ عندما $x \\to -\\infty$.",
-    "optionsEn": [
-      "$y = 2$",
-      "$y = 4$",
-      "$y = 0$",
-      "Does not exist"
-    ],
-    "optionsAr": [
-      "$y = 2$",
-      "$y = 4$",
-      "$y = 0$",
-      "غير موجود"
-    ],
-    "correctAnswer": "$y = 2$",
-    "correctIndex": 0,
-    "hintEn": "As $x \\to -\\infty$, $e^x \\to 0$.",
-    "hintAr": "عندما $x \\to -\\infty$ فإن $e^x \\to 0$.",
-    "stepByStepSolutionEn": [
-      "Recall that $\\lim_{x \\to -\\infty} e^x = 0$.",
-      "Substitute into $f(x)$: $\\lim_{x \\to -\\infty} \\frac{4(0) + 6}{2(0) + 3} = \\frac{6}{3} = 2$.",
-      "Thus, the horizontal asymptote as $x \\to -\\infty$ is the line $y = 2$."
-    ],
-    "stepByStepSolutionAr": [
-      "نعلم أن $\\lim_{x \\to -\\infty} e^x = 0$.",
-      "بالتعويض: $\\frac{4(0) + 6}{2(0) + 3} = \\frac{6}{3} = 2$.",
-      "إذن خط التقارب الأفقي عندما $x \\to -\\infty$ هو المستقيم $y = 2$."
-    ],
-    "teacherTipEn": "Notice that as $x \\to +\\infty$, $f(x) \\to \\frac{4}{2} = 2$ as well, so $y = 2$ is an asymptote in both directions.",
-    "teacherTipAr": "لاحظ أنه عندما $x \\to +\\infty$ تقترب الدالة أيضاً من 2، فالخط $y = 2$ خط تقارب في كلا الاتجاهين."
-  },
+  "id": "egbac_ana_ch1_db_easy_55",
+  "titleEn": "Slope of Tangent to Parametric Curve (Astroid)",
+  "titleAr": "ميل المماس لمنحنى بارامتري (منحنى النجمية)",
+  "difficulty": "easy",
+  "questionEn": "Find the slope of the tangent line to the parametric curve $x = 2\\cos^3\\theta, y = 2\\sin^3\\theta$ at $\\theta = \\frac{\\pi}{4}$.",
+  "questionAr": "أوجد ميل المماس للمنحنى البارامتري $x = ٢\\cos^٣\\theta, y = ٢\\sin^٣\\theta$ عند $\\theta = \\frac{\\pi}{٤}$.",
+  "optionsEn": [
+    "-1",
+    "1",
+    "$-\\sqrt{2}$",
+    "0"
+  ],
+  "optionsAr": [
+    "-١",
+    "١",
+    "-\\sqrt{٢}",
+    "٠"
+  ],
+  "correctAnswer": "-1",
+  "correctIndex": 0,
+  "hintEn": "By the parametric chain rule: dy/dx = (dy/dtheta) / (dx/dtheta).",
+  "hintAr": "بقاعدة السلسلة للدوال البارامترية: dy/dx = (dy/dtheta) / (dx/dtheta).",
+  "stepByStepSolutionEn": [
+    "1. Differentiate with respect to $\\theta$: $\\frac{dx}{d\\theta} = 2 \\times 3\\cos^2\\theta (-\\sin\\theta) = -6\\cos^2\\theta \\sin\\theta$.",
+    "2. Differentiate $y$: $\\frac{dy}{d\\theta} = 2 \\times 3\\sin^2\\theta (\\cos\\theta) = 6\\sin^2\\theta \\cos\\theta$.",
+    "3. Slope: $\\frac{dy}{dx} = \\frac{6\\sin^2\\theta \\cos\\theta}{-6\\cos^2\\theta \\sin\\theta} = -\\frac{\\sin\\theta}{\\cos\\theta} = -\\tan\\theta$.",
+    "4. At $\\theta = \\frac{\\pi}{4}$: $\\frac{dy}{dx} = -\\tan(\\frac{\\pi}{4}) = -1$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. بالاشتقاق بالنسبة إلى $\\theta$: $\\frac{dx}{d\\theta} = -٦\\cos^٢\\theta \\sin\\theta$.",
+    "٢. اشتقاق $y$: $\\frac{dy}{d\\theta} = ٦\\sin^٢\\theta \\cos\\theta$.",
+    "٣. ميل المماس: $\\frac{dy}{dx} = \\frac{dy/d\\theta}{dx/d\\theta} = -\\tan\\theta$.",
+    "٤. بالتعويض عند $\\theta = \\frac{\\pi}{٤}$: $\\frac{dy}{dx} = -\\tan(\\frac{\\pi}{٤}) = -١$."
+  ],
+  "teacherTipEn": "The slope of tangent to x = a cos^3(t), y = a sin^3(t) is always -tan(t).",
+  "teacherTipAr": "ميل مماس النجمية س = أ جتا³(هـ)، ص = أ جا³(هـ) يساوي دائماً -ظا(هـ)."
+},
   {
     "id": "egbac_ana_ch1_db_easy_56",
     "titleEn": "Squeeze Theorem Limit",
@@ -4342,40 +4344,43 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "teacherTipAr": "تضمن مبرهنة القيم القصوى وجود قيمة عظمى وصغرى مطلقة لأي دالة متصلة على فترة مغلقة."
   },
   {
-    "id": "egbac_ana_ch1_db_med_58",
-    "titleEn": "Zero Times Infinity Logarithmic Indeterminate Form",
-    "titleAr": "نهاية الصيغة غير المعينة صفر في لانهاية",
-    "difficulty": "medium",
-    "questionEn": "Suppose that evaluate the limit: $\\lim_{x \\to 0^+} x^2 \\ln(x)$.",
-    "questionAr": "افترض أن احسب النهاية: $\\lim_{x \\to 0^+} x^2 \\ln(x)$.",
-    "optionsEn": [
-      "$0$",
-      "$-\\infty$",
-      "$-1$",
-      "$\\frac{1}{2}$"
-    ],
-    "optionsAr": [
-      "$0$",
-      "$-\\infty$",
-      "$-1$",
-      "$\\frac{1}{2}$"
-    ],
-    "correctAnswer": "$0$",
-    "correctIndex": 0,
-    "hintEn": "Rewrite as $\\frac{\\ln(x)}{x^{-2}}$ to convert to $\\frac{-\\infty}{\\infty}$ and apply L'Hôpital's Rule.",
-    "hintAr": "أعد كتابتها بالصورة $\\frac{\\ln(x)}{x^{-2}}$ لتحويلها إلى $\\frac{-\\infty}{\\infty}$ ثم طبق قاعدة لوبيتال.",
-    "stepByStepSolutionEn": [
-      "Rewrite: $\\lim_{x \\to 0^+} \\frac{\\ln(x)}{x^{-2}}$.",
-      "Apply L'Hôpital's rule: $\\lim_{x \\to 0^+} \\frac{1/x}{-2 x^{-3}} = \\lim_{x \\to 0^+} \\left(-\\frac{x^2}{2}\\right)$.",
-      "As $x \\to 0^+$, $-\\frac{x^2}{2} \\to 0$."
-    ],
-    "stepByStepSolutionAr": [
-      "إعادة الكتابة: $\\lim_{x \\to 0^+} \\frac{\\ln(x)}{x^{-2}}$.",
-      "بتطبيق لوبيتال: $\\lim_{x \\to 0^+} \\frac{1/x}{-2/x^3} = \\lim_{x \\to 0^+} \\left(-\\frac{x^2}{2}\\right) = 0$."
-    ],
-    "teacherTipEn": "Polynomial decay always dominates logarithmic growth near zero: $\\lim_{x \\to 0^+} x^p \\ln(x) = 0$ for any $p > 0$.",
-    "teacherTipAr": "قوة كثير الحدود تتغلب دائماً على نمو اللوغاريتم بالقرب من الصفر: $\\lim_{x \\to 0^+} x^p \\ln x = 0$ لأي $p > 0$."
-  },
+  "id": "egbac_ana_ch1_db_med_58",
+  "titleEn": "Second Derivative of Parametric Equations",
+  "titleAr": "المشتقة الثانية لمعادلات بارامترية",
+  "difficulty": "medium",
+  "questionEn": "If $x = t^2 + 1$ and $y = t^3 - 1$, find the value of $\\frac{d^2y}{dx^2}$ at $t = 1$.",
+  "questionAr": "إذا كان $x = t^٢ + ١$ و $y = t^٣ - ١$، فأوجد قيمة $\\frac{d^٢y}{dx^٢}$ عند $t = ١$.",
+  "optionsEn": [
+    "$\\frac{3}{4}$",
+    "$\\frac{3}{2}$",
+    "$3$",
+    "$\\frac{1}{2}$"
+  ],
+  "optionsAr": [
+    "\\frac{٣}{٤}",
+    "\\frac{٣}{٢}",
+    "٣",
+    "\\frac{١}{٢}"
+  ],
+  "correctAnswer": "$\\frac{3}{4}$",
+  "correctIndex": 0,
+  "hintEn": "Remember that d^2y/dx^2 = (d/dt [dy/dx]) / (dx/dt). Do not simply differentiate d^2y/dt^2 over d^2x/dt^2!",
+  "hintAr": "تذكر أن المشتقة الثانية البارامترية هي مشتقة (dy/dx) بالنسبة إلى t مقسومة على (dx/dt).",
+  "stepByStepSolutionEn": [
+    "1. Derivatives with respect to $t$: $\\frac{dx}{dt} = 2t$ and $\\frac{dy}{dt} = 3t^2$.",
+    "2. First derivative: $\\frac{dy}{dx} = \\frac{3t^2}{2t} = \\frac{3}{2} t$.",
+    "3. Second derivative formula: $\\frac{d^2y}{dx^2} = \\frac{\\frac{d}{dt}\\left(\\frac{dy}{dx}\\right)}{\\frac{dx}{dt}} = \\frac{\\frac{d}{dt}\\left(\\frac{3}{2}t\\right)}{2t} = \\frac{\\frac{3}{2}}{2t} = \\frac{3}{4t}$.",
+    "4. At $t = 1$: $\\frac{d^2y}{dx^2} = \\frac{3}{4(1)} = \\frac{3}{4}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. المشتقات بالنسبة إلى $t$: $\\frac{dx}{dt} = ٢t$ و $\\frac{dy}{dt} = ٣t^٢$.",
+    "٢. المشتقة الأولى: $\\frac{dy}{dx} = \\frac{٣t^٢}{٢t} = \\frac{٣}{٢} t$.",
+    "٣. المشتقة الثانية: $\\frac{d^٢y}{dx^٢} = \\frac{\\frac{d}{dt}(dy/dx)}{dx/dt} = \\frac{٣/٢}{٢t} = \\frac{٣}{٤t}$.",
+    "٤. عند $t = ١$: $\\frac{d^٢y}{dx^٢} = \\frac{٣}{٤}$."
+  ],
+  "teacherTipEn": "The most common student mistake is computing (d^2y/dt^2)/(d^2x/dt^2). Always chain through dy/dx!",
+  "teacherTipAr": "الخطأ الشائع هو قسمة المشتقة الثانية لص على المشتقة الثانية لس؛ تذكر دائماً اشتقاق المشتقة الأولى ثم قسمتها على dx/dt."
+},
   {
     "id": "egbac_ana_ch1_db_med_59",
     "titleEn": "Factorial Sequence Limit via Squeeze Theorem",
@@ -6476,82 +6481,88 @@ export const egBacAnaCh1Databank: ChapterDatabank = {
     "teacherTipEn": "Always justify discarding negative roots based on the signs of sequence terms.",
     "teacherTipAr": "احرص دائماً على تبرير استبعاد الحل السالب بناءً على إشارات حدود المتتالية."
   },
-  {
-    "id": "egbac_ana_ch1_db_hots_54",
-    "titleEn": "Riemann Sum Limit Conversion to Definite Integral",
-    "titleAr": "تحويل نهاية مجموع ريمان إلى تكامل محدد",
-    "difficulty": "hots",
-    "questionEn": "From calculus principles, evaluate the limit: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k^2}$.",
-    "questionAr": "من قواعد التفاضل والتكامل، احسب النهاية: $\\lim_{n \\to \\infty} \\sum_{k=1}^n \\frac{n}{n^2 + k^2}$.",
-    "optionsEn": [
-      "$\\frac{\\pi}{4}$",
-      "$\\frac{\\pi}{2}$",
-      "$1$",
-      "$\\ln(2)$"
-    ],
-    "optionsAr": [
-      "$\\frac{\\pi}{4}$",
-      "$\\frac{\\pi}{2}$",
-      "$1$",
-      "$\\ln(2)$"
-    ],
-    "correctAnswer": "$\\frac{\\pi}{4}$",
-    "correctIndex": 0,
-    "hintEn": "Factor out $\\frac{1}{n}$ to express as a Riemann sum: $\\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2} \\to \\int_0^1 \\frac{1}{1 + x^2} dx$.",
-    "hintAr": "أخرج $\\frac{1}{n}$ عاملاً مشتركاً للتعبير عنها كمجموع ريمان: $\\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2} \\to \\int_0^1 \\frac{1}{1 + x^2} dx$.",
-    "stepByStepSolutionEn": [
-      "Rewrite: $\\sum_{k=1}^n \\frac{n}{n^2(1 + (k/n)^2)} = \\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2}$.",
-      "Recognize the Riemann sum for $f(x) = \\frac{1}{1 + x^2}$ on $[0, 1]$ with $\\Delta x = \\frac{1}{n}$ and $x_k = \\frac{k}{n}$.",
-      "Evaluate the definite integral: $\\int_0^1 \\frac{1}{1 + x^2} dx = [\\arctan(x)]_0^1 = \\arctan(1) - \\arctan(0) = \\frac{\\pi}{4}$."
-    ],
-    "stepByStepSolutionAr": [
-      "إعادة كتابة المجموع: $\\frac{1}{n} \\sum_{k=1}^n \\frac{1}{1 + (k/n)^2}$.",
-      "هذا مجموع ريمان للدالة $f(x) = \\frac{1}{1 + x^2}$ على الفترة $[0, 1]$.",
-      "التكامل المحدد: $\\int_0^1 \\frac{1}{1 + x^2} dx = [\\arctan(x)]_0^1 = \\frac{\\pi}{4}$."
-    ],
-    "teacherTipEn": "Converting Riemann sums to definite integrals is a standard technique for evaluating series limits.",
-    "teacherTipAr": "تحويل مجموع ريمان إلى تكامل محدد أداة أساسية لحساب نهايات المتسلسلات اللانهائية."
-  },
-  {
-    "id": "egbac_ana_ch1_db_hots_55",
-    "titleEn": "Parameter Condition for Finite Limit Existence",
-    "titleAr": "شرط المعامل لوجود نهاية منتهية",
-    "difficulty": "hots",
-    "questionEn": "For what relation between $a$ and $b$ does the limit $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ exist and equal a finite real number?",
-    "questionAr": "ما العلاقة بين $a$ و $b$ التي تجعل النهاية $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ موجودة وتساوي عدداً حقيقياً منتهياً؟",
-    "optionsEn": [
-      "$a = b$",
-      "$a = -b$",
-      "$a = 2b$",
-      "$a = 0$"
-    ],
-    "optionsAr": [
-      "$a = b$",
-      "$a = -b$",
-      "$a = 2b$",
-      "$a = 0$"
-    ],
-    "correctAnswer": "$a = b$",
-    "correctIndex": 0,
-    "hintEn": "Expand the numerator up to first order: $(ax - bx) + O(x^2)$. For the limit to exist over $x^2$, the linear term must vanish.",
-    "hintAr": "فك البسط حتى الدرجة الأولى: $(ax - bx) + O(x^2)$. لكي توجد النهاية مقسومة على $x^2$، يجب أن ينعدم معامل $x$.",
-    "stepByStepSolutionEn": [
-      "Taylor expansions near $0$:",
-      "$\\ln(1 + ax) = ax - \\frac{a^2 x^2}{2} + O(x^3)$.",
-      "$\\sin(bx) = bx - \\frac{b^3 x^3}{6} + O(x^5)$.",
-      "Numerator is: $(a - b)x - \\frac{a^2}{2}x^2 + O(x^3)$.",
-      "For $\\lim_{x \\to 0} \\frac{(a - b)x - \\frac{a^2}{2}x^2}{x^2}$ to be finite, the coefficient of $x$ must be zero: $a - b = 0 \\implies a = b$."
-    ],
-    "stepByStepSolutionAr": [
-      "مفكوك تايلور بالقرب من الصفر:",
-      "$\\ln(1 + ax) = ax - \\frac{a^2 x^2}{2} + \\dots$",
-      "$\\sin(bx) = bx + \\dots$",
-      "البسط: $(a - b)x - \\frac{a^2}{2}x^2 + \\dots$",
-      "لكي تكون النهاية منتهية عند القسمة على $x^2$، يجب أن ينعدم معامل $x$: $a - b = 0 \\implies a = b$."
-    ],
-    "teacherTipEn": "When $a = b$, the value of the finite limit is $-\\frac{a^2}{2}$.",
-    "teacherTipAr": "عندما $a = b$ تصبح قيمة النهاية المنتهية $-\\frac{a^2}{2}$."
-  },
+      {
+        "id": "egbac_ana_ch1_db_hots_54",
+        "titleEn": "Advanced Conjugate and Trigonometric Limit",
+        "titleAr": "نهاية جبرية ومثلثية متقدمة باستخدام المرافق",
+        "difficulty": "hots",
+        "questionEn": "Evaluate the limit: $\\lim_{x \\to 0} \\frac{\\sqrt{1 + x \\sin x} - \\cos x}{x^2}$.",
+        "questionAr": "احسب قيمة النهاية التالية: $\\lim_{x \\to 0} \\frac{\\sqrt{1 + x \\sin x} - \\cos x}{x^2}$.",
+        "optionsEn": [
+            "$1$",
+            "$\\frac{1}{2}$",
+            "$0$",
+            "$2$"
+        ],
+        "optionsAr": [
+            "1",
+            "\\frac{1}{2}",
+            "0",
+            "2"
+        ],
+        "correctAnswer": "$1$",
+        "correctIndex": 0,
+        "hintEn": "Split the numerator by adding and subtracting 1: $\\frac{\\sqrt{1 + x \\sin x} - 1}{x^2} + \\frac{1 - \\cos x}{x^2}$.",
+        "hintAr": "افصل البسط بإضافة وطرح 1: $\\frac{\\sqrt{1 + x \\sin x} - 1}{x^2} + \\frac{1 - \\cos x}{x^2}$.",
+        "stepByStepSolutionEn": [
+            "1. Decompose the limit into two standard sub-limits by adding and subtracting 1 in the numerator:",
+            "   $\\lim_{x \\to 0} \\frac{\\sqrt{1 + x \\sin x} - \\cos x}{x^2} = \\lim_{x \\to 0} \\left[\\frac{\\sqrt{1 + x \\sin x} - 1}{x^2} + \\frac{1 - \\cos x}{x^2}\\right]$.",
+            "2. Evaluate the first sub-limit by multiplying by the conjugate:",
+            "   $\\lim_{x \\to 0} \\frac{(\\sqrt{1 + x \\sin x} - 1)(\\sqrt{1 + x \\sin x} + 1)}{x^2(\\sqrt{1 + x \\sin x} + 1)} = \\lim_{x \\to 0} \\frac{x \\sin x}{x^2(\\sqrt{1 + x \\sin x} + 1)} = \\lim_{x \\to 0} \\left(\\frac{\\sin x}{x}\\right) \\cdot \\frac{1}{\\sqrt{1 + 0} + 1} = 1 \\cdot \\frac{1}{2} = \\frac{1}{2}$.",
+            "3. Evaluate the second sub-limit using standard trigonometric limits:",
+            "   $\\lim_{x \\to 0} \\frac{1 - \\cos x}{x^2} = \\frac{1}{2}$.",
+            "4. Sum the two sub-limits: $\\frac{1}{2} + \\frac{1}{2} = 1$."
+        ],
+        "stepByStepSolutionAr": [
+            "١. أعد كتابة النهاية بإضافة وطرح 1 في البسط لتجزئتها إلى نهايتين قياسيتين:",
+            "   $\\lim_{x \\to 0} \\left[\\frac{\\sqrt{1 + x \\sin x} - 1}{x^2} + \\frac{1 - \\cos x}{x^2}\\right]$.",
+            "٢. احسب النهاية الأولى بضرب البسط والمقام في المرافق:",
+            "   $\\lim_{x \\to 0} \\frac{x \\sin x}{x^2(\\sqrt{1 + x \\sin x} + 1)} = 1 \\times \\frac{1}{2} = \\frac{1}{2}$.",
+            "٣. احسب النهاية المثلثية القياسية الثانية:",
+            "   $\\lim_{x \\to 0} \\frac{1 - \\cos x}{x^2} = \\frac{1}{2}$.",
+            "٤. اجمع قيمتي النهايتين: $\\frac{1}{2} + \\frac{1}{2} = 1$."
+        ],
+        "teacherTipEn": "Splitting into $\\frac{A - 1}{x^2} + \\frac{1 - B}{x^2}$ is a powerful technique for evaluating composite indeterminate forms of type 0/0.",
+        "teacherTipAr": "إضافة وطرح 1 هي إحدى أقوى الحيل الجبرية لفصل النهايات المركبة ذات الصيغة غير المعينة صفر على صفر."
+    },
+      {
+          "id": "egbac_ana_ch1_db_hots_55",
+          "titleEn": "Parameter Condition for Finite Limit Existence",
+          "titleAr": "شرط المعامل لوجود نهاية منتهية",
+          "difficulty": "hots",
+          "questionEn": "For what relation between $a$ and $b$ does the limit $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ exist and equal a finite real number?",
+          "questionAr": "ما العلاقة بين $a$ و $b$ التي تجعل النهاية $\\lim_{x \\to 0} \\frac{\\ln(1 + ax) - \\sin(bx)}{x^2}$ موجودة وتساوي عدداً حقيقياً منتهياً؟",
+          "optionsEn": [
+              "$a = b$",
+              "$a = -b$",
+              "$a = 2b$",
+              "$a = 0$"
+          ],
+          "optionsAr": [
+              "$a = b$",
+              "$a = -b$",
+              "$a = 2b$",
+              "$a = 0$"
+          ],
+          "correctAnswer": "$a = b$",
+          "correctIndex": 0,
+          "hintEn": "Expand the numerator up to first order: $(ax - bx) + O(x^2)$. For the limit to exist over $x^2$, the linear term must vanish.",
+          "hintAr": "فك البسط حتى الدرجة الأولى: $(ax - bx) + O(x^2)$. لكي توجد النهاية مقسومة على $x^2$، يجب أن ينعدم معامل $x$.",
+          "stepByStepSolutionEn": [
+              "1. Express the numerator using standard expansions near $0$:",
+              "   $\\ln(1 + ax) = ax - \\frac{a^2 x^2}{2} + O(x^3)$ and $\\sin(bx) = bx + O(x^3)$.",
+              "2. Group terms in the numerator: $(a - b)x - \\frac{a^2}{2}x^2 + O(x^3)$.",
+              "3. For the limit $\\lim_{x \\to 0} \\frac{(a - b)x - \\frac{a^2}{2}x^2}{x^2}$ to exist and be finite, the coefficient of $x$ must vanish: $a - b = 0 \\implies a = b$."
+          ],
+          "stepByStepSolutionAr": [
+              "١. فك حدود البسط بالقرب من الصفر:",
+              "   $\\ln(1 + ax) = ax - \\frac{a^2 x^2}{2} + \\dots$ و $\\sin(bx) = bx + \\dots$.",
+              "٢. تجميع حدود البسط: $(a - b)x - \\frac{a^2}{2}x^2 + \\dots$.",
+              "٣. لكي تكون النهاية منتهية عند القسمة على $x^2$، يجب أن ينعدم معامل $x$: $a - b = 0 \\implies a = b$."
+          ],
+          "teacherTipEn": "When $a = b$, the finite limit exists and its value is $-\\frac{a^2}{2}$.",
+          "teacherTipAr": "عندما $a = b$ تصبح قيمة النهاية المنتهية $-\\frac{a^2}{2}$."
+      },
   {
     "id": "egbac_ana_ch1_db_hots_56",
     "titleEn": "Cauchy Functional Equation Characterization",

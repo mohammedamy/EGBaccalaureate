@@ -30,6 +30,7 @@ import {
   Eye,
   Check,
 } from 'lucide-react';
+import { PostLabAssessmentModal } from './PostLabAssessmentModal';
 
 interface Props {
   isOpen: boolean;
@@ -266,6 +267,7 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
   const [report, setReport] = useState<LabReportData>(() => loadLabReportDraft(initialExperimentId));
   const [copiedToast, setCopiedToast] = useState<boolean>(false);
   const [savedToast, setSavedToast] = useState<boolean>(false);
+  const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState<boolean>(false);
 
   // Sync when initialExperimentId changes or selectedExpId changes or modal opens
   useEffect(() => {
@@ -452,6 +454,15 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
                 <span>{isArabic ? 'معاينة A4' : 'A4 Preview'}</span>
               </button>
             </div>
+
+            <button
+              onClick={() => setIsAssessmentModalOpen(true)}
+              className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-500 hover:to-sky-400 text-white font-bold text-xs shadow-md shadow-indigo-600/20 flex items-center gap-1.5 transition-all cursor-pointer"
+              title={isArabic ? 'بدء التقييم الاستقصائي البعدي للتجربة' : 'Start Post-Lab Inquiry Assessment'}
+            >
+              <Award className="w-4 h-4 text-amber-300" />
+              <span className="hidden sm:inline">{isArabic ? 'الاختبار البعدي 🧪' : 'Post-Lab Quiz 🧪'}</span>
+            </button>
 
             <button
               onClick={handlePrint}
@@ -1051,6 +1062,24 @@ export const LabReportGeneratorModal: React.FC<Props> = ({
           )}
         </div>
       </div>
+
+      {/* Post-Lab Scientific Inquiry Assessment Modal */}
+      {isAssessmentModalOpen && (
+        <PostLabAssessmentModal
+          isOpen={isAssessmentModalOpen}
+          onClose={() => {
+            setIsAssessmentModalOpen(false);
+            setReport(loadLabReportDraft(report.experimentId));
+          }}
+          lang={lang}
+          theme={theme}
+          discipline={report.discipline}
+          experimentId={report.experimentId}
+          onAssessmentCompleted={() => {
+            setReport(loadLabReportDraft(report.experimentId));
+          }}
+        />
+      )}
     </div>
   );
 };

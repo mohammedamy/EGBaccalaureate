@@ -1069,6 +1069,14 @@ export function getMasteryRadarData(
   });
 }
 
+export interface ScoreConfidenceInterval {
+  lowerPercentage: number;
+  upperPercentage: number;
+  lowerMarks: number;
+  upperMarks: number;
+  marginOfErrorPercentage: number;
+}
+
 export interface PredictiveScoreReport {
   predictedTotalMarks: number; // e.g. 385.5 out of 410
   predictedPercentage: number; // e.g. 94.0%
@@ -1077,10 +1085,76 @@ export interface PredictiveScoreReport {
   universityTrackTierEn: string;
   targetFacultyRecommendationsAr: string[];
   targetFacultyRecommendationsEn: string[];
+  // Phase 2 Calibrated Fields
+  confidenceInterval?: ScoreConfidenceInterval;
+  calibratedPercentage?: number;
+  calibratedTotalMarks?: number;
+  calibrationRatio?: number;
+  hasCustomCalibration?: boolean;
+  disclaimerAr?: string;
+  disclaimerEn?: string;
+  sampleSize?: number;
+}
+
+export const SCORE_CALIBRATION_STORAGE_KEY = 'egbac_score_calibration_ratio_v1';
+
+/**
+ * Retrieves the student's actual vs predicted calibration ratio from localStorage (default 1.0).
+ */
+export function getActualScoreCalibrationRatio(): number {
+  if (typeof localStorage === 'undefined') return 1.0;
+  try {
+    const raw = localStorage.getItem(SCORE_CALIBRATION_STORAGE_KEY);
+    if (!raw) return 1.0;
+    const val = parseFloat(raw);
+    return isNaN(val) ? 1.0 : Math.min(1.30, Math.max(0.70, val));
+  } catch {
+    return 1.0;
+  }
+}
+
+/**
+ * Saves a student's actual exam score to calibrate future AI predictions.
+ * Accepts either score out of 410 (default) or percentage (0-100).
+ * Clamps ratio to [0.70, 1.30] to prevent extreme distortions.
+ */
+export function setActualScoreCalibration(
+  scoreValue: number,
+  isPercentage: boolean = false,
+  state?: StudentAnalyticsState
+): number {
+  const data = state || getStudentAnalytics();
+  const rawReport = getPredictiveScore(data);
+  const baselinePct = rawReport.predictedPercentage > 0 ? rawReport.predictedPercentage : 75;
+
+  const actualPct = isPercentage ? scoreValue : (scoreValue / 410) * 100;
+  const ratio = Math.min(1.30, Math.max(0.70, Math.round((actualPct / baselinePct) * 1000) / 1000));
+
+  if (typeof localStorage !== 'undefined') {
+    try {
+      localStorage.setItem(SCORE_CALIBRATION_STORAGE_KEY, ratio.toString());
+    } catch (err) {
+      console.warn('Failed to save calibration ratio:', err);
+    }
+  }
+
+  return ratio;
+}
+
+/**
+ * Resets score calibration to the 1.0 baseline.
+ */
+export function resetActualScoreCalibration(): void {
+  if (typeof localStorage !== 'undefined') {
+    try {
+      localStorage.removeItem(SCORE_CALIBRATION_STORAGE_KEY);
+    } catch {}
+  }
 }
 
 /**
  * Predicts total Thanawya Amma score out of 410 marks based on accuracy, HOTS performance, and practice volume.
+ * Phase 2 adds statistical confidence intervals and student calibration factors.
  */
 export function getPredictiveScore(state?: StudentAnalyticsState): PredictiveScoreReport {
   const data = state || getStudentAnalytics();
@@ -1095,6 +1169,20 @@ export function getPredictiveScore(state?: StudentAnalyticsState): PredictiveSco
       universityTrackTierEn: 'No attempts yet - complete practice questions to initialize AI predictions',
       targetFacultyRecommendationsAr: ['كليات القمة بانتظار بدء تدريبك الأكاديمي'],
       targetFacultyRecommendationsEn: ['Top faculties awaiting your practice data'],
+      confidenceInterval: {
+        lowerPercentage: 0,
+        upperPercentage: 0,
+        lowerMarks: 0,
+        upperMarks: 0,
+        marginOfErrorPercentage: 0,
+      },
+      calibratedPercentage: 0,
+      calibratedTotalMarks: 0,
+      calibrationRatio: 1.0,
+      hasCustomCalibration: false,
+      sampleSize: 0,
+      disclaimerAr: 'تقدير تحليلي استرشادي مبني على تدريباتك في المنصة وليس درجة رسمية من وزارة التربية والتعليم.',
+      disclaimerEn: 'Statistical guidance estimate based on practice activity, not an official ministerial examination score.',
     };
   }
 
@@ -1113,22 +1201,40 @@ export function getPredictiveScore(state?: StudentAnalyticsState): PredictiveSco
   if (totalAttempted >= 60) confidenceLevel = 'high';
   else if (totalAttempted >= 20) confidenceLevel = 'moderate';
 
+  // Statistical Confidence Interval (Standard Error based on binomial variance)
+  const p = predictedPercentage / 100;
+  const effectiveN = Math.max(totalAttempted, 10);
+  const se = Math.sqrt((p * (1 - p)) / effectiveN);
+  const zCrit = totalAttempted >= 60 ? 1.96 : totalAttempted >= 20 ? 2.15 : 2.58;
+  const marginOfErrorPct = Math.round(Math.min(15, Math.max(2.5, zCrit * se * 100)) * 10) / 10;
+
+  const lowerPercentage = Math.round(Math.max(30, predictedPercentage - marginOfErrorPct) * 10) / 10;
+  const upperPercentage = Math.round(Math.min(100, predictedPercentage + marginOfErrorPct) * 10) / 10;
+  const lowerMarks = Math.round((lowerPercentage / 100) * 410 * 10) / 10;
+  const upperMarks = Math.round((upperPercentage / 100) * 410 * 10) / 10;
+
+  // Calibration ratio adjustment
+  const calibrationRatio = getActualScoreCalibrationRatio();
+  const hasCustomCalibration = calibrationRatio !== 1.0;
+  const calibratedPercentage = Math.round(Math.min(100, Math.max(30, predictedPercentage * calibrationRatio)) * 10) / 10;
+  const calibratedTotalMarks = Math.round((calibratedPercentage / 100) * 410 * 10) / 10;
+
   let tierAr = 'المستوى العام - بحاجة لزيادة وتيرة التدريب وحل أسئلة المستويات العليا';
   let tierEn = 'General Pass Tier - Needs More Structured Practice & HOTS Drills';
   let facultiesAr = ['كليات التجارة والآداب والحقوق والخدمة الاجتماعية'];
   let facultiesEn = ['Commerce, Arts, Law, and Social Work Faculties'];
 
-  if (predictedPercentage >= 92) {
+  if (calibratedPercentage >= 92) {
     tierAr = 'أوائل الجمهورية وكليات القطاع الطبي والهندسي المرموقة 🏆';
     tierEn = 'National Republic Honors - Medical & Elite Engineering 🏆';
     facultiesAr = ['الطب البشري', 'طب وجراحة الفم والأسنان', 'الهندسة والتكنولوجيا', 'الحاسبات والذكاء الاصطناعي'];
     facultiesEn = ['Faculty of Medicine', 'Oral & Dental Surgery', 'Faculty of Engineering', 'AI & Computer Science'];
-  } else if (predictedPercentage >= 82) {
+  } else if (calibratedPercentage >= 82) {
     tierAr = 'قطاع التكنولوجيا والعلوم المتقدمة والصيدلة والاقتصاد 🌟';
     tierEn = 'Distinction Tier - Technology, Sciences & Economics 🌟';
     facultiesAr = ['الهندسة', 'الحاسبات والمعلومات', 'الصيدلة', 'العلاج الطبيعي', 'الاقتصاد والعلوم السياسية'];
     facultiesEn = ['Engineering', 'Computer Science & Informatics', 'Pharmacy', 'Physical Therapy', 'Economics & Political Science'];
-  } else if (predictedPercentage >= 70) {
+  } else if (calibratedPercentage >= 70) {
     tierAr = 'قطاع العلوم والإعلام واللغات والترجمة التطبيقية 🎯';
     tierEn = 'Merit Tier - Applied Sciences, Media & Languages 🎯';
     facultiesAr = ['العلوم', 'الإعلام وتكنولوجيا الاتصال', 'الألسن واللغات والترجمة', 'الفنون التطبيقية'];
@@ -1143,7 +1249,28 @@ export function getPredictiveScore(state?: StudentAnalyticsState): PredictiveSco
     universityTrackTierEn: tierEn,
     targetFacultyRecommendationsAr: facultiesAr,
     targetFacultyRecommendationsEn: facultiesEn,
+    confidenceInterval: {
+      lowerPercentage,
+      upperPercentage,
+      lowerMarks,
+      upperMarks,
+      marginOfErrorPercentage: marginOfErrorPct,
+    },
+    calibratedPercentage,
+    calibratedTotalMarks,
+    calibrationRatio,
+    hasCustomCalibration,
+    sampleSize: totalAttempted,
+    disclaimerAr: 'تقدير تحليلي استرشادي مبني على تدريباتك في المنصة وليس درجة رسمية من وزارة التربية والتعليم.',
+    disclaimerEn: 'Statistical guidance estimate based on practice activity, not an official ministerial examination score.',
   };
+}
+
+/**
+ * Returns full calibrated score prediction report with all statistical parameters.
+ */
+export function getCalibratedScorePrediction(state?: StudentAnalyticsState): PredictiveScoreReport {
+  return getPredictiveScore(state);
 }
 
 /**

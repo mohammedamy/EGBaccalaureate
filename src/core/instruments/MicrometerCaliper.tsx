@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 import { Target } from 'lucide-react';
 
+import type { ThemeMode } from '../../types/curriculum';
+
 interface MicrometerCaliperProps {
   lang?: 'en' | 'ar';
+  theme?: ThemeMode;
   onMeasurementChange?: (measuredMm: number) => void;
 }
 
 export const MicrometerCaliper: React.FC<MicrometerCaliperProps> = ({
   lang = 'en',
+  theme = 'dark',
   onMeasurementChange
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
 
   // Value in mm: range 0.00 to 25.00 mm
   const [currentValueMm, setCurrentValueMm] = useState<number>(5.74);
@@ -49,21 +55,38 @@ export const MicrometerCaliper: React.FC<MicrometerCaliperProps> = ({
   const correctedReading = parseFloat((currentValueMm - zeroErrorMm).toFixed(2));
 
   return (
-    <div className="w-full bg-slate-900/95 border-2 border-slate-800/80 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 font-sans" dir={isAr ? 'rtl' : 'ltr'}>
+    <div
+      className={`w-full font-sans transition-all duration-200 border-2 rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden ${
+        isLight
+          ? 'bg-white border-slate-200 text-slate-900 shadow-slate-200/50'
+          : isContrast
+          ? 'bg-black border-2 border-slate-700 text-white'
+          : 'bg-slate-900/95 border-slate-800/80 text-slate-100'
+      }`}
+      dir={isAr ? 'rtl' : 'ltr'}
+    >
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+      <div className={`flex flex-wrap items-center justify-between gap-3 pb-3 border-b ${
+        isLight ? 'border-slate-200' : 'border-slate-800'
+      }`}>
         <div className="flex items-center gap-3">
           <div className="p-2 bg-amber-500/20 text-amber-400 rounded-xl border border-amber-500/30">
             <Target className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm font-bold text-slate-100 flex items-center gap-2">
+            <h4 className={`text-sm font-bold flex items-center gap-2 ${
+              isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-100'
+            }`}>
               {isAr ? 'المايكرومتر الدقيق (Micrometer Caliper)' : 'Precision Micrometer Screw Gauge'}
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800">
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold ${
+                isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-amber-950 text-amber-300 border border-amber-800'
+              }`}>
                 0.01 mm Resolution
               </span>
             </h4>
-            <p className="text-xs text-slate-400">
+            <p className={`text-xs ${
+              isLight ? 'text-slate-600' : isContrast ? 'text-slate-300' : 'text-slate-400'
+            }`}>
               {isAr ? 'قياس الأبعاد الميكانيكية بدقة متناهية وفق تدريج الأسطوانة والقرص الدائري' : 'High-precision mechanical dimension verification with vernier thimble'}
             </p>
           </div>

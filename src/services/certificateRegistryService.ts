@@ -409,3 +409,53 @@ export function deleteCertificate(serial: string): void {
     }
   }
 }
+
+/**
+ * Register an official Teacher Accreditation Certificate in the registry.
+ */
+export function registerTeacherAccreditationCertificate(record: {
+  teacherName: string;
+  governorate: string;
+  schoolName: string;
+  specialtySubject: string;
+  averageScorePct: number;
+  referralCode: string;
+}): OfficialCertificateRecord {
+  const serialRand = Math.random().toString(36).substring(2, 8).toUpperCase();
+  const serial = `EGY-TEACH-2026-${serialRand}`;
+  const sigRand = Math.random().toString(16).substring(2, 10).toUpperCase();
+  const verificationHash = `MOE-TEACH-SIG-${sigRand}-${serialRand}`;
+
+  const cert: OfficialCertificateRecord = {
+    certificateSerial: serial,
+    verificationHash,
+    studentName: `الأستاذ(ة) / ${record.teacherName}`,
+    seatingNumber: record.referralCode,
+    schoolName: record.schoolName || 'مدرسة معتمدة بوزارة التربية والتعليم',
+    directorateName: `مديرية التربية والتعليم بمحافظة ${record.governorate}`,
+    subjectId: 'pedagogy_edtech',
+    subjectNameAr: `معلم معتمد — تكنولوجيا التعليم وبنوك الأسئلة (${record.specialtySubject})`,
+    subjectNameEn: `ClipSAT Certified Educator — EdTech & Assessment (${record.specialtySubject})`,
+    branchNameAr: 'التطوير المهني للمعلمين',
+    branchNameEn: 'Teacher Professional Development',
+    academicYear: '2025 / 2026',
+    sessionTitleAr: 'شهادة الاعتماد المهني للمعلم الرقمي',
+    sessionTitleEn: 'Digital Educator Professional Accreditation',
+    formCodeAr: `كود الإحالة: ${record.referralCode}`,
+    formCodeEn: `Referral Code: ${record.referralCode}`,
+    score: 8,
+    totalQuestions: 8,
+    scorePct: record.averageScorePct,
+    timeTakenSeconds: 3600,
+    testDateIso: new Date().toISOString(),
+    gradeLabelAr: 'معلم كليبسات المعتمد 🏆',
+    gradeLabelEn: 'ClipSAT Certified Educator 🏆',
+    distinctionTier: getDistinctionTierFromPct(record.averageScorePct),
+    scoreReport: null,
+    cohortReport: null,
+    isAccredited: true,
+    registeredAt: Date.now(),
+  };
+
+  return saveOfficialCertificate(cert);
+}

@@ -21,7 +21,6 @@ import {
   AlertTriangle,
   BookOpen,
   Headphones,
-  Sliders,
   Sparkles,
   Zap,
   Layers,
@@ -33,6 +32,7 @@ import {
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 import { RealisticVocalTractSchematic } from './RealisticVocalTractSchematic';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 interface Props {
   lang?: Language;
@@ -61,6 +61,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
 
   // Audio Engine Settings
   const [speechRate, setSpeechRate] = useState<number>(0.9);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
   const [currentlyPlayingText, setCurrentlyPlayingText] = useState<string | null>(null);
 
   // Tab 1: Nasal Vowels State
@@ -90,6 +91,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
   const speakFrench = (text: string, customRate?: number) => {
     aiVoiceEngine.speak(text, {
       lang: 'fr-FR',
+      voiceName: selectedVoiceName || undefined,
       rate: customRate || speechRate,
       onStart: () => setCurrentlyPlayingText(text),
       onEnd: () => setCurrentlyPlayingText(null),
@@ -113,6 +115,7 @@ export const FrenchAudioStudio: React.FC<Props> = ({
     const turns = track.dialogueTurns.map((turn) => ({
       text: turn.textFr,
       lang: 'fr-FR',
+      voiceName: selectedVoiceName || undefined,
       delayAfterMs: 650,
     }));
 
@@ -204,46 +207,17 @@ export const FrenchAudioStudio: React.FC<Props> = ({
 
         {/* Playback Rate & Audio Quick Controls */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          {/* AI Vocal Engine Badge */}
-          <div className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border shadow-xs min-h-[44px] ${
-            isLight
-              ? 'bg-blue-50 border-blue-200 text-blue-900'
-              : isContrast
-              ? 'bg-stone-900 border-amber-400 text-amber-300'
-              : 'bg-blue-950/60 border-blue-500/30 text-blue-300'
-          }`}>
-            <Sparkles className={`w-3.5 h-3.5 animate-pulse ${
-              isLight ? 'text-blue-700' : isContrast ? 'text-amber-400' : 'text-blue-400'
-            }`} />
-            <span className="text-xs">AI Vocal Engine (HD)</span>
-          </div>
-
-          <div className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs border min-h-[44px] ${
-            isLight
-              ? 'bg-white border-slate-300 text-slate-800 shadow-xs'
-              : isContrast
-              ? 'bg-black border-amber-400 text-white'
-              : 'bg-slate-900 border-slate-800 text-slate-200'
-          }`}>
-            <Sliders className={`w-3.5 h-3.5 ${
-              isLight ? 'text-slate-600' : isContrast ? 'text-amber-400' : 'text-slate-400'
-            }`} />
-            <span className={`hidden sm:inline font-semibold ${
-              isLight ? 'text-slate-700' : isContrast ? 'text-white' : 'text-slate-400'
-            }`}>Vitesse:</span>
-            <select
-              value={speechRate}
-              onChange={(e) => setSpeechRate(parseFloat(e.target.value))}
-              className={`bg-transparent font-bold focus:outline-none cursor-pointer text-xs ${
-                isLight ? 'text-blue-800' : isContrast ? 'text-amber-300' : 'text-blue-400'
-              }`}
-            >
-              <option value="0.75" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>0.75x (Lent)</option>
-              <option value="0.9" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>0.90x (Idéal)</option>
-              <option value="1.0" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>1.00x (Normal)</option>
-              <option value="1.2" className={isLight ? 'bg-white text-slate-900' : 'bg-slate-900 text-white'}>1.20x (Rapide)</option>
-            </select>
-          </div>
+          <StudioVoiceSelector
+            lang="fr-FR"
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="blue"
+            isLight={isLight}
+            isContrast={isContrast}
+            sampleText="Bonjour et bienvenue au studio de phonétique française pour le baccalauréat."
+          />
 
           {currentlyPlayingText && (
             <button

@@ -36,6 +36,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 interface Props {
   lang?: Language;
@@ -66,6 +67,7 @@ export const GermanLanguageStudio: React.FC<Props> = ({
 
   // Audio Engine Settings
   const [speechRate, setSpeechRate] = useState<number>(0.85);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
   const [currentlyPlayingText, setCurrentlyPlayingText] = useState<string | null>(null);
 
   // Tab 1: Phonetics
@@ -114,6 +116,7 @@ export const GermanLanguageStudio: React.FC<Props> = ({
   const speakGerman = (text: string, customRate?: number) => {
     aiVoiceEngine.speak(text, {
       lang: 'de-DE',
+      voiceName: selectedVoiceName || undefined,
       rate: customRate || speechRate,
       onStart: () => setCurrentlyPlayingText(text),
       onEnd: () => setCurrentlyPlayingText(null),
@@ -137,6 +140,7 @@ export const GermanLanguageStudio: React.FC<Props> = ({
     const turns = track.turns.map((turn) => ({
       text: turn.textDe,
       lang: 'de-DE',
+      voiceName: selectedVoiceName || undefined,
       delayAfterMs: 700,
     }));
 
@@ -199,33 +203,17 @@ export const GermanLanguageStudio: React.FC<Props> = ({
 
         {/* Global Speech Controls */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          {/* AI Vocal Engine Badge */}
-          <div className="flex items-center gap-1.5 bg-amber-950/60 border border-amber-500/30 px-2.5 py-1.5 rounded-xl text-xs text-amber-300 font-semibold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span className="text-[11px]">محرك نطق الذكاء الاصطناعي (HD)</span>
-          </div>
-
-          <div className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-semibold ${
-            isLight ? 'bg-white border-stone-200 text-stone-700' : 'bg-stone-900 border-stone-800 text-stone-300'
-          }`}>
-            <Volume2 className="w-4 h-4 text-amber-500" />
-            <span>سرعة النطق:</span>
-            <button
-              onClick={() => setSpeechRate((r) => Math.max(0.6, parseFloat((r - 0.1).toFixed(2))))}
-              className="w-5 h-5 rounded hover:bg-amber-500/20 font-bold"
-              title="أبطأ"
-            >
-              -
-            </button>
-            <span className="w-8 text-center text-amber-500 font-mono">{(speechRate * 100).toFixed(0)}%</span>
-            <button
-              onClick={() => setSpeechRate((r) => Math.min(1.2, parseFloat((r + 0.1).toFixed(2))))}
-              className="w-5 h-5 rounded hover:bg-amber-500/20 font-bold"
-              title="أسرع"
-            >
-              +
-            </button>
-          </div>
+          <StudioVoiceSelector
+            lang="de-DE"
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="amber"
+            isLight={isLight}
+            isContrast={isContrast}
+            sampleText="Guten Tag! Willkommen im deutschen Sprachlabor für das Abitur."
+          />
           {currentlyPlayingText && (
             <button
               onClick={stopAudio}

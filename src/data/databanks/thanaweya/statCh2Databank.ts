@@ -2608,41 +2608,41 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipAr": "قانون البعد بين مستقيمين متوازيين: |جـ1 - جـ2| / جذر(أ² + ب²)."
   },
   {
-    "id": "stat_ch2_db_med_17",
-    "titleEn": "Force Passing Through Centroid",
-    "titleAr": "قوة تمر بمركز ثقل مثلث",
-    "difficulty": "medium",
-    "questionEn": "In $\\triangle ABC$, a force $\\vec{F}$ passes through the centroid $G$. If $M_A = 16$ and $M_B = -10$, find $M_C$.",
-    "questionAr": "في المثلث $ABC$، يمر خط عمل قوة $\\vec{F}$ بمركز ثقل المثلث $G$. إذا كان $M_A = 16$ و $M_B = -10$، فما قيمة $M_C$؟",
-    "optionsEn": [
-      "$-6$",
-      "$6$",
-      "$-26$",
-      "$26$"
-    ],
-    "optionsAr": [
-      "-6",
-      "6",
-      "-26",
-      "26"
-    ],
-    "correctAnswer": "$-6$",
-    "correctIndex": 0,
-    "hintEn": "The centroid satisfies M_G = (M_A + M_B + M_C)/3. Since line passes through G, M_G = 0 => M_A + M_B + M_C = 0 => 16 - 10 + M_C = 0 => M_C = -6.",
-    "hintAr": "عزم مركز الثقل = (م_أ + م_ب + م_جـ) / 3 = 0 => 16 - 10 + م_جـ = 0 => م_جـ = -6.",
-    "stepByStepSolutionEn": [
-      "1. For the centroid $G$ of any triangle: $M_G = \\frac{1}{3}(M_A + M_B + M_C)$.",
-      "2. Since the line of action passes through $G$, $M_G = 0$.",
-      "3. $16 + (-10) + M_C = 0 \\implies 6 + M_C = 0 \\implies M_C = -6$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. عزم مركز ثقل المثلث = متوسط عزوم رؤوسه الثلاثة.",
-      "٢. مرور القوة بالمركز يعني م_م = 0.",
-      "٣. 16 - 10 + م_جـ = 0 => م_جـ = -6."
-    ],
-    "teacherTipEn": "Centroid moment identity: M_A + M_B + M_C = 3 M_G.",
-    "teacherTipAr": "علاقة مركز ثقل المثلث: مجموع عزوم الرؤوس يساوي 3 أمثال عزم مركز الثقل."
-  },
+  "id": "stat_ch2_db_med_17",
+  "titleEn": "Moments of Forces Along Regular Hexagon Sides",
+  "titleAr": "عزوم قوى تؤثر في أضلاع مسدس منتظم حول مركزه الهندسي",
+  "difficulty": "medium",
+  "questionEn": "Forces of magnitudes $1, 2, 3, 4, 5, 6\\text{ N}$ act along the directed line segments $\\vec{AB}, \\vec{BC}, \\vec{CD}, \\vec{DE}, \\vec{EF}, \\vec{FA}$ of a regular hexagon $ABCDEF$ of side length $a = 10\\text{ cm}$. Find the magnitude of the algebraic sum of moments of these forces about the center $O$ of the hexagon.",
+  "questionAr": "أثرت قوى مقاديرها $١، ٢، ٣، ٤، ٥، ٦\\text{ نيوتن}$ في الاتجاهات $\\vec{AB}، \\vec{BC}، \\vec{CD}، \\vec{DE}، \\vec{EF}، \\vec{FA}$ لأضلاع مسدس منتظم $ABCDEF$ طول ضلعه $a = ١٠\\text{ سم}$. أوجد مقدار المجموع الجبري لعزوم هذه القوى حول مركز المسدس $O$.",
+  "optionsEn": [
+    "$105\\sqrt{3}\\text{ N}\\cdot\\text{cm}$",
+    "$210\\sqrt{3}\\text{ N}\\cdot\\text{cm}$",
+    "$105\\text{ N}\\cdot\\text{cm}$",
+    "$70\\sqrt{3}\\text{ N}\\cdot\\text{cm}$"
+  ],
+  "optionsAr": [
+    "$١٠٥\\sqrt{٣}\\text{ نيوتن}\\cdot\\text{سم}$",
+    "$٢١٠\\sqrt{٣}\\text{ نيوتن}\\cdot\\text{سم}$",
+    "$١٠٥\\text{ نيوتن}\\cdot\\text{سم}$",
+    "$٧٠\\sqrt{٣}\\text{ نيوتن}\\cdot\\text{سم}$"
+  ],
+  "correctAnswer": "$105\\sqrt{3}\\text{ N}\\cdot\\text{cm}$",
+  "correctIndex": 0,
+  "hintEn": "The perpendicular distance from the center O to any side of a regular hexagon of side a is d = a * cos(30) = a * sqrt(3)/2.",
+  "hintAr": "البعد العمودي من مركز المسدس المنتظم إلى أي ضلع يساوي $d = a \\cos(٣٠^\\circ) = a \\frac{\\sqrt{٣}}{٢}$.",
+  "stepByStepSolutionEn": [
+    "1. For a regular hexagon with side $a = 10\\text{ cm}$, the perpendicular distance from the center $O$ to each side is: $d = 10 \\cos(30^\\circ) = 10 \\times \\frac{\\sqrt{3}}{2} = 5\\sqrt{3}\\text{ cm}$.",
+    "2. All six forces act in the same cyclic direction (counter-clockwise), so their moments have the same sign.",
+    "3. Sum of moments: $M_O = (1 + 2 + 3 + 4 + 5 + 6) \\times d = 21 \\times 5\\sqrt{3} = 105\\sqrt{3}\\text{ N}\\cdot\\text{cm}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. في المسدس المنتظم طول ضلعه $١٠\\text{ سم}$، البعد العمودي من المركز $O$ إلى كل ضلع هو: $d = ١٠ \\cos(٣٠^\\circ) = ٥\\sqrt{٣}\\text{ سم}$.",
+    "٢. جميع القوى تدور في ترتيب دوري واحد، وبالتالي تتحد إشارات عزومها حول المركز.",
+    "٣. المجموع الجبري للعزوم: $M_O = (١ + ٢ + ٣ + ٤ + ٥ + ٦) \\times ٥\\sqrt{٣} = ٢١ \\times ٥\\sqrt{٣} = ١٠٥\\sqrt{٣}\\text{ نيوتن}\\cdot\\text{سم}$."
+  ],
+  "teacherTipEn": "Equidistant sides mean you can sum the force magnitudes first, then multiply by the common perpendicular arm.",
+  "teacherTipAr": "تساوي الأبعاد العمودية في المضلعات المنتظمة يتيح جمع مقادير القوى أولاً ثم ضربها في ذراع العزم الموحد."
+},
   {
     "id": "stat_ch2_db_med_18",
     "titleEn": "Collinear Points with Known Distance Ratios",
@@ -3148,41 +3148,41 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipAr": "تأكد من التحويل من سنتيمتر إلى متر عند طلب الناتج بوحدة نيوتن.متر."
   },
   {
-    "id": "stat_ch2_db_med_32",
-    "titleEn": "Moment of Weight of an Open Trapdoor",
-    "titleAr": "عزم وزن باب مسحور مفتوح حول محور المفصلات",
-    "difficulty": "medium",
-    "questionEn": "A uniform rectangular trapdoor of weight $W = 120\\text{ N}$ and width $80\\text{ cm}$ is hinged along one edge. Find the magnitude of the moment of its weight about the hinge axis when the door is held open at an angle of $60^\\circ$ above the horizontal.",
-    "questionAr": "باب مسحور منتظم مستطيل الشكل وزنه $120\\text{ N}$ وعرضه $80\\text{ cm}$ مثبت بمفصلات على طول أحد حوافه. أوجد مقدار عزم وزنه حول محور المفصلات عندما يُفتح الباب بزاوية $60^\\circ$ فوق الأفقي.",
-    "optionsEn": [
-      "$24\\text{ N}\\cdot\\text{m}$",
-      "$48\\text{ N}\\cdot\\text{m}$",
-      "$24\\sqrt{3}\\text{ N}\\cdot\\text{m}$",
-      "$48\\sqrt{3}\\text{ N}\\cdot\\text{m}$"
-    ],
-    "optionsAr": [
-      "24 ن.م",
-      "48 ن.م",
-      "24 جذر(3) ن.م",
-      "48 جذر(3) ن.م"
-    ],
-    "correctAnswer": "$24\\text{ N}\\cdot\\text{m}$",
-    "correctIndex": 0,
-    "hintEn": "Weight acts at the center of gravity (half the width: $40\\text{ cm}$). Perpendicular horizontal distance is $d = 0.40 \\cos 60^\\circ$.",
-    "hintAr": "يؤثر الوزن في مركز الثقل (نصف العرض = 40 سم). البعد الأفقي العمودي هو $0.40 \\cos 60^\\circ$.",
-    "stepByStepSolutionEn": [
-      "1. For a uniform door of width $b = 0.8\\text{ m}$, the center of gravity is at distance $0.4\\text{ m}$ from the hinge axis.",
-      "2. When inclined at $60^\\circ$ to the horizontal, the horizontal perpendicular distance from the hinge to the line of action of the vertical weight is $d = 0.4 \\cos 60^\\circ = 0.4 \\times 0.5 = 0.2\\text{ m}$.",
-      "3. Magnitude of the moment: $M = W \\times d = 120 \\times 0.2 = 24\\text{ N}\\cdot\\text{m}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. يؤثر الوزن رأسياً لأسفل عند منتصف العرض، على بعد $0.4$ م من محور المفصلة.",
-      "٢. البعد الأفقي العمودي لخط عمل الوزن = $0.4 \\cos 60^\\circ = 0.2$ م.",
-      "٣. مقدار العزم = $120 \\times 0.2 = 24$ ن.م."
-    ],
-    "teacherTipEn": "Weight acts at the center of gravity, which is at the midpoint of the width for a uniform lamina.",
-    "teacherTipAr": "يؤثر الوزن في مركز ثقل اللوح المنتظم، وهو منتصف المسافة بين الحافتين."
-  },
+  "id": "stat_ch2_db_med_32",
+  "titleEn": "3D Moment of Force Vector About a Given Point",
+  "titleAr": "عزم قوة ثلاثية الأبعاد حول نقطة معلومة في الفراغ",
+  "difficulty": "medium",
+  "questionEn": "A force $\\vec{F} = 3\\vec{i} - 2\\vec{j} + 5\\vec{k}$ acts at point $A(1, 2, -1)$. Find the vector moment $\\vec{M}_B$ of the force about point $B(2, 0, 3)$.",
+  "questionAr": "تؤثر القوة $\\vec{F} = ٣\\vec{i} - ٢\\vec{j} + ٥\\vec{k}$ في النقطة $A(١، ٢، -١)$. أوجد متجه عزم القوة $\\vec{M}_B$ حول النقطة $B(٢، ٠، ٣)$.",
+  "optionsEn": [
+    "$\\vec{M}_B = 2\\vec{i} - 7\\vec{j} - 4\\vec{k}$",
+    "$\\vec{M}_B = -2\\vec{i} + 7\\vec{j} + 4\\vec{k}$",
+    "$\\vec{M}_B = 2\\vec{i} + 7\\vec{j} - 4\\vec{k}$",
+    "$\\vec{M}_B = 6\\vec{i} - 5\\vec{j} + 2\\vec{k}$"
+  ],
+  "optionsAr": [
+    "$\\vec{M}_B = ٢\\vec{i} - ٧\\vec{j} - ٤\\vec{k}$",
+    "$\\vec{M}_B = -٢\\vec{i} + ٧\\vec{j} + ٤\\vec{k}$",
+    "$\\vec{M}_B = ٢\\vec{i} + ٧\\vec{j} - ٤\\vec{k}$",
+    "$\\vec{M}_B = ٦\\vec{i} - ٥\\vec{j} + ٢\\vec{k}$"
+  ],
+  "correctAnswer": "$\\vec{M}_B = 2\\vec{i} - 7\\vec{j} - 4\\vec{k}$",
+  "correctIndex": 0,
+  "hintEn": "Position vector is r = BA = A - B. Then compute M_B = r x F using determinant expansion.",
+  "hintAr": "متجه الموضع هو $\\vec{r} = \\vec{BA} = A - B$. ثم احسب $\\vec{M}_B = \\vec{r} \\times \\vec{F}$ بواسطة مفكوك المحدد.",
+  "stepByStepSolutionEn": [
+    "1. Vector from moment center $B$ to action point $A$: $\\vec{r} = \\vec{BA} = A - B = (1 - 2, 2 - 0, -1 - 3) = (-1, 2, -4)$.",
+    "2. Cross product $\\vec{M}_B = \\vec{r} \\times \\vec{F} = \\det\\begin{pmatrix}\\vec{i} & \\vec{j} & \\vec{k} \\\\ -1 & 2 & -4 \\\\ 3 & -2 & 5\\end{pmatrix}$.",
+    "3. Component calculations: $\\vec{i}(10 - 8) - \\vec{j}(-5 - (-12)) + \\vec{k}(2 - 6) = 2\\vec{i} - 7\\vec{j} - 4\\vec{k}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. متجه الموضع من مركز العزم $B$ إلى نقطة التأثير $A$: $\\vec{r} = \\vec{BA} = A - B = (-١، ٢، -٤)$.",
+    "٢. الضرب الاتجاهي $\\vec{M}_B = \\vec{r} \\times \\vec{F} = \\det\\begin{pmatrix}\\vec{i} & \\vec{j} & \\vec{k} \\\\ -١ & ٢ & -٤ \\\\ ٣ & -٢ & ٥\\end{pmatrix}$.",
+    "٣. حساب المركبات: $\\vec{i}(١٠ - ٨) - \\vec{j}(-٥ + ١٢) + \\vec{k}(٢ - ٦) = ٢\\vec{i} - ٧\\vec{j} - ٤\\vec{k}$."
+  ],
+  "teacherTipEn": "Always be careful: r is BA = A - B (target minus origin of moment), never B - A.",
+  "teacherTipAr": "انتبه دائماً: متجه الموضع هو نقطة التأثير ناقص مركز العزم (A - B) وليس العكس."
+},
   {
     "id": "stat_ch2_db_med_33",
     "titleEn": "Determining Unknown Force Parameter from Axis Moment",
@@ -3809,41 +3809,45 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipAr": "عزم الحمل المثلثي حول طرف القاعدة يُحسب بالقاعدة: $M = \\frac{w_0 L^2}{6}$."
   },
   {
-    "id": "stat_ch2_db_med_50",
-    "titleEn": "Circular Arc Wire Suspended at One Tip",
-    "titleAr": "عزم وزن سلك على شكل قوس دائري معلق من أحد طرفيه",
-    "difficulty": "medium",
-    "questionEn": "A uniform wire bent into a semicircular arc of radius $R = 14\\text{ cm}$ has weight $W = 22\\text{ N}$. It is suspended freely from one tip $A$. If the diameter line through $A$ is horizontal, what is the horizontal distance from $A$ to the line of action of the weight?",
-    "questionAr": "سلك منتظم مشكّل على هيئة نصف دائرة نصف قطرها $14\\text{ cm}$ ووزنه $22\\text{ N}$. عُلق تعليقاً حراً من أحد طرفيه $A$. إذا كان خط القطر المار بالنقطة $A$ أفقياً، فما البعد الأفقي من $A$ إلى خط عمل الوزن؟",
-    "optionsEn": [
-      "$14\\text{ cm}$",
-      "$8.91\\text{ cm}$",
-      "$7\\text{ cm}$",
-      "$0\\text{ cm}$"
-    ],
-    "optionsAr": [
-      "14 سم",
-      "8.91 سم",
-      "7 سم",
-      "0 سم"
-    ],
-    "correctAnswer": "$14\\text{ cm}$",
-    "correctIndex": 0,
-    "hintEn": "By symmetry, the center of gravity of a semicircular arc lies on the axis of symmetry, which is at distance $R$ horizontally from the diameter end.",
-    "hintAr": "بالتماثل، يقع مركز ثقل القوس نصف الدائري على محور التماثل الرأسي، والذي يبعد مسافة نق أفقياً عن طرف القطر.",
-    "stepByStepSolutionEn": [
-      "1. A semicircle has its axis of symmetry passing through the center of the circle $O$.",
-      "2. The horizontal distance from tip $A$ to the center of the circle $O$ is the radius $R = 14\\text{ cm}$.",
-      "3. Because the center of gravity lies on this perpendicular line, its horizontal distance from $A$ is exactly $14\\text{ cm}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. يقع مركز ثقل القوس نصف الدائري على محور تماثله المنصف للقطر.",
-      "٢. المسافة الأفقية من الطرف $A$ إلى محور التماثل المار بالمركز هي نصف القطر نق = 14 سم.",
-      "٣. إذن البعد الأفقي لخط عمل الوزن عن نقطة التعليق $A$ يساوي 14 سم."
-    ],
-    "teacherTipEn": "Horizontal position of the center of gravity depends only on symmetry along the horizontal axis.",
-    "teacherTipAr": "الموضع الأفقي لمركز ثقل القوس المتماثل يتحدد مباشرة بمحور التماثل المار بمركز الدائرة."
-  },
+  "id": "stat_ch2_db_med_50",
+  "titleEn": "Perpendicular Distance from Origin to 3D Line of Action",
+  "titleAr": "طول العمود الساقط من نقطة الأصل على خط عمل قوة في الفراغ",
+  "difficulty": "medium",
+  "questionEn": "A force $\\vec{F} = 2\\vec{i} - \\vec{j} + 2\\vec{k}$ acts at point $A(3, 1, -2)$. Find the perpendicular distance $L$ from the origin $O(0, 0, 0)$ to the line of action of $\\vec{F}$.",
+  "questionAr": "تؤثر القوة $\\vec{F} = ٢\\vec{i} - \\vec{j} + ٢\\vec{k}$ في النقطة $A(٣، ١، -٢)$. احسب طول العمود $L$ الساقط من نقطة الأصل $O(٠، ٠، ٠)$ على خط عمل القوة $\\vec{F}$.",
+  "optionsEn": [
+    "$L = \\frac{5\\sqrt{5}}{3}\\text{ length units}$",
+    "$L = 5\\text{ length units}$",
+    "$L = \\frac{\\sqrt{125}}{2}\\text{ length units}$",
+    "$L = \\frac{10}{3}\\text{ length units}$"
+  ],
+  "optionsAr": [
+    "$L = \\frac{٥\\sqrt{٥}}{٣}\\text{ وحدة طول}$",
+    "$L = ٥\\text{ وحدة طول}$",
+    "$L = \\frac{\\sqrt{١٢٥}}{٢}\\text{ وحدة طول}$",
+    "$L = \\frac{١٠}{٣}\\text{ وحدة طول}$"
+  ],
+  "correctAnswer": "$L = \\frac{5\\sqrt{5}}{3}\\text{ length units}$",
+  "correctIndex": 0,
+  "hintEn": "Perpendicular arm length is L = ||M_O|| / ||F||.",
+  "hintAr": "طول العمود الساقط يساوي معيار العزم مقسوماً على معيار القوة: $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|}$.",
+  "stepByStepSolutionEn": [
+    "1. Moment about origin: $\\vec{r} = \\vec{OA} = (3, 1, -2)$.",
+    "2. $\\vec{M}_O = \\vec{r} \\times \\vec{F} = \\det\\begin{pmatrix}\\vec{i} & \\vec{j} & \\vec{k} \\\\ 3 & 1 & -2 \\\\ 2 & -1 & 2\\end{pmatrix} = \\vec{i}(2 - 2) - \\vec{j}(6 - (-4)) + \\vec{k}(-3 - 2) = (0, -10, -5)$.",
+    "3. Magnitude of moment: $\\|\\vec{M}_O\\| = \\sqrt{0^2 + (-10)^2 + (-5)^2} = \\sqrt{100 + 25} = \\sqrt{125} = 5\\sqrt{5}$.",
+    "4. Magnitude of force: $\\|\\vec{F}\\| = \\sqrt{2^2 + (-1)^2 + 2^2} = \\sqrt{4 + 1 + 4} = \\sqrt{9} = 3$.",
+    "5. Perpendicular distance: $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|} = \\frac{5\\sqrt{5}}{3}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. متجه الموضع بالنسبة لنقطة الأصل: $\\vec{r} = (٣، ١، -٢)$.",
+    "٢. متجه العزم: $\\vec{M}_O = \\vec{r} \\times \\vec{F} = (٠، -١٠، -٥)$.",
+    "٣. معيار العزم: $\\|\\vec{M}_O\\| = \\sqrt{١٠٠ + ٢٥} = \\sqrt{١٢٥} = ٥\\sqrt{٥}$.",
+    "٤. معيار القوة: $\\|\\vec{F}\\| = \\sqrt{٤ + ١ + ٤} = ٣$.",
+    "٥. طول العمود الساقط: $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|} = \\frac{٥\\sqrt{٥}}{٣}$ وحدة طول."
+  ],
+  "teacherTipEn": "Perpendicular distance formula L = ||M|| / ||F|| is the 3D equivalent of torque arm d = M / F.",
+  "teacherTipAr": "قانون طول العمود L = معيار العزم / معيار القوة هو التعميم الفراغي الثلاثي الأبعاد لذراع القوة."
+},
   {
     "id": "stat_ch2_db_med_51",
     "titleEn": "Line of Action Equation from Moment Values",
@@ -4703,44 +4707,41 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipAr": "العزم حول محور هو كمية قياسية تعبر عن ميل القوة لإحداث دوران حول هذا المحور تحديداً."
   },
   {
-    "id": "stat_ch2_db_hots_15",
-    "titleEn": "Moment of Normal Force on Triangular Lamina About Hypotenuse",
-    "titleAr": "عزم قوة عمودية على صفيحة مثلثة حول وترها",
-    "difficulty": "hots",
-    "questionEn": "A triangular lamina $OAB$ lies in the xy-plane with vertices $O(0, 0, 0)$, $A(6, 0, 0)\\text{ m}$, and $B(0, 8, 0)\\text{ m}$. A perpendicular force $\\vec{F} = 30\\hat{k}\\text{ N}$ acts at the centroid $G$ of the triangle. Find the magnitude of the moment of $\\vec{F}$ about the hypotenuse line $AB$.",
-    "questionAr": "صفيحة مثلثة $OAB$ تقع في المستوى س ص ورؤوسها $O(0, 0, 0)$ و $A(6, 0, 0)\\text{ m}$ و $B(0, 8, 0)\\text{ m}$. تؤثر قوة عمودية $\\vec{F} = 30\\hat{k}$ نيوتن عند مركز ثقل المثلث $G$. أوجد معيار عزم القوة حول خط الوتر $AB$.",
-    "optionsEn": [
-      "$48\\text{ N}\\cdot\\text{m}$",
-      "$144\\text{ N}\\cdot\\text{m}$",
-      "$72\\text{ N}\\cdot\\text{m}$",
-      "$24\\text{ N}\\cdot\\text{m}$"
-    ],
-    "optionsAr": [
-      "48 ن.م",
-      "144 ن.م",
-      "72 ن.م",
-      "24 ن.م"
-    ],
-    "correctAnswer": "$48\\text{ N}\\cdot\\text{m}$",
-    "correctIndex": 0,
-    "hintEn": "The centroid $G$ is at distance $\\frac{1}{3} d_O$ from the hypotenuse, where $d_O$ is the perpendicular from $O$ to $AB$. Then $M = F \\cdot d_G$.",
-    "hintAr": "يبعد مركز الثقل ثلث المسافة العمودية الساقطة من الرأس $O$ على الوتر، فيكون العزم مساوياً للقوة × هذا البعد.",
-    "stepByStepSolutionEn": [
-      "1. In right triangle $OAB$, hypotenuse $AB = \\sqrt{6^2 + 8^2} = 10\\text{ m}$.",
-      "2. The altitude from $O$ to hypotenuse $AB$ is $h = \\frac{OA \\times OB}{AB} = \\frac{6 \\times 8}{10} = 4.8\\text{ m}$.",
-      "3. The centroid $G$ of a triangle divides every median in the ratio $2:1$, so its perpendicular distance to any side is one-third of the altitude to that side: $d_G = \\frac{h}{3} = \\frac{4.8}{3} = 1.6\\text{ m}$.",
-      "4. Since $\\vec{F}$ is directed along the z-axis (perpendicular to the plane), the lever arm to line $AB$ is simply $d_G = 1.6\\text{ m}$.",
-      "5. Moment magnitude: $M = F \\times d_G = 30 \\times 1.6 = 48\\text{ N}\\cdot\\text{m}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. طول الوتر $AB = 10$ أمتار.",
-      "٢. الارتفاع الساقط من $O$ على الوتر = $(6 \\times 8) / 10 = 4.8$ م.",
-      "٣. بعد مركز الثقل $G$ عن أي ضلع يساوي ثلث الارتفاع المناظر: $d = 4.8 / 3 = 1.6$ م.",
-      "٤. معيار العزم حول الوتر = $30 \\times 1.6 = 48$ ن.م."
-    ],
-    "teacherTipEn": "For any triangle, the perpendicular distance from the centroid to any side is always $\\frac{1}{3}$ of the altitude to that side.",
-    "teacherTipAr": "في أي مثلث، يبعد مركز الثقل عن أي ضلع مسافة تساوي ثلث الارتفاع الساقط على ذلك الضلع."
-  },
+  "id": "stat_ch2_db_hots_15",
+  "titleEn": "Vanishing Difference of Moments and Line of Action",
+  "titleAr": "تساوي العزوم عند نقطتين وخط عمل المحصلة",
+  "difficulty": "hots",
+  "questionEn": "For a system of coplanar forces, the algebraic sum of moments about point $A$ is $M_A = 24\\text{ N}\\cdot\\text{cm}$ and about point $B$ is $M_B = 24\\text{ N}\\cdot\\text{cm}$. About a third point $C$, the algebraic sum of moments is $M_C = -24\\text{ N}\\cdot\\text{cm}$. What is the geometric relationship between the line of action of the resultant $\\vec{R}$ and the line segments $AB$ and $BC$?",
+  "questionAr": "لمجموعة قوى مستوية، المجموع الجبري للعزوم حول النقطة $A$ هو $M_A = ٢٤\\text{ نيوتن}\\cdot\\text{سم}$، وحول النقطة $B$ هو $M_B = ٢٤\\text{ نيوتن}\\cdot\\text{سم}$، وحول النقطة $C$ هو $M_C = -٢٤\\text{ نيوتن}\\cdot\\text{سم}$. ما العلاقة الهندسية بين خط عمل المحصلة $\\vec{R}$ والقطعتين المستقيمتين $AB$ و $BC$؟",
+  "optionsEn": [
+    "The line of action of $\\vec{R}$ is parallel to $AB$ and bisects $BC$",
+    "The line of action of $\\vec{R}$ is perpendicular to $AB$ and contains $C$",
+    "The line of action of $\\vec{R}$ passes through both $A$ and $B$",
+    "The line of action of $\\vec{R}$ bisects $AB$ and is parallel to $BC$"
+  ],
+  "optionsAr": [
+    "خط عمل المحصلة يوازي القطعة $AB$ وينصف القطعة $BC$",
+    "خط عمل المحصلة عمودي على $AB$ ويمر بالنقطة $C$",
+    "خط عمل المحصلة يمر بالنقطتين $A$ و $B$ معاً",
+    "خط عمل المحصلة ينصف القطعة $AB$ ويوازي $BC$"
+  ],
+  "correctAnswer": "The line of action of $\\vec{R}$ is parallel to $AB$ and bisects $BC$",
+  "correctIndex": 0,
+  "hintEn": "M_A = M_B implies parallelism; M_B = -M_C implies bisection of the segment connecting B and C.",
+  "hintAr": "تساوي العزمين $M_A = M_B$ يدل على التوازي؛ وتعكس الإشارتين $M_B = -M_C$ يدل على تنصيف القطعة المستقيمة $BC$.",
+  "stepByStepSolutionEn": [
+    "1. Since $M_A = M_B = 24 \\neq 0$, the line of action of the resultant $\\vec{R}$ is parallel to the straight line $AB$.",
+    "2. Since $M_B = -M_C$ (i.e. $M_B + M_C = 0$), the line of action of $\\vec{R}$ passes through the midpoint of the line segment $BC$ (bisects $BC$).",
+    "3. Therefore, the line of action of $\\vec{R}$ is parallel to $AB$ and bisects $BC$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. بما أن $M_A = M_B = ٢٤ \\neq ٠$، فإن خط عمل المحصلة $\\vec{R}$ يوازي الخط المستقيم $AB$.",
+    "٢. بما أن $M_B = -M_C$ (أي $M_B + M_C = ٠$)، فإن خط عمل المحصلة ينصف القطعة المستقيمة $BC$.",
+    "٣. إذن خط عمل المحصلة يوازي $AB$ وينصف $BC$."
+  ],
+  "teacherTipEn": "Core Thanaweya theorem: M_A = M_B implies R || AB, and M_A = -M_B implies R bisects AB.",
+  "teacherTipAr": "نظرية أساسية في الاستاتيكا: تساوي العزمين يعني موازاة خط عمل المحصلة، وتعاكس الإشارة يعني تنصيف القطعة."
+},
   {
     "id": "stat_ch2_db_hots_16",
     "titleEn": "Moment of Edge Force in a Regular Tetrahedron About an Axis",
@@ -5084,44 +5085,45 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipAr": "عزوم الازدواجات كميات حرة يمكن جمعها جبرياً مباشرة عندما تقع في نفس المستوى."
   },
   {
-    "id": "stat_ch2_db_hots_25",
-    "titleEn": "Balancing a Non-Uniform Rod with Added Suspended Weight",
-    "titleAr": "اتزان ساق غير منتظمة بتعليق ثقل إضافي",
-    "difficulty": "hots",
-    "questionEn": "A non-uniform rod $AB$ of length $L = 100\\text{ cm}$ and weight $W = 60\\text{ N}$ has its center of gravity at distance $x$ from end $A$. The rod rests horizontally on a knife-edge support at $C$ ($AC = 40\\text{ cm}$) when a particle of weight $30\\text{ N}$ is suspended from end $A$. Find the distance $x$.",
-    "questionAr": "ساق غير منتظمة $AB$ طولها $100\\text{ cm}$ ووزنها $60\\text{ N}$ يؤثر في مركز ثقل يبعد مسافة $x$ عن الطرف $A$. تتزن الساق أفقياً على ركيزة عند النقطة $C$ ($AC = 40\\text{ cm}$) عند تعليق ثقل مقداره $30\\text{ N}$ عند الطرف $A$. أوجد المسافة $x$.",
-    "optionsEn": [
-      "$60\\text{ cm}$",
-      "$50\\text{ cm}$",
-      "$55\\text{ cm}$",
-      "$70\\text{ cm}$"
-    ],
-    "optionsAr": [
-      "60 سم",
-      "50 سم",
-      "55 سم",
-      "70 سم"
-    ],
-    "correctAnswer": "$60\\text{ cm}$",
-    "correctIndex": 0,
-    "hintEn": "Take moments about the support $C$: $\\sum M_C = 0$.",
-    "hintAr": "خذ مجموع العزوم حول نقطة الارتكاز $C$ وساوه بالصفر.",
-    "stepByStepSolutionEn": [
-      "1. Knife-edge support is at $C$, so $AC = 40\\text{ cm}$.",
-      "2. The suspended weight of $30\\text{ N}$ is at $A$, distance $40\\text{ cm}$ to the left of $C$. Counterclockwise moment: $30 \\times 40 = 1200\\text{ N}\\cdot\\text{cm}$.",
-      "3. The weight of the rod $60\\text{ N}$ acts at distance $x$ from $A$, which is distance $(x - 40)\\text{ cm}$ to the right of $C$.",
-      "4. Clockwise moment: $60 \\times (x - 40)$.",
-      "5. For equilibrium: $60(x - 40) = 1200 \\implies x - 40 = 20 \\implies x = 60\\text{ cm}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. الركيزة عند $C$ على بعد 40 سم من $A$.",
-      "٢. عزم الثقل المعلق عند $A$ حول $C$ = $30 \\times 40 = 1200$ ن.سم.",
-      "٣. وزن الساق 60 نيوتن يبعد مسافة $(x - 40)$ عن الركيزة $C$.",
-      "٤. بمساواة العزوم: $60 (x - 40) = 1200 \\implies x - 40 = 20 \\implies x = 60$ سم."
-    ],
-    "teacherTipEn": "Taking moments about the unknown support reaction eliminates that reaction immediately.",
-    "teacherTipAr": "أخذ العزوم حول نقطة الارتكاز يلغي رد الفعل المجهول فوراً ويحل المسألة في سطر واحد."
-  },
+  "id": "stat_ch2_db_hots_25",
+  "titleEn": "Unit Vector of 3D Moment Vector",
+  "titleAr": "متجه الوحدة في اتجاه متجه عزم قوة في الفراغ",
+  "difficulty": "hots",
+  "questionEn": "A force $\\vec{F} = 4\\vec{i} + 3\\vec{k}$ acts at point $A(0, 5, 0)$. Find the unit vector in the direction of the moment vector $\\vec{M}_O$ of the force about the origin.",
+  "questionAr": "تؤثر القوة $\\vec{F} = ٤\\vec{i} + ٣\\vec{k}$ في النقطة $A(٠، ٥، ٠)$. أوجد متجه الوحدة في اتجاه متجه العزم $\\vec{M}_O$ للقوة حول نقطة الأصل.",
+  "optionsEn": [
+    "$\\vec{u} = \\frac{3}{5}\\vec{i} - \\frac{4}{5}\\vec{k}$",
+    "$\\vec{u} = \\frac{4}{5}\\vec{i} + \\frac{3}{5}\\vec{k}$",
+    "$\\vec{u} = -\\frac{3}{5}\\vec{i} + \\frac{4}{5}\\vec{k}$",
+    "$\\vec{u} = \\frac{3}{5}\\vec{j} - \\frac{4}{5}\\vec{k}$"
+  ],
+  "optionsAr": [
+    "$\\vec{u} = \\frac{٣}{٥}\\vec{i} - \\frac{٤}{٥}\\vec{k}$",
+    "$\\vec{u} = \\frac{٤}{٥}\\vec{i} + \\frac{٣}{٥}\\vec{k}$",
+    "$\\vec{u} = -\\frac{٣}{٥}\\vec{i} + \\frac{٤}{٥}\\vec{k}$",
+    "$\\vec{u} = \\frac{٣}{٥}\\vec{j} - \\frac{٤}{٥}\\vec{k}$"
+  ],
+  "correctAnswer": "$\\vec{u} = \\frac{3}{5}\\vec{i} - \\frac{4}{5}\\vec{k}$",
+  "correctIndex": 0,
+  "hintEn": "Find M_O = r x F, then divide by its magnitude ||M_O||.",
+  "hintAr": "احسب متجه العزم $\\vec{M}_O = \\vec{r} \\times \\vec{F}$ ثم اقسم على معياره $\\|\\vec{M}_O\\|$.",
+  "stepByStepSolutionEn": [
+    "1. Position vector: $\\vec{r} = \\vec{OA} = (0, 5, 0)$.",
+    "2. Force vector: $\\vec{F} = (4, 0, 3)$.",
+    "3. Cross product: $\\vec{M}_O = \\vec{r} \\times \\vec{F} = \\det\\begin{pmatrix}\\vec{i}&\\vec{j}&\\vec{k}\\\\0&5&0\\\\4&0&3\\end{pmatrix} = \\vec{i}(15 - 0) - \\vec{j}(0 - 0) + \\vec{k}(0 - 20) = 15\\vec{i} - 20\\vec{k}$.",
+    "4. Magnitude: $\\|\\vec{M}_O\\| = \\sqrt{15^2 + (-20)^2} = \\sqrt{225 + 400} = \\sqrt{625} = 25$.",
+    "5. Unit vector: $\\vec{u} = \\frac{\\vec{M}_O}{25} = \\frac{15}{25}\\vec{i} - \\frac{20}{25}\\vec{k} = \\frac{3}{5}\\vec{i} - \\frac{4}{5}\\vec{k}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. متجه الموضع: $\\vec{r} = (٠، ٥، ٠)$.",
+    "٢. متجه القوة: $\\vec{F} = (٤، ٠، ٣)$.",
+    "٣. متجه العزم: $\\vec{M}_O = \\vec{r} \\times \\vec{F} = ١٥\\vec{i} - ٢٠\\vec{k}$.",
+    "٤. معيار العزم: $\\|\\vec{M}_O\\| = \\sqrt{٢٢٥ + ٤٠٠} = ٢٥$.",
+    "٥. متجه الوحدة: $\\vec{u} = \\frac{١٥}{٢٥}\\vec{i} - \\frac{٢٠}{٢٥}\\vec{k} = \\frac{٣}{٥}\\vec{i} - \\frac{٤}{٥}\\vec{k}$."
+  ],
+  "teacherTipEn": "The unit vector of a moment gives its direction cosines (cos alpha, cos beta, cos gamma) in space.",
+  "teacherTipAr": "متجه الوحدة للعزم يمثل مباشرة جيوب تمام زوايا اتجاه متجه العزم في الفراغ."
+},
   {
     "id": "stat_ch2_db_hots_26",
     "titleEn": "Moment of Force at 45 Degrees on Articulated L-Frame",
@@ -5614,44 +5616,48 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipEn": "By vertical equilibrium $\\sum F_y = 0$, the reaction at $A$ is $R_A = 36 - 24 = 12\\text{ kN}$, exactly half of $R_B$.",
     "teacherTipAr": "من اتزان القوى الرأسية، رد فعل الركيزة $A$ يساوي $36 - 24 = 12$ كيلو نيوتن، أي نصف رد فعل الركيزة $B$ تماماً."
   },
-  {
-    "id": "stat_ch2_db_hots_39",
-    "titleEn": "Limiting Angle of Ladder on Rough Floor and Rough Wall",
-    "titleAr": "زاوية ميل سلم على وشك الانزلاق بين أرض وحائط خشنين",
-    "difficulty": "hots",
-    "questionEn": "A uniform ladder rests with its foot on a rough horizontal floor and top against a rough vertical wall, with identical coefficient of static friction $\\mu = \\frac{1}{\\sqrt{3}}$ at both contact surfaces. When the ladder is on the verge of slipping down, its inclination $\\theta$ to the horizontal satisfies $\\tan\\theta = \\frac{1 - \\mu^2}{2\\mu}$. What is the value of $\\theta$?",
-    "questionAr": "سلم منتظم يستند بقاعدته على أرضية أفقية خشنة وبطرفه العلوي على حائط رأسي خشن، ومعامل الاحتكاك السكوني متساوٍ عند السطحين ويساوي $\\mu = \\frac{1}{\\sqrt{3}}$. عندما يكون السلم على وشك الانزلاق لأسفل، فإن زاوية ميله $\\theta$ على الأفقي تحقق $\\tan\\theta = \\frac{1 - \\mu^2}{2\\mu}$. ما قياس الزاوية $\\theta$؟",
-    "optionsEn": [
-      "$30^\\circ$",
-      "$45^\\circ$",
-      "$60^\\circ$",
-      "$15^\\circ$"
-    ],
-    "optionsAr": [
-      "30 درجة",
-      "45 درجة",
-      "60 درجة",
-      "15 درجة"
-    ],
-    "correctAnswer": "$30^\\circ$",
-    "correctIndex": 0,
-    "hintEn": "Substitute $\\mu = \\frac{1}{\\sqrt{3}}$ into $\\tan\\theta = \\frac{1 - \\mu^2}{2\\mu}$.",
-    "hintAr": "عوض بقيمة معامل الاحتكاك في صيغة ظل زاوية الاتزان الحرج.",
-    "stepByStepSolutionEn": [
-      "1. Compute numerator: $1 - \\mu^2 = 1 - \\left(\\frac{1}{\\sqrt{3}}\\right)^2 = 1 - \\frac{1}{3} = \\frac{2}{3}$.",
-      "2. Compute denominator: $2\\mu = 2 \\times \\frac{1}{\\sqrt{3}} = \\frac{2}{\\sqrt{3}}$.",
-      "3. Tangent of limiting angle: $\\tan\\theta = \\frac{2/3}{2/\\sqrt{3}} = \\frac{\\sqrt{3}}{3} = \\frac{1}{\\sqrt{3}}$.",
-      "4. Therefore, $\\theta = \\arctan\\left(\\frac{1}{\\sqrt{3}}\\right) = 30^\\circ$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. البسط: $1 - (1/3) = 2/3$.",
-      "٢. المقام: $2 / \\sqrt{3}$.",
-      "٣. ظل الزاوية: $\\tan\\theta = \\frac{2/3}{2/\\sqrt{3}} = \\frac{1}{\\sqrt{3}}$.",
-      "٤. إذن $\\theta = 30^\\circ$."
-    ],
-    "teacherTipEn": "For equal friction $\\mu$ at floor and wall, the limiting inclination is directly related to the friction angle $\\lambda$ by $\\theta = 90^\\circ - 2\\lambda$.",
-    "teacherTipAr": "عند تساوي معاملي الاحتكاك، ترتبط زاوية الميل الحرجة بزاوية الاحتكاك بالعلاقة: $\\theta = 90^\\circ - 2\\lambda$ حيث $\\lambda = 30^\\circ$."
-  },
+    {
+        "id": "stat_ch2_db_hots_39",
+        "titleEn": "Component of Moment Vector About a Coordinate Axis in 3D",
+        "titleAr": "مركبة متجه العزم حول أحد محاور الإحداثيات في الفراغ",
+        "difficulty": "hots",
+        "questionEn": "A force $\\vec{F} = (2, -3, 4)\\text{ N}$ acts at the point $A(1, 2, -1)$. Find the component of the moment of $\\vec{F}$ about the $y$-axis.",
+        "questionAr": "تؤثر القوة $\\vec{F} = (2, -3, 4)$ نيوتن في النقطة $A(1, 2, -1)$. أوجد مركبة عزم القوة حول محور الصادات ($y$-axis).",
+        "optionsEn": [
+            "$-6\\text{ N}\\cdot\\text{m}$",
+            "$6\\text{ N}\\cdot\\text{m}$",
+            "$-7\\text{ N}\\cdot\\text{m}$",
+            "$5\\text{ N}\\cdot\\text{m}$"
+        ],
+        "optionsAr": [
+            "-6 نيوتن · متر",
+            "6 نيوتن · متر",
+            "-7 نيوتن · متر",
+            "5 نيوتن · متر"
+        ],
+        "correctAnswer": "$-6\\text{ N}\\cdot\\text{m}$",
+        "correctIndex": 0,
+        "hintEn": "The moment about the origin is $\\vec{M}_O = \\vec{r} \\times \\vec{F}$. The component around the $y$-axis is $M_y = z F_x - x F_z$.",
+        "hintAr": "العزم حول نقطة الأصل هو $\\vec{M}_O = \\vec{r} \\times \\vec{F}$، ومركبة العزم حول محور الصادات هي $M_y = z F_x - x F_z$.",
+        "stepByStepSolutionEn": [
+            "1. Identify the position vector $\\vec{r} = \\vec{OA} = (1, 2, -1)$ and force vector $\\vec{F} = (2, -3, 4)$.",
+            "2. Set up the determinant for the moment about the origin $\\vec{M}_O = \\vec{r} \\times \\vec{F}$:",
+            "   $\\vec{M}_O = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 2 & -1 \\\\ 2 & -3 & 4 \\end{vmatrix}$.",
+            "3. Compute the $\\vec{j}$ component (which corresponds to rotation about the $y$-axis):",
+            "   $M_y = -\\left((1)(4) - (-1)(2)\\right) = -(4 + 2) = -6\\text{ N}\\cdot\\text{m}$.",
+            "4. Alternatively, use the direct formula $M_y = z F_x - x F_z = (-1)(2) - (1)(4) = -2 - 4 = -6\\text{ N}\\cdot\\text{m}$."
+        ],
+        "stepByStepSolutionAr": [
+            "١. متجه موضع نقطة التأثير هو $\\vec{r} = (1, 2, -1)$ ومتجه القوة $\\vec{F} = (2, -3, 4)$.",
+            "٢. عزم القوة حول نقطة الأصل يُعطى بالمحدد: $\\vec{M}_O = \\vec{r} \\times \\vec{F}$:",
+            "   $\\vec{M}_O = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 1 & 2 & -1 \\\\ 2 & -3 & 4 \\end{vmatrix}$.",
+            "٣. احسب مركبة العزم في اتجاه محور الصادات $\\vec{j}$:",
+            "   $M_y = -\\left((1)(4) - (-1)(2)\\right) = -(4 + 2) = -6$ نيوتن · متر.",
+            "٤. أو بالقانون المباشر لمركبة العزم حول محور الصادات: $M_y = z F_x - x F_z = (-1)(2) - (1)(4) = -6$ نيوتن · متر."
+        ],
+        "teacherTipEn": "Remember the cyclic permutation signs for 3D moments about axes: $M_x = y F_z - z F_y$, $M_y = z F_x - x F_z$, $M_z = x F_y - y F_x$.",
+        "teacherTipAr": "تذكر الترتيب الدوري لمركبات العزم حول المحاور الثلاثة: $M_x = y F_z - z F_y$، $M_y = z F_x - x F_z$، $M_z = x F_y - y F_x$."
+    },
   {
     "id": "stat_ch2_db_hots_40",
     "titleEn": "Normal Reaction of a Smooth Peg on an Inclined Rod",
@@ -5915,84 +5921,79 @@ export const statCh2Databank: ChapterDatabank = {
     "teacherTipAr": "الأعداد (3، 4، 12، 13) تمثل رباعية فيثاغورس الشهيرة في الفراغ."
   },
   {
-    "id": "stat_ch2_db_hots_47",
-    "titleEn": "Shift in Center of Gravity of Disc with Circular Hole",
-    "titleAr": "إزاحة مركز ثقل قرص دائري مقتطع منه ثقب دائري",
-    "difficulty": "hots",
-    "questionEn": "A uniform circular disc of radius $R = 12\\text{ cm}$ has a circular hole of radius $r = 6\\text{ cm}$ cut out, which is tangent to the outer rim of the disc. What is the distance by which the center of gravity of the remaining lamina shifts from the original center of the disc?",
-    "questionAr": "قرص دائري منتظم نصف قطره $12\\text{ cm}$ اقتُطع منه ثقب دائري نصف قطره $6\\text{ cm}$ يمس الحافة الخارجية للقرص. ما المسافة التي يزاح بها مركز ثقل الصفيحة المتبقية عن المركز الأصلي للقرص؟",
-    "optionsEn": [
-      "$2\\text{ cm}$",
-      "$3\\text{ cm}$",
-      "$1.5\\text{ cm}$",
-      "$4\\text{ cm}$"
-    ],
-    "optionsAr": [
-      "2 سم",
-      "3 سم",
-      "1.5 سم",
-      "4 سم"
-    ],
-    "correctAnswer": "$2\\text{ cm}$",
-    "correctIndex": 0,
-    "hintEn": "Use negative mass method: $x_G = \\frac{-A_{\\text{hole}} \\times d}{A_{\\text{rem}}}$.",
-    "hintAr": "استخدم طريقة الكتلة السالبة: $x_G = \\frac{-A_{\\text{hole}} \\times d}{A_{\\text{rem}}}$.",
-    "stepByStepSolutionEn": [
-      "1. Original disc area: $A_1 = \\pi R^2 = 144\\pi$, centered at $x_1 = 0$.",
-      "2. The cut-out hole has radius $r = 6\\text{ cm}$ and is tangent to the rim, so its center is at distance $d = R - r = 12 - 6 = 6\\text{ cm}$ from the disc center.",
-      "3. Hole area: $A_2 = \\pi r^2 = 36\\pi$.",
-      "4. Remaining area: $A_{\\text{rem}} = 144\\pi - 36\\pi = 108\\pi$.",
-      "5. Shift of center of gravity: $x_G = \\frac{0 - (36\\pi)(6)}{108\\pi} = -\\frac{216}{108} = -2\\text{ cm}$, meaning a shift of $2\\text{ cm}$ away from the hole."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مساحة القرص الأصلي = $144\\pi$ ومركزه عند الأصل.",
-      "٢. مركز الثقب يبعد مسافة $12 - 6 = 6$ سم عن المركز الأصلي.",
-      "٣. مساحة الثقب = $36\\pi$، ومساحة الجزء المتبقي = $108\\pi$.",
-      "٤. إزاحة مركز الثقل = $\\frac{-(36\\pi \\times 6)}{108\\pi} = -2$ سم (أي يزاح مسافة 2 سم في الاتجاه المعاكس للثقب)."
-    ],
-    "teacherTipEn": "Center of gravity always shifts directly away from the region where material was removed.",
-    "teacherTipAr": "يزاح مركز الثقل دائماً في الاتجاه المعاكس لمكان الجزء المقتطع."
-  },
+  "id": "stat_ch2_db_hots_47",
+  "titleEn": "Zero Moment Component About Coordinate Axis",
+  "titleAr": "انعدام مركبة عزم قوة حول أحد المحاور الإحداثية",
+  "difficulty": "hots",
+  "questionEn": "A force $\\vec{F} = m\\vec{i} + 2\\vec{j} - \\vec{k}$ acts at point $A(1, -1, 2)$. If the component of the moment of $\\vec{F}$ about the $y$-axis vanishes ($M_y = 0$), find the value of $m$.",
+  "questionAr": "تؤثر القوة $\\vec{F} = m\\vec{i} + ٢\\vec{j} - \\vec{k}$ في النقطة $A(١، -١، ٢)$. فإذا كانت مركبة عزم القوة حول محور الصادات تنعدم ($M_y = ٠$)، فأوجد قيمة $m$.",
+  "optionsEn": [
+    "$m = -\\frac{1}{2}$",
+    "$m = \\frac{1}{2}$",
+    "$m = -2$",
+    "$m = 2$"
+  ],
+  "optionsAr": [
+    "$m = -\\frac{١}{٢}$",
+    "$m = \\frac{١}{٢}$",
+    "$m = -٢$",
+    "$m = ٢$"
+  ],
+  "correctAnswer": "$m = -\\frac{1}{2}$",
+  "correctIndex": 0,
+  "hintEn": "The y-component of moment is M_y = z * F_x - x * F_z.",
+  "hintAr": "مركبة العزم حول محور الصادات تُعطى بالعلاقة: $M_y = z \\cdot F_x - x \\cdot F_z$.",
+  "stepByStepSolutionEn": [
+    "1. Position vector: $\\vec{r} = (x, y, z) = (1, -1, 2)$.",
+    "2. Force vector: $\\vec{F} = (F_x, F_y, F_z) = (m, 2, -1)$.",
+    "3. Component of moment about the y-axis: $M_y = z F_x - x F_z$.",
+    "4. Setting $M_y = 0$: $2(m) - 1(-1) = 0 \\implies 2m + 1 = 0 \\implies m = -\\frac{1}{2}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. إحداثيات نقطة التأثير: $(x, y, z) = (١، -١، ٢)$.",
+    "٢. مركبات القوة: $(F_x, F_y, F_z) = (m، ٢، -١)$.",
+    "٣. مركبة العزم حول محور الصادات: $M_y = z F_x - x F_z$.",
+    "٤. بمساواة $M_y$ بالصفر: $٢(m) - ١(-١) = ٠ \\implies ٢m + ١ = ٠ \\implies m = -\\frac{١}{٢}$."
+  ],
+  "teacherTipEn": "Remember cyclic coordinate permutation for axis moments: M_x = y F_z - z F_y, M_y = z F_x - x F_z, M_z = x F_y - y F_x.",
+  "teacherTipAr": "احفظ الترتيب الدوري لمركبات العزم حول المحاور: عزم س = ص ق_ع - ع ق_ص، عزم ص = ع ق_س - س ق_ع، عزم ع = س ق_ص - ص ق_س."
+},
   {
-    "id": "stat_ch2_db_hots_48",
-    "titleEn": "Zero Tension in String Supporting Square Plate",
-    "titleAr": "انعدام الشد في خيط يدعم صفيحة مربعة عند أحد أركانها",
-    "difficulty": "hots",
-    "questionEn": "A uniform square plate of weight $W$ is supported horizontally by three vertical strings attached to corners $A(0, a)$, $B(a, a)$, and $C(a, 0)$, while corner $D(0, 0)$ is left unsupported. Find the tension $T_B$ in the string at corner $B$ (diagonally opposite the unsupported corner).",
-    "questionAr": "صفيحة مربعة منتظمة وزنها $W$ معلقة أفقياً بثلاثة خيوط رأسية عند الأركان $A(0, a)$ و $B(a, a)$ و $C(a, 0)$، بينما الركن $D(0, 0)$ حر غير مدعوم. أوجد مقدار الشد $T_B$ في الخيط عند الركن $B$ (المقابل قطرياً للركن الحر).",
-    "optionsEn": [
-      "$0$",
-      "$\\frac{W}{3}$",
-      "$\\frac{W}{4}$",
-      "$\\frac{W}{2}$"
-    ],
-    "optionsAr": [
-      "0",
-      "W / 3",
-      "W / 4",
-      "W / 2"
-    ],
-    "correctAnswer": "$0$",
-    "correctIndex": 0,
-    "hintEn": "Take moments about the diagonal line $AC$. Notice that the center of gravity of the plate lies on the diagonal $AC$.",
-    "hintAr": "خذ العزوم حول خط القطر $AC$. لاحظ أن مركز ثقل الصفيحة المربعة يقع تماماً على القطر $AC$.",
-    "stepByStepSolutionEn": [
-      "1. The center of gravity of a uniform square plate is at its center $G\\left(\\frac{a}{2}, \\frac{a}{2}\\right)$.",
-      "2. The diagonal line $AC$ has equation $x + y = a$, which passes directly through the center of gravity $G\\left(\\frac{a}{2}, \\frac{a}{2}\\right)$!",
-      "3. Therefore, the weight $W$ has zero lever arm and zero moment about the line $AC$.",
-      "4. The strings at $A$ and $C$ also lie on the line $AC$, so their moments about line $AC$ are zero.",
-      "5. For rotational equilibrium about axis $AC$: $\\sum M_{AC} = T_B \\times d_B = 0 \\implies T_B = 0$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. مركز ثقل الصفيحة المربعة المنتظمة يقع عند مركزها $G(a/2, a/2)$.",
-      "٢. خط القطر $AC$ يمر بمركز الثقل $G$ مباشرة.",
-      "٣. إذن عزم وزن الصفيحة $W$ حول خط القطر $AC$ يساوي صفراً.",
-      "٤. كما أن عزمي الشدين عند $A$ و $C$ حول القطر $AC$ يساويان صفراً لوقوعهما عليه.",
-      "٥. إذن من اتزان العزوم حول $AC$: $T_B \\times d = 0 \\implies T_B = 0$."
-    ],
-    "teacherTipEn": "This is an elegant Thanaweya classic: the string opposite the unsupported corner goes completely slack ($T_B = 0$).",
-    "teacherTipAr": "مسألة كلاسيكية رائعة: الخيط المقابل للركن غير المدعوم يصبح مرتخياً تماماً وينعدم فيه الشد."
-  },
+  "id": "stat_ch2_db_hots_48",
+  "titleEn": "Equilibrium of Moments on Rectangle Vertices",
+  "titleAr": "حساب قوة مجهولة من فروق العزوم عند رؤوس مستطيل",
+  "difficulty": "hots",
+  "questionEn": "In a rectangle $ABCD$ with $AB = 6\\text{ cm}$ and $BC = 8\\text{ cm}$, a system of coplanar forces in the plane of the rectangle has algebraic sums of moments about its vertices given by $M_A = 40\\text{ N}\\cdot\\text{cm}$ and $M_B = 16\\text{ N}\\cdot\\text{cm}$. If the resultant $\\vec{R}$ is perpendicular to $AB$, find the magnitude of the resultant $R$.",
+  "questionAr": "في مستطيل $ABCD$ فيه $AB = ٦\\text{ سم}$ و $BC = ٨\\text{ سم}$، مجموعة قوى مستوية في مستوى المستطيل مجموع عزومها الجبرية حول الرؤوس: $M_A = ٤٠\\text{ نيوتن}\\cdot\\text{سم}$ و $M_B = ١٦\\text{ نيوتن}\\cdot\\text{سم}$. إذا كانت المحصلة $\\vec{R}$ عمودية على $AB$، فاحسب مقدار المحصلة $R$.",
+  "optionsEn": [
+    "$R = 4\\text{ N}$",
+    "$R = 6\\text{ N}$",
+    "$R = 8\\text{ N}$",
+    "$R = 3\\text{ N}$"
+  ],
+  "optionsAr": [
+    "$R = ٤\\text{ نيوتن}$",
+    "$R = ٦\\text{ نيوتن}$",
+    "$R = ٨\\text{ نيوتن}$",
+    "$R = ٣\\text{ نيوتن}$"
+  ],
+  "correctAnswer": "$R = 4\\text{ N}$",
+  "correctIndex": 0,
+  "hintEn": "The difference between moments at two points equals the component of resultant perpendicular to AB times the distance AB: |M_A - M_B| = R * AB.",
+  "hintAr": "فرق العزمين بين نقطتين يساوي مركبة المحصلة العمودية على الخط الواصل بينهما مضروبة في المسافة: $|M_A - M_B| = R \\cdot AB$.",
+  "stepByStepSolutionEn": [
+    "1. By the fundamental moment difference theorem: $M_A - M_B = R_{\\perp AB} \\times AB$.",
+    "2. Since $\\vec{R}$ is given to be perpendicular to $AB$, the entire resultant magnitude is $R_{\\perp AB} = R$.",
+    "3. Therefore: $|40 - 16| = R \\times 6 \\implies 24 = 6 R \\implies R = 4\\text{ N}$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. وفقاً لنظرية فرق العزوم الأساسية: $M_A - M_B = R_{\\perp AB} \\times AB$.",
+    "٢. بما أن المحصلة عمودية تماماً على $AB$، فإن كامل مقدار المحصلة يمثل المركبة العمودية: $R_{\\perp AB} = R$.",
+    "٣. إذن: $|٤٠ - ١٦| = ٦ R \\implies ٢٤ = ٦ R \\implies R = ٤\\text{ نيوتن}$."
+  ],
+  "teacherTipEn": "Difference in moments divided by distance gives the force component perpendicular to the line joining the points.",
+  "teacherTipAr": "قسمة فرق العزمين بين نقطتين على المسافة بينهما يعطي دائماً مركبة المحصلة العمودية على هذا الخط."
+},
   {
     "id": "stat_ch2_db_hots_49",
     "titleEn": "Tension in Vertex String of Loaded Triangular Plate",

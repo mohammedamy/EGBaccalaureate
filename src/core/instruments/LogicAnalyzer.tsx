@@ -7,20 +7,26 @@ import {
   Binary,
 } from 'lucide-react';
 
+import type { ThemeMode } from '../../types/curriculum';
+
 export type LogicGateType = 'AND' | 'OR' | 'NOT' | 'NAND' | 'NOR' | 'XOR' | 'XNOR';
 
 interface LogicAnalyzerProps {
   lang?: 'en' | 'ar';
+  theme?: ThemeMode;
   onClose?: () => void;
   initialGate?: LogicGateType;
 }
 
 export const LogicAnalyzer: React.FC<LogicAnalyzerProps> = ({
   lang = 'en',
+  theme = 'dark',
   onClose,
   initialGate = 'AND',
 }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   // Analyzer state
@@ -192,23 +198,37 @@ export const LogicAnalyzer: React.FC<LogicAnalyzerProps> = ({
 
   return (
     <div
-      className="w-full bg-slate-900/98 border-2 border-indigo-500/40 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 overflow-hidden"
+      className={`w-full rounded-3xl p-4 sm:p-5 shadow-2xl overflow-hidden transition-all border-2 ${
+        isLight
+          ? 'bg-white border-indigo-500/40 text-slate-900 shadow-slate-200/50'
+          : isContrast
+          ? 'bg-black border-2 border-indigo-400 text-white'
+          : 'bg-slate-900/98 border-indigo-500/40 text-slate-100'
+      }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* 1. Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-slate-800">
+      <div className={`flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b ${
+        isLight ? 'border-slate-200' : 'border-slate-800'
+      }`}>
         <div className="flex items-center gap-3">
           <div className="p-2.5 bg-indigo-500/20 text-indigo-400 rounded-xl border border-indigo-500/30 shrink-0">
             <Binary className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm sm:text-base font-extrabold text-slate-100 flex items-center gap-2 truncate">
+            <h4 className={`text-sm sm:text-base font-extrabold flex items-center gap-2 truncate ${
+              isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-100'
+            }`}>
               <span>EG-LOGIC 8000 • {isAr ? 'محلل الإشارات المنطقية والتوقيت الرقمي' : '8-Channel Digital Logic Timing Analyzer'}</span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-950 text-indigo-300 border border-indigo-800 font-bold shrink-0">
+              <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full font-bold shrink-0 ${
+                isLight ? 'bg-indigo-100 text-indigo-900 border border-indigo-300' : 'bg-indigo-950 text-indigo-300 border border-indigo-800'
+              }`}>
                 100 MHz Timing
               </span>
             </h4>
-            <p className="text-xs text-slate-400 truncate">
+            <p className={`text-xs truncate ${
+              isLight ? 'text-slate-600' : isContrast ? 'text-slate-300' : 'text-slate-400'
+            }`}>
               {isAr ? 'تحليل البوابات المنطقية وجدول التحقيق والتوقيت الرقمي للنواقل D0-D7' : 'Bus decoding, logic gate truth table verification, timing diagram & clock synthesis'}
             </p>
           </div>

@@ -2,14 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, Flag, X, Clock } from 'lucide-react';
 import { toHindiDigits } from '../../../utils/arabicNumerals';
 
+import type { ThemeMode } from '../../../types/curriculum';
+
 interface LabStopwatchProps {
   lang: 'en' | 'ar';
+  theme?: ThemeMode;
   onClose?: () => void;
   onLogLap?: (lapTimeSec: number, lapNumber: number) => void;
 }
 
-export const LabStopwatch: React.FC<LabStopwatchProps> = ({ lang, onClose, onLogLap }) => {
+export const LabStopwatch: React.FC<LabStopwatchProps> = ({ lang, theme = 'dark', onClose, onLogLap }) => {
   const isAr = lang === 'ar';
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [elapsedMs, setElapsedMs] = useState<number>(0);
   const [laps, setLaps] = useState<number[]>([]);
@@ -88,14 +93,24 @@ export const LabStopwatch: React.FC<LabStopwatchProps> = ({ lang, onClose, onLog
 
   return (
     <div
-      className="w-72 bg-slate-950 border border-cyan-500/40 rounded-2xl p-4 shadow-2xl backdrop-blur-md text-slate-100 select-none"
+      className={`w-72 border rounded-2xl p-4 shadow-2xl backdrop-blur-md select-none transition-all ${
+        isLight
+          ? 'bg-white border-cyan-500/40 text-slate-900 shadow-slate-200/50'
+          : isContrast
+          ? 'bg-black border-2 border-cyan-400 text-white'
+          : 'bg-slate-950 border-cyan-500/40 text-slate-100'
+      }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
+      <div className={`flex items-center justify-between border-b pb-2 mb-3 ${
+        isLight ? 'border-slate-200' : 'border-slate-800'
+      }`}>
         <div className="flex items-center gap-2">
-          <Clock className="w-4 h-4 text-cyan-400" />
-          <h4 className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+          <Clock className="w-4 h-4 text-cyan-500" />
+          <h4 className={`text-xs font-bold uppercase tracking-wider ${
+            isLight ? 'text-cyan-900' : isContrast ? 'text-white' : 'text-cyan-300'
+          }`}>
             {isAr ? 'ساعة إيقاف معملية' : 'Precision Stopwatch'}
           </h4>
         </div>

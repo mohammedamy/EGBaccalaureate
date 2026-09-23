@@ -3856,41 +3856,43 @@ export const calcCh1Databank: ChapterDatabank = {
     "teacherTipAr": "معدل تغير كمية هندسية بالنسبة لأخرى يحسب عبر وسيط نصف القطر $r$."
   },
   {
-    "id": "calc_ch1_db_medium_49",
-    "titleEn": "Derivative of Logarithmic Cauchy Functional Equation",
-    "titleAr": "مشتقة الدالة التي تحقق معادلة كوشي اللوغاريتمية",
-    "difficulty": "medium",
-    "questionEn": "If $f$ is a differentiable function on $(0, \\infty)$ satisfying $f(xy) = f(x) + f(y)$ for all $x, y > 0$ and $f'(1) = 2$, find $f'(x)$.",
-    "questionAr": "إذا كانت $f$ دالة قابلة للاشتقاق على $(0, \\infty)$ وتحقق $f(xy) = f(x) + f(y)$ لجميع قيم $x, y > 0$ وكان $f'(1) = 2$، أوجد $f'(x)$.",
-    "optionsEn": [
-      "$\\frac{2}{x}$",
-      "$2x$",
-      "$2\\ln x$",
-      "$\\frac{1}{2x}$"
-    ],
-    "optionsAr": [
-      "$\\frac{2}{x}$",
-      "$2x$",
-      "$2\\ln x$",
-      "$\\frac{1}{2x}$"
-    ],
-    "correctAnswer": "$\\frac{2}{x}$",
-    "correctIndex": 0,
-    "hintEn": "Differentiate $f(xy) = f(x) + f(y)$ with respect to $y$, then set $y = 1$.",
-    "hintAr": "اشتق العلاقة بالنسبة للمتغير $y$ باعتبار $x$ ثابتاً، ثم ضع $y = 1$.",
-    "stepByStepSolutionEn": [
-      "1. Differentiating with respect to $y$: $x f'(xy) = f'(y)$.",
-      "2. Set $y = 1$: $x f'(x) = f'(1)$.",
-      "3. Since $f'(1) = 2$, we have $x f'(x) = 2 \\implies f'(x) = \\frac{2}{x}$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بالاشتقاق بالنسبة إلى $y$: $x f'(xy) = f'(y)$.",
-      "٢. بوضع $y = 1$: $x f'(x) = f'(1)$.",
-      "٣. بما أن $f'(1) = 2$، إذن $f'(x) = \\frac{2}{x}$."
-    ],
-    "teacherTipEn": "This characterises the logarithmic function $f(x) = 2\\ln x$.",
-    "teacherTipAr": "هذه هي الخاصية المميزة للدالة اللوغاريتمية $f(x) = 2\\ln x$."
-  },
+  "id": "calc_ch1_db_medium_49",
+  "titleEn": "Second Derivative of Trigonometric Tangent Function",
+  "titleAr": "المشتقة الثانية لدالة الظل المثلثية",
+  "difficulty": "medium",
+  "questionEn": "If $y = \\tan(x)$, find the value of $\\frac{d^2y}{dx^2}$ at $x = \\frac{\\pi}{4}$.",
+  "questionAr": "إذا كان $y = \\tan(x)$، فأوجد قيمة $\\frac{d^٢y}{dx^٢}$ عند $x = \\frac{\\pi}{٤}$.",
+  "optionsEn": [
+    "4",
+    "2",
+    "$2\\sqrt{2}$",
+    "8"
+  ],
+  "optionsAr": [
+    "٤",
+    "٢",
+    "٢\\sqrt{٢}",
+    "٨"
+  ],
+  "correctAnswer": "4",
+  "correctIndex": 0,
+  "hintEn": "First derivative of tan(x) is sec^2(x). Use the chain rule for the second derivative: d/dx[sec^2(x)] = 2 sec(x) * (sec(x) tan(x)).",
+  "hintAr": "المشتقة الأولى لدالة ظا(س) هي قا²(س). استخدم قاعدة السلسلة لإيجاد المشتقة الثانية: d/dx[قا²(س)] = ٢ قا(س) × (قا(س) ظا(س)).",
+  "stepByStepSolutionEn": [
+    "1. First derivative: $\\frac{dy}{dx} = \\sec^2(x)$.",
+    "2. Second derivative by chain rule: $\\frac{d^2y}{dx^2} = 2 \\sec(x) \\cdot (\\sec(x) \\tan(x)) = 2 \\sec^2(x) \\tan(x)$.",
+    "3. At $x = \\frac{\\pi}{4}$: $\\sec(\\frac{\\pi}{4}) = \\sqrt{2} \\implies \\sec^2(\\frac{\\pi}{4}) = 2$, and $\\tan(\\frac{\\pi}{4}) = 1$.",
+    "4. Therefore: $\\frac{d^2y}{dx^2}\\Big|_{x=\\pi/4} = 2(2)(1) = 4$."
+  ],
+  "stepByStepSolutionAr": [
+    "١. المشتقة الأولى: $\\frac{dy}{dx} = \\sec^٢(x)$.",
+    "٢. المشتقة الثانية بتطبيق قاعدة السلسلة: $\\frac{d^٢y}{dx^٢} = ٢ \\sec(x) \\cdot (\\sec(x) \\tan(x)) = ٢ \\sec^٢(x) \\tan(x)$.",
+    "٣. بالتعويض عند $x = \\frac{\\pi}{٤}$: $\\sec(\\frac{\\pi}{٤}) = \\sqrt{٢} \\implies \\sec^٢(\\frac{\\pi}{٤}) = ٢$، و $\\tan(\\frac{\\pi}{٤}) = ١$.",
+    "٤. إذن: $\\frac{d^٢y}{dx^٢} = ٢ \\times ٢ \\times ١ = ٤$."
+  ],
+  "teacherTipEn": "Always remember: d/dx [tan(x)] = sec^2(x) and d/dx [sec^2(x)] = 2 sec^2(x) tan(x).",
+  "teacherTipAr": "تذكر دائماً: مشتقة ظا(س) هي قا²(س) ومشتقة قا²(س) هي ٢ قا²(س) ظا(س)."
+},
   {
     "id": "calc_ch1_db_medium_50",
     "titleEn": "Horizontal Tangents to Cubic Function",
@@ -4678,43 +4680,56 @@ export const calcCh1Databank: ChapterDatabank = {
     "teacherTipEn": "Reduce fractions by common divisor 3 to arrive at 6/125.",
     "teacherTipAr": "اختصر بالقسمة على 3 لتصل للصورة الكسرية القياسية."
   },
-  {
-    "id": "calc_ch1_db_hots_12",
-    "titleEn": "Vanishing Second Derivative of Homogeneous Curve",
-    "titleAr": "انعدام المشتقة الثانية لمنحنى متجانس",
-    "difficulty": "hots",
-    "questionEn": "For the curve $x^m y^n = (x + y)^{m+n}$, where $m, n > 0$, the second derivative $\\frac{d^2y}{dx^2}$ is:",
-    "questionAr": "للمنحنى $x^m y^n = (x + y)^{m+n}$ حيث $m, n > 0$، المشتقة الثانية $\\frac{d^2y}{dx^2}$ تساوي:",
-    "optionsEn": [
-      "$0$",
-      "$\\frac{y}{x^2}$",
-      "$-\\frac{y}{x^2}$",
-      "$\\frac{m+n}{xy}$"
-    ],
-    "optionsAr": [
-      "$0$",
-      "$\\frac{y}{x^2}$",
-      "$-\\frac{y}{x^2}$",
-      "$\\frac{m+n}{xy}$"
-    ],
-    "correctAnswer": "$0$",
-    "correctIndex": 0,
-    "hintEn": "Take logarithms: $m\\ln x + n\\ln y = (m+n)\\ln(x+y)$, differentiate to find $y' = y/x$.",
-    "hintAr": "خذ اللوغاريتم للطرفين لتثبت أولاً أن المشتقة الأولى تساوي $y/x$.",
-    "stepByStepSolutionEn": [
-      "1. Taking natural logarithms: $m\\ln x + n\\ln y = (m+n)\\ln(x+y)$.",
-      "2. Differentiate: $\\frac{m}{x} + \\frac{n}{y}y' = \\frac{m+n}{x+y}(1 + y')$.",
-      "3. Grouping terms shows $\\frac{dy}{dx} = \\frac{y}{x}$.",
-      "4. Differentiating $y' = \\frac{y}{x}$: $y'' = \\frac{x y' - y}{x^2} = \\frac{x(y/x) - y}{x^2} = \\frac{y - y}{x^2} = 0$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم الطبيعي: $m\\ln x + n\\ln y = (m+n)\\ln(x+y)$.",
-      "٢. بالاشتقاق وتبسيط الحدود نجد أن المشتقة الأولى هي $y' = y/x$.",
-      "٣. بالاشتقاق مرة ثانية: $y'' = \\frac{x y' - y}{x^2} = \\frac{y - y}{x^2} = 0$."
-    ],
-    "teacherTipEn": "A famous classical theorem: any curve with $y' = y/x$ is a straight line through the origin, so $y'' = 0$.",
-    "teacherTipAr": "مبرهنة كلاسيكية: أي منحنى يحقق $y' = y/x$ هو مستقيم يمر بنقطة الأصل، ولذلك مشتقته الثانية صفر دائماً."
-  },
+    {
+        "id": "calc_ch1_db_hots_12",
+        "titleEn": "Second Derivative of Symmetrical Trigonometric Function",
+        "titleAr": "المشتقة الثانية لدالة مثلثية متماثلة",
+        "difficulty": "hots",
+        "questionEn": "If $y = \\sin^4 x + \\cos^4 x$, find the value of $\\frac{d^2y}{dx^2}$ at $x = \\frac{\\pi}{8}$.",
+        "questionAr": "إذا كانت $y = \\sin^4 x + \\cos^4 x$، فأوجد قيمة $\\frac{d^2y}{dx^2}$ عند $x = \\frac{\\pi}{8}$.",
+        "optionsEn": [
+            "$0$",
+            "$-4$",
+            "$4$",
+            "$-2\\sqrt{2}$"
+        ],
+        "optionsAr": [
+            "0",
+            "-4",
+            "4",
+            "-2\\sqrt{2}"
+        ],
+        "correctAnswer": "$0$",
+        "correctIndex": 0,
+        "hintEn": "Simplify $y$ using double-angle identities: $\\sin^4 x + \\cos^4 x = 1 - 2\\sin^2 x \\cos^2 x = 1 - \\frac{1}{2}\\sin^2(2x) = \\frac{3}{4} + \\frac{1}{4}\\cos(4x)$.",
+        "hintAr": "بسط الدالة أولاً باستخدام متطابقات ضعف الزاوية: $\\sin^4 x + \\cos^4 x = \\frac{3}{4} + \\frac{1}{4}\\cos(4x)$.",
+        "stepByStepSolutionEn": [
+            "1. Simplify $y$ algebraically:",
+            "   $y = (\\sin^2 x + \\cos^2 x)^2 - 2\\sin^2 x \\cos^2 x = 1 - \\frac{1}{2}(2\\sin x \\cos x)^2 = 1 - \\frac{1}{2}\\sin^2(2x)$.",
+            "2. Use the identity $\\sin^2(2x) = \\frac{1 - \\cos(4x)}{2}$:",
+            "   $y = 1 - \\frac{1}{4}(1 - \\cos(4x)) = \\frac{3}{4} + \\frac{1}{4}\\cos(4x)$.",
+            "3. Find the first derivative:",
+            "   $\\frac{dy}{dx} = \\frac{1}{4}(-4\\sin(4x)) = -\\sin(4x)$.",
+            "4. Find the second derivative:",
+            "   $\\frac{d^2y}{dx^2} = -4\\cos(4x)$.",
+            "5. Evaluate at $x = \\frac{\\pi}{8}$:",
+            "   $4x = 4\\left(\\frac{\\pi}{8}\\right) = \\frac{\\pi}{2} \\implies \\frac{d^2y}{dx^2} = -4\\cos\\left(\\frac{\\pi}{2}\\right) = -4(0) = 0$."
+        ],
+        "stepByStepSolutionAr": [
+            "١. بسط الدالة $y$ باستخدام المتطابقات المثلثية الأساسية:",
+            "   $y = (\\sin^2 x + \\cos^2 x)^2 - 2\\sin^2 x \\cos^2 x = 1 - \\frac{1}{2}\\sin^2(2x)$.",
+            "٢. بالتعويض عن $\\sin^2(2x) = \\frac{1 - \\cos(4x)}{2}$:",
+            "   $y = \\frac{3}{4} + \\frac{1}{4}\\cos(4x)$.",
+            "٣. احسب المشتقة الأولى:",
+            "   $y' = -\\sin(4x)$.",
+            "٤. احسب المشتقة الثانية:",
+            "   $y'' = -4\\cos(4x)$.",
+            "٥. عند $x = \\frac{\\pi}{8}$ يكون $4x = \\frac{\\pi}{2}$، إذن:",
+            "   $y'' = -4\\cos(\\frac{\\pi}{2}) = 0$."
+        ],
+        "teacherTipEn": "Always simplify higher-power trigonometric expressions using double-angle identities before differentiating to avoid complicated chain-rule calculations.",
+        "teacherTipAr": "بسط المقادير المثلثية ذات القوى العليا دائماً باستخدام متطابقات ضعف الزاوية قبل البدء في الاشتقاق لتوفير الوقت وتجنب الأخطاء."
+    },
   {
     "id": "calc_ch1_db_hots_13",
     "titleEn": "Determining Cubic Curve Constants from Normal Line",
@@ -5626,46 +5641,55 @@ export const calcCh1Databank: ChapterDatabank = {
     "teacherTipEn": "Linear decrease in radius means that time to vanish is simply $r_0 / k$.",
     "teacherTipAr": "التناقص الخطي لنصف القطر يعني أن زمن التلاشي هو ببساطة نصف القطر الابتدائي مقسوماً على معدل النقص."
   },
-  {
-    "id": "calc_ch1_db_hots_37",
-    "titleEn": "Logarithmic Differentiation of Power Function",
-    "titleAr": "الاشتقاق اللوغاريتمي لدالة قواها دالة مثلثية",
-    "difficulty": "hots",
-    "questionEn": "If $y = x^{\\sin x}$ for $x > 0$, evaluate $\\frac{dy}{dx}$ at $x = \\frac{\\pi}{2}$.",
-    "questionAr": "إذا كانت $y = x^{\\sin x}$ حيث $x > 0$، فاحسب قيمة $\\frac{dy}{dx}$ عند $x = \\frac{\\pi}{2}$.",
-    "optionsEn": [
-      "$1$",
-      "$\\frac{\\pi}{2}$",
-      "$0$",
-      "$\\ln\\left(\\frac{\\pi}{2}\\right)$"
-    ],
-    "optionsAr": [
-      "$1$",
-      "$\\frac{\\pi}{2}$",
-      "$0$",
-      "$\\ln\\left(\\frac{\\pi}{2}\\right)$"
-    ],
-    "correctAnswer": "$1$",
-    "correctIndex": 0,
-    "hintEn": "Take natural logarithms: $\\ln y = \\sin x \\ln x$, then differentiate.",
-    "hintAr": "خذ اللوغاريتم للطرفين: $\\ln y = \\sin x \\ln x$ ثم اشتق ضمنياً.",
-    "stepByStepSolutionEn": [
-      "1. Taking logarithms: $\\ln y = \\sin x \\ln x$.",
-      "2. Differentiating: $\\frac{y'}{y} = \\cos x \\ln x + \\frac{\\sin x}{x}$.",
-      "3. At $x = \\pi/2$: $y = (\\pi/2)^{\\sin(\\pi/2)} = (\\pi/2)^1 = \\frac{\\pi}{2}$.",
-      "4. Evaluate: $\\frac{y'}{\\pi/2} = \\cos(\\pi/2)\\ln(\\pi/2) + \\frac{\\sin(\\pi/2)}{\\pi/2} = 0 + \\frac{1}{\\pi/2} = \\frac{2}{\\pi}$.",
-      "5. Multiplying by $y = \\pi/2$: $y' = \\frac{\\pi}{2} \\times \\frac{2}{\\pi} = 1$."
-    ],
-    "stepByStepSolutionAr": [
-      "١. بأخذ اللوغاريتم: $\\ln y = \\sin x \\ln x$.",
-      "٢. بالاشتقاق: $\\frac{y'}{y} = \\cos x \\ln x + \\frac{\\sin x}{x}$.",
-      "٣. عند $x = \\pi/2$: $y = \\pi/2$.",
-      "٤. $\\frac{y'}{\\pi/2} = 0 + \\frac{1}{\\pi/2} = \\frac{2}{\\pi}$.",
-      "٥. إذن $y' = 1$."
-    ],
-    "teacherTipEn": "The term with $\\cos(\\pi/2)$ vanishes completely because $\\cos(\\pi/2) = 0$.",
-    "teacherTipAr": "الحد المضروب في جيب تمام $\\pi/2$ يختفي تماماً لأن $\\cos(\\pi/2) = 0$."
-  },
+    {
+        "id": "calc_ch1_db_hots_37",
+        "titleEn": "Second Derivative of Parametric Trigonometric Curve",
+        "titleAr": "المشتقة الثانية لمنحنى بارامتري مثلثي",
+        "difficulty": "hots",
+        "questionEn": "For the parametric curve $x = a(\\theta - \\sin\\theta)$ and $y = a(1 - \\cos\\theta)$, where $a > 0$, find $\\frac{d^2y}{dx^2}$ at $\\theta = \\frac{\\pi}{2}$.",
+        "questionAr": "للمنحنى البارامتري $x = a(\\theta - \\sin\\theta)$ و $y = a(1 - \\cos\\theta)$ حيث $a > 0$، أوجد قيمة $\\frac{d^2y}{dx^2}$ عند $\\theta = \\frac{\\pi}{2}$.",
+        "optionsEn": [
+            "$-\\frac{1}{a}$",
+            "$\\frac{1}{a}$",
+            "$-\\frac{1}{2a}$",
+            "$-\\frac{2}{a}$"
+        ],
+        "optionsAr": [
+            "-\\frac{1}{a}",
+            "\\frac{1}{a}",
+            "-\\frac{1}{2a}",
+            "-\\frac{2}{a}"
+        ],
+        "correctAnswer": "$-\\frac{1}{a}$",
+        "correctIndex": 0,
+        "hintEn": "Remember the parametric chain rule for second derivatives: $\\frac{d^2y}{dx^2} = \\frac{d}{d\\theta}\\left(\\frac{dy}{dx}\\right) \\cdot \\frac{d\\theta}{dx}$. Do NOT forget to multiply by $\\frac{d\\theta}{dx}$.",
+        "hintAr": "تذكر قاعدة اشتقاق المشتقة الثانية بارامترياً: $\\frac{d^2y}{dx^2} = \\frac{d}{d\\theta}(\\frac{dy}{dx}) \\cdot \\frac{d\\theta}{dx}$، ولا تنس الضرب في $\\frac{d\\theta}{dx}$.",
+        "stepByStepSolutionEn": [
+            "1. Differentiate $x$ and $y$ with respect to $\\theta$:",
+            "   $\\frac{dx}{d\\theta} = a(1 - \\cos\\theta)$ and $\\frac{dy}{d\\theta} = a\\sin\\theta$.",
+            "2. Compute the first derivative $\\frac{dy}{dx}$:",
+            "   $\\frac{dy}{dx} = \\frac{a\\sin\\theta}{a(1 - \\cos\\theta)} = \\frac{2\\sin(\\theta/2)\\cos(\\theta/2)}{2\\sin^2(\\theta/2)} = \\cot\\left(\\frac{\\theta}{2}\\right)$.",
+            "3. Differentiate $\\frac{dy}{dx}$ with respect to $x$ using the chain rule:",
+            "   $\\frac{d^2y}{dx^2} = \\frac{d}{d\\theta}\\left[\\cot\\left(\\frac{\\theta}{2}\\right)\\right] \\cdot \\frac{d\\theta}{dx} = -\\frac{1}{2}\\csc^2\\left(\\frac{\\theta}{2}\\right) \\cdot \\frac{1}{a(1 - \\cos\\theta)}$.",
+            "4. Evaluate at $\\theta = \\frac{\\pi}{2}$:",
+            "   $\\frac{\\theta}{2} = \\frac{\\pi}{4} \\implies \\csc^2\\left(\\frac{\\pi}{4}\\right) = (\\sqrt{2})^2 = 2$.",
+            "   $1 - \\cos\\left(\\frac{\\pi}{2}\\right) = 1 - 0 = 1$.",
+            "   $\\frac{d^2y}{dx^2} = -\\frac{1}{2}(2) \\cdot \\frac{1}{a(1)} = -\\frac{1}{a}$."
+        ],
+        "stepByStepSolutionAr": [
+            "١. اشتق $x$ و $y$ بالنسبة للبارامتر $\\theta$:",
+            "   $\\frac{dx}{d\\theta} = a(1 - \\cos\\theta)$ و $\\frac{dy}{d\\theta} = a\\sin\\theta$.",
+            "٢. احسب المشتقة الأولى $\\frac{dy}{dx}$:",
+            "   $\\frac{dy}{dx} = \\frac{\\sin\\theta}{1 - \\cos\\theta} = \\cot(\\frac{\\theta}{2})$.",
+            "٣. احسب المشتقة الثانية باستخدام قاعدة السلسلة:",
+            "   $\\frac{d^2y}{dx^2} = \\frac{d}{d\\theta}[\\cot(\\frac{\\theta}{2})] \\cdot \\frac{d\\theta}{dx} = -\\frac{1}{2}\\csc^2(\\frac{\\theta}{2}) \\cdot \\frac{1}{a(1 - \\cos\\theta)}$.",
+            "٤. عند $\\theta = \\frac{\\pi}{2}$:",
+            "   $\\csc^2(\\frac{\\pi}{4}) = 2$ و $1 - \\cos(\\frac{\\pi}{2}) = 1$.",
+            "   $\\frac{d^2y}{dx^2} = -\\frac{1}{2}(2) \\cdot \\frac{1}{a} = -\\frac{1}{a}$."
+        ],
+        "teacherTipEn": "The most common mistake in parametric second derivatives is forgetting to divide by $\\frac{dx}{d\\theta}$. Always double-check this step!",
+        "teacherTipAr": "الخطأ الشائع في المشتقة الثانية البارامترية هو نسيان الضرب في $\\frac{d\\theta}{dx}$ (أي القسمة على $\\frac{dx}{d\\theta}$)."
+    },
   {
     "id": "calc_ch1_db_hots_38",
     "titleEn": "Slope Ratio at Re-intersection of Cubic Tangent",

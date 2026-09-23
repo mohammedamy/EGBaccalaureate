@@ -33,6 +33,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 export type ChineseStudioTab = 'pinyin_tones' | 'radicals' | 'grammar' | 'situations' | 'listening';
 
@@ -63,6 +64,7 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
 
   // Audio Engine Settings
   const [speechRate, setSpeechRate] = useState<number>(0.85);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
   const [currentlyPlayingText, setCurrentlyPlayingText] = useState<string | null>(null);
 
   // Tab 1: Pinyin & Tones
@@ -104,6 +106,7 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
   const speakMandarin = (text: string, customRate?: number) => {
     aiVoiceEngine.speak(text, {
       lang: 'zh-CN',
+      voiceName: selectedVoiceName || undefined,
       rate: customRate || speechRate,
       onStart: () => setCurrentlyPlayingText(text),
       onEnd: () => {
@@ -166,34 +169,17 @@ export const ChineseLanguageStudio: React.FC<Props> = ({
 
         {/* Action controls & AI Vocal Engine */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          {/* AI Vocal Engine Badge */}
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-red-950/70 border border-red-500/30 text-xs text-red-300 font-semibold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-red-400 animate-pulse" />
-            <span className="text-[11px]">AI Vocal Engine (HD)</span>
-          </div>
-
-          {/* Audio Speech Rate Selector */}
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/60 border border-slate-700/60 text-xs text-slate-300">
-            <span>سرعة النطق:</span>
-            <button
-              onClick={() => setSpeechRate(0.7)}
-              className={`px-1.5 py-0.5 rounded ${speechRate === 0.7 ? 'bg-red-600 text-white font-bold' : 'hover:bg-slate-700'}`}
-            >
-              0.7x
-            </button>
-            <button
-              onClick={() => setSpeechRate(0.85)}
-              className={`px-1.5 py-0.5 rounded ${speechRate === 0.85 ? 'bg-red-600 text-white font-bold' : 'hover:bg-slate-700'}`}
-            >
-              0.85x
-            </button>
-            <button
-              onClick={() => setSpeechRate(1.0)}
-              className={`px-1.5 py-0.5 rounded ${speechRate === 1.0 ? 'bg-red-600 text-white font-bold' : 'hover:bg-slate-700'}`}
-            >
-              1.0x
-            </button>
-          </div>
+          <StudioVoiceSelector
+            lang="zh-CN"
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="red"
+            isLight={isLight}
+            isContrast={isContrast}
+            sampleText="你好！欢迎来到高中普通话语音与听力实验室。"
+          />
 
           {/* Fullscreen Toggle */}
           <button

@@ -19,6 +19,7 @@ import {
   Check,
   Sparkles,
   HelpCircle,
+  WifiOff,
 } from 'lucide-react';
 
 export type MathScaleMode = '100' | '115' | '130' | '150';
@@ -75,6 +76,11 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
     return localStorage.getItem('egbac_reading_guide') === 'true';
   });
 
+  // Low-Data Mode State (وضع توفير البيانات والسرعة الفائقة)
+  const [lowDataMode, setLowDataMode] = useState<boolean>(() => {
+    return localStorage.getItem('egbac_low_data') === 'true';
+  });
+
   // Synchronize CSS attributes and localStorage on state change
   useEffect(() => {
     document.documentElement.setAttribute('data-math-scale', mathScale);
@@ -99,6 +105,11 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
     document.documentElement.setAttribute('data-reading-guide', String(readingGuide));
     localStorage.setItem('egbac_reading_guide', String(readingGuide));
   }, [readingGuide]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-low-data', String(lowDataMode));
+    localStorage.setItem('egbac_low_data', String(lowDataMode));
+  }, [lowDataMode]);
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -526,6 +537,39 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
                   checked={readingGuide}
                   onChange={(e) => setReadingGuide(e.target.checked)}
                   className="w-4 h-4 rounded text-violet-600 focus:ring-violet-500 cursor-pointer"
+                />
+              </label>
+
+              {/* Low-Data Mode (وضع توفير البيانات والسرعة الفائقة) */}
+              <label
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all cursor-pointer ${
+                  lowDataMode
+                    ? isHighContrast
+                      ? 'bg-cyan-950 border-cyan-400 text-cyan-200'
+                      : isLight
+                      ? 'bg-amber-50 border-amber-400 text-amber-950'
+                      : 'bg-amber-950/40 border-amber-500 text-amber-100'
+                    : isLight
+                    ? 'border-slate-200 hover:bg-slate-50'
+                    : 'border-slate-800 hover:bg-slate-900'
+                }`}
+              >
+                <div className="space-y-0.5 max-w-[80%]">
+                  <div className="font-bold text-xs flex items-center gap-1.5">
+                    <WifiOff className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{isArabic ? 'وضع توفير البيانات والسرعة الفائقة (Low-Data Mode)' : 'Low-Data & Battery Saver Mode'}</span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    {isArabic
+                      ? 'استخدام خطوط النظام الأساسية واستبدال المحاكيات ثلاثية الأبعاد برسوم بيانية خفيفة لتوفير باقة النت والعمل بسلاسة على الهواتف الضعيفة'
+                      : 'Fallback to native system fonts and 2D lightweight schematics for 3D labs to conserve bandwidth on low-end devices'}
+                  </p>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={lowDataMode}
+                  onChange={(e) => setLowDataMode(e.target.checked)}
+                  className="w-4 h-4 rounded text-amber-600 focus:ring-amber-500 cursor-pointer"
                 />
               </label>
             </div>

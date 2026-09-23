@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
+import type { ThemeMode } from '../../types/curriculum';
 import {
   Edit3,
   Copy,
@@ -17,6 +18,7 @@ interface MathScratchpadProps {
   lang?: 'en' | 'ar';
   initialLatex?: string;
   onInsertLatex?: (latex: string) => void;
+  theme?: ThemeMode;
 }
 
 const PEN_COLORS = [
@@ -37,7 +39,10 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
   lang = 'en',
   initialLatex = 'E = h \\cdot \\nu = \\frac{h \\cdot c}{\\lambda}',
   onInsertLatex,
+  theme = 'dark',
 }) => {
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const isAr = lang === 'ar';
   const [latexInput, setLatexInput] = useState<string>(initialLatex);
   const [copied, setCopied] = useState<boolean>(false);
@@ -305,22 +310,52 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
 
   return (
     <div
-      className="bg-slate-900 border border-slate-700/80 rounded-3xl p-4 sm:p-5 shadow-2xl text-slate-100 font-sans backdrop-blur-md w-full"
+      className={`rounded-3xl p-4 sm:p-5 shadow-2xl font-sans backdrop-blur-md w-full transition-colors ${
+        isLight
+          ? 'bg-white border-2 border-slate-200 text-slate-900 shadow-slate-200/60'
+          : isContrast
+          ? 'bg-black border-2 border-white text-white'
+          : 'bg-slate-900/98 border border-slate-700/80 text-slate-100'
+      }`}
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+      <div
+        className={`flex flex-wrap items-center justify-between gap-3 pb-3 border-b ${
+          isLight
+            ? 'border-slate-200'
+            : isContrast
+            ? 'border-white'
+            : 'border-slate-800'
+        }`}
+      >
         <div className="flex items-center gap-2.5 sm:gap-3">
-          <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-xl border border-indigo-500/30">
+          <div
+            className={`p-2 rounded-xl border ${
+              isLight
+                ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                : isContrast
+                ? 'bg-black text-cyan-300 border-2 border-cyan-400'
+                : 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30'
+            }`}
+          >
             <Calculator className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-sm font-bold text-slate-100 flex items-center gap-2">
+            <h4
+              className={`text-sm font-bold flex items-center gap-2 ${
+                isLight ? 'text-slate-900' : 'text-slate-100'
+              }`}
+            >
               {isAr
                 ? 'المسودة الرياضية والمعملية التفاعلية'
                 : 'Interactive KaTeX & STEM Scratchpad'}
             </h4>
-            <p className="text-xs text-slate-400">
+            <p
+              className={`text-xs ${
+                isLight ? 'text-slate-600' : 'text-slate-400'
+              }`}
+            >
               {isAr
                 ? 'صياغة المعادلات العلمية، رموز يونانية، ومسودة رسم المتجهات المعايرة'
                 : 'Live LaTeX typesetting, math keypad, and calibrated vector sketchpad'}
@@ -330,12 +365,28 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
 
         {/* Tab switch: LaTeX vs Drawing Whiteboard */}
         <div className="flex items-center gap-2">
-          <div className="flex bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+          <div
+            className={`flex p-1 rounded-xl text-xs font-semibold border ${
+              isLight
+                ? 'bg-slate-100 border-slate-300'
+                : isContrast
+                ? 'bg-black border-2 border-white'
+                : 'bg-slate-950 border-slate-800'
+            }`}
+          >
             <button
               onClick={() => setActiveTab('latex')}
               className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'latex'
-                  ? 'bg-indigo-600 text-white font-bold shadow-sm'
+                  ? isLight
+                    ? 'bg-indigo-700 text-white font-bold shadow-sm'
+                    : isContrast
+                    ? 'bg-white text-black font-bold shadow-sm'
+                    : 'bg-indigo-600 text-white font-bold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 font-medium'
+                  : isContrast
+                  ? 'text-white hover:text-cyan-300'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -346,7 +397,15 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
               onClick={() => setActiveTab('draw')}
               className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
                 activeTab === 'draw'
-                  ? 'bg-indigo-600 text-white font-bold shadow-sm'
+                  ? isLight
+                    ? 'bg-indigo-700 text-white font-bold shadow-sm'
+                    : isContrast
+                    ? 'bg-white text-black font-bold shadow-sm'
+                    : 'bg-indigo-600 text-white font-bold shadow-sm'
+                  : isLight
+                  ? 'text-slate-700 hover:text-slate-900 hover:bg-slate-200/70 font-medium'
+                  : isContrast
+                  ? 'text-white hover:text-cyan-300'
                   : 'text-slate-400 hover:text-slate-200'
               }`}
             >
@@ -358,11 +417,17 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
           {activeTab === 'latex' && (
             <button
               onClick={handleCopy}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-all cursor-pointer"
+              className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
+                isLight
+                  ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300'
+                  : isContrast
+                  ? 'bg-black hover:bg-slate-900 text-white border-2 border-white'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+              }`}
               title={isAr ? 'نسخ كود LaTeX' : 'Copy LaTeX code'}
             >
               {copied ? (
-                <Check className="w-4 h-4 text-emerald-400" />
+                <Check className="w-4 h-4 text-emerald-500 font-bold" />
               ) : (
                 <Copy className="w-4 h-4" />
               )}
@@ -374,13 +439,25 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
       {activeTab === 'latex' ? (
         <div className="space-y-4 mt-4">
           {/* Live KaTeX Render Output Box */}
-          <div className="p-4 bg-slate-950/80 border border-indigo-500/30 rounded-2xl min-h-[90px] flex items-center justify-center overflow-x-auto shadow-inner text-indigo-100 text-lg">
+          <div
+            className={`p-4 rounded-2xl min-h-[90px] flex items-center justify-center overflow-x-auto shadow-inner text-lg border ${
+              isLight
+                ? 'bg-indigo-50/50 border-2 border-indigo-300 text-indigo-950 font-semibold'
+                : isContrast
+                ? 'bg-black border-2 border-white text-white'
+                : 'bg-slate-950/80 border-indigo-500/30 text-indigo-100'
+            }`}
+          >
             <div ref={previewRef} className="select-all" />
           </div>
 
           {/* Virtual Math Keypad */}
           <div className="space-y-2">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+            <span
+              className={`text-xs font-bold uppercase tracking-wider block ${
+                isLight ? 'text-slate-700' : isContrast ? 'text-white' : 'text-slate-400'
+              }`}
+            >
               {isAr
                 ? 'لوحة الرموز والعمليات الرياضية:'
                 : 'STEM Symbols & Operators Keypad:'}
@@ -390,7 +467,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
                 <button
                   key={idx}
                   onClick={() => insertSnippet(sym.val)}
-                  className="px-2.5 py-1.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 border border-slate-700 text-slate-200 font-mono text-xs font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  className={`px-2.5 py-1.5 rounded-lg font-mono text-xs font-bold transition-all hover:scale-105 active:scale-95 cursor-pointer border ${
+                    isLight
+                      ? 'bg-slate-100 hover:bg-slate-200 border-slate-300 text-slate-900 shadow-xs'
+                      : isContrast
+                      ? 'bg-black hover:bg-slate-900 border-2 border-white text-white'
+                      : 'bg-slate-800/80 hover:bg-slate-700 border-slate-700 text-slate-200'
+                  }`}
                 >
                   {sym.label}
                 </button>
@@ -400,7 +483,11 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
 
           {/* Egyptian Curriculum Presets */}
           <div className="space-y-2">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+            <span
+              className={`text-xs font-bold uppercase tracking-wider block ${
+                isLight ? 'text-slate-700' : isContrast ? 'text-white' : 'text-slate-400'
+              }`}
+            >
               {isAr
                 ? 'قوانين ونماذج الثانوية العامة الجاهزة:'
                 : 'Thanaweya Amma Formula Templates:'}
@@ -410,7 +497,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
                 <button
                   key={idx}
                   onClick={() => insertSnippet(p.snippet)}
-                  className="px-3 py-1 rounded-xl bg-indigo-950/60 hover:bg-indigo-900/60 border border-indigo-500/40 text-indigo-300 text-xs font-semibold transition-all cursor-pointer"
+                  className={`px-3 py-1 rounded-xl text-xs font-semibold transition-all cursor-pointer border ${
+                    isLight
+                      ? 'bg-indigo-50 hover:bg-indigo-100 border-indigo-300 text-indigo-900 font-bold shadow-xs'
+                      : isContrast
+                      ? 'bg-black hover:bg-slate-900 border-2 border-cyan-400 text-cyan-300 font-bold'
+                      : 'bg-indigo-950/60 hover:bg-indigo-900/60 border-indigo-500/40 text-indigo-300'
+                  }`}
                 >
                   {p.label}
                 </button>
@@ -425,7 +518,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
               onChange={(e) => setLatexInput(e.target.value)}
               rows={3}
               placeholder="Type or edit LaTeX: e.g. \frac{a}{b}"
-              className="w-full bg-slate-950 border border-slate-700 rounded-2xl p-3 text-xs font-mono text-cyan-300 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all resize-none"
+              className={`w-full rounded-2xl p-3 text-xs font-mono transition-all resize-none border ${
+                isLight
+                  ? 'bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600'
+                  : isContrast
+                  ? 'bg-black border-2 border-white text-cyan-300 placeholder-slate-400 focus:outline-none focus:border-cyan-300'
+                  : 'bg-slate-950 border-slate-700 text-cyan-300 placeholder-slate-600 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500'
+              }`}
             />
           </div>
         </div>
@@ -433,17 +532,35 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
         /* Freehand Drawing Whiteboard (Calibrated Precision Mode) */
         <div className="mt-4 space-y-3">
           {/* Drawing Toolbar (Colors, Stroke Widths, Tools, Grid & Actions) */}
-          <div className="flex flex-wrap items-center justify-between gap-2.5 bg-slate-950/80 p-2.5 rounded-2xl border border-slate-800 text-xs">
+          <div
+            className={`flex flex-wrap items-center justify-between gap-2.5 p-2.5 rounded-2xl border text-xs ${
+              isLight
+                ? 'bg-slate-100 border-slate-300 text-slate-900'
+                : isContrast
+                ? 'bg-black border-2 border-white text-white'
+                : 'bg-slate-950/80 border-slate-800 text-slate-200'
+            }`}
+          >
             {/* Tool & Colors */}
             <div className="flex items-center gap-2 flex-wrap">
               {/* Pen / Eraser Toggle */}
-              <div className="flex items-center bg-slate-900 rounded-xl p-0.5 border border-slate-800">
+              <div
+                className={`flex items-center rounded-xl p-0.5 border ${
+                  isLight
+                    ? 'bg-white border-slate-300'
+                    : isContrast
+                    ? 'bg-black border-2 border-white'
+                    : 'bg-slate-900 border-slate-800'
+                }`}
+              >
                 <button
                   type="button"
                   onClick={() => setActiveTool('pen')}
                   className={`px-2.5 py-1 rounded-lg flex items-center gap-1 font-semibold transition-all cursor-pointer ${
                     activeTool === 'pen'
-                      ? 'bg-indigo-600 text-white shadow-xs'
+                      ? 'bg-indigo-600 text-white shadow-xs font-bold'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-900'
                       : 'text-slate-400 hover:text-white'
                   }`}
                   title={isAr ? 'قلم الرسم' : 'Drawing Pen'}
@@ -458,7 +575,9 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
                   onClick={() => setActiveTool('eraser')}
                   className={`px-2.5 py-1 rounded-lg flex items-center gap-1 font-semibold transition-all cursor-pointer ${
                     activeTool === 'eraser'
-                      ? 'bg-rose-600 text-white shadow-xs'
+                      ? 'bg-rose-600 text-white shadow-xs font-bold'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-900'
                       : 'text-slate-400 hover:text-white'
                   }`}
                   title={isAr ? 'ممحاة' : 'Eraser'}
@@ -472,16 +591,24 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
 
               {/* Color Swatches (Only when pen is active) */}
               {activeTool === 'pen' && (
-                <div className="flex items-center gap-1.5 bg-slate-900/90 px-2 py-1 rounded-xl border border-slate-800">
+                <div
+                  className={`flex items-center gap-1.5 px-2 py-1 rounded-xl border ${
+                    isLight
+                      ? 'bg-white border-slate-300'
+                      : isContrast
+                      ? 'bg-black border-2 border-white'
+                      : 'bg-slate-900/90 border-slate-800'
+                  }`}
+                >
                   {PEN_COLORS.map((c) => (
                     <button
                       key={c.id}
                       type="button"
                       onClick={() => setSelectedColor(c.value)}
-                      className={`w-5 h-5 rounded-full transition-transform cursor-pointer flex items-center justify-center ${
+                      className={`w-5 h-5 rounded-full transition-transform cursor-pointer flex items-center justify-center border ${
                         selectedColor === c.value
-                          ? 'scale-125 ring-2 ring-white/90 shadow-md'
-                          : 'opacity-70 hover:opacity-100 hover:scale-110'
+                          ? 'scale-125 ring-2 ring-indigo-500 shadow-md border-white'
+                          : 'opacity-80 hover:opacity-100 hover:scale-110 border-slate-400'
                       }`}
                       style={{ backgroundColor: c.value }}
                       title={isAr ? c.labelAr : c.labelEn}
@@ -491,7 +618,15 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
               )}
 
               {/* Stroke Width Selector */}
-              <div className="flex items-center gap-1 bg-slate-900/90 px-2 py-1 rounded-xl border border-slate-800">
+              <div
+                className={`flex items-center gap-1 px-2 py-1 rounded-xl border ${
+                  isLight
+                    ? 'bg-white border-slate-300'
+                    : isContrast
+                    ? 'bg-black border-2 border-white'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`}
+              >
                 {PEN_WIDTHS.map((w) => (
                   <button
                     key={w.id}
@@ -499,7 +634,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
                     onClick={() => setSelectedWidth(w.size)}
                     className={`px-2 py-0.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
                       selectedWidth === w.size
-                        ? 'bg-indigo-500/30 text-indigo-300 border border-indigo-500/40'
+                        ? isLight
+                          ? 'bg-indigo-100 text-indigo-900 border border-indigo-300 font-bold'
+                          : isContrast
+                          ? 'bg-white text-black font-bold'
+                          : 'bg-indigo-500/30 text-indigo-300 border border-indigo-500/40'
+                        : isLight
+                        ? 'text-slate-600 hover:text-slate-900'
                         : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -517,7 +658,15 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
                 onClick={() => setShowGrid((prev) => !prev)}
                 className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
                   showGrid
-                    ? 'bg-cyan-950/60 text-cyan-300 border-cyan-500/40'
+                    ? isLight
+                      ? 'bg-cyan-100 text-cyan-900 border-cyan-400 font-bold'
+                      : isContrast
+                      ? 'bg-white text-black border-2 border-white font-bold'
+                      : 'bg-cyan-950/60 text-cyan-300 border-cyan-500/40'
+                    : isLight
+                    ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-200'
+                    : isContrast
+                    ? 'bg-black text-white border-2 border-white hover:bg-slate-900'
                     : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
                 }`}
                 title={
@@ -533,7 +682,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
               <button
                 type="button"
                 onClick={downloadSketch}
-                className="p-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all cursor-pointer"
+                className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
+                  isLight
+                    ? 'bg-white hover:bg-slate-200 text-slate-800 border-slate-300'
+                    : isContrast
+                    ? 'bg-black hover:bg-slate-900 text-white border-2 border-white'
+                    : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800'
+                }`}
                 title={isAr ? 'تصدير الرسم كصورة PNG' : 'Export sketch as PNG'}
               >
                 <Download className="w-3.5 h-3.5" />
@@ -543,7 +698,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
               <button
                 type="button"
                 onClick={clearCanvas}
-                className="px-2.5 py-1 rounded-xl bg-rose-950/50 hover:bg-rose-900/60 text-rose-300 border border-rose-500/30 transition-all flex items-center gap-1 cursor-pointer"
+                className={`px-2.5 py-1 rounded-xl border transition-all flex items-center gap-1 cursor-pointer font-medium ${
+                  isLight
+                    ? 'bg-rose-50 hover:bg-rose-100 text-rose-800 border-rose-300'
+                    : isContrast
+                    ? 'bg-black hover:bg-rose-950 text-rose-400 border-2 border-rose-400'
+                    : 'bg-rose-950/50 hover:bg-rose-900/60 text-rose-300 border-rose-500/30'
+                }`}
                 title={isAr ? 'مسح اللوحة بالكامل' : 'Clear Canvas'}
               >
                 <Trash2 className="w-3.5 h-3.5" />
@@ -554,12 +715,13 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
             </div>
           </div>
 
-          {/* Calibrated Canvas Viewport */}
+          {/* Calibrated Canvas Viewport (electronic chalkboard with protected dark theme) */}
           <div
+            data-preserve-dark="true"
             className="w-full h-80 sm:h-96 bg-slate-950 rounded-2xl border border-slate-800/90 overflow-hidden relative touch-none shadow-inner select-none"
             style={{
               backgroundImage: showGrid
-                ? 'radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px), linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px)'
+                ? 'radial-gradient(circle, rgba(148, 163, 184, 0.2) 1px, transparent 1px), linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px)'
                 : 'none',
               backgroundSize: '24px 24px, 24px 24px, 24px 24px',
             }}
@@ -575,7 +737,7 @@ export const MathScratchpad: React.FC<MathScratchpadProps> = ({
             />
 
             {/* Subdued Calibration Status Badge */}
-            <div className="absolute bottom-2 left-2 text-[10px] text-slate-500/70 font-mono pointer-events-none select-none flex items-center gap-1.5 bg-black/40 px-2 py-0.5 rounded-md border border-white/5">
+            <div className="absolute bottom-2 left-2 text-[10px] text-emerald-300 font-mono pointer-events-none select-none flex items-center gap-1.5 bg-black/70 px-2 py-0.5 rounded-md border border-white/10">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block animate-pulse" />
               <span>
                 {isAr

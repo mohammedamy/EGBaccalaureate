@@ -11,8 +11,9 @@ export interface OfflineStatus {
 export function registerServiceWorker(onUpdateFound?: () => void): void {
   if (typeof window !== 'undefined' && 'serviceWorker' in navigator && import.meta.env.PROD) {
     window.addEventListener('load', () => {
+      const swUrl = `${import.meta.env.BASE_URL}sw.js`;
       navigator.serviceWorker
-        .register('/sw.js')
+        .register(swUrl)
         .then((reg) => {
           reg.onupdatefound = () => {
             const installingWorker = reg.installing;

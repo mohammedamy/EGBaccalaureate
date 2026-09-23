@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -36,6 +36,10 @@ interface Props {
   onOpenAccessibility?: () => void;
   onOpenExamSimulation?: () => void;
   onOpenDiagnosticDrill?: () => void;
+  onOpenTeacherAssignments?: () => void;
+  onOpenTeacherCertification?: () => void;
+  onOpenParentReport?: () => void;
+  onOpenDownloadManager?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -68,6 +72,10 @@ export const Navbar: React.FC<Props> = ({
   onOpenAccessibility,
   onOpenExamSimulation,
   onOpenDiagnosticDrill,
+  onOpenTeacherAssignments,
+  onOpenTeacherCertification,
+  onOpenParentReport,
+  onOpenDownloadManager,
   selectedSubject = 'all',
   onSubjectChange,
   curriculumData,
@@ -320,6 +328,54 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-amber-400',
       onClick: () => {
         onOpenTutorial();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenTeacherAssignments && {
+      id: 'teacher_assignments',
+      label: isArabic ? 'واجبات واختبارات المعلم بالكود' : 'Teacher Assignments & Classroom',
+      desc: isArabic ? 'إنشاء وحل الواجبات بأكواد سداسية ومتابعة نتائج الفصل' : 'Create & solve quizzes with 6-char codes and view class analytics',
+      shortcut: '⌥T',
+      icon: Users,
+      color: 'text-amber-400',
+      onClick: () => {
+        onOpenTeacherAssignments();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenTeacherCertification && {
+      id: 'teacher_certification',
+      label: isArabic ? 'شهادة اعتماد معلم كليبسات' : 'Teacher Certification & Diploma',
+      desc: isArabic ? 'برنامج التدريب البيداغوجي واعتماد المعلم مع كود دعوة حصري' : '8 pedagogy modules, digital diploma & viral referral code',
+      shortcut: '⌥G',
+      icon: GraduationCap,
+      color: 'text-yellow-400',
+      onClick: () => {
+        onOpenTeacherCertification();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenParentReport && {
+      id: 'parent_report',
+      label: isArabic ? 'موجز ولي الأمر الأسبوعي (واتساب)' : 'Parent Weekly Digest (WhatsApp)',
+      desc: isArabic ? 'تقرير دعم ومتابعة مباشر ومطمئن لولي الأمر بنقرة زر' : 'Empathetic progress summary sent directly via WhatsApp or SMS',
+      shortcut: '⌥W',
+      icon: MessageSquare,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenParentReport();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenDownloadManager && {
+      id: 'download_manager',
+      label: isArabic ? 'مدير التحميل والمذاكرة بدون نت' : 'Offline Study Pack Manager',
+      desc: isArabic ? 'تحميل بنوك الأسئلة والشروحات والمختبرات للعمل بدون نت 100%' : 'Pre-cache subjects, databanks and labs for 100% offline study',
+      shortcut: '⌥O',
+      icon: HardDrive,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenDownloadManager();
         setIsToolsOpen(false);
       },
     },

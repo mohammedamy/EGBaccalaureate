@@ -1,18 +1,31 @@
 {
-  "name": "Egyptian Baccalaureate & Thanaweya Educational Platform | منصة البكالوريا المصرية والثانوية العامة",
-  "short_name": "EGBaccalaureate",
-  "description": "Accredited Egyptian curriculum platform for Thanaweya Amma and New Egyptian Baccalaureate with 385 chapters, 67,375+ databank questions (over 77,000 problems), 34 virtual laboratories and studios across 36 accredited subjects, 234 past ministerial exam papers, and 81 official downloadable textbooks.",
+  "name": "كليبسات — البكالوريا المصرية والثانوية العامة",
+  "short_name": "كليبسات",
+  "description": "منصة التعليم المصري المعتمدة: ٣٨٥ فصلاً، ٧٧,٠٠٠ مسألة رسمية، ٣٤ معملاً تفاعلياً — تعمل بدون إنترنت",
   "start_url": "./",
+  "id": "/EGBaccalaureate/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#020617",
   "theme_color": "#0f172a",
   "orientation": "any",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["education"],
   "icons": [
     {
       "src": "./clipsat-logo.png",
-      "sizes": "192x192 512x512",
+      "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./clipsat-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "screenshots": [],
+  "prefer_related_applications": false
 }

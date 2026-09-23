@@ -23,6 +23,7 @@ import { MicrometerCaliper } from './MicrometerCaliper';
 import { LabStopwatch } from '../labs/controls/LabStopwatch';
 import { MathScratchpad } from '../math/MathScratchpad';
 import type { LabInstrumentType } from '../labs/types';
+import type { ThemeMode } from '../../types/curriculum';
 
 interface InstrumentRackProps {
   lang: 'en' | 'ar';
@@ -35,6 +36,7 @@ interface InstrumentRackProps {
   oscilloscopeCh1?: WaveformSignal;
   oscilloscopeCh2?: WaveformSignal;
   onStopwatchLap?: (lapTimeSec: number, lapNumber: number) => void;
+  theme?: ThemeMode;
 }
 
 export const InstrumentRack: React.FC<InstrumentRackProps> = ({
@@ -67,7 +69,10 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
   },
   oscilloscopeCh2,
   onStopwatchLap,
+  theme = 'dark',
 }) => {
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const isAr = lang === 'ar';
   const [minimized, setMinimized] = useState<Set<LabInstrumentType>>(new Set());
   const [isBarExpanded, setIsBarExpanded] = useState<boolean>(true);
@@ -139,17 +144,79 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
     },
   };
 
+  const getInstrumentButtonClass = (type: LabInstrumentType, isActive: boolean) => {
+    if (isContrast) {
+      if (isActive) {
+        return 'bg-white text-black border-2 border-white ring-2 ring-cyan-400 font-bold shadow-md';
+      }
+      return 'bg-black text-white border-2 border-slate-600 hover:border-white font-semibold';
+    }
+
+    if (isLight) {
+      if (isActive) {
+        return 'bg-cyan-700 text-white border-cyan-700 shadow-md ring-2 ring-cyan-600/30 font-bold';
+      }
+      const lightStyles: Record<LabInstrumentType, string> = {
+        multimeter: 'text-amber-900 bg-amber-50 border-amber-300 hover:bg-amber-100 font-semibold shadow-xs',
+        oscilloscope: 'text-cyan-950 bg-cyan-50 border-cyan-300 hover:bg-cyan-100 font-semibold shadow-xs',
+        function_generator: 'text-violet-950 bg-violet-50 border-violet-300 hover:bg-violet-100 font-semibold shadow-xs',
+        spectrometer: 'text-fuchsia-950 bg-fuchsia-50 border-fuchsia-300 hover:bg-fuchsia-100 font-semibold shadow-xs',
+        logic_analyzer: 'text-emerald-950 bg-emerald-50 border-emerald-300 hover:bg-emerald-100 font-semibold shadow-xs',
+        micrometer: 'text-teal-950 bg-teal-50 border-teal-300 hover:bg-teal-100 font-semibold shadow-xs',
+        stopwatch: 'text-indigo-950 bg-indigo-50 border-indigo-300 hover:bg-indigo-100 font-semibold shadow-xs',
+        scratchpad: 'text-rose-950 bg-rose-50 border-rose-300 hover:bg-rose-100 font-semibold shadow-xs',
+      };
+      return lightStyles[type] || 'text-slate-900 bg-slate-100 border-slate-300 hover:bg-slate-200 font-semibold';
+    }
+
+    // Dark Mode
+    if (isActive) {
+      return 'bg-slate-800 text-white border-cyan-400 shadow-md shadow-cyan-500/20 ring-1 ring-cyan-400/40 font-bold';
+    }
+    const darkStyles: Record<LabInstrumentType, string> = {
+      multimeter: 'text-amber-400 border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 font-semibold',
+      oscilloscope: 'text-cyan-400 border-cyan-500/40 bg-cyan-500/10 hover:bg-cyan-500/20 font-semibold',
+      function_generator: 'text-violet-400 border-violet-500/40 bg-violet-500/10 hover:bg-violet-500/20 font-semibold',
+      spectrometer: 'text-fuchsia-400 border-fuchsia-500/40 bg-fuchsia-500/10 hover:bg-fuchsia-500/20 font-semibold',
+      logic_analyzer: 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 font-semibold',
+      micrometer: 'text-emerald-400 border-emerald-500/40 bg-emerald-500/10 hover:bg-emerald-500/20 font-semibold',
+      stopwatch: 'text-indigo-400 border-indigo-500/40 bg-indigo-500/10 hover:bg-indigo-500/20 font-semibold',
+      scratchpad: 'text-rose-400 border-rose-500/40 bg-rose-500/10 hover:bg-rose-500/20 font-semibold',
+    };
+    return darkStyles[type] || 'text-slate-300 border-slate-700 bg-slate-800/40 hover:bg-slate-800 font-semibold';
+  };
+
   return (
     <div className="space-y-3" dir={isAr ? 'rtl' : 'ltr'}>
       {/* Instrument Launcher Bar */}
-      <div className="p-2 rounded-xl bg-slate-950/80 border border-slate-800 backdrop-blur-md shadow-md">
+      <div
+        className={`p-2 rounded-xl backdrop-blur-md shadow-md transition-colors border ${
+          isLight
+            ? 'bg-white border-slate-200 shadow-slate-200/50'
+            : isContrast
+            ? 'bg-black border-2 border-white'
+            : 'bg-slate-950/80 border-slate-800'
+        }`}
+      >
         <div className="flex items-center justify-between gap-2 px-1 mb-1.5">
           <div className="flex items-center gap-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+            <span
+              className={`text-[11px] font-bold uppercase tracking-wider ${
+                isLight ? 'text-slate-700' : isContrast ? 'text-white' : 'text-slate-400'
+              }`}
+            >
               {isAr ? 'الأجهزة المعملية التفاعلية' : 'Scientific Instrument Rack'}
             </span>
             {activeInstruments.size > 0 && (
-              <span className="text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+              <span
+                className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold border ${
+                  isLight
+                    ? 'bg-cyan-100 text-cyan-900 border-cyan-300'
+                    : isContrast
+                    ? 'bg-white text-black border-2 border-white'
+                    : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
+                }`}
+              >
                 {activeInstruments.size} {isAr ? 'نشط' : 'Active'}
               </span>
             )}
@@ -158,7 +225,13 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
           <button
             type="button"
             onClick={() => setIsBarExpanded(!isBarExpanded)}
-            className="text-slate-400 hover:text-slate-200 p-0.5 rounded"
+            className={`p-0.5 rounded transition-colors cursor-pointer ${
+              isLight
+                ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                : isContrast
+                ? 'text-white hover:text-cyan-300'
+                : 'text-slate-400 hover:text-slate-200'
+            }`}
           >
             {isBarExpanded ? (
               <ChevronUp className="w-3.5 h-3.5" />
@@ -180,11 +253,10 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
                   key={type}
                   type="button"
                   onClick={() => onToggleInstrument(type)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-2 border shrink-0 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs whitespace-nowrap transition-all flex items-center gap-2 border shrink-0 cursor-pointer ${getInstrumentButtonClass(
+                    type,
                     isActive
-                      ? 'bg-slate-800 text-white border-cyan-400 shadow-md shadow-cyan-500/20 ring-1 ring-cyan-400/40'
-                      : meta.color
-                  }`}
+                  )}`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{isAr ? meta.labelAr : meta.labelEn}</span>
@@ -200,24 +272,68 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
           {/* Digital Multimeter */}
           {activeInstruments.has('multimeter') && (
-            <div className="rounded-2xl border border-amber-500/30 bg-slate-950/95 shadow-2xl overflow-hidden backdrop-blur-xl transition-all">
-              <div className="px-4 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-amber-400 font-bold text-xs">
+            <div
+              className={`rounded-2xl border shadow-2xl overflow-hidden backdrop-blur-xl transition-all ${
+                isLight
+                  ? 'border-amber-300 bg-white shadow-amber-900/5 text-slate-900'
+                  : isContrast
+                  ? 'border-2 border-white bg-black text-white'
+                  : 'border-amber-500/30 bg-slate-950/95 shadow-2xl'
+              }`}
+            >
+              <div
+                className={`px-4 py-2 border-b flex items-center justify-between ${
+                  isLight
+                    ? 'bg-amber-50/80 border-amber-200'
+                    : isContrast
+                    ? 'bg-black border-white'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`}
+              >
+                <div
+                  className={`flex items-center gap-2 font-bold text-xs ${
+                    isLight
+                      ? 'text-amber-950'
+                      : isContrast
+                      ? 'text-amber-300'
+                      : 'text-amber-400'
+                  }`}
+                >
                   <Gauge className="w-4 h-4" />
-                  <span>{isAr ? 'الملتيميتر الرقمي (Fluke 87V True RMS)' : 'Fluke 87V True RMS Digital Multimeter'}</span>
+                  <span>
+                    {isAr
+                      ? 'الملتيميتر الرقمي (Fluke 87V True RMS)'
+                      : 'Fluke 87V True RMS Digital Multimeter'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <button
                     type="button"
                     onClick={() => toggleMinimize('multimeter')}
-                    className="p-1 rounded text-slate-400 hover:text-slate-200"
+                    className={`p-1 rounded cursor-pointer ${
+                      isLight
+                        ? 'text-slate-600 hover:text-slate-900'
+                        : isContrast
+                        ? 'text-white hover:text-cyan-300'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
                   >
-                    {minimized.has('multimeter') ? <Maximize2 className="w-3.5 h-3.5" /> : <Minimize2 className="w-3.5 h-3.5" />}
+                    {minimized.has('multimeter') ? (
+                      <Maximize2 className="w-3.5 h-3.5" />
+                    ) : (
+                      <Minimize2 className="w-3.5 h-3.5" />
+                    )}
                   </button>
                   <button
                     type="button"
                     onClick={() => onCloseInstrument('multimeter')}
-                    className="p-1 rounded text-slate-400 hover:text-rose-400"
+                    className={`p-1 rounded cursor-pointer ${
+                      isLight
+                        ? 'text-slate-600 hover:text-rose-600'
+                        : isContrast
+                        ? 'text-white hover:text-rose-400'
+                        : 'text-slate-400 hover:text-rose-400'
+                    }`}
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -238,6 +354,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
                 channel1Signal={funcGenSignal ?? oscilloscopeCh1}
                 channel2Signal={oscilloscopeCh2}
                 lang={lang}
+                theme={theme}
                 onClose={() => onCloseInstrument('oscilloscope')}
               />
             </div>
@@ -248,6 +365,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
             <div className="col-span-full w-full">
               <FunctionGenerator
                 lang={lang}
+                theme={theme}
                 onClose={() => onCloseInstrument('function_generator')}
                 onSignalOutput={(sig) => setFuncGenSignal(sig)}
               />
@@ -259,6 +377,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
             <div className="col-span-full w-full">
               <OpticalSpectrometer
                 lang={lang}
+                theme={theme}
                 onClose={() => onCloseInstrument('spectrometer')}
               />
             </div>
@@ -269,6 +388,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
             <div className="col-span-full w-full">
               <LogicAnalyzer
                 lang={lang}
+                theme={theme}
                 onClose={() => onCloseInstrument('logic_analyzer')}
               />
             </div>
@@ -276,24 +396,68 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
 
           {/* Micrometer Caliper */}
           {activeInstruments.has('micrometer') && (
-            <div className="rounded-2xl border border-emerald-500/30 bg-slate-950/95 shadow-2xl overflow-hidden backdrop-blur-xl transition-all">
-              <div className="px-4 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs">
+            <div
+              className={`rounded-2xl border shadow-2xl overflow-hidden backdrop-blur-xl transition-all ${
+                isLight
+                  ? 'border-emerald-300 bg-white shadow-emerald-900/5 text-slate-900'
+                  : isContrast
+                  ? 'border-2 border-white bg-black text-white'
+                  : 'border-emerald-500/30 bg-slate-950/95 shadow-2xl'
+              }`}
+            >
+              <div
+                className={`px-4 py-2 border-b flex items-center justify-between ${
+                  isLight
+                    ? 'bg-emerald-50/80 border-emerald-200'
+                    : isContrast
+                    ? 'bg-black border-white'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`}
+              >
+                <div
+                  className={`flex items-center gap-2 font-bold text-xs ${
+                    isLight
+                      ? 'text-emerald-950'
+                      : isContrast
+                      ? 'text-emerald-300'
+                      : 'text-emerald-400'
+                  }`}
+                >
                   <Target className="w-4 h-4" />
-                  <span>{isAr ? 'الميكروميتر الدقيق (0.01 مم)' : 'Precision Screw Gauge Micrometer (0.01 mm)'}</span>
+                  <span>
+                    {isAr
+                      ? 'الميكروميتر الدقيق (0.01 مم)'
+                      : 'Precision Screw Gauge Micrometer (0.01 mm)'}
+                  </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <button
                     type="button"
                     onClick={() => toggleMinimize('micrometer')}
-                    className="p-1 rounded text-slate-400 hover:text-slate-200"
+                    className={`p-1 rounded cursor-pointer ${
+                      isLight
+                        ? 'text-slate-600 hover:text-slate-900'
+                        : isContrast
+                        ? 'text-white hover:text-cyan-300'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
                   >
-                    {minimized.has('micrometer') ? <Maximize2 className="w-3.5 h-3.5" /> : <Minimize2 className="w-3.5 h-3.5" />}
+                    {minimized.has('micrometer') ? (
+                      <Maximize2 className="w-3.5 h-3.5" />
+                    ) : (
+                      <Minimize2 className="w-3.5 h-3.5" />
+                    )}
                   </button>
                   <button
                     type="button"
                     onClick={() => onCloseInstrument('micrometer')}
-                    className="p-1 rounded text-slate-400 hover:text-rose-400"
+                    className={`p-1 rounded cursor-pointer ${
+                      isLight
+                        ? 'text-slate-600 hover:text-rose-600'
+                        : isContrast
+                        ? 'text-white hover:text-rose-400'
+                        : 'text-slate-400 hover:text-rose-400'
+                    }`}
                   >
                     <X className="w-3.5 h-3.5" />
                   </button>
@@ -301,7 +465,7 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
               </div>
               {!minimized.has('micrometer') && (
                 <div className="p-3 sm:p-4 w-full">
-                  <MicrometerCaliper lang={lang} />
+                  <MicrometerCaliper lang={lang} theme={theme} />
                 </div>
               )}
             </div>
@@ -309,44 +473,116 @@ export const InstrumentRack: React.FC<InstrumentRackProps> = ({
 
           {/* Lab Stopwatch */}
           {activeInstruments.has('stopwatch') && (
-            <div className="rounded-2xl border border-indigo-500/30 bg-slate-950/95 shadow-2xl overflow-hidden backdrop-blur-xl transition-all flex flex-col items-center">
-              <div className="w-full px-4 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-indigo-400 font-bold text-xs">
+            <div
+              className={`rounded-2xl border shadow-2xl overflow-hidden backdrop-blur-xl transition-all flex flex-col items-center ${
+                isLight
+                  ? 'border-indigo-300 bg-white shadow-indigo-900/5 text-slate-900'
+                  : isContrast
+                  ? 'border-2 border-white bg-black text-white'
+                  : 'border-indigo-500/30 bg-slate-950/95 shadow-2xl'
+              }`}
+            >
+              <div
+                className={`w-full px-4 py-2 border-b flex items-center justify-between ${
+                  isLight
+                    ? 'bg-indigo-50/80 border-indigo-200'
+                    : isContrast
+                    ? 'bg-black border-white'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`}
+              >
+                <div
+                  className={`flex items-center gap-2 font-bold text-xs ${
+                    isLight
+                      ? 'text-indigo-950'
+                      : isContrast
+                      ? 'text-indigo-300'
+                      : 'text-indigo-400'
+                  }`}
+                >
                   <Clock className="w-4 h-4" />
-                  <span>{isAr ? 'ساعة الإيقاف المعملية' : 'Precision Digital Stopwatch'}</span>
+                  <span>
+                    {isAr
+                      ? 'ساعة الإيقاف المعملية'
+                      : 'Precision Digital Stopwatch'}
+                  </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => onCloseInstrument('stopwatch')}
-                  className="p-1 rounded text-slate-400 hover:text-rose-400"
+                  className={`p-1 rounded cursor-pointer ${
+                    isLight
+                      ? 'text-slate-600 hover:text-rose-600'
+                      : isContrast
+                      ? 'text-white hover:text-rose-400'
+                      : 'text-slate-400 hover:text-rose-400'
+                  }`}
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
               <div className="p-4">
-                <LabStopwatch lang={lang} onLogLap={onStopwatchLap} />
+                <LabStopwatch
+                  lang={lang}
+                  onLogLap={onStopwatchLap}
+                  theme={theme}
+                />
               </div>
             </div>
           )}
 
           {/* Math KaTeX Scratchpad */}
           {activeInstruments.has('scratchpad') && (
-            <div className="rounded-2xl border border-rose-500/30 bg-slate-950/95 shadow-2xl overflow-hidden backdrop-blur-xl transition-all xl:col-span-2">
-              <div className="px-4 py-2 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-rose-400 font-bold text-xs">
+            <div
+              className={`rounded-2xl border shadow-2xl overflow-hidden backdrop-blur-xl transition-all xl:col-span-2 ${
+                isLight
+                  ? 'border-rose-300 bg-white shadow-rose-900/5 text-slate-900'
+                  : isContrast
+                  ? 'border-2 border-white bg-black text-white'
+                  : 'border-rose-500/30 bg-slate-950/95 shadow-2xl'
+              }`}
+            >
+              <div
+                className={`px-4 py-2 border-b flex items-center justify-between ${
+                  isLight
+                    ? 'bg-rose-50/80 border-rose-200'
+                    : isContrast
+                    ? 'bg-black border-white'
+                    : 'bg-slate-900/90 border-slate-800'
+                }`}
+              >
+                <div
+                  className={`flex items-center gap-2 font-bold text-xs ${
+                    isLight
+                      ? 'text-rose-950'
+                      : isContrast
+                      ? 'text-rose-300'
+                      : 'text-rose-400'
+                  }`}
+                >
                   <Edit3 className="w-4 h-4" />
-                  <span>{isAr ? 'المسودة الرياضية التفاعلية (KaTeX & Keypad)' : 'Interactive Math Scratchpad (KaTeX & Keypad)'}</span>
+                  <span>
+                    {isAr
+                      ? 'المسودة الرياضية التفاعلية (KaTeX & Keypad)'
+                      : 'Interactive Math Scratchpad (KaTeX & Keypad)'}
+                  </span>
                 </div>
                 <button
                   type="button"
                   onClick={() => onCloseInstrument('scratchpad')}
-                  className="p-1 rounded text-slate-400 hover:text-rose-400"
+                  className={`p-1 rounded cursor-pointer ${
+                    isLight
+                      ? 'text-slate-600 hover:text-rose-600'
+                      : isContrast
+                      ? 'text-white hover:text-rose-400'
+                      : 'text-slate-400 hover:text-rose-400'
+                  }`}
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
               <div className="p-4">
-                <MathScratchpad lang={lang} />
+                <MathScratchpad lang={lang} theme={theme} />
               </div>
             </div>
           )}

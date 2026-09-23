@@ -33,6 +33,12 @@ const ArabicGrammarModal = lazy(() => import('./components/ArabicGrammarModal').
 const AccessibilitySettingsModal = lazy(() => import('./components/AccessibilitySettingsModal').then(m => ({ default: m.AccessibilitySettingsModal })));
 const SiteTutorialModal = lazy(() => import('./components/SiteTutorialModal').then(m => ({ default: m.SiteTutorialModal })));
 const MathScratchpad = lazy(() => import('./core/math/MathScratchpad').then(m => ({ default: m.MathScratchpad })));
+const PwaInstallPrompt = lazy(() => import('./components/PwaInstallPrompt').then(m => ({ default: m.PwaInstallPrompt })));
+const TeacherAssignmentModal = lazy(() => import('./components/TeacherAssignmentModal').then(m => ({ default: m.TeacherAssignmentModal })));
+const TeacherCertificationModal = lazy(() => import('./components/TeacherCertificationModal').then(m => ({ default: m.TeacherCertificationModal })));
+const ParentProgressReportModal = lazy(() => import('./components/ParentProgressReportModal').then(m => ({ default: m.ParentProgressReportModal })));
+const DownloadManagerModal = lazy(() => import('./components/DownloadManagerModal').then(m => ({ default: m.DownloadManagerModal })));
+import type { Assignment } from './types/teacherAssignment';
 
 const ViewLoadingFallback: React.FC<{ messageAr?: string; messageEn?: string }> = ({
   messageAr = 'جاري تحميل المحتوى...',
@@ -198,6 +204,13 @@ export const App: React.FC = () => {
   const [testBlueprint, setTestBlueprint] = useState<BlueprintMode | undefined>(initialRoute.blueprint);
   const [isCertificateVerificationOpen, setIsCertificateVerificationOpen] = useState<boolean>(initialRoute.openVerificationModal || false);
   const [verificationTargetSerial, setVerificationTargetSerial] = useState<string>(initialRoute.verificationSerial || '');
+  const [isTeacherAssignmentModalOpen, setIsTeacherAssignmentModalOpen] = useState<boolean>(false);
+  const [isTeacherCertModalOpen, setIsTeacherCertModalOpen] = useState<boolean>(false);
+  const [isParentReportModalOpen, setIsParentReportModalOpen] = useState<boolean>(false);
+  const [isDownloadManagerModalOpen, setIsDownloadManagerModalOpen] = useState<boolean>(false);
+  const [initialAssignmentCode, setInitialAssignmentCode] = useState<string>('');
+  const [activeAssignmentForTest, setActiveAssignmentForTest] = useState<Assignment | undefined>(undefined);
+  const [assignmentStudentName, setAssignmentStudentName] = useState<string>('');
 
   const handleOpenOfficialBooks = (bookId?: string) => {
     setTargetOfficialBookId(bookId);
@@ -273,6 +286,27 @@ export const App: React.FC = () => {
   // Register Service Worker for PWA offline resilience
   useEffect(() => {
     registerServiceWorker();
+  }, []);
+
+  // Check assignment URL deep link (?asgn=... or ?asgnCode=...)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const packed = params.get('asgn');
+    const code = params.get('asgnCode') || params.get('code');
+    if (packed) {
+      import('./services/teacherAssignmentService').then(({ decodeAssignmentFromUrl }) => {
+        const decoded = decodeAssignmentFromUrl(packed);
+        if (decoded) {
+          setActiveAssignmentForTest(decoded);
+          setSelectedSubject(decoded.subjectId);
+          setActiveTab('testGenerator');
+        }
+      });
+    } else if (code) {
+      setInitialAssignmentCode(code);
+      setIsTeacherAssignmentModalOpen(true);
+    }
   }, []);
 
   // Auto-launch interactive navigation tour for first-time visitors
@@ -644,6 +678,10 @@ export const App: React.FC = () => {
         onOpenAccessibility={() => setIsAccessibilityOpen(true)}
         onOpenExamSimulation={handleOpenExamSimulation}
         onOpenDiagnosticDrill={handleOpenDiagnosticDrill}
+        onOpenTeacherAssignments={() => setIsTeacherAssignmentModalOpen(true)}
+        onOpenTeacherCertification={() => setIsTeacherCertModalOpen(true)}
+        onOpenParentReport={() => setIsParentReportModalOpen(true)}
+        onOpenDownloadManager={() => setIsDownloadManagerModalOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -897,6 +935,72 @@ export const App: React.FC = () => {
           </Suspense>
         )}
 
+        {/* Teacher Assignment Platform Modal */}
+        {isTeacherAssignmentModalOpen && (
+          <Suspense fallback={null}>
+            <TeacherAssignmentModal
+              isOpen={isTeacherAssignmentModalOpen}
+              onClose={() => setIsTeacherAssignmentModalOpen(false)}
+              lang={lang}
+              theme={theme}
+              initialCode={initialAssignmentCode}
+              onOpenTeacherCertification={() => setIsTeacherCertModalOpen(true)}
+              onStartAssignmentTest={(assignment, name) => {
+                setActiveAssignmentForTest(assignment);
+                setAssignmentStudentName(name);
+                setSelectedSubject(assignment.subjectId);
+                setActiveTab('testGenerator');
+                setIsTeacherAssignmentModalOpen(false);
+              }}
+            />
+          </Suspense>
+        )}
+
+        {/* Teacher Certification Program & Digital Diploma Modal */}
+        {isTeacherCertModalOpen && (
+          <Suspense fallback={null}>
+            <TeacherCertificationModal
+              isOpen={isTeacherCertModalOpen}
+              onClose={() => setIsTeacherCertModalOpen(false)}
+              lang={lang}
+              onOpenVerification={(serial) => {
+                setVerificationTargetSerial(serial);
+                setIsCertificateVerificationOpen(true);
+                setIsTeacherCertModalOpen(false);
+              }}
+            />
+          </Suspense>
+        )}
+
+        {/* Parent Weekly Digest (WhatsApp / SMS) Modal */}
+        {isParentReportModalOpen && (
+          <Suspense fallback={null}>
+            <ParentProgressReportModal
+              isOpen={isParentReportModalOpen}
+              onClose={() => setIsParentReportModalOpen(false)}
+              lang={lang}
+              theme={theme}
+            />
+          </Suspense>
+        )}
+
+        {/* Offline Study Pack Download Manager Modal */}
+        {isDownloadManagerModalOpen && (
+          <Suspense fallback={null}>
+            <DownloadManagerModal
+              isOpen={isDownloadManagerModalOpen}
+              onClose={() => setIsDownloadManagerModalOpen(false)}
+              lang={lang}
+              theme={theme}
+            />
+          </Suspense>
+        )}
+
+        {/* PWA Home Screen Installation Prompt (Offline Ready) */}
+        <Suspense fallback={null}>
+          <PwaInstallPrompt lang={lang} theme={theme} />
+        </Suspense>
+
         {/* Tab View Router */}
         {activeTab === 'overview' && (
           <CurriculumOverview
@@ -988,6 +1092,11 @@ export const App: React.FC = () => {
               }}
               initialSubject={selectedSubject}
               initialBlueprint={testBlueprint}
+              initialAssignment={activeAssignmentForTest}
+              studentName={assignmentStudentName}
+              onAssignmentSubmitted={() => {
+                setActiveAssignmentForTest(undefined);
+              }}
             />
           </Suspense>
         )}

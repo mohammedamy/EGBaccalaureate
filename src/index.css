@@ -221,6 +221,15 @@
     line-height: 1.85 !important;
     letter-spacing: 0.02em !important;
   }
+
+  /* Low-Data Mode: Native system fonts fallback & disable heavy GPU backdrop filters for budget devices */
+  html[data-low-data="true"] {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  }
+  html[data-low-data="true"] * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
 }
 
 /* Mobile Ergonomics, Touch Feedback, Formula Scrolling & iOS Auto-zoom Prevention */
@@ -599,13 +608,16 @@ html.light .hero-banner .hero-btn-secondary {
 /* CARDS & PANELS IN LIGHT MODE */
 /* CARDS & PANELS IN LIGHT MODE */
 html.light .bg-slate-900,
+html.light .bg-slate-900\/98,
 html.light .bg-slate-900\/95,
 html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/85,
 html.light .bg-slate-900\/80,
 html.light .bg-slate-900\/70,
 html.light .bg-slate-900\/60,
 html.light .bg-slate-900\/50,
 html.light .bg-slate-950,
+html.light .bg-slate-950\/98,
 html.light .bg-slate-950\/95,
 html.light .bg-slate-950\/90,
 html.light .bg-slate-950\/85,
@@ -614,6 +626,8 @@ html.light .bg-slate-950\/70,
 html.light .bg-slate-950\/60,
 html.light .bg-slate-950\/50,
 html.light .bg-slate-950\/40,
+html.light [class*="bg-slate-900"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis):not(.crt-screen):not(canvas):not([class*="bg-black"]):not(pre):not(code),
+html.light [class*="bg-slate-950"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis):not(.crt-screen):not(canvas):not([class*="bg-black"]):not(pre):not(code),
 html.light .bg-stone-900,
 html.light .bg-stone-900\/95,
 html.light .bg-stone-900\/90,
@@ -630,14 +644,14 @@ html.light .bg-stone-950\/70,
 html.light .bg-stone-950\/60,
 html.light .bg-stone-950\/50,
 html.light .bg-stone-950\/40,
-html.light [class*="bg-stone-900"],
-html.light [class*="bg-stone-950"],
-html.light [class*="bg-zinc-900"],
-html.light [class*="bg-zinc-950"],
-html.light [class*="bg-gray-900"],
-html.light [class*="bg-gray-950"],
-html.light [class*="bg-neutral-900"],
-html.light [class*="bg-neutral-950"] {
+html.light [class*="bg-stone-900"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-stone-950"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-zinc-900"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-zinc-950"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-gray-900"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-gray-950"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-neutral-900"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-neutral-950"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis) {
   background-color: #ffffff !important;
   color: #0f172a !important;
 }
@@ -663,11 +677,11 @@ html.light .bg-stone-800\/80,
 html.light .bg-stone-800\/70,
 html.light .bg-stone-800\/60,
 html.light .bg-stone-800\/50,
-html.light [class*="bg-slate-800"],
-html.light [class*="bg-stone-800"],
-html.light [class*="bg-zinc-800"],
-html.light [class*="bg-gray-800"],
-html.light [class*="bg-neutral-800"] {
+html.light [class*="bg-slate-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-stone-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-zinc-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-gray-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-neutral-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis) {
   background-color: #f8fafc !important;
   color: #0f172a !important;
 }
@@ -699,6 +713,8 @@ html.light .border-stone-800\/60,
 html.light .border-stone-700,
 html.light .border-stone-700\/80,
 html.light .border-stone-700\/60,
+html.light [class*="border-slate-950"],
+html.light [class*="border-slate-900"],
 html.light [class*="border-slate-800"],
 html.light [class*="border-slate-700"],
 html.light [class*="border-stone-800"],
@@ -802,6 +818,55 @@ html.light .text-teal-400 {
   color: #0f766e !important;
 }
 
+html.light .text-violet-100,
+html.light .text-violet-200,
+html.light .text-violet-300,
+html.light .text-violet-400 {
+  color: #5b21b6 !important;
+}
+
+html.light .text-fuchsia-100,
+html.light .text-fuchsia-200,
+html.light .text-fuchsia-300,
+html.light .text-fuchsia-400 {
+  color: #86198f !important;
+}
+
+html.light .text-blue-100,
+html.light .text-blue-200,
+html.light .text-blue-300,
+html.light .text-blue-400 {
+  color: #1e40af !important;
+}
+
+html.light .text-pink-100,
+html.light .text-pink-200,
+html.light .text-pink-300,
+html.light .text-pink-400 {
+  color: #9d174d !important;
+}
+
+html.light .text-orange-100,
+html.light .text-orange-200,
+html.light .text-orange-300,
+html.light .text-orange-400 {
+  color: #9a3412 !important;
+}
+
+html.light .text-yellow-100,
+html.light .text-yellow-200,
+html.light .text-yellow-300,
+html.light .text-yellow-400 {
+  color: #854d0e !important;
+}
+
+html.light .text-lime-100,
+html.light .text-lime-200,
+html.light .text-lime-300,
+html.light .text-lime-400 {
+  color: #3f6212 !important;
+}
+
 /* PRESERVE WHITE & LIGHT TEXT IN LIGHT MODE ON DARK SURFACES & BUTTONS */
 html.light .text-white,
 html.light .text-white *,
@@ -813,6 +878,8 @@ html.light button.bg-emerald-600,
 html.light button.bg-emerald-600 *,
 html.light button.bg-cyan-600,
 html.light button.bg-cyan-600 *,
+html.light button.bg-cyan-700,
+html.light button.bg-cyan-700 *,
 html.light button.bg-rose-600,
 html.light button.bg-rose-600 *,
 html.light button.bg-amber-600,
@@ -821,6 +888,7 @@ html.light [class*="bg-indigo-600"] .text-white,
 html.light [class*="bg-teal-600"] .text-white,
 html.light [class*="bg-emerald-600"] .text-white,
 html.light [class*="bg-cyan-600"] .text-white,
+html.light [class*="bg-cyan-700"] .text-white,
 html.light [class*="bg-rose-600"] .text-white,
 html.light [class*="bg-amber-600"] .text-white {
   color: #ffffff !important;
@@ -832,9 +900,47 @@ html.light .bg-indigo-700,
 html.light .bg-teal-600,
 html.light .bg-teal-700,
 html.light .bg-emerald-600,
+html.light .bg-emerald-700,
 html.light .bg-cyan-600,
+html.light .bg-cyan-700,
 html.light .bg-rose-600,
-html.light .bg-blue-600 {
+html.light .bg-rose-700,
+html.light .bg-blue-600,
+html.light .bg-blue-700,
+html.light .bg-violet-600,
+html.light .bg-violet-700,
+html.light .bg-fuchsia-600,
+html.light .bg-fuchsia-700,
+html.light [class*="bg-cyan-700"],
+html.light [class*="bg-indigo-700"],
+html.light [class*="bg-emerald-700"],
+html.light [class*="bg-rose-700"],
+html.light [class*="bg-blue-700"],
+html.light [class*="bg-violet-700"] {
+  color: #ffffff !important;
+}
+
+/* Ensure dark slate buttons with white text in light mode keep a dark background with crisp white text */
+html.light button.text-white[class*="bg-slate"],
+html.light button[class*="bg-slate-800"].text-white,
+html.light button[class*="bg-slate-900"].text-white,
+html.light button[class*="bg-slate-950"].text-white,
+html.light [class*="bg-slate-800"].text-white,
+html.light [class*="bg-slate-900"].text-white,
+html.light [class*="bg-slate-950"].text-white,
+html.light button[class*="bg-stone-800"].text-white,
+html.light button[class*="bg-stone-900"].text-white,
+html.light button[class*="bg-zinc-800"].text-white,
+html.light button[class*="bg-zinc-900"].text-white {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+html.light button.text-white[class*="bg-slate"]:hover,
+html.light button[class*="bg-slate-800"].text-white:hover,
+html.light button[class*="bg-slate-900"].text-white:hover {
+  background-color: #1e293b !important;
   color: #ffffff !important;
 }
 
@@ -893,6 +999,118 @@ html.light .bg-teal-950 {
   background-color: #ccfbf1 !important;
   color: #0f766e !important;
   border-color: #99f6e4 !important;
+}
+
+html.light [class*="bg-violet-950"],
+html.light .bg-violet-950 {
+  background-color: #ede9fe !important;
+  color: #5b21b6 !important;
+  border-color: #ddd6fe !important;
+}
+
+html.light [class*="bg-fuchsia-950"],
+html.light .bg-fuchsia-950 {
+  background-color: #fae8ff !important;
+  color: #86198f !important;
+  border-color: #f5d0fe !important;
+}
+
+html.light [class*="bg-blue-950"],
+html.light .bg-blue-950 {
+  background-color: #dbeafe !important;
+  color: #1e40af !important;
+  border-color: #bfdbfe !important;
+}
+
+html.light [class*="bg-pink-950"],
+html.light .bg-pink-950 {
+  background-color: #fce7f3 !important;
+  color: #9d174d !important;
+  border-color: #fbcfe8 !important;
+}
+
+/* PRESERVE LIGHT TEXT ON BLACK / CRT / CANVAS OVERLAYS IN LIGHT MODE */
+html.light [class*="bg-black"],
+html.light .bg-black,
+html.light [data-preserve-dark="true"],
+html.light .dark-chassis,
+html.light .preserve-dark,
+html.light .crt-screen {
+  color: #f8fafc !important;
+}
+
+html.light [class*="bg-black"] .text-slate-100,
+html.light [class*="bg-black"] .text-slate-200,
+html.light [class*="bg-black"] .text-slate-300,
+html.light [class*="bg-black"] .text-white,
+html.light [data-preserve-dark="true"] .text-slate-100,
+html.light [data-preserve-dark="true"] .text-slate-200,
+html.light [data-preserve-dark="true"] .text-slate-300,
+html.light [data-preserve-dark="true"] .text-white,
+html.light .dark-chassis .text-slate-100,
+html.light .dark-chassis .text-slate-200,
+html.light .dark-chassis .text-slate-300,
+html.light .dark-chassis .text-white,
+html.light .preserve-dark .text-slate-100,
+html.light .preserve-dark .text-slate-200,
+html.light .preserve-dark .text-slate-300,
+html.light .preserve-dark .text-white {
+  color: #f8fafc !important;
+}
+
+html.light [class*="bg-black"] .text-slate-400,
+html.light [class*="bg-black"] .text-slate-500,
+html.light [data-preserve-dark="true"] .text-slate-400,
+html.light [data-preserve-dark="true"] .text-slate-500,
+html.light .dark-chassis .text-slate-400,
+html.light .dark-chassis .text-slate-500,
+html.light .preserve-dark .text-slate-400,
+html.light .preserve-dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.light [class*="bg-black"] .text-cyan-300,
+html.light [class*="bg-black"] .text-cyan-400,
+html.light [data-preserve-dark="true"] .text-cyan-300,
+html.light [data-preserve-dark="true"] .text-cyan-400,
+html.light .dark-chassis .text-cyan-300,
+html.light .dark-chassis .text-cyan-400,
+html.light .preserve-dark .text-cyan-300,
+html.light .preserve-dark .text-cyan-400 {
+  color: #38bdf8 !important;
+}
+
+html.light [class*="bg-black"] .text-emerald-300,
+html.light [class*="bg-black"] .text-emerald-400,
+html.light [data-preserve-dark="true"] .text-emerald-300,
+html.light [data-preserve-dark="true"] .text-emerald-400,
+html.light .dark-chassis .text-emerald-300,
+html.light .dark-chassis .text-emerald-400,
+html.light .preserve-dark .text-emerald-300,
+html.light .preserve-dark .text-emerald-400 {
+  color: #34d399 !important;
+}
+
+html.light [class*="bg-black"] .text-amber-300,
+html.light [class*="bg-black"] .text-amber-400,
+html.light [data-preserve-dark="true"] .text-amber-300,
+html.light [data-preserve-dark="true"] .text-amber-400,
+html.light .dark-chassis .text-amber-300,
+html.light .dark-chassis .text-amber-400,
+html.light .preserve-dark .text-amber-300,
+html.light .preserve-dark .text-amber-400 {
+  color: #fbbf24 !important;
+}
+
+html.light [class*="bg-black"] .text-sky-300,
+html.light [class*="bg-black"] .text-sky-400,
+html.light [data-preserve-dark="true"] .text-sky-300,
+html.light [data-preserve-dark="true"] .text-sky-400,
+html.light .dark-chassis .text-sky-300,
+html.light .dark-chassis .text-sky-400,
+html.light .preserve-dark .text-sky-300,
+html.light .preserve-dark .text-sky-400 {
+  color: #38bdf8 !important;
 }
 
 /* FORM CONTROLS IN LIGHT MODE */
@@ -1114,16 +1332,28 @@ html.high-contrast .glass-card:hover {
 
 /* CARDS & PANELS IN HIGH CONTRAST */
 html.high-contrast .bg-slate-900,
+html.high-contrast .bg-slate-900\/98,
 html.high-contrast .bg-slate-900\/95,
 html.high-contrast .bg-slate-900\/90,
 html.high-contrast .bg-slate-900\/80,
 html.high-contrast .bg-slate-950,
+html.high-contrast .bg-slate-950\/98,
 html.high-contrast .bg-slate-950\/95,
 html.high-contrast .bg-slate-950\/90,
 html.high-contrast .bg-slate-950\/80,
 html.high-contrast .bg-slate-950\/60,
 html.high-contrast .bg-slate-950\/50,
-html.high-contrast .bg-slate-950\/40 {
+html.high-contrast .bg-slate-950\/40,
+html.high-contrast [class*="bg-slate-900"],
+html.high-contrast [class*="bg-slate-950"],
+html.high-contrast [class*="bg-stone-900"],
+html.high-contrast [class*="bg-stone-950"],
+html.high-contrast [class*="bg-zinc-900"],
+html.high-contrast [class*="bg-zinc-950"],
+html.high-contrast [class*="bg-gray-900"],
+html.high-contrast [class*="bg-gray-950"],
+html.high-contrast [class*="bg-neutral-900"],
+html.high-contrast [class*="bg-neutral-950"] {
   background-color: #000000 !important;
   color: #ffffff !important;
   border-color: #38bdf8 !important;
@@ -1133,17 +1363,22 @@ html.high-contrast .bg-slate-950\/40 {
 html.high-contrast .bg-slate-800,
 html.high-contrast .bg-slate-800\/80,
 html.high-contrast .bg-slate-800\/60,
-html.high-contrast .bg-slate-900\/60 {
+html.high-contrast .bg-slate-900\/60,
+html.high-contrast [class*="bg-slate-800"] {
   background-color: #0c0a09 !important;
   color: #ffffff !important;
   border-color: #7dd3fc !important;
 }
 
 /* BORDERS IN HIGH CONTRAST */
+html.high-contrast [class*="border-slate-950"],
+html.high-contrast [class*="border-slate-900"],
 html.high-contrast .border-slate-800,
 html.high-contrast .border-slate-800\/80,
 html.high-contrast .border-slate-800\/60,
-html.high-contrast .border-slate-700 {
+html.high-contrast .border-slate-700,
+html.high-contrast [class*="border-slate-800"],
+html.high-contrast [class*="border-slate-700"] {
   border-color: #38bdf8 !important;
 }
 
@@ -1183,6 +1418,36 @@ html.high-contrast .text-emerald-400 {
 html.high-contrast .text-cyan-300,
 html.high-contrast .text-cyan-400 {
   color: #38bdf8 !important;
+  font-weight: 700 !important;
+}
+
+html.high-contrast .text-violet-300,
+html.high-contrast .text-violet-400 {
+  color: #c084fc !important;
+  font-weight: 700 !important;
+}
+
+html.high-contrast .text-fuchsia-300,
+html.high-contrast .text-fuchsia-400 {
+  color: #f472b6 !important;
+  font-weight: 700 !important;
+}
+
+html.high-contrast .text-rose-300,
+html.high-contrast .text-rose-400 {
+  color: #fb7185 !important;
+  font-weight: 700 !important;
+}
+
+html.high-contrast .text-sky-300,
+html.high-contrast .text-sky-400 {
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+}
+
+html.high-contrast .text-teal-300,
+html.high-contrast .text-teal-400 {
+  color: #2dd4bf !important;
   font-weight: 700 !important;
 }
 
@@ -1326,13 +1591,16 @@ html.high-contrast input[type='range']::-moz-range-thumb {
    ========================================================================== */
 @media print {
   @page {
-    margin: 12mm 15mm 15mm 15mm;
+    margin: 10mm 12mm 12mm 12mm;
     size: A4 portrait;
   }
 
   /* Reset root containers to crisp pure white background with pitch-black ink across all day/night/contrast views */
-  html, html.dark, html.high-contrast, html.light,
-  body, body.dark, body.high-contrast, body.light,
+  html, html *,
+  html.high-contrast, html.high-contrast *,
+  html.dark, html.dark *,
+  html.light, html.light *,
+  body, body *,
   .dark, .high-contrast, .light,
   #root, main,
   .printable-root, .printable-sheet, .printable-page, .exam-paper, .worksheet-page,
@@ -1344,11 +1612,25 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     -webkit-text-fill-color: #000000 !important;
     text-shadow: none !important;
     box-shadow: none !important;
+    filter: none !important;
     width: 100% !important;
     height: auto !important;
     overflow: visible !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+
+  /* Outer workstation wrappers: neutralize thick dark/cyan borders and rounded simulator framing */
+  .bubble-sheet-container,
+  .print-exam-sheet,
+  .printable-root {
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
   }
 
   body {
@@ -1390,31 +1672,45 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     text-align: initial !important;
   }
 
-  /* Strip all dark backgrounds from Tailwind utility classes */
+  /* Strip all dark backgrounds from Tailwind utility classes with high specificity */
+  html.high-contrast [class*="bg-"],
+  html.dark [class*="bg-"],
+  html.light [class*="bg-"],
+  html [class*="bg-"],
   *[class*="bg-slate-"],
   *[class*="bg-gray-"],
   *[class*="bg-zinc-"],
   *[class*="bg-neutral-"],
+  *[class*="bg-stone-"],
   *[class*="bg-black"],
   *[class*="bg-indigo-"],
   *[class*="bg-amber-"],
   *[class*="bg-purple-"],
-  *[class*="bg-emerald-"] {
+  *[class*="bg-emerald-"],
+  *[class*="bg-cyan-"],
+  *[class*="bg-teal-"],
+  *[class*="bg-rose-"] {
     background: #ffffff !important;
     background-color: #ffffff !important;
   }
 
-  /* Force all Tailwind text utility classes to solid pitch-black ink */
+  /* Force all Tailwind text utility classes to solid pitch-black ink with high specificity */
+  html.high-contrast [class*="text-"],
+  html.dark [class*="text-"],
+  html.light [class*="text-"],
+  html [class*="text-"],
   *[class*="text-slate-"],
   *[class*="text-gray-"],
   *[class*="text-zinc-"],
   *[class*="text-neutral-"],
+  *[class*="text-stone-"],
   *[class*="text-white"],
   *[class*="text-amber-"],
   *[class*="text-indigo-"],
   *[class*="text-purple-"],
   *[class*="text-emerald-"],
   *[class*="text-cyan-"],
+  *[class*="text-sky-"],
   *[class*="text-rose-"],
   *[class*="text-teal-"] {
     color: #000000 !important;
@@ -1428,7 +1724,21 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     display: inline-flex !important;
   }
 
-  /* Borders printed with crisp dark lines */
+  /* Borders printed with crisp dark lines with high specificity */
+  html.high-contrast [class*="border-"],
+  html.dark [class*="border-"],
+  html.light [class*="border-"],
+  html [class*="border-"],
+  *[class*="border-slate-"],
+  *[class*="border-gray-"],
+  *[class*="border-zinc-"],
+  *[class*="border-neutral-"],
+  *[class*="border-stone-"],
+  *[class*="border-cyan-"],
+  *[class*="border-sky-"],
+  *[class*="border-indigo-"],
+  *[class*="border-emerald-"],
+  *[class*="border-amber-"],
   *[class*="border-"] {
     border-color: #000000 !important;
   }
@@ -1449,12 +1759,27 @@ html.high-contrast input[type='range']::-moz-range-thumb {
   header,
   nav,
   footer,
-  button:not(.print-preserve) {
+  button:not(.print-preserve):not(.print-omr-bubble):not(.print-omr-bubble-sm):not(.print-option-bubble):not([data-print-preserve="true"]) {
     display: none !important;
   }
 
   .print-only {
     display: block !important;
+  }
+
+  /* Single-Mode Isolation: When body has .print-omr-only, hide the question booklet and print just the OMR sheet */
+  body.print-omr-only .print-exam-booklet {
+    display: none !important;
+  }
+
+  body.print-omr-only .print-omr-bubble-sheet {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  /* Single-Mode Isolation: When body has .print-booklet-only, hide the OMR sheet */
+  body.print-booklet-only .print-omr-bubble-sheet {
+    display: none !important;
   }
 
   /* -------------------------------------------------------------------------
@@ -2328,7 +2653,11 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     font-size: 8.5pt !important;
     font-weight: 800 !important;
     background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
     line-height: 1 !important;
+    box-sizing: border-box !important;
   }
 
   .print-omr-bubble-sm {
@@ -2342,7 +2671,24 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     font-size: 6.5pt !important;
     font-weight: 700 !important;
     background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
     line-height: 1 !important;
+    box-sizing: border-box !important;
+  }
+
+  .print-bubble-filled,
+  [data-filled="true"],
+  .print-omr-bubble.print-bubble-filled,
+  .print-omr-bubble-sm.print-bubble-filled,
+  .print-omr-bubble[data-filled="true"],
+  .print-omr-bubble-sm[data-filled="true"] {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border-color: #000000 !important;
   }
 
   .print-omr-calib-corner {

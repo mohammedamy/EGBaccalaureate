@@ -35,6 +35,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 interface Props {
   lang?: Language;
@@ -65,6 +66,7 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
 
   // Audio Engine Settings
   const [speechRate, setSpeechRate] = useState<number>(0.85);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
   const [currentlyPlayingText, setCurrentlyPlayingText] = useState<string | null>(null);
 
   // Tab 1: Phonetics
@@ -109,6 +111,7 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
   const speakItalian = (text: string, customRate?: number) => {
     aiVoiceEngine.speak(text, {
       lang: 'it-IT',
+      voiceName: selectedVoiceName || undefined,
       rate: customRate || speechRate,
       onStart: () => setCurrentlyPlayingText(text),
       onEnd: () => setCurrentlyPlayingText(null),
@@ -134,6 +137,7 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
     const turns = track.turns.map((turn) => ({
       text: turn.textIt,
       lang: 'it-IT',
+      voiceName: selectedVoiceName || undefined,
       delayAfterMs: 650,
     }));
 
@@ -207,29 +211,17 @@ export const ItalianLanguageStudio: React.FC<Props> = ({
 
         {/* Global Controls & AI Vocal Engine */}
         <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-          {/* AI Vocal Engine Badge */}
-          <div className="flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-1.5 rounded-2xl text-xs text-emerald-300 font-semibold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
-            <span className="text-[11px]">AI Vocal Engine (HD)</span>
-          </div>
-
-          <div className="flex items-center gap-2 bg-slate-900/80 px-3 py-1.5 rounded-2xl border border-slate-800 text-xs">
-            <Volume2 className="w-4 h-4 text-emerald-400" />
-            <span className="font-bold text-slate-300">سرعة الصوت:</span>
-            {[0.75, 0.85, 1.0].map((rate) => (
-              <button
-                key={rate}
-                onClick={() => setSpeechRate(rate)}
-                className={`px-2 py-0.5 rounded-lg font-mono font-bold transition-all ${
-                  speechRate === rate
-                    ? 'bg-emerald-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                {rate}x
-              </button>
-            ))}
-          </div>
+          <StudioVoiceSelector
+            lang="it-IT"
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="emerald"
+            isLight={isLight}
+            isContrast={isContrast}
+            sampleText="Ciao e benvenuto nello studio della lingua italiana per la maturità."
+          />
         </div>
 
         <button

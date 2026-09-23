@@ -777,6 +777,7 @@ export const VirtualLabShell = <
               >
                 <InstrumentRack
                   lang={lang}
+                  theme={theme}
                   supportedInstruments={definition.supportedInstruments}
                   activeInstruments={lab.instruments.activeInstruments}
                   onToggleInstrument={lab.instruments.toggleInstrument}
@@ -1171,6 +1172,7 @@ export const VirtualLabShell = <
           {/* Scientific Instruments Rack */}
           <InstrumentRack
             lang={lang}
+            theme={theme}
             supportedInstruments={definition.supportedInstruments}
             activeInstruments={lab.instruments.activeInstruments}
             onToggleInstrument={lab.instruments.toggleInstrument}

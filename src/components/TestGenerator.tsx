@@ -17,6 +17,7 @@ import {
   Award,
   FileSpreadsheet,
   Flag,
+  AlertTriangle,
   Timer,
   Play,
   Pause,
@@ -94,6 +95,14 @@ import {
   computeDiagnosticDrillResult,
   type DiagnosticDrillResult,
 } from '../services/aiStudyHintService';
+import { ErrorSelfReport } from './ErrorSelfReport';
+import { getAdaptiveState, recordAnswer } from '../services/adaptivePracticeEngine';
+import { matchQuestionToKnowledgePoint } from '../data/curriculumKnowledgePoints';
+import type { QuickErrorReport, ErrorTypeTag } from '../types/adaptivePractice';
+import { classifyErrorPattern } from '../services/errorPatternClassifier';
+import { submitAssignment } from '../services/teacherAssignmentService';
+import type { Assignment, AssignmentSubmission } from '../types/teacherAssignment';
+import { QuestionIssueReportModal } from './QuestionIssueReportModal';
 
 export type BlueprintMode =
   | 'all'
@@ -114,6 +123,9 @@ interface Props {
   initialSubject?: string;
   initialBlueprint?: BlueprintMode;
   initialQuestionCount?: number;
+  initialAssignment?: Assignment;
+  studentName?: string;
+  onAssignmentSubmitted?: (submission: AssignmentSubmission) => void;
 }
 
 export const TestGenerator: React.FC<Props> = ({
@@ -125,6 +137,9 @@ export const TestGenerator: React.FC<Props> = ({
   initialSubject = 'all',
   initialBlueprint,
   initialQuestionCount,
+  initialAssignment,
+  studentName = '',
+  onAssignmentSubmitted,
 }) => {
   const isLight = theme === 'light';
   const t = translations[lang];
@@ -200,6 +215,37 @@ export const TestGenerator: React.FC<Props> = ({
   const [diagnosticDrillResult, setDiagnosticDrillResult] = useState<DiagnosticDrillResult | null>(null);
   const [showMinisterialExamModal, setShowMinisterialExamModal] = useState<boolean>(false);
   const [selectedBookletModel, setSelectedBookletModel] = useState<BookletModelCode>('A');
+  const [reportedErrors, setReportedErrors] = useState<Record<string, QuickErrorReport>>({});
+  const [skippedErrors, setSkippedErrors] = useState<Record<string, boolean>>({});
+  const [reportingQuestion, setReportingQuestion] = useState<{
+    questionId: string;
+    snippet: string;
+    subjectId?: string;
+    chapterTitle?: string;
+  } | null>(null);
+
+  const handleOpenQuestionIssueReport = (q: GeneratedQuestion, _idx: number) => {
+    const snippet = (lang === 'ar' ? q.questionAr : q.questionEn) || '';
+    const chap = lang === 'ar' ? q.chapterTitleAr : q.chapterTitleEn;
+    setReportingQuestion({
+      questionId: q.id || `q_${Date.now()}`,
+      snippet: typeof snippet === 'string' ? snippet : '',
+      subjectId: selectedSubject,
+      chapterTitle: chap,
+    });
+  };
+
+  const handleErrorReport = (q: GeneratedQuestion, errType: QuickErrorReport) => {
+    setReportedErrors((prev) => ({ ...prev, [q.id]: errType }));
+    try {
+      const state = getAdaptiveState();
+      const kp = matchQuestionToKnowledgePoint(q.questionEn + ' ' + q.questionAr, q.chapterId);
+      const kpId = kp ? kp.knowledgePointId : `${q.chapterId}_general`;
+      recordAnswer(state, kpId, false, q.difficulty, 60, isTimed, errType);
+    } catch (err) {
+      console.warn('[AdaptiveEngine] Error recording self report:', err);
+    }
+  };
 
   // Sync initialBlueprint and initialQuestionCount when prop updates
   useEffect(() => {
@@ -613,6 +659,72 @@ export const TestGenerator: React.FC<Props> = ({
       confetti({ particleCount: 150, spread: 90, origin: { y: 0.5 } });
     } else if (currentScore === activeQuestions.length && activeQuestions.length > 0) {
       confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
+    }
+
+    // Adaptive Practice Engine integration + Automatic Distractor Error Pattern Classification
+    try {
+      const adaptiveState = getAdaptiveState();
+      const timePerQ = activeQuestions.length > 0 ? Math.round(elapsedSec / activeQuestions.length) : 60;
+      const errorBreakdown: Record<string, number> = {};
+
+      activeQuestions.forEach((q, idx) => {
+        const isCorrect = userAnswers[idx] === q.correctIndex;
+        const kp = matchQuestionToKnowledgePoint(q.questionEn + ' ' + q.questionAr, q.chapterId);
+        const kpId = kp ? kp.knowledgePointId : `${q.chapterId}_general`;
+
+        let finalErrorType: ErrorTypeTag | undefined = reportedErrors[q.id];
+        if (!isCorrect && !finalErrorType && userAnswers[idx] !== undefined) {
+          const autoClassified = classifyErrorPattern({
+            questionAr: q.questionAr,
+            questionEn: q.questionEn,
+            optionsAr: q.optionsAr,
+            optionsEn: q.optionsEn,
+            correctIndex: q.correctIndex,
+            selectedOptionIndex: userAnswers[idx],
+            timeSpentSec: timePerQ,
+            timeLimitSec: isTimed ? totalTimeSeconds / activeQuestions.length : undefined,
+            explanationAr: q.explanationAr,
+            explanationEn: q.explanationEn,
+            teacherTip: (q as any).teacherTip,
+          });
+          finalErrorType = autoClassified.detectedErrorType;
+        }
+
+        if (finalErrorType) {
+          errorBreakdown[finalErrorType] = (errorBreakdown[finalErrorType] || 0) + 1;
+        }
+
+        recordAnswer(adaptiveState, kpId, isCorrect, q.difficulty, timePerQ, isTimed, finalErrorType);
+      });
+
+      // Submit teacher assignment if active
+      if (initialAssignment) {
+        const totalPoints = activeQuestions.reduce((sum, q) => sum + (q.points ?? 1), 0);
+        const pct = totalPoints > 0 ? Math.round((currentScore / totalPoints) * 100) : 0;
+        const answersList = activeQuestions.map((q, idx) => ({
+          questionId: q.id,
+          selectedOptionIndex: userAnswers[idx] ?? -1,
+          isCorrect: userAnswers[idx] === q.correctIndex,
+          timeSpentSec: timePerQ,
+          errorType: userAnswers[idx] === q.correctIndex ? undefined : (reportedErrors[q.id] || errorBreakdown[q.id]),
+        }));
+
+        submitAssignment({
+          assignmentCode: initialAssignment.assignmentCode,
+          studentName: studentName || (isLight ? 'Student' : 'طالب'),
+          studentId: `std_${Date.now().toString(36)}`,
+          score: currentScore,
+          totalPoints,
+          percentage: pct,
+          timeSpentSeconds: elapsedSec,
+          errorTypeBreakdown: errorBreakdown,
+          answers: answersList,
+        }).then((sub) => {
+          onAssignmentSubmitted?.(sub);
+        }).catch((err) => console.warn('Assignment auto-submission error:', err));
+      }
+    } catch (err) {
+      console.warn('[AdaptiveEngine] Error in auto-classification recording:', err);
     }
   };
 
@@ -4119,6 +4231,16 @@ export const TestGenerator: React.FC<Props> = ({
                         </div>
 
                         <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => handleOpenQuestionIssueReport(q, idx)}
+                            className="text-xs font-semibold px-2 py-1 rounded-lg border border-slate-800 bg-slate-900/60 hover:bg-rose-950/40 text-slate-400 hover:text-rose-300 hover:border-rose-500/30 flex items-center gap-1 transition-all cursor-pointer"
+                            title={lang === 'ar' ? 'الإبلاغ عن ملاحظة أو خطأ في السؤال' : 'Report Question Issue'}
+                          >
+                            <AlertTriangle className="w-3.5 h-3.5 text-rose-400" />
+                            <span className="hidden sm:inline">{lang === 'ar' ? 'إبلاغ' : 'Report'}</span>
+                          </button>
+
                           {!isSubmitted && (
                             <button
                               onClick={() => toggleFlag(idx)}
@@ -4252,6 +4374,26 @@ export const TestGenerator: React.FC<Props> = ({
                               </p>
                             </div>
                           )}
+
+                          {/* Adaptive Error-Type Self-Report Widget */}
+                          {isWrong && !reportedErrors[q.id] && !skippedErrors[q.id] && (
+                            <div className="mt-3 pt-3 border-t border-slate-800/80">
+                              <ErrorSelfReport
+                                lang={lang}
+                                theme={theme}
+                                onReport={(errType) => handleErrorReport(q, errType)}
+                                onSkip={() => setSkippedErrors((prev) => ({ ...prev, [q.id]: true }))}
+                              />
+                            </div>
+                          )}
+
+                          {isWrong && reportedErrors[q.id] && (
+                            <div className="mt-2 text-center text-[11px] font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 py-1.5 px-3 rounded-lg">
+                              {lang === 'ar'
+                                ? '✓ تم تسجيل سبب الخطأ في خطتك التكيفية لتوجيه التمارين القادمة'
+                                : '✓ Logged to your adaptive practice plan for tailored review'}
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -4368,6 +4510,20 @@ export const TestGenerator: React.FC<Props> = ({
           onOpenDesmos={() => onOpenDesmos?.('scientific')}
           timeLimitMinutes={getOfficialMockConfig(selectedSubject, selectedBranch).durationMinutes}
           initialBookletModel={selectedBookletModel}
+        />
+      )}
+
+      {/* Community Question Issue Report & Quality Review Modal */}
+      {reportingQuestion && (
+        <QuestionIssueReportModal
+          isOpen={!!reportingQuestion}
+          onClose={() => setReportingQuestion(null)}
+          lang={lang}
+          theme={theme}
+          questionId={reportingQuestion.questionId}
+          questionSnippet={reportingQuestion.snippet}
+          subjectId={reportingQuestion.subjectId}
+          chapterTitle={reportingQuestion.chapterTitle}
         />
       )}
     </div>

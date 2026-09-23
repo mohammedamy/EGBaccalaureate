@@ -1919,6 +1919,7 @@ const STORAGE_KEY_PREFIX = 'egb_lab_report_draft_';
  * Saves report draft into browser localStorage.
  */
 export function saveLabReportDraft(report: LabReportData): void {
+  if (typeof localStorage === 'undefined') return;
   try {
     const key = `${STORAGE_KEY_PREFIX}${report.experimentId}`;
     localStorage.setItem(key, JSON.stringify(report));
@@ -1931,17 +1932,19 @@ export function saveLabReportDraft(report: LabReportData): void {
  * Loads saved report draft from localStorage or falls back to standard template.
  */
 export function loadLabReportDraft(experimentId: string): LabReportData {
-  try {
-    const key = `${STORAGE_KEY_PREFIX}${experimentId}`;
-    const raw = localStorage.getItem(key);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (parsed && parsed.experimentId === experimentId) {
-        return parsed;
+  if (typeof localStorage !== 'undefined') {
+    try {
+      const key = `${STORAGE_KEY_PREFIX}${experimentId}`;
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.experimentId === experimentId) {
+          return parsed;
+        }
       }
+    } catch (err) {
+      console.warn('Failed to load lab report from localStorage:', err);
     }
-  } catch (err) {
-    console.warn('Failed to load lab report from localStorage:', err);
   }
 
   return getLabReportTemplate(experimentId);

@@ -35,6 +35,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { StudioVoiceSelector } from './StudioVoiceSelector';
 
 interface Props {
   lang?: Language;
@@ -360,6 +361,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
   // Audio Engine Settings
   const [accent, setAccent] = useState<'en-GB' | 'en-US'>('en-GB');
   const [speechRate, setSpeechRate] = useState<number>(0.95);
+  const [selectedVoiceName, setSelectedVoiceName] = useState<string | null>(null);
   const [currentlyPlayingWord, setCurrentlyPlayingWord] = useState<string | null>(null);
 
   // Tab 1: Phonetics & Minimal Pairs State
@@ -399,6 +401,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
     setCurrentlyPlayingWord(text);
     aiVoiceEngine.speak(text, {
       lang: forcedAccent || accent,
+      voiceName: selectedVoiceName || undefined,
       rate: rateOverride || speechRate,
       onStart: () => setCurrentlyPlayingWord(text),
       onEnd: () => setCurrentlyPlayingWord(null),
@@ -475,6 +478,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
       setCurrentlyPlayingWord(currentTrack.fullText);
       aiVoiceEngine.speak(currentTrack.fullText, {
         lang: currentTrack.recommendedVoice,
+        voiceName: selectedVoiceName || undefined,
         rate: speechRate,
         onStart: () => setIsPlayingTrack(true),
         onEnd: () => {
@@ -600,62 +604,21 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Global Audio Controls Bar */}
+        {/* Global Audio Controls Bar with Neural Voice Selector */}
         <div className="flex flex-wrap items-center gap-2 sm:gap-3 bg-slate-850/80 p-2 rounded-xl border border-slate-700/50 text-xs">
-          {/* AI Vocal Engine Badge */}
-          <div className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-violet-950/60 border border-violet-500/30 text-violet-300 font-semibold">
-            <Sparkles className="w-3.5 h-3.5 text-violet-400 animate-pulse" />
-            <span className="text-[11px] tracking-wide">AI Neural HD Engine</span>
-          </div>
+          <StudioVoiceSelector
+            lang={accent}
+            accent={accent}
+            onAccentChange={setAccent}
+            speechRate={speechRate}
+            onRateChange={setSpeechRate}
+            selectedVoiceName={selectedVoiceName}
+            onVoiceChange={setSelectedVoiceName}
+            themeColor="purple"
+            sampleText={accent === 'en-GB' ? 'The quick brown fox jumps over the lazy dog. Welcome to the English Audio and Phonetics Studio.' : 'Welcome to the American English listening and pronunciation laboratory.'}
+          />
 
           <div className="w-px h-6 bg-slate-700 mx-1 hidden sm:block" />
-
-          {/* Accent Selector (min-h-[44px]) */}
-          <div className="flex items-center gap-1.5">
-            <span className="text-slate-400 font-bold">Accent:</span>
-            <button
-              onClick={() => setAccent('en-GB')}
-              className={`px-3 py-2 min-h-[44px] rounded-lg font-bold transition-all cursor-pointer flex items-center justify-center ${
-                accent === 'en-GB'
-                  ? 'bg-violet-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              🇬🇧 British
-            </button>
-            <button
-              onClick={() => setAccent('en-US')}
-              className={`px-3 py-2 min-h-[44px] rounded-lg font-bold transition-all cursor-pointer flex items-center justify-center ${
-                accent === 'en-US'
-                  ? 'bg-violet-600 text-white shadow-sm'
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              🇺🇸 American
-            </button>
-          </div>
-
-          <div className="w-px h-6 bg-slate-700 mx-1" />
-
-          {/* Speed Selector (min-h-[44px]) */}
-          <div className="flex items-center gap-1">
-            <span className="text-slate-400 font-bold">Speed:</span>
-            {[0.75, 0.95, 1.2].map((rate) => (
-              <button
-                key={rate}
-                onClick={() => setSpeechRate(rate)}
-                className={`px-3 py-2 min-h-[44px] rounded font-mono font-bold text-xs cursor-pointer flex items-center justify-center ${
-                  speechRate === rate
-                    ? 'bg-slate-700 text-violet-300 border border-violet-500/40'
-                    : 'text-slate-400 hover:text-slate-200'
-                }`}
-              >
-                {rate}x
-              </button>
-            ))}
-          </div>
-
-          <div className="w-px h-6 bg-slate-700 mx-1" />
 
           <button
             type="button"
