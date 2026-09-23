@@ -772,99 +772,155 @@ html.light .text-indigo-400 {
 html.light .text-amber-100,
 html.light .text-amber-200,
 html.light .text-amber-300,
-html.light .text-amber-400 {
+html.light .text-amber-400,
+html.light [class*="text-amber-100"],
+html.light [class*="text-amber-200"],
+html.light [class*="text-amber-300"],
+html.light [class*="text-amber-400"] {
   color: #92400e !important;
 }
 
 html.light .text-emerald-100,
 html.light .text-emerald-200,
 html.light .text-emerald-300,
-html.light .text-emerald-400 {
+html.light .text-emerald-400,
+html.light [class*="text-emerald-100"],
+html.light [class*="text-emerald-200"],
+html.light [class*="text-emerald-300"],
+html.light [class*="text-emerald-400"] {
   color: #065f46 !important;
 }
 
 html.light .text-cyan-100,
 html.light .text-cyan-200,
 html.light .text-cyan-300,
-html.light .text-cyan-400 {
+html.light .text-cyan-400,
+html.light [class*="text-cyan-100"],
+html.light [class*="text-cyan-200"],
+html.light [class*="text-cyan-300"],
+html.light [class*="text-cyan-400"] {
   color: #0369a1 !important;
 }
 
 html.light .text-sky-100,
 html.light .text-sky-200,
 html.light .text-sky-300,
-html.light .text-sky-400 {
+html.light .text-sky-400,
+html.light [class*="text-sky-100"],
+html.light [class*="text-sky-200"],
+html.light [class*="text-sky-300"],
+html.light [class*="text-sky-400"] {
   color: #0284c7 !important;
 }
 
 html.light .text-rose-100,
 html.light .text-rose-200,
 html.light .text-rose-300,
-html.light .text-rose-400 {
-  color: #be123c !important;
+html.light .text-rose-400,
+html.light [class*="text-rose-100"],
+html.light [class*="text-rose-200"],
+html.light [class*="text-rose-300"],
+html.light [class*="text-rose-400"] {
+  color: #881337 !important;
 }
 
 html.light .text-purple-100,
 html.light .text-purple-200,
 html.light .text-purple-300,
-html.light .text-purple-400 {
-  color: #6b21a8 !important;
+html.light .text-purple-400,
+html.light [class*="text-purple-100"],
+html.light [class*="text-purple-200"],
+html.light [class*="text-purple-300"],
+html.light [class*="text-purple-400"] {
+  color: #581c87 !important;
 }
 
 html.light .text-teal-100,
 html.light .text-teal-200,
 html.light .text-teal-300,
-html.light .text-teal-400 {
+html.light .text-teal-400,
+html.light [class*="text-teal-100"],
+html.light [class*="text-teal-200"],
+html.light [class*="text-teal-300"],
+html.light [class*="text-teal-400"] {
   color: #0f766e !important;
 }
 
 html.light .text-violet-100,
 html.light .text-violet-200,
 html.light .text-violet-300,
-html.light .text-violet-400 {
-  color: #5b21b6 !important;
+html.light .text-violet-400,
+html.light [class*="text-violet-100"],
+html.light [class*="text-violet-200"],
+html.light [class*="text-violet-300"],
+html.light [class*="text-violet-400"] {
+  color: #4c1d95 !important;
 }
 
 html.light .text-fuchsia-100,
 html.light .text-fuchsia-200,
 html.light .text-fuchsia-300,
-html.light .text-fuchsia-400 {
-  color: #86198f !important;
+html.light .text-fuchsia-400,
+html.light [class*="text-fuchsia-100"],
+html.light [class*="text-fuchsia-200"],
+html.light [class*="text-fuchsia-300"],
+html.light [class*="text-fuchsia-400"] {
+  color: #701a75 !important;
 }
 
 html.light .text-blue-100,
 html.light .text-blue-200,
 html.light .text-blue-300,
-html.light .text-blue-400 {
-  color: #1e40af !important;
+html.light .text-blue-400,
+html.light [class*="text-blue-100"],
+html.light [class*="text-blue-200"],
+html.light [class*="text-blue-300"],
+html.light [class*="text-blue-400"] {
+  color: #1e3a8a !important;
 }
 
 html.light .text-pink-100,
 html.light .text-pink-200,
 html.light .text-pink-300,
-html.light .text-pink-400 {
-  color: #9d174d !important;
+html.light .text-pink-400,
+html.light [class*="text-pink-100"],
+html.light [class*="text-pink-200"],
+html.light [class*="text-pink-300"],
+html.light [class*="text-pink-400"] {
+  color: #831843 !important;
 }
 
 html.light .text-orange-100,
 html.light .text-orange-200,
 html.light .text-orange-300,
-html.light .text-orange-400 {
-  color: #9a3412 !important;
+html.light .text-orange-400,
+html.light [class*="text-orange-100"],
+html.light [class*="text-orange-200"],
+html.light [class*="text-orange-300"],
+html.light [class*="text-orange-400"] {
+  color: #7c2d12 !important;
 }
 
 html.light .text-yellow-100,
 html.light .text-yellow-200,
 html.light .text-yellow-300,
-html.light .text-yellow-400 {
-  color: #854d0e !important;
+html.light .text-yellow-400,
+html.light [class*="text-yellow-100"],
+html.light [class*="text-yellow-200"],
+html.light [class*="text-yellow-300"],
+html.light [class*="text-yellow-400"] {
+  color: #713f12 !important;
 }
 
 html.light .text-lime-100,
 html.light .text-lime-200,
 html.light .text-lime-300,
-html.light .text-lime-400 {
-  color: #3f6212 !important;
+html.light .text-lime-400,
+html.light [class*="text-lime-100"],
+html.light [class*="text-lime-200"],
+html.light [class*="text-lime-300"],
+html.light [class*="text-lime-400"] {
+  color: #365314 !important;
 }
 
 /* PRESERVE WHITE & LIGHT TEXT IN LIGHT MODE ON DARK SURFACES & BUTTONS */
@@ -983,15 +1039,27 @@ html.light .bg-sky-950 {
 html.light [class*="bg-rose-950"],
 html.light .bg-rose-950 {
   background-color: #ffe4e6 !important;
-  color: #9f1239 !important;
+  color: #881337 !important;
   border-color: #fecdd3 !important;
+}
+
+html.light [class*="bg-rose-950"] p,
+html.light [class*="bg-rose-950"] span:not(.badge):not([class*="bg-"]):not(button *),
+html.light [class*="bg-rose-950"] div:not([class*="bg-"]) {
+  color: #881337 !important;
 }
 
 html.light [class*="bg-purple-950"],
 html.light .bg-purple-950 {
   background-color: #f3e8ff !important;
-  color: #6b21a8 !important;
+  color: #581c87 !important;
   border-color: #e9d5ff !important;
+}
+
+html.light [class*="bg-purple-950"] p,
+html.light [class*="bg-purple-950"] span:not(.badge):not([class*="bg-"]):not(button *),
+html.light [class*="bg-purple-950"] div:not([class*="bg-"]) {
+  color: #581c87 !important;
 }
 
 html.light [class*="bg-teal-950"],

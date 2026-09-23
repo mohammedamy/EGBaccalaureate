@@ -555,19 +555,31 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
       {/* ==================================================================== */}
       {/* Header Bar */}
       {/* ==================================================================== */}
-      <div className="p-4 sm:p-5 border-b border-slate-800 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 bg-slate-900/50 backdrop-blur-md">
+      <div className={`p-4 sm:p-5 border-b flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 backdrop-blur-md ${
+        isContrast
+          ? 'bg-black border-slate-700'
+          : isLight
+          ? 'bg-slate-50/90 border-slate-200 text-slate-900'
+          : 'bg-slate-900/50 border-slate-800 text-slate-100'
+      }`}>
         <div className="flex items-center gap-3.5">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 via-pink-500 to-purple-600 flex items-center justify-center shadow-lg shadow-rose-600/30 border border-rose-400/30 shrink-0">
             <Dna className="w-6 h-6 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-400/30">
+              <span className={`text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                isContrast
+                  ? 'bg-black text-rose-300 border-rose-400'
+                  : isLight
+                  ? 'bg-rose-100 text-rose-800 border-rose-200'
+                  : 'bg-rose-500/20 text-rose-300 border-rose-400/30'
+              }`}>
                 {isAr ? 'أحياء الثانوية العامة • البيولوجيا الجزيئية 3D' : 'Thanawya Biology • 3D Molecular Genetics'}
               </span>
-              <span className="text-[11px] font-mono text-slate-400">WebGL Three.js Engine</span>
+              <span className={`text-[11px] font-mono ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>WebGL Three.js Engine</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-black tracking-tight mt-0.5">
+            <h2 className={`text-xl sm:text-2xl font-black tracking-tight mt-0.5 ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
               {isAr
                 ? 'استوديو اللولب المزدوج والنيوكليوسومات و tRNA ثلاثي الأبعاد'
                 : '3D DNA Double Helix, tRNA & Nucleosome Studio'}
@@ -576,7 +588,13 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
         </div>
 
         {/* Mode Selector Buttons */}
-        <div className="flex items-center gap-2 bg-slate-950 p-1.5 rounded-2xl border border-slate-800 shrink-0 flex-wrap">
+        <div className={`flex items-center gap-2 p-1.5 rounded-2xl border shrink-0 flex-wrap ${
+          isContrast
+            ? 'bg-black border-slate-700'
+            : isLight
+            ? 'bg-slate-100 border-slate-200'
+            : 'bg-slate-950 border-slate-800'
+        }`}>
           <button
             onClick={() => {
               setActiveStudioMode('dna_helix');
@@ -585,6 +603,8 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               activeStudioMode === 'dna_helix'
                 ? 'bg-gradient-to-r from-rose-600 to-pink-600 text-white shadow-md shadow-rose-600/30'
+                : isLight
+                ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -600,6 +620,8 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               activeStudioMode === 'trna_structure'
                 ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-600/30'
+                : isLight
+                ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -615,6 +637,8 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
             className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
               activeStudioMode === 'nucleosome_chromatin'
                 ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-md shadow-amber-600/30'
+                : isLight
+                ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
                 : 'text-slate-400 hover:text-slate-200'
             }`}
           >
@@ -627,7 +651,11 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
               toggleAudioMuted();
               setAudioActive(!isAudioMuted());
             }}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-200 border border-slate-800"
+            className={`p-2 rounded-xl border transition-colors ${
+              isLight
+                ? 'text-slate-600 hover:text-slate-900 border-slate-200 hover:bg-slate-200'
+                : 'text-slate-400 hover:text-slate-200 border-slate-800 hover:bg-slate-800'
+            }`}
             title={audioActive ? 'Mute audio' : 'Unmute audio'}
           >
             {audioActive ? <Volume2 className="w-4 h-4 text-rose-400" /> : <VolumeX className="w-4 h-4 text-slate-500" />}
@@ -758,16 +786,32 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
         </div>
 
         {/* Right Sidebar Control & Curriculum Dossier (Col 4) */}
-        <div className="lg:col-span-4 p-5 sm:p-6 border-t lg:border-t-0 lg:border-l rtl:lg:border-l-0 rtl:lg:border-r border-slate-800 bg-slate-900/30 flex flex-col justify-between space-y-5 overflow-y-auto">
+        <div className={`lg:col-span-4 p-5 sm:p-6 border-t lg:border-t-0 lg:border-l rtl:lg:border-l-0 rtl:lg:border-r flex flex-col justify-between space-y-5 overflow-y-auto ${
+          isContrast
+            ? 'bg-black border-slate-700'
+            : isLight
+            ? 'bg-slate-50/70 border-slate-200'
+            : 'bg-slate-900/30 border-slate-800'
+        }`}>
           {/* TRACK 1: DNA HELIX CONTROLS */}
           {activeStudioMode === 'dna_helix' && (
             <div className="space-y-4">
-              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 shadow-md">
+              <div className={`p-4 rounded-2xl border space-y-3 shadow-sm ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}>
                 <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-rose-400">
+                  <span className={`text-[10px] font-black uppercase tracking-wider ${
+                    isContrast ? 'text-rose-300' : isLight ? 'text-rose-700' : 'text-rose-400'
+                  }`}>
                     {isAr ? 'درجة الحرارة وفصل الشريطان' : 'DNA Thermal Denaturation'}
                   </span>
-                  <span className="text-sm font-mono font-black text-rose-300">{temperatureC}°C</span>
+                  <span className={`text-sm font-mono font-black ${
+                    isContrast ? 'text-white' : isLight ? 'text-rose-700' : 'text-rose-300'
+                  }`}>{temperatureC}°C</span>
                 </div>
 
                 <input
@@ -777,13 +821,17 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                   step="1"
                   value={temperatureC}
                   onChange={(e) => setTemperatureC(parseFloat(e.target.value))}
-                  className="w-full h-2 rounded-lg bg-slate-800 accent-rose-500 cursor-pointer"
+                  className={`w-full h-2 rounded-lg accent-rose-500 cursor-pointer ${
+                    isLight ? 'bg-slate-200' : 'bg-slate-800'
+                  }`}
                 />
 
-                <div className="flex justify-between text-[10px] text-slate-400 font-mono">
+                <div className={`flex justify-between text-[10px] font-mono ${
+                  isLight ? 'text-slate-500' : 'text-slate-400'
+                }`}>
                   <span>25°C (Room)</span>
                   <span>75°C (Melting Tm)</span>
-                  <span className="text-rose-400 font-bold">100°C (Complete Split)</span>
+                  <span className={`font-bold ${isLight ? 'text-rose-700' : 'text-rose-400'}`}>100°C (Complete Split)</span>
                 </div>
 
                 {/* Quick Action Preset Buttons */}
@@ -793,9 +841,15 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                       setTemperatureC(100);
                       if (audioActive) playPhotoelectricChirp(880);
                     }}
-                    className="px-3 py-1.5 rounded-xl bg-rose-600/30 hover:bg-rose-600/50 text-rose-200 border border-rose-500/40 text-xs font-bold transition-all flex items-center justify-center gap-1.5"
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      isContrast
+                        ? 'bg-black border-rose-400 text-rose-300 hover:bg-rose-950/40'
+                        : isLight
+                        ? 'bg-rose-100 hover:bg-rose-200 text-rose-900 border-rose-300'
+                        : 'bg-rose-600/30 hover:bg-rose-600/50 text-rose-200 border-rose-500/40'
+                    }`}
                   >
-                    <Flame className="w-3.5 h-3.5 text-rose-400" />
+                    <Flame className={`w-3.5 h-3.5 ${isLight ? 'text-rose-700' : 'text-rose-400'}`} />
                     <span>{isAr ? 'تسخين إلى 100°م' : 'Heat to 100°C'}</span>
                   </button>
 
@@ -804,32 +858,58 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                       setTemperatureC(60);
                       if (audioActive) playPhotoelectricChirp(440);
                     }}
-                    className="px-3 py-1.5 rounded-xl bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-200 border border-cyan-500/40 text-xs font-bold transition-all flex items-center justify-center gap-1.5"
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                      isContrast
+                        ? 'bg-black border-cyan-400 text-cyan-300 hover:bg-cyan-950/40'
+                        : isLight
+                        ? 'bg-cyan-100 hover:bg-cyan-200 text-cyan-900 border-cyan-300'
+                        : 'bg-cyan-600/30 hover:bg-cyan-600/50 text-cyan-200 border-cyan-500/40'
+                    }`}
                   >
-                    <Snowflake className="w-3.5 h-3.5 text-cyan-400" />
+                    <Snowflake className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
                     <span>{isAr ? 'تبريد للتهجين (60°م)' : 'Cool for Hybrid (60°C)'}</span>
                   </button>
                 </div>
               </div>
 
               {/* Chargaff's Rules Quantitative Card */}
-              <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-                <div className="flex justify-between items-center pb-1 border-b border-slate-850">
-                  <span className="text-slate-400 font-bold">{isAr ? 'قاعدة شارجاف للنسب:' : "Chargaff's Equivalence Rule:"}</span>
-                  <div className="text-rose-400 font-mono text-xs">
+              <div className={`p-3.5 rounded-2xl border space-y-2 text-xs ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-950 border-slate-800'
+              }`}>
+                <div className={`flex justify-between items-center pb-1 border-b ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={`font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>
+                    {isAr ? 'قاعدة شارجاف للنسب:' : "Chargaff's Equivalence Rule:"}
+                  </span>
+                  <div className={`font-mono text-xs ${isLight ? 'text-rose-700 font-bold' : 'text-rose-400'}`}>
                     <MathRenderer math="\frac{[A] + [G]}{[T] + [C]} = 1.0" />
                   </div>
                 </div>
-                <div className="flex justify-between text-[11px] text-slate-300 font-mono">
+                <div className={`flex justify-between text-[11px] font-mono ${
+                  isLight ? 'text-slate-800' : 'text-slate-300'
+                }`}>
                   <span>A = T (2 {isAr ? 'روابط H' : 'H-bonds'})</span>
                   <span>G ≡ C (3 {isAr ? 'روابط H' : 'H-bonds'})</span>
                 </div>
               </div>
 
               {/* Status Indicator */}
-              <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-1">
-                <span className="text-xs font-bold text-slate-400">{isAr ? 'الحالة الفيزيائية للولب:' : 'Helix State:'}</span>
-                <p className="text-xs font-medium text-slate-200">
+              <div className={`p-3.5 rounded-2xl border space-y-1 ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-950 border-slate-800'
+              }`}>
+                <span className={`text-xs font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                  {isAr ? 'الحالة الفيزيائية للولب:' : 'Helix State:'}
+                </span>
+                <p className={`text-xs font-medium ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
                   {temperatureC < 70
                     ? isAr
                       ? 'لولب مزدوج متماسك مرتبط بروابط هيدروجينية تامة.'
@@ -845,12 +925,22 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
               </div>
 
               {/* Thanawya Exam Tip */}
-              <div className="p-3.5 rounded-2xl bg-rose-950/30 border border-rose-500/30 space-y-1.5">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-rose-400">
+              <div className={`p-3.5 rounded-2xl border space-y-1.5 ${
+                isContrast
+                  ? 'bg-black border-2 border-rose-400 text-white'
+                  : isLight
+                  ? 'bg-rose-50 border-rose-200 text-rose-950'
+                  : 'bg-rose-950/30 border-rose-500/30 text-rose-200'
+              }`}>
+                <div className={`flex items-center gap-1.5 text-xs font-bold ${
+                  isContrast ? 'text-rose-300' : isLight ? 'text-rose-800' : 'text-rose-400'
+                }`}>
                   <ShieldCheck className="w-4 h-4 shrink-0" />
                   <span>{isAr ? 'مفهوم أساسي بامتحان الثانوية العامة:' : 'Core Thanawya Concept:'}</span>
                 </div>
-                <p className="text-xs text-rose-200/90 leading-relaxed">
+                <p className={`text-xs leading-relaxed ${
+                  isContrast ? 'text-white' : isLight ? 'text-rose-900' : 'text-rose-200/90'
+                }`}>
                   {isAr
                     ? 'عند تسخين DNA لدرجة 100°م تنكسر الروابط الهيدروجينية وينفصل الشريطان إلى شريطين مفردين. عند خفض درجة الحرارة تدريجيًا تميل الأشرطة المفردة إلى تكوين لوالب مزدوجة أصلية أو مهجنة، ويستدل على درجة التقارب الوراثي بقوة ارتباط الشريطين المهجنين ودرجة الحرارة اللازمة لفصلهما.'
                     : 'Heating DNA to 100°C completely breaks hydrogen bonds into single strands. Cooling allows complementary strands to re-anneal (DNA hybridization), serving as a crucial tool to test evolutionary relationships and identify specific genes.'}
@@ -862,8 +952,16 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
           {/* TRACK 2: tRNA & CODON MATCHING */}
           {activeStudioMode === 'trna_structure' && (
             <div className="space-y-4">
-              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 shadow-md">
-                <span className="text-[10px] font-black uppercase tracking-wider text-purple-400">
+              <div className={`p-4 rounded-2xl border space-y-3 shadow-sm ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}>
+                <span className={`text-[10px] font-black uppercase tracking-wider ${
+                  isContrast ? 'text-purple-300' : isLight ? 'text-purple-700' : 'text-purple-400'
+                }`}>
                   {isAr ? 'اختبار التعرف بين الكودون ومضاد الكودون' : 'Codon - Anticodon Recognition'}
                 </span>
 
@@ -880,6 +978,8 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                         className={`p-2.5 rounded-xl border text-xs font-mono font-bold transition-all cursor-pointer ${
                           isSel
                             ? 'bg-purple-600 text-white border-purple-400 shadow-md shadow-purple-600/30'
+                            : isLight
+                            ? 'bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100 hover:border-slate-300'
                             : 'bg-slate-950 text-slate-300 border-slate-800 hover:border-slate-700'
                         }`}
                       >
@@ -891,14 +991,30 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
               </div>
 
               {/* Translation Details Card */}
-              <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
-                  <span className="text-slate-400">{isAr ? 'كودون mRNA:' : 'mRNA Codon:'}</span>
-                  <span className="font-mono font-bold text-cyan-300">{selectedCodon}</span>
+              <div className={`p-3.5 rounded-2xl border space-y-2 text-xs ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-950 border-slate-800'
+              }`}>
+                <div className={`flex justify-between pb-1.5 border-b ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                    {isAr ? 'كودون mRNA:' : 'mRNA Codon:'}
+                  </span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-cyan-700' : 'text-cyan-300'}`}>
+                    {selectedCodon}
+                  </span>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
-                  <span className="text-slate-400">{isAr ? 'مضاد الكودون في tRNA:' : 'tRNA Anticodon:'}</span>
-                  <span className="font-mono font-bold text-amber-300">
+                <div className={`flex justify-between pb-1.5 border-b ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                    {isAr ? 'مضاد الكودون في tRNA:' : 'tRNA Anticodon:'}
+                  </span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-amber-700' : 'text-amber-300'}`}>
                     {selectedCodon === 'AUG'
                       ? 'UAC'
                       : selectedCodon === 'UUU'
@@ -911,8 +1027,10 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">{isAr ? 'الحمض الأميني المنقول:' : 'Amino Acid:'}</span>
-                  <span className="font-bold text-emerald-400">
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                    {isAr ? 'الحمض الأميني المنقول:' : 'Amino Acid:'}
+                  </span>
+                  <span className={`font-bold ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>
                     {selectedCodon === 'AUG'
                       ? 'الميثيونين (Methionine)'
                       : selectedCodon === 'UUU'
@@ -927,12 +1045,22 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
               </div>
 
               {/* Thanawya Exam Tip */}
-              <div className="p-3.5 rounded-2xl bg-purple-950/30 border border-purple-500/30 space-y-1.5">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-purple-400">
+              <div className={`p-3.5 rounded-2xl border space-y-1.5 ${
+                isContrast
+                  ? 'bg-black border-2 border-purple-400 text-white'
+                  : isLight
+                  ? 'bg-purple-50 border-purple-200 text-purple-950'
+                  : 'bg-purple-950/30 border-purple-500/30 text-purple-200'
+              }`}>
+                <div className={`flex items-center gap-1.5 text-xs font-bold ${
+                  isContrast ? 'text-purple-300' : isLight ? 'text-purple-800' : 'text-purple-400'
+                }`}>
                   <Info className="w-4 h-4 shrink-0" />
                   <span>{isAr ? 'تركيب جزيء tRNA في المنهج:' : 'tRNA Anatomy in Curriculum:'}</span>
                 </div>
-                <p className="text-xs text-purple-200/90 leading-relaxed">
+                <p className={`text-xs leading-relaxed ${
+                  isContrast ? 'text-white' : isLight ? 'text-purple-900' : 'text-purple-200/90'
+                }`}>
                   {isAr
                     ? 'يتكون tRNA من شريط مفرد يلتف حول نفسه في أجزاء منه مكونًا حلقات بروابط هيدروجينية. يحتوي على موقعين هامين: (١) موقع الارتباط بالحمض الأميني عند الطرف 3\' ومكون من التتابع CCA، و (٢) موقع مضاد الكودون الذي يتكامل مع كودون mRNA المؤقت أثناء تخليق البروتين على الريبوسوم.'
                     : 'tRNA consists of a single strand folding into loops via internal base pairing. It features two vital sites: (1) CCA-3\' terminal binding site for the amino acid, and (2) the anticodon loop that base-pairs reversibly with the mRNA codon during ribosomal translation.'}
@@ -944,12 +1072,22 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
           {/* TRACK 3: NUCLEOSOME CHROMATIN SUPERCOILING */}
           {activeStudioMode === 'nucleosome_chromatin' && (
             <div className="space-y-4">
-              <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3 shadow-md">
+              <div className={`p-4 rounded-2xl border space-y-3 shadow-sm ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-900/90 border-slate-800'
+              }`}>
                 <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-400">
+                  <span className={`text-[10px] font-black uppercase tracking-wider ${
+                    isContrast ? 'text-amber-300' : isLight ? 'text-amber-700' : 'text-amber-400'
+                  }`}>
                     {isAr ? 'مستوى تكثيف الصبغي (Chromatin Compaction)' : 'Chromatin Compaction Scale'}
                   </span>
-                  <span className="text-xs font-mono font-bold text-amber-300">
+                  <span className={`text-xs font-mono font-bold ${
+                    isLight ? 'text-amber-700' : 'text-amber-300'
+                  }`}>
                     {compactionLevel === 1
                       ? '2 nm (Naked DNA)'
                       : compactionLevel === 2
@@ -962,7 +1100,11 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                   <button
                     onClick={() => setCompactionLevel(1)}
                     className={`p-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                      compactionLevel === 1 ? 'bg-amber-600 text-white border-amber-400' : 'bg-slate-950 text-slate-400 border-slate-800'
+                      compactionLevel === 1
+                        ? 'bg-amber-600 text-white border-amber-400'
+                        : isLight
+                        ? 'bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100'
+                        : 'bg-slate-950 text-slate-400 border-slate-800'
                     }`}
                   >
                     {isAr ? 'DNA مجرد (٢ نانومتر)' : 'Naked DNA (2 nm)'}
@@ -970,7 +1112,11 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
                   <button
                     onClick={() => setCompactionLevel(2)}
                     className={`p-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
-                      compactionLevel === 2 ? 'bg-amber-600 text-white border-amber-400' : 'bg-slate-950 text-slate-400 border-slate-800'
+                      compactionLevel === 2
+                        ? 'bg-amber-600 text-white border-amber-400'
+                        : isLight
+                        ? 'bg-slate-50 text-slate-800 border-slate-200 hover:bg-slate-100'
+                        : 'bg-slate-950 text-slate-400 border-slate-800'
                     }`}
                   >
                     {isAr ? 'نيوكليوسومات (١٠ مرات)' : 'Nucleosomes (10x)'}
@@ -979,28 +1125,54 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
               </div>
 
               {/* Quantitative Compaction Metrics */}
-              <div className="p-3.5 rounded-2xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
-                  <span className="text-slate-400">{isAr ? 'طول DNA البشري المفرود:' : 'Extended Human DNA:'}</span>
-                  <span className="font-mono font-bold text-white">~2.0 meters</span>
+              <div className={`p-3.5 rounded-2xl border space-y-2 text-xs ${
+                isContrast
+                  ? 'bg-black border-slate-700'
+                  : isLight
+                  ? 'bg-white border-slate-200'
+                  : 'bg-slate-950 border-slate-800'
+              }`}>
+                <div className={`flex justify-between pb-1.5 border-b ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                    {isAr ? 'طول DNA البشري المفرود:' : 'Extended Human DNA:'}
+                  </span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-slate-900' : 'text-white'}`}>~2.0 meters</span>
                 </div>
-                <div className="flex justify-between pb-1.5 border-b border-slate-800">
-                  <span className="text-slate-400">{isAr ? 'قطر نواة الخلية:' : 'Cell Nucleus Diameter:'}</span>
-                  <span className="font-mono font-bold text-cyan-300">2 - 3 μm</span>
+                <div className={`flex justify-between pb-1.5 border-b ${
+                  isLight ? 'border-slate-200' : 'border-slate-800'
+                }`}>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                    {isAr ? 'قطر نواة الخلية:' : 'Cell Nucleus Diameter:'}
+                  </span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-cyan-700' : 'text-cyan-300'}`}>2 - 3 μm</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">{isAr ? 'معامل التقصير المطلوب:' : 'Required Compaction Ratio:'}</span>
-                  <span className="font-mono font-bold text-amber-400">100,000× fold</span>
+                  <span className={isLight ? 'text-slate-600' : 'text-slate-400'}>
+                    {isAr ? 'معامل التقصير المطلوب:' : 'Required Compaction Ratio:'}
+                  </span>
+                  <span className={`font-mono font-bold ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>100,000× fold</span>
                 </div>
               </div>
 
               {/* Thanawya Exam Alert */}
-              <div className="p-3.5 rounded-2xl bg-amber-950/30 border border-amber-500/30 space-y-1.5">
-                <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400">
+              <div className={`p-3.5 rounded-2xl border space-y-1.5 ${
+                isContrast
+                  ? 'bg-black border-2 border-amber-400 text-white'
+                  : isLight
+                  ? 'bg-amber-50 border-amber-200 text-amber-950'
+                  : 'bg-amber-950/30 border-amber-500/30 text-amber-200'
+              }`}>
+                <div className={`flex items-center gap-1.5 text-xs font-bold ${
+                  isContrast ? 'text-amber-300' : isLight ? 'text-amber-800' : 'text-amber-400'
+                }`}>
                   <ShieldCheck className="w-4 h-4 shrink-0" />
                   <span>{isAr ? 'البروتينات الهيستونية وغير الهيستونية:' : 'Histones vs Non-Histones:'}</span>
                 </div>
-                <p className="text-xs text-amber-200/90 leading-relaxed">
+                <p className={`text-xs leading-relaxed ${
+                  isContrast ? 'text-white' : isLight ? 'text-amber-900' : 'text-amber-200/90'
+                }`}>
                   {isAr
                     ? 'تقصر النيوكليوسومات (البروتينات الهيستونية) طول جزيء DNA بمقدار ١٠ مرات فقط، بينما تتكفل البروتينات غير الهيستونية التركيبية بضمه وتكثيفه ليصل إلى ١٠٠,٠٠٠ مرة ليتسع داخل النواة الدقيقة. الهيستونات مشحونة إيجابياً لوفرة الأرجينين والليسين فتلتصق بمجموعات الفوسفات السالبة لـ DNA.'
                     : 'Nucleosomes (histone octamers) shorten DNA by only 10-fold. Non-histone structural proteins then condense chromatin up to 100,000-fold to fit the ~2m genome into a microscopic 2-3 micron nucleus. The positive charge of histones (Arg/Lys) electrostatically binds the negative phosphate backbone of DNA.'}
@@ -1010,8 +1182,14 @@ export const Interactive3DBioMacromoleculeStudio: React.FC<Props> = ({
           )}
 
           {/* Footer Navigation Tip */}
-          <div className="text-[11px] text-slate-400 bg-slate-950/60 p-3 rounded-xl border border-slate-800/80 flex items-center gap-2">
-            <RotateCcw className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+          <div className={`text-[11px] p-3 rounded-xl border flex items-center gap-2 ${
+            isContrast
+              ? 'bg-black border-slate-700 text-white'
+              : isLight
+              ? 'bg-white border-slate-200 text-slate-600 shadow-xs'
+              : 'bg-slate-950/60 border-slate-800/80 text-slate-400'
+          }`}>
+            <RotateCcw className={`w-3.5 h-3.5 shrink-0 ${isLight ? 'text-slate-500' : 'text-slate-500'}`} />
             <span>
               {isAr
                 ? 'اسحب بإصبعك أو بالفأرة لتدوير النموذج في أي اتجاه ثلاثي الأبعاد.'
