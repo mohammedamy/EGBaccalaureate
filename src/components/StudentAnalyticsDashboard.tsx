@@ -46,6 +46,8 @@ import {
 import { CertificateVerificationModal } from './CertificateVerificationModal';
 import { OfficialPerformanceCertificate } from './OfficialPerformanceCertificate';
 import { ParentProgressReportModal } from './ParentProgressReportModal';
+import { MinistryResultsModal } from './MinistryResultsModal';
+import { GraduationCap } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -84,6 +86,7 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
   const [showCalibrationInput, setShowCalibrationInput] = useState(false);
   const [calibrationValue, setCalibrationValue] = useState('');
   const [isParentReportModalOpen, setIsParentReportModalOpen] = useState<boolean>(false);
+  const [isMinistryModalOpen, setIsMinistryModalOpen] = useState<boolean>(false);
 
   const refreshAnalytics = () => {
     setAnalyticsState(getStudentAnalytics());
@@ -560,6 +563,15 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
                     : (isAr ? 'معايرة التوقع بدرجة امتحان تجريبي' : 'Calibrate with Mock Exam Score')}
                 </span>
               </button>
+
+              <button
+                onClick={() => setIsMinistryModalOpen(true)}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border transition-all cursor-pointer bg-emerald-500/20 text-emerald-300 border-emerald-500/40 hover:bg-emerald-500/30"
+              >
+                <GraduationCap className="w-3.5 h-3.5 text-emerald-400" />
+                <span>{isAr ? 'بوابة نتائج الوزارة والمعايرة الرسمية' : 'Ministry Results & Calibration'}</span>
+              </button>
+
               {predictiveScore.hasCustomCalibration && (
                 <button
                   onClick={() => {
@@ -1655,6 +1667,16 @@ export const StudentAnalyticsDashboard: React.FC<Props> = ({
           onClose={() => setIsParentReportModalOpen(false)}
           lang={lang}
           theme={theme}
+        />
+      )}
+
+      {/* Official Ministry Results & Calibration Modal */}
+      {isMinistryModalOpen && (
+        <MinistryResultsModal
+          isOpen={isMinistryModalOpen}
+          onClose={() => setIsMinistryModalOpen(false)}
+          predictedPercentage={predictiveScore.predictedPercentage}
+          onResultsSaved={refreshAnalytics}
         />
       )}
     </div>

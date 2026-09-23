@@ -20,7 +20,12 @@ import {
   Sparkles,
   HelpCircle,
   WifiOff,
+  Headphones,
 } from 'lucide-react';
+import {
+  A11Y_STORAGE_KEYS,
+  applyAccessibilityDOMAttributes,
+} from '../services/accessibilityAuditService';
 
 export type MathScaleMode = '100' | '115' | '130' | '150';
 
@@ -81,6 +86,21 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
     return localStorage.getItem('egbac_low_data') === 'true';
   });
 
+  // Screen Reader Mathematical Expansion State (نطق الرموز الرياضية لقارئات الشاشة)
+  const [screenReaderMath, setScreenReaderMath] = useState<boolean>(() => {
+    return localStorage.getItem(A11Y_STORAGE_KEYS.SCREEN_READER_MATH) !== 'false';
+  });
+
+  // OLED True Black Dark Mode State (وضع التباين فائق السواد لشاشات أوليد)
+  const [oledMode, setOledMode] = useState<boolean>(() => {
+    return localStorage.getItem(A11Y_STORAGE_KEYS.OLED_MODE) === 'true';
+  });
+
+  // High-Legibility Arabic Font State (خط عالي الوضوح)
+  const [highLegibilityFont, setHighLegibilityFont] = useState<boolean>(() => {
+    return localStorage.getItem(A11Y_STORAGE_KEYS.HIGH_LEGIBILITY_FONT) === 'true';
+  });
+
   // Synchronize CSS attributes and localStorage on state change
   useEffect(() => {
     document.documentElement.setAttribute('data-math-scale', mathScale);
@@ -111,6 +131,14 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
     localStorage.setItem('egbac_low_data', String(lowDataMode));
   }, [lowDataMode]);
 
+  useEffect(() => {
+    localStorage.setItem(A11Y_STORAGE_KEYS.SCREEN_READER_MATH, String(screenReaderMath));
+    localStorage.setItem(A11Y_STORAGE_KEYS.SOUND_EFFECTS, String(soundEnabled));
+    localStorage.setItem(A11Y_STORAGE_KEYS.OLED_MODE, String(oledMode));
+    localStorage.setItem(A11Y_STORAGE_KEYS.HIGH_LEGIBILITY_FONT, String(highLegibilityFont));
+    applyAccessibilityDOMAttributes();
+  }, [screenReaderMath, soundEnabled, oledMode, highLegibilityFont]);
+
   // Handle ESC key to close modal
   useEffect(() => {
     if (!isOpen) return;
@@ -133,6 +161,10 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
     setFocusRings(false);
     setSoundEnabled(true);
     setReadingGuide(false);
+    setLowDataMode(false);
+    setScreenReaderMath(true);
+    setOledMode(false);
+    setHighLegibilityFont(false);
   };
 
   const keyboardShortcuts = [
@@ -570,6 +602,115 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
                   checked={lowDataMode}
                   onChange={(e) => setLowDataMode(e.target.checked)}
                   className="w-4 h-4 rounded text-amber-600 focus:ring-amber-500 cursor-pointer"
+                />
+              </label>
+
+              {/* Screen Reader Mathematical Transcription */}
+              <label
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all cursor-pointer ${
+                  screenReaderMath
+                    ? isHighContrast
+                      ? 'bg-cyan-950 border-cyan-400 text-cyan-200'
+                      : isLight
+                      ? 'bg-indigo-50 border-indigo-400 text-indigo-950'
+                      : 'bg-indigo-950/40 border-indigo-500 text-indigo-100'
+                    : isLight
+                    ? 'border-slate-200 hover:bg-slate-50'
+                    : 'border-slate-800 hover:bg-slate-900'
+                }`}
+              >
+                <div className="space-y-0.5 max-w-[80%]">
+                  <div className="font-bold text-xs flex items-center gap-1.5">
+                    <Headphones className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>
+                      {isArabic
+                        ? 'النطق اللفظي للرموز الرياضية لقارئات الشاشة (Math ARIA Speech)'
+                        : 'Screen Reader Mathematical ARIA Transcription'}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    {isArabic
+                      ? 'تحويل صيغ ومعادلات KaTeX المعقدة إلى جمل عربية واضحة ومقروءة تلقائياً لقارئات الشاشة الصوتية (مثل VoiceOver وTalkBack)'
+                      : 'Converts complex LaTeX formulas into phonetically readable Arabic text for screen reader engines'}
+                  </p>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={screenReaderMath}
+                  onChange={(e) => setScreenReaderMath(e.target.checked)}
+                  className="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                />
+              </label>
+
+              {/* OLED True Black Contrast Mode */}
+              <label
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all cursor-pointer ${
+                  oledMode
+                    ? isHighContrast
+                      ? 'bg-cyan-950 border-cyan-400 text-cyan-200'
+                      : 'bg-slate-950 border-slate-600 text-white'
+                    : isLight
+                    ? 'border-slate-200 hover:bg-slate-50'
+                    : 'border-slate-800 hover:bg-slate-900'
+                }`}
+              >
+                <div className="space-y-0.5 max-w-[80%]">
+                  <div className="font-bold text-xs flex items-center gap-1.5">
+                    <Moon className="w-3.5 h-3.5 text-slate-400" />
+                    <span>
+                      {isArabic
+                        ? 'وضع السواد التام للشاشات الحديثة (OLED True Black)'
+                        : 'OLED Pure Black Contrast Mode'}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    {isArabic
+                      ? 'إطفاء بيكسلات الخلفية بالكامل لتوفير بطارية الهاتف وتقليل الإجهاد البصري أثناء المذاكرة الليلية الطويلة'
+                      : 'Sets pure black #000000 background to turn off OLED pixels and reduce ocular fatigue'}
+                  </p>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={oledMode}
+                  onChange={(e) => setOledMode(e.target.checked)}
+                  className="w-4 h-4 rounded text-slate-600 focus:ring-slate-500 cursor-pointer"
+                />
+              </label>
+
+              {/* High-Legibility Font Mode */}
+              <label
+                className={`flex items-center justify-between p-3.5 rounded-xl border transition-all cursor-pointer ${
+                  highLegibilityFont
+                    ? isHighContrast
+                      ? 'bg-cyan-950 border-cyan-400 text-cyan-200'
+                      : isLight
+                      ? 'bg-blue-50 border-blue-400 text-blue-950'
+                      : 'bg-blue-950/40 border-blue-500 text-blue-100'
+                    : isLight
+                    ? 'border-slate-200 hover:bg-slate-50'
+                    : 'border-slate-800 hover:bg-slate-900'
+                }`}
+              >
+                <div className="space-y-0.5 max-w-[80%]">
+                  <div className="font-bold text-xs flex items-center gap-1.5">
+                    <Type className="w-3.5 h-3.5 text-blue-400" />
+                    <span>
+                      {isArabic
+                        ? 'خط عالي الوضوح للقراءة السهلة (High-Legibility Font)'
+                        : 'High-Legibility Font'}
+                    </span>
+                  </div>
+                  <p className="text-[11px] text-slate-400 leading-relaxed">
+                    {isArabic
+                      ? 'تطبيق خط نسخ مبسط بحروف متباعدة وواضحة لتسهيل القراءة السريعة وتقليل إجهاد العين'
+                      : 'Applies simplified high-clarity typography for effortless legibility'}
+                  </p>
+                </div>
+                <input
+                  type="checkbox"
+                  checked={highLegibilityFont}
+                  onChange={(e) => setHighLegibilityFont(e.target.checked)}
+                  className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 cursor-pointer"
                 />
               </label>
             </div>

@@ -1096,18 +1096,33 @@ export interface PredictiveScoreReport {
   sampleSize?: number;
 }
 
+import { loadSavedOfficialResults } from './ministryResultsService';
+
 export const SCORE_CALIBRATION_STORAGE_KEY = 'egbac_score_calibration_ratio_v1';
 
 /**
  * Retrieves the student's actual vs predicted calibration ratio from localStorage (default 1.0).
+ * If no manual override is set, seamlessly checks for verified official ministry scores.
  */
 export function getActualScoreCalibrationRatio(): number {
   if (typeof localStorage === 'undefined') return 1.0;
   try {
     const raw = localStorage.getItem(SCORE_CALIBRATION_STORAGE_KEY);
-    if (!raw) return 1.0;
-    const val = parseFloat(raw);
-    return isNaN(val) ? 1.0 : Math.min(1.30, Math.max(0.70, val));
+    if (raw) {
+      const val = parseFloat(raw);
+      if (!isNaN(val)) return Math.min(1.30, Math.max(0.70, val));
+    }
+
+    // Automatic calibration from official ministry results if present
+    const official = loadSavedOfficialResults();
+    if (official && official.percentage > 0) {
+      const analytics = getStudentAnalytics();
+      const rawPct = analytics.totalAttempted > 0 ? (analytics.totalCorrect / analytics.totalAttempted) * 100 : 75;
+      const ratio = Math.min(1.30, Math.max(0.70, Math.round((official.percentage / Math.max(30, rawPct)) * 1000) / 1000));
+      return ratio;
+    }
+
+    return 1.0;
   } catch {
     return 1.0;
   }

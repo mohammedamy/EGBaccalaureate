@@ -38,6 +38,10 @@ const TeacherAssignmentModal = lazy(() => import('./components/TeacherAssignment
 const TeacherCertificationModal = lazy(() => import('./components/TeacherCertificationModal').then(m => ({ default: m.TeacherCertificationModal })));
 const ParentProgressReportModal = lazy(() => import('./components/ParentProgressReportModal').then(m => ({ default: m.ParentProgressReportModal })));
 const DownloadManagerModal = lazy(() => import('./components/DownloadManagerModal').then(m => ({ default: m.DownloadManagerModal })));
+const MinistryResultsModal = lazy(() => import('./components/MinistryResultsModal').then(m => ({ default: m.MinistryResultsModal })));
+const GovernorateAnalyticsModal = lazy(() => import('./components/GovernorateAnalyticsModal').then(m => ({ default: m.GovernorateAnalyticsModal })));
+const EducationalSponsorshipModal = lazy(() => import('./components/EducationalSponsorshipModal').then(m => ({ default: m.EducationalSponsorshipModal })));
+const LearningOutcomesModal = lazy(() => import('./components/LearningOutcomesModal').then(m => ({ default: m.LearningOutcomesModal })));
 import type { Assignment } from './types/teacherAssignment';
 
 const ViewLoadingFallback: React.FC<{ messageAr?: string; messageEn?: string }> = ({
@@ -208,6 +212,10 @@ export const App: React.FC = () => {
   const [isTeacherCertModalOpen, setIsTeacherCertModalOpen] = useState<boolean>(false);
   const [isParentReportModalOpen, setIsParentReportModalOpen] = useState<boolean>(false);
   const [isDownloadManagerModalOpen, setIsDownloadManagerModalOpen] = useState<boolean>(false);
+  const [isMinistryResultsModalOpen, setIsMinistryResultsModalOpen] = useState<boolean>(false);
+  const [isGovernorateAnalyticsModalOpen, setIsGovernorateAnalyticsModalOpen] = useState<boolean>(false);
+  const [isEducationalSponsorshipModalOpen, setIsEducationalSponsorshipModalOpen] = useState<boolean>(false);
+  const [isLearningOutcomesModalOpen, setIsLearningOutcomesModalOpen] = useState<boolean>(false);
   const [initialAssignmentCode, setInitialAssignmentCode] = useState<string>('');
   const [activeAssignmentForTest, setActiveAssignmentForTest] = useState<Assignment | undefined>(undefined);
   const [assignmentStudentName, setAssignmentStudentName] = useState<string>('');
@@ -682,6 +690,10 @@ export const App: React.FC = () => {
         onOpenTeacherCertification={() => setIsTeacherCertModalOpen(true)}
         onOpenParentReport={() => setIsParentReportModalOpen(true)}
         onOpenDownloadManager={() => setIsDownloadManagerModalOpen(true)}
+        onOpenMinistryResults={() => setIsMinistryResultsModalOpen(true)}
+        onOpenGovernorateAnalytics={() => setIsGovernorateAnalyticsModalOpen(true)}
+        onOpenEducationalSponsorship={() => setIsEducationalSponsorshipModalOpen(true)}
+        onOpenLearningOutcomes={() => setIsLearningOutcomesModalOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -992,6 +1004,46 @@ export const App: React.FC = () => {
               onClose={() => setIsDownloadManagerModalOpen(false)}
               lang={lang}
               theme={theme}
+            />
+          </Suspense>
+        )}
+
+        {/* Ministry Results One-Way Linkage & Score Calibration Modal */}
+        {isMinistryResultsModalOpen && (
+          <Suspense fallback={null}>
+            <MinistryResultsModal
+              isOpen={isMinistryResultsModalOpen}
+              onClose={() => setIsMinistryResultsModalOpen(false)}
+            />
+          </Suspense>
+        )}
+
+        {/* Egyptian Governorates & Regional Equity Analytics Modal */}
+        {isGovernorateAnalyticsModalOpen && (
+          <Suspense fallback={null}>
+            <GovernorateAnalyticsModal
+              isOpen={isGovernorateAnalyticsModalOpen}
+              onClose={() => setIsGovernorateAnalyticsModalOpen(false)}
+            />
+          </Suspense>
+        )}
+
+        {/* Sustainable Platform & Free Educational Sponsorship Modal */}
+        {isEducationalSponsorshipModalOpen && (
+          <Suspense fallback={null}>
+            <EducationalSponsorshipModal
+              isOpen={isEducationalSponsorshipModalOpen}
+              onClose={() => setIsEducationalSponsorshipModalOpen(false)}
+            />
+          </Suspense>
+        )}
+
+        {/* Learning Outcomes & Academic Impact Evaluation Modal */}
+        {isLearningOutcomesModalOpen && (
+          <Suspense fallback={null}>
+            <LearningOutcomesModal
+              isOpen={isLearningOutcomesModalOpen}
+              onClose={() => setIsLearningOutcomesModalOpen(false)}
             />
           </Suspense>
         )}

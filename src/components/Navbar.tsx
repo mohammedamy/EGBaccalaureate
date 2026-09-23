@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare, HeartHandshake, BarChart2 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -40,6 +40,10 @@ interface Props {
   onOpenTeacherCertification?: () => void;
   onOpenParentReport?: () => void;
   onOpenDownloadManager?: () => void;
+  onOpenMinistryResults?: () => void;
+  onOpenGovernorateAnalytics?: () => void;
+  onOpenEducationalSponsorship?: () => void;
+  onOpenLearningOutcomes?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -76,6 +80,10 @@ export const Navbar: React.FC<Props> = ({
   onOpenTeacherCertification,
   onOpenParentReport,
   onOpenDownloadManager,
+  onOpenMinistryResults,
+  onOpenGovernorateAnalytics,
+  onOpenEducationalSponsorship,
+  onOpenLearningOutcomes,
   selectedSubject = 'all',
   onSubjectChange,
   curriculumData,
@@ -376,6 +384,54 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-emerald-400',
       onClick: () => {
         onOpenDownloadManager();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenMinistryResults && {
+      id: 'ministry_results',
+      label: isArabic ? 'بوابة نتائج الثانوية والمعايرة' : 'Ministry Results & Calibration',
+      desc: isArabic ? 'استعلام رسمي برقم الجلوس ومعايرة نموذج التنبؤ الذكي' : 'Official results lookup & local predictive score calibration',
+      shortcut: '⌥N',
+      icon: GraduationCap,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenMinistryResults();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenGovernorateAnalytics && {
+      id: 'governorate_analytics',
+      label: isArabic ? 'تحليلات المحافظات وتكافؤ الفرص' : 'Governorates & Equity Analytics',
+      desc: isArabic ? 'مؤشرات الجاهزية عبر ٢٧ محافظة وتقليص فجوة الريف والحضر' : '27 governorates readiness & rural-urban parity index',
+      shortcut: '⌥E',
+      icon: Compass,
+      color: 'text-cyan-400',
+      onClick: () => {
+        onOpenGovernorateAnalytics();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenEducationalSponsorship && {
+      id: 'educational_sponsorship',
+      label: isArabic ? 'ميثاق المجانية والرعاية المجتمعية' : 'Free Charter & Community Grants',
+      desc: isArabic ? 'ضمان مجانية المنصة والشراكة مع مؤسسات المجتمع المدني' : 'Free forever charter & school sponsorship grants',
+      shortcut: '⌥S',
+      icon: HeartHandshake,
+      color: 'text-amber-400',
+      onClick: () => {
+        onOpenEducationalSponsorship();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenLearningOutcomes && {
+      id: 'learning_outcomes',
+      label: isArabic ? 'دراسة قياس مخرجات التعلم والأثر' : 'Learning Outcomes & Impact Study',
+      desc: isArabic ? 'دراسة مقارنة محكمة (N=500) وحساب حجم الأثر (Cohen\'s d)' : 'Rigorous controlled study with effect size & percentile lift',
+      shortcut: '⌥L',
+      icon: BarChart2,
+      color: 'text-violet-400',
+      onClick: () => {
+        onOpenLearningOutcomes();
         setIsToolsOpen(false);
       },
     },
