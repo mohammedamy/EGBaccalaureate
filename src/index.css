@@ -1181,6 +1181,43 @@ html.light .preserve-dark .text-sky-400 {
   color: #38bdf8 !important;
 }
 
+html.light [class*="bg-black"] .text-blue-100,
+html.light [class*="bg-black"] .text-blue-200,
+html.light [class*="bg-black"] .text-blue-300,
+html.light [data-preserve-dark="true"] .text-blue-100,
+html.light [data-preserve-dark="true"] .text-blue-200,
+html.light [data-preserve-dark="true"] .text-blue-300,
+html.light .dark-chassis .text-blue-100,
+html.light .dark-chassis .text-blue-200,
+html.light .dark-chassis .text-blue-300,
+html.light .preserve-dark .text-blue-100,
+html.light .preserve-dark .text-blue-200,
+html.light .preserve-dark .text-blue-300 {
+  color: #bfdbfe !important;
+}
+
+html.light [class*="bg-black"] .text-cyan-100,
+html.light [class*="bg-black"] .text-cyan-200,
+html.light [data-preserve-dark="true"] .text-cyan-100,
+html.light [data-preserve-dark="true"] .text-cyan-200,
+html.light .dark-chassis .text-cyan-100,
+html.light .dark-chassis .text-cyan-200,
+html.light .preserve-dark .text-cyan-100,
+html.light .preserve-dark .text-cyan-200 {
+  color: #a5f3fc !important;
+}
+
+html.light [class*="bg-black"] .text-emerald-100,
+html.light [class*="bg-black"] .text-emerald-200,
+html.light [data-preserve-dark="true"] .text-emerald-100,
+html.light [data-preserve-dark="true"] .text-emerald-200,
+html.light .dark-chassis .text-emerald-100,
+html.light .dark-chassis .text-emerald-200,
+html.light .preserve-dark .text-emerald-100,
+html.light .preserve-dark .text-emerald-200 {
+  color: #a7f3d0 !important;
+}
+
 /* FORM CONTROLS IN LIGHT MODE */
 html.light select,
 html.light input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
@@ -1207,6 +1244,8 @@ html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="
 html.light [class*="from-zinc-900"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
 html.light [class*="from-zinc-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
 html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-blue-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
+html.light [class*="from-sky-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
 html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
 html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
 html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]):not(canvas):not(.canvas-container),
@@ -1221,34 +1260,52 @@ html.light [class*="from-amber-950"]:not(.hero-banner):not([data-preserve-dark="
 html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-slate-900"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-slate-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-stone-900"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-stone-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-indigo-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-blue-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-blue-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-blue-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-blue-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
+html.light [class*="from-blue-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-rose-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-cyan-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
+html.light [class*="from-sky-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
+html.light [class*="from-sky-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
+html.light [class*="from-sky-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-sky-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
+html.light [class*="from-sky-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p,
 html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h1,
 html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h2,
 html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h3,
+html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) h4,
 html.light [class*="from-emerald-950"]:not(.hero-banner):not([data-preserve-dark="true"]) p {
   color: #0f172a !important;
 }

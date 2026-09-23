@@ -149,6 +149,7 @@ export const TestGenerator: React.FC<Props> = ({
   onPrescriptionItemCompleted,
 }) => {
   const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
   const t = translations[lang];
 
   // Filter selections
@@ -1643,25 +1644,47 @@ export const TestGenerator: React.FC<Props> = ({
           <>
             {/* Ministerial Simulation Quick Launch Banner */}
         {selectedSubject === 'physics' ? (
-          <div className="bg-gradient-to-r from-sky-950/50 via-slate-900 to-indigo-950/50 border border-cyan-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-cyan-950/30">
+          <div className={`rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${
+            isContrast
+              ? 'bg-black border-2 border-cyan-400 text-white shadow-none'
+              : isLight
+              ? 'bg-gradient-to-r from-sky-50 via-cyan-50/70 to-slate-50 border border-cyan-200 text-slate-900 shadow-md'
+              : 'bg-gradient-to-r from-sky-950/50 via-slate-900 to-indigo-950/50 border border-cyan-500/40 text-slate-100 shadow-xl shadow-cyan-950/30'
+          }`}>
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 text-cyan-400 flex items-center justify-center shrink-0 border border-cyan-500/40 shadow-inner">
-                <Zap className="w-6 h-6 animate-pulse text-cyan-400" />
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-inner ${
+                isContrast
+                  ? 'bg-black text-cyan-300 border-2 border-cyan-400'
+                  : isLight
+                  ? 'bg-cyan-100 text-cyan-800 border-cyan-300'
+                  : 'bg-gradient-to-br from-cyan-500/20 to-blue-600/20 text-cyan-400 border-cyan-500/40'
+              }`}>
+                <Zap className={`w-6 h-6 animate-pulse ${isContrast ? 'text-cyan-300' : isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                  <h4 className="text-sm sm:text-base font-black text-cyan-100">
+                  <h4 className={`text-sm sm:text-base font-black ${
+                    isContrast ? 'text-white' : isLight ? 'text-slate-950' : 'text-white'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'امتحان الفيزياء الوزاري الرسمي الشامل (50 سؤالاً / 180 دقيقة)' : 'امتحان الفيزياء المتقدمة لمدارس STEM (40 سؤالاً / 150 دقيقة)')
                       : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Physics Final Exam (50 Qs / 180 Mins)' : 'Official EG-Bac STEM Physics Exam (40 Qs / 150 Mins)')}
                   </h4>
-                  <span className="text-[10px] bg-cyan-500/20 text-cyan-300 font-bold px-2.5 py-0.5 rounded-full border border-cyan-500/40">
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                    isContrast
+                      ? 'bg-black text-cyan-300 border-cyan-400'
+                      : isLight
+                      ? 'bg-cyan-100 text-cyan-900 border-cyan-300'
+                      : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/40'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
                       : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                <p className={`text-xs mt-1 max-w-2xl leading-relaxed ${
+                  isContrast ? 'text-slate-200 font-medium' : isLight ? 'text-slate-700 font-medium' : 'text-slate-300/90'
+                }`}>
                   {lang === 'ar'
                     ? (currentCurriculum === 'thanaweya'
                         ? 'نموذج محاكاة مطابق لضوابط الوزارة: الدوائر الكهربية، التأثير المغناطيسي وأجهزة القياس، الحث والدينامو، دوائر التيار المتردد والرنين، وفيزياء الكم والحديثة (50 سؤالاً / 3 ساعات).'
@@ -1675,7 +1698,13 @@ export const TestGenerator: React.FC<Props> = ({
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
               <button
                 onClick={handleStartPhysicsMinisterialExam}
-                className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+                className={`w-full sm:w-auto font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shrink-0 cursor-pointer hover:scale-105 ${
+                  isContrast
+                    ? 'bg-cyan-400 text-black border-2 border-white shadow-none'
+                    : isLight
+                    ? 'bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 hover:from-cyan-700 hover:to-sky-700 text-white shadow-md shadow-cyan-600/20'
+                    : 'bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-500 hover:from-cyan-400 hover:to-sky-400 text-slate-950 shadow-lg shadow-cyan-500/30'
+                }`}
               >
                 <Zap className="w-4 h-4 fill-current" />
                 <span>
@@ -1687,25 +1716,47 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
           </div>
         ) : selectedSubject === 'biology' ? (
-          <div className="bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-emerald-950/30">
+          <div className={`rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${
+            isContrast
+              ? 'bg-black border-2 border-emerald-400 text-white shadow-none'
+              : isLight
+              ? 'bg-gradient-to-r from-emerald-50 via-teal-50/70 to-slate-50 border border-emerald-200 text-slate-900 shadow-md'
+              : 'bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 border border-emerald-500/40 text-slate-100 shadow-xl shadow-emerald-950/30'
+          }`}>
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/40 shadow-inner">
-                <Dna className="w-6 h-6 animate-pulse" />
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-inner ${
+                isContrast
+                  ? 'bg-black text-emerald-300 border-2 border-emerald-400'
+                  : isLight
+                  ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                  : 'bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 border-emerald-500/40'
+              }`}>
+                <Dna className={`w-6 h-6 animate-pulse ${isContrast ? 'text-emerald-300' : isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                  <h4 className="text-sm sm:text-base font-black text-emerald-100">
+                  <h4 className={`text-sm sm:text-base font-black ${
+                    isContrast ? 'text-white' : isLight ? 'text-slate-950' : 'text-white'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'امتحان الأحياء الوزاري الرسمي الشامل (50 سؤالاً / 180 دقيقة)' : 'امتحان الأحياء الشامل لمدارس STEM (40 سؤالاً / 150 دقيقة)')
                       : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Biology Final Exam (50 Qs / 180 Mins)' : 'Official EG-Bac STEM Biology Exam (40 Qs / 150 Mins)')}
                   </h4>
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                    isContrast
+                      ? 'bg-black text-emerald-300 border-emerald-400'
+                      : isLight
+                      ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
                       : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                <p className={`text-xs mt-1 max-w-2xl leading-relaxed ${
+                  isContrast ? 'text-slate-200 font-medium' : isLight ? 'text-slate-700 font-medium' : 'text-slate-300/90'
+                }`}>
                   {lang === 'ar'
                     ? (currentCurriculum === 'thanaweya'
                         ? 'نموذج محاكاة مطابق لضوابط الوزارة: 10 أسئلة للدعامة والحركة، 8 للتنسيق الهرموني، 16 للتكاثر، 8 للمناعة، و8 للبيولوجيا الجزيئية. مؤقت 3 ساعات وتحليل فوري شامل.'
@@ -1719,7 +1770,13 @@ export const TestGenerator: React.FC<Props> = ({
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
               <button
                 onClick={handleStartBiologyMinisterialExam}
-                className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+                className={`w-full sm:w-auto font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shrink-0 cursor-pointer hover:scale-105 ${
+                  isContrast
+                    ? 'bg-emerald-400 text-black border-2 border-white shadow-none'
+                    : isLight
+                    ? 'bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md shadow-emerald-600/20'
+                    : 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/30'
+                }`}
               >
                 <Dna className="w-4 h-4" />
                 <span>
@@ -1731,25 +1788,47 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
           </div>
         ) : selectedSubject === 'chemistry' ? (
-          <div className="bg-gradient-to-r from-teal-950/50 via-slate-900 to-emerald-950/50 border border-emerald-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-emerald-950/30">
+          <div className={`rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${
+            isContrast
+              ? 'bg-black border-2 border-teal-400 text-white shadow-none'
+              : isLight
+              ? 'bg-gradient-to-r from-teal-50 via-emerald-50/70 to-slate-50 border border-teal-200 text-slate-900 shadow-md'
+              : 'bg-gradient-to-r from-teal-950/50 via-slate-900 to-emerald-950/50 border border-emerald-500/40 text-slate-100 shadow-xl shadow-emerald-950/30'
+          }`}>
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/40 shadow-inner">
-                <FlaskConical className="w-6 h-6 animate-pulse text-emerald-400" />
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-inner ${
+                isContrast
+                  ? 'bg-black text-teal-300 border-2 border-teal-400'
+                  : isLight
+                  ? 'bg-teal-100 text-teal-800 border-teal-300'
+                  : 'bg-gradient-to-br from-emerald-500/20 to-teal-600/20 text-emerald-400 border-emerald-500/40'
+              }`}>
+                <FlaskConical className={`w-6 h-6 animate-pulse ${isContrast ? 'text-teal-300' : isLight ? 'text-teal-700' : 'text-emerald-400'}`} />
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                  <h4 className="text-sm sm:text-base font-black text-emerald-100">
+                  <h4 className={`text-sm sm:text-base font-black ${
+                    isContrast ? 'text-white' : isLight ? 'text-slate-950' : 'text-white'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'امتحان الكيمياء الوزاري الرسمي الشامل (50 سؤالاً / 180 دقيقة)' : 'امتحان الكيمياء الشامل لمدارس STEM (40 سؤالاً / 150 دقيقة)')
                       : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Chemistry Final Exam (50 Qs / 180 Mins)' : 'Official EG-Bac STEM Chemistry Exam (40 Qs / 150 Mins)')}
                   </h4>
-                  <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/40">
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                    isContrast
+                      ? 'bg-black text-teal-300 border-teal-400'
+                      : isLight
+                      ? 'bg-teal-100 text-teal-900 border-teal-300'
+                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
                       : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                <p className={`text-xs mt-1 max-w-2xl leading-relaxed ${
+                  isContrast ? 'text-slate-200 font-medium' : isLight ? 'text-slate-700 font-medium' : 'text-slate-300/90'
+                }`}>
                   {lang === 'ar'
                     ? (currentCurriculum === 'thanaweya'
                         ? 'نموذج محاكاة مطابق لضوابط الوزارة: العناصر الانتقالية، التحليل الكيميائي الوصفي والكمي، الاتزان ولوساتيليه، الكيمياء الكهربية، والكيمياء العضوية ومسارات التخليق (50 سؤالاً / 3 ساعات).'
@@ -1763,7 +1842,13 @@ export const TestGenerator: React.FC<Props> = ({
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
               <button
                 onClick={handleStartChemistryMinisterialExam}
-                className="w-full sm:w-auto bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+                className={`w-full sm:w-auto font-black py-3 px-6 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shrink-0 cursor-pointer hover:scale-105 ${
+                  isContrast
+                    ? 'bg-teal-400 text-black border-2 border-white shadow-none'
+                    : isLight
+                    ? 'bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-700 hover:from-teal-700 hover:to-emerald-700 text-white shadow-md shadow-teal-600/20'
+                    : 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-400 hover:to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/30'
+                }`}
               >
                 <FlaskConical className="w-4 h-4 fill-current" />
                 <span>
@@ -1775,25 +1860,47 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
           </div>
         ) : selectedSubject === 'mathematics' ? (
-          <div className="bg-gradient-to-r from-blue-950/50 via-slate-900 to-indigo-950/50 border border-blue-500/40 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-blue-950/30">
+          <div className={`rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${
+            isContrast
+              ? 'bg-black border-2 border-blue-400 text-white shadow-none'
+              : isLight
+              ? 'bg-gradient-to-r from-blue-50 via-indigo-50/70 to-slate-50 border border-blue-200 text-slate-900 shadow-md'
+              : 'bg-gradient-to-r from-blue-950/50 via-slate-900 to-indigo-950/50 border border-blue-500/40 text-slate-100 shadow-xl shadow-blue-950/30'
+          }`}>
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 text-blue-400 flex items-center justify-center shrink-0 border border-blue-500/40 shadow-inner">
-                <Calculator className="w-6 h-6 animate-pulse text-blue-400" />
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-inner ${
+                isContrast
+                  ? 'bg-black text-blue-300 border-2 border-blue-400'
+                  : isLight
+                  ? 'bg-blue-100 text-blue-700 border-blue-300'
+                  : 'bg-gradient-to-br from-blue-500/20 to-indigo-600/20 text-blue-400 border-blue-500/40'
+              }`}>
+                <Calculator className={`w-6 h-6 animate-pulse ${isContrast ? 'text-blue-300' : isLight ? 'text-blue-700' : 'text-blue-400'}`} />
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                  <h4 className="text-sm sm:text-base font-black text-blue-100">
+                  <h4 className={`text-sm sm:text-base font-black ${
+                    isContrast ? 'text-white' : isLight ? 'text-slate-950' : 'text-white'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'امتحانات الرياضيات الوزارية الرسمية (بحتة وتطبيقية)' : 'امتحانات الرياضيات المتقدمة لمدارس STEM')
                       : (currentCurriculum === 'thanaweya' ? 'Official Ministerial Mathematics Exams (Pure & Applied)' : 'Official STEM Advanced Mathematics Exams')}
                   </h4>
-                  <span className="text-[10px] bg-blue-500/20 text-blue-300 font-bold px-2.5 py-0.5 rounded-full border border-blue-500/40">
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                    isContrast
+                      ? 'bg-black text-blue-300 border-blue-400'
+                      : isLight
+                      ? 'bg-blue-100 text-blue-900 border-blue-300'
+                      : 'bg-blue-500/20 text-blue-300 border-blue-500/40'
+                  }`}>
                     {lang === 'ar'
                       ? (currentCurriculum === 'thanaweya' ? 'مواصفة الوزارة المعتمدة 2026' : 'معايير STEM المعتمدة')
                       : (currentCurriculum === 'thanaweya' ? 'Official MoE Spec 2026' : 'STEM Curriculum Standards')}
                   </span>
                 </div>
-                <p className="text-xs text-slate-300/90 mt-1 max-w-2xl leading-relaxed">
+                <p className={`text-xs mt-1 max-w-2xl leading-relaxed ${
+                  isContrast ? 'text-slate-200 font-medium' : isLight ? 'text-slate-700 font-medium' : 'text-slate-300/90'
+                }`}>
                   {lang === 'ar'
                     ? (currentCurriculum === 'thanaweya'
                         ? 'نماذج محاكاة رسمية مطابقة لضوابط الوزارة: الرياضيات البحتة (جبر وفراغية وتفاضل وتكامل) والرياضيات التطبيقية (استاتيكا وديناميكا) بزمن 3 ساعات لكل امتحان.'
@@ -1807,7 +1914,13 @@ export const TestGenerator: React.FC<Props> = ({
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2.5 w-full md:w-auto shrink-0">
               <button
                 onClick={handleStartPureMathMinisterialExam}
-                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-black py-3 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+                className={`w-full sm:w-auto font-black py-3 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shrink-0 cursor-pointer hover:scale-105 ${
+                  isContrast
+                    ? 'bg-blue-400 text-black border-2 border-white shadow-none'
+                    : isLight
+                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md shadow-blue-500/20'
+                    : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white shadow-lg shadow-blue-500/30'
+                }`}
               >
                 <Calculator className="w-4 h-4" />
                 <span>
@@ -1818,7 +1931,13 @@ export const TestGenerator: React.FC<Props> = ({
               </button>
               <button
                 onClick={handleStartAppliedMathMinisterialExam}
-                className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-black py-3 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/30 transition-all shrink-0 cursor-pointer hover:scale-105"
+                className={`w-full sm:w-auto font-black py-3 px-5 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shrink-0 cursor-pointer hover:scale-105 ${
+                  isContrast
+                    ? 'bg-indigo-400 text-black border-2 border-white shadow-none'
+                    : isLight
+                    ? 'bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white shadow-md shadow-indigo-500/20'
+                    : 'bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-lg shadow-indigo-500/30'
+                }`}
               >
                 <Sparkles className="w-4 h-4" />
                 <span>
@@ -1830,21 +1949,43 @@ export const TestGenerator: React.FC<Props> = ({
             </div>
           </div>
         ) : (
-          <div className="bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl shadow-amber-950/20">
+          <div className={`rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 transition-all ${
+            isContrast
+              ? 'bg-black border-2 border-amber-400 text-white shadow-none'
+              : isLight
+              ? 'bg-gradient-to-r from-amber-50 via-indigo-50/70 to-slate-50 border border-amber-200 text-slate-900 shadow-md'
+              : 'bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-violet-500/10 border border-amber-500/30 text-slate-100 shadow-xl shadow-amber-950/20'
+          }`}>
             <div className="flex items-center gap-3.5 text-center sm:text-left rtl:sm:text-right">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 text-amber-400 flex items-center justify-center shrink-0 border border-amber-500/40 shadow-inner">
-                <Award className="w-6 h-6" />
+              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border shadow-inner ${
+                isContrast
+                  ? 'bg-black text-amber-300 border-2 border-amber-400'
+                  : isLight
+                  ? 'bg-amber-100 text-amber-800 border-amber-300'
+                  : 'bg-gradient-to-br from-amber-500/20 to-amber-600/10 text-amber-400 border-amber-500/40'
+              }`}>
+                <Award className={`w-6 h-6 ${isContrast ? 'text-amber-300' : isLight ? 'text-amber-700' : 'text-amber-400'}`} />
               </div>
               <div>
                 <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                  <h4 className="text-sm sm:text-base font-black text-slate-100">
+                  <h4 className={`text-sm sm:text-base font-black ${
+                    isContrast ? 'text-white' : isLight ? 'text-slate-950' : 'text-white'
+                  }`}>
                     {lang === 'ar' ? 'محاكاة امتحانات الوزارة الرسمية 2026' : 'Official Ministerial Exam Simulations 2026'}
                   </h4>
-                  <span className="text-[10px] bg-amber-500/20 text-amber-300 font-bold px-2.5 py-0.5 rounded-full border border-amber-500/40">
+                  <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border ${
+                    isContrast
+                      ? 'bg-black text-amber-300 border-amber-400'
+                      : isLight
+                      ? 'bg-amber-100 text-amber-900 border-amber-300'
+                      : 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+                  }`}>
                     {lang === 'ar' ? 'نماذج مطابقة 100%' : '100% Aligned Specs'}
                   </span>
                 </div>
-                <p className="text-xs text-slate-400 mt-1 max-w-xl">
+                <p className={`text-xs mt-1 max-w-xl ${
+                  isContrast ? 'text-slate-200 font-medium' : isLight ? 'text-slate-700 font-medium' : 'text-slate-400'
+                }`}>
                   {lang === 'ar'
                     ? 'نماذج امتحانات شاملة تحاكي زمن وضوابط اختبارات نهاية العام بوزارة التربية والتعليم لكافة التخصصات مع مؤقت رسمي ولوحة تنقل وتصحيح تفاعلي فوري.'
                     : 'Full-length mock exams replicating official Grade 12 ministerial exam conditions across all subjects with official timers, question palettes, and immediate analytics.'}
@@ -1854,42 +1995,78 @@ export const TestGenerator: React.FC<Props> = ({
             <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full md:w-auto shrink-0">
               <button
                 onClick={handleStartPureMathMinisterialExam}
-                className="w-full sm:w-auto bg-blue-950/40 hover:bg-blue-900/50 text-blue-300 border border-blue-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className={`w-full sm:w-auto font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-xs ${
+                  isContrast
+                    ? 'bg-black text-blue-300 border border-blue-400 hover:bg-blue-950'
+                    : isLight
+                    ? 'bg-blue-100 hover:bg-blue-200 text-blue-900 border border-blue-300'
+                    : 'bg-blue-950/40 hover:bg-blue-900/50 text-blue-300 border border-blue-500/40'
+                }`}
               >
-                <Calculator className="w-3.5 h-3.5 text-blue-400" />
+                <Calculator className={`w-3.5 h-3.5 ${isLight ? 'text-blue-700' : 'text-blue-400'}`} />
                 <span>{lang === 'ar' ? 'بحتة' : 'Pure Math'}</span>
               </button>
               <button
                 onClick={handleStartAppliedMathMinisterialExam}
-                className="w-full sm:w-auto bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border border-indigo-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className={`w-full sm:w-auto font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-xs ${
+                  isContrast
+                    ? 'bg-black text-indigo-300 border border-indigo-400 hover:bg-indigo-950'
+                    : isLight
+                    ? 'bg-indigo-100 hover:bg-indigo-200 text-indigo-900 border border-indigo-300'
+                    : 'bg-indigo-950/40 hover:bg-indigo-900/50 text-indigo-300 border border-indigo-500/40'
+                }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                <Sparkles className={`w-3.5 h-3.5 ${isLight ? 'text-indigo-700' : 'text-indigo-400'}`} />
                 <span>{lang === 'ar' ? 'تطبيقية' : 'Applied Math'}</span>
               </button>
               <button
                 onClick={handleStartPhysicsMinisterialExam}
-                className="w-full sm:w-auto bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className={`w-full sm:w-auto font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-xs ${
+                  isContrast
+                    ? 'bg-black text-cyan-300 border border-cyan-400 hover:bg-cyan-950'
+                    : isLight
+                    ? 'bg-cyan-100 hover:bg-cyan-200 text-cyan-900 border border-cyan-300'
+                    : 'bg-cyan-950/40 hover:bg-cyan-900/50 text-cyan-300 border border-cyan-500/40'
+                }`}
               >
-                <Zap className="w-3.5 h-3.5 text-cyan-400" />
+                <Zap className={`w-3.5 h-3.5 ${isLight ? 'text-cyan-700' : 'text-cyan-400'}`} />
                 <span>{lang === 'ar' ? 'فيزياء' : 'Physics'}</span>
               </button>
               <button
                 onClick={handleStartChemistryMinisterialExam}
-                className="w-full sm:w-auto bg-teal-950/40 hover:bg-teal-900/50 text-teal-300 border border-teal-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className={`w-full sm:w-auto font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-xs ${
+                  isContrast
+                    ? 'bg-black text-teal-300 border border-teal-400 hover:bg-teal-950'
+                    : isLight
+                    ? 'bg-teal-100 hover:bg-teal-200 text-teal-900 border border-teal-300'
+                    : 'bg-teal-950/40 hover:bg-teal-900/50 text-teal-300 border border-teal-500/40'
+                }`}
               >
-                <FlaskConical className="w-3.5 h-3.5 text-teal-400" />
+                <FlaskConical className={`w-3.5 h-3.5 ${isLight ? 'text-teal-700' : 'text-teal-400'}`} />
                 <span>{lang === 'ar' ? 'كيمياء' : 'Chemistry'}</span>
               </button>
               <button
                 onClick={handleStartBiologyMinisterialExam}
-                className="w-full sm:w-auto bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40 font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-sm"
+                className={`w-full sm:w-auto font-bold py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 shadow-xs ${
+                  isContrast
+                    ? 'bg-black text-emerald-300 border border-emerald-400 hover:bg-emerald-950'
+                    : isLight
+                    ? 'bg-emerald-100 hover:bg-emerald-200 text-emerald-900 border border-emerald-300'
+                    : 'bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/40'
+                }`}
               >
-                <Dna className="w-3.5 h-3.5 text-emerald-400" />
+                <Dna className={`w-3.5 h-3.5 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`} />
                 <span>{lang === 'ar' ? 'أحياء' : 'Biology'}</span>
               </button>
               <button
                 onClick={handleStartMinisterialSimulation}
-                className="w-full sm:w-auto bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/30 transition-all cursor-pointer hover:scale-105"
+                className={`w-full sm:w-auto font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer hover:scale-105 ${
+                  isContrast
+                    ? 'bg-amber-400 text-black border-2 border-white shadow-none'
+                    : isLight
+                    ? 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-md shadow-amber-500/20'
+                    : 'bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-300 text-slate-950 shadow-lg shadow-amber-500/30'
+                }`}
               >
                 <Timer className="w-3.5 h-3.5" />
                 <span>{lang === 'ar' ? 'محاكاة شاملة (3 س)' : 'Full Mock (3h)'}</span>
@@ -1899,13 +2076,23 @@ export const TestGenerator: React.FC<Props> = ({
         )}
 
         {/* Real-time Pool Indicator & Status */}
-        <div className="flex flex-wrap items-center justify-between gap-3 bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 shadow-sm">
+        <div className={`flex flex-wrap items-center justify-between gap-3 rounded-xl px-4 py-2.5 shadow-sm border ${
+          isContrast
+            ? 'bg-black border-2 border-slate-400 text-white'
+            : isLight
+            ? 'bg-white border-slate-200 text-slate-800'
+            : 'bg-slate-950/80 border-slate-800 text-slate-200'
+        }`}>
           <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-indigo-400" />
-            <span className="text-xs text-slate-300 font-medium">
+            <Sparkles className={`w-4 h-4 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
+            <span className={`text-xs font-medium ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
               {lang === 'ar' ? 'الأسئلة المتاحة في بنك الأسئلة وفقاً للفلاتر الحالية:' : 'Available Questions in Filtered Pool:'}
             </span>
-            <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+            <span className={`text-xs font-black px-2.5 py-0.5 rounded-full border ${
+              isLight
+                ? 'bg-indigo-50 text-indigo-900 border-indigo-200'
+                : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/40'
+            }`}>
               {lang === 'ar' ? toHindiDigits(availablePoolCount.toString()) : availablePoolCount.toLocaleString()} {lang === 'ar' ? 'سؤالاً' : 'questions'}
             </span>
           </div>
