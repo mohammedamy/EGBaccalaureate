@@ -45,6 +45,9 @@ const LearningOutcomesModal = lazy(() => import('./components/LearningOutcomesMo
 const DailyPrescriptionCard = lazy(() => import('./components/DailyPrescriptionCard').then(m => ({ default: m.DailyPrescriptionCard })));
 const DailyPrescriptionModal = lazy(() => import('./components/DailyPrescriptionModal').then(m => ({ default: m.DailyPrescriptionModal })));
 const SchoolOutreachModal = lazy(() => import('./components/SchoolOutreachModal').then(m => ({ default: m.SchoolOutreachModal })));
+const UserProfileModal = lazy(() => import('./components/UserProfileModal').then(m => ({ default: m.UserProfileModal })));
+import type { UserProfile } from './types/userProfile';
+import { loadLocalUserProfile, subscribeToUserProfile } from './services/userProfileService';
 import type { Assignment } from './types/teacherAssignment';
 import type { PrescribedItem } from './types/adaptivePractice';
 import { getAdaptiveState, completePrescriptionItem } from './services/adaptivePracticeEngine';
@@ -223,6 +226,8 @@ export const App: React.FC = () => {
   const [isLearningOutcomesModalOpen, setIsLearningOutcomesModalOpen] = useState<boolean>(false);
   const [isDailyPrescriptionOpen, setIsDailyPrescriptionOpen] = useState<boolean>(false);
   const [isSchoolOutreachOpen, setIsSchoolOutreachOpen] = useState<boolean>(false);
+  const [isUserProfileModalOpen, setIsUserProfileModalOpen] = useState<boolean>(false);
+  const [userProfile, setUserProfile] = useState<UserProfile>(loadLocalUserProfile);
   const [activePrescribedItem, setActivePrescribedItem] = useState<PrescribedItem | undefined>(undefined);
   const [initialAssignmentCode, setInitialAssignmentCode] = useState<string>('');
   const [activeAssignmentForTest, setActiveAssignmentForTest] = useState<Assignment | undefined>(undefined);
@@ -312,6 +317,14 @@ export const App: React.FC = () => {
   // Register Service Worker for PWA offline resilience
   useEffect(() => {
     registerServiceWorker();
+  }, []);
+
+  // Listen to user profile & Google auth state changes
+  useEffect(() => {
+    const unsubscribe = subscribeToUserProfile((newProfile) => {
+      setUserProfile(newProfile);
+    });
+    return unsubscribe;
   }, []);
 
   // Check assignment URL deep link (?asgn=... or ?asgnCode=...)
@@ -558,6 +571,10 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsSchoolOutreachOpen((prev) => !prev);
       }
+      if (e.altKey && (e.key === 'l' || e.key === 'L' || e.code === 'KeyL')) {
+        e.preventDefault();
+        setIsUserProfileModalOpen((prev) => !prev);
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -734,6 +751,8 @@ export const App: React.FC = () => {
         onOpenLearningOutcomes={() => setIsLearningOutcomesModalOpen(true)}
         onOpenDailyPrescription={() => setIsDailyPrescriptionOpen(true)}
         onOpenSchoolOutreach={() => setIsSchoolOutreachOpen(true)}
+        onOpenUserProfile={() => setIsUserProfileModalOpen(true)}
+        userProfile={userProfile}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -1106,6 +1125,19 @@ export const App: React.FC = () => {
             <SchoolOutreachModal
               isOpen={isSchoolOutreachOpen}
               onClose={() => setIsSchoolOutreachOpen(false)}
+            />
+          </Suspense>
+        )}
+
+        {/* User Profile, Google Authentication & Local Storage Customization Modal */}
+        {isUserProfileModalOpen && (
+          <Suspense fallback={null}>
+            <UserProfileModal
+              isOpen={isUserProfileModalOpen}
+              onClose={() => setIsUserProfileModalOpen(false)}
+              lang={lang}
+              theme={theme}
+              onProfileUpdated={(updated) => setUserProfile(updated)}
             />
           </Suspense>
         )}

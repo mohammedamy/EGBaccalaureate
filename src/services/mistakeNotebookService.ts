@@ -1,4 +1,4 @@
-import type { CurriculumType, DifficultyLevel, DiagramType } from '../types/curriculum';
+import type { CurriculumType, DifficultyLevel, DiagramType, TrackScope } from '../types/curriculum';
 
 export const MISTAKE_NOTEBOOK_STORAGE_KEY = 'egbac_mistake_notebook_v1';
 
@@ -24,6 +24,7 @@ export interface GeneratedQuestion {
   sectionTagAr?: string;
   sectionTagEn?: string;
   bloomLevel?: 'remembering' | 'understanding' | 'application' | 'analysis';
+  trackScope?: TrackScope;
 }
 
 export interface MistakeRecord {

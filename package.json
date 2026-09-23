@@ -40,7 +40,9 @@
     "test:electronics-iot": "npx tsx scripts/verify_electronics_iot_subject.ts",
     "test:ai-data-science": "npx tsx scripts/verify_ai_data_science_subject.ts",
     "test:biotech": "npx tsx scripts/verify_biotechnology_subject.ts",
-    "test:nanotech": "npx tsx scripts/verify_nanotechnology_subject.ts"
+    "test:nanotech": "npx tsx scripts/verify_nanotechnology_subject.ts",
+    "test:track-scope": "npx tsx scripts/verify_track_scope_differentiation.ts",
+    "test:user-profile": "npx tsx scripts/verify_user_profile_and_auth.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

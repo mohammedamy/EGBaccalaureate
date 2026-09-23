@@ -34,8 +34,15 @@ if (typeof window !== 'undefined') {
   });
 }
 
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+
 // Initialize Cloud Firestore Database
 export const db = getFirestore(app);
+
+// Initialize Firebase Auth
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
 
 export const BASE_VISITOR_ANCHOR = 58490;
 

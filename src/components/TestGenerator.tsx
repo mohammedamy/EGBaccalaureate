@@ -2,12 +2,15 @@ import React, { useState, useEffect, useMemo } from 'react';
 import confetti from 'canvas-confetti';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
-import type { CurriculumType, DifficultyLevel, SolvedProblem, Chapter } from '../types/curriculum';
+import type { CurriculumType, DifficultyLevel, SolvedProblem, Chapter, TrackScope } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { thanaweyaCurriculum } from '../data/thanaweyaData';
 import { egBacCurriculum } from '../data/egBacData';
 import { TextbookDiagram } from './TextbookDiagram';
+import { TrackScopeBadge } from './TrackScopeBadge';
+import { TrackGuidanceCard } from './TrackGuidanceCard';
+import { getChapterTrackScope, isCommonSubject } from '../data/trackScopeData';
 import {
   Printer,
   CheckCircle2,
@@ -152,6 +155,7 @@ export const TestGenerator: React.FC<Props> = ({
   const [selectedSubject, setSelectedSubject] = useState<string>(initialSubject);
   const [selectedBranch, setSelectedBranch] = useState<string>('all');
   const [selectedChapter, setSelectedChapter] = useState<string>('all');
+  const [selectedTrackScope, setSelectedTrackScope] = useState<TrackScope | 'all'>('all');
   const [difficulty, setDifficulty] = useState<DifficultyLevel | 'all'>('all');
   const [questionCount, setQuestionCount] = useState<number>(10);
   const [examMode, setExamMode] = useState<'online' | 'printable' | 'bubble_sheet' | 'mistakes'>('online');
@@ -404,27 +408,36 @@ export const TestGenerator: React.FC<Props> = ({
       return d === difficulty;
     };
 
+    const isTrackScopeMatch = (scope: TrackScope) => {
+      if (selectedTrackScope === 'all') return true;
+      if (selectedTrackScope === 'common') return scope === 'common';
+      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific';
+      if (selectedTrackScope === 'literary') return scope === 'common' || scope === 'literary';
+      return true;
+    };
+
     candidateBranches.forEach((branch) => {
       if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
 
       branch.chapters.forEach((ch) => {
         if (selectedChapter !== 'all' && ch.id !== selectedChapter) return;
+        const chScope = ch.trackScope || getChapterTrackScope(selectedSubject !== 'all' ? selectedSubject : branch.id, ch.id);
 
         if (ch.databank) {
-          if (isMatch('easy')) count += ch.databank.easy.length;
-          if (isMatch('medium')) count += ch.databank.medium.length;
-          if (isMatch('hots')) count += ch.databank.hots.length;
+          if (isMatch('easy')) count += ch.databank.easy.filter((p) => isTrackScopeMatch(p.trackScope || chScope)).length;
+          if (isMatch('medium')) count += ch.databank.medium.filter((p) => isTrackScopeMatch(p.trackScope || chScope)).length;
+          if (isMatch('hots')) count += ch.databank.hots.filter((p) => isTrackScopeMatch(p.trackScope || chScope)).length;
         }
         if (ch.solvedExamples) {
-          count += ch.solvedExamples.filter((p) => isMatch(p.difficulty || 'medium')).length;
+          count += ch.solvedExamples.filter((p) => isMatch(p.difficulty || 'medium') && isTrackScopeMatch(p.trackScope || chScope)).length;
         }
         if (ch.exerciseProblems) {
-          count += ch.exerciseProblems.filter((p) => isMatch(p.difficulty || 'medium')).length;
+          count += ch.exerciseProblems.filter((p) => isMatch(p.difficulty || 'medium') && isTrackScopeMatch(p.trackScope || chScope)).length;
         }
         if (ch.lessons) {
           ch.lessons.forEach((l) => {
             if (l.worksheet?.problems) {
-              count += l.worksheet.problems.filter((p) => isMatch(p.difficulty || 'medium')).length;
+              count += l.worksheet.problems.filter((p) => isMatch(p.difficulty || 'medium') && isTrackScopeMatch(p.trackScope || l.trackScope || chScope)).length;
             }
           });
         }
@@ -432,7 +445,7 @@ export const TestGenerator: React.FC<Props> = ({
     });
 
     return count;
-  }, [currentCurriculum, selectedSubject, selectedBranch, selectedChapter, difficulty, blueprintMode]);
+  }, [currentCurriculum, selectedSubject, selectedBranch, selectedChapter, difficulty, blueprintMode, selectedTrackScope]);
 
   // Helper to shuffle an array
   const shuffle = <T,>(arr: T[]): T[] => {
@@ -473,24 +486,48 @@ export const TestGenerator: React.FC<Props> = ({
       return d === difficulty;
     };
 
+    const isTrackScopeMatch = (scope: TrackScope) => {
+      if (selectedTrackScope === 'all') return true;
+      if (selectedTrackScope === 'common') return scope === 'common';
+      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific';
+      if (selectedTrackScope === 'literary') return scope === 'common' || scope === 'literary';
+      return true;
+    };
+
     candidateBranches.forEach((branch) => {
       if (selectedBranch !== 'all' && branch.id !== selectedBranch) return;
 
       branch.chapters.forEach((ch) => {
         if (selectedChapter !== 'all' && ch.id !== selectedChapter) return;
+        const chScope = ch.trackScope || getChapterTrackScope(selectedSubject !== 'all' ? selectedSubject : branch.id, ch.id);
 
-        const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel }> = [];
+        const candidateProblems: Array<{ prob: SolvedProblem; source: string; diff: DifficultyLevel; trackScope: TrackScope }> = [];
 
         // 1. Chapter Databank (Easy, Medium, HOTS)
         if (ch.databank) {
           if (isMatch('easy')) {
-            ch.databank.easy.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy' }));
+            ch.databank.easy.forEach((p) => {
+              const scope = p.trackScope || chScope;
+              if (isTrackScopeMatch(scope)) {
+                candidateProblems.push({ prob: p, source: 'databank_easy', diff: 'easy', trackScope: scope });
+              }
+            });
           }
           if (isMatch('medium')) {
-            ch.databank.medium.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium' }));
+            ch.databank.medium.forEach((p) => {
+              const scope = p.trackScope || chScope;
+              if (isTrackScopeMatch(scope)) {
+                candidateProblems.push({ prob: p, source: 'databank_medium', diff: 'medium', trackScope: scope });
+              }
+            });
           }
           if (isMatch('hots')) {
-            ch.databank.hots.forEach((p) => candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots' }));
+            ch.databank.hots.forEach((p) => {
+              const scope = p.trackScope || chScope;
+              if (isTrackScopeMatch(scope)) {
+                candidateProblems.push({ prob: p, source: 'databank_hots', diff: 'hots', trackScope: scope });
+              }
+            });
           }
         }
 
@@ -498,8 +535,9 @@ export const TestGenerator: React.FC<Props> = ({
         if (ch.solvedExamples) {
           ch.solvedExamples.forEach((p) => {
             const d = p.difficulty || 'medium';
-            if (isMatch(d)) {
-              candidateProblems.push({ prob: p, source: 'textbook_solved', diff: d });
+            const scope = p.trackScope || chScope;
+            if (isMatch(d) && isTrackScopeMatch(scope)) {
+              candidateProblems.push({ prob: p, source: 'textbook_solved', diff: d, trackScope: scope });
             }
           });
         }
@@ -508,8 +546,9 @@ export const TestGenerator: React.FC<Props> = ({
         if (ch.exerciseProblems) {
           ch.exerciseProblems.forEach((p) => {
             const d = p.difficulty || 'medium';
-            if (isMatch(d)) {
-              candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: d });
+            const scope = p.trackScope || chScope;
+            if (isMatch(d) && isTrackScopeMatch(scope)) {
+              candidateProblems.push({ prob: p, source: 'textbook_exercise', diff: d, trackScope: scope });
             }
           });
         }
@@ -518,13 +557,14 @@ export const TestGenerator: React.FC<Props> = ({
         ch.lessons?.forEach((l) => {
           l.worksheet?.problems?.forEach((prob) => {
             const d = prob.difficulty || 'medium';
-            if (isMatch(d)) {
-              candidateProblems.push({ prob, source: 'worksheet', diff: d });
+            const scope = prob.trackScope || l.trackScope || chScope;
+            if (isMatch(d) && isTrackScopeMatch(scope)) {
+              candidateProblems.push({ prob, source: 'worksheet', diff: d, trackScope: scope });
             }
           });
         });
 
-        candidateProblems.forEach(({ prob, source, diff }) => {
+        candidateProblems.forEach(({ prob, source, diff, trackScope }) => {
           if (
             !prob.optionsEn ||
             prob.optionsEn.length !== 4 ||
@@ -553,6 +593,7 @@ export const TestGenerator: React.FC<Props> = ({
             branchTitleEn: branch.titleEn,
             branchTitleAr: branch.titleAr,
             diagramType: prob.diagramType,
+            trackScope,
           });
         });
       });
@@ -2149,7 +2190,7 @@ export const TestGenerator: React.FC<Props> = ({
         )}
 
         {/* Filters Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3.5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8 gap-3.5">
           <div>
             <label className="text-xs font-semibold text-slate-300 block mb-1.5">
               {lang === 'ar' ? 'المادة الدراسية' : 'Subject Track'}
@@ -2233,6 +2274,14 @@ export const TestGenerator: React.FC<Props> = ({
                   )
                     .filter((b) => selectedBranch === 'all' || b.id === selectedBranch)
                     .flatMap((b) => b.chapters)
+                    .filter((ch) => {
+                      if (selectedTrackScope === 'all') return true;
+                      const scope = ch.trackScope || getChapterTrackScope(selectedSubject !== 'all' ? selectedSubject : (selectedBranch !== 'all' ? selectedBranch : 'arabic'), ch.id);
+                      if (selectedTrackScope === 'common') return scope === 'common';
+                      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific';
+                      if (selectedTrackScope === 'literary') return scope === 'common' || scope === 'literary';
+                      return true;
+                    })
                     .map((ch) => (
                       <option key={ch.id} value={ch.id}>
                         {lang === 'ar' ? ch.titleAr : ch.titleEn}
@@ -2240,6 +2289,27 @@ export const TestGenerator: React.FC<Props> = ({
                     ))}
                 </>
               )}
+            </select>
+          </div>
+
+          <div>
+            <label className="text-xs font-semibold text-slate-300 block mb-1.5 flex items-center justify-between">
+              <span>{lang === 'ar' ? 'الشعبة والمسار' : 'Track Scope'}</span>
+              {selectedTrackScope !== 'all' && (
+                <span className="text-[10px] text-indigo-400 font-bold">
+                  {selectedTrackScope === 'common' ? '🌐' : selectedTrackScope === 'scientific' ? '🔬' : '🏛️'}
+                </span>
+              )}
+            </label>
+            <select
+              value={selectedTrackScope}
+              onChange={(e) => setSelectedTrackScope(e.target.value as TrackScope | 'all')}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-slate-200 focus:border-indigo-500 cursor-pointer"
+            >
+              <option value="all">{lang === 'ar' ? 'جميع المسارات (عام)' : 'All Track Scopes'}</option>
+              <option value="common">{lang === 'ar' ? '🌐 الجذع المشترك فقط (علمي وأدبي)' : '🌐 Unified Common Core'}</option>
+              <option value="scientific">{lang === 'ar' ? '🔬 الشعبة العلمية (علوم ورياضة)' : '🔬 Scientific Track'}</option>
+              <option value="literary">{lang === 'ar' ? '🏛️ الشعبة الأدبية' : '🏛️ Literary Track'}</option>
             </select>
           </div>
 
@@ -2472,6 +2542,16 @@ export const TestGenerator: React.FC<Props> = ({
             )}
           </div>
         </div>
+
+        {selectedSubject !== 'all' && isCommonSubject(selectedSubject) && (
+          <div className="pt-3">
+            <TrackGuidanceCard
+              subjectId={selectedSubject}
+              lang={lang}
+              theme={theme}
+            />
+          </div>
+        )}
           </>
         )}
       </div>
@@ -2800,7 +2880,15 @@ export const TestGenerator: React.FC<Props> = ({
                   <span className="bg-indigo-100 dark:bg-indigo-900/60 text-indigo-900 dark:text-indigo-300 text-xs font-extrabold px-3 py-1 rounded-lg border border-indigo-300 dark:border-indigo-800">
                     {lang === 'ar' ? `السؤال رقم (${toHindiDigits(idx + 1)})` : `Question (${idx + 1})`}
                   </span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {q.trackScope && (
+                      <TrackScopeBadge
+                        scope={q.trackScope}
+                        lang={lang}
+                        theme={theme}
+                        size="xs"
+                      />
+                    )}
                     {q.points !== undefined && (
                       <span className={`text-[10px] px-2 py-0.5 rounded border font-bold ${
                         isLight ? 'text-amber-900 border-amber-300 bg-amber-100' : 'text-amber-300 border-amber-500/40 bg-amber-950/30'
@@ -2965,7 +3053,17 @@ export const TestGenerator: React.FC<Props> = ({
                               </span>
                             </td>
                             <td className={`p-2 border ${isLight ? 'border-slate-200 text-slate-600' : 'border-slate-800 text-slate-400'} text-left rtl:text-right text-[11px]`}>
-                              {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}
+                              <div className="flex items-center gap-1.5 flex-wrap">
+                                {q.trackScope && (
+                                  <TrackScopeBadge
+                                    scope={q.trackScope}
+                                    lang={lang}
+                                    theme={theme}
+                                    size="xs"
+                                  />
+                                )}
+                                <span>{lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}</span>
+                              </div>
                             </td>
                           </tr>
                         );
@@ -4266,6 +4364,14 @@ export const TestGenerator: React.FC<Props> = ({
                             <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700 hidden sm:inline">
                               {lang === 'ar' ? q.sectionTagAr : q.sectionTagEn}
                             </span>
+                          )}
+                          {q.trackScope && (
+                            <TrackScopeBadge
+                              scope={q.trackScope}
+                              lang={lang}
+                              theme={theme}
+                              size="xs"
+                            />
                           )}
                           <span className="text-xs text-slate-400 font-semibold hidden sm:inline">
                             {lang === 'ar' ? `${q.branchTitleAr} • ${q.chapterTitleAr}` : `${q.branchTitleEn} • ${q.chapterTitleEn}`}

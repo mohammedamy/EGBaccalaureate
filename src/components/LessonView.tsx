@@ -63,6 +63,9 @@ import {
 } from '../data/officialBooksData';
 import { SUBJECTS } from '../data/subjects';
 import clipsatLogo from '../assets/clipsat-logo.png';
+import { TrackScopeBadge } from './TrackScopeBadge';
+import { TrackGuidanceCard } from './TrackGuidanceCard';
+import { getChapterTrackScope, isCommonSubject } from '../data/trackScopeData';
 
 interface Props {
   lang: Language;
@@ -154,6 +157,7 @@ export const LessonView: React.FC<Props> = ({
 
   // Chapter-level data bindings
   const currentChapter = branch.chapters.find((c) => c.lessons.some((l) => l.id === lesson.id)) || branch.chapters[0];
+  const currentChapterScope = currentChapter?.trackScope || getChapterTrackScope(branch.id, currentChapter?.id || '');
   const chapterSolvedExamples: SolvedProblem[] = currentChapter?.solvedExamples || [];
   const chapterExerciseProblems: SolvedProblem[] = currentChapter?.exerciseProblems || [];
   const chapterDatabank = currentChapter?.databank;
@@ -1251,15 +1255,23 @@ export const LessonView: React.FC<Props> = ({
             </button>
           </div>
 
-          <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-lg bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700/60 shadow-sm">
-            {prob.difficulty === 'exam_standard'
-              ? lang === 'ar' ? 'نموذج وزاري معتمد' : 'EXAM STANDARD'
-              : prob.difficulty === 'hots'
-              ? lang === 'ar' ? 'مهارات تفكير عليا' : 'HOTS'
-              : prob.difficulty === 'easy'
-              ? lang === 'ar' ? 'سهل تأسيسي' : 'EASY'
-              : lang === 'ar' ? 'متوسط' : 'MEDIUM'}
-          </span>
+          <div className="flex items-center gap-1.5 flex-wrap">
+            <TrackScopeBadge
+              scope={prob.trackScope || currentChapterScope}
+              lang={lang}
+              theme={theme}
+              size="xs"
+            />
+            <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 dark:text-amber-300 px-2.5 py-1 rounded-lg bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-700/60 shadow-sm">
+              {prob.difficulty === 'exam_standard'
+                ? lang === 'ar' ? 'نموذج وزاري معتمد' : 'EXAM STANDARD'
+                : prob.difficulty === 'hots'
+                ? lang === 'ar' ? 'مهارات تفكير عليا' : 'HOTS'
+                : prob.difficulty === 'easy'
+                ? lang === 'ar' ? 'سهل تأسيسي' : 'EASY'
+                : lang === 'ar' ? 'متوسط' : 'MEDIUM'}
+            </span>
+          </div>
         </div>
 
         <div className={`text-sm font-semibold leading-relaxed ${isLight ? 'text-slate-900' : 'text-slate-100'}`}>
@@ -1655,6 +1667,13 @@ export const LessonView: React.FC<Props> = ({
               <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-300 border border-indigo-300 dark:border-indigo-800 shadow-sm">
                 {lang === 'ar' ? branch.titleAr : branch.titleEn}
               </span>
+              <TrackScopeBadge
+                scope={currentChapterScope}
+                lang={lang}
+                theme={theme}
+                size="sm"
+                showIcon
+              />
               <span className={`text-xs font-bold flex items-center gap-1 ${
                 isLight ? 'text-amber-800' : 'text-amber-400'
               }`}>
@@ -1916,6 +1935,16 @@ export const LessonView: React.FC<Props> = ({
           </div>
         </div>
       </div>
+
+      {/* Track Scope Guidance for Common Subjects between Scientific & Literary */}
+      {isCommonSubject(branch.id) && (
+        <TrackGuidanceCard
+          subjectId={branch.id}
+          lang={lang}
+          theme={theme}
+          className="mb-6"
+        />
+      )}
 
       {/* 📖 TAB 1: THEORY & FORMULAS */}
       {activeSubTab === 'theory' && (

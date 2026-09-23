@@ -1,9 +1,17 @@
 import React, { useState, useMemo } from 'react';
-import type { Curriculum, Branch, Lesson, ThemeMode } from '../types/curriculum';
+import type { Curriculum, Branch, Lesson, ThemeMode, TrackScope } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
+import { TrackScopeBadge } from './TrackScopeBadge';
+import { TrackGuidanceCard } from './TrackGuidanceCard';
+import {
+  SUBJECT_TRACK_REGISTRY,
+  getChapterTrackScope,
+  filterChaptersByTrackScope,
+  isCommonSubject,
+} from '../data/trackScopeData';
 import {
   BookOpen,
   CheckCircle2,
@@ -103,6 +111,7 @@ export const CurriculumOverview: React.FC<Props> = ({
 
   const [selectedCategory, setSelectedCategory] = useState<SubjectCategory>('all');
   const [selectedBranchId, setSelectedBranchId] = useState<string>('all');
+  const [selectedTrackScope, setSelectedTrackScope] = useState<TrackScope | 'all'>('all');
 
   // Retrieve user statistics from localStorage
   const userStats = useMemo(() => {
@@ -195,18 +204,37 @@ export const CurriculumOverview: React.FC<Props> = ({
     return found.length > 0 ? found : subjectBranches;
   }, [subjectBranches, selectedBranchId]);
 
-  // Filter subjects by selectedSubject OR selectedCategory
+  // Filter subjects by selectedSubject OR selectedCategory AND selectedTrackScope
   const displayedSubjects = useMemo(() => {
+    let list = SUBJECTS;
     if (selectedSubject && selectedSubject !== 'all') {
       const filtered = SUBJECTS.filter((s) => s.id === selectedSubject);
-      return filtered.length > 0 ? filtered : SUBJECTS;
-    }
-    if (selectedCategory !== 'all') {
+      list = filtered.length > 0 ? filtered : SUBJECTS;
+    } else if (selectedCategory !== 'all') {
       const allowedIds = new Set(CATEGORY_MAP[selectedCategory] || []);
-      return SUBJECTS.filter((s) => allowedIds.has(s.id));
+      list = SUBJECTS.filter((s) => allowedIds.has(s.id));
     }
-    return SUBJECTS;
-  }, [selectedSubject, selectedCategory]);
+
+    if (selectedTrackScope !== 'all') {
+      list = list.filter((s) => {
+        const classif = SUBJECT_TRACK_REGISTRY[s.id];
+        if (!classif) return true;
+        if (selectedTrackScope === 'common') {
+          return classif.nature === 'common_subject';
+        }
+        if (selectedTrackScope === 'scientific') {
+          return classif.nature === 'common_subject' || classif.nature === 'pure_scientific';
+        }
+        if (selectedTrackScope === 'literary') {
+          return classif.nature === 'common_subject' || classif.nature === 'pure_literary';
+        }
+        return true;
+      });
+    }
+
+    return list;
+  }, [selectedSubject, selectedCategory, selectedTrackScope]);
+
 
   return (
     <div className="space-y-4 sm:space-y-6 md:space-y-8 w-full max-w-full min-w-0 overflow-x-clip">
@@ -458,6 +486,50 @@ export const CurriculumOverview: React.FC<Props> = ({
           </div>
         </div>
 
+        {/* 🎓 Academic Track Scope Filter Ribbon (المشترك vs العلمي vs الأدبي) */}
+        <div className="flex items-center gap-2 pt-1 pb-1 flex-wrap w-full min-w-0">
+          <span className={`text-xs font-bold flex items-center gap-1.5 ${isLight ? 'text-slate-700' : 'text-slate-300'}`}>
+            <span>{isArabic ? 'تصفية حسب الشعبة والمسار:' : 'Filter by Academic Track:'}</span>
+          </span>
+          <div className="flex items-center gap-1.5 flex-wrap">
+            {[
+              { id: 'all', labelAr: 'الكل (كافة المقررات)', labelEn: 'All Tracks', emoji: '📚' },
+              { id: 'common', labelAr: 'الجذع المشترك فقط', labelEn: 'Common Core Only', emoji: '🌐' },
+              { id: 'scientific', labelAr: 'الشعبة العلمية (علوم ورياضة)', labelEn: 'Scientific Track', emoji: '🔬' },
+              { id: 'literary', labelAr: 'الشعبة الأدبية', labelEn: 'Literary Track', emoji: '🏛️' },
+            ].map((scopeItem) => {
+              const isActive = selectedTrackScope === scopeItem.id;
+              return (
+                <button
+                  key={scopeItem.id}
+                  type="button"
+                  onClick={() => setSelectedTrackScope(scopeItem.id as TrackScope | 'all')}
+                  className={`px-3 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 border active:scale-95 ${
+                    isActive
+                      ? isContrast
+                        ? 'bg-yellow-400 text-black border-yellow-300 font-black'
+                        : scopeItem.id === 'scientific'
+                        ? 'bg-sky-600 text-white border-sky-500 shadow-sm'
+                        : scopeItem.id === 'literary'
+                        ? 'bg-amber-600 text-white border-amber-500 shadow-sm'
+                        : scopeItem.id === 'common'
+                        ? 'bg-emerald-600 text-white border-emerald-500 shadow-sm'
+                        : 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                      : isContrast
+                      ? 'bg-black text-slate-300 border-slate-700 hover:border-yellow-400'
+                      : isLight
+                      ? 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                      : 'bg-slate-900/80 text-slate-300 border-slate-800 hover:bg-slate-800'
+                  }`}
+                >
+                  <span>{scopeItem.emoji}</span>
+                  <span>{isArabic ? scopeItem.labelAr : scopeItem.labelEn}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Grand Subject Cards (Filtered by category or specific subject selection) */}
         <div className={`grid grid-cols-1 ${selectedSubject === 'all' ? 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' : 'sm:grid-cols-1 lg:grid-cols-2 max-w-4xl'} gap-3 sm:gap-4 w-full min-w-0`}>
           {displayedSubjects.map((sub) => {
@@ -560,6 +632,14 @@ export const CurriculumOverview: React.FC<Props> = ({
                       <span className={`text-xs ${
                         isSubActive && isLight ? 'text-slate-500' : 'opacity-70'
                       }`}>({isArabic ? sub.shortTitleEn : sub.shortTitleAr})</span>
+                      {SUBJECT_TRACK_REGISTRY[sub.id] && (
+                        <TrackScopeBadge
+                          scope={SUBJECT_TRACK_REGISTRY[sub.id].defaultTrackScope}
+                          lang={lang}
+                          theme={theme}
+                          size="xs"
+                        />
+                      )}
                     </h4>
                     <p className={`text-[11px] line-clamp-2 mt-1 leading-snug break-words ${
                       isSubActive
@@ -744,6 +824,15 @@ export const CurriculumOverview: React.FC<Props> = ({
           </div>
         )}
 
+      {/* Track Guidance Card for Common Subjects */}
+      {currentSubject && isCommonSubject(currentSubject.id) && (
+        <TrackGuidanceCard
+          subjectId={currentSubject.id}
+          lang={lang}
+          theme={theme}
+        />
+      )}
+
       {/* Branches & Chapters Grid */}
       <div className="space-y-6 w-full max-w-full min-w-0">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full min-w-0">
@@ -791,45 +880,70 @@ export const CurriculumOverview: React.FC<Props> = ({
 
                 {/* Chapter List */}
                 <div className="space-y-3 w-full min-w-0">
-                  {branch.chapters.map((ch) => {
-                    const firstLesson = ch.lessons[0];
+                  {(() => {
+                    const displayedChapters = filterChaptersByTrackScope(
+                      branch.chapters,
+                      currentSubject?.id || branch.id,
+                      selectedTrackScope
+                    );
 
-                    return (
-                      <div
-                        key={ch.id}
-                        className={`rounded-xl p-3.5 space-y-2.5 transition-all border w-full max-w-full min-w-0 break-words ${
-                          isContrast
-                            ? 'bg-black border-2 border-yellow-400/80 text-white'
-                            : isLight
-                            ? 'bg-slate-50/90 border border-slate-200 hover:bg-indigo-50/30 hover:border-indigo-300 hover:shadow-md text-slate-900'
-                            : 'border border-slate-800/90 bg-slate-950/70 text-slate-100 hover:border-slate-700 shadow-sm'
-                        }`}
-                      >
-                        {/* Chapter Title & Equipped Badge */}
-                        <div className="flex items-start justify-between gap-2 flex-wrap w-full min-w-0">
-                          <span className={`text-xs font-bold flex items-start gap-1.5 leading-relaxed flex-wrap min-w-0 break-words flex-1 ${
-                            isLight ? 'text-slate-900 font-extrabold' : isContrast ? 'text-yellow-300' : 'text-indigo-300'
-                          }`}>
-                            <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                              isLight ? 'text-emerald-600' : 'text-emerald-400'
-                            }`} />
-                            <span className="break-words">
-                              {t.chapter} {isArabic ? toHindiDigits(ch.chapterNumber) : ch.chapterNumber}:{' '}
-                              <MathRenderer math={cleanChapterTitle(isArabic ? ch.titleAr : ch.titleEn)} lang={lang} />
-                            </span>
-                          </span>
-                          {ch.isFullyEquipped && (
-                            <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold shrink-0 border ${
-                              isContrast
-                                ? 'bg-black text-cyan-300 border-cyan-400'
-                                : isLight
-                                ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold'
-                                : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                            }`}>
-                              {isArabic ? 'مجهز بالكامل' : 'Equipped'}
-                            </span>
-                          )}
+                    if (displayedChapters.length === 0) {
+                      return (
+                        <div className={`p-4 rounded-xl border text-center text-xs ${
+                          isLight ? 'bg-slate-50 border-slate-200 text-slate-500' : 'bg-slate-950/60 border-slate-800 text-slate-400'
+                        }`}>
+                          {isArabic ? 'لا توجد فصول مخصصة لهذا المسار في هذا الفرع.' : 'No chapters available for this track scope in this branch.'}
                         </div>
+                      );
+                    }
+
+                    return displayedChapters.map((ch) => {
+                      const firstLesson = ch.lessons[0];
+
+                      return (
+                        <div
+                          key={ch.id}
+                          className={`rounded-xl p-3.5 space-y-2.5 transition-all border w-full max-w-full min-w-0 break-words ${
+                            isContrast
+                              ? 'bg-black border-2 border-yellow-400/80 text-white'
+                              : isLight
+                              ? 'bg-slate-50/90 border border-slate-200 hover:bg-indigo-50/30 hover:border-indigo-300 hover:shadow-md text-slate-900'
+                              : 'border border-slate-800/90 bg-slate-950/70 text-slate-100 hover:border-slate-700 shadow-sm'
+                          }`}
+                        >
+                          {/* Chapter Title & Equipped Badge */}
+                          <div className="flex items-start justify-between gap-2 flex-wrap w-full min-w-0">
+                            <span className={`text-xs font-bold flex items-start gap-1.5 leading-relaxed flex-wrap min-w-0 break-words flex-1 ${
+                              isLight ? 'text-slate-900 font-extrabold' : isContrast ? 'text-yellow-300' : 'text-indigo-300'
+                            }`}>
+                              <CheckCircle2 className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                                isLight ? 'text-emerald-600' : 'text-emerald-400'
+                              }`} />
+                              <span className="break-words">
+                                {t.chapter} {isArabic ? toHindiDigits(ch.chapterNumber) : ch.chapterNumber}:{' '}
+                                <MathRenderer math={cleanChapterTitle(isArabic ? ch.titleAr : ch.titleEn)} lang={lang} />
+                              </span>
+                            </span>
+                            <div className="flex items-center gap-1.5 shrink-0 flex-wrap">
+                              <TrackScopeBadge
+                                scope={ch.trackScope || getChapterTrackScope(currentSubject?.id || branch.id, ch.id)}
+                                lang={lang}
+                                theme={theme}
+                                size="xs"
+                              />
+                              {ch.isFullyEquipped && (
+                                <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold shrink-0 border ${
+                                  isContrast
+                                    ? 'bg-black text-cyan-300 border-cyan-400'
+                                    : isLight
+                                    ? 'bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold'
+                                    : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                                }`}>
+                                  {isArabic ? 'مجهز بالكامل' : 'Equipped'}
+                                </span>
+                              )}
+                            </div>
+                          </div>
 
                         {/* Content Metrics Badges */}
                         <div className="flex flex-wrap items-center gap-1.5 text-[10px] pt-0.5 w-full min-w-0">
@@ -933,8 +1047,9 @@ export const CurriculumOverview: React.FC<Props> = ({
                           </button>
                         </div>
                       </div>
-                    );
-                  })}
+                      );
+                    });
+                  })()}
                 </div>
               </div>
             </div>

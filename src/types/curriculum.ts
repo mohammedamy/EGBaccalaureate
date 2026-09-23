@@ -83,6 +83,8 @@ export type BranchId =
   | 'egbac_biotechnology'
   | 'egbac_nanotechnology';
 
+export type TrackScope = 'common' | 'scientific' | 'literary';
+
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 
 export type QuestionType = 'mcq' | 'short_answer' | 'essay';
@@ -209,6 +211,7 @@ export interface SolvedProblem {
   explanationEn?: string;
   explanationAr?: string;
   bloomLevel?: string;
+  trackScope?: TrackScope;
 }
 
 export interface ExerciseProblem {
@@ -412,6 +415,7 @@ export interface Lesson {
   interactiveWidget: InteractiveWidgetConfig;
   interactiveWidgets?: InteractiveWidgetConfig[];
   estimatedMinutes?: number;
+  trackScope?: TrackScope;
 }
 
 export interface ChapterDatabank {
@@ -435,6 +439,7 @@ export interface Chapter {
   exerciseProblems?: SolvedProblem[];
   databank?: ChapterDatabank;
   interactiveWidgets?: InteractiveWidgetConfig[];
+  trackScope?: TrackScope;
 }
 
 export interface Branch {
