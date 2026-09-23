@@ -187,7 +187,21 @@ export async function signInWithGoogle(): Promise<{ success: boolean; profile?: 
   } catch (err: unknown) {
     const errorMsg = err instanceof Error ? err.message : String(err);
     console.warn('Google sign-in encountered an error:', errorMsg);
-    return { success: false, error: errorMsg };
+
+    let friendlyError = errorMsg;
+    if (errorMsg.includes('auth/configuration-not-found')) {
+      friendlyError = 'auth/configuration-not-found: خدمة تسجيل الدخول بـ Google غير مفعّلة بعد في لوحة تحكم Firebase Console. يرجى تفعيل موفر Google في صفحة Authentication ➔ Sign-in method.';
+    } else if (errorMsg.includes('auth/unauthorized-domain')) {
+      friendlyError = 'auth/unauthorized-domain: هذا النطاق غير مصرح له في Firebase. يرجى إضافة هذا الدومين في Firebase Console ➔ Authentication ➔ Settings ➔ Authorized domains.';
+    } else if (errorMsg.includes('auth/popup-closed-by-user')) {
+      friendlyError = 'auth/popup-closed-by-user: تم إغلاق نافذة تسجيل الدخول قبل إتمام العملية.';
+    } else if (errorMsg.includes('auth/cancelled-popup-request')) {
+      friendlyError = 'auth/cancelled-popup-request: تم إلغاء طلب تسجيل الدخول المتزامن.';
+    } else if (errorMsg.includes('auth/network-request-failed')) {
+      friendlyError = 'auth/network-request-failed: تعذر الاتصال بالإنترنت للتحقق من حساب Google.';
+    }
+
+    return { success: false, error: friendlyError };
   }
 }
 

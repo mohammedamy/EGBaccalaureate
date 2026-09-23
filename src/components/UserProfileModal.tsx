@@ -370,9 +370,52 @@ export const UserProfileModal: React.FC<Props> = ({
                 </div>
 
                 {signInError && (
-                  <div className="mt-3 p-2.5 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
-                    <span>{signInError}</span>
+                  <div className="mt-3 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs space-y-2">
+                    <div className="flex items-start gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0 text-red-400 mt-0.5" />
+                      <span className="font-semibold leading-relaxed">{signInError}</span>
+                    </div>
+
+                    {signInError.includes('configuration-not-found') && (
+                      <div className="pt-2 border-t border-red-500/20 text-[11px] leading-relaxed text-red-300 space-y-1.5">
+                        <p>
+                          {isArabic
+                            ? '💡 الحل السريع: ادخل إلى لوحة تحكم Firebase ➔ مشروع egbac-89a25 ➔ Authentication ➔ Sign-in method ➔ فعّل Google واضغط Save.'
+                            : '💡 Quick Fix: Go to Firebase Console ➔ project egbac-89a25 ➔ Authentication ➔ Sign-in method ➔ Enable Google and click Save.'}
+                        </p>
+                        <p className="text-amber-300 font-bold">
+                          {isArabic
+                            ? '✓ تذكير: يمكنك الاستمرار في استخدام المنصة وحفظ بياناتك وتدريباتك محلياً دون أي قيود ودون تسجيل الدخول!'
+                            : '✓ Note: You can still use all platform features and save all your data locally without signing in!'}
+                        </p>
+                        <a
+                          href="https://console.firebase.google.com/project/egbac-89a25/authentication/providers"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 font-black text-amber-300 underline hover:text-amber-200 mt-1"
+                        >
+                          {isArabic ? 'فتح لوحة تحكم Firebase لتفعيل Google ↗' : 'Open Firebase Console to enable Google ↗'}
+                        </a>
+                      </div>
+                    )}
+
+                    {signInError.includes('unauthorized-domain') && (
+                      <div className="pt-2 border-t border-red-500/20 text-[11px] leading-relaxed text-red-300 space-y-1.5">
+                        <p>
+                          {isArabic
+                            ? '💡 الحل: أضف الدومين الحالي في Firebase Console ➔ Authentication ➔ Settings ➔ Authorized domains.'
+                            : '💡 Fix: Add the current domain in Firebase Console ➔ Authentication ➔ Settings ➔ Authorized domains.'}
+                        </p>
+                        <a
+                          href="https://console.firebase.google.com/project/egbac-89a25/authentication/settings"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 font-black text-amber-300 underline hover:text-amber-200 mt-1"
+                        >
+                          {isArabic ? 'فتح صفحة Authorized domains في Firebase ↗' : 'Open Authorized Domains in Firebase ↗'}
+                        </a>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
