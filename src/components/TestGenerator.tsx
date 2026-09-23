@@ -96,9 +96,9 @@ import {
   type DiagnosticDrillResult,
 } from '../services/aiStudyHintService';
 import { ErrorSelfReport } from './ErrorSelfReport';
-import { getAdaptiveState, recordAnswer } from '../services/adaptivePracticeEngine';
+import { getAdaptiveState, recordAnswer, completePrescriptionItem, saveAdaptiveState } from '../services/adaptivePracticeEngine';
 import { matchQuestionToKnowledgePoint } from '../data/curriculumKnowledgePoints';
-import type { QuickErrorReport, ErrorTypeTag } from '../types/adaptivePractice';
+import type { QuickErrorReport, ErrorTypeTag, PrescribedItem } from '../types/adaptivePractice';
 import { classifyErrorPattern } from '../services/errorPatternClassifier';
 import { submitAssignment } from '../services/teacherAssignmentService';
 import type { Assignment, AssignmentSubmission } from '../types/teacherAssignment';
@@ -126,6 +126,8 @@ interface Props {
   initialAssignment?: Assignment;
   studentName?: string;
   onAssignmentSubmitted?: (submission: AssignmentSubmission) => void;
+  initialPrescribedItem?: PrescribedItem;
+  onPrescriptionItemCompleted?: (item: PrescribedItem) => void;
 }
 
 export const TestGenerator: React.FC<Props> = ({
@@ -140,6 +142,8 @@ export const TestGenerator: React.FC<Props> = ({
   initialAssignment,
   studentName = '',
   onAssignmentSubmitted,
+  initialPrescribedItem,
+  onPrescriptionItemCompleted,
 }) => {
   const isLight = theme === 'light';
   const t = translations[lang];
@@ -270,6 +274,28 @@ export const TestGenerator: React.FC<Props> = ({
       setQuestionCount(initialQuestionCount);
     }
   }, [initialQuestionCount]);
+
+  // Sync initialPrescribedItem (branch, chapter, difficulty, count)
+  useEffect(() => {
+    if (initialPrescribedItem) {
+      if (initialPrescribedItem.branchId) {
+        setSelectedBranch(initialPrescribedItem.branchId);
+      }
+      if (initialPrescribedItem.chapterId) {
+        setSelectedChapter(initialPrescribedItem.chapterId);
+      }
+      if (initialPrescribedItem.difficulty) {
+        setDifficulty(initialPrescribedItem.difficulty);
+      }
+      if (initialPrescribedItem.questionCount) {
+        setQuestionCount(initialPrescribedItem.questionCount);
+      }
+      if (initialPrescribedItem.timeLimitSec) {
+        setIsTimed(true);
+        setDurationPreset(Math.max(1, Math.round(initialPrescribedItem.timeLimitSec / 60)));
+      }
+    }
+  }, [initialPrescribedItem]);
 
   // Sync official thanawya mock exam & past papers config (question count & duration)
   useEffect(() => {
@@ -722,6 +748,22 @@ export const TestGenerator: React.FC<Props> = ({
         }).then((sub) => {
           onAssignmentSubmitted?.(sub);
         }).catch((err) => console.warn('Assignment auto-submission error:', err));
+      }
+
+      // Mark prescribed item completed if active
+      if (initialPrescribedItem) {
+        try {
+          const adaptiveState = getAdaptiveState();
+          const updatedState = completePrescriptionItem(
+            adaptiveState,
+            initialPrescribedItem.knowledgePointId,
+            elapsedSec
+          );
+          saveAdaptiveState(updatedState);
+          onPrescriptionItemCompleted?.(initialPrescribedItem);
+        } catch (err) {
+          console.warn('[AdaptiveEngine] Error completing prescription item:', err);
+        }
       }
     } catch (err) {
       console.warn('[AdaptiveEngine] Error in auto-classification recording:', err);

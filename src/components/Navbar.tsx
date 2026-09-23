@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import type { Curriculum, CurriculumType, ThemeMode, FontSizeMode } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare, HeartHandshake, BarChart2 } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare, HeartHandshake, BarChart2, BrainCircuit, Printer } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -44,6 +44,8 @@ interface Props {
   onOpenGovernorateAnalytics?: () => void;
   onOpenEducationalSponsorship?: () => void;
   onOpenLearningOutcomes?: () => void;
+  onOpenDailyPrescription?: () => void;
+  onOpenSchoolOutreach?: () => void;
   selectedSubject?: string;
   onSubjectChange?: (subjectId: string) => void;
   curriculumData?: Curriculum;
@@ -84,6 +86,8 @@ export const Navbar: React.FC<Props> = ({
   onOpenGovernorateAnalytics,
   onOpenEducationalSponsorship,
   onOpenLearningOutcomes,
+  onOpenDailyPrescription,
+  onOpenSchoolOutreach,
   selectedSubject = 'all',
   onSubjectChange,
   curriculumData,
@@ -432,6 +436,30 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-violet-400',
       onClick: () => {
         onOpenLearningOutcomes();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenDailyPrescription && {
+      id: 'daily_prescription',
+      label: isArabic ? 'روشتة المذاكرة اليومية التكيفية' : 'Daily Adaptive Prescription',
+      desc: isArabic ? 'مهام المذاكرة المخصصة وتكرار لايتنر أوفلاين' : 'Personalized on-device Leitner spaced repetition & gap repair',
+      shortcut: '⌥R',
+      icon: BrainCircuit,
+      color: 'text-indigo-400',
+      onClick: () => {
+        onOpenDailyPrescription();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenSchoolOutreach && {
+      id: 'school_outreach',
+      label: isArabic ? 'حملة المدارس والمطبوعات الميدانية' : 'School Outreach & Media Kit',
+      desc: isArabic ? 'ملصقات A4 قابلة للطباعة بكود QR وإعلان الفيديو ورسائل الواتساب' : 'Printable school flyers, 10s video ad storyboard & parent messaging',
+      shortcut: '⌥K',
+      icon: Printer,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenSchoolOutreach();
         setIsToolsOpen(false);
       },
     },

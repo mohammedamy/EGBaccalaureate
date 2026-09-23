@@ -26,6 +26,7 @@ import type {
 } from '../types/adaptivePractice';
 import { createDefaultAdaptiveState } from '../types/adaptivePractice';
 import type { DifficultyLevel, BranchId } from '../types/curriculum';
+import { TOP_SUBJECT_KNOWLEDGE_POINTS } from '../data/curriculumKnowledgePoints';
 
 // ---------------------------------------------------------------------------
 // Storage
@@ -292,7 +293,7 @@ const QUESTIONS_PER_ITEM = 5;
  */
 export function generateDailyPrescription(
   state: AdaptiveState,
-  kpRegistry: Record<string, KnowledgePointTag>,
+  kpRegistry: Record<string, KnowledgePointTag> = TOP_SUBJECT_KNOWLEDGE_POINTS,
 ): DailyPrescription {
   const now = Date.now();
   const today = new Date().toISOString().split('T')[0];
@@ -511,6 +512,7 @@ function computeReviewPriority(
 }
 
 function getDominantErrorType(record: KPMasteryRecord): ErrorTypeTag | null {
+  if (!record.errorTypeDistribution) return null;
   let maxCount = 0;
   let dominant: ErrorTypeTag | null = null;
 

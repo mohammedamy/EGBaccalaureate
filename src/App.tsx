@@ -42,7 +42,12 @@ const MinistryResultsModal = lazy(() => import('./components/MinistryResultsModa
 const GovernorateAnalyticsModal = lazy(() => import('./components/GovernorateAnalyticsModal').then(m => ({ default: m.GovernorateAnalyticsModal })));
 const EducationalSponsorshipModal = lazy(() => import('./components/EducationalSponsorshipModal').then(m => ({ default: m.EducationalSponsorshipModal })));
 const LearningOutcomesModal = lazy(() => import('./components/LearningOutcomesModal').then(m => ({ default: m.LearningOutcomesModal })));
+const DailyPrescriptionCard = lazy(() => import('./components/DailyPrescriptionCard').then(m => ({ default: m.DailyPrescriptionCard })));
+const DailyPrescriptionModal = lazy(() => import('./components/DailyPrescriptionModal').then(m => ({ default: m.DailyPrescriptionModal })));
+const SchoolOutreachModal = lazy(() => import('./components/SchoolOutreachModal').then(m => ({ default: m.SchoolOutreachModal })));
 import type { Assignment } from './types/teacherAssignment';
+import type { PrescribedItem } from './types/adaptivePractice';
+import { getAdaptiveState, completePrescriptionItem } from './services/adaptivePracticeEngine';
 
 const ViewLoadingFallback: React.FC<{ messageAr?: string; messageEn?: string }> = ({
   messageAr = 'جاري تحميل المحتوى...',
@@ -216,9 +221,22 @@ export const App: React.FC = () => {
   const [isGovernorateAnalyticsModalOpen, setIsGovernorateAnalyticsModalOpen] = useState<boolean>(false);
   const [isEducationalSponsorshipModalOpen, setIsEducationalSponsorshipModalOpen] = useState<boolean>(false);
   const [isLearningOutcomesModalOpen, setIsLearningOutcomesModalOpen] = useState<boolean>(false);
+  const [isDailyPrescriptionOpen, setIsDailyPrescriptionOpen] = useState<boolean>(false);
+  const [isSchoolOutreachOpen, setIsSchoolOutreachOpen] = useState<boolean>(false);
+  const [activePrescribedItem, setActivePrescribedItem] = useState<PrescribedItem | undefined>(undefined);
   const [initialAssignmentCode, setInitialAssignmentCode] = useState<string>('');
   const [activeAssignmentForTest, setActiveAssignmentForTest] = useState<Assignment | undefined>(undefined);
   const [assignmentStudentName, setAssignmentStudentName] = useState<string>('');
+
+  const handleStartPrescriptionPractice = (item: PrescribedItem) => {
+    setActivePrescribedItem(item);
+    setActiveTab('testGenerator');
+    const sub = getSubjectForBranch(item.branchId, curriculum);
+    if (sub) {
+      setSelectedSubject(sub.id);
+      localStorage.setItem('egbac_selected_subject', sub.id);
+    }
+  };
 
   const handleOpenOfficialBooks = (bookId?: string) => {
     setTargetOfficialBookId(bookId);
@@ -532,6 +550,14 @@ export const App: React.FC = () => {
         e.preventDefault();
         handleOpenDiagnosticDrill();
       }
+      if (e.altKey && (e.key === 'r' || e.key === 'R' || e.code === 'KeyR')) {
+        e.preventDefault();
+        setIsDailyPrescriptionOpen((prev) => !prev);
+      }
+      if (e.altKey && (e.key === 'k' || e.key === 'K' || e.code === 'KeyK')) {
+        e.preventDefault();
+        setIsSchoolOutreachOpen((prev) => !prev);
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -611,6 +637,18 @@ export const App: React.FC = () => {
     };
     window.addEventListener('open-desmos', handleOpenDesmos);
     return () => window.removeEventListener('open-desmos', handleOpenDesmos);
+  }, []);
+
+  useEffect(() => {
+    const handleOpenPrescription = () => setIsDailyPrescriptionOpen(true);
+    window.addEventListener('open-daily-prescription', handleOpenPrescription);
+    return () => window.removeEventListener('open-daily-prescription', handleOpenPrescription);
+  }, []);
+
+  useEffect(() => {
+    const handleOpenOutreach = () => setIsSchoolOutreachOpen(true);
+    window.addEventListener('open-school-outreach', handleOpenOutreach);
+    return () => window.removeEventListener('open-school-outreach', handleOpenOutreach);
   }, []);
 
   const handleLanguageToggle = () => {
@@ -694,6 +732,8 @@ export const App: React.FC = () => {
         onOpenGovernorateAnalytics={() => setIsGovernorateAnalyticsModalOpen(true)}
         onOpenEducationalSponsorship={() => setIsEducationalSponsorshipModalOpen(true)}
         onOpenLearningOutcomes={() => setIsLearningOutcomesModalOpen(true)}
+        onOpenDailyPrescription={() => setIsDailyPrescriptionOpen(true)}
+        onOpenSchoolOutreach={() => setIsSchoolOutreachOpen(true)}
         selectedSubject={selectedSubject}
         onSubjectChange={handleSubjectChange}
         curriculumData={activeCurriculumData}
@@ -1048,6 +1088,28 @@ export const App: React.FC = () => {
           </Suspense>
         )}
 
+        {/* Daily Adaptive Prescription Modal */}
+        {isDailyPrescriptionOpen && (
+          <Suspense fallback={null}>
+            <DailyPrescriptionModal
+              isOpen={isDailyPrescriptionOpen}
+              onClose={() => setIsDailyPrescriptionOpen(false)}
+              onStartPrescribedPractice={handleStartPrescriptionPractice}
+              theme={theme}
+            />
+          </Suspense>
+        )}
+
+        {/* School Outreach & Printable QR Flyer Modal */}
+        {isSchoolOutreachOpen && (
+          <Suspense fallback={null}>
+            <SchoolOutreachModal
+              isOpen={isSchoolOutreachOpen}
+              onClose={() => setIsSchoolOutreachOpen(false)}
+            />
+          </Suspense>
+        )}
+
         {/* PWA Home Screen Installation Prompt (Offline Ready) */}
         <Suspense fallback={null}>
           <PwaInstallPrompt lang={lang} theme={theme} />
@@ -1055,16 +1117,24 @@ export const App: React.FC = () => {
 
         {/* Tab View Router */}
         {activeTab === 'overview' && (
-          <CurriculumOverview
-            lang={lang}
-            theme={theme}
-            curriculum={activeCurriculumData}
-            onSelectLesson={handleSelectLesson}
-            onNavigateTab={setActiveTab}
-            onOpenOfficialBooks={() => handleOpenOfficialBooks()}
-            selectedSubject={selectedSubject}
-            onSelectSubject={handleSubjectChange}
-          />
+          <div className="space-y-6">
+            <Suspense fallback={null}>
+              <DailyPrescriptionCard
+                theme={theme}
+                onStartPrescribedPractice={handleStartPrescriptionPractice}
+              />
+            </Suspense>
+            <CurriculumOverview
+              lang={lang}
+              theme={theme}
+              curriculum={activeCurriculumData}
+              onSelectLesson={handleSelectLesson}
+              onNavigateTab={setActiveTab}
+              onOpenOfficialBooks={() => handleOpenOfficialBooks()}
+              selectedSubject={selectedSubject}
+              onSelectSubject={handleSubjectChange}
+            />
+          </div>
         )}
 
         {activeTab === 'equivalency' && (
@@ -1148,6 +1218,15 @@ export const App: React.FC = () => {
               studentName={assignmentStudentName}
               onAssignmentSubmitted={() => {
                 setActiveAssignmentForTest(undefined);
+              }}
+              initialPrescribedItem={activePrescribedItem}
+              onPrescriptionItemCompleted={(item) => {
+                const targetKpId = item?.knowledgePointId || activePrescribedItem?.knowledgePointId;
+                if (targetKpId) {
+                  const state = getAdaptiveState();
+                  completePrescriptionItem(state, targetKpId, 300);
+                }
+                setActivePrescribedItem(undefined);
               }}
             />
           </Suspense>
