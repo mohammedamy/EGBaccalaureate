@@ -36,6 +36,7 @@
     "test:renewable": "npx tsx scripts/verify_renewable_subject.ts",
     "test:stem-capstone": "npx tsx scripts/verify_stem_capstone_subject.ts",
     "test:robotics": "npx tsx scripts/verify_robotics_subject.ts",
+    "test:robotics-lab": "npx tsx scripts/verify_arduino_robotics_lab.ts",
     "test:electronics-iot": "npx tsx scripts/verify_electronics_iot_subject.ts",
     "test:ai-data-science": "npx tsx scripts/verify_ai_data_science_subject.ts",
     "test:biotech": "npx tsx scripts/verify_biotechnology_subject.ts",

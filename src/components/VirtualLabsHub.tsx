@@ -52,10 +52,11 @@ import { IndustrialEngineeringStudio } from './labs/IndustrialEngineeringStudio'
 import { CommercialFinanceStudio } from './labs/CommercialFinanceStudio';
 import { TourismHospitalityStudio } from './labs/TourismHospitalityStudio';
 import { RenewableEnergyStudio } from './labs/RenewableEnergyStudio';
+import { ArduinoRoboticsStudio } from './labs/ArduinoRoboticsStudio';
 import { GuidedExperimentsModal } from './labs/GuidedExperimentsModal';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import type { LabDiscipline } from '../services/labReportService';
-import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench, Landmark, Hotel, Leaf } from 'lucide-react';
+import { Users, Scale, BookOpen, Church, Briefcase, Palette, Music, Sprout, Wrench, Landmark, Hotel, Leaf, Bot } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -65,7 +66,7 @@ interface Props {
   onOpenDesmos?: (mode?: '2d' | '3d' | 'scientific' | 'geometry') => void;
 }
 
-type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable';
+type LabId = 'math' | 'physics' | 'chemistry' | 'biology' | 'geology' | 'history' | 'geography' | 'languages' | 'philosophy' | 'psychology' | 'economics_stat' | 'cs_informatics' | 'earth_space' | 'civics' | 'islamic_studies' | 'christian_studies' | 'business' | 'fine_arts' | 'music' | 'agriculture' | 'industrial' | 'commercial' | 'tourism' | 'renewable' | 'robotics';
 
 export const VirtualLabsHub: React.FC<Props> = ({
   lang,
@@ -102,6 +103,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     if (selectedSubject === 'commercial' || selectedSubject === 'commercial_sciences' || selectedSubject === 'banking') return 'commercial';
     if (selectedSubject === 'tourism' || selectedSubject === 'tourism_hospitality') return 'tourism';
     if (selectedSubject === 'renewable' || selectedSubject === 'renewable_energy' || selectedSubject === 'sustainability') return 'renewable';
+    if (selectedSubject === 'robotics' || selectedSubject === 'robotics_mechatronics') return 'robotics';
     if (selectedSubject === 'arabic' || selectedSubject === 'english' || selectedSubject === 'french' || selectedSubject === 'german' || selectedSubject === 'italian' || selectedSubject === 'spanish') return 'languages';
     return 'math';
   };
@@ -150,6 +152,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     else if (selectedSubject === 'commercial' || selectedSubject === 'commercial_sciences' || selectedSubject === 'banking') setActiveLab('commercial');
     else if (selectedSubject === 'tourism' || selectedSubject === 'tourism_hospitality') setActiveLab('tourism');
     else if (selectedSubject === 'renewable' || selectedSubject === 'renewable_energy' || selectedSubject === 'sustainability') setActiveLab('renewable');
+    else if (selectedSubject === 'robotics' || selectedSubject === 'robotics_mechatronics') setActiveLab('robotics');
     else if (selectedSubject === 'mathematics') setActiveLab('math');
     else if (selectedSubject === 'history') setActiveLab('history');
     else if (selectedSubject === 'geography') setActiveLab('geography');
@@ -641,6 +644,21 @@ export const VirtualLabsHub: React.FC<Props> = ({
         ? 'استوديو الطاقة المتجددة والاستدامة البيئية: محاكي الخلايا الشمسية ومحطة بنبان، ديناميكا الرياح وقانون بيتز بجبل الزيت، مفاعل الهيدروجين الأخضر ومشتقات PtX، منظومة استقرار تردد الشبكة وضخ عتاقة والبطاريات، وحاسبة البصمة الكربونية وضريبة CBAM الأوروبية'
         : 'Renewable Energy & Environmental Sustainability Studio: Solar PV & CSP yield modeler, wind aerodynamics & Betz limit at Gabal El-Zeit, green hydrogen electrolysis & PtX, smart grid frequency droop & Ataka pumped storage, and GHG carbon accounting with EU CBAM tariff calculator',
     },
+    {
+      id: 'robotics' as LabId,
+      titleEn: 'Arduino Robotics & Mechatronics Studio',
+      titleAr: 'مختبر محاكاة الأردوينو والروبوتات والميكاترونكس',
+      subtitleEn: 'ATmega328P, Breadboard Circuitry, C++ Firmware, Logic Analyzer & Actuators',
+      subtitleAr: 'لوحة Uno R3، مستشعرات المسافة والضوء، محركات السيرفو والـ DC، ومحلل الإشارات المنطقية',
+      icon: Bot,
+      color: 'cyan',
+      badge: 'Robotics & Embedded Systems',
+      gradient: 'from-cyan-900 via-blue-900 to-slate-950',
+      activeBg: 'bg-cyan-600 text-white shadow-cyan-600/30',
+      tagline: isArabic
+        ? 'مختبر محاكاة وبرمجة الروبوتات والأنظمة المدمجة: لوحة أردوينو Uno R3 كاملة، محاكاة المستشعرات (المسافة بالموجات فوق الصوتية، المقاومة الضوئية LDR، الحرارة TMP36، وتتبع الخطوط)، والتحكم بالمشغلات (سيرفو SG90، ومحرك L298N DC، وشاشة LCD، وطنان صوتي Piezo حقيقي عبر Web Audio)، ومحلل إشارات منطقية 4 قنوات وشاشة تسلسلية تفاعلية.'
+        : 'Arduino Robotics & Embedded Mechatronics Simulation Studio: Complete ATmega328P Uno R3 board with live pinouts, interactive sensors (HC-SR04 ultrasonic radar, LDR photoresistor, TMP36 thermometer, dual line trackers), actuators (SG90 servo, L298N DC motor, 16x2 LCD, Web Audio piezo buzzer), virtual serial terminal, and 4-channel real-time logic analyzer.',
+    },
   ];
 
   // Helper to determine whether a lab workstation is relevant to a chosen subject
@@ -699,6 +717,9 @@ export const VirtualLabsHub: React.FC<Props> = ({
       case 'renewable_energy':
       case 'sustainability':
         return labId === 'renewable';
+      case 'robotics':
+      case 'robotics_mechatronics':
+        return labId === 'robotics';
       case 'history':
         return labId === 'history';
       case 'geography':
@@ -729,6 +750,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     cs_informatics: 'engineering',
     industrial: 'engineering',
     renewable: 'engineering',
+    robotics: 'engineering',
     agriculture: 'engineering',
     business: 'engineering',
     history: 'humanities',
@@ -746,10 +768,10 @@ export const VirtualLabsHub: React.FC<Props> = ({
   };
 
   const WORKSTATION_CATEGORIES: { id: WorkstationCategory; nameEn: string; nameAr: string; count: number; icon: React.FC<{ className?: string }> }[] = [
-    { id: 'all', nameEn: 'All Workstations', nameAr: 'جميع المختبرات', count: 24, icon: Flask },
+    { id: 'all', nameEn: 'All Workstations', nameAr: 'جميع المختبرات', count: 25, icon: Flask },
     { id: 'sciences', nameEn: 'Natural Sciences', nameAr: 'العلوم الطبيعية', count: 5, icon: Atom },
     { id: 'math', nameEn: 'Math & Stats', nameAr: 'الرياضيات والإحصاء', count: 2, icon: Calculator },
-    { id: 'engineering', nameEn: 'Engineering & STEM', nameAr: 'التكنولوجيا والهندسة', count: 5, icon: Binary },
+    { id: 'engineering', nameEn: 'Engineering & STEM', nameAr: 'التكنولوجيا والهندسة', count: 6, icon: Binary },
     { id: 'humanities', nameEn: 'Humanities & Civics', nameAr: 'العلوم الإنسانية والاجتماعية', count: 7, icon: BookOpen },
     { id: 'languages_arts', nameEn: 'Languages & Arts', nameAr: 'اللغات والفنون والخدمات', count: 5, icon: Palette },
   ];
@@ -1588,6 +1610,17 @@ export const VirtualLabsHub: React.FC<Props> = ({
             />
           </div>
         )}
+
+        {/* Arduino Robotics & Mechatronics Studio */}
+        {activeLab === 'robotics' && (
+          <div className="space-y-4">
+            <ArduinoRoboticsStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={isHubFullscreen}
+            />
+          </div>
+        )}
       </div>
 
       {/* Guided Experiments Modal */}
@@ -1596,7 +1629,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         onClose={() => setIsGuidedModalOpen(false)}
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
-        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' || activeLab === 'renewable' ? 'physics' : activeLab}
+        activeLab={activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' || activeLab === 'renewable' || activeLab === 'robotics' ? 'physics' : activeLab}
         onOpenReportGenerator={(expId) => {
           setIsGuidedModalOpen(false);
           setReportExpId(expId);
@@ -1611,7 +1644,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
         lang={lang}
         theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
         initialExperimentId={reportExpId}
-        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' || activeLab === 'renewable' ? 'physics' : activeLab) as LabDiscipline}
+        initialDiscipline={(activeLab === 'history' || activeLab === 'languages' || activeLab === 'geography' || activeLab === 'geology' || activeLab === 'philosophy' || activeLab === 'psychology' || activeLab === 'economics_stat' || activeLab === 'cs_informatics' || activeLab === 'earth_space' || activeLab === 'civics' || activeLab === 'islamic_studies' || activeLab === 'christian_studies' || activeLab === 'business' || activeLab === 'fine_arts' || activeLab === 'music' || activeLab === 'agriculture' || activeLab === 'industrial' || activeLab === 'commercial' || activeLab === 'tourism' || activeLab === 'renewable' || activeLab === 'robotics' ? 'physics' : activeLab) as LabDiscipline}
       />
     </div>
   );
