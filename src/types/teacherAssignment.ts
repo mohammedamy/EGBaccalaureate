@@ -1,3 +1,5 @@
+import type { TeacherCustomQuestion } from './teacherQuestionBank';
+
 export interface AssignmentQuestionRef {
   id: string;
   chapterId: string;
@@ -15,6 +17,7 @@ export interface Assignment {
   chapterIds: string[];
   questionIds: string[];
   questionRefs?: AssignmentQuestionRef[];
+  customQuestions?: TeacherCustomQuestion[];
   totalPoints: number;
   timeLimitMinutes: number; // 0 = untimed
   createdAt: number;
@@ -24,12 +27,23 @@ export interface Assignment {
   allowOfflineUrlPacking?: boolean;
 }
 
+export interface TeacherGradingFeedback {
+  teacherNotes?: string;
+  teacherScoreAdjustment?: number; // +/- points
+  finalScore?: number;
+  gradedAt?: number;
+  teacherName?: string;
+  status: 'pending_review' | 'reviewed' | 'needs_revision';
+}
+
 export interface AssignmentAnswerSubmission {
   questionId: string;
   selectedOptionIndex: number;
   isCorrect: boolean;
   timeSpentSec: number;
   errorType?: string;
+  manualPointsAwarded?: number;
+  questionNotes?: string;
 }
 
 export interface AssignmentSubmission {
@@ -44,6 +58,7 @@ export interface AssignmentSubmission {
   errorTypeBreakdown: Record<string, number>;
   answers: AssignmentAnswerSubmission[];
   submittedAt: number;
+  teacherFeedback?: TeacherGradingFeedback;
 }
 
 export interface ClassAnalyticsSummary {

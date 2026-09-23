@@ -18,8 +18,12 @@ import {
   AlertTriangle,
   Download,
   GraduationCap,
+  CheckCircle2,
 } from 'lucide-react';
 import { EgyptFlag } from './EgyptFlag';
+import { TeacherQuestionBankView } from './TeacherQuestionBankView';
+import { TeacherGradingDashboard } from './TeacherGradingDashboard';
+import type { TeacherCustomQuestion } from '../types/teacherQuestionBank';
 import {
   generateAssignmentCode,
   createAssignment,
@@ -42,6 +46,13 @@ import type {
 } from '../types/teacherAssignment';
 import { SUBJECTS } from '../data/subjects';
 
+export type TeacherModalTab =
+  | 'student_solve'
+  | 'teacher_create'
+  | 'teacher_grading'
+  | 'teacher_question_bank'
+  | 'teacher_analytics';
+
 interface Props {
   isOpen: boolean;
   onClose: () => void;
@@ -49,6 +60,7 @@ interface Props {
   theme?: 'dark' | 'light' | 'high-contrast';
   onStartAssignmentTest?: (assignment: Assignment, studentName: string) => void;
   initialCode?: string;
+  initialTab?: TeacherModalTab;
   onOpenTeacherCertification?: () => void;
 }
 
@@ -59,14 +71,21 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
   theme = 'dark',
   onStartAssignmentTest,
   initialCode = '',
+  initialTab,
   onOpenTeacherCertification,
 }) => {
   const isAr = lang === 'ar';
   const isLight = theme === 'light';
 
-  const [activeTab, setActiveTab] = useState<'student_solve' | 'teacher_create' | 'teacher_analytics'>(
-    initialCode ? 'student_solve' : 'student_solve'
+  const [activeTab, setActiveTab] = useState<TeacherModalTab>(
+    initialTab || (initialCode ? 'student_solve' : 'student_solve')
   );
+
+  useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab]);
 
   // Student Tab state
   const [inputCode, setInputCode] = useState(initialCode);
@@ -144,6 +163,34 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
     if (onStartAssignmentTest) {
       onStartAssignmentTest(resolvedAssignment, studentName.trim());
       onClose();
+    }
+  };
+
+  const handleCreateFromCustomQuestions = async (selectedQuestions: TeacherCustomQuestion[]) => {
+    if (selectedQuestions.length === 0) return;
+    const firstSub = selectedQuestions[0].subjectId || 'physics';
+    const title = isAr
+      ? `واجب مخصص من أسئلة المعلم (${selectedQuestions.length} سؤال)`
+      : `Custom Teacher Assignment (${selectedQuestions.length} Questions)`;
+    const code = generateAssignmentCode(firstSub.slice(0, 3).toUpperCase());
+    try {
+      const asgn = await createAssignment({
+        title,
+        titleAr: title,
+        subjectId: firstSub,
+        chapterIds: Array.from(new Set(selectedQuestions.map((q) => q.chapterTitleAr))),
+        questionIds: selectedQuestions.map((q) => q.id),
+        customQuestions: selectedQuestions,
+        totalPoints: selectedQuestions.length * 2,
+        timeLimitMinutes: Math.max(10, selectedQuestions.length * 2),
+        teacherName: selectedQuestions[0].teacherName || undefined,
+        teacherTip: isAr ? 'تم توليد هذا الواجب من بنك أسئلة المعلم المخصص.' : 'Generated from custom question bank.',
+      }, code);
+      setCreatedAssignment(asgn);
+      setRecentAssignments((prev) => [asgn, ...prev]);
+      setActiveTab('teacher_create');
+    } catch (err) {
+      console.error('Failed to create assignment from custom questions:', err);
     }
   };
 
@@ -297,42 +344,68 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
 
         {/* Tab Navigation */}
         <div
-          className={`grid grid-cols-3 border-b text-xs sm:text-sm font-semibold ${
+          className={`flex items-center overflow-x-auto no-scrollbar border-b text-xs sm:text-sm font-semibold shrink-0 ${
             isLight ? 'border-slate-200 bg-slate-100/60' : 'border-slate-800 bg-slate-950/40'
           }`}
         >
           <button
             onClick={() => setActiveTab('student_solve')}
-            className={`py-3 px-2 flex items-center justify-center gap-2 border-b-2 transition-all ${
+            className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'student_solve'
-                ? 'border-indigo-500 text-indigo-500 dark:text-indigo-400 bg-indigo-500/5'
+                ? 'border-indigo-500 text-indigo-500 dark:text-indigo-400 bg-indigo-500/5 font-black'
                 : 'border-transparent text-slate-500 hover:text-slate-300'
             }`}
           >
-            <BookOpen className="w-4 h-4" />
-            <span>{isAr ? 'أنا طالب (حل الواجب)' : 'Student (Solve)'}</span>
+            <BookOpen className="w-4 h-4 shrink-0" />
+            <span>{isAr ? 'حل الواجب (طالب)' : 'Solve (Student)'}</span>
           </button>
+
           <button
             onClick={() => setActiveTab('teacher_create')}
-            className={`py-3 px-2 flex items-center justify-center gap-2 border-b-2 transition-all ${
+            className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'teacher_create'
-                ? 'border-amber-500 text-amber-500 dark:text-amber-400 bg-amber-500/5'
+                ? 'border-amber-500 text-amber-500 dark:text-amber-400 bg-amber-500/5 font-black'
                 : 'border-transparent text-slate-500 hover:text-slate-300'
             }`}
           >
-            <PlusCircle className="w-4 h-4" />
-            <span>{isAr ? 'معلم (إنشاء واجب)' : 'Teacher (Create)'}</span>
+            <PlusCircle className="w-4 h-4 shrink-0" />
+            <span>{isAr ? 'إنشاء واجب' : 'Create'}</span>
           </button>
+
+          <button
+            onClick={() => setActiveTab('teacher_grading')}
+            className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
+              activeTab === 'teacher_grading'
+                ? 'border-emerald-500 text-emerald-500 dark:text-emerald-400 bg-emerald-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-300'
+            }`}
+          >
+            <CheckCircle2 className="w-4 h-4 shrink-0" />
+            <span>{isAr ? 'تصحيح ومراجعة الطلاب' : 'Grading & Review'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('teacher_question_bank')}
+            className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
+              activeTab === 'teacher_question_bank'
+                ? 'border-cyan-500 text-cyan-500 dark:text-cyan-400 bg-cyan-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-300'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 shrink-0" />
+            <span>{isAr ? 'بنك أسئلتي المخصص' : 'Custom Question Bank'}</span>
+          </button>
+
           <button
             onClick={() => setActiveTab('teacher_analytics')}
-            className={`py-3 px-2 flex items-center justify-center gap-2 border-b-2 transition-all ${
+            className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'teacher_analytics'
-                ? 'border-emerald-500 text-emerald-500 dark:text-emerald-400 bg-emerald-500/5'
+                ? 'border-purple-500 text-purple-500 dark:text-purple-400 bg-purple-500/5 font-black'
                 : 'border-transparent text-slate-500 hover:text-slate-300'
             }`}
           >
-            <BarChart3 className="w-4 h-4" />
-            <span>{isAr ? 'تقرير أداء الفصل' : 'Class Report'}</span>
+            <BarChart3 className="w-4 h-4 shrink-0" />
+            <span>{isAr ? 'تحليلات الفصل' : 'Analytics'}</span>
           </button>
         </div>
 
@@ -954,6 +1027,24 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
                 </div>
               )}
             </div>
+          )}
+
+          {/* TAB: TEACHER GRADING */}
+          {activeTab === 'teacher_grading' && (
+            <TeacherGradingDashboard
+              lang={lang}
+              theme={theme}
+              initialAssignmentCode={analyticsCode || createdAssignment?.assignmentCode || ''}
+            />
+          )}
+
+          {/* TAB: TEACHER QUESTION BANK */}
+          {activeTab === 'teacher_question_bank' && (
+            <TeacherQuestionBankView
+              lang={lang}
+              theme={theme}
+              onGenerateAssignmentFromQuestions={handleCreateFromCustomQuestions}
+            />
           )}
         </div>
       </div>

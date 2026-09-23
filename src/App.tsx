@@ -49,6 +49,7 @@ const UserProfileModal = lazy(() => import('./components/UserProfileModal').then
 import type { UserProfile, AcademicTrack } from './types/userProfile';
 import { loadLocalUserProfile, saveLocalUserProfile, subscribeToUserProfile } from './services/userProfileService';
 import type { Assignment } from './types/teacherAssignment';
+import type { TeacherModalTab } from './components/TeacherAssignmentModal';
 import type { PrescribedItem } from './types/adaptivePractice';
 import { getAdaptiveState, completePrescriptionItem } from './services/adaptivePracticeEngine';
 
@@ -220,6 +221,7 @@ export const App: React.FC = () => {
   const [isCertificateVerificationOpen, setIsCertificateVerificationOpen] = useState<boolean>(initialRoute.openVerificationModal || false);
   const [verificationTargetSerial, setVerificationTargetSerial] = useState<string>(initialRoute.verificationSerial || '');
   const [isTeacherAssignmentModalOpen, setIsTeacherAssignmentModalOpen] = useState<boolean>(false);
+  const [teacherModalInitialTab, setTeacherModalInitialTab] = useState<TeacherModalTab>('student_solve');
   const [isTeacherCertModalOpen, setIsTeacherCertModalOpen] = useState<boolean>(false);
   const [isParentReportModalOpen, setIsParentReportModalOpen] = useState<boolean>(false);
   const [isDownloadManagerModalOpen, setIsDownloadManagerModalOpen] = useState<boolean>(false);
@@ -581,6 +583,14 @@ export const App: React.FC = () => {
         e.preventDefault();
         setIsUserProfileModalOpen((prev) => !prev);
       }
+      if (e.altKey && (e.key === 'q' || e.key === 'Q' || e.code === 'KeyQ')) {
+        e.preventDefault();
+        handleOpenTeacherAssignments('teacher_question_bank');
+      }
+      if (e.altKey && (e.key === 't' || e.key === 'T' || e.code === 'KeyT')) {
+        e.preventDefault();
+        handleOpenTeacherAssignments(role === 'teacher' ? 'teacher_grading' : 'student_solve');
+      }
       if (e.key === '?' && !e.metaKey && !e.ctrlKey && !e.altKey) {
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
@@ -692,6 +702,11 @@ export const App: React.FC = () => {
     });
   };
 
+  const handleOpenTeacherAssignments = (tab?: TeacherModalTab) => {
+    setTeacherModalInitialTab(tab || (role === 'teacher' ? 'teacher_create' : 'student_solve'));
+    setIsTeacherAssignmentModalOpen(true);
+  };
+
   const handleTrackChange = (newTrack: AcademicTrack) => {
     const updatedProfile: UserProfile = {
       ...userProfile,
@@ -769,7 +784,9 @@ export const App: React.FC = () => {
         onOpenAccessibility={() => setIsAccessibilityOpen(true)}
         onOpenExamSimulation={handleOpenExamSimulation}
         onOpenDiagnosticDrill={handleOpenDiagnosticDrill}
-        onOpenTeacherAssignments={() => setIsTeacherAssignmentModalOpen(true)}
+        onOpenTeacherAssignments={() => handleOpenTeacherAssignments(role === 'teacher' ? 'teacher_create' : 'student_solve')}
+        onOpenTeacherQuestionBank={() => handleOpenTeacherAssignments('teacher_question_bank')}
+        onOpenTeacherGrading={() => handleOpenTeacherAssignments('teacher_grading')}
         onOpenTeacherCertification={() => setIsTeacherCertModalOpen(true)}
         onOpenParentReport={() => setIsParentReportModalOpen(true)}
         onOpenDownloadManager={() => setIsDownloadManagerModalOpen(true)}
@@ -1043,6 +1060,7 @@ export const App: React.FC = () => {
               lang={lang}
               theme={theme}
               initialCode={initialAssignmentCode}
+              initialTab={teacherModalInitialTab}
               onOpenTeacherCertification={() => setIsTeacherCertModalOpen(true)}
               onStartAssignmentTest={(assignment, name) => {
                 setActiveAssignmentForTest(assignment);

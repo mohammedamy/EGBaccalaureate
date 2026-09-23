@@ -4,7 +4,7 @@ import type { Language, UserRole } from '../i18n/translations';
 import type { UserProfile, AcademicTrack } from '../types/userProfile';
 import { saveLocalUserProfile } from '../services/userProfileService';
 import { translations } from '../i18n/translations';
-import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare, HeartHandshake, BarChart2, BrainCircuit, Printer } from 'lucide-react';
+import { Globe, UserCheck, BookOpen, Sun, Moon, Zap, Type, Calculator, Download, ExternalLink, Edit3, Compass, ChevronDown, Check, CheckCircle2, Sparkles, Award, ShieldCheck, Languages, Headphones, Sliders, Scale, Lightbulb, Database, PenTool, FlaskConical, ClipboardList, FileSpreadsheet, BarChart3, BookmarkCheck, Users, HardDrive, GraduationCap, MessageSquare, HeartHandshake, BarChart2, BrainCircuit, Printer } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { EgyptFlag } from './EgyptFlag';
 import { SubjectSelector } from './SubjectSelector';
@@ -42,6 +42,8 @@ interface Props {
   onOpenDiagnosticDrill?: () => void;
   onOpenTeacherAssignments?: () => void;
   onOpenTeacherCertification?: () => void;
+  onOpenTeacherQuestionBank?: () => void;
+  onOpenTeacherGrading?: () => void;
   onOpenParentReport?: () => void;
   onOpenDownloadManager?: () => void;
   onOpenMinistryResults?: () => void;
@@ -88,6 +90,8 @@ export const Navbar: React.FC<Props> = ({
   onOpenDiagnosticDrill,
   onOpenTeacherAssignments,
   onOpenTeacherCertification,
+  onOpenTeacherQuestionBank,
+  onOpenTeacherGrading,
   onOpenParentReport,
   onOpenDownloadManager,
   onOpenMinistryResults,
@@ -368,6 +372,30 @@ export const Navbar: React.FC<Props> = ({
       color: 'text-amber-400',
       onClick: () => {
         onOpenTeacherAssignments();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenTeacherQuestionBank && {
+      id: 'teacher_question_bank',
+      label: isArabic ? 'بنك أسئلة المعلم المخصص' : 'Custom Question Bank',
+      desc: isArabic ? 'إنشاء وتعديل أسئلة الاختيار من متعدد مع KaTeX وتوليد الواجبات' : 'Author custom MCQ questions with LaTeX/KaTeX and generate tests',
+      shortcut: '⌥Q',
+      icon: Sparkles,
+      color: 'text-cyan-400',
+      onClick: () => {
+        onOpenTeacherQuestionBank();
+        setIsToolsOpen(false);
+      },
+    },
+    onOpenTeacherGrading && {
+      id: 'teacher_grading',
+      label: isArabic ? 'لوحة تصحيح ومراجعة إجابات الطلاب' : 'Grading & Submissions Roster',
+      desc: isArabic ? 'تدقيق حلول الطلاب سؤالاً بسؤال وتدوين الملاحظات والتقرير' : 'Audit student answers, write personalized teacher feedback, and export CSV',
+      shortcut: '⌥R',
+      icon: CheckCircle2,
+      color: 'text-emerald-400',
+      onClick: () => {
+        onOpenTeacherGrading();
         setIsToolsOpen(false);
       },
     },
@@ -1036,6 +1064,43 @@ export const Navbar: React.FC<Props> = ({
                 <UserCheck className={`w-3.5 h-3.5 shrink-0 ${isHighContrast ? 'text-yellow-400' : isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
                 <span className="hidden lg:inline">{role === 'student' ? t.roleStudent : t.roleTeacher}</span>
               </button>
+
+              {/* Quick Teacher Tools in Desktop Header */}
+              {role === 'teacher' && onOpenTeacherQuestionBank && (
+                <button
+                  type="button"
+                  onClick={onOpenTeacherQuestionBank}
+                  className={`hidden md:flex items-center gap-1 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer active:scale-95 ${
+                    isHighContrast
+                      ? 'bg-black text-cyan-300 border-cyan-400 hover:bg-zinc-950'
+                      : isLight
+                      ? 'bg-cyan-50 hover:bg-cyan-100 text-cyan-800 border-cyan-300'
+                      : 'bg-cyan-950/70 hover:bg-cyan-900 text-cyan-300 border-cyan-700/60'
+                  }`}
+                  title={isArabic ? 'فتح بنك أسئلتي المخصص (⌥Q)' : 'Open Custom Question Bank (⌥Q)'}
+                >
+                  <Sparkles className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <span>{isArabic ? 'بنك أسئلتي' : 'Questions'}</span>
+                </button>
+              )}
+
+              {role === 'teacher' && onOpenTeacherGrading && (
+                <button
+                  type="button"
+                  onClick={onOpenTeacherGrading}
+                  className={`hidden md:flex items-center gap-1 px-2.5 py-1 rounded-full font-bold text-[11px] transition-all border shadow-xs cursor-pointer active:scale-95 ${
+                    isHighContrast
+                      ? 'bg-black text-emerald-300 border-emerald-400 hover:bg-zinc-950'
+                      : isLight
+                      ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-emerald-300'
+                      : 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border-emerald-700/60'
+                  }`}
+                  title={isArabic ? 'فتح لوحة تصحيح ومراجعة إجابات الطلاب (⌥R)' : 'Open Student Grading & Review (⌥R)'}
+                >
+                  <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                  <span>{isArabic ? 'تصحيح الطلاب' : 'Grading'}</span>
+                </button>
+              )}
             </div>
 
             {/* User Profile & Google Login Trigger */}
