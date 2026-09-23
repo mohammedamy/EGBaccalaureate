@@ -1595,17 +1595,23 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     size: A4 portrait;
   }
 
-  /* Reset root containers to crisp pure white background with pitch-black ink across all day/night/contrast views */
-  html, html *,
-  html.high-contrast, html.high-contrast *,
-  html.dark, html.dark *,
-  html.light, html.light *,
-  body, body *,
-  .dark, .high-contrast, .light,
-  #root, main,
-  .printable-root, .printable-sheet, .printable-page, .exam-paper, .worksheet-page,
-  .print-exam-sheet, .print-worksheet-sheet, .print-lab-report, .print-official-certificate,
-  .bubble-sheet-container, .certificate-container, .lab-report-sheet {
+  /* Reset document and main page wrappers to crisp white background with pitch-black ink */
+  html,
+  body,
+  #root,
+  main,
+  .printable-root,
+  .printable-sheet,
+  .printable-page,
+  .exam-paper,
+  .worksheet-page,
+  .print-exam-sheet,
+  .print-worksheet-sheet,
+  .print-lab-report,
+  .print-official-certificate,
+  .bubble-sheet-container,
+  .certificate-container,
+  .lab-report-sheet {
     background: #ffffff !important;
     background-color: #ffffff !important;
     color: #000000 !important;
@@ -1614,10 +1620,72 @@ html.high-contrast input[type='range']::-moz-range-thumb {
     box-shadow: none !important;
     filter: none !important;
     width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
     overflow: visible !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+  }
+
+  /* Global text shadow and box shadow reset */
+  *,
+  *::before,
+  *::after {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  /* -------------------------------------------------------------------------
+     CRITICAL: PROTECT SVG ICONS & LOGOS FROM FULL-WIDTH STRETCHING
+     ------------------------------------------------------------------------- */
+  svg,
+  svg.lucide,
+  .lucide,
+  svg[class*="w-"],
+  svg[class*="h-"] {
+    width: 1em !important;
+    height: 1em !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    flex-shrink: 0 !important;
+    stroke: currentColor !important;
+  }
+
+  svg.w-3, svg.h-3 { width: 12px !important; height: 12px !important; max-width: 12px !important; max-height: 12px !important; }
+  svg.w-3\.5, svg.h-3\.5 { width: 14px !important; height: 14px !important; max-width: 14px !important; max-height: 14px !important; }
+  svg.w-4, svg.h-4 { width: 16px !important; height: 16px !important; max-width: 16px !important; max-height: 16px !important; }
+  svg.w-5, svg.h-5 { width: 20px !important; height: 20px !important; max-width: 20px !important; max-height: 20px !important; }
+  svg.w-6, svg.h-6 { width: 24px !important; height: 24px !important; max-width: 24px !important; max-height: 24px !important; }
+  svg.w-8, svg.h-8 { width: 32px !important; height: 32px !important; max-width: 32px !important; max-height: 32px !important; }
+
+  /* Logo scaling in print headers */
+  img[alt*="Logo"],
+  img[src*="clipsat"],
+  img.h-8,
+  img.h-9,
+  img.h-10,
+  img.h-11,
+  img.h-12,
+  .print-lesson-header img {
+    height: 28px !important;
+    max-height: 28px !important;
+    width: auto !important;
+    max-width: 140px !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+
+  /* Badges, pills, tags: maintain inline compact flex sizing */
+  span[class*="rounded"],
+  .badge,
+  .track-scope-badge {
+    width: auto !important;
+    max-width: max-content !important;
+    display: inline-flex !important;
+    align-items: center !important;
   }
 
   /* Outer workstation wrappers: neutralize thick dark/cyan borders and rounded simulator framing */

@@ -1701,7 +1701,7 @@ export const LessonView: React.FC<Props> = ({
             </div>
 
             {matchingBook && (
-              <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-200/70 dark:border-slate-800/80 flex-wrap">
+              <div className="flex items-center gap-1.5 pt-1.5 border-t border-slate-200/70 dark:border-slate-800/80 flex-wrap no-print">
                 {/* Primary Textbook Download (English if lang === 'en' and available, otherwise Arabic) */}
                 <a
                   href={lang === 'en' && hasEnglishEdition(matchingBook) ? getFullTextbookEnglishDownloadUrl(matchingBook) : getFullTextbookDownloadUrl(matchingBook)}
