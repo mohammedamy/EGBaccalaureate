@@ -62,6 +62,10 @@ IPA_PHONEMES.forEach((p) => {
   assert(p.examples.length >= 2, `Phoneme ${p.symbol} provides at least 2 exemplar words`);
   assert(p.articulationGuide.length > 10, `Phoneme ${p.symbol} has detailed articulation instructions`);
   assert(p.audioTriggerWord.length > 0, `Phoneme ${p.symbol} has a valid audio trigger word`);
+  assert(
+    p.audioTriggerWord === p.examples[0],
+    `Phoneme ${p.symbol} audioTriggerWord "${p.audioTriggerWord}" strictly matches card exemplar label "${p.examples[0]}"`
+  );
 });
 
 // Test Arabic/Egyptian contrast warnings

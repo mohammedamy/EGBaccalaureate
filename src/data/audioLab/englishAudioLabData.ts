@@ -168,7 +168,7 @@ export const IPA_PHONEMES: Phoneme[] = [
     name: 'Open back unrounded long vowel',
     examples: ['car', 'father', 'calm'],
     articulationGuide: 'Deep, open back resonant vowel. Jaw dropped deeply, unrounded lips.',
-    audioTriggerWord: 'father',
+    audioTriggerWord: 'car',
     arabicContrastWarning: 'Corresponds to long alif in Arabic, keep it resonant and open.',
   },
   {
@@ -399,7 +399,7 @@ export const IPA_PHONEMES: Phoneme[] = [
     name: 'Voiced post-alveolar fricative',
     examples: ['measure', 'vision', 'conclusion'],
     articulationGuide: 'Voiced equivalent of /ʃ/. Soft vibrating hum.',
-    audioTriggerWord: 'vision',
+    audioTriggerWord: 'measure',
   },
   {
     symbol: '/dʒ/',
@@ -423,7 +423,7 @@ export const IPA_PHONEMES: Phoneme[] = [
     name: 'Voiced alveolar nasal',
     examples: ['no', 'novel', 'necessity'],
     articulationGuide: 'Tongue against alveolar ridge, nasal resonance.',
-    audioTriggerWord: 'novel',
+    audioTriggerWord: 'no',
   },
   {
     symbol: '/ŋ/',

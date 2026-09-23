@@ -792,7 +792,7 @@ export const EnglishAudioPhoneticsStudio: React.FC<Props> = ({
                   >
                     <span className="text-lg sm:text-xl font-mono font-black">{item.symbol}</span>
                     <span className="text-[11px] text-slate-400 group-hover:text-slate-200 font-medium">
-                      {item.examples[0]}
+                      {item.audioTriggerWord}
                     </span>
                     {item.arabicContrastWarning && (
                       <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-amber-400" />
