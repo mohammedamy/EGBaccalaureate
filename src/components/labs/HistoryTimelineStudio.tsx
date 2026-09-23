@@ -596,102 +596,320 @@ const HistoricalTreatyVectorSchematic: React.FC<TreatySchematicProps> = ({ treat
 interface CausalFlowchartProps {
   chain: CauseEffectChain;
   isArabic: boolean;
+  theme?: ThemeMode;
 }
 
-const CausalFeedbackVectorFlowchart: React.FC<CausalFlowchartProps> = ({ chain, isArabic }) => {
+const CausalFeedbackVectorFlowchart: React.FC<CausalFlowchartProps> = ({ chain, isArabic, theme = 'dark' }) => {
+  const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
+
+  const containerClasses = isLight
+    ? 'bg-white/95 border-amber-200 text-slate-900 shadow-sm'
+    : isContrast
+    ? 'bg-black border-2 border-yellow-400 text-white'
+    : 'bg-slate-950/90 border-slate-800 text-slate-100 shadow-xl';
+
+  const subHeaderBorder = isLight
+    ? 'border-amber-200/60'
+    : isContrast
+    ? 'border-yellow-400/40'
+    : 'border-slate-800';
+
+  const synthesisBoxClasses = isLight
+    ? 'bg-amber-100/70 border-amber-300 text-amber-950'
+    : isContrast
+    ? 'bg-black border-2 border-yellow-400 text-yellow-300'
+    : 'bg-amber-500/10 border-amber-500/30 text-amber-300';
+
+  const steps = [
+    {
+      step: 1,
+      title: isArabic ? 'السبب الجوهري' : 'Root Cause',
+      phase: isArabic ? 'المرحلة ١: الأصل والمنطلق' : 'Phase 1: Origin & Premise',
+      content: isArabic ? chain.rootCauseAr : chain.rootCauseEn,
+      arrowColor: isLight ? '#f59e0b' : isContrast ? '#fbbf24' : '#f59e0b',
+      themeStyles: {
+        light: {
+          cardBg: 'bg-gradient-to-b from-indigo-50/95 via-white to-indigo-50/80',
+          border: 'border-indigo-300 shadow-sm',
+          badge: 'bg-indigo-600 text-white shadow-indigo-600/30',
+          title: 'text-indigo-950 font-black',
+          phase: 'text-indigo-700 font-bold',
+          body: 'text-slate-800 font-medium',
+        },
+        dark: {
+          cardBg: 'bg-gradient-to-b from-indigo-950/80 via-slate-900/90 to-indigo-950/60',
+          border: 'border-indigo-500/40 shadow-lg shadow-indigo-950/30',
+          badge: 'bg-indigo-600 text-white shadow-indigo-500/30',
+          title: 'text-indigo-200 font-black',
+          phase: 'text-indigo-400 font-bold',
+          body: 'text-slate-200 font-medium',
+        },
+        contrast: {
+          cardBg: 'bg-black',
+          border: 'border-2 border-indigo-400',
+          badge: 'bg-indigo-400 text-black font-black',
+          title: 'text-yellow-300 font-black',
+          phase: 'text-indigo-300 font-bold',
+          body: 'text-white font-bold',
+        },
+      },
+    },
+    {
+      step: 2,
+      title: isArabic ? 'المحفز / الشرارة' : 'Catalyst & Trigger',
+      phase: isArabic ? 'المرحلة ٢: نقطة التحول' : 'Phase 2: Turning Point',
+      content: isArabic ? chain.catalystAr : chain.catalystEn,
+      arrowColor: isLight ? '#fb923c' : isContrast ? '#fbbf24' : '#fb923c',
+      themeStyles: {
+        light: {
+          cardBg: 'bg-gradient-to-b from-amber-50/95 via-white to-amber-50/80',
+          border: 'border-amber-300 shadow-sm',
+          badge: 'bg-amber-600 text-white shadow-amber-600/30',
+          title: 'text-amber-950 font-black',
+          phase: 'text-amber-700 font-bold',
+          body: 'text-slate-800 font-medium',
+        },
+        dark: {
+          cardBg: 'bg-gradient-to-b from-amber-950/80 via-slate-900/90 to-amber-950/60',
+          border: 'border-amber-500/40 shadow-lg shadow-amber-950/30',
+          badge: 'bg-amber-600 text-white shadow-amber-500/30',
+          title: 'text-amber-200 font-black',
+          phase: 'text-amber-400 font-bold',
+          body: 'text-slate-200 font-medium',
+        },
+        contrast: {
+          cardBg: 'bg-black',
+          border: 'border-2 border-amber-400',
+          badge: 'bg-amber-400 text-black font-black',
+          title: 'text-yellow-300 font-black',
+          phase: 'text-amber-300 font-bold',
+          body: 'text-white font-bold',
+        },
+      },
+    },
+    {
+      step: 3,
+      title: isArabic ? 'النتيجة المباشرة' : 'Immediate Result',
+      phase: isArabic ? 'المرحلة ٣: المحصلة المباشرة' : 'Phase 3: Direct Outcome',
+      content: isArabic ? chain.immediateResultAr : chain.immediateResultEn,
+      arrowColor: isLight ? '#0ea5e9' : isContrast ? '#38bdf8' : '#0ea5e9',
+      themeStyles: {
+        light: {
+          cardBg: 'bg-gradient-to-b from-sky-50/95 via-white to-sky-50/80',
+          border: 'border-sky-300 shadow-sm',
+          badge: 'bg-sky-600 text-white shadow-sky-600/30',
+          title: 'text-sky-950 font-black',
+          phase: 'text-sky-700 font-bold',
+          body: 'text-slate-800 font-medium',
+        },
+        dark: {
+          cardBg: 'bg-gradient-to-b from-sky-950/80 via-slate-900/90 to-sky-950/60',
+          border: 'border-sky-500/40 shadow-lg shadow-sky-950/30',
+          badge: 'bg-sky-600 text-white shadow-sky-500/30',
+          title: 'text-sky-200 font-black',
+          phase: 'text-sky-400 font-bold',
+          body: 'text-slate-200 font-medium',
+        },
+        contrast: {
+          cardBg: 'bg-black',
+          border: 'border-2 border-sky-400',
+          badge: 'bg-sky-400 text-black font-black',
+          title: 'text-yellow-300 font-black',
+          phase: 'text-sky-300 font-bold',
+          body: 'text-white font-bold',
+        },
+      },
+    },
+    {
+      step: 4,
+      title: isArabic ? 'الأثر التاريخي الممتد' : 'Long-Term Legacy',
+      phase: isArabic ? 'المرحلة ٤: الأثر المستمر' : 'Phase 4: Historical Legacy',
+      content: isArabic ? chain.longTermImpactAr : chain.longTermImpactEn,
+      arrowColor: isLight ? '#10b981' : isContrast ? '#34d399' : '#10b981',
+      themeStyles: {
+        light: {
+          cardBg: 'bg-gradient-to-b from-emerald-50/95 via-white to-emerald-50/80',
+          border: 'border-emerald-300 shadow-sm',
+          badge: 'bg-emerald-600 text-white shadow-emerald-600/30',
+          title: 'text-emerald-950 font-black',
+          phase: 'text-emerald-700 font-bold',
+          body: 'text-slate-800 font-medium',
+        },
+        dark: {
+          cardBg: 'bg-gradient-to-b from-emerald-950/80 via-slate-900/90 to-emerald-950/60',
+          border: 'border-emerald-500/40 shadow-lg shadow-emerald-950/30',
+          badge: 'bg-emerald-600 text-white shadow-emerald-500/30',
+          title: 'text-emerald-200 font-black',
+          phase: 'text-emerald-400 font-bold',
+          body: 'text-slate-200 font-medium',
+        },
+        contrast: {
+          cardBg: 'bg-black',
+          border: 'border-2 border-emerald-400',
+          badge: 'bg-emerald-400 text-black font-black',
+          title: 'text-yellow-300 font-black',
+          phase: 'text-emerald-300 font-bold',
+          body: 'text-white font-bold',
+        },
+      },
+    },
+  ];
+
   return (
     <div className="w-full space-y-4">
-      {/* SVG Flowchart Pipeline (viewBox 0 0 900 180) */}
-      <div className="w-full bg-slate-950 rounded-2xl border border-slate-800 p-3 overflow-x-auto shadow-inner">
-        <svg viewBox="0 0 900 160" className="w-full min-w-[700px] select-none">
-          <defs>
-            <linearGradient id="flowArrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#f59e0b" />
-              <stop offset="50%" stopColor="#fb923c" />
-              <stop offset="100%" stopColor="#10b981" />
-            </linearGradient>
-
-            <marker id="flowHead" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-              <path d="M 0 1 L 10 5 L 0 9 z" fill="#fb923c" />
-            </marker>
-          </defs>
-
-          {/* Connecting Conduit Arrows */}
-          <line x1="200" y1="80" x2="250" y2="80" stroke="#f59e0b" strokeWidth="3" strokeDasharray="5 3" markerEnd="url(#flowHead)" />
-          <line x1="430" y1="80" x2="480" y2="80" stroke="#fb923c" strokeWidth="3" strokeDasharray="5 3" markerEnd="url(#flowHead)" />
-          <line x1="660" y1="80" x2="710" y2="80" stroke="#10b981" strokeWidth="3" strokeDasharray="5 3" markerEnd="url(#flowHead)" />
-
-          {/* Node 1: Root Cause */}
-          <g transform="translate(20, 20)">
-            <rect x="0" y="0" width="180" height="120" rx="14" fill="#1e1b4b" stroke="#6366f1" strokeWidth="2" />
-            <circle cx="24" cy="24" r="12" fill="#4338ca" />
-            <text x="24" y="28" textAnchor="middle" fill="#e0e7ff" fontSize="12" fontWeight="black">1</text>
-            <text x="45" y="28" fill="#a5b4fc" fontSize="11" fontWeight="bold">
-              {isArabic ? 'السبب الجوهري' : 'Root Cause'}
-            </text>
-            <foreignObject x="12" y="44" width="156" height="68">
-              <div className="text-[10px] text-slate-200 line-clamp-3 leading-relaxed font-sans" dir={isArabic ? 'rtl' : 'ltr'}>
-                {isArabic ? chain.rootCauseAr : chain.rootCauseEn}
+      {/* 4-Stage Flowchart Vector Pipeline */}
+      <div className={`w-full rounded-3xl border p-5 sm:p-6 transition-all ${containerClasses}`}>
+        {/* Top Header of the Flowchart Card */}
+        <div className={`flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b ${subHeaderBorder}`}>
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-2xl flex items-center justify-center bg-amber-500/15 text-amber-500 border border-amber-500/30 shadow-sm">
+              <GitMerge className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-base sm:text-lg font-black leading-tight">
+                {isArabic ? chain.titleAr : chain.titleEn}
+              </h3>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="text-[11px] font-bold text-amber-500">
+                  {isArabic ? `الفصل ${chain.chapter}` : `Chapter ${chain.chapter}`}
+                </span>
+                <span className="text-slate-400 text-xs">•</span>
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                  {isArabic ? 'مسار التسلسل السببي والتاريخي' : 'Causal Vector Pipeline'}
+                </span>
               </div>
-            </foreignObject>
-          </g>
+            </div>
+          </div>
 
-          {/* Node 2: Catalyst */}
-          <g transform="translate(250, 20)">
-            <rect x="0" y="0" width="180" height="120" rx="14" fill="#451a03" stroke="#f59e0b" strokeWidth="2" />
-            <circle cx="24" cy="24" r="12" fill="#b45309" />
-            <text x="24" y="28" textAnchor="middle" fill="#fef3c7" fontSize="12" fontWeight="black">2</text>
-            <text x="45" y="28" fill="#fde68a" fontSize="11" fontWeight="bold">
-              {isArabic ? 'المحفز / الشرارة' : 'Catalyst'}
-            </text>
-            <foreignObject x="12" y="44" width="156" height="68">
-              <div className="text-[10px] text-slate-200 line-clamp-3 leading-relaxed font-sans" dir={isArabic ? 'rtl' : 'ltr'}>
-                {isArabic ? chain.catalystAr : chain.catalystEn}
-              </div>
-            </foreignObject>
-          </g>
+          <div className="flex items-center gap-2">
+            <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-500 border border-amber-500/30">
+              {isArabic ? chain.relationshipTypeAr : chain.relationshipTypeEn}
+            </span>
+          </div>
+        </div>
 
-          {/* Node 3: Immediate Consequence */}
-          <g transform="translate(480, 20)">
-            <rect x="0" y="0" width="180" height="120" rx="14" fill="#082f49" stroke="#0ea5e9" strokeWidth="2" />
-            <circle cx="24" cy="24" r="12" fill="#0369a1" />
-            <text x="24" y="28" textAnchor="middle" fill="#e0f2fe" fontSize="12" fontWeight="black">3</text>
-            <text x="45" y="28" fill="#7dd3fc" fontSize="11" fontWeight="bold">
-              {isArabic ? 'النتيجة المباشرة' : 'Immediate Result'}
-            </text>
-            <foreignObject x="12" y="44" width="156" height="68">
-              <div className="text-[10px] text-slate-200 line-clamp-3 leading-relaxed font-sans" dir={isArabic ? 'rtl' : 'ltr'}>
-                {isArabic ? chain.immediateResultAr : chain.immediateResultEn}
-              </div>
-            </foreignObject>
-          </g>
+        {/* The 4 Connected Step Cards with Directional Conduits */}
+        <div
+          className="flex flex-col md:flex-row items-stretch gap-2 lg:gap-3 w-full"
+          dir={isArabic ? 'rtl' : 'ltr'}
+        >
+          {steps.map((step, idx) => {
+            const styles = isLight
+              ? step.themeStyles.light
+              : isContrast
+              ? step.themeStyles.contrast
+              : step.themeStyles.dark;
+            const isLast = idx === steps.length - 1;
 
-          {/* Node 4: Long-Term Legacy */}
-          <g transform="translate(710, 20)">
-            <rect x="0" y="0" width="170" height="120" rx="14" fill="#064e3b" stroke="#10b981" strokeWidth="2" />
-            <circle cx="24" cy="24" r="12" fill="#047857" />
-            <text x="24" y="28" textAnchor="middle" fill="#ecfdf5" fontSize="12" fontWeight="black">4</text>
-            <text x="45" y="28" fill="#6ee7b7" fontSize="11" fontWeight="bold">
-              {isArabic ? 'الأثر التاريخي الممتد' : 'Long-Term Legacy'}
-            </text>
-            <foreignObject x="12" y="44" width="146" height="68">
-              <div className="text-[10px] text-slate-200 line-clamp-3 leading-relaxed font-sans" dir={isArabic ? 'rtl' : 'ltr'}>
-                {isArabic ? chain.longTermImpactAr : chain.longTermImpactEn}
-              </div>
-            </foreignObject>
-          </g>
-        </svg>
+            return (
+              <React.Fragment key={step.step}>
+                {/* Step Card */}
+                <div
+                  className={`flex-1 min-w-0 p-4 sm:p-5 rounded-2xl border-2 transition-all duration-300 flex flex-col justify-between ${styles.cardBg} ${styles.border}`}
+                >
+                  {/* Card Header: Badge + Title + Phase */}
+                  <div className="flex items-center gap-3 mb-3 pb-2.5 border-b border-black/10 dark:border-white/10">
+                    <div
+                      className={`w-9 h-9 rounded-full flex items-center justify-center font-black text-sm shrink-0 shadow-md ${styles.badge}`}
+                    >
+                      {step.step}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className={`text-xs sm:text-sm font-black truncate leading-tight ${styles.title}`}>
+                        {step.title}
+                      </div>
+                      <div className={`text-[10px] font-bold tracking-wider mt-0.5 ${styles.phase}`}>
+                        {step.phase}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card Body */}
+                  <p className={`text-xs sm:text-[13px] leading-relaxed font-medium flex-1 ${styles.body}`}>
+                    {step.content}
+                  </p>
+                </div>
+
+                {/* Horizontal Dashed Conduit Arrow (Desktop) */}
+                {!isLast && (
+                  <div className="hidden md:flex items-center justify-center shrink-0 w-6 lg:w-9 select-none">
+                    <svg viewBox="0 0 36 16" className="w-6 lg:w-9 h-4 overflow-visible" preserveAspectRatio="none">
+                      <defs>
+                        <marker
+                          id={`causal-arr-${step.step}-${theme}`}
+                          viewBox="0 0 10 10"
+                          refX={isArabic ? '0' : '10'}
+                          refY="5"
+                          markerWidth="6"
+                          markerHeight="6"
+                          orient="auto"
+                        >
+                          <path
+                            d={isArabic ? 'M 10 1 L 0 5 L 10 9 z' : 'M 0 1 L 10 5 L 0 9 z'}
+                            fill={step.arrowColor}
+                          />
+                        </marker>
+                      </defs>
+                      <line
+                        x1={isArabic ? '32' : '4'}
+                        y1="8"
+                        x2={isArabic ? '4' : '32'}
+                        y2="8"
+                        stroke={step.arrowColor}
+                        strokeWidth="3"
+                        strokeDasharray="5 3"
+                        markerEnd={`url(#causal-arr-${step.step}-${theme})`}
+                      />
+                    </svg>
+                  </div>
+                )}
+
+                {/* Vertical Dashed Conduit Arrow (Mobile) */}
+                {!isLast && (
+                  <div className="md:hidden flex items-center justify-center py-1 select-none">
+                    <svg viewBox="0 0 16 28" className="w-4 h-6 overflow-visible">
+                      <defs>
+                        <marker
+                          id={`causal-arr-v-${step.step}-${theme}`}
+                          viewBox="0 0 10 10"
+                          refX="5"
+                          refY="10"
+                          markerWidth="6"
+                          markerHeight="6"
+                          orient="auto"
+                        >
+                          <path d="M 1 0 L 5 10 L 9 0 z" fill={step.arrowColor} />
+                        </marker>
+                      </defs>
+                      <line
+                        x1="8"
+                        y1="2"
+                        x2="8"
+                        y2="22"
+                        stroke={step.arrowColor}
+                        strokeWidth="3"
+                        strokeDasharray="5 3"
+                        markerEnd={`url(#causal-arr-v-${step.step}-${theme})`}
+                      />
+                    </svg>
+                  </div>
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
 
       {/* Ministerial Cognitive Relationship Synthesis */}
-      <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-4">
+      <div className={`p-4 rounded-2xl border flex items-center justify-between gap-4 transition-all ${synthesisBoxClasses}`}>
         <div className="flex items-center gap-2">
-          <Zap className="w-5 h-5 text-amber-400 shrink-0" />
-          <span className="text-xs font-bold text-amber-300">
+          <Zap className="w-5 h-5 text-amber-500 shrink-0" />
+          <span className="text-xs font-bold">
             {isArabic ? 'التصنيف المنطقي للعلاقة الوزارية:' : 'Cognitive Ministerial Relationship Type:'}
           </span>
         </div>
-        <span className="px-3 py-1 rounded-xl text-xs font-black bg-amber-500 text-white shadow-sm">
+        <span className="px-3.5 py-1.5 rounded-xl text-xs font-black bg-amber-500 text-white shadow-sm">
           {isArabic ? chain.relationshipTypeAr : chain.relationshipTypeEn}
         </span>
       </div>
@@ -1337,7 +1555,7 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
         {activeTab === 'cause_effect' && (
           <div className="space-y-6">
             {/* Chain Selector Tabs (min-h-[44px]) */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-amber-500/20">
               {CAUSE_EFFECT_CHAINS.map((ch) => (
                 <button
                   key={ch.id}
@@ -1345,6 +1563,10 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
                   className={`px-4 py-2.5 min-h-[44px] rounded-2xl text-xs font-black transition-all whitespace-nowrap cursor-pointer ${
                     selectedChain.id === ch.id
                       ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
+                      : isLight
+                      ? 'bg-white/85 border border-amber-200 text-amber-950 hover:bg-amber-100/80 shadow-sm'
+                      : isContrast
+                      ? 'bg-black border border-yellow-400 text-white hover:bg-yellow-400/20'
                       : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
                   }`}
                 >
@@ -1353,82 +1575,28 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
               ))}
             </div>
 
-            {/* High-Resolution Causal Feedback Vector Flowchart */}
-            <CausalFeedbackVectorFlowchart chain={selectedChain} isArabic={isArabic} />
+            {/* High-Resolution Causal Feedback Vector Flowchart Pipeline */}
+            <CausalFeedbackVectorFlowchart chain={selectedChain} isArabic={isArabic} theme={theme} />
 
-            {/* Causal Flow Node Graph */}
-            <div className={`p-6 sm:p-8 rounded-3xl border space-y-6 ${cardClasses}`}>
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-                <div className="flex items-center gap-2">
-                  <GitMerge className="w-5 h-5 text-amber-400" />
-                  <h3 className="text-lg font-black text-amber-300">
-                    {isArabic ? selectedChain.titleAr : selectedChain.titleEn}
-                  </h3>
-                </div>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">
-                  {isArabic ? selectedChain.relationshipTypeAr : selectedChain.relationshipTypeEn}
-                </span>
-              </div>
-
-              {/* 4-Phase Flowchart Nodes */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
-                {/* Node 1: Root Cause */}
-                <div className="p-4 rounded-2xl bg-slate-800/80 border border-amber-500/30 flex flex-col justify-between space-y-2 relative">
-                  <span className="text-[11px] font-black uppercase text-amber-400 tracking-wider">
-                    {isArabic ? '1. السبب الجوهري' : '1. Root Cause'}
-                  </span>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {isArabic ? selectedChain.rootCauseAr : selectedChain.rootCauseEn}
-                  </p>
-                  <div className="text-[10px] text-slate-400 font-mono">PHASE: ORIGIN</div>
-                </div>
-
-                {/* Node 2: Catalyst */}
-                <div className="p-4 rounded-2xl bg-slate-800/80 border border-orange-500/30 flex flex-col justify-between space-y-2">
-                  <span className="text-[11px] font-black uppercase text-orange-400 tracking-wider">
-                    {isArabic ? '2. المحفز ونقطة التحول' : '2. Catalyst & Turning Point'}
-                  </span>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {isArabic ? selectedChain.catalystAr : selectedChain.catalystEn}
-                  </p>
-                  <div className="text-[10px] text-slate-400 font-mono">PHASE: TRIGGER</div>
-                </div>
-
-                {/* Node 3: Immediate Result */}
-                <div className="p-4 rounded-2xl bg-slate-800/80 border border-amber-400/30 flex flex-col justify-between space-y-2">
-                  <span className="text-[11px] font-black uppercase text-amber-300 tracking-wider">
-                    {isArabic ? '3. النتيجة المباشرة' : '3. Immediate Result'}
-                  </span>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {isArabic ? selectedChain.immediateResultAr : selectedChain.immediateResultEn}
-                  </p>
-                  <div className="text-[10px] text-slate-400 font-mono">PHASE: OUTCOME</div>
-                </div>
-
-                {/* Node 4: Long-Term Impact */}
-                <div className="p-4 rounded-2xl bg-slate-800/80 border border-emerald-500/30 flex flex-col justify-between space-y-2">
-                  <span className="text-[11px] font-black uppercase text-emerald-400 tracking-wider">
-                    {isArabic ? '4. الأثر التاريخي الممتد' : '4. Long-Term Impact'}
-                  </span>
-                  <p className="text-xs text-slate-200 leading-relaxed font-medium">
-                    {isArabic ? selectedChain.longTermImpactAr : selectedChain.longTermImpactEn}
-                  </p>
-                  <div className="text-[10px] text-slate-400 font-mono">PHASE: LEGACY</div>
-                </div>
-              </div>
-
-              {/* Ministerial Synthesis Guidance */}
-              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center gap-3">
-                <HelpCircle className="w-5 h-5 text-amber-400 shrink-0" />
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  <strong className="text-amber-400">
-                    {isArabic ? 'كيف تطرح هذه العلاقة في الامتحان؟ ' : 'How is this tested in exams? '}
-                  </strong>
-                  {isArabic
-                    ? 'تركز أسئلة المستويات العليا (HOTS) على نوع العلاقة (طردية، عكسية، نقل ميدان الصراع، استغلال الظروف الدولية) بدلاً من سرد التواريخ المجردة.'
-                    : 'HOTS exam questions test structural relationships (correlation, displacement of conflict, economic levers) rather than rote date memorization.'}
-                </p>
-              </div>
+            {/* Ministerial Synthesis Guidance */}
+            <div
+              className={`p-4 sm:p-5 rounded-2xl border flex items-center gap-3.5 transition-all ${
+                isLight
+                  ? 'bg-amber-100/70 border-amber-300 text-amber-950 shadow-sm'
+                  : isContrast
+                  ? 'bg-black border-2 border-yellow-400 text-yellow-300'
+                  : 'bg-amber-500/10 border-amber-500/20 text-slate-200'
+              }`}
+            >
+              <HelpCircle className="w-5 h-5 text-amber-500 shrink-0" />
+              <p className="text-xs leading-relaxed">
+                <strong className={isLight ? 'text-amber-950' : isContrast ? 'text-yellow-300' : 'text-amber-400'}>
+                  {isArabic ? 'كيف تطرح هذه العلاقة في الامتحان؟ ' : 'How is this tested in exams? '}
+                </strong>
+                {isArabic
+                  ? 'تركز أسئلة المستويات العليا (HOTS) على نوع العلاقة (طردية، عكسية، نقل ميدان الصراع، استغلال الظروف الدولية) بدلاً من سرد التواريخ المجردة.'
+                  : 'HOTS exam questions test structural relationships (correlation, displacement of conflict, economic levers) rather than rote date memorization.'}
+              </p>
             </div>
           </div>
         )}
