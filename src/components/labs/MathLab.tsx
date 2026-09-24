@@ -10,6 +10,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { InteractiveCalculusTangent } from '../InteractiveCalculusTangent';
+import { InteractiveRelatedRatesOptimizationStudio } from '../InteractiveRelatedRatesOptimizationStudio';
 import { Interactive3DGeometry } from '../Interactive3DGeometry';
 import { InteractiveComplexArgand } from '../InteractiveComplexArgand';
 import { MechanicsLab } from './MechanicsLab';
@@ -35,6 +36,7 @@ interface Props {
 
 export type MathTab =
   | 'calculus'
+  | 'related_rates_optimization'
   | 'geometry3d'
   | 'complex'
   | 'mechanics'
@@ -266,6 +268,9 @@ export const MathLab: React.FC<Props> = ({
               <option value="calculus" className="bg-slate-900 text-white">
                 🧭 {isArabic ? 'حساب التفاضل والتكامل (المماس، التقعر، ومجموع ريمان)' : 'Calculus & Real Analysis (Tangents, Extrema & Riemann)'}
               </option>
+              <option value="related_rates_optimization" className="bg-slate-900 text-white">
+                📈 {isArabic ? 'المعدلات الزمنية المرتبطة وتطبيقات القيم العظمى والصغرى' : 'Related Time Rates & Applied Optimization Studio'}
+              </option>
               <option value="geometry3d" className="bg-slate-900 text-white">
                 📦 {isArabic ? 'الهندسة الفراغية 3D (المتجهات، الكرة، والمستويات)' : '3D Solid Geometry (Vectors, Sphere & Planes)'}
               </option>
@@ -359,6 +364,9 @@ export const MathLab: React.FC<Props> = ({
       {/* Main Content Area */}
       <div className="mt-6">
         {activeTab === 'calculus' && <InteractiveCalculusTangent lang={lang} theme={theme} />}
+        {activeTab === 'related_rates_optimization' && (
+          <InteractiveRelatedRatesOptimizationStudio lang={lang} theme={theme} isFullscreen={isFullscreen} />
+        )}
         {activeTab === 'geometry3d' && <Interactive3DGeometry lang={lang} theme={theme} />}
         {activeTab === 'complex' && <InteractiveComplexArgand lang={lang} theme={theme} />}
         {activeTab === 'mechanics' && <MechanicsLab lang={lang} theme={theme} />}

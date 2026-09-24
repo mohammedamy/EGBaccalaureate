@@ -243,6 +243,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
     // activeLab === 'math'
     switch (activeMathTab) {
       case 'calculus':
+      case 'related_rates_optimization':
         return 'math-exp-1';
       case 'mechanics':
         return 'math-exp-2';
@@ -1124,6 +1125,7 @@ export const VirtualLabsHub: React.FC<Props> = ({
                 >
                   {[
                     { id: 'calculus' as MathTab, emoji: '🧭', labelEn: 'Calculus & Dynamic Tangents', labelAr: 'التفاضل والمماسات الديناميكية' },
+                    { id: 'related_rates_optimization' as MathTab, emoji: '📈', labelEn: 'Related Time Rates & Applied Optimization Studio', labelAr: 'المعدلات الزمنية المرتبطة وتطبيقات القيم القصوى' },
                     { id: 'geometry3d' as MathTab, emoji: '📦', labelEn: '3D Vectors & Planes', labelAr: 'الهندسة الفراغية 3D والمتجهات' },
                     { id: 'complex' as MathTab, emoji: '📍', labelEn: 'Complex Numbers & Argand Plane (De Moivre)', labelAr: 'الأعداد المركبة ومستوى أرجاند وديموافر' },
                     { id: 'mechanics' as MathTab, emoji: '⚙️', labelEn: 'Statics & Classical Mechanics (Tier-1)', labelAr: 'الاستاتيكا والميكانيكا الكلاسيكية' },
