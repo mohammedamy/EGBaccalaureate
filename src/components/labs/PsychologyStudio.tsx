@@ -21,16 +21,33 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { PavlovConditioningStudio } from './psychology/PavlovConditioningStudio';
+import { FreudPsychoanalyticStudio } from './psychology/FreudPsychoanalyticStudio';
+import { IbnKhaldunUmranStudio } from './psychology/IbnKhaldunUmranStudio';
+import { LewinSocialDynamicsStudio } from './psychology/LewinSocialDynamicsStudio';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'learning_theories' | 'memory_retention' | 'conflict_matrix' | 'social_processes' | 'culture_extremism';
+  initialMode?:
+    | 'pavlov_conditioning'
+    | 'freud_psychoanalysis'
+    | 'ibn_khaldun_umran'
+    | 'lewin_dynamics'
+    | 'learning_theories'
+    | 'memory_retention'
+    | 'conflict_matrix'
+    | 'social_processes'
+    | 'culture_extremism';
 }
 
 export type PsychologyStudioMode =
+  | 'pavlov_conditioning'
+  | 'freud_psychoanalysis'
+  | 'ibn_khaldun_umran'
+  | 'lewin_dynamics'
   | 'learning_theories'
   | 'memory_retention'
   | 'conflict_matrix'
@@ -348,14 +365,137 @@ export const PsychologyStudio: React.FC<Props> = ({
         </div>
       </div>
 
+      {/* Museum 4K Archival Showcase Jump Cards */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+        {/* Card 1: Pavlov */}
+        <button
+          onClick={() => setActiveMode('pavlov_conditioning')}
+          className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg ${
+            activeMode === 'pavlov_conditioning'
+              ? 'bg-amber-500/20 border-amber-400 ring-2 ring-amber-400/50'
+              : 'bg-stone-900/60 border-amber-900/40 hover:border-amber-500/60 hover:bg-stone-900/80'
+          }`}
+        >
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">
+              1904 CE • 4K
+            </span>
+            <Activity className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
+          </div>
+          <h4 className="text-xs sm:text-sm font-bold text-amber-200 line-clamp-1">
+            {isArabic ? 'مختبر بافلوف الفسيولوجي' : 'Pavlov Conditioning Lab'}
+          </h4>
+          <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            {isArabic ? 'الكيموجراف والمترونوم وقوانين الانطفاء والتدعيم' : 'Kymograph drum, metronome & reflex laws'}
+          </p>
+        </button>
+
+        {/* Card 2: Freud */}
+        <button
+          onClick={() => setActiveMode('freud_psychoanalysis')}
+          className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg ${
+            activeMode === 'freud_psychoanalysis'
+              ? 'bg-rose-500/20 border-rose-400 ring-2 ring-rose-400/50'
+              : 'bg-stone-900/60 border-rose-900/40 hover:border-rose-500/60 hover:bg-stone-900/80'
+          }`}
+        >
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold">
+              1900 CE • 4K
+            </span>
+            <Brain className="w-4 h-4 text-rose-400 group-hover:scale-110 transition-transform" />
+          </div>
+          <h4 className="text-xs sm:text-sm font-bold text-rose-200 line-clamp-1">
+            {isArabic ? 'أريكة فرويد وغرفة التحليل النفسي' : 'Freud Consulting Room & Couch'}
+          </h4>
+          <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            {isArabic ? 'التداعي الحر، صراعات ليفين، وحيل الدفاع الثمانية' : 'Free association, Lewin conflicts & defenses'}
+          </p>
+        </button>
+
+        {/* Card 3: Ibn Khaldun */}
+        <button
+          onClick={() => setActiveMode('ibn_khaldun_umran')}
+          className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg ${
+            activeMode === 'ibn_khaldun_umran'
+              ? 'bg-emerald-500/20 border-emerald-400 ring-2 ring-emerald-400/50'
+              : 'bg-stone-900/60 border-emerald-900/40 hover:border-emerald-500/60 hover:bg-stone-900/80'
+          }`}
+        >
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
+              1377 CE • 4K
+            </span>
+            <BookOpen className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+          </div>
+          <h4 className="text-xs sm:text-sm font-bold text-emerald-200 line-clamp-1">
+            {isArabic ? 'مخطوطة مقدمة ابن خلدون' : 'Ibn Khaldun’s Muqaddimah'}
+          </h4>
+          <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            {isArabic ? 'علم العمران البشري، العصبية، والعمليات الاجتماعية' : 'Umran sociology, Asabiyyah & processes'}
+          </p>
+        </button>
+
+        {/* Card 4: Kurt Lewin */}
+        <button
+          onClick={() => setActiveMode('lewin_dynamics')}
+          className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg ${
+            activeMode === 'lewin_dynamics'
+              ? 'bg-blue-500/20 border-blue-400 ring-2 ring-blue-400/50'
+              : 'bg-stone-900/60 border-blue-900/40 hover:border-blue-500/60 hover:bg-stone-900/80'
+          }`}
+        >
+          <div className="flex items-center justify-between mb-1.5">
+            <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold">
+              1940s • 4K
+            </span>
+            <Users className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
+          </div>
+          <h4 className="text-xs sm:text-sm font-bold text-blue-200 line-clamp-1">
+            {isArabic ? 'مختبر ديناميات الجماعة لكورت ليفين' : 'Lewin Group Dynamics Studio'}
+          </h4>
+          <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            {isArabic ? 'الشبكة السوسيومترية، العمل التطوعي والحر، والتطرف' : 'Sociometric network, volunteerism & extremism'}
+          </p>
+        </button>
+      </div>
+
       {/* Navigation Modes Tabs */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 my-5">
         {[
           {
+            id: 'pavlov_conditioning' as const,
+            labelAr: 'مختبر بافلوف 1904 (4K)',
+            labelEn: 'Pavlov Lab 1904 (4K)',
+            icon: Activity,
+            color: 'from-amber-500 to-yellow-600',
+          },
+          {
+            id: 'freud_psychoanalysis' as const,
+            labelAr: 'أريكة فرويد 1900 (4K)',
+            labelEn: 'Freud Couch 1900 (4K)',
+            icon: Brain,
+            color: 'from-rose-500 to-pink-600',
+          },
+          {
+            id: 'ibn_khaldun_umran' as const,
+            labelAr: 'مقدمة ابن خلدون (4K)',
+            labelEn: 'Ibn Khaldun 1377 (4K)',
+            icon: BookOpen,
+            color: 'from-emerald-500 to-teal-600',
+          },
+          {
+            id: 'lewin_dynamics' as const,
+            labelAr: 'مختبر كورت ليفين (4K)',
+            labelEn: 'Lewin Lab 1940 (4K)',
+            icon: Users,
+            color: 'from-blue-500 to-cyan-600',
+          },
+          {
             id: 'learning_theories' as const,
             labelAr: 'نظريات التعلم الكبرى',
             labelEn: 'Learning Theories',
-            icon: Brain,
+            icon: Sparkles,
             color: 'from-pink-500 to-rose-600',
           },
           {
@@ -370,14 +510,14 @@ export const PsychologyStudio: React.FC<Props> = ({
             labelAr: 'الصراع والحيل الدفاعية',
             labelEn: 'Conflict & Defense',
             icon: Shield,
-            color: 'from-amber-500 to-orange-600',
+            color: 'from-orange-500 to-amber-600',
           },
           {
             id: 'social_processes' as const,
             labelAr: 'العمليات الاجتماعية',
             labelEn: 'Social Processes',
-            icon: Activity,
-            color: 'from-emerald-500 to-teal-600',
+            icon: Compass,
+            color: 'from-teal-500 to-emerald-600',
           },
           {
             id: 'culture_extremism' as const,
@@ -409,6 +549,33 @@ export const PsychologyStudio: React.FC<Props> = ({
       </div>
 
       {/* ------------------------------------------------------------- */}
+      {/* 4K MUSEUM ARCHIVAL STUDIOS                                   */}
+      {/* ------------------------------------------------------------- */}
+      {activeMode === 'pavlov_conditioning' && (
+        <div className="space-y-6 animate-fadeIn">
+          <PavlovConditioningStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeMode === 'freud_psychoanalysis' && (
+        <div className="space-y-6 animate-fadeIn">
+          <FreudPsychoanalyticStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeMode === 'ibn_khaldun_umran' && (
+        <div className="space-y-6 animate-fadeIn">
+          <IbnKhaldunUmranStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeMode === 'lewin_dynamics' && (
+        <div className="space-y-6 animate-fadeIn">
+          <LewinSocialDynamicsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {/* ------------------------------------------------------------- */}
       {/* MODE 1: LEARNING THEORIES PARADIGMS                           */}
       {/* ------------------------------------------------------------- */}
       {activeMode === 'learning_theories' && (
@@ -437,7 +604,8 @@ export const PsychologyStudio: React.FC<Props> = ({
 
           {/* PARADIGM 1: PAVLOV */}
           {selectedParadigm === 'pavlov' && (
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
               <div className="lg:col-span-7 space-y-4">
                 <div className="p-5 rounded-xl bg-slate-800/50 border border-slate-700">
                   <div className="flex items-center justify-between mb-4">
@@ -587,6 +755,12 @@ export const PsychologyStudio: React.FC<Props> = ({
                 </div>
               </div>
             </div>
+
+            {/* 4K Archival Pavlov Studio Integration */}
+            <div className="mt-6">
+              <PavlovConditioningStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+            </div>
+          </div>
           )}
 
           {/* PARADIGM 2: THORNDIKE */}
@@ -1431,6 +1605,9 @@ export const PsychologyStudio: React.FC<Props> = ({
       {/* ------------------------------------------------------------- */}
       {activeMode === 'conflict_matrix' && (
         <div className="space-y-6 animate-fadeIn">
+          {/* 4K Archival Freud Psychoanalytic Studio */}
+          <FreudPsychoanalyticStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Lewin Conflict Simulator */}
             <div className="lg:col-span-6 space-y-4">
@@ -1808,6 +1985,9 @@ export const PsychologyStudio: React.FC<Props> = ({
       {/* ------------------------------------------------------------- */}
       {activeMode === 'social_processes' && (
         <div className="space-y-6 animate-fadeIn">
+          {/* 4K Archival Ibn Khaldun Umran Sociology Studio */}
+          <IbnKhaldunUmranStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Drivers & Sliders */}
             <div className="lg:col-span-6 space-y-4">
@@ -1957,6 +2137,9 @@ export const PsychologyStudio: React.FC<Props> = ({
       {/* ------------------------------------------------------------- */}
       {activeMode === 'culture_extremism' && (
         <div className="space-y-6 animate-fadeIn">
+          {/* 4K Archival Lewin Social Dynamics & Issues Studio */}
+          <LewinSocialDynamicsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Culture Taxonomy */}
             <div className="lg:col-span-6 space-y-4">

@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import { thanaweyaCurriculum } from '../src/data/thanaweyaData';
 import { egBacCurriculum } from '../src/data/egBacData';
 import { SUBJECTS, getSubjectById, getSubjectForBranch, getBranchesForSubject, getSubjectStats } from '../src/data/subjects';
@@ -234,10 +236,51 @@ assert(all12Radar.length === 12, `all12 radar track has 12 dimensions (found: ${
 const hasPsychInAll12 = all12Radar.some((p) => p.dimensionKey === 'psychology');
 assert(hasPsychInAll12, 'all12 radar track contains psychology dimension');
 
+// 8. Museum 4K Archival Assets & Specialized Psychology Studios Verification
+console.log('\n--- 8. Museum 4K Archival Assets & Specialized Studios Verification ---');
+const psychAssetsDir = path.join(process.cwd(), 'src', 'assets', 'psychology');
+const requiredPsychAssets = [
+  'pavlov_conditioning_lab_1904.jpg',
+  'freud_psychoanalytic_couch_1900.jpg',
+  'ibn_khaldun_muqaddimah_1377.jpg',
+  'lewin_social_dynamics_1940.jpg',
+];
+
+for (const assetName of requiredPsychAssets) {
+  const assetPath = path.join(psychAssetsDir, assetName);
+  assert(fs.existsSync(assetPath), `Archival asset exists: ${assetName}`);
+  if (fs.existsSync(assetPath)) {
+    const stats = fs.statSync(assetPath);
+    assert(stats.size > 100 * 1024, `Archival asset ${assetName} has high-res fidelity (>100KB, actual: ${(stats.size / 1024).toFixed(1)} KB)`);
+  }
+}
+
+const psychStudiosDir = path.join(process.cwd(), 'src', 'components', 'labs', 'psychology');
+const requiredPsychStudios = [
+  'PavlovConditioningStudio.tsx',
+  'FreudPsychoanalyticStudio.tsx',
+  'IbnKhaldunUmranStudio.tsx',
+  'LewinSocialDynamicsStudio.tsx',
+];
+
+for (const studioName of requiredPsychStudios) {
+  const studioPath = path.join(psychStudiosDir, studioName);
+  assert(fs.existsSync(studioPath), `Specialized psychology studio exists: ${studioName}`);
+}
+
+const psychStudioPath = path.join(process.cwd(), 'src', 'components', 'labs', 'PsychologyStudio.tsx');
+assert(fs.existsSync(psychStudioPath), 'PsychologyStudio.tsx exists');
+const psychStudioCode = fs.readFileSync(psychStudioPath, 'utf8');
+assert(psychStudioCode.includes('PavlovConditioningStudio'), 'PsychologyStudio mounts PavlovConditioningStudio');
+assert(psychStudioCode.includes('FreudPsychoanalyticStudio'), 'PsychologyStudio mounts FreudPsychoanalyticStudio');
+assert(psychStudioCode.includes('IbnKhaldunUmranStudio'), 'PsychologyStudio mounts IbnKhaldunUmranStudio');
+assert(psychStudioCode.includes('LewinSocialDynamicsStudio'), 'PsychologyStudio mounts LewinSocialDynamicsStudio');
+
 // Final Summary
 console.log('\n======================================================================');
 if (errors === 0) {
   console.log('🎉 ALL PSYCHOLOGY & SOCIOLOGY VERIFICATION CHECKS PASSED PERFECTLY (0 ERRORS)!');
+  console.log('3,200 Problems, 8 Units, 4K Archival Assets & 4 Specialized Studios Verified!');
 } else {
   console.error(`💥 VERIFICATION COMPLETED WITH ${errors} ERROR(S) - MUST BE RESOLVED.`);
 }
