@@ -44,6 +44,7 @@ import {
   Camera,
   Image as ImageIcon,
   Globe,
+  Calendar,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { RealMonasticSatelliteMap } from './christian/RealMonasticSatelliteMap';
@@ -51,6 +52,7 @@ import { HistoricalManuscriptMapViewer } from './christian/HistoricalManuscriptM
 import { RealSanctuaryPhotoView } from './christian/RealSanctuaryPhotoView';
 import { FourEvangelistsHighResView } from './christian/FourEvangelistsHighResView';
 import { AncientManuscriptHighResView } from './christian/AncientManuscriptHighResView';
+import { CopticCalendarConverter } from './christian/CopticCalendarConverter';
 import { HiResImageModal, type HiResImageModalData } from './christian/HiResImageModal';
 
 import antonyPhoto from '../../assets/christianLab/st_antony_monastery_red_sea.jpg';
@@ -159,7 +161,14 @@ interface Props {
   initialTab?: ChristianStudioTab;
 }
 
-export type ChristianStudioTab = 'sacraments' | 'monasticism' | 'synoptics' | 'scriptures' | 'bioethics' | 'quiz';
+export type ChristianStudioTab =
+  | 'sacraments'
+  | 'monasticism'
+  | 'synoptics'
+  | 'scriptures'
+  | 'calendar'
+  | 'bioethics'
+  | 'quiz';
 
 
 // ---------------------------------------------------------------------------
@@ -2545,6 +2554,20 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             </button>
 
             <button
+              onClick={() => setActiveTab('calendar')}
+              className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-bold transition-all ${
+                activeTab === 'calendar'
+                  ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                  : isLight
+                  ? 'text-amber-950 hover:bg-amber-200/80 font-bold'
+                  : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
+              }`}
+            >
+              <Calendar className="w-4 h-4" />
+              <span>{isArabic ? 'التقويم القبطي والسنكسار' : 'Coptic Calendar'}</span>
+            </button>
+
+            <button
               onClick={() => setActiveTab('bioethics')}
               className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-lg text-xs md:text-sm font-bold transition-all ${
                 activeTab === 'bioethics'
@@ -3682,7 +3705,18 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
         </div>
       )}
 
-      {/* Tab 5: Contemporary Bioethics Sandbox */}
+      {/* Tab 5: Coptic Liturgical Calendar & Synaxarium */}
+      {activeTab === 'calendar' && (
+        <div className="space-y-6">
+          <CopticCalendarConverter
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* Tab 6: Contemporary Bioethics Sandbox */}
       {activeTab === 'bioethics' && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Bioethics Topics Selector */}
