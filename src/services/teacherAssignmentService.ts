@@ -341,6 +341,7 @@ export function encodeAssignmentToShareableUrl(
     m: assignment.timeLimitMinutes,
     d: assignment.deadline,
     tn: assignment.teacherName,
+    tip: assignment.teacherTip,
     cq: assignment.customQuestions?.map((q) => ({
       id: q.id,
       q: q.questionAr,

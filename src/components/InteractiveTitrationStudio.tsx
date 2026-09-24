@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { MathRenderer } from './MathRenderer';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import type { Language } from '../i18n/translations';
@@ -26,6 +26,11 @@ import {
   Printer,
   AlertCircle,
   BookOpen,
+  Play,
+  Pause,
+  FastForward,
+  Calculator,
+  TrendingUp,
 } from 'lucide-react';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
@@ -200,6 +205,122 @@ const GUIDED_UNKNOWN_ACID = {
   trueEquivalenceMl: 27.0, // V_b = (0.108 * 25.0) / 0.100 = 27.0 mL
 };
 
+export type FlowRate = 'closed' | 'slow' | 'fast' | 'stream';
+
+export interface PurityPreset {
+  id: string;
+  yearAr: string;
+  yearEn: string;
+  titleAr: string;
+  titleEn: string;
+  sampleNameAr: string;
+  sampleNameEn: string;
+  sampleFormula: string;
+  sampleMassG: number;
+  molarMass: number;
+  titrantNameAr: string;
+  titrantNameEn: string;
+  titrantFormula: string;
+  titrantMolarity: number;
+  titrantVolumeMl: number;
+  na: number; // stoichiometric coefficient acid
+  nb: number; // stoichiometric coefficient base
+  isAnalyteBase: boolean;
+  questionAr: string;
+  questionEn: string;
+}
+
+export const PURITY_PRESETS: PurityPreset[] = [
+  {
+    id: 'preset_2024_naoh',
+    yearAr: 'امتحان مصر ٢٠٢٤ (دور أول)',
+    yearEn: 'Egypt Thanawya Amma 2024 Exam',
+    titleAr: 'عينة هيدروكسيد صوديوم (NaOH) غير نقية مع حمض الهيدروكلوريك',
+    titleEn: 'Impure NaOH Sample with Hydrochloric Acid',
+    sampleNameAr: 'هيدروكسيد صوديوم غير نقي',
+    sampleNameEn: 'Impure NaOH',
+    sampleFormula: '\\text{NaOH}',
+    sampleMassG: 0.200,
+    molarMass: 40.0,
+    titrantNameAr: 'حمض الهيدروكلوريك القياسي',
+    titrantNameEn: 'Standard HCl Titrant',
+    titrantFormula: '\\text{HCl}',
+    titrantMolarity: 0.10,
+    titrantVolumeMl: 20.0,
+    na: 1,
+    nb: 1,
+    isAnalyteBase: true,
+    questionAr: 'أُذيبت عينة غير نقية من الصودا الكاوية كتلتها ٠٫٢٠ جم في الماء، وتطلبت لمعايرتها تماماً ٢٠٫٠ ملل من حمض الهيدروكلوريك تركيزه ٠٫١٠ مولار. احسب النسبة المئوية لنقاء هيدروكسيد الصوديوم في العينة (Na=23, O=16, H=1).',
+    questionEn: 'An impure sample of sodium hydroxide weighing 0.20 g was dissolved and required 20.0 mL of 0.10 M HCl for complete neutralization. Calculate the percentage purity of NaOH.',
+  },
+  {
+    id: 'preset_2023_na2co3',
+    yearAr: 'امتحان مصر ٢٠٢٣ (دور أول)',
+    yearEn: 'Egypt Thanawya Amma 2023 Exam',
+    titleAr: 'عينة كربونات صوديوم (Na₂CO₃) غير نقية مع حمض الهيدروكلوريك',
+    titleEn: 'Impure Sodium Carbonate with Hydrochloric Acid',
+    sampleNameAr: 'كربونات صوديوم غير نقية',
+    sampleNameEn: 'Impure Na₂CO₃',
+    sampleFormula: '\\text{Na}_2\\text{CO}_3',
+    sampleMassG: 1.500,
+    molarMass: 106.0,
+    titrantNameAr: 'حمض الهيدروكلوريك',
+    titrantNameEn: 'Hydrochloric Acid',
+    titrantFormula: '\\text{HCl}',
+    titrantMolarity: 0.20,
+    titrantVolumeMl: 30.0,
+    na: 2,
+    nb: 1,
+    isAnalyteBase: true,
+    questionAr: 'أُذيبت عينة من كربونات الصوديوم غير النقية كتلتها ١٫٥٠ جم في الماء، فلزم لمعايرتها ٣٠٫٠ ملل من حمض الهيدروكلوريك تركيزه ٠٫٢٠ مولار. احسب النسبة المئوية لكربونات الصوديوم في العينة (Na=23, C=12, O=16).',
+    questionEn: 'An impure sample of Na₂CO₃ weighing 1.50 g required 30.0 mL of 0.20 M HCl for complete neutralization. Calculate the percentage purity of Na₂CO₃ in the sample.',
+  },
+  {
+    id: 'preset_2022_koh',
+    yearAr: 'امتحان مصر ٢٠٢٢ (دور أول)',
+    yearEn: 'Egypt Thanawya Amma 2022 Exam',
+    titleAr: 'عينة هيدروكسيد بوتاسيوم (KOH) مع حمض الكبريتيك ثنائي البروتون',
+    titleEn: 'Impure KOH with Diprotic Sulfuric Acid',
+    sampleNameAr: 'هيدروكسيد بوتاسيوم غير نقي',
+    sampleNameEn: 'Impure KOH',
+    sampleFormula: '\\text{KOH}',
+    sampleMassG: 0.560,
+    molarMass: 56.1,
+    titrantNameAr: 'حمض الكبريتيك القياسي',
+    titrantNameEn: 'Standard H₂SO₄ Titrant',
+    titrantFormula: '\\text{H}_2\\text{SO}_4',
+    titrantMolarity: 0.10,
+    titrantVolumeMl: 40.0,
+    na: 1,
+    nb: 2,
+    isAnalyteBase: true,
+    questionAr: 'عينة غير نقية من هيدروكسيد البوتاسيوم كتلتها ٠٫٥٦ جم تعادلت تماماً مع ٤٠٫٠ ملل من حمض الكبريتيك تركيزه ٠٫١٠ مولار. احسب نسبة الشوائب ونسبة النقاء (K=39, O=16, H=1).',
+    questionEn: 'An impure KOH sample of 0.56 g reacted completely with 40.0 mL of 0.10 M H₂SO₄. Calculate the purity percentage and impurity percentage of the sample.',
+  },
+  {
+    id: 'preset_custom',
+    yearAr: 'تخصيص حر للمسألة',
+    yearEn: 'Custom Problem Builder',
+    titleAr: 'بناء وتخصيص مسألة معايرة جديدة',
+    titleEn: 'Custom Stoichiometry Problem',
+    sampleNameAr: 'عينة غير نقية مخصصة',
+    sampleNameEn: 'Custom Impure Sample',
+    sampleFormula: '\\text{Sample}',
+    sampleMassG: 1.000,
+    molarMass: 40.0,
+    titrantNameAr: 'المحلول القياسي في السحاحة',
+    titrantNameEn: 'Standard Titrant',
+    titrantFormula: '\\text{Titrant}',
+    titrantMolarity: 0.10,
+    titrantVolumeMl: 25.0,
+    na: 1,
+    nb: 1,
+    isAnalyteBase: true,
+    questionAr: 'أدخل معطيات مسألتك لحساب كتلة المادة النقية والنسبة المئوية للنقاء ونسبة الشوائب خطوة بخطوة وفق نموذج الإجابة الوزاري.',
+    questionEn: 'Enter problem parameters to calculate pure mass, purity %, and step-by-step stoichiometric breakdown.',
+  },
+];
+
 interface TrialRecord {
   id: number;
   initialMl: number;
@@ -217,8 +338,8 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
 
-  // Mode: Explore vs MoE Guided Exam
-  const [studioMode, setStudioMode] = useState<'explore' | 'guided_exam'>('explore');
+  // Mode: Explore vs MoE Guided Exam vs Purity Solver
+  const [studioMode, setStudioMode] = useState<'explore' | 'guided_exam' | 'purity_solver'>('explore');
 
   // Audio mute state
   const [audioMuted, setAudioMuted] = useState<boolean>(isAudioMuted());
@@ -234,6 +355,14 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   const [titrantAddedMl, setTitrantAddedMl] = useState<number>(15.0);
   const [isStirring, setIsStirring] = useState<boolean>(true);
 
+  // Stopcock continuous flow simulation state
+  const [flowRate, setFlowRate] = useState<FlowRate>('closed');
+  const [autoStopEquivalence, setAutoStopEquivalence] = useState<boolean>(true);
+  const [dripAnimationTick, setDripAnimationTick] = useState<number>(0);
+
+  // Titration curve options
+  const [showDerivative, setShowDerivative] = useState<boolean>(false);
+
   // Guided Practical Exam Trials state
   const [trials, setTrials] = useState<TrialRecord[]>([
     { id: 1, initialMl: 0.0, finalMl: 0.0, titreMl: 0.0, logged: false },
@@ -244,6 +373,16 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   const [reportExported, setReportExported] = useState<boolean>(false);
   const [csvExported, setCsvExported] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+
+  // Purity Solver state
+  const [selectedPurityPresetId, setSelectedPurityPresetId] = useState<string>('preset_2024_naoh');
+  const [customSampleMass, setCustomSampleMass] = useState<number>(0.200);
+  const [customMolarMass, setCustomMolarMass] = useState<number>(40.0);
+  const [customTitrantMolarity, setCustomTitrantMolarity] = useState<number>(0.10);
+  const [customTitrantVolume, setCustomTitrantVolume] = useState<number>(20.0);
+  const [customNa, setCustomNa] = useState<number>(1);
+  const [customNb, setCustomNb] = useState<number>(1);
+  const [customIsBase, setCustomIsBase] = useState<boolean>(true);
 
   const currentSystem = useMemo(() => {
     return SYSTEMS.find((s) => s.id === selectedSystemId) || SYSTEMS[0];
@@ -393,6 +532,170 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
   const isHalfEquivalence =
     currentSystem.pKa1 && Math.abs(titrantAddedMl - currentSystem.eqVolumeMl / 2) < 0.4;
 
+  // Continuous Flow Simulation Effect
+  useEffect(() => {
+    if (flowRate === 'closed') return;
+
+    const intervalMs = flowRate === 'slow' ? 550 : flowRate === 'fast' ? 180 : 70;
+    const volIncrement = flowRate === 'slow' ? 0.05 : flowRate === 'fast' ? 0.05 : 0.12;
+
+    const intervalId = window.setInterval(() => {
+      setTitrantAddedMl((prev) => {
+        const targetEq =
+          studioMode === 'guided_exam'
+            ? GUIDED_UNKNOWN_ACID.trueEquivalenceMl
+            : currentSystem.eqVolumeMl;
+        const nextVal = prev + volIncrement;
+
+        if (autoStopEquivalence && prev < targetEq && nextVal >= targetEq) {
+          setFlowRate('closed');
+          playSuccessFanfare();
+          return parseFloat(targetEq.toFixed(2));
+        }
+
+        if (nextVal >= 50.0) {
+          setFlowRate('closed');
+          return 50.0;
+        }
+
+        if (flowRate !== 'stream' || Math.random() < 0.25) {
+          playBuretteDrip();
+        }
+
+        return parseFloat(nextVal.toFixed(2));
+      });
+
+      setDripAnimationTick((t) => (t + 1) % 100);
+    }, intervalMs);
+
+    return () => window.clearInterval(intervalId);
+  }, [flowRate, autoStopEquivalence, currentSystem.eqVolumeMl, studioMode]);
+
+  // First-Derivative (dpH / dV) Curve Calculation
+  const derivativeData = useMemo(() => {
+    if (curvePoints.length < 3) return { pathD: '', maxDeriv: 0, peakPoint: null };
+
+    const pts: { x: number; v: number; deriv: number }[] = [];
+    let maxD = 0;
+    let peakV = currentSystem.eqVolumeMl;
+    let peakX = 45;
+
+    for (let i = 1; i < curvePoints.length - 1; i++) {
+      const prev = curvePoints[i - 1];
+      const next = curvePoints[i + 1];
+      const curr = curvePoints[i];
+      const dv = next.v - prev.v;
+      const dph = Math.abs(next.ph - prev.ph);
+      const deriv = dv > 0 ? dph / dv : 0;
+      pts.push({ x: curr.x, v: curr.v, deriv });
+      if (deriv > maxD) {
+        maxD = deriv;
+        peakV = curr.v;
+        peakX = curr.x;
+      }
+    }
+
+    if (maxD <= 0) maxD = 1;
+
+    const baselineY = 205;
+    const maxDerivHeight = 160;
+
+    let dStr = '';
+    pts.forEach((p, idx) => {
+      const dy = baselineY - (p.deriv / maxD) * maxDerivHeight;
+      dStr += idx === 0 ? `M ${p.x},${dy}` : ` L ${p.x},${dy}`;
+    });
+
+    const peakY = baselineY - maxDerivHeight;
+
+    return {
+      pathD: dStr,
+      maxDeriv: maxD,
+      peakPoint: { x: peakX, y: peakY, v: peakV },
+    };
+  }, [curvePoints, currentSystem.eqVolumeMl]);
+
+  // Dynamic Buffer Capacity Index (beta)
+  const bufferCapacity = useMemo(() => {
+    const hConc = Math.pow(10, -currentPH);
+    const ohConc = Math.pow(10, -(14 - currentPH));
+    if (currentSystem.id === 'weak_acid_strong_base' && currentSystem.pKa1) {
+      const Ka = Math.pow(10, -currentSystem.pKa1);
+      const cTotal = (0.10 * 25.0) / (25.0 + titrantAddedMl);
+      const betaAcid = (cTotal * Ka * hConc) / Math.pow(Ka + hConc, 2);
+      return Math.min(0.25, Math.max(0.001, 2.303 * (hConc + ohConc + betaAcid)));
+    }
+    return Math.min(0.25, Math.max(0.001, 2.303 * (hConc + ohConc)));
+  }, [currentPH, currentSystem, titrantAddedMl]);
+
+  // Purity Solver Memoized Calculations
+  const activePurityPreset = useMemo(() => {
+    return PURITY_PRESETS.find((p) => p.id === selectedPurityPresetId) || PURITY_PRESETS[0];
+  }, [selectedPurityPresetId]);
+
+  const purityParams = useMemo(() => {
+    if (selectedPurityPresetId === 'preset_custom') {
+      return {
+        sampleMass: customSampleMass,
+        molarMass: customMolarMass,
+        titrantM: customTitrantMolarity,
+        titrantV: customTitrantVolume,
+        na: customNa,
+        nb: customNb,
+        isBase: customIsBase,
+        titleAr: 'مسألة مخصصة',
+        titleEn: 'Custom Problem',
+        formula: '\\text{Analyte}',
+        titrantFormula: '\\text{Titrant}',
+      };
+    }
+    return {
+      sampleMass: activePurityPreset.sampleMassG,
+      molarMass: activePurityPreset.molarMass,
+      titrantM: activePurityPreset.titrantMolarity,
+      titrantV: activePurityPreset.titrantVolumeMl,
+      na: activePurityPreset.na,
+      nb: activePurityPreset.nb,
+      isBase: activePurityPreset.isAnalyteBase,
+      titleAr: activePurityPreset.titleAr,
+      titleEn: activePurityPreset.titleEn,
+      formula: activePurityPreset.sampleFormula,
+      titrantFormula: activePurityPreset.titrantFormula,
+    };
+  }, [
+    selectedPurityPresetId,
+    activePurityPreset,
+    customSampleMass,
+    customMolarMass,
+    customTitrantMolarity,
+    customTitrantVolume,
+    customNa,
+    customNb,
+    customIsBase,
+  ]);
+
+  const purityCalculation = useMemo(() => {
+    const { sampleMass, molarMass, titrantM, titrantV, na, nb, isBase } = purityParams;
+    const titrantMoles = titrantM * (titrantV / 1000);
+    const analyteMoles = isBase
+      ? (titrantMoles * nb) / Math.max(1, na)
+      : (titrantMoles * na) / Math.max(1, nb);
+
+    const pureMass = analyteMoles * molarMass;
+    const purityPct = sampleMass > 0 ? Math.min(100, Math.max(0, (pureMass / sampleMass) * 100)) : 0;
+    const impurityPct = Math.max(0, 100 - purityPct);
+    const impurityMass = Math.max(0, sampleMass - pureMass);
+
+    return {
+      titrantMoles,
+      analyteMoles,
+      pureMass,
+      purityPct,
+      impurityPct,
+      impurityMass,
+    };
+  }, [purityParams]);
+
   // Guided Exam calculations & stats
   const loggedTrials = trials.filter((t) => t.logged);
   const averageTitreMl = useMemo(() => {
@@ -405,7 +708,7 @@ export const InteractiveTitrationStudio: React.FC<Props> = ({
     if (loggedTrials.length < 2) return true;
     const maxT = Math.max(...loggedTrials.map((t) => t.titreMl));
     const minT = Math.min(...loggedTrials.map((t) => t.titreMl));
-    return maxT - minT <= 0.2;
+    return Math.round((maxT - minT) * 100) / 100 <= 0.2;
   }, [loggedTrials]);
 
   // Log current reading into trial
@@ -679,9 +982,9 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
 
         {/* Mode Switcher & Tools */}
         <div className="flex flex-wrap items-center gap-2">
-          {/* Explore vs Guided MoE Exam Toggle */}
+          {/* Explore vs Guided MoE Exam vs Purity Solver Toggle */}
           <div
-            className={`flex items-center p-1 rounded-xl border text-xs ${
+            className={`flex items-center p-1 rounded-xl border text-xs flex-wrap ${
               isLight ? 'bg-slate-100 border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#0D1117] border-[#30363D]'
             }`}
           >
@@ -718,11 +1021,28 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>{isAr ? 'امتحان المعمل الوزاري (12 درجة)' : 'MoE Practical Exam (12 Marks)'}</span>
+              <span>{isAr ? 'امتحان المعمل (12 درجة)' : 'MoE Practical (12 Marks)'}</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                playTactileClick();
+                setStudioMode('purity_solver');
+              }}
+              className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                studioMode === 'purity_solver'
+                  ? 'bg-purple-600 text-white shadow-xs'
+                  : isLight
+                  ? 'text-slate-600 hover:text-slate-900'
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              <Calculator className="w-3.5 h-3.5" />
+              <span>{isAr ? 'حاسبة نسبة النقاء' : 'Purity & Stoichiometry'}</span>
             </button>
           </div>
 
-          {/* System & Indicator Selector (in explore mode) */}
+          {/* System & Indicator Selector / Purity Presets */}
           {studioMode === 'explore' ? (
             <>
               <select
@@ -770,6 +1090,27 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                 ))}
               </select>
             </>
+          ) : studioMode === 'purity_solver' ? (
+            <select
+              value={selectedPurityPresetId}
+              onChange={(e) => {
+                playTactileClick();
+                setSelectedPurityPresetId(e.target.value);
+              }}
+              className={`border text-xs font-bold rounded-xl px-3 py-1.5 focus:outline-hidden focus:ring-2 focus:ring-purple-500/50 cursor-pointer ${
+                isLight
+                  ? 'bg-slate-100 border-slate-300 text-slate-800'
+                  : isContrast
+                  ? 'bg-black border-white text-white'
+                  : 'bg-[#0D1117] border-[#30363D] text-slate-200'
+              }`}
+            >
+              {PURITY_PRESETS.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {isAr ? `${p.yearAr}: ${p.titleAr}` : `${p.yearEn}: ${p.titleEn}`}
+                </option>
+              ))}
+            </select>
           ) : (
             <div
               className={`text-xs border font-bold px-3 py-1.5 rounded-xl ${
@@ -873,15 +1214,35 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                       : 'pH Titration Curve vs Added Volume (mL)'}
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-[11px] font-mono tabular-mono">
-                  <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      playTactileClick();
+                      setShowDerivative((prev) => !prev);
+                    }}
+                    className={`px-2.5 py-0.5 rounded-lg text-[11px] font-bold border transition-all cursor-pointer flex items-center gap-1 ${
+                      showDerivative
+                        ? 'bg-amber-500/20 text-amber-500 border-amber-500/50 shadow-xs'
+                        : isLight
+                        ? 'bg-slate-100 hover:bg-slate-200 text-slate-600 border-slate-300'
+                        : isContrast
+                        ? 'bg-black text-white border-white'
+                        : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+                    }`}
+                    title={isAr ? 'عرض المنحنى التفاضلي الأول لتحديد نقطة الانعطاف بدقة' : 'Toggle first derivative curve (dpH/dV) to pinpoint inflection peak'}
+                  >
+                    <TrendingUp className="w-3 h-3 text-amber-500" />
+                    <span>{isAr ? 'المنحنى التفاضلي dpH/dV' : 'Derivative dpH/dV'}</span>
+                  </button>
+                  <span className="text-emerald-600 dark:text-emerald-400 font-bold font-mono tabular-mono text-[11px]">
                     {isAr
-                      ? `الحجم المضاف: ${toHindiDigits(titrantAddedMl.toFixed(1))} ملل`
+                      ? `الحجم: ${toHindiDigits(titrantAddedMl.toFixed(1))} ملل`
                       : `V: ${titrantAddedMl.toFixed(1)} mL`}
                   </span>
-                  <span className="text-cyan-600 dark:text-cyan-400 font-bold">
+                  <span className="text-cyan-600 dark:text-cyan-400 font-bold font-mono tabular-mono text-[11px]">
                     {isAr
-                      ? `الرقم الهيدروجيني: ${toHindiDigits(currentPH.toFixed(2))}`
+                      ? `pH: ${toHindiDigits(currentPH.toFixed(2))}`
                       : `pH: ${currentPH.toFixed(2)}`}
                   </span>
                 </div>
@@ -983,6 +1344,45 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                     strokeLinejoin="round"
                   />
 
+                  {/* First-Derivative (dpH / dV) Curve Overlay */}
+                  {showDerivative && (
+                    <g>
+                      <path
+                        d={derivativeData.pathD}
+                        fill="none"
+                        stroke="#f59e0b"
+                        strokeWidth="2"
+                        strokeDasharray="4 2"
+                        strokeLinecap="round"
+                        className="transition-all duration-300"
+                      />
+                      {derivativeData.peakPoint && (
+                        <g>
+                          <circle
+                            cx={derivativeData.peakPoint.x}
+                            cy={derivativeData.peakPoint.y}
+                            r="4.5"
+                            fill="#f59e0b"
+                            stroke="#ffffff"
+                            strokeWidth="1.5"
+                          />
+                          <text
+                            x={derivativeData.peakPoint.x + 8}
+                            y={derivativeData.peakPoint.y + 4}
+                            fill="#f59e0b"
+                            fontSize="8"
+                            fontWeight="bold"
+                            fontFamily="monospace"
+                          >
+                            {isAr
+                              ? `ذروة الانعطاف (${toHindiDigits(derivativeData.peakPoint.v)} ملل)`
+                              : `Inflection Peak (${derivativeData.peakPoint.v} mL)`}
+                          </text>
+                        </g>
+                      )}
+                    </g>
+                  )}
+
                   {/* Equivalence Point Mark */}
                   {(() => {
                     const eqX = 45 + (currentSystem.eqVolumeMl / 50) * 415;
@@ -1039,7 +1439,7 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                 </svg>
               </div>
             </>
-          ) : (
+          ) : studioMode === 'guided_exam' ? (
             /* Guided MoE Practical Exam Worksheet View */
             <div className="space-y-3.5">
               <div
@@ -1300,15 +1700,420 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                 </div>
               </div>
             </div>
+          ) : (
+            /* Ministerial Purity & Mixture Stoichiometry Solver View */
+            <div className="space-y-3.5">
+              <div
+                className={`flex items-center justify-between pb-2 border-b ${
+                  isLight ? 'border-slate-200' : isContrast ? 'border-white' : 'border-[#30363D]'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <Calculator className="w-4 h-4 text-purple-500" />
+                  <span
+                    className={`text-xs font-bold ${
+                      isLight ? 'text-slate-900' : isContrast ? 'text-white' : 'text-slate-200'
+                    }`}
+                  >
+                    {isAr
+                      ? 'حاسبة نسبة النقاء ومسائل المعايرة والتحليل الكمي الكتلوي'
+                      : 'Ministerial Purity Percentage & Stoichiometric Mixture Solver'}
+                  </span>
+                </div>
+                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-600 dark:text-purple-300 border border-purple-500/30">
+                  {isAr ? activePurityPreset.yearAr : activePurityPreset.yearEn}
+                </span>
+              </div>
+
+              {/* Question Statement Card */}
+              <div
+                className={`p-3 rounded-2xl border text-xs space-y-1.5 ${
+                  isContrast
+                    ? 'bg-black border-white text-white'
+                    : isLight
+                    ? 'bg-purple-50/60 border-purple-200 text-purple-950'
+                    : 'bg-purple-950/20 border-purple-800/40 text-purple-200'
+                }`}
+              >
+                <div className="flex items-center gap-1.5 font-bold text-[11px] text-purple-600 dark:text-purple-300">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  <span>{isAr ? 'نص مسألة الامتحان الوزاري:' : 'Ministerial Exam Problem:'}</span>
+                </div>
+                <p className="leading-relaxed text-[11px]">
+                  {isAr ? activePurityPreset.questionAr : activePurityPreset.questionEn}
+                </p>
+              </div>
+
+              {/* Interactive Inputs (Custom or Active Preset Parameters) */}
+              <div
+                className={`p-3 rounded-2xl border space-y-2.5 text-xs ${
+                  isContrast
+                    ? 'bg-black border-white text-white'
+                    : isLight
+                    ? 'bg-slate-50 border-slate-200 text-slate-800'
+                    : 'bg-[#0D1117] border-[#30363D] text-slate-300'
+                }`}
+              >
+                <div className="flex items-center justify-between font-bold text-[11px]">
+                  <span className={isLight ? 'text-slate-700' : 'text-slate-300'}>
+                    {isAr ? 'معطيات المسألة والمعايرة:' : 'Titration & Sample Variables:'}
+                  </span>
+                  <span className="text-purple-600 dark:text-purple-400 font-mono">
+                    {purityParams.formula} + {purityParams.titrantFormula}
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                  <div>
+                    <label className={`block text-[10px] mb-1 font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'كتلة العينة غير النقية (جم):' : 'Sample Mass (g):'}
+                    </label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      value={selectedPurityPresetId === 'preset_custom' ? customSampleMass : activePurityPreset.sampleMassG}
+                      onChange={(e) => setCustomSampleMass(parseFloat(e.target.value) || 0)}
+                      className={`w-full border px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900 disabled:bg-slate-100 disabled:text-slate-700'
+                          : isContrast
+                          ? 'bg-black border-white text-white disabled:opacity-80'
+                          : 'bg-[#161B22] border-[#30363D] text-emerald-400 disabled:opacity-80'
+                      }`}
+                    />
+                  </div>
+
+                  <div>
+                    <label className={`block text-[10px] mb-1 font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'الكتلة المولية للمادة (جم/مول):' : 'Molar Mass (g/mol):'}
+                    </label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      value={selectedPurityPresetId === 'preset_custom' ? customMolarMass : activePurityPreset.molarMass}
+                      onChange={(e) => setCustomMolarMass(parseFloat(e.target.value) || 1)}
+                      className={`w-full border px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900 disabled:bg-slate-100 disabled:text-slate-700'
+                          : isContrast
+                          ? 'bg-black border-white text-white disabled:opacity-80'
+                          : 'bg-[#161B22] border-[#30363D] text-emerald-400 disabled:opacity-80'
+                      }`}
+                    />
+                  </div>
+
+                  <div>
+                    <label className={`block text-[10px] mb-1 font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'تركيز المحلول القياسي (M):' : 'Titrant Molarity (M):'}
+                    </label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      value={selectedPurityPresetId === 'preset_custom' ? customTitrantMolarity : activePurityPreset.titrantMolarity}
+                      onChange={(e) => setCustomTitrantMolarity(parseFloat(e.target.value) || 0)}
+                      className={`w-full border px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900 disabled:bg-slate-100 disabled:text-slate-700'
+                          : isContrast
+                          ? 'bg-black border-white text-white disabled:opacity-80'
+                          : 'bg-[#161B22] border-[#30363D] text-cyan-400 disabled:opacity-80'
+                      }`}
+                    />
+                  </div>
+
+                  <div>
+                    <label className={`block text-[10px] mb-1 font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'حجم المعايرة المستهلك (ملل):' : 'Titrant Volume (mL):'}
+                    </label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      value={selectedPurityPresetId === 'preset_custom' ? customTitrantVolume : activePurityPreset.titrantVolumeMl}
+                      onChange={(e) => setCustomTitrantVolume(parseFloat(e.target.value) || 0)}
+                      className={`w-full border px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900 disabled:bg-slate-100 disabled:text-slate-700'
+                          : isContrast
+                          ? 'bg-black border-white text-white disabled:opacity-80'
+                          : 'bg-[#161B22] border-[#30363D] text-cyan-400 disabled:opacity-80'
+                      }`}
+                    />
+                  </div>
+
+                  <div>
+                    <label className={`block text-[10px] mb-1 font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'معامل الحمض بالمعادلة (na):' : 'Acid Coeff. (na):'}
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      max="10"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      value={selectedPurityPresetId === 'preset_custom' ? customNa : activePurityPreset.na}
+                      onChange={(e) => setCustomNa(parseInt(e.target.value) || 1)}
+                      className={`w-full border px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900 disabled:bg-slate-100 disabled:text-slate-700'
+                          : isContrast
+                          ? 'bg-black border-white text-white disabled:opacity-80'
+                          : 'bg-[#161B22] border-[#30363D] text-amber-400 disabled:opacity-80'
+                      }`}
+                    />
+                  </div>
+
+                  <div>
+                    <label className={`block text-[10px] mb-1 font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'معامل القلوي بالمعادلة (nb):' : 'Base Coeff. (nb):'}
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      max="10"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      value={selectedPurityPresetId === 'preset_custom' ? customNb : activePurityPreset.nb}
+                      onChange={(e) => setCustomNb(parseInt(e.target.value) || 1)}
+                      className={`w-full border px-2 py-1 rounded-lg text-xs font-mono font-bold ${
+                        isLight
+                          ? 'bg-white border-slate-300 text-slate-900 disabled:bg-slate-100 disabled:text-slate-700'
+                          : isContrast
+                          ? 'bg-black border-white text-white disabled:opacity-80'
+                          : 'bg-[#161B22] border-[#30363D] text-amber-400 disabled:opacity-80'
+                      }`}
+                    />
+                  </div>
+
+                  <div className="col-span-2 flex items-center justify-between pt-1">
+                    <span className={`text-[10px] font-bold ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                      {isAr ? 'نوع العينة المراد حساب نقائها:' : 'Analyte Type:'}
+                    </span>
+                    <button
+                      type="button"
+                      disabled={selectedPurityPresetId !== 'preset_custom'}
+                      onClick={() => setCustomIsBase(!customIsBase)}
+                      className={`text-xs px-2.5 py-1 rounded-lg border font-bold transition-colors ${
+                        (selectedPurityPresetId === 'preset_custom' ? customIsBase : activePurityPreset.isAnalyteBase)
+                          ? 'bg-blue-500/20 text-blue-600 dark:text-blue-400 border-blue-500/40'
+                          : 'bg-rose-500/20 text-rose-600 dark:text-rose-400 border-rose-500/40'
+                      }`}
+                    >
+                      {(selectedPurityPresetId === 'preset_custom' ? customIsBase : activePurityPreset.isAnalyteBase)
+                        ? (isAr ? 'قاعدة / ملح قاعدي (Base)' : 'Base / Basic Salt')
+                        : (isAr ? 'حمض (Acid)' : 'Acid')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Visual Purity Proportion Bar */}
+              <div
+                className={`p-3 rounded-2xl border space-y-2 text-xs ${
+                  isContrast
+                    ? 'bg-black border-white text-white'
+                    : isLight
+                    ? 'bg-white border-slate-200 text-slate-800'
+                    : 'bg-[#0D1117] border-[#30363D] text-slate-200'
+                }`}
+              >
+                <div className="flex items-center justify-between font-bold">
+                  <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>{isAr ? 'النسبة المئوية للنقاء المحسوبة:' : 'Calculated Percentage Purity:'}</span>
+                  </span>
+                  <span className="text-xl font-mono tabular-mono font-black text-emerald-600 dark:text-emerald-400">
+                    {isAr ? toHindiDigits(purityCalculation.purityPct.toFixed(2)) : purityCalculation.purityPct.toFixed(2)}%
+                  </span>
+                </div>
+
+                {/* Stacked Visual Bar */}
+                <div className="w-full h-6 rounded-xl overflow-hidden flex border border-slate-700/50 shadow-inner">
+                  <div
+                    style={{ width: `${purityCalculation.purityPct}%` }}
+                    className="h-full bg-emerald-500 flex items-center justify-center text-[10px] font-black text-slate-950 transition-all duration-500 overflow-hidden px-1"
+                    title={isAr ? `المادة النقية: ${purityCalculation.pureMass.toFixed(3)} جم` : `Pure: ${purityCalculation.pureMass.toFixed(3)} g`}
+                  >
+                    {purityCalculation.purityPct >= 15 && (
+                      <span>{isAr ? `نقي ${purityCalculation.purityPct.toFixed(1)}%` : `Pure ${purityCalculation.purityPct.toFixed(1)}%`}</span>
+                    )}
+                  </div>
+                  <div
+                    style={{ width: `${purityCalculation.impurityPct}%` }}
+                    className="h-full bg-rose-500/80 flex items-center justify-center text-[10px] font-black text-white transition-all duration-500 overflow-hidden px-1"
+                    title={isAr ? `شوائب: ${purityCalculation.impurityMass.toFixed(3)} جم` : `Impurities: ${purityCalculation.impurityMass.toFixed(3)} g`}
+                  >
+                    {purityCalculation.impurityPct >= 15 && (
+                      <span>{isAr ? `شوائب ${purityCalculation.impurityPct.toFixed(1)}%` : `Impurities ${purityCalculation.impurityPct.toFixed(1)}%`}</span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-[11px] font-mono tabular-mono text-slate-400 pt-1">
+                  <span>{isAr ? `كتلة المادة النقية: ${purityCalculation.pureMass.toFixed(4)} جم` : `Pure Mass: ${purityCalculation.pureMass.toFixed(4)} g`}</span>
+                  <span>{isAr ? `كتلة الشوائب: ${purityCalculation.impurityMass.toFixed(4)} جم` : `Impurities: ${purityCalculation.impurityMass.toFixed(4)} g`}</span>
+                </div>
+              </div>
+
+              {/* Step-by-Step KaTeX Derivation Cards */}
+              <div className="space-y-2">
+                <span className="text-xs font-bold text-indigo-600 dark:text-indigo-300 block">
+                  {isAr ? 'خطوات الحل النموذجية وفق معايير وزارة التربية والتعليم:' : 'Step-by-Step Ministerial Solution Breakdown:'}
+                </span>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <div className={`p-2.5 rounded-xl border space-y-1 ${isLight ? 'bg-slate-50 border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
+                    <span className="font-bold text-[10px] text-slate-400 block">
+                      {isAr ? '١. قانون المعايرة والتكافؤ' : '1. Stoichiometric Law'}
+                    </span>
+                    <div className="font-mono text-xs">
+                      <MathRenderer text="$$\\frac{M_a \\cdot V_a}{n_a} = \\frac{M_b \\cdot V_b}{n_b}$$" />
+                    </div>
+                  </div>
+
+                  <div className={`p-2.5 rounded-xl border space-y-1 ${isLight ? 'bg-slate-50 border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
+                    <span className="font-bold text-[10px] text-slate-400 block">
+                      {isAr ? '٢. عدد مولات المادة النقية المتفاعلة (n)' : '2. Reacted Pure Moles (n)'}
+                    </span>
+                    <div className="font-mono text-xs">
+                      <MathRenderer
+                        text={`$$n = \\frac{${purityParams.titrantM.toFixed(2)} \\times ${(purityParams.titrantV / 1000).toFixed(4)} \\times ${purityParams.isBase ? purityParams.nb : purityParams.na}}{${purityParams.isBase ? purityParams.na : purityParams.nb}} = ${purityCalculation.analyteMoles.toFixed(4)} \\text{ mol}$$`}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={`p-2.5 rounded-xl border space-y-1 ${isLight ? 'bg-slate-50 border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
+                    <span className="font-bold text-[10px] text-slate-400 block">
+                      {isAr ? '٣. كتلة المادة النقية (جم)' : '3. Mass of Pure Substance (g)'}
+                    </span>
+                    <div className="font-mono text-xs">
+                      <MathRenderer
+                        text={`$$m_{\\text{pure}} = n \\times M_m = ${purityCalculation.analyteMoles.toFixed(4)} \\times ${purityParams.molarMass} = ${purityCalculation.pureMass.toFixed(4)} \\text{ g}$$`}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={`p-2.5 rounded-xl border space-y-1 ${isLight ? 'bg-slate-50 border-slate-200' : isContrast ? 'bg-black border-white' : 'bg-[#161B22] border-[#30363D]'}`}>
+                    <span className="font-bold text-[10px] text-slate-400 block">
+                      {isAr ? '٤. النسبة المئوية للنقاء والشوائب' : '4. Percentage Purity & Impurities'}
+                    </span>
+                    <div className="font-mono text-xs">
+                      <MathRenderer
+                        text={`$$\\text{Purity} = \\frac{${purityCalculation.pureMass.toFixed(3)}}{${purityParams.sampleMass.toFixed(3)}} \\times 100\\% = ${purityCalculation.purityPct.toFixed(2)}\\%$$`}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
 
-          {/* Slider & Quick Titration Controls (Active in both modes) */}
+          {/* Slider & Quick Titration Controls (Active across all modes) */}
           <div className={`space-y-2 pt-2 border-t shrink-0 ${isLight ? 'border-slate-200' : isContrast ? 'border-white' : 'border-[#30363D]'}`}>
+            {/* Automated Flow Controls Toolbar */}
+            <div
+              className={`flex flex-wrap items-center justify-between gap-2 p-2 rounded-2xl border text-xs ${
+                isContrast
+                  ? 'bg-black border-white text-white'
+                  : isLight
+                  ? 'bg-slate-100 border-slate-200 text-slate-800'
+                  : 'bg-[#0D1117] border-[#30363D] text-slate-300'
+              }`}
+            >
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[11px] font-bold">
+                  {isAr ? 'صنبور السحاحة:' : 'Stopcock:'}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    playTactileClick();
+                    setFlowRate('closed');
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                    flowRate === 'closed'
+                      ? 'bg-rose-600 text-white shadow-xs'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-300'
+                      : 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700'
+                  }`}
+                >
+                  <Pause className="w-3 h-3" />
+                  <span>{isAr ? 'مغلق' : 'Closed'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    playTactileClick();
+                    setFlowRate('slow');
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                    flowRate === 'slow'
+                      ? 'bg-emerald-600 text-white shadow-xs'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-300'
+                      : 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700'
+                  }`}
+                >
+                  <Droplet className="w-3 h-3" />
+                  <span>{isAr ? 'تنقيط بطيء' : 'Slow Drip'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    playTactileClick();
+                    setFlowRate('fast');
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                    flowRate === 'fast'
+                      ? 'bg-cyan-600 text-white shadow-xs'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-300'
+                      : 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700'
+                  }`}
+                >
+                  <FastForward className="w-3 h-3" />
+                  <span>{isAr ? 'تنقيط سريع' : 'Fast Drip'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    playTactileClick();
+                    setFlowRate('stream');
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                    flowRate === 'stream'
+                      ? 'bg-indigo-600 text-white shadow-xs'
+                      : isLight
+                      ? 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-300'
+                      : 'bg-slate-800 text-slate-400 hover:text-white border border-slate-700'
+                  }`}
+                >
+                  <Play className="w-3 h-3" />
+                  <span>{isAr ? 'تدفق مستمر' : 'Stream'}</span>
+                </button>
+              </div>
+
+              {/* Auto-stop at Equivalence Checkbox */}
+              <label className="flex items-center gap-1.5 cursor-pointer text-[11px] select-none font-bold">
+                <input
+                  type="checkbox"
+                  checked={autoStopEquivalence}
+                  onChange={(e) => setAutoStopEquivalence(e.target.checked)}
+                  className="rounded text-emerald-600 focus:ring-emerald-500 cursor-pointer"
+                />
+                <span className={isLight ? 'text-slate-700' : 'text-slate-300'}>
+                  {isAr ? 'توقف تلقائي عند التكافؤ' : 'Auto-stop at Equiv.'}
+                </span>
+              </label>
+            </div>
+
             <div className="flex items-center justify-between text-xs font-bold">
               <span className={`flex items-center gap-1.5 ${isLight ? 'text-slate-800' : isContrast ? 'text-white' : 'text-slate-300'}`}>
                 <Droplet className="w-3.5 h-3.5 text-cyan-500" />
                 <span>
-                  {isAr ? 'التحكم في صنبور السحاحة (حجم المحلول القياسي):' : 'Burette Stopcock (Titrant Added):'}
+                  {isAr ? 'التحكم اليدوي بالسحاحة (الحجم المضاف):' : 'Burette Stopcock (Titrant Added):'}
                 </span>
               </span>
               <span className="font-mono tabular-mono text-cyan-600 dark:text-cyan-300 font-black">
@@ -1452,6 +2257,9 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
 
               <div className="flex items-center justify-between text-[10px] font-mono tabular-mono text-slate-400 pt-2 mt-2 border-t border-slate-800/80">
                 <span>T = 25.0 °C (298 K)</span>
+                <span className="text-cyan-400 font-bold" title="Buffer Capacity Index β">
+                  β = {bufferCapacity.toFixed(3)}
+                </span>
                 <span>Slope: 99.2% Nernstian</span>
               </div>
             </div>
@@ -1668,19 +2476,91 @@ $$M_a = \\frac{${GUIDED_UNKNOWN_ACID.standardBaseMolarity} \\times ${averageTitr
                     fill="#0284c7"
                     stroke="#0369a1"
                     strokeWidth="0.8"
-                    transform={titrantAddedMl > 0 ? "rotate(70 105 196)" : "rotate(0 105 196)"}
+                    transform={`rotate(${
+                      flowRate === 'stream'
+                        ? 90
+                        : flowRate === 'fast'
+                        ? 60
+                        : flowRate === 'slow'
+                        ? 30
+                        : titrantAddedMl > 0
+                        ? 70
+                        : 0
+                    } 105 196)`}
                     className="transition-transform duration-300"
                   />
 
                   {/* Glass Discharge Jet Tip */}
                   <path d="M 102 202 L 108 202 L 106 222 L 104 222 Z" fill="#cbd5e1" stroke="#94a3b8" strokeWidth="1" />
 
-                  {/* Active Titrant Droplet */}
-                  {titrantAddedMl > 0 && titrantAddedMl < 50 && (
-                    <g className="animate-pulse">
-                      <ellipse cx="105" cy="230" rx="1.5" ry="2.5" fill="#38bdf8" />
+                  {/* Active Titrant Droplet / Liquid Jet Stream */}
+                  {flowRate === 'stream' ? (
+                    <g>
+                      {/* Continuous stream from tip to fluid surface */}
+                      <line
+                        x1="105"
+                        y1="222"
+                        x2="105"
+                        y2={325 - (titrantAddedMl / 50) * 25}
+                        stroke="#38bdf8"
+                        strokeWidth="1.8"
+                        strokeOpacity="0.85"
+                      />
+                      <line
+                        x1="104.5"
+                        y1="222"
+                        x2="104.5"
+                        y2={325 - (titrantAddedMl / 50) * 25}
+                        stroke="#ffffff"
+                        strokeWidth="0.7"
+                        strokeOpacity="0.6"
+                      />
+                      {/* Splash ripple at impact */}
+                      <ellipse
+                        cx="105"
+                        cy={325 - (titrantAddedMl / 50) * 25}
+                        rx="7"
+                        ry="2"
+                        fill="none"
+                        stroke="#38bdf8"
+                        strokeWidth="1.2"
+                        className="animate-ping origin-[105px_320px]"
+                      />
                     </g>
-                  )}
+                  ) : flowRate === 'slow' || flowRate === 'fast' ? (
+                    <g>
+                      {/* Falling droplet with animated Y position */}
+                      {(() => {
+                        const dropY = 224 + ((dripAnimationTick * (flowRate === 'fast' ? 12 : 7)) % 65);
+                        return (
+                          <ellipse
+                            cx="105"
+                            cy={Math.min(310, dropY)}
+                            rx="1.5"
+                            ry="2.6"
+                            fill="#38bdf8"
+                            stroke="#ffffff"
+                            strokeWidth="0.5"
+                          />
+                        );
+                      })()}
+                      {/* Surface ripple ring */}
+                      <ellipse
+                        cx="105"
+                        cy={325 - (titrantAddedMl / 50) * 25}
+                        rx={3 + (dripAnimationTick % 5)}
+                        ry={1 + (dripAnimationTick % 5) * 0.3}
+                        fill="none"
+                        stroke="#38bdf8"
+                        strokeWidth="0.8"
+                        opacity={0.8 - (dripAnimationTick % 5) * 0.15}
+                      />
+                    </g>
+                  ) : titrantAddedMl > 0 && titrantAddedMl < 50 ? (
+                    <g className="animate-pulse">
+                      <ellipse cx="105" cy="226" rx="1.5" ry="2.2" fill="#38bdf8" />
+                    </g>
+                  ) : null}
 
                   {/* 4. Conical Flask (Erlenmeyer, 250 mL) */}
                   {/* Dynamic Fluid Volume: base 25 mL at y=325, rises to y=300 at 75 mL */}
