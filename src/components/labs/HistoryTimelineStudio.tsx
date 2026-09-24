@@ -38,6 +38,10 @@ import {
   Zap,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { RosettaStoneDeciphererStudio } from './history/RosettaStoneDeciphererStudio';
+import { BarLevCrossingStudio } from './history/BarLevCrossingStudio';
+import { HistoricalTreatiesVault } from './history/HistoricalTreatiesVault';
+import { SuezCanalGeopoliticsViewer } from './history/SuezCanalGeopoliticsViewer';
 
 interface Props {
   lang?: Language;
@@ -47,7 +51,7 @@ interface Props {
   onClose?: () => void;
 }
 
-type HistoryTab = 'timeline' | 'map' | 'treaties' | 'cause_effect' | 'quiz';
+type HistoryTab = 'timeline' | 'rosetta' | 'barlev' | 'suez' | 'treaties' | 'map' | 'cause_effect' | 'quiz';
 
 // ---------------------------------------------------------------------------
 // 1. High-Resolution Cartographic & Tactical Vector Theater Map
@@ -1080,6 +1084,42 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
           </button>
 
           <button
+            onClick={() => setActiveTab('rosetta')}
+            className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'rosetta'
+                ? 'bg-gradient-to-r from-amber-500 to-stone-700 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            {isArabic ? 'حجر رشيد 1799' : 'Rosetta Stone'}
+          </button>
+
+          <button
+            onClick={() => setActiveTab('barlev')}
+            className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'barlev'
+                ? 'bg-gradient-to-r from-red-600 to-emerald-700 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Flag className="w-3.5 h-3.5" />
+            {isArabic ? 'ملحمة العبور 1973' : 'October Crossing'}
+          </button>
+
+          <button
+            onClick={() => setActiveTab('suez')}
+            className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
+              activeTab === 'suez'
+                ? 'bg-gradient-to-r from-blue-600 to-indigo-700 text-white shadow-md'
+                : 'text-slate-400 hover:text-white'
+            }`}
+          >
+            <Zap className="w-3.5 h-3.5" />
+            {isArabic ? 'قناة السويس' : 'Suez Canal'}
+          </button>
+
+          <button
             onClick={() => setActiveTab('map')}
             className={`px-3 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
               activeTab === 'map'
@@ -1158,6 +1198,77 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeTab === 'timeline' && (
           <div className="space-y-6">
+            {/* Museum Artifact Quick Jumps */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <button
+                onClick={() => setActiveTab('rosetta')}
+                className="flex items-center gap-3 p-3 rounded-2xl border border-amber-500/30 bg-stone-900/60 hover:bg-amber-950/40 text-start transition-all cursor-pointer group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black group-hover:scale-110 transition-transform">
+                  🏛️
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-amber-300">
+                    {isArabic ? 'حجر رشيد 1799' : 'Rosetta Stone 1799'}
+                  </div>
+                  <div className="text-[10px] text-stone-400">
+                    {isArabic ? 'فك الرموز الهيروغليفية' : 'Champollion Decipherer'}
+                  </div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('barlev')}
+                className="flex items-center gap-3 p-3 rounded-2xl border border-red-500/30 bg-stone-900/60 hover:bg-red-950/40 text-start transition-all cursor-pointer group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center font-black group-hover:scale-110 transition-transform">
+                  🎖️
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-red-300">
+                    {isArabic ? 'ملحمة العبور 1973' : 'October Crossing 1973'}
+                  </div>
+                  <div className="text-[10px] text-stone-400">
+                    {isArabic ? 'إسقاط ساتر خط بارليف' : 'Bar Lev Breach Physics'}
+                  </div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('suez')}
+                className="flex items-center gap-3 p-3 rounded-2xl border border-blue-500/30 bg-stone-900/60 hover:bg-blue-950/40 text-start transition-all cursor-pointer group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-black group-hover:scale-110 transition-transform">
+                  🚢
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-blue-300">
+                    {isArabic ? 'قناة السويس 1869' : 'Suez Canal 1869'}
+                  </div>
+                  <div className="text-[10px] text-stone-400">
+                    {isArabic ? 'شريان الملاحة والتأميم' : 'Sovereignty & Transit'}
+                  </div>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setActiveTab('treaties')}
+                className="flex items-center gap-3 p-3 rounded-2xl border border-amber-500/30 bg-stone-900/60 hover:bg-amber-950/40 text-start transition-all cursor-pointer group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black group-hover:scale-110 transition-transform">
+                  📜
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-amber-300">
+                    {isArabic ? 'خزانة المعاهدات' : 'Treaties Vault'}
+                  </div>
+                  <div className="text-[10px] text-stone-400">
+                    {isArabic ? 'لندن 1840 وسايكس بيكو' : '8 Core Royal Treaties'}
+                  </div>
+                </div>
+              </button>
+            </div>
+
             {/* Filter Bar */}
             <div className="flex flex-col gap-3 p-3.5 rounded-2xl bg-slate-900/60 border border-slate-800">
               <div className="flex flex-wrap items-center justify-between gap-3">
@@ -1356,6 +1467,27 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
         )}
 
         {/* ========================================================= */}
+        {/* MUSEUM ARCHIVAL STUDIOS: ROSETTA, BAR LEV, SUEZ CANAL */}
+        {/* ========================================================= */}
+        {activeTab === 'rosetta' && (
+          <div className="space-y-6">
+            <RosettaStoneDeciphererStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {activeTab === 'barlev' && (
+          <div className="space-y-6">
+            <BarLevCrossingStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {activeTab === 'suez' && (
+          <div className="space-y-6">
+            <SuezCanalGeopoliticsViewer isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {/* ========================================================= */}
         {/* TAB 2: STRATEGIC THEATER MAP */}
         {/* ========================================================= */}
         {activeTab === 'map' && (
@@ -1447,6 +1579,9 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeTab === 'treaties' && (
           <div className="space-y-6">
+            {/* Museum 4K Archival Treaties Vault (1840 Treaty of London & 8 Thanawya Amma Treaties) */}
+            <HistoricalTreatiesVault isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+
             {/* Treaty Selector Badges (min-h-[44px]) */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-slate-800">
               {PRIMARY_TREATIES_DOCUMENTS.map((tr) => (

@@ -455,6 +455,43 @@ for (const q of MINISTERIAL_HISTORY_CHALLENGE) {
   assert(!!q.explanationEn && !!q.explanationAr, `Quiz item ${q.id} has bilingual explanations`);
 }
 
+console.log('\n--- 8. Museum 4K Archival Assets & Specialized Studios Verification ---');
+const historyAssetsDir = path.join(process.cwd(), 'src', 'assets', 'historyLab');
+const requiredAssets = [
+  'rosetta_stone_1799.jpg',
+  'treaty_of_london_1840.jpg',
+  'suez_canal_inauguration_1869.jpg',
+  'october_crossing_barlev_1973.jpg',
+];
+
+for (const assetName of requiredAssets) {
+  const assetPath = path.join(historyAssetsDir, assetName);
+  assert(fs.existsSync(assetPath), `Archival asset exists: ${assetName}`);
+  if (fs.existsSync(assetPath)) {
+    const stats = fs.statSync(assetPath);
+    assert(stats.size > 100 * 1024, `Archival asset ${assetName} has high-res fidelity (>100KB, actual: ${(stats.size / 1024).toFixed(1)} KB)`);
+  }
+}
+
+const historyStudiosDir = path.join(process.cwd(), 'src', 'components', 'labs', 'history');
+const requiredStudios = [
+  'RosettaStoneDeciphererStudio.tsx',
+  'BarLevCrossingStudio.tsx',
+  'HistoricalTreatiesVault.tsx',
+  'SuezCanalGeopoliticsViewer.tsx',
+];
+
+for (const studioName of requiredStudios) {
+  const studioPath = path.join(historyStudiosDir, studioName);
+  assert(fs.existsSync(studioPath), `Specialized history studio exists: ${studioName}`);
+}
+
+const historyStudioCode = fs.readFileSync(historyStudioPath, 'utf8');
+assert(historyStudioCode.includes('RosettaStoneDeciphererStudio'), 'HistoryTimelineStudio mounts RosettaStoneDeciphererStudio');
+assert(historyStudioCode.includes('BarLevCrossingStudio'), 'HistoryTimelineStudio mounts BarLevCrossingStudio');
+assert(historyStudioCode.includes('HistoricalTreatiesVault'), 'HistoryTimelineStudio mounts HistoricalTreatiesVault');
+assert(historyStudioCode.includes('SuezCanalGeopoliticsViewer'), 'HistoryTimelineStudio mounts SuezCanalGeopoliticsViewer');
+
 console.log('\n------------------------------------------------------------');
 if (errors > 0) {
   console.error(`💥 Verification completed with ${errors} failures!`);
@@ -462,4 +499,5 @@ if (errors > 0) {
 } else {
   console.log('🎉 ALL HISTORY VERIFICATION CHECKS PASSED WITH 100% SUCCESS!');
 }
+
 
