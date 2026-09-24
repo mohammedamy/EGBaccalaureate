@@ -1810,6 +1810,16 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
               <stop offset="0%" stopColor="#f59e0b" />
               <stop offset="100%" stopColor="#b45309" />
             </linearGradient>
+            {/* Directional Arrowheads for Academic Source Transmission */}
+            <marker id="synopticArrowAmber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#f59e0b" />
+            </marker>
+            <marker id="synopticArrowPurple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#a855f7" />
+            </marker>
+            <marker id="synopticArrowCyan" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8" />
+            </marker>
           </defs>
 
           {/* Left Panel: The Four Evangelists (Tetramorph) */}
@@ -1847,6 +1857,9 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
           {evangelists.map((ev) => {
             const isSel = ev.id === selectedGospelId;
             const gospelData = GOSPEL_SYNOPTICS.find((g) => g.id === ev.id);
+            // Dynamic RTL / LTR layout mirroring: icon on right in Arabic, on left in English
+            const iconCx = isArabic ? 302 : 68;
+            const textX = isArabic ? 270 : 100;
 
             return (
               <g
@@ -1881,20 +1894,23 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
 
                 {/* Icon Medal */}
                 <circle
-                  cx="68"
+                  cx={iconCx}
                   cy={ev.y + 4}
                   r="19"
                   fill={isSel ? '#f59e0b' : isLight ? '#ffffff' : '#334155'}
                   stroke={isSel ? '#ffffff' : ev.accentColor}
                   strokeWidth="1.5"
                 />
-                <text x="68" y={ev.y + 9} textAnchor="middle" fontSize="16">
+                <text x={iconCx} y={ev.y + 9} textAnchor="middle" fontSize="16">
                   {ev.icon}
                 </text>
 
                 <text
-                  x="100"
+                  x={textX}
                   y={ev.y - 2}
+                  textAnchor={isArabic ? 'start' : 'start'}
+                  direction={isArabic ? 'rtl' : 'ltr'}
+                  style={{ direction: isArabic ? 'rtl' : 'ltr', unicodeBidi: 'plaintext' }}
                   fill={isSel ? '#ffffff' : isLight ? '#0f172a' : '#f8fafc'}
                   fontSize="11.5"
                   fontWeight="900"
@@ -1902,10 +1918,13 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
                   {isArabic ? ev.nameAr : ev.nameEn}
                 </text>
                 <text
-                  x="100"
+                  x={textX}
                   y={ev.y + 14}
+                  textAnchor={isArabic ? 'start' : 'start'}
+                  direction={isArabic ? 'rtl' : 'ltr'}
+                  style={{ direction: isArabic ? 'rtl' : 'ltr', unicodeBidi: 'plaintext' }}
                   fill={isSel ? '#fef08a' : isLight ? '#78350f' : '#cbd5e1'}
-                  fontSize="9"
+                  fontSize="8.5"
                   fontWeight="bold"
                 >
                   {isArabic ? ev.symbolAr : ev.symbolEn} • ({ev.verseCount})
@@ -1946,7 +1965,7 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
             {isArabic ? 'فرضية المصدرين في النقد الإزائي الأكاديمي' : 'Two-Source Hypothesis & Synoptic Interdependence'}
           </text>
 
-          {/* Markan Priority Box */}
+          {/* Markan Priority Box (Top Center-Left) */}
           <g
             className="cursor-pointer"
             onClick={() => {
@@ -1954,71 +1973,77 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
               if (m) onSelectGospel(m);
             }}
           >
-            <rect x="400" y="70" width="220" height="65" rx="10" fill="url(#markGrad)" stroke="#fde047" strokeWidth="1.5" />
-            <text x="510" y="96" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="900">
+            <rect x="425" y="68" width="205" height="62" rx="10" fill="url(#markGrad)" stroke="#fde047" strokeWidth="1.5" />
+            <text x="527.5" y="94" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="900">
               {isArabic ? 'أسبقية إنجيل مرقس (Mark)' : 'Markan Priority (Mark)'}
             </text>
-            <text x="510" y="116" textAnchor="middle" fill="#fef3c7" fontSize="8.5" fontWeight="bold">
+            <text x="527.5" y="114" textAnchor="middle" fill="#fef3c7" fontSize="8.5" fontWeight="bold">
               {isArabic ? 'أقدم الأناجيل تدويناً • ٦٦١ آية' : 'Earliest Gospel • 661 Verses'}
             </text>
           </g>
 
-          {/* Q Document Source */}
+          {/* Q Document Source (Top Center-Right) */}
           <g>
-            <rect x="655" y="70" width="225" height="65" rx="10" fill="url(#qSourceGrad)" stroke="#c084fc" strokeWidth="1.5" />
-            <text x="767.5" y="96" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="900">
+            <rect x="650" y="68" width="205" height="62" rx="10" fill="url(#qSourceGrad)" stroke="#c084fc" strokeWidth="1.5" />
+            <text x="752.5" y="94" textAnchor="middle" fill="#ffffff" fontSize="11" fontWeight="900">
               {isArabic ? 'وثيقة الأقوال Q (Quelle)' : 'Q Document (Quelle)'}
             </text>
-            <text x="767.5" y="116" textAnchor="middle" fill="#e9d5ff" fontSize="8.5" fontWeight="bold">
+            <text x="752.5" y="114" textAnchor="middle" fill="#e9d5ff" fontSize="8.5" fontWeight="bold">
               {isArabic ? 'أقوال وتعاليم مشتركة • ٢٣٠ آية' : 'Shared Sayings & Discourses • ~230 v'}
             </text>
           </g>
 
-          {/* Special M Source */}
+          {/* Special M Source (Middle Outer-Left Flank - Clear of all main lines) */}
           <rect
-            x="395"
-            y="175"
-            width="120"
-            height="38"
+            x="382"
+            y="160"
+            width="110"
+            height="46"
             rx="8"
             fill={isLight ? '#fef3c7' : '#1e293b'}
             stroke="#f59e0b"
             strokeWidth="1.2"
             strokeDasharray="3 3"
           />
-          <text x="455" y="192" textAnchor="middle" fill={isLight ? '#78350f' : '#fcd34d'} fontSize="9" fontWeight="900">
+          <text x="437" y="179" textAnchor="middle" fill={isLight ? '#78350f' : '#fcd34d'} fontSize="9.5" fontWeight="900">
             {isArabic ? 'خاص متى (M)' : 'Special M Source'}
           </text>
-          <text x="455" y="205" textAnchor="middle" fill={isLight ? '#92400e' : '#cbd5e1'} fontSize="7.5">
+          <text x="437" y="195" textAnchor="middle" fill={isLight ? '#92400e' : '#cbd5e1'} fontSize="7.5">
             {isArabic ? 'المجوس وعظة الجبل' : 'Magi & Beatitudes'}
           </text>
 
-          {/* Special L Source */}
+          {/* Special L Source (Middle Outer-Right Flank - Clear of all main lines) */}
           <rect
-            x="760"
-            y="175"
-            width="120"
-            height="38"
+            x="788"
+            y="160"
+            width="110"
+            height="46"
             rx="8"
             fill={isLight ? '#e0f2fe' : '#1e293b'}
             stroke="#38bdf8"
             strokeWidth="1.2"
             strokeDasharray="3 3"
           />
-          <text x="820" y="192" textAnchor="middle" fill={isLight ? '#0369a1' : '#7dd3fc'} fontSize="9" fontWeight="900">
+          <text x="843" y="179" textAnchor="middle" fill={isLight ? '#0369a1' : '#7dd3fc'} fontSize="9.5" fontWeight="900">
             {isArabic ? 'خاص لوقا (L)' : 'Special L Source'}
           </text>
-          <text x="820" y="205" textAnchor="middle" fill={isLight ? '#0284c7' : '#cbd5e1'} fontSize="7.5">
+          <text x="843" y="195" textAnchor="middle" fill={isLight ? '#0284c7' : '#cbd5e1'} fontSize="7.5">
             {isArabic ? 'السامري والابن الضال' : 'Good Samaritan & Luke'}
           </text>
 
-          {/* Connection Arrows */}
-          <path d="M 470,135 L 470,250" fill="none" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4 2" />
-          <path d="M 540,135 L 700,250" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 2" />
-          <path d="M 725,135 L 560,250" fill="none" stroke="#a855f7" strokeWidth="2" strokeDasharray="4 2" />
-          <path d="M 795,135 L 795,250" fill="none" stroke="#a855f7" strokeWidth="2.5" strokeDasharray="4 2" />
-          <path d="M 455,213 L 490,250" fill="none" stroke="#f59e0b" strokeWidth="1.5" />
-          <path d="M 820,213 L 785,250" fill="none" stroke="#38bdf8" strokeWidth="1.5" />
+          {/* Connection Arrows: Unobstructed lanes, zero overlap with M or L boxes */}
+          {/* 1. Mark -> Matthew direct downward line */}
+          <path d="M 527.5,130 L 527.5,246" fill="none" stroke="#f59e0b" strokeWidth="2.5" strokeDasharray="4 2" markerEnd="url(#synopticArrowAmber)" />
+          {/* 2. Mark -> Luke diagonal crossing line */}
+          <path d="M 590,130 L 690,246" fill="none" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4 2" markerEnd="url(#synopticArrowAmber)" />
+          {/* 3. Q -> Matthew diagonal crossing line */}
+          <path d="M 690,130 L 590,246" fill="none" stroke="#a855f7" strokeWidth="2" strokeDasharray="4 2" markerEnd="url(#synopticArrowPurple)" />
+          {/* 4. Q -> Luke direct downward line */}
+          <path d="M 752.5,130 L 752.5,246" fill="none" stroke="#a855f7" strokeWidth="2.5" strokeDasharray="4 2" markerEnd="url(#synopticArrowPurple)" />
+          {/* 5. Special M -> Matthew feeder line */}
+          <path d="M 445,206 L 445,246" fill="none" stroke="#f59e0b" strokeWidth="1.8" markerEnd="url(#synopticArrowAmber)" />
+          {/* 6. Special L -> Luke feeder line */}
+          <path d="M 835,206 L 835,246" fill="none" stroke="#38bdf8" strokeWidth="1.8" markerEnd="url(#synopticArrowCyan)" />
 
           {/* Canonical Matthew Result */}
           <g
@@ -2029,22 +2054,22 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
             }}
           >
             <rect
-              x="420"
-              y="255"
-              width="200"
-              height="75"
+              x="425"
+              y="252"
+              width="205"
+              height="76"
               rx="10"
               fill={isLight ? '#fef3c7' : '#1e1b4b'}
               stroke="#f59e0b"
               strokeWidth="2"
             />
-            <text x="520" y="280" textAnchor="middle" fill={isLight ? '#78350f' : '#fde047'} fontSize="12" fontWeight="900">
+            <text x="527.5" y="276" textAnchor="middle" fill={isLight ? '#78350f' : '#fde047'} fontSize="12" fontWeight="900">
               {isArabic ? 'إنجيل متى القانوني' : 'Canonical Matthew'}
             </text>
-            <text x="520" y="298" textAnchor="middle" fill={isLight ? '#451a03' : '#cbd5e1'} fontSize="8.5" fontWeight="bold">
+            <text x="527.5" y="294" textAnchor="middle" fill={isLight ? '#451a03' : '#cbd5e1'} fontSize="8.5" fontWeight="bold">
               {isArabic ? 'مرقس + وثيقة Q + خاص متى (M)' : 'Mark + Q + Special M Source'}
             </text>
-            <text x="520" y="315" textAnchor="middle" fill={isLight ? '#92400e' : '#94a3b8'} fontSize="8">
+            <text x="527.5" y="312" textAnchor="middle" fill={isLight ? '#92400e' : '#94a3b8'} fontSize="8">
               {isArabic ? '١٠٧١ آية • موجه لليهود المتنصرين' : '1,071 Verses • Jewish-Christian Audience'}
             </text>
           </g>
@@ -2058,22 +2083,22 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
             }}
           >
             <rect
-              x="655"
-              y="255"
-              width="200"
-              height="75"
+              x="650"
+              y="252"
+              width="205"
+              height="76"
               rx="10"
               fill={isLight ? '#ecfdf5' : '#042f2e'}
               stroke="#10b981"
               strokeWidth="2"
             />
-            <text x="755" y="280" textAnchor="middle" fill={isLight ? '#065f46' : '#67e8f9'} fontSize="12" fontWeight="900">
+            <text x="752.5" y="276" textAnchor="middle" fill={isLight ? '#065f46' : '#67e8f9'} fontSize="12" fontWeight="900">
               {isArabic ? 'إنجيل لوقا القانوني' : 'Canonical Luke'}
             </text>
-            <text x="755" y="298" textAnchor="middle" fill={isLight ? '#064e3b' : '#cbd5e1'} fontSize="8.5" fontWeight="bold">
+            <text x="752.5" y="294" textAnchor="middle" fill={isLight ? '#064e3b' : '#cbd5e1'} fontSize="8.5" fontWeight="bold">
               {isArabic ? 'مرقس + وثيقة Q + خاص لوقا (L)' : 'Mark + Q + Special L Source'}
             </text>
-            <text x="755" y="315" textAnchor="middle" fill={isLight ? '#047857' : '#94a3b8'} fontSize="8">
+            <text x="752.5" y="312" textAnchor="middle" fill={isLight ? '#047857' : '#94a3b8'} fontSize="8">
               {isArabic ? '١١٥١ آية • موجه للأمم واليونانيين' : '1,151 Verses • Gentile-Christian Audience'}
             </text>
           </g>
@@ -2087,9 +2112,9 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
             }}
           >
             <rect
-              x="420"
+              x="390"
               y="345"
-              width="435"
+              width="500"
               height="26"
               rx="6"
               fill={isLight ? '#f3e8ff' : '#312e81'}
@@ -2097,7 +2122,7 @@ const GospelSynopticsFourEvangelistsSchematic: React.FC<SynopticsSchematicProps>
               strokeWidth="1.2"
             />
             <text
-              x="637.5"
+              x="640"
               y="362"
               textAnchor="middle"
               fill={isLight ? '#581c87' : '#e0e7ff'}
