@@ -272,8 +272,55 @@ if (fs.existsSync(studioComponentPath)) {
   assert(studioContent.includes('tajweed'), 'Studio has Tajweed Recitation engine');
   assert(studioContent.includes('maqasid'), 'Studio has Maqasid al-Sharia engine');
   assert(studioContent.includes('seerah'), 'Studio has Seerah Milestones engine');
-  assert(studioContent.includes('ethics'), 'Studio has Contemporary Bioethics engine');
+  assert(studioContent.includes('astrolabe'), 'Studio has Astrolabe & Qibla engine');
+  assert(studioContent.includes('hijri'), 'Studio has Hijri Calendar & Moon Observatory');
+  assert(studioContent.includes('bioethics'), 'Studio has Contemporary Bioethics engine');
   assert(studioContent.includes('quiz'), 'Studio has Interactive Scenario Quiz');
+  assert(studioContent.includes('AncientQuranKuficHighResView'), 'Studio mounts AncientQuranKuficHighResView');
+  assert(studioContent.includes('IslamicAstrolabeQiblaStudio'), 'Studio mounts IslamicAstrolabeQiblaStudio');
+  assert(studioContent.includes('HijriCalendarMoonPhaseStudio'), 'Studio mounts HijriCalendarMoonPhaseStudio');
+  assert(studioContent.includes('SeerahSatelliteMapViewer'), 'Studio mounts SeerahSatelliteMapViewer');
+}
+
+// 9b. 4K Museum-Grade Archival Visual Assets
+console.log('\n--- 9b. 4K Museum-Grade Archival Visual Assets ---');
+const quranAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/ancient_quran_kufic_manuscript.jpg');
+const astrolabeAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/classical_islamic_astrolabe.jpg');
+const kaabaAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/holy_kaaba_mecca_sanctuary.jpg');
+const medinaAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/prophetic_sanctuary_medina.jpg');
+
+assert(fs.existsSync(quranAsset) && fs.statSync(quranAsset).size > 100000, `7th c. Early Kufic Quran Codex asset exists (>100KB, found: ${(fs.statSync(quranAsset).size/1024).toFixed(1)} KB)`);
+assert(fs.existsSync(astrolabeAsset) && fs.statSync(astrolabeAsset).size > 100000, `Classical Islamic Astrolabe asset exists (>100KB, found: ${(fs.statSync(astrolabeAsset).size/1024).toFixed(1)} KB)`);
+assert(fs.existsSync(kaabaAsset) && fs.statSync(kaabaAsset).size > 100000, `Holy Kaaba Sanctuary asset exists (>100KB, found: ${(fs.statSync(kaabaAsset).size/1024).toFixed(1)} KB)`);
+assert(fs.existsSync(medinaAsset) && fs.statSync(medinaAsset).size > 100000, `Prophetic Sanctuary Medina asset exists (>100KB, found: ${(fs.statSync(medinaAsset).size/1024).toFixed(1)} KB)`);
+
+// 9c. Specialized Interactive Components
+console.log('\n--- 9c. Specialized Interactive Studio Components ---');
+const comp1 = path.resolve(process.cwd(), 'src/components/labs/islamic/AncientQuranKuficHighResView.tsx');
+const comp2 = path.resolve(process.cwd(), 'src/components/labs/islamic/IslamicAstrolabeQiblaStudio.tsx');
+const comp3 = path.resolve(process.cwd(), 'src/components/labs/islamic/HijriCalendarMoonPhaseStudio.tsx');
+const comp4 = path.resolve(process.cwd(), 'src/components/labs/islamic/SeerahSatelliteMapViewer.tsx');
+
+assert(fs.existsSync(comp1), 'AncientQuranKuficHighResView.tsx exists');
+assert(fs.existsSync(comp2), 'IslamicAstrolabeQiblaStudio.tsx exists');
+assert(fs.existsSync(comp3), 'HijriCalendarMoonPhaseStudio.tsx exists');
+assert(fs.existsSync(comp4), 'SeerahSatelliteMapViewer.tsx exists');
+
+// Verify Spherical Trigonometry Qibla Formula in Astrolabe component
+if (fs.existsSync(comp2)) {
+  const astrolabeContent = fs.readFileSync(comp2, 'utf8');
+  assert(astrolabeContent.includes('calculateQiblaAzimuth'), 'Astrolabe contains spherical trigonometry calculateQiblaAzimuth()');
+  assert(astrolabeContent.includes('calculateDistanceToKaabaKm'), 'Astrolabe contains Haversine distance calculateDistanceToKaabaKm()');
+  assert(astrolabeContent.includes('playSacredAdhanChord'), 'Astrolabe contains Web Audio API sacred Adhan acoustic chime synthesizer');
+}
+
+// Verify Lunar Phase & Hijri algorithm in Hijri component
+if (fs.existsSync(comp3)) {
+  const hijriContent = fs.readFileSync(comp3, 'utf8');
+  assert(hijriContent.includes('jdnToHijri'), 'Hijri studio contains astronomical jdnToHijri() converter');
+  assert(hijriContent.includes('hijriToJdn'), 'Hijri studio contains astronomical hijriToJdn() converter');
+  assert(hijriContent.includes('MOON_PHASES'), 'Hijri studio contains 8-phase lunar observatory (MOON_PHASES)');
+  assert(hijriContent.includes('HIJRI_MONTHS'), 'Hijri studio contains 12 Hijri months encyclopedia with sacred months (HIJRI_MONTHS)');
 }
 
 // 10. Platform Curriculum & Problem Totals Verification

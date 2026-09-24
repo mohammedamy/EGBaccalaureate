@@ -28,8 +28,14 @@ import {
   Radio,
   Maximize2,
   Minimize2,
+  Moon,
+  Navigation,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { AncientQuranKuficHighResView } from './islamic/AncientQuranKuficHighResView';
+import { IslamicAstrolabeQiblaStudio } from './islamic/IslamicAstrolabeQiblaStudio';
+import { HijriCalendarMoonPhaseStudio } from './islamic/HijriCalendarMoonPhaseStudio';
+import { SeerahSatelliteMapViewer } from './islamic/SeerahSatelliteMapViewer';
 
 // =========================================================================
 // VECTOR SCHEMATIC 1: TAJWEED MAKHAARIJ & PHONETICS (المخارج العامة والصفات)
@@ -684,7 +690,7 @@ interface Props {
   initialTab?: IslamicStudioTab;
 }
 
-export type IslamicStudioTab = 'tajweed' | 'maqasid' | 'seerah' | 'bioethics' | 'quiz';
+export type IslamicStudioTab = 'tajweed' | 'maqasid' | 'seerah' | 'astrolabe' | 'hijri' | 'bioethics' | 'quiz';
 
 export const IslamicStudiesStudio: React.FC<Props> = ({
   lang = 'ar',
@@ -947,6 +953,32 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
             <span>{isArabic ? 'السيرة والدستور' : 'Seerah & Charter'}</span>
           </button>
           <button
+            onClick={() => setActiveTab('astrolabe')}
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+              activeTab === 'astrolabe'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-950 hover:bg-white/90'
+                : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
+            }`}
+          >
+            <Navigation className="w-4 h-4" />
+            <span>{isArabic ? 'الإسطرلاب والقبلة' : 'Astrolabe & Qibla'}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('hijri')}
+            className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
+              activeTab === 'hijri'
+                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-700/40'
+                : isLight
+                ? 'text-slate-700 hover:text-slate-950 hover:bg-white/90'
+                : 'text-emerald-300/70 hover:text-white hover:bg-emerald-800/20'
+            }`}
+          >
+            <Moon className="w-4 h-4" />
+            <span>{isArabic ? 'التقويم والأهلة' : 'Hijri & Moon'}</span>
+          </button>
+          <button
             onClick={() => setActiveTab('bioethics')}
             className={`min-h-[44px] flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs md:text-sm font-bold transition-all ${
               activeTab === 'bioethics'
@@ -993,9 +1025,11 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
         </div>
       </div>
 
-      {/* TAB 1: TAJWEED RECITATION ENGINE */}
+      {/* TAB 1: TAJWEED RECITATION ENGINE & ANCIENT QURAN CODEX */}
       {activeTab === 'tajweed' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="space-y-6">
+          <AncientQuranKuficHighResView isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Sidebar Rules List */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             <h3
@@ -1369,6 +1403,7 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
             </div>
           </div>
         </div>
+        </div>
       )}
 
       {/* TAB 2: MAQASID AL-SHARIA SIMULATOR */}
@@ -1500,9 +1535,11 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
         </div>
       )}
 
-      {/* TAB 3: SEERAH & CONSTITUTIONAL MILESTONES */}
+      {/* TAB 3: SEERAH & CONSTITUTIONAL MILESTONES & SATELLITE MAP */}
       {activeTab === 'seerah' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div className="space-y-6">
+          <SeerahSatelliteMapViewer isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div className="lg:col-span-4 flex flex-col gap-3">
             <h3
               className={`text-sm font-bold uppercase tracking-wider flex items-center gap-2 ${
@@ -1626,6 +1663,21 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
               </ul>
             </div>
           </div>
+        </div>
+        </div>
+      )}
+
+      {/* TAB: ISLAMIC ASTROLABE & QIBLA STUDIO */}
+      {activeTab === 'astrolabe' && (
+        <div className="space-y-6">
+          <IslamicAstrolabeQiblaStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {/* TAB: HIJRI CALENDAR & MOON PHASE OBSERVATORY */}
+      {activeTab === 'hijri' && (
+        <div className="space-y-6">
+          <HijriCalendarMoonPhaseStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
         </div>
       )}
 
