@@ -41,8 +41,115 @@ import {
   Sun,
   Moon,
   Eye,
+  Camera,
+  Image as ImageIcon,
+  Globe,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { RealMonasticSatelliteMap } from './christian/RealMonasticSatelliteMap';
+import { HistoricalManuscriptMapViewer } from './christian/HistoricalManuscriptMapViewer';
+import { RealSanctuaryPhotoView } from './christian/RealSanctuaryPhotoView';
+import { FourEvangelistsHighResView } from './christian/FourEvangelistsHighResView';
+import { AncientManuscriptHighResView } from './christian/AncientManuscriptHighResView';
+import { HiResImageModal, type HiResImageModalData } from './christian/HiResImageModal';
+
+import antonyPhoto from '../../assets/christianLab/st_antony_monastery_red_sea.jpg';
+import natrunPhoto from '../../assets/christianLab/wadi_el_natrun_monastery.jpg';
+import sohagPhoto from '../../assets/christianLab/sohag_white_red_monastery.jpg';
+import holyFamilyPhoto from '../../assets/christianLab/holy_family_egypt_flight.jpg';
+import catherinePhoto from '../../assets/christianLab/st_catherine_sinai.jpg';
+
+interface MilestonePhotoMeta {
+  img: string;
+  captionAr: string;
+  captionEn: string;
+  titleAr: string;
+  titleEn: string;
+  subtitleAr: string;
+  subtitleEn: string;
+  descAr: string;
+  descEn: string;
+  locationAr: string;
+  locationEn: string;
+}
+
+const MILESTONE_PHOTOS: Record<string, MilestonePhotoMeta> = {
+  milestone_antony: {
+    img: antonyPhoto,
+    captionAr: 'دير الأنبا أنطونيوس: أسوار الحصن المنيع وواحة النخيل تحت جبل القلزم بالبحر الأحمر',
+    captionEn: 'Fortress walls & palm oasis of St. Antony at Mount Clysma by the Red Sea',
+    titleAr: 'دير القديس أنطونيوس الكبير (مهد الرهبنة الانفرادية)',
+    titleEn: 'Monastery of St. Antony the Great (Anchoritic Cradle)',
+    subtitleAr: 'أقدم دير مأهول في العالم في قلب جبال الجلالة القبلية',
+    subtitleEn: "World's oldest continuously active monastery in the Red Sea mountains",
+    descAr:
+      'أنشئ هذا الصرح الرهباني في القرن الرابع الميلادي حول المغارة التي عاش فيها القديس أنطونيوس الكبير فوق قمة جبل القلزم. يضم الدير حصناً أثرياً دفاعياً وكنائس ذات قباب بيزنطية فريدة وبساتين نخيل ونبع ماء عذب يتدفق بأعجوبة وسط الصحراء القاحلة.',
+    descEn:
+      'Established in the 4th century around the solitary hermitage cave of St. Antony on Mount Clysma. Features fortified defense keeps, Byzantine domes, freshwater springs, and palm groves.',
+    locationAr: 'جبل القلزم - الصحراء الشرقية - البحر الأحمر',
+    locationEn: 'Mount Clysma, Eastern Desert, Red Sea',
+  },
+  milestone_macarius: {
+    img: natrunPhoto,
+    captionAr: 'أديرة برية شيهيت بوادي النطرون: الحصن الدفاعي الأثري وقباب الكنائس الباكرة',
+    captionEn: 'Fortified keeps & ancient whitewashed domes of Wadi al-Natrun Monasteries',
+    titleAr: 'برية شيهيت وأديرة وادي النطرون الأثرية',
+    titleEn: 'Wilderness of Scetis (Wadi al-Natrun Monasteries)',
+    subtitleAr: 'مهد الرهبنة شبه التوحدية (أديرة أبو مقار والأنبا بيشوي والسريان والبراموس)',
+    subtitleEn: 'Sanctuary of semi-eremitic monasticism in the Scetis Desert',
+    descAr:
+      'تحتضن برية شيهيت قلاعاً نسكية تاريخية صدت غارات البربر والبدو عبر القرون من خلال حصونها الأثرية المزودة بجسور خشبية متحركة. وتعد مستودعاً هائلاً لكنوز التراث الآبائي والمخطوطات القبطية والسريانية.',
+    descEn:
+      'The Desert of Scetis houses ancient fortified monasteries with medieval drawbridges that protected monks and priceless patristic codices against nomad raids.',
+    locationAr: 'وادي النطرون - الصحراء الغربية',
+    locationEn: 'Wadi al-Natrun, Western Desert',
+  },
+  milestone_shenouda: {
+    img: sohagPhoto,
+    captionAr: 'الدير الأبيض بسوهاج: الصرح الحجري المستلهم من العمارة الفرعونية وفريسكات القباب',
+    captionEn: 'Pharaonic-inspired limestone pylons & painted trefoil apse of the White Monastery',
+    titleAr: 'الدير الأبيض ودير الأنبا بيشاي (الدير الأحمر) بسوهاج',
+    titleEn: 'The White and Red Monasteries of Sohag',
+    subtitleAr: 'صرح العمارة القبطية الصعيدية ومقر ريادة الأدب القبطي للأنبا شنودة',
+    subtitleEn: 'Monumental limestone basilica of St. Shenouda the Archimandrite',
+    descAr:
+      'شُيد الدير الأبيض في القرن الخامس الميلادي بحجارة جيرية بيضاء ضخمة مستوحاة من الصروح والمعابد المصرية القديمة، ويحتوي على أروع هياكل مقوسة ثلاثية (Trefoil Apses) مزدانة بالفريسك القبطي والبيزنطي الملون، وشهد أعظم نهضة للأدب القبطي الصعيدي.',
+    descEn:
+      'Built in the 5th century using monumental white limestone blocks reflecting ancient Egyptian temple cornices, housing breathtaking painted trefoil apses and the greatest Sahidic library.',
+    locationAr: 'غرب سوهاج - صعيد مصر',
+    locationEn: 'West of Sohag, Upper Egypt',
+  },
+  milestone_holy_family: {
+    img: holyFamilyPhoto,
+    captionAr: 'رحلة العائلة المقدسة في مصر: ملاذ الأمان والبركة الإلهية على ضفاف النيل',
+    captionEn: 'The Flight of the Holy Family into Egypt along the Nile at sunset',
+    titleAr: 'مسار رحلة العائلة المقدسة في مصر وملاذ الأمان الخالد',
+    titleEn: 'The Holy Family Pilgrimage Trail in Egypt',
+    subtitleAr: 'تحقيق النبوة الإلهية الخالدة: «مبارك شعبي مصر»',
+    subtitleEn: 'Universal Sanctuary fulfilling Isaiah\'s prophecy: "Blessed be Egypt My people"',
+    descAr:
+      'استضافت مصر السيد المسيح طفلاً مع القديسة مريم ويوسف النجار لأكثر من ثلاث سنوات ونصف، قاطعين مسافة تتجاوز ألفي كيلومتر من رفح والفرما شمالاً، عبر الدلتا ووادي النطرون والقاهرة القديمة ومغارة أبي سرجة، وصولاً إلى دير المحرق بجبل قسقام ودير درنكة بأسيوط.',
+    descEn:
+      'Egypt provided divine sanctuary to the Christ Child, the Virgin Mary, and St. Joseph for over three years, journeying over 2,000 kilometers from Sinai to Upper Egypt.',
+    locationAr: 'مسار مصر التاريخي (سيناء، الدلتا، القاهرة، ووادي النيل)',
+    locationEn: 'Trans-Egyptian Trail (Sinai, Delta, Cairo, Nile Valley)',
+  },
+  milestone_pachomius: {
+    img: catherinePhoto,
+    captionAr: 'دير سانت كاترين بجنوب سيناء وقلاع الرهبنة التراثية بصعيد مصر',
+    captionEn: 'Monastery of St. Catherine beneath Mount Sinai & ancient cenobitic bastions',
+    titleAr: 'دير سانت كاترين والشركة الباخومية في صعيد مصر',
+    titleEn: 'St. Catherine Monastery & Pachomian Cenobitic Monasticism',
+    subtitleAr: 'حصون النسك الجماعي عند أقدام جبل موسى وفي ثنية قنا والأقصر',
+    subtitleEn: 'Ancient bastions of communal monasticism in Sinai and Upper Egypt',
+    descAr:
+      'يجسد دير سانت كاترين بسيناء ومجمعات الأنبا باخوميوس بصعيد مصر (طبنسين وفاو قبلي) أسمى نماذج الشركة الرهبانية والرهبنة الجماعية المنظمة، محتفظين بأندر المخطوطات الإنجيلية في العالم وأشجار العليقة والزيتون المعمرة.',
+    descEn:
+      'Exemplifies communal cenobitic monasticism in Sinai and Upper Egypt, preserving the Biblical Burning Bush, historic olive groves, and the world\'s oldest continuous libraries.',
+    locationAr: 'جنوب سيناء وصعيد مصر (الأقصر وقنا)',
+    locationEn: 'South Sinai & Upper Egypt (Luxor & Qena)',
+  },
+};
 
 interface Props {
   lang?: Language;
@@ -53,6 +160,7 @@ interface Props {
 }
 
 export type ChristianStudioTab = 'sacraments' | 'monasticism' | 'synoptics' | 'scriptures' | 'bioethics' | 'quiz';
+
 
 // ---------------------------------------------------------------------------
 // 1. High-Resolution Realistic Sacred Coptic Iconostasis & Sanctuary Schematic
@@ -2105,10 +2213,17 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState<boolean>(false);
   const [quizScore, setQuizScore] = useState<number>(0);
 
+  // Real Maps & High-Res View Selectors
+  const [monasticMapView, setMonasticMapView] = useState<'satellite' | 'manuscript' | 'schematic'>('satellite');
+  const [sanctuaryView, setSanctuaryView] = useState<'photo' | 'schematic'>('photo');
+  const [synopticsView, setSynopticsView] = useState<'icons' | 'schematic'>('icons');
+  const [lightboxModalData, setLightboxModalData] = useState<HiResImageModalData | null>(null);
+
   // Authentic Christian Church Audio Player State
   const [playingAudioId, setPlayingAudioId] = useState<string | null>(null);
   const [audioLoading, setAudioLoading] = useState<boolean>(false);
   const [audioError, setAudioError] = useState<string | null>(null);
+
   const [audioProgress, setAudioProgress] = useState<number>(0);
   const [audioCurrentTime, setAudioCurrentTime] = useState<number>(0);
   const [audioDuration, setAudioDuration] = useState<number>(0);
@@ -2481,13 +2596,54 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
       {/* Tab 1: Holy Sacraments Explorer */}
       {activeTab === 'sacraments' && (
         <div className="space-y-6">
-          <CopticIconostasisSacramentsVectorSchematic
-            selectedSacramentId={selectedSacrament.id}
-            onSelectSacrament={(sac) => setSelectedSacrament(sac)}
-            isArabic={isArabic}
-            isLight={isLight}
-            isContrast={isContrast}
-          />
+          {/* View Mode Toggle: Real Sanctuary 4K Photo vs Vector Schematic */}
+          <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl border bg-black/40 border-amber-500/20 backdrop-blur-md">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setSanctuaryView('photo')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  sanctuaryView === 'photo'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <Camera className="w-4 h-4" />
+                <span>{isArabic ? 'الهيكل والأيقونسطاس الحقيقي (4K Photo)' : 'Real 4K Sanctuary Photo'}</span>
+              </button>
+
+              <button
+                onClick={() => setSanctuaryView('schematic')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  sanctuaryView === 'schematic'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <Church className="w-4 h-4" />
+                <span>{isArabic ? 'المخطط الطقسي المتجهي والأسرار' : 'Liturgical Vector Schematic'}</span>
+              </button>
+            </div>
+
+            <span className="text-[11px] font-mono text-amber-400 font-bold px-3">
+              SACRED-SANCTUARY-4K
+            </span>
+          </div>
+
+          {sanctuaryView === 'photo' ? (
+            <RealSanctuaryPhotoView isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          ) : (
+            <CopticIconostasisSacramentsVectorSchematic
+              selectedSacramentId={selectedSacrament.id}
+              onSelectSacrament={(sac) => setSelectedSacrament(sac)}
+              isArabic={isArabic}
+              isLight={isLight}
+              isContrast={isContrast}
+            />
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Sacraments Selector Sidebar */}
@@ -2733,13 +2889,84 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
       {/* Tab 2: Monastic Heritage & Milestones */}
       {activeTab === 'monasticism' && (
         <div className="space-y-6">
-          <EgyptianMonasticHeritageMapSchematic
-            selectedMilestoneId={selectedMilestone.id}
-            onSelectMilestone={(m) => setSelectedMilestone(m)}
-            isArabic={isArabic}
-            isLight={isLight}
-            isContrast={isContrast}
-          />
+          {/* 3-Mode Map Switcher */}
+          <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl border bg-black/40 border-amber-500/20 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setMonasticMapView('satellite')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  monasticMapView === 'satellite'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <Globe className="w-4 h-4" />
+                <span>{isArabic ? 'الخريطة الفضائية الحقيقية (Real Satellite Map)' : 'Real Satellite Map'}</span>
+              </button>
+
+              <button
+                onClick={() => setMonasticMapView('manuscript')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  monasticMapView === 'manuscript'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <Scroll className="w-4 h-4" />
+                <span>{isArabic ? 'المخطوطة الأثرية النادرة (Manuscript Map)' : 'Historical Manuscript Map'}</span>
+              </button>
+
+              <button
+                onClick={() => setMonasticMapView('schematic')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  monasticMapView === 'schematic'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <Compass className="w-4 h-4" />
+                <span>{isArabic ? 'المخطط الجغرافي للبراري' : 'Spatial Vector Map'}</span>
+              </button>
+            </div>
+
+            <span className="text-[11px] font-mono text-amber-400 font-bold px-3">
+              EGYPT-MONASTIC-ATLAS-4K
+            </span>
+          </div>
+
+          {monasticMapView === 'satellite' && (
+            <RealMonasticSatelliteMap
+              selectedMilestoneId={selectedMilestone.id}
+              onSelectMilestone={(m) => setSelectedMilestone(m)}
+              isArabic={isArabic}
+              isLight={isLight}
+              isContrast={isContrast}
+            />
+          )}
+
+          {monasticMapView === 'manuscript' && (
+            <HistoricalManuscriptMapViewer
+              isArabic={isArabic}
+              isLight={isLight}
+              isContrast={isContrast}
+            />
+          )}
+
+          {monasticMapView === 'schematic' && (
+            <EgyptianMonasticHeritageMapSchematic
+              selectedMilestoneId={selectedMilestone.id}
+              onSelectMilestone={(m) => setSelectedMilestone(m)}
+              isArabic={isArabic}
+              isLight={isLight}
+              isContrast={isContrast}
+            />
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Milestone Selection Timeline */}
@@ -2792,6 +3019,57 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
 
             {/* Milestone Details Card */}
             <div className={`lg:col-span-8 ${cardClasses} p-5 md:p-6 rounded-2xl space-y-5`}>
+              {/* High-Res Photograph Showcase for Selected Milestone */}
+              {(() => {
+                const photoMeta =
+                  MILESTONE_PHOTOS[selectedMilestone.id] || MILESTONE_PHOTOS.milestone_antony;
+                return (
+                  <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl group">
+                    <img
+                      src={photoMeta.img}
+                      alt={isArabic ? photoMeta.titleAr : photoMeta.titleEn}
+                      className="w-full aspect-[16/9] object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent opacity-90" />
+
+                    <button
+                      onClick={() =>
+                        setLightboxModalData({
+                          imageUrl: photoMeta.img,
+                          titleAr: photoMeta.titleAr,
+                          titleEn: photoMeta.titleEn,
+                          subtitleAr: photoMeta.subtitleAr,
+                          subtitleEn: photoMeta.subtitleEn,
+                          descriptionAr: photoMeta.descAr,
+                          descriptionEn: photoMeta.descEn,
+                          locationAr: photoMeta.locationAr,
+                          locationEn: photoMeta.locationEn,
+                          dateOrEraAr: isArabic ? selectedMilestone.eraAr : selectedMilestone.eraEn,
+                          dateOrEraEn: isArabic ? selectedMilestone.eraAr : selectedMilestone.eraEn,
+                        })
+                      }
+                      className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 backdrop-blur-xs cursor-pointer"
+                    >
+                      <span className="px-4 py-2 rounded-xl bg-amber-500 text-black text-xs font-black flex items-center gap-2 shadow-2xl">
+                        <Maximize2 className="w-4 h-4" />
+                        <span>
+                          {isArabic
+                            ? 'تكبير الصورة بدقة 4K وفحص التفاصيل'
+                            : 'Inspect 4K High-Res View'}
+                        </span>
+                      </span>
+                    </button>
+
+                    <div className="absolute bottom-3 start-3 end-3 flex flex-wrap items-center justify-between gap-2 text-xs text-amber-200/90 font-medium">
+                      <span>📷 {isArabic ? photoMeta.captionAr : photoMeta.captionEn}</span>
+                      <span className="px-2 py-0.5 rounded bg-black/75 border border-amber-500/40 text-[10px] font-mono text-amber-300">
+                        4K ARCHIVAL PHOTO
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
+
               <div className="pb-3 border-b border-amber-500/20">
                 <span
                   className={`text-xs font-mono font-bold ${
@@ -2860,13 +3138,54 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
       {/* Tab 3: Gospel Synoptics Comparative Matrix */}
       {activeTab === 'synoptics' && (
         <div className="space-y-6">
-          <GospelSynopticsFourEvangelistsSchematic
-            selectedGospelId={selectedGospel.id}
-            onSelectGospel={(g) => setSelectedGospel(g)}
-            isArabic={isArabic}
-            isLight={isLight}
-            isContrast={isContrast}
-          />
+          {/* Tab 3 View Mode Toggle */}
+          <div className="flex flex-wrap items-center justify-between gap-3 p-2 rounded-2xl border bg-black/40 border-amber-500/20 backdrop-blur-md">
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setSynopticsView('icons')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  synopticsView === 'icons'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <ImageIcon className="w-4 h-4" />
+                <span>{isArabic ? 'أيقونة الإنجيليين الأربعة والتترابورف (4K Icons)' : 'Four Evangelists 4K Icons'}</span>
+              </button>
+
+              <button
+                onClick={() => setSynopticsView('schematic')}
+                className={`px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 transition-all cursor-pointer ${
+                  synopticsView === 'schematic'
+                    ? 'bg-amber-500 text-black shadow-lg shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 text-slate-800 hover:bg-amber-100'
+                    : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                <Scroll className="w-4 h-4" />
+                <span>{isArabic ? 'مخطط نظرية المصدرين الإزائي' : 'Two-Source Vector Matrix'}</span>
+              </button>
+            </div>
+
+            <span className="text-[11px] font-mono text-amber-400 font-bold px-3">
+              GOSPEL-SYNOPTICS-4K
+            </span>
+          </div>
+
+          {synopticsView === 'icons' ? (
+            <FourEvangelistsHighResView isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          ) : (
+            <GospelSynopticsFourEvangelistsSchematic
+              selectedGospelId={selectedGospel.id}
+              onSelectGospel={(g) => setSelectedGospel(g)}
+              isArabic={isArabic}
+              isLight={isLight}
+              isContrast={isContrast}
+            />
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Gospel Selection */}
@@ -3059,7 +3378,14 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
 
       {/* Tab 4: Scripture Audio Studio */}
       {activeTab === 'scriptures' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="space-y-6">
+          <AncientManuscriptHighResView
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           {/* Scripture Selection Sidebar */}
           <div className="lg:col-span-4 space-y-2.5">
             <h3
@@ -3328,6 +3654,7 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
             </div>
           </div>
         </div>
+        </div>
       )}
 
       {/* Tab 5: Contemporary Bioethics Sandbox */}
@@ -3581,6 +3908,16 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
           </div>
         </div>
       )}
+
+      {/* Global High-Resolution Lightbox Modal */}
+      <HiResImageModal
+        isOpen={Boolean(lightboxModalData)}
+        onClose={() => setLightboxModalData(null)}
+        data={lightboxModalData}
+        lang={isArabic ? 'ar' : 'en'}
+        theme={isContrast ? 'high-contrast' : isLight ? 'light' : 'dark'}
+      />
     </div>
   );
 };
+
