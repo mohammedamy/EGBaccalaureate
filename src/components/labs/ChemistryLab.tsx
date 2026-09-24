@@ -15,6 +15,7 @@ import { OrganicChemistryLab } from './OrganicChemistryLab';
 import { QualitativeAnalysisLab } from './QualitativeAnalysisLab';
 import { TitrationLab } from './TitrationLab';
 import { InteractiveTitrationStudio } from '../InteractiveTitrationStudio';
+import { Interactive3DEquilibriumStudio } from '../Interactive3DEquilibriumStudio';
 import { ChemistryFlashcards } from './ChemistryFlashcards';
 import { ChemistryConstantsDrawer } from './ChemistryConstantsDrawer';
 import { Interactive3DMolecularStudio } from '../Interactive3DMolecularStudio';
@@ -54,6 +55,7 @@ export const ChemistryLab: React.FC<Props> = ({
   const isContrast = theme === 'high-contrast';
 
   const [activeTab, setActiveTab] = useState<ChemTab>(initialTab || 'equilibrium');
+  const [equilibriumView, setEquilibriumView] = useState<'studio' | 'apparatus'>('studio');
   const [titrationView, setTitrationView] = useState<'studio' | 'apparatus'>('studio');
   const [isConstantsOpen, setIsConstantsOpen] = useState<boolean>(false);
 
@@ -78,8 +80,75 @@ export const ChemistryLab: React.FC<Props> = ({
     <>
       {/* TAB 1: EQUILIBRIUM & LE CHATELIER VIRTUAL LAB */}
       {activeTab === 'equilibrium' && (
-        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-4'}>
-          <EquilibriumLab lang={lang} theme={theme} />
+        <div className={inFullscreen ? 'flex-1 min-h-0 space-y-3' : 'mt-4 space-y-3'}>
+          <div
+            className={`flex flex-wrap items-center justify-between gap-2 p-2.5 rounded-2xl border shadow-sm transition-colors ${
+              isContrast
+                ? 'bg-black border-2 border-white'
+                : isLight
+                ? 'bg-white border-slate-200'
+                : 'bg-slate-900/90 border-slate-800'
+            }`}
+          >
+            <span
+              className={`text-xs font-bold flex items-center gap-1.5 ${
+                isLight ? 'text-slate-700' : isContrast ? 'text-white' : 'text-slate-300'
+              }`}
+            >
+              <span>⚖️</span>
+              <span>{isArabic ? 'بيئة الاتزان الكيميائي ومبدأ لوشاتيليه:' : 'Chemical Equilibrium & Le Chatelier Environment:'}</span>
+            </span>
+            <div
+              className={`flex items-center gap-1.5 p-1 rounded-xl border text-xs flex-wrap ${
+                isContrast
+                  ? 'bg-black border-white'
+                  : isLight
+                  ? 'bg-slate-100 border-slate-200'
+                  : 'bg-slate-950 border-slate-800'
+              }`}
+            >
+              <button
+                type="button"
+                onClick={() => setEquilibriumView('studio')}
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center ${
+                  equilibriumView === 'studio'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : isLight
+                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                    : isContrast
+                    ? 'text-white hover:bg-neutral-800'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                }`}
+              >
+                {isArabic ? 'استوديو الاتزان الكيميائي 3D' : 'Interactive 3D Equilibrium Studio'}
+              </button>
+              <button
+                type="button"
+                onClick={() => setEquilibriumView('apparatus')}
+                className={`min-h-[44px] px-3.5 py-2 rounded-lg font-bold transition-all cursor-pointer flex items-center ${
+                  equilibriumView === 'apparatus'
+                    ? 'bg-emerald-600 text-white shadow-sm'
+                    : isLight
+                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
+                    : isContrast
+                    ? 'text-white hover:bg-neutral-800'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-900'
+                }`}
+              >
+                {isArabic ? 'محاكي الأجهزة ومعادلات الاتزان 2D' : '2D Apparatus & Kinetics Lab'}
+              </button>
+            </div>
+          </div>
+
+          {equilibriumView === 'studio' ? (
+            <Interactive3DEquilibriumStudio
+              lang={lang}
+              theme={theme === 'high-contrast' ? 'high-contrast' : theme === 'light' ? 'light' : 'dark'}
+              isFullscreen={inFullscreen}
+            />
+          ) : (
+            <EquilibriumLab lang={lang} theme={theme} />
+          )}
         </div>
       )}
 
