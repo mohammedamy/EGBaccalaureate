@@ -95,7 +95,7 @@ async function runTests() {
   assert(resolved !== null && resolved.titleAr === 'اختبار الاستاتيكا - الاحتكاك والعزوم', 'Resolved assignment case-insensitively from cache');
 
   // 1.3 Offline URL Packing Round-Trip Test
-  const packedUrl = encodeAssignmentToShareableUrl(asgn, 'https://clipsat.github.io/EGBaccalaureate/');
+  const packedUrl = encodeAssignmentToShareableUrl(asgn, 'https://mohammedamy.github.io/EGBaccalaureate/');
   assert(packedUrl.includes('tab=testGenerator'), 'Shareable URL points to testGenerator tab');
   assert(packedUrl.includes('asgn='), 'Shareable URL contains packed payload query parameter');
 

@@ -328,7 +328,7 @@ export async function getClassAnalytics(assignmentCode: string): Promise<ClassAn
  */
 export function encodeAssignmentToShareableUrl(
   assignment: Assignment,
-  baseUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname : 'https://clipsat.github.io/EGBaccalaureate/'
+  baseUrl = typeof window !== 'undefined' ? window.location.origin + window.location.pathname : 'https://mohammedamy.github.io/EGBaccalaureate/'
 ): string {
   const payload = {
     c: assignment.assignmentCode,
