@@ -77,6 +77,9 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md overflow-y-auto">
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={isAr ? 'موجز ولي الأمر الأسبوعي' : 'Parent Weekly Digest'}
         className={`relative w-full max-w-2xl rounded-3xl border shadow-2xl overflow-hidden transition-all duration-300 my-auto ${
           isLight
             ? 'bg-slate-50 border-slate-300 text-slate-900'
@@ -114,7 +117,11 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setReportLang((prev) => (prev === 'ar' ? 'en' : 'ar'))}
-              className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
+              className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors ${
+                isLight
+                  ? 'bg-slate-200 hover:bg-slate-300 text-slate-700 border-slate-300'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+              }`}
             >
               {reportLang === 'ar' ? 'English' : 'عربي'}
             </button>
@@ -133,28 +140,28 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
         <div className="p-4 sm:p-6 space-y-4 max-h-[80vh] overflow-y-auto">
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center text-xs">
-            <div className="p-2.5 rounded-xl bg-slate-950/50 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">{isAr ? 'مؤشر الجاهزية' : 'Readiness'}</span>
-              <span className="text-lg font-bold text-emerald-400">{formatNum(reportData.readinessPercentage)}%</span>
+            <div className={`p-2.5 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/50 border-slate-800'}`}>
+              <span className="text-slate-600 dark:text-slate-400 block text-[11px]">{isAr ? 'مؤشر الجاهزية' : 'Readiness'}</span>
+              <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">{formatNum(reportData.readinessPercentage)}%</span>
             </div>
-            <div className="p-2.5 rounded-xl bg-slate-950/50 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">{isAr ? 'وقت المذاكرة' : 'Study Time'}</span>
-              <span className="text-lg font-bold text-sky-400">{formatNum(reportData.totalStudyMinutes)} {isAr ? 'د' : 'm'}</span>
+            <div className={`p-2.5 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/50 border-slate-800'}`}>
+              <span className="text-slate-600 dark:text-slate-400 block text-[11px]">{isAr ? 'وقت المذاكرة' : 'Study Time'}</span>
+              <span className="text-lg font-bold text-sky-600 dark:text-sky-400">{formatNum(reportData.totalStudyMinutes)} {isAr ? 'د' : 'm'}</span>
             </div>
-            <div className="p-2.5 rounded-xl bg-slate-950/50 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">{isAr ? 'أسئلة تم حلها' : 'Questions'}</span>
-              <span className="text-lg font-bold text-amber-400">{formatNum(reportData.totalQuestionsSolved)}</span>
+            <div className={`p-2.5 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/50 border-slate-800'}`}>
+              <span className="text-slate-600 dark:text-slate-400 block text-[11px]">{isAr ? 'أسئلة تم حلها' : 'Questions'}</span>
+              <span className="text-lg font-bold text-amber-600 dark:text-amber-400">{formatNum(reportData.totalQuestionsSolved)}</span>
             </div>
-            <div className="p-2.5 rounded-xl bg-slate-950/50 border border-slate-800">
-              <span className="text-slate-400 block text-[11px]">{isAr ? 'متبقي للامتحان' : 'Days to Exam'}</span>
-              <span className="text-lg font-bold text-rose-400">{formatNum(reportData.daysUntilThanawyaExams)} {isAr ? 'يوم' : 'd'}</span>
+            <div className={`p-2.5 rounded-xl border ${isLight ? 'bg-white border-slate-200 shadow-xs' : 'bg-slate-950/50 border-slate-800'}`}>
+              <span className="text-slate-600 dark:text-slate-400 block text-[11px]">{isAr ? 'متبقي للامتحان' : 'Days to Exam'}</span>
+              <span className="text-lg font-bold text-rose-600 dark:text-rose-400">{formatNum(reportData.daysUntilThanawyaExams)} {isAr ? 'يوم' : 'd'}</span>
             </div>
           </div>
 
           {/* Student & Phone Customization Inputs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div>
-              <label className="block text-slate-400 font-medium mb-1">
+              <label className="block text-slate-700 dark:text-slate-400 font-medium mb-1">
                 {isAr ? 'اسم الطالب / الطالبة في التقرير:' : 'Student Name:'}
               </label>
               <input
@@ -162,11 +169,15 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
                 placeholder={isAr ? 'مثال: أحمد محمد' : 'e.g. Ahmed'}
-                className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-emerald-500"
+                className={`w-full px-3 py-2 rounded-xl border focus:outline-none focus:border-emerald-500 ${
+                  isLight
+                    ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400'
+                    : 'bg-slate-950 border-slate-700 text-white placeholder:text-slate-600'
+                }`}
               />
             </div>
             <div>
-              <label className="block text-slate-400 font-medium mb-1">
+              <label className="block text-slate-700 dark:text-slate-400 font-medium mb-1">
                 {isAr ? 'رقم هاتف ولي الأمر (اختياري للفتح المباشر):' : 'Parent Phone (optional for direct chat):'}
               </label>
               <input
@@ -174,19 +185,23 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
                 value={parentPhone}
                 onChange={(e) => setParentPhone(e.target.value)}
                 placeholder={isAr ? 'مثال: 01012345678 أو 201012345678+' : 'e.g. +201012345678'}
-                className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-emerald-500 font-mono"
+                className={`w-full px-3 py-2 rounded-xl border focus:outline-none focus:border-emerald-500 font-mono ${
+                  isLight
+                    ? 'bg-white border-slate-300 text-slate-900 placeholder:text-slate-400'
+                    : 'bg-slate-950 border-slate-700 text-white placeholder:text-slate-600'
+                }`}
               />
             </div>
           </div>
 
           {/* Simulated WhatsApp Bubble View */}
           <div className="space-y-1.5">
-            <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="text-xs font-semibold text-slate-700 dark:text-slate-400 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
               <span>{isAr ? 'معاينة رسالة الواتساب الجاهزة للإرسال:' : 'WhatsApp Message Preview:'}</span>
             </span>
 
-            <div className="p-4 rounded-2xl bg-[#0b141a] border border-[#202c33] text-slate-200 text-xs shadow-inner space-y-2">
+            <div data-preserve-dark="true" className="p-4 rounded-2xl bg-[#0b141a] border border-[#202c33] text-slate-200 text-xs shadow-inner space-y-2">
               <div className="flex items-center justify-between pb-2 border-b border-[#202c33] text-[11px] text-[#8696a0]">
                 <span>💬 WhatsApp • Clipsat Bot</span>
                 <span>{new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
@@ -212,15 +227,23 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
 
             <button
               onClick={handleCopy}
-              className="py-3 px-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors border border-slate-700"
+              className={`py-3 px-4 rounded-2xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors border ${
+                isLight
+                  ? 'bg-slate-200 hover:bg-slate-300 text-slate-800 border-slate-300'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+              }`}
             >
-              {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+              {copied ? <Check className="w-4 h-4 text-emerald-500 dark:text-emerald-400" /> : <Copy className="w-4 h-4" />}
               <span>{copied ? (isAr ? 'تم نسخ التقرير!' : 'Copied!') : (isAr ? 'نسخ النص' : 'Copy Text')}</span>
             </button>
 
             <button
               onClick={handleOpenSms}
-              className="py-3 px-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors border border-slate-700"
+              className={`py-3 px-4 rounded-2xl font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors border ${
+                isLight
+                  ? 'bg-slate-200 hover:bg-slate-300 text-slate-800 border-slate-300'
+                  : 'bg-slate-800 hover:bg-slate-700 text-slate-300 border-slate-700'
+              }`}
               title={isAr ? 'إرسال كرسالة نصية قصيرة SMS' : 'Send via SMS'}
             >
               <MessageSquare className="w-4 h-4" />
@@ -229,8 +252,12 @@ export const ParentProgressReportModal: React.FC<ParentProgressReportModalProps>
           </div>
 
           {/* Egyptian Family Sensitivity Note */}
-          <div className="p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/20 text-indigo-300 text-[11px] flex items-start gap-2">
-            <Heart className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+          <div className={`p-3 rounded-xl border text-[11px] flex items-start gap-2 ${
+            isLight
+              ? 'bg-indigo-50 border-indigo-200 text-indigo-950'
+              : 'bg-indigo-950/30 border-indigo-500/20 text-indigo-300'
+          }`}>
+            <Heart className="w-4 h-4 text-indigo-500 dark:text-indigo-400 shrink-0 mt-0.5" />
             <p className="leading-relaxed">
               {isAr
                 ? 'تمت صياغة هذا التقرير بأسلوب داعم ومطمئن للأسرة المصرية لتجنب إثارة القلق أو المقارنات السلبية، والتركيز على مواصلة الجهد والمذاكرة بثقة وهدوء.'

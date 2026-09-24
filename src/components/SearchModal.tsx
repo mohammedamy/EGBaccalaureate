@@ -688,7 +688,7 @@ export const SearchModal: React.FC<Props> = ({
             isLight ? 'bg-slate-100/60 border-slate-200' : 'bg-slate-900/60 border-slate-800'
           }`}
         >
-          <span className="text-[11px] text-slate-400 font-semibold shrink-0">
+          <span className={`text-[11px] font-semibold shrink-0 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {isArabic ? 'المجال:' : 'Category:'}
           </span>
           {[
@@ -707,6 +707,8 @@ export const SearchModal: React.FC<Props> = ({
                 className={`px-2.5 py-1 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   isCatActive
                     ? 'bg-indigo-600 text-white shadow-sm font-bold'
+                    : isLight
+                    ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-200/70'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                 }`}
               >
@@ -727,7 +729,7 @@ export const SearchModal: React.FC<Props> = ({
             <div className="flex flex-wrap items-center justify-between gap-2.5">
               {/* Track filter */}
               <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-slate-400 font-semibold flex items-center gap-1">
+                <span className={`font-semibold flex items-center gap-1 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                   <Filter className="w-3.5 h-3.5" />
                   {isArabic ? 'المسار:' : 'Track:'}
                 </span>
@@ -736,6 +738,8 @@ export const SearchModal: React.FC<Props> = ({
                   className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
                     trackFilter === 'all'
                       ? 'bg-indigo-600 text-white shadow-sm'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-200/70'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
@@ -746,6 +750,8 @@ export const SearchModal: React.FC<Props> = ({
                   className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
                     trackFilter === 'thanaweya'
                       ? 'bg-blue-600 text-white shadow-sm'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-200/70'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
@@ -756,6 +762,8 @@ export const SearchModal: React.FC<Props> = ({
                   className={`px-2.5 py-1 rounded-lg font-bold transition-all ${
                     trackFilter === 'egbac'
                       ? 'bg-purple-600 text-white shadow-sm'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-950 hover:bg-slate-200/70'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
                   }`}
                 >
@@ -770,6 +778,8 @@ export const SearchModal: React.FC<Props> = ({
                   className={`px-2 py-0.5 rounded-md font-semibold ${
                     typeFilter === 'all'
                       ? 'bg-slate-700 text-white'
+                      : isLight
+                      ? 'text-slate-700 hover:text-slate-950'
                       : 'text-slate-400 hover:text-slate-200'
                   }`}
                 >

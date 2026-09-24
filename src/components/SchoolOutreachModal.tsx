@@ -137,7 +137,13 @@ ${appUrl}
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto animate-fade-in"
       dir="rtl"
     >
-      <div className="relative w-full max-w-5xl bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden my-auto text-slate-100 flex flex-col max-h-[92vh]">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="حملة المدارس والمطبوعات الميدانية"
+        data-preserve-dark="true"
+        className="relative w-full max-w-5xl bg-slate-900 border border-slate-700/80 rounded-3xl shadow-2xl overflow-hidden my-auto text-slate-100 flex flex-col max-h-[92vh]"
+      >
         {/* Header */}
         <div className="px-6 py-5 border-b border-slate-800 bg-gradient-to-r from-indigo-950/50 via-slate-900 to-violet-950/30 flex items-center justify-between shrink-0 print:hidden">
           <div className="flex items-center gap-3">

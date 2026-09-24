@@ -77,6 +77,10 @@ export const CertificateVerificationModal: React.FC<CertificateVerificationModal
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/85 backdrop-blur-md overflow-y-auto">
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={isAr ? 'بوابة التحقق الرقمي من شهادات الثانوية العامة' : 'Digital Verification Portal for Thanaweya Credentials'}
+        data-preserve-dark="true"
         className="relative w-full max-w-3xl bg-slate-900 border border-amber-500/40 rounded-3xl shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
         dir={isAr ? 'rtl' : 'ltr'}
       >

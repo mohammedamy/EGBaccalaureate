@@ -206,7 +206,7 @@ export const QuestionIssueReportModal: React.FC<QuestionIssueReportModalProps> =
                   <EgyptFlag className="w-5 h-3.5" />
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className={`text-xs ${isLight ? 'text-slate-600 font-medium' : 'text-slate-400'}`}>
                 {isAr
                   ? 'مساهمة مجتمعية لتدقيق وجودة بنك الأسئلة الوزاري'
                   : 'Community review & quality assurance for ministerial questions'}
@@ -227,14 +227,14 @@ export const QuestionIssueReportModal: React.FC<QuestionIssueReportModalProps> =
         {/* Modal Body */}
         <div className="p-4 sm:p-6 space-y-4 max-h-[80vh] overflow-y-auto">
           {/* Question Context Snippet */}
-          <div className="p-3.5 rounded-2xl bg-slate-950/70 border border-slate-800 text-xs space-y-1">
-            <div className="flex items-center justify-between text-slate-400">
-              <span className="font-semibold text-indigo-300">
+          <div className={`p-3.5 rounded-2xl text-xs space-y-1 ${isLight ? 'bg-slate-100 border border-slate-200' : 'bg-slate-950/70 border border-slate-800'}`}>
+            <div className={`flex items-center justify-between ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+              <span className={`font-semibold ${isLight ? 'text-indigo-700' : 'text-indigo-300'}`}>
                 {chapterTitle ? `${chapterTitle}` : (isAr ? 'السؤال المختار' : 'Target Question')}
               </span>
               <span className="font-mono text-[11px] text-slate-500">ID: {questionId}</span>
             </div>
-            <p className="text-slate-300 line-clamp-2 italic">
+            <p className={`line-clamp-2 italic ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
               "{questionSnippet || (isAr ? 'نص السؤال المختار...' : 'Question text...')}"
             </p>
           </div>

@@ -523,6 +523,8 @@ export const SiteTutorialModal: React.FC<Props> = ({
               className={`p-2 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 smartboardMode
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/50'
+                  : isLight
+                  ? 'bg-white text-slate-700 hover:text-slate-950 border-slate-300 hover:bg-slate-100 shadow-xs'
                   : 'bg-slate-900 text-slate-400 hover:text-slate-200 border-slate-800'
               }`}
               title={
@@ -543,6 +545,8 @@ export const SiteTutorialModal: React.FC<Props> = ({
               className={`p-2 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                 autoPlay
                   ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/50 animate-pulse'
+                  : isLight
+                  ? 'bg-white text-slate-700 hover:text-slate-950 border-slate-300 hover:bg-slate-100 shadow-xs'
                   : 'bg-slate-900 text-slate-400 hover:text-slate-200 border-slate-800'
               }`}
               title={
@@ -561,7 +565,11 @@ export const SiteTutorialModal: React.FC<Props> = ({
             {/* Close Button */}
             <button
               onClick={handleClose}
-              className="p-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-800 transition-all cursor-pointer"
+              className={`p-2 rounded-xl border transition-all cursor-pointer ${
+                isLight
+                  ? 'bg-white hover:bg-slate-100 text-slate-700 hover:text-slate-950 border-slate-300 shadow-xs'
+                  : 'bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white border-slate-800'
+              }`}
               title={isArabic ? 'إغلاق الدليل (Esc)' : 'Close guide (Esc)'}
             >
               <X className="w-4 h-4" />
@@ -862,8 +870,12 @@ export const SiteTutorialModal: React.FC<Props> = ({
             {!isFirstStep && (
               <button
                 onClick={handlePrev}
-                className={`py-2 px-3 sm:px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 text-xs font-bold transition-all cursor-pointer flex items-center gap-1 active:scale-95 ${
+                className={`py-2 px-3 sm:px-4 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center gap-1 active:scale-95 ${
                   smartboardMode ? 'py-3 px-5 text-sm' : ''
+                } ${
+                  isLight
+                    ? 'bg-white hover:bg-slate-100 text-slate-800 border-slate-300 shadow-xs'
+                    : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border-slate-800'
                 }`}
               >
                 {isArabic ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}

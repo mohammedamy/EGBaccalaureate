@@ -110,6 +110,9 @@ export const DownloadManagerModal: React.FC<Props> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md overflow-y-auto">
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={isAr ? 'مدير التحميل وحزم المذاكرة بدون إنترنت' : 'Offline Study Pack Manager'}
         className={`relative w-full max-w-3xl rounded-2xl border shadow-2xl overflow-hidden my-auto ${
           isLight
             ? 'bg-slate-50 border-slate-300 text-slate-900'
@@ -161,10 +164,10 @@ export const DownloadManagerModal: React.FC<Props> = ({
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs mb-2">
             <div className="flex items-center gap-2">
-              <span className="font-bold text-slate-300">
+              <span className="font-bold text-slate-800 dark:text-slate-300">
                 {isAr ? 'مساحة الحزم المحفوظة على هذا الجهاز:' : 'Offline Stored Capacity:'}
               </span>
-              <span className="px-2 py-0.5 rounded-full font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+              <span className="px-2 py-0.5 rounded-full font-mono font-bold bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
                 {Math.round(totalDownloadedMB * 10) / 10} MB
               </span>
               <span className="text-slate-500 text-[11px]">
@@ -173,16 +176,16 @@ export const DownloadManagerModal: React.FC<Props> = ({
             </div>
 
             {quota && (
-              <div className="flex items-center gap-2 text-slate-400">
+              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                 <span>
                   {isAr ? 'المستخدم كلياً بالمتصفح:' : 'Total Browser Cache:'}{' '}
-                  <strong className="text-slate-200">{quota.usageMB} MB</strong> / {quota.quotaMB} MB
+                  <strong className="text-slate-900 dark:text-slate-200">{quota.usageMB} MB</strong> / {quota.quotaMB} MB
                 </span>
                 {!quota.isPersisted && (
                   <button
                     onClick={handlePersist}
                     disabled={persisting}
-                    className="px-2 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-colors text-[10px] font-semibold flex items-center gap-1"
+                    className="px-2 py-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-700 dark:text-amber-300 hover:bg-amber-500/20 transition-colors text-[10px] font-semibold flex items-center gap-1"
                     title={isAr ? 'منع المتصفح من مسح الحزم عند انخفاض مساحة الهاتف' : 'Prevent browser from clearing offline cache'}
                   >
                     <ShieldCheck className="w-3 h-3" />
@@ -195,7 +198,7 @@ export const DownloadManagerModal: React.FC<Props> = ({
 
           {/* Progress Bar of Storage */}
           {quota && (
-            <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+            <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-500"
                 style={{ width: `${Math.max(1, Math.min(100, quota.percentUsed))}%` }}
@@ -205,13 +208,15 @@ export const DownloadManagerModal: React.FC<Props> = ({
         </div>
 
         {/* Filter Navigation */}
-        <div className="px-5 py-3 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2 text-xs">
+        <div className={`px-5 py-3 border-b flex items-center justify-between flex-wrap gap-2 text-xs ${isLight ? 'border-slate-200 bg-slate-100/60' : 'border-slate-800 bg-slate-950/40'}`}>
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => setSelectedFilter('all')}
               className={`px-3 py-1 rounded-lg font-semibold transition-colors ${
                 selectedFilter === 'all'
                   ? 'bg-emerald-600 text-white'
+                  : isLight
+                  ? 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
                   : 'bg-slate-800 text-slate-400 hover:text-white'
               }`}
             >
@@ -222,6 +227,8 @@ export const DownloadManagerModal: React.FC<Props> = ({
               className={`px-3 py-1 rounded-lg font-semibold transition-colors ${
                 selectedFilter === 'stem'
                   ? 'bg-emerald-600 text-white'
+                  : isLight
+                  ? 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
                   : 'bg-slate-800 text-slate-400 hover:text-white'
               }`}
             >
@@ -232,6 +239,8 @@ export const DownloadManagerModal: React.FC<Props> = ({
               className={`px-3 py-1 rounded-lg font-semibold transition-colors ${
                 selectedFilter === 'humanities'
                   ? 'bg-emerald-600 text-white'
+                  : isLight
+                  ? 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
                   : 'bg-slate-800 text-slate-400 hover:text-white'
               }`}
             >
@@ -242,6 +251,8 @@ export const DownloadManagerModal: React.FC<Props> = ({
               className={`px-3 py-1 rounded-lg font-semibold transition-colors ${
                 selectedFilter === 'languages'
                   ? 'bg-emerald-600 text-white'
+                  : isLight
+                  ? 'bg-slate-200/80 text-slate-700 hover:bg-slate-300'
                   : 'bg-slate-800 text-slate-400 hover:text-white'
               }`}
             >
@@ -252,7 +263,7 @@ export const DownloadManagerModal: React.FC<Props> = ({
           {downloadedIds.length > 0 && (
             <button
               onClick={handleClearAll}
-              className="text-[11px] text-rose-400 hover:text-rose-300 flex items-center gap-1 transition-colors"
+              className="text-[11px] text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 flex items-center gap-1 transition-colors font-semibold"
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>{isAr ? 'تفريغ الذاكرة المؤقتة' : 'Clear All'}</span>
@@ -272,38 +283,38 @@ export const DownloadManagerModal: React.FC<Props> = ({
                 className={`p-4 rounded-xl border transition-all ${
                   isDownloaded
                     ? isLight
-                      ? 'bg-emerald-50/50 border-emerald-300'
+                      ? 'bg-emerald-50/70 border-emerald-300'
                       : 'bg-emerald-950/20 border-emerald-700/40 shadow-sm'
                     : isLight
-                    ? 'bg-white border-slate-200 hover:border-slate-300'
+                    ? 'bg-white border-slate-200 hover:border-slate-300 shadow-xs'
                     : 'bg-slate-800/60 border-slate-700/60 hover:border-slate-600'
                 }`}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <h4 className="font-bold text-sm sm:text-base text-slate-100">
+                      <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100">
                         {isAr ? pack.titleAr : pack.titleEn}
                       </h4>
                       {isDownloaded && (
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
                           <CheckCircle2 className="w-3 h-3" />
                           <span>{isAr ? 'جاهزة أوفلاين' : 'Offline Ready'}</span>
                         </span>
                       )}
-                      <span className="text-[11px] text-slate-400 font-mono">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
                         ~{pack.estimatedSizeMB} MB
                       </span>
                     </div>
 
-                    <div className="flex items-center gap-3 text-xs text-slate-400">
+                    <div className="flex items-center gap-3 text-xs text-slate-600 dark:text-slate-400">
                       <span>{pack.chapterCount} {isAr ? 'أبواب وفصول' : 'Chapters'}</span>
                       <span>•</span>
                       <span>{pack.problemCount}+ {isAr ? 'مسألة وبنك أسئلة' : 'Problems'}</span>
                       {pack.hasVirtualLab && (
                         <>
                           <span>•</span>
-                          <span className="text-amber-400 font-semibold">{isAr ? 'مختبر تفاعلي' : 'Interactive Lab'}</span>
+                          <span className="text-amber-600 dark:text-amber-400 font-semibold">{isAr ? 'مختبر تفاعلي' : 'Interactive Lab'}</span>
                         </>
                       )}
                     </div>
@@ -312,7 +323,11 @@ export const DownloadManagerModal: React.FC<Props> = ({
                       {pack.sampleTopicsAr.slice(0, 3).map((topic, i) => (
                         <span
                           key={i}
-                          className="px-2 py-0.5 rounded text-[10px] bg-slate-900/60 border border-slate-700/60 text-slate-300"
+                          className={`px-2 py-0.5 rounded text-[10px] ${
+                            isLight
+                              ? 'bg-slate-100 border border-slate-300 text-slate-700'
+                              : 'bg-slate-900/60 border border-slate-700/60 text-slate-300'
+                          }`}
                         >
                           {topic}
                         </span>
@@ -325,7 +340,11 @@ export const DownloadManagerModal: React.FC<Props> = ({
                     {isDownloaded ? (
                       <button
                         onClick={() => handleRemove(pack.id)}
-                        className="px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 hover:bg-rose-950/30 hover:border-rose-700 hover:text-rose-400 text-slate-400 text-xs transition-colors flex items-center gap-1.5"
+                        className={`px-3 py-1.5 rounded-lg border text-xs transition-colors flex items-center gap-1.5 ${
+                          isLight
+                            ? 'border-slate-300 bg-slate-100 hover:bg-rose-50 hover:border-rose-300 text-slate-700 hover:text-rose-600'
+                            : 'border-slate-700 bg-slate-800/80 hover:bg-rose-950/30 hover:border-rose-700 hover:text-rose-400 text-slate-400'
+                        }`}
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                         <span>{isAr ? 'حذف الحزمة' : 'Delete'}</span>

@@ -754,8 +754,8 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
           {/* Section 6: Official Keyboard Shortcuts Cheat Sheet */}
           <div className="space-y-3">
             <div className="flex items-center gap-2">
-              <Keyboard className="w-4 h-4 text-amber-400" />
-              <h3 className="font-bold text-xs uppercase tracking-wider text-slate-400">
+              <Keyboard className={`w-4 h-4 ${isHighContrast ? 'text-cyan-400' : 'text-amber-400'}`} />
+              <h3 className={`font-bold text-xs uppercase tracking-wider ${isHighContrast ? 'text-cyan-300' : isLight ? 'text-slate-700' : 'text-slate-400'}`}>
                 {isArabic ? 'دليل واختصارات لوحة المفاتيح الرسمية' : 'Official Ministerial Keyboard Shortcuts Cheat Sheet'}
               </h3>
             </div>
@@ -774,7 +774,7 @@ export const AccessibilitySettingsModal: React.FC<AccessibilitySettingsModalProp
                     key={idx}
                     className="px-3.5 py-2 flex items-center justify-between gap-3 text-xs hover:bg-slate-100 dark:hover:bg-slate-800/40 transition-colors"
                   >
-                    <span className="font-medium text-slate-300">
+                    <span className={`font-medium ${isHighContrast ? 'text-cyan-100' : isLight ? 'text-slate-800 font-semibold' : 'text-slate-300'}`}>
                       {isArabic ? sc.descAr : sc.descEn}
                     </span>
                     <kbd

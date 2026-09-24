@@ -677,11 +677,11 @@ html.light .bg-stone-800\/80,
 html.light .bg-stone-800\/70,
 html.light .bg-stone-800\/60,
 html.light .bg-stone-800\/50,
-html.light [class*="bg-slate-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
-html.light [class*="bg-stone-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
-html.light [class*="bg-zinc-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
-html.light [class*="bg-gray-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
-html.light [class*="bg-neutral-800"]:not(button.text-white):not([class*="text-white"]):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis) {
+html.light [class*="bg-slate-800"]:not(button.text-white):not(.text-white):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-stone-800"]:not(button.text-white):not(.text-white):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-zinc-800"]:not(button.text-white):not(.text-white):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-gray-800"]:not(button.text-white):not(.text-white):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [class*="bg-neutral-800"]:not(button.text-white):not(.text-white):not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis) {
   background-color: #f8fafc !important;
   color: #0f172a !important;
 }
@@ -1097,9 +1097,9 @@ html.light .bg-pink-950 {
   border-color: #fbcfe8 !important;
 }
 
-/* PRESERVE LIGHT TEXT ON BLACK / CRT / CANVAS OVERLAYS IN LIGHT MODE */
-html.light [class*="bg-black"],
-html.light .bg-black,
+/* PRESERVE LIGHT TEXT ON INTENTIONAL DARK CHASSIS / CRT / CANVAS IN LIGHT MODE */
+html.light .bg-black:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]),
 html.light [data-preserve-dark="true"],
 html.light .dark-chassis,
 html.light .preserve-dark,
@@ -1107,10 +1107,10 @@ html.light .crt-screen {
   color: #f8fafc !important;
 }
 
-html.light [class*="bg-black"] .text-slate-100,
-html.light [class*="bg-black"] .text-slate-200,
-html.light [class*="bg-black"] .text-slate-300,
-html.light [class*="bg-black"] .text-white,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-slate-100:not([role="dialog"] *):not([aria-modal="true"] *):not(.bg-white *):not([class*="bg-white"] *):not(.bg-slate-50 *):not([class*="bg-slate-50"] *):not(.bg-slate-100 *):not([class*="bg-slate-100"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-slate-200:not([role="dialog"] *):not([aria-modal="true"] *):not(.bg-white *):not([class*="bg-white"] *):not(.bg-slate-50 *):not([class*="bg-slate-50"] *):not(.bg-slate-100 *):not([class*="bg-slate-100"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-slate-300:not([role="dialog"] *):not([aria-modal="true"] *):not(.bg-white *):not([class*="bg-white"] *):not(.bg-slate-50 *):not([class*="bg-slate-50"] *):not(.bg-slate-100 *):not([class*="bg-slate-100"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-white:not([role="dialog"] *):not([aria-modal="true"] *):not(.bg-white *):not([class*="bg-white"] *):not(.bg-slate-50 *):not([class*="bg-slate-50"] *):not(.bg-slate-100 *):not([class*="bg-slate-100"] *),
 html.light [data-preserve-dark="true"] .text-slate-100,
 html.light [data-preserve-dark="true"] .text-slate-200,
 html.light [data-preserve-dark="true"] .text-slate-300,
@@ -1126,8 +1126,8 @@ html.light .preserve-dark .text-white {
   color: #f8fafc !important;
 }
 
-html.light [class*="bg-black"] .text-slate-400,
-html.light [class*="bg-black"] .text-slate-500,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-slate-400:not([role="dialog"] *):not([aria-modal="true"] *):not(.bg-white *):not([class*="bg-white"] *):not(.bg-slate-50 *):not([class*="bg-slate-50"] *):not(.bg-slate-100 *):not([class*="bg-slate-100"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-slate-500:not([role="dialog"] *):not([aria-modal="true"] *):not(.bg-white *):not([class*="bg-white"] *):not(.bg-slate-50 *):not([class*="bg-slate-50"] *):not(.bg-slate-100 *):not([class*="bg-slate-100"] *),
 html.light [data-preserve-dark="true"] .text-slate-400,
 html.light [data-preserve-dark="true"] .text-slate-500,
 html.light .dark-chassis .text-slate-400,
@@ -1137,8 +1137,8 @@ html.light .preserve-dark .text-slate-500 {
   color: #94a3b8 !important;
 }
 
-html.light [class*="bg-black"] .text-cyan-300,
-html.light [class*="bg-black"] .text-cyan-400,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-cyan-300:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-cyan-400:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-cyan-300,
 html.light [data-preserve-dark="true"] .text-cyan-400,
 html.light .dark-chassis .text-cyan-300,
@@ -1148,8 +1148,8 @@ html.light .preserve-dark .text-cyan-400 {
   color: #38bdf8 !important;
 }
 
-html.light [class*="bg-black"] .text-emerald-300,
-html.light [class*="bg-black"] .text-emerald-400,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-emerald-300:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-emerald-400:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-emerald-300,
 html.light [data-preserve-dark="true"] .text-emerald-400,
 html.light .dark-chassis .text-emerald-300,
@@ -1159,8 +1159,8 @@ html.light .preserve-dark .text-emerald-400 {
   color: #34d399 !important;
 }
 
-html.light [class*="bg-black"] .text-amber-300,
-html.light [class*="bg-black"] .text-amber-400,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-amber-300:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-amber-400:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-amber-300,
 html.light [data-preserve-dark="true"] .text-amber-400,
 html.light .dark-chassis .text-amber-300,
@@ -1170,8 +1170,8 @@ html.light .preserve-dark .text-amber-400 {
   color: #fbbf24 !important;
 }
 
-html.light [class*="bg-black"] .text-sky-300,
-html.light [class*="bg-black"] .text-sky-400,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-sky-300:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-sky-400:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-sky-300,
 html.light [data-preserve-dark="true"] .text-sky-400,
 html.light .dark-chassis .text-sky-300,
@@ -1181,9 +1181,9 @@ html.light .preserve-dark .text-sky-400 {
   color: #38bdf8 !important;
 }
 
-html.light [class*="bg-black"] .text-blue-100,
-html.light [class*="bg-black"] .text-blue-200,
-html.light [class*="bg-black"] .text-blue-300,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-blue-100:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-blue-200:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-blue-300:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-blue-100,
 html.light [data-preserve-dark="true"] .text-blue-200,
 html.light [data-preserve-dark="true"] .text-blue-300,
@@ -1196,8 +1196,8 @@ html.light .preserve-dark .text-blue-300 {
   color: #bfdbfe !important;
 }
 
-html.light [class*="bg-black"] .text-cyan-100,
-html.light [class*="bg-black"] .text-cyan-200,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-cyan-100:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-cyan-200:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-cyan-100,
 html.light [data-preserve-dark="true"] .text-cyan-200,
 html.light .dark-chassis .text-cyan-100,
@@ -1207,8 +1207,8 @@ html.light .preserve-dark .text-cyan-200 {
   color: #a5f3fc !important;
 }
 
-html.light [class*="bg-black"] .text-emerald-100,
-html.light [class*="bg-black"] .text-emerald-200,
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-emerald-100:not([role="dialog"] *):not([aria-modal="true"] *),
+html.light [class*="bg-black"]:not([class*="fixed"]):not([class*="inset-0"]):not([class*="backdrop"]):not([class*="z-"]):not([role="dialog"]):not([aria-modal="true"]) .text-emerald-200:not([role="dialog"] *):not([aria-modal="true"] *),
 html.light [data-preserve-dark="true"] .text-emerald-100,
 html.light [data-preserve-dark="true"] .text-emerald-200,
 html.light .dark-chassis .text-emerald-100,
@@ -1217,6 +1217,112 @@ html.light .preserve-dark .text-emerald-100,
 html.light .preserve-dark .text-emerald-200 {
   color: #a7f3d0 !important;
 }
+
+/* ==========================================================================
+   MODAL & DIALOG WCAG AAA CONTRAST SHIELD (LIGHT & HIGH-CONTRAST MODES)
+   Guarantees perfect readability for all modals, dialogs, drawers and sheets
+   ========================================================================== */
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light .fixed [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light .fixed [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark):not(.dark-chassis),
+html.light .fixed > div > [class*="bg-white"],
+html.light .fixed > div > [class*="bg-slate-50"],
+html.light .fixed > [class*="bg-white"],
+html.light .fixed > [class*="bg-slate-50"] {
+  color: #0f172a !important;
+}
+
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) h1:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) h2:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) h3:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) h4:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) h5:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) h6:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) h1:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) h2:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) h3:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) h4:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) h5:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) h6:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  color: #020617 !important;
+}
+
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) p:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) p:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  color: #334155;
+}
+
+/* Ensure text-slate utility classes inside modals have crisp dark contrast in Light Mode */
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-100:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-200:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-100:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-200:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] .text-slate-100:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] .text-slate-200:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] .text-slate-100:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] .text-slate-200:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  color: #0f172a !important;
+}
+
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-300:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-300:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] .text-slate-300:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] .text-slate-300:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  color: #1e293b !important;
+}
+
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-400:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-500:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-400:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) .text-slate-500:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] .text-slate-400:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] .text-slate-500:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] .text-slate-400:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] .text-slate-500:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  color: #475569 !important;
+}
+
+/* Ensure modal buttons, action icons, and close buttons in Light Mode are crisp */
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  color: #0f172a !important;
+}
+
+/* Force Lucide and SVG icons inside modal buttons to be visible and inherit dark stroke */
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *) svg,
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *) svg,
+html.light .fixed [class*="bg-white"] button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *) svg,
+html.light .fixed [class*="bg-slate-50"] button:not(.text-white):not([class~="text-white"]):not([class*="bg-indigo-600"]):not([class*="bg-blue-600"]):not([class*="bg-emerald-600"]):not([class*="bg-rose-600"]):not([class*="bg-amber-600"]):not([class*="bg-teal-600"]):not([class*="bg-cyan-600"]):not([class*="bg-purple-600"]):not([data-preserve-dark="true"] *):not(.preserve-dark *) svg {
+  stroke: currentColor !important;
+  color: #1e293b !important;
+}
+
+/* Copy LaTeX and utility action buttons in Light Mode */
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) button.bg-slate-800:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) button[class*="bg-slate-800"]:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) button.bg-slate-800:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) button[class*="bg-slate-800"]:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] button[class*="bg-slate-800"]:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] button[class*="bg-slate-800"]:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) button.bg-slate-800:hover:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [role="dialog"]:not([data-preserve-dark="true"]):not(.preserve-dark) button[class*="bg-slate-800"]:hover:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) button.bg-slate-800:hover:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light [aria-modal="true"]:not([data-preserve-dark="true"]):not(.preserve-dark) button[class*="bg-slate-800"]:hover:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-white"] button[class*="bg-slate-800"]:hover:not([data-preserve-dark="true"] *):not(.preserve-dark *),
+html.light .fixed [class*="bg-slate-50"] button[class*="bg-slate-800"]:hover:not([data-preserve-dark="true"] *):not(.preserve-dark *) {
+  background-color: #e2e8f0 !important;
+  color: #020617 !important;
+  border-color: #94a3b8 !important;
+}
+
 
 /* FORM CONTROLS IN LIGHT MODE */
 html.light select,

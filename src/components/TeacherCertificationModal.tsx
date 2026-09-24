@@ -187,6 +187,10 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={isAr ? 'برنامج اعتماد معلم كليبسات الرقمي' : 'ClipSAT Certified Educator Program'}
+        data-preserve-dark="true"
         className="relative w-full max-w-4xl bg-slate-900 border border-amber-500/40 rounded-3xl shadow-2xl overflow-hidden my-auto text-white animate-in fade-in zoom-in-95 duration-200"
         dir={isAr ? 'rtl' : 'ltr'}
       >

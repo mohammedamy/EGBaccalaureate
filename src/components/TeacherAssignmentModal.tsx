@@ -88,7 +88,13 @@ const ClassroomAssignmentQRCode: React.FC<ClassroomAssignmentQRCodeProps> = ({
 
   return (
     <div className="fixed inset-0 z-60 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-      <div className="bg-slate-900 border-2 border-amber-500/50 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center animate-in zoom-in-95 duration-200">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={isAr ? 'رمز الاستجابة السريعة للسبورة الذكية' : 'Smartboard Classroom QR'}
+        data-preserve-dark="true"
+        className="bg-slate-900 border-2 border-amber-500/50 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center animate-in zoom-in-95 duration-200"
+      >
         <button
           onClick={onClose}
           className="absolute top-4 left-4 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors"
@@ -430,6 +436,9 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-md overflow-y-auto">
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={isAr ? 'منصة واجبات واختبارات المعلم' : 'Teacher Assignments & Classroom'}
         className={`relative w-full max-w-3xl rounded-2xl border shadow-2xl overflow-hidden transition-all duration-300 my-auto ${
           isLight
             ? 'bg-slate-50 border-slate-300 text-slate-900'
@@ -467,10 +476,14 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
             {onOpenTeacherCertification && (
               <button
                 onClick={onOpenTeacherCertification}
-                className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold border border-amber-500/30 transition-colors"
+                className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${
+                  isLight
+                    ? 'bg-amber-100 hover:bg-amber-200 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border-amber-500/30'
+                }`}
                 title={isAr ? 'برنامج اعتماد معلمي الثانوية العامة' : 'Teacher Accreditation Program'}
               >
-                <GraduationCap className="w-4 h-4 text-amber-400" />
+                <GraduationCap className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                 <span>{isAr ? 'شهادة اعتماد المعلم' : 'Teacher Certification'}</span>
               </button>
             )}
@@ -495,8 +508,8 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
             onClick={() => setActiveTab('student_solve')}
             className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'student_solve'
-                ? 'border-indigo-500 text-indigo-500 dark:text-indigo-400 bg-indigo-500/5 font-black'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
+                ? 'border-indigo-500 text-indigo-600 dark:text-indigo-400 bg-indigo-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <BookOpen className="w-4 h-4 shrink-0" />
@@ -507,8 +520,8 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
             onClick={() => setActiveTab('teacher_create')}
             className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'teacher_create'
-                ? 'border-amber-500 text-amber-500 dark:text-amber-400 bg-amber-500/5 font-black'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
+                ? 'border-amber-500 text-amber-600 dark:text-amber-400 bg-amber-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <PlusCircle className="w-4 h-4 shrink-0" />
@@ -519,8 +532,8 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
             onClick={() => setActiveTab('teacher_grading')}
             className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'teacher_grading'
-                ? 'border-emerald-500 text-emerald-500 dark:text-emerald-400 bg-emerald-500/5 font-black'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
+                ? 'border-emerald-500 text-emerald-600 dark:text-emerald-400 bg-emerald-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <CheckCircle2 className="w-4 h-4 shrink-0" />
@@ -531,8 +544,8 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
             onClick={() => setActiveTab('teacher_question_bank')}
             className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'teacher_question_bank'
-                ? 'border-cyan-500 text-cyan-500 dark:text-cyan-400 bg-cyan-500/5 font-black'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
+                ? 'border-cyan-500 text-cyan-600 dark:text-cyan-400 bg-cyan-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <Sparkles className="w-4 h-4 shrink-0" />
@@ -543,8 +556,8 @@ export const TeacherAssignmentModal: React.FC<Props> = ({
             onClick={() => setActiveTab('teacher_analytics')}
             className={`py-3 px-3 sm:px-4 flex items-center justify-center gap-1.5 border-b-2 whitespace-nowrap transition-all cursor-pointer ${
               activeTab === 'teacher_analytics'
-                ? 'border-purple-500 text-purple-500 dark:text-purple-400 bg-purple-500/5 font-black'
-                : 'border-transparent text-slate-500 hover:text-slate-300'
+                ? 'border-purple-500 text-purple-600 dark:text-purple-400 bg-purple-500/5 font-black'
+                : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-slate-200'
             }`}
           >
             <BarChart3 className="w-4 h-4 shrink-0" />
