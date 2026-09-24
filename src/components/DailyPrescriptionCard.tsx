@@ -12,6 +12,7 @@ import {
   Zap,
   BookOpen,
   Layers,
+  X,
 } from 'lucide-react';
 import {
   getAdaptiveState,
@@ -23,12 +24,14 @@ import { getSubjectForBranch } from '../data/subjects';
 
 interface Props {
   onStartPrescribedPractice: (item: PrescribedItem) => void;
+  onClose?: () => void;
   className?: string;
   theme?: 'dark' | 'light' | 'high-contrast';
 }
 
 export const DailyPrescriptionCard: React.FC<Props> = ({
   onStartPrescribedPractice,
+  onClose,
   className = '',
   theme = 'dark',
 }) => {
@@ -38,6 +41,35 @@ export const DailyPrescriptionCard: React.FC<Props> = ({
   const [prescription, setPrescription] = useState<DailyPrescription | null>(null);
   const [streak, setStreak] = useState<number>(0);
   const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isDismissed, setIsDismissed] = useState<boolean>(() => {
+    try {
+      return sessionStorage.getItem('egbac_prescription_dismissed') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
+  const handleClose = () => {
+    if (onClose) {
+      onClose();
+    } else {
+      setIsDismissed(true);
+      try {
+        sessionStorage.setItem('egbac_prescription_dismissed', 'true');
+      } catch {
+        // ignore
+      }
+    }
+  };
+
+  const handleRestore = () => {
+    setIsDismissed(false);
+    try {
+      sessionStorage.removeItem('egbac_prescription_dismissed');
+    } catch {
+      // ignore
+    }
+  };
 
   // Load or generate prescription on mount
   const loadPrescription = useCallback(() => {
@@ -149,6 +181,55 @@ export const DailyPrescriptionCard: React.FC<Props> = ({
     return null;
   }
 
+  if (isDismissed && !onClose) {
+    return (
+      <div
+        className={`relative p-3.5 sm:p-4 rounded-2xl border flex items-center justify-between gap-3 shadow-md transition-all ${
+          isHighContrast
+            ? 'bg-black border-yellow-400 text-yellow-300'
+            : isLight
+            ? 'bg-gradient-to-r from-indigo-50/80 via-white to-violet-50/80 border-indigo-200 text-slate-800'
+            : 'bg-gradient-to-r from-slate-900/90 via-indigo-950/30 to-slate-900/90 border-indigo-500/30 text-slate-200'
+        } ${className}`}
+        dir="rtl"
+        aria-label="شريط الروشتة اليومية المصغر"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+            <BrainCircuit className="w-5 h-5" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-sm font-bold">روشتة المذاكرة اليومية التكيفية</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 font-mono font-bold border border-indigo-500/30">
+                {completedCount} من {totalCount} مهام منجزة ({progressPct}%)
+              </span>
+              {streak > 0 && (
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1">
+                  <Flame className="w-3 h-3 text-amber-400 fill-amber-400" />
+                  <span>{streak} {streak === 1 ? 'يوم' : 'أيام'}</span>
+                </span>
+              )}
+            </div>
+            <p className="text-xs text-slate-400 hidden sm:block mt-0.5">
+              تم إغلاق العرض التفصيلي. يمكنك إظهار الروشتة اليومية في أي وقت لمتابعة المهام.
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={handleRestore}
+          className="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm shrink-0 cursor-pointer"
+          title="إظهار الروشتة اليومية"
+          aria-label="إظهار الروشتة اليومية"
+        >
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>إظهار الروشتة</span>
+        </button>
+      </div>
+    );
+  }
+
   return (
     <section
       className={`relative overflow-hidden rounded-3xl border transition-all shadow-xl ${
@@ -208,6 +289,22 @@ export const DailyPrescriptionCard: React.FC<Props> = ({
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">تحديث المهام</span>
+            </button>
+
+            <button
+              onClick={handleClose}
+              className={`p-2 sm:px-3 py-1.5 rounded-xl border text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                isHighContrast
+                  ? 'border-yellow-400 text-yellow-300 hover:bg-yellow-400 hover:text-black'
+                  : isLight
+                  ? 'border-slate-200 text-slate-600 hover:bg-rose-50 hover:text-rose-700 hover:border-rose-300'
+                  : 'border-slate-700 text-slate-300 hover:bg-rose-950/40 hover:text-rose-400 hover:border-rose-800'
+              }`}
+              title="إغلاق الروشتة اليومية"
+              aria-label="إغلاق الروشتة اليومية"
+            >
+              <X className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">إغلاق الروشتة</span>
             </button>
           </div>
         </div>
