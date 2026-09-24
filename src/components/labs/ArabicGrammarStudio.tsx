@@ -26,10 +26,15 @@ import {
   Maximize2,
   Minimize2,
   Volume2,
+  Eye,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
 import { StudioVoiceSelector } from './StudioVoiceSelector';
+import { SibawayhGrammarStudio } from './arabic/SibawayhGrammarStudio';
+import { KhalilPoeticsStudio } from './arabic/KhalilPoeticsStudio';
+import { JurjaniRhetoricStudio } from './arabic/JurjaniRhetoricStudio';
+import { IbnJinniMorphologyStudio } from './arabic/IbnJinniMorphologyStudio';
 
 // =========================================================================
 // VECTOR SCHEMATIC 1: ARABIC SYNTAX PARSE TREE (شجرة الإعراب والتحليل التركيبي)
@@ -812,11 +817,15 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
   defaultFullscreen = false,
 }) => {
   const isLight = theme === 'light';
+  const isContrast = theme === 'high-contrast';
+  const isArabic = _lang !== 'en';
   const { isFullscreen: isNativeFs, toggleFullscreen } = useNativeLabFullscreen({
     defaultFullscreen: defaultFullscreen || isFullscreenProp,
   });
   const isFullscreen = Boolean(isFullscreenProp || isNativeFs);
-  const [activeTab, setActiveTab] = useState<'irab' | 'derivatives' | 'rhetoric' | 'orthography' | 'traps'>('irab');
+  const [activeTab, setActiveTab] = useState<
+    'irab' | 'derivatives' | 'rhetoric' | 'orthography' | 'traps' | 'sibawayh' | 'khalil' | 'jurjani' | 'ibn_jinni'
+  >('irab');
 
   // Audio Engine Settings
   const [speechRate, setSpeechRate] = useState<number>(0.9);
@@ -1038,10 +1047,149 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
           <Award className="w-4 h-4" />
           <span>محاكي أفخاخ الامتحانات الوزارية</span>
         </button>
+
+        <button
+          onClick={() => setActiveTab('sibawayh')}
+          className={`min-h-[44px] flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            activeTab === 'sibawayh'
+              ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20'
+              : isLight
+              ? 'text-slate-700 hover:text-amber-900 hover:bg-slate-200 font-semibold'
+              : 'text-slate-400 hover:text-amber-300 hover:bg-slate-800/60'
+          }`}
+        >
+          <BookOpen className="w-4 h-4" />
+          <span>مخطوط سيبويه (796 م)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('khalil')}
+          className={`min-h-[44px] flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            activeTab === 'khalil'
+              ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20'
+              : isLight
+              ? 'text-slate-700 hover:text-amber-900 hover:bg-slate-200 font-semibold'
+              : 'text-slate-400 hover:text-amber-300 hover:bg-slate-800/60'
+          }`}
+        >
+          <Volume2 className="w-4 h-4" />
+          <span>دوائر الخليل (786 م)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('jurjani')}
+          className={`min-h-[44px] flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            activeTab === 'jurjani'
+              ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20'
+              : isLight
+              ? 'text-slate-700 hover:text-amber-900 hover:bg-slate-200 font-semibold'
+              : 'text-slate-400 hover:text-amber-300 hover:bg-slate-800/60'
+          }`}
+        >
+          <Eye className="w-4 h-4" />
+          <span>دلائل الجرجاني (1078 م)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab('ibn_jinni')}
+          className={`min-h-[44px] flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+            activeTab === 'ibn_jinni'
+              ? 'bg-amber-500 text-slate-950 shadow-lg shadow-amber-500/20'
+              : isLight
+              ? 'text-slate-700 hover:text-amber-900 hover:bg-slate-200 font-semibold'
+              : 'text-slate-400 hover:text-amber-300 hover:bg-slate-800/60'
+          }`}
+        >
+          <Feather className="w-4 h-4" />
+          <span>خصائص ابن جني (992 م)</span>
+        </button>
       </div>
 
       {/* Main Studio Body */}
       <div className="p-4 sm:p-6 flex-1 overflow-y-auto">
+        {/* Museum 4K Archival Showcase Jump Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <button
+            onClick={() => setActiveTab('sibawayh')}
+            className={`p-3 rounded-2xl border text-right transition-all group ${
+              activeTab === 'sibawayh'
+                ? 'bg-amber-500/20 border-amber-500 shadow-md'
+                : isLight
+                ? 'bg-white hover:bg-amber-50 border-amber-200'
+                : 'bg-stone-900/80 hover:bg-stone-800/80 border-stone-800'
+            }`}
+          >
+            <div className="flex items-center justify-between text-xs text-amber-500 font-mono mb-1">
+              <span>796 م</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">4K مذهب</span>
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-amber-400 group-hover:text-amber-300">
+              مخطوط كتاب سيبويه
+            </h4>
+            <p className="text-[11px] text-stone-400 mt-0.5 truncate">دستور النحو وشجرة الإعراب</p>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('khalil')}
+            className={`p-3 rounded-2xl border text-right transition-all group ${
+              activeTab === 'khalil'
+                ? 'bg-amber-500/20 border-amber-500 shadow-md'
+                : isLight
+                ? 'bg-white hover:bg-amber-50 border-amber-200'
+                : 'bg-stone-900/80 hover:bg-stone-800/80 border-stone-800'
+            }`}
+          >
+            <div className="flex items-center justify-between text-xs text-amber-500 font-mono mb-1">
+              <span>786 م</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">4K هندسي</span>
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-amber-400 group-hover:text-amber-300">
+              دوائر العروض للفراهيدي
+            </h4>
+            <p className="text-[11px] text-stone-400 mt-0.5 truncate">موسيقى الشعر والبحور 16</p>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('jurjani')}
+            className={`p-3 rounded-2xl border text-right transition-all group ${
+              activeTab === 'jurjani'
+                ? 'bg-amber-500/20 border-amber-500 shadow-md'
+                : isLight
+                ? 'bg-white hover:bg-amber-50 border-amber-200'
+                : 'bg-stone-900/80 hover:bg-stone-800/80 border-stone-800'
+            }`}
+          >
+            <div className="flex items-center justify-between text-xs text-amber-500 font-mono mb-1">
+              <span>1078 م</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">4K لازوردي</span>
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-amber-400 group-hover:text-amber-300">
+              دلائل الإعجاز للجرجاني
+            </h4>
+            <p className="text-[11px] text-stone-400 mt-0.5 truncate">نظرية النظم وأسرار البلاغة</p>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('ibn_jinni')}
+            className={`p-3 rounded-2xl border text-right transition-all group ${
+              activeTab === 'ibn_jinni'
+                ? 'bg-amber-500/20 border-amber-500 shadow-md'
+                : isLight
+                ? 'bg-white hover:bg-amber-50 border-amber-200'
+                : 'bg-stone-900/80 hover:bg-stone-800/80 border-stone-800'
+            }`}
+          >
+            <div className="flex items-center justify-between text-xs text-amber-500 font-mono mb-1">
+              <span>992 م</span>
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">4K كربوني</span>
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-amber-400 group-hover:text-amber-300">
+              خصائص ابن جني
+            </h4>
+            <p className="text-[11px] text-stone-400 mt-0.5 truncate">الميزان الصرفي والمشتقات</p>
+          </button>
+        </div>
+
         {/* ========================================================================= */}
         {/* TAB 1: IRAB & SYNTAX PARSER */}
         {/* ========================================================================= */}
@@ -1208,6 +1356,11 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                 </div>
               </div>
             )}
+
+            {/* Embedded Sibawayh 4K Studio */}
+            <div className="mt-8 pt-6 border-t border-slate-800">
+              <SibawayhGrammarStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+            </div>
           </div>
         )}
 
@@ -1298,6 +1451,11 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                 </div>
               </div>
             </div>
+
+            {/* Embedded Ibn Jinni 4K Morphology Studio */}
+            <div className="mt-8 pt-6 border-t border-slate-800">
+              <IbnJinniMorphologyStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+            </div>
           </div>
         )}
 
@@ -1369,6 +1527,11 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* Embedded Jurjani 4K Rhetoric Studio */}
+            <div className="mt-8 pt-6 border-t border-slate-800">
+              <JurjaniRhetoricStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
             </div>
           </div>
         )}
@@ -1559,6 +1722,42 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                 </div>
               )}
             </div>
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* TAB 6: SIBAWAYH GRAMMAR CODEX 796 CE */}
+        {/* ========================================================================= */}
+        {activeTab === 'sibawayh' && (
+          <div className="space-y-6">
+            <SibawayhGrammarStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* TAB 7: AL-KHALIL POETIC CIRCLES 786 CE */}
+        {/* ========================================================================= */}
+        {activeTab === 'khalil' && (
+          <div className="space-y-6">
+            <KhalilPoeticsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* TAB 8: JURJANI DALAI'L AL-I'JAZ 1078 CE */}
+        {/* ========================================================================= */}
+        {activeTab === 'jurjani' && (
+          <div className="space-y-6">
+            <JurjaniRhetoricStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {/* ========================================================================= */}
+        {/* TAB 9: IBN JINNI AL-KHASA'IS 992 CE */}
+        {/* ========================================================================= */}
+        {activeTab === 'ibn_jinni' && (
+          <div className="space-y-6">
+            <IbnJinniMorphologyStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
           </div>
         )}
       </div>
