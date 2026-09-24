@@ -104,11 +104,11 @@ export const AncientManuscriptHighResView: React.FC<Props> = ({
         {/* Floating Bottom Metadata */}
         <div className="absolute bottom-3 start-3 end-3 flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-black/85 backdrop-blur-md border border-amber-500/40 text-white z-20">
           <div className="flex items-center gap-3 text-xs font-bold text-amber-300">
-            <span>🔤 الخط: أونسيال قبطي يوناني</span>
+            <span>{isArabic ? '🔤 الخط: أونسيال قبطي يوناني' : '🔤 Script: Greek-Coptic Uncial'}</span>
             <span>•</span>
-            <span>🎨 الحبر: زنجفر أحمر وكربون أسود</span>
+            <span>{isArabic ? '🎨 الحبر: زنجفر أحمر وكربون أسود' : '🎨 Ink: Cinnabar Red & Carbon Black'}</span>
             <span>•</span>
-            <span>📜 الخامة: بردي مصري ورق جلد عتيق</span>
+            <span>{isArabic ? '📜 الخامة: بردي مصري ورق جلد عتيق' : '📜 Support: Egyptian Papyrus & Aged Vellum'}</span>
           </div>
           <span className="text-[11px] font-mono text-amber-400 font-bold">
             ARCHIVAL-CODEX-RESOLUTION

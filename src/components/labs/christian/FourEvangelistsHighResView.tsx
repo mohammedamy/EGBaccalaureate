@@ -104,13 +104,13 @@ export const FourEvangelistsHighResView: React.FC<Props> = ({
         {/* Floating Badges */}
         <div className="absolute bottom-3 start-3 end-3 flex flex-wrap items-center justify-between gap-2 p-3 rounded-xl bg-black/80 backdrop-blur-md border border-amber-500/40 text-white z-20">
           <div className="flex items-center gap-3 text-xs font-bold text-amber-300">
-            <span>متى: الملاك (التجسد)</span>
+            <span>{isArabic ? 'متى: الملاك (التجسد)' : 'Matthew: Angel (Incarnation)'}</span>
             <span>•</span>
-            <span>مرقس: الأسد (السلطان)</span>
+            <span>{isArabic ? 'مرقس: الأسد (السلطان)' : 'Mark: Lion (Sovereignty)'}</span>
             <span>•</span>
-            <span>لوقا: الثور (الفداء)</span>
+            <span>{isArabic ? 'لوقا: الثور (الفداء)' : 'Luke: Ox (Sacrifice)'}</span>
             <span>•</span>
-            <span>يوحنا: النسر (اللاهوت)</span>
+            <span>{isArabic ? 'يوحنا: النسر (اللاهوت)' : 'John: Eagle (Divinity)'}</span>
           </div>
           <span className="text-[11px] font-mono text-amber-400 font-bold">
             BYZANTINE-COPTIC TETRAMORPH
