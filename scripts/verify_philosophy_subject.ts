@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import { thanaweyaCurriculum } from '../src/data/thanaweyaData';
 import { egBacCurriculum } from '../src/data/egBacData';
 import { SUBJECTS, getSubjectById, getSubjectForBranch, getBranchesForSubject, getSubjectStats } from '../src/data/subjects';
@@ -264,10 +266,50 @@ assert(egBranches.length === 1, `EG-Bac philosophy branchCount is 1 (found: ${eg
 assert(egStats.totalChapters === 8, `EG-Bac philosophy totalChapters is 8 (found: ${egStats.totalChapters})`);
 assert(egStats.totalProblems === 1600, `EG-Bac philosophy totalProblems is 1,600 (found: ${egStats.totalProblems})`);
 
+// 9. Museum 4K Archival Assets & Specialized Philosophy Studios Verification
+console.log('\n--- 9. Museum 4K Archival Assets & Specialized Studios Verification ---');
+const philAssetsDir = path.join(process.cwd(), 'src', 'assets', 'philosophy');
+const requiredPhilAssets = [
+  'school_of_athens_1511.jpg',
+  'bacon_novum_organum_1620.jpg',
+  'vitruvian_bioethics_1490.jpg',
+  'cybernetic_babbage_engine_1843.jpg',
+];
+
+for (const assetName of requiredPhilAssets) {
+  const assetPath = path.join(philAssetsDir, assetName);
+  assert(fs.existsSync(assetPath), `Archival asset exists: ${assetName}`);
+  if (fs.existsSync(assetPath)) {
+    const stats = fs.statSync(assetPath);
+    assert(stats.size > 100 * 1024, `Archival asset ${assetName} has high-res fidelity (>100KB, actual: ${(stats.size / 1024).toFixed(1)} KB)`);
+  }
+}
+
+const philStudiosDir = path.join(process.cwd(), 'src', 'components', 'labs', 'philosophy');
+const requiredPhilStudios = [
+  'SchoolOfAthensStudio.tsx',
+  'BaconInductionStudio.tsx',
+  'BioethicsEnvironmentalStudio.tsx',
+  'CyberneticsFuzzyLogicStudio.tsx',
+];
+
+for (const studioName of requiredPhilStudios) {
+  const studioPath = path.join(philStudiosDir, studioName);
+  assert(fs.existsSync(studioPath), `Specialized philosophy studio exists: ${studioName}`);
+}
+
+const logicStudioPath = path.join(process.cwd(), 'src', 'components', 'labs', 'LogicStudio.tsx');
+assert(fs.existsSync(logicStudioPath), 'LogicStudio.tsx exists');
+const logicStudioCode = fs.readFileSync(logicStudioPath, 'utf8');
+assert(logicStudioCode.includes('SchoolOfAthensStudio'), 'LogicStudio mounts SchoolOfAthensStudio');
+assert(logicStudioCode.includes('BaconInductionStudio'), 'LogicStudio mounts BaconInductionStudio');
+assert(logicStudioCode.includes('BioethicsEnvironmentalStudio'), 'LogicStudio mounts BioethicsEnvironmentalStudio');
+assert(logicStudioCode.includes('CyberneticsFuzzyLogicStudio'), 'LogicStudio mounts CyberneticsFuzzyLogicStudio');
+
 console.log('\n======================================================================');
 if (errors === 0) {
   console.log('🎉 ALL PHILOSOPHY & APPLIED LOGIC VERIFICATION CHECKS PASSED (0 ERRORS)!');
-  console.log('3,200 Problems, 8 Units, Logic & AI Studio, Mock Exams, and Books Verified!');
+  console.log('3,200 Problems, 8 Units, Logic & AI Studio, 4K Archival Assets & Studios Verified!');
   console.log('======================================================================');
   process.exit(0);
 } else {

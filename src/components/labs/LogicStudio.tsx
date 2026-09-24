@@ -18,16 +18,27 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { SchoolOfAthensStudio } from './philosophy/SchoolOfAthensStudio';
+import { BaconInductionStudio } from './philosophy/BaconInductionStudio';
+import { BioethicsEnvironmentalStudio } from './philosophy/BioethicsEnvironmentalStudio';
+import { CyberneticsFuzzyLogicStudio } from './philosophy/CyberneticsFuzzyLogicStudio';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'truth_table' | 'syllogism' | 'mills_methods' | 'fuzzy_ai' | 'bioethics_matrix';
+  initialMode?: LogicStudioMode;
 }
 
-type LogicStudioMode = 'truth_table' | 'syllogism' | 'mills_methods' | 'fuzzy_ai' | 'bioethics_matrix';
+export type LogicStudioMode =
+  | 'school_of_athens'
+  | 'bacon_idols'
+  | 'bioethics_matrix'
+  | 'fuzzy_ai'
+  | 'truth_table'
+  | 'syllogism'
+  | 'mills_methods';
 
 // =========================================================================
 // Schematic 1: Aristotelian Syllogism Euler / Venn Set Overlap Schematic
@@ -932,14 +943,16 @@ export const LogicStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* 5 Mode Selector Buttons with >= 44px touch targets */}
+        {/* 7 Mode Selector Buttons with >= 44px touch targets */}
         <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/60 border border-slate-800/80 overflow-x-auto max-w-full">
           {[
+            { id: 'school_of_athens', icon: Brain, labelAr: 'مدرسة أثينا 4K', labelEn: 'School of Athens 4K' },
+            { id: 'bacon_idols', icon: Layers, labelAr: 'أورجانون بيكون 4K', labelEn: 'Bacon & Idols 4K' },
+            { id: 'bioethics_matrix', icon: Shield, labelAr: 'البيوتيقا والبيئة 4K', labelEn: 'Bioethics Codex 4K' },
+            { id: 'fuzzy_ai', icon: Cpu, labelAr: 'السيبرنطيقا والـ AI 4K', labelEn: 'Cybernetics & AI 4K' },
             { id: 'truth_table', icon: Binary, labelAr: 'جداول الصدق الرمزية', labelEn: 'Truth Tables' },
             { id: 'syllogism', icon: Scale, labelAr: 'القياس الأرسطي الصوري', labelEn: 'Syllogism' },
-            { id: 'mills_methods', icon: Layers, labelAr: 'طرق مل الاستقرائية', labelEn: "Mill's Methods" },
-            { id: 'fuzzy_ai', icon: Cpu, labelAr: 'المنطق المرن والـ AI', labelEn: 'Fuzzy AI' },
-            { id: 'bioethics_matrix', icon: Shield, labelAr: 'مصفوفة البيوتيقا والبيئة', labelEn: 'Bioethics Matrix' }
+            { id: 'mills_methods', icon: CheckCircle2, labelAr: 'طرق مل الاستقرائية', labelEn: "Mill's Methods" }
           ].map((mode) => {
             const Icon = mode.icon;
             const isActive = activeMode === mode.id;
@@ -947,7 +960,7 @@ export const LogicStudio: React.FC<Props> = ({
               <button
                 key={mode.id}
                 onClick={() => setActiveMode(mode.id as LogicStudioMode)}
-                className={`min-h-[44px] flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                className={`min-h-[44px] flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'bg-purple-600 text-white shadow-md shadow-purple-600/30'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
@@ -972,6 +985,91 @@ export const LogicStudio: React.FC<Props> = ({
 
       {/* Main Workspace Area */}
       <div className="flex-1 p-4 md:p-6 overflow-y-auto">
+        {/* Quick Museum Jump Cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 max-w-5xl mx-auto">
+          <button
+            onClick={() => setActiveMode('school_of_athens')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'school_of_athens'
+                ? 'bg-purple-600/30 border-purple-400 shadow-md ring-1 ring-purple-400'
+                : 'bg-gradient-to-br from-purple-900/30 to-slate-900 border-purple-500/20 hover:border-purple-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-purple-400 font-bold block mb-1">🏛️ Fresco 1511</span>
+            <div className="text-xs font-black text-white group-hover:text-purple-300">
+              {isArabic ? 'مدرسة أثينا لرافائيل 4K' : 'School of Athens 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'أفلاطون وأرسطو والمُثل' : 'Plato, Aristotle & Forms'}
+            </p>
+          </button>
+
+          <button
+            onClick={() => setActiveMode('bacon_idols')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'bacon_idols'
+                ? 'bg-amber-600/30 border-amber-400 shadow-md ring-1 ring-amber-400'
+                : 'bg-gradient-to-br from-amber-900/30 to-slate-900 border-amber-500/20 hover:border-amber-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-amber-400 font-bold block mb-1">⛵ Organum 1620</span>
+            <div className="text-xs font-black text-white group-hover:text-amber-300">
+              {isArabic ? 'أورجانون بيكون والأوهام' : 'Bacon & Four Idols 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'الجنس والكهف والسوق والمسرح' : 'Tribe, Cave, Market, Theatre'}
+            </p>
+          </button>
+
+          <button
+            onClick={() => setActiveMode('bioethics_matrix')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'bioethics_matrix'
+                ? 'bg-teal-600/30 border-teal-400 shadow-md ring-1 ring-teal-400'
+                : 'bg-gradient-to-br from-teal-900/30 to-slate-900 border-teal-500/20 hover:border-teal-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-teal-400 font-bold block mb-1">🌿 Bioethics 1490</span>
+            <div className="text-xs font-black text-white group-hover:text-teal-300">
+              {isArabic ? 'إنسان فيتروفيان والبيوتيقا' : 'Vitruvian Bioethics 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'يوناس ونايس والاستنساخ' : 'Jonas, Næss & Cloning'}
+            </p>
+          </button>
+
+          <button
+            onClick={() => setActiveMode('fuzzy_ai')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'fuzzy_ai'
+                ? 'bg-blue-600/30 border-blue-400 shadow-md ring-1 ring-blue-400'
+                : 'bg-gradient-to-br from-blue-900/30 to-slate-900 border-blue-500/20 hover:border-blue-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-blue-400 font-bold block mb-1">⚙️ Computing 1843</span>
+            <div className="text-xs font-black text-white group-hover:text-blue-300">
+              {isArabic ? 'باباج والمنطق المرن' : 'Babbage & Fuzzy AI 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'لطفي زادة ونوربرت فينر' : 'Lotfi Zadeh & Wiener'}
+            </p>
+          </button>
+        </div>
+
+        {/* ========================================================= */}
+        {/* MUSEUM 4K STUDIOS: SCHOOL OF ATHENS & BACON NOVUM ORGANUM */}
+        {/* ========================================================= */}
+        {activeMode === 'school_of_athens' && (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <SchoolOfAthensStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {activeMode === 'bacon_idols' && (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <BaconInductionStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
 
         {/* ========================================================= */}
         {/* TAB 1: Symbolic Logic & Truth Table Generator             */}
@@ -1556,6 +1654,9 @@ export const LogicStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeMode === 'fuzzy_ai' && (
           <div className="space-y-6 max-w-5xl mx-auto">
+            {/* Museum 4K Archival Analytical Engine & Cybernetic Studio */}
+            <CyberneticsFuzzyLogicStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+
             <div className="p-4 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div>
                 <h3 className="font-black text-sm text-purple-300 flex items-center gap-2">
@@ -1606,6 +1707,9 @@ export const LogicStudio: React.FC<Props> = ({
         {/* ========================================================= */}
         {activeMode === 'bioethics_matrix' && (
           <div className="space-y-6 max-w-5xl mx-auto">
+            {/* Museum 4K Archival Vitruvian Bioethics Studio */}
+            <BioethicsEnvironmentalStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+
             {/* Dilemma Selector with >= 50px buttons */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
               {(Object.keys(dilemmasData) as BioDilemmaId[]).map((dKey) => {
