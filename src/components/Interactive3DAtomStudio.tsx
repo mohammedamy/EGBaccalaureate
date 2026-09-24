@@ -15,13 +15,17 @@ import {
 import { playPhotoelectricChirp, isAudioMuted, toggleAudioMuted } from '../utils/scienceAudio';
 import { LabReportGeneratorModal } from './labs/LabReportGeneratorModal';
 import { saveLabReportDraft, loadLabReportDraft } from '../services/labReportService';
+import {
+  CoolidgeXRaySpectrometer,
+  XRAY_TARGETS,
+} from './labs/physics/CoolidgeXRaySpectrometer';
 
 interface Props {
   lang: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
 }
 
-export type AtomStudioMode = 'rutherford' | 'bohr' | 'laser';
+export type AtomStudioMode = 'rutherford' | 'bohr' | 'laser' | 'coolidge_xray';
 
 // Balmer visible series spectral lines
 export const BALMER_LINES = [
@@ -46,8 +50,32 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
 
   const handleOpenOfficialReportModal = () => {
-    const draft = loadLabReportDraft('phys-exp-6');
-    if (activeMode === 'bohr') {
+    const isXray = activeMode === 'coolidge_xray';
+    const draft = loadLabReportDraft(isXray ? 'phys-exp-8' : 'phys-exp-6');
+    if (activeMode === 'coolidge_xray') {
+      const target = XRAY_TARGETS[xrayTargetElement];
+      const lambdaMinNm = 1.23984193 / Math.max(1, xrayVoltageKv);
+      const lambdaMinPm = lambdaMinNm * 1000;
+      const pInW = xrayVoltageKv * xrayFilamentCurrentMa;
+      const pHeatW = 0.99 * pInW;
+      const xrayRow = {
+        measurement: isAr
+          ? `أنبوبة كولدج (هدف ${target.nameAr} - ${xrayVoltageKv.toFixed(1)} kV)`
+          : `Coolidge Tube (${target.nameEn} - ${xrayVoltageKv.toFixed(1)} kV)`,
+        quantum_state: isAr
+          ? `تيار الفتيلة: ${xrayFilamentCurrentMa.toFixed(1)} mA (حرارة: ${pHeatW.toFixed(1)} W)`
+          : `Filament Current: ${xrayFilamentCurrentMa.toFixed(1)} mA (Heat: ${pHeatW.toFixed(1)} W)`,
+        observed_val: `λ_min = ${lambdaMinPm.toFixed(2)} pm (${(lambdaMinNm * 10).toFixed(3)} Å)`,
+        theoretical_val: `${(1239.84 / Math.max(1, xrayVoltageKv)).toFixed(2)} pm`,
+        error_pct: '0.00%',
+      };
+      const existing = draft.dataTableRows.filter(
+        (r) => !r.measurement.includes('كولدج') && !r.measurement.includes('Coolidge')
+      );
+      draft.dataTableRows = [xrayRow, ...existing];
+      draft.conclusionAr = `أكدت النتائج قانون دوين-هنت (Duane-Hunt Law) بأن أقصر طول موجي لطيف الكبح المستمر (λ_min = hc/eV) يعتمد حصراً على فرق الجهد المطبق ولا يتغير بتغير مادة الهدف أو تيار الفتيلة. بينما الطيف الخطي المميز يتوقف على مادة الهدف وعدده الذري Z ولا يظهر إلا إذا تجاوز فرق الجهد جهد الإثارة الحرج (${target.kEdgeThresholdKv} kV لـ ${target.nameAr}). و99% من طاقة الإلكترونات تتحول لطاقة حرارية تستلزم زعانف تبريد نحاسية.`;
+      draft.conclusionEn = `Experimental results confirmed the Duane-Hunt law: minimum continuous Bremsstrahlung wavelength λ_min = hc/(eV) depends solely on accelerating voltage, independent of target metal or filament current. Characteristic line emissions depend on target atomic number Z and appear only when voltage exceeds the excitation threshold (${target.kEdgeThresholdKv} kV for ${target.nameEn}). 99% of kinetic energy dissipates as heat requiring copper radiating fins.`;
+    } else if (activeMode === 'bohr') {
       const balmerRow = {
         measurement: isAr ? 'خط انبعاث طيفي بالمر (تجريبي)' : 'Balmer Spectral Emission (Empirical)',
         quantum_state: lastTransition ? `${lastTransition.ni} → ${lastTransition.nf}` : `n = ${currentLevel} → 2`,
@@ -129,6 +157,31 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
   const [dischargeVoltageKv, setDischargeVoltageKv] = useState<number>(3.5);
   const [pumpingActive, setPumpingActive] = useState<boolean>(true);
   const outputPowerMw = 5.0;
+
+  // --------------------------------------------------------------------------
+  // Coolidge X-Ray Tube Mode State
+  // --------------------------------------------------------------------------
+  const [xrayVoltageKv, setXrayVoltageKv] = useState<number>(50.0);
+  const [xrayFilamentCurrentMa, setXrayFilamentCurrentMa] = useState<number>(15.0);
+  const [xrayTargetElement, setXrayTargetElement] = useState<'tungsten' | 'molybdenum' | 'copper'>('tungsten');
+  const [showCharacteristicPeaks, setShowCharacteristicPeaks] = useState<boolean>(true);
+
+  // Coolidge Tube electron & wave animation tracking
+  const xrayElectronsRef = useRef<Array<{
+    mesh: THREE.Mesh;
+    x: number;
+    y: number;
+    z: number;
+    vx: number;
+    isDead: boolean;
+  }>>([]);
+  const xrayPulsesRef = useRef<Array<{
+    mesh: THREE.Mesh;
+    y: number;
+    scale: number;
+    opacity: number;
+  }>>([]);
+  const xrayWaveTimerRef = useRef<number>(0);
 
   // Particle tracking array for animations
   const alphaParticlesRef = useRef<Array<{
@@ -453,6 +506,103 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
         }
       }
 
+      // Coolidge Tube X-Ray Animation
+      if (activeMode === 'coolidge_xray' && isPlaying) {
+        // Spawn accelerated electrons from cathode (-4.0, y, z)
+        const spawnProb = 0.35 + (xrayFilamentCurrentMa / 25) * 0.55;
+        if (Math.random() < spawnProb) {
+          const eGeo = new THREE.SphereGeometry(0.1, 8, 8);
+          const eMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+          const eMesh = new THREE.Mesh(eGeo, eMat);
+          const startY = (Math.random() - 0.5) * 0.4;
+          const startZ = (Math.random() - 0.5) * 0.4;
+          eMesh.position.set(-4.0, startY, startZ);
+          dynamicGroup.add(eMesh);
+
+          // Velocity scales with sqrt(V)
+          const speed = 12.0 * Math.sqrt(Math.max(10, xrayVoltageKv) / 50.0);
+          xrayElectronsRef.current.push({
+            mesh: eMesh,
+            x: -4.0,
+            y: startY,
+            z: startZ,
+            vx: speed,
+            isDead: false,
+          });
+        }
+
+        // Advance electrons towards anode focal spot (0, 0, 0)
+        for (let i = xrayElectronsRef.current.length - 1; i >= 0; i--) {
+          const p = xrayElectronsRef.current[i];
+          p.x += p.vx * delta;
+          p.y += (0 - p.y) * 5.0 * delta;
+          p.z += (0 - p.z) * 5.0 * delta;
+          p.mesh.position.set(p.x, p.y, p.z);
+
+          // Impact on anode face (x >= 0)
+          if (p.x >= 0) {
+            p.isDead = true;
+            dynamicGroup.remove(p.mesh);
+            p.mesh.geometry.dispose();
+            (p.mesh.material as THREE.Material).dispose();
+            xrayElectronsRef.current.splice(i, 1);
+
+            // Impact spark flash at target
+            const flashGeo = new THREE.SphereGeometry(0.18, 8, 8);
+            const flashMat = new THREE.MeshBasicMaterial({ color: 0x67e8f9, transparent: true, opacity: 0.95 });
+            const flashMesh = new THREE.Mesh(flashGeo, flashMat);
+            flashMesh.position.set(0, 0, 0);
+            dynamicGroup.add(flashMesh);
+            setTimeout(() => {
+              dynamicGroup.remove(flashMesh);
+              flashGeo.dispose();
+              flashMat.dispose();
+            }, 80);
+          }
+        }
+
+        // Emitted X-ray wave pulses (rings moving downwards from 0, 0, 0 out the window)
+        xrayWaveTimerRef.current += delta;
+        if (xrayWaveTimerRef.current > 0.28) {
+          xrayWaveTimerRef.current = 0;
+          const ringGeo = new THREE.RingGeometry(0.25, 0.4, 32);
+          const ringMat = new THREE.MeshBasicMaterial({
+            color: 0xa855f7,
+            transparent: true,
+            opacity: 0.85,
+            side: THREE.DoubleSide,
+          });
+          const ring = new THREE.Mesh(ringGeo, ringMat);
+          ring.rotation.x = Math.PI / 2;
+          ring.position.set(0, -0.6, 0);
+          dynamicGroup.add(ring);
+          xrayPulsesRef.current.push({
+            mesh: ring,
+            y: -0.6,
+            scale: 1.0,
+            opacity: 0.85,
+          });
+        }
+
+        // Advance wave pulses
+        for (let i = xrayPulsesRef.current.length - 1; i >= 0; i--) {
+          const pulse = xrayPulsesRef.current[i];
+          pulse.y -= 6.5 * delta;
+          pulse.scale += 2.5 * delta;
+          pulse.opacity -= 1.1 * delta;
+          pulse.mesh.position.y = pulse.y;
+          pulse.mesh.scale.set(pulse.scale, pulse.scale, 1.0);
+          (pulse.mesh.material as THREE.MeshBasicMaterial).opacity = Math.max(0, pulse.opacity);
+
+          if (pulse.y < -6.5 || pulse.opacity <= 0) {
+            dynamicGroup.remove(pulse.mesh);
+            pulse.mesh.geometry.dispose();
+            (pulse.mesh.material as THREE.Material).dispose();
+            xrayPulsesRef.current.splice(i, 1);
+          }
+        }
+      }
+
       renderer.render(scene, camera);
     };
     renderLoop();
@@ -509,6 +659,8 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
       else child.material?.dispose();
     }
     alphaParticlesRef.current = [];
+    xrayElectronsRef.current = [];
+    xrayPulsesRef.current = [];
 
     // ========================================================================
     // Mode 1: Rutherford Scattering (Gold Nucleus + ZnS Screen)
@@ -697,7 +849,222 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
         dynGroup.add(beam);
       }
     }
-  }, [activeMode, currentLevel, showDeBroglieWaves, pumpingActive, alphaEnergyMev]);
+
+    // ========================================================================
+    // Mode 4: Coolidge 3D X-Ray Tube with Dual Continuous/Characteristic Spectra
+    // ========================================================================
+    if (activeMode === 'coolidge_xray') {
+      const targetCfg = XRAY_TARGETS[xrayTargetElement];
+
+      // 1. Evacuated Glass Envelope (Main central spherical bulb + side arms + exit window)
+      const glassMat = new THREE.MeshPhysicalMaterial({
+        color: 0xa5f3fc,
+        transparent: true,
+        opacity: 0.22,
+        roughness: 0.05,
+        metalness: 0.05,
+        transmission: 0.88,
+        ior: 1.5,
+        side: THREE.DoubleSide,
+      });
+
+      // Central glass sphere
+      const bulbGeo = new THREE.SphereGeometry(3.6, 36, 36);
+      const bulb = new THREE.Mesh(bulbGeo, glassMat);
+      dynGroup.add(bulb);
+
+      // Cathode glass arm (horizontal left)
+      const leftNeckGeo = new THREE.CylinderGeometry(1.65, 1.65, 5.0, 32, 1, true);
+      const leftNeck = new THREE.Mesh(leftNeckGeo, glassMat);
+      leftNeck.rotation.z = Math.PI / 2;
+      leftNeck.position.set(-4.5, 0, 0);
+      dynGroup.add(leftNeck);
+
+      // Anode glass arm (horizontal right)
+      const rightNeckGeo = new THREE.CylinderGeometry(1.65, 1.65, 5.0, 32, 1, true);
+      const rightNeck = new THREE.Mesh(rightNeckGeo, glassMat);
+      rightNeck.rotation.z = Math.PI / 2;
+      rightNeck.position.set(4.5, 0, 0);
+      dynGroup.add(rightNeck);
+
+      // Downward exit window collar
+      const exitWindowGeo = new THREE.CylinderGeometry(1.3, 1.3, 2.2, 32, 1, true);
+      const exitWindow = new THREE.Mesh(exitWindowGeo, glassMat);
+      exitWindow.position.set(0, -3.2, 0);
+      dynGroup.add(exitWindow);
+
+      // Beryllium exit window disk (thin, transparent filter)
+      const beryGeo = new THREE.CylinderGeometry(1.25, 1.25, 0.15, 32);
+      const beryMat = new THREE.MeshStandardMaterial({
+        color: 0x38bdf8,
+        transparent: true,
+        opacity: 0.45,
+        metalness: 0.5,
+        roughness: 0.2,
+      });
+      const beryDisk = new THREE.Mesh(beryGeo, beryMat);
+      beryDisk.position.set(0, -4.3, 0);
+      dynGroup.add(beryDisk);
+
+      // 2. Cathode Assembly (-kV Potential & Thermionic Filament)
+      // Cathode base endcap
+      const cathCapGeo = new THREE.CylinderGeometry(1.7, 1.7, 0.6, 32);
+      const cathCapMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.85, roughness: 0.3 });
+      const cathCap = new THREE.Mesh(cathCapGeo, cathCapMat);
+      cathCap.rotation.z = Math.PI / 2;
+      cathCap.position.set(-7.1, 0, 0);
+      dynGroup.add(cathCap);
+
+      // Dual cathode tungsten electrode pins
+      [-0.35, 0.35].forEach((dy) => {
+        const pinGeo = new THREE.CylinderGeometry(0.06, 0.06, 2.8, 12);
+        const pinMat = new THREE.MeshStandardMaterial({ color: 0x94a3b8, metalness: 0.9, roughness: 0.2 });
+        const pin = new THREE.Mesh(pinGeo, pinMat);
+        pin.rotation.z = Math.PI / 2;
+        pin.position.set(-5.6, dy, 0);
+        dynGroup.add(pin);
+      });
+
+      // Focusing Cup (Concave cylindrical cup directing electrons into narrow beam)
+      const cupGeo = new THREE.CylinderGeometry(1.05, 0.85, 1.1, 32, 1, true);
+      const cupMat = new THREE.MeshStandardMaterial({
+        color: 0x475569,
+        metalness: 0.85,
+        roughness: 0.25,
+        side: THREE.DoubleSide,
+      });
+      const cup = new THREE.Mesh(cupGeo, cupMat);
+      cup.rotation.z = -Math.PI / 2;
+      cup.position.set(-4.0, 0, 0);
+      dynGroup.add(cup);
+
+      // Incandescent Tungsten Filament Coil inside focusing cup
+      const filCurrentFactor = Math.min(1.0, xrayFilamentCurrentMa / 25.0);
+      const filGeo = new THREE.TorusGeometry(0.28, 0.08, 16, 32);
+      const filMat = new THREE.MeshStandardMaterial({
+        color: 0xffe066,
+        emissive: 0xff6600,
+        emissiveIntensity: 0.6 + filCurrentFactor * 1.8,
+        roughness: 0.2,
+      });
+      const filament = new THREE.Mesh(filGeo, filMat);
+      filament.rotation.y = Math.PI / 2;
+      filament.position.set(-4.1, 0, 0);
+      dynGroup.add(filament);
+
+      // Filament incandescent PointLight
+      const filLight = new THREE.PointLight(0xffaa22, 1.2 + filCurrentFactor * 1.5, 6);
+      filLight.position.set(-4.0, 0, 0);
+      dynGroup.add(filLight);
+
+      // Volumetric Electron Beam Stream Cone (Cathode to Target)
+      const beamConeGeo = new THREE.ConeGeometry(0.9, 4.0, 32, 1, true);
+      const beamConeMat = new THREE.MeshBasicMaterial({
+        color: 0x38bdf8,
+        transparent: true,
+        opacity: 0.12 + filCurrentFactor * 0.22,
+        side: THREE.DoubleSide,
+      });
+      const beamCone = new THREE.Mesh(beamConeGeo, beamConeMat);
+      beamCone.rotation.z = -Math.PI / 2;
+      beamCone.position.set(-2.0, 0, 0);
+      dynGroup.add(beamCone);
+
+      // 3. Anode Assembly (Solid Copper Shaft + Slanted Target Face + 6 Radiating Cooling Fins)
+      // Massive copper rod inside tube
+      const copperRodGeo = new THREE.CylinderGeometry(0.95, 0.95, 5.0, 32);
+      const copperRodMat = new THREE.MeshStandardMaterial({
+        color: 0xca8a04,
+        metalness: 0.88,
+        roughness: 0.25,
+      });
+      const copperRod = new THREE.Mesh(copperRodGeo, copperRodMat);
+      copperRod.rotation.z = Math.PI / 2;
+      copperRod.position.set(3.4, 0, 0);
+      dynGroup.add(copperRod);
+
+      // Slanted Beveled Anode Head (at x = 0, cut at 45 degrees facing down toward exit window)
+      const anodeHeadGeo = new THREE.CylinderGeometry(0.95, 0.95, 1.6, 32);
+      const anodeHead = new THREE.Mesh(anodeHeadGeo, copperRodMat);
+      anodeHead.rotation.z = Math.PI / 2;
+      anodeHead.position.set(0.8, 0, 0);
+      dynGroup.add(anodeHead);
+
+      // Target Metal Plate mounted on 45-degree beveled face
+      const targetPlateGeo = new THREE.CylinderGeometry(0.8, 0.8, 0.18, 32);
+      const targetPlateMat = new THREE.MeshStandardMaterial({
+        color: targetCfg.metalColor3D,
+        metalness: 0.92,
+        roughness: 0.18,
+      });
+      const targetPlate = new THREE.Mesh(targetPlateGeo, targetPlateMat);
+      targetPlate.rotation.z = Math.PI / 4;
+      targetPlate.position.set(0.05, 0, 0);
+      dynGroup.add(targetPlate);
+
+      // Focal Spot Hot Area at center of impact
+      const focalSpotGeo = new THREE.CircleGeometry(0.35, 24);
+      const focalSpotMat = new THREE.MeshBasicMaterial({
+        color: 0xe0f2fe,
+        side: THREE.DoubleSide,
+      });
+      const focalSpot = new THREE.Mesh(focalSpotGeo, focalSpotMat);
+      focalSpot.rotation.z = Math.PI / 4;
+      focalSpot.position.set(0.04, 0.01, 0);
+      dynGroup.add(focalSpot);
+
+      // White-hot focal spot PointLight
+      const focalLight = new THREE.PointLight(0x67e8f9, 1.5 + (xrayVoltageKv / 100) * 2.0, 9);
+      focalLight.position.set(0.0, 0.0, 0.0);
+      dynGroup.add(focalLight);
+
+      // 6 External Copper Cooling Fins (Radiating heat to air)
+      const finCount = 6;
+      const finRadius = 2.3;
+      const finThick = 0.12;
+      const finMat = new THREE.MeshStandardMaterial({
+        color: 0xb45309,
+        metalness: 0.85,
+        roughness: 0.3,
+      });
+      for (let f = 0; f < finCount; f++) {
+        const finX = 4.2 + f * 0.72;
+        const finGeo = new THREE.CylinderGeometry(finRadius, finRadius, finThick, 32);
+        const finMesh = new THREE.Mesh(finGeo, finMat);
+        finMesh.rotation.z = Math.PI / 2;
+        finMesh.position.set(finX, 0, 0);
+        dynGroup.add(finMesh);
+      }
+
+      // 4. Emitted X-Ray Volumetric Beam Cone exiting bottom window
+      const xrayBeamGeo = new THREE.ConeGeometry(2.0, 5.0, 32, 1, true);
+      const xrayBeamMat = new THREE.MeshBasicMaterial({
+        color: 0xa855f7,
+        transparent: true,
+        opacity: 0.22,
+        side: THREE.DoubleSide,
+      });
+      const xrayBeam = new THREE.Mesh(xrayBeamGeo, xrayBeamMat);
+      xrayBeam.position.set(0, -3.8, 0);
+      dynGroup.add(xrayBeam);
+
+      // Lead shielding box outline / indicator
+      const shieldGeo = new THREE.BoxGeometry(16.5, 9.0, 9.0);
+      const shieldEdges = new THREE.EdgesGeometry(shieldGeo);
+      const shieldLineMat = new THREE.LineBasicMaterial({ color: 0x334155, transparent: true, opacity: 0.4 });
+      const shieldWireframe = new THREE.LineSegments(shieldEdges, shieldLineMat);
+      dynGroup.add(shieldWireframe);
+    }
+  }, [
+    activeMode,
+    currentLevel,
+    showDeBroglieWaves,
+    pumpingActive,
+    alphaEnergyMev,
+    xrayVoltageKv,
+    xrayFilamentCurrentMa,
+    xrayTargetElement,
+  ]);
 
   return (
     <div
@@ -719,8 +1086,8 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
             <div className="flex items-center gap-2">
               <h3 className="text-base sm:text-lg font-black tracking-tight">
                 {isAr
-                  ? 'استوديو الذرة والكم ثلاثي الأبعاد 3D (رذرفورد، بور، وليزر He-Ne)'
-                  : '3D Quantum Atom & Laser Resonator Studio'}
+                  ? 'استوديو الذرة والكم وأنبوبة كولدج ثلاثي الأبعاد 3D'
+                  : '3D Quantum Atom & Coolidge X-Ray Studio'}
               </h3>
               <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                 Three.js WebGL Engine
@@ -728,8 +1095,8 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
             </div>
             <p className="text-xs text-slate-400 mt-0.5">
               {isAr
-                ? 'محاكاة تشتت جسيمات ألفا، قفزات بور الكمية، خطوط بالمر المرئية، وتجويف رنين الليزر 3D'
-                : 'Interactive Rutherford scattering, Bohr quantum transitions, Balmer visible lines & laser cavity'}
+                ? 'محاكاة تشتت ألفا، قفزات بور الكمية، تجويف رنين الليزر، وأنبوبة كولدج للأشعة السينية 3D'
+                : 'Interactive Rutherford scattering, Bohr transitions, laser cavity & Coolidge X-ray tube 3D'}
             </p>
           </div>
         </div>
@@ -766,6 +1133,16 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
           >
             {isAr ? 'تفريغ ورنين الليزر 3D' : 'He-Ne Laser Cavity'}
           </button>
+          <button
+            onClick={() => setActiveMode('coolidge_xray')}
+            className={`px-3 py-1.5 rounded-lg transition-all cursor-pointer ${
+              activeMode === 'coolidge_xray'
+                ? 'bg-cyan-600 text-white shadow-md'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            {isAr ? 'أنبوبة كولدج وطيف X 3D' : 'Coolidge X-Ray 3D'}
+          </button>
 
           <button
             type="button"
@@ -792,7 +1169,11 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
                 ? isAr ? 'نواة الذهب (Z = 79) + شاشة ZnS' : 'Gold Nucleus (Z=79) + ZnS Screen'
                 : activeMode === 'bohr'
                 ? isAr ? `المستوى الكمي الحالي: n = ${currentLevel}` : `Active Quantum Level: n = ${currentLevel}`
-                : isAr ? 'تجويف رنين ليزر He-Ne (632.8 nm)' : 'He-Ne Resonant Cavity (632.8 nm)'}
+                : activeMode === 'laser'
+                ? isAr ? 'تجويف رنين ليزر He-Ne (632.8 nm)' : 'He-Ne Resonant Cavity (632.8 nm)'
+                : isAr
+                ? `أنبوبة كولدج 3D • هدف ${XRAY_TARGETS[xrayTargetElement].nameAr} (Z=${XRAY_TARGETS[xrayTargetElement].atomicNumberZ}) • ${xrayVoltageKv.toFixed(0)} kV`
+                : `Coolidge Tube 3D • Target ${XRAY_TARGETS[xrayTargetElement].nameEn} (Z=${XRAY_TARGETS[xrayTargetElement].atomicNumberZ}) • ${xrayVoltageKv.toFixed(0)} kV`}
             </span>
           </span>
 
@@ -1129,13 +1510,33 @@ export const Interactive3DAtomStudio: React.FC<Props> = ({
             </div>
           </div>
         )}
+
+        {/* ================================================================= */}
+        {/* Mode 4 Controls: Coolidge X-Ray Tube & Dual-Spectrum Spectrometer */}
+        {/* ================================================================= */}
+        {activeMode === 'coolidge_xray' && (
+          <div className="pt-2">
+            <CoolidgeXRaySpectrometer
+              voltageKv={xrayVoltageKv}
+              onVoltageChange={setXrayVoltageKv}
+              filamentCurrentMa={xrayFilamentCurrentMa}
+              onCurrentChange={setXrayFilamentCurrentMa}
+              targetElement={xrayTargetElement}
+              onTargetChange={setXrayTargetElement}
+              showCharacteristicPeaks={showCharacteristicPeaks}
+              onToggleCharacteristic={setShowCharacteristicPeaks}
+              lang={lang}
+              theme={theme}
+            />
+          </div>
+        )}
       </div>
 
       {/* Official MoE A4 Lab Report Modal */}
       <LabReportGeneratorModal
         isOpen={isReportModalOpen}
         onClose={() => setIsReportModalOpen(false)}
-        initialExperimentId="phys-exp-6"
+        initialExperimentId={activeMode === 'coolidge_xray' ? 'phys-exp-8' : 'phys-exp-6'}
         lang={lang}
         theme={theme}
       />

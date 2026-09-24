@@ -250,7 +250,7 @@ export const PhysicsLab: React.FC<Props> = ({
         [09] {isArabic ? 'طيف بور والليزر' : 'Bohr Spectra & Laser'}
       </option>
       <option value="atom_3d" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
-        [10] {isArabic ? 'استوديو الذرة الكمية والليزر 3D' : '3D Quantum Atom Studio'}
+        [10] {isArabic ? 'استوديو الذرة والكم وأنبوبة كولدج 3D' : '3D Quantum Atom & Coolidge Tube Studio'}
       </option>
       <option value="electronics" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
         [11] {isArabic ? 'أشباه الموصلات والترانزستور وأشعة إكس' : 'Semiconductors & Coolidge Tube'}
