@@ -2,11 +2,13 @@ import React from 'react';
 import { X, Sparkles } from 'lucide-react';
 import { DailyPrescriptionCard } from './DailyPrescriptionCard';
 import type { PrescribedItem } from '../types/adaptivePractice';
+import type { Language } from '../i18n/translations';
 
 interface Props {
   isOpen: boolean;
   onClose: () => void;
   onStartPrescribedPractice: (item: PrescribedItem) => void;
+  lang?: Language;
   theme?: 'dark' | 'light' | 'high-contrast';
 }
 
@@ -14,20 +16,22 @@ export const DailyPrescriptionModal: React.FC<Props> = ({
   isOpen,
   onClose,
   onStartPrescribedPractice,
+  lang = 'ar',
   theme = 'dark',
 }) => {
   if (!isOpen) return null;
 
+  const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isHighContrast = theme === 'high-contrast';
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto animate-fade-in"
-      dir="rtl"
+      dir={isArabic ? 'rtl' : 'ltr'}
       role="dialog"
       aria-modal="true"
-      aria-label="روشتة المذاكرة اليومية التكيفية"
+      aria-label={isArabic ? 'روشتة المذاكرة اليومية التكيفية' : 'Adaptive Daily Study Prescription'}
     >
       <div
         className={`relative w-full max-w-4xl border rounded-3xl shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh] ${
@@ -51,7 +55,9 @@ export const DailyPrescriptionModal: React.FC<Props> = ({
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-indigo-400" />
             <h3 className="font-bold text-base">
-              روشتة المذاكرة اليومية التكيفية (Adaptive Daily Prescription)
+              {isArabic
+                ? 'روشتة المذاكرة اليومية التكيفية (Adaptive Daily Prescription)'
+                : 'Adaptive Daily Study Prescription'}
             </h3>
           </div>
 
@@ -64,17 +70,18 @@ export const DailyPrescriptionModal: React.FC<Props> = ({
                 ? 'border-yellow-400 text-yellow-300 hover:bg-yellow-400 hover:text-black'
                 : 'border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-600'
             }`}
-            aria-label="إغلاق الروشتة اليومية"
-            title="إغلاق الروشتة اليومية"
+            aria-label={isArabic ? 'إغلاق الروشتة اليومية' : 'Close Daily Prescription'}
+            title={isArabic ? 'إغلاق الروشتة اليومية' : 'Close Daily Prescription'}
           >
             <X className="w-4 h-4" />
-            <span className="hidden sm:inline">إغلاق الروشتة</span>
+            <span className="hidden sm:inline">{isArabic ? 'إغلاق الروشتة' : 'Close'}</span>
           </button>
         </div>
 
         {/* Modal Body */}
         <div className="p-4 sm:p-6 overflow-y-auto">
           <DailyPrescriptionCard
+            lang={lang}
             theme={theme}
             onClose={onClose}
             onStartPrescribedPractice={(item) => {
@@ -95,7 +102,9 @@ export const DailyPrescriptionModal: React.FC<Props> = ({
           }`}
         >
           <p className="text-xs text-slate-400 hidden sm:block">
-            يمكنك إعادة فتح الروشتة اليومية في أي وقت من القائمة الرئيسية أو بالضغط على ⌥R.
+            {isArabic
+              ? 'يمكنك إعادة فتح الروشتة اليومية في أي وقت من القائمة الرئيسية أو بالضغط على ⌥R.'
+              : 'You can reopen your daily prescription anytime from the tools menu or by pressing ⌥R.'}
           </p>
 
           <button
@@ -107,11 +116,11 @@ export const DailyPrescriptionModal: React.FC<Props> = ({
                 ? 'border-yellow-400 bg-black text-yellow-300 hover:bg-yellow-400 hover:text-black'
                 : 'border-slate-700 bg-slate-850 text-slate-200 hover:bg-slate-800 hover:text-white'
             }`}
-            title="إغلاق نافذة الروشتة"
-            aria-label="إغلاق نافذة الروشتة"
+            title={isArabic ? 'إغلاق نافذة الروشتة' : 'Close Prescription Window'}
+            aria-label={isArabic ? 'إغلاق نافذة الروشتة' : 'Close Prescription Window'}
           >
             <X className="w-4 h-4" />
-            <span>إغلاق الروشتة</span>
+            <span>{isArabic ? 'إغلاق الروشتة' : 'Close Prescription'}</span>
           </button>
         </div>
       </div>

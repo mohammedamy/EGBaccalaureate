@@ -1160,6 +1160,7 @@ export const App: React.FC = () => {
               isOpen={isDailyPrescriptionOpen}
               onClose={() => setIsDailyPrescriptionOpen(false)}
               onStartPrescribedPractice={handleStartPrescriptionPractice}
+              lang={lang}
               theme={theme}
             />
           </Suspense>
@@ -1203,6 +1204,7 @@ export const App: React.FC = () => {
           <div className="space-y-6">
             <Suspense fallback={null}>
               <DailyPrescriptionCard
+                lang={lang}
                 theme={theme}
                 onStartPrescribedPractice={handleStartPrescriptionPractice}
               />
