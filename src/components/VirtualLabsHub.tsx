@@ -236,6 +236,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
           return 'bio-exp-8';
         case 'bioenergetics':
           return 'bio-exp-9';
+        case 'hooke_cells':
+          return 'bio-exp-10';
+        case 'mendel_genetics':
+          return 'bio-exp-11';
+        case 'franklin_photo51':
+          return 'bio-exp-12';
+        case 'vesalius_anatomy':
+          return 'bio-exp-13';
         default:
           return 'bio-exp-1';
       }
@@ -1286,6 +1294,10 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'genetics' as BioTab, emoji: '✂️', labelEn: 'Mendelian Genetics & Punnett Cross Studio (2×2 & 4×4)', labelAr: 'استوديو الوراثة المندلية ومربعات بانيت (2×2 و 4×4)' },
                     { id: 'bioenergetics' as BioTab, emoji: '⚡', labelEn: 'Cellular Bioenergetics', labelAr: 'التنفس الخلوي' },
                     { id: 'flashcards' as BioTab, emoji: '🗂️', labelEn: 'Biology Flashcards', labelAr: 'بطاقات الاستذكار' },
+                    { id: 'hooke_cells' as BioTab, emoji: '🏛️', labelEn: 'Hooke Cell Theory 1665 (4K)', labelAr: 'استوديو هوك ونشأة الخلية 1665 (4K)' },
+                    { id: 'mendel_genetics' as BioTab, emoji: '🏛️', labelEn: 'Mendel Pea Genetics 1866 (4K)', labelAr: 'استوديو مندل والوراثة 1866 (4K)' },
+                    { id: 'franklin_photo51' as BioTab, emoji: '🏛️', labelEn: 'Franklin Photo 51 DNA 1952 (4K)', labelAr: 'استوديو فرانكلين وحيود DNA 1952 (4K)' },
+                    { id: 'vesalius_anatomy' as BioTab, emoji: '🏛️', labelEn: 'Vesalius Fabrica Anatomy 1543 (4K)', labelAr: 'استوديو فيزاليوس والتشريح 1543 (4K)' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
                       {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}

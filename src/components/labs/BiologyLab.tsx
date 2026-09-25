@@ -6,6 +6,10 @@ import {
   ChevronDown,
   Maximize2,
   Minimize2,
+  Microscope,
+  Sparkles,
+  Activity,
+  Award,
 } from 'lucide-react';
 
 // High-resolution scientific photos
@@ -27,6 +31,12 @@ import { DnaReplicationLab } from './DnaReplicationLab';
 import { Interactive3DBioMacromoleculeStudio } from '../Interactive3DBioMacromoleculeStudio';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
+// Dedicated 4K Museum Archival Studios
+import { HookeCellTheoryStudio } from './biology/HookeCellTheoryStudio';
+import { MendelGeneticsStudio } from './biology/MendelGeneticsStudio';
+import { FranklinPhoto51DnaStudio } from './biology/FranklinPhoto51DnaStudio';
+import { VesaliusFabricaAnatomyStudio } from './biology/VesaliusFabricaAnatomyStudio';
+
 export type BioTab =
   | 'anatomy_atlas'
   | 'skeleton'
@@ -40,7 +50,11 @@ export type BioTab =
   | 'immunity'
   | 'genetics'
   | 'bioenergetics'
-  | 'flashcards';
+  | 'flashcards'
+  | 'hooke_cells'
+  | 'mendel_genetics'
+  | 'franklin_photo51'
+  | 'vesalius_anatomy';
 
 interface Props {
   lang: Language;
@@ -253,6 +267,50 @@ export const BiologyLab: React.FC<Props> = ({
           <BiologyFlashcards lang={lang} theme={theme} />
         </div>
       )}
+
+      {/* TAB 11: 4K MUSEUM STUDIO 1 - HOOKE & LEEUWENHOEK CELL THEORY 1665 */}
+      {activeTab === 'hooke_cells' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <HookeCellTheoryStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* TAB 12: 4K MUSEUM STUDIO 2 - MENDEL PEA HYBRIDIZATION & GENETICS 1866 */}
+      {activeTab === 'mendel_genetics' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <MendelGeneticsStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* TAB 13: 4K MUSEUM STUDIO 3 - ROSALIND FRANKLIN PHOTO 51 DNA DIFFRACTION 1952 */}
+      {activeTab === 'franklin_photo51' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <FranklinPhoto51DnaStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* TAB 14: 4K MUSEUM STUDIO 4 - VESALIUS FABRICA SKELETAL & MUSCULAR ANATOMY 1543 */}
+      {activeTab === 'vesalius_anatomy' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <VesaliusFabricaAnatomyStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
     </>
   );
 
@@ -296,6 +354,18 @@ export const BiologyLab: React.FC<Props> = ({
       </option>
       <option value="flashcards" className="bg-slate-900 text-white">
         [12] {isArabic ? 'بطاقات الاستذكار السريع' : 'Active Flashcards'}
+      </option>
+      <option value="hooke_cells" className="bg-slate-900 text-white">
+        [13] {isArabic ? '🏛️ استوديو هوك وليفنهوك ونشأة الخلية 1665 (4K)' : '🏛️ Hooke & Leeuwenhoek Cell Theory 1665 (4K)'}
+      </option>
+      <option value="mendel_genetics" className="bg-slate-900 text-white">
+        [14] {isArabic ? '🏛️ استوديو أوراق مندل وتجارب تهجين البازلاء 1866 (4K)' : '🏛️ Mendel Pea Genetics Manuscript 1866 (4K)'}
+      </option>
+      <option value="franklin_photo51" className="bg-slate-900 text-white">
+        [15] {isArabic ? '🏛️ استوديو صورة 51 لروزليند فرانكلين وحيود DNA 1952 (4K)' : '🏛️ Rosalind Franklin Photo 51 DNA 1952 (4K)'}
+      </option>
+      <option value="vesalius_anatomy" className="bg-slate-900 text-white">
+        [16] {isArabic ? '🏛️ استوديو فيزاليوس وتشريح الهيكل العضلي 1543 (4K)' : '🏛️ Vesalius Fabrica Musculo-Skeletal 1543 (4K)'}
       </option>
     </>
   );
@@ -435,6 +505,196 @@ export const BiologyLab: React.FC<Props> = ({
           >
             <Maximize2 className="w-3.5 h-3.5 text-rose-400" />
             <span className="hidden sm:inline">{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 4K Museum Archival Studios Showcase Jump Cards */}
+      <div
+        className={`mt-5 p-3.5 sm:p-4 rounded-2xl border transition-all ${
+          isContrast
+            ? 'bg-black border-2 border-white'
+            : isLight
+            ? 'bg-slate-50 border-slate-200 shadow-xs'
+            : 'bg-gradient-to-r from-rose-950/20 via-purple-950/20 to-blue-950/20 border-rose-900/30 shadow-md'
+        }`}
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2">
+            <span
+              className={`p-1.5 rounded-lg border ${
+                isContrast
+                  ? 'bg-white text-black border-white'
+                  : isLight
+                  ? 'bg-rose-100 text-rose-700 border-rose-200'
+                  : 'bg-rose-600/20 border-rose-500/30 text-rose-400'
+              }`}
+            >
+              <Award className="w-4 h-4" />
+            </span>
+            <div>
+              <h3 className="text-xs sm:text-sm font-black flex items-center gap-1.5">
+                <span>{isArabic ? 'معرض المخطوطات واللوحات البيولوجية الأرشيفية فائق الدقة (4K)' : 'Curated 4K Biological Archival Museum Studios'}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full border uppercase font-mono font-bold ${
+                    isContrast
+                      ? 'bg-white text-black border-white'
+                      : isLight
+                      ? 'bg-rose-100 text-rose-800 border-rose-300'
+                      : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                  }`}
+                >
+                  علمي علوم
+                </span>
+              </h3>
+              <p className={`text-[11px] ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic
+                  ? 'استكشف الوثائق الأصلية لأهم ٤ اكتشافات في تاريخ البيولوجيا مع نقاط تفاعلية فاحصة ومحاكيات رقمية دقيقة'
+                  : 'Inspect original historic plates of 4 seminal biology breakthroughs with interactive hotspots & simulations'}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {/* Studio 1: Hooke 1665 */}
+          <button
+            onClick={() => handleTabChange('hooke_cells')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'hooke_cells'
+                ? isLight
+                  ? 'bg-amber-50 border-amber-500 ring-2 ring-amber-400/50 text-slate-900 shadow-md'
+                  : 'bg-amber-950/40 border-amber-500 text-white shadow-lg ring-1 ring-amber-500/50'
+                : isLight
+                ? 'bg-white hover:bg-amber-50/50 border-slate-200 hover:border-amber-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-amber-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                }`}
+              >
+                1665 CE
+              </span>
+              <Microscope className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-amber-500 transition-colors">
+                {isArabic ? 'هوك ونشأة الخلية' : 'Hooke Micrographia'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'خلايا الفلين وتكبير العدسات والنظرية الخلوية' : 'Cork Cellulae, Dual-Lens Optics & Cell Theory'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 2: Mendel 1866 */}
+          <button
+            onClick={() => handleTabChange('mendel_genetics')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'mendel_genetics'
+                ? isLight
+                  ? 'bg-emerald-50 border-emerald-500 ring-2 ring-emerald-400/50 text-slate-900 shadow-md'
+                  : 'bg-emerald-950/40 border-emerald-500 text-white shadow-lg ring-1 ring-emerald-500/50'
+                : isLight
+                ? 'bg-white hover:bg-emerald-50/50 border-slate-200 hover:border-emerald-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-emerald-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                    : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                }`}
+              >
+                1866 CE
+              </span>
+              <Sparkles className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-emerald-500 transition-colors">
+                {isArabic ? 'مخطوطة مندل والوراثة' : 'Mendel Pea Genetics'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'تهجين البازلاء وقوانين الانعزال ومربعات بانيت' : 'Pisum Hybridization, Segregation & Punnett Engine'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 3: Franklin 1952 */}
+          <button
+            onClick={() => handleTabChange('franklin_photo51')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'franklin_photo51'
+                ? isLight
+                  ? 'bg-cyan-50 border-cyan-500 ring-2 ring-cyan-400/50 text-slate-900 shadow-md'
+                  : 'bg-cyan-950/40 border-cyan-500 text-white shadow-lg ring-1 ring-cyan-500/50'
+                : isLight
+                ? 'bg-white hover:bg-cyan-50/50 border-slate-200 hover:border-cyan-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-cyan-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-cyan-100 text-cyan-900 border-cyan-300'
+                    : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
+                }`}
+              >
+                1952 CE
+              </span>
+              <Dna className="w-4 h-4 text-cyan-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-cyan-500 transition-colors">
+                {isArabic ? 'صورة 51 وحيود DNA' : 'Franklin Photo 51'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'أشعة X والخطوة 3.4nm واللولب المزدوج' : 'B-DNA X-Ray Diffraction, Helical Pitch & Tm'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 4: Vesalius 1543 */}
+          <button
+            onClick={() => handleTabChange('vesalius_anatomy')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'vesalius_anatomy'
+                ? isLight
+                  ? 'bg-rose-50 border-rose-500 ring-2 ring-rose-400/50 text-slate-900 shadow-md'
+                  : 'bg-rose-950/40 border-rose-500 text-white shadow-lg ring-1 ring-rose-500/50'
+                : isLight
+                ? 'bg-white hover:bg-rose-50/50 border-slate-200 hover:border-rose-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-rose-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-rose-100 text-rose-900 border-rose-300'
+                    : 'bg-rose-500/20 text-rose-300 border-rose-500/30'
+                }`}
+              >
+                1543 CE
+              </span>
+              <Activity className="w-4 h-4 text-rose-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-rose-500 transition-colors">
+                {isArabic ? 'تشريح فيزاليوس الحركي' : 'Vesalius Fabrica'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'الهيكل البشري والعمود الفقري وانزلاق خيوط العضلات' : 'Axial-Appendicular Skeleton & Huxley Filaments'}
+              </p>
+            </div>
           </button>
         </div>
       </div>
