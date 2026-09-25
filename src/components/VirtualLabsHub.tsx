@@ -209,6 +209,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
           return 'chem-exp-4';
         case 'molecular_3d':
           return 'chem-exp-5';
+        case 'lavoisier_combustion':
+          return 'chem-exp-10';
+        case 'mendeleev_periodic':
+          return 'chem-exp-11';
+        case 'curie_radioactivity':
+          return 'chem-exp-12';
+        case 'bohr_atom':
+          return 'chem-exp-13';
         default:
           return 'chem-exp-1';
       }
@@ -1245,6 +1253,10 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'organic' as ChemTab, emoji: '⚗️', labelEn: 'Organic Synthetic Roadmaps', labelAr: 'العضوية ومسارات التخليق' },
                     { id: 'molecular_3d' as ChemTab, emoji: '🧬', labelEn: '3D Molecular Geometry & Metallurgy Alloys Studio', labelAr: 'استوديو الأشكال الجزيئية وسبائك الفلزات 3D' },
                     { id: 'flashcards' as ChemTab, emoji: '🗂️', labelEn: 'Review & Flashcards', labelAr: 'كروت المراجعة والكواشف' },
+                    { id: 'lavoisier_combustion' as ChemTab, emoji: '🏛️', labelEn: 'Lavoisier Combustion 1789 (4K)', labelAr: 'استوديو لافوازييه وحفظ الكتلة 1789 (4K)' },
+                    { id: 'mendeleev_periodic' as ChemTab, emoji: '🏛️', labelEn: 'Mendeleev Periodic Law 1869 (4K)', labelAr: 'استوديو مندليف والقانون الدوري 1869 (4K)' },
+                    { id: 'curie_radioactivity' as ChemTab, emoji: '🏛️', labelEn: 'Curie Radioactivity 1898 (4K)', labelAr: 'استوديو ماري كوري والنشاط الإشعاعي 1898 (4K)' },
+                    { id: 'bohr_atom' as ChemTab, emoji: '🏛️', labelEn: 'Bohr Quantum Atom 1913 (4K)', labelAr: 'استوديو بور والذرة الكمومية 1913 (4K)' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
                       {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}

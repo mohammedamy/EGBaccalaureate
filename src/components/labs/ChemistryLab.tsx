@@ -7,6 +7,11 @@ import {
   ChevronDown,
   Maximize2,
   Minimize2,
+  Scale,
+  Atom,
+  Radio,
+  CircleDot,
+  Award,
 } from 'lucide-react';
 import { TransitionMetalsLab } from './TransitionMetalsLab';
 import { EquilibriumLab } from './EquilibriumLab';
@@ -22,6 +27,12 @@ import { Interactive3DMolecularStudio } from '../Interactive3DMolecularStudio';
 import { Interactive3DElectrochemStudio } from '../Interactive3DElectrochemStudio';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
+// Dedicated 4K Museum Archival Studios
+import { LavoisierCombustionStudio } from './chemistry/LavoisierCombustionStudio';
+import { MendeleevPeriodicStudio } from './chemistry/MendeleevPeriodicStudio';
+import { CurieRadioactivityStudio } from './chemistry/CurieRadioactivityStudio';
+import { BohrQuantumAtomStudio } from './chemistry/BohrQuantumAtomStudio';
+
 export type ChemTab =
   | 'equilibrium'
   | 'transition'
@@ -31,7 +42,11 @@ export type ChemTab =
   | 'electrochem_3d'
   | 'organic'
   | 'molecular_3d'
-  | 'flashcards';
+  | 'flashcards'
+  | 'lavoisier_combustion'
+  | 'mendeleev_periodic'
+  | 'curie_radioactivity'
+  | 'bohr_atom';
 
 interface Props {
   lang: Language;
@@ -281,6 +296,50 @@ export const ChemistryLab: React.FC<Props> = ({
           <ChemistryFlashcards lang={lang} theme={theme} />
         </div>
       )}
+
+      {/* TAB 8: 4K MUSEUM STUDIO 1 - LAVOISIER 1789 COMBUSTION & MASS CONSERVATION */}
+      {activeTab === 'lavoisier_combustion' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <LavoisierCombustionStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* TAB 9: 4K MUSEUM STUDIO 2 - MENDELEEV 1869 PERIODIC SYSTEM MANUSCRIPT */}
+      {activeTab === 'mendeleev_periodic' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <MendeleevPeriodicStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* TAB 10: 4K MUSEUM STUDIO 3 - MARIE CURIE 1898 RADIOACTIVITY NOTEBOOK */}
+      {activeTab === 'curie_radioactivity' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <CurieRadioactivityStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {/* TAB 11: 4K MUSEUM STUDIO 4 - NIELS BOHR 1913 QUANTUM ATOM */}
+      {activeTab === 'bohr_atom' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0' : 'mt-6'}>
+          <BohrQuantumAtomStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
     </>
   );
 
@@ -312,6 +371,18 @@ export const ChemistryLab: React.FC<Props> = ({
       </option>
       <option value="flashcards" className="bg-slate-900 text-white">
         🗂️ {isArabic ? 'كروت المراجعة والكواشف الذكية' : 'Review & Flashcards'}
+      </option>
+      <option value="lavoisier_combustion" className="bg-slate-900 text-white">
+        🏛️ [09] {isArabic ? 'استوديو لافوازييه وبقاء المادة 1789 (4K)' : 'Lavoisier 1789 Mass Conservation (4K)'}
+      </option>
+      <option value="mendeleev_periodic" className="bg-slate-900 text-white">
+        🏛️ [10] {isArabic ? 'استوديو مخطوطة مندليف والجدول الدوري 1869 (4K)' : 'Mendeleev 1869 Periodic Law (4K)'}
+      </option>
+      <option value="curie_radioactivity" className="bg-slate-900 text-white">
+        🏛️ [11] {isArabic ? 'استوديو دفتر ماري كوري والنشاط الإشعاعي 1898 (4K)' : 'Marie Curie 1898 Radioactivity (4K)'}
+      </option>
+      <option value="bohr_atom" className="bg-slate-900 text-white">
+        🏛️ [12] {isArabic ? 'استوديو نيلز بور والذرة الكمية 1913 (4K)' : 'Niels Bohr 1913 Quantum Atom (4K)'}
       </option>
     </>
   );
@@ -483,6 +554,196 @@ export const ChemistryLab: React.FC<Props> = ({
           >
             <Maximize2 className="w-3.5 h-3.5 text-emerald-400" />
             <span className="hidden sm:inline">{isArabic ? 'شاشة كاملة' : 'Fullscreen'}</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 4K Museum Archival Studios Showcase Jump Cards */}
+      <div
+        className={`mt-5 p-3.5 sm:p-4 rounded-2xl border transition-all ${
+          isContrast
+            ? 'bg-black border-2 border-white'
+            : isLight
+            ? 'bg-slate-50 border-slate-200 shadow-xs'
+            : 'bg-gradient-to-r from-emerald-950/20 via-cyan-950/20 to-teal-950/20 border-emerald-900/30 shadow-md'
+        }`}
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2">
+            <span
+              className={`p-1.5 rounded-lg border ${
+                isContrast
+                  ? 'bg-white text-black border-white'
+                  : isLight
+                  ? 'bg-emerald-100 text-emerald-700 border-emerald-200'
+                  : 'bg-emerald-600/20 border-emerald-500/30 text-emerald-400'
+              }`}
+            >
+              <Award className="w-4 h-4" />
+            </span>
+            <div>
+              <h3 className="text-xs sm:text-sm font-black flex items-center gap-1.5">
+                <span>{isArabic ? 'معرض المخطوطات واللوحات الكيميائية الأرشيفية فائق الدقة (4K)' : 'Curated 4K Chemical Archival Museum Studios'}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full border uppercase font-mono font-bold ${
+                    isContrast
+                      ? 'bg-white text-black border-white'
+                      : isLight
+                      ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                      : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                  }`}
+                >
+                  {isArabic ? 'ثانوية عامة وبكالوريا' : 'Baccalaureate Archival'}
+                </span>
+              </h3>
+              <p className={`text-[11px] ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic
+                  ? 'استكشف الوثائق الأصلية لأهم ٤ تحولات في تاريخ الكيمياء والفيزياء الذرية مع نقاط تفاعلية ومحاكيات رقمية دقيقة'
+                  : 'Inspect original historic plates of 4 seminal chemistry breakthroughs with interactive hotspots & simulations'}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {/* Studio 1: Lavoisier 1789 */}
+          <button
+            onClick={() => handleTabChange('lavoisier_combustion')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'lavoisier_combustion'
+                ? isLight
+                  ? 'bg-amber-50 border-amber-500 ring-2 ring-amber-400/50 text-slate-900 shadow-md'
+                  : 'bg-amber-950/40 border-amber-500 text-white shadow-lg ring-1 ring-amber-500/50'
+                : isLight
+                ? 'bg-white hover:bg-amber-50/50 border-slate-200 hover:border-amber-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-amber-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                }`}
+              >
+                1789 CE
+              </span>
+              <Scale className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-amber-500 transition-colors">
+                {isArabic ? 'لافوازييه وحفظ الكتلة' : 'Lavoisier Combustion'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'الإنبيق المحكم، دحض الفلوجستون، وحفظ الكتلة المتزنة' : 'Traité Élémentaire, Closed Retort & Mass Conservation'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 2: Mendeleev 1869 */}
+          <button
+            onClick={() => handleTabChange('mendeleev_periodic')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'mendeleev_periodic'
+                ? isLight
+                  ? 'bg-emerald-50 border-emerald-500 ring-2 ring-emerald-400/50 text-slate-900 shadow-md'
+                  : 'bg-emerald-950/40 border-emerald-500 text-white shadow-lg ring-1 ring-emerald-500/50'
+                : isLight
+                ? 'bg-white hover:bg-emerald-50/50 border-slate-200 hover:border-emerald-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-emerald-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                    : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                }`}
+              >
+                1869 CE
+              </span>
+              <Atom className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-emerald-500 transition-colors">
+                {isArabic ? 'مندليف والقانون الدوري' : 'Mendeleev Periodic Law'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'مخطوطة بطرسبرغ، تنبؤ إيكا-ألومنيوم، ودورية العناصر' : 'Manuscript System, Eka-Elements & Periodic Law'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 3: Curie 1898 */}
+          <button
+            onClick={() => handleTabChange('curie_radioactivity')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'curie_radioactivity'
+                ? isLight
+                  ? 'bg-cyan-50 border-cyan-500 ring-2 ring-cyan-400/50 text-slate-900 shadow-md'
+                  : 'bg-cyan-950/40 border-cyan-500 text-white shadow-lg ring-1 ring-cyan-500/50'
+                : isLight
+                ? 'bg-white hover:bg-cyan-50/50 border-slate-200 hover:border-cyan-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-cyan-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-cyan-100 text-cyan-900 border-cyan-300'
+                    : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
+                }`}
+              >
+                1898 CE
+              </span>
+              <Radio className="w-4 h-4 text-cyan-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-cyan-500 transition-colors">
+                {isArabic ? 'ماري كوري والنشاط الإشعاعي' : 'Curie Radioactivity'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'دفتر المختبر، البولونيوم والراديوم، ومحاكي الانحلال' : 'Pitchblende Fractionation, Polonium & Radium Decay'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 4: Bohr 1913 */}
+          <button
+            onClick={() => handleTabChange('bohr_atom')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'bohr_atom'
+                ? isLight
+                  ? 'bg-purple-50 border-purple-500 ring-2 ring-purple-400/50 text-slate-900 shadow-md'
+                  : 'bg-purple-950/40 border-purple-500 text-white shadow-lg ring-1 ring-purple-500/50'
+                : isLight
+                ? 'bg-white hover:bg-purple-50/50 border-slate-200 hover:border-purple-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-purple-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-purple-100 text-purple-900 border-purple-300'
+                    : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                }`}
+              >
+                1913 CE
+              </span>
+              <CircleDot className="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-purple-500 transition-colors">
+                {isArabic ? 'بور ونموذج الذرة الكمومي' : 'Bohr Quantum Atom'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'مدارات بلانك، انبعاث الفوتونات، وسلسلة بالمر' : 'Quantized Orbits, Photon Emission & Balmer Spectra'}
+              </p>
+            </div>
           </button>
         </div>
       </div>
