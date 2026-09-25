@@ -24,18 +24,45 @@ import {
   Gauge,
   Info,
   Split,
+  Globe,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { WegenerContinentalDriftStudio } from './geology/WegenerContinentalDriftStudio';
+import { MohsMineralHardnessStudio } from './geology/MohsMineralHardnessStudio';
+import { BowenMagmaCrystallizationStudio } from './geology/BowenMagmaCrystallizationStudio';
+import { StratigraphicUnconformityStudio } from './geology/StratigraphicUnconformityStudio';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem' | 'seismology' | 'structures';
+  initialMode?:
+    | 'crystals'
+    | 'bowen'
+    | 'tectonics'
+    | 'stratigraphy'
+    | 'ecosystem'
+    | 'seismology'
+    | 'structures'
+    | 'wegener_drift'
+    | 'mohs_minerals'
+    | 'bowen_magma'
+    | 'unconformity_stratigraphy';
 }
 
-type StudioMode = 'crystals' | 'bowen' | 'tectonics' | 'stratigraphy' | 'ecosystem' | 'seismology' | 'structures';
+type StudioMode =
+  | 'crystals'
+  | 'bowen'
+  | 'tectonics'
+  | 'stratigraphy'
+  | 'ecosystem'
+  | 'seismology'
+  | 'structures'
+  | 'wegener_drift'
+  | 'mohs_minerals'
+  | 'bowen_magma'
+  | 'unconformity_stratigraphy';
 
 // ---------------------------------------------------------------------------
 // 3D Crystallography Math & Types
@@ -955,6 +982,109 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           </div>
         </div>
 
+        {/* Museum 4K Archival Showcase Jump Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+          {/* Card 1: Wegener Continental Drift */}
+          <button
+            onClick={() => setActiveMode('wegener_drift')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'wegener_drift'
+                ? 'bg-blue-500/20 border-blue-400 ring-2 ring-blue-400/50'
+                : isLight
+                ? 'bg-white/90 border-blue-200 hover:border-blue-400 hover:bg-blue-50/50'
+                : 'bg-stone-900/60 border-blue-900/40 hover:border-blue-500/60 hover:bg-stone-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold">
+                1912 CE • 4K
+              </span>
+              <Globe className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-blue-400 line-clamp-1">
+              {isArabic ? 'أطلس فيجنر للانجراف القاري' : 'Wegener Continental Drift'}
+            </h4>
+            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'بانجيا، شواهد الزواحف والمغناطيسية وسرعة التباعد' : 'Pangaea, fossil & magnetic bands, spreading velocity'}
+            </p>
+          </button>
+
+          {/* Card 2: Mohs Hardness Minerals */}
+          <button
+            onClick={() => setActiveMode('mohs_minerals')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'mohs_minerals'
+                ? 'bg-amber-500/20 border-amber-400 ring-2 ring-amber-400/50'
+                : isLight
+                ? 'bg-white/90 border-amber-200 hover:border-amber-400 hover:bg-amber-50/50'
+                : 'bg-stone-900/60 border-amber-900/40 hover:border-amber-500/60 hover:bg-stone-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold">
+                1812 CE • 4K
+              </span>
+              <Gem className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-amber-400 line-clamp-1">
+              {isArabic ? 'مجموعة موهس لصلادة المعادن' : 'Mohs Mineral Hardness'}
+            </h4>
+            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'معادن المقياس العشرة، أدوات الخدش، والخواص البصرية' : '10 Mohs minerals, scratch tester & optical cleavage'}
+            </p>
+          </button>
+
+          {/* Card 3: Bowen Reaction Series */}
+          <button
+            onClick={() => setActiveMode('bowen_magma')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'bowen_magma'
+                ? 'bg-orange-500/20 border-orange-400 ring-2 ring-orange-400/50'
+                : isLight
+                ? 'bg-white/90 border-orange-200 hover:border-orange-400 hover:bg-orange-50/50'
+                : 'bg-stone-900/60 border-orange-900/40 hover:border-orange-500/60 hover:bg-stone-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 font-bold">
+                1928 CE • 4K
+              </span>
+              <Flame className="w-4 h-4 text-orange-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-orange-400 line-clamp-1">
+              {isArabic ? 'متسلسلة تفاعلات بوين وتبلور الصهارة' : "Bowen's Reaction Series Studio"}
+            </h4>
+            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'الفرع المتصل وغير المتصل، محاكي التبريد وتصنيف الصخور' : 'Continuous/mafic series, chamber cooling & 4 rock tiers'}
+            </p>
+          </button>
+
+          {/* Card 4: Grand Canyon Unconformity */}
+          <button
+            onClick={() => setActiveMode('unconformity_stratigraphy')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'unconformity_stratigraphy'
+                ? 'bg-emerald-500/20 border-emerald-400 ring-2 ring-emerald-400/50'
+                : isLight
+                ? 'bg-white/90 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50/50'
+                : 'bg-stone-900/60 border-emerald-900/40 hover:border-emerald-500/60 hover:bg-stone-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
+                1.7 Ga • 4K
+              </span>
+              <Mountain className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-emerald-400 line-clamp-1">
+              {isArabic ? 'الأخدود العظيم وأسطح عدم التوافق' : 'Grand Canyon Unconformities'}
+            </h4>
+            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'عدم التوافق الزاوي والمتباين والانقطاعي ومختبر التأريخ' : 'Angular, nonconformity, disconformity & relative dating lab'}
+            </p>
+          </button>
+        </div>
+
         {/* Mode Selector Tabs */}
         <div className={`flex flex-wrap gap-1.5 p-1 rounded-xl shrink-0 max-w-full ${isLight ? 'bg-stone-200/90 border border-stone-300' : 'bg-stone-900 border border-stone-800'}`}>
           <button
@@ -1048,6 +1178,61 @@ export const GeologyEarthStudio: React.FC<Props> = ({
             <Droplets className="w-4 h-4" />
             <span>{isArabic ? 'الضغط وهرم الطاقة' : 'Pressure & Energy'}</span>
           </button>
+
+          {/* 4 Dedicated 4K Museum Tabs */}
+          <button
+            onClick={() => setActiveMode('wegener_drift')}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
+              activeMode === 'wegener_drift'
+                ? 'bg-blue-600 text-white shadow-md'
+                : isLight
+                ? 'text-blue-800 hover:text-blue-950 hover:bg-blue-100 font-bold'
+                : 'text-blue-400 hover:text-blue-200 hover:bg-blue-950/40'
+            }`}
+          >
+            <Globe className="w-4 h-4 text-blue-400" />
+            <span>{isArabic ? 'أطلس فيجنر 4K' : 'Wegener Drift 4K'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('mohs_minerals')}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
+              activeMode === 'mohs_minerals'
+                ? 'bg-amber-600 text-white shadow-md'
+                : isLight
+                ? 'text-amber-800 hover:text-amber-950 hover:bg-amber-100 font-bold'
+                : 'text-amber-400 hover:text-amber-200 hover:bg-amber-950/40'
+            }`}
+          >
+            <Gem className="w-4 h-4 text-amber-400" />
+            <span>{isArabic ? 'معادن موهس 4K' : 'Mohs Minerals 4K'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('bowen_magma')}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
+              activeMode === 'bowen_magma'
+                ? 'bg-orange-600 text-white shadow-md'
+                : isLight
+                ? 'text-orange-800 hover:text-orange-950 hover:bg-orange-100 font-bold'
+                : 'text-orange-400 hover:text-orange-200 hover:bg-orange-950/40'
+            }`}
+          >
+            <Flame className="w-4 h-4 text-orange-400" />
+            <span>{isArabic ? 'متسلسلة بوين 4K' : 'Bowen Series 4K'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('unconformity_stratigraphy')}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${
+              activeMode === 'unconformity_stratigraphy'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : isLight
+                ? 'text-emerald-800 hover:text-emerald-950 hover:bg-emerald-100 font-bold'
+                : 'text-emerald-400 hover:text-emerald-200 hover:bg-emerald-950/40'
+            }`}
+          >
+            <Mountain className="w-4 h-4 text-emerald-400" />
+            <span>{isArabic ? 'الأخدود وعدم التوافق 4K' : 'Unconformity 4K'}</span>
+          </button>
+
           <button
             type="button"
             onClick={toggleFullscreen}
@@ -1685,6 +1870,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 )}
               </div>
             </div>
+
+            {/* Museum 4K Mohs Mineral Hardness Studio Embed */}
+            <div className="mt-8">
+              <MohsMineralHardnessStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
+            </div>
           </div>
         )}
 
@@ -1855,6 +2049,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   <span className={`text-sm font-bold ${isLight ? 'text-emerald-900' : 'text-emerald-400'}`}>{isArabic ? currentRockObj.mineralsAr : currentRockObj.mineralsEn}</span>
                 </div>
               </div>
+            </div>
+
+            {/* Museum 4K Bowen Reaction Series Studio Embed */}
+            <div className="mt-8">
+              <BowenMagmaCrystallizationStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
             </div>
           </div>
         )}
@@ -2076,6 +2279,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                 </div>
               </div>
             </div>
+
+            {/* Museum 4K Wegener Continental Drift Studio Embed */}
+            <div className="col-span-12 mt-4">
+              <WegenerContinentalDriftStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
+            </div>
           </div>
         )}
 
@@ -2204,6 +2416,15 @@ export const GeologyEarthStudio: React.FC<Props> = ({
                   )}
                 </svg>
               </div>
+            </div>
+
+            {/* Museum 4K Grand Canyon Stratigraphic Unconformity Studio Embed */}
+            <div className="mt-8">
+              <StratigraphicUnconformityStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
             </div>
           </div>
         )}
@@ -4225,6 +4446,41 @@ export const GeologyEarthStudio: React.FC<Props> = ({
               </div>
             )}
           </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* DEDICATED 4K MUSEUM STUDIOS                               */}
+        {/* ========================================================= */}
+        {activeMode === 'wegener_drift' && (
+          <WegenerContinentalDriftStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        )}
+
+        {activeMode === 'mohs_minerals' && (
+          <MohsMineralHardnessStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        )}
+
+        {activeMode === 'bowen_magma' && (
+          <BowenMagmaCrystallizationStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        )}
+
+        {activeMode === 'unconformity_stratigraphy' && (
+          <StratigraphicUnconformityStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
         )}
       </div>
     </div>

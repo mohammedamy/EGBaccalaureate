@@ -188,7 +188,76 @@ if (fs.existsSync(studioPath)) {
   assert(content.includes('Ecosystem'), 'Contains Ecosystem trophic pyramid');
 }
 
-// 8. Grand Totals Summary
+// 8. Grand Totals Summary (Pre-Section 9)
+console.log('\n--- 8. Base Geology Integration Verified ---');
+
+// 9. Museum 4K Archival Photographic Assets & Geology Studio Components Verification
+console.log('\n--- 9. Museum 4K Archival Photographic Assets & Geology Studios Verification ---');
+
+const geologyAssets = [
+  { file: 'wegener_continental_drift_1912.jpg', name: 'Alfred Wegener 1912 Continental Drift Map' },
+  { file: 'mohs_hardness_minerals_1812.jpg', name: 'Friedrich Mohs 1812 Mineral Specimen Collection' },
+  { file: 'bowen_reaction_series_1928.jpg', name: 'Norman Bowen 1928 Petrological Reaction Series' },
+  { file: 'grand_canyon_stratigraphy_unconformity.jpg', name: 'Grand Canyon Great Angular Unconformity' },
+];
+
+geologyAssets.forEach(({ file, name }) => {
+  const assetPath = path.join(process.cwd(), 'src/assets/geology', file);
+  assert(fs.existsSync(assetPath), `Asset ${file} (${name}) exists on disk`);
+  if (fs.existsSync(assetPath)) {
+    const stat = fs.statSync(assetPath);
+    assert(stat.size > 100_000, `Asset ${file} is high-resolution 4K archival asset (>100KB, found: ${Math.round(stat.size / 1024)} KB)`);
+  }
+});
+
+const geologyStudios = [
+  {
+    file: 'WegenerContinentalDriftStudio.tsx',
+    component: 'WegenerContinentalDriftStudio',
+    hotspots: 'WEGENER_HOTSPOTS',
+  },
+  {
+    file: 'MohsMineralHardnessStudio.tsx',
+    component: 'MohsMineralHardnessStudio',
+    hotspots: 'MOHS_HOTSPOTS',
+  },
+  {
+    file: 'BowenMagmaCrystallizationStudio.tsx',
+    component: 'BowenMagmaCrystallizationStudio',
+    hotspots: 'BOWEN_HOTSPOTS',
+  },
+  {
+    file: 'StratigraphicUnconformityStudio.tsx',
+    component: 'StratigraphicUnconformityStudio',
+    hotspots: 'UNCONFORMITY_HOTSPOTS',
+  },
+];
+
+geologyStudios.forEach(({ file, component, hotspots }) => {
+  const studioFilePath = path.join(process.cwd(), 'src/components/labs/geology', file);
+  assert(fs.existsSync(studioFilePath), `Studio component ${file} exists on disk`);
+  if (fs.existsSync(studioFilePath)) {
+    const content = fs.readFileSync(studioFilePath, 'utf8');
+    assert(content.includes(`export const ${component}`), `Studio ${file} exports ${component}`);
+    assert(content.includes(`export const ${hotspots}`), `Studio ${file} exports ${hotspots}`);
+    assert(content.includes('HiResImageModal'), `Studio ${file} includes HiResImageModal for 4K viewing`);
+  }
+});
+
+if (fs.existsSync(studioPath)) {
+  const content = fs.readFileSync(studioPath, 'utf8');
+  assert(content.includes('WegenerContinentalDriftStudio'), 'GeologyEarthStudio imports & mounts WegenerContinentalDriftStudio');
+  assert(content.includes('MohsMineralHardnessStudio'), 'GeologyEarthStudio imports & mounts MohsMineralHardnessStudio');
+  assert(content.includes('BowenMagmaCrystallizationStudio'), 'GeologyEarthStudio imports & mounts BowenMagmaCrystallizationStudio');
+  assert(content.includes('StratigraphicUnconformityStudio'), 'GeologyEarthStudio imports & mounts StratigraphicUnconformityStudio');
+  assert(content.includes('wegener_drift'), 'GeologyEarthStudio supports "wegener_drift" StudioMode');
+  assert(content.includes('mohs_minerals'), 'GeologyEarthStudio supports "mohs_minerals" StudioMode');
+  assert(content.includes('bowen_magma'), 'GeologyEarthStudio supports "bowen_magma" StudioMode');
+  assert(content.includes('unconformity_stratigraphy'), 'GeologyEarthStudio supports "unconformity_stratigraphy" StudioMode');
+  assert(content.includes('Museum 4K Archival Showcase Jump Cards'), 'GeologyEarthStudio includes Museum 4K Archival Showcase Jump Cards');
+}
+
+// 10. Grand Totals Summary
 console.log('\n======================================================');
 console.log(`TOTAL ERRORS: ${errors}`);
 console.log('======================================================');
@@ -197,6 +266,6 @@ if (errors > 0) {
   console.error(`💥 Verification FAILED with ${errors} errors!`);
   process.exit(1);
 } else {
-  console.log('🎉 Verification PASSED! Geology & Environmental Sciences is 100% integrated and verified!');
+  console.log('🎉 Verification PASSED! Geology & Environmental Sciences is 100% integrated and verified with 4K Archival Studios!');
   process.exit(0);
 }
