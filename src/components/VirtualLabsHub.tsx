@@ -189,6 +189,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
         case 'atom_3d':
         case 'atomic_lasers':
           return 'phys-exp-6';
+        case 'newton_principia':
+          return 'phys-exp-10';
+        case 'galileo_kinematics':
+          return 'phys-exp-11';
+        case 'faraday_induction':
+          return 'phys-exp-12';
+        case 'einstein_photoelectric':
+          return 'phys-exp-13';
         default:
           return 'phys-exp-1';
       }
@@ -1207,6 +1215,10 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'atomic_lasers' as PhysicsTab, emoji: '⚛️', labelEn: 'Bohr Spectra & Lasers', labelAr: 'طيف بور والليزر' },
                     { id: 'atom_3d' as PhysicsTab, emoji: '🔮', labelEn: '3D Quantum Atom & Laser Studio', labelAr: 'استوديو الذرة الكمية والليزر 3D' },
                     { id: 'electronics' as PhysicsTab, emoji: '🔌', labelEn: 'Semiconductors & Transistor Logic', labelAr: 'أشباه الموصلات والترانزستور' },
+                    { id: 'newton_principia' as PhysicsTab, emoji: '🏛️', labelEn: 'Newton 1687 Principia & Gravitation (4K)', labelAr: 'استوديو نيوتن والجذب العام 1687 (4K)' },
+                    { id: 'galileo_kinematics' as PhysicsTab, emoji: '🏛️', labelEn: 'Galileo 1638 Kinematics & Inclined Plane (4K)', labelAr: 'استوديو جاليليو والمستوى المائل 1638 (4K)' },
+                    { id: 'faraday_induction' as PhysicsTab, emoji: '🏛️', labelEn: 'Faraday 1831 Induction Torus Ring (4K)', labelAr: 'استوديو فاراداي وحلقة الحث 1831 (4K)' },
+                    { id: 'einstein_photoelectric' as PhysicsTab, emoji: '🏛️', labelEn: 'Einstein 1905 Photoelectric Quanta (4K)', labelAr: 'استوديو أينشتاين والظاهرة الكهروضوئية 1905 (4K)' },
                     { id: 'flashcards' as PhysicsTab, emoji: '🗂️', labelEn: 'Physics Flashcards', labelAr: 'بطاقات الاستذكار' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">

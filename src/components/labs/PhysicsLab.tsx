@@ -9,6 +9,10 @@ import {
   ChevronDown,
   Maximize2,
   Minimize2,
+  Globe2,
+  TrendingDown,
+  Sun,
+  Award,
 } from 'lucide-react';
 import { DynamoInductionLab } from './DynamoInductionLab';
 import { RLCResonanceLab } from './RLCResonanceLab';
@@ -24,6 +28,12 @@ import { Interactive3DInductionStudio } from '../Interactive3DInductionStudio';
 import { Interactive3DOpticsPrismStudio } from '../Interactive3DOpticsPrismStudio';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
+// Dedicated 4K Museum Archival Studios
+import { NewtonPrincipiaStudio } from './physics/NewtonPrincipiaStudio';
+import { GalileoKinematicsStudio } from './physics/GalileoKinematicsStudio';
+import { FaradayInductionStudio } from './physics/FaradayInductionStudio';
+import { EinsteinPhotoelectricStudio } from './physics/EinsteinPhotoelectricStudio';
+
 export type PhysicsTab =
   | 'circuits'
   | 'optics'
@@ -36,7 +46,11 @@ export type PhysicsTab =
   | 'atomic_lasers'
   | 'electronics'
   | 'atom_3d'
-  | 'flashcards';
+  | 'flashcards'
+  | 'newton_principia'
+  | 'galileo_kinematics'
+  | 'faraday_induction'
+  | 'einstein_photoelectric';
 
 interface Props {
   lang: Language;
@@ -217,6 +231,31 @@ export const PhysicsLab: React.FC<Props> = ({
           <PhysicsFlashcards lang={lang} theme={theme} />
         </div>
       )}
+
+      {/* 4K MUSEUM ARCHIVAL STUDIOS */}
+      {activeTab === 'newton_principia' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0 overflow-y-auto' : 'mt-6'}>
+          <NewtonPrincipiaStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeTab === 'galileo_kinematics' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0 overflow-y-auto' : 'mt-6'}>
+          <GalileoKinematicsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeTab === 'faraday_induction' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0 overflow-y-auto' : 'mt-6'}>
+          <FaradayInductionStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeTab === 'einstein_photoelectric' && (
+        <div className={inFullscreen ? 'flex-1 min-h-0 overflow-y-auto' : 'mt-6'}>
+          <EinsteinPhotoelectricStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
     </>
   );
 
@@ -257,6 +296,18 @@ export const PhysicsLab: React.FC<Props> = ({
       </option>
       <option value="flashcards" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
         [12] {isArabic ? 'بطاقات الاستذكار الفيزيائي' : 'Physics Flashcards'}
+      </option>
+      <option value="newton_principia" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [13] 🏛️ {isArabic ? 'استوديو نيوتن والجذب العام 1687 (4K)' : 'Newton 1687 Principia & Gravitation (4K)'}
+      </option>
+      <option value="galileo_kinematics" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [14] 🏛️ {isArabic ? 'استوديو جاليليو والمستوى المائل 1638 (4K)' : 'Galileo 1638 Kinematics & Inclined Plane (4K)'}
+      </option>
+      <option value="faraday_induction" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [15] 🏛️ {isArabic ? 'استوديو فاراداي وحلقة الحث 1831 (4K)' : 'Faraday 1831 Induction Torus Ring (4K)'}
+      </option>
+      <option value="einstein_photoelectric" className={isLight ? 'bg-white text-slate-900' : 'bg-[#161B22] text-white'}>
+        [16] 🏛️ {isArabic ? 'استوديو أينشتاين والظاهرة الكهروضوئية 1905 (4K)' : 'Einstein 1905 Photoelectric Quanta (4K)'}
       </option>
     </>
   );
@@ -441,6 +492,196 @@ export const PhysicsLab: React.FC<Props> = ({
         isOpen={showConstants}
         onClose={() => setShowConstants(false)}
       />
+
+      {/* 4K Museum Archival Studios Showcase Jump Cards */}
+      <div
+        className={`mt-5 p-3.5 sm:p-4 rounded-2xl border transition-all ${
+          isContrast
+            ? 'bg-black border-2 border-white'
+            : isLight
+            ? 'bg-slate-50 border-slate-200 shadow-xs'
+            : 'bg-gradient-to-r from-indigo-950/20 via-cyan-950/20 to-amber-950/20 border-cyan-900/30 shadow-md'
+        }`}
+      >
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2">
+            <span
+              className={`p-1.5 rounded-lg border ${
+                isContrast
+                  ? 'bg-white text-black border-white'
+                  : isLight
+                  ? 'bg-cyan-100 text-cyan-700 border-cyan-200'
+                  : 'bg-cyan-600/20 border-cyan-500/30 text-cyan-400'
+              }`}
+            >
+              <Award className="w-4 h-4" />
+            </span>
+            <div>
+              <h3 className="text-xs sm:text-sm font-black flex items-center gap-1.5">
+                <span>{isArabic ? 'معرض المخطوطات واللوحات الفيزيائية الأرشيفية فائق الدقة (4K)' : 'Curated 4K Physics Archival Museum Studios'}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full border uppercase font-mono font-bold ${
+                    isContrast
+                      ? 'bg-white text-black border-white'
+                      : isLight
+                      ? 'bg-cyan-100 text-cyan-800 border-cyan-300'
+                      : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
+                  }`}
+                >
+                  {isArabic ? 'علمي علوم ورياضة' : 'Sciences & Math Core'}
+                </span>
+              </h3>
+              <p className={`text-[11px] ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic
+                  ? 'استكشف الوثائق الأصلية لأهم ٤ ثورات في تاريخ الفيزياء الكلاسيكية والكمية مع نقاط تفاعلية ومحاكيات رقمية دقيقة'
+                  : 'Inspect original historic plates of 4 seminal physics breakthroughs with interactive hotspots & simulations'}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {/* Studio 1: Newton 1687 */}
+          <button
+            onClick={() => handleTabChange('newton_principia')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'newton_principia'
+                ? isLight
+                  ? 'bg-indigo-50 border-indigo-500 ring-2 ring-indigo-400/50 text-slate-900 shadow-md'
+                  : 'bg-indigo-950/40 border-indigo-500 text-white shadow-lg ring-1 ring-indigo-500/50'
+                : isLight
+                ? 'bg-white hover:bg-indigo-50/50 border-slate-200 hover:border-indigo-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-indigo-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-indigo-100 text-indigo-900 border-indigo-300'
+                    : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
+                }`}
+              >
+                1687 CE
+              </span>
+              <Globe2 className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-indigo-500 transition-colors">
+                {isArabic ? 'نيوتن وكتاب البرنسيبيا' : 'Newton 1687 Principia'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'قانون الجذب العام، الميكانيكا المدارية، وتلسكوب 1668' : 'Universal Gravitation, Orbital Mechanics & Telescope'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 2: Galileo 1638 */}
+          <button
+            onClick={() => handleTabChange('galileo_kinematics')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'galileo_kinematics'
+                ? isLight
+                  ? 'bg-amber-50 border-amber-500 ring-2 ring-amber-400/50 text-slate-900 shadow-md'
+                  : 'bg-amber-950/40 border-amber-500 text-white shadow-lg ring-1 ring-amber-500/50'
+                : isLight
+                ? 'bg-white hover:bg-amber-50/50 border-slate-200 hover:border-amber-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-amber-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                }`}
+              >
+                1638 CE
+              </span>
+              <TrendingDown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-amber-500 transition-colors">
+                {isArabic ? 'جاليليو والمستوى المائل' : 'Galileo 1638 Kinematics'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'الساعة المائية، قانون الأعداد الفردية، والسقوط الحر' : 'Inclined Plane, Odd Numbers Law & Clepsydra Timer'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 3: Faraday 1831 */}
+          <button
+            onClick={() => handleTabChange('faraday_induction')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'faraday_induction'
+                ? isLight
+                  ? 'bg-cyan-50 border-cyan-500 ring-2 ring-cyan-400/50 text-slate-900 shadow-md'
+                  : 'bg-cyan-950/40 border-cyan-500 text-white shadow-lg ring-1 ring-cyan-500/50'
+                : isLight
+                ? 'bg-white hover:bg-cyan-50/50 border-slate-200 hover:border-cyan-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-cyan-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-cyan-100 text-cyan-900 border-cyan-300'
+                    : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
+                }`}
+              >
+                1831 CE
+              </span>
+              <Zap className="w-4 h-4 text-cyan-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-cyan-500 transition-colors">
+                {isArabic ? 'فاراداي وحلقة الحث' : 'Faraday 1831 Induction'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'حلقة الحديد، انحراف الجلفانومتر، ومحاكي الدينامو' : 'Torus Ring, Galvanometer Kick & AC Dynamo Engine'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 4: Einstein 1905 */}
+          <button
+            onClick={() => handleTabChange('einstein_photoelectric')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'einstein_photoelectric'
+                ? isLight
+                  ? 'bg-emerald-50 border-emerald-500 ring-2 ring-emerald-400/50 text-slate-900 shadow-md'
+                  : 'bg-emerald-950/40 border-emerald-500 text-white shadow-lg ring-1 ring-emerald-500/50'
+                : isLight
+                ? 'bg-white hover:bg-emerald-50/50 border-slate-200 hover:border-emerald-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-emerald-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                    : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                }`}
+              >
+                1905 CE
+              </span>
+              <Sun className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-emerald-500 transition-colors">
+                {isArabic ? 'أينشتاين والظاهرة الكهروضوئية' : 'Einstein 1905 Quanta'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'كمات الضوء، دالة الشغل، ومحاكي جهد الإيقاف' : 'Light Quanta, Work Function & Stopping Potential'}
+              </p>
+            </div>
+          </button>
+        </div>
+      </div>
 
       {renderTabContent(false)}
     </div>
