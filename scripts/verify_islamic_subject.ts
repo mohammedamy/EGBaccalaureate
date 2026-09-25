@@ -285,11 +285,13 @@ if (fs.existsSync(studioComponentPath)) {
 // 9b. 4K Museum-Grade Archival Visual Assets
 console.log('\n--- 9b. 4K Museum-Grade Archival Visual Assets ---');
 const quranAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/ancient_quran_kufic_manuscript.jpg');
+const madinahMushafAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/mushaf_madinah_page1.jpg');
 const astrolabeAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/classical_islamic_astrolabe.jpg');
 const kaabaAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/holy_kaaba_mecca_sanctuary.jpg');
 const medinaAsset = path.resolve(process.cwd(), 'src/assets/islamicLab/prophetic_sanctuary_medina.jpg');
 
 assert(fs.existsSync(quranAsset) && fs.statSync(quranAsset).size > 100000, `7th c. Early Kufic Quran Codex asset exists (>100KB, found: ${(fs.statSync(quranAsset).size/1024).toFixed(1)} KB)`);
+assert(fs.existsSync(madinahMushafAsset) && fs.statSync(madinahMushafAsset).size > 100000, `Standard Madinah Mushaf Page 1 asset exists (>100KB, found: ${(fs.statSync(madinahMushafAsset).size/1024).toFixed(1)} KB)`);
 assert(fs.existsSync(astrolabeAsset) && fs.statSync(astrolabeAsset).size > 100000, `Classical Islamic Astrolabe asset exists (>100KB, found: ${(fs.statSync(astrolabeAsset).size/1024).toFixed(1)} KB)`);
 assert(fs.existsSync(kaabaAsset) && fs.statSync(kaabaAsset).size > 100000, `Holy Kaaba Sanctuary asset exists (>100KB, found: ${(fs.statSync(kaabaAsset).size/1024).toFixed(1)} KB)`);
 assert(fs.existsSync(medinaAsset) && fs.statSync(medinaAsset).size > 100000, `Prophetic Sanctuary Medina asset exists (>100KB, found: ${(fs.statSync(medinaAsset).size/1024).toFixed(1)} KB)`);
