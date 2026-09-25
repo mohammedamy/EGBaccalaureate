@@ -83,7 +83,12 @@ export type BranchId =
   | 'egbac_biotechnology'
   | 'egbac_nanotechnology';
 
-export type TrackScope = 'common' | 'scientific' | 'literary';
+export type TrackScope =
+  | 'common'
+  | 'scientific'
+  | 'scientific_sciences'
+  | 'scientific_math'
+  | 'literary';
 
 export type DifficultyLevel = 'easy' | 'medium' | 'exam_standard' | 'hots';
 

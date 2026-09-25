@@ -427,7 +427,20 @@ export const TestGenerator: React.FC<Props> = ({
     const isTrackScopeMatch = (scope: TrackScope) => {
       if (selectedTrackScope === 'all') return true;
       if (selectedTrackScope === 'common') return scope === 'common';
-      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific';
+      if (selectedTrackScope === 'scientific_sciences') {
+        return scope === 'common' || scope === 'scientific' || scope === 'scientific_sciences';
+      }
+      if (selectedTrackScope === 'scientific_math') {
+        return scope === 'common' || scope === 'scientific' || scope === 'scientific_math';
+      }
+      if (selectedTrackScope === 'scientific') {
+        return (
+          scope === 'common' ||
+          scope === 'scientific' ||
+          scope === 'scientific_sciences' ||
+          scope === 'scientific_math'
+        );
+      }
       if (selectedTrackScope === 'literary') return scope === 'common' || scope === 'literary';
       return true;
     };
@@ -526,7 +539,20 @@ export const TestGenerator: React.FC<Props> = ({
     const isTrackScopeMatch = (scope: TrackScope) => {
       if (selectedTrackScope === 'all') return true;
       if (selectedTrackScope === 'common') return scope === 'common';
-      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific';
+      if (selectedTrackScope === 'scientific_sciences') {
+        return scope === 'common' || scope === 'scientific' || scope === 'scientific_sciences';
+      }
+      if (selectedTrackScope === 'scientific_math') {
+        return scope === 'common' || scope === 'scientific' || scope === 'scientific_math';
+      }
+      if (selectedTrackScope === 'scientific') {
+        return (
+          scope === 'common' ||
+          scope === 'scientific' ||
+          scope === 'scientific_sciences' ||
+          scope === 'scientific_math'
+        );
+      }
       if (selectedTrackScope === 'literary') return scope === 'common' || scope === 'literary';
       return true;
     };
@@ -2503,7 +2529,9 @@ export const TestGenerator: React.FC<Props> = ({
                       if (selectedTrackScope === 'all') return true;
                       const scope = ch.trackScope || getChapterTrackScope(selectedSubject !== 'all' ? selectedSubject : (selectedBranch !== 'all' ? selectedBranch : 'arabic'), ch.id);
                       if (selectedTrackScope === 'common') return scope === 'common';
-                      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific';
+                      if (selectedTrackScope === 'scientific_sciences') return scope === 'common' || scope === 'scientific' || scope === 'scientific_sciences';
+                      if (selectedTrackScope === 'scientific_math') return scope === 'common' || scope === 'scientific' || scope === 'scientific_math';
+                      if (selectedTrackScope === 'scientific') return scope === 'common' || scope === 'scientific' || scope === 'scientific_sciences' || scope === 'scientific_math';
                       if (selectedTrackScope === 'literary') return scope === 'common' || scope === 'literary';
                       return true;
                     })
@@ -2522,7 +2550,15 @@ export const TestGenerator: React.FC<Props> = ({
               <span>{lang === 'ar' ? 'الشعبة والمسار' : 'Track Scope'}</span>
               {selectedTrackScope !== 'all' && (
                 <span className="text-[10px] text-indigo-400 font-bold">
-                  {selectedTrackScope === 'common' ? '🌐' : selectedTrackScope === 'scientific' ? '🔬' : '🏛️'}
+                  {selectedTrackScope === 'common'
+                    ? '🌐'
+                    : selectedTrackScope === 'scientific_sciences'
+                    ? '🧬'
+                    : selectedTrackScope === 'scientific_math'
+                    ? '📐'
+                    : selectedTrackScope === 'scientific'
+                    ? '🔬'
+                    : '🏛️'}
                 </span>
               )}
             </label>
@@ -2533,7 +2569,9 @@ export const TestGenerator: React.FC<Props> = ({
             >
               <option value="all">{lang === 'ar' ? 'جميع المسارات (عام)' : 'All Track Scopes'}</option>
               <option value="common">{lang === 'ar' ? '🌐 الجذع المشترك فقط (علمي وأدبي)' : '🌐 Unified Common Core'}</option>
-              <option value="scientific">{lang === 'ar' ? '🔬 الشعبة العلمية (علوم ورياضة)' : '🔬 Scientific Track'}</option>
+              <option value="scientific_sciences">{lang === 'ar' ? '🧬 علمي علوم (طبي وبيولوجي)' : '🧬 Scientific (Sciences Division)'}</option>
+              <option value="scientific_math">{lang === 'ar' ? '📐 علمي رياضة (هندسي وحوسبة)' : '📐 Scientific (Math Division)'}</option>
+              <option value="scientific">{lang === 'ar' ? '🔬 الشعبة العلمية عام (علوم ورياضة)' : '🔬 Scientific Track (Core)'}</option>
               <option value="literary">{lang === 'ar' ? '🏛️ الشعبة الأدبية' : '🏛️ Literary Track'}</option>
             </select>
           </div>

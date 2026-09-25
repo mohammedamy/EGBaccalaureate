@@ -1,7 +1,7 @@
 import React from 'react';
 import type { TrackScope, ThemeMode } from '../types/curriculum';
 import type { Language } from '../i18n/translations';
-import { Globe, Atom, Landmark } from 'lucide-react';
+import { Globe, Atom, Landmark, Dna, Calculator } from 'lucide-react';
 import { getTrackScopeInfo } from '../data/trackScopeData';
 
 interface Props {
@@ -46,7 +46,25 @@ export const TrackScopeBadge: React.FC<Props> = ({
   let colorClass = '';
   let iconComponent = <Globe className={iconSizes} />;
 
-  if (scope === 'scientific') {
+  if (scope === 'scientific_sciences') {
+    iconComponent = <Dna className={iconSizes} />;
+    if (isContrast) {
+      colorClass = 'bg-black text-teal-300 border-2 border-teal-400 shadow-none';
+    } else if (isLight) {
+      colorClass = 'bg-teal-100 text-teal-900 border-teal-300 shadow-xs hover:bg-teal-200/70';
+    } else {
+      colorClass = 'bg-teal-950/80 text-teal-300 border-teal-700/60 shadow-xs hover:bg-teal-900/60';
+    }
+  } else if (scope === 'scientific_math') {
+    iconComponent = <Calculator className={iconSizes} />;
+    if (isContrast) {
+      colorClass = 'bg-black text-indigo-300 border-2 border-indigo-400 shadow-none';
+    } else if (isLight) {
+      colorClass = 'bg-indigo-100 text-indigo-900 border-indigo-300 shadow-xs hover:bg-indigo-200/70';
+    } else {
+      colorClass = 'bg-indigo-950/80 text-indigo-300 border-indigo-700/60 shadow-xs hover:bg-indigo-900/60';
+    }
+  } else if (scope === 'scientific') {
     iconComponent = <Atom className={iconSizes} />;
     if (isContrast) {
       colorClass = 'bg-black text-cyan-300 border-2 border-cyan-400 shadow-none';

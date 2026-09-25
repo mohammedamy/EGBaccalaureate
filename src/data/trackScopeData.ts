@@ -205,7 +205,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الرياضيات (البحتة والتطبيقية)',
     titleEn: 'Mathematics (Pure & Applied)',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_math',
     commonDescriptionAr: 'خاص بالشعبة العلمية (علمي رياضة بالكامل، مع دراسة الإحصاء لجميع الشعب): التفاضل والتكامل، الجبر والهندسة الفراغية، الاستاتيكا، والديناميكا.',
     commonDescriptionEn: 'Exclusively for Scientific (Math Track): Calculus, Algebra, Solid Geometry, Statics, and Dynamics.',
   },
@@ -214,7 +214,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'التفاضل والتكامل',
     titleEn: 'Calculus & Mathematical Analysis',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_math',
     commonDescriptionAr: 'خاص بالشعبة العلمية (علمي رياضة): نهايات الدوال، مشتقات الدوال المثلثية والأسية واللوغاريتمية، التكامل المحدد، وحجوم الأجسام الدورانية.',
     commonDescriptionEn: 'Pure Mathematics (Scientific Math Division): Limits, Derivatives, Indefinite/Definite Integrals, and Volumes of Revolution.',
   },
@@ -223,7 +223,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الجبر والهندسة الفراغية',
     titleEn: 'Algebra & Solid Analytic Geometry',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_math',
     commonDescriptionAr: 'خاص بالشعبة العلمية (علمي رياضة): التباديل والتوافيق، نظرية ذات الحدين، الأعداد المركبة، المصفوفات والمحددات، وهندسة الفراغ ثلاثية الأبعاد.',
     commonDescriptionEn: 'Pure Mathematics (Scientific Math Division): Combinatorics, Binomial Theorem, Complex Numbers, Matrices, and 3D Vector Geometry.',
   },
@@ -232,7 +232,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الاستاتيكا (الميكانيكا التطبيقية)',
     titleEn: 'Statics (Applied Mechanics)',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_math',
     commonDescriptionAr: 'خاص بالشعبة العلمية (علمي رياضة): الاحتكاك، عزم القوى حول نقطة، القوى المتوازية المستوية، الاتزان العام، والازدواجات ومركز الثقل.',
     commonDescriptionEn: 'Applied Mathematics (Scientific Math Division): Friction, Moments, Parallel Forces, General Equilibrium, Couples, and Center of Gravity.',
   },
@@ -241,7 +241,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الديناميكا (الميكانيكا الحركية)',
     titleEn: 'Dynamics (Newtonian Kinetics)',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_math',
     commonDescriptionAr: 'خاص بالشعبة العلمية (علمي رياضة): تفاضل وتكامل الدوال المتجهة، قوانين نيوتن الثلاثة، كمية الحركة والدافع، الشغل والطاقة والقدرة، والتصادم.',
     commonDescriptionEn: 'Applied Mathematics (Scientific Math Division): Vector Calculus, Newton\'s Laws, Impulse & Momentum, Work-Energy-Power, and Collisions.',
   },
@@ -250,8 +250,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الروبوتات والأتمتة الذكية',
     titleEn: 'Robotics & Automation',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'خاص بمسار العلوم والتكنولوجيا المتقدمة STEM.',
+    defaultTrackScope: 'scientific_math',
+    commonDescriptionAr: 'خاص بمسار العلوم والتكنولوجيا المتقدمة STEM (علمي رياضة وهندسة).',
     commonDescriptionEn: 'Specialized STEM Robotics Track.',
   },
   physics: {
@@ -277,7 +277,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الأحياء',
     titleEn: 'Biology',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_sciences',
     commonDescriptionAr: 'خاص بالشعبة العلمية (شعبة علمي علوم): الدعامة والحركة، التنسيق الهرموني، التكاثر، المناعة، والبيولوجيا الجزيئية (DNA & RNA).',
     commonDescriptionEn: 'Exclusively for Scientific Track (Science Division): Support & Movement, Hormones, Reproduction, Immunity, and Molecular Genetics.',
   },
@@ -286,7 +286,7 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الجيولوجيا وعلوم البيئة',
     titleEn: 'Geology & Environmental Science',
-    defaultTrackScope: 'scientific',
+    defaultTrackScope: 'scientific_sciences',
     commonDescriptionAr: 'خاص بالشعبة العلمية (شعبة علمي علوم): التراكيب الجيولوجية، المعادن والصخور، الحركات الأرضية، والبيئة واستنزاف الموارد.',
     commonDescriptionEn: 'Exclusively for Scientific Track (Science Division): Geological Structures, Minerals, Plate Tectonics, and Ecosystem Ecology.',
   },
@@ -304,8 +304,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'التكنولوجيا الحيوية',
     titleEn: 'Biotechnology',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'خاص بالمسار العلمي والتطبيقي.',
+    defaultTrackScope: 'scientific_sciences',
+    commonDescriptionAr: 'خاص بالمسار العلمي والتطبيقي (علمي علوم).',
     commonDescriptionEn: 'Scientific & Applied Biotechnology Track.',
   },
   nanotechnology: {
@@ -322,8 +322,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الروبوتات والميكاترونكس',
     titleEn: 'Robotics & Mechatronics',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'خاص بمسار العلوم والتكنولوجيا والهندسة والرياضيات STEM.',
+    defaultTrackScope: 'scientific_math',
+    commonDescriptionAr: 'خاص بمسار العلوم والتكنولوجيا والهندسة والرياضيات STEM (علمي رياضة).',
     commonDescriptionEn: 'STEM Engineering & Robotics Track.',
   },
   electronics_iot: {
@@ -331,8 +331,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الإلكترونيات وإنترنت الأشياء',
     titleEn: 'Electronics & IoT',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'خاص بمسار التكنولوجيا والهندسة.',
+    defaultTrackScope: 'scientific_math',
+    commonDescriptionAr: 'خاص بمسار التكنولوجيا والهندسة (علمي رياضة).',
     commonDescriptionEn: 'Electronics & Embedded Systems Track.',
   },
   ai_data_science: {
@@ -340,8 +340,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'الذكاء الاصطناعي وعلم البيانات',
     titleEn: 'Artificial Intelligence & Data Science',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'خاص بمسار الحوسبة والرياضيات التطبيقية.',
+    defaultTrackScope: 'scientific_math',
+    commonDescriptionAr: 'خاص بمسار الحوسبة والرياضيات التطبيقية (علمي رياضة).',
     commonDescriptionEn: 'AI & Machine Learning Track.',
   },
   cs_informatics: {
@@ -349,8 +349,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'علوم الحاسب والمعلوماتية',
     titleEn: 'Computer Science & Informatics',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'خاص بمسار تكنولوجيا المعلومات والعلوم الرياضية.',
+    defaultTrackScope: 'scientific_math',
+    commonDescriptionAr: 'خاص بمسار تكنولوجيا المعلومات والعلوم الرياضية (علمي رياضة).',
     commonDescriptionEn: 'Computer Science and Algorithms Track.',
   },
   renewable: {
@@ -443,8 +443,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'التربية الزراعية والتكنولوجيا الزراعية',
     titleEn: 'Agricultural Science & Technology',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'مسار علمي وتطبيقي: فسيولوجيا النبات، تكنولوجيا الري الحديث، استصلاح الأراضي، والإنتاج الحيواني.',
+    defaultTrackScope: 'scientific_sciences',
+    commonDescriptionAr: 'مسار علمي وتطبيقي (علمي علوم): فسيولوجيا النبات، تكنولوجيا الري الحديث، استصلاح الأراضي، والإنتاج الحيواني.',
     commonDescriptionEn: 'Scientific Agricultural Track: Plant physiology, modern irrigation technology, and animal production.',
   },
   industrial: {
@@ -452,8 +452,8 @@ export const SUBJECT_TRACK_REGISTRY: Record<string, SubjectTrackClassification> 
     nature: 'pure_scientific',
     titleAr: 'التربية الصناعية والتكنولوجيا التطبيقية والهندسية',
     titleEn: 'Industrial & Applied Engineering Technology',
-    defaultTrackScope: 'scientific',
-    commonDescriptionAr: 'مسار علمي وهندسي: الدوائر الإلكترونية، التحكم المنطقي PLC، تقنيات اللحام، وميكانيكا التشكيل.',
+    defaultTrackScope: 'scientific_math',
+    commonDescriptionAr: 'مسار علمي وهندسي (علمي رياضة): الدوائر الإلكترونية، التحكم المنطقي PLC، تقنيات اللحام، وميكانيكا التشكيل.',
     commonDescriptionEn: 'Scientific & Engineering Track: Electronic circuits, PLC control systems, and mechanical manufacturing.',
   },
   commercial: {
@@ -483,11 +483,12 @@ export function getChapterTrackScope(subjectId: string, chapterId: string): Trac
   const sub = subjectId.toLowerCase();
   const ch = chapterId.toLowerCase();
 
-  // If subject is pure scientific or pure literary, respect that unconditionally
+  // If subject is pure scientific or pure literary, respect its dedicated default track scope
   const classification = SUBJECT_TRACK_REGISTRY[sub];
   if (classification) {
-    if (classification.nature === 'pure_scientific') return 'scientific';
-    if (classification.nature === 'pure_literary') return 'literary';
+    if (classification.nature === 'pure_scientific' || classification.nature === 'pure_literary') {
+      return classification.defaultTrackScope;
+    }
   }
 
   // Specific chapter mappings for common subjects:
@@ -569,7 +570,9 @@ export function getChapterTrackScope(subjectId: string, chapterId: string): Trac
  * Filter chapters according to target track scope:
  * - 'all': returns all chapters
  * - 'common': returns common core chapters
- * - 'scientific': returns common core + scientific specific chapters
+ * - 'scientific_sciences': returns common core + general scientific + scientific_sciences chapters
+ * - 'scientific_math': returns common core + general scientific + scientific_math chapters
+ * - 'scientific': returns common core + all scientific tracks (general, sciences, math)
  * - 'literary': returns common core + literary specific chapters
  */
 export function filterChaptersByTrackScope(
@@ -585,7 +588,18 @@ export function filterChaptersByTrackScope(
       return scope === 'common';
     }
     if (targetScope === 'scientific') {
-      return scope === 'common' || scope === 'scientific';
+      return (
+        scope === 'common' ||
+        scope === 'scientific' ||
+        scope === 'scientific_sciences' ||
+        scope === 'scientific_math'
+      );
+    }
+    if (targetScope === 'scientific_sciences') {
+      return scope === 'common' || scope === 'scientific' || scope === 'scientific_sciences';
+    }
+    if (targetScope === 'scientific_math') {
+      return scope === 'common' || scope === 'scientific' || scope === 'scientific_math';
     }
     if (targetScope === 'literary') {
       return scope === 'common' || scope === 'literary';
@@ -606,23 +620,47 @@ export function isCommonSubject(subjectId: string): boolean {
  */
 export function getTrackScopeInfo(scope: TrackScope, lang: 'ar' | 'en') {
   switch (scope) {
+    case 'scientific_sciences':
+      return {
+        scope,
+        label: lang === 'ar' ? 'علمي علوم' : 'Scientific (Sciences)',
+        fullLabel: lang === 'ar' ? 'شعبة علمي علوم (الطب والعلوم الطبيعية)' : 'Scientific Track (Natural Sciences & Medicine)',
+        badgeColor: 'teal',
+        emoji: '🧬',
+        description:
+          lang === 'ar'
+            ? 'مخصص لطلاب شعبة علمي علوم (الطب، الصيدلة، العلوم والبيولوجيا)'
+            : 'Designated for students in the Scientific Sciences Division (Medicine, Pharmacy, Natural Sciences).',
+      };
+    case 'scientific_math':
+      return {
+        scope,
+        label: lang === 'ar' ? 'علمي رياضة' : 'Scientific (Math)',
+        fullLabel: lang === 'ar' ? 'شعبة علمي رياضة (الهندسة والتكنولوجيا)' : 'Scientific Track (Mathematics & Engineering)',
+        badgeColor: 'indigo',
+        emoji: '📐',
+        description:
+          lang === 'ar'
+            ? 'مخصص لطلاب شعبة علمي رياضة (الهندسة، الحوسبة، والرياضيات التطبيقية)'
+            : 'Designated for students in the Scientific Math Division (Engineering, Computing, Applied Math).',
+      };
     case 'scientific':
       return {
         scope,
-        label: lang === 'ar' ? 'خاص بالشعبة العلمية' : 'Scientific Track',
+        label: lang === 'ar' ? 'علمي عام' : 'Scientific Core',
         fullLabel: lang === 'ar' ? 'خاص بالشعبة العلمية (علوم ورياضة)' : 'Scientific Track (Sciences & Math)',
         badgeColor: 'sky',
         emoji: '🔬',
         description:
           lang === 'ar'
-            ? 'مخصص لطلاب الشعبة العلمية (علمي علوم وعلمي رياضة)'
-            : 'Designated for students in the Scientific Track (Sciences & Math).',
+            ? 'مقرر علمي أساسي مشترك لطلاب شعبتي علمي علوم وعلمي رياضة (مثل الفيزياء والكيمياء)'
+            : 'Fundamental scientific core curriculum shared by both Science and Math divisions.',
       };
     case 'literary':
       return {
         scope,
         label: lang === 'ar' ? 'خاص بالشعبة الأدبية' : 'Literary Track',
-        fullLabel: lang === 'ar' ? 'خاص بالشعبة الأدبية' : 'Humanities & Literary Track',
+        fullLabel: lang === 'ar' ? 'خاص بالشعبة الأدبية (العلوم الإنسانية والاجتماعية)' : 'Humanities & Literary Track',
         badgeColor: 'amber',
         emoji: '🏛️',
         description:
@@ -635,7 +673,7 @@ export function getTrackScopeInfo(scope: TrackScope, lang: 'ar' | 'en') {
       return {
         scope: 'common',
         label: lang === 'ar' ? 'مشترك (علمي وأدبي)' : 'Common Core',
-        fullLabel: lang === 'ar' ? 'جذع مشترك إلزامي للشعبتين' : 'Mandatory Unified Common Core',
+        fullLabel: lang === 'ar' ? 'جذع مشترك إلزامي للشعبتين' : 'Mandatory Unified Common Core for All Tracks',
         badgeColor: 'emerald',
         emoji: '🌐',
         description:

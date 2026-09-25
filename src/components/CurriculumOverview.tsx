@@ -222,6 +222,20 @@ export const CurriculumOverview: React.FC<Props> = ({
         if (selectedTrackScope === 'common') {
           return classif.nature === 'common_subject';
         }
+        if (selectedTrackScope === 'scientific_sciences') {
+          return (
+            classif.nature === 'common_subject' ||
+            classif.defaultTrackScope === 'scientific' ||
+            classif.defaultTrackScope === 'scientific_sciences'
+          );
+        }
+        if (selectedTrackScope === 'scientific_math') {
+          return (
+            classif.nature === 'common_subject' ||
+            classif.defaultTrackScope === 'scientific' ||
+            classif.defaultTrackScope === 'scientific_math'
+          );
+        }
         if (selectedTrackScope === 'scientific') {
           return classif.nature === 'common_subject' || classif.nature === 'pure_scientific';
         }
@@ -495,7 +509,9 @@ export const CurriculumOverview: React.FC<Props> = ({
             {[
               { id: 'all', labelAr: 'الكل (كافة المقررات)', labelEn: 'All Tracks', emoji: '📚' },
               { id: 'common', labelAr: 'الجذع المشترك فقط', labelEn: 'Common Core Only', emoji: '🌐' },
-              { id: 'scientific', labelAr: 'الشعبة العلمية (علوم ورياضة)', labelEn: 'Scientific Track', emoji: '🔬' },
+              { id: 'scientific_sciences', labelAr: 'علمي علوم (طبي)', labelEn: 'Scientific (Sciences)', emoji: '🧬' },
+              { id: 'scientific_math', labelAr: 'علمي رياضة (هندسي)', labelEn: 'Scientific (Math)', emoji: '📐' },
+              { id: 'scientific', labelAr: 'الشعبة العلمية (عام)', labelEn: 'Scientific Core', emoji: '🔬' },
               { id: 'literary', labelAr: 'الشعبة الأدبية', labelEn: 'Literary Track', emoji: '🏛️' },
             ].map((scopeItem) => {
               const isActive = selectedTrackScope === scopeItem.id;
@@ -508,6 +524,10 @@ export const CurriculumOverview: React.FC<Props> = ({
                     isActive
                       ? isContrast
                         ? 'bg-yellow-400 text-black border-yellow-300 font-black'
+                        : scopeItem.id === 'scientific_sciences'
+                        ? 'bg-teal-600 text-white border-teal-500 shadow-sm'
+                        : scopeItem.id === 'scientific_math'
+                        ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
                         : scopeItem.id === 'scientific'
                         ? 'bg-sky-600 text-white border-sky-500 shadow-sm'
                         : scopeItem.id === 'literary'

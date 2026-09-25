@@ -88,8 +88,8 @@ expectedCommonSubjects.forEach((subId) => {
   }
 });
 
-// 3. Verify Pure Scientific Subjects Classification
-console.log('\n🔹 3. Verifying Pure Scientific Subjects:');
+// 3. Verify Pure Scientific Subjects Classification & Sub-Track Mapping
+console.log('\n🔹 3. Verifying Pure Scientific Subjects & Dedicated Sub-Track Differentiation:');
 const pureSciSubjects = [
   'physics',
   'chemistry',
@@ -109,9 +109,52 @@ pureSciSubjects.forEach((subId) => {
   assert(!!reg, `Pure scientific subject "${subId}" exists`);
   if (reg) {
     assert(reg.nature === 'pure_scientific', `Subject "${subId}" is classified as "pure_scientific"`);
-    assert(reg.defaultTrackScope === 'scientific', `Subject "${subId}" has defaultTrackScope = "scientific"`);
+    assert(
+      ['scientific', 'scientific_sciences', 'scientific_math'].includes(reg.defaultTrackScope),
+      `Subject "${subId}" has valid scientific track scope (${reg.defaultTrackScope})`
+    );
     assert(!isCommonSubject(subId), `isCommonSubject("${subId}") returns false`);
   }
+});
+
+// Explicit Sub-track asserts
+const expectedScienceDivision = ['biology', 'geology', 'biotechnology', 'agriculture'];
+expectedScienceDivision.forEach((subId) => {
+  const reg = SUBJECT_TRACK_REGISTRY[subId];
+  assert(
+    reg?.defaultTrackScope === 'scientific_sciences',
+    `Subject "${subId}" is explicitly mapped to "scientific_sciences" (علمي علوم)`
+  );
+});
+
+const expectedMathDivision = [
+  'mathematics',
+  'calculus',
+  'algebra_solid',
+  'statics',
+  'dynamics',
+  'robotics',
+  'robotics_mechatronics',
+  'electronics_iot',
+  'cs_informatics',
+  'ai_data_science',
+  'industrial',
+];
+expectedMathDivision.forEach((subId) => {
+  const reg = SUBJECT_TRACK_REGISTRY[subId];
+  assert(
+    reg?.defaultTrackScope === 'scientific_math',
+    `Subject "${subId}" is explicitly mapped to "scientific_math" (علمي رياضة)`
+  );
+});
+
+const expectedCoreScientific = ['physics', 'chemistry', 'earth_space', 'nanotechnology', 'renewable', 'stem_capstone'];
+expectedCoreScientific.forEach((subId) => {
+  const reg = SUBJECT_TRACK_REGISTRY[subId];
+  assert(
+    reg?.defaultTrackScope === 'scientific',
+    `Subject "${subId}" is explicitly mapped to core "scientific" (علمي عام مشترك)`
+  );
 });
 
 // 4. Verify Pure Literary Subjects Classification
@@ -158,6 +201,12 @@ assert(arPoetryScope === 'literary', `Arabic Literary Schools Ch7 resolves to "l
 const physChScope = getChapterTrackScope('physics', 'th_phys_ch1');
 assert(physChScope === 'scientific', `Physics Chapter 1 resolves to "scientific" (found: ${physChScope})`);
 
+const bioChScope = getChapterTrackScope('biology', 'th_bio_ch1');
+assert(bioChScope === 'scientific_sciences', `Biology Chapter 1 resolves to "scientific_sciences" (found: ${bioChScope})`);
+
+const calcChScope = getChapterTrackScope('calculus', 'th_calc_ch1');
+assert(calcChScope === 'scientific_math', `Calculus Chapter 1 resolves to "scientific_math" (found: ${calcChScope})`);
+
 // Pure literary subject chapter resolution
 const histChScope = getChapterTrackScope('history', 'th_hist_ch1');
 assert(histChScope === 'literary', `History Chapter 1 resolves to "literary" (found: ${histChScope})`);
@@ -178,7 +227,19 @@ assert(allChapters.length === 4, `Target 'all' returns all 4 chapters (got ${all
 const sciChapters = filterChaptersByTrackScope(mockEconStatChapters, 'economics_statistics', 'scientific');
 assert(
   sciChapters.length === 2 && sciChapters.every((c) => [7, 8].includes(c.chapterNumber)),
-  `Target 'scientific' returns only chapters 7 & 8 (got ${sciChapters.map((c) => c.chapterNumber).join(', ')})`
+  `Target 'scientific' returns chapters 7 & 8 (got ${sciChapters.map((c) => c.chapterNumber).join(', ')})`
+);
+
+const sciSciencesChapters = filterChaptersByTrackScope(mockEconStatChapters, 'economics_statistics', 'scientific_sciences');
+assert(
+  sciSciencesChapters.length === 2 && sciSciencesChapters.every((c) => [7, 8].includes(c.chapterNumber)),
+  `Target 'scientific_sciences' includes scientific core chapters 7 & 8 (got ${sciSciencesChapters.length})`
+);
+
+const sciMathChapters = filterChaptersByTrackScope(mockEconStatChapters, 'economics_statistics', 'scientific_math');
+assert(
+  sciMathChapters.length === 2 && sciMathChapters.every((c) => [7, 8].includes(c.chapterNumber)),
+  `Target 'scientific_math' includes scientific core chapters 7 & 8 (got ${sciMathChapters.length})`
 );
 
 const litChapters = filterChaptersByTrackScope(mockEconStatChapters, 'economics_statistics', 'literary');
@@ -187,9 +248,11 @@ assert(
   `Target 'literary' returns only chapters 1 & 2 (got ${litChapters.map((c) => c.chapterNumber).join(', ')})`
 );
 
-// 7. Verify Track Scope Info & UI Metas
+// 7. Verify Track Scope Info & UI Metas for all 5 Scopes
 console.log('\n🔹 7. Verifying Track Scope UI Info Labels & Color Accents:');
-(['common', 'scientific', 'literary'] as TrackScope[]).forEach((scope) => {
+const allTrackScopes: TrackScope[] = ['common', 'scientific', 'scientific_sciences', 'scientific_math', 'literary'];
+
+allTrackScopes.forEach((scope) => {
   const infoAr = getTrackScopeInfo(scope, 'ar');
   const infoEn = getTrackScopeInfo(scope, 'en');
 
@@ -197,7 +260,7 @@ console.log('\n🔹 7. Verifying Track Scope UI Info Labels & Color Accents:');
   assert(!!infoEn.label && infoEn.label.length > 0, `Scope "${scope}" has English label (${infoEn.label})`);
   assert(!!infoAr.emoji, `Scope "${scope}" has emoji icon (${infoAr.emoji})`);
   assert(
-    ['emerald', 'sky', 'amber'].includes(infoAr.badgeColor),
+    ['emerald', 'sky', 'teal', 'indigo', 'amber'].includes(infoAr.badgeColor),
     `Scope "${scope}" has valid theme badgeColor (${infoAr.badgeColor})`
   );
 });
