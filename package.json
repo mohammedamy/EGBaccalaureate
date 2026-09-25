@@ -19,6 +19,7 @@
     "test:cs-informatics": "npx tsx scripts/verify_cs_informatics_subject.ts",
     "test:earth-space": "npx tsx scripts/verify_earth_space_subject.ts",
     "test:geology": "npx tsx scripts/verify_geology_subject.ts",
+    "test:geography": "npx tsx scripts/verify_geography_subject.ts",
     "test:german": "npx tsx scripts/verify_german_subject.ts",
     "test:italian": "npx tsx scripts/verify_italian_subject.ts",
     "test:spanish": "npx tsx scripts/verify_spanish_subject.ts",

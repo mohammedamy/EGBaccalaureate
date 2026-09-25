@@ -180,8 +180,8 @@ assert(!!branchBook && branchBook.id === 'th-geography-g12', 'getOfficialBookByB
 const geoBooks = getOfficialBooksBySubject('geography');
 assert(geoBooks.length === 2, `getOfficialBooksBySubject("geography") returns 2 books (found: ${geoBooks.length})`);
 
-// 7. Interactive Studio Component File Verification
-console.log('\n--- 7. Interactive Studio Component File Verification ---');
+// 8. Base Geography Studio Verification
+console.log('\n--- 8. Base Geography Studio Verification ---');
 const studioPath = path.join(process.cwd(), 'src/components/labs/GeopoliticalMapStudio.tsx');
 assert(fs.existsSync(studioPath), 'GeopoliticalMapStudio.tsx exists on disk');
 if (fs.existsSync(studioPath)) {
@@ -196,7 +196,86 @@ if (fs.existsSync(studioPath)) {
   assert(content.includes('nato'), 'Contains NATO military alliance');
 }
 
-// 8. Grand Totals Summary
+// 9. Museum 4K Archival Cartographic Assets & Dedicated Geography Studios Verification
+console.log('\n--- 9. Museum 4K Archival Satellite Assets & Geography Studios Verification ---');
+
+const geographyAssets = [
+  { file: 'egypt_satellite_map.jpg', name: 'Egypt Compact State & Dual Marine Facades 4K Satellite' },
+  { file: 'taba_satellite_map.jpg', name: 'Taba & Gulf of Aqaba 1989 Border Pillar 91 4K Satellite' },
+  { file: 'ceuta_melilla_map.jpg', name: 'Ceuta & Melilla Moroccan-Spanish Flashpoint 4K Satellite' },
+  { file: 'kashmir_satellite_map.jpg', name: 'Kashmir Line of Control Indo-Pakistani Flashpoint 4K Satellite' },
+  { file: 'libya_tunisia_map.jpg', name: 'Libya-Tunisia 1982 ICJ Continental Shelf 52° 4K Satellite' },
+  { file: 'comesa_africa_map.jpg', name: 'COMESA Eastern & Southern Africa Economic Bloc 4K Satellite' },
+  { file: 'european_union_map.jpg', name: 'European Union 27-State Supranational Integration 4K Satellite' },
+  { file: 'nato_transatlantic_map.jpg', name: 'NATO Transatlantic Collective Defense Alliance 4K Satellite' },
+  { file: 'france_satellite_map.jpg', name: 'France Ideal Hexagonal Compact State 4K Satellite' },
+  { file: 'chile_satellite_map.jpg', name: 'Chile Elongated N-S Latitudinal Ribbon State 4K Satellite' },
+  { file: 'turkey_satellite_map.jpg', name: 'Turkey Elongated E-W Continental Land Bridge 4K Satellite' },
+  { file: 'congo_satellite_map.jpg', name: 'Congo DR Protruded Atlantic Panhandle State 4K Satellite' },
+  { file: 'afghanistan_satellite_map.jpg', name: 'Afghanistan Wakhan Corridor Buffer Salient 4K Satellite' },
+  { file: 'lesotho_satellite_map.jpg', name: 'Lesotho Complete Perforated Enclave State 4K Satellite' },
+  { file: 'japan_satellite_map.jpg', name: 'Japan Fragmented Insular Archipelago State 4K Satellite' },
+  { file: 'gcc_arabian_gulf_map.jpg', name: 'GCC Arabian Gulf Regional Cooperation Bloc 4K Satellite' },
+  { file: 'sahel_satellite_map.jpg', name: 'African Sahel Nomadic Pastoral Transhumance Zone 4K Satellite' },
+];
+
+geographyAssets.forEach(({ file, name }) => {
+  const assetPath = path.join(process.cwd(), 'src/assets/geography', file);
+  assert(fs.existsSync(assetPath), `Asset ${file} (${name}) exists on disk`);
+  if (fs.existsSync(assetPath)) {
+    const stat = fs.statSync(assetPath);
+    assert(stat.size > 100_000, `Asset ${file} is high-resolution 4K archival asset (>100KB, found: ${Math.round(stat.size / 1024)} KB)`);
+  }
+});
+
+const geographyStudios = [
+  {
+    file: 'TabaArbitrationStudio.tsx',
+    component: 'TabaArbitrationStudio',
+    hotspots: 'TABA_HOTSPOTS',
+  },
+  {
+    file: 'MaritimeZonesStudio.tsx',
+    component: 'MaritimeZonesStudio',
+    hotspots: 'MARITIME_HOTSPOTS',
+  },
+  {
+    file: 'StateMorphologyStudio.tsx',
+    component: 'StateMorphologyStudio',
+    hotspots: 'STATE_CASE_STUDIES',
+  },
+  {
+    file: 'EconomicMilitaryBlocsStudio.tsx',
+    component: 'EconomicMilitaryBlocsStudio',
+    hotspots: 'REGIONAL_BLOCS',
+  },
+];
+
+geographyStudios.forEach(({ file, component, hotspots }) => {
+  const studioFilePath = path.join(process.cwd(), 'src/components/labs/geography', file);
+  assert(fs.existsSync(studioFilePath), `Studio component ${file} exists on disk`);
+  if (fs.existsSync(studioFilePath)) {
+    const content = fs.readFileSync(studioFilePath, 'utf8');
+    assert(content.includes(`export const ${component}`), `Studio ${file} exports ${component}`);
+    assert(content.includes(`export const ${hotspots}`), `Studio ${file} exports ${hotspots}`);
+    assert(content.includes('HiResImageModal'), `Studio ${file} includes HiResImageModal for 4K viewing`);
+  }
+});
+
+if (fs.existsSync(studioPath)) {
+  const content = fs.readFileSync(studioPath, 'utf8');
+  assert(content.includes('TabaArbitrationStudio'), 'GeopoliticalMapStudio imports & mounts TabaArbitrationStudio');
+  assert(content.includes('MaritimeZonesStudio'), 'GeopoliticalMapStudio imports & mounts MaritimeZonesStudio');
+  assert(content.includes('StateMorphologyStudio'), 'GeopoliticalMapStudio imports & mounts StateMorphologyStudio');
+  assert(content.includes('EconomicMilitaryBlocsStudio'), 'GeopoliticalMapStudio imports & mounts EconomicMilitaryBlocsStudio');
+  assert(content.includes('taba_arbitration'), 'GeopoliticalMapStudio supports "taba_arbitration" StudioMode');
+  assert(content.includes('maritime_zones'), 'GeopoliticalMapStudio supports "maritime_zones" StudioMode');
+  assert(content.includes('state_morphology'), 'GeopoliticalMapStudio supports "state_morphology" StudioMode');
+  assert(content.includes('economic_military_blocs'), 'GeopoliticalMapStudio supports "economic_military_blocs" StudioMode');
+  assert(content.includes('Museum 4K Archival Showcase Jump Cards'), 'GeopoliticalMapStudio includes Museum 4K Archival Showcase Jump Cards');
+}
+
+// 10. Grand Totals Summary
 console.log('\n======================================================');
 console.log(`TOTAL ERRORS: ${errors}`);
 console.log('======================================================');
@@ -205,6 +284,6 @@ if (errors > 0) {
   console.error(`💥 Verification FAILED with ${errors} errors!`);
   process.exit(1);
 } else {
-  console.log('🎉 Verification PASSED! Political Geography is 100% integrated and verified!');
+  console.log('🎉 Verification PASSED! Political Geography & 4K Geopolitical Studios are 100% integrated and verified!');
   process.exit(0);
 }

@@ -23,16 +23,38 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { TabaArbitrationStudio } from './geography/TabaArbitrationStudio';
+import { MaritimeZonesStudio } from './geography/MaritimeZonesStudio';
+import { StateMorphologyStudio } from './geography/StateMorphologyStudio';
+import { EconomicMilitaryBlocsStudio } from './geography/EconomicMilitaryBlocsStudio';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'morphology' | 'unclos' | 'hotspots' | 'blocs' | 'geopower';
+  initialMode?:
+    | 'morphology'
+    | 'unclos'
+    | 'hotspots'
+    | 'blocs'
+    | 'geopower'
+    | 'taba_arbitration'
+    | 'maritime_zones'
+    | 'state_morphology'
+    | 'economic_military_blocs';
 }
 
-type StudioMode = 'morphology' | 'unclos' | 'hotspots' | 'blocs' | 'geopower';
+type StudioMode =
+  | 'morphology'
+  | 'unclos'
+  | 'hotspots'
+  | 'blocs'
+  | 'geopower'
+  | 'taba_arbitration'
+  | 'maritime_zones'
+  | 'state_morphology'
+  | 'economic_military_blocs';
 
 export const GeopoliticalMapStudio: React.FC<Props> = ({
   lang,
@@ -750,6 +772,109 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
           </div>
         </div>
 
+        {/* Museum 4K Archival Showcase Jump Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+          {/* Card 1: Taba International Arbitration 1989 */}
+          <button
+            onClick={() => setActiveMode('taba_arbitration')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'taba_arbitration'
+                ? 'bg-amber-500/20 border-amber-400 ring-2 ring-amber-400/50'
+                : isLight
+                ? 'bg-white/90 border-amber-200 hover:border-amber-400 hover:bg-amber-50/50'
+                : 'bg-slate-900/60 border-amber-900/40 hover:border-amber-500/60 hover:bg-slate-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold">
+                1989 CE • 4K
+              </span>
+              <Scale className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-amber-400 line-clamp-1">
+              {isArabic ? 'تحكيم طابا واسترداد السيادة' : 'Taba Arbitration & Sovereignty'}
+            </h4>
+            <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'العلامة 91، محكمة جنيف، والدفاع الرباعي' : 'Border Pillar 91, Geneva Award & 4-Pillar Case'}
+            </p>
+          </button>
+
+          {/* Card 2: UNCLOS Maritime Zones */}
+          <button
+            onClick={() => setActiveMode('maritime_zones')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'maritime_zones'
+                ? 'bg-cyan-500/20 border-cyan-400 ring-2 ring-cyan-400/50'
+                : isLight
+                ? 'bg-white/90 border-cyan-200 hover:border-cyan-400 hover:bg-cyan-50/50'
+                : 'bg-slate-900/60 border-cyan-900/40 hover:border-cyan-500/60 hover:bg-slate-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-bold">
+                UNCLOS 1982 • 4K
+              </span>
+              <Anchor className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-cyan-400 line-clamp-1">
+              {isArabic ? 'المناطق المائية وقانون البحار' : 'UNCLOS Maritime Zones & Shelf'}
+            </h4>
+            <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'المياه الإقليمية، المنطقة الخالصة، وتونس-ليبيا' : '6 Maritime Zones, EEZ, & ICJ 52° Ruling'}
+            </p>
+          </button>
+
+          {/* Card 3: State Morphology */}
+          <button
+            onClick={() => setActiveMode('state_morphology')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'state_morphology'
+                ? 'bg-emerald-500/20 border-emerald-400 ring-2 ring-emerald-400/50'
+                : isLight
+                ? 'bg-white/90 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50/50'
+                : 'bg-slate-900/60 border-emerald-900/40 hover:border-emerald-500/60 hover:bg-slate-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
+                8 Nations • 4K
+              </span>
+              <Globe className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-emerald-400 line-clamp-1">
+              {isArabic ? 'مورفولوجيا أشكال الدول' : 'State Morphology & Geometry'}
+            </h4>
+            <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'مصر وفرنسا وتشيلي، وحاسبة بولسبي-بوبر' : 'Egypt, France, Chile & Polsby-Popper Calc'}
+            </p>
+          </button>
+
+          {/* Card 4: Economic & Military Blocs */}
+          <button
+            onClick={() => setActiveMode('economic_military_blocs')}
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+              activeMode === 'economic_military_blocs'
+                ? 'bg-blue-500/20 border-blue-400 ring-2 ring-blue-400/50'
+                : isLight
+                ? 'bg-white/90 border-blue-200 hover:border-blue-400 hover:bg-blue-50/50'
+                : 'bg-slate-900/60 border-blue-900/40 hover:border-blue-500/60 hover:bg-slate-900/80'
+            }`}
+          >
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold">
+                COMESA & EU • 4K
+              </span>
+              <Building2 className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
+            </div>
+            <h4 className="text-xs sm:text-sm font-bold text-blue-400 line-clamp-1">
+              {isArabic ? 'التكتلات الاقتصادية والأحلاف' : 'Economic Blocs & Alliances'}
+            </h4>
+            <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+              {isArabic ? 'الكوميسا، الاتحاد الأوروبي، ومراحل التكامل' : 'COMESA, EU, NATO & 5 Integration Stages'}
+            </p>
+          </button>
+        </div>
+
         {/* Tab Navigation */}
         <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 overflow-x-auto max-w-full">
           {[
@@ -758,6 +883,10 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
             { id: 'hotspots', labelEn: 'Hotspots', labelAr: 'بؤر النزاعات', icon: Flame },
             { id: 'blocs', labelEn: 'Blocs & Alliances', labelAr: 'التكتلات والأحلاف', icon: Building2 },
             { id: 'geopower', labelEn: 'Power Matrix', labelAr: 'مصفوفة القوة', icon: BarChart3 },
+            { id: 'taba_arbitration', labelEn: 'Taba 4K', labelAr: 'طابا 4K', icon: Scale },
+            { id: 'maritime_zones', labelEn: 'UNCLOS 4K', labelAr: 'البحار 4K', icon: Anchor },
+            { id: 'state_morphology', labelEn: 'Morphology 4K', labelAr: 'أشكال الدول 4K', icon: Globe },
+            { id: 'economic_military_blocs', labelEn: 'Blocs 4K', labelAr: 'التكتلات 4K', icon: Building2 },
           ].map((tab) => {
             const isSelected = activeMode === tab.id;
             const IconComponent = tab.icon;
@@ -1010,6 +1139,15 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                 </div>
               </div>
             )}
+
+            {/* Museum 4K State Morphology Studio Embed */}
+            <div className="mt-8">
+              <StateMorphologyStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
+            </div>
           </div>
         )}
 
@@ -1329,6 +1467,15 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                 </div>
               </div>
             )}
+
+            {/* Museum 4K UNCLOS Maritime Zones Studio Embed */}
+            <div className="mt-8">
+              <MaritimeZonesStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
+            </div>
           </div>
         )}
 
@@ -1478,6 +1625,15 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                 </div>
               </div>
             )}
+
+            {/* Museum 4K Taba Arbitration Studio Embed */}
+            <div className="mt-8">
+              <TabaArbitrationStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
+            </div>
           </div>
         )}
 
@@ -1604,6 +1760,15 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                 </div>
               </div>
             )}
+
+            {/* Museum 4K Economic & Military Blocs Studio Embed */}
+            <div className="mt-8">
+              <EconomicMilitaryBlocsStudio
+                isArabic={isArabic}
+                isLight={isLight}
+                isContrast={isContrast}
+              />
+            </div>
           </div>
         )}
 
@@ -1731,6 +1896,41 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
               </div>
             </div>
           </div>
+        )}
+
+        {/* ========================================================= */}
+        {/* DEDICATED 4K MUSEUM STUDIOS                               */}
+        {/* ========================================================= */}
+        {activeMode === 'taba_arbitration' && (
+          <TabaArbitrationStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        )}
+
+        {activeMode === 'maritime_zones' && (
+          <MaritimeZonesStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        )}
+
+        {activeMode === 'state_morphology' && (
+          <StateMorphologyStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        )}
+
+        {activeMode === 'economic_military_blocs' && (
+          <EconomicMilitaryBlocsStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
         )}
       </div>
     </div>
