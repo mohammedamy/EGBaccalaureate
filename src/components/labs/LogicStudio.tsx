@@ -16,12 +16,17 @@ import {
   Shield,
   Maximize2,
   Minimize2,
+  Sparkles,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { SchoolOfAthensStudio } from './philosophy/SchoolOfAthensStudio';
 import { BaconInductionStudio } from './philosophy/BaconInductionStudio';
 import { BioethicsEnvironmentalStudio } from './philosophy/BioethicsEnvironmentalStudio';
 import { CyberneticsFuzzyLogicStudio } from './philosophy/CyberneticsFuzzyLogicStudio';
+import { AristotleOrganonStudio } from './philosophy/AristotleOrganonStudio';
+import { AvicennaShifaLogicStudio } from './philosophy/AvicennaShifaLogicStudio';
+import { KantCritiquePureReasonStudio } from './philosophy/KantCritiquePureReasonStudio';
+import { RussellPrincipiaMathematicaStudio } from './philosophy/RussellPrincipiaMathematicaStudio';
 
 interface Props {
   lang: Language;
@@ -32,6 +37,10 @@ interface Props {
 }
 
 export type LogicStudioMode =
+  | 'aristotle_organon'
+  | 'avicenna_shifa'
+  | 'kant_critique'
+  | 'russell_principia'
   | 'school_of_athens'
   | 'bacon_idols'
   | 'bioethics_matrix'
@@ -943,9 +952,13 @@ export const LogicStudio: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* 7 Mode Selector Buttons with >= 44px touch targets */}
+        {/* 11 Mode Selector Buttons with >= 44px touch targets */}
         <div className="flex items-center gap-1.5 p-1 rounded-xl bg-slate-950/60 border border-slate-800/80 overflow-x-auto max-w-full">
           {[
+            { id: 'aristotle_organon', icon: Scale, labelAr: 'أرسطو والأورغانون 4K', labelEn: 'Aristotle Organon 4K' },
+            { id: 'avicenna_shifa', icon: Sparkles, labelAr: 'ابن سينا والشفاء 4K', labelEn: 'Avicenna Shifa 4K' },
+            { id: 'kant_critique', icon: BookOpen, labelAr: 'كانط ونقد العقل 4K', labelEn: 'Kant Critique 4K' },
+            { id: 'russell_principia', icon: Binary, labelAr: 'رسل والمنطق الرمزي 4K', labelEn: 'Russell Principia 4K' },
             { id: 'school_of_athens', icon: Brain, labelAr: 'مدرسة أثينا 4K', labelEn: 'School of Athens 4K' },
             { id: 'bacon_idols', icon: Layers, labelAr: 'أورجانون بيكون 4K', labelEn: 'Bacon & Idols 4K' },
             { id: 'bioethics_matrix', icon: Shield, labelAr: 'البيوتيقا والبيئة 4K', labelEn: 'Bioethics Codex 4K' },
@@ -985,8 +998,81 @@ export const LogicStudio: React.FC<Props> = ({
 
       {/* Main Workspace Area */}
       <div className="flex-1 p-4 md:p-6 overflow-y-auto">
-        {/* Quick Museum Jump Cards */}
+        {/* Quick Museum Jump Cards (8 Archival Studios) */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 max-w-5xl mx-auto">
+          {/* Card 1: Aristotle Organon */}
+          <button
+            onClick={() => setActiveMode('aristotle_organon')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'aristotle_organon'
+                ? 'bg-amber-600/30 border-amber-400 shadow-md ring-1 ring-amber-400'
+                : 'bg-gradient-to-br from-amber-950/40 to-slate-900 border-amber-600/20 hover:border-amber-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-amber-400 font-bold block mb-1">📜 c. 350 BCE</span>
+            <div className="text-xs font-black text-white group-hover:text-amber-300">
+              {isArabic ? 'أرسطو والأورغانون 4K' : 'Aristotle Organon 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'التحليلات الأولى والقياس ومربع التقابل' : 'Syllogism Figures & Square'}
+            </p>
+          </button>
+
+          {/* Card 2: Avicenna Shifa */}
+          <button
+            onClick={() => setActiveMode('avicenna_shifa')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'avicenna_shifa'
+                ? 'bg-emerald-600/30 border-emerald-400 shadow-md ring-1 ring-emerald-400'
+                : 'bg-gradient-to-br from-emerald-950/40 to-slate-900 border-emerald-600/20 hover:border-emerald-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-emerald-400 font-bold block mb-1">✨ 1027 CE</span>
+            <div className="text-xs font-black text-white group-hover:text-emerald-300">
+              {isArabic ? 'ابن سينا والشفاء 4K' : 'Avicenna Shifa 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'الإنسان المعلق والشرطيات والجهات' : 'Floating Man & Conditionals'}
+            </p>
+          </button>
+
+          {/* Card 3: Kant Critique */}
+          <button
+            onClick={() => setActiveMode('kant_critique')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'kant_critique'
+                ? 'bg-indigo-600/30 border-indigo-400 shadow-md ring-1 ring-indigo-400'
+                : 'bg-gradient-to-br from-indigo-950/40 to-slate-900 border-indigo-600/20 hover:border-indigo-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-indigo-400 font-bold block mb-1">📖 1781 CE</span>
+            <div className="text-xs font-black text-white group-hover:text-indigo-300">
+              {isArabic ? 'كانط ونقد العقل 4K' : 'Kant Critique 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'التركيبي القبلي والتناقضات الكونية' : 'Synthetic A Priori & Antinomies'}
+            </p>
+          </button>
+
+          {/* Card 4: Russell Principia */}
+          <button
+            onClick={() => setActiveMode('russell_principia')}
+            className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
+              activeMode === 'russell_principia'
+                ? 'bg-sky-600/30 border-sky-400 shadow-md ring-1 ring-sky-400'
+                : 'bg-gradient-to-br from-sky-950/40 to-slate-900 border-sky-600/20 hover:border-sky-400'
+            }`}
+          >
+            <span className="text-[10px] font-mono text-sky-400 font-bold block mb-1">🔢 1910 CE</span>
+            <div className="text-xs font-black text-white group-hover:text-sky-300">
+              {isArabic ? 'رسل وأصول الرياضيات 4K' : 'Russell Principia 4K'}
+            </div>
+            <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+              {isArabic ? 'برهان 1+1=2 ومفارقة الفئات' : 'Proof of 1+1=2 & Set Paradox'}
+            </p>
+          </button>
+
+          {/* Card 5: School of Athens */}
           <button
             onClick={() => setActiveMode('school_of_athens')}
             className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
@@ -1004,6 +1090,7 @@ export const LogicStudio: React.FC<Props> = ({
             </p>
           </button>
 
+          {/* Card 6: Bacon Idols */}
           <button
             onClick={() => setActiveMode('bacon_idols')}
             className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
@@ -1021,6 +1108,7 @@ export const LogicStudio: React.FC<Props> = ({
             </p>
           </button>
 
+          {/* Card 7: Vitruvian Bioethics */}
           <button
             onClick={() => setActiveMode('bioethics_matrix')}
             className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
@@ -1038,6 +1126,7 @@ export const LogicStudio: React.FC<Props> = ({
             </p>
           </button>
 
+          {/* Card 8: Fuzzy AI & Cybernetics */}
           <button
             onClick={() => setActiveMode('fuzzy_ai')}
             className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group ${
@@ -1057,8 +1146,32 @@ export const LogicStudio: React.FC<Props> = ({
         </div>
 
         {/* ========================================================= */}
-        {/* MUSEUM 4K STUDIOS: SCHOOL OF ATHENS & BACON NOVUM ORGANUM */}
+        {/* MUSEUM 4K STUDIOS VIEWPORTS                               */}
         {/* ========================================================= */}
+        {activeMode === 'aristotle_organon' && (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <AristotleOrganonStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {activeMode === 'avicenna_shifa' && (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <AvicennaShifaLogicStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {activeMode === 'kant_critique' && (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <KantCritiquePureReasonStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
+        {activeMode === 'russell_principia' && (
+          <div className="space-y-6 max-w-5xl mx-auto">
+            <RussellPrincipiaMathematicaStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+          </div>
+        )}
+
         {activeMode === 'school_of_athens' && (
           <div className="space-y-6 max-w-5xl mx-auto">
             <SchoolOfAthensStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
