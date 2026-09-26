@@ -26,10 +26,19 @@ import {
   Gauge,
   Info,
   Scale,
+  Sparkles,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { MouchotSolarConcentratorStudio } from './renewable/MouchotSolarConcentratorStudio';
+import { BetzWindAerodynamicsStudio } from './renewable/BetzWindAerodynamicsStudio';
+import { GroveHydrogenFuelCellStudio } from './renewable/GroveHydrogenFuelCellStudio';
+import { BecquerelPhotovoltaicStudio } from './renewable/BecquerelPhotovoltaicStudio';
 
 export type RenewableStation =
+  | 'mouchot_solar_concentrator'
+  | 'betz_wind_law'
+  | 'grove_fuel_cell'
+  | 'becquerel_photovoltaic'
   | 'solar_pv_csp'
   | 'wind_aerodynamics'
   | 'green_hydrogen_ptx'
@@ -381,6 +390,34 @@ export const RenewableEnergyStudio: React.FC<Props> = ({
       >
         {[
           {
+            id: 'mouchot_solar_concentrator' as RenewableStation,
+            labelEn: '★ Augustin Mouchot Solar Concentrator (1878)',
+            labelAr: '★ مجمع موشو الشمسي ومحرك البخار (۱۸۷۸)',
+            icon: Sun,
+            color: 'from-amber-600 to-yellow-500',
+          },
+          {
+            id: 'betz_wind_law' as RenewableStation,
+            labelEn: '★ Albert Betz Wind Law (1919)',
+            labelAr: '★ حد ألبرت بيتز لديناميكا الرياح (۱۹۱۹)',
+            icon: Wind,
+            color: 'from-teal-600 to-emerald-500',
+          },
+          {
+            id: 'grove_fuel_cell' as RenewableStation,
+            labelEn: '★ Grove Hydrogen Fuel Cell (1839)',
+            labelAr: '★ خلية غروف والوقود الهيدروجيني (۱۸۳۹)',
+            icon: Droplets,
+            color: 'from-cyan-600 to-blue-500',
+          },
+          {
+            id: 'becquerel_photovoltaic' as RenewableStation,
+            labelEn: '★ Becquerel Photovoltaic Effect (1839)',
+            labelAr: '★ بيكريل والأثر الكهروضوئي (۱۸۳۹)',
+            icon: Sparkles,
+            color: 'from-amber-500 to-orange-500',
+          },
+          {
             id: 'solar_pv_csp' as RenewableStation,
             labelEn: '1. Solar PV & CSP Yield',
             labelAr: '١. محاكي الطاقة الشمسية وبنبان',
@@ -422,7 +459,7 @@ export const RenewableEnergyStudio: React.FC<Props> = ({
             <button
               key={tab.id}
               onClick={() => setActiveStation(tab.id)}
-              className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150 ${
+              className={`flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-150 ${
                 isActive
                   ? 'bg-gradient-to-r text-white shadow-md shadow-emerald-500/10 ' + tab.color
                   : isLight
@@ -439,6 +476,145 @@ export const RenewableEnergyStudio: React.FC<Props> = ({
 
       {/* Main Simulation Viewport */}
       <div className="p-5 flex-1 space-y-6">
+        {/* 4K Archival Showcase Jump Banner */}
+        <div
+          className={`p-4 rounded-2xl border transition-all ${
+            isContrast
+              ? 'bg-black text-emerald-300 border-emerald-400'
+              : isLight
+              ? 'bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 text-slate-800 border-emerald-200 shadow-sm'
+              : 'bg-gradient-to-r from-slate-900 via-slate-900/90 to-emerald-950/40 text-slate-200 border-emerald-500/30'
+          }`}
+        >
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <Sparkles className="w-5 h-5" />
+              </span>
+              <div>
+                <h3 className="font-bold text-sm md:text-base flex items-center gap-2">
+                  {isArabic
+                    ? 'أجنحة المخطوطات والوثائق الأرشيفية بدقة 4K في الطاقة المتجددة'
+                    : '4K Archival Document & Pioneer Studios in Renewable Energy'}
+                  <span className="px-2 py-0.5 text-[10px] rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-semibold">
+                    4K UHD
+                  </span>
+                </h3>
+                <p className="text-xs opacity-75">
+                  {isArabic
+                    ? 'استكشف الوثائق الأصلية والمخططات التأسيسية لأعظم أربعة معالم في تاريخ الطاقة النظيفة'
+                    : 'Explore foundational historical folios, blueprints, and apparatus from the pioneers of clean energy'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+            <button
+              onClick={() => setActiveStation('mouchot_solar_concentrator')}
+              className={`min-h-[44px] p-3 rounded-xl border text-left flex items-center justify-between gap-2 transition-all ${
+                isArabic ? 'text-right' : 'text-left'
+              } ${
+                activeStation === 'mouchot_solar_concentrator'
+                  ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-md ring-2 ring-amber-500/30'
+                  : 'bg-slate-800/40 hover:bg-slate-800/80 border-slate-700/60 text-slate-300'
+              }`}
+            >
+              <div>
+                <span className="font-bold text-xs block text-amber-400">
+                  {isArabic ? 'أوغستين موشو (۱۸۷۸)' : 'Augustin Mouchot (1878)'}
+                </span>
+                <span className="text-[11px] opacity-80 block">
+                  {isArabic ? 'مجمع موشو الشمسي ومحرك البخار' : 'Solar Concentrator & Engine'}
+                </span>
+              </div>
+              <Sun className="w-4 h-4 text-amber-400 shrink-0" />
+            </button>
+
+            <button
+              onClick={() => setActiveStation('betz_wind_law')}
+              className={`min-h-[44px] p-3 rounded-xl border text-left flex items-center justify-between gap-2 transition-all ${
+                isArabic ? 'text-right' : 'text-left'
+              } ${
+                activeStation === 'betz_wind_law'
+                  ? 'bg-teal-500/20 border-teal-500 text-teal-300 shadow-md ring-2 ring-teal-500/30'
+                  : 'bg-slate-800/40 hover:bg-slate-800/80 border-slate-700/60 text-slate-300'
+              }`}
+            >
+              <div>
+                <span className="font-bold text-xs block text-teal-400">
+                  {isArabic ? 'ألبرت بيتز (۱۹۱۹)' : 'Albert Betz (1919)'}
+                </span>
+                <span className="text-[11px] opacity-80 block">
+                  {isArabic ? 'حد كفاءة الرياح 59.3%' : 'Betz Wind Limit (59.3%)'}
+                </span>
+              </div>
+              <Wind className="w-4 h-4 text-teal-400 shrink-0" />
+            </button>
+
+            <button
+              onClick={() => setActiveStation('grove_fuel_cell')}
+              className={`min-h-[44px] p-3 rounded-xl border text-left flex items-center justify-between gap-2 transition-all ${
+                isArabic ? 'text-right' : 'text-left'
+              } ${
+                activeStation === 'grove_fuel_cell'
+                  ? 'bg-cyan-500/20 border-cyan-500 text-cyan-300 shadow-md ring-2 ring-cyan-500/30'
+                  : 'bg-slate-800/40 hover:bg-slate-800/80 border-slate-700/60 text-slate-300'
+              }`}
+            >
+              <div>
+                <span className="font-bold text-xs block text-cyan-400">
+                  {isArabic ? 'ويليام غروف (۱۸۳۹)' : 'William Grove (1839)'}
+                </span>
+                <span className="text-[11px] opacity-80 block">
+                  {isArabic ? 'خلية الوقود الهيدروجينية' : 'First Hydrogen Fuel Cell'}
+                </span>
+              </div>
+              <Droplets className="w-4 h-4 text-cyan-400 shrink-0" />
+            </button>
+
+            <button
+              onClick={() => setActiveStation('becquerel_photovoltaic')}
+              className={`min-h-[44px] p-3 rounded-xl border text-left flex items-center justify-between gap-2 transition-all ${
+                isArabic ? 'text-right' : 'text-left'
+              } ${
+                activeStation === 'becquerel_photovoltaic'
+                  ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-md ring-2 ring-amber-500/30'
+                  : 'bg-slate-800/40 hover:bg-slate-800/80 border-slate-700/60 text-slate-300'
+              }`}
+            >
+              <div>
+                <span className="font-bold text-xs block text-amber-400">
+                  {isArabic ? 'إدموند بيكريل (۱۸۳۹)' : 'Edmond Becquerel (1839)'}
+                </span>
+                <span className="text-[11px] opacity-80 block">
+                  {isArabic ? 'الأثر الكهروضوئي الأول' : 'Photovoltaic Effect Birth'}
+                </span>
+              </div>
+              <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+            </button>
+          </div>
+        </div>
+
+        {/* ============================================================== */}
+        {/* 4K ARCHIVAL HISTORICAL PIONEER STUDIOS                         */}
+        {/* ============================================================== */}
+        {activeStation === 'mouchot_solar_concentrator' && (
+          <MouchotSolarConcentratorStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {activeStation === 'betz_wind_law' && (
+          <BetzWindAerodynamicsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {activeStation === 'grove_fuel_cell' && (
+          <GroveHydrogenFuelCellStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {activeStation === 'becquerel_photovoltaic' && (
+          <BecquerelPhotovoltaicStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
         {/* ============================================================== */}
         {/* STATION 1: SOLAR PV & CSP YIELD SIMULATOR                      */}
         {/* ============================================================== */}
