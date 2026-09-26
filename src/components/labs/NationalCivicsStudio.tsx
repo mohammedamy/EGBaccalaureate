@@ -18,6 +18,10 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { Constitution1923Studio } from './civics/Constitution1923Studio';
+import { UrabiFundamentalLaw1882Studio } from './civics/UrabiFundamentalLaw1882Studio';
+import { RepublicConstitution1956Studio } from './civics/RepublicConstitution1956Studio';
+import { SupremeConstitutionalCourtStudio } from './civics/SupremeConstitutionalCourtStudio';
 
 interface Props {
   lang?: Language;
@@ -28,6 +32,10 @@ interface Props {
 }
 
 export type CivicsStudioTab =
+  | 'constitution_1923'
+  | 'urabi_1882'
+  | 'republic_1956'
+  | 'scc_2014'
   | 'constitution_review'
   | 'legislative_process'
   | 'parties_matrix'
@@ -1002,8 +1010,113 @@ export const NationalCivicsStudio: React.FC<Props> = ({
           </div>
         </div>
 
+        {/* 4K Archival Constitutional Folios Showcase Banner */}
+        <div className="p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/40 via-emerald-950/40 to-sky-950/40 border border-emerald-500/30 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="flex items-center gap-2.5">
+            <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold">4K</span>
+            <div>
+              <span className="font-bold text-white block">
+                {isAr
+                  ? 'استوديوهات الوثائق الدستورية والسيادية المصرية (دقة 4K فائقة)'
+                  : 'Egyptian Constitutional & Sovereign Master Folios (4K Archival Studios)'}
+              </span>
+              <span className="text-[11px] text-slate-400">
+                {isAr
+                  ? 'وثائق تاريخية نادرة، محاكاة النظم البرلمانية، استحقاقات الموازنة، ومحراب القضاء الدستوري'
+                  : 'Historical charters, parliamentary balance, fiscal quotas & judicial review sandboxes'}
+              </span>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-1.5">
+            <button
+              onClick={() => setActiveTab('constitution_1923')}
+              className={`min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
+                activeTab === 'constitution_1923'
+                  ? 'bg-amber-600 text-white border-amber-400 shadow-md'
+                  : 'bg-black/40 border-amber-500/30 text-amber-300 hover:bg-amber-950/60'
+              }`}
+            >
+              📜 {isAr ? 'دستور 1923' : '1923 Charter'}
+            </button>
+            <button
+              onClick={() => setActiveTab('urabi_1882')}
+              className={`min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
+                activeTab === 'urabi_1882'
+                  ? 'bg-amber-600 text-white border-amber-400 shadow-md'
+                  : 'bg-black/40 border-amber-500/30 text-amber-300 hover:bg-amber-950/60'
+              }`}
+            >
+              ⚔️ {isAr ? 'لائحة 1882' : 'Urabi 1882'}
+            </button>
+            <button
+              onClick={() => setActiveTab('republic_1956')}
+              className={`min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
+                activeTab === 'republic_1956'
+                  ? 'bg-emerald-600 text-white border-emerald-400 shadow-md'
+                  : 'bg-black/40 border-emerald-500/30 text-emerald-300 hover:bg-emerald-950/60'
+              }`}
+            >
+              🦅 {isAr ? 'دستور 1956' : '1956 Republic'}
+            </button>
+            <button
+              onClick={() => setActiveTab('scc_2014')}
+              className={`min-h-[44px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
+                activeTab === 'scc_2014'
+                  ? 'bg-sky-600 text-white border-sky-400 shadow-md'
+                  : 'bg-black/40 border-sky-500/30 text-sky-300 hover:bg-sky-950/60'
+              }`}
+            >
+              ⚖️ {isAr ? 'المحكمة الدستورية' : '2014 SCC'}
+            </button>
+          </div>
+        </div>
+
         {/* Studio Tabs Navigation */}
         <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
+          <button
+            onClick={() => setActiveTab('constitution_1923')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+              activeTab === 'constitution_1923'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <BookOpen className="w-4 h-4 text-amber-400" />
+            <span>{isAr ? 'دستور 1923 الملكي' : '1923 Constitution'}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('urabi_1882')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+              activeTab === 'urabi_1882'
+                ? 'bg-amber-600 text-white shadow-md'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <Shield className="w-4 h-4 text-amber-400" />
+            <span>{isAr ? 'لائحة عرابي 1882' : 'Urabi Law 1882'}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('republic_1956')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+              activeTab === 'republic_1956'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <Vote className="w-4 h-4 text-emerald-400" />
+            <span>{isAr ? 'دستور الجمهورية 1956' : '1956 Republic'}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('scc_2014')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
+              activeTab === 'scc_2014'
+                ? 'bg-sky-600 text-white shadow-md'
+                : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
+            }`}
+          >
+            <Scale className="w-4 h-4 text-sky-400" />
+            <span>{isAr ? 'دستور 2014 والمحكمة العليا' : '2014 SCC Studio'}</span>
+          </button>
           <button
             onClick={() => setActiveTab('constitution_review')}
             className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${
@@ -1074,6 +1187,35 @@ export const NationalCivicsStudio: React.FC<Props> = ({
 
       {/* Main Studio Body */}
       <div className="pt-6">
+        {/* 4K Archival Constitutional Studios Viewports */}
+        {activeTab === 'constitution_1923' && (
+          <Constitution1923Studio
+            isArabic={isAr}
+            isLight={theme === 'light'}
+            isContrast={theme === 'high-contrast'}
+          />
+        )}
+        {activeTab === 'urabi_1882' && (
+          <UrabiFundamentalLaw1882Studio
+            isArabic={isAr}
+            isLight={theme === 'light'}
+            isContrast={theme === 'high-contrast'}
+          />
+        )}
+        {activeTab === 'republic_1956' && (
+          <RepublicConstitution1956Studio
+            isArabic={isAr}
+            isLight={theme === 'light'}
+            isContrast={theme === 'high-contrast'}
+          />
+        )}
+        {activeTab === 'scc_2014' && (
+          <SupremeConstitutionalCourtStudio
+            isArabic={isAr}
+            isLight={theme === 'light'}
+            isContrast={theme === 'high-contrast'}
+          />
+        )}
         {/* TAB 1: Constitution & Judicial Review */}
         {activeTab === 'constitution_review' && (
           <div className="space-y-6">
