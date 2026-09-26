@@ -23,6 +23,11 @@ import { InteractiveFourierSeries } from '../InteractiveFourierSeries';
 import { InteractiveSlopeFields } from '../InteractiveSlopeFields';
 import { InteractiveLinearProgramming } from '../InteractiveLinearProgramming';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { EuclidElementsStudio } from './math/EuclidElementsStudio';
+import { KhwarizmiAlJabrStudio } from './math/KhwarizmiAlJabrStudio';
+import { DescartesGeometryStudio } from './math/DescartesGeometryStudio';
+import { GaussDisquisitionesStudio } from './math/GaussDisquisitionesStudio';
+import { Compass, Binary, Activity, Clock, Award } from 'lucide-react';
 
 interface Props {
   lang: Language;
@@ -47,7 +52,11 @@ export type MathTab =
   | 'conics'
   | 'fourier_series'
   | 'slope_fields'
-  | 'linear_programming';
+  | 'linear_programming'
+  | 'euclid_elements'
+  | 'khwarizmi_al_jabr'
+  | 'descartes_geometry'
+  | 'gauss_disquisitiones';
 
 export const MathLab: React.FC<Props> = ({
   lang,
@@ -145,6 +154,18 @@ export const MathLab: React.FC<Props> = ({
                 <option value="linear_programming" className="bg-slate-900 text-white">
                   📊 {isArabic ? 'البرمجة الخطية ومضلع الحل الأمثل' : 'Linear Programming & Feasible Polygon'}
                 </option>
+                <option value="euclid_elements" className="bg-slate-900 text-white">
+                  🏛️ {isArabic ? 'إقليدس وأصول الهندسة 300 ق.م (4K)' : 'Euclid Elements & Geometry 300 BCE (4K)'}
+                </option>
+                <option value="khwarizmi_al_jabr" className="bg-slate-900 text-white">
+                  🏛️ {isArabic ? 'الخوارزمي وكتاب الجبر والمقابلة 820م (4K)' : 'Al-Khwarizmi Al-Jabr 820 CE (4K)'}
+                </option>
+                <option value="descartes_geometry" className="bg-slate-900 text-white">
+                  🏛️ {isArabic ? 'ديكارت والهندسة التحليلية 1637م (4K)' : 'Descartes La Géométrie 1637 (4K)'}
+                </option>
+                <option value="gauss_disquisitiones" className="bg-slate-900 text-white">
+                  🏛️ {isArabic ? 'غاوس وأبحاث الحساب النمطي 1801م (4K)' : 'Gauss Disquisitiones 1801 (4K)'}
+                </option>
               </select>
               <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
                 <ChevronDown className="w-4 h-4" />
@@ -198,6 +219,10 @@ export const MathLab: React.FC<Props> = ({
           {activeTab === 'fourier_series' && <InteractiveFourierSeries lang={lang} theme={theme} isFullscreen={true} />}
           {activeTab === 'slope_fields' && <InteractiveSlopeFields lang={lang} theme={theme} isFullscreen={true} />}
           {activeTab === 'linear_programming' && <InteractiveLinearProgramming lang={lang} theme={theme} isFullscreen={true} />}
+          {activeTab === 'euclid_elements' && <EuclidElementsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
+          {activeTab === 'khwarizmi_al_jabr' && <KhwarizmiAlJabrStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
+          {activeTab === 'descartes_geometry' && <DescartesGeometryStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
+          {activeTab === 'gauss_disquisitiones' && <GaussDisquisitionesStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
         </div>
       </div>
     );
@@ -304,6 +329,18 @@ export const MathLab: React.FC<Props> = ({
               <option value="linear_programming" className="bg-slate-900 text-white">
                 📊 {isArabic ? 'البرمجة الخطية ومضلع منطقة الحلول الممكنة والأمثلية' : 'Linear Programming & Feasible Polygon Optimization'}
               </option>
+              <option value="euclid_elements" className="bg-slate-900 text-white">
+                🏛️ {isArabic ? 'استوديو إقليدس السكندري وأصول الهندسة (300 ق.م) - 4K' : 'Euclid Elements & Axiomatic Geometry (300 BCE) - 4K'}
+              </option>
+              <option value="khwarizmi_al_jabr" className="bg-slate-900 text-white">
+                🏛️ {isArabic ? 'استوديو الخوارزمي وكتاب الجبر والمقابلة (820م) - 4K' : 'Al-Khwarizmi Al-Jabr & Algorithmic Origins (820 CE) - 4K'}
+              </option>
+              <option value="descartes_geometry" className="bg-slate-900 text-white">
+                🏛️ {isArabic ? 'استوديو ديكارت وكتاب الهندسة التحليلية (1637م) - 4K' : 'Descartes La Géométrie & Coordinate System (1637 CE) - 4K'}
+              </option>
+              <option value="gauss_disquisitiones" className="bg-slate-900 text-white">
+                🏛️ {isArabic ? 'استوديو غاوس وأبحاث الحساب النمطي (1801م) - 4K' : 'Gauss Disquisitiones & Number Theory (1801 CE) - 4K'}
+              </option>
             </select>
             <div className="absolute right-3 rtl:right-auto rtl:left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
               <ChevronDown className="w-4 h-4" />
@@ -361,6 +398,196 @@ export const MathLab: React.FC<Props> = ({
         </div>
       )}
 
+      {/* Curated 4K Mathematical Archival Museum Studios Showcase Banner */}
+      <div
+        className={`mt-4 p-4 rounded-2xl border transition-all ${
+          isContrast
+            ? 'bg-black border-2 border-indigo-400 text-white'
+            : isLight
+            ? 'bg-gradient-to-r from-indigo-50/90 via-slate-50 to-blue-50/90 border-indigo-200 text-slate-900 shadow-sm'
+            : 'bg-gradient-to-r from-indigo-950/40 via-slate-900/60 to-blue-950/40 border-indigo-500/30 text-slate-100 shadow-lg'
+        }`}
+      >
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
+          <div className="flex items-center gap-2.5">
+            <span
+              className={`p-2 rounded-xl border ${
+                isContrast
+                  ? 'bg-white text-black border-white'
+                  : isLight
+                  ? 'bg-indigo-100 text-indigo-700 border-indigo-200'
+                  : 'bg-indigo-600/20 border-indigo-500/30 text-indigo-400'
+              }`}
+            >
+              <Award className="w-4 h-4" />
+            </span>
+            <div>
+              <h3 className="text-xs sm:text-sm font-black flex items-center gap-1.5">
+                <span>{isArabic ? 'معرض المخطوطات واللوحات الرياضية الأرشيفية فائق الدقة (4K)' : 'Curated 4K Mathematical Archival Museum Studios'}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full border uppercase font-mono font-bold ${
+                    isContrast
+                      ? 'bg-white text-black border-white'
+                      : isLight
+                      ? 'bg-indigo-100 text-indigo-800 border-indigo-300'
+                      : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
+                  }`}
+                >
+                  {isArabic ? 'علمي رياضة والتحليل' : 'Pure & Applied Math'}
+                </span>
+              </h3>
+              <p className={`text-[11px] ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic
+                  ? 'استكشف المخطوطات الأصلية لأعظم ٤ ثورات في تاريخ الرياضيات من إقليدس والخوارزمي إلى ديكارت وغاوس مع محاكيات تفاعلية دقيقة'
+                  : 'Explore original historic plates of 4 seminal mathematics milestones with interactive geometric and algebraic simulators'}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {/* Studio 1: Euclid 300 BCE */}
+          <button
+            onClick={() => handleTabChange('euclid_elements')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'euclid_elements'
+                ? isLight
+                  ? 'bg-emerald-50 border-emerald-500 ring-2 ring-emerald-400/50 text-slate-900 shadow-md'
+                  : 'bg-emerald-950/40 border-emerald-500 text-white shadow-lg ring-1 ring-emerald-500/50'
+                : isLight
+                ? 'bg-white hover:bg-emerald-50/50 border-slate-200 hover:border-emerald-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-emerald-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-emerald-100 text-emerald-900 border-emerald-300'
+                    : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
+                }`}
+              >
+                300 BCE
+              </span>
+              <Compass className="w-4 h-4 text-emerald-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-emerald-500 transition-colors">
+                {isArabic ? 'إقليدس وأصول الهندسة' : 'Euclid 300 BCE Elements'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'مبرهنة فيثاغورس (كرسي العروس) ومسلمات الفرجار' : 'Pythagorean Proof, Bride’s Chair & Axioms'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 2: Al-Khwarizmi 820 CE */}
+          <button
+            onClick={() => handleTabChange('khwarizmi_al_jabr')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'khwarizmi_al_jabr'
+                ? isLight
+                  ? 'bg-amber-50 border-amber-500 ring-2 ring-amber-400/50 text-slate-900 shadow-md'
+                  : 'bg-amber-950/40 border-amber-500 text-white shadow-lg ring-1 ring-amber-500/50'
+                : isLight
+                ? 'bg-white hover:bg-amber-50/50 border-slate-200 hover:border-amber-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-amber-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                }`}
+              >
+                820 CE
+              </span>
+              <Binary className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-amber-500 transition-colors">
+                {isArabic ? 'الخوارزمي والجبر والمقابلة' : 'Al-Khwarizmi 820 CE Al-Jabr'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'إكمال المربع هندسياً وحل المعادلات وجذور الخوارزميات' : 'Completing the Square & Algorithmic Roots'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 3: Descartes 1637 */}
+          <button
+            onClick={() => handleTabChange('descartes_geometry')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'descartes_geometry'
+                ? isLight
+                  ? 'bg-indigo-50 border-indigo-500 ring-2 ring-indigo-400/50 text-slate-900 shadow-md'
+                  : 'bg-indigo-950/40 border-indigo-500 text-white shadow-lg ring-1 ring-indigo-500/50'
+                : isLight
+                ? 'bg-white hover:bg-indigo-50/50 border-slate-200 hover:border-indigo-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-indigo-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-indigo-100 text-indigo-900 border-indigo-300'
+                    : 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30'
+                }`}
+              >
+                1637 CE
+              </span>
+              <Activity className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-indigo-500 transition-colors">
+                {isArabic ? 'ديكارت والهندسة التحليلية' : 'Descartes 1637 La Géométrie'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'المحاور الإحداثية، ربط المنحنيات بالمعادلات، والقطاع' : 'Orthogonal Axes & Coordinate Curve Engine'}
+              </p>
+            </div>
+          </button>
+
+          {/* Studio 4: Gauss 1801 */}
+          <button
+            onClick={() => handleTabChange('gauss_disquisitiones')}
+            className={`p-3 rounded-xl border text-start transition-all cursor-pointer flex flex-col justify-between group ${
+              activeTab === 'gauss_disquisitiones'
+                ? isLight
+                  ? 'bg-purple-50 border-purple-500 ring-2 ring-purple-400/50 text-slate-900 shadow-md'
+                  : 'bg-purple-950/40 border-purple-500 text-white shadow-lg ring-1 ring-purple-500/50'
+                : isLight
+                ? 'bg-white hover:bg-purple-50/50 border-slate-200 hover:border-purple-400 text-slate-800'
+                : 'bg-slate-900/80 hover:bg-slate-800/80 border-slate-800 hover:border-purple-500/50 text-slate-300'
+            }`}
+          >
+            <div className="flex items-start justify-between gap-2 mb-2">
+              <span
+                className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md border font-mono ${
+                  isLight
+                    ? 'bg-purple-100 text-purple-900 border-purple-300'
+                    : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                }`}
+              >
+                1801 CE
+              </span>
+              <Clock className="w-4 h-4 text-purple-500 group-hover:scale-110 transition-transform" />
+            </div>
+            <div>
+              <h4 className="text-xs font-black group-hover:text-purple-500 transition-colors">
+                {isArabic ? 'غاوس وأبحاث الحساب النمطي' : 'Gauss 1801 Disquisitiones'}
+              </h4>
+              <p className={`text-[10px] line-clamp-2 mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
+                {isArabic ? 'رمز التطابق (≡)، مضلع الـ 17 ضلعاً، وحلقة البواقي' : 'Congruence (≡), Regular 17-gon & Residue Rings'}
+              </p>
+            </div>
+          </button>
+        </div>
+      </div>
+
       {/* Main Content Area */}
       <div className="mt-6">
         {activeTab === 'calculus' && <InteractiveCalculusTangent lang={lang} theme={theme} />}
@@ -378,6 +605,10 @@ export const MathLab: React.FC<Props> = ({
         {activeTab === 'fourier_series' && <InteractiveFourierSeries lang={lang} theme={theme} />}
         {activeTab === 'slope_fields' && <InteractiveSlopeFields lang={lang} theme={theme} />}
         {activeTab === 'linear_programming' && <InteractiveLinearProgramming lang={lang} theme={theme} />}
+        {activeTab === 'euclid_elements' && <EuclidElementsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
+        {activeTab === 'khwarizmi_al_jabr' && <KhwarizmiAlJabrStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
+        {activeTab === 'descartes_geometry' && <DescartesGeometryStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
+        {activeTab === 'gauss_disquisitiones' && <GaussDisquisitionesStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />}
       </div>
     </div>
   );

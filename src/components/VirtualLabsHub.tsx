@@ -289,6 +289,14 @@ export const VirtualLabsHub: React.FC<Props> = ({
         return 'math-exp-9';
       case 'linear_programming':
         return 'math-exp-10';
+      case 'euclid_elements':
+        return 'math-exp-11';
+      case 'khwarizmi_al_jabr':
+        return 'math-exp-12';
+      case 'descartes_geometry':
+        return 'math-exp-13';
+      case 'gauss_disquisitiones':
+        return 'math-exp-14';
       default:
         return 'math-exp-1';
     }
@@ -1161,6 +1169,10 @@ export const VirtualLabsHub: React.FC<Props> = ({
                     { id: 'fourier_series' as MathTab, emoji: '🌊', labelEn: 'Fourier Series & Acoustic Synthesis', labelAr: 'متسلسلات فورييه والتركيب النغمي' },
                     { id: 'slope_fields' as MathTab, emoji: '📈', labelEn: 'Differential Equations & Slope Fields', labelAr: 'المعادلات التفاضلية وحقول الميول (أويلر)' },
                     { id: 'linear_programming' as MathTab, emoji: '📊', labelEn: 'Linear Programming & Feasible Polygon', labelAr: 'البرمجة الخطية ومضلع الحل الأمثل' },
+                    { id: 'euclid_elements' as MathTab, emoji: '🏛️', labelEn: 'Euclid 300 BCE Elements & Geometry (4K)', labelAr: 'استوديو إقليدس وأصول الهندسة 300 ق.م (4K)' },
+                    { id: 'khwarizmi_al_jabr' as MathTab, emoji: '🏛️', labelEn: 'Al-Khwarizmi 820 CE Al-Jabr (4K)', labelAr: 'استوديو الخوارزمي والجبر والمقابلة 820م (4K)' },
+                    { id: 'descartes_geometry' as MathTab, emoji: '🏛️', labelEn: 'Descartes 1637 La Géométrie (4K)', labelAr: 'استوديو ديكارت والهندسة التحليلية 1637م (4K)' },
+                    { id: 'gauss_disquisitiones' as MathTab, emoji: '🏛️', labelEn: 'Gauss 1801 Disquisitiones Arithmeticae (4K)', labelAr: 'استوديو غاوس وأبحاث الحساب النمطي 1801م (4K)' },
                   ].map((tab) => (
                     <option key={tab.id} value={tab.id} className="bg-slate-900 text-white">
                       {tab.emoji} {isArabic ? tab.labelAr : tab.labelEn}
