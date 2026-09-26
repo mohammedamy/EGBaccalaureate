@@ -17,15 +17,21 @@ import {
   HelpCircle,
   Maximize2,
   Minimize2,
+  Radio,
+  FileCode,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { AdaLovelaceAnalyticalEngineStudio } from './cs/AdaLovelaceAnalyticalEngineStudio';
+import { AlanTuringUniversalMachineStudio } from './cs/AlanTuringUniversalMachineStudio';
+import { ClaudeShannonInformationTheoryStudio } from './cs/ClaudeShannonInformationTheoryStudio';
+import { VonNeumannArchitectureStudio } from './cs/VonNeumannArchitectureStudio';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'logic_circuit' | 'algorithm_visualizer' | 'sql_sandbox' | 'network_subnet' | 'neural_playground';
+  initialMode?: CSStudioMode;
 }
 
 export type CSStudioMode =
@@ -33,7 +39,11 @@ export type CSStudioMode =
   | 'algorithm_visualizer'
   | 'sql_sandbox'
   | 'network_subnet'
-  | 'neural_playground';
+  | 'neural_playground'
+  | 'lovelace_analytical_engine'
+  | 'turing_universal_machine'
+  | 'shannon_information_theory'
+  | 'von_neumann_architecture';
 
 // =========================================================================
 // Realistic Scientific Vector Schematic 1: ANSI/IEEE Std 91-1984 Logic Gates
@@ -1442,11 +1452,156 @@ export const ComputerScienceInformaticsStudio: React.FC<Props> = ({
             <Brain className="w-4 h-4" />
             <span>{isArabic ? 'الذكاء الاصطناعي' : 'Neural Playground'}</span>
           </button>
+          <div className="hidden xl:block w-[1px] h-6 bg-slate-700/60 my-auto" />
+          <button
+            onClick={() => setActiveMode('lovelace_analytical_engine')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+              activeMode === 'lovelace_analytical_engine'
+                ? 'bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white shadow-md'
+                : 'text-fuchsia-300 hover:bg-fuchsia-950/40'
+            }`}
+          >
+            <FileCode className="w-4 h-4" />
+            <span>{isArabic ? 'لوفليس (1843)' : 'Lovelace 1843'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('turing_universal_machine')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+              activeMode === 'turing_universal_machine'
+                ? 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white shadow-md'
+                : 'text-cyan-300 hover:bg-cyan-950/40'
+            }`}
+          >
+            <Binary className="w-4 h-4" />
+            <span>{isArabic ? 'تورينج (1936)' : 'Turing 1936'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('shannon_information_theory')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+              activeMode === 'shannon_information_theory'
+                ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md'
+                : 'text-emerald-300 hover:bg-emerald-950/40'
+            }`}
+          >
+            <Radio className="w-4 h-4" />
+            <span>{isArabic ? 'شانون (1948)' : 'Shannon 1948'}</span>
+          </button>
+          <button
+            onClick={() => setActiveMode('von_neumann_architecture')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
+              activeMode === 'von_neumann_architecture'
+                ? 'bg-gradient-to-r from-indigo-600 to-blue-600 text-white shadow-md'
+                : 'text-indigo-300 hover:bg-indigo-950/40'
+            }`}
+          >
+            <Cpu className="w-4 h-4" />
+            <span>{isArabic ? 'فون نيومان (1945)' : 'Von Neumann 1945'}</span>
+          </button>
         </div>
       </div>
 
       {/* Main Content Area */}
       <div className="p-4 sm:p-6">
+        {/* 4K Museum Archival Studios Showcase Jump Cards */}
+        <div className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-violet-950/70 via-indigo-950/50 to-slate-900 border border-violet-800/40">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping" />
+              <span className="text-xs font-mono font-bold text-amber-300 uppercase tracking-wider">
+                {isArabic ? 'استوديوهات المخطوطات والوثائق الحاسوبية الأصلية 4K' : '4K Archival Computing Master Studios'}
+              </span>
+            </div>
+            <span className="text-xs text-slate-400 font-mono">
+              {isArabic ? 'وثائق نادرة من متاحف لندن وكامبريدج ومختبرات بل وبرينستون' : 'Rare folios from London, Cambridge, Bell Labs & Princeton'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {/* Ada Lovelace 1843 */}
+            <button
+              onClick={() => setActiveMode('lovelace_analytical_engine')}
+              className={`min-h-[44px] p-3 rounded-xl border text-start transition-all cursor-pointer ${
+                activeMode === 'lovelace_analytical_engine'
+                  ? 'bg-fuchsia-950/80 border-fuchsia-500 text-fuchsia-200 shadow-md shadow-fuchsia-900/30'
+                  : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between text-xs font-bold mb-1">
+                <span className="text-fuchsia-400 flex items-center gap-1.5">
+                  <FileCode className="w-3.5 h-3.5" />
+                  {isArabic ? 'آدا لوفليس (1843)' : 'Ada Lovelace (1843)'}
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-fuchsia-950 text-fuchsia-300 border border-fuchsia-800">Note G</span>
+              </div>
+              <p className="text-[11px] text-slate-400 line-clamp-2">
+                {isArabic ? 'الآلة التحليلية، خوارزمية برنولي، والبطاقات المثقبة' : 'Analytical Engine, Note G algorithm & Jacquard punch cards'}
+              </p>
+            </button>
+
+            {/* Alan Turing 1936 */}
+            <button
+              onClick={() => setActiveMode('turing_universal_machine')}
+              className={`min-h-[44px] p-3 rounded-xl border text-start transition-all cursor-pointer ${
+                activeMode === 'turing_universal_machine'
+                  ? 'bg-cyan-950/80 border-cyan-500 text-cyan-200 shadow-md shadow-cyan-900/30'
+                  : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between text-xs font-bold mb-1">
+                <span className="text-cyan-400 flex items-center gap-1.5">
+                  <Binary className="w-3.5 h-3.5" />
+                  {isArabic ? 'آلان تورينج (1936)' : 'Alan Turing (1936)'}
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">UTM</span>
+              </div>
+              <p className="text-[11px] text-slate-400 line-clamp-2">
+                {isArabic ? 'الآلة الشاملة، شريط الحالات، ومسألة التوقف' : 'Universal Machine tape, state transitions & Halting Problem'}
+              </p>
+            </button>
+
+            {/* Claude Shannon 1948 */}
+            <button
+              onClick={() => setActiveMode('shannon_information_theory')}
+              className={`min-h-[44px] p-3 rounded-xl border text-start transition-all cursor-pointer ${
+                activeMode === 'shannon_information_theory'
+                  ? 'bg-emerald-950/80 border-emerald-500 text-emerald-200 shadow-md shadow-emerald-900/30'
+                  : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between text-xs font-bold mb-1">
+                <span className="text-emerald-400 flex items-center gap-1.5">
+                  <Radio className="w-3.5 h-3.5" />
+                  {isArabic ? 'كلود شانون (1948)' : 'Claude Shannon (1948)'}
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">Entropy</span>
+              </div>
+              <p className="text-[11px] text-slate-400 line-clamp-2">
+                {isArabic ? 'إنتروبيا المعلومات، سعة القناة، والبت' : 'Information Entropy H, channel capacity C & the bit'}
+              </p>
+            </button>
+
+            {/* John von Neumann 1945 */}
+            <button
+              onClick={() => setActiveMode('von_neumann_architecture')}
+              className={`min-h-[44px] p-3 rounded-xl border text-start transition-all cursor-pointer ${
+                activeMode === 'von_neumann_architecture'
+                  ? 'bg-indigo-950/80 border-indigo-500 text-indigo-200 shadow-md shadow-indigo-900/30'
+                  : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:border-slate-700'
+              }`}
+            >
+              <div className="flex items-center justify-between text-xs font-bold mb-1">
+                <span className="text-indigo-400 flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5" />
+                  {isArabic ? 'فون نيومان (1945)' : 'von Neumann (1945)'}
+                </span>
+                <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-indigo-950 text-indigo-300 border border-indigo-800">EDVAC</span>
+              </div>
+              <p className="text-[11px] text-slate-400 line-clamp-2">
+                {isArabic ? 'البرنامج المخزن، الذاكرة الموحدة، ودورة المعالجة' : 'Stored-program architecture, unified RAM & fetch-decode'}
+              </p>
+            </button>
+          </div>
+        </div>
         {/* ================================================================= */}
         {/* Tab 1: Digital Logic Circuit Builder & Truth Table Simulator      */}
         {/* ================================================================= */}
@@ -1861,7 +2016,28 @@ export const ComputerScienceInformaticsStudio: React.FC<Props> = ({
             </div>
           </div>
         )}
+
+        {/* Tab 6: Ada Lovelace 1843 Analytical Engine Studio */}
+        {activeMode === 'lovelace_analytical_engine' && (
+          <AdaLovelaceAnalyticalEngineStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {/* Tab 7: Alan Turing 1936 Universal Machine Studio */}
+        {activeMode === 'turing_universal_machine' && (
+          <AlanTuringUniversalMachineStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {/* Tab 8: Claude Shannon 1948 Information Theory Studio */}
+        {activeMode === 'shannon_information_theory' && (
+          <ClaudeShannonInformationTheoryStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {/* Tab 9: John von Neumann 1945 Architecture Studio */}
+        {activeMode === 'von_neumann_architecture' && (
+          <VonNeumannArchitectureStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
       </div>
     </div>
   );
 };
+
