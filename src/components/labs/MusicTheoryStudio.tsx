@@ -29,6 +29,10 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { FarabiKitabAlMusiqaStudio } from './music/FarabiKitabAlMusiqaStudio';
+import { UrmawiKitabAlAdwarStudio } from './music/UrmawiKitabAlAdwarStudio';
+import { HelmholtzAcousticResonanceStudio } from './music/HelmholtzAcousticResonanceStudio';
+import { SayedDarwishRenaissanceStudio } from './music/SayedDarwishRenaissanceStudio';
 
 interface Props {
   lang?: Language;
@@ -38,7 +42,18 @@ interface Props {
   initialTab?: MusicStudioTab;
 }
 
-export type MusicStudioTab = 'maqamat' | 'piano' | 'iqaat' | 'solfege' | 'harmony' | 'organology' | 'quiz';
+export type MusicStudioTab =
+  | 'farabi_kitab_musiqa'
+  | 'urmawi_kitab_adwar'
+  | 'helmholtz_acoustics'
+  | 'darwish_renaissance'
+  | 'maqamat'
+  | 'piano'
+  | 'iqaat'
+  | 'solfege'
+  | 'harmony'
+  | 'organology'
+  | 'quiz';
 
 export type StudioInstrument = 'piano' | 'violin' | 'accordion' | 'oud' | 'nay' | 'harpsichord';
 
@@ -1210,6 +1225,10 @@ export const MusicTheoryStudio: React.FC<Props> = ({
         isLight ? 'border-b border-slate-200' : 'border-b border-slate-800/60'
       }`}>
         {[
+          { id: 'farabi_kitab_musiqa', labelAr: 'الفارابي: كتاب الموسيقى 930 م 4K', labelEn: 'Farabi: Kitab al-Musiqa 930 CE 4K', icon: Sparkles },
+          { id: 'urmawi_kitab_adwar', labelAr: 'الأرموي: كتاب الأدوار 1252 م 4K', labelEn: 'Urmawi: Kitab al-Adwar 1252 CE 4K', icon: Sparkles },
+          { id: 'helmholtz_acoustics', labelAr: 'هلمهولتز: فيزياء الرنين 1863 م 4K', labelEn: 'Helmholtz: Acoustic Resonance 1863 4K', icon: Sparkles },
+          { id: 'darwish_renaissance', labelAr: 'سيد درويش: نهضة الموسيقى 1920 م 4K', labelEn: 'Sayed Darwish: Modern Renaissance 1920 4K', icon: Sparkles },
           { id: 'maqamat', labelAr: 'المقامات الشرقية والبيانو', labelEn: 'Oriental Maqamat & Piano', icon: Compass },
           { id: 'piano', labelAr: 'البيانو التفاعلي (٢ - ٣ ديوان)', labelEn: 'Interactive Piano (2-3 Octaves)', icon: Music },
           { id: 'iqaat', labelAr: 'الإيقاعات والضروب العربية', labelEn: 'Arab Rhythms (Iqa\'at)', icon: Activity },
@@ -1237,6 +1256,59 @@ export const MusicTheoryStudio: React.FC<Props> = ({
             </button>
           );
         })}
+      </div>
+
+      {/* 4K Archival Music Theory & Acoustic Sciences Showcase Jump Banner */}
+      <div className={`my-4 p-4 rounded-2xl border transition-all ${
+        isLight
+          ? 'bg-gradient-to-r from-amber-100 via-orange-50 to-amber-100 border-amber-300 shadow-sm'
+          : 'bg-gradient-to-r from-amber-950/40 via-purple-950/30 to-slate-900 border-amber-500/30 shadow-lg'
+      }`}>
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-600 text-white shadow-md">
+              <Sparkles className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-500">
+                  {isArabic ? 'استوديوهات المخطوطات والوثائق الموسيقية 4K' : '4K Archival Music & Acoustic Studios'}
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                  Museum Grade
+                </span>
+              </div>
+              <h3 className="text-sm md:text-base font-black text-slate-100 mt-0.5">
+                {isArabic
+                  ? 'المعالم الكبرى في فيزياء الصوت والسلالم والنهضة الموسيقية (الفارابي، الأرموي، هلمهولتز، سيد درويش)'
+                  : 'Milestones in Acoustic Physics, Microtonal Tuning & Musical Renaissance'}
+              </h3>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2">
+            {[
+              { id: 'farabi_kitab_musiqa', labelAr: 'الفارابي 930 م', labelEn: 'Al-Farabi 930' },
+              { id: 'urmawi_kitab_adwar', labelAr: 'الأرموي 1252 م', labelEn: 'Al-Urmawi 1252' },
+              { id: 'helmholtz_acoustics', labelAr: 'هلمهولتز 1863 م', labelEn: 'Helmholtz 1863' },
+              { id: 'darwish_renaissance', labelAr: 'سيد درويش 1920 م', labelEn: 'Sayed Darwish 1920' },
+            ].map((s) => (
+              <button
+                key={s.id}
+                onClick={() => setActiveTab(s.id as MusicStudioTab)}
+                className={`px-3 py-1.5 min-h-[44px] rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                  activeTab === s.id
+                    ? 'bg-amber-500 text-black border-amber-400 shadow-md shadow-amber-500/30'
+                    : isLight
+                    ? 'bg-white/80 hover:bg-white text-slate-800 border-slate-300'
+                    : 'bg-black/40 hover:bg-black/70 text-amber-200 border-amber-500/30'
+                }`}
+              >
+                {isArabic ? s.labelAr : s.labelEn}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* RENDER INTERACTIVE PIANO COMPONENT (Used in both Maqamat tab and Piano tab) */}
@@ -1478,6 +1550,20 @@ export const MusicTheoryStudio: React.FC<Props> = ({
             </div>
           </div>
         </div>
+      )}
+
+      {/* 4K Archival Music Studios */}
+      {activeTab === 'farabi_kitab_musiqa' && (
+        <FarabiKitabAlMusiqaStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+      )}
+      {activeTab === 'urmawi_kitab_adwar' && (
+        <UrmawiKitabAlAdwarStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+      )}
+      {activeTab === 'helmholtz_acoustics' && (
+        <HelmholtzAcousticResonanceStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+      )}
+      {activeTab === 'darwish_renaissance' && (
+        <SayedDarwishRenaissanceStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
       )}
 
       {/* Tab 1: Oriental Maqamat & Microtone Synthesizer */}
