@@ -29,6 +29,10 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { ThutmoseNefertitiStudio } from './fine_arts/ThutmoseNefertitiStudio';
+import { MahmoudMokhtarNahdatMisrStudio } from './fine_arts/MahmoudMokhtarNahdatMisrStudio';
+import { HassanFathyNewGournaStudio } from './fine_arts/HassanFathyNewGournaStudio';
+import { VitruvianManArchitectureStudio } from './fine_arts/VitruvianManArchitectureStudio';
 
 interface Props {
   lang?: Language;
@@ -38,7 +42,16 @@ interface Props {
   initialTab?: FineArtsStudioTab;
 }
 
-export type FineArtsStudioTab = 'perspective' | 'colors' | 'golden_ratio' | 'tessellation' | 'quiz';
+export type FineArtsStudioTab =
+  | 'thutmose_nefertiti'
+  | 'mokhtar_nahdat_misr'
+  | 'hassan_fathy_gourna'
+  | 'da_vinci_vitruvian'
+  | 'perspective'
+  | 'colors'
+  | 'golden_ratio'
+  | 'tessellation'
+  | 'quiz';
 
 export const FineArtsArchitectureStudio: React.FC<Props> = ({
   lang = 'ar',
@@ -146,6 +159,54 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
 
         {/* Tab Navigation */}
         <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-950/40 border border-rose-500/20">
+          {/* 4K Archival Museum Studios */}
+          <button
+            onClick={() => setActiveTab('thutmose_nefertiti')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
+              activeTab === 'thutmose_nefertiti'
+                ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                : 'text-amber-400/90 hover:text-amber-300 hover:bg-amber-950/40 border border-amber-500/30'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-amber-300" />
+            {isArabic ? 'نفرتيتي (1345 ق.م) 4K' : 'Nefertiti 4K'}
+          </button>
+          <button
+            onClick={() => setActiveTab('mokhtar_nahdat_misr')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
+              activeTab === 'mokhtar_nahdat_misr'
+                ? 'bg-rose-600 text-white shadow-md shadow-rose-600/30'
+                : 'text-rose-400/90 hover:text-rose-300 hover:bg-rose-950/40 border border-rose-500/30'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-rose-300" />
+            {isArabic ? 'نهضة مصر (1928) 4K' : 'Nahdat Misr 4K'}
+          </button>
+          <button
+            onClick={() => setActiveTab('hassan_fathy_gourna')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
+              activeTab === 'hassan_fathy_gourna'
+                ? 'bg-amber-700 text-white shadow-md shadow-amber-700/30'
+                : 'text-yellow-400/90 hover:text-yellow-300 hover:bg-yellow-950/40 border border-yellow-500/30'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-yellow-300" />
+            {isArabic ? 'حسن فتحي (1945) 4K' : 'Hassan Fathy 4K'}
+          </button>
+          <button
+            onClick={() => setActiveTab('da_vinci_vitruvian')}
+            className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
+              activeTab === 'da_vinci_vitruvian'
+                ? 'bg-sky-600 text-white shadow-md shadow-sky-600/30'
+                : 'text-sky-400/90 hover:text-sky-300 hover:bg-sky-950/40 border border-sky-500/30'
+            }`}
+          >
+            <Sparkles className="w-4 h-4 text-sky-300" />
+            {isArabic ? 'فيتروفيان (1490) 4K' : 'Vitruvian Man 4K'}
+          </button>
+
+          <span className="w-px h-6 bg-slate-700/50 mx-1 hidden sm:inline-block" />
+
           <button
             onClick={() => setActiveTab('perspective')}
             className={`min-h-[44px] px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 cursor-pointer transition-all ${
@@ -213,6 +274,131 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
           </button>
         </div>
       </div>
+
+      {/* 4K Archival Fine Arts & Architecture Master Studios Showcase Jump Banner */}
+      <div className="mt-4 p-4 rounded-2xl bg-gradient-to-r from-amber-950/40 via-rose-950/30 to-slate-950 border border-amber-500/30 shadow-lg">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-amber-400" />
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
+              {isArabic ? 'متاحف الفنون التشكيلية والعمارة الخالدة بدقة 4K الأرشيفية' : '4K Archival Fine Arts & Vernacular Architecture Studios'}
+            </span>
+          </div>
+          <span className="text-[11px] text-slate-400 font-mono">
+            {isArabic ? '4 استوديوهات متحفية تفاعلية مدعومة بنقاط الفحص والتحليل البصري' : '4 Historical Museum Folios with Deep Interactive Explorers'}
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+          <button
+            onClick={() => setActiveTab('thutmose_nefertiti')}
+            className={`p-3 rounded-xl border text-left transition-all cursor-pointer min-h-[44px] flex items-center justify-between ${
+              activeTab === 'thutmose_nefertiti'
+                ? 'bg-amber-600/30 border-amber-400 text-white shadow-md'
+                : 'bg-slate-900/80 border-amber-500/20 text-slate-300 hover:border-amber-400/60'
+            }`}
+          >
+            <div>
+              <div className="text-xs font-bold text-amber-300">
+                {isArabic ? 'تحتمس: رأس نفرتيتي' : 'Thutmose: Nefertiti Bust'}
+              </div>
+              <div className="text-[10px] text-slate-400">c. 1345 BCE • Amarna Canon</div>
+            </div>
+            <span className="text-xs font-mono font-bold text-amber-400">4K</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('mokhtar_nahdat_misr')}
+            className={`p-3 rounded-xl border text-left transition-all cursor-pointer min-h-[44px] flex items-center justify-between ${
+              activeTab === 'mokhtar_nahdat_misr'
+                ? 'bg-rose-600/30 border-rose-400 text-white shadow-md'
+                : 'bg-slate-900/80 border-rose-500/20 text-slate-300 hover:border-rose-400/60'
+            }`}
+          >
+            <div>
+              <div className="text-xs font-bold text-rose-300">
+                {isArabic ? 'محمود مختار: نهضة مصر' : 'Mahmoud Mokhtar: Nahdat Misr'}
+              </div>
+              <div className="text-[10px] text-slate-400">1928 CE • Aswan Granite</div>
+            </div>
+            <span className="text-xs font-mono font-bold text-rose-400">4K</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('hassan_fathy_gourna')}
+            className={`p-3 rounded-xl border text-left transition-all cursor-pointer min-h-[44px] flex items-center justify-between ${
+              activeTab === 'hassan_fathy_gourna'
+                ? 'bg-amber-700/30 border-yellow-400 text-white shadow-md'
+                : 'bg-slate-900/80 border-yellow-500/20 text-slate-300 hover:border-yellow-400/60'
+            }`}
+          >
+            <div>
+              <div className="text-xs font-bold text-yellow-300">
+                {isArabic ? 'حسن فتحي: عمارة الفقراء' : 'Hassan Fathy: New Gourna'}
+              </div>
+              <div className="text-[10px] text-slate-400">1945 CE • Adobe & Malqaf</div>
+            </div>
+            <span className="text-xs font-mono font-bold text-yellow-400">4K</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('da_vinci_vitruvian')}
+            className={`p-3 rounded-xl border text-left transition-all cursor-pointer min-h-[44px] flex items-center justify-between ${
+              activeTab === 'da_vinci_vitruvian'
+                ? 'bg-sky-600/30 border-sky-400 text-white shadow-md'
+                : 'bg-slate-900/80 border-sky-500/20 text-slate-300 hover:border-sky-400/60'
+            }`}
+          >
+            <div>
+              <div className="text-xs font-bold text-sky-300">
+                {isArabic ? 'ليوناردو: رجل فيتروفيان' : 'Da Vinci: Vitruvian Man'}
+              </div>
+              <div className="text-[10px] text-slate-400">c. 1490 CE • Golden Ratio Φ</div>
+            </div>
+            <span className="text-xs font-mono font-bold text-sky-400">4K</span>
+          </button>
+        </div>
+      </div>
+
+      {/* 4K Archival Master Studio Viewports */}
+      {activeTab === 'thutmose_nefertiti' && (
+        <div className="mt-6">
+          <ThutmoseNefertitiStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {activeTab === 'mokhtar_nahdat_misr' && (
+        <div className="mt-6">
+          <MahmoudMokhtarNahdatMisrStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {activeTab === 'hassan_fathy_gourna' && (
+        <div className="mt-6">
+          <HassanFathyNewGournaStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
+
+      {activeTab === 'da_vinci_vitruvian' && (
+        <div className="mt-6">
+          <VitruvianManArchitectureStudio
+            isArabic={isArabic}
+            isLight={isLight}
+            isContrast={isContrast}
+          />
+        </div>
+      )}
 
       {/* Tab 1: Perspective Drafting Studio */}
       {activeTab === 'perspective' && (
