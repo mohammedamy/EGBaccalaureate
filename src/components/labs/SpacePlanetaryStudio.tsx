@@ -16,6 +16,7 @@ import {
   Minimize2,
   X,
   ZoomIn,
+  Radio,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 
@@ -30,12 +31,26 @@ import mercuryImg from '../../assets/space/mercury.jpg';
 import uranusImg from '../../assets/space/uranus.jpg';
 import neptuneImg from '../../assets/space/neptune.jpg';
 
+import { PtolemyAlmagestStudio } from './space/PtolemyAlmagestStudio';
+import { CopernicusHeliocentricStudio } from './space/CopernicusHeliocentricStudio';
+import { KeplerPlanetaryLawsStudio } from './space/KeplerPlanetaryLawsStudio';
+import { HubbleExpandingUniverseStudio } from './space/HubbleExpandingUniverseStudio';
+
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'orbital_sim' | 'planet_explorer' | 'hr_diagram' | 'hohmann_transfer' | 'remote_sensing';
+  initialMode?:
+    | 'orbital_sim'
+    | 'planet_explorer'
+    | 'hr_diagram'
+    | 'hohmann_transfer'
+    | 'remote_sensing'
+    | 'ptolemy_almagest'
+    | 'copernicus_heliocentric'
+    | 'kepler_planetary_laws'
+    | 'hubble_expanding_universe';
 }
 
 export type SpaceStudioMode =
@@ -43,7 +58,11 @@ export type SpaceStudioMode =
   | 'planet_explorer'
   | 'hr_diagram'
   | 'hohmann_transfer'
-  | 'remote_sensing';
+  | 'remote_sensing'
+  | 'ptolemy_almagest'
+  | 'copernicus_heliocentric'
+  | 'kepler_planetary_laws'
+  | 'hubble_expanding_universe';
 
 interface PlanetData {
   id: string;
@@ -664,6 +683,57 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
             <span>{isArabic ? 'الاستشعار عن بعد NDVI' : 'Remote Sensing'}</span>
           </button>
 
+          <div className="h-4 w-px bg-slate-700/60 mx-1" />
+
+          {/* 4K Archival Museum Studio Tabs */}
+          <button
+            onClick={() => setActiveMode('ptolemy_almagest')}
+            className={`px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition-all ${
+              activeMode === 'ptolemy_almagest'
+                ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-stone-950 font-bold shadow-md'
+                : 'text-amber-400/80 hover:text-amber-300'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'بطليموس (المجسطي ١٥٠ م)' : 'Ptolemy Almagest'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveMode('copernicus_heliocentric')}
+            className={`px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition-all ${
+              activeMode === 'copernicus_heliocentric'
+                ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-stone-950 font-bold shadow-md'
+                : 'text-amber-400/80 hover:text-amber-300'
+            }`}
+          >
+            <Sun className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'كوبرنيكوس (مركزية الشمس ١٥٤٣)' : 'Copernicus Heliocentric'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveMode('kepler_planetary_laws')}
+            className={`px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition-all ${
+              activeMode === 'kepler_planetary_laws'
+                ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-stone-950 font-bold shadow-md'
+                : 'text-amber-400/80 hover:text-amber-300'
+            }`}
+          >
+            <Orbit className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'كبلر (المدارات الإهليلجية ١٦٠٩)' : 'Kepler Planetary Laws'}</span>
+          </button>
+
+          <button
+            onClick={() => setActiveMode('hubble_expanding_universe')}
+            className={`px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition-all ${
+              activeMode === 'hubble_expanding_universe'
+                ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-stone-950 font-bold shadow-md'
+                : 'text-amber-400/80 hover:text-amber-300'
+            }`}
+          >
+            <Radio className="w-3.5 h-3.5" />
+            <span>{isArabic ? 'هابل (تمدد الكون ١٩٢٩)' : 'Hubble Redshift'}</span>
+          </button>
+
           <button
             type="button"
             onClick={toggleFullscreen}
@@ -678,6 +748,75 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
 
       {/* Main Workspace Body */}
       <div className="p-6 space-y-6">
+        {/* 4K Museum Archival Showcase Jump Cards */}
+        <div className="rounded-2xl border border-amber-800/40 bg-gradient-to-r from-amber-950/40 via-stone-900 to-indigo-950/40 p-4 shadow-xl">
+          <div className="mb-3 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-amber-400" />
+              <h3 className="text-sm font-bold text-amber-400">
+                {isArabic ? 'معرض المخطوطات والوثائق الأرشيفية الفلكية بدقة 4K' : '4K Astronomical Museum Archival Folios & Milestone Studios'}
+              </h3>
+            </div>
+            <span className="rounded-full bg-amber-500/20 px-2.5 py-0.5 text-2xs font-semibold text-amber-300">
+              {isArabic ? 'المتحف الفلكي الرقمي' : 'Astronomical Digital Museum'}
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            <button
+              onClick={() => setActiveMode('ptolemy_almagest')}
+              className={`flex flex-col items-start rounded-xl border p-3 text-left transition-all ${
+                activeMode === 'ptolemy_almagest'
+                  ? 'border-amber-400 bg-amber-500/20 text-amber-300 ring-2 ring-amber-400/40'
+                  : 'border-amber-900/30 bg-stone-900/80 text-stone-300 hover:border-amber-500/50 hover:bg-stone-800'
+              }`}
+            >
+              <span className="text-2xs font-bold text-amber-500">{isArabic ? '١٥٠ م • الإسكندرية' : 'c. 150 AD • Alexandria'}</span>
+              <span className="mt-1 text-xs font-bold">{isArabic ? 'بطليموس (المجسطي)' : 'Ptolemy Almagest'}</span>
+              <span className="mt-0.5 text-2xs text-stone-400">{isArabic ? 'أفلاك التدوير والحركة الرجعية' : 'Epicycles & Geocentrism'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveMode('copernicus_heliocentric')}
+              className={`flex flex-col items-start rounded-xl border p-3 text-left transition-all ${
+                activeMode === 'copernicus_heliocentric'
+                  ? 'border-amber-400 bg-amber-500/20 text-amber-300 ring-2 ring-amber-400/40'
+                  : 'border-amber-900/30 bg-stone-900/80 text-stone-300 hover:border-amber-500/50 hover:bg-stone-800'
+              }`}
+            >
+              <span className="text-2xs font-bold text-amber-500">{isArabic ? '١٥٤٣ م • نورنبرغ' : '1543 AD • Nuremberg'}</span>
+              <span className="mt-1 text-xs font-bold">{isArabic ? 'كوبرنيكوس (مركزية الشمس)' : 'Copernicus Solar Core'}</span>
+              <span className="mt-0.5 text-2xs text-stone-400">{isArabic ? 'حل التراجع بالتجاوز المداري' : 'Heliocentric Solution'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveMode('kepler_planetary_laws')}
+              className={`flex flex-col items-start rounded-xl border p-3 text-left transition-all ${
+                activeMode === 'kepler_planetary_laws'
+                  ? 'border-amber-400 bg-amber-500/20 text-amber-300 ring-2 ring-amber-400/40'
+                  : 'border-amber-900/30 bg-stone-900/80 text-stone-300 hover:border-amber-500/50 hover:bg-stone-800'
+              }`}
+            >
+              <span className="text-2xs font-bold text-amber-500">{isArabic ? '١٦٠٩ م • هايدلبرغ' : '1609 AD • Heidelberg'}</span>
+              <span className="mt-1 text-xs font-bold">{isArabic ? 'كبلر (الفلك الجديد)' : 'Kepler Planetary Laws'}</span>
+              <span className="mt-0.5 text-2xs text-stone-400">{isArabic ? 'المدارات الإهليلجية والمساحات' : 'Ellipses & Equal Areas'}</span>
+            </button>
+
+            <button
+              onClick={() => setActiveMode('hubble_expanding_universe')}
+              className={`flex flex-col items-start rounded-xl border p-3 text-left transition-all ${
+                activeMode === 'hubble_expanding_universe'
+                  ? 'border-amber-400 bg-amber-500/20 text-amber-300 ring-2 ring-amber-400/40'
+                  : 'border-amber-900/30 bg-stone-900/80 text-stone-300 hover:border-amber-500/50 hover:bg-stone-800'
+              }`}
+            >
+              <span className="text-2xs font-bold text-amber-500">{isArabic ? '١٩٢٩ م • ماونت ويلسون' : '1929 AD • Mount Wilson'}</span>
+              <span className="mt-1 text-xs font-bold">{isArabic ? 'هابل (تمدد الكون)' : 'Hubble Expanding Universe'}</span>
+              <span className="mt-0.5 text-2xs text-stone-400">{isArabic ? 'الانزياح الأحمر وقانون v=H₀d' : 'Redshift & Distance Law'}</span>
+            </button>
+          </div>
+        </div>
+
         {/* ================================================================= */}
         {/* Engine 1: Keplerian Orbit & Planetary Mechanics Simulator */}
         {/* ================================================================= */}
@@ -1761,6 +1900,26 @@ export const SpacePlanetaryStudio: React.FC<Props> = ({
               </div>
             </div>
           </div>
+        )}
+
+        {/* Ptolemy Studio */}
+        {activeMode === 'ptolemy_almagest' && (
+          <PtolemyAlmagestStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {/* Copernicus Studio */}
+        {activeMode === 'copernicus_heliocentric' && (
+          <CopernicusHeliocentricStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {/* Kepler Studio */}
+        {activeMode === 'kepler_planetary_laws' && (
+          <KeplerPlanetaryLawsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        )}
+
+        {/* Hubble Studio */}
+        {activeMode === 'hubble_expanding_universe' && (
+          <HubbleExpandingUniverseStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
         )}
 
         {/* Full-Screen High-Resolution Lightbox Modal */}
