@@ -19,16 +19,24 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { AdamSmithWealthOfNationsStudio } from './economics/AdamSmithWealthOfNationsStudio';
+import { KeynesGeneralTheoryStudio } from './economics/KeynesGeneralTheoryStudio';
+import { GaussNormalDistributionStudio } from './economics/GaussNormalDistributionStudio';
+import { PearsonCorrelationRegressionStudio } from './economics/PearsonCorrelationRegressionStudio';
 
 interface Props {
   lang: Language;
   theme?: ThemeMode;
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
-  initialMode?: 'market_equilibrium' | 'national_income' | 'correlation_regression' | 'probability_tree' | 'normal_distribution';
+  initialMode?: EconStudioMode;
 }
 
 export type EconStudioMode =
+  | 'adam_smith_wealth'
+  | 'keynes_general_theory'
+  | 'gauss_normal_dist'
+  | 'pearson_correlation'
   | 'market_equilibrium'
   | 'national_income'
   | 'correlation_regression'
@@ -305,6 +313,10 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
         {/* Studio Mode Selector */}
         <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-800/60 border border-amber-500/30 text-xs w-full md:w-auto overflow-x-auto">
           {[
+            { id: 'adam_smith_wealth', labelAr: 'آدم سميث 1776 (4K)', labelEn: 'Adam Smith 1776 (4K)', icon: Scale },
+            { id: 'keynes_general_theory', labelAr: 'كينز والنظرية العامة (4K)', labelEn: 'Keynes Multiplier (4K)', icon: DollarSign },
+            { id: 'gauss_normal_dist', labelAr: 'جاوس والجرس الطبيعي (4K)', labelEn: 'Gauss Bell Curve (4K)', icon: Activity },
+            { id: 'pearson_correlation', labelAr: 'بيرسون والانحدار (4K)', labelEn: 'Pearson Regression (4K)', icon: BarChart3 },
             { id: 'market_equilibrium', labelAr: 'توازن السوق', labelEn: 'Market Equilibrium', icon: Scale },
             { id: 'national_income', labelAr: 'الدخل القومي', labelEn: 'National Income', icon: DollarSign },
             { id: 'correlation_regression', labelAr: 'الارتباط والانحدار', labelEn: 'Correlation & Reg.', icon: BarChart3 },
@@ -317,7 +329,7 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveMode(tab.id as EconStudioMode)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+                className={`min-h-[44px] flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
                   isSel
                     ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-white shadow-md shadow-amber-600/30'
                     : 'text-slate-300 hover:text-white hover:bg-slate-700/50'
@@ -331,7 +343,7 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-700/50 cursor-pointer"
+            className="min-h-[44px] flex items-center gap-1 px-3 py-1.5 rounded-lg font-medium transition-all text-slate-300 hover:text-white hover:bg-slate-700/50 cursor-pointer"
             title={isFullscreen ? (isArabic ? 'إنهاء وضع الشاشة الكاملة (Esc)' : 'Exit Fullscreen (Esc)') : (isArabic ? 'شاشة كاملة' : 'Full Screen')}
           >
             {isFullscreen ? <Minimize2 className="w-3.5 h-3.5 text-amber-400" /> : <Maximize2 className="w-3.5 h-3.5 text-amber-400" />}
@@ -339,6 +351,108 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
           </button>
         </div>
       </div>
+
+      {/* 4K Archival Museum Studios Showcase Quick Navigation */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6 max-w-5xl mx-auto">
+        {/* Card 1: Adam Smith (1776) */}
+        <button
+          onClick={() => setActiveMode('adam_smith_wealth')}
+          className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group min-h-[44px] ${
+            activeMode === 'adam_smith_wealth'
+              ? 'bg-amber-600/30 border-amber-400 shadow-md ring-1 ring-amber-400'
+              : 'bg-gradient-to-br from-amber-950/40 to-slate-900 border-amber-600/20 hover:border-amber-400'
+          }`}
+        >
+          <span className="text-[10px] font-mono text-amber-400 font-bold block mb-1">📜 1776 CE</span>
+          <div className="text-xs font-black text-white group-hover:text-amber-300">
+            {isArabic ? 'آدم سميث وثروة الأمم 4K' : 'Adam Smith Wealth 4K'}
+          </div>
+          <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+            {isArabic ? 'تقسيم العمل واليد الخفية ومصنع الدبابيس' : 'Division of Labour & Invisible Hand'}
+          </p>
+        </button>
+
+        {/* Card 2: Keynes General Theory (1936) */}
+        <button
+          onClick={() => setActiveMode('keynes_general_theory')}
+          className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group min-h-[44px] ${
+            activeMode === 'keynes_general_theory'
+              ? 'bg-emerald-600/30 border-emerald-400 shadow-md ring-1 ring-emerald-400'
+              : 'bg-gradient-to-br from-emerald-950/40 to-slate-900 border-emerald-600/20 hover:border-emerald-400'
+          }`}
+        >
+          <span className="text-[10px] font-mono text-emerald-400 font-bold block mb-1">🏛️ 1936 CE</span>
+          <div className="text-xs font-black text-white group-hover:text-emerald-300">
+            {isArabic ? 'كينز والنظرية العامة 4K' : 'Keynes General Theory 4K'}
+          </div>
+          <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+            {isArabic ? 'مضاعف الإنفاق والطلب الكلي والسياسة المالية' : 'Fiscal Multiplier & Effective Demand'}
+          </p>
+        </button>
+
+        {/* Card 3: Gauss Normal Distribution (1809) */}
+        <button
+          onClick={() => setActiveMode('gauss_normal_dist')}
+          className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group min-h-[44px] ${
+            activeMode === 'gauss_normal_dist'
+              ? 'bg-indigo-600/30 border-indigo-400 shadow-md ring-1 ring-indigo-400'
+              : 'bg-gradient-to-br from-indigo-950/40 to-slate-900 border-indigo-600/20 hover:border-indigo-400'
+          }`}
+        >
+          <span className="text-[10px] font-mono text-indigo-400 font-bold block mb-1">📐 1809 CE</span>
+          <div className="text-xs font-black text-white group-hover:text-indigo-300">
+            {isArabic ? 'جاوس ومنحنى الجرس الطبيعي 4K' : 'Gauss Normal Bell 4K'}
+          </div>
+          <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+            {isArabic ? 'كثافة الاحتمال والدرجة المعيارية وجدول المساحات' : 'Probability Density & Z-Table Areas'}
+          </p>
+        </button>
+
+        {/* Card 4: Karl Pearson Correlation & Regression (1896) */}
+        <button
+          onClick={() => setActiveMode('pearson_correlation')}
+          className={`p-3 rounded-2xl border text-left transition-all cursor-pointer group min-h-[44px] ${
+            activeMode === 'pearson_correlation'
+              ? 'bg-sky-600/30 border-sky-400 shadow-md ring-1 ring-sky-400'
+              : 'bg-gradient-to-br from-sky-950/40 to-slate-900 border-sky-600/20 hover:border-sky-400'
+          }`}
+        >
+          <span className="text-[10px] font-mono text-sky-400 font-bold block mb-1">📊 1896 CE</span>
+          <div className="text-xs font-black text-white group-hover:text-sky-300">
+            {isArabic ? 'بيرسون والارتباط والانحدار 4K' : 'Pearson Correlation 4K'}
+          </div>
+          <p className="text-[10px] text-slate-400 mt-0.5 line-clamp-1">
+            {isArabic ? 'معامل بيرسون r وخط الانحدار ومخطط الانتشار' : 'Correlation r & Least Squares Line'}
+          </p>
+        </button>
+      </div>
+
+      {/* ======================================================== */}
+      {/* 4K ARCHIVAL HISTORICAL MASTER STUDIOS VIEWPORTS           */}
+      {/* ======================================================== */}
+      {activeMode === 'adam_smith_wealth' && (
+        <div className="space-y-6 max-w-5xl mx-auto">
+          <AdamSmithWealthOfNationsStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeMode === 'keynes_general_theory' && (
+        <div className="space-y-6 max-w-5xl mx-auto">
+          <KeynesGeneralTheoryStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeMode === 'gauss_normal_dist' && (
+        <div className="space-y-6 max-w-5xl mx-auto">
+          <GaussNormalDistributionStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
+
+      {activeMode === 'pearson_correlation' && (
+        <div className="space-y-6 max-w-5xl mx-auto">
+          <PearsonCorrelationRegressionStudio isArabic={isArabic} isLight={isLight} isContrast={isContrast} />
+        </div>
+      )}
 
       {/* ======================================================== */}
       {/* MODE 1: Supply, Demand & Market Equilibrium Simulator    */}
