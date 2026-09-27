@@ -32,6 +32,8 @@ export const thanaweyaStaticsBranch: Branch = {
       lessons: [
         {
           id: 'stat_l1',
+          diagramType: 'statics_horizontal_friction',
+          diagramTypes: ['statics_horizontal_friction', 'statics_inclined_friction'],
           titleEn: 'Friction Force & Equilibrium on Rough Planes',
           titleAr: 'قوة الاحتكاك والتوازن على المستويات الخشنة',
           summaryEn: 'Understanding limiting static friction $F_s = \\mu_s R$, resultant reaction $R\' = R\\sqrt{1 + \\mu_s^2} = R\\sec\\lambda$, and friction angle $\\lambda$.',
@@ -1596,6 +1598,7 @@ A rigid body subjected to a system of coplanar forces is in complete static equi
         },
         {
           id: 'stat_l7',
+          diagramType: 'statics_ladder_friction',
           titleEn: 'Ladders & Beams on Rough & Smooth Planes',
           titleAr: 'اتزان السلالم والقضبان على السطوح الخشنة والملساء',
           summaryEn: 'Equilibrium of ladders on smooth vertical walls and rough floors, limiting friction $\\mu_s = \\frac{1}{2}\\cot\\theta$, climber ascent limits, and equilibrium on two rough surfaces.',

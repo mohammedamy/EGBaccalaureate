@@ -535,6 +535,273 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
           </svg>
         )}
 
+        {/* 17. Statics Uniform Ladder Equilibrium */}
+        {type === 'statics_ladder_friction' && (
+          <svg viewBox="0 0 460 260" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            <defs>
+              <pattern id="gHatchLadder" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="10" stroke="#64748b" strokeWidth="1.5" />
+              </pattern>
+              <marker id="arrLadder" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#3b82f6" />
+              </marker>
+              <marker id="arrLadderRed" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#f43f5e" />
+              </marker>
+              <marker id="arrLadderGrn" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#10b981" />
+              </marker>
+              <marker id="arrLadderAmb" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#f59e0b" />
+              </marker>
+            </defs>
+
+            {/* Vertical Rough/Smooth Wall */}
+            <line x1="120" y1="20" x2="120" y2="210" stroke="#94a3b8" strokeWidth="3" {...nonScaling} />
+            <rect x="100" y="20" width="20" height="190" fill="url(#gHatchLadder)" />
+
+            {/* Horizontal Rough Ground */}
+            <line x1="100" y1="210" x2="420" y2="210" stroke="#94a3b8" strokeWidth="3" {...nonScaling} />
+            <rect x="100" y="210" width="320" height="18" fill="url(#gHatchLadder)" />
+
+            {/* Ladder AB */}
+            <line x1="120" y1="50" x2="340" y2="210" stroke="#e2e8f0" strokeWidth="6" strokeLinecap="round" {...nonScaling} />
+            <circle cx="120" cy="50" r="5" className="fill-indigo-400 stroke-white" strokeWidth="1.5" />
+            <circle cx="340" cy="210" r="5" className="fill-indigo-400 stroke-white" strokeWidth="1.5" />
+            <text x="95" y="48" className="text-xs font-black fill-indigo-300">A</text>
+            <text x="355" y="225" className="text-xs font-black fill-indigo-300">B</text>
+
+            {/* Midpoint G & Weight W */}
+            <circle cx="230" cy="130" r="4.5" className="fill-amber-400 stroke-white" strokeWidth="1.5" />
+            <text x="240" y="125" className="text-xs font-bold fill-amber-300">G</text>
+            <line x1="230" y1="130" x2="230" y2="200" stroke="#f59e0b" strokeWidth="2.5" markerEnd="url(#arrLadderAmb)" {...nonScaling} />
+            <text x="238" y="195" className="text-xs font-bold fill-amber-300">W</text>
+
+            {/* Ground Normal Reaction R1 (upwards) */}
+            <line x1="340" y1="210" x2="340" y2="135" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#arrLadderGrn)" {...nonScaling} />
+            <text x="350" y="145" className="text-xs font-bold fill-emerald-300">R₁</text>
+
+            {/* Ground Friction μ1*R1 (towards the wall - leftwards) */}
+            <line x1="340" y1="210" x2="245" y2="210" stroke="#f43f5e" strokeWidth="2.5" markerEnd="url(#arrLadderRed)" {...nonScaling} />
+            <text x="250" y="230" className="text-xs font-bold fill-rose-300">μ₁ R₁</text>
+
+            {/* Wall Normal Reaction R2 (horizontal away from wall - rightwards) */}
+            <line x1="120" y1="50" x2="195" y2="50" stroke="#3b82f6" strokeWidth="2.5" markerEnd="url(#arrLadder)" {...nonScaling} />
+            <text x="185" y="40" className="text-xs font-bold fill-blue-300">R₂</text>
+
+            {/* Wall Friction μ2*R2 (upwards along wall) */}
+            <line x1="120" y1="50" x2="120" y2="10" stroke="#f43f5e" strokeWidth="2" markerEnd="url(#arrLadderRed)" {...nonScaling} />
+            <text x="80" y="25" className="text-xs font-bold fill-rose-300">μ₂ R₂</text>
+
+            {/* Inclination Angle θ */}
+            <path d="M 300 210 A 40 40 0 0 1 308 187" fill="none" stroke="#f59e0b" strokeWidth="1.75" {...nonScaling} />
+            <text x="312" y="202" className="text-xs font-bold fill-amber-300">θ</text>
+          </svg>
+        )}
+
+        {/* 18. Dynamics Atwood Machine Vertical Pulley */}
+        {type === 'dynamics_atwood_pulley' && (
+          <svg viewBox="0 0 460 260" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            <defs>
+              <pattern id="gHatchCeiling" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <line x1="0" y1="0" x2="0" y2="10" stroke="#64748b" strokeWidth="1.5" />
+              </pattern>
+              <marker id="arrPulley" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#3b82f6" />
+              </marker>
+              <marker id="arrPulleyAcc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#10b981" />
+              </marker>
+            </defs>
+
+            {/* Ceiling */}
+            <rect x="150" y="10" width="160" height="12" fill="url(#gHatchCeiling)" />
+            <line x1="150" y1="22" x2="310" y2="22" stroke="#94a3b8" strokeWidth="2.5" />
+
+            {/* Pulley Support Bracket */}
+            <line x1="230" y1="22" x2="230" y2="55" stroke="#94a3b8" strokeWidth="4" />
+
+            {/* Pulley Wheel */}
+            <circle cx="230" cy="65" r="28" className="fill-slate-800 stroke-cyan-400" strokeWidth="3" />
+            <circle cx="230" cy="65" r="5" className="fill-cyan-300" />
+
+            {/* String over Pulley */}
+            <line x1="202" y1="65" x2="202" y2="155" stroke="#cbd5e1" strokeWidth="2" />
+            <line x1="258" y1="65" x2="258" y2="125" stroke="#cbd5e1" strokeWidth="2" />
+
+            {/* Tension T Indicators */}
+            <line x1="202" y1="120" x2="202" y2="90" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrPulley)" />
+            <text x="180" y="105" className="text-xs font-bold fill-blue-300">T</text>
+            <line x1="258" y1="105" x2="258" y2="80" stroke="#3b82f6" strokeWidth="2" markerEnd="url(#arrPulley)" />
+            <text x="268" y="95" className="text-xs font-bold fill-blue-300">T</text>
+
+            {/* Mass m1 (Left, heavier) */}
+            <rect x="182" y="155" width="40" height="40" rx="4" className="fill-indigo-900 stroke-indigo-400" strokeWidth="2" />
+            <text x="194" y="180" className="text-xs font-bold fill-white">m₁</text>
+            {/* m1*g force */}
+            <line x1="202" y1="195" x2="202" y2="245" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrPulley)" />
+            <text x="210" y="235" className="text-xs font-bold fill-amber-300">m₁g</text>
+            {/* Acceleration a (downwards) */}
+            <line x1="160" y1="145" x2="160" y2="185" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrPulleyAcc)" />
+            <text x="145" y="170" className="text-xs font-black fill-emerald-400">a ↓</text>
+
+            {/* Mass m2 (Right, lighter) */}
+            <rect x="240" y="125" width="36" height="34" rx="4" className="fill-slate-700 stroke-slate-400" strokeWidth="2" />
+            <text x="250" y="146" className="text-xs font-bold fill-white">m₂</text>
+            {/* m2*g force */}
+            <line x1="258" y1="159" x2="258" y2="205" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrPulley)" />
+            <text x="266" y="195" className="text-xs font-bold fill-amber-300">m₂g</text>
+            {/* Acceleration a (upwards) */}
+            <line x1="295" y1="165" x2="295" y2="125" stroke="#10b981" strokeWidth="3" markerEnd="url(#arrPulleyAcc)" />
+            <text x="305" y="145" className="text-xs font-black fill-emerald-400">a ↑</text>
+          </svg>
+        )}
+
+        {/* 19. Dynamics Inclined Plane Pulley */}
+        {type === 'dynamics_inclined_pulley' && (
+          <svg viewBox="0 0 460 260" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrInc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#3b82f6" />
+              </marker>
+              <marker id="arrIncAcc" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#10b981" />
+              </marker>
+            </defs>
+
+            {/* Inclined Wedge */}
+            <polygon points="60,220 320,70 320,220" className="fill-slate-800/80 stroke-slate-500" strokeWidth="2.5" />
+            <line x1="40" y1="220" x2="420" y2="220" stroke="#64748b" strokeWidth="2.5" />
+
+            {/* Incline Angle α */}
+            <path d="M 120 220 A 60 60 0 0 0 115 188" fill="none" stroke="#f59e0b" strokeWidth="1.75" />
+            <text x="125" y="212" className="text-xs font-bold fill-amber-300">α</text>
+
+            {/* Pulley at Apex (320, 70) */}
+            <circle cx="320" cy="70" r="14" className="fill-slate-900 stroke-cyan-400" strokeWidth="2.5" />
+            <circle cx="320" cy="70" r="3" className="fill-cyan-300" />
+
+            {/* Mass m1 on Incline */}
+            <g transform="translate(190, 145) rotate(-30)">
+              <rect x="-25" y="-30" width="50" height="30" rx="3" className="fill-indigo-900 stroke-indigo-400" strokeWidth="2" />
+              <text x="-10" y="-10" className="text-xs font-bold fill-white">m₁</text>
+              {/* Normal Reaction N */}
+              <line x1="0" y1="-30" x2="0" y2="-70" stroke="#10b981" strokeWidth="2" markerEnd="url(#arrInc)" />
+              <text x="8" y="-55" className="text-xs font-bold fill-emerald-300">N</text>
+            </g>
+
+            {/* String from m1 to Pulley to m2 */}
+            <line x1="205" y1="130" x2="313" y2="60" stroke="#cbd5e1" strokeWidth="2" />
+            <line x1="334" y1="70" x2="334" y2="150" stroke="#cbd5e1" strokeWidth="2" />
+
+            {/* Hanging Mass m2 */}
+            <rect x="316" y="150" width="36" height="36" rx="4" className="fill-amber-900 stroke-amber-400" strokeWidth="2" />
+            <text x="326" y="172" className="text-xs font-bold fill-white">m₂</text>
+            <line x1="334" y1="186" x2="334" y2="230" stroke="#f59e0b" strokeWidth="2" markerEnd="url(#arrInc)" />
+            <text x="344" y="220" className="text-xs font-bold fill-amber-300">m₂g</text>
+
+            {/* Tensions */}
+            <text x="265" y="90" className="text-xs font-bold fill-blue-300">T</text>
+            <text x="342" y="115" className="text-xs font-bold fill-blue-300">T</text>
+
+            {/* Acceleration Arrow along Incline */}
+            <line x1="170" y1="105" x2="230" y2="70" stroke="#10b981" strokeWidth="2.5" markerEnd="url(#arrIncAcc)" />
+            <text x="180" y="80" className="text-xs font-black fill-emerald-400">a ↗</text>
+          </svg>
+        )}
+
+        {/* 20. Calculus Cubic Inflection & Extreme Values */}
+        {type === 'calculus_inflection_curve' && (
+          <svg viewBox="0 0 460 260" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrAxis" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#94a3b8" />
+              </marker>
+            </defs>
+
+            {/* Axes */}
+            <line x1="30" y1="130" x2="430" y2="130" stroke="#64748b" strokeWidth="1.75" markerEnd="url(#arrAxis)" />
+            <line x1="230" y1="240" x2="230" y2="20" stroke="#64748b" strokeWidth="1.75" markerEnd="url(#arrAxis)" />
+            <text x="435" y="134" className="text-xs font-bold fill-slate-400">x</text>
+            <text x="235" y="16" className="text-xs font-bold fill-slate-400">y</text>
+
+            {/* Cubic Curve f(x) = x^3 - 3x (scaled) */}
+            <path
+              d="M 70 230 C 130 30, 160 70, 230 130 C 300 190, 330 230, 390 30"
+              fill="none"
+              stroke="#6366f1"
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+
+            {/* Local Maximum at (-1, 2) -> approx (150, 75) */}
+            <circle cx="150" cy="75" r="5" className="fill-amber-400 stroke-white" strokeWidth="1.5" />
+            <line x1="110" y1="75" x2="190" y2="75" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3,3" />
+            <text x="100" y="65" className="text-xs font-bold fill-amber-300">Local Max: f'(-1) = 0</text>
+
+            {/* Inflection Point at (0,0) -> (230, 130) */}
+            <circle cx="230" cy="130" r="5" className="fill-rose-400 stroke-white" strokeWidth="1.5" />
+            <text x="240" y="125" className="text-xs font-bold fill-rose-300">Inflection: f''(0) = 0</text>
+
+            {/* Local Minimum at (1, -2) -> approx (310, 185) */}
+            <circle cx="310" cy="185" r="5" className="fill-emerald-400 stroke-white" strokeWidth="1.5" />
+            <line x1="270" y1="185" x2="350" y2="185" stroke="#10b981" strokeWidth="2" strokeDasharray="3,3" />
+            <text x="275" y="205" className="text-xs font-bold fill-emerald-300">Local Min: f'(1) = 0</text>
+
+            {/* Concavity Labels */}
+            <text x="110" y="155" className="text-[11px] font-bold fill-amber-400">Concave Down (f'' &lt; 0)</text>
+            <text x="280" y="115" className="text-[11px] font-bold fill-emerald-400">Concave Up (f'' &gt; 0)</text>
+          </svg>
+        )}
+
+        {/* 21. Complex Numbers: Roots of Unity Equilateral Triangle */}
+        {type === 'complex_roots_polygon' && (
+          <svg viewBox="0 0 460 260" className="w-full max-w-[440px] h-auto overflow-visible select-none">
+            <defs>
+              <marker id="arrArgand" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#94a3b8" />
+              </marker>
+            </defs>
+
+            {/* Argand Axes */}
+            <line x1="50" y1="130" x2="410" y2="130" stroke="#64748b" strokeWidth="1.75" markerEnd="url(#arrArgand)" />
+            <line x1="230" y1="240" x2="230" y2="20" stroke="#64748b" strokeWidth="1.75" markerEnd="url(#arrArgand)" />
+            <text x="415" y="134" className="text-xs font-bold fill-slate-400">Re(z)</text>
+            <text x="235" y="16" className="text-xs font-bold fill-slate-400">Im(z)</text>
+
+            {/* Unit Circle |z| = 1 with radius 85 */}
+            <circle cx="230" cy="130" r="85" className="fill-slate-900/40 stroke-cyan-500" strokeWidth="2" strokeDasharray="4,4" />
+
+            {/* Equilateral Triangle Polygon */}
+            <polygon
+              points="315,130 187.5,56.4 187.5,203.6"
+              className="fill-indigo-950/40 stroke-indigo-400"
+              strokeWidth="2.5"
+            />
+
+            {/* Vertex 1: z0 = 1 (angle 0) -> (315, 130) */}
+            <circle cx="315" cy="130" r="5.5" className="fill-emerald-400 stroke-white" strokeWidth="1.5" />
+            <text x="325" y="134" className="text-xs font-black fill-emerald-300">z₀ = 1</text>
+
+            {/* Vertex 2: z1 = ω = e^(i 2π/3) -> (187.5, 56.4) */}
+            <circle cx="187.5" cy="56.4" r="5.5" className="fill-amber-400 stroke-white" strokeWidth="1.5" />
+            <text x="125" y="50" className="text-xs font-black fill-amber-300">z₁ = ω</text>
+            <line x1="230" y1="130" x2="187.5" y2="56.4" stroke="#f59e0b" strokeWidth="1.5" />
+
+            {/* Vertex 3: z2 = ω² = e^(i 4π/3) -> (187.5, 203.6) */}
+            <circle cx="187.5" cy="203.6" r="5.5" className="fill-rose-400 stroke-white" strokeWidth="1.5" />
+            <text x="120" y="220" className="text-xs font-black fill-rose-300">z₂ = ω²</text>
+            <line x1="230" y1="130" x2="187.5" y2="203.6" stroke="#f43f5e" strokeWidth="1.5" />
+
+            {/* Center Origin O */}
+            <circle cx="230" cy="130" r="3.5" className="fill-white" />
+            <text x="218" y="145" className="text-[11px] font-bold fill-slate-300">O</text>
+
+            {/* Invariant Note */}
+            <text x="270" y="240" className="text-xs font-bold fill-cyan-300">1 + ω + ω² = 0</text>
+          </svg>
+        )}
+
         {/* 11. Biological Vector Diagram: Antibody Architecture (IgG) */}
         {type === 'bio_antibody_structure' && (
           <svg viewBox="0 0 520 360" className="w-full max-w-[480px] h-auto overflow-visible select-none">
@@ -2551,6 +2818,76 @@ export const TextbookDiagram: React.FC<Props> = ({ type, lang }) => {
             </span>
             <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
               <MathRenderer math={isAr ? "\text{أكسجين الماء الناتج مصدره كحول الإيثانول (تجربة نظير } ^{18}\text{O})" : "\text{Water oxygen originates from alcohol via } ^{18}\text{O} \text{ tracer}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'statics_ladder_friction' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\Sigma F_y = 0 \implies R_1 + \mu_2 R_2 = W" : "\Sigma F_y = 0 \implies R_1 + \mu_2 R_2 = W"} lang={lang} />
+            </span>
+            <span className="bg-blue-950/60 border border-blue-500/40 text-blue-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\Sigma F_x = 0 \implies R_2 = \mu_1 R_1" : "\Sigma F_x = 0 \implies R_2 = \mu_1 R_1"} lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\Sigma M_B = 0 \implies W \cdot \frac{L}{2}\cos\theta = R_2 L\sin\theta + \mu_2 R_2 L\cos\theta" : "\Sigma M_B = 0 \implies W \cdot \frac{L}{2}\cos\theta = R_2 L\sin\theta"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'dynamics_atwood_pulley' && (
+          <>
+            <span className="bg-indigo-950/60 border border-indigo-500/40 text-indigo-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="a = \frac{m_1 - m_2}{m_1 + m_2} g" lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="T = \frac{2 m_1 m_2}{m_1 + m_2} g" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{الضغط على المحور } P = 2T" : "\text{Pulley Pressure } P = 2T"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'dynamics_inclined_pulley' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="a = \frac{m_2 - m_1\sin\alpha}{m_1 + m_2} g" lang={lang} />
+            </span>
+            <span className="bg-blue-950/60 border border-blue-500/40 text-blue-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="T = m_2(g - a)" lang={lang} />
+            </span>
+            <span className="bg-purple-950/60 border border-purple-500/40 text-purple-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{الضغط على البكرة } P = T\sqrt{2(1+\sin\alpha)}" : "P = T\sqrt{2(1+\sin\alpha)}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'calculus_inflection_curve' && (
+          <>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{نقاط حرجة: } f'(x) = 0 \text{ أو غير معرّفة}" : "\text{Critical Points: } f'(x) = 0 \text{ or undefined}"} lang={lang} />
+            </span>
+            <span className="bg-rose-950/60 border border-rose-500/40 text-rose-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\text{نقطة انقلاب: } f''(x) = 0 \text{ مع تغير إشارة التحدب}" : "\text{Inflection Point: } f''(x)=0 \text{ with sign change}"} lang={lang} />
+            </span>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "f''(x) > 0 \implies \cup \text{ (محدب لأسفل)} \quad f''(x) < 0 \implies \cap \text{ (محدب لأعلى)}" : "f'' > 0 \implies \text{Concave Up} \quad f'' < 0 \implies \text{Concave Down}"} lang={lang} />
+            </span>
+          </>
+        )}
+
+        {type === 'complex_roots_polygon' && (
+          <>
+            <span className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="1 + \omega + \omega^2 = 0" lang={lang} />
+            </span>
+            <span className="bg-cyan-950/60 border border-cyan-500/40 text-cyan-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math="\omega^3 = 1 \quad \omega \cdot \omega^2 = 1 \quad \frac{1}{\omega} = \omega^2" lang={lang} />
+            </span>
+            <span className="bg-amber-950/60 border border-amber-500/40 text-amber-200 px-2.5 py-1 rounded-lg font-bold">
+              <MathRenderer math={isAr ? "\omega - \omega^2 = \pm i\sqrt{3} \quad (\omega - \omega^2)^2 = -3" : "\omega - \omega^2 = \pm i\sqrt{3} \implies (\omega - \omega^2)^2 = -3"} lang={lang} />
             </span>
           </>
         )}

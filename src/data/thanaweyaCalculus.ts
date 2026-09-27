@@ -28,6 +28,8 @@ export const thanaweyaCalculusBranch: Branch = {
       lessons: [
         {
           id: 'calc_l1',
+          diagramType: 'trig_derivative_tangent',
+          diagramTypes: ['trig_derivative_tangent', 'secant_derivative_graph'],
           titleEn: 'Derivatives of Trigonometric Functions',
           titleAr: 'اشتقاق الدوال المثلثية',
           summaryEn: 'Derivatives of sin, cos, tan, sec, csc, cot with chain rule applications.',
@@ -1010,6 +1012,7 @@ $$\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$$
       lessons: [
         {
           id: 'calc_l4',
+          diagramType: 'calculus_inflection_curve',
           titleEn: 'Monotonicity, Extrema & Concavity',
           titleAr: 'تزايد وتناقص الدوال والقيم القصوى والتحدب',
           summaryEn: 'Critical points, first derivative test for increasing/decreasing intervals and local extrema, second derivative test, concavity upward/downward, and inflection points.',
@@ -1232,6 +1235,7 @@ When $f'(c) = 0$:
         },
         {
           id: 'calc_l5',
+          diagramType: 'calculus_inflection_curve',
           titleEn: 'Curve Sketching & Optimization Applications',
           titleAr: 'رسم المنحنيات وتطبيقات القيم العظمى والصغرى',
           summaryEn: 'Complete curve sketching protocol (symmetry, asymptotes, intercepts, extrema, inflection), absolute extrema on closed intervals, and physical/geometric optimization problems.',

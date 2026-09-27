@@ -943,6 +943,8 @@ $$\vec{F} = \frac{d\vec{H}}{dt} = \frac{d}{dt}[m \vec{v}]$$
         },
         {
           id: 'dyn_l4',
+          diagramType: 'dynamics_atwood_pulley',
+          diagramTypes: ['dynamics_atwood_pulley', 'dynamics_inclined_pulley'],
           titleEn: 'Newton\'s Third Law, Elevators & Smooth Pulleys',
           titleAr: 'قانون نيوتن الثالث، حركة المصاعد، والبكرات الملساء',
           summaryEn: 'Analysis of apparent weight in elevators $N = m(g \\pm a)$ under upward/downward acceleration, spring balance readings, and dynamics of connected bodies over smooth pulleys with rope tension and pressure on pulley.',

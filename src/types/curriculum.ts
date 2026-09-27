@@ -190,7 +190,12 @@ export type DiagramType =
   | 'chem_methane_laboratory_preparation'
   | 'chem_ethylene_preparation'
   | 'chem_acetylene_preparation'
-  | 'chem_organic_reflux_esterification';
+  | 'chem_organic_reflux_esterification'
+  | 'statics_ladder_friction'
+  | 'dynamics_atwood_pulley'
+  | 'dynamics_inclined_pulley'
+  | 'calculus_inflection_curve'
+  | 'complex_roots_polygon';
 
 export interface SolvedProblem {
   id: string;
@@ -419,6 +424,8 @@ export interface Lesson {
   worksheet: Worksheet;
   interactiveWidget: InteractiveWidgetConfig;
   interactiveWidgets?: InteractiveWidgetConfig[];
+  diagramType?: DiagramType;
+  diagramTypes?: DiagramType[];
   estimatedMinutes?: number;
   trackScope?: TrackScope;
 }

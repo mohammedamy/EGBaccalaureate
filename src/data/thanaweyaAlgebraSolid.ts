@@ -30,6 +30,7 @@ export const thanaweyaAlgebraSolidBranch: Branch = {
           lessons: [
             {
               id: 'alg_l1',
+              diagramType: 'polygon_diagonals',
               titleEn: 'Fundamental Counting Principle, Permutations & Combinations',
               titleAr: 'مبدأ العد الأساسي والتباديل والتوافيق',
               summaryEn: 'Understand addition and multiplication rules of counting, permutations with and without repetition, circular permutations, and combinations properties.',
@@ -1007,6 +1008,7 @@ $$z = a + b i \quad \text{حيث } a, b \in \mathbb{R} \text{ و } i^2 = -1$$
             },
             {
               id: 'alg_l4',
+              diagramType: 'complex_roots_polygon',
               titleEn: "De Moivre's Theorem & Cube Roots of Unity ($\\omega$)",
               titleAr: 'نظرية ديموافر والجذور التكعيبية للواحد الصحيح (أوميجا)',
               summaryEn: 'De Moivre\'s theorem for integral and rational exponents, finding the $n$-th roots of complex numbers, and properties of the cube roots of unity $1, \\omega, \\omega^2$ with algebraic simplifications.',
@@ -1748,6 +1750,8 @@ $$X = A^{-1} B$$
           lessons: [
             {
               id: 'solid_l1',
+              diagramType: 'solid_geometry_sphere',
+              diagramTypes: ['solid_geometry_sphere', 'distance_3d_box'],
               titleEn: '3D Rectangular Coordinates & The Sphere Equation',
               titleAr: 'النظام الإحداثي المتعامد في الفراغ ومعادلة الكرة',
               summaryEn: 'Understanding 3D axes ($X, Y, Z$), coordinate planes ($XY$, $YZ$, $XZ$), distance between points in 3D, and standard & general equations of a sphere.',
@@ -2085,6 +2089,7 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
           lessons: [
             {
               id: 'solid_l2',
+              diagramType: 'coplanar_vectors_3d',
               titleEn: 'Straight Lines in 3D Space & Spatial Angles',
               titleAr: 'معادلة الخط المستقيم في الفراغ والزوايا الفراغية',
               summaryEn: 'Vector, parametric, and symmetric Cartesian equations of lines, direction cosines $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$, angle between two lines, parallel and perpendicular conditions, and skew lines.',
@@ -2403,6 +2408,8 @@ $$d = \frac{\|\vec{AP} \times \vec{d}\|}{\|\vec{d}\|}$$
             },
             {
               id: 'solid_l3',
+              diagramType: 'line_plane_angle_3d',
+              diagramTypes: ['line_plane_angle_3d', 'plane_intercepts_3d'],
               titleEn: 'Equations of a Plane in 3D Space & Distance Metrics',
               titleAr: 'معادلة المستوى في الفراغ وحساب الأبعاد',
               summaryEn: 'General, vector, and intercept forms of a plane equation $Ax + By + Cz + D = 0$, normal vector $\\vec{n}$, perpendicular distance from point to plane $L = \\frac{|Ax_1 + By_1 + Cz_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$, and angle between planes.',

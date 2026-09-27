@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type { Lesson, Branch, SolvedProblem, Curriculum } from '../types/curriculum';
+import type { Lesson, Branch, SolvedProblem, Curriculum, DiagramType } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
@@ -169,10 +169,16 @@ export const LessonView: React.FC<Props> = ({
   const [worksheetViewMode, setWorksheetViewMode] = useState<'single' | 'list'>('single');
   const [worksheetActiveIdx, setWorksheetActiveIdx] = useState<number>(0);
 
+  const [activeTheoryDiagramIdx, setActiveTheoryDiagramIdx] = useState<number>(0);
+
   // Reset pagination index when difficulty or filter changes
   useEffect(() => {
     setDatabankActiveIdx(0);
   }, [databankDifficulty, filterBookmarkedOnly]);
+
+  useEffect(() => {
+    setActiveTheoryDiagramIdx(0);
+  }, [lesson.id]);
 
   // Global Keyboard Navigation (Arrow Keys) for Paged Questions
   useEffect(() => {
@@ -2080,14 +2086,48 @@ export const LessonView: React.FC<Props> = ({
 
             {/* Official Textbook Figure in Theory if available */}
             {(() => {
-              const diag =
-                lesson.worksheet?.problems?.find((p) => p.diagramType)?.diagramType ||
-                chapterSolvedExamples?.find((p) => p.diagramType)?.diagramType ||
-                chapterExerciseProblems?.find((p) => p.diagramType)?.diagramType;
-              if (!diag) return null;
+              const diagList: DiagramType[] = [];
+              if (lesson.diagramTypes && lesson.diagramTypes.length > 0) {
+                diagList.push(...lesson.diagramTypes);
+              } else if (lesson.diagramType) {
+                diagList.push(lesson.diagramType);
+              } else {
+                const fromProb =
+                  lesson.worksheet?.problems?.find((p) => p.diagramType)?.diagramType ||
+                  chapterSolvedExamples?.find((p) => p.diagramType)?.diagramType ||
+                  chapterExerciseProblems?.find((p) => p.diagramType)?.diagramType;
+                if (fromProb) diagList.push(fromProb);
+              }
+              const uniqueDiags = Array.from(new Set(diagList));
+              if (uniqueDiags.length === 0) return null;
+
+              const currentDiag = uniqueDiags[activeTheoryDiagramIdx] || uniqueDiags[0];
+
               return (
-                <div className="pt-2 border-t border-slate-800/40">
-                  <TextbookDiagram type={diag} lang={lang} />
+                <div className="pt-2 border-t border-slate-800/40 space-y-3">
+                  {uniqueDiags.length > 1 && (
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                      <span className="text-xs font-bold text-slate-400 shrink-0">
+                        {lang === 'ar' ? 'الرسوم التوضيحية:' : 'Textbook Figures:'}
+                      </span>
+                      {uniqueDiags.map((dType, idx) => (
+                        <button
+                          key={dType}
+                          onClick={() => setActiveTheoryDiagramIdx(idx)}
+                          className={`px-3 py-1 text-xs font-bold rounded-lg transition-all shrink-0 ${
+                            activeTheoryDiagramIdx === idx
+                              ? 'bg-cyan-600 text-white shadow-xs'
+                              : isLight
+                              ? 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+                              : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                          }`}
+                        >
+                          {lang === 'ar' ? `الشكل ${idx + 1}` : `Figure ${idx + 1}`}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  <TextbookDiagram type={currentDiag} lang={lang} />
                 </div>
               );
             })()}
