@@ -15,6 +15,8 @@ import {
   Sparkles,
   Users,
   X,
+  Layers,
+  LayoutList,
 } from 'lucide-react';
 import { EgyptFlag } from './EgyptFlag';
 import { toHindiDigits } from '../utils/arabicNumerals';
@@ -54,6 +56,8 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
   // Navigation State
   const [activeModuleIndex, setActiveModuleIndex] = useState<number>(0);
   const [activeView, setActiveView] = useState<'study' | 'quiz' | 'certificate'>('study');
+  const [quizViewMode, setQuizViewMode] = useState<'single' | 'list'>('single');
+  const [currentQuizIdx, setCurrentQuizIdx] = useState<number>(0);
 
   // Progress State
   const [moduleScores, setModuleScores] = useState<Record<string, number>>({});
@@ -83,6 +87,30 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
   }, [isOpen]);
 
   const activeModule: CertificationModule = TEACHER_CERTIFICATION_MODULES[activeModuleIndex];
+
+  // Keyboard navigation for single quiz question viewport
+  useEffect(() => {
+    if (!isOpen || activeView !== 'quiz' || quizViewMode !== 'single') return;
+    const totalQuizQuestions = activeModule.quiz.length;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === 'ArrowRight') {
+        if (isAr) {
+          setCurrentQuizIdx((prev) => Math.max(0, prev - 1));
+        } else {
+          setCurrentQuizIdx((prev) => Math.min(totalQuizQuestions - 1, prev + 1));
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (isAr) {
+          setCurrentQuizIdx((prev) => Math.min(totalQuizQuestions - 1, prev + 1));
+        } else {
+          setCurrentQuizIdx((prev) => Math.max(0, prev - 1));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, activeView, quizViewMode, activeModule.quiz.length, isAr]);
 
   // Evaluate Overall Progress
   const progress = evaluateCertificationProgress(moduleScores);
@@ -126,6 +154,7 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
   const handleRetakeQuiz = () => {
     setQuizAnswers({});
     setQuizSubmitted(false);
+    setCurrentQuizIdx(0);
   };
 
   // Finalize Official Accreditation
@@ -557,7 +586,10 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
                     </button>
 
                     <button
-                      onClick={() => setActiveView('quiz')}
+                      onClick={() => {
+                        setActiveView('quiz');
+                        setCurrentQuizIdx(0);
+                      }}
                       className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-950 font-bold text-xs hover:opacity-95 transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2"
                     >
                       <span>{isAr ? 'الانتقال لاختبار الوحدة (٥ أسئلة)' : 'Take Module Quiz'}</span>
@@ -569,91 +601,302 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
 
               {/* View 2: Quiz Mode */}
               {activeView === 'quiz' && (
-                <div className="space-y-6 animate-in fade-in duration-150">
-                  <div className="space-y-4">
-                    {activeModule.quiz.map((q, qIndex) => {
-                      const selectedIdx = quizAnswers[q.id];
-                      const isCorrect = selectedIdx === q.correctIndex;
+                <div className="space-y-5 animate-in fade-in duration-150">
+                  {/* Quiz Header & Jumper Card */}
+                  <div className="p-4 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3">
+                    <div className="flex flex-wrap items-center justify-between gap-3">
+                      <div className="space-y-0.5">
+                        <span className="text-[11px] text-amber-400 font-bold block">
+                          {isAr ? 'اختبار تقييم الوحدة التدريبية:' : 'Module Assessment Quiz:'}
+                        </span>
+                        <h4 className="text-sm font-bold text-white">
+                          {formatNum(activeModule.number)}. {isAr ? activeModule.titleAr : activeModule.titleEn}
+                        </h4>
+                      </div>
 
-                      return (
-                        <div
-                          key={q.id}
-                          className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3"
-                        >
-                          <div className="flex items-start justify-between gap-3">
-                            <span className="text-xs font-bold text-amber-400">
-                              {isAr ? `السؤال ${formatNum(qIndex + 1)}:` : `Question ${qIndex + 1}:`}
-                            </span>
-                            {quizSubmitted && (
-                              <span
-                                className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
-                                  isCorrect
-                                    ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/40'
-                                    : 'bg-rose-950 text-rose-400 border border-rose-500/40'
-                                }`}
-                              >
-                                {isCorrect ? (isAr ? 'صحيح ✓' : 'Correct') : (isAr ? 'غير صحيح ✕' : 'Incorrect')}
+                      {/* Mode Toggle & Progress */}
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center bg-slate-900 border border-slate-700/80 rounded-xl p-1 text-xs">
+                          <button
+                            type="button"
+                            onClick={() => setQuizViewMode('single')}
+                            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-bold transition-all ${
+                              quizViewMode === 'single'
+                                ? 'bg-amber-500 text-slate-950 shadow-xs'
+                                : 'text-slate-400 hover:text-slate-200'
+                            }`}
+                          >
+                            <Layers className="w-3.5 h-3.5" />
+                            <span>{isAr ? 'سؤال لكل شاشة' : 'Single'}</span>
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => setQuizViewMode('list')}
+                            className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-bold transition-all ${
+                              quizViewMode === 'list'
+                                ? 'bg-amber-500 text-slate-950 shadow-xs'
+                                : 'text-slate-400 hover:text-slate-200'
+                            }`}
+                          >
+                            <LayoutList className="w-3.5 h-3.5" />
+                            <span>{isAr ? 'قائمة كاملة' : 'List'}</span>
+                          </button>
+                        </div>
+
+                        <span className="text-xs font-mono font-bold text-slate-300 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">
+                          {formatNum(Object.keys(quizAnswers).length)} / {formatNum(activeModule.quiz.length)}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Question Jumper Palette */}
+                    <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2 overflow-x-auto pb-1">
+                      <span className="text-[11px] font-bold text-slate-400 shrink-0">
+                        {isAr ? 'الانتقال المباشر للسؤال:' : 'Jump to:'}
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        {activeModule.quiz.map((q, idx) => {
+                          const isCurrent = quizViewMode === 'single' && currentQuizIdx === idx;
+                          const isAnswered = typeof quizAnswers[q.id] === 'number';
+                          const isCorrect = quizAnswers[q.id] === q.correctIndex;
+
+                          let pillClasses = 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800';
+                          if (quizSubmitted) {
+                            if (isCorrect) {
+                              pillClasses = 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
+                            } else {
+                              pillClasses = 'bg-rose-950/80 border-rose-500 text-rose-300 font-bold';
+                            }
+                          } else if (isCurrent) {
+                            pillClasses = 'bg-amber-500 border-amber-400 text-slate-950 font-black shadow-md ring-2 ring-amber-400/40';
+                          } else if (isAnswered) {
+                            pillClasses = 'bg-amber-950/70 border-amber-500/50 text-amber-300 font-bold';
+                          }
+
+                          return (
+                            <button
+                              key={q.id}
+                              type="button"
+                              onClick={() => {
+                                setCurrentQuizIdx(idx);
+                                if (quizViewMode !== 'single') setQuizViewMode('single');
+                              }}
+                              className={`w-8 h-8 rounded-xl border text-xs font-mono flex items-center justify-center transition-all ${pillClasses}`}
+                              title={`${isAr ? 'سؤال' : 'Question'} ${idx + 1}`}
+                            >
+                              {formatNum(idx + 1)}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* SINGLE QUESTION VIEWPORT */}
+                  {quizViewMode === 'single' && (
+                    <div className="space-y-4 animate-in fade-in duration-150">
+                      {(() => {
+                        const q = activeModule.quiz[currentQuizIdx];
+                        if (!q) return null;
+                        const selectedIdx = quizAnswers[q.id];
+                        const isCorrect = selectedIdx === q.correctIndex;
+
+                        return (
+                          <div
+                            key={q.id}
+                            className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3.5"
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <span className="text-xs font-bold text-amber-400">
+                                {isAr
+                                  ? `السؤال ${formatNum(currentQuizIdx + 1)} من ${formatNum(activeModule.quiz.length)}:`
+                                  : `Question ${currentQuizIdx + 1} of ${activeModule.quiz.length}:`}
                               </span>
+                              {quizSubmitted && (
+                                <span
+                                  className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full ${
+                                    isCorrect
+                                      ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/40'
+                                      : 'bg-rose-950 text-rose-400 border border-rose-500/40'
+                                  }`}
+                                >
+                                  {isCorrect ? (isAr ? 'صحيح ✓' : 'Correct') : (isAr ? 'غير صحيح ✕' : 'Incorrect')}
+                                </span>
+                              )}
+                            </div>
+
+                            <p className="text-sm sm:text-base font-semibold text-white leading-relaxed">
+                              {isAr ? q.questionAr : q.questionEn}
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+                              {(isAr ? q.optionsAr : q.optionsEn).map((opt, optIdx) => {
+                                const isSelected = selectedIdx === optIdx;
+                                let btnClasses =
+                                  'p-3.5 rounded-xl text-xs sm:text-sm text-right border transition-all flex items-center justify-between gap-2.5 ';
+
+                                if (quizSubmitted) {
+                                  if (optIdx === q.correctIndex) {
+                                    btnClasses +=
+                                      'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
+                                  } else if (isSelected && !isCorrect) {
+                                    btnClasses +=
+                                      'bg-rose-950/80 border-rose-500 text-rose-300';
+                                  } else {
+                                    btnClasses +=
+                                      'bg-slate-900/50 border-slate-800 text-slate-500 opacity-60';
+                                  }
+                                } else {
+                                  if (isSelected) {
+                                    btnClasses +=
+                                      'bg-amber-500/20 border-amber-500 text-amber-300 font-bold ring-1 ring-amber-500/40';
+                                  } else {
+                                    btnClasses +=
+                                      'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-slate-700';
+                                  }
+                                }
+
+                                return (
+                                  <button
+                                    key={optIdx}
+                                    disabled={quizSubmitted}
+                                    onClick={() => handleSelectOption(q.id, optIdx)}
+                                    className={btnClasses}
+                                  >
+                                    <span>{opt}</span>
+                                    {quizSubmitted && optIdx === q.correctIndex && (
+                                      <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                                    )}
+                                  </button>
+                                );
+                              })}
+                            </div>
+
+                            {/* Rationale explanation when submitted */}
+                            {quizSubmitted && (
+                              <div className="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 text-xs sm:text-sm text-slate-300 space-y-1 mt-3">
+                                <span className="font-bold text-amber-400 block">
+                                  {isAr ? 'التوضيح البيداغوجي:' : 'Pedagogical Rationale:'}
+                                </span>
+                                <p className="leading-relaxed">{isAr ? q.rationaleAr : q.rationaleEn}</p>
+                              </div>
+                            )}
+
+                            {/* Navigation Bar inside Question Card */}
+                            <div className="mt-4 pt-3.5 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                              <button
+                                type="button"
+                                onClick={() => setCurrentQuizIdx((prev) => Math.max(0, prev - 1))}
+                                disabled={currentQuizIdx === 0}
+                                className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-200 text-xs font-bold flex items-center gap-1.5 transition-all"
+                              >
+                                <ChevronRight className="w-4 h-4 rtl:rotate-0 rotate-180" />
+                                <span>{isAr ? 'السؤال السابق' : 'Previous'}</span>
+                              </button>
+
+                              <button
+                                type="button"
+                                onClick={() => setCurrentQuizIdx((prev) => Math.min(activeModule.quiz.length - 1, prev + 1))}
+                                disabled={currentQuizIdx === activeModule.quiz.length - 1}
+                                className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 disabled:opacity-40 disabled:cursor-not-allowed text-slate-950 text-xs font-bold flex items-center gap-1.5 transition-all shadow-md shadow-amber-500/20"
+                              >
+                                <span>{isAr ? 'السؤال التالي' : 'Next'}</span>
+                                <ChevronLeft className="w-4 h-4 rtl:rotate-0 rotate-180" />
+                              </button>
+                            </div>
+                          </div>
+                        );
+                      })()}
+                    </div>
+                  )}
+
+                  {/* LIST VIEWPORT (Continuous Scroll) */}
+                  {quizViewMode === 'list' && (
+                    <div className="space-y-4 animate-in fade-in duration-150">
+                      {activeModule.quiz.map((q, qIndex) => {
+                        const selectedIdx = quizAnswers[q.id];
+                        const isCorrect = selectedIdx === q.correctIndex;
+
+                        return (
+                          <div
+                            key={q.id}
+                            className="p-5 rounded-2xl bg-slate-950/70 border border-slate-800 space-y-3"
+                          >
+                            <div className="flex items-start justify-between gap-3">
+                              <span className="text-xs font-bold text-amber-400">
+                                {isAr ? `السؤال ${formatNum(qIndex + 1)}:` : `Question ${qIndex + 1}:`}
+                              </span>
+                              {quizSubmitted && (
+                                <span
+                                  className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
+                                    isCorrect
+                                      ? 'bg-emerald-950 text-emerald-400 border border-emerald-500/40'
+                                      : 'bg-rose-950 text-rose-400 border border-rose-500/40'
+                                  }`}
+                                >
+                                  {isCorrect ? (isAr ? 'صحيح ✓' : 'Correct') : (isAr ? 'غير صحيح ✕' : 'Incorrect')}
+                                </span>
+                              )}
+                            </div>
+
+                            <p className="text-xs sm:text-sm font-semibold text-white">
+                              {isAr ? q.questionAr : q.questionEn}
+                            </p>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                              {(isAr ? q.optionsAr : q.optionsEn).map((opt, optIdx) => {
+                                const isSelected = selectedIdx === optIdx;
+                                let btnClasses =
+                                  'p-3 rounded-xl text-xs text-right border transition-all ';
+
+                                if (quizSubmitted) {
+                                  if (optIdx === q.correctIndex) {
+                                    btnClasses +=
+                                      'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
+                                  } else if (isSelected && !isCorrect) {
+                                    btnClasses +=
+                                      'bg-rose-950/80 border-rose-500 text-rose-300';
+                                  } else {
+                                    btnClasses +=
+                                      'bg-slate-900/50 border-slate-800 text-slate-500 opacity-60';
+                                  }
+                                } else {
+                                  if (isSelected) {
+                                    btnClasses +=
+                                      'bg-amber-500/20 border-amber-500 text-amber-300 font-bold';
+                                  } else {
+                                    btnClasses +=
+                                      'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-slate-700';
+                                  }
+                                }
+
+                                return (
+                                  <button
+                                    key={optIdx}
+                                    disabled={quizSubmitted}
+                                    onClick={() => handleSelectOption(q.id, optIdx)}
+                                    className={btnClasses}
+                                  >
+                                    {opt}
+                                  </button>
+                                );
+                              })}
+                            </div>
+
+                            {/* Rationale explanation when submitted */}
+                            {quizSubmitted && (
+                              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1">
+                                <span className="font-bold text-amber-400 block">
+                                  {isAr ? 'التوضيح البيداغوجي:' : 'Pedagogical Rationale:'}
+                                </span>
+                                <p>{isAr ? q.rationaleAr : q.rationaleEn}</p>
+                              </div>
                             )}
                           </div>
-
-                          <p className="text-xs sm:text-sm font-semibold text-white">
-                            {isAr ? q.questionAr : q.questionEn}
-                          </p>
-
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                            {(isAr ? q.optionsAr : q.optionsEn).map((opt, optIdx) => {
-                              const isSelected = selectedIdx === optIdx;
-                              let btnClasses =
-                                'p-3 rounded-xl text-xs text-right border transition-all ';
-
-                              if (quizSubmitted) {
-                                if (optIdx === q.correctIndex) {
-                                  btnClasses +=
-                                    'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
-                                } else if (isSelected && !isCorrect) {
-                                  btnClasses +=
-                                    'bg-rose-950/80 border-rose-500 text-rose-300';
-                                } else {
-                                  btnClasses +=
-                                    'bg-slate-900/50 border-slate-800 text-slate-500 opacity-60';
-                                }
-                              } else {
-                                if (isSelected) {
-                                  btnClasses +=
-                                    'bg-amber-500/20 border-amber-500 text-amber-300 font-bold';
-                                } else {
-                                  btnClasses +=
-                                    'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800 hover:border-slate-700';
-                                }
-                              }
-
-                              return (
-                                <button
-                                  key={optIdx}
-                                  disabled={quizSubmitted}
-                                  onClick={() => handleSelectOption(q.id, optIdx)}
-                                  className={btnClasses}
-                                >
-                                  {opt}
-                                </button>
-                              );
-                            })}
-                          </div>
-
-                          {/* Rationale explanation when submitted */}
-                          {quizSubmitted && (
-                            <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 space-y-1">
-                              <span className="font-bold text-amber-400 block">
-                                {isAr ? 'التوضيح البيداغوجي:' : 'Pedagogical Rationale:'}
-                              </span>
-                              <p>{isAr ? q.rationaleAr : q.rationaleEn}</p>
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  )}
 
                   {/* Quiz Action Bar */}
                   <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex items-center justify-between gap-3">
@@ -682,6 +925,7 @@ export const TeacherCertificationModal: React.FC<TeacherCertificationModalProps>
                                 setActiveView('study');
                                 setQuizSubmitted(false);
                                 setQuizAnswers({});
+                                setCurrentQuizIdx(0);
                               }}
                               className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold flex items-center gap-1.5 shadow-lg shadow-amber-500/20"
                             >

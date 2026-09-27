@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Language } from '../../i18n/translations';
 import {
   X,
@@ -9,6 +9,10 @@ import {
   FileCheck,
   Check,
   FlaskConical,
+  ChevronLeft,
+  ChevronRight,
+  Layers,
+  LayoutList,
 } from 'lucide-react';
 import { EgyptFlag } from '../EgyptFlag';
 import { MathRenderer } from '../MathRenderer';
@@ -49,6 +53,34 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
   const [selectedAnswers, setSelectedAnswers] = useState<Record<string, number>>({});
   const [evaluationResult, setEvaluationResult] = useState<PostLabEvaluationResult | null>(null);
   const [reportInjected, setReportInjected] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<'single' | 'list'>('single');
+  const [currentQuestionIdx, setCurrentQuestionIdx] = useState<number>(0);
+
+  const answeredCount = Object.keys(selectedAnswers).length;
+  const totalCount = assessmentSet.questions.length;
+  const isComplete = answeredCount === totalCount;
+
+  useEffect(() => {
+    if (!isOpen || viewMode !== 'single') return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === 'ArrowRight') {
+        if (isAr) {
+          setCurrentQuestionIdx((prev) => Math.max(0, prev - 1));
+        } else {
+          setCurrentQuestionIdx((prev) => Math.min(totalCount - 1, prev + 1));
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (isAr) {
+          setCurrentQuestionIdx((prev) => Math.min(totalCount - 1, prev + 1));
+        } else {
+          setCurrentQuestionIdx((prev) => Math.max(0, prev - 1));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, viewMode, totalCount, isAr]);
 
   if (!isOpen) return null;
 
@@ -64,6 +96,7 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
     setSelectedAnswers({});
     setEvaluationResult(null);
     setReportInjected(false);
+    setCurrentQuestionIdx(0);
   };
 
   const handleSubmit = () => {
@@ -79,10 +112,6 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
     injectAssessmentIntoLabReport(experimentId, evaluationResult);
     setReportInjected(true);
   };
-
-  const answeredCount = Object.keys(selectedAnswers).length;
-  const totalCount = assessmentSet.questions.length;
-  const isComplete = answeredCount === totalCount;
 
   const formatNum = (val: string | number) => (isAr ? toHindiDigits(val) : String(val));
 
@@ -160,21 +189,96 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
         </div>
 
         {/* Modal Body */}
-        <div className="p-4 sm:p-6 space-y-6 max-h-[75vh] overflow-y-auto">
-          {/* Lab Header Card */}
-          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 flex items-center justify-between">
-            <div className="space-y-0.5">
-              <span className="text-[11px] text-amber-400 font-bold block">
-                {isAr ? 'التجربة المحددة للتقييم:' : 'Target Experiment:'}
-              </span>
-              <h3 className="text-sm sm:text-base font-bold text-white">
-                {isAr ? assessmentSet.labTitleAr : assessmentSet.labTitleEn}
-              </h3>
+        <div className="p-4 sm:p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+          {/* Lab Header & Navigation Controls Card */}
+          <div className="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div className="space-y-0.5">
+                <span className="text-[11px] text-amber-400 font-bold block">
+                  {isAr ? 'التجربة المحددة للتقييم:' : 'Target Experiment:'}
+                </span>
+                <h3 className="text-sm sm:text-base font-bold text-white">
+                  {isAr ? assessmentSet.labTitleAr : assessmentSet.labTitleEn}
+                </h3>
+              </div>
+
+              {/* View Mode Toggle */}
+              <div className="flex items-center gap-2">
+                <div className="flex items-center bg-slate-900 border border-slate-700/80 rounded-xl p-1 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('single')}
+                    className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-bold transition-all ${
+                      viewMode === 'single'
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>{isAr ? 'سؤال لكل شاشة' : 'Single'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setViewMode('list')}
+                    className={`flex items-center gap-1 px-2.5 py-1 rounded-lg font-bold transition-all ${
+                      viewMode === 'list'
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    <LayoutList className="w-3.5 h-3.5" />
+                    <span>{isAr ? 'قائمة كاملة' : 'List'}</span>
+                  </button>
+                </div>
+
+                <div className="text-left rtl:text-right">
+                  <span className="text-xs font-mono font-bold text-slate-400 block px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">
+                    {formatNum(answeredCount)} / {formatNum(totalCount)} {isAr ? 'مكتمل' : 'answered'}
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="text-left rtl:text-right">
-              <span className="text-xs font-mono font-bold text-slate-400 block">
-                {formatNum(answeredCount)} / {formatNum(totalCount)} {isAr ? 'مكتمل' : 'answered'}
+
+            {/* Question Jumper Palette */}
+            <div className="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2 overflow-x-auto pb-1">
+              <span className="text-[11px] font-bold text-slate-400 shrink-0">
+                {isAr ? 'الانتقال السريع للسؤال:' : 'Jump to:'}
               </span>
+              <div className="flex items-center gap-1.5">
+                {assessmentSet.questions.map((q, idx) => {
+                  const isCurrent = viewMode === 'single' && currentQuestionIdx === idx;
+                  const isAnswered = typeof selectedAnswers[q.id] === 'number';
+                  const isCorrect = evaluationResult ? selectedAnswers[q.id] === q.correctIndex : null;
+
+                  let pillClasses = 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800';
+                  if (evaluationResult) {
+                    if (isCorrect) {
+                      pillClasses = 'bg-emerald-950/80 border-emerald-500 text-emerald-300 font-bold';
+                    } else {
+                      pillClasses = 'bg-rose-950/80 border-rose-500 text-rose-300 font-bold';
+                    }
+                  } else if (isCurrent) {
+                    pillClasses = 'bg-indigo-600 border-indigo-400 text-white font-black shadow-md ring-2 ring-indigo-400/40';
+                  } else if (isAnswered) {
+                    pillClasses = 'bg-indigo-950/70 border-indigo-500/50 text-indigo-300 font-bold';
+                  }
+
+                  return (
+                    <button
+                      key={q.id}
+                      type="button"
+                      onClick={() => {
+                        setCurrentQuestionIdx(idx);
+                        if (viewMode !== 'single') setViewMode('single');
+                      }}
+                      className={`w-8 h-8 rounded-xl border text-xs font-mono flex items-center justify-center transition-all ${pillClasses}`}
+                      title={`${isAr ? 'سؤال' : 'Question'} ${idx + 1}`}
+                    >
+                      {formatNum(idx + 1)}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
@@ -230,103 +334,246 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
             </div>
           )}
 
-          {/* Inquiry Questions List */}
-          <div className="space-y-5">
-            {assessmentSet.questions.map((q, qIndex) => {
-              const selectedIdx = selectedAnswers[q.id];
-              const isCorrect = evaluationResult ? selectedIdx === q.correctIndex : null;
+          {/* SINGLE QUESTION VIEWPORT */}
+          {viewMode === 'single' && (
+            <div className="space-y-4 animate-in fade-in duration-150">
+              {(() => {
+                const q = assessmentSet.questions[currentQuestionIdx];
+                if (!q) return null;
+                const selectedIdx = selectedAnswers[q.id];
+                const isCorrect = evaluationResult ? selectedIdx === q.correctIndex : null;
 
-              return (
-                <div
-                  key={q.id}
-                  className={`p-5 rounded-2xl border transition-all ${
-                    isLight
-                      ? 'bg-white border-slate-200'
-                      : 'bg-slate-950/70 border-slate-800 hover:border-slate-700'
-                  }`}
-                >
-                  {/* Category Pill & Question Number */}
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                      {isAr ? q.categoryTitleAr : q.categoryTitleEn}
-                    </span>
-                    <span className="text-xs font-bold text-slate-400">
-                      {isAr ? `سؤال ${formatNum(qIndex + 1)}` : `Q${qIndex + 1}`} ({formatNum(q.points)} {isAr ? 'نقاط' : 'pts'})
-                    </span>
-                  </div>
-
-                  {/* Question Prompt */}
-                  <div className="text-xs sm:text-sm font-semibold text-white mb-3 leading-relaxed">
-                    <MathRenderer text={isAr ? q.questionAr : q.questionEn} inline={true} lang={lang} />
-                  </div>
-
-                  {/* Options */}
-                  <div className="grid grid-cols-1 gap-2">
-                    {(isAr ? q.optionsAr : q.optionsEn).map((optText, optIdx) => {
-                      const isChosen = selectedIdx === optIdx;
-                      let optionClasses = '';
-
-                      if (evaluationResult) {
-                        if (optIdx === q.correctIndex) {
-                          optionClasses = 'bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold';
-                        } else if (isChosen && !isCorrect) {
-                          optionClasses = 'bg-rose-950/80 border-rose-500 text-rose-300';
-                        } else {
-                          optionClasses = 'bg-slate-900/40 border-slate-800 text-slate-500 opacity-60';
-                        }
-                      } else {
-                        if (isChosen) {
-                          optionClasses = 'bg-indigo-600/20 border-indigo-500 text-indigo-200 font-semibold shadow-xs';
-                        } else {
-                          optionClasses = 'bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800/60';
-                        }
-                      }
-
-                      return (
-                        <button
-                          key={optIdx}
-                          type="button"
-                          onClick={() => handleSelectOption(q.id, optIdx)}
-                          className={`p-3 rounded-xl border text-xs text-left rtl:text-right flex items-center justify-between gap-3 transition-all ${optionClasses}`}
-                        >
-                          <div className="flex items-center gap-2.5">
-                            <span className="w-5 h-5 rounded-full border flex items-center justify-center font-mono text-[10px] shrink-0">
-                              {String.fromCharCode(65 + optIdx)}
-                            </span>
-                            <span>
-                              <MathRenderer text={optText} inline={true} lang={lang} />
-                            </span>
-                          </div>
-
-                          {evaluationResult && optIdx === q.correctIndex && (
-                            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                          )}
-                          {evaluationResult && isChosen && !isCorrect && (
-                            <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Rationale & KaTeX Explanation (After Submission) */}
-                  {evaluationResult && (
-                    <div className="mt-3 p-3 rounded-xl bg-slate-900 border border-indigo-500/20 text-xs space-y-1 animate-in fade-in duration-150">
-                      <span className="font-bold text-amber-400 block">
-                        {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
+                return (
+                  <div
+                    key={q.id}
+                    className={`p-5 rounded-2xl border transition-all ${
+                      isLight
+                        ? 'bg-white border-slate-200'
+                        : 'bg-slate-950/70 border-slate-800'
+                    }`}
+                  >
+                    {/* Category Pill & Question Number */}
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                        {isAr ? q.categoryTitleAr : q.categoryTitleEn}
                       </span>
-                      <p className="text-slate-300 leading-relaxed">
-                        <MathRenderer text={isAr ? q.explanationAr : q.explanationEn} inline={true} lang={lang} />
-                      </p>
+                      <span className="text-xs font-bold text-amber-400">
+                        {isAr
+                          ? `السؤال ${formatNum(currentQuestionIdx + 1)} من ${formatNum(totalCount)}`
+                          : `Question ${currentQuestionIdx + 1} of ${totalCount}`} ({formatNum(q.points)} {isAr ? 'نقاط' : 'pts'})
+                      </span>
                     </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
 
-          {/* Submit Action Bar */}
-          {!evaluationResult && (
+                    {/* Question Prompt */}
+                    <div className="text-sm sm:text-base font-semibold text-white mb-4 leading-relaxed">
+                      <MathRenderer text={isAr ? q.questionAr : q.questionEn} inline={true} lang={lang} />
+                    </div>
+
+                    {/* Options */}
+                    <div className="grid grid-cols-1 gap-2.5">
+                      {(isAr ? q.optionsAr : q.optionsEn).map((optText, optIdx) => {
+                        const isChosen = selectedIdx === optIdx;
+                        let optionClasses = '';
+
+                        if (evaluationResult) {
+                          if (optIdx === q.correctIndex) {
+                            optionClasses = 'bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold';
+                          } else if (isChosen && !isCorrect) {
+                            optionClasses = 'bg-rose-950/80 border-rose-500 text-rose-300';
+                          } else {
+                            optionClasses = 'bg-slate-900/40 border-slate-800 text-slate-500 opacity-60';
+                          }
+                        } else {
+                          if (isChosen) {
+                            optionClasses = 'bg-indigo-600/25 border-indigo-500 text-indigo-200 font-semibold shadow-xs ring-1 ring-indigo-500/40';
+                          } else {
+                            optionClasses = 'bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800/60';
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={optIdx}
+                            type="button"
+                            onClick={() => handleSelectOption(q.id, optIdx)}
+                            className={`p-3.5 rounded-xl border text-xs sm:text-sm text-left rtl:text-right flex items-center justify-between gap-3 transition-all ${optionClasses}`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <span className="w-6 h-6 rounded-full border flex items-center justify-center font-mono text-xs shrink-0 bg-slate-800/80">
+                                {String.fromCharCode(65 + optIdx)}
+                              </span>
+                              <span>
+                                <MathRenderer text={optText} inline={true} lang={lang} />
+                              </span>
+                            </div>
+
+                            {evaluationResult && optIdx === q.correctIndex && (
+                              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                            )}
+                            {evaluationResult && isChosen && !isCorrect && (
+                              <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Rationale & KaTeX Explanation (After Submission) */}
+                    {evaluationResult && (
+                      <div className="mt-4 p-3.5 rounded-xl bg-slate-900 border border-indigo-500/20 text-xs sm:text-sm space-y-1.5 animate-in fade-in duration-150">
+                        <span className="font-bold text-amber-400 block">
+                          {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
+                        </span>
+                        <p className="text-slate-300 leading-relaxed">
+                          <MathRenderer text={isAr ? q.explanationAr : q.explanationEn} inline={true} lang={lang} />
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Single Viewport Navigation Footer */}
+                    <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setCurrentQuestionIdx((prev) => Math.max(0, prev - 1))}
+                        disabled={currentQuestionIdx === 0}
+                        className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-200 text-xs font-bold flex items-center gap-1.5 transition-all"
+                      >
+                        <ChevronRight className="w-4 h-4 rtl:rotate-0 rotate-180" />
+                        <span>{isAr ? 'السؤال السابق' : 'Previous'}</span>
+                      </button>
+
+                      <div className="flex items-center gap-2">
+                        {!evaluationResult && (
+                          <button
+                            type="button"
+                            onClick={handleSubmit}
+                            disabled={!isComplete}
+                            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md ${
+                              isComplete
+                                ? 'bg-gradient-to-r from-emerald-600 to-teal-500 text-white hover:opacity-95 shadow-emerald-600/20'
+                                : 'bg-slate-800 text-slate-500 cursor-not-allowed opacity-60'
+                            }`}
+                          >
+                            {isAr ? 'تصحيح الاختبار' : 'Evaluate'}
+                          </button>
+                        )}
+
+                        <button
+                          type="button"
+                          onClick={() => setCurrentQuestionIdx((prev) => Math.min(totalCount - 1, prev + 1))}
+                          disabled={currentQuestionIdx === totalCount - 1}
+                          className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed text-white text-xs font-bold flex items-center gap-1.5 transition-all shadow-md shadow-indigo-600/20"
+                        >
+                          <span>{isAr ? 'السؤال التالي' : 'Next'}</span>
+                          <ChevronLeft className="w-4 h-4 rtl:rotate-0 rotate-180" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          )}
+
+          {/* LIST VIEWPORT (Continuous Scroll) */}
+          {viewMode === 'list' && (
+            <div className="space-y-5 animate-in fade-in duration-150">
+              {assessmentSet.questions.map((q, qIndex) => {
+                const selectedIdx = selectedAnswers[q.id];
+                const isCorrect = evaluationResult ? selectedIdx === q.correctIndex : null;
+
+                return (
+                  <div
+                    key={q.id}
+                    className={`p-5 rounded-2xl border transition-all ${
+                      isLight
+                        ? 'bg-white border-slate-200'
+                        : 'bg-slate-950/70 border-slate-800 hover:border-slate-700'
+                    }`}
+                  >
+                    {/* Category Pill & Question Number */}
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                        {isAr ? q.categoryTitleAr : q.categoryTitleEn}
+                      </span>
+                      <span className="text-xs font-bold text-slate-400">
+                        {isAr ? `سؤال ${formatNum(qIndex + 1)}` : `Q${qIndex + 1}`} ({formatNum(q.points)} {isAr ? 'نقاط' : 'pts'})
+                      </span>
+                    </div>
+
+                    {/* Question Prompt */}
+                    <div className="text-xs sm:text-sm font-semibold text-white mb-3 leading-relaxed">
+                      <MathRenderer text={isAr ? q.questionAr : q.questionEn} inline={true} lang={lang} />
+                    </div>
+
+                    {/* Options */}
+                    <div className="grid grid-cols-1 gap-2">
+                      {(isAr ? q.optionsAr : q.optionsEn).map((optText, optIdx) => {
+                        const isChosen = selectedIdx === optIdx;
+                        let optionClasses = '';
+
+                        if (evaluationResult) {
+                          if (optIdx === q.correctIndex) {
+                            optionClasses = 'bg-emerald-950/80 border-emerald-500 text-emerald-200 font-bold';
+                          } else if (isChosen && !isCorrect) {
+                            optionClasses = 'bg-rose-950/80 border-rose-500 text-rose-300';
+                          } else {
+                            optionClasses = 'bg-slate-900/40 border-slate-800 text-slate-500 opacity-60';
+                          }
+                        } else {
+                          if (isChosen) {
+                            optionClasses = 'bg-indigo-600/20 border-indigo-500 text-indigo-200 font-semibold shadow-xs';
+                          } else {
+                            optionClasses = 'bg-slate-900/50 border-slate-800 text-slate-300 hover:bg-slate-800/60';
+                          }
+                        }
+
+                        return (
+                          <button
+                            key={optIdx}
+                            type="button"
+                            onClick={() => handleSelectOption(q.id, optIdx)}
+                            className={`p-3 rounded-xl border text-xs text-left rtl:text-right flex items-center justify-between gap-3 transition-all ${optionClasses}`}
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <span className="w-5 h-5 rounded-full border flex items-center justify-center font-mono text-[10px] shrink-0">
+                                {String.fromCharCode(65 + optIdx)}
+                              </span>
+                              <span>
+                                <MathRenderer text={optText} inline={true} lang={lang} />
+                              </span>
+                            </div>
+
+                            {evaluationResult && optIdx === q.correctIndex && (
+                              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                            )}
+                            {evaluationResult && isChosen && !isCorrect && (
+                              <XCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Rationale & KaTeX Explanation (After Submission) */}
+                    {evaluationResult && (
+                      <div className="mt-3 p-3 rounded-xl bg-slate-900 border border-indigo-500/20 text-xs space-y-1 animate-in fade-in duration-150">
+                        <span className="font-bold text-amber-400 block">
+                          {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
+                        </span>
+                        <p className="text-slate-300 leading-relaxed">
+                          <MathRenderer text={isAr ? q.explanationAr : q.explanationEn} inline={true} lang={lang} />
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Submit Action Bar in List View */}
+          {viewMode === 'list' && !evaluationResult && (
             <div className="pt-2 flex items-center justify-between">
               <span className="text-xs text-slate-400">
                 {isComplete
