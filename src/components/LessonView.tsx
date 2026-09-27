@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Lesson, Branch, SolvedProblem, Curriculum } from '../types/curriculum';
 import type { Language, UserRole } from '../i18n/translations';
 import { translations } from '../i18n/translations';
@@ -20,6 +20,7 @@ import { Interactive3DInductionStudio } from './Interactive3DInductionStudio';
 import { PhysicsLab, type PhysicsTab } from './labs/PhysicsLab';
 import { ChemistryLab } from './labs/ChemistryLab';
 import { BiologyLab, type BioTab } from './labs/BiologyLab';
+import { MathLab, type MathTab } from './labs/MathLab';
 import { EnglishLessonInteractiveWidget } from './EnglishLessonInteractiveWidget';
 import { FrenchAudioStudio } from './labs/FrenchAudioStudio';
 import { ArabicGrammarStudio } from './labs/ArabicGrammarStudio';
@@ -49,7 +50,7 @@ import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
-import { Printer, ChevronDown, ChevronUp, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2, FileText, Languages } from 'lucide-react';
+import { Printer, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, ListFilter, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2, FileText, Languages } from 'lucide-react';
 import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
 import {
   getOfficialBookByBranch,
@@ -155,6 +156,68 @@ export const LessonView: React.FC<Props> = ({
     });
   };
 
+  // Global Question Bank One-Per-Screen Paging Navigation States
+  const [databankViewMode, setDatabankViewMode] = useState<'single' | 'list'>('single');
+  const [databankActiveIdx, setDatabankActiveIdx] = useState<number>(0);
+
+  const [exerciseViewMode, setExerciseViewMode] = useState<'single' | 'list'>('single');
+  const [exerciseActiveIdx, setExerciseActiveIdx] = useState<number>(0);
+
+  const [solvedExamplesViewMode, setSolvedExamplesViewMode] = useState<'single' | 'list'>('single');
+  const [solvedExamplesActiveIdx, setSolvedExamplesActiveIdx] = useState<number>(0);
+
+  const [worksheetViewMode, setWorksheetViewMode] = useState<'single' | 'list'>('single');
+  const [worksheetActiveIdx, setWorksheetActiveIdx] = useState<number>(0);
+
+  // Reset pagination index when difficulty or filter changes
+  useEffect(() => {
+    setDatabankActiveIdx(0);
+  }, [databankDifficulty, filterBookmarkedOnly]);
+
+  // Global Keyboard Navigation (Arrow Keys) for Paged Questions
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) {
+        return;
+      }
+      if (activeSubTab === 'databank' && databankViewMode === 'single') {
+        if (e.key === 'ArrowRight') {
+          if (lang === 'ar') setDatabankActiveIdx((prev) => Math.max(0, prev - 1));
+          else setDatabankActiveIdx((prev) => prev + 1);
+        } else if (e.key === 'ArrowLeft') {
+          if (lang === 'ar') setDatabankActiveIdx((prev) => prev + 1);
+          else setDatabankActiveIdx((prev) => Math.max(0, prev - 1));
+        }
+      } else if (activeSubTab === 'exerciseProblems' && exerciseViewMode === 'single') {
+        if (e.key === 'ArrowRight') {
+          if (lang === 'ar') setExerciseActiveIdx((prev) => Math.max(0, prev - 1));
+          else setExerciseActiveIdx((prev) => prev + 1);
+        } else if (e.key === 'ArrowLeft') {
+          if (lang === 'ar') setExerciseActiveIdx((prev) => prev + 1);
+          else setExerciseActiveIdx((prev) => Math.max(0, prev - 1));
+        }
+      } else if (activeSubTab === 'solvedExamples' && solvedExamplesViewMode === 'single') {
+        if (e.key === 'ArrowRight') {
+          if (lang === 'ar') setSolvedExamplesActiveIdx((prev) => Math.max(0, prev - 1));
+          else setSolvedExamplesActiveIdx((prev) => prev + 1);
+        } else if (e.key === 'ArrowLeft') {
+          if (lang === 'ar') setSolvedExamplesActiveIdx((prev) => prev + 1);
+          else setSolvedExamplesActiveIdx((prev) => Math.max(0, prev - 1));
+        }
+      } else if (activeSubTab === 'worksheet' && worksheetViewMode === 'single') {
+        if (e.key === 'ArrowRight') {
+          if (lang === 'ar') setWorksheetActiveIdx((prev) => Math.max(0, prev - 1));
+          else setWorksheetActiveIdx((prev) => prev + 1);
+        } else if (e.key === 'ArrowLeft') {
+          if (lang === 'ar') setWorksheetActiveIdx((prev) => prev + 1);
+          else setWorksheetActiveIdx((prev) => Math.max(0, prev - 1));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeSubTab, databankViewMode, exerciseViewMode, solvedExamplesViewMode, worksheetViewMode, lang]);
+
   // Chapter-level data bindings
   const currentChapter = branch.chapters.find((c) => c.lessons.some((l) => l.id === lesson.id)) || branch.chapters[0];
   const currentChapterScope = currentChapter?.trackScope || getChapterTrackScope(branch.id, currentChapter?.id || '');
@@ -248,6 +311,53 @@ export const LessonView: React.FC<Props> = ({
         initialTab = 'anatomy_atlas';
       }
       return <BiologyLab lang={lang} theme={theme} initialTab={initialTab} />;
+    }
+
+    const bId = branch.id as string;
+    if (
+      bId === 'calculus' ||
+      bId === 'statics' ||
+      bId === 'dynamics' ||
+      bId === 'algebra_solid' ||
+      bId.includes('math') ||
+      bId.includes('calc') ||
+      bId.includes('stat') ||
+      bId.includes('dyn') ||
+      bId.includes('algebra') ||
+      bId.includes('mechanics') ||
+      bId.includes('geometry') ||
+      bId.includes('vectors')
+    ) {
+      let initialTab: MathTab = 'calculus';
+      if (wType === '3d_vectors' || lesson.id.startsWith('solid_') || bId.includes('vector') || bId.includes('solid')) {
+        initialTab = 'geometry3d';
+      } else if (wType === 'complex_argand' || lesson.id === 'alg_l3' || lesson.id === 'alg_l4') {
+        initialTab = 'complex';
+      } else if (wType === 'matrix_solver' || lesson.id === 'alg_l5' || lesson.id === 'alg_l6') {
+        initialTab = 'matrix';
+      } else if (wType === 'pascal_binomial' || lesson.id === 'alg_l1' || lesson.id === 'alg_l2') {
+        initialTab = 'pascal';
+      } else if (wType === 'statics_friction' || bId === 'statics' || bId.includes('static')) {
+        initialTab = 'mechanics';
+      } else if (wType === 'dynamics_motion' || wType === 'work_energy' || bId === 'dynamics' || bId.includes('dyn') || bId.includes('mech')) {
+        initialTab = 'mechanics';
+      } else if (lesson.id === 'calc_l7' || wType === 'volumes_revolution') {
+        initialTab = 'volumes_revolution';
+      } else if (lesson.id === 'calc_l5' || lesson.id === 'calc_l4' || wType === 'related_rates_optimization') {
+        initialTab = 'related_rates_optimization';
+      } else if (bId.includes('statist') || wType === 'normal_distribution') {
+        initialTab = 'probability';
+      } else {
+        initialTab = 'calculus';
+      }
+      return (
+        <MathLab
+          lang={lang}
+          theme={theme}
+          initialTab={initialTab}
+          onOpenDesmos={() => onOpenDesmos?.(is3D ? '3d' : '2d')}
+        />
+      );
     }
 
     const widgetComponent = (() => {
@@ -1967,6 +2077,81 @@ export const LessonView: React.FC<Props> = ({
             }`}>
               <MathRenderer math={lang === 'ar' ? lesson.theoryContentAr : lesson.theoryContentEn} lang={lang} />
             </div>
+
+            {/* Official Textbook Figure in Theory if available */}
+            {(() => {
+              const diag =
+                lesson.worksheet?.problems?.find((p) => p.diagramType)?.diagramType ||
+                chapterSolvedExamples?.find((p) => p.diagramType)?.diagramType ||
+                chapterExerciseProblems?.find((p) => p.diagramType)?.diagramType;
+              if (!diag) return null;
+              return (
+                <div className="pt-2 border-t border-slate-800/40">
+                  <TextbookDiagram type={diag} lang={lang} />
+                </div>
+              );
+            })()}
+
+            {/* Pedagogical Insights: Common Traps & Core Terminology */}
+            {(lesson.lessonPlan?.commonMisconceptionsAr?.length ||
+              lesson.lessonPlan?.commonMisconceptionsEn?.length ||
+              lesson.lessonPlan?.keyVocabularyAr?.length ||
+              lesson.lessonPlan?.keyVocabularyEn?.length) && (
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4 border-t border-slate-800/40">
+                {/* Exam Traps & Misconceptions */}
+                {(lesson.lessonPlan?.commonMisconceptionsAr?.length || lesson.lessonPlan?.commonMisconceptionsEn?.length) && (
+                  <div className={`p-4 sm:p-5 rounded-2xl border ${
+                    isLight
+                      ? 'bg-amber-50/70 border-amber-200 text-amber-950 shadow-xs'
+                      : 'bg-amber-950/20 border-amber-800/40 text-amber-200 shadow-xs'
+                  }`}>
+                    <div className="flex items-center gap-2 mb-3 pb-2 border-b border-amber-500/20">
+                      <span className="text-amber-500 font-bold text-base">⚠️</span>
+                      <h4 className="text-sm font-bold text-amber-600 dark:text-amber-400">
+                        {lang === 'ar' ? 'فخاخ الامتحانات والمفاهيم الخاطئة الشائعة' : 'Exam Traps & Common Misconceptions'}
+                      </h4>
+                    </div>
+                    <ul className="space-y-2 text-xs leading-relaxed list-disc list-inside">
+                      {(lang === 'ar'
+                        ? lesson.lessonPlan.commonMisconceptionsAr || lesson.lessonPlan.commonMisconceptionsEn
+                        : lesson.lessonPlan.commonMisconceptionsEn
+                      )?.map((mis, mIdx) => (
+                        <li key={mIdx} className="text-amber-900/90 dark:text-amber-300/90">
+                          {mis}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Core Vocabulary & Axioms */}
+                {(lesson.lessonPlan?.keyVocabularyAr?.length || lesson.lessonPlan?.keyVocabularyEn?.length) && (
+                  <div className={`p-4 sm:p-5 rounded-2xl border ${
+                    isLight
+                      ? 'bg-indigo-50/70 border-indigo-200 text-indigo-950 shadow-xs'
+                      : 'bg-indigo-950/20 border-indigo-800/40 text-indigo-200 shadow-xs'
+                  }`}>
+                    <div className="flex items-center gap-2 mb-3 pb-2 border-b border-indigo-500/20">
+                      <span className="text-indigo-500 font-bold text-base">💡</span>
+                      <h4 className="text-sm font-bold text-indigo-600 dark:text-indigo-400">
+                        {lang === 'ar' ? 'المصطلحات والمفاهيم الرياضية الجوهرية' : 'Core Terminology & Axioms'}
+                      </h4>
+                    </div>
+                    <div className="space-y-2">
+                      {(lang === 'ar'
+                        ? lesson.lessonPlan.keyVocabularyAr || lesson.lessonPlan.keyVocabularyEn
+                        : lesson.lessonPlan.keyVocabularyEn
+                      )?.map((v, vIdx) => (
+                        <div key={vIdx} className="text-xs">
+                          <span className="font-bold text-indigo-700 dark:text-indigo-300">{v.term}: </span>
+                          <span className="text-slate-700 dark:text-slate-300">{v.definition}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Essential Formulas Sheet */}
@@ -2049,30 +2234,140 @@ export const LessonView: React.FC<Props> = ({
                   : `Official model solved examples from the Ministry textbook for (${currentChapter.titleEn}) with complete step-by-step reasoning.`}
               </p>
             </div>
-            <button
-              onClick={() => window.print()}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start"
-            >
-              <Printer className="w-4 h-4" />
-              <span>{t.printWorksheet}</span>
-            </button>
+            <div className="flex items-center gap-2 self-start flex-wrap no-print">
+              {chapterSolvedExamples.length > 1 && (
+                <button
+                  onClick={() => setSolvedExamplesViewMode((prev) => (prev === 'single' ? 'list' : 'single'))}
+                  className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                    solvedExamplesViewMode === 'single'
+                      ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                      : isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-700 hover:text-slate-900'
+                      : 'bg-slate-950 border-slate-800 text-slate-300 hover:text-white'
+                  }`}
+                  title={lang === 'ar' ? 'التبديل بين مثال لكل شاشة وعرض الكل' : 'Toggle between single example per screen and list view'}
+                >
+                  {solvedExamplesViewMode === 'single' ? <Layers className="w-3.5 h-3.5" /> : <ListFilter className="w-3.5 h-3.5" />}
+                  <span>{solvedExamplesViewMode === 'single' ? (lang === 'ar' ? 'مثال لكل شاشة' : 'One per Screen') : (lang === 'ar' ? 'عرض الكل بالتمرير' : 'Scroll All')}</span>
+                </button>
+              )}
+              <button
+                onClick={() => window.print()}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start cursor-pointer"
+              >
+                <Printer className="w-4 h-4" />
+                <span>{t.printWorksheet}</span>
+              </button>
+            </div>
           </div>
 
-          <div className="space-y-6">
-            {chapterSolvedExamples.length > 0 ? (
-              chapterSolvedExamples.map((prob, idx) =>
+          {chapterSolvedExamples.length === 0 ? (
+            <div className="p-8 text-center text-slate-400">
+              {lang === 'ar' ? 'جاري تجهيز أمثلة هذا الفصل...' : 'Solved examples for this chapter are being compiled...'}
+            </div>
+          ) : solvedExamplesViewMode === 'single' ? (
+            (() => {
+              const safeIdx = Math.min(Math.max(0, solvedExamplesActiveIdx), chapterSolvedExamples.length - 1);
+              const currentProb = chapterSolvedExamples[safeIdx];
+              return (
+                <div className="space-y-6">
+                  {/* Quick-Jump Example Strip */}
+                  {chapterSolvedExamples.length > 1 && (
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-2 pt-1 no-scrollbar border-b border-slate-800/60 no-print">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap shrink-0">
+                        {lang === 'ar' ? 'انتقال سريع للأمثلة:' : 'Jump to Example:'}
+                      </span>
+                      {chapterSolvedExamples.map((ex, idx) => {
+                        const isActive = idx === safeIdx;
+                        const isBm = !!bookmarkedProblems[ex.id];
+                        return (
+                          <button
+                            key={ex.id}
+                            onClick={() => setSolvedExamplesActiveIdx(idx)}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-bold shrink-0 transition-all flex items-center justify-center relative cursor-pointer ${
+                              isActive
+                                ? 'ring-2 ring-indigo-400 bg-indigo-600 text-white shadow-md scale-105'
+                                : isBm
+                                ? 'bg-amber-950/70 text-amber-300 border border-amber-500/60'
+                                : isLight
+                                ? 'bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200'
+                                : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white'
+                            }`}
+                          >
+                            <span>{lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}</span>
+                            {isBm && !isActive && (
+                              <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400 ring-1 ring-slate-950" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Single Active Problem Card */}
+                  <div className="print-hide-on-screen">
+                    {renderProblemCard(
+                      currentProb,
+                      safeIdx,
+                      lang === 'ar' ? `مثال كتاب الوزارة المحلول (${toHindiDigits(safeIdx + 1)})` : `MoE Solved Example (${safeIdx + 1})`
+                    )}
+                  </div>
+
+                  {/* Bottom Navigation Pager */}
+                  {chapterSolvedExamples.length > 1 && (
+                    <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-800/80 no-print flex-wrap">
+                      <button
+                        disabled={safeIdx <= 0}
+                        onClick={() => setSolvedExamplesActiveIdx(safeIdx - 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 active:scale-95"
+                      >
+                        {lang === 'ar' ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                        <span>{lang === 'ar' ? 'المثال السابق' : 'Previous Example'}</span>
+                      </button>
+
+                      <div className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                          {lang === 'ar'
+                            ? `المثال ${toHindiDigits(safeIdx + 1)} من ${toHindiDigits(chapterSolvedExamples.length)}`
+                            : `Example ${safeIdx + 1} of ${chapterSolvedExamples.length}`}
+                        </span>
+                      </div>
+
+                      <button
+                        disabled={safeIdx >= chapterSolvedExamples.length - 1}
+                        onClick={() => setSolvedExamplesActiveIdx(safeIdx + 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-600/30 active:scale-95"
+                      >
+                        <span>{lang === 'ar' ? 'المثال التالي' : 'Next Example'}</span>
+                        {lang === 'ar' ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Print-Only Sheet: All Examples Rendered when Printing */}
+                  <div className="hidden print:block space-y-6">
+                    {chapterSolvedExamples.map((prob, idx) =>
+                      renderProblemCard(
+                        prob,
+                        idx,
+                        lang === 'ar' ? `مثال كتاب الوزارة المحلول (${toHindiDigits(idx + 1)})` : `MoE Solved Example (${idx + 1})`
+                      )
+                    )}
+                  </div>
+                </div>
+              );
+            })()
+          ) : (
+            <div className="space-y-6">
+              {chapterSolvedExamples.map((prob, idx) =>
                 renderProblemCard(
                   prob,
                   idx,
                   lang === 'ar' ? `مثال كتاب الوزارة المحلول (${toHindiDigits(idx + 1)})` : `MoE Solved Example (${idx + 1})`
                 )
-              )
-            ) : (
-              <div className="p-8 text-center text-slate-400">
-                {lang === 'ar' ? 'جاري تجهيز أمثلة هذا الفصل...' : 'Solved examples for this chapter are being compiled...'}
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -2158,6 +2453,22 @@ export const LessonView: React.FC<Props> = ({
                   )}
                 </>
               )}
+              {chapterExerciseProblems.length > 1 && (
+                <button
+                  onClick={() => setExerciseViewMode((prev) => (prev === 'single' ? 'list' : 'single'))}
+                  className={`no-print px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                    exerciseViewMode === 'single'
+                      ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                      : isLight
+                      ? 'bg-slate-100 border-slate-300 text-slate-700 hover:text-slate-900'
+                      : 'bg-slate-950 border-slate-800 text-slate-300 hover:text-white'
+                  }`}
+                  title={lang === 'ar' ? 'التبديل بين تمرين لكل شاشة وعرض الكل' : 'Toggle between single exercise per screen and list view'}
+                >
+                  {exerciseViewMode === 'single' ? <Layers className="w-3.5 h-3.5" /> : <ListFilter className="w-3.5 h-3.5" />}
+                  <span>{exerciseViewMode === 'single' ? (lang === 'ar' ? 'تمرين لكل شاشة' : 'One per Screen') : (lang === 'ar' ? 'عرض الكل بالتمرير' : 'Scroll All')}</span>
+                </button>
+              )}
               <button
                 onClick={() => window.print()}
                 className="no-print bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg cursor-pointer"
@@ -2168,21 +2479,113 @@ export const LessonView: React.FC<Props> = ({
             </div>
           </div>
 
-          <div className="space-y-6">
-            {chapterExerciseProblems.length > 0 ? (
-              chapterExerciseProblems.map((prob, idx) =>
+          {chapterExerciseProblems.length === 0 ? (
+            <div className="p-8 text-center text-slate-400">
+              {lang === 'ar' ? 'جاري تجهيز تمارين هذا الفصل...' : 'Textbook exercises for this chapter are being compiled...'}
+            </div>
+          ) : exerciseViewMode === 'single' ? (
+            (() => {
+              const safeIdx = Math.min(Math.max(0, exerciseActiveIdx), chapterExerciseProblems.length - 1);
+              const currentProb = chapterExerciseProblems[safeIdx];
+              return (
+                <div className="space-y-6">
+                  {/* Quick-Jump Exercise Strip */}
+                  {chapterExerciseProblems.length > 1 && (
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-2 pt-1 no-scrollbar border-b border-slate-800/60 no-print">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap shrink-0">
+                        {lang === 'ar' ? 'انتقال سريع للتمارين:' : 'Jump to Exercise:'}
+                      </span>
+                      {chapterExerciseProblems.map((ex, idx) => {
+                        const isActive = idx === safeIdx;
+                        const isBm = !!bookmarkedProblems[ex.id];
+                        return (
+                          <button
+                            key={ex.id}
+                            onClick={() => setExerciseActiveIdx(idx)}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-bold shrink-0 transition-all flex items-center justify-center relative cursor-pointer ${
+                              isActive
+                                ? 'ring-2 ring-indigo-400 bg-indigo-600 text-white shadow-md scale-105'
+                                : isBm
+                                ? 'bg-amber-950/70 text-amber-300 border border-amber-500/60'
+                                : isLight
+                                ? 'bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200'
+                                : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white'
+                            }`}
+                          >
+                            <span>{lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}</span>
+                            {isBm && !isActive && (
+                              <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400 ring-1 ring-slate-950" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Single Active Problem Card */}
+                  <div className="print-hide-on-screen">
+                    {renderProblemCard(
+                      currentProb,
+                      safeIdx,
+                      lang === 'ar' ? `تمرين كتاب الوزارة (${toHindiDigits(safeIdx + 1)})` : `Textbook Exercise (${safeIdx + 1})`
+                    )}
+                  </div>
+
+                  {/* Bottom Navigation Pager */}
+                  {chapterExerciseProblems.length > 1 && (
+                    <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-800/80 no-print flex-wrap">
+                      <button
+                        disabled={safeIdx <= 0}
+                        onClick={() => setExerciseActiveIdx(safeIdx - 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 active:scale-95"
+                      >
+                        {lang === 'ar' ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                        <span>{lang === 'ar' ? 'التمرين السابق' : 'Previous Exercise'}</span>
+                      </button>
+
+                      <div className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                          {lang === 'ar'
+                            ? `التمرين ${toHindiDigits(safeIdx + 1)} من ${toHindiDigits(chapterExerciseProblems.length)}`
+                            : `Exercise ${safeIdx + 1} of ${chapterExerciseProblems.length}`}
+                        </span>
+                      </div>
+
+                      <button
+                        disabled={safeIdx >= chapterExerciseProblems.length - 1}
+                        onClick={() => setExerciseActiveIdx(safeIdx + 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-600/30 active:scale-95"
+                      >
+                        <span>{lang === 'ar' ? 'التمرين التالي' : 'Next Exercise'}</span>
+                        {lang === 'ar' ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Print-Only Sheet: All Exercises Rendered when Printing */}
+                  <div className="hidden print:block space-y-6">
+                    {chapterExerciseProblems.map((prob, idx) =>
+                      renderProblemCard(
+                        prob,
+                        idx,
+                        lang === 'ar' ? `تمرين كتاب الوزارة (${toHindiDigits(idx + 1)})` : `Textbook Exercise (${idx + 1})`
+                      )
+                    )}
+                  </div>
+                </div>
+              );
+            })()
+          ) : (
+            <div className="space-y-6">
+              {chapterExerciseProblems.map((prob, idx) =>
                 renderProblemCard(
                   prob,
                   idx,
                   lang === 'ar' ? `تمرين كتاب الوزارة (${toHindiDigits(idx + 1)})` : `Textbook Exercise (${idx + 1})`
                 )
-              )
-            ) : (
-              <div className="p-8 text-center text-slate-400">
-                {lang === 'ar' ? 'جاري تجهيز تمارين هذا الفصل...' : 'Textbook exercises for this chapter are being compiled...'}
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          )}
         </div>
       )}
 
@@ -2257,6 +2660,29 @@ export const LessonView: React.FC<Props> = ({
               >
                 <Star className={`w-3.5 h-3.5 ${filterBookmarkedOnly ? 'fill-black' : ''}`} />
                 <span>{lang === 'ar' ? 'المميزة بنجمة' : 'Starred'}</span>
+              </button>
+
+              <button
+                onClick={() => setDatabankViewMode((prev) => (prev === 'single' ? 'list' : 'single'))}
+                className={`px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                  databankViewMode === 'single'
+                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                    : isLight
+                    ? 'bg-slate-100 border-slate-300 text-slate-700 hover:text-slate-900'
+                    : 'bg-slate-950 border-slate-800 text-slate-300 hover:text-white'
+                }`}
+                title={lang === 'ar' ? 'التبديل بين سؤال لكل شاشة وعرض الكل' : 'Toggle between single question per screen and list view'}
+              >
+                {databankViewMode === 'single' ? <Layers className="w-3.5 h-3.5" /> : <ListFilter className="w-3.5 h-3.5" />}
+                <span>{databankViewMode === 'single' ? (lang === 'ar' ? 'سؤال لكل شاشة' : 'One per Screen') : (lang === 'ar' ? 'عرض الكل بالتمرير' : 'Scroll All')}</span>
+              </button>
+
+              <button
+                onClick={() => window.print()}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-3.5 rounded-xl text-xs flex items-center gap-1.5 shadow-md cursor-pointer"
+              >
+                <Printer className="w-3.5 h-3.5" />
+                <span>{t.printWorksheet}</span>
               </button>
             </div>
           </div>
@@ -2341,14 +2767,104 @@ export const LessonView: React.FC<Props> = ({
                 );
               }
 
+              const getBadge = (idx: number) =>
+                lang === 'ar'
+                  ? `${databankDifficulty === 'easy' ? 'سؤال سهل' : databankDifficulty === 'medium' ? 'سؤال متوسط' : 'سؤال مهارات عليا'} (${toHindiDigits(idx + 1)})`
+                  : `${databankDifficulty === 'easy' ? 'Easy' : databankDifficulty === 'medium' ? 'Medium' : 'HOTS'} Q(${idx + 1})`;
+
+              if (databankViewMode === 'single') {
+                const safeIdx = Math.min(Math.max(0, databankActiveIdx), filtered.length - 1);
+                const currentProb = filtered[safeIdx];
+
+                return (
+                  <div className="space-y-6">
+                    {/* Quick-Jump Question Strip */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-2 pt-1 no-scrollbar border-b border-slate-800/60 no-print">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap shrink-0">
+                        {lang === 'ar' ? 'انتقال سريع للأسئلة:' : 'Jump to Q:'}
+                      </span>
+                      {filtered.map((q, idx) => {
+                        const userChosen = userAnswers[q.id];
+                        const isAns = userChosen !== undefined;
+                        const isCorr = isAns && userChosen === q.correctIndex;
+                        const isWr = isAns && userChosen !== q.correctIndex;
+                        const isBm = !!bookmarkedProblems[q.id];
+                        const isActive = idx === safeIdx;
+
+                        return (
+                          <button
+                            key={q.id}
+                            onClick={() => setDatabankActiveIdx(idx)}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-bold shrink-0 transition-all flex items-center justify-center relative cursor-pointer ${
+                              isActive
+                                ? 'ring-2 ring-indigo-400 bg-indigo-600 text-white shadow-md scale-105'
+                                : isCorr
+                                ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-500/60'
+                                : isWr
+                                ? 'bg-rose-950/80 text-rose-300 border border-rose-500/60'
+                                : isBm
+                                ? 'bg-amber-950/70 text-amber-300 border border-amber-500/60'
+                                : isLight
+                                ? 'bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200'
+                                : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white'
+                            }`}
+                            title={`Question ${idx + 1}`}
+                          >
+                            <span>{lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}</span>
+                            {isBm && !isActive && (
+                              <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-amber-400 ring-1 ring-slate-950" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Single Active Problem Card */}
+                    <div className="print-hide-on-screen">
+                      {renderProblemCard(currentProb, safeIdx, getBadge(safeIdx))}
+                    </div>
+
+                    {/* Bottom Navigation Pager */}
+                    <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-800/80 no-print flex-wrap">
+                      <button
+                        disabled={safeIdx <= 0}
+                        onClick={() => setDatabankActiveIdx(safeIdx - 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 active:scale-95"
+                      >
+                        {lang === 'ar' ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                        <span>{lang === 'ar' ? 'السؤال السابق' : 'Previous Question'}</span>
+                      </button>
+
+                      <div className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                          {lang === 'ar'
+                            ? `السؤال ${toHindiDigits(safeIdx + 1)} من ${toHindiDigits(filtered.length)}`
+                            : `Question ${safeIdx + 1} of ${filtered.length}`}
+                        </span>
+                      </div>
+
+                      <button
+                        disabled={safeIdx >= filtered.length - 1}
+                        onClick={() => setDatabankActiveIdx(safeIdx + 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-600/30 active:scale-95"
+                      >
+                        <span>{lang === 'ar' ? 'السؤال التالي' : 'Next Question'}</span>
+                        {lang === 'ar' ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </button>
+                    </div>
+
+                    {/* Print-Only Container: All questions rendered on paper */}
+                    <div className="hidden print:block space-y-6">
+                      {filtered.map((prob, idx) =>
+                        renderProblemCard(prob, idx, getBadge(idx))
+                      )}
+                    </div>
+                  </div>
+                );
+              }
+
               return filtered.map((prob, idx) =>
-                renderProblemCard(
-                  prob,
-                  idx,
-                  lang === 'ar'
-                    ? `${databankDifficulty === 'easy' ? 'سؤال سهل' : databankDifficulty === 'medium' ? 'سؤال متوسط' : 'سؤال مهارات عليا'} (${toHindiDigits(idx + 1)})`
-                    : `${databankDifficulty === 'easy' ? 'Easy' : databankDifficulty === 'medium' ? 'Medium' : 'HOTS'} Q(${idx + 1})`
-                )
+                renderProblemCard(prob, idx, getBadge(idx))
               );
             })()}
           </div>
@@ -2601,17 +3117,117 @@ export const LessonView: React.FC<Props> = ({
                 <MathRenderer math={lang === 'ar' ? lesson.worksheet.descriptionAr : lesson.worksheet.descriptionEn} lang={lang} />
               </div>
             </div>
-            <button
-              onClick={() => window.print()}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start"
-            >
-              <Printer className="w-4 h-4" />
-              <span>{t.printWorksheet}</span>
-            </button>
+            <div className="flex items-center gap-2 self-start no-print">
+              <button
+                onClick={() => setWorksheetViewMode((prev) => (prev === 'single' ? 'list' : 'single'))}
+                className={`px-3 py-2 rounded-xl text-xs font-bold border flex items-center gap-1.5 transition-all cursor-pointer ${
+                  worksheetViewMode === 'single'
+                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                    : isLight
+                    ? 'bg-slate-100 text-slate-700 border-slate-300 hover:bg-slate-200'
+                    : 'bg-slate-900 text-slate-300 border-slate-700 hover:bg-slate-800'
+                }`}
+                title={lang === 'ar' ? 'تبديل نمط العرض' : 'Toggle view mode'}
+              >
+                {worksheetViewMode === 'single' ? <Layers className="w-3.5 h-3.5" /> : <ListFilter className="w-3.5 h-3.5" />}
+                <span>{worksheetViewMode === 'single' ? (lang === 'ar' ? 'سؤال لكل شاشة' : 'One per Screen') : (lang === 'ar' ? 'عرض الكل بالتمرير' : 'Scroll All')}</span>
+              </button>
+              <button
+                onClick={() => window.print()}
+                className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-lg no-print self-start cursor-pointer"
+              >
+                <Printer className="w-4 h-4" />
+                <span>{t.printWorksheet}</span>
+              </button>
+            </div>
           </div>
 
           <div className="space-y-6">
-            {lesson.worksheet.problems.map((prob, idx) => renderProblemCard(prob, idx))}
+            {(() => {
+              const problems = lesson.worksheet.problems || [];
+              if (problems.length === 0) {
+                return (
+                  <div className="p-8 text-center text-slate-400 text-sm">
+                    {lang === 'ar' ? 'لا توجد أسئلة في ورقة العمل حالياً.' : 'No problems in this worksheet yet.'}
+                  </div>
+                );
+              }
+
+              if (worksheetViewMode === 'single') {
+                const safeIdx = Math.min(Math.max(0, worksheetActiveIdx), problems.length - 1);
+                const currentProb = problems[safeIdx];
+
+                return (
+                  <div className="space-y-6">
+                    {/* Quick-Jump Problem Chips */}
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-2 pt-1 no-scrollbar border-b border-slate-800/60 no-print">
+                      <span className="text-[11px] font-bold text-slate-400 whitespace-nowrap shrink-0">
+                        {lang === 'ar' ? 'انتقال سريع:' : 'Jump to:'}
+                      </span>
+                      {problems.map((p, idx) => {
+                        const isActive = idx === safeIdx;
+                        return (
+                          <button
+                            key={p.id || idx}
+                            onClick={() => setWorksheetActiveIdx(idx)}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg text-xs font-bold shrink-0 transition-all flex items-center justify-center cursor-pointer ${
+                              isActive
+                                ? 'ring-2 ring-indigo-400 bg-indigo-600 text-white shadow-md scale-105'
+                                : isLight
+                                ? 'bg-slate-100 text-slate-700 border border-slate-200 hover:bg-slate-200'
+                                : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white'
+                            }`}
+                          >
+                            <span>{lang === 'ar' ? toHindiDigits(idx + 1) : idx + 1}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Single Active Problem Card */}
+                    <div className="print-hide-on-screen">
+                      {renderProblemCard(currentProb, safeIdx)}
+                    </div>
+
+                    {/* Bottom Navigation Pager */}
+                    <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-800/80 no-print flex-wrap">
+                      <button
+                        disabled={safeIdx <= 0}
+                        onClick={() => setWorksheetActiveIdx(safeIdx - 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 active:scale-95"
+                      >
+                        {lang === 'ar' ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                        <span>{lang === 'ar' ? 'السؤال السابق' : 'Previous Problem'}</span>
+                      </button>
+
+                      <div className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                        <span className="px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                          {lang === 'ar'
+                            ? `السؤال ${toHindiDigits(safeIdx + 1)} من ${toHindiDigits(problems.length)}`
+                            : `Problem ${safeIdx + 1} of ${problems.length}`}
+                        </span>
+                      </div>
+
+                      <button
+                        disabled={safeIdx >= problems.length - 1}
+                        onClick={() => setWorksheetActiveIdx(safeIdx + 1)}
+                        className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-600/30 active:scale-95"
+                      >
+                        <span>{lang === 'ar' ? 'السؤال التالي' : 'Next Problem'}</span>
+                        {lang === 'ar' ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </button>
+                    </div>
+
+                    {/* Print-Only Container: All questions rendered on paper */}
+                    <div className="hidden print:block space-y-6">
+                      {problems.map((prob, idx) => renderProblemCard(prob, idx))}
+                    </div>
+                  </div>
+                );
+              }
+
+              return problems.map((prob, idx) => renderProblemCard(prob, idx));
+            })()}
           </div>
         </div>
       )}

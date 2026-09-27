@@ -32,49 +32,89 @@ export const thanaweyaCalculusBranch: Branch = {
           titleAr: 'اشتقاق الدوال المثلثية',
           summaryEn: 'Derivatives of sin, cos, tan, sec, csc, cot with chain rule applications.',
           summaryAr: 'قواعد اشتقاق جا، جتا، ظا، قا، قتا، ظتا مع تطبيقات قاعدة السلسلة.',
-          theoryContentEn: `### 1. Derivatives of Basic Trigonometric Functions
-For an angle function $u = f(x)$:
-1. $\\frac{d}{dx} [\\sin(u)] = \\cos(u) \\cdot u'$
-2. $\\frac{d}{dx} [\\cos(u)] = -\\sin(u) \\cdot u'$
-3. $\\frac{d}{dx} [\\tan(u)] = \\sec^2(u) \\cdot u'$
-4. $\\frac{d}{dx} [\\sec(u)] = \\sec(u) \\tan(u) \\cdot u'$
-5. $\\frac{d}{dx} [\\csc(u)] = -\\csc(u) \\cot(u) \\cdot u'$
-6. $\\frac{d}{dx} [\\cot(u)] = -\\csc^2(u) \\cdot u'$
+          theoryContentEn: `### 1. Rigorous Foundations & First-Principles Proofs
+The derivative of a function $f(x)$ at $x$ is defined as the infinitesimal limit of the difference quotient:
+$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+Using the fundamental trigonometric limits $\lim_{\theta \to 0} \frac{\sin\theta}{\theta} = 1$ and $\lim_{\theta \to 0} \frac{\cos\theta - 1}{\theta} = 0$:
+- **Sine Derivative Proof:**
+  $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin(x+h) - \sin x}{h} = \lim_{h \to 0} \frac{\sin x \cos h + \cos x \sin h - \sin x}{h} = \cos x$$
+- **Cosine Derivative:** By angle complement $\cos x = \sin(\frac{\pi}{2} - x)$, we have $\frac{d}{dx}[\cos x] = -\sin x$.
+- **Secant Derivative via Quotient Rule:**
+  $$\frac{d}{dx}[\sec x] = \frac{d}{dx}\left[\frac{1}{\cos x}\right] = \frac{0 \cdot \cos x - 1 \cdot (-\sin x)}{\cos^2 x} = \frac{\sin x}{\cos^2 x} = \frac{1}{\cos x} \cdot \frac{\sin x}{\cos x} = \sec x \tan x$$
+- **Cosecant Derivative:**
+  $$\frac{d}{dx}[\csc x] = \frac{d}{dx}\left[\frac{1}{\sin x}\right] = \frac{-\cos x}{\sin^2 x} = -\csc x \cot x$$
+- **Cotangent Derivative:**
+  $$\frac{d}{dx}[\cot x] = \frac{d}{dx}\left[\frac{\cos x}{\sin x}\right] = \frac{(-\sin x)(\sin x) - (\cos x)(\cos x)}{\sin^2 x} = \frac{-(\sin^2 x + \cos^2 x)}{\sin^2 x} = -\csc^2 x$$
 
-### 2. Key Differentiation Theorems & Chain Rule:
-- **Chain Rule for Powers of Functions:**
-  $\\frac{d}{dx} [g(x)]^n = n [g(x)]^{n-1} \\cdot g'(x)$
-  Example: $\\frac{d}{dx} [\\sec^3(2x)] = 3 \\sec^2(2x) \\cdot (\\sec(2x) \\tan(2x) \\cdot 2) = 6 \\sec^3(2x) \\tan(2x)$.
+### 2. Comprehensive Chain Rule for Composite Trigonometric Functions
+When angle $u = u(x)$ is a differentiable function of $x$:
+1. $\frac{d}{dx}[\sin u] = \cos u \cdot \frac{du}{dx}$
+2. $\frac{d}{dx}[\cos u] = -\sin u \cdot \frac{du}{dx}$
+3. $\frac{d}{dx}[\tan u] = \sec^2 u \cdot \frac{du}{dx}$
+4. $\frac{d}{dx}[\sec u] = \sec u \tan u \cdot \frac{du}{dx}$
+5. $\frac{d}{dx}[\csc u] = -\csc u \cot u \cdot \frac{du}{dx}$
+6. $\frac{d}{dx}[\cot u] = -\csc^2 u \cdot \frac{du}{dx}$
 
-### 3. Periodic Nature of Higher-Order Derivatives:
-The derivatives of $\\sin(ax)$ and $\\cos(ax)$ cycle with period 4:
-$y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+1} \\cos(ax)$
+**Power-Chain Composition Rule:**
+$$\frac{d}{dx}[\sec^n(u(x))] = n \sec^{n-1}(u) \cdot (\sec u \tan u \cdot u') = n u' \sec^n(u) \tan(u)$$
 
-### 4. Geometric Meaning: Tangents and Normal Lines:
-- Slope of tangent line at $(x_0, y_0)$ is $m = \\frac{dy}{dx} \\Big|_{(x_0, y_0)}$.
-- Equation of Tangent Line: $y - y_0 = m (x - x_0)$.
-- Equation of Normal Line: $y - y_0 = -\\frac{1}{m} (x - x_0)$ (for $m \\neq 0$).`,
-          theoryContentAr: `### ١. مشتقات الدوال المثلثية الست الأساسية
-لأي دالة في زاوية $u = f(x)$:
-١. $\\frac{d}{dx} [\\sin(u)] = \\cos(u) \\cdot u'$ (مشتقة جا = جتا × مشتقة الزاوية)
-٢. $\\frac{d}{dx} [\\cos(u)] = -\\sin(u) \\cdot u'$ (مشتقة جتا = -جا × مشتقة الزاوية)
-٣. $\\frac{d}{dx} [\\tan(u)] = \\sec^2(u) \\cdot u'$ (مشتقة ظا = قا² × مشتقة الزاوية)
-٤. $\\frac{d}{dx} [\\sec(u)] = \\sec(u) \\tan(u) \\cdot u'$ (مشتقة قا = قا ظا × مشتقة الزاوية)
-٥. $\\frac{d}{dx} [\\csc(u)] = -\\csc(u) \\cot(u) \\cdot u'$ (مشتقة قتا = -قتا ظتا × مشتقة الزاوية)
-٦. $\\frac{d}{dx} [\\cot(u)] = -\\csc^2(u) \\cdot u'$ (مشتقة ظتا = -قتا² × مشتقة الزاوية)
+### 3. Cyclic Periodicity of Higher-Order Trigonometric Derivatives
+For sinusoidal functions $y = \sin(ax + b)$ and $y = \cos(ax + b)$, higher-order derivatives follow a mod-4 cyclic periodicity:
+$$y = \sin(ax + b) \implies y^{(n)} = a^n \sin\left(ax + b + n \frac{\pi}{2}\right)$$
+$$y = \cos(ax + b) \implies y^{(n)} = a^n \cos\left(ax + b + n \frac{\pi}{2}\right)$$
+In particular, the 4th derivative reproduces the original function scaled by $a^4$:
+$$y^{(4k)} = a^{4k} y, \quad y^{(4k+2)} = -a^{4k+2} y$$
 
-### ٢. قاعدة السلسلة ومشتقة قوى الدوال المثلثية:
-- $\\frac{d}{dx} [g(x)]^n = n [g(x)]^{n-1} \\cdot g'(x)$
-  مثال: مشتقة دالة $\\sec^3(2x)$ هي $3\\sec^2(2x) \\cdot (\\sec(2x)\\tan(2x) \\cdot 2) = 6\\sec^3(2x)\\tan(2x)$.
+### 4. Geometric & Physical Interpretations: Tangents and Normals
+- **Slope of the Tangent:** $m = \left.\frac{dy}{dx}\right|_{(x_0, y_0)}$
+- **Tangent Line Equation:** $y - y_0 = m(x - x_0)$
+- **Normal Line Equation:** $y - y_0 = -\frac{1}{m}(x - x_0)$, where $m \neq 0$. (If $m = 0$, tangent is $y = y_0$ and normal is $x = x_0$).
+- **Subtangent Length:** $\left|\frac{y_0}{m}\right|$; **Subnormal Length:** $|y_0 \cdot m|$.
 
-### ٣. الدورة الرباعية للمشتقات ذات الرتب العليا:
-مشتقات دوال الجيب وجيب التمام تتكرر كل ٤ اشتقاقات متتالية:
-$y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+1} \\cos(ax)$
+### 5. Critical Examination Pitfalls & Traps
+- **Degree vs. Radian Pitfall:** Standard calculus derivative rules hold strictly when the angle $x$ is measured in radians. If $x$ is in degrees:
+  $$y = \sin(x^\circ) = \sin\left(\frac{\pi x}{180}\right) \implies \frac{dy}{dx} = \frac{\pi}{180} \cos(x^\circ)$$
+- **Co-Function Sign Rule:** Any trigonometric co-function starting with "co" in English ($\cos, \csc, \cot$) yields an intrinsically negative derivative.`,
+          theoryContentAr: `### ١. الأصول الرياضية والبراهين من المبادئ الأولية
+تُعرف المشتقة الأولى للدالة $f(x)$ بأنها نهاية معدل التغير عندما يقترب التغير في س من الصفر:
+$$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}$$
+باستخدام النهاية المثلثية الأساسية $\lim_{\theta \to 0} \frac{\sin\theta}{\theta} = 1$ و $\lim_{\theta \to 0} \frac{\cos\theta - 1}{\theta} = 0$:
+- **برهان اشتقاق دالة الجيب:**
+  $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin(x+h) - \sin x}{h} = \lim_{h \to 0} \frac{\sin x \cos h + \cos x \sin h - \sin x}{h} = \cos x$$
+- **اشتقاق دالة جيب التمام:** بالزاويتين المتتامتين $\cos x = \sin(\frac{\pi}{2} - x)$، نجد أن $\frac{d}{dx}[\cos x] = -\sin x$.
+- **برهان اشتقاق دالة القاطع (قا) بقاعدة قسمة دالتين:**
+  $$\frac{d}{dx}[\sec x] = \frac{d}{dx}\left[\frac{1}{\cos x}\right] = \frac{0 \cdot \cos x - 1 \cdot (-\sin x)}{\cos^2 x} = \frac{\sin x}{\cos^2 x} = \sec x \tan x$$
+- **اشتقاق دالة قاطع التمام (قتا):**
+  $$\frac{d}{dx}[\csc x] = \frac{d}{dx}\left[\frac{1}{\sin x}\right] = \frac{-\cos x}{\sin^2 x} = -\csc x \cot x$$
+- **اشتقاق دالة ظل التمام (ظتا):**
+  $$\frac{d}{dx}[\cot x] = \frac{d}{dx}\left[\frac{\cos x}{\sin x}\right] = \frac{-\sin^2 x - \cos^2 x}{\sin^2 x} = \frac{-1}{\sin^2 x} = -\csc^2 x$$
 
-### ٤. التطبيقات الهندسية: معادلتا المماس والعمودي:
-- ميل المماس عند نقطة التماس $(x_0, y_0)$ هو $m = \\frac{dy}{dx} \\Big|_{(x_0, y_0)}$.
-- معادلة المماس: $y - y_0 = m (x - x_0)$.
-- معادلة العمودي على المماس: $y - y_0 = -\\frac{1}{m} (x - x_0)$ (حيث $m \\neq 0$).`,
+### ٢. قاعدة السلسلة الشاملة للدوال المثلثية المركبة
+إذا كانت الزاوية $u = u(x)$ قابلة للاشتقاق بالنسبة إلى $x$:
+١. $\frac{d}{dx}[\sin u] = \cos u \cdot u'$ (مشتقة جا = جتا × مشتقة الزاوية)
+٢. $\frac{d}{dx}[\cos u] = -\sin u \cdot u'$ (مشتقة جتا = -جا × مشتقة الزاوية)
+٣. $\frac{d}{dx}[\tan u] = \sec^2 u \cdot u'$ (مشتقة ظا = قا² × مشتقة الزاوية)
+٤. $\frac{d}{dx}[\sec u] = \sec u \tan u \cdot u'$ (مشتقة قا = قا ظا × مشتقة الزاوية)
+٥. $\frac{d}{dx}[\csc u] = -\csc u \cot u \cdot u'$ (مشتقة قتا = -قتا ظتا × مشتقة الزاوية)
+٦. $\frac{d}{dx}[\cot u] = -\csc^2 u \cdot u'$ (مشتقة ظتا = -قتا² × مشتقة الزاوية)
+
+**قاعدة اشتقاق القوى:**
+$$\frac{d}{dx}[\sec^n(u(x))] = n \sec^{n-1}(u) \cdot (\sec u \tan u \cdot u') = n u' \sec^n(u) \tan(u)$$
+
+### ٣. الدورة الرباعية للمشتقات العليا لدوال الجيب وجيب التمام
+تتكرر مشتقات الدوال الجيبية بدورة طولها ٤:
+$$y = \sin(ax + b) \implies y^{(n)} = a^n \sin\left(ax + b + n \frac{\pi}{2}\right)$$
+$$y^{(4k)} = a^{4k} y, \quad y^{(4k+2)} = -a^{4k+2} y$$
+
+### ٤. التطبيقات الهندسية لمعادلتي المماس والعمودي
+- **ميل المماس:** $m = \left.\frac{dy}{dx}\right|_{(x_0, y_0)}$
+- **معادلة المماس:** $y - y_0 = m(x - x_0)$
+- **معادلة العمودي:** $y - y_0 = -\frac{1}{m}(x - x_0)$ (حيث $m \neq 0$).
+
+### ٥. فخاخ امتحانات الثانوية العامة الهامة
+- **القياس الستيني مقابل الدائري:** قواعد التفاضل الرياضي تفترض القياس الدائري (الراديان) حصراً. إذا كان القياس بالدرجات:
+  $$y = \sin(x^\circ) = \sin\left(\frac{\pi x}{180}\right) \implies \frac{dy}{dx} = \frac{\pi}{180} \cos(x^\circ)$$
+- **قاعدة إشارة حرف التاء:** أي دالة تحتوي على حرف (ت) في اسمها العربي (جتا، قتا، ظتا) تكون إشارة مشتقتها سالبة دائماً.`,
           formulas: [
             { labelEn: 'd/dx [sec u]', labelAr: 'مشتقة قا (س)', latex: '\\frac{d}{dx}[\\sec u] = \\sec u \\tan u \\cdot u\'' },
             { labelEn: 'd/dx [csc u]', labelAr: 'مشتقة قتا (س)', latex: '\\frac{d}{dx}[\\csc u] = -\\csc u \\cot u \\cdot u\'' },
@@ -279,69 +319,108 @@ $y = \\sin(ax) \\implies y^{(4k)} = a^{4k} \\sin(ax), \\quad y^{(4k+1)} = a^{4k+
           titleAr: 'العدد النيبيري، النهايات، واشتقاق الدوال الأسية واللوغاريتمية',
           summaryEn: 'Understanding the natural constant $e = \\lim_{x \\to \\infty}(1 + \\frac{1}{x})^x$, essential limits $\\lim_{x \\to 0}\\frac{e^x - 1}{x} = 1$ and $\\lim_{x \\to 0}\\frac{a^x - 1}{x} = \\ln a$, and differentiation rules for $e^{f(x)}$, $a^{f(x)}$, $\\ln(f(x))$, and $\\log_a(f(x))$.',
           summaryAr: 'فهم العدد النيبيري $e = \\lim_{x \\to \\infty}(1 + \\frac{1}{x})^x$، والنهايات القياسية $\\lim_{x \\to 0}\\frac{a^x - 1}{x} = \\ln a$، وقواعد اشتقاق $e^{f(x)}$ و $a^{f(x)}$ و $\\ln(f(x))$ و $\\log_a(f(x))$.',
-          theoryContentEn: `### 1. The Natural Base $e$ (العدد النيبيري):
-The number $e$ (Euler\'s constant, $e \\approx 2.71828$) is defined by the fundamental limit:
-$$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0} (1 + y)^{1/y}$$
-- **General Form:**
-  $$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^{mx} = e^{km}$$
-  $$\\lim_{x \\to 0} (1 + kx)^{m/x} = e^{km}$$
+          theoryContentEn: `### 1. Rigorous Foundations & The Limit Definition of Euler's Constant $e$
+The transcendental constant $e \approx 2.718281828...$ is the unique base for which the exponential function is its own derivative. Historically derived from continuous compound interest $A = \lim_{n \to \infty} P(1 + \frac{r}{n})^{nt}$, Euler formalized $e$ via the fundamental limit:
+$$e = \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = \lim_{y \to 0} (1 + y)^{1/y}$$
+By the Binomial Theorem for real exponents, expanding $(1 + \frac{1}{n})^n$:
+$$\left(1 + \frac{1}{n}\right)^n = 1 + n\left(\frac{1}{n}\right) + \frac{n(n-1)}{2!}\left(\frac{1}{n}\right)^2 + \frac{n(n-1)(n-2)}{3!}\left(\frac{1}{n}\right)^3 + \cdots$$
+$$= 1 + 1 + \frac{1}{2!}\left(1 - \frac{1}{n}\right) + \frac{1}{3!}\left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right) + \cdots$$
+Taking the limit as $n \to \infty$:
+$$e = \sum_{k=0}^{\infty} \frac{1}{k!} = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots \approx 2.71828$$
 
-### 2. Standard Exponential & Logarithmic Limits:
-1. $\\lim_{x \\to 0} \\frac{e^x - 1}{x} = 1$
-2. $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a \\quad (a > 0, \\, a \\neq 1)$
-3. $\\lim_{x \\to 0} \\frac{\\ln(1 + x)}{x} = 1$
-4. $\\lim_{x \\to 0} \\frac{\\log_a(1 + x)}{x} = \\log_a e = \\frac{1}{\\ln a}$
+### 2. Canonical Limits of Exponential & Logarithmic Calculus
+Every standard limit in this unit derives directly from the definition of $e$:
+1. **Generalized Power Limits:**
+   $$\lim_{x \to \infty} \left(1 + \frac{a}{bx}\right)^{cx} = e^{\frac{ac}{b}}, \qquad \lim_{x \to 0} (1 + ax)^{\frac{b}{x}} = e^{ab}$$
+2. **Logarithmic Fundamental Limit Proof:**
+   $$\lim_{x \to 0} \frac{\ln(1 + x)}{x} = \lim_{x \to 0} \ln\left[(1 + x)^{1/x}\right] = \ln\left[\lim_{x \to 0} (1 + x)^{1/x}\right] = \ln(e) = 1$$
+   For base $a$: $\lim_{x \to 0} \frac{\log_a(1 + x)}{x} = \log_a e = \frac{1}{\ln a}$.
+3. **Exponential Fundamental Limit Proof:**
+   Let $y = a^x - 1 \implies a^x = 1 + y \implies x = \log_a(1 + y) = \frac{\ln(1 + y)}{\ln a}$. As $x \to 0$, $y \to 0$:
+   $$\lim_{x \to 0} \frac{a^x - 1}{x} = \lim_{y \to 0} \frac{y}{\frac{\ln(1 + y)}{\ln a}} = \ln a \cdot \lim_{y \to 0} \frac{1}{\frac{\ln(1 + y)}{y}} = \ln a \cdot 1 = \ln a$$
+   In particular, when the base is Euler's constant $e$: $\lim_{x \to 0} \frac{e^x - 1}{x} = \ln e = 1$.
 
-### 3. Derivatives of Exponential Functions:
-- **Natural Exponential Function ($y = e^u$ where $u = f(x)$):**
-  $$\\frac{d}{dx}[e^u] = e^u \\cdot \\frac{du}{dx}$$
-- **General Exponential Function ($y = a^u$ where $u = f(x)$ and $a > 0$):**
-  $$\\frac{d}{dx}[a^u] = a^u \\cdot \\frac{du}{dx} \\cdot \\ln a$$
+### 3. First-Principles Differentiation of Exponentials & Logarithms
+- **Derivative of $y = e^x$ from First Principles:**
+  $$\frac{d}{dx}[e^x] = \lim_{h \to 0} \frac{e^{x+h} - e^x}{h} = e^x \lim_{h \to 0} \frac{e^h - 1}{h} = e^x \cdot 1 = e^x$$
+  *The slope of the tangent to $y = e^x$ at any point $(x_0, y_0)$ is equal to the $y$-coordinate itself ($m = y_0$).*
+- **General Base $y = a^x$:**
+  Expressing $a^x = e^{x \ln a}$ and applying the chain rule:
+  $$\frac{d}{dx}[a^u] = a^u \cdot \frac{du}{dx} \cdot \ln a$$
+- **Natural Logarithm via Inverse Function Theorem:**
+  Since $y = \ln x \iff x = e^y$, implicit differentiation yields:
+  $$1 = e^y \frac{dy}{dx} \implies \frac{dy}{dx} = \frac{1}{e^y} = \frac{1}{x} \implies \frac{d}{dx}[\ln|u|] = \frac{u'}{u}$$
+- **General Logarithm:**
+  $$\frac{d}{dx}[\log_a|u|] = \frac{u'}{u \ln a} = \frac{u'}{u} \log_a e$$
 
-### 4. Derivatives of Logarithmic Functions:
-- **Natural Logarithmic Function ($y = \\ln|u|$):**
-  $$\\frac{d}{dx}[\\ln|u|] = \\frac{1}{u} \\cdot \\frac{du}{dx} = \\frac{u'}{u}$$
-- **General Logarithmic Function ($y = \\log_a|u|$):**
-  $$\\frac{d}{dx}[\\log_a|u|] = \\frac{u'}{u \\ln a} = \\frac{u'}{u} \\log_a e$$
-
-### 5. Logarithmic Differentiation (الاشتقاق اللوغاريتمي):
-Used when a function contains variable base AND variable exponent $y = [f(x)]^{g(x)}$:
-1. Take natural logarithm of both sides: $\\ln y = g(x) \\ln[f(x)]$.
+### 4. Logarithmic Differentiation for Variable-Base, Variable-Exponent Functions
+When differentiating expressions of the form $y = [u(x)]^{v(x)}$ where both base and exponent depend on $x$:
+1. Apply $\ln$ to both sides: $\ln y = v(x) \ln[u(x)]$.
 2. Differentiate implicitly with respect to $x$:
-   $$\\frac{1}{y} \\frac{dy}{dx} = g'(x) \\ln[f(x)] + g(x) \\frac{f'(x)}{f(x)}$$
-3. Multiply both sides by $y$.`,
-          theoryContentAr: `### ١. تعريف العدد النيبيري $e$ كـ نهاية:
-العدد النيبيري (ثابت أويلر $e \\approx 2.71828$) يُعرف بالنهاية الأساسية:
-$$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0} (1 + y)^{1/y}$$
-- **الصورة العامة للتعامل مع الامتحانات:**
-  $$\\lim_{x \\to \\infty} \\left(1 + \\frac{k}{x}\\right)^{mx} = e^{km}$$
-  $$\\lim_{x \\to 0} (1 + kx)^{m/x} = e^{km}$$
+   $$\frac{1}{y} \frac{dy}{dx} = v'(x) \ln[u(x)] + v(x) \frac{u'(x)}{u(x)}$$
+3. Multiply by $y$:
+   $$\frac{dy}{dx} = [u(x)]^{v(x)} \left[ v'(x) \ln(u(x)) + \frac{v(x) u'(x)}{u(x)} \right]$$
+- **Archetypal Exam Example:** $y = x^x \implies \ln y = x \ln x \implies \frac{y'}{y} = \ln x + 1 \implies y' = x^x(1 + \ln x)$.
+  *Stationary point occurs at $1 + \ln x = 0 \implies x = 1/e = e^{-1}$, yielding minimum value $(1/e)^{1/e}$.*
 
-### ٢. النهايات القياسية للدوال الأسية واللوغاريتمية:
-١. $\\lim_{x \\to 0} \\frac{e^x - 1}{x} = 1$
-٢. $\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a = \\log_e a$ (حيث $a > 0, \\, a \\neq 1$)
-٣. $\\lim_{x \\to 0} \\frac{\\ln(1 + x)}{x} = 1$
-٤. $\\lim_{x \\to 0} \\frac{\\log_a(1 + x)}{x} = \\log_a e = \\frac{1}{\\ln a}$
+### 5. Critical Examination Pitfalls & Common Traps
+- **The Tripartite Differentiation Trap:** Never confuse the three distinct power/exponential categories:
+  1. Constant base, variable exponent: $\frac{d}{dx}[2^x] = 2^x \ln 2$ (Exponential rule).
+  2. Variable base, constant exponent: $\frac{d}{dx}[x^2] = 2x$ (Power rule).
+  3. Variable base, variable exponent: $\frac{d}{dx}[x^x] = x^x(1 + \ln x)$ (Logarithmic differentiation only!).
+- **Sign in Absolute Value Logarithm:** The derivative $\frac{d}{dx}[\ln|x|] = \frac{1}{x}$ is valid for all $x \neq 0$. For negative $x$, $\ln(-x)$ differentiates to $\frac{-1}{-x} = \frac{1}{x}$. Do NOT introduce negative signs into the derivative of absolute logs.
+- **Limit Signs:** $\lim_{x \to 0} (1 - kx)^{m/x} = e^{-km}$. Students frequently forget the minus sign inside the binomial term.`,
+          theoryContentAr: `### ١. الأصول الرياضية والبرهان الدقيق لتعريف العدد النيبيري $e$
+العدد النيبيري $e \approx 2.718281828...$ هو ثابت رياضي غير نسبي وأساس اللوغاريتم الطبيعي. نشأ تاريخياً من حساب الفائدة المركبة المستمرة $A = \lim_{n \to \infty} P(1 + \frac{r}{n})^{nt}$، وصاغه أويلر بالنهاية الأساسية:
+$$e = \lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = \lim_{y \to 0} (1 + y)^{1/y}$$
+باستخدام مفكوك نظرية ذات الحدين لأس حقيقي للمقدار $(1 + \frac{1}{n})^n$:
+$$\left(1 + \frac{1}{n}\right)^n = 1 + n\left(\frac{1}{n}\right) + \frac{n(n-1)}{2!}\left(\frac{1}{n}\right)^2 + \frac{n(n-1)(n-2)}{3!}\left(\frac{1}{n}\right)^3 + \cdots$$
+$$= 1 + 1 + \frac{1}{2!}\left(1 - \frac{1}{n}\right) + \frac{1}{3!}\left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right) + \cdots$$
+بأخذ النهاية عندما $n \to \infty$:
+$$e = \sum_{k=0}^{\infty} \frac{1}{k!} = 1 + 1 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots \approx 2.71828$$
 
-### ٣. مشتقات الدوال الأسية:
-- **مشتقة الدالة الأسية الطبيعية ($y = e^u$ حيث $u = f(x)$):**
-  $$\\frac{d}{dx}[e^u] = e^u \\cdot \\frac{du}{dx}$$
-  *(مشتقة الدالة الأسية الطبيعية تساوي الدالة نفسها في مشتقة الأس)*
-- **مشتقة الدالة الأسية لأي أساس ($y = a^u$):**
-  $$\\frac{d}{dx}[a^u] = a^u \\cdot \\frac{du}{dx} \\cdot \\ln a$$
+### ٢. عائلة النهايات القياسية للدوال الأسية واللوغاريتمية
+تُشتق كافة نهايات هذا الباب مباشرة من تعريف $e$:
+١. **الصيغ الأسية العامة للتعامل مع الامتحانات:**
+   $$\lim_{x \to \infty} \left(1 + \frac{a}{bx}\right)^{cx} = e^{\frac{ac}{b}}, \qquad \lim_{x \to 0} (1 + ax)^{\frac{b}{x}} = e^{ab}$$
+٢. **برهان نهاية اللوغاريتم الطبيعي:**
+   $$\lim_{x \to 0} \frac{\ln(1 + x)}{x} = \lim_{x \to 0} \ln\left[(1 + x)^{1/x}\right] = \ln\left[\lim_{x \to 0} (1 + x)^{1/x}\right] = \ln(e) = 1$$
+   للأساس $a$: $\lim_{x \to 0} \frac{\log_a(1 + x)}{x} = \log_a e = \frac{1}{\ln a}$.
+٣. **برهان نهاية الدالة الأسية العامة:**
+   بوضع $y = a^x - 1 \implies a^x = 1 + y \implies x = \frac{\ln(1 + y)}{\ln a}$. عندما $x \to 0$ فإن $y \to 0$:
+   $$\lim_{x \to 0} \frac{a^x - 1}{x} = \lim_{y \to 0} \frac{y}{\frac{\ln(1 + y)}{\ln a}} = \ln a \cdot \lim_{y \to 0} \frac{1}{\frac{\ln(1 + y)}{y}} = \ln a \cdot 1 = \ln a$$
+   وعندما يكون الأساس $e$: $\lim_{x \to 0} \frac{e^x - 1}{x} = \ln e = 1$.
 
-### ٤. مشتقات الدوال اللوغاريتمية:
-- **مشتقة اللوغاريتم الطبيعي ($y = \\ln|u|$):**
-  $$\\frac{d}{dx}[\\ln|u|] = \\frac{u'}{u} = \\frac{\\text{مشتقة الدالة}}{\\text{الدالة نفسها}}$$
-- **مشتقة اللوغاريتم العام ($y = \\log_a|u|$):**
-  $$\\frac{d}{dx}[\\log_a|u|] = \\frac{u'}{u \\ln a}$$
+### ٣. إثبات مشتقات الدوال الأسية واللوغاريتمية من المبادئ الأولية
+- **مشتقة $y = e^x$ من التعريف الأول للمشتقة:**
+  $$\frac{d}{dx}[e^x] = \lim_{h \to 0} \frac{e^{x+h} - e^x}{h} = e^x \lim_{h \to 0} \frac{e^h - 1}{h} = e^x \cdot 1 = e^x$$
+  *ميل مماس منحنى $y = e^x$ عند أي نقطة $(x_0, y_0)$ يساوي تماماً الإحداثي الصادي للنقطة ($m = y_0$).*
+- **مشتقة الدالة الأسية لأي أساس $y = a^u$:**
+  بكتابة $a^u = e^{u \ln a}$ واستخدام قاعدة السلسلة:
+  $$\frac{d}{dx}[a^u] = a^u \cdot u' \cdot \ln a$$
+- **مشتقة اللوغاريتم الطبيعي بنظرية الدالة العكسية:**
+  بما أن $y = \ln x \iff x = e^y$، بالاشتقاق الضمني:
+  $$1 = e^y y' \implies y' = \frac{1}{e^y} = \frac{1}{x} \implies \frac{d}{dx}[\ln|u|] = \frac{u'}{u} = \frac{\text{مشتقة ما بداخل اللوغاريتم}}{\text{ما بداخل اللوغاريتم نفسه}}$$
+- **مشتقة اللوغاريتم العام لأي أساس:**
+  $$\frac{d}{dx}[\log_a|u|] = \frac{u'}{u \ln a} = \frac{u'}{u} \log_a e$$
 
-### ٥. الاشتقاق اللوغاريتمي:
-نلجأ للاشتقاق اللوغاريتمي عندما يكون الأساس دالة والأس دالة أخرى مثل $y = [f(x)]^{g(x)}$:
-١. نأخذ اللوغاريتم الطبيعي للطرفين: $\\ln y = g(x) \\ln[f(x)]$.
-٢. نشتق الطرفين ضمنياً بالنسبة لـ $x$:
-   $$\\frac{1}{y} \\frac{dy}{dx} = g'(x) \\ln[f(x)] + g(x) \\frac{f'(x)}{f(x)}$$
-٣. نضرب الطرفين في $y$ للوصول إلى $\\frac{dy}{dx}$.`,
+### ٤. الاشتقاق اللوغاريتمي لدوال (أس متغير وأساس متغير)
+عند اشتقاق $y = [u(x)]^{v(x)}$:
+١. نأخذ اللوغاريتم الطبيعي للطرفين: $\ln y = v(x) \ln[u(x)]$.
+٢. نشتق ضمنياً بالنسبة لـ $x$:
+   $$\frac{1}{y} \frac{dy}{dx} = v'(x) \ln[u(x)] + v(x) \frac{u'(x)}{u(x)}$$
+٣. نضرب في $y$:
+   $$\frac{dy}{dx} = [u(x)]^{v(x)} \left[ v'(x) \ln(u(x)) + \frac{v(x) u'(x)}{u(x)} \right]$$
+- **المثال الامتحاني الشهير:** $y = x^x \implies y' = x^x(1 + \ln x)$.
+  *النقطة الحرجة تحدث عند $1 + \ln x = 0 \implies x = 1/e$، وقيمتها الصغرى المحلية هي $(1/e)^{1/e}$.*
+
+### ٥. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ التمييز بين أنواع الدوال الثلاث:**
+  ١. أساس ثابت وأس متغير ($2^x$): مشتقته $2^x \ln 2$ (قاعدة الدالة الأسية).
+  ٢. أساس متغير وأس ثابت ($x^2$): مشتقته $2x$ (قاعدة القوى).
+  ٣. أساس متغير وأس متغير ($x^x$): لا تطبق أياً منهما، بل تستخدم الاشتقاق اللوغاريتمي حصراً.
+- **إشارة مقياس اللوغاريتم:** مشتقة $\ln|x| = \frac{1}{x}$ صحيحة لكل $x \neq 0$. حتى لو كان $x$ سالباً، فإن $\frac{d}{dx}[\ln(-x)] = \frac{-1}{-x} = \frac{1}{x}$. إياك ووضع إشارة سالبة في ناتج مشتقة لوغاريتم المقياس.
+- **إشارات المقدار الثنائي:** $\lim_{x \to 0} (1 - kx)^{m/x} = e^{-km}$. ينتبه الطالب جيداً لإشارة السالب بين الحدين.`,
           formulas: [
             { labelEn: 'Euler Constant Limit Definition', labelAr: 'تعريف العدد النيبيري كـ نهاية', latex: 'e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x' },
             { labelEn: 'General Exponential Limit', labelAr: 'نهاية الدالة الأسية العامة', latex: '\\lim_{x \\to 0} \\frac{a^x - 1}{x} = \\ln a' },
@@ -579,59 +658,110 @@ $$e = \\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = \\lim_{y \\to 0
           titleAr: 'تكامل الدوال الأسية واللوغاريتمية والكسور',
           summaryEn: 'Integral rules for exponential functions $\\int e^{f(x)} f\'(x) \\, dx = e^{f(x)} + C$, the fundamental logarithmic quotient rule $\\int \\frac{f\'(x)}{f(x)} \\, dx = \\ln|f(x)| + C$, and trigonometric integrals via $\\ln$.',
           summaryAr: 'قواعد تكامل الدوال الأسية $\\int e^{f(x)} f\'(x) dx = e^{f(x)} + C$، وقاعدة تكامل بسط مشتقة المقام $\\int \\frac{f\'(x)}{f(x)} dx = \\ln|f(x)| + C$، وتكاملات الدوال المثلثية باللوغاريتم.',
-          theoryContentEn: `### 1. Integration of Exponential Functions:
+          theoryContentEn: `### 1. Rigorous Foundations & The Power-Rule Anomaly ($n = -1$)
+The fundamental theorem of calculus establishes that integration is the inverse operation of differentiation:
+$$\frac{d}{dx}[F(x)] = f(x) \iff \int f(x) \, dx = F(x) + C$$
+For any power function $x^n$, the power rule states $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$. However, this formula produces a division by zero when $n = -1$. The unique anti-derivative of $x^{-1} = \frac{1}{x}$ is the natural logarithm:
+$$\int \frac{1}{x} \, dx = \ln|x| + C$$
+- **Rigorous Domain Justification for Absolute Value $|x|$:**
+  For $x > 0$: $\frac{d}{dx}[\ln(x)] = \frac{1}{x}$.
+  For $x < 0$: By the chain rule, $\frac{d}{dx}[\ln(-x)] = \frac{1}{-x} \cdot (-1) = \frac{1}{x}$.
+  Thus, $\ln|x|$ provides the complete, mathematically valid antiderivative across both disjoint domains $(-\infty, 0) \cup (0, \infty)$.
+
+### 2. Integration of Exponential Functions
+Exponential integration reverses the chain rule $\frac{d}{dx}[e^{u(x)}] = u'(x) e^{u(x)}$:
 1. **Natural Exponential Integral:**
-   $$\\int e^x \\, dx = e^x + C$$
-   $$\\int e^{ax + b} \\, dx = \\frac{1}{a} e^{ax + b} + C$$
-   $$\\int f'(x) e^{f(x)} \\, dx = e^{f(x)} + C$$
-2. **General Exponential Integral ($a > 0, a \\neq 1$):**
-   $$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C$$
-   $$\\int f'(x) a^{f(x)} \\, dx = \\frac{a^{f(x)}}{\\ln a} + C$$
+   $$\int e^x \, dx = e^x + C, \qquad \int e^{ax + b} \, dx = \frac{1}{a} e^{ax + b} + C$$
+2. **Composite Function Integral:**
+   $$\int f'(x) e^{f(x)} \, dx = e^{f(x)} + C$$
+3. **General Exponential Base ($a > 0, a \neq 1$):**
+   Since $\frac{d}{dx}[a^x] = a^x \ln a$, we must divide by $\ln a$:
+   $$\int a^x \, dx = \frac{a^x}{\ln a} + C, \qquad \int f'(x) a^{f(x)} \, dx = \frac{a^{f(x)}}{\ln a} + C$$
+- **Algebraic Pre-simplification Rule:** Whenever exponential terms involve logarithms in the exponent, simplify algebraically first:
+  $$\int e^{\ln(x^2 + 1)} \, dx = \int (x^2 + 1) \, dx = \frac{x^3}{3} + x + C$$
+  $$\int e^{x + \ln x} \, dx = \int e^x \cdot e^{\ln x} \, dx = \int x e^x \, dx$$
 
-### 2. The Fundamental Logarithmic Integral Rule:
-When the numerator of a fraction is the derivative of its denominator:
-$$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C$$
-- **Special Case ($f(x) = x$):**
-  $$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$
-- **Linear Denominator:**
-  $$\\int \\frac{1}{ax + b} \\, dx = \\frac{1}{a} \\ln|ax + b| + C$$
+### 3. The Logarithmic Quotient Rule: Numerator as Derivative of Denominator
+The master integration rule for rational and fractional expressions:
+$$\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$$
+- **Linear Denominator:** $\int \frac{1}{ax + b} \, dx = \frac{1}{a} \int \frac{a}{ax + b} \, dx = \frac{1}{a} \ln|ax + b| + C$
+- **Fraction Reconstruction Technique:** Multiplying and dividing by constants to manufacture the exact derivative in the numerator:
+  $$\int \frac{x}{3x^2 + 5} \, dx = \frac{1}{6} \int \frac{6x}{3x^2 + 5} \, dx = \frac{1}{6} \ln(3x^2 + 5) + C$$
+  *(Absolute value omitted when the denominator $3x^2 + 5 > 0$ for all real $x$).*
 
-### 3. Trigonometric Integrals Evaluated via Natural Logarithm:
-1. **Tangent Integral:**
-   $$\\int \\tan x \\, dx = \\int \\frac{\\sin x}{\\cos x} \\, dx = -\\int \\frac{-\\sin x}{\\cos x} \\, dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$$
-2. **Cotangent Integral:**
-   $$\\int \\cot x \\, dx = \\int \\frac{\\cos x}{\\sin x} \\, dx = \\ln|\\sin x| + C$$
-3. **Secant Integral:**
-   $$\\int \\sec x \\, dx = \\int \\frac{\\sec x (\\sec x + \\tan x)}{\\sec x + \\tan x} \\, dx = \\ln|\\sec x + \\tan x| + C$$
-4. **Cosecant Integral:**
-   $$\\int \\csc x \\, dx = \\int \\frac{\\csc x (\\csc x - \\cot x)}{\\csc x - \\cot x} \\, dx = \\ln|\\csc x - \\cot x| + C$$`,
-          theoryContentAr: `### ١. تكاملات الدوال الأسية:
+### 4. Rigorous Derivation of Trigonometric Integrals via Natural Logarithms
+Standard trigonometric functions whose integrals cannot be evaluated as simple single derivatives are solved via the logarithmic quotient rule:
+1. **Tangent Function Integral:**
+   $$\int \tan x \, dx = \int \frac{\sin x}{\cos x} \, dx = -\int \frac{-\sin x}{\cos x} \, dx = -\ln|\cos x| + C = \ln|\cos x|^{-1} + C = \ln|\sec x| + C$$
+2. **Cotangent Function Integral:**
+   $$\int \cot x \, dx = \int \frac{\cos x}{\sin x} \, dx = \ln|\sin x| + C$$
+3. **Secant Function Integral (Ingenious Algebraic Factor):**
+   Multiply and divide by $(\sec x + \tan x)$:
+   $$\int \sec x \, dx = \int \frac{\sec x (\sec x + \tan x)}{\sec x + \tan x} \, dx = \int \frac{\sec^2 x + \sec x \tan x}{\sec x + \tan x} \, dx$$
+   Since $\frac{d}{dx}[\sec x + \tan x] = \sec x \tan x + \sec^2 x$, the numerator is the exact derivative of the denominator:
+   $$\int \sec x \, dx = \ln|\sec x + \tan x| + C$$
+4. **Cosecant Function Integral:**
+   Multiply and divide by $(\csc x - \cot x)$:
+   $$\int \csc x \, dx = \int \frac{\csc x (\csc x - \cot x)}{\csc x - \cot x} \, dx = \int \frac{\csc^2 x - \csc x \cot x}{\csc x - \cot x} \, dx = \ln|\csc x - \cot x| + C$$
+
+### 5. Critical Examination Pitfalls & Common Traps
+- **Log Rule vs. Power Rule Confusion:**
+  - $\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$ (Log rule, denominator power is $1$).
+  - $\int \frac{f'(x)}{[f(x)]^n} \, dx = \int f'(x) [f(x)]^{-n} \, dx = \frac{[f(x)]^{-n+1}}{-n+1} + C$ for $n \neq 1$ (Power rule!).
+  *Example:* $\int \frac{2x}{(x^2+1)^2} \, dx = \frac{(x^2+1)^{-1}}{-1} + C = -\frac{1}{x^2+1} + C$, NOT $\ln|(x^2+1)^2|$.
+- **Missing Natural Log Division in General Bases:** $\int 5^x \, dx = \frac{5^x}{\ln 5} + C$. Multiplying by $\ln 5$ instead of dividing is a frequent student error.
+- **Constant Linear Coefficient:** $\int e^{4x} \, dx = \frac{1}{4} e^{4x} + C$. Always divide by the coefficient of $x$.`,
+          theoryContentAr: `### ١. الأصول الرياضية وشذوذ قاعدة القوى ($n = -1$)
+تنص النظرية الأساسية للتفاضل والتكامل على أن التكامل هو العملية العكسية للاشتقاق:
+$$\frac{d}{dx}[F(x)] = f(x) \iff \int f(x) \, dx = F(x) + C$$
+لكل الدوال ذات الأس الحقيقي، تنص قاعدة القوى على: $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$. ولكن هذه القاعدة تفشل تماماً عندما يكون $n = -1$ لأن المقام يصبح صفراً! والدالة المقابلة الوحيدة لـ $x^{-1} = \frac{1}{x}$ هي دالة اللوغاريتم الطبيعي:
+$$\int \frac{1}{x} \, dx = \ln|x| + C$$
+- **البرهان الرياضي لوضع علامة المقياس $|x|$:**
+  إذا كان $x > 0$: فإن $\frac{d}{dx}[\ln(x)] = \frac{1}{x}$.
+  إذا كان $x < 0$: بقاعدة السلسلة، $\frac{d}{dx}[\ln(-x)] = \frac{1}{-x} \cdot (-1) = \frac{1}{x}$.
+  لذا فإن $\ln|x|$ هي الدالة الأصلية العامة الصالحة على كامل المجالين $(-\infty, 0) \cup (0, \infty)$.
+
+### ٢. تكامل الدوال الأسية
+تكامل الدالة الأسية هو عكس قاعدة السلسلة لمشتقة $e^{u(x)}$:
 ١. **تكامل الدالة الأسية الطبيعية:**
-   $$\\int e^x \\, dx = e^x + C$$
-   $$\\int e^{ax + b} \\, dx = \\frac{1}{a} e^{ax + b} + C$$
-   $$\\int f'(x) e^{f(x)} \\, dx = e^{f(x)} + C$$
-   *(تكامل هـ مرفوعة لدالة مضروبة في مشتقة الأس يساوي هـ مرفوعة لنفس الدالة + ثابت)*
-٢. **تكامل الدالة الأسية لأي أساس $a$:**
-   $$\\int a^x \\, dx = \\frac{a^x}{\\ln a} + C$$
-   $$\\int f'(x) a^{f(x)} \\, dx = \\frac{a^{f(x)}}{\\ln a} + C$$
+   $$\int e^x \, dx = e^x + C, \qquad \int e^{ax + b} \, dx = \frac{1}{a} e^{ax + b} + C$$
+٢. **تكامل الدالة الأسية المركبة:**
+   $$\int f'(x) e^{f(x)} \, dx = e^{f(x)} + C$$
+٣. **تكامل الدالة الأسية لأي أساس ($a > 0, a \neq 1$):**
+   بما أن $\frac{d}{dx}[a^x] = a^x \ln a$، فإن التكامل يتطلب القسمة على $\ln a$:
+   $$\int a^x \, dx = \frac{a^x}{\ln a} + C, \qquad \int f'(x) a^{f(x)} \, dx = \frac{a^{f(x)}}{\ln a} + C$$
+- **قاعدة التبسيط الجبري قبل التكامل:** إذا احتوى الأس على لوغاريتمات، يتم التبسيط أولاً:
+  $$\int e^{\ln(x^2 + 1)} \, dx = \int (x^2 + 1) \, dx = \frac{x^3}{3} + x + C$$
+  $$\int e^{x + \ln x} \, dx = \int e^x \cdot e^{\ln x} \, dx = \int x e^x \, dx$$
 
-### ٢. قاعدة التكامل باللوغاريتم الطبيعي (البسط مشتقة المقام):
-إذا كان بسط الكسر هو المشتقة الأولى للمقام:
-$$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C = \\log_e |f(x)| + C$$
-- **حالة خاصة شهيرة:**
-  $$\\int \\frac{1}{x} \\, dx = \\ln|x| + C$$
-- **المقام مقدار من الدرجة الأولى:**
-  $$\\int \\frac{1}{ax + b} \\, dx = \\frac{1}{a} \\ln|ax + b| + C$$
+### ٣. قاعدة تكامل اللوغاريتم (البسط مشتقة المقام)
+القاعدة الذهبية في تكامل الكسور الجبرية:
+$$\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$$
+- **المقام مقدار خطي:** $\int \frac{1}{ax + b} \, dx = \frac{1}{a} \int \frac{a}{ax + b} \, dx = \frac{1}{a} \ln|ax + b| + C$
+- **مهارة تعديل المعاملات الجبرية:** نضرب ونقسم في الثوابت لتخليق مشتقة المقام في البسط:
+  $$\int \frac{x}{3x^2 + 5} \, dx = \frac{1}{6} \int \frac{6x}{3x^2 + 5} \, dx = \frac{1}{6} \ln(3x^2 + 5) + C$$
+  *(يمكن حذف المقياس إذا كان المقدار موجباً دائماً مثل $3x^2 + 5 > 0$).*
 
-### ٣. تكاملات الدوال المثلثية الناتجة باللوغاريتم الطبيعي:
+### ٤. البراهين الدقيقة لتكاملات الدوال المثلثية باللوغاريتم الطبيعي
+الدوال المثلثية التي لا تمثل مشتقات قياسية مباشرة تُحل باستخدام قاعدة (البسط مشتقة المقام):
 ١. **تكامل دالة الظل (ظا):**
-   $$\\int \\tan x \\, dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$$
+   $$\int \tan x \, dx = \int \frac{\sin x}{\cos x} \, dx = -\int \frac{-\sin x}{\cos x} \, dx = -\ln|\cos x| + C = \ln|\cos x|^{-1} + C = \ln|\sec x| + C$$
 ٢. **تكامل دالة ظل التمام (ظتا):**
-   $$\\int \\cot x \\, dx = \\ln|\\sin x| + C$$
-٣. **تكامل دالة القاطع (قا):**
-   $$\\int \\sec x \\, dx = \\ln|\\sec x + \\tan x| + C$$
+   $$\int \cot x \, dx = \int \frac{\cos x}{\sin x} \, dx = \ln|\sin x| + C$$
+٣. **تكامل دالة القاطع (قا) بضرب البسط والمقام في $(\sec x + \tan x)$:**
+   $$\int \sec x \, dx = \int \frac{\sec x (\sec x + \tan x)}{\sec x + \tan x} \, dx = \int \frac{\sec^2 x + \sec x \tan x}{\sec x + \tan x} \, dx$$
+   بما أن مشتقة المقام $(\sec x + \tan x)' = \sec x \tan x + \sec^2 x$ وهي تماماً البسط:
+   $$\int \sec x \, dx = \ln|\sec x + \tan x| + C$$
 ٤. **تكامل دالة قاطع التمام (قتا):**
-   $$\\int \\csc x \\, dx = \\ln|\\csc x - \\cot x| + C$$`,
+   $$\int \csc x \, dx = \int \frac{\csc x (\csc x - \cot x)}{\csc x - \cot x} \, dx = \ln|\csc x - \cot x| + C$$
+
+### ٥. فخاخ ومكائد امتحانات الثانوية العامة
+- **الفخ بين قاعدة اللوغاريتم وقاعدة القوس المرفوع لأس:**
+  - إذا كان أس المقام يساوي $1$: $\int \frac{f'(x)}{f(x)} \, dx = \ln|f(x)| + C$ (لوغاريتم).
+  - إذا كان أس المقام لا يساوي $1$: $\int \frac{f'(x)}{[f(x)]^n} \, dx = \int f'(x) [f(x)]^{-n} \, dx = \frac{[f(x)]^{-n+1}}{-n+1} + C$ (قاعدة القوى!).
+  *مثال:* $\int \frac{2x}{(x^2+1)^2} \, dx = -\frac{1}{x^2+1} + C$ ولا علاقة لها باللوغاريتم!
+- **نسيان القسمة على $\ln a$ للأساس العام:** $\int 3^x \, dx = \frac{3^x}{\ln 3} + C$. خطأ شائع هو الضرب في $\ln 3$ بدلاً من القسمة.
+- **معامل السين الخطي:** $\int e^{5x} \, dx = \frac{1}{5} e^{5x} + C$. لا تنس القسمة على معامل س.`,
           formulas: [
             { labelEn: 'Exponential Integral Rule', labelAr: 'تكامل الدالة الأسية', latex: '\\int f\'(x) e^{f(x)} dx = e^{f(x)} + C' },
             { labelEn: 'Logarithmic Quotient Rule', labelAr: 'تكامل البسط مشتقة المقام', latex: '\\int \\frac{f\'(x)}{f(x)} dx = \\ln|f(x)| + C' },
@@ -884,48 +1014,83 @@ $$\\int \\frac{f'(x)}{f(x)} \\, dx = \\ln|f(x)| + C = \\log_e |f(x)| + C$$
           titleAr: 'تزايد وتناقص الدوال والقيم القصوى والتحدب',
           summaryEn: 'Critical points, first derivative test for increasing/decreasing intervals and local extrema, second derivative test, concavity upward/downward, and inflection points.',
           summaryAr: 'النقط الحرجة، اختبار المشتقة الأولى لفترات التزايد والتناقص والقيم العظمى والصغرى المحلية، اختبار المشتقة الثانية، فترات التحدب لأعلى ولأسفل، ونقط الانقلاب.',
-          theoryContentEn: `### 1. Critical Numbers and Points (النقط الحرجة):
-A number $c$ in the domain of $f$ is a critical number if:
-$f'(c) = 0 \\quad \\text{or} \\quad f'(c) \\text{ is undefined}$
-The point $(c, f(c))$ is called a critical point of the curve.
+          theoryContentEn: `### 1. Rigorous Foundations: Fermat's Theorem & Critical Numbers
+By Fermat's Theorem on stationary points, if $f(x)$ attains a local extremum at an interior point $c$ and $f'(c)$ exists, then necessarily $f'(c) = 0$.
+- **Formal Definition of Critical Numbers:**
+  A real number $c$ belonging to the domain $\mathcal{D}_f$ is called a **critical number** if:
+  $$f'(c) = 0 \quad \text{or} \quad f'(c) \text{ is undefined (does not exist)}$$
+  The corresponding geometric point $(c, f(c))$ on the graph is a **critical point**.
+- *Important:* A point where $f(x)$ is not defined cannot be a critical number (e.g., $x = 0$ for $f(x) = 1/x$ is NOT a critical number because $0 \notin \mathcal{D}_f$).
 
-### 2. Monotonicity & The First Derivative Test:
-- If $f'(x) > 0$ on $(a, b)$, then $f$ is strictly **increasing** (تزايدية) on $(a, b)$.
-- If $f'(x) < 0$ on $(a, b)$, then $f$ is strictly **decreasing** (تناقصية) on $(a, b)$.
-- **Local Maximum:** $f'(x)$ changes from positive $(+)$ to negative $(-)$ across $c$.
-- **Local Minimum:** $f'(x)$ changes from negative $(-)$ to positive $(+)$ across $c$.
+### 2. Monotonicity & The Mean Value Theorem Connection
+Monotonicity criteria stem directly from the Mean Value Theorem (MVT): $f(b) - f(a) = f'(c)(b - a)$ for some $c \\in (a, b)$.
+- If $f'(x) > 0$ for all $x \in (a, b)$, then $f(x)$ is strictly **increasing** (تزايدية) on $(a, b)$.
+- If $f'(x) < 0$ for all $x \in (a, b)$, then $f(x)$ is strictly **decreasing** (تناقصية) on $(a, b)$.
+- **First Derivative Test for Local Extrema:**
+  Let $c$ be a critical number of a continuous function $f$:
+  1. **Local Maximum (عظمى محلية):** $f'(x)$ transitions from positive $(+)$ to negative $(-)$ across $c$. The tangent at $(c, f(c))$ is horizontal or vertical with a peak.
+  2. **Local Minimum (صغرى محلية):** $f'(x)$ transitions from negative $(-)$ to positive $(+)$ across $c$. The tangent is horizontal or vertical with a trough.
+  3. **No Local Extremum (نقطة حرجة فقط):** $f'(x)$ retains the same sign on both sides of $c$ (e.g., $f(x) = x^3$ at $x = 0$).
 
-### 3. The Second Derivative Test for Local Extrema:
-Let $f'(c) = 0$:
-- If $f''(c) < 0 \\implies$ Local Maximum at $(c, f(c))$.
-- If $f''(c) > 0 \\implies$ Local Minimum at $(c, f(c))$.
-- If $f''(c) = 0 \\implies$ Test is inconclusive (revert to First Derivative Test).
+### 3. The Second Derivative Test: Curvature Analysis
+Using the Taylor expansion $f(c + h) \approx f(c) + f'(c)h + \frac{1}{2}f''(c)h^2$:
+When $f'(c) = 0$:
+- If $f''(c) < 0$: The curve bends downwards (concave down), forcing $(c, f(c))$ to be a **Local Maximum**.
+- If $f''(c) > 0$: The curve bends upwards (concave up), forcing $(c, f(c))$ to be a **Local Minimum**.
+- If $f''(c) = 0$ or undefined: The Second Derivative Test is **inconclusive**. One MUST revert to the First Derivative Test (e.g., for $y = x^4$, $f''(0) = 0$ yet it is a local min; for $y = -x^4$, local max; for $y = x^3$, inflection point).
 
-### 4. Concavity & Inflection Points (التحدب ونقط الانقلاب):
-- **Concave Upwards (محدب لأسفل / مقعر لأعلى):** $f''(x) > 0$. Tangent lines lie below the curve.
-- **Concave Downwards (محدب لأعلى / مقعر لأسفل):** $f''(x) < 0$. Tangent lines lie above the curve.
-- **Point of Inflection (نقطة الانقلاب):** Point $(c, f(c))$ where $f''(c) = 0$ or undefined AND the curve changes its direction of concavity across $c$.`,
-          theoryContentAr: `### ١. النقط الحرجة:
-العدد $c$ في مجال الدالة $f$ يسمى عدداً حرجاً إذا كان:
-$f'(c) = 0 \\quad \\text{أو} \\quad f'(c) \\text{ غير معرفة}$
-وتسمى النقطة $(c, f(c))$ نقطة حرجة للمنحنى.
+### 4. Concavity & Inflection Points (التحدب ونقط الانقلاب)
+- **Concave Upwards (محدب لأسفل / مقعر لأعلى):** $f''(x) > 0$ on $(a, b)$. The tangent line at any point lies *strictly below* the curve.
+- **Concave Downwards (محدب لأعلى / مقعر لأسفل):** $f''(x) < 0$ on $(a, b)$. The tangent line at any point lies *strictly above* the curve.
+- **Rigorous Definition of Inflection Point (نقطة الانقلاب):**
+  A point $(c, f(c))$ is an inflection point IF AND ONLY IF:
+  1. The curve has a well-defined tangent line at $x = c$.
+  2. $f''(c) = 0$ or $f''(c)$ is undefined.
+  3. **CRITICAL REQUIREMENT:** The second derivative $f''(x)$ strictly changes sign across $c$ (from $+$ to $-$ or from $-$ to $+$).
+  *Counterexample Trap:* For $f(x) = x^4$, $f''(x) = 12x^2 \implies f''(0) = 0$. However, $12x^2 \ge 0$ for all $x$, so concavity never flips! Therefore, $(0,0)$ is NOT an inflection point.
 
-### ٢. فترات التزايد والتناقص واختبار المشتقة الأولى:
-- إذا كانت $f'(x) > 0$ فإن الدالة تزايدية.
-- إذا كانت $f'(x) < 0$ فإن الدالة تناقصية.
-- **عظمى محلية:** تتغير إشارة $f'(x)$ من موجب إلى سالب حول النقطة.
-- **صغرى محلية:** تتغير إشارة $f'(x)$ من سالب إلى موجب حول النقطة.
+### 5. Critical Examination Pitfalls & Common Traps
+- **Domain Verification First:** Students frequently identify points where $f'(x)$ is undefined as critical points without checking if $x$ belongs to the original domain. For $f(x) = \frac{1}{x-2}$, $x=2$ is an asymptote, NOT a critical point!
+- **Inflection Point Tangent Necessity:** A sharp corner or cusp with concavity change cannot be an inflection point unless a single tangent line exists.
+- **Endpoints are NEVER Local Extrema:** By definition, a local extremum requires an open neighborhood around $c$. Endpoints of closed intervals $[a, b]$ can be absolute extrema, but never local extrema.`,
+          theoryContentAr: `### ١. الأصول الرياضية: نظرية فيرما والنقط الحرجة
+تنص نظرية فيرما على أنه إذا كانت للدالة قيمة عظمى أو صغرى محلية عند نقطة داخلية $c$ وكانت قابلة للاشتقاق عندها، فإن $f'(c) = 0$ حتماً.
+- **التعريف الرياضي الدقيق للعدد الحرج:**
+  يُسمى العدد الحقيقي $c$ المنتمي لمجال الدالة $\mathcal{D}_f$ **عدداً حرجاً** إذا وفقط إذا كان:
+  $$f'(c) = 0 \quad \text{أو} \quad f'(c) \text{ غير معرفة (غير موجودة)}$$
+  وتسمى النقطة المقابلة على المنحنى $(c, f(c))$ **نقطة حرجة**.
+- *تنبيه حاسم:* أي نقطة خارج مجال الدالة لا يمكن اعتبارها عدداً حرجاً مطلقاً (مثال: $x = 0$ في الدالة $f(x) = 1/x$ ليست نقطة حرجة لأن الصفر لا ينتمي لمجال الدالة أصلاً بل هو خط تقارب رأسي).
 
-### ٣. اختبار المشتقة الثانية للقيم القصوى المحلية:
-إذا كانت $f'(c) = 0$:
-- إذا كانت $f''(c) < 0$ توجد قيمة عظمى محلية.
-- إذا كانت $f''(c) > 0$ توجد قيمة صغرى محلية.
-- إذا كانت $f''(c) = 0$ يفشل الاختبار ويجب استخدام اختبار المشتقة الأولى.
+### ٢. فترات التزايد والتناقص وعلاقتها بنظرية القيمة المتوسطة
+تُشتق معايير التزايد والتناقص مباشرة من نظرية القيمة المتوسطة:
+- إذا كانت $f'(x) > 0$ لكل $x \in (a, b)$، فإن الدالة $f$ **تزايدية تماماً** على $(a, b)$.
+- إذا كانت $f'(x) < 0$ لكل $x \in (a, b)$، فإن الدالة $f$ **تناقصية تماماً** على $(a, b)$.
+- **اختبار المشتقة الأولى للقيم القصوى المحلية:**
+  ١. **عظمى محلية:** تتغير إشارة $f'(x)$ من الموجب إلى السالب عبر $c$ (صعود ثم هبوط).
+  ٢. **صغرى محلية:** تتغير إشارة $f'(x)$ من السالب إلى الموجب عبر $c$ (هبوط ثم صعود).
+  ٣. **نقطة حرجة وليست قيمة قصوى:** إذا لم تتغير إشارة المشتقة على جانبي $c$ (مثل $f(x) = x^3$ عند $x = 0$).
 
-### ٤. فترات التحدب ونقط الانقلاب:
-- **تحدب لأسفل (مقعر لأعلى):** $f''(x) > 0$ (المماسات تقع أسفل المنحنى).
-- **تحدب لأعلى (مقعر لأسفل):** $f''(x) < 0$ (المماسات تقع أعلى المنحنى).
-- **نقطة الانقلاب:** نقطة تنعدم عندها المشتقة الثانية ويتغير عندها اتجاه التحدب للمنحنى.`,
+### ٣. اختبار المشتقة الثانية: دراسة الانحناء
+باستخدام مفكوك تايلور حول $c$:
+عندما تكون $f'(c) = 0$:
+- إذا كانت $f''(c) < 0$: المنحنى مقوس لأسفل، فتكون النقطة $(c, f(c))$ **قيمة عظمى محلية**.
+- إذا كانت $f''(c) > 0$: المنحنى مقوس لأعلى، فتكون النقطة $(c, f(c))$ **قيمة صغرى محلية**.
+- إذا كانت $f''(c) = 0$ أو غير معرفة: يفشل الاختبار ولا يعطي قراراً حاسماً، ويجب العودة فوراً لاختبار المشتقة الأولى.
+
+### ٤. التحدب ونقط الانقلاب
+- **محدب لأسفل (مقعر لأعلى):** $f''(x) > 0$، وجميع مماسات المنحنى تقع **تحت** المنحنى.
+- **محدب لأعلى (مقعر لأسفل):** $f''(x) < 0$، وجميع مماسات المنحنى تقع **فوق** المنحنى.
+- **الشرط الحاسم لنقطة الانقلاب:**
+  تكون النقطة $(c, f(c))$ نقطة انقلاب إذا وفقط إذا:
+  ١. كان للمنحنى مماس محدد عند $x = c$.
+  ٢. كانت $f''(c) = 0$ أو غير معرفة.
+  ٣. **الشرط الجوهري:** تتغير إشارة $f''(x)$ عبر $c$ من موجب إلى سالب أو العكس.
+  *فخ امتحاني شهير:* دالة $f(x) = x^4$ مشتقتها الثانية $f''(x) = 12x^2$. عند $x=0$ نجد $f''(0) = 0$، ولكن إشارة $12x^2$ موجبة دائماً ولا تتغير! إذن $(0, 0)$ ليست نقطة انقلاب بل صغرى محلية.
+
+### ٥. فخاخ ومكائد امتحانات الثانوية العامة
+- **فحص المجال أولاً:** يسارع الطلاب لاعتبار أصفار مقام المشتقة نقطاً حرجة دون التحقق من انتمائها لمجال الدالة الأصلية.
+- **مماسات نقط الانقلاب:** عند نقطة الانقلاب يخترق المماس المنحنى ويقسمه بين جهتي التحدب.
+- **أطراف الفترات المغلقة لا تكون قيماً محلية:** القيم العظمى والصغرى المحلية تتطلب جواراً مفتوحاً من الجهتين. أطراف الفترات $[a, b]$ قد تكون قيماً مطلقة فقط.`,
           formulas: [
             { labelEn: 'Critical Condition', labelAr: 'شرط النقطة الحرجة', latex: "f'(c) = 0 \\quad \\text{or undefined}" },
             { labelEn: 'Concave Up Condition', labelAr: 'شرط التحدب لأسفل', latex: "f''(x) > 0" },
@@ -1071,52 +1236,90 @@ $f'(c) = 0 \\quad \\text{أو} \\quad f'(c) \\text{ غير معرفة}$
           titleAr: 'رسم المنحنيات وتطبيقات القيم العظمى والصغرى',
           summaryEn: 'Complete curve sketching protocol (symmetry, asymptotes, intercepts, extrema, inflection), absolute extrema on closed intervals, and physical/geometric optimization problems.',
           summaryAr: 'خطوات رسم المنحنيات العامة (التماثل، التقارب، التقاطع، النهايات، الانقلاب)، القيم العظمى والصغرى المطلقة، ومسائل تطبيقات القيم القصوى الهندسية والفيزيائية.',
-          theoryContentEn: `### 1. Protocol for General Curve Sketching (خطوات رسم المنحنى):
-1. **Domain:** Determine the natural domain of $f(x)$.
-2. **Symmetry:** Test whether $f(-x) = f(x)$ (even, y-axis symmetry) or $f(-x) = -f(x)$ (odd, origin symmetry).
-3. **Intercepts:** Find y-intercept $(0, f(0))$ and x-intercepts by solving $f(x) = 0$.
-4. **Asymptotes:**
-   - Vertical: lines $x = a$ where $\\lim_{x \\to a} f(x) = \\pm\\infty$.
-   - Horizontal: lines $y = L$ where $\\lim_{x \\to \\pm\\infty} f(x) = L$.
-5. **Monotonicity & Extrema:** Compute $f'(x)$ to locate local extrema.
-6. **Concavity & Inflection:** Compute $f''(x)$ to determine concavity and inflection points.
+          theoryContentEn: `### 1. The Systematic 8-Step Curve Sketching Protocol
+To construct an accurate, geometrically faithful curve of $y = f(x)$:
+1. **Domain (المجال):** Determine the natural domain $\mathcal{D}_f$ (exclude zeros of denominators, negative radicands of even roots, non-positive logarithmic arguments).
+2. **Symmetry (التماثل):**
+   - Even function: $f(-x) = f(x) \implies$ Symmetric about the $y$-axis.
+   - Odd function: $f(-x) = -f(x) \implies$ Symmetric about the origin $(0, 0)$.
+   - Periodic: $f(x + T) = f(x) \implies$ Repeat fundamental cycle.
+3. **Intercepts (نقط التقاطع):**
+   - $y$-intercept: Set $x = 0 \implies (0, f(0))$.
+   - $x$-intercepts: Solve $f(x) = 0$.
+4. **Asymptotes (خطوط التقارب):**
+   - **Vertical Asymptotes:** Lines $x = a$ where $\lim_{x \to a^+} f(x) = \pm\infty$ or $\lim_{x \to a^-} f(x) = \pm\infty$.
+   - **Horizontal Asymptotes:** Lines $y = L$ where $\lim_{x \to \pm\infty} f(x) = L$.
+   - **Oblique (Slant) Asymptotes:** Occur in rational functions $\frac{P(x)}{Q(x)}$ when $\deg(P) = \deg(Q) + 1$. Found by polynomial long division: $f(x) = mx + c + \frac{R(x)}{Q(x)}$. The line is $y = mx + c$.
+5. **First Derivative Sign Analysis (Monotonicity & Extrema):**
+   Compute $f'(x)$, identify all critical numbers, construct sign chart to establish increasing/decreasing intervals and local maxima/minima.
+6. **Second Derivative Sign Analysis (Concavity & Inflection):**
+   Compute $f''(x)$, find inflection numbers, determine concave upward/downward intervals and inflection points.
+7. **Auxiliary Coordinate Table:** Evaluate $f(x)$ at critical points, inflection points, and boundary limits.
+8. **Synthesis & Sketch:** Draw asymptotes first (dashed lines), plot all landmark points, connect with correct curvature.
 
-### 2. Absolute (Global) Extrema on Closed Intervals $[a, b]$:
-By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves an absolute maximum and minimum.
-- Method:
-  1. Find all critical numbers $c_i \\in (a, b)$.
-  2. Compute $f(c_i)$ at all internal critical points.
-  3. Compute endpoint values $f(a)$ and $f(b)$.
-  4. Compare all values: largest is Absolute Max, smallest is Absolute Min.
+### 2. Extreme Value Theorem (Weierstrass) on Closed Intervals $[a, b]$
+If $f(x)$ is continuous on a closed bounded interval $[a, b]$, then $f$ attains both an **Absolute Maximum** and an **Absolute Minimum**.
+- **Standard Protocol for Global/Absolute Extrema:**
+  1. Find all critical numbers $c_1, c_2, \dots, c_k$ lying *strictly within* the open interval $(a, b)$.
+  2. Compute function values at all internal critical points: $f(c_1), f(c_2), \dots, f(c_k)$.
+  3. Compute function values at the boundary endpoints: $f(a)$ and $f(b)$.
+  4. Compare the candidate set $\{f(a), f(b), f(c_1), \dots, f(c_k)\}$:
+     - $\text{Absolute Maximum} = \max\{f(a), f(b), f(c_i)\}$
+     - \text{Absolute Minimum} = \min\{f(a), f(b), f(c_i)\}$
 
-### 3. Real-World Optimization Problems (تطبيقات القيم العظمى والصغرى):
-1. Define variables and draw a diagram where applicable.
-2. Formulate the primary equation for the quantity $Q$ to be maximized or minimized.
-3. Use auxiliary conditions (constraints) to express $Q$ in terms of a single variable: $Q = f(x)$.
-4. Differentiate, set $f'(x) = 0$, and verify the nature of the extremum using $f''(x)$.`,
-          theoryContentAr: `### ١. خطوات رسم المنحنيات العامة:
-١. **تحديد المجال:** تعيين مجال تعريف الدالة.
-٢. **التماثل:** فحص هل الدالة زوجية متماثلة حول الصادات أم فردية متماثلة حول نقطة الأصل.
-٣. **نقط التقاطع:** التقاطع مع الصادات $(0, f(0))$ والتقاطع مع السينات بوضع $f(x) = 0$.
+### 3. Optimization Mathematical Modeling (تطبيقات القيم العظمى والصغرى)
+Applied optimization converts word problems into single-variable calculus extremum problems:
+1. **Geometric/Physical Diagram:** Sketch a clear figure, label known constants and variable dimensions.
+2. **Primary Objective Function:** Write an equation for the quantity $Q$ to be maximized or minimized (e.g., Area $A = x y$, Volume $V = x^2 h$, Cost $C = 2x + 5y$, Distance $d = \sqrt{(x-x_0)^2 + (y-y_0)^2}$).
+3. **Constraint Auxiliary Equation:** Formulate geometric or physical constraints connecting variables (e.g., Perimeter $2x + 2y = P$, Volume $\pi r^2 h = V_0$).
+4. **Reduction to Single Variable:** Substitute constraint into primary equation: $Q = f(x)$. Specify the physical domain (e.g., $x > 0, x < P/2$).
+5. **Differentiation & Critical Points:** Solve $\frac{dQ}{dx} = 0$.
+6. **Extremum Verification:** Confirm maximum/minimum status using the second derivative test ($f''(x) < 0 \implies$ Max, $f''(x) > 0 \implies$ Min) or first derivative sign chart.
+
+### 4. Critical Examination Pitfalls & Common Traps
+- **Ignoring Physical Constraints:** In applied problems, mathematical critical points that produce negative lengths, negative radii, or exceed total material constraints must be rejected.
+- **Forgetting Endpoint Check in Absolute Extrema:** Many students find local extrema and forget to evaluate endpoints $f(a)$ and $f(b)$, where the global maximum or minimum often resides!
+- **Squaring the Distance Trick:** When minimizing Euclidean distance $d = \sqrt{u(x)}$, minimize $D = d^2 = u(x)$ instead. Since the square root is strictly increasing, $d$ and $d^2$ achieve their minimum at the exact same $x$, dramatically reducing algebraic complexity!`,
+          theoryContentAr: `### ١. الخطوات المنهجية الثمان لرسم المنحنيات العامة
+لرسم منحنى الدالة $y = f(x)$ بدقة هندسية متناهية:
+١. **المجال:** تعيين مجال تعريف الدالة $\mathcal{D}_f$ (استبعاد أصفار المقامات، وما تحت الجذور الزوجية السالبة، وسوالب اللوغاريتمات).
+٢. **التماثل:**
+   - الدالة الزوجية: $f(-x) = f(x) \implies$ متماثلة حول محور الصادات.
+   - الدالة الفردية: $f(-x) = -f(x) \implies$ متماثلة حول نقطة الأصل $(0, 0)$.
+٣. **نقط التقاطع مع المحاور:**
+   - التقاطع مع محور الصادات: بوضع $x = 0 \implies (0, f(0))$.
+   - التقاطع مع محور السينات: بحل المعادلة $f(x) = 0$.
 ٤. **خطوط التقارب:**
-   - الرأسية عند أصفار المقام غير القابلة للاختصار.
-   - الأفقية عند أخذ النهاية للما لانهاية.
-٥. **النهايات المحلية:** دراسة إشارة المشتقة الأولى.
-٦. **التحدب والانقلاب:** دراسة إشارة المشتقة الثانية.
+   - **التقارب الرأسي:** الخط المستقيم $x = a$ عندما تكون النهاية $\lim_{x \to a} f(x) = \pm\infty$.
+   - **التقارب الأفقي:** الخط المستقيم $y = L$ عندما تكون النهاية $\lim_{x \to \pm\infty} f(x) = L$.
+   - **التقارب المائل:** في الدوال الكسرية عندما تكون درجة البسط أكبر من درجة المقام بواحد، بالقسمة المطولة $y = mx + c$.
+٥. **سلوك المشتقة الأولى:** إيجاد النقط الحرجة وتحديد فترات التزايد والتناقص والقيم العظمى والصغرى المحلية.
+٦. **سلوك المشتقة الثانية:** إيجاد نقط الانقلاب وتحديد فترات التحدب لأعلى ولأسفل.
+٧. **جدول النقط المساعدة:** حساب قيم النقط الحرجة والانقلاب وأطراف المجال.
+٨. **الرسم النهائي:** رسم خطوط التقارب أولاً بخطوط متقطعة، ثم تثبيت النقط وتوصيل المنحنى بانحنائه الصحيح.
 
-### ٢. القيم العظمى والصغرى المطلقة على فترة مغلقة $[a, b]$:
-نظرية القيمة القصوى: الدالة المتصلة على فترة مغلقة تبلغ قيمتها العظمى المطلقة والصغرى المطلقة حتماً.
-- الخطوات:
-  ١. إيجاد النقط الحرجة الداخلية داخل الفترة المفتوحة $(a, b)$.
-  ٢. حساب قيم الدالة عند النقط الحرجة.
-  ٣. حساب قيم الدالة عند طرفي الفترة $f(a)$ و $f(b)$.
-  ٤. أكبر قيمة هي العظمى المطلقة وأصغر قيمة هي الصغرى المطلقة.
+### ٢. نظرية القيمة القصوى وفحص القيم المطلقة على فترة مغلقة $[a, b]$
+إذا كانت الدالة $f(x)$ متصلة على فترة مغلقة ومحدودة $[a, b]$، فإنها حتماً تبلغ قيمة **عظمى مطلقة** وقيمة **صغرى مطلقة**.
+- **البروتوكول الإلزامي لحساب القيم المطلقة:**
+  ١. إيجاد كافة النقط الحرجة $c_1, c_2, \dots$ الواقعة **داخل** الفترة المفتوحة $(a, b)$.
+  ٢. حساب قيم الدالة عند جميع النقط الحرجة الداخلية: $f(c_1), f(c_2), \dots$.
+  ٣. حساب قيم الدالة عند طرفي الفترة المغلقة: $f(a)$ و $f(b)$.
+  ٤. المقارنة بين كافة القيم السابقة:
+     - القيمة العظمى المطلقة = أكبر قيمة عددية في المجموعة.
+     - القيمة الصغرى المطلقة = أصغر قيمة عددية في المجموعة.
 
-### ٣. تطبيقات القيم العظمى والصغرى:
-١. رسم شكل تخطيطي للمسألة وتحديد المتغيرات.
-٢. تكوين العلاقة الأساسية للكمية المطلوب تعظيمها أو تصغيرها.
-٣. استخدام العلاقات المساعدة للتعبير عن الدالة في متغير واحد فقط.
-٤. الاشتقاق ووضع المشتقة بصفر والتحقق باختبار المشتقة الثانية.`,
+### ٣. النمذجة الرياضية لمسائل تطبيقات القيم العظمى والصغرى
+١. **الرسم التوضيحي:** رسم شكل هندسي واضح وتحديد المتغيرات والثوابت عليه.
+٢. **الدالة الهدف الأساسية:** صياغة معادلة للكمية المراد جعلها أكبر ما يمكن أو أصغر ما يمكن (مثل المساحة، الحجم، التكلفة، المسافة).
+٣. **معادلة العلاقة المساعدة (الشرط المحدد):** إيجاد علاقة تربط المتغيرات ببعضها من معطيات المسألة (مثل محيط معلوم، مساحة سطح معلومة).
+٤. **التحويل لمتغير واحد:** التعويض بالعلاقة المساعدة في الدالة الهدف لتصبح $Q = f(x)$، مع تحديد المجال الفيزيائي للمتغير.
+٥. **الاشتقاق وتصفير المشتقة:** حل $\frac{dQ}{dx} = 0$ لإيجاد النقط الحرجة.
+٦. **التأكد من نوع القيمة القصوى:** باختبار المشتقة الثانية أو إشارة المشتقة الأولى.
+
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **تجاهل المجال الفيزيائي:** في التطبيقات العملية، يجب استبعاد النقط الحرجة السالبة أو التي تجعل أبعاد الشكل سالبة أو غير منطقية هندسياً.
+- **نسيان أطراف الفترات في القيم المطلقة:** يكتفي بعض الطلاب بالقيم الحرجة وينسون حساب قيمة الدالة عند طرفي الفترة $f(a)$ و $f(b)$ التي غالباً ما تكون هي القيمة القصوى المطلقة!
+- **خدعة تقليل المسافة بتربيعها:** عند طلب أقل مسافة $d = \sqrt{u(x)}$، يفضل اشتقاق مربع المسافة $D = d^2 = u(x)$ للتخلص من الجذور المعقدة لأن النقطة الحرجة الصغرى هي نفسها تماماً.`,
           formulas: [
             { labelEn: 'Absolute Extrema Evaluation', labelAr: 'تقييم القيم المطلقة', latex: "\\max / \\min \\{ f(a), f(b), f(c_i) \\}" },
             { labelEn: 'Horizontal Asymptote', labelAr: 'خط التقارب الأفقي', latex: "y = \\lim_{x \\to \\pm\\infty} f(x)" },
@@ -1282,59 +1485,95 @@ By the Extreme Value Theorem, a continuous function on $[a, b]$ always achieves 
           titleAr: 'طرق التكامل (التعويض والتجزيء)',
           summaryEn: 'Techniques of integration: integration by substitution for composite functions, logarithmic form $\\frac{f\'(x)}{f(x)}$, trigonometric half-angle and power reduction identities, and integration by parts $\\int u \\, dv = uv - \\int v \\, du$.',
           summaryAr: 'طرق وتكنيكات التكامل: التكامل بالتعويض للدوال المركبة، الصورة اللوغاريتمية (البسط مشتقة المقام $\\frac{f\'(x)}{f(x)}$)، متطابقات الدوال المثلثية وقوانين ضعف الزاوية، والتكامل بالتجزيء $\\int u \\, dv = uv - \\int v \\, du$.',
-          theoryContentEn: `### 1. Integration by Substitution (التكامل بالتعويض)
-When the integrand contains a composite function multiplied by the derivative of its inner function:
-$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \\quad (n \\neq -1)$$
-- For a linear bracket:
-  $$\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$
+          theoryContentEn: `### 1. Integration by Substitution: The Reversal of the Chain Rule
+Integration by substitution translates complex integrals into elementary forms by transforming the variable of integration:
+$$\int f(g(x)) g'(x) \, dx = \int f(u) \, du \quad \text{where } u = g(x), \, du = g'(x) dx$$
+- **Canonical Bracket Power Rule:**
+  $$\int [f(x)]^n f'(x) \, dx = \frac{[f(x)]^{n+1}}{n+1} + C \quad (n \neq -1)$$
+  $$\int (ax + b)^n \, dx = \frac{(ax + b)^{n+1}}{a(n+1)} + C$$
+- **Algebraic Radical Substitutions:**
+  For expressions like $\int x \sqrt{ax + b} \, dx$, set $u = ax + b \implies x = \frac{u - b}{a}$ and $dx = \frac{1}{a} du$:
+  $$\int \frac{u - b}{a} u^{1/2} \frac{du}{a} = \frac{1}{a^2} \int (u^{3/2} - b u^{1/2}) \, du$$
 
-### 2. Logarithmic Integration Form (الصورة اللوغاريتمية)
-When the numerator is the derivative of the denominator:
-$$\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$$
-- Examples:
-  - $\\int \\tan(x) dx = \\int \\frac{\\sin x}{\\cos x} dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$
-  - $\\int \\cot(x) dx = \\int \\frac{\\cos x}{\\sin x} dx = \\ln|\\sin x| + C$
+### 2. Integration by Parts: Derivation from the Product Rule
+Integrating the product rule $\frac{d}{dx}[u(x) v(x)] = u(x) v'(x) + v(x) u'(x)$ yields:
+$$u(x) v(x) = \int u(x) v'(x) \, dx + \int v(x) u'(x) \, dx$$
+Rearranging into the standard Integration by Parts formula:
+$$\int u \, dv = u v - \int v \, du$$
+- **The LIATE Hierarchy for Selecting $u$:**
+  Always select $u$ in descending priority:
+  1. **L**: Logarithmic functions ($\ln x, \log_a x$) — must be differentiated.
+  2. **I**: Inverse trigonometric functions ($\arcsin x, \arctan x$).
+  3. **A**: Algebraic polynomials ($x^n, x^2 + 1$) — reduce power via differentiation.
+  4. **T**: Trigonometric functions ($\sin x, \cos x$) — easily integrated.
+  5. **E**: Exponential functions ($e^x, a^x$) — easily integrated without change.
 
-### 3. Trigonometric Integrals & Power Reduction
-- $\\int \\sin^2(x) dx = \\int \\frac{1 - \\cos(2x)}{2} dx = \\frac{1}{2} x - \\frac{1}{4} \\sin(2x) + C$
-- $\\int \\cos^2(x) dx = \\int \\frac{1 + \\cos(2x)}{2} dx = \\frac{1}{2} x + \\frac{1}{4} \\sin(2x) + C$
-- $\\int \\tan^2(x) dx = \\int (\\sec^2 x - 1) dx = \\tan(x) - x + C$
+### 3. Advanced Integration by Parts Techniques
+- **Tabular Integration (The DI Method):**
+  When integrating $\int P(x) g(x) dx$ where $P(x)$ is a polynomial and $g(x)$ is repeatedly integrable ($e^{ax}, \sin ax, \cos ax$):
+  Create two columns: Derivative $D$ and Integral $I$. Differentiate $P(x)$ down to $0$, repeatedly integrate $g(x)$, alternate signs $(+, -, +, -)$, and multiply along diagonals.
+- **Cyclic / Looping Integrals:**
+  Integrals such as $I = \int e^{ax} \cos(bx) dx$ never terminate under differentiation. Applying parts twice regenerates the original integral $I$:
+  $$I = \text{boundary terms} - \frac{b^2}{a^2} I \implies I\left(1 + \frac{b^2}{a^2}\right) = \text{boundary terms}$$
+  Solve algebraically for $I$!
 
-### 4. Integration by Parts (التكامل بالتجزيء)
-For products of algebraic, exponential, trigonometric, and logarithmic functions:
-$$\\int u dv = u v - \\int v du$$
-- Follow the LIATE rule for choosing $u$ (differentiation):
-  1. **L**: Logarithmic functions ($\\ln x$)
-  2. **I**: Inverse trigonometric functions
-  3. **A**: Algebraic functions ($x, x^2$)
-  4. **T**: Trigonometric functions ($\\sin x, \\cos x$)
-  5. **E**: Exponential functions ($e^x, a^x$)`,
-          theoryContentAr: `### ١. التكامل بالتعويض
-إذا احتوى التكامل على دالة ومشتقتها:
-$$\\int [f(x)]^n f'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C \\quad (n \\neq -1)$$
-- وتكامل القوس الخطي:
-  $$\\int (ax + b)^n dx = \\frac{(ax + b)^{n+1}}{a(n+1)} + C$$
+### 4. Trigonometric Power Reduction & Double-Angle Identities
+Essential identities required to transform powers into integrable linear angles:
+1. $\sin^2 x = \frac{1 - \cos(2x)}{2} \implies \int \sin^2 x \, dx = \frac{1}{2} x - \frac{1}{4} \sin(2x) + C$
+2. $\cos^2 x = \frac{1 + \cos(2x)}{2} \implies \int \cos^2 x \, dx = \frac{1}{2} x + \frac{1}{4} \sin(2x) + C$
+3. $\tan^2 x = \sec^2 x - 1 \implies \int \tan^2 x \, dx = \tan x - x + C$
+4. $\cot^2 x = \csc^2 x - 1 \implies \int \cot^2 x \, dx = -\cot x - x + C$
+5. Product-to-Sum formulas:
+   $$\sin A \cos B = \frac{1}{2} [\sin(A+B) + \sin(A-B)]$$
+   $$\cos A \cos B = \frac{1}{2} [\cos(A+B) + \cos(A-B)]$$
+   $$\sin A \sin B = \frac{1}{2} [\cos(A-B) - \cos(A+B)]$$
 
-### ٢. الصورة اللوغاريتمية (البسط مشتقة المقام)
-إذا كان البسط هو المشتقة التامة للمقام:
-$$\\int \\frac{f'(x)}{f(x)} dx = \\ln|f(x)| + C$$
-- أمثلة شهيرة:
-  - $\\int \\tan(x) dx = -\\ln|\\cos x| + C = \\ln|\\sec x| + C$
-  - $\\int \\cot(x) dx = \\ln|\\sin x| + C$
+### 5. Critical Examination Pitfalls & Common Traps
+- **Limits Transformation in Definite Substitution:** When evaluating $\int_a^b f(g(x))g'(x) dx$, you MUST change limits from $x$ to $u$: $u(a)$ and $u(b)$. Never evaluate the antiderivative at original $x$-limits!
+- **The Lonely Logarithm Trap:** To integrate $\int \ln x \, dx$, use integration by parts with $u = \ln x$ and $dv = dx$:
+  $$\int \ln x \, dx = x \ln x - \int x \left(\frac{1}{x}\right) dx = x \ln x - x + C$$
+- **Sign Error in Parts:** Be vigilant with negative signs in $- \int v \, du$, especially when $v$ itself contains a negative sign (such as $v = -\cos x$).`,
+          theoryContentAr: `### ١. التكامل بالتعويض: الوجه المقابل لقاعدة السلسلة
+التكامل بالتعويض يحول التكاملات المعقدة إلى تكاملات قياسية بسيطة بتغيير متغير التكامل:
+$$\int f(g(x)) g'(x) \, dx = \int f(u) \, du \quad \text{حيث } u = g(x), \, du = g'(x) dx$$
+- **قاعدة القوس المرفوع لأس:**
+  $$\int [f(x)]^n f'(x) \, dx = \frac{[f(x)]^{n+1}}{n+1} + C \quad (n \neq -1)$$
+  $$\int (ax + b)^n \, dx = \frac{(ax + b)^{n+1}}{a(n+1)} + C$$
+- **التعويض في المقادير الجذرية:**
+  لتكامل $\int x \sqrt{ax + b} \, dx$ نضع $u = ax + b \implies x = \frac{u - b}{a}$ و $dx = \frac{1}{a} du$:
+  $$\int \frac{u - b}{a} u^{1/2} \frac{du}{a} = \frac{1}{a^2} \int (u^{3/2} - b u^{1/2}) \, du$$
 
-### ٣. تكامل مربعات الدوال المثلثية
-- $\\int \\sin^2(x) dx = \\frac{1}{2} x - \\frac{1}{4} \\sin(2x) + C$
-- $\\int \\cos^2(x) dx = \\frac{1}{2} x + \\frac{1}{4} \\sin(2x) + C$
-- $\\int \\tan^2(x) dx = \\tan(x) - x + C$
+### ٢. التكامل بالتجزيء: اشتقاقه من قاعدة مشتقة حاصل الضرب
+باشتقاق حاصل ضرب دالتين $\frac{d}{dx}[u \cdot v] = u v' + v u'$ وأخذ التكامل للطرفين:
+$$u v = \int u \, dv + \int v \, du \implies \int u \, dv = u v - \int v \, du$$
+- **قاعدة الأولوية لاختيار دالة التفاضل $u$ (قاعدة LIATE):**
+  نختار $u$ بترتيب الأولوية التنازلي:
+  ١. **L**: الدوال اللوغاريتمية (لوغاريتم طبيعي $\ln x$) — يجب تفاضلها للتخلص منها.
+  ٢. **I**: الدوال العكسية.
+  ٣. **A**: الدوال الجبرية وكثيرات الحدود ($x^n$) — يقل أسها بالاشتقاق.
+  ٤. **T**: الدوال المثلثية (جا، جتا) — تكاملها دوري وسهل.
+  ٥. **E**: الدوال الأسية ($e^x$) — تكاملها يظل كما هو.
 
-### ٤. التكامل بالتجزيء
-لحاصل ضرب دالتين من نوعين مختلفين:
-$$\\int u dv = u v - \\int v du$$
-- أولوية اختيار دالة التفاضل $u$:
-  ١. الدوال اللوغاريتمية
-  ٢. الدوال الجبرية
-  ٣. الدوال المثلثية
-  ٤. الدوال الأسية`,
+### ٣. تقنيات التكامل بالتجزيء المتقدمة
+- **التكامل بالجدول (طريقة الأعمدة DI):**
+  عند تكامل حاصل ضرب كثيرة حدود في دالة أسية أو جيبية، نشتق كثيرة الحدود حتى الصفر، ونكامل الدالة الأخرى بالتوازي مع تبديل الإشارات $(+, -, +, -)$.
+- **التكاملات الدائرية الارتدادية:**
+  تكاملات مثل $I = \int e^{ax} \cos(bx) dx$ لا تنتهي، وبالتجزيء مرتين يظهر التكامل الأصلي $I$ في الطرف الأيسر بإشارة سالبة، فننقله للطرف الأيمن ونقسم على المعامل لحل المعادلة جبرياً.
+
+### ٤. متطابقات تخفيض القوى المثلثية وقوانين ضعف الزاوية
+المتطابقات الأساسية التي لا غنى عنها في الامتحان لتحويل التربيعات إلى مقادير خطية قابلة للتكامل:
+١. $\sin^2 x = \frac{1 - \cos(2x)}{2} \implies \int \sin^2 x \, dx = \frac{1}{2} x - \frac{1}{4} \sin(2x) + C$
+٢. $\cos^2 x = \frac{1 + \cos(2x)}{2} \implies \int \cos^2 x \, dx = \frac{1}{2} x + \frac{1}{4} \sin(2x) + C$
+٣. $\tan^2 x = \sec^2 x - 1 \implies \int \tan^2 x \, dx = \tan x - x + C$
+٤. $\cot^2 x = \csc^2 x - 1 \implies \int \cot^2 x \, dx = -\cot x - x + C$
+٥. قوانين تحويل حاصل الضرب إلى مجموع:
+   $$\sin A \cos B = \frac{1}{2} [\sin(A+B) + \sin(A-B)]$$
+
+### ٥. فخاخ ومكائد امتحانات الثانوية العامة
+- **تغيير حدود التكامل المحدد بالتعويض:** عند حل تكامل محدد بالتعويض $\int_a^b f(g(x))g'(x) dx$، **يجب** تغيير حدود التكامل فوراً إلى $u(a)$ و $u(b)$.
+- **فخ تكامل اللوغاريتم المفرد:** لتكامل $\int \ln x \, dx$، نعتبره حاصلاً لضرب دالتين: $u = \ln x$ و $dv = dx$:
+  $$\int \ln x \, dx = x \ln x - \int x \cdot \frac{1}{x} dx = x \ln x - x + C$$
+- **إشارات السالب في التجزيء:** ينتبه الطالب لإشارة القانون $-\int v \, du$ خاصة إذا كان $v = -\cos x$.`,
           formulas: [
             { labelEn: 'Power of Function Rule', labelAr: 'قاعدة دالة في مشتقتها', latex: '\\int [f(x)]^n f\'(x) dx = \\frac{[f(x)]^{n+1}}{n+1} + C' },
             { labelEn: 'Logarithmic Form', labelAr: 'الصورة اللوغاريتمية', latex: '\\int \\frac{f\'(x)}{f(x)} dx = \\ln|f(x)| + C' },
@@ -1520,54 +1759,110 @@ $$\\int u dv = u v - \\int v du$$
           titleAr: 'التكامل المحدد والمساحات المستوية وحجوم الأجسام الدورانية',
           summaryEn: 'Fundamental Theorem of Calculus, interval additivity, odd/even function integral symmetries. Calculating bounded plane areas between curves, and volumes of solids generated by revolution around the x-axis and y-axis.',
           summaryAr: 'النظرية الأساسية للتفاضل والتكامل، وتجزئة الفترات، وتماثل الدوال الفردية والزوجية. حساب مساحات المناطق المستوية المحصورة بين المنحنيات، وحجوم الأجسام الدورانية الناشئة عن الدوران حول محوري السينات والصادات.',
-          theoryContentEn: `### 1. Fundamental Theorem of Calculus & Definite Integrals
-If $f(x)$ is continuous on $[a, b]$ and $F'(x) = f(x)$:
-$$\\int_a^b f(x) dx = [F(x)]_a^b = F(b) - F(a)$$
+          theoryContentEn: `### 1. The Fundamental Theorem of Calculus & Riemann Integration
+The Fundamental Theorem of Calculus (FTC) bridges the two distinct pillars of calculus: differentiation and integration.
+- **FTC Part 1 (Differentiation of Accumulation Function):**
+  If $f$ is continuous on $[a, b]$, the function $g(x) = \int_a^x f(t) \, dt$ is continuous on $[a, b]$, differentiable on $(a, b)$, and:
+  $$\frac{d}{dx} \left[ \int_a^x f(t) \, dt \right] = f(x)$$
+  **Leibniz Integral Rule (Chain Rule for Variable Bounds):**
+  $$\frac{d}{dx} \left[ \int_{u(x)}^{v(x)} f(t) \, dt \right] = f(v(x)) \cdot v'(x) - f(u(x)) \cdot u'(x)$$
+- **FTC Part 2 (Evaluation Formula):**
+  If $f$ is continuous on $[a, b]$ and $F$ is any antiderivative of $f$ ($F' = f$):
+  $$\int_a^b f(x) \, dx = [F(x)]_a^b = F(b) - F(a)$$
 
-### 2. Properties of Definite Integrals:
-1. **Reversal of Bounds:** $\\int_b^a f(x) dx = -\\int_a^b f(x) dx$
-2. **Identical Bounds:** $\\int_a^a f(x) dx = 0$
-3. **Interval Additivity:** $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$
-4. **Odd Function on Symmetric Interval:** If $f(-x) = -f(x)$, then $\\int_{-a}^a f(x) dx = 0$.
-5. **Even Function on Symmetric Interval:** If $f(-x) = f(x)$, then $\\int_{-a}^a f(x) dx = 2 \\int_0^a f(x) dx$.
+### 2. Fundamental Properties of Definite Integrals
+1. **Reversal of Bounds:** $\int_b^a f(x) \, dx = -\int_a^b f(x) \, dx$
+2. **Zero Interval:** $\int_a^a f(x) \, dx = 0$
+3. **Interval Additivity:** For any ordering of $a, b, c$: $\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$
+4. **Symmetric Bounds & Parity Invariance:**
+   - **Odd Function ($f(-x) = -f(x)$):** $\int_{-a}^a f(x) \, dx = 0$
+   - **Even Function ($f(-x) = f(x)$):** $\int_{-a}^a f(x) \, dx = 2 \int_0^a f(x) \, dx$
+5. **Periodic Invariance:** If $f(x + T) = f(x)$, then $\int_0^{nT} f(x) \, dx = n \int_0^T f(x) \, dx$.
 
-### 3. Areas of Plane Regions (حساب المساحات في المستوى):
-1. **Area bounded by curve $y = f(x)$ and x-axis between $x = a$ and $x = b$:**
-   $$A = \\int_a^b |f(x)| dx$$
-2. **Area bounded between two curves $y_1 = f(x)$ and $y_2 = g(x)$:**
-   $$A = \\int_a^b |f(x) - g(x)| dx = \\int_a^b (y_{\\text{upper}} - y_{\\text{lower}}) dx$$
+### 3. Computation of Plane Areas Bounded by Curves
+- **Area Between Curve and X-Axis:**
+  $$A = \int_a^b |f(x)| \, dx$$
+  *(If the curve crosses the x-axis at $c \in (a, b)$, partition the integral: $A = \int_a^c f(x) dx - \int_c^b f(x) dx$ so every segment contributes positively).*
+- **Area Bounded Between Two Curves:**
+  $$A = \int_a^b |f(x) - g(x)| \, dx = \int_a^b (y_{\text{upper}} - y_{\text{lower}}) \, dx$$
+  *Step-by-step method:*
+  1. Solve $f(x) = g(x)$ to establish the intersection boundaries $x = a$ and $x = b$.
+  2. Test a sample point $x_0 \in (a, b)$ to determine which function is on top: $y_{\text{upper}} > y_{\text{lower}}$.
+  3. Integrate the difference $(y_{\text{upper}} - y_{\text{lower}})$.
+- **Integration with Respect to the Y-Axis:**
+  When curves are functions of $y$:
+  $$A = \int_c^d (x_{\text{right}} - x_{\text{left}}) \, dy$$
 
-### 4. Volumes of Solids of Revolution (حجوم الأجسام الدورانية):
-1. **Revolution of region bounded by $y = f(x)$ around the X-Axis:**
-   $$V = \\pi \\int_a^b y^2 dx = \\pi \\int_a^b [f(x)]^2 dx$$
-2. **Revolution of region bounded by $x = g(y)$ around the Y-Axis:**
-   $$V = \\pi \\int_c^d x^2 dy = \\pi \\int_c^d [g(y)]^2 dy$$
-3. **Washer Method (between two curves revolved around X-Axis):**
-   $$V = \\pi \\int_a^b (y_{\\text{outer}}^2 - y_{\\text{inner}}^2) dx$$`,
-          theoryContentAr: `### ١. النظرية الأساسية للتفاضل والتكامل
-إذا كانت $f(x)$ متصلة على الفترة $[a, b]$ وكانت $F'(x) = f(x)$ دالة مقابلة لها:
-$$\\int_a^b f(x) dx = F(b) - F(a)$$
+### 4. Volumes of Solids of Revolution (الأجسام الدورانية)
+Formed by rotating a plane region $360^\circ$ (one complete revolution) about an axis:
+1. **Revolution Around the X-Axis:**
+   - Single curve $y = f(x)$ from $x = a$ to $x = b$:
+     $$V = \pi \int_a^b y^2 \, dx = \pi \int_a^b [f(x)]^2 \, dx$$
+   - Region between two curves $y_1$ (outer) and $y_2$ (inner) — **Washer Method:**
+     $$V = \pi \int_a^b \left( y_{\text{outer}}^2 - y_{\text{inner}}^2 \right) \, dx$$
+2. **Revolution Around the Y-Axis:**
+   - Single curve $x = g(y)$ from $y = c$ to $y = d$:
+     $$V = \pi \int_c^d x^2 \, dy = \pi \int_c^d [g(y)]^2 \, dy$$
+   - Region between two curves $x_1$ and $x_2$:
+     $$V = \pi \int_c^d \left( x_{\text{outer}}^2 - x_{\text{inner}}^2 \right) \, dy$$
 
-### ٢. خواص التكامل المحدد
-١. **عكس حدود التكامل:** $\\int_b^a f(x) dx = -\\int_a^b f(x) dx$.
-٢. **تطابق الحدين:** $\\int_a^a f(x) dx = 0$.
-٣. **تجزئة فترات التكامل:** $\\int_a^c f(x) dx = \\int_a^b f(x) dx + \\int_b^c f(x) dx$.
-٤. **الدالة الفردية على فترة متماثلة:** إذا كانت الدالة فردية فإن $\\int_{-a}^a f(x) dx = 0$.
-٥. **الدالة الزوجية على فترة متماثلة:** إذا كانت الدالة زوجية فإن $\\int_{-a}^a f(x) dx = 2 \\int_0^a f(x) dx$.
+### 5. Critical Examination Pitfalls & Common Traps
+- **The Washer Method Subtraction Trap:**
+  $$V = \pi \int (y_1^2 - y_2^2) \, dx \neq \pi \int (y_1 - y_2)^2 \, dx$$
+  Squaring the difference $(y_1 - y_2)^2$ instead of subtracting the individual squared radii $(y_1^2 - y_2^2)$ is the single most frequent error in solid revolution exams!
+- **Forgetting $\pi$ in Volume Calculations:** Volumes of revolution are based on circular cross-sectional disks with area $\pi r^2$. Leaving out $\pi$ invalidates the answer.
+- **Signed vs. Absolute Area:** The definite integral $\int_a^b f(x) dx$ computes the net signed area (regions below the x-axis cancel regions above). Geometrical area is strictly positive: $A = \int_a^b |f(x)| dx$.`,
+          theoryContentAr: `### ١. النظرية الأساسية للتفاضل والتكامل وتكامل ريمان
+تربط النظرية الأساسية للتفاضل والتكامل بين فرعي التفاضل والتكامل:
+- **الجزء الأول للنظرية الأساسية (تفاضل دالة التراكم):**
+  إذا كانت $f$ متصلة على الفترة $[a, b]$، فإن دالة التراكم $g(x) = \int_a^x f(t) \, dt$ تكون متصلة على $[a, b]$ وقابلة للاشتقاق على $(a, b)$، ويكون:
+  $$\frac{d}{dx} \left[ \int_a^x f(t) \, dt \right] = f(x)$$
+  **قاعدة لايبنتز لاشتقاق التكامل ذي الحدود المتغيرة:**
+  $$\frac{d}{dx} \left[ \int_{u(x)}^{v(x)} f(t) \, dt \right] = f(v(x)) \cdot v'(x) - f(u(x)) \cdot u'(x)$$
+- **الجزء الثاني للنظرية الأساسية (صيغة الحساب المباشر):**
+  إذا كانت $f$ متصلة على $[a, b]$ وكانت $F$ دالة أصلية لها ($F' = f$):
+  $$\int_a^b f(x) \, dx = F(b) - F(a)$$
 
-### ٣. حساب المساحات في المستوى
-١. **المساحة بين منحنى دالة ومحور السينات:**
-   $$A = \\int_a^b |f(x)| dx$$
-٢. **المساحة بين منحنيين $y_1$ و $y_2$:**
-   $$A = \\int_a^b (y_{\\text{العلوي}} - y_{\\text{السفلي}}) dx$$
+### ٢. الخواص الجوهرية للتكامل المحدد
+١. **عكس حدود التكامل:** $\int_b^a f(x) \, dx = -\int_a^b f(x) \, dx$
+٢. **تطابق الحدين:** $\int_a^a f(x) \, dx = 0$
+٣. **خاصية الإضافة وتجزئة الفترات:** $\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx$
+٤. **التماثل على الفترات المتناظرة حول الصفر $[-a, a]$:**
+   - **الدالة الفردية ($f(-x) = -f(x)$):** $\int_{-a}^a f(x) \, dx = 0$
+   - **الدالة الزوجية ($f(-x) = f(x)$):** $\int_{-a}^a f(x) \, dx = 2 \int_0^a f(x) \, dx$
+٥. **الدوال الدورية:** إذا كانت الدالة دورية ودورتها $T$، فإن $\int_0^{nT} f(x) \, dx = n \int_0^T f(x) \, dx$.
 
-### ٤. حجوم الأجسام الدورانية
-١. **الدوران حول محور السينات دورة كاملة:**
-   $$V = \\pi \\int_a^b y^2 dx$$
-٢. **الدوران حول محور الصادات دورة كاملة:**
-   $$V = \\pi \\int_c^d x^2 dy$$
-٣. **الدوران بين منحنيين حول محور السينات (طريقة الحلقات):**
-   $$V = \\pi \\int_a^b (y_1^2 - y_2^2) dx$$`,
+### ٣. حساب مساحات المناطق المستوية المحصورة بين المنحنيات
+- **المساحة بين منحنى دالة ومحور السينات:**
+  $$A = \int_a^b |f(x)| \, dx$$
+  *(إذا كان المنحنى يقطع محور السينات عند $c \in (a, b)$، نقسم التكامل حتى تخرج كل مساحة موجبة).*
+- **المساحة المحصورة بين منحنيين:**
+  $$A = \int_a^b (y_{\text{العلوي}} - y_{\text{السفلي}}) \, dx$$
+  *الخطوات المنهجية:*
+  ١. نساوي $f(x) = g(x)$ لإيجاد نقط التقاطع التي تمثل حدود التكامل $x = a$ و $x = b$.
+  ٢. نختبر نقطة اختيارية داخل الفترة لتحديد أيهما المنحنى الأعلى وأيهما الأدنى.
+  ٣. نكامل الفرق بين المنحنى العلوي والسفلي.
+- **التكامل بالنسبة لمحور الصادات:**
+  $$A = \int_c^d (x_{\text{الأيمن}} - x_{\text{الأيسر}}) \, dy$$
+
+### ٤. حجوم الأجسام الدورانية الناشئة عن الدوران الكامل
+١. **الدوران حول محور السينات دورة كاملة ($360^\circ$):**
+   - لمنحنى واحد $y = f(x)$ من $x = a$ إلى $x = b$:
+     $$V = \pi \int_a^b y^2 \, dx = \pi \int_a^b [f(x)]^2 \, dx$$
+   - للمنطقة المحصورة بين منحنيين (طريقة الحلقات الدائرية):
+     $$V = \pi \int_a^b \left( y_{\text{الخارجي}}^2 - y_{\text{الداخلي}}^2 \right) \, dx$$
+٢. **الدوران حول محور الصادات دورة كاملة ($360^\circ$):**
+   - لمنحنى واحد $x = g(y)$ من $y = c$ إلى $y = d$:
+     $$V = \pi \int_c^d x^2 \, dy$$
+   - للمنطقة بين منحنيين:
+     $$V = \pi \int_c^d \left( x_{\text{الخارجي}}^2 - x_{\text{الداخلي}}^2 \right) \, dy$$
+
+### ٥. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ طرح المربعات في حجوم الحلقات:**
+  $$V = \pi \int (y_1^2 - y_2^2) \, dx \neq \pi \int (y_1 - y_2)^2 \, dx$$
+  طرح الدالتين ثم تربيعهما خطأ فادح يقع فيه الكثير من الطلاب؛ القانون هو طرح مربع نصف القطر الخارجي ناقص مربع نصف القطر الداخلي!
+- **نسيان الثابت $\pi$ في الحجوم:** الدوران يولد دوائر مساحتها $\pi r^2$، نسيان $\pi$ يفقد المسألة درجتها بالكامل.
+- **الفرق بين التكامل والمساحة الهندسية:** قيمة التكامل المحدد قد تكون سالبة أو صفراً، بينما المساحة الهندسية موجبة دائماً.`,
           formulas: [
             { labelEn: 'Definite Integral Evaluation', labelAr: 'قيمة التكامل المحدد', latex: '\\int_a^b f(x) dx = F(b) - F(a)' },
             { labelEn: 'Plane Area Formula', labelAr: 'قانون مساحة المنطقة المستوية', latex: 'A = \\int_a^b (y_1 - y_2) dx' },

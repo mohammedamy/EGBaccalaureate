@@ -11,6 +11,7 @@ import {
   importCustomQuestionsJSON,
 } from '../services/teacherQuestionBankService';
 import { MathRenderer } from './MathRenderer';
+import { toHindiDigits } from '../utils/arabicNumerals';
 import {
   Plus,
   Search,
@@ -21,6 +22,10 @@ import {
   Check,
   Zap,
   X,
+  ChevronLeft,
+  ChevronRight,
+  Layers,
+  ListFilter,
 } from 'lucide-react';
 
 interface Props {
@@ -86,6 +91,35 @@ export const TeacherQuestionBankView: React.FC<Props> = ({
     },
     questions
   );
+
+  // Global Question Bank One-Per-Screen Paging Navigation States
+  const [bankViewMode, setBankViewMode] = useState<'single' | 'list'>('single');
+  const [activeQuestionIdx, setActiveQuestionIdx] = useState<number>(0);
+
+  // Reset pagination index when filters change
+  useEffect(() => {
+    setActiveQuestionIdx(0);
+  }, [selectedSubject, selectedDifficulty, searchQuery]);
+
+  // Global Keyboard Navigation (Arrow Keys) for Paged Questions
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) {
+        return;
+      }
+      if (bankViewMode === 'single' && filteredQuestions.length > 0) {
+        if (e.key === 'ArrowRight') {
+          if (isAr) setActiveQuestionIdx((prev) => Math.max(0, prev - 1));
+          else setActiveQuestionIdx((prev) => Math.min(filteredQuestions.length - 1, prev + 1));
+        } else if (e.key === 'ArrowLeft') {
+          if (isAr) setActiveQuestionIdx((prev) => Math.min(filteredQuestions.length - 1, prev + 1));
+          else setActiveQuestionIdx((prev) => Math.max(0, prev - 1));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [bankViewMode, filteredQuestions.length, isAr]);
 
   const handleOpenAddModal = () => {
     setEditingQuestion(null);
@@ -378,191 +412,356 @@ export const TeacherQuestionBankView: React.FC<Props> = ({
         </div>
       )}
 
-      {/* Questions Catalog List */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between text-xs text-slate-400 font-semibold px-1">
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={toggleSelectAll}
-              className="flex items-center gap-1 text-[11px] font-bold text-indigo-400 hover:underline cursor-pointer"
+      {/* Questions Catalog List & Single Question Pager */}
+      {(() => {
+        const renderQuestionCard = (q: TeacherCustomQuestion, idx: number) => {
+          const isSelected = selectedQuestionIds.has(q.id);
+          return (
+            <div
+              key={q.id}
+              className={`p-4 rounded-xl border transition-all ${
+                isSelected
+                  ? isLight
+                    ? 'border-indigo-400 bg-indigo-50/80 shadow-sm ring-1 ring-indigo-400'
+                    : 'border-indigo-500 bg-indigo-950/40 shadow-md ring-1 ring-indigo-500/50'
+                  : isLight
+                  ? 'border-slate-200 bg-white hover:border-slate-300 shadow-xs'
+                  : 'border-slate-800 bg-slate-900/60 hover:border-slate-700'
+              }`}
             >
-              {selectedQuestionIds.size === filteredQuestions.length && filteredQuestions.length > 0
-                ? isAr ? 'إلغاء تحديد الكل' : 'Deselect All'
-                : isAr ? 'تحديد الكل' : 'Select All'}
-            </button>
-            <span>•</span>
-            <span>{isAr ? `إجمالي: ${filteredQuestions.length} سؤال` : `Total: ${filteredQuestions.length} questions`}</span>
-          </div>
-        </div>
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-start gap-2.5 min-w-0 flex-1">
+                  {/* Selection Checkbox */}
+                  <button
+                    type="button"
+                    onClick={() => toggleSelectQuestion(q.id)}
+                    className={`w-5 h-5 mt-0.5 rounded-md border flex items-center justify-center transition-all cursor-pointer shrink-0 ${
+                      isSelected
+                        ? 'bg-indigo-600 border-indigo-600 text-white'
+                        : isLight
+                        ? 'border-slate-300 bg-white hover:border-indigo-400'
+                        : 'border-slate-700 bg-slate-800 hover:border-slate-600'
+                    }`}
+                  >
+                    {isSelected && <Check className="w-3.5 h-3.5 stroke-3" />}
+                  </button>
 
-        {filteredQuestions.length === 0 ? (
-          <div className="p-8 rounded-2xl border text-center border-dashed border-slate-300 dark:border-slate-800 space-y-2">
-            <p className="text-3xl">📝</p>
-            <p className="text-sm font-bold text-slate-400">
-              {isAr ? 'لا توجد أسئلة تطابق معايير البحث الحالية' : 'No questions matching current filter'}
-            </p>
-            <button
-              type="button"
-              onClick={handleOpenAddModal}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 underline hover:text-indigo-300 mt-1 cursor-pointer"
-            >
-              <Plus className="w-3.5 h-3.5" />
-              <span>{isAr ? 'أضف أول سؤال في هذا الباب الآن' : 'Add your first question now'}</span>
-            </button>
-          </div>
-        ) : (
-          filteredQuestions.map((q, idx) => {
-            const isSelected = selectedQuestionIds.has(q.id);
-            return (
-              <div
-                key={q.id}
-                className={`p-4 rounded-xl border transition-all ${
-                  isSelected
-                    ? isLight
-                      ? 'border-indigo-400 bg-indigo-50/80 shadow-sm ring-1 ring-indigo-400'
-                      : 'border-indigo-500 bg-indigo-950/40 shadow-md ring-1 ring-indigo-500/50'
-                    : isLight
-                    ? 'border-slate-200 bg-white hover:border-slate-300 shadow-xs'
-                    : 'border-slate-800 bg-slate-900/60 hover:border-slate-700'
-                }`}
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-start gap-2.5 min-w-0 flex-1">
-                    {/* Selection Checkbox */}
-                    <button
-                      type="button"
-                      onClick={() => toggleSelectQuestion(q.id)}
-                      className={`w-5 h-5 mt-0.5 rounded-md border flex items-center justify-center transition-all cursor-pointer shrink-0 ${
-                        isSelected
-                          ? 'bg-indigo-600 border-indigo-600 text-white'
-                          : isLight
-                          ? 'border-slate-300 bg-white hover:border-indigo-400'
-                          : 'border-slate-700 bg-slate-800 hover:border-slate-600'
-                      }`}
-                    >
-                      {isSelected && <Check className="w-3.5 h-3.5 stroke-3" />}
-                    </button>
-
-                    <div className="min-w-0 flex-1 space-y-2">
-                      {/* Meta badges */}
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold">
-                          #{idx + 1}
-                        </span>
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-950/60 text-indigo-300 border border-indigo-800/50">
-                          {q.chapterTitleAr}
-                        </span>
-                        <span
-                          className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
-                            q.difficulty === 'hots'
-                              ? 'bg-red-950/50 text-red-300 border-red-700/60'
-                              : q.difficulty === 'medium'
-                              ? 'bg-amber-950/50 text-amber-300 border-amber-700/60'
-                              : 'bg-emerald-950/50 text-emerald-300 border-emerald-700/60'
-                          }`}
-                        >
-                          {q.difficulty === 'hots'
-                            ? isAr ? '🔴 تفكير عليا HOTS' : '🔴 HOTS'
+                  <div className="min-w-0 flex-1 space-y-2">
+                    {/* Meta badges */}
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-800 text-slate-300 font-bold">
+                        #{idx + 1}
+                      </span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-950/60 text-indigo-300 border border-indigo-800/50">
+                        {q.chapterTitleAr}
+                      </span>
+                      <span
+                        className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                          q.difficulty === 'hots'
+                            ? 'bg-red-950/50 text-red-300 border-red-700/60'
                             : q.difficulty === 'medium'
-                            ? isAr ? '🟡 مستوى متوسط' : '🟡 Medium'
-                            : isAr ? '🟢 مستوى سهل' : '🟢 Easy'}
+                            ? 'bg-amber-950/50 text-amber-300 border-amber-700/60'
+                            : 'bg-emerald-950/50 text-emerald-300 border-emerald-700/60'
+                        }`}
+                      >
+                        {q.difficulty === 'hots'
+                          ? isAr ? '🔴 تفكير عليا HOTS' : '🔴 HOTS'
+                          : q.difficulty === 'medium'
+                          ? isAr ? '🟡 مستوى متوسط' : '🟡 Medium'
+                          : isAr ? '🟢 مستوى سهل' : '🟢 Easy'}
+                      </span>
+
+                      {(q.tags || []).map((tag, tIdx) => (
+                        <span
+                          key={tIdx}
+                          className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-slate-800 text-slate-400"
+                        >
+                          #{tag}
                         </span>
+                      ))}
+                    </div>
 
-                        {(q.tags || []).map((tag, tIdx) => (
-                          <span
-                            key={tIdx}
-                            className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-slate-800 text-slate-400"
+                    {/* Question Stem */}
+                    <div className="text-xs sm:text-sm font-semibold leading-relaxed">
+                      <MathRenderer text={q.questionAr} lang={lang} />
+                    </div>
+
+                    {/* 4 Choices Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                      {q.optionsAr.map((opt, optIdx) => {
+                        const isCorrect = optIdx === q.correctOptionIndex;
+                        return (
+                          <div
+                            key={optIdx}
+                            className={`p-2 rounded-lg text-xs font-medium border flex items-center gap-2 ${
+                              isCorrect
+                                ? isLight
+                                  ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
+                                  : 'bg-emerald-950/60 text-emerald-200 border-emerald-700/70 font-bold'
+                                : isLight
+                                ? 'bg-slate-50 text-slate-700 border-slate-200'
+                                : 'bg-slate-950/40 text-slate-300 border-slate-800/80'
+                            }`}
                           >
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Question Stem */}
-                      <div className="text-xs sm:text-sm font-semibold leading-relaxed">
-                        <MathRenderer text={q.questionAr} lang={lang} />
-                      </div>
-
-                      {/* 4 Choices Grid */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                        {q.optionsAr.map((opt, optIdx) => {
-                          const isCorrect = optIdx === q.correctOptionIndex;
-                          return (
-                            <div
-                              key={optIdx}
-                              className={`p-2 rounded-lg text-xs font-medium border flex items-center gap-2 ${
-                                isCorrect
-                                  ? isLight
-                                    ? 'bg-emerald-50 text-emerald-900 border-emerald-300 font-bold'
-                                    : 'bg-emerald-950/60 text-emerald-200 border-emerald-700/70 font-bold'
-                                  : isLight
-                                  ? 'bg-slate-50 text-slate-700 border-slate-200'
-                                  : 'bg-slate-950/40 text-slate-300 border-slate-800/80'
+                            <span
+                              className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
+                                isCorrect ? 'bg-emerald-500 text-white' : 'bg-slate-700 text-slate-300'
                               }`}
                             >
-                              <span
-                                className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 ${
-                                  isCorrect ? 'bg-emerald-500 text-white' : 'bg-slate-700 text-slate-300'
-                                }`}
-                              >
-                                {isCorrect ? '✓' : String.fromCharCode(65 + optIdx)}
-                              </span>
-                              <div className="truncate min-w-0 flex-1">
-                                <MathRenderer text={opt} lang={lang} />
-                              </div>
+                              {isCorrect ? '✓' : String.fromCharCode(65 + optIdx)}
+                            </span>
+                            <div className="truncate min-w-0 flex-1">
+                              <MathRenderer text={opt} lang={lang} />
                             </div>
-                          );
-                        })}
-                      </div>
-
-                      {/* Pedagogical Tip or Explanation */}
-                      {(q.explanationAr || q.teacherTipAr) && (
-                        <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] space-y-1 text-slate-400">
-                          {q.explanationAr && (
-                            <p className="flex items-start gap-1">
-                              <span className="font-bold text-indigo-400 shrink-0">💡 {isAr ? 'الحل النموذجي:' : 'Solution:'}</span>
-                              <span className="text-slate-300"><MathRenderer text={q.explanationAr} lang={lang} /></span>
-                            </p>
-                          )}
-                          {q.teacherTipAr && (
-                            <p className="flex items-start gap-1">
-                              <span className="font-bold text-amber-400 shrink-0">🎓 {isAr ? 'نصيحة المعلم:' : 'Teacher Tip:'}</span>
-                              <span>{q.teacherTipAr}</span>
-                            </p>
-                          )}
-                        </div>
-                      )}
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
 
-                  {/* Question Actions */}
-                  <div className="flex items-center gap-1 shrink-0">
-                    <button
-                      type="button"
-                      onClick={() => handleOpenEditModal(q)}
-                      className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
-                        isLight ? 'border-slate-300 text-slate-600 hover:bg-slate-100' : 'border-slate-700 text-slate-400 hover:bg-slate-800'
-                      }`}
-                      title={isAr ? 'تعديل السؤال' : 'Edit Question'}
-                    >
-                      <Edit3 className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleDelete(q.id)}
-                      className="p-1.5 rounded-lg border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-all cursor-pointer"
-                      title={isAr ? 'حذف السؤال' : 'Delete Question'}
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                    {/* Pedagogical Tip or Explanation */}
+                    {(q.explanationAr || q.teacherTipAr) && (
+                      <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] space-y-1 text-slate-400">
+                        {q.explanationAr && (
+                          <p className="flex items-start gap-1">
+                            <span className="font-bold text-indigo-400 shrink-0">💡 {isAr ? 'الحل النموذجي:' : 'Solution:'}</span>
+                            <span className="text-slate-300"><MathRenderer text={q.explanationAr} lang={lang} /></span>
+                          </p>
+                        )}
+                        {q.teacherTipAr && (
+                          <p className="flex items-start gap-1">
+                            <span className="font-bold text-amber-400 shrink-0">🎓 {isAr ? 'نصيحة المعلم:' : 'Teacher Tip:'}</span>
+                            <span>{q.teacherTipAr}</span>
+                          </p>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
+
+                {/* Question Actions */}
+                <div className="flex items-center gap-1 shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => handleOpenEditModal(q)}
+                    className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
+                      isLight ? 'border-slate-300 text-slate-600 hover:bg-slate-100' : 'border-slate-700 text-slate-400 hover:bg-slate-800'
+                    }`}
+                    title={isAr ? 'تعديل السؤال' : 'Edit Question'}
+                  >
+                    <Edit3 className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDelete(q.id)}
+                    className="p-1.5 rounded-lg border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-all cursor-pointer"
+                    title={isAr ? 'حذف السؤال' : 'Delete Question'}
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
-            );
-          })
-        )}
-      </div>
+            </div>
+          );
+        };
+
+        return (
+          <div className="space-y-4">
+            {/* Top Controls Toolbar */}
+            <div className={`p-3 rounded-xl border flex items-center justify-between gap-3 flex-wrap ${
+              isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-900/60 border-slate-800'
+            }`}>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={toggleSelectAll}
+                  className="flex items-center gap-1 text-xs font-bold text-indigo-400 hover:underline cursor-pointer"
+                >
+                  {selectedQuestionIds.size === filteredQuestions.length && filteredQuestions.length > 0
+                    ? isAr ? 'إلغاء تحديد الكل' : 'Deselect All'
+                    : isAr ? 'تحديد الكل' : 'Select All'}
+                </button>
+                <span className="text-slate-500">•</span>
+                <span className="text-xs font-semibold text-slate-400">
+                  {isAr ? `إجمالي: ${toHindiDigits(filteredQuestions.length)} سؤال` : `Total: ${filteredQuestions.length} questions`}
+                </span>
+              </div>
+
+              {/* Mode Switcher */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setBankViewMode((prev) => (prev === 'single' ? 'list' : 'single'))}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                    bankViewMode === 'single'
+                      ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                      : isLight
+                      ? 'bg-white border-slate-300 text-slate-700 hover:text-slate-950'
+                      : 'bg-slate-800 border-slate-700 text-slate-300 hover:text-white'
+                  }`}
+                >
+                  {bankViewMode === 'single' ? <Layers className="w-3.5 h-3.5" /> : <ListFilter className="w-3.5 h-3.5" />}
+                  <span>
+                    {bankViewMode === 'single'
+                      ? isAr ? 'سؤال لكل شاشة' : 'One per Screen'
+                      : isAr ? 'عرض كقائمة' : 'Continuous List'}
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            {filteredQuestions.length === 0 ? (
+              <div className="p-8 rounded-2xl border text-center border-dashed border-slate-300 dark:border-slate-800 space-y-2">
+                <p className="text-3xl">📝</p>
+                <p className="text-sm font-bold text-slate-400">
+                  {isAr ? 'لا توجد أسئلة تطابق معايير البحث الحالية' : 'No questions matching current filter'}
+                </p>
+                <button
+                  type="button"
+                  onClick={handleOpenAddModal}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-indigo-400 underline hover:text-indigo-300 mt-1 cursor-pointer"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>{isAr ? 'أضف أول سؤال في هذا الباب الآن' : 'Add your first question now'}</span>
+                </button>
+              </div>
+            ) : bankViewMode === 'single' ? (
+              (() => {
+                const safeIdx = Math.min(Math.max(0, activeQuestionIdx), filteredQuestions.length - 1);
+                const currentQ = filteredQuestions[safeIdx];
+                return (
+                  <div className="space-y-3">
+                    {/* Single Question Header Pager Bar */}
+                    <div className={`p-3 rounded-xl border flex items-center justify-between gap-3 ${
+                      isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'
+                    }`}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveQuestionIdx((prev) => Math.max(0, prev - 1))}
+                        disabled={safeIdx === 0}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 border transition-all ${
+                          safeIdx === 0
+                            ? 'opacity-40 cursor-not-allowed border-transparent text-slate-500'
+                            : isLight
+                            ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 cursor-pointer'
+                            : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700 cursor-pointer'
+                        }`}
+                      >
+                        {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                        <span>{isAr ? 'السابق' : 'Previous'}</span>
+                      </button>
+
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-slate-300 font-mono">
+                          {isAr
+                            ? `السؤال (${toHindiDigits(safeIdx + 1)}) من (${toHindiDigits(filteredQuestions.length)})`
+                            : `Question (${safeIdx + 1}) of (${filteredQuestions.length})`}
+                        </span>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setActiveQuestionIdx((prev) => Math.min(filteredQuestions.length - 1, prev + 1))}
+                        disabled={safeIdx === filteredQuestions.length - 1}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 border transition-all ${
+                          safeIdx === filteredQuestions.length - 1
+                            ? 'opacity-40 cursor-not-allowed border-transparent text-slate-500'
+                            : isLight
+                            ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 cursor-pointer'
+                            : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700 cursor-pointer'
+                        }`}
+                      >
+                        <span>{isAr ? 'التالي' : 'Next'}</span>
+                        {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </button>
+                    </div>
+
+                    {/* Quick Jumper Palette */}
+                    <div className={`p-2.5 rounded-xl border flex items-center gap-1.5 overflow-x-auto ${
+                      isLight ? 'bg-slate-50 border-slate-200' : 'bg-slate-950/60 border-slate-800/80'
+                    }`}>
+                      {filteredQuestions.map((q, qIdx) => {
+                        const isActive = qIdx === safeIdx;
+                        const isChecked = selectedQuestionIds.has(q.id);
+                        return (
+                          <button
+                            key={q.id}
+                            type="button"
+                            onClick={() => setActiveQuestionIdx(qIdx)}
+                            className={`min-w-[32px] h-8 px-2 rounded-lg text-xs font-bold transition-all shrink-0 flex items-center justify-center gap-1 cursor-pointer border ${
+                              isActive
+                                ? 'bg-indigo-600 text-white border-indigo-500 shadow-md ring-2 ring-indigo-400/40'
+                                : isChecked
+                                ? isLight
+                                  ? 'bg-indigo-100 text-indigo-900 border-indigo-300'
+                                  : 'bg-indigo-950 text-indigo-300 border-indigo-700'
+                                : isLight
+                                ? 'bg-white text-slate-700 border-slate-300 hover:bg-slate-100'
+                                : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white hover:bg-slate-800'
+                            }`}
+                            title={q.chapterTitleAr}
+                          >
+                            <span>{isAr ? toHindiDigits(qIdx + 1) : qIdx + 1}</span>
+                            {isChecked && <Check className="w-2.5 h-2.5 stroke-3 text-emerald-400" />}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Single Question Card */}
+                    {renderQuestionCard(currentQ, safeIdx)}
+
+                    {/* Single Question Footer Pager Bar */}
+                    <div className={`p-3 rounded-xl border flex items-center justify-between gap-3 ${
+                      isLight ? 'bg-white border-slate-200' : 'bg-slate-900 border-slate-800'
+                    }`}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveQuestionIdx((prev) => Math.max(0, prev - 1))}
+                        disabled={safeIdx === 0}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 border transition-all ${
+                          safeIdx === 0
+                            ? 'opacity-40 cursor-not-allowed border-transparent text-slate-500'
+                            : isLight
+                            ? 'bg-slate-100 hover:bg-slate-200 text-slate-800 border-slate-300 cursor-pointer shadow-xs'
+                            : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700 cursor-pointer shadow-xs'
+                        }`}
+                      >
+                        {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                        <span>{isAr ? 'السؤال السابق' : 'Previous Question'}</span>
+                      </button>
+
+                      <div className="hidden sm:flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+                        <span>{isAr ? 'تنقل سريع بالأسهم' : 'Navigate with arrow keys'}</span>
+                        <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[10px]">←</kbd>
+                        <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[10px]">→</kbd>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setActiveQuestionIdx((prev) => Math.min(filteredQuestions.length - 1, prev + 1))}
+                        disabled={safeIdx === filteredQuestions.length - 1}
+                        className={`px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 border transition-all ${
+                          safeIdx === filteredQuestions.length - 1
+                            ? 'opacity-40 cursor-not-allowed border-transparent text-slate-500'
+                            : 'bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500 cursor-pointer shadow-xs'
+                        }`}
+                      >
+                        <span>{isAr ? 'السؤال التالي' : 'Next Question'}</span>
+                        {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })()
+            ) : (
+              /* Continuous List Mode */
+              <div className="space-y-3">
+                {filteredQuestions.map((q, idx) => renderQuestionCard(q, idx))}
+              </div>
+            )}
+          </div>
+        );
+      })()}
 
       {/* ADD / EDIT QUESTION MODAL */}
       {isModalOpen && (

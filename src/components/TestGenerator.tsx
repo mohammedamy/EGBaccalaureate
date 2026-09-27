@@ -45,6 +45,10 @@ import {
   BookMarked,
   TrendingUp,
   ShieldCheck,
+  ChevronLeft,
+  ChevronRight,
+  ListFilter,
+  Layers,
 } from 'lucide-react';
 import clipsatLogo from '../assets/clipsat-logo.png';
 import { SUBJECTS, getBranchesForSubject } from '../data/subjects';
@@ -199,6 +203,15 @@ export const TestGenerator: React.FC<Props> = ({
 
   // Post-exam review filter
   const [reviewFilter, setReviewFilter] = useState<'all' | 'incorrect' | 'flagged'>('all');
+
+  // Single-Question Per-Screen Navigation States
+  const [examPagingMode, setExamPagingMode] = useState<'single' | 'list'>('single');
+  const [currentExamQuestionIdx, setCurrentExamQuestionIdx] = useState<number>(0);
+
+  // Reset exam question pagination index when reviewFilter changes or test starts
+  useEffect(() => {
+    setCurrentExamQuestionIdx(0);
+  }, [reviewFilter, isExamStarted]);
 
   // Gamification & Badges celebration state
   const [newlyEarnedBadges, setNewlyEarnedBadges] = useState<AchievementBadge[]>([]);
@@ -1498,6 +1511,25 @@ export const TestGenerator: React.FC<Props> = ({
     }
     return activeQuestions.map((q, idx) => ({ q, idx }));
   }, [activeQuestions, userAnswers, flaggedQuestions, isSubmitted, reviewFilter]);
+
+  // Global Keyboard Navigation (Arrow Keys) for Paged Exam Questions
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isExamStarted) return;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) return;
+      if (examPagingMode === 'single') {
+        if (e.key === 'ArrowRight') {
+          if (lang === 'ar') setCurrentExamQuestionIdx((prev) => Math.max(0, prev - 1));
+          else setCurrentExamQuestionIdx((prev) => Math.min(displayedQuestions.length - 1, prev + 1));
+        } else if (e.key === 'ArrowLeft') {
+          if (lang === 'ar') setCurrentExamQuestionIdx((prev) => Math.min(displayedQuestions.length - 1, prev + 1));
+          else setCurrentExamQuestionIdx((prev) => Math.max(0, prev - 1));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isExamStarted, examPagingMode, lang, displayedQuestions.length]);
 
   // Automatically register certificate into the central accreditation registry upon exam submission
   useEffect(() => {
@@ -3849,6 +3881,11 @@ export const TestGenerator: React.FC<Props> = ({
                         }
                       }
 
+                      const isActiveInPaging = examPagingMode === 'single' && displayedQuestions[currentExamQuestionIdx]?.idx === idx;
+                      if (isActiveInPaging) {
+                        btnStyle += ' ring-2 ring-indigo-400 scale-110 z-10 font-black shadow-md';
+                      }
+
                       return (
                         <React.Fragment key={idx}>
                           {isFirstQ && q.points !== undefined && (
@@ -3863,7 +3900,16 @@ export const TestGenerator: React.FC<Props> = ({
                             </span>
                           )}
                           <button
-                            onClick={() => scrollToQuestion(idx)}
+                            onClick={() => {
+                              const dispIdx = displayedQuestions.findIndex((d) => d.idx === idx);
+                              if (dispIdx !== -1) {
+                                setCurrentExamQuestionIdx(dispIdx);
+                              } else {
+                                setReviewFilter('all');
+                                setCurrentExamQuestionIdx(idx);
+                              }
+                              scrollToQuestion(idx);
+                            }}
                             className={`w-7 h-7 rounded-lg text-xs flex items-center justify-center border transition-all shrink-0 cursor-pointer relative ${btnStyle}`}
                             title={`Question ${idx + 1}`}
                           >
@@ -4553,9 +4599,9 @@ export const TestGenerator: React.FC<Props> = ({
                 </div>
               )}
 
-              {/* Questions List */}
-              <div className="print-hide-on-cert space-y-6">
-                {displayedQuestions.map(({ q, idx }) => {
+              {/* Questions List & Single Question Pager */}
+              {(() => {
+                const renderExamQuestionCard = ({ q, idx }: { q: GeneratedQuestion; idx: number }) => {
                   const selectedOpt = userAnswers[idx];
                   const isCorrect = isSubmitted && selectedOpt === q.correctIndex;
                   const isWrong = isSubmitted && selectedOpt !== undefined && selectedOpt !== q.correctIndex;
@@ -4809,8 +4855,126 @@ export const TestGenerator: React.FC<Props> = ({
                       )}
                     </div>
                   );
-                })}
-              </div>
+                };
+
+                const safeExamIdx = Math.min(Math.max(0, currentExamQuestionIdx), Math.max(0, displayedQuestions.length - 1));
+
+                return (
+                  <div className="print-hide-on-cert space-y-6">
+                    {/* View Mode Toggle Header */}
+                    <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800 no-print flex-wrap">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-bold text-slate-300">
+                          {examPagingMode === 'single' ? (
+                            lang === 'ar'
+                              ? `سؤال لكل شاشة: السؤال (${toHindiDigits(safeExamIdx + 1)}) من (${toHindiDigits(displayedQuestions.length)})`
+                              : `Single Question: (${safeExamIdx + 1} of ${displayedQuestions.length})`
+                          ) : (
+                            lang === 'ar'
+                              ? `عرض الكل بالتمرير: (${toHindiDigits(displayedQuestions.length)}) سؤال`
+                              : `Continuous Scroll: (${displayedQuestions.length}) questions`
+                          )}
+                        </span>
+                        {stats.answeredPct > 0 && (
+                          <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-500/20 font-bold">
+                            {stats.answeredPct}% {lang === 'ar' ? 'مكتمل' : 'Completed'}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={() => setExamPagingMode((prev) => (prev === 'single' ? 'list' : 'single'))}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer border ${
+                            examPagingMode === 'single'
+                              ? 'bg-indigo-600 text-white border-indigo-500 shadow-sm'
+                              : 'bg-slate-950 border-slate-800 text-slate-300 hover:text-white'
+                          }`}
+                          title={lang === 'ar' ? 'التبديل بين سؤال لكل شاشة وعرض الكل' : 'Toggle between Single Question and Scroll All'}
+                        >
+                          {examPagingMode === 'single' ? <Layers className="w-3.5 h-3.5" /> : <ListFilter className="w-3.5 h-3.5" />}
+                          <span>{examPagingMode === 'single' ? (lang === 'ar' ? 'سؤال لكل شاشة' : 'One per Screen') : (lang === 'ar' ? 'عرض الكل بالتمرير' : 'Scroll All')}</span>
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Question Display Area */}
+                    {displayedQuestions.length === 0 ? (
+                      <div className="p-12 text-center text-slate-400 space-y-2 border border-dashed border-slate-800 rounded-xl">
+                        <p className="text-sm font-semibold">
+                          {lang === 'ar' ? 'لا توجد أسئلة تطابق الفلتر الحالي.' : 'No questions match the selected filter.'}
+                        </p>
+                      </div>
+                    ) : examPagingMode === 'single' ? (
+                      <div className="space-y-6">
+                        {/* Single Question View */}
+                        <div className="print-hide-on-screen">
+                          {displayedQuestions[safeExamIdx] && renderExamQuestionCard(displayedQuestions[safeExamIdx])}
+                        </div>
+
+                        {/* Bottom Navigation Pager */}
+                        {displayedQuestions.length > 1 && (
+                          <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-800/80 no-print flex-wrap">
+                            <button
+                              disabled={safeExamIdx <= 0}
+                              onClick={() => {
+                                const prevIdx = safeExamIdx - 1;
+                                setCurrentExamQuestionIdx(prevIdx);
+                                scrollToQuestion(displayedQuestions[prevIdx]?.idx);
+                              }}
+                              className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed bg-slate-900 hover:bg-slate-800 text-slate-200 border-slate-700 active:scale-95"
+                            >
+                              {lang === 'ar' ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                              <span>{lang === 'ar' ? 'السؤال السابق' : 'Previous Question'}</span>
+                            </button>
+
+                            <div className="text-xs font-bold text-slate-300 flex items-center gap-2">
+                              <span className="px-3 py-1 rounded-lg bg-indigo-500/10 border border-indigo-500/30 text-indigo-400">
+                                {lang === 'ar'
+                                  ? `السؤال ${toHindiDigits(safeExamIdx + 1)} من ${toHindiDigits(displayedQuestions.length)}`
+                                  : `Question ${safeExamIdx + 1} of ${displayedQuestions.length}`}
+                              </span>
+                            </div>
+
+                            {safeExamIdx < displayedQuestions.length - 1 ? (
+                              <button
+                                onClick={() => {
+                                  const nextIdx = safeExamIdx + 1;
+                                  setCurrentExamQuestionIdx(nextIdx);
+                                  scrollToQuestion(displayedQuestions[nextIdx]?.idx);
+                                }}
+                                className="px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer bg-indigo-600 hover:bg-indigo-500 text-white border-indigo-500 shadow-md shadow-indigo-600/30 active:scale-95"
+                              >
+                                <span>{lang === 'ar' ? 'السؤال التالي' : 'Next Question'}</span>
+                                {lang === 'ar' ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                              </button>
+                            ) : (
+                              !isSubmitted && (
+                                <button
+                                  onClick={handleSubmitExam}
+                                  className="px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 border transition-all cursor-pointer bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white border-emerald-500 shadow-lg shadow-emerald-600/30 active:scale-95"
+                                >
+                                  <Check className="w-4 h-4" />
+                                  <span>{lang === 'ar' ? 'مراجعة وتسليم الاختبار' : 'Review & Submit Exam'}</span>
+                                </button>
+                              )
+                            )}
+                          </div>
+                        )}
+
+                        {/* Print-Only Container: All questions rendered on paper */}
+                        <div className="hidden print:block space-y-6">
+                          {displayedQuestions.map((item) => renderExamQuestionCard(item))}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="space-y-6">
+                        {displayedQuestions.map((item) => renderExamQuestionCard(item))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
 
               {/* Bottom Submit Button */}
               {!isSubmitted && (

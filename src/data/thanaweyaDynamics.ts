@@ -32,52 +32,62 @@ export const thanaweyaDynamicsBranch: Branch = {
           titleAr: 'حركة جسيم في خط مستقيم واشتقاق الدوال المتجهة',
           summaryEn: 'Kinematics of a particle in a straight line: position $r(t)$, displacement $s(t) = r(t) - r(0)$, velocity $v = \\frac{ds}{dt}$, acceleration $a = \\frac{dv}{dt}$ or $a = v \\frac{dv}{dx}$, and accelerated vs decelerated motion condition ($v \\cdot a > 0$ or $v \\cdot a < 0$).',
           summaryAr: 'حركة جسيم في خط مستقيم: متجه الموضع $r(t)$، الإزاحة $s(t) = r(t) - r(0)$، السرعة $v = \\frac{ds}{dt}$، العجلة $a = \\frac{dv}{dt}$ أو $a = v \\frac{dv}{dx}$، وبحث نوع الحركة متسارعة أم تقصيرية ($v \\cdot a > 0$ أو $v \\cdot a < 0$).',
-          theoryContentEn: `### 1. Vector Kinematics Definitions in a Straight Line
-When a particle moves along a straight line with coordinate axis $x$ and origin $O$:
-- **Position Vector ($r(t)$ or $x(t)$):** Specifies the location of the particle relative to origin $O$ at time $t$.
-- **Displacement Vector ($s(t)$):** The change in position from initial time $t = 0$:
-  $$s(t) = r(t) - r(0) = x(t) - x_0$$
-- **Velocity ($v(t)$):** The rate of change of position or displacement with respect to time:
-  $$v(t) = \\frac{ds}{dt} = \\frac{dx}{dt} = r'(t)$$
-  - Direction of motion: particle moves in positive direction if $v > 0$, negative direction if $v < 0$, and momentarily comes to rest when $v = 0$.
+          theoryContentEn: `### 1. Vector Kinematics Foundations in a Straight Line
+When a particle moves along a straight line equipped with a fixed origin $O$ and unit vector $\hat{c}$:
+- **Position Vector (متجه الموضع):** $\vec{r}(t) = x(t) \hat{c}$, measuring displacement from origin $O$.
+- **Displacement Vector (متجه الإزاحة):** The net change in position from initial instant $t = 0$:
+  $$\vec{s}(t) = \vec{r}(t) - \vec{r}(0) = [x(t) - x_0] \hat{c}$$
+- **Velocity Vector (متجه السرعة):** The instantaneous time derivative of displacement or position:
+  $$\vec{v}(t) = \frac{d\vec{s}}{dt} = \frac{d\vec{r}}{dt} = x'(t) \hat{c}$$
+  - Direction of motion: particle moves forward (in direction of $\hat{c}$) if $v > 0$, moves backward if $v < 0$, and comes to instantaneous rest (سكون لحظي) when $v = 0$.
 
-### 2. Acceleration Formulas ($a$):
-1. **When velocity is expressed as a function of time $t$ ($v = f(t)$):**
-   $$a = \\frac{dv}{dt} = \\frac{d^2 s}{dt^2} = \\frac{d^2 x}{dt^2}$$
-2. **When velocity is expressed as a function of position $x$ ($v = f(x)$):**
-   Using the chain rule:
-   $$a = \\frac{dv}{dt} = \\frac{dv}{dx} \\cdot \\frac{dx}{dt} = v \\frac{dv}{dx}$$
-   *(This is a quintessential Thanaweya Amma exam formula!)*
+### 2. The Twin Formulations of Acceleration ($a$)
+1. **Time-Dependent Velocity ($v = f(t)$):**
+   $$a = \frac{dv}{dt} = \frac{d^2 s}{dt^2} = \frac{d^2 x}{dt^2}$$
+2. **Position-Dependent Velocity ($v = f(x)$) — The Spatial Chain Rule:**
+   $$a = \frac{dv}{dt} = \frac{dv}{dx} \cdot \frac{dx}{dt} = v \frac{dv}{dx} = \frac{1}{2} \frac{d(v^2)}{dx}$$
+   *(Fundamental exam theorem: whenever velocity is expressed in terms of position coordinate $x$, acceleration is obtained by multiplying $v$ by its derivative with respect to $x$!)*
 
-### 3. Accelerated vs. Decelerated (Retarded) Motion:
-- **Accelerated Motion (حركة متسارعة):** Speed of the particle is increasing if velocity and acceleration have the **same sign**:
-  $$v(t) \\cdot a(t) > 0$$
-- **Decelerated / Retarded Motion (حركة تقصيرية):** Speed of the particle is decreasing if velocity and acceleration have **opposite signs**:
-  $$v(t) \\cdot a(t) < 0$$
-- **Maximum Velocity:** Occurs at points where acceleration is zero ($a = 0$), provided $\\frac{da}{dt} < 0$.`,
-          theoryContentAr: `### ١. تعريفات الحركة في خط مستقيم
-عند حركة جسيم في خط مستقيم مزود بنقطة أصل ثابتة $O$ ومتجه وحدة $\\hat{c}$:
-- **متجه الموضع ($r(t)$ أو $x(t)$):** يحدد موقع الجسيم بالنسبة للنقطة الثابتة $O$ عند اللحظة الزمنية $t$.
-- **متجه الإزاحة ($s(t)$):** هو التغير في متجه الموضع من بداية الحركة ($t = 0$):
-  $$s(t) = r(t) - r(0) = x(t) - x_0$$
-- **متجه السرعة ($v(t)$):** هو معدل تغير الإزاحة أو الموضع بالنسبة للزمن:
-  $$v(t) = \\frac{ds}{dt} = \\frac{dx}{dt} = r'(t)$$
-  - اتجاه الحركة: يتحرك الجسيم في الاتجاه الموجب عندما يكون $v > 0$، وفي الاتجاه السالب عندما يكون $v < 0$، ويسكن لحظياً عندما يكون $v = 0$.
+### 3. Accelerated vs. Decelerated (Retarded) Motion
+The nature of rectilinear motion is determined by the scalar product of velocity and acceleration:
+- **Accelerated Motion (حركة متسارعة):** The magnitude of velocity (speed $|v|$) is strictly increasing over time. This occurs when velocity and acceleration share the **same sign**:
+  $$v(t) \cdot a(t) > 0$$
+- **Decelerated / Retarded Motion (حركة تقصيرية):** The speed $|v|$ is strictly decreasing over time (the body is braking). This occurs when velocity and acceleration have **opposite signs**:
+  $$v(t) \cdot a(t) < 0$$
+- **Maximum Velocity (أقصى سرعة):** A particle achieves extreme speed when its acceleration vanishes ($a = 0$), provided $\frac{da}{dt} < 0$.
 
-### ٢. قوانين العجلة ($a$):
-١. **عندما تكون السرعة دالة في الزمن $t$ ($v = f(t)$):**
-   $$a = \\frac{dv}{dt} = \\frac{d^2 s}{dt^2} = \\frac{d^2 x}{dt^2}$$
-٢. **عندما تكون السرعة دالة في الموضع $x$ ($v = f(x)$):**
-   باستخدام قاعدة السلسلة:
-   $$a = \\frac{dv}{dt} = \\frac{dv}{dx} \\cdot \\frac{dx}{dt} = v \\frac{dv}{dx}$$
-   *(هذا القانون من أشهر قوانين امتحانات الثانوية العامة!)*
+### 4. Critical Examination Pitfalls & Common Traps
+- **Forgetting Spatial Acceleration Form:** When given $v = \sqrt{25 - x^2}$ or $v^2 = 4x + 9$, students who try to differentiate with respect to $t$ without chain rule get stuck. Differentiate with respect to $x$:
+  $$v^2 = 4x + 9 \implies 2v \frac{dv}{dx} = 4 \implies 2a = 4 \implies a = 2 \text{ m/s}^2 \quad (\text{constant!})$$
+- **Speed vs. Velocity Distinction:** A particle with $v = -10 \text{ m/s}$ and $a = -4 \text{ m/s}^2$ is moving with ACCELERATED motion ($v \cdot a = +40 > 0$), because its speed $|v|$ is growing from $10$ to $14 \text{ m/s}$, even though $v$ is negative!`,
+          theoryContentAr: `### ١. الأصول الرياضية للحركة المتجهة في خط مستقيم
+عند حركة جسيم في خط مستقيم مزود بنقطة أصل ثابتة $O$ ومتجه وحدة موازٍ للخط $\hat{c}$:
+- **متجه الموضع:** $\vec{r}(t) = x(t) \hat{c}$، يحدد موضع الجسيم في أي لحظة زمنية.
+- **متجه الإزاحة:** هو التغير الحادث في موضع الجسيم منذ بداية رصد الحركة ($t = 0$):
+  $$\vec{s}(t) = \vec{r}(t) - \vec{r}(0) = [x(t) - x_0] \hat{c}$$
+- **متجه السرعة:** المشتقة الأولى لمتجه الإزاحة بالنسبة للزمن:
+  $$\vec{v}(t) = \frac{d\vec{s}}{dt} = \frac{d\vec{r}}{dt} = x'(t) \hat{c}$$
+  - إشارة السرعة تحدد اتجاه الحركة: إذا كانت $v > 0$ فالحركة للأمام، وإذا كانت $v < 0$ فالحركة للخلف، ويسكن الجسيم لحظياً عند $v = 0$.
 
-### ٣. الحركة المتسارعة والحركة التقصيرية:
-- **الحركة المتسارعة:** تتزايد سرعة الجسيم (معيار السرعة يزداد) إذا كان للسرعة والعجلة **نفس الإشارة**:
-  $$v(t) \\cdot a(t) > 0$$
-- **الحركة التقصيرية (المتباطئة):** تتناقص سرعة الجسيم (معيار السرعة ينقص) إذا كان للسرعة والعجلة **إشارتان مختلفتان**:
-  $$v(t) \\cdot a(t) < 0$$
-- **أقصى سرعة:** يبلغ الجسيم أقصى سرعة عندما تنعدم العجلة ($a = 0$).`,
+### ٢. الصورتان الأساسيتان للعجلة ($a$)
+١. **عندما تكون السرعة معطاة كدالة في الزمن ($v = f(t)$):**
+   $$a = \frac{dv}{dt} = \frac{d^2 s}{dt^2} = \frac{d^2 x}{dt^2}$$
+٢. **عندما تكون السرعة معطاة كدالة في الموضع ($v = f(x)$) — قاعدة السلسلة المكانية:**
+   $$a = \frac{dv}{dt} = \frac{dv}{dx} \cdot \frac{dx}{dt} = v \frac{dv}{dx} = \frac{1}{2} \frac{d(v^2)}{dx}$$
+   *(قاعدة امتحانية كبرى: كلما كانت السرعة بدلالة س، فالعجلة تساوي حاصل ضرب السرعة في مشتقتها بالنسبة لـ س!)*
+
+### ٣. بحث نوع الحركة: متسارعة أم تقصيرية
+يتحدد نوع الحركة من خلال حاصل ضرب القياسين الجبريين للسرعة والعجلة:
+- **الحركة المتسارعة:** معيار السرعة (مقدارها) يزداد مع مرور الزمن، ويحدث هذا عندما يكون للسرعة والعجلة **نفس الإشارة**:
+  $$v(t) \cdot a(t) > 0$$
+- **الحركة التقصيرية (المتباطئة):** معيار السرعة يتناقص مع الزمن (فرملة)، ويحدث هذا عندما تكون إشارة السرعة **مخالفة** لإشارة العجلة:
+  $$v(t) \cdot a(t) < 0$$
+- **أقصى سرعة:** يصل الجسيم لأقصى سرعة عندما تنعدم العجلة تماماً ($a = 0$).
+
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ السرعة كدالة في الموضع:** إذا أعطيت العلاقة $v^2 = 6x + 5$، لا تحاول أخذ الجذر واشتقاق الزمن! اشتق الطرفين مباشرة بالنسبة لـ $x$:
+  $$2v \frac{dv}{dx} = 6 \implies 2a = 6 \implies a = 3 \text{ m/s}^2$$
+- **الخلط بين إشارة السرعة ونوع الحركة:** إذا كان $v = -8$ و $a = -2$، فالحركة **متسارعة** وليست تقصيرية لأن $v \cdot a = +16 > 0$ ومعيار السرعة يزداد من $8$ إلى $10$!`,
           formulas: [
             { labelEn: 'Velocity Definition', labelAr: 'تعريف السرعة', latex: 'v = \\frac{ds}{dt} = \\frac{dx}{dt}' },
             { labelEn: 'Acceleration with Time', labelAr: 'العجلة كدالة في الزمن', latex: 'a = \\frac{dv}{dt} = \\frac{d^2 x}{dt^2}' },
@@ -321,54 +331,60 @@ When a particle moves along a straight line with coordinate axis $x$ and origin 
           titleAr: 'تكامل الدوال المتجهة وحساب المسافة الكلية والإزاحة',
           summaryEn: 'Definite integration of vector acceleration and velocity, determining velocity from $a(t)$ or $a(x)$ via $v \\, dv = a \\, dx$, and distinguishing net displacement from total distance traveled.',
           summaryAr: 'التكامل المحدد للعجلة والسرعة، حساب السرعة من العجلة كدالة في الزمن أو الموضع عبر $v dv = a dx$، والتمييز الدقيق بين الإزاحة والمسافة الكلية المقطوعة.',
-          theoryContentEn: `### 1. Integration with Time-Dependent Acceleration ($a = f(t)$):
-$$\\Delta v = v(t) - v_0 = \\int_0^t a(t) dt \\implies v(t) = v_0 + \\int_0^t a(t) dt$$
-Similarly, displacement $s(t)$ is obtained by integrating velocity:
-$$s(t) = \\int_0^t v(t) dt$$
+          theoryContentEn: `### 1. Integration of Vector Kinematics by Variable Separation
+Integration is the fundamental inverse operation for reconstructing velocity and position trajectories from acceleration:
+1. **Time-Dependent Acceleration ($a = f(t)$):**
+   $$a = \frac{dv}{dt} \implies dv = a(t) \, dt \implies \int_{v_0}^v dv = \int_0^t a(t) \, dt \implies v(t) = v_0 + \int_0^t a(t) \, dt$$
+   $$v = \frac{dx}{dt} \implies dx = v(t) \, dt \implies x(t) = x_0 + \int_0^t v(t) \, dt$$
+2. **Position-Dependent Acceleration ($a = f(x)$):**
+   Using $a = v \frac{dv}{dx}$, separate variables $v$ and $x$:
+   $$v \, dv = a(x) \, dx \implies \int_{v_0}^v v \, dv = \int_{x_0}^x a(x) \, dx$$
+   $$\frac{1}{2} (v^2 - v_0^2) = \int_{x_0}^x a(x) \, dx$$
+3. **Velocity-Dependent Acceleration ($a = f(v)$):**
+   - For time relationship: $\frac{dv}{dt} = f(v) \implies dt = \frac{dv}{f(v)} \implies t = \int_{v_0}^v \frac{dv}{f(v)}$.
+   - For position relationship: $v \frac{dv}{dx} = f(v) \implies dx = \frac{v \, dv}{f(v)} \implies x - x_0 = \int_{v_0}^v \frac{v \, dv}{f(v)}$.
 
-### 2. Integration with Position-Dependent Acceleration ($a = f(x)$):
-Since $a = v \\frac{dv}{dx}$, separating variables yields:
-$$v \\, dv = a(x) \\, dx$$
-Integrating from initial state $(x_0, v_0)$ to state $(x, v)$:
-$$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 - v_0^2) = \\int_{x_0}^x a(x) \\, dx$$
-*(Fundamental formula linking work, potential, and kinetic changes in Thanaweya Amma).*
+### 2. Displacement vs. Total Distance Traveled
+In a given time interval $[t_1, t_2]$:
+- **Displacement (الإزاحة):** Net change in position coordinate (a vector quantity):
+  $$s = \Delta x = \int_{t_1}^{t_2} v(t) \, dt$$
+- **Total Distance Traveled (المسافة الكلية المقطوعة):** The actual geometric length of path traced (strictly positive scalar):
+  $$D = \int_{t_1}^{t_2} |v(t)| \, dt$$
+  *Protocol for Distance Calculation:*
+  1. Solve $v(t) = 0$ to identify all turning points (instantaneous stops) $t^* \in (t_1, t_2)$.
+  2. Partition the integral across turning points:
+     $$D = \left| \int_{t_1}^{t^*} v(t) \, dt \right| + \left| \int_{t^*}^{t_2} v(t) \, dt \right|$$
 
-### 3. Critical Exam Distinction: Displacement vs. Total Distance
-Given a time interval $[t', t_2]$:
-1. **Net Displacement (الإزاحة):**
-   $$s = \\int_{t_1}^{t_2} v(t) \\, dt = x(t_2) - x(t_1)$$
-   - Displacement is a vector quantity and can be positive, negative, or zero.
-2. **Total Distance Traveled (المسافة الكلية المقطوعة):**
-   $$D = \\int_{t_1}^{t_2} |v(t)| \\, dt$$
-   - To compute $D$:
-     1. Solve $v(t) = 0$ to find any turning points (reversal of motion) inside $[t', t_2]$.
-     2. If $v(t_0) = 0$ where $t_1 < t_0 < t_2$, split the integral:
-        $$D = \\left| \\int_{t_1}^{t_0} v(t) \\, dt \\right| + \\left| \\int_{t_0}^{t_2} v(t) \\, dt \\right|$$
-   - Total distance is always non-negative and $D \\ge |s|$.`,
-          theoryContentAr: `### ١. تكامل العجلة المعطاة كدالة في الزمن ($a = f(t)$):
-$$\\Delta v = v(t) - v_0 = \\int_0^t a(t) dt \\implies v(t) = v_0 + \\int_0^t a(t) dt$$
-وبالمثل، نحصل على الإزاحة $s(t)$ بتكامل السرعة بالنسبة للزمن:
-$$s(t) = \\int_0^t v(t) dt$$
+### 3. Critical Examination Pitfalls & Common Traps
+- **Confusing Displacement with Distance:** When a particle moves forward then reverses, displacement can be zero ($s = 0$) while total distance is positive ($D = 2d$). For exam questions asking for "Distance", ALWAYS check for zeros of $v(t)$!
+- **Initial Constant of Integration ($C$ vs $v_0$):** In indefinite integration $\int a \, dt = v + C$, remember $C$ is not necessarily $v_0$ if $a(t)$ contains trigonometric or exponential terms evaluated at $t = 0$. Using definite integrals with limits eliminates this error completely.`,
+          theoryContentAr: `### ١. تكامل الدوال المتجهة بفصل المتغيرات
+التكامل هو العملية العكسية للاشتقاق لإيجاد معادلتي السرعة والموضع انطلاقاً من العجلة:
+١. **العجلة دالة في الزمن ($a = f(t)$):**
+   $$dv = a(t) \, dt \implies \int_{v_0}^v dv = \int_0^t a(t) \, dt \implies v(t) = v_0 + \int_0^t a(t) \, dt$$
+   $$dx = v(t) \, dt \implies x(t) = x_0 + \int_0^t v(t) \, dt$$
+٢. **العجلة دالة في الموضع ($a = f(x)$):**
+   باستخدام $a = v \frac{dv}{dx}$، نفصل المتغيرات:
+   $$v \, dv = a(x) \, dx \implies \int_{v_0}^v v \, dv = \int_{x_0}^x a(x) \, dx$$
+   $$\frac{1}{2} (v^2 - v_0^2) = \int_{x_0}^x a(x) \, dx$$
+٣. **العجلة دالة في السرعة ($a = f(v)$):**
+   - لإيجاد العلاقة بين السرعة والزمن: $dt = \frac{dv}{f(v)} \implies t = \int_{v_0}^v \frac{dv}{f(v)}$.
+   - لإيجاد العلاقة بين السرعة والموضع: $dx = \frac{v \, dv}{f(v)} \implies x - x_0 = \int_{v_0}^v \frac{v \, dv}{f(v)}$.
 
-### ٢. تكامل العجلة المعطاة كدالة في الموضع ($a = f(x)$):
-بما أن $a = v \\frac{dv}{dx}$، بفصل المتغيرات نحصل على:
-$$v \\, dv = a(x) \\, dx$$
-وبإجراء التكامل من الموضع والسرعة الابتدائيين $(x_0, v_0)$ إلى $(x, v)$:
-$$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 - v_0^2) = \\int_{x_0}^x a(x) \\, dx$$
-*(معادلة جوهرية تتكرر دائماً في امتحانات الثانوية العامة).*
+### ٢. الفرق الجوهري بين الإزاحة والمسافة الكلية المقطوعة
+خلال الفترة الزمنية $[t_1, t_2]$:
+- **متجه الإزاحة:** هو التغير الصافي في موضع الجسيم (كمية متجهة قد تكون موجبة أو سالبة أو صفراً):
+  $$s = \Delta x = \int_{t_1}^{t_2} v(t) \, dt$$
+- **المسافة الكلية المقطوعة:** هي طول المسار الفعلي الذي قطعه الجسيم (كمية قياسية موجبة دائماً):
+  $$D = \int_{t_1}^{t_2} |v(t)| \, dt$$
+  *خطوات حساب المسافة المقطوعة:*
+  ١. نضع $v(t) = 0$ لمعرفة لحظات السكون اللحظي وعكس اتجاه الحركة داخل الفترة.
+  ٢. نجزئ فترة التكامل عند هذه اللحظات ونأخذ القيمة المطلقة لكل جزء:
+     $$D = |s_1| + |s_2|$$
 
-### ٣. تمييز امتحاني جوهري: الإزاحة مقابل المسافة الكلية
-خلال الفترة الزمنية $[t', t_2]$:
-١. **الإزاحة (متجه):**
-   $$s = \\int_{t_1}^{t_2} v(t) \\, dt = x(t_2) - x(t_1)$$
-   - قد تكون الإزاحة موجبة أو سالبة أو صفراً.
-٢. **المسافة الكلية المقطوعة (كمية قياسية موجبة):**
-   $$D = \\int_{t_1}^{t_2} |v(t)| \\, dt$$
-   - لحساب المسافة الكلية:
-     أ) نضع $v(t) = 0$ للبحث عن لحظات السكون اللحظي وعكس اتجاه الحركة داخل الفترة $[t', t_2]$.
-     ب) إذا كان $v(t_0) = 0$ حيث $t_1 < t_0 < t_2$، نقسم التكامل:
-        $$D = \\left| \\int_{t_1}^{t_0} v(t) \\, dt \\right| + \\left| \\int_{t_0}^{t_2} v(t) \\, dt \\right|$$
-   - المسافة الكلية دائماً موجبة وتحقق $D \\ge |s|$.`,
+### ٣. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ حساب المسافة بدلاً من الإزاحة:** في امتحانات الثانوية العامة، عندما يطلب "المسافة الكلية"، يخطئ الطلاب بحساب تكامل السرعة مباشرة، وهو ما يعطي الإزاحة فقط! يجب تصفير السرعة أولاً لتحديد نقط الرجوع.
+- **حدود التكامل المحدد:** ينصح دائماً باستخدام التكامل المحدد بحدود بدلاً من ثابت التكامل $C$ لتجنب أخطاء الشروط الابتدائية عند $t=0$.`,
           formulas: [
             { labelEn: 'Velocity from Acceleration Integral', labelAr: 'السرعة من تكامل العجلة الزمني', latex: 'v(t) - v_0 = \\int_0^t a(t) dt' },
             { labelEn: 'Separation of Variables with Position', labelAr: 'تكامل العجلة بدلالة الموضع', latex: '\\frac{1}{2}(v^2 - v_0^2) = \\int_{x_0}^x a(x) dx' },
@@ -616,76 +632,86 @@ $$\\int_{v_0}^v v \\, dv = \\int_{x_0}^x a(x) \\, dx \\implies \\frac{1}{2}(v^2 
           titleAr: 'كمية الحركة وقانونا نيوتن الأول والثاني',
           summaryEn: 'Understanding momentum $H = mv$, impulse-momentum theorem $\\Delta H = m \\Delta v = \\int F \\, dt$, Newton\'s 1st law (uniform speed under balanced forces $F = R$), and Newton\'s 2nd law $F = \\frac{d(mv)}{dt} = ma$ with metric unit conversions.',
           summaryAr: 'فهم كمية الحركة $H = mv$، التغير في كمية الحركة $\\Delta H = m(v_2 - v_1) = \\int F dt$، قانون نيوتن الأول (السرعة المنتظمة وأقصى سرعة $F = R$)، وقانون نيوتن الثاني $F = \\frac{d}{dt}(mv) = ma$ مع تحويل الوحدات.',
-          theoryContentEn: `### 1. Linear Momentum ($H$ or $p$):
-The linear momentum of a body of mass $m$ moving with velocity $\\vec{v}$ is:
-$$\\vec{H} = m \\vec{v}$$
-- **Change in Momentum (التغير في كمية الحركة):**
-  - For constant mass $m$:
-    $$\\Delta H = m (v_2 - v_1)$$
-  - When force $\\vec{F}$ acts over time interval $[t', t_2]$:
-    $$\\Delta H = \\int_{t_1}^{t_2} \\vec{F} \\, dt = \\text{Impulse } (I)$$
+          theoryContentEn: `### 1. Linear Momentum (كمية الحركة)
+The linear momentum $\vec{H}$ (or $\vec{p}$) of a body of mass $m$ moving with velocity $\vec{v}$ is defined by:
+$$\vec{H} = m \vec{v}$$
+- **Change in Momentum:** Over a time interval from $t_1$ to $t_2$:
+  $$\Delta \vec{H} = m (\vec{v}_2 - \vec{v}_1) = m \int_{t_1}^{t_2} \vec{a} \, dt$$
 
-### 2. Newton\'s First Law of Motion:
-Every body remains in its state of rest or uniform motion in a straight line unless compelled to change that state by forces acting upon it.
-- **Key Mathematical Condition:**
-  $$\\sum \\vec{F} = \\vec{0}$$
-- **When a car/train moves with maximum uniform velocity:**
-  $$F = R$$
-  where $F$ is engine driving force and $R$ is total resistance.
-- **If resistance is proportional to velocity:** $R \\propto v \\implies \\frac{R_1}{R_2} = \\frac{v_1}{v_2}$.
-- **If resistance is proportional to square of velocity:** $R \\propto v^2 \\implies \\frac{R_1}{R_2} = \\left(\\frac{v_1}{v_2}\\right)^2$.
+### 2. Newton's First Law of Motion (Law of Inertia)
+*Every body continues in its state of rest or of uniform motion in a straight line unless compelled to change that state by forces impressed upon it.*
+- **Mathematical Condition for Equilibrium/Uniform Motion:**
+  $$\vec{a} = \vec{0} \iff \sum \vec{F} = \vec{0}$$
+- **Vehicle Moving at Maximum Velocity ($v_{\max}$):**
+  When a train, car, or airplane reaches maximum speed, acceleration ceases ($a = 0$):
+  $$F_{\text{engine}} = R \quad (\text{Forward driving force balances total resistance})$$
+- **Resistance Proportionality Laws:**
+  1. $R \propto v \implies R = k v$ (low-speed laminar drag)
+  2. $R \propto v^2 \implies R = k v^2$ (high-speed turbulent air resistance)
+  3. Resistance per ton: $R_{\text{total}} = R_{\text{ton}} \times M \quad (\text{mass in tons})$.
 
-### 3. Newton\'s Second Law of Motion:
-The rate of change of momentum of a body is directly proportional to the resultant force acting on it:
-$$\\vec{F} = \\frac{d}{dt}(m\\vec{v})$$
-- **Case 1: Constant Mass $m$:**
-  $$\\vec{F} = m \\frac{d\\vec{v}}{dt} = m \\vec{a}$$
-- **Case 2: Variable Mass $m(t)$ (كتلة متغيرة):**
-  $$\\vec{F} = m(t) \\frac{d\\vec{v}}{dt} + \\vec{v} \\frac{dm}{dt}$$
+### 3. Newton's Second Law of Motion (Fundamental Equation of Dynamics)
+*The rate of change of momentum of a body is proportional to the impressed resultant force and takes place in the direction of the straight line in which the force acts:*
+$$\vec{F} = \frac{d\vec{H}}{dt} = \frac{d}{dt}[m(t) \vec{v}(t)]$$
+- **Case 1: Constant Mass ($m = \text{constant}$):**
+  $$\vec{F} = m \frac{d\vec{v}}{dt} = m \vec{a}$$
+- **Case 2: Variable Mass ($m = m(t)$) — Quintessential HOTS Topic:**
+  $$\vec{F} = \frac{d}{dt}[m(t) \vec{v}(t)] = m(t) \frac{d\vec{v}}{dt} + \vec{v}(t) \frac{dm}{dt}$$
+  *(Applies to rockets ejecting fuel, raindrops accumulating condensation, or sand falling onto conveyor belts).*
 
-### 4. Units of Force and Conversions:
-- **Absolute Units (الوحدات المطلقة):**
-  - **1 Newton (N):** Force giving $1\\text{ kg}$ an acceleration of $1\\text{ m/s}^2$ ($1\\text{ N} = 1\\text{ kg}\\cdot\\text{m/s}^2$).
-  - **1 Dyne (داين):** Force giving $1\\text{ g}$ an acceleration of $1\\text{ cm/s}^2$ ($1\\text{ N} = 10^5\\text{ dynes}$).
-- **Gravitational Units (الوحدات التثاقلية):**
-  - $1\\text{ kg-wt (ثقل كجم)} = 9.8\\text{ N}$.
-  - $1\\text{ g-wt (ثقل جم)} = 980\\text{ dynes}$.`,
-          theoryContentAr: `### ١. كمية الحركة ($H$):
-كمية حركة جسم كتلته $m$ يتحرك بسرعة $\\vec{v}$ هي:
-$$\\vec{H} = m \\vec{v}$$
-- **التغير في كمية الحركة:**
-  - إذا كانت الكتلة ثابتة:
-    $$\\Delta H = m (v_2 - v_1)$$
-  - عند تأثير قوة $F$ خلال فترة زمنية $[t', t_2]$:
-    $$\\Delta H = \\int_{t_1}^{t_2} F \\, dt = \\text{الدفع } (I)$$
+### 4. Unit Coherence in Newton's Second Law
+To maintain validity of $F = m a$, all quantities must strictly adhere to coherent absolute scientific units:
+- **SI Units:** Force in Newtons ($N = \text{kg} \cdot \text{m/s}^2$), Mass in $\text{kg}$, Acceleration in $\text{m/s}^2$.
+- **CGS Units:** Force in Dynes ($\text{dyne} = \text{g} \cdot \text{cm/s}^2$), Mass in $\text{g}$, Acceleration in $\text{cm/s}^2$.
+- **Gravitational Units Conversions:**
+  - $1 \text{ kgf} = 9.8 \text{ N}$
+  - $1 \text{ gf} = 980 \text{ dynes}$
+  - $1 \text{ N} = 10^5 \text{ dynes}$
 
-### ٢. قانون نيوتن الأول:
-يظل كل جسم على حالته من السكون أو الحركة المنتظمة في خط مستقيم ما لم تؤثر عليه قوة خارجية تغير من حالته.
-- **الشرط الرياضي الأساسي:**
-  $$\\sum \\vec{F} = \\vec{0}$$
-- **عند حركة قطار أو سيارة بأقصى سرعة منتظمة:**
-  $$F = R$$
-  حيث $F$ قوة المحرك و $R$ المقاومة الكلية.
-- **إذا كانت المقاومة تتناسب طردياً مع السرعة:**
-  $$R \\propto v \\implies \\frac{R_1}{R_2} = \\frac{v_1}{v_2}$$
-- **إذا كانت المقاومة تتناسب مع مربع السرعة:**
-  $$R \\propto v^2 \\implies \\frac{R_1}{R_2} = \\left(\\frac{v_1}{v_2}\\right)^2$$
+### 5. Critical Examination Pitfalls & Common Traps
+- **Gravitational Units Trap:** Substituting forces given in $\text{kgf}$ directly into $F = m a$ without multiplying by $9.8$!
+  $$\text{Correct:} \quad (F - R) \times 9.8 = m a \quad \text{if } F, R \text{ are in kgf and } m \text{ in kg}.$$
+- **Variable Mass Product Rule:** If $m = 2t + 5$ and $v = 3t^2$, $\vec{F} = \frac{d}{dt}[(2t+5)(3t^2)] = \frac{d}{dt}[6t^3 + 15t^2] = 18t^2 + 30t$. Students who erroneously write $F = m a = (2t+5)(6t) = 12t^2 + 30t$ lose the $\vec{v} \frac{dm}{dt}$ term!`,
+          theoryContentAr: `### ١. كمية الحركة (Linear Momentum)
+كمية حركة جسيم كتلته $m$ ويتحرك بسرعة $\vec{v}$ تُعرف بحاصل الضرب:
+$$\vec{H} = m \vec{v}$$
+- **التغير في كمية الحركة:** خلال فترة زمنية من $t_1$ إلى $t_2$:
+  $$\Delta \vec{H} = m (\vec{v}_2 - \vec{v}_1) = m \int_{t_1}^{t_2} \vec{a} \, dt$$
 
-### ٣. قانون نيوتن الثاني:
-معدل التغير في كمية حركة جسم يتناسب مع القوة المحصلة المحدثة له ويكون في اتجاهها:
-$$\\vec{F} = \\frac{d}{dt}(m\\vec{v})$$
-- **الحالة الأولى: الكتلة ثابتة ($m = \\text{ثابت}$):**
-  $$\\vec{F} = m \\vec{a}$$
-- **الحالة الثانية: الكتلة متغيرة كدالة في الزمن ($m(t)$):**
-  $$\\vec{F} = \\frac{d}{dt}(m(t) \\cdot v(t)) = m \\frac{dv}{dt} + v \\frac{dm}{dt}$$
+### ٢. قانون نيوتن الأول (قانون القصور الذاتي)
+*يبقى كل جسم على حالته من سكون أو حركة منتظمة في خط مستقيم ما لم تؤثر عليه قوة خارجية تغير من حالته.*
+- **الشرط الرياضي للحركة المنتظمة:**
+  $$\vec{a} = \vec{0} \iff \sum \vec{F} = \vec{0}$$
+- **حركة قطار أو سيارة بأقصى سرعة ($v_{\max}$):**
+  عند بلوغ أقصى سرعة تنعدم العجلة تماماً:
+  $$F = R \quad (\text{قوة المحرك = المقاومة الكلية})$$
+- **قوانين تناسب المقاومة مع السرعة:**
+  ١. $R \propto v \implies \frac{R_1}{R_2} = \frac{v_1}{v_2}$
+  ٢. $R \propto v^2 \implies \frac{R_1}{R_2} = \frac{v_1^2}{v_2^2}$
+  ٣. المقاومة لكل طن: المقاومة الكلية = المقاومة لكل طن × عدد الأطنان.
 
-### ٤. وحدات القوة والتحويلات:
-- **الوحدات المطلقة:**
-  - **النيوتن:** القوة التي إذا أثرت على كتلة $1$ كجم أكسبتها عجلة $1$ م/ث² ($1\\text{ N} = 1\\text{ kg}\\cdot\\text{m/s}^2$).
-  - **الداين:** القوة التي إذا أثرت على كتلة $1$ جم أكسبتها عجلة $1$ سم/ث² ($1\\text{ نيوتن} = 10^5\\text{ داين}$).
-- **الوحدات التثاقلية:**
-  - $1$ ثقل كجم = $9.8$ نيوتن.
-  - $1$ ثقل جم = $980$ داين.`,
+### ٣. قانون نيوتن الثاني (معادلة الحركة الأساسية)
+*معدل التغير في كمية حركة جسم يتناسب طردياً مع القوة المحدثة له ويكون في اتجاهها:*
+$$\vec{F} = \frac{d\vec{H}}{dt} = \frac{d}{dt}[m \vec{v}]$$
+- **الحالة الأولى: الكتلة ثابتة ($m = \text{ثابت}$):**
+  $$\vec{F} = m \vec{a}$$
+- **الحالة الثانية: الكتلة متغيرة ($m = f(t)$) — مسائل المهارات العليا:**
+  $$\vec{F} = \frac{d}{dt}[m(t) \vec{v}(t)] = m \frac{d\vec{v}}{dt} + \vec{v} \frac{dm}{dt}$$
+  *(مثل حركة الصاروخ الذي ينفث الوقود أو قطرة المطر التي يتراكم عليها البخار).*
+
+### ٤. تجانس الوحدات في قانون نيوتن الثاني
+لتطبيق معادلة الحركة $F = m a$، يجب استخدام الوحدات المطلقة حصراً:
+- **النظام الدولي:** القوة بالنيوتن ($N = \text{kg}\cdot\text{m/s}^2$)، الكتلة بالكيلوجرام، العجلة بـ $\text{m/s}^2$.
+- **النظام الصغير:** القوة بالداين ($\text{dyne} = \text{g}\cdot\text{cm/s}^2$)، الكتلة بالجرام، العجلة بـ $\text{cm/s}^2$.
+- **التحويل من الوحدات التثاقلية:**
+  - $1 \text{ ث.كجم} = 9.8 \text{ نيوتن}$
+  - $1 \text{ ث.جم} = 980 \text{ داين}$
+  - $1 \text{ نيوتن} = 10^5 \text{ داين}$
+
+### ٥. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ الوحدات التثاقلية:** إدخال القوة بالثقل كجم مباشرة في $F = ma$ دون الضرب في $9.8$! المعادلة الصحيحة:
+  $$(F - R) \times 9.8 = m a \quad (\text{إذا كانت القوى بالثقل كجم})$$
+- **فخ الكتلة المتغيرة ومشتقة حاصل الضرب:** إذا كانت الكتلة متغيرة $m(t)$، فإن القوة هي مشتقة حاصل الضرب $m(t) v(t)$ كاملاً، والاعتماد على $F = ma$ فقط يهمل حد $\vec{v} \frac{dm}{dt}$ ويؤدي لنتيجة خاطئة تماماً.`,
           formulas: [
             { labelEn: 'Linear Momentum Formula', labelAr: 'قانون كمية الحركة', latex: 'H = m v' },
             { labelEn: 'Newton 1st Law Equilibrium', labelAr: 'شرط قانون نيوتن الأول', latex: '\\sum \\vec{F} = \\vec{0} \\implies F = R' },
@@ -921,84 +947,86 @@ $$\\vec{F} = \\frac{d}{dt}(m\\vec{v})$$
           titleAr: 'قانون نيوتن الثالث، حركة المصاعد، والبكرات الملساء',
           summaryEn: 'Analysis of apparent weight in elevators $N = m(g \\pm a)$ under upward/downward acceleration, spring balance readings, and dynamics of connected bodies over smooth pulleys with rope tension and pressure on pulley.',
           summaryAr: 'دراسة الوزن الظاهري داخل المصاعد $N = m(g \\pm a)$ عند الحركة بتسارع لأعلى أو لأسفل، قراءة الميزان الزنبركي، وحركة منظومات الأجسام المتصلة بحبال على بكرات ملساء والشد في الخيط والضغط على البكرة.',
-          theoryContentEn: `### 1. Motion of Elevators (Apparent Weight $N$ vs. True Weight $mg$):
-When a person of mass $m$ stands on a scale inside an elevator:
-1. **Elevator at Rest or Moving with Uniform Velocity ($a = 0$):**
-   $$N = mg$$
-   - Apparent weight equals true weight.
-2. **Elevator Moving UP with Acceleration $a$ (or DOWN with Deceleration $a$):**
-   $$N - mg = ma \\implies N = m(g + a) > mg$$
-   - Apparent weight is **greater** than true weight.
-3. **Elevator Moving DOWN with Acceleration $a$ (or UP with Deceleration $a$):**
-   $$mg - N = ma \\implies N = m(g - a) < mg$$
-   - Apparent weight is **less** than true weight.
-4. **Elevator in Free Fall ($a = g$):**
-   $$N = m(g - g) = 0$$
-   - Complete state of apparent weightlessness.
+          theoryContentEn: `### 1. Motion of Bodies in Elevators (Apparent Weight $N$ vs. True Weight $mg$)
+For a person or body of mass $m$ resting on the floor of an elevator (or suspended from a spring balance inside):
+- **True Weight (الوزن الحقيقي):** $W = mg$
+- **Apparent Weight / Scale Reading (الوزن الظاهري / قراءة الميزان):** Normal reaction $N$ (or spring tension $T$).
+- **The Elevator Motion Rules:**
+  1. **Elevator at Rest or Moving with Uniform Velocity ($a = 0$):**
+     $$N = mg \implies \text{Apparent Weight} = \text{True Weight}$$
+  2. **Accelerating Upwards ($a$ upwards) OR Decelerating Downwards ($a$ upwards):**
+     $$N - mg = m a \implies N = m(g + a) > mg \implies \text{Apparent Weight} > \text{True Weight}$$
+  3. **Accelerating Downwards ($a$ downwards) OR Decelerating Upwards ($a$ downwards):**
+     $$mg - N = m a \implies N = m(g - a) < mg \implies \text{Apparent Weight} < \text{True Weight}$$
+  4. **Free Fall (Elevator Cable Snapped, $a = g$ downwards):**
+     $$N = m(g - g) = 0 \quad (\text{State of Weightlessness / انعدام الوزن})$$
 
-### 2. Connected Bodies on Smooth Pulleys (بكرات ملساء):
-#### Case A: Two Masses $m_1 > m_2$ Suspended Vertically:
-- **Equations of Motion:**
-  $$m_1 g - T = m_1 a$$
-  $$T - m_2 g = m_2 a$$
-- **Common Acceleration:**
-  $$a = \\frac{(m_1 - m_2)g}{m_1 + m_2}$$
-- **String Tension ($T$):**
-  $$T = \\frac{2 m_1 m_2 g}{m_1 + m_2}$$
-- **Pressure on Pulley Axle ($P$):**
-  $$P = 2T$$
-- **Vertical Distance between the two masses after time $t$:**
-  $$\\text{Distance} = 2s = 2 \\left(\\frac{1}{2} a t^2\\right) = a t^2$$
+### 2. Simple Connected Systems & Pulleys (البكرات البسيطة)
+- **Case 1: Vertical Atwood Machine (Two masses $m_1 > m_2$ suspended over smooth pulley):**
+  - Equations of motion:
+    $$m_1 g - T = m_1 a, \qquad T - m_2 g = m_2 a$$
+  - System Acceleration:
+    $$a = \frac{m_1 - m_2}{m_1 + m_2} g$$
+  - String Tension:
+    $$T = \frac{2 m_1 m_2}{m_1 + m_2} g$$
+  - Pressure on the Pulley:
+    $$P = 2T$$
+- **Case 2: Smooth Horizontal Table with Hanging Mass:**
+  - Hanging mass $m_1$, table mass $m_2$:
+    $$m_1 g - T = m_1 a, \qquad T = m_2 a$$
+    $$a = \frac{m_1}{m_1 + m_2} g, \qquad P = T \sqrt{2}$$
+- **Case 3: Rough Horizontal Table ($m_2$ with friction coefficient $\mu_k$):**
+  $$m_1 g - T = m_1 a, \qquad T - \mu_k m_2 g = m_2 a$$
+  $$a = \frac{m_1 - \mu_k m_2}{m_1 + m_2} g$$
+- **Case 4: Inclined Plane (Angle $\theta$) with Hanging Mass:**
+  $$P = T \sqrt{2(1 + \sin\theta)} = 2T \cos\left(\frac{90^\circ - \theta}{2}\right)$$
 
-#### Case B: Mass $m_1$ on Smooth Horizontal Table Connected to Hanging Mass $m_2$:
-- **Equations of Motion:**
-  $$m_2 g - T = m_2 a$$
-  $$T = m_1 a$$
-- **Acceleration:**
-  $$a = \\frac{m_2 g}{m_1 + m_2}$$
-- **Tension:**
-  $$T = \\frac{m_1 m_2 g}{m_1 + m_2}$$
-- **Pressure on Pulley ($P$):**
-  $$P = T \\sqrt{2}$$`,
-          theoryContentAr: `### ١. حركة المصاعد (الوزن الظاهري $N$ مقابل الوزن الحقيقي $mg$):
-عند وقوف شخص كتلته $m$ على ميزان ضغط داخل مصعد:
-١. **المصعد ساكن أو يتحرك بسرعة منتظمة ($a = 0$):**
-   $$N = mg$$
-   - الوزن الظاهري يساوي الوزن الحقيقي تماماً.
-٢. **المصعد صاعد بعجلة $a$ (أو هابط بتقصير $a$):**
-   $$N - mg = ma \\implies N = m(g + a) > mg$$
-   - الوزن الظاهري **أكبر** من الوزن الحقيقي (قراءة الميزان تزيد).
-٣. **المصعد هابط بعجلة $a$ (أو صاعد بتقصير $a$):**
-   $$mg - N = ma \\implies N = m(g - a) < mg$$
-   - الوزن الظاهري **أقل** من الوزن الحقيقي (قراءة الميزان تقل).
-٤. **سقوط المصعد حراً وانقطاع الحبل ($a = g$):**
-   $$N = m(g - g) = 0$$
-   - حالة انعدام الوزن الظاهري.
+### 3. Dynamics Following a Cut String (قطع الخيط)
+When the connecting string snaps at time $t_0$ when the system has reached common speed $v_0$:
+1. The tension instantaneously vanishes ($T = 0$).
+2. The downward-moving mass falls freely under gravity ($a = g$).
+3. The body on the table continues under its initial velocity $v_0$, moving with friction deceleration ($a = -\mu_k g$) until it comes to rest ($v = 0$).
+4. The body moving up an inclined plane decelerates under $a = -g(\sin\theta + \mu_k \cos\theta)$ until momentary rest, then reverses direction.
 
-### ٢. حركة الأجسام المتصلة ببكرات ملساء:
-#### الحالة الأولى: جسمان $m_1 > m_2$ يتدليان رأسياً:
-- **معادلتا الحركة:**
-  $$m_1 g - T = m_1 a$$
-  $$T - m_2 g = m_2 a$$
-- **العجلة المشتركة للتحرك:**
-  $$a = \\frac{(m_1 - m_2)g}{m_1 + m_2}$$
-- **قوة الشد في الخيط ($T$):**
-  $$T = \\frac{2 m_1 m_2 g}{m_1 + m_2}$$
-- **الضغط على محور البكرة ($P$):**
-  $$P = 2T$$
-- **المسافة الرأسية بين الجسمين بعد زمن $t$ من بدء الحركة من سكون:**
-  $$\\text{المسافة الرأسية} = 2s = a t^2$$
+### 4. Critical Examination Pitfalls & Common Traps
+- **Pulley Pressure Vector Direction:** In a horizontal table system, the string pulls the pulley horizontally and vertically, making the pressure vector point at $45^\circ$ with magnitude $P = T \sqrt{2}$. Never write $P = 2T$ for horizontal table systems!
+- **Relative Distance After String Snaps:** After the string breaks, both bodies continue moving independently under different accelerations. To find their separation, calculate position $s_1(t)$ and $s_2(t)$ separately and combine geometrically.`,
+          theoryContentAr: `### ١. حركة الأجسام داخل المصاعد (الوزن الحقيقي والوزن الظاهري)
+لجسم كتلته $m$ موضوع على ميزان ضغط على أرضية مصعد (أو معلق في ميزان زنبركي في سقف المصعد):
+- **الوزن الحقيقي:** $W = mg$.
+- **الوزن الظاهري (قراءة الميزان):** رد الفعل العمودي $N$ (أو الشد $T$).
+- **قواعد حركة المصعد:**
+  ١. **المصعد ساكن أو يتحرك بسرعة منتظمة ($a = 0$):**
+     $$N = mg \implies \text{الوزن الظاهري} = \text{الوزن الحقيقي}$$
+  ٢. **المصعد صاعد بعجلة منتظمة أو هابط بتقصير:**
+     $$N - mg = ma \implies N = m(g + a) > mg \implies \text{الوزن الظاهري} > \text{الوزن الحقيقي}$$
+  ٣. **المصعد هابط بعجلة منتظمة أو صاعد بتقصير:**
+     $$mg - N = ma \implies N = m(g - a) < mg \implies \text{الوزن الظاهري} < \text{الوزن الحقيقي}$$
+  ٤. **سقوط حر (انقطاع حبل المصعد $a = g$ لأسفل):**
+     $$N = m(g - g) = 0 \quad (\text{حالة انعدام الوزن})$$
 
-#### الحالة الثانية: جسم $m_1$ على نضد أفقي أملس وجسم $m_2$ يتدلى رأسياً:
-- **معادلتا الحركة:**
-  $$m_2 g - T = m_2 a$$
-  $$T = m_1 a$$
-- **العجلة المشتركة:**
-  $$a = \\frac{m_2 g}{m_1 + m_2}$$
-- **الشد في الخيط:**
-  $$T = \\frac{m_1 m_2 g}{m_1 + m_2}$$
-- **الضغط على البكرة:**
-  $$P = T \\sqrt{2}$$`,
+### ٢. تطبيقات البكرات البسيطة
+- **الحالة الأولى: بكرة ملساء يتدلى منها ثقلان رأسياً ($m_1 > m_2$):**
+  - معادلات الحركة:
+    $$m_1 g - T = m_1 a, \qquad T - m_2 g = m_2 a$$
+  - عجلة المجموعة:
+    $$a = \frac{m_1 - m_2}{m_1 + m_2} g$$
+  - الضغط على محور البكرة:
+    $$P = 2T$$
+- **الحالة الثانية: كتلة على نضد أفقي أملس وأخرى تتدلى رأسياً:**
+  $$a = \frac{m_1}{m_1 + m_2} g, \qquad P = T \sqrt{2}$$
+- **الحالة الثالثة: كتلة على نضد أفقي خشن معامل احتكاكه $\mu_k$:**
+  $$a = \frac{m_1 - \mu_k m_2}{m_1 + m_2} g$$
+
+### ٣. حركة المجموعة بعد قطع الخيط
+عند انقطاع الخيط بعد زمن من بدء الحركة عندما تبلغ السرعة $v_0$:
+١. ينعدم الشد في الخيط فوراً ($T = 0$).
+٢. الجسم الهابط يسقط سقوطاً حراً تحت تأثير الجاذبية الأرضية ($a = g$).
+٣. الجسم المتحرك على النضد الخشن يتحرك بالقصور الذاتي بسرعة ابتدائية $v_0$ وبعجلة تقصيرية $a = -\mu_k g$ حتى يسكن.
+
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ الضغط على البكرة في النضد الأفقي:** الضغط على البكرة في النضد الأفقي هو $P = T \sqrt{2}$ بزاوية $45^\circ$، وقانون $P = 2T$ ينطبق حصراً على البكرة الرأسية المتدلية!
+- **المسافة بين الجسمين بعد قطع الخيط:** بعد قطع الخيط يتحرك كل جسم بعجلة مستقلة تماماً، ويجب حساب إزاحة كل منهما على حدة لتحديد المسافة بينهما.`,
           formulas: [
             { labelEn: 'Elevator Upward Acceleration', labelAr: 'الوزن الظاهري لمصعد صاعد بعجلة', latex: 'N = m(g + a)' },
             { labelEn: 'Elevator Downward Acceleration', labelAr: 'الوزن الظاهري لمصعد هابط بعجلة', latex: 'N = m(g - a)' },
@@ -1263,68 +1291,65 @@ When a person of mass $m$ stands on a scale inside an elevator:
           titleAr: 'الدفع والتغير في كمية الحركة',
           summaryEn: 'Concept of impulse as force multiplied by time interval $I = F \\Delta t$, impulse of variable force $I = \\int F(t) \\, dt$, impulse-momentum theorem $I = \\Delta p = m(v - v_0)$, and impulsive reactions on floors, walls, and ceilings.',
           summaryAr: 'مفهوم الدفع كحاصل ضرب القوة في زمن التأثير $I = F \\Delta t$، ودفع القوة المتغيرة $I = \\int F(t) \\, dt$، ونظرية الدفع وكمية الحركة $I = \\Delta p = m(v - v_0)$، والضغط الدفعي على الأرضيات والحوائط والأسقف.',
-          theoryContentEn: `### 1. Definition of Impulse (الدفع)
-When a constant force $\\vec{F}$ acts on a body for a short time interval $\\Delta t = t_2 - t_1$, the **Impulse** $\\vec{I}$ is defined as:
-$$\\vec{I} = \\vec{F} \\Delta t$$
-- **Units of Impulse:**
-  - In SI units: $\\text{Newton} \\cdot \\text{second} (\\text{N}\\cdot\\text{s})$.
-  - In CGS units: $\\text{dyne} \\cdot \\text{second} (\\text{dyne}\\cdot\\text{s})$.
-  - Gravitational units: $\\text{kg-wt} \\cdot \\text{second} = 9.8\\text{ N}\\cdot\\text{s}$.
-  - Note that $1\\text{ N}\\cdot\\text{s} = 10^5\\text{ dyne}\\cdot\\text{s} = 1\\text{ kg}\\cdot\\text{m/s}$.
+          theoryContentEn: `### 1. Rigorous Definition of Impulse (الدفع)
+The impulse $\vec{I}$ of a constant force $\vec{F}$ acting over a time duration $\Delta t$ is:
+$$\vec{I} = \vec{F} \cdot \Delta t$$
+- **Variable Force Formulation:**
+  $$\vec{I} = \int_{t_1}^{t_2} \vec{F}(t) \, dt$$
+  *(Geometrically, the scalar impulse equals the area under the Force-Time curve $F(t)$ from $t_1$ to $t_2$).*
 
-### 2. Impulse of a Variable Force (دفع القوة المتغيرة)
-If the force $\\vec{F}(t)$ is a function of time, the impulse during the time interval from $t_1$ to $t_2$ is the definite integral:
-$$\\vec{I} = \\int_{t_1}^{t_2} \\vec{F}(t) dt$$
-- **Geometric Interpretation:** On an $(F - t)$ graph, the impulse equals the **area under the curve** bounded by $t = t_1$, $t = t_2$, and the time axis.
+### 2. The Impulse-Momentum Theorem (مبرهنة الدفع وكمية الحركة)
+Integrating Newton's Second Law $\vec{F} = \frac{d\vec{p}}{dt}$ over time yields:
+$$\vec{I} = \int_{t_1}^{t_2} \vec{F} \, dt = \vec{p}_2 - \vec{p}_1 = m(\vec{v}_2 - \vec{v}_1)$$
+- **Scalar Form for Motion in a Straight Line:**
+  $$I = F \cdot \Delta t = m(v_2 - v_1)$$
+  *Crucial Velocity Vector Sign Convention:*
+  If the body rebounds (changes direction upon collision):
+  $$v_2 \text{ is opposite to } v_1 \implies I = m(v_2 - (-v_1)) = m(v_2 + v_1)$$
 
-### 3. The Impulse-Momentum Theorem (علاقة الدفع بكمية الحركة)
-From Newton's Second Law: $\\vec{F} = \\frac{d\\vec{p}}{dt} = m \\frac{d\\vec{v}}{dt}$.
-Integrating both sides with respect to time:
-$$\\vec{I} = \\int_{t_1}^{t_2} \\vec{F} dt = m(\\vec{v}_2 - \\vec{v}_1) = \\Delta \\vec{p}$$
-- For motion in a straight line:
-  $$I = m(v_2 - v_1)$$
-- If the body rebounds in the opposite direction:
+### 3. Impulsive Reaction on Surfaces (Impulsive Force vs. Total Pressure)
+When a ball or projectile of weight $W = mg$ collides with a boundary:
+1. **Collision with Horizontal Floor (Collision from above):**
+   The impulsive force $F$ pushes UPWARDS on the ball and DOWNWARDS on the floor:
+   $$R_{\text{floor}} = F_{\text{imp}} + mg$$
+2. **Collision with Horizontal Ceiling (Collision from below):**
+   The impulsive force $F$ pushes DOWNWARDS on the ball and UPWARDS on the ceiling:
+   $$R_{\text{ceiling}} = F_{\text{imp}} - mg$$
+3. **Collision with Vertical Wall:**
+   The horizontal impact force is isolated from vertical gravity:
+   $$R_{\text{wall}} = F_{\text{imp}}$$
+
+### 4. Critical Examination Pitfalls & Common Traps
+- **Rebound Sign Error:** Forgetting to change the sign of $v_2$ when a body rebounds. Failing to write $v_2 - (-v_1) = v_2 + v_1$ halves the calculated impulse!
+- **Pressure vs. Impulsive Force:** In floor collisions, exam questions often ask for "Pressure on the ground" (الضغط على الأرض). Remember to add the static weight: $R = F_{\text{imp}} + mg$.`,
+          theoryContentAr: `### ١. التعريف الرياضي للدفع (Impulse)
+دفع قوة ثابتة $\vec{F}$ تؤثر خلال فترة زمنية $\Delta t$ هو:
+$$\vec{I} = \vec{F} \cdot \Delta t$$
+- **دفع القوة المتغيرة:**
+  $$\vec{I} = \int_{t_1}^{t_2} \vec{F}(t) \, dt$$
+  *(هندسياً: الدفع يمثل عددياً المساحة تحت منحنى (القوة - الزمن) بين اللحظتين $t_1$ و $t_2$).*
+
+### ٢. العلاقة بين الدفع وكمية الحركة
+بتكامل قانون نيوتن الثاني:
+$$\vec{I} = \Delta \vec{p} = m(\vec{v}_2 - \vec{v}_1)$$
+- **قاعدة الإشارات عند ارتداد الجسم:**
+  إذا اصطدم جسم بحاجز وارتد في الاتجاه المعاكس:
   $$I = m(v_2 - (-v_1)) = m(v_2 + v_1)$$
 
-### 4. Impulsive Reactions on Surfaces (الضغط الدفعي على السطوح)
-Let $F = \\frac{I}{\\Delta t}$ be the average impulsive force, and $W = mg$ be the weight of the body:
-1. **Impact on a Horizontal Floor (الأرضية الأفقية):**
-   $$N = F + mg$$
-2. **Impact on a Vertical Wall (الحائط الرأسي):**
-   $$N = F$$
-3. **Impact on a Ceiling (سقف الحجرة):**
-   $$N = F - mg$$`,
-          theoryContentAr: `### ١. تعريف الدفع
-إذا أثرت قوة ثابتة $\\vec{F}$ على جسم خلال فترة زمنية $\\Delta t = t_2 - t_1$ فإن **الدفع** $\\vec{I}$ يعرّف بأنه:
-$$\\vec{I} = \\vec{F} \\Delta t$$
-- **وحدات قياس الدفع:**
-  - بالنظام الدولي: نيوتن.ثانية ($\\text{N}\\cdot\\text{s}$).
-  - بنظام جاوس: داين.ثانية ($\\text{dyne}\\cdot\\text{s}$).
-  - بالوحدات التثاقلية: ث.كجم.ثانية $= 9.8\\text{ نيوتن.ث}$.
-  - لاحظ أن $1\\text{ نيوتن.ث} = 10^5\\text{ داين.ث} = 1\\text{ كجم.م/ث}$.
+### ٣. الضغط الناشئ عن الصدمة (القوة الدفعية ورد فعل السطح)
+عند اصطدام جسم وزنه $mg$ بحاجز:
+١. **الاصطدام بأرضية أفقية:**
+   القوة الدفعية تؤثر لأسفل على الأرض مضافاً إليها وزن الجسم:
+   $$R_{\text{أرض}} = F_{\text{دفعية}} + mg$$
+٢. **الاصطدام بسقف حجرة أفقي:**
+   القوة الدفعية تضغط لأعلى، ووزن الجسم يؤثر لأسفل:
+   $$R_{\text{سقف}} = F_{\text{دفعية}} - mg$$
+٣. **الاصطدام بحائط رأسي:**
+   $$R_{\text{حائط}} = F_{\text{دفعية}}$$
 
-### ٢. دفع القوة المتغيرة
-إذا كانت القوة $\\vec{F}(t)$ دالة في الزمن، فإن دفعها خلال الفترة الزمنية من $t_1$ إلى $t_2$ يساوي التكامل المحدد:
-$$\\vec{I} = \\int_{t_1}^{t_2} \\vec{F}(t) dt$$
-- **المعنى الهندسي:** الدفع يمثل **المساحة تحت منحنى (القوة - الزمن)** المحصورة بين $t_1$ و $t_2$ ومحور الزمن.
-
-### ٣. نظرية الدفع وكمية الحركة
-من قانون نيوتن الثاني: $\\vec{F} = \\frac{d\\vec{p}}{dt} = m \\frac{d\\vec{v}}{dt}$.
-بتكامل الطرفين بالنسبة للزمن:
-$$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$
-- في الحركة المستقيمة:
-  $$I = m(v_2 - v_1)$$
-- وفي حالة الارتداد في عكس الاتجاه:
-  $$I = m(v_2 + v_1)$$
-
-### ٤. ردود الأفعال والضغوط الدفعية على السطوح
-بفرض $F = \\frac{I}{\\Delta t}$ هي القوة الدفعية المتوسطة، و $W = mg$ هو وزن الجسم:
-١. **عند الاصطدام بأرضية أفقية:**
-   $$N = F + mg$$
-٢. **عند الاصطدام بحائط رأسي:**
-   $$N = F$$
-٣. **عند الاصطدام بسقف حجرة:**
-   $$N = F - mg$$`,
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ إشارة الارتداد:** عند ارتداد الكرة، السرعة بعد الصدمة تكون في عكس اتجاه السرعة قبل الصدمة؛ نسيان الجمع ($v_2 + v_1$) يخسر نصف قيمة الدفع!
+- **الفرق بين القوة الدفعية وضغط الأرض:** القوة الدفعية $F = I / \Delta t$؛ أما الضغط على الأرض فيتضمن إضافة الوزن $F + mg$.`,
           formulas: [
             { labelEn: 'Constant Force Impulse', labelAr: 'دفع القوة الثابتة', latex: 'I = F \\Delta t = \\Delta p' },
             { labelEn: 'Variable Force Integral', labelAr: 'تكامل القوة المتغيرة', latex: 'I = \\int_{t_1}^{t_2} F(t) dt' },
@@ -1512,59 +1537,43 @@ $$\\vec{I} = \\Delta \\vec{p} = m(\\vec{v}_2 - \\vec{v}_1)$$
           summaryEn: 'Principles of direct collision between two spheres, action-reaction impulses during impact, conservation of total linear momentum $m_1 u_1 + m_2 u_2 = m_1 v_1\' + m_2 v_2\'$, coalescing into a single body, and loss of kinetic energy.',
           summaryAr: 'مبادئ التصادم المباشر بين كرتين، ودفع الفعل ورد الفعل أثناء التصادم، وقانون بقاء كمية الحركة الكلية $m_1 u_1 + m_2 u_2 = m_1 v_1\' + m_2 v_2\'$، والتحام الأجسام في جسم واحد، وحساب الفقد في طاقة الحركة.',
           theoryContentEn: `### 1. Direct Collision of Two Smooth Spheres (التصادم المباشر)
-When two spheres move along the line connecting their centers and impact each other:
-- By **Newton's Third Law**, the impulsive force exerted by the first sphere on the second ($\\vec{F}_{12}$) is equal in magnitude and opposite in direction to that exerted by the second sphere on the first ($\\vec{F}_{21}$):
-  $$\\vec{F}_{12} = -\\vec{F}_{21}$$
-- Multiplying by the duration of impact $\\Delta t$:
-  $$\\vec{I}_{1 \\to 2} = -\\vec{I}_{2 \\to 1}$$
+Direct collision occurs when two spheres collide such that their velocities before impact lie along the line of centers.
+- **Law of Conservation of Linear Momentum:**
+  Because the internal mutual impulsive forces between the spheres during contact are equal and opposite (by Newton's Third Law, $\vec{F}_{12} = -\vec{F}_{21}$), the total linear momentum of the two-body system is strictly conserved:
+  $$m_1 \vec{v}_1 + m_2 \vec{v}_2 = m_1 \vec{v}_1' + m_2 \vec{v}_2'$$
+  - Choose a positive unit vector $\hat{c}$ along the line of motion. Velocities directed against $\hat{c}$ enter with negative signs.
 
-### 2. Law of Conservation of Linear Momentum (قانون بقاء كمية الحركة)
-Since internal impulsive forces sum to zero, the total linear momentum of the system before collision equals the total linear momentum after collision:
-$$m_1 \\vec{u}_1 + m_2 \\vec{u}_2 = m_1 \\vec{v}_1' + m_2 \\vec{v}_2'$$
-- In one-dimensional motion with a chosen positive direction:
-  $$m_1 u_1 + m_2 u_2 = m_1 v_1' + m_2 v_2'$$
+### 2. Perfectly Inelastic Collision (Coalescence / تكون جسم واحد)
+When the two bodies stick together upon collision to form a single combined mass $(m_1 + m_2)$ moving with common velocity $v'$:
+$$m_1 v_1 + m_2 v_2 = (m_1 + m_2) v' \implies v' = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$
 
-### 3. Inelastic Collision and Coalescence (الالتحام في جسم واحد)
-When the two bodies stick together and move as a single combined body after collision:
-$$m_1 u_1 + m_2 u_2 = (m_1 + m_2) v'$$
-- The common velocity is:
-  $$v' = \\frac{m_1 u_1 + m_2 u_2}{m_1 + m_2}$$
+### 3. Kinetic Energy Loss Due to Collision (طاقة الحركة المفقودة)
+During inelastic and real-world collisions, mechanical energy is dissipated into heat, sound, and permanent deformation:
+$$\Delta T = T_{\text{before}} - T_{\text{after}} = \left( \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 \right) - \left( \frac{1}{2} m_1 v_1'^2 + \frac{1}{2} m_2 v_2'^2 \right) \ge 0$$
+- In perfectly elastic collisions: $\Delta T = 0$.
+- In inelastic collisions: $\Delta T > 0$ strictly.
 
-### 4. Loss in Kinetic Energy (طاقة الحركة المفقودة)
-In any inelastic collision, mechanical energy is converted into heat, sound, and internal deformation:
-$$\\Delta T = T_{\\text{before}} - T_{\\text{after}}$$
-$$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\left( \\frac{1}{2} m_1 (v_1')^2 + \\frac{1}{2} m_2 (v_2')^2 \\right)$$
-- When the bodies coalesce:
-  $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\frac{1}{2} (m_1 + m_2) (v')^2$$
-- When the second body was initially at rest ($u_2 = 0$):
-  $$\\Delta T = \\frac{1}{2} \\left( \\frac{m_1 m_2}{m_1 + m_2} \\right) u_1^2$$`,
+### 4. Critical Examination Pitfalls & Common Traps
+- **Velocity Vector Directional Signs:** If two bodies move towards each other, one velocity MUST be assigned a negative sign. E.g., if $m_1$ moves right at $5 \text{ m/s}$ and $m_2$ moves left at $3 \text{ m/s}$, take $v_1 = +5$ and $v_2 = -3$.
+- **Kinetic Energy Formula Has No Direction:** In $\Delta T = \frac{1}{2}m v^2$, velocity is squared, so all terms are strictly positive regardless of motion direction!`,
           theoryContentAr: `### ١. التصادم المباشر لكرتين ملساوين
-عند تصادم كرتين تتحركان على خط المركزين:
-- وفق **قانون نيوتن الثالث**، فإن القوة الدفعية التي تؤثر بها الكرة الأولى على الثانية تضاد القوة الدفعية التي تؤثر بها الثانية على الأولى:
-  $$\\vec{F}_{12} = -\\vec{F}_{21}$$
-- وبضرب الطرفين في زمن التصادم $\\Delta t$:
-  $$\\vec{I}_{1 \\to 2} = -\\vec{I}_{2 \\to 1}$$
+يحدث التصادم المباشر عندما تقع سرعتا الكرتين قبل الصدمة على خط المركزين المشترك.
+- **مبدأ بقاء كمية الحركة:**
+  بما أن القوتين المتبادلتين بين الكرتين أثناء التلامس هما قوتا فعل ورد فعل متساويتان في المقدار ومتضادتان في الاتجاه (نيوتن الثالث)، فإن كمية الحركة الكلية للمجموعة تظل ثابتة قبل وبعد التصادم:
+  $$m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2'$$
+  - يتم اختيار اتجاه موجب للحركة؛ والسرعة التي في عكس الاتجاه تعوض بإشارة سالبة.
 
-### ٢. قانون بقاء كمية الحركة
-بما أن القوى الدفعية قوى داخلية يلغي بعضها بعضاً، فإن كمية الحركة الكلية للمجموعة قبل التصادم تساوي كمية الحركة الكلية بعد التصادم:
-$$m_1 \\vec{u}_1 + m_2 \\vec{u}_2 = m_1 \\vec{v}_1' + m_2 \\vec{v}_2'$$
-- وفي الحركة في خط مستقيم باختيار اتجاه موجب:
-  $$m_1 u_1 + m_2 u_2 = m_1 v_1' + m_2 v_2'$$
+### ٢. التصادم غير المرن (تكوين جسم واحد / التحام الجسمين)
+إذا التحم الجسمان إثر التصادم وكونا جسماً واحداً كتلته $(m_1 + m_2)$ ويتحرك بسرعة مشتركة $v'$:
+$$m_1 v_1 + m_2 v_2 = (m_1 + m_2) v' \implies v' = \frac{m_1 v_1 + m_2 v_2}{m_1 + m_2}$$
 
-### ٣. التصادم غير المرن والالتحام
-عندما يلتحم الجسمان بعد التصادم ويتحركان ككتلة واحدة:
-$$m_1 u_1 + m_2 u_2 = (m_1 + m_2) v'$$
-- فتكون السرعة المشتركة:
-  $$v' = \\frac{m_1 u_1 + m_2 u_2}{m_1 + m_2}$$
+### ٣. طاقة الحركة المفقودة نتيجة التصادم
+في التصادمات غير المرنة، يتحول جزء من طاقة الحركة إلى طاقة حرارية وصوتية وتشوهات:
+$$\Delta T = T_{\text{قبل}} - T_{\text{بعد}} = \left( \frac{1}{2} m_1 v_1^2 + \frac{1}{2} m_2 v_2^2 \right) - \left( \frac{1}{2} m_1 v_1'^2 + \frac{1}{2} m_2 v_2'^2 \right)$$
 
-### ٤. طاقة الحركة المفقودة نتيجة التصادم
-في التصادم غير المرن تتحول جزء من طاقة الحركة إلى حرارة وصوت وتشوه في الجسمين:
-$$\\Delta T = T_{\\text{قبل}} - T_{\\text{بعد}}$$
-$$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\left( \\frac{1}{2} m_1 (v_1')^2 + \\frac{1}{2} m_2 (v_2')^2 \\right)$$
-- وإذا التحم الجسمان في كتلة واحدة:
-  $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) - \\frac{1}{2} (m_1 + m_2) (v')^2$$
-- وإذا كان الجسم الثاني ساكناً في البداية ($u_2 = 0$):
-  $$\\Delta T = \\frac{1}{2} \\left( \\frac{m_1 m_2}{m_1 + m_2} \\right) u_1^2$$`,
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ إشارات السرعات قبل التصادم:** إذا كان الجسمان يتحركان في اتجاهين متضادين نحو بعضهما، فيجب تعويض إحدى السرعتين بإشارة سالبة حتماً.
+- **طاقة الحركة موجبة دائماً:** عند حساب طاقة الحركة $\frac{1}{2} m v^2$ يربع مقدار السرعة، فلا توجد إشارة سالبة داخل حدود طاقة الحركة.`,
           formulas: [
             { labelEn: 'Mutual Impulse Law', labelAr: 'قانون الدفع المتبادل', latex: 'I_{1 \\to 2} = -I_{2 \\to 1}' },
             { labelEn: 'Conservation of Linear Momentum', labelAr: 'قانون بقاء كمية الحركة', latex: 'm_1 u_1 + m_2 u_2 = m_1 v_1\' + m_2 v_2\'' },
@@ -1764,70 +1773,58 @@ $$\\Delta T = \\left( \\frac{1}{2} m_1 u_1^2 + \\frac{1}{2} m_2 u_2^2 \\right) -
           titleAr: 'الشغل، طاقة الحركة ومبدأ الشغل والطاقة',
           summaryEn: 'Definition of work as $W = \\vec{F} \\cdot \\vec{s} = F s \\cos\\theta$, work by variable force $W = \\int F \\, ds$, work from $F$-$s$ graphs, kinetic energy $T = \\frac{1}{2}mv^2$, and the Work-Energy Theorem $\\Delta T = T - T_0 = \\sum W$.',
           summaryAr: 'تعريف الشغل كحاصل ضرب قياسي $W = \\vec{F} \\cdot \\vec{s} = F s \\cos\\theta$، وشغل القوة المتغيرة $W = \\int F \\, ds$، والشغل من منحنيات ($F$-$s$)، وطاقة الحركة $T = \\frac{1}{2}mv^2$، ومبدأ الشغل والطاقة $\\Delta T = \\sum W$.',
-          theoryContentEn: `### 1. Definition of Work (الشغل)
-When a constant force $\\vec{F}$ acts on a body and causes a displacement $\\vec{s}$, the work $W$ done by the force is defined as the scalar (dot) product:
-$$W = \\vec{F} \\cdot \\vec{s} = F \\, s \\cos\\theta$$
-where $\\theta$ is the angle between the direction of the force $\\vec{F}$ and the displacement $\\vec{s}$.
-- **Special Cases:**
-  - If $\\theta = 0^\\circ$ (force in direction of motion): $W = F s$ (positive maximum work).
-  - If $\\theta = 180^\\circ$ (force opposes motion, e.g. friction/resistance): $W = -F s$ (negative work / work done against force).
-  - If $\\theta = 90^\\circ$ (force perpendicular to motion, e.g. normal reaction): $W = 0$ (zero work).
+          theoryContentEn: `### 1. Rigorous Definition of Work (الشغل)
+The work $W$ done by a constant force $\vec{F}$ acting on a particle that undergoes displacement $\vec{s}$ is the dot product:
+$$W = \vec{F} \cdot \vec{s} = \|\vec{F}\| \|\vec{s}\| \cos\theta$$
+where $\theta$ is the angle between the force and displacement vectors.
+- **Variable Force Formulation:**
+  $$W = \int_{\vec{r}_1}^{\vec{r}_2} \vec{F} \cdot d\vec{r} = \int_{x_1}^{x_2} F_x \, dx + \int_{y_1}^{y_2} F_y \, dy$$
+  *(Geometrically, work equals the area under the Force-Displacement curve $F(s)$).*
 
-### 2. Work in Rectangular Coordinates:
-If $\\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}$ and displacement is from $A(x_1, y_1, z_1)$ to $B(x_2, y_2, z_2)$:
-$$\\vec{s} = (x_2 - x_1)\\hat{i} + (y_2 - y_1)\\hat{j} + (z_2 - z_1)\\hat{k}$$
-$$W = \\vec{F} \\cdot \\vec{s} = F_x s_x + F_y s_y + F_z s_z$$
+### 2. Work Done by Specific Mechanical Forces
+1. **Work Done by Gravity (Weight $W = mg$):**
+   - Body descending vertically or down an inclined plane: $W_g = +mgh$ (positive work).
+   - Body ascending vertically or up an inclined plane: $W_g = -mgh$ (negative work).
+2. **Work Done by Friction ($F_k = \mu_k R$):**
+   $$W_f = -F_k \cdot s = -\mu_k R \cdot s \quad (\text{always negative, dissipating energy})$$
+3. **Work Done by an Elastic Spring ($F = -kx$):**
+   $$W_s = -\int_0^x kx \, dx = -\frac{1}{2} k x^2$$
 
-### 3. Work Done by a Variable Force (الشغل لقوة متغيرة):
-When the force $F(s)$ varies with displacement:
-$$W = \\int_{s_1}^{s_2} F(s) \\, ds$$
-- **Geometric Interpretation:** On an $(F - s)$ curve, the work done is represented by the **area between the curve and the displacement axis**.
+### 3. The Work-Energy Principle (مبدأ الشغل وطاقة الحركة)
+*The change in kinetic energy of a particle during any displacement is equal to the total net work done by all impressed forces:*
+$$\Delta T = T - T_0 = W_{\text{net}}$$
+$$\frac{1}{2} m v^2 - \frac{1}{2} m v_0^2 = W_{\text{net}} = \int (\sum F) \, ds$$
+- **Proof via Newton's Second Law:**
+  $$W = \int F \, ds = \int m a \, ds = \int m \left( v \frac{dv}{ds} \right) ds = m \int_{v_0}^v v \, dv = \frac{1}{2} m v^2 - \frac{1}{2} m v_0^2$$
 
-### 4. Kinetic Energy (طاقة الحركة):
-The kinetic energy $T$ of a particle of mass $m$ moving with speed $v$ is:
-$$T = \\frac{1}{2} m v^2$$
-- In SI units: mass in $\\text{kg}$, velocity in $\\text{m/s}$ gives $T$ in **Joules** ($\\text{J}$).
-- In CGS units: mass in $\\text{g}$, velocity in $\\text{cm/s}$ gives $T$ in **ergs** ($1\\text{ J} = 10^7\\text{ ergs}$).
+### 4. Critical Examination Pitfalls & Common Traps
+- **Work by Normal Reaction:** The normal reaction $R$ of a surface on a sliding body is perpendicular to displacement ($\theta = 90^\circ$), so $W_R = R \cdot s \cos(90^\circ) = 0$.
+- **Net Work vs Single Force Work:** When applying $\Delta T = W$, $W$ MUST be the net algebraic sum of work done by ALL forces (driving force + gravity + friction).`,
+          theoryContentAr: `### ١. التعريف الرياضي للشغل (Work)
+شغل قوة ثابتة $\vec{F}$ تحرك جسيماً إزاحة $\vec{s}$ هو حاصل الضرب القياسي:
+$$W = \vec{F} \cdot \vec{s} = \|\vec{F}\| \|\vec{s}\| \cos\theta$$
+حيث $\theta$ هي الزاوية المحصورة بين اتجاه القوة واتجاه الإزاحة.
+- **شغل القوة المتغيرة:**
+  $$W = \int_{s_1}^{s_2} F(s) \, ds$$
+  *(هندسياً: الشغل يمثل المساحة تحت منحنى (القوة - الإزاحة)).*
 
-### 5. The Work-Energy Principle (مبدأ الشغل والطاقة):
-The change in kinetic energy of a body moving between two positions equals the net work done by all acting forces:
-$$\\Delta T = T - T_0 = \\sum W$$
-$$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
-- **Key Applications:**
-  1. **Bullet Penetration:** If a bullet of mass $m$ and speed $v_0$ penetrates a barrier of thickness $s$ under resistance $R$:
-     $$0 - \\frac{1}{2} m v_0^2 = -R \\cdot s \\implies \\frac{1}{2} m v_0^2 = R \\cdot s$$
-  2. **Braking Distance of a Car:** Under braking resistance $R$:
-     $$\\frac{1}{2} m v_0^2 = R \\cdot s$$`,
-          theoryContentAr: `### ١. تعريف الشغل
-عندما تؤثر قوة ثابتة $\\vec{F}$ على جسم وتحدث له إزاحة $\\vec{s}$، فإن الشغل $W$ المبذول بواسطة القوة يُعرف بحاصل الضرب القياسي:
-$$W = \\vec{F} \\cdot \\vec{s} = F \\, s \\cos\\theta$$
-حيث $\\theta$ هي الزاوية المحصورة بين اتجاه القوة واتجاه الإزاحة.
-- **حالات خاصة:**
-  - عندما $\\theta = 0^\\circ$ (القوة في نفس اتجاه الحركة): $W = F s$ (شغل موجب أقصى).
-  - عندما $\\theta = 180^\\circ$ (القوة في عكس اتجاه الحركة كالمقاومة والاحتكاك): $W = -F s$ (شغل سالب).
-  - عندما $\\theta = 90^\\circ$ (القوة عمودية على اتجاه الإزاحة كرد الفعل والوزن على مستوى أفقي): $W = 0$ (لا يُبذل شغل).
+### ٢. شغل قوى ميكانيكية خاصة
+١. **شغل قوة الوزن ($mg$):**
+   - عند هبوط الجسم لأسفل (رأسياً أو على مائل): $W = +mgh$ (موجب).
+   - عند صعود الجسم لأعلى: $W = -mgh$ (سالب).
+٢. **شغل قوة الاحتكاك والمقاومة:**
+   $$W_f = -F_k \cdot s = -\mu_k R \cdot s \quad (\text{سالب دائماً لأنه يشتت الطاقة})$$
 
-### ٢. الشغل في نظام الإحداثيات المتعامدة:
-إذا كانت القوة $\\vec{F} = (F_x, F_y, F_z)$ والإزاحة $\\vec{s} = (s_x, s_y, s_z)$:
-$$W = \\vec{F} \\cdot \\vec{s} = F_x s_x + F_y s_y + F_z s_z$$
+### ٣. مبدأ الشغل وطاقة الحركة (The Work-Energy Theorem)
+*التغير في طاقة حركة جسيم خلال إزاحة معينة يساوي مجموع الشغل المبذول من جميع القوى المؤثرة عليه:*
+$$\Delta T = T - T_0 = W_{\text{المحصل}}$$
+$$\frac{1}{2} m v^2 - \frac{1}{2} m v_0^2 = W$$
+- **البرهان بنظرية نيوتن:**
+  $$W = \int F \, ds = \int m \left(v \frac{dv}{ds}\right) ds = m \int_{v_0}^v v \, dv = \frac{1}{2}mv^2 - \frac{1}{2}mv_0^2$$
 
-### ٣. الشغل المبذول بواسطة قوة متغيرة:
-إذا كانت القوة دالة في الإزاحة $F(s)$:
-$$W = \\int_{s_1}^{s_2} F(s) \\, ds$$
-- بيانيّاً: في منحنى (القوة - الإزاحة)، الشغل يساوي **المساحة الهندسية أسفل المنحنى**.
-
-### ٤. طاقة الحركة (ط):
-طاقة حركة جسم كتلته $m$ وسرعته $v$ هي:
-$$T = \\frac{1}{2} m v^2$$
-- وحدات القياس: الجول (كجم.م²/ث²)، والإرج ($1\\text{ جول} = 10^7\\text{ إرج}$).
-
-### ٥. مبدأ الشغل والطاقة:
-التغير في طاقة حركة جسم خلال فترة معينة يساوي مجموع الشغل المبذول من جميع القوى المؤثرة عليه:
-$$\\Delta T = T - T_0 = \\sum W$$
-$$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
-- **تطبيقات هامة:**
-  ١. **غوص الرصاصة في حاجز:** $\\frac{1}{2} m v_0^2 = R \\cdot s$.
-  ٢. **مسافة التوقف للسيارات:** الفقد في طاقة الحركة يساوي الشغل المبذول ضد المقاومة والفرامل.`,
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **شغل رد الفعل العمودي:** رد الفعل العمودي يكون عمودياً على اتجاه الإزاحة ($cos 90^circ = 0$)، وبالتالي فشغله يساوي **صفراً**.
+- **الشغل الكلي في مبدأ الشغل والطاقة:** يجب أن يتضمن $W$ شغل جميع القوى المؤثرة (شغل قوة المحرك + شغل الوزن + شغل المقاومات).`,
           formulas: [
             { labelEn: 'Work Definition (Dot Product)', labelAr: 'تعريف الشغل (ضرب قياسي)', latex: 'W = \\vec{F} \\cdot \\vec{s} = F s \\cos\\theta' },
             { labelEn: 'Work of Variable Force', labelAr: 'شغل القوة المتغيرة', latex: 'W = \\int_{s_1}^{s_2} F(s)\\,ds' },
@@ -2022,84 +2019,64 @@ $$\\frac{1}{2} m v^2 - \\frac{1}{2} m v_0^2 = W_{\\text{net}}$$
           summaryEn: 'Gravitational and elastic potential energy, principle of conservation of mechanical energy $T + V = T_0 + V_0$, energy loss in non-conservative systems, and power $P = \\vec{F} \\cdot \\vec{v}$ in Watts and Horsepower.',
           summaryAr: 'طاقة الوضع التثاقلية والمرونية، وقانون بقاء الطاقة الميكانيكية $T + V = T_0 + V_0$، وفقد الطاقة في الأوساط المقاومة، والقدرة $P = \\vec{F} \\cdot \\vec{v}$ بالواط والحصان.',
           theoryContentEn: `### 1. Potential Energy (طاقة الوضع)
-Potential energy $V$ is the energy stored in a body due to its position in a conservative force field:
-1. **Gravitational Potential Energy:**
-   $$V = m g h$$
-   where $h$ is the vertical height above an arbitrary horizontal zero-reference level.
-   - Change in potential energy: $\\Delta V = V_2 - V_1 = -W_g$ (negative of work done by gravity).
-2. **Elastic Potential Energy (in a Spring):**
-   $$V = \\frac{1}{2} k x^2$$
-   where $k$ is the spring stiffness constant and $x$ is the extension or compression.
+Potential energy $V$ (or $E_p$) represents the stored energy of a mechanical system due to its position in a conservative force field:
+- **Gravitational Potential Energy:**
+  $$V = mgh$$
+  relative to an arbitrary reference datum where $h = 0$.
+- **Relationship between Work and Potential Energy:**
+  $$W_{\text{conservative}} = -\Delta V = -(V - V_0) = V_0 - V$$
 
-### 2. Principle of Conservation of Mechanical Energy (قانون بقاء الطاقة الميكانيكية):
-In a **conservative system** (motion under gravity or on smooth surfaces where only conservative forces do work):
-The total mechanical energy $E$ remains constant:
-$$E = T + V = \\text{constant}$$
-$$T + V = T_0 + V_0$$
-- **Example:** A body sliding from rest down a smooth surface from height $h$:
-  $$0 + m g h = \\frac{1}{2} m v^2 + 0 \\implies v = \\sqrt{2 g h}$$
+### 2. The Law of Conservation of Mechanical Energy
+In a conservative force field (where only gravity and ideal springs act, with no friction or drag):
+$$T + V = T_0 + V_0 = \text{constant}$$
+$$\frac{1}{2} m v^2 + mgh = \frac{1}{2} m v_0^2 + mgh_0$$
+- **System with Non-Conservative Dissipative Forces (Friction / Resistance):**
+  $$(T + V) - (T_0 + V_0) = W_{\text{non-conservative}} = -F_k \cdot s$$
 
-### 3. Non-Conservative Systems (Loss in Mechanical Energy):
-When non-conservative forces (like friction $f_k$ or resistance $R$) act on the body:
-$$(T + V) - (T_0 + V_0) = W_{\\text{other}} = -R \\cdot s$$
-$$\\text{Loss in Mechanical Energy} = (T_0 + V_0) - (T + V) = R \\cdot s$$
-Mechanical energy lost is transformed into thermal energy.
-
-### 4. Power (القدرة):
-Power is defined as the time rate of doing work:
-$$P = \\frac{dW}{dt} = \\vec{F} \\cdot \\frac{d\\vec{s}}{dt} = \\vec{F} \\cdot \\vec{v}$$
-- **Average Power:**
-  $$P_{\\text{avg}} = \\frac{\\Delta W}{\\Delta t}$$
+### 3. Power (القدرة) & Maximum Speed
+Power is the instantaneous time rate of doing work:
+$$P = \frac{dW}{dt} = \frac{d}{dt}(\vec{F} \cdot \vec{s}) = \vec{F} \cdot \frac{d\vec{s}}{dt} = \vec{F} \cdot \vec{v}$$
+- **Engine Operating at Maximum Speed ($v_{\max}$):**
+  When a vehicle moves at maximum velocity, its acceleration is zero ($a = 0$), so engine tractive force exactly balances total resistance:
+  $$F = R \implies P_{\max} = R \cdot v_{\max}$$
 - **Units of Power:**
-  - In SI units: **Watt** ($\\text{W} = \\text{J/s} = 10^7\\text{ erg/s}$).
-  - **Kilowatt** ($\\text{kW} = 1000\\text{ W}$).
-  - **Horsepower** ($\\text{hp}$):
-    $$1\\text{ hp} = 735\\text{ Watts} = 75\\text{ kg-wt}\\cdot\\text{m/s}$$
+  - $1 \text{ Watt (W)} = 1 \text{ J/s} = 1 \text{ N}\cdot\text{m/s}$
+  - $1 \text{ Kilowatt (kW)} = 1000 \text{ W}$
+  - $1 \text{ Horsepower (hp)} = 75 \text{ kgf}\cdot\text{m/s} = 75 \times 9.8 = 735 \text{ Watts}$
 
-### 5. Maximum Speed of Vehicles (أقصى سرعة للسيارات والقاطرات):
-When a vehicle moves at its maximum speed $v_{\\max}$, its acceleration is zero ($a = 0$):
-1. **On a Level Horizontal Road:**
-   $$F = R \\implies P = F \\cdot v_{\\max} = R \\cdot v_{\\max}$$
-2. **Climbing an Incline of Angle $\\theta$:**
-   $$F = R + m g \\sin\\theta \\implies P = (R + m g \\sin\\theta) \\cdot v_{\\max}$$
-3. **Descending an Incline with Engine Working:**
-   $$F + m g \\sin\\theta = R \\implies F = R - m g \\sin\\theta \\implies P = (R - m g \\sin\\theta) \\cdot v_{\\max}$$`,
-          theoryContentAr: `### ١. طاقة الوضع (ض)
-طاقة الوضع هي الطاقة المختزنة في الجسم نتيجة موضعه في مجال قوى محافظة:
-١. **طاقة الوضع التثاقلية:**
-   $$V = m g h$$
-   حيث $h$ هو الارتفاع الرأسي عن المستوى المرجعي الأفقي.
-   - التغير في طاقة الوضع: $\\Delta V = -W_g$ (سالب الشغل المبذول من الوزن).
-٢. **طاقة الوضع المرونية (في زنبرك):**
-   $$V = \\frac{1}{2} k x^2$$
-   حيث $k$ ثابت صلابة الزنبرك، و $x$ مقدار الاستطالة أو الانضغاط.
+### 4. Critical Examination Pitfalls & Common Traps
+- **Horsepower Conversion:** Power in Horsepower $= \frac{F \cdot v}{75}$ (when $F$ is in $\text{kgf}$ and $v$ in $\text{m/s}$). Never mix $\text{km/h}$ with horsepower without converting to $\text{m/s}$ (multiply by $\frac{5}{18}$)!
+- **Power on Inclines:** When climbing an incline at maximum speed, engine force must balance BOTH friction and the downhill gravity component: $F = R + mg \sin\theta$.`,
+          theoryContentAr: `### ١. طاقة الوضع (Potential Energy)
+طاقة الوضع $V$ هي الطاقة المخزونة في الجسم بسبب موضعه في مجال قوى محافظة:
+- **طاقة وضع الجاذبية:**
+  $$V = mgh$$
+  حيث $h$ هو الارتفاع الرأسي عن مستوى مقارنة أفقي ثابت.
+- **العلاقة بين الشغل وطاقة الوضع:**
+  $$W = -\Delta V = V_0 - V$$
 
-### ٢. قانون بقاء الطاقة الميكانيكية:
-في المجال المحافظ (الحركة تحت تأثير الجاذبية فقط أو على أسطح ملساء):
-تظل الطاقة الميكانيكية الكلية ثابتة:
-$$T + V = T_0 + V_0$$
-- **مثال:** جسم ينزلق من السكون على مستوى أملس من ارتفاع $h$:
-  $$v = \\sqrt{2 g h}$$
+### ٢. قانون بقاء الطاقة الميكانيكية
+في مجال القوى المحافظة (عند انعدام المقاومات والاحتكاك):
+$$T + V = T_0 + V_0 = \text{ثابت}$$
+$$\frac{1}{2} m v^2 + mgh = \frac{1}{2} m v_0^2 + mgh_0$$
+- **في وجود مقاومات أو احتكاك:**
+  $$(T + V) - (T_0 + V_0) = W_{\text{المقاومة}} = -R \cdot s$$
 
-### ٣. الأنظمة غير المحافظة (الفقد في الطاقة الميكانيكية):
-عند وجود قوى مقاومة أو احتكاك:
-$$(T + V) - (T_0 + V_0) = -R \\cdot s$$
-$$\\text{الفقد في الطاقة الميكانيكية} = R \\cdot s$$
+### ٣. القدرة (Power) وأقصى سرعة
+القدرة هي المعدل الزمني لبذل الشغل:
+$$P = \frac{dW}{dt} = \vec{F} \cdot \vec{v}$$
+- **أقصى سرعة لقطار أو سيارة:**
+  عندما يتحرك الجسم بأقصى سرعة تنعدم عجلته، فتكون قوة المحرك مساوية للمقاومة ($F = R$):
+  $$P_{\max} = R \cdot v_{\max}$$
+- **وحدات قياس القدرة:**
+  - الواط = $1 \text{ N}\cdot\text{m/s} = 1 \text{ J/s}$.
+  - الحصان الميكانيكي = $75 \text{ ث.كجم}\cdot\text{m/s} = 75 \times 9.8 = 735 \text{ واط}$.
 
-### ٤. القدرة
-القدرة هي معدل بذل الشغل بالنسبة للزمن:
-$$P = \\frac{dW}{dt} = \\vec{F} \\cdot \\vec{v}$$
-- **وحدات القدرة:**
-  - **الواط** (جول/ثانية).
-  - **الكيلوواط** ($1000$ واط).
-  - **الحصان:**
-    $$1\\text{ حصان} = 735\\text{ واط} = 75\\text{ ث.كجم.م/ث}$$
-
-### ٥. أقصى سرعة للمركبات:
-عند أقصى سرعة تنعدم العجلة (جـ = ٠):
-١. **على طريق أفقي:** $F = R \\implies P = R \\cdot v_{\\max}$.
-٢. **صعوداً على منحدر:** $F = R + m g \\sin\\theta$.
-٣. **هبوطاً على منحدر:** $F = R - m g \\sin\\theta$.`,
+### ٤. فخاخ ومكائد امتحانات الثانوية العامة
+- **فخ تحويل الحصان وسرعة كم/ساعة:** لحساب القدرة بالحصان:
+  $$\text{القدرة بالحصان} = \frac{F (\text{ث.كجم}) \times v (\text{م/ث})}{75}$$
+  ويجب تحويل السرعة من كم/س إلى م/ث بالضرب في $\frac{5}{18}$.
+- **صعود منحدر بأقصى سرعة:** عند صعود منحدر، قوة المحرك توازن المقاومة ومركبة الوزن معاً: $F = R + mg \sin\theta$.`,
           formulas: [
             { labelEn: 'Gravitational Potential Energy', labelAr: 'طاقة الوضع التثاقلية', latex: 'V = m g h' },
             { labelEn: 'Mechanical Energy Conservation', labelAr: 'بقاء الطاقة الميكانيكية', latex: 'T + V = T_0 + V_0' },
