@@ -704,7 +704,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. العزم = 20 جذر 3 ع."
       ],
       "teacherTipEn": "Decompose force into components to simplify taking moments.",
-      "teacherTipAr": "تحليل القوة إلى مركبات أفقية ورأسية يسهل حساب العزوم."
+      "teacherTipAr": "تحليل القوة إلى مركبات أفقية ورأسية يسهل حساب العزوم.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch2_db_easy_21",
@@ -910,7 +911,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٢. معيار العزم = 8 × 5 جذر 3 = 40 جذر 3 نيوتن.سم."
       ],
       "teacherTipEn": "The altitude is the perpendicular distance from vertex A to line BC.",
-      "teacherTipAr": "الارتفاع هو البعد العمودي المباشر من الرأس على الضلع المقابل."
+      "teacherTipAr": "الارتفاع هو البعد العمودي المباشر من الرأس على الضلع المقابل.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_easy_27",
@@ -1017,7 +1019,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. العزم = 15 × 7.2 = 108 نيوتن.سم."
       ],
       "teacherTipEn": "F cancels nicely with hypotenuse length in F * ((a*b)/c).",
-      "teacherTipAr": "تختصر القوة 15 مع طول الوتر 15 فيتبقى حاصل ضرب الضلعين 9×12 = 108."
+      "teacherTipAr": "تختصر القوة 15 مع طول الوتر 15 فيتبقى حاصل ضرب الضلعين 9×12 = 108.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_easy_30",
@@ -1125,7 +1128,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. العزم = 60 × 0.25 = 15 نيوتن.متر."
       ],
       "teacherTipEn": "Only the perpendicular component F*sin(theta) creates rotation.",
-      "teacherTipAr": "المركبة العمودية فقط هي التي تحدث الدوران وتولد العزم."
+      "teacherTipAr": "المركبة العمودية فقط هي التي تحدث الدوران وتولد العزم.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch2_db_easy_33",
@@ -1195,7 +1199,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٢. العزم = 50 × 1.2 = 60 نيوتن.متر."
       ],
       "teacherTipEn": "Maximum torque is generated when the force is strictly perpendicular to the arm.",
-      "teacherTipAr": "ينشأ أقصى عزم دوران عندما تكون القوة متعامدة تماماً مع ذراع الرافعة."
+      "teacherTipAr": "ينشأ أقصى عزم دوران عندما تكون القوة متعامدة تماماً مع ذراع الرافعة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_easy_35",
@@ -1335,7 +1340,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٢. م_د = (12 + 28) / 2 = 20."
       ],
       "teacherTipEn": "Midpoint moment is always the arithmetic mean of endpoint moments.",
-      "teacherTipAr": "عزم نقطة المنتصف هو المتوسط الحسابي لعزمي الطرفين دائماً."
+      "teacherTipAr": "عزم نقطة المنتصف هو المتوسط الحسابي لعزمي الطرفين دائماً.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_easy_39",
@@ -1371,7 +1377,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. إذن م_ب = - م_جـ."
       ],
       "teacherTipEn": "Passing through a midpoint implies equal and opposite moments at the endpoints.",
-      "teacherTipAr": "مرور خط العمل بمنتصف قطعة مستقيمة يعني تساوي العزمين مقداراً وتضادهما اتجاهاً عند طرفيها."
+      "teacherTipAr": "مرور خط العمل بمنتصف قطعة مستقيمة يعني تساوي العزمين مقداراً وتضادهما اتجاهاً عند طرفيها.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_easy_40",
@@ -1407,7 +1414,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. العزم = 24 × 12 = 288 نيوتن.سم."
       ],
       "teacherTipEn": "Use Pythagoras on the half-triangle.",
-      "teacherTipAr": "طبق نظرية فيثاغورس على نصف المثلث المتساوي الساقين."
+      "teacherTipAr": "طبق نظرية فيثاغورس على نصف المثلث المتساوي الساقين.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_easy_41",
@@ -1923,7 +1931,8 @@ export const statCh2Databank: ChapterDatabank = {
         "مركبة القوة الرأسية: $F_y = 50\\sin(30^\\circ) = 25\\text{ نيوتن}$.",
         "المركبة الأفقية خط عملها يمر بنقطة الأصل فعزمها صفري.",
         "العزم الكلي: $4 \\times 25 = 100\\hat{k}\\text{ نيوتن}\\cdot\\text{م}$."
-      ]
+      ],
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch2_db_easy_56",
@@ -2068,7 +2077,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. مجموع العزوم = 18 × 2 جذر 3 = 36 جذر 3 نيوتن.سم."
       ],
       "teacherTipEn": "When forces act along sides in cyclic order, their moments about the incenter simply factor out the inradius.",
-      "teacherTipAr": "عندما تعمل القوى في اتجاه دوري واحد، يؤخذ نصف قطر الدائرة الداخلة كعامل مشترك."
+      "teacherTipAr": "عندما تعمل القوى في اتجاه دوري واحد، يؤخذ نصف قطر الدائرة الداخلة كعامل مشترك.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_med_02",
@@ -3112,7 +3122,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. من شرط الاتزان: $15 F = 150\\sqrt{3} \\implies F = 10\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "When a force is perpendicular to a member, its lever arm is the full distance along the member from the pivot.",
-      "teacherTipAr": "عندما تكون القوة عمودية على القضيب، فإن ذراع عزمها هو طول القضيب نفسه."
+      "teacherTipAr": "عندما تكون القوة عمودية على القضيب، فإن ذراع عزمها هو طول القضيب نفسه.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch2_db_med_31",
@@ -3257,7 +3268,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. مقدار العزم حول $O$ = $50 \\times 4.8 = 240$ ن.سم."
       ],
       "teacherTipEn": "Euclidean geometry is much faster than cross products for standard right triangles: $d = \\frac{\\text{leg}_1 \\times \\text{leg}_2}{\\text{hypotenuse}}$.",
-      "teacherTipAr": "استخدام نظرية إقليدس لطول العمود الساقط على الوتر (حاصل ضرب ضلعي القائمة ÷ الوتر) أسرع بكثير."
+      "teacherTipAr": "استخدام نظرية إقليدس لطول العمود الساقط على الوتر (حاصل ضرب ضلعي القائمة ÷ الوتر) أسرع بكثير.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_med_35",
@@ -3774,7 +3786,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. العزم حول نقطة التثبيت = $12 \\times 1.5 = 18$ كيلو نيوتن.متر."
       ],
       "teacherTipEn": "For a uniform load of intensity $w$, the moment about an end is $M = \\frac{w L^2}{2}$.",
-      "teacherTipAr": "عزم الحمل الموزع بانتظام حول أحد طرفيه يُحسب دائماً بالقانون: $M = \\frac{w L^2}{2}$."
+      "teacherTipAr": "عزم الحمل الموزع بانتظام حول أحد طرفيه يُحسب دائماً بالقانون: $M = \\frac{w L^2}{2}$.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_med_49",
@@ -3810,7 +3823,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. العزم حول نقطة التثبيت = $18 \\times 2 = 36$ كيلو نيوتن.متر."
       ],
       "teacherTipEn": "For a triangular load with maximum at the support, the moment about the support is $M = \\frac{w_0 L^2}{6}$.",
-      "teacherTipAr": "عزم الحمل المثلثي حول طرف القاعدة يُحسب بالقاعدة: $M = \\frac{w_0 L^2}{6}$."
+      "teacherTipAr": "عزم الحمل المثلثي حول طرف القاعدة يُحسب بالقاعدة: $M = \\frac{w_0 L^2}{6}$.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_med_50",
@@ -4037,7 +4051,8 @@ export const statCh2Databank: ChapterDatabank = {
         "طول العمود الساقط من الرأس $C$ على الضلع $AB$: $h = 6\\sin(60^\\circ) = 3\\sqrt{3}\\text{ سم}$.",
         "القوتان $F_2$ و $F_3$ تمران بالنقطة $C$ فعزمهما ينعدم.",
         "معادلة العزم: $F_1 (3\\sqrt{3}) = 30\\sqrt{3} \\implies F_1 = 10\\text{ نيوتن}$."
-      ]
+      ],
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_med_56",
@@ -4519,7 +4534,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. بالتعويض: $y_c = 50 / (2 \\times 0.5) = 50$ سم."
       ],
       "teacherTipEn": "The critical height is always $y_c = \\frac{b}{2\\mu}$; notice it is independent of the weight $W$.",
-      "teacherTipAr": "الارتفاع الحرج يُحسب دائماً بالعلاقة $y_c = \\frac{b}{2\\mu}$ ولا يعتمد إطلاقاً على وزن الجسم."
+      "teacherTipAr": "الارتفاع الحرج يُحسب دائماً بالعلاقة $y_c = \\frac{b}{2\\mu}$ ولا يعتمد إطلاقاً على وزن الجسم.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "stat_ch2_db_hots_10",
@@ -4555,7 +4571,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. بما أن $30 < 72$، فإن الكتلة تنقلب أولاً بمجرد وصول القوة إلى 30 نيوتن."
       ],
       "teacherTipEn": "Whichever failure mode requires a smaller applied force occurs first in static equilibrium problems.",
-      "teacherTipAr": "في مسائل الاتزان الاستاتيكي، النمط الذي يتطلب قوة أصغر هو الذي يحدث أولاً في الواقع."
+      "teacherTipAr": "في مسائل الاتزان الاستاتيكي، النمط الذي يتطلب قوة أصغر هو الذي يحدث أولاً في الواقع.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "stat_ch2_db_hots_11",
@@ -4593,7 +4610,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. إذن $T = W \\cot 30^\\circ = 20\\sqrt{3}$ كيلو نيوتن."
       ],
       "teacherTipEn": "Taking moments about the hinge $O$ eliminates both horizontal and vertical reaction forces at the hinge in one step.",
-      "teacherTipAr": "أخذ العزوم حول المفصل $O$ يلغي قوى رد فعل المفصل تماماً من المعادلة في خطوة واحدة."
+      "teacherTipAr": "أخذ العزوم حول المفصل $O$ يلغي قوى رد فعل المفصل تماماً من المعادلة في خطوة واحدة.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch2_db_hots_12",
@@ -4631,7 +4649,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. العزم حول نقطة الأصل = $(3)(40) - (4)(-30) = 120 + 120 = 240$ ن.م."
       ],
       "teacherTipEn": "You can also use point $C(0, 8)$ on the line of action: $M_O = \\vec{r}_C \\times \\vec{T} = (8\\hat{j}) \\times (-30\\hat{i} + 40\\hat{j}) = 240\\hat{k}\\text{ N}\\cdot\\text{m}$.",
-      "teacherTipAr": "يمكنك أخذ العزم باستخدام أي نقطة على خط عمل القوة مثل $C(0, 8)$ لتوفير خطوات الحساب."
+      "teacherTipAr": "يمكنك أخذ العزم باستخدام أي نقطة على خط عمل القوة مثل $C(0, 8)$ لتوفير خطوات الحساب.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_13",
@@ -5010,7 +5029,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٣. إذن $M = 2 \\times 36 \\times 5 = 360$ ن.سم."
       ],
       "teacherTipEn": "This classic formula $M = 2 \\Delta k$ holds for any closed polygon whose sides are traced by proportional forces in cyclic order.",
-      "teacherTipAr": "القانون $M = 2 \\Delta k$ صحيح لأي مضلع مغلق تؤثر على أضلاعه قوى متناسبة في اتجاه دوري واحد."
+      "teacherTipAr": "القانون $M = 2 \\Delta k$ صحيح لأي مضلع مغلق تؤثر على أضلاعه قوى متناسبة في اتجاه دوري واحد.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch2_db_hots_23",
@@ -5238,7 +5258,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. إذن $0.6 T = 30 \\implies T = 50$ كيلو نيوتن."
       ],
       "teacherTipEn": "Since both the wind force and horizontal wire component act at the exact same height, their lever arms cancel, giving directly $T_x = P$.",
-      "teacherTipAr": "بما أن قوة الرياح والمركبة الأفقية للشد تؤثران عند نفس الارتفاع تماماً، فإن ذراعهما يختصران مباشرة: الشد الأفقي = قوة الرياح."
+      "teacherTipAr": "بما أن قوة الرياح والمركبة الأفقية للشد تؤثران عند نفس الارتفاع تماماً، فإن ذراعهما يختصران مباشرة: الشد الأفقي = قوة الرياح.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_29",
@@ -5354,7 +5375,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٥. إذن $N_{\\text{wall}} = \\frac{580\\sqrt{3}}{3}$ نيوتن."
       ],
       "teacherTipEn": "Taking moments about the base eliminates both normal reaction and friction at the ground simultaneously.",
-      "teacherTipAr": "أخذ العزوم حول قاعدة السلم يلغي رد فعل الأرض وقوة الاحتكاك معاً من المعادلة."
+      "teacherTipAr": "أخذ العزوم حول قاعدة السلم يلغي رد فعل الأرض وقوة الاحتكاك معاً من المعادلة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_32",
@@ -5392,7 +5414,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. بالقسمة على $L$: $T = 30 \\times \\frac{\\sqrt{3}}{2} = 15\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "When a supporting force is perpendicular to a member, its moment arm is simply the distance along the member.",
-      "teacherTipAr": "عندما تكون قوة الدعم عمودية على العضو الإنشائي، فإن ذراع عزمها هو المسافة على طول العضو نفسه."
+      "teacherTipAr": "عندما تكون قوة الدعم عمودية على العضو الإنشائي، فإن ذراع عزمها هو المسافة على طول العضو نفسه.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_33",
@@ -5430,7 +5453,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. إذن أقصى عزم = $500 \\times 1.0 = 500$ ن.م."
       ],
       "teacherTipEn": "To maximize the moment of a given force about a point, orient the force perpendicular to the line connecting the point to the force's application location.",
-      "teacherTipAr": "للحصول على أقصى عزم لقوة معينة حول نقطة، وجّه القوة عمودياً تماماً على الخط الواصل بين النقطة ومكان التأثير."
+      "teacherTipAr": "للحصول على أقصى عزم لقوة معينة حول نقطة، وجّه القوة عمودياً تماماً على الخط الواصل بين النقطة ومكان التأثير.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_34",
@@ -5700,7 +5724,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٥. إذن $N_C = 40$ نيوتن."
       ],
       "teacherTipEn": "Remember: a smooth surface exerts a normal force perpendicular to the surface of contact; for a smooth peg supporting a rod, the force is normal to the rod.",
-      "teacherTipAr": "تذكر دائماً: رد فعل الوتد الأملس يكون عمودياً على القضيب نفسه."
+      "teacherTipAr": "تذكر دائماً: رد فعل الوتد الأملس يكون عمودياً على القضيب نفسه.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_41",
@@ -5738,7 +5763,8 @@ export const statCh2Databank: ChapterDatabank = {
         "٤. عزم اللي حول محور الصادات = $200 \\times 1.5 = 300$ ن.م."
       ],
       "teacherTipEn": "The perpendicular offset in the x-direction creates torsion about the y-axis, while the length along the y-axis creates bending about the x-axis.",
-      "teacherTipAr": "البعد الأفقي في اتجاه س يسبب عزم لي حول محور ص، بينما الطول على محور ص يسبب عزم انحناء حول محور س."
+      "teacherTipAr": "البعد الأفقي في اتجاه س يسبب عزم لي حول محور ص، بينما الطول على محور ص يسبب عزم انحناء حول محور س.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_42",
@@ -6189,7 +6215,8 @@ export const statCh2Databank: ChapterDatabank = {
         "الوزن يؤثر في المنتصف $M$ على بعد $L$ من $A$.",
         "أخذ العزوم حول المفصل $A$: $T \\cdot L\\sin(45^\\circ) = W \\cdot L$.",
         "إذن $T \\frac{1}{\\sqrt{2}} = W \\implies T = \\sqrt{2}W$."
-      ]
+      ],
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch2_db_hots_54",

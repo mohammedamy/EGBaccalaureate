@@ -340,7 +340,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. تبسيط المقدار."
       ],
       "teacherTipEn": "Direct curriculum application.",
-      "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+      "teacherTipAr": "تطبيق مباشر من كتاب الوزارة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_easy_11",
@@ -1570,7 +1571,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. تبسيط المقدار."
       ],
       "teacherTipEn": "Direct curriculum application.",
-      "teacherTipAr": "تطبيق مباشر من كتاب الوزارة."
+      "teacherTipAr": "تطبيق مباشر من كتاب الوزارة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_easy_47",
@@ -1882,7 +1884,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "بوضع $u = x^2 + 3x - 5$، نجد $du = (2x + 3)dx$.",
         "يصبح التكامل $\\int \\frac{du}{u} = \\ln|u| + C$.",
         "التعويض عن $u$: $\\ln|x^2 + 3x - 5| + C$."
-      ]
+      ],
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_easy_56",
@@ -2228,7 +2231,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. التبسيط خطوة بخطوة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch2_db_med_58",
@@ -3092,7 +3096,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. التبسيط خطوة بخطوة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_med_83",
@@ -3434,7 +3439,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. التبسيط خطوة بخطوة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_med_93",
@@ -3468,7 +3474,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. التبسيط خطوة بخطوة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_med_94",
@@ -3639,7 +3646,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. التبسيط خطوة بخطوة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch2_db_med_99",
@@ -3673,7 +3681,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. التبسيط خطوة بخطوة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch2_db_med_100",
@@ -3932,7 +3941,8 @@ export const calcCh2Databank: ChapterDatabank = {
       "stepByStepSolutionAr": [
         "الاشتقاق: $N'(t) = 100e^{0.2t}$.",
         "التعويض عن $t = 5$: $N'(5) = 100e$."
-      ]
+      ],
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_med_107",
@@ -4220,7 +4230,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. استنتاج القيمة الدقيقة."
       ],
       "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
-      "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_hots_106",
@@ -4532,7 +4543,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. استنتاج القيمة الدقيقة."
       ],
       "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
-      "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_hots_115",
@@ -4906,7 +4918,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٢. استنتاج القيمة الدقيقة."
       ],
       "teacherTipEn": "Challenging Egyptian Baccalaureate & STEM standard problem.",
-      "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متميزة لطلاب التفوق ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch2_db_hots_126",
@@ -5392,7 +5405,8 @@ export const calcCh2Databank: ChapterDatabank = {
         "٤. المساحة = 1 - 2/هـ = (هـ - 2) / هـ."
       ],
       "teacherTipEn": "Area is always positive; since the curve is below the x-axis, negate the integral.",
-      "teacherTipAr": "المساحة موجبة دائماً؛ وبما أن المنحنى يقع أسفل محور السينات نعكس إشارة التكامل."
+      "teacherTipAr": "المساحة موجبة دائماً؛ وبما أن المنحنى يقع أسفل محور السينات نعكس إشارة التكامل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch2_db_hots_139",

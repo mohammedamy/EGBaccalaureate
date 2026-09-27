@@ -1436,7 +1436,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{2}{20} \\times 9.8 = 0.98\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_42",
@@ -1472,7 +1473,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{4}{20} \\times 9.8 = 1.96\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_43",
@@ -1508,7 +1510,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{6}{20} \\times 9.8 = 2.94\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_44",
@@ -1544,7 +1547,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{8}{20} \\times 9.8 = 3.92\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_45",
@@ -1580,7 +1584,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{10}{20} \\times 9.8 = 4.9\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_46",
@@ -1616,7 +1621,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{12}{20} \\times 9.8 = 5.88\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_47",
@@ -1652,7 +1658,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{14}{20} \\times 9.8 = 6.86\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_48",
@@ -1688,7 +1695,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{16}{20} \\times 9.8 = 7.84\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_49",
@@ -1724,7 +1732,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{18}{20} \\times 9.8 = 8.82\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_50",
@@ -1760,7 +1769,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. العجلة: $a = \\frac{20}{20} \\times 9.8 = 9.8\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "a = (m1 - m2)g / (m1 + m2).",
-      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د."
+      "teacherTipAr": "العجلة = (فرق الكتلتين ÷ مجموع الكتلتين) × د.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_51",
@@ -1901,7 +1911,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "$a = \\frac{5 - 3}{5 + 3} (9.8) = \\frac{2}{8} \\times 9.8 = 2.45\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Notice the driving net force is $(m_1 - m_2)g$ and the total accelerating mass is $(m_1 + m_2)$.",
-      "teacherTipAr": "لاحظ أن القوة المحركة الصافية هي $(m_1 - m_2)g$ وإجمالي الكتلة المتحركة هي $(m_1 + m_2)$."
+      "teacherTipAr": "لاحظ أن القوة المحركة الصافية هي $(m_1 - m_2)g$ وإجمالي الكتلة المتحركة هي $(m_1 + m_2)$.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_55",
@@ -1939,7 +1950,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "$T = m_1(g - a) = 5(9.8 - 2.45) = 36.75\\text{ ن}$."
       ],
       "teacherTipEn": "Double-checking with both masses confirms both your acceleration and tension are correct.",
-      "teacherTipAr": "التحقق باستخدام معادلتي الكتلتين يضمن صحة كل من العجلة والشد معاً."
+      "teacherTipAr": "التحقق باستخدام معادلتي الكتلتين يضمن صحة كل من العجلة والشد معاً.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_56",
@@ -1975,7 +1987,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "$P = 2T = 2 \\times 40 = 80\\text{ ن}$ رأسياً لأسفل."
       ],
       "teacherTipEn": "Pressure on the pulley axis is always the vector resultant of the two string tension forces.",
-      "teacherTipAr": "الضغط على محور البكرة هو دائماً المحصلة الاتجاهية لقوتي الشد في فرعي الخيط."
+      "teacherTipAr": "الضغط على محور البكرة هو دائماً المحصلة الاتجاهية لقوتي الشد في فرعي الخيط.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_easy_57",
@@ -3474,7 +3487,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 0.98 = 4.9\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_42",
@@ -3508,7 +3522,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 1.96 = 9.8\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_43",
@@ -3542,7 +3557,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 2.94 = 14.7\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_44",
@@ -3576,7 +3592,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 3.92 = 19.6\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_45",
@@ -3610,7 +3627,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 4.9 = 24.5\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_46",
@@ -3644,7 +3662,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 5.88 = 29.4\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_47",
@@ -3678,7 +3697,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 6.86 = 34.3\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_48",
@@ -3712,7 +3732,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 7.84 = 39.2\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_49",
@@ -3746,7 +3767,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 8.82 = 44.1\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_50",
@@ -3780,7 +3802,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٢. التعويض: $T = 5 \\times 9.8 = 49\\text{ نيوتن}$."
       ],
       "teacherTipEn": "T = m1 * a for horizontal mass on smooth table.",
-      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة."
+      "teacherTipAr": "الشد = ك × جـ للجسم على النضد الأملس مباشرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_51",
@@ -3861,7 +3884,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "العجلة: $a = \\frac{49.0}{10} = 4.9\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Writing the single combined system equation $a = \\frac{\\text{Driving Force} - \\text{Resistances}}{\\sum m}$ saves time.",
-      "teacherTipAr": "معادلة النظام الموحد $a = \\frac{\\text{القوة المحركة} - \\text{المقاومات}}{\\text{مجموع الكتل}}$ توفر وقتاً كبيراً في الامتحان."
+      "teacherTipAr": "معادلة النظام الموحد $a = \\frac{\\text{القوة المحركة} - \\text{المقاومات}}{\\text{مجموع الكتل}}$ توفر وقتاً كبيراً في الامتحان.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_53",
@@ -3898,7 +3922,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "$P = \\sqrt{T^2 + T^2} = T\\sqrt{2} = 29.4\\sqrt{2}\\text{ ن}$."
       ],
       "teacherTipEn": "Contrast this with the vertical pulley ($P = 2T$): here the angle is $90^\\circ$, so $P = T\\sqrt{2}$.",
-      "teacherTipAr": "قارن مع البكرة الرأسية ($P = 2T$): هنا الزاوية $90^\\circ$ إذن $P = T\\sqrt{2}$."
+      "teacherTipAr": "قارن مع البكرة الرأسية ($P = 2T$): هنا الزاوية $90^\\circ$ إذن $P = T\\sqrt{2}$.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_54",
@@ -3977,7 +4002,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "$s = \\frac{(4.9)^2}{2 \\times 9.8} = \\frac{24.01}{19.6} = 1.225\\text{ م}$."
       ],
       "teacherTipEn": "The velocity at the instant of cutting serves as the initial velocity for the subsequent free gravitational motion.",
-      "teacherTipAr": "السرعة لحظة انقطاع الخيط تعتبر هي السرعة الابتدائية للمرحلة التالية من الحركة الحرة."
+      "teacherTipAr": "السرعة لحظة انقطاع الخيط تعتبر هي السرعة الابتدائية للمرحلة التالية من الحركة الحرة.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_med_56",
@@ -4130,7 +4156,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "$F_{AB} = m_B a = 2 \\times 4 = 8\\text{ ن}$."
       ],
       "teacherTipEn": "Notice that $A$ absorbs $m_A a = 3 \\times 4 = 12\\text{ N}$ to accelerate itself, passing on the remaining $8\\text{ N}$ to $B$.",
-      "teacherTipAr": "لاحظ أن الكتلة $A$ تستهلك $12\\text{ ن}$ لتتسارع هي نفسها، وتمرر الباقي $8\\text{ ن}$ إلى $B$."
+      "teacherTipAr": "لاحظ أن الكتلة $A$ تستهلك $12\\text{ ن}$ لتتسارع هي نفسها، وتمرر الباقي $8\\text{ ن}$ إلى $B$.",
+      "diagramType": "dynamics_atwood_pulley"
     }
   ],
   "hots": [
@@ -4528,7 +4555,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(1.96)^2}{19.6} = 0.196\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_12",
@@ -4564,7 +4592,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(3.92)^2}{19.6} = 0.784\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_13",
@@ -4600,7 +4629,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(5.88)^2}{19.6} = 1.764\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_14",
@@ -4636,7 +4666,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(7.84)^2}{19.6} = 3.136\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_15",
@@ -4672,7 +4703,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(9.8)^2}{19.6} = 4.9\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_16",
@@ -4708,7 +4740,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(11.76)^2}{19.6} = 7.056\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_17",
@@ -4744,7 +4777,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(13.72)^2}{19.6} = 9.604\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_18",
@@ -4780,7 +4814,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(15.68)^2}{19.6} = 12.544\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_19",
@@ -4816,7 +4851,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(17.64)^2}{19.6} = 15.876\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_20",
@@ -4852,7 +4888,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "٣. إذن الارتفاع الإضافي: $s = \\frac{(19.6)^2}{19.6} = 19.6\\text{ م}$."
       ],
       "teacherTipEn": "Additional height after string cut: s = v^2 / (2g).",
-      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د)."
+      "teacherTipAr": "الارتفاع الإضافي بعد انقطاع الخيط = ع² ÷ (٢ د).",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_21",
@@ -6040,7 +6077,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "بالمقادير: $a_1 = 2 a_2$."
       ],
       "teacherTipEn": "Movable pulleys cut the displacement and acceleration in half while doubling the tension force: $2T = (m_2 + M)g$.",
-      "teacherTipAr": "البكرات المتحركة تنصف الإزاحة والعجلة وتضاعف قوة الشد."
+      "teacherTipAr": "البكرات المتحركة تنصف الإزاحة والعجلة وتضاعف قوة الشد.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_53",
@@ -6150,7 +6188,8 @@ export const dynCh2Databank: ChapterDatabank = {
         "العجلة: $a = \\frac{29.4}{11} \\approx 2.673\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Notice the table mass $m_2$ contributes to the total inertia in the denominator, but its weight is normal to motion and doesn't appear in the numerator.",
-      "teacherTipAr": "لاحظ أن كتلة النضد $m_2$ تسهم في القصور الذاتي الكلي في المقام، لكن وزنها العمودي لا يسهم في القوة المحركة في البسط."
+      "teacherTipAr": "لاحظ أن كتلة النضد $m_2$ تسهم في القصور الذاتي الكلي في المقام، لكن وزنها العمودي لا يسهم في القوة المحركة في البسط.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch2_db_hots_56",

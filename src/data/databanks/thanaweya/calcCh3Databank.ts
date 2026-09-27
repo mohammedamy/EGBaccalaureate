@@ -2288,7 +2288,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٢. الاشتقاق وتعيين النقط الحرجة وتأكيد نوعها."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال معتاد في امتحانات شهادة إتمام الثانوية العامة."
+      "teacherTipAr": "سؤال معتاد في امتحانات شهادة إتمام الثانوية العامة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch3_db_med_58",
@@ -2322,7 +2323,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٢. الاشتقاق وتعيين النقط الحرجة وتأكيد نوعها."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال معتاد في امتحانات شهادة إتمام الثانوية العامة."
+      "teacherTipAr": "سؤال معتاد في امتحانات شهادة إتمام الثانوية العامة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch3_db_med_59",
@@ -3232,7 +3234,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٤. أقصى مساحة = 2(2)(8) = 32 وحدة مربعة."
       ],
       "teacherTipEn": "Always check that the upper vertices lie on the parabola above the x-axis ($y = 12 - 4 = 8 > 0$).",
-      "teacherTipAr": "تأكد دائماً من أن الرأسين العلويين يقعان أعلى محور السينات."
+      "teacherTipAr": "تأكد دائماً من أن الرأسين العلويين يقعان أعلى محور السينات.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch3_db_med_84",
@@ -3309,7 +3312,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٤. الضلع الموازي للنهر ص = 1800 / 30 = 60 م."
       ],
       "teacherTipEn": "The side parallel to the river is always twice the length of each perpendicular side ($y = 2x$).",
-      "teacherTipAr": "الضلع الموازي للنهر يكون دائماً ضعف طول كل من الضلعين العموديين عليه."
+      "teacherTipAr": "الضلع الموازي للنهر يكون دائماً ضعف طول كل من الضلعين العموديين عليه.",
+      "diagramType": "trig_derivative_tangent"
     },
     {
       "id": "calc_ch3_db_med_86",
@@ -4261,7 +4265,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٢. استنتاج القيم القصوى الهندسية بدقة."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch3_db_hots_102",
@@ -4645,7 +4650,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٢. استنتاج القيم القصوى الهندسية بدقة."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch3_db_hots_113",
@@ -5798,7 +5804,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٤. بالتحليل: (2 جتا θ - 1)(جتا θ + 1) = 0، ومنها جتا θ = 1/2 أي θ = 60°."
       ],
       "teacherTipEn": "The angle $60^\\circ$ forms three sides of a regular hexagon, which is always the optimal trapezoidal profile.",
-      "teacherTipAr": "الزاوية 60° تشكل ثلاثة أضلاع من مسدس منتظم، وهو القطاع الهيدروليكي الأمثل لشبه المنحرف."
+      "teacherTipAr": "الزاوية 60° تشكل ثلاثة أضلاع من مسدس منتظم، وهو القطاع الهيدروليكي الأمثل لشبه المنحرف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch3_db_hots_142",
@@ -6033,7 +6040,8 @@ export const calcCh3Databank: ChapterDatabank = {
         "٤. إذن الزاوية الحادة = ظا⁻¹(3/4)."
       ],
       "teacherTipEn": "The angle between two curves is defined as the angle between their tangent lines at the intersection point.",
-      "teacherTipAr": "زاوية تقاطع منحنيين تعرف هندسياً بأنها الزاوية بين مماسيهما عند نقطة التقاطع."
+      "teacherTipAr": "زاوية تقاطع منحنيين تعرف هندسياً بأنها الزاوية بين مماسيهما عند نقطة التقاطع.",
+      "diagramType": "trig_derivative_tangent"
     },
     {
       "id": "calc_ch3_db_hots_148",

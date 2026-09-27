@@ -340,7 +340,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_11",
@@ -545,7 +546,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_17",
@@ -579,7 +581,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_18",
@@ -613,7 +616,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_19",
@@ -647,7 +651,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_20",
@@ -681,7 +686,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_21",
@@ -785,7 +791,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_24",
@@ -819,7 +826,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_25",
@@ -853,7 +861,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_26",
@@ -887,7 +896,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_27",
@@ -921,7 +931,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_28",
@@ -955,7 +966,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_29",
@@ -989,7 +1001,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_30",
@@ -1023,7 +1036,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_31",
@@ -1057,7 +1071,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_32",
@@ -1227,7 +1242,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_37",
@@ -1329,7 +1345,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_40",
@@ -1363,7 +1380,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_41",
@@ -1397,7 +1415,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_easy_42",
@@ -1431,7 +1450,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. التعويض بحدود التكامل."
       ],
       "teacherTipEn": "Direct Thanaweya Amma curriculum question.",
-      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة."
+      "teacherTipAr": "سؤال مباشر من كتاب الوزارة للثانوية العامة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_easy_43",
@@ -1738,7 +1758,8 @@ export const calcCh4Databank: ChapterDatabank = {
       "stepByStepSolutionAr": [
         "اختبار نوع الدالة: $f(-x) = -f(x)$، فهي دالة فردية.",
         "تكامل الدالة الفردية على حدود متماثلة يساوي $0$."
-      ]
+      ],
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_easy_52",
@@ -1773,7 +1794,8 @@ export const calcCh4Databank: ChapterDatabank = {
       "stepByStepSolutionAr": [
         "التقاطع مع محور السينات: $x = \\pm 3$.",
         "المساحة: $A = 2\\int_0^3 (9 - x^2) dx = 2[9x - x^3/3]_0^3 = 2(18) = 36\\text{ وحدة مربعة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_53",
@@ -1807,7 +1829,8 @@ export const calcCh4Databank: ChapterDatabank = {
       "stepByStepSolutionAr": [
         "قانون الحجم: $V = \\pi \\int_0^3 (2x)^2 dx = 4\\pi \\int_0^3 x^2 dx$.",
         "حساب التكامل: $4\\pi [x^3/3]_0^3 = 4\\pi(9) = 36\\pi\\text{ وحدة مكعبة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_easy_54",
@@ -2022,7 +2045,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_52",
@@ -2056,7 +2080,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_53",
@@ -2090,7 +2115,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_54",
@@ -2124,7 +2150,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_med_55",
@@ -2158,7 +2185,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_56",
@@ -2192,7 +2220,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_57",
@@ -2226,7 +2255,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_58",
@@ -2260,7 +2290,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_med_59",
@@ -2294,7 +2325,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_60",
@@ -2328,7 +2360,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_61",
@@ -2430,7 +2463,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_64",
@@ -2780,7 +2814,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_74",
@@ -2848,7 +2883,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. صياغة التكامل المحدد وحسابه بدقة."
       ],
       "teacherTipEn": "Standard Thanaweya Amma exam level question.",
-      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد."
+      "teacherTipAr": "سؤال امتحانات الثانوية العامة المعتاد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_76",
@@ -3146,7 +3182,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. قيمة التكامل الإجمالية = 2 + 2 = 4."
       ],
       "teacherTipEn": "Geometrically, this integral represents the sum of the areas of two congruent right triangles.",
-      "teacherTipAr": "هندسياً، يمثل هذا التكامل مجموع مساحتي مثلثين قائمين متطابقين مساحة كل منهما 2."
+      "teacherTipAr": "هندسياً، يمثل هذا التكامل مجموع مساحتي مثلثين قائمين متطابقين مساحة كل منهما 2.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_84",
@@ -3182,7 +3219,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. م = 2 [4ص - ص³/3] من 0 إلى 2 = 2 × (8 - 8/3) = 32 / 3 وحدة مربعة."
       ],
       "teacherTipEn": "Integrating with respect to y is natural when curves are given in the form $x = g(y)$.",
-      "teacherTipAr": "التكامل بالنسبة لـ ص هو الخيار الأمثل والمباشر عندما تكون الدالة معطاة بصورة س = د(ص)."
+      "teacherTipAr": "التكامل بالنسبة لـ ص هو الخيار الأمثل والمباشر عندما تكون الدالة معطاة بصورة س = د(ص).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_85",
@@ -3218,7 +3256,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. الحجم = 8 ط وحدة مكعبة."
       ],
       "teacherTipEn": "Squaring $\\sqrt{x}$ eliminates the root, turning the volume integral into a simple power.",
-      "teacherTipAr": "تربيع دالة الجذر التربيعي يلغي الجذر ويجعل التكامل بسيطاً ومباشراً للغاية."
+      "teacherTipAr": "تربيع دالة الجذر التربيعي يلغي الجذر ويجعل التكامل بسيطاً ومباشراً للغاية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_86",
@@ -3254,7 +3293,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. الحجم = ط × تكامل ص د ص من 0 إلى 4 = ط × [ص² / 2] = 8 ط وحدة مكعبة."
       ],
       "teacherTipEn": "For revolution about the y-axis, integrate $\\pi x^2$ with respect to y.",
-      "teacherTipAr": "عند الدوران حول محور الصادات، نكامل المقدار ط س² بالنسبة لـ ص."
+      "teacherTipAr": "عند الدوران حول محور الصادات، نكامل المقدار ط س² بالنسبة لـ ص.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_87",
@@ -3367,7 +3407,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. المجموع = 1 + 7 = 8."
       ],
       "teacherTipEn": "The additivity of definite integrals allows integration across piecewise intervals.",
-      "teacherTipAr": "خاصية إضافة فترات التكامل تسمح بحساب تكامل الدوال متعددة التعريف بسهولة."
+      "teacherTipAr": "خاصية إضافة فترات التكامل تسمح بحساب تكامل الدوال متعددة التعريف بسهولة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_med_90",
@@ -3659,7 +3700,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. إذن المشتقة = جذر((س²)² + 5) × 2س = 2س جذر(س⁴ + 5)."
       ],
       "teacherTipEn": "Remember to multiply by the derivative of the upper limit $u'(x) = 2x$.",
-      "teacherTipAr": "تذكر دائماً ضرب الناتج في مشتقة الحد العلوي س² (وهي 2س) تطبيقاً لقاعدة السلسلة."
+      "teacherTipAr": "تذكر دائماً ضرب الناتج في مشتقة الحد العلوي س² (وهي 2س) تطبيقاً لقاعدة السلسلة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_med_98",
@@ -3695,7 +3737,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. المساحة الكلية = 1/4 + 1/4 = 1/2 وحدة مربعة."
       ],
       "teacherTipEn": "Do not simply integrate $\\int_{-1}^1 x^3 dx$, which gives 0 because area above and below cancel out.",
-      "teacherTipAr": "انتبه: تكامل س³ من -1 إلى 1 يعطي صفراً؛ لكن المساحة تتطلب أخذ القيمة المطلقة لكل جزء."
+      "teacherTipAr": "انتبه: تكامل س³ من -1 إلى 1 يعطي صفراً؛ لكن المساحة تتطلب أخذ القيمة المطلقة لكل جزء.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_99",
@@ -3807,7 +3850,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "نقاط التقاطع: $x = -1$ و $x = 3$.",
         "المساحة: $A = \\int_{-1}^3 (2x + 3 - x^2) dx$.",
         "التعويض وحساب الناتج: $9 - (-5/3) = \\frac{32}{3}\\text{ وحدة مربعة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_102",
@@ -3881,7 +3925,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "نقاط التقاطع: $x = 0$ و $x = 2$.",
         "قانون الحلقات: $V = \\pi \\int_0^2 (4x^2 - x^4) dx$.",
         "حساب الناتج: $\\pi [32/3 - 32/5] = \\frac{64\\pi}{15}\\text{ وحدة مكعبة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_104",
@@ -3989,7 +4034,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "التقاطع: $x = 0$ و $x = 4$.",
         "المساحة: $A = \\int_0^4 (2\\sqrt{x} - x^2/4) dx = [\\frac{4}{3}x^{3/2} - \\frac{x^3}{12}]_0^4$.",
         "الناتج: $\\frac{32}{3} - \\frac{16}{3} = \\frac{16}{3}\\text{ وحدة مربعة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_107",
@@ -4061,7 +4107,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "دالة $x$ بدلالة $y$: $x^2 = y^{2/3}$.",
         "قانون الحجم: $V = \\pi \\int_0^8 y^{2/3} dy = \\frac{3\\pi}{5}[y^{5/3}]_0^8$.",
         "التعويض بـ $y = 8$: $8^{5/3} = 32$. الناتج $= \\frac{96\\pi}{5}\\text{ وحدة مكعبة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_med_109",
@@ -4132,7 +4179,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_hots_102",
@@ -4269,7 +4317,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_106",
@@ -4338,7 +4387,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_hots_108",
@@ -4372,7 +4422,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "circle"
     },
     {
       "id": "calc_ch4_db_hots_109",
@@ -4406,7 +4457,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_110",
@@ -4474,7 +4526,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_112",
@@ -4508,7 +4561,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_hots_113",
@@ -4576,7 +4630,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٢. استنتاج الناتج الدقيق."
       ],
       "teacherTipEn": "STEM Baccalaureate and Ministry High-Order Thinking Problem.",
-      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM."
+      "teacherTipAr": "مسألة متقدمة من بنك أسئلة الوزارة ومدارس المتفوقين STEM.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_hots_115",
@@ -4653,7 +4708,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٦. الحجم = 2 ط × (3 - 2/3 - 1/5) = 64ط / 15."
       ],
       "teacherTipEn": "When revolving around $y = c$, radius is measured as $|y - c|$.",
-      "teacherTipAr": "عند الدوران حول مستقيم ص = جـ، يحسب نصف القطر بالبعد العمودي |ص - جـ|."
+      "teacherTipAr": "عند الدوران حول مستقيم ص = جـ، يحسب نصف القطر بالبعد العمودي |ص - جـ|.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_117",
@@ -4689,7 +4745,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. الحجم = 2 ط × (2/3 - 1/4) = 2 ط × (5/12) = 5ط / 6 وحدة مكعبة."
       ],
       "teacherTipEn": "The shell method is often far simpler than washer method when rotating around vertical lines.",
-      "teacherTipAr": "طريقة الأسطوانات الدورانية أسهل وأسرع بكثير من الحلقات عند الدوران حول محاور رأسية."
+      "teacherTipAr": "طريقة الأسطوانات الدورانية أسهل وأسرع بكثير من الحلقات عند الدوران حول محاور رأسية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_118",
@@ -4726,7 +4783,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. م = 2 جذر(3) × (6 - 18/5) = 24 جذر(3) / 5."
       ],
       "teacherTipEn": "Loop area problems require finding the self-intersection points and exploiting symmetry.",
-      "teacherTipAr": "مسائل عروات المنحنيات تتطلب إيجاد نقطة التقاطع الذاتي واستغلال التماثل حول المحور."
+      "teacherTipAr": "مسائل عروات المنحنيات تتطلب إيجاد نقطة التقاطع الذاتي واستغلال التماثل حول المحور.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_119",
@@ -4766,7 +4824,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٥. المساحة الكلية للقطع الناقص = 3 × 4 ط = 12 ط."
       ],
       "teacherTipEn": "Formula: Area of an ellipse with semi-axes a and b is always $\\pi a b$.",
-      "teacherTipAr": "القانون العام: مساحة القطع الناقص الذي نصفا محوريه أ و ب هي ط أ ب دائماً."
+      "teacherTipAr": "القانون العام: مساحة القطع الناقص الذي نصفا محوريه أ و ب هي ط أ ب دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_120",
@@ -4960,7 +5019,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٥. عندما أ = 2، يكون المحيط = 6 × 2 = 12."
       ],
       "teacherTipEn": "The perimeter of the astroid of scale a is always $6a$.",
-      "teacherTipAr": "محيط النجمة الفلكية ذات المقياس أ يساوي دائماً 6 أ."
+      "teacherTipAr": "محيط النجمة الفلكية ذات المقياس أ يساوي دائماً 6 أ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_125",
@@ -4997,7 +5057,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. عندما أ = 4: م = (3/8) ط (16) = 6 ط."
       ],
       "teacherTipEn": "Formula: the area enclosed by an astroid is $\\frac{3}{8}\\pi a^2$.",
-      "teacherTipAr": "قانون عام: المساحة المحصورة داخل النجمة الفلكية هي (3/8) ط أ²."
+      "teacherTipAr": "قانون عام: المساحة المحصورة داخل النجمة الفلكية هي (3/8) ط أ².",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_126",
@@ -5035,7 +5096,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. الحجم = ط وحدة مكعبة."
       ],
       "teacherTipEn": "Gabriel's horn has finite volume ($\\pi$) but infinite surface area!",
-      "teacherTipAr": "مفارقة بوق غابرييل الشهيرة: حجمه منتهٍ ويساوي ط، بينما مساحة سطحه لا نهائية!"
+      "teacherTipAr": "مفارقة بوق غابرييل الشهيرة: حجمه منتهٍ ويساوي ط، بينما مساحة سطحه لا نهائية!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_127",
@@ -5075,7 +5137,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. بالتعويض: جذر(2) - (-جذر 2) = 2 جذر(2)."
       ],
       "teacherTipEn": "Each lobe enclosed between sine and cosine has identical area $2\\sqrt{2}$.",
-      "teacherTipAr": "كل فص محصور بين منحنيي الجيب وجيب التمام مساحته ثابتة وتساوي 2 جذر(2)."
+      "teacherTipAr": "كل فص محصور بين منحنيي الجيب وجيب التمام مساحته ثابتة وتساوي 2 جذر(2).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "calc_ch4_db_hots_128",
@@ -5221,7 +5284,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. الحجم = ط × (ط / 2) = ط² / 2."
       ],
       "teacherTipEn": "The volume of revolution of one sine arch is $\\pi^2 / 2$.",
-      "teacherTipAr": "حجم دوران قوس كامل لمنحنى الجيب حول محور السينات يساوي ط² / 2 دائماً."
+      "teacherTipAr": "حجم دوران قوس كامل لمنحنى الجيب حول محور السينات يساوي ط² / 2 دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_132",
@@ -5257,7 +5321,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. باستخدام قاعدة مشتقة ما بداخل القوس: م = 2/3 وحدة مربعة."
       ],
       "teacherTipEn": "The substitution $u = 1 - x^2$ makes this integral completely elementary.",
-      "teacherTipAr": "التعويض ع = 1 - س² يحول التكامل إلى صورة قياسية مباشرة."
+      "teacherTipAr": "التعويض ع = 1 - س² يحول التكامل إلى صورة قياسية مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_133",
@@ -5293,7 +5358,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. باستخدام صيغة أرخميدس لمساحة القطاع المكافئ: $A = \\frac{1}{6}(x_2 - x_1)^3 = \\frac{1}{6}(2 - (-1))^3 = \\frac{27}{6} = \\frac{9}{2}$."
       ],
       "teacherTipEn": "Archimedes formula shortcut: $\\frac{1}{6}(2 - (-1))^3 = \\frac{3^3}{6} = \\frac{27}{6} = \\frac{9}{2}$.",
-      "teacherTipAr": "قاعدة أرخميدس السريعة: $\\frac{1}{6}(2 - (-1))^3 = \\frac{27}{6} = \\frac{9}{2}$."
+      "teacherTipAr": "قاعدة أرخميدس السريعة: $\\frac{1}{6}(2 - (-1))^3 = \\frac{27}{6} = \\frac{9}{2}$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_134",
@@ -5485,7 +5551,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٥. المساحة = 15/8 - 2 لوـهـ(2)."
       ],
       "teacherTipEn": "Notice $\\ln(1/2) = -\\ln 2$, so subtracting gives $-2\\ln 2$.",
-      "teacherTipAr": "انتبه إلى أن لوـهـ(1/2) = -لوـهـ(2)، فطرحهما يعطي -2 لوـهـ(2)."
+      "teacherTipAr": "انتبه إلى أن لوـهـ(1/2) = -لوـهـ(2)، فطرحهما يعطي -2 لوـهـ(2).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_139",
@@ -5563,7 +5630,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. التكامل المعبر عن طول القوس هو تكامل جذر(1 + س²) د س من 0 إلى 1."
       ],
       "teacherTipEn": "Arc length formula: $L = \\int \\sqrt{1 + f'(x)^2} dx$.",
-      "teacherTipAr": "الصيغة القياسية لطول القوس تعتمد على مربع المشتقة الأولى تحت الجذر التربيعي."
+      "teacherTipAr": "الصيغة القياسية لطول القوس تعتمد على مربع المشتقة الأولى تحت الجذر التربيعي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_141",
@@ -5675,7 +5743,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٤. بالتعويض: (هـ + 1/هـ) - (1 + 1) = هـ + 1/هـ - 2."
       ],
       "teacherTipEn": "Notice $(e^{1/2} - e^{-1/2})^2 = e + 1/e - 2$, showing the area is strictly positive.",
-      "teacherTipAr": "المساحة موجبة دائماً وتساوي مربع (هـ^(1/2) - هـ^(-1/2))."
+      "teacherTipAr": "المساحة موجبة دائماً وتساوي مربع (هـ^(1/2) - هـ^(-1/2)).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_144",
@@ -5860,7 +5929,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٣. الحجم = (1/6) ط × (2 جذر 3)³ = (1/6) ط × 24 جذر(3) = 4 جذر(3) ط."
       ],
       "teacherTipEn": "The Napkin Ring Theorem proves the volume depends solely on the ring height h, independent of sphere radius!",
-      "teacherTipAr": "نظرية حلقة المناديل المدهشة تثبت أن الحجم المتبقي يعتمد فقط على ارتفاع الحلقة بصرف النظر عن حجم الكرة الأصلية!"
+      "teacherTipAr": "نظرية حلقة المناديل المدهشة تثبت أن الحجم المتبقي يعتمد فقط على ارتفاع الحلقة بصرف النظر عن حجم الكرة الأصلية!",
+      "diagramType": "circle"
     },
     {
       "id": "calc_ch4_db_hots_149",
@@ -5900,7 +5970,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "٥. المساحة = 0.5 أ² (2ط + ط) = 1.5 ط أ²."
       ],
       "teacherTipEn": "Cardioid area formula: $A = \\frac{3}{2}\\pi a^2$.",
-      "teacherTipAr": "الصيغة الكلاسيكية لمساحة الكارديويد هي دائماً 1.5 ط أ²."
+      "teacherTipAr": "الصيغة الكلاسيكية لمساحة الكارديويد هي دائماً 1.5 ط أ².",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_150",
@@ -6160,7 +6231,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "حدود التكامل: $x = \\pm 2$.",
         "نصف قطر القرص: $R(x) = 4 - x^2$.",
         "الحساب: $V = 2\\pi \\int_0^2 (16 - 8x^2 + x^4) dx = \\frac{256\\pi}{15}\\text{ وحدة مكعبة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "calc_ch4_db_hots_157",
@@ -6235,7 +6307,8 @@ export const calcCh4Databank: ChapterDatabank = {
         "مشتقة $x$: $x'(t) = -2t$.",
         "التكامل: $A = 4 \\int_0^{\\sqrt{3}} (3t^2 - t^4) dt = 4 [t^3 - t^5/5]_0^{\\sqrt{3}}$.",
         "التعويض: $4(3\\sqrt{3} - 9\\sqrt{3}/5) = \\frac{24\\sqrt{3}}{5}\\text{ وحدة مربعة}$."
-      ]
+      ],
+      "diagramType": "cartesian_plane"
     }
   ]
 };

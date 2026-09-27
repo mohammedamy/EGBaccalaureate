@@ -175,7 +175,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. من معادلة الاتزان الرأسي: $\\sum Y = 0 \\implies N_f = W = 240$ نيوتن."
       ],
       "teacherTipEn": "For any ladder against a smooth vertical wall, the floor normal reaction always equals the total vertical weight.",
-      "teacherTipAr": "في حالة الحائط الرأسي الأملس، رد الفعل العمودي للأرض يساوي دائماً مجموع الأوزان الرأسية."
+      "teacherTipAr": "في حالة الحائط الرأسي الأملس، رد الفعل العمودي للأرض يساوي دائماً مجموع الأوزان الرأسية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_06",
@@ -210,7 +211,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. من اتزان القوى الأفقية: $\\sum X = 0 \\implies R_w = f_s = 45$ نيوتن."
       ],
       "teacherTipEn": "Horizontal equilibrium on a ladder always gives $R_w = f_s$ directly.",
-      "teacherTipAr": "معادلة الاتزان الأفقي للسلم تعطي دوماً: رد فعل الحائط = قوة الاحتكاك عند الأرض."
+      "teacherTipAr": "معادلة الاتزان الأفقي للسلم تعطي دوماً: رد فعل الحائط = قوة الاحتكاك عند الأرض.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_07",
@@ -245,7 +247,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. رد الفعل الناتج يكون عمودياً تماماً على القضيب عند نقطة الارتكاز."
       ],
       "teacherTipEn": "Remember: for a smooth peg supporting a rod, the reaction is perpendicular to the rod, NOT necessarily vertical!",
-      "teacherTipAr": "تذكر: رد فعل الوتد الأملس يكون عمودياً على القضيب وليس بالضرورة رأسياً!"
+      "teacherTipAr": "تذكر: رد فعل الوتد الأملس يكون عمودياً على القضيب وليس بالضرورة رأسياً!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_08",
@@ -391,7 +394,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_N - 20 = 0 \\implies R_N = 20\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Smooth surfaces can only exert normal perpendicular forces.",
-      "teacherTipAr": "الأسطح الملساء لا تؤثر إلا بقوة عمودية عليها فقط."
+      "teacherTipAr": "الأسطح الملساء لا تؤثر إلا بقوة عمودية عليها فقط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_12",
@@ -425,7 +429,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_N - 40 = 0 \\implies R_N = 40\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Smooth surfaces can only exert normal perpendicular forces.",
-      "teacherTipAr": "الأسطح الملساء لا تؤثر إلا بقوة عمودية عليها فقط."
+      "teacherTipAr": "الأسطح الملساء لا تؤثر إلا بقوة عمودية عليها فقط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_13",
@@ -461,7 +466,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. من الاتزان الرأسي: $N_f = 800$ نيوتن."
       ],
       "teacherTipEn": "No matter where the person stands on the ladder, the total vertical reaction of the floor is always the total weight!",
-      "teacherTipAr": "موضع وقوف الشخص على السلم لا يغير إطلاقاً من رد الفعل العمودي للأرض؛ فهو يساوي دوماً مجموع الأوزان!"
+      "teacherTipAr": "موضع وقوف الشخص على السلم لا يغير إطلاقاً من رد الفعل العمودي للأرض؛ فهو يساوي دوماً مجموع الأوزان!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_14",
@@ -497,7 +503,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. بالتعويض: $F_r = 0.25 \\times 600 = 150$ نيوتن."
       ],
       "teacherTipEn": "Limiting friction $F_r = \\mu_s N$ applies ONLY when the body is explicitly stated to be on the verge of slipping.",
-      "teacherTipAr": "لا تستخدم ح_س = م_س × ر إلا عندما يُذكر صراحة أن الجسم على وشك الحركة أو في حالة اتزان نهائي."
+      "teacherTipAr": "لا تستخدم ح_س = م_س × ر إلا عندما يُذكر صراحة أن الجسم على وشك الحركة أو في حالة اتزان نهائي.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_15",
@@ -533,7 +540,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $1 = \\frac{1}{2 \\mu_s} \\implies \\mu_s = 0.5$."
       ],
       "teacherTipEn": "Keep this formula handy: $\\tan \\theta = \\frac{1}{2 \\mu_s}$ connects the critical ladder angle to friction directly.",
-      "teacherTipAr": "احفظ هذه العلاقة الذهبية: ظا هـ = 1 / (2 م_س) تربط زاوية ميل السلم المنتظم بمعامل الاحتكاك مباشرة."
+      "teacherTipAr": "احفظ هذه العلاقة الذهبية: ظا هـ = 1 / (2 م_س) تربط زاوية ميل السلم المنتظم بمعامل الاحتكاك مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_16",
@@ -569,7 +577,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. إذن يجب أن تكون القوة $P = 80$ نيوتن متجهة نحو الحائط."
       ],
       "teacherTipEn": "On a smooth floor, friction is zero, so an external tie-cable or force must balance the wall reaction.",
-      "teacherTipAr": "الأرض الملساء لا توفر أي احتكاك، لذا يلزم حبل شد أو قوة أفقية لمعادلة رد فعل الحائط."
+      "teacherTipAr": "الأرض الملساء لا توفر أي احتكاك، لذا يلزم حبل شد أو قوة أفقية لمعادلة رد فعل الحائط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_17",
@@ -607,7 +616,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. بالعزوم حول المفصل $A$: $T \\cdot L = 60 \\cdot \\frac{L}{2} \\implies T = 30$ نيوتن."
       ],
       "teacherTipEn": "For a uniform horizontal beam hinged at one end and cabled at the other, the cable tension is always half the beam weight.",
-      "teacherTipAr": "في القضيب الأفقي المنتظم المثبت بمفصل في طرف وحبل رأسي في الطرف الآخر، يتحمل الحبل نصف الوزن دائماً."
+      "teacherTipAr": "في القضيب الأفقي المنتظم المثبت بمفصل في طرف وحبل رأسي في الطرف الآخر، يتحمل الحبل نصف الوزن دائماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_18",
@@ -716,7 +726,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $\\frac{1}{2} T = 20 \\implies T = 40$ نيوتن."
       ],
       "teacherTipEn": "Since $\\sin(30^\\circ) = 0.5$, an inclination of $30^\\circ$ doubles the required cable tension compared to a vertical cable.",
-      "teacherTipAr": "بما أن جا 30 = 0.5، فإن ميل الحبل بزاوية 30 درجة يضاعف الشد المطلوب مقارنة بالحبل الرأسي."
+      "teacherTipAr": "بما أن جا 30 = 0.5، فإن ميل الحبل بزاوية 30 درجة يضاعف الشد المطلوب مقارنة بالحبل الرأسي.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch4_db_easy_21",
@@ -819,7 +830,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. من اتزان القوى الأفقية: $X_A = T_x = 20\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "An inclined cable always induces a compressive or tensile horizontal force at the hinge.",
-      "teacherTipAr": "الحبل المائل يولد دوماً مركبة أفقية عند المفصل تعادل ش جتا الزاوية."
+      "teacherTipAr": "الحبل المائل يولد دوماً مركبة أفقية عند المفصل تعادل ش جتا الزاوية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_24",
@@ -855,7 +867,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. فإن $T_y = W$."
       ],
       "teacherTipEn": "When the hinge reaction is purely horizontal, the cable must bear 100% of all vertical weights.",
-      "teacherTipAr": "إذا كان رد فعل المفصل أفقياً، فإن الحبل يحمل 100% من جميع الأوزان الرأسية."
+      "teacherTipAr": "إذا كان رد فعل المفصل أفقياً، فإن الحبل يحمل 100% من جميع الأوزان الرأسية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_25",
@@ -891,7 +904,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. تتبقى معادلة ذات مجهول واحد فقط هو رد فعل الحائط $R_w$ فيسهل حله في خطوة واحدة."
       ],
       "teacherTipEn": "Strategic pivot choice: always take moments about the point with the greatest number of unknown forces.",
-      "teacherTipAr": "النصيحة الذهبية: خذ العزوم دائماً حول النقطة التي يلتقي عندها أكبر عدد من المجاهيل."
+      "teacherTipAr": "النصيحة الذهبية: خذ العزوم دائماً حول النقطة التي يلتقي عندها أكبر عدد من المجاهيل.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_26",
@@ -926,7 +940,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. هندسياً، يعبر هذا عن مثلث مغلق تتابع أضلاعه في ترتيب دوري واحد."
       ],
       "teacherTipEn": "The Triangle of Forces rule allows finding force magnitudes via the sine rule: $\\frac{F_1}{\\sin \\alpha} = \\frac{F_2}{\\sin \\beta} = \\frac{F_3}{\\sin \\gamma}$.",
-      "teacherTipAr": "قاعدة مثلث القوى ترتبط بقاعدة الجيب (لامي): القوة على جيب الزاوية المقابلة مقدار ثابت."
+      "teacherTipAr": "قاعدة مثلث القوى ترتبط بقاعدة الجيب (لامي): القوة على جيب الزاوية المقابلة مقدار ثابت.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_easy_27",
@@ -999,7 +1014,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. بما أن الأرض أفقية، فإن رد الفعل يكون رأسياً لأعلى فقط."
       ],
       "teacherTipEn": "Smooth plane = normal reaction only. Rough plane = normal reaction PLUS friction.",
-      "teacherTipAr": "مستوى أملس = رد فعل عمودي فقط. مستوى خشن = رد فعل عمودي واحتكاك."
+      "teacherTipAr": "مستوى أملس = رد فعل عمودي فقط. مستوى خشن = رد فعل عمودي واحتكاك.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_29",
@@ -1071,7 +1087,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. إذن تؤثر قوة الاحتكاك أفقياً في اتجاه الحائط."
       ],
       "teacherTipEn": "Always determine the impending slip direction first; friction points in the exact opposite direction.",
-      "teacherTipAr": "حدد اتجاه الانزلاق المتوقع أولاً؛ فقوة الاحتكاك تشير دوماً في الاتجاه المعاكس تماماً."
+      "teacherTipAr": "حدد اتجاه الانزلاق المتوقع أولاً؛ فقوة الاحتكاك تشير دوماً في الاتجاه المعاكس تماماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_31",
@@ -1105,7 +1122,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $\\mu_s = 0.5 \\times 0.2 = 0.1$."
       ],
       "teacherTipEn": "Always remember: mu_s = 0.5 * cot(theta).",
-      "teacherTipAr": "تذكر دائماً: معامل الاحتكاك = نصف ظتا(هـ)."
+      "teacherTipAr": "تذكر دائماً: معامل الاحتكاك = نصف ظتا(هـ).",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_32",
@@ -1139,7 +1157,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $\\mu_s = 0.5 \\times 0.4 = 0.2$."
       ],
       "teacherTipEn": "Always remember: mu_s = 0.5 * cot(theta).",
-      "teacherTipAr": "تذكر دائماً: معامل الاحتكاك = نصف ظتا(هـ)."
+      "teacherTipAr": "تذكر دائماً: معامل الاحتكاك = نصف ظتا(هـ).",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_33",
@@ -1281,7 +1300,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. زاوية الميل مع الحائط = $90^\\circ - 60^\\circ = 30^\\circ$."
       ],
       "teacherTipEn": "Read questions carefully: distinguish whether the angle is given with the HORIZONTAL floor or the VERTICAL wall!",
-      "teacherTipAr": "اقرأ السؤال بدقة: هل الزاوية المعطاة مع الأفقي (الأرض) أم مع الرأسي (الحائط)؟"
+      "teacherTipAr": "اقرأ السؤال بدقة: هل الزاوية المعطاة مع الأفقي (الأرض) أم مع الرأسي (الحائط)؟",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_37",
@@ -1318,7 +1338,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. لا توجد أي قوة أفقية أخرى توازن هذه المركبة، فتستحيل تصفير القوى الأفقية ولا يحدث اتزان."
       ],
       "teacherTipEn": "Equilibrium requires balance in ALL directions; a single unbalanced component makes equilibrium impossible.",
-      "teacherTipAr": "الاتزان يتطلب توازن القوى في جميع الاتجاهات؛ ووجود مركبة وحيدة غير متوازنة يلغي الاتزان."
+      "teacherTipAr": "الاتزان يتطلب توازن القوى في جميع الاتجاهات؛ ووجود مركبة وحيدة غير متوازنة يلغي الاتزان.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_38",
@@ -1356,7 +1377,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. من معادلة الاتزان الأفقي: قوة الاحتكاك الفعلية = $80$ نيوتن."
       ],
       "teacherTipEn": "Crucial distinction: static friction equals the applied force until the limiting threshold $\\mu_s N$ is reached!",
-      "teacherTipAr": "انتبه جيداً: قوة الاحتكاك السكوني تساوي القوة المسببة للحركة طالما لم نصل للاتزان النهائي!"
+      "teacherTipAr": "انتبه جيداً: قوة الاحتكاك السكوني تساوي القوة المسببة للحركة طالما لم نصل للاتزان النهائي!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "stat_ch4_db_easy_39",
@@ -1394,7 +1416,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن رد فعل المفصل مائل بزاوية على الأفقي."
       ],
       "teacherTipEn": "Whenever an inclined cable attaches to a hinged rod, the hinge reaction is almost always inclined.",
-      "teacherTipAr": "عندما يُدعم القضيب بحبل مائل، يكون رد فعل المفصل مائلاً بزاوية محددة."
+      "teacherTipAr": "عندما يُدعم القضيب بحبل مائل، يكون رد فعل المفصل مائلاً بزاوية محددة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_40",
@@ -1465,7 +1488,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_A = \\frac{16}{2} = 8\\text{ نيوتن}$."
       ],
       "teacherTipEn": "At 45 degrees, the smooth wall reaction is simply half the ladder weight.",
-      "teacherTipAr": "عند زاوية ٤٥° يكون رد فعل الحائط الأملس مساوياً لنصف وزن السلم مباشرة."
+      "teacherTipAr": "عند زاوية ٤٥° يكون رد فعل الحائط الأملس مساوياً لنصف وزن السلم مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_42",
@@ -1499,7 +1523,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_A = \\frac{32}{2} = 16\\text{ نيوتن}$."
       ],
       "teacherTipEn": "At 45 degrees, the smooth wall reaction is simply half the ladder weight.",
-      "teacherTipAr": "عند زاوية ٤٥° يكون رد فعل الحائط الأملس مساوياً لنصف وزن السلم مباشرة."
+      "teacherTipAr": "عند زاوية ٤٥° يكون رد فعل الحائط الأملس مساوياً لنصف وزن السلم مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_43",
@@ -1642,7 +1667,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. بالعزوم حول $A$: $R_B \\times L = W \\times \\frac{L}{2} \\implies R_B = \\frac{W}{2}$."
       ],
       "teacherTipEn": "End support carries half the weight, hinge carries the other half.",
-      "teacherTipAr": "الدعامة الطرفية تتحمل نصف الوزن، والمفصل يتحمل النصف الآخر."
+      "teacherTipAr": "الدعامة الطرفية تتحمل نصف الوزن، والمفصل يتحمل النصف الآخر.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_47",
@@ -1680,7 +1706,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. معادلة الاتزان الأفقي: $R_w - f_s = 0$."
       ],
       "teacherTipEn": "Friction is always the opposing partner to the normal wall reaction in horizontal ladder equilibrium.",
-      "teacherTipAr": "قوة الاحتكاك هي الشريك الموازن دائماً لرد فعل الحائط في الاتزان الأفقي للسلم."
+      "teacherTipAr": "قوة الاحتكاك هي الشريك الموازن دائماً لرد فعل الحائط في الاتزان الأفقي للسلم.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_48",
@@ -1717,7 +1744,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. إذن تتضاعف جميع ردود الأفعال."
       ],
       "teacherTipEn": "Because equilibrium equations are linear, multiplying all loads by a constant scales all reactions by that same constant.",
-      "teacherTipAr": "بسبب خطية معادلات الاتزان، فإن ضرب الأحمال في معامل يضرب جميع ردود الأفعال في نفس المعامل."
+      "teacherTipAr": "بسبب خطية معادلات الاتزان، فإن ضرب الأحمال في معامل يضرب جميع ردود الأفعال في نفس المعامل.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_easy_49",
@@ -2076,7 +2104,8 @@ export const statCh4Databank: ChapterDatabank = {
         "مجموع العزوم حول أي نقطة داخلية $O$ هو $\\sum (F_i \\cdot h_i) = m \\sum (L_i \\cdot h_i) = 2 m \\times \\text{مساحة}(\\triangle ABC)$."
       ],
       "teacherTipEn": "Remember the factor of 2! It comes from the triangle area formula $\\frac{1}{2} \\text{base} \\times \\text{height}$.",
-      "teacherTipAr": "تذكر دائماً معامل 2! وهو ناتج عن قانون مساحة المثلث $\\frac{1}{2} \\text{القاعدة} \\times \\text{الارتفاع}$."
+      "teacherTipAr": "تذكر دائماً معامل 2! وهو ناتج عن قانون مساحة المثلث $\\frac{1}{2} \\text{القاعدة} \\times \\text{الارتفاع}$.",
+      "diagramType": "triangle"
     }
   ],
   "medium": [
@@ -2114,7 +2143,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $0.5 T = 0.5 (25) \\implies T = 25\\text{ نيوتن}$."
       ],
       "teacherTipEn": "At 30 degrees inclination from the rod, the tension in the end cable equals the rod weight exactly.",
-      "teacherTipAr": "عندما يميل الخيط بزاوية ٣٠° على القضيب الأفقي، يتساوى الشد في الخيط مع وزن القضيب تماماً."
+      "teacherTipAr": "عندما يميل الخيط بزاوية ٣٠° على القضيب الأفقي، يتساوى الشد في الخيط مع وزن القضيب تماماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_02",
@@ -2150,7 +2180,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $0.5 T = 0.5 (50) \\implies T = 50\\text{ نيوتن}$."
       ],
       "teacherTipEn": "At 30 degrees inclination from the rod, the tension in the end cable equals the rod weight exactly.",
-      "teacherTipAr": "عندما يميل الخيط بزاوية ٣٠° على القضيب الأفقي، يتساوى الشد في الخيط مع وزن القضيب تماماً."
+      "teacherTipAr": "عندما يميل الخيط بزاوية ٣٠° على القضيب الأفقي، يتساوى الشد في الخيط مع وزن القضيب تماماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_03",
@@ -2190,7 +2221,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن $R_w = 180 / 4 = 45$ نيوتن."
       ],
       "teacherTipEn": "Taking moments about the base eliminates both normal reaction and friction of the floor at once.",
-      "teacherTipAr": "أخذ العزوم حول القاعدة يلغي كلاً من رد فعل الأرض الرأسي وقوة الاحتكاك معاً."
+      "teacherTipAr": "أخذ العزوم حول القاعدة يلغي كلاً من رد فعل الأرض الرأسي وقوة الاحتكاك معاً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_04",
@@ -2228,7 +2260,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن $\\mu_s = 45 / 120 = 3/8 = 0.375$."
       ],
       "teacherTipEn": "Alternatively, use $\\tan \\theta = \\frac{4}{3}$, then $\\mu_s = \\frac{1}{2 \\tan \\theta} = \\frac{3}{8} = 0.375$. Instant check!",
-      "teacherTipAr": "يمكنك التحقق فوراً: م_س = 1 / (2 ظا هـ) = 1 / (2 × 4/3) = 3/8 = 0.375."
+      "teacherTipAr": "يمكنك التحقق فوراً: م_س = 1 / (2 ظا هـ) = 1 / (2 × 4/3) = 3/8 = 0.375.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_05",
@@ -2267,7 +2300,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن $R_w = 300 / 4 = 75$ نيوتن."
       ],
       "teacherTipEn": "When a person stands at the midpoint of a uniform ladder, you can simply add their weight directly to the ladder's weight.",
-      "teacherTipAr": "إذا وقف شخص عند منتصف سلم منتظم، فاجمع وزنه مباشرة إلى وزن السلم كحمل واحد."
+      "teacherTipAr": "إذا وقف شخص عند منتصف سلم منتظم، فاجمع وزنه مباشرة إلى وزن السلم كحمل واحد.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_06",
@@ -2305,7 +2339,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $R_w \\times 4 = 360 \\implies R_w = 90$ نيوتن."
       ],
       "teacherTipEn": "As a person climbs higher, their moment arm about the base increases, demanding a larger wall reaction to maintain balance.",
-      "teacherTipAr": "كلما صعد الشخص لأعلى زاد ذراع عزمه حول القاعدة، مما يتطلب رد فعل أكبر من الحائط لمنع الانقلاب."
+      "teacherTipAr": "كلما صعد الشخص لأعلى زاد ذراع عزمه حول القاعدة، مما يتطلب رد فعل أكبر من الحائط لمنع الانقلاب.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_07",
@@ -2342,7 +2377,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $T \\times \\frac{\\sqrt{2}}{2} = 40 \\implies T = 40\\sqrt{2}$ نيوتن."
       ],
       "teacherTipEn": "Remember: $T \\sin \\theta$ is the vertical component providing the moment about the hinge.",
-      "teacherTipAr": "تذكر دائماً أن ش جا هـ هي المركبة الرأسية المسؤولة عن عزم الشد حول المفصل."
+      "teacherTipAr": "تذكر دائماً أن ش جا هـ هي المركبة الرأسية المسؤولة عن عزم الشد حول المفصل.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_08",
@@ -2416,7 +2452,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $0.5 T = 60 \\implies T = 120$ نيوتن."
       ],
       "teacherTipEn": "Because the cable attaches at the same distance as the center of gravity, its vertical component must equal the full weight.",
-      "teacherTipAr": "بما أن الحبل مربوط عند نفس موضع مركز الثقل، فإن مركبته الرأسية يجب أن تعادل الوزن كاملاً."
+      "teacherTipAr": "بما أن الحبل مربوط عند نفس موضع مركز الثقل، فإن مركبته الرأسية يجب أن تعادل الوزن كاملاً.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch4_db_med_10",
@@ -2486,7 +2523,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_B = 20 + 55 = 75\\text{ ث.كجم}$."
       ],
       "teacherTipEn": "Normal ground reaction is independent of the climber's position on the ladder.",
-      "teacherTipAr": "رد الفعل العمودي للأرض لا يتأثر بموضع العامل على السلم ويساوي مجموع الوزنين دائماً."
+      "teacherTipAr": "رد الفعل العمودي للأرض لا يتأثر بموضع العامل على السلم ويساوي مجموع الوزنين دائماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_12",
@@ -2520,7 +2558,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_B = 20 + 60 = 80\\text{ ث.كجم}$."
       ],
       "teacherTipEn": "Normal ground reaction is independent of the climber's position on the ladder.",
-      "teacherTipAr": "رد الفعل العمودي للأرض لا يتأثر بموضع العامل على السلم ويساوي مجموع الوزنين دائماً."
+      "teacherTipAr": "رد الفعل العمودي للأرض لا يتأثر بموضع العامل على السلم ويساوي مجموع الوزنين دائماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_13",
@@ -2560,7 +2599,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. إذن $R_p = \\frac{75\\sqrt{3}}{4}$ نيوتن."
       ],
       "teacherTipEn": "For a smooth peg, the reaction is perpendicular to the rod, so the distance along the rod IS the lever arm!",
-      "teacherTipAr": "في الوتد الأملس، رد الفعل عمودي على القضيب، فيكون طول الجزء من القضيب هو ذراع العزم مباشرة!"
+      "teacherTipAr": "في الوتد الأملس، رد الفعل عمودي على القضيب، فيكون طول الجزء من القضيب هو ذراع العزم مباشرة!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_14",
@@ -2596,7 +2636,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $R_w = 180 / 3 = 60$ نيوتن."
       ],
       "teacherTipEn": "Notice that for a uniform ladder it would be $\\frac{W}{2} = 90\\text{ N}$. Having the center of gravity lower reduces wall thrust.",
-      "teacherTipAr": "لاحظ أنه لو كان السلم منتظماً لكان رد الفعل 90 نيوتن؛ انخفاض مركز الثقل يقلل ضغط السلم على الحائط."
+      "teacherTipAr": "لاحظ أنه لو كان السلم منتظماً لكان رد الفعل 90 نيوتن؛ انخفاض مركز الثقل يقلل ضغط السلم على الحائط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_15",
@@ -2634,7 +2675,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. لبدء الحركة: $P = R_w + F_r = 20 + 30 = 50$ نيوتن."
       ],
       "teacherTipEn": "Moving towards the wall requires overcoming BOTH the wall reaction and the friction force.",
-      "teacherTipAr": "سحب السلم نحو الحائط يتطلب التغلب على رد فعل الحائط وقوة الاحتكاك معاً."
+      "teacherTipAr": "سحب السلم نحو الحائط يتطلب التغلب على رد فعل الحائط وقوة الاحتكاك معاً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_16",
@@ -2672,7 +2714,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $R\\sqrt{2} = 100 \\implies R = 50\\sqrt{2}$ نيوتن."
       ],
       "teacherTipEn": "Symmetry reduces a two-unknown contact problem into a single 1D vertical balance equation.",
-      "teacherTipAr": "التماثل يحول مسألة التماس ثنائية المجهول إلى معادلة اتزان رأسي مباشرة."
+      "teacherTipAr": "التماثل يحول مسألة التماس ثنائية المجهول إلى معادلة اتزان رأسي مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_17",
@@ -2708,7 +2751,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $T \\sqrt{3} = 45 \\implies T = 15\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "Formula for a hinged rod held by a horizontal string at end $B$: $T = \\frac{W}{2 \\tan \\theta}$. Here $\\frac{90}{2 \\sqrt{3}} = 15\\sqrt{3}$.",
-      "teacherTipAr": "قانون سريع: الشد في حبل أفقي يمسك طرف قضيب = و / (2 ظا هـ). هنا 90 / (2 جذر 3) = 15 جذر 3."
+      "teacherTipAr": "قانون سريع: الشد في حبل أفقي يمسك طرف قضيب = و / (2 ظا هـ). هنا 90 / (2 جذر 3) = 15 جذر 3.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_18",
@@ -2782,7 +2826,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $T = 40 \\times \\frac{\\sqrt{3}}{2} = 20\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "When the cable is perpendicular to the member, no sine or cosine is needed for the cable's moment arm!",
-      "teacherTipAr": "إذا كان الحبل عمودياً على القضيب، يكون طول القضيب هو ذراع العزم مباشرة دون ضرب في جيب الزاوية!"
+      "teacherTipAr": "إذا كان الحبل عمودياً على القضيب، يكون طول القضيب هو ذراع العزم مباشرة دون ضرب في جيب الزاوية!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_20",
@@ -2923,7 +2968,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $R_w \\times 4 = 300 \\implies R_w = 75$ نيوتن."
       ],
       "teacherTipEn": "Loads at the top of a ladder exert the maximum possible overturning moment arm about the base.",
-      "teacherTipAr": "الأحمال الواقعة عند قمة السلم تمتلك أقصى ذراع عزم ممكن حول القاعدة."
+      "teacherTipAr": "الأحمال الواقعة عند قمة السلم تمتلك أقصى ذراع عزم ممكن حول القاعدة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_24",
@@ -2959,7 +3005,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. لمنع الانزلاق: $\\mu_s \\ge 75 / 150 = 0.5$."
       ],
       "teacherTipEn": "Notice that adding weight at the top increased $\\mu_s$ from $0.375$ to $0.5$ because top weight destabilizes more than it increases normal grip.",
-      "teacherTipAr": "تحميل قمة السلم يرفع معامل الاحتكاك المطلوب لزيادة عزم الانقلاب بشكل أسرع من زيادة ثبات القاعدة."
+      "teacherTipAr": "تحميل قمة السلم يرفع معامل الاحتكاك المطلوب لزيادة عزم الانقلاب بشكل أسرع من زيادة ثبات القاعدة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_25",
@@ -3001,7 +3048,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. $T = \\frac{25}{\\sqrt{3}} = \\frac{25\\sqrt{3}}{3}$ نيوتن."
       ],
       "teacherTipEn": "Free-body diagrams of individual members are essential when solving hinged multi-body frames.",
-      "teacherTipAr": "مخطط الجسم الحر لكل عضو بمفرده هو المفتاح الذهبي لحل الإطارات المفصلية المركبة."
+      "teacherTipAr": "مخطط الجسم الحر لكل عضو بمفرده هو المفتاح الذهبي لحل الإطارات المفصلية المركبة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_med_26",
@@ -3075,7 +3123,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $\\tan \\theta = \\frac{1}{2/3} = 3/2 = 1.5$."
       ],
       "teacherTipEn": "As friction decreases, the ladder must be placed steeper (larger $\\theta$) to avoid slipping.",
-      "teacherTipAr": "كلما قل الاحتكاك، وجب زيادة زاوية ميل السلم (جعله أكثر انحداراً) لمنع انزلاقه."
+      "teacherTipAr": "كلما قل الاحتكاك، وجب زيادة زاوية ميل السلم (جعله أكثر انحداراً) لمنع انزلاقه.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_28",
@@ -3198,7 +3247,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. للاتزان الأفقي على الأرض الملساء: $P = R_w = 50$ نيوتن."
       ],
       "teacherTipEn": "On a smooth floor, the applied horizontal force $P$ must precisely substitute for the missing friction.",
-      "teacherTipAr": "على أرض ملساء، تعوض القوة الخارجية P قوة الاحتكاك المنعدمة بالكامل وتساوي رد فعل الحائط."
+      "teacherTipAr": "على أرض ملساء، تعوض القوة الخارجية P قوة الاحتكاك المنعدمة بالكامل وتساوي رد فعل الحائط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_31",
@@ -3232,7 +3282,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $F_s = 0.4 \\times 25 = 10\\text{ نيوتن}$."
       ],
       "teacherTipEn": "At the verge of motion, friction attains its maximum possible static value.",
-      "teacherTipAr": "عند وشك الحركة تبلغ قوة الاحتكاك قيمتها القصوى الممكنة."
+      "teacherTipAr": "عند وشك الحركة تبلغ قوة الاحتكاك قيمتها القصوى الممكنة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_32",
@@ -3266,7 +3317,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $F_s = 0.4 \\times 50 = 20\\text{ نيوتن}$."
       ],
       "teacherTipEn": "At the verge of motion, friction attains its maximum possible static value.",
-      "teacherTipAr": "عند وشك الحركة تبلغ قوة الاحتكاك قيمتها القصوى الممكنة."
+      "teacherTipAr": "عند وشك الحركة تبلغ قوة الاحتكاك قيمتها القصوى الممكنة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_33",
@@ -3304,7 +3356,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $T = 200 + 600 = 800$ نيوتن."
       ],
       "teacherTipEn": "At $45^\\circ$, $\\sin = \\cos$, so the trigonometry cancels out cleanly, leaving $T = \\frac{W_{\\text{boom}}}{2} + W_{\\text{load}}$.",
-      "teacherTipAr": "عند زاوية 45 درجة، يتساوى الجيب وجيب التمام فيختصران مباشرة: الشد = نصف وزن الذراع + حمل القمة."
+      "teacherTipAr": "عند زاوية 45 درجة، يتساوى الجيب وجيب التمام فيختصران مباشرة: الشد = نصف وزن الذراع + حمل القمة.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch4_db_med_34",
@@ -3412,7 +3465,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. من هندسة الشكل ومثلث القوى، تكون زاوية ميل القضيب على الأفقي مساوية لـ $30^\\circ$."
       ],
       "teacherTipEn": "Standard curriculum theorem: a rod resting on two smooth perpendicular planes makes an angle $\\theta = |\\beta - \\alpha| / 2$ or matches the geometry of the triangle.",
-      "teacherTipAr": "قاعدة شهيرة: اتزان قضيب بين مستويين متعامدين أملسين يحدد زاوية ميله مباشرة من هندسة المستويين."
+      "teacherTipAr": "قاعدة شهيرة: اتزان قضيب بين مستويين متعامدين أملسين يحدد زاوية ميله مباشرة من هندسة المستويين.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_37",
@@ -3449,7 +3503,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $R_w = \\frac{40 + 100}{2} = 70$ نيوتن."
       ],
       "teacherTipEn": "Linearity of moment equations means you can interpolate reactions directly at any fractional height.",
-      "teacherTipAr": "خطية معادلات العزوم تتيح استخدام المتوسط الحسابي مباشرة عند نقطة المنتصف."
+      "teacherTipAr": "خطية معادلات العزوم تتيح استخدام المتوسط الحسابي مباشرة عند نقطة المنتصف.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_38",
@@ -3488,7 +3543,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $1200 = 600 + 80 s \\implies 80 s = 600 \\implies s = 7.5$ م."
       ],
       "teacherTipEn": "Setting $R_w = \\mu_s(W + P)$ gives the exact threshold equation for the maximum climbing distance.",
-      "teacherTipAr": "مساواة رد فعل الحائط بأقصى قوة احتكاك تحدد معادلة العتبة الحرجة لأقصى مسافة صعود آمنة."
+      "teacherTipAr": "مساواة رد فعل الحائط بأقصى قوة احتكاك تحدد معادلة العتبة الحرجة لأقصى مسافة صعود آمنة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_39",
@@ -3522,7 +3578,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. من الاتزان الأفقي: $T = R_w = 80$ نيوتن."
       ],
       "teacherTipEn": "The horizontal string provides the exact horizontal equilibrating force that friction normally would.",
-      "teacherTipAr": "يقوم الحبل الأفقي مقام قوة الاحتكاك تماماً في موازنة رد فعل الحائط."
+      "teacherTipAr": "يقوم الحبل الأفقي مقام قوة الاحتكاك تماماً في موازنة رد فعل الحائط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_40",
@@ -3556,7 +3613,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. شد الحبل يعادل النصف الآخر $120$ نيوتن."
       ],
       "teacherTipEn": "A midpoint load on a beam supported at both ends is shared equally between the two supports.",
-      "teacherTipAr": "الحمل الواقع في منتصف عارضة مدعومة من الطرفين يتقاسمه الحاملان بالتساوي."
+      "teacherTipAr": "الحمل الواقع في منتصف عارضة مدعومة من الطرفين يتقاسمه الحاملان بالتساوي.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_41",
@@ -3590,7 +3648,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_C = \\frac{2000}{40} = 50\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Notice that R_C exceeds W because the peg is closer to the hinge than the center of gravity.",
-      "teacherTipAr": "لاحظ أن رد فعل الوتد أكبر من وزن القضيب لأن الوتد أقرب لنقطة الارتكاز من مركز الثقل."
+      "teacherTipAr": "لاحظ أن رد فعل الوتد أكبر من وزن القضيب لأن الوتد أقرب لنقطة الارتكاز من مركز الثقل.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_42",
@@ -3624,7 +3683,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $R_C = \\frac{4000}{40} = 100\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Notice that R_C exceeds W because the peg is closer to the hinge than the center of gravity.",
-      "teacherTipAr": "لاحظ أن رد فعل الوتد أكبر من وزن القضيب لأن الوتد أقرب لنقطة الارتكاز من مركز الثقل."
+      "teacherTipAr": "لاحظ أن رد فعل الوتد أكبر من وزن القضيب لأن الوتد أقرب لنقطة الارتكاز من مركز الثقل.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_43",
@@ -3662,7 +3722,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. النسبة: $R_{w2} / R_{w1} = 1 / \\sqrt{3}$."
       ],
       "teacherTipEn": "Steeper ladder $\\implies$ smaller wall thrust $\\implies$ less tendency to slip!",
-      "teacherTipAr": "كلما كان السلم أكثر استقامة (زاوية أكبر) قل ضغطه على الحائط وقلت قابليته للانزلاق!"
+      "teacherTipAr": "كلما كان السلم أكثر استقامة (زاوية أكبر) قل ضغطه على الحائط وقلت قابليته للانزلاق!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_44",
@@ -3697,7 +3758,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $T \\times \\frac{\\sqrt{2}}{2} = 100 \\implies T = 100\\sqrt{2}$ نيوتن."
       ],
       "teacherTipEn": "Midpoint attachment means the cable's vertical component must equal the full rod weight.",
-      "teacherTipAr": "ربط الحبل عند المنتصف يقتضي أن تعادل مركبته الرأسية وزن القضيب بأكمله."
+      "teacherTipAr": "ربط الحبل عند المنتصف يقتضي أن تعادل مركبته الرأسية وزن القضيب بأكمله.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_45",
@@ -3735,7 +3797,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن $\\tan \\theta = 40 / 30 = 4/3$."
       ],
       "teacherTipEn": "For any rectangle suspended freely from a corner, the diagonal from that corner hangs strictly vertical!",
-      "teacherTipAr": "لأي مستطيل معلق تعليقاً حراً من أحد رؤوسه، يستقر القطر المار بذلك الرأس رأسياً تماماً!"
+      "teacherTipAr": "لأي مستطيل معلق تعليقاً حراً من أحد رؤوسه، يستقر القطر المار بذلك الرأس رأسياً تماماً!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_med_46",
@@ -3770,7 +3833,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $\\tan \\lambda = \\frac{50\\sqrt{3}/3}{100} = \\frac{\\sqrt{3}}{6}$."
       ],
       "teacherTipEn": "The angle of the total ground reaction with the vertical is the angle of friction $\\lambda$ when at limiting equilibrium.",
-      "teacherTipAr": "زاوية ميل رد فعل الأرض الكلي مع الرأسي تمثل زاوية الاحتكاك عند الاتزان النهائي."
+      "teacherTipAr": "زاوية ميل رد فعل الأرض الكلي مع الرأسي تمثل زاوية الاحتكاك عند الاتزان النهائي.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_47",
@@ -3805,7 +3869,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $T = 30 \\cot(30^\\circ) = 30\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "At shallower angles ($30^\\circ$ vs $60^\\circ$), the horizontal pull needed is much larger ($30\\sqrt{3}$ vs $10\\sqrt{3}$).",
-      "teacherTipAr": "كلما اقترب القضيب من الأفق (زاوية أصغر)، زاد الشد الأفقي المطلوب لحفظ اتزانه بصورة كبيرة."
+      "teacherTipAr": "كلما اقترب القضيب من الأفق (زاوية أصغر)، زاد الشد الأفقي المطلوب لحفظ اتزانه بصورة كبيرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_48",
@@ -3878,7 +3943,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $\\tan \\theta = 0.5 \\implies \\theta = \\arctan(0.5)$."
       ],
       "teacherTipEn": "Even with high friction ($\\mu_s = 1$), a ladder cannot be laid flatter than $\\approx 26.6^\\circ$ without slipping.",
-      "teacherTipAr": "حتى مع وجود احتكاك عالٍ جداً، لا يمكن خفض زاوية السلم لأقل من 26.6 درجة دون أن ينزلق."
+      "teacherTipAr": "حتى مع وجود احتكاك عالٍ جداً، لا يمكن خفض زاوية السلم لأقل من 26.6 درجة دون أن ينزلق.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_50",
@@ -3955,7 +4021,8 @@ export const statCh4Databank: ChapterDatabank = {
         "معيار العزم $M = 2 m \\times \\text{المساحة} = 2 \\times 75 \\times 0.04\\sqrt{3} = 6\\sqrt{3}\\text{ ن}\\cdot\\text{م}$."
       ],
       "teacherTipEn": "Alternatively, compute the moment about any vertex, say $A$: only $F_2$ along $BC$ has moment $F_2 \\times (a \\sin 60^\\circ) = 30 \\times (0.4 \\times \\frac{\\sqrt{3}}{2}) = 6\\sqrt{3}\\text{ N}\\cdot\\text{m}$. Same result!",
-      "teacherTipAr": "حل بديل رائع: خذ العزم حول الرأس $A$ فتمر به قوتان وتتبقى فقط قوة الضلع $BC$: $30 \\times (0.4 \\sin 60^\\circ) = 6\\sqrt{3}\\text{ ن}\\cdot\\text{م}$ مباشرة!"
+      "teacherTipAr": "حل بديل رائع: خذ العزم حول الرأس $A$ فتمر به قوتان وتتبقى فقط قوة الضلع $BC$: $30 \\times (0.4 \\sin 60^\\circ) = 6\\sqrt{3}\\text{ ن}\\cdot\\text{م}$ مباشرة!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_med_52",
@@ -4029,7 +4096,8 @@ export const statCh4Databank: ChapterDatabank = {
         "$F \\times 15 = 120 \\implies F = \\frac{120}{15} = 8\\text{ ن}$."
       ],
       "teacherTipEn": "The direction of the balancing forces must create clockwise rotation to counter the counterclockwise moment.",
-      "teacherTipAr": "اتجاه القوتين الموازنتين يجب أن يحدث دوراناً في اتجاه عقارب الساعة لمواجهة العزم المعطى."
+      "teacherTipAr": "اتجاه القوتين الموازنتين يجب أن يحدث دوراناً في اتجاه عقارب الساعة لمواجهة العزم المعطى.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_med_54",
@@ -4073,7 +4141,8 @@ export const statCh4Databank: ChapterDatabank = {
         "معادلة الاتزان: $- R_A + 20 + 30 = 0 \\implies R_A = 50\\text{ ن}$."
       ],
       "teacherTipEn": "Always check signs: a couple adds directly to the moment equation without needing any distance multiplied!",
-      "teacherTipAr": "انتبه للإشارات: عزم الازدواج يُضاف مباشرة في معادلة العزوم دون ضربه في أي مسافة!"
+      "teacherTipAr": "انتبه للإشارات: عزم الازدواج يُضاف مباشرة في معادلة العزوم دون ضربه في أي مسافة!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_med_55",
@@ -4149,7 +4218,8 @@ export const statCh4Databank: ChapterDatabank = {
         "للاتزان، يجب أن يوازن الازدواج المؤثر عزم الوزن: $M = 10\\text{ ن}\\cdot\\text{م}$."
       ],
       "teacherTipEn": "When a line containing the center of mass is horizontal, the horizontal lever arm of gravity is simply the geometric distance along that line.",
-      "teacherTipAr": "عندما يكون الخط المار بمركز الكتلة أفقياً، فإن ذراع عزم الجاذبية هو المسافة الهندسية المباشرة على ذلك الخط."
+      "teacherTipAr": "عندما يكون الخط المار بمركز الكتلة أفقياً، فإن ذراع عزم الجاذبية هو المسافة الهندسية المباشرة على ذلك الخط.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_med_57",
@@ -4223,7 +4293,8 @@ export const statCh4Databank: ChapterDatabank = {
         "عزم الازدواج $M = F \\times d = 40 \\times 0.3 = 12\\text{ ن}\\cdot\\text{م}$."
       ],
       "teacherTipEn": "Remember that the couple arm is always the perpendicular distance, not the segment length.",
-      "teacherTipAr": "تذكر دائماً أن ذراع الازدواج هو البعد العمودي وليس طول القطعة المستقيمة الواصلة بين نقطتي التأثير."
+      "teacherTipAr": "تذكر دائماً أن ذراع الازدواج هو البعد العمودي وليس طول القطعة المستقيمة الواصلة بين نقطتي التأثير.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch4_db_med_59",
@@ -4301,7 +4372,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $60 + 60x = 144.0 \\implies x = 1.4\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice that x increases as mu_s increases, providing greater gripping resistance at the base.",
-      "teacherTipAr": "لاحظ تزايد أقصى مسافة صعود س طردياً مع زيادة معامل الاحتكاك م_س."
+      "teacherTipAr": "لاحظ تزايد أقصى مسافة صعود س طردياً مع زيادة معامل الاحتكاك م_س.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_02",
@@ -4339,7 +4411,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $60 + 60x = 168.0 \\implies x = 1.8\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice that x increases as mu_s increases, providing greater gripping resistance at the base.",
-      "teacherTipAr": "لاحظ تزايد أقصى مسافة صعود س طردياً مع زيادة معامل الاحتكاك م_س."
+      "teacherTipAr": "لاحظ تزايد أقصى مسافة صعود س طردياً مع زيادة معامل الاحتكاك م_س.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_03",
@@ -4382,7 +4455,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. بالتعويض: $\\tan \\theta = \\frac{1 - 1/6}{1} = \\frac{5}{6}$."
       ],
       "teacherTipEn": "The master formula $\\tan \\theta = \\frac{1 - \\mu_w \\mu_f}{2 \\mu_f}$ works for any two rough surfaces; when wall is smooth ($\\mu_w = 0$), it reduces to $\\frac{1}{2 \\mu_f}$.",
-      "teacherTipAr": "القانون الشامل: ظا هـ = (1 - م_ح × م_أ) / (2 م_أ) يحل أي مسألة سلم على سطحين خشنين في ثوانٍ معدودة."
+      "teacherTipAr": "القانون الشامل: ظا هـ = (1 - م_ح × م_أ) / (2 م_أ) يحل أي مسألة سلم على سطحين خشنين في ثوانٍ معدودة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_04",
@@ -4426,7 +4500,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. بما أن رد فعل الحائط (637.5) أكبر من أقصى احتكاك متاح (360)، فإن القوة الأفقية الإضافية المطلوبة: $P = 637.5 - 360 = 277.5$ نيوتن."
       ],
       "teacherTipEn": "When friction alone cannot supply the needed horizontal thrust, an external force must make up the exact difference.",
-      "teacherTipAr": "عندما يعجز الاحتكاك وحده عن معادلة رد فعل الحائط، يجب أن تعوض القوة الخارجية الفرق بدقة."
+      "teacherTipAr": "عندما يعجز الاحتكاك وحده عن معادلة رد فعل الحائط، يجب أن تعوض القوة الخارجية الفرق بدقة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_05",
@@ -4546,7 +4621,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. $10800 = 3600 + 60 x \\implies 60 x = 7200 \\implies x = 120$ سم."
       ],
       "teacherTipEn": "Setting $Y_A = 0$ directly establishes $T_y = \\sum W_i$, which simplifies the moment equation to a single linear equation.",
-      "teacherTipAr": "وضع ص_أ = 0 يجعل المركبة الرأسية للشد مساوية لمجموع الأوزان مباشرة، مما يختصر الحل لمعادلة خطية وحيدة."
+      "teacherTipAr": "وضع ص_أ = 0 يجعل المركبة الرأسية للشد مساوية لمجموع الأوزان مباشرة، مما يختصر الحل لمعادلة خطية وحيدة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_08",
@@ -4661,7 +4737,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٦. من الاتزان الرأسي: $T \\times (4/5) = 120 \\implies T = 150$ نيوتن."
       ],
       "teacherTipEn": "In sphere problems, always extend the string to the center of the sphere to reveal the 3-4-5 geometric triangle.",
-      "teacherTipAr": "في مسائل الكرات المعلقة، مد خط عمل الخيط دائماً إلى مركز الكرة لتكتشف مثلث القوى الهندسي فوراً."
+      "teacherTipAr": "في مسائل الكرات المعلقة، مد خط عمل الخيط دائماً إلى مركز الكرة لتكتشف مثلث القوى الهندسي فوراً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_11",
@@ -4695,7 +4772,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $\\tan\\theta = \\frac{1 - 0.5 \\times 0.1}{1} = 0.95$."
       ],
       "teacherTipEn": "Notice how friction at the wall reduces the minimum angle required to maintain equilibrium.",
-      "teacherTipAr": "لاحظ كيف يقلل احتكاك الحائط من زاوية الميل الدنيا المطلوبة لمنع الانزلاق."
+      "teacherTipAr": "لاحظ كيف يقلل احتكاك الحائط من زاوية الميل الدنيا المطلوبة لمنع الانزلاق.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_12",
@@ -4729,7 +4807,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $\\tan\\theta = \\frac{1 - 0.5 \\times 0.2}{1} = 0.9$."
       ],
       "teacherTipEn": "Notice how friction at the wall reduces the minimum angle required to maintain equilibrium.",
-      "teacherTipAr": "لاحظ كيف يقلل احتكاك الحائط من زاوية الميل الدنيا المطلوبة لمنع الانزلاق."
+      "teacherTipAr": "لاحظ كيف يقلل احتكاك الحائط من زاوية الميل الدنيا المطلوبة لمنع الانزلاق.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_13",
@@ -4764,7 +4843,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. من الاتزان الأفقي: $R_w = 90$ نيوتن."
       ],
       "teacherTipEn": "The three forces ($W = 120, R_w = 90, T = 150$) are in exact 4 : 3 : 5 ratio.",
-      "teacherTipAr": "القوى الثلاث (الوزن 120، رد الفعل 90، الشد 150) تحقق تماماً النسبة 4 : 3 : 5."
+      "teacherTipAr": "القوى الثلاث (الوزن 120، رد الفعل 90، الشد 150) تحقق تماماً النسبة 4 : 3 : 5.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_14",
@@ -4801,7 +4881,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $T \\times \\frac{\\sqrt{3}}{2} = \\frac{100}{\\sqrt{3}} \\implies T = \\frac{200}{3}$ نيوتن."
       ],
       "teacherTipEn": "Taking moments about the base eliminates both the floor reaction and the cable tension in one stroke.",
-      "teacherTipAr": "أخذ العزوم حول القاعدة يلغي رد فعل الأرض والشد معاً بضربة واحدة."
+      "teacherTipAr": "أخذ العزوم حول القاعدة يلغي رد فعل الأرض والشد معاً بضربة واحدة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_15",
@@ -4840,7 +4921,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. معامل الاحتكاك الأدنى: $\\mu_s = \\frac{5/4}{2} = \\frac{5}{8} = 0.625$."
       ],
       "teacherTipEn": "At $45^\\circ$, $\\mu_s = \\frac{\\text{sum of weight fractions}}{2 \\times \\text{total weight multiplier}} = \\frac{0.5 + 0.75}{2 \\times 2} = \\frac{1.25}{2} = 0.625$.",
-      "teacherTipAr": "طريقة سريعة عند 45 درجة: اجمع كسور مواضع الأوزان واقسمها على ضعف مجموع الأوزان."
+      "teacherTipAr": "طريقة سريعة عند 45 درجة: اجمع كسور مواضع الأوزان واقسمها على ضعف مجموع الأوزان.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_16",
@@ -4880,7 +4962,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. بالتعويض: $R_p \\times 0.5 = 40 \\implies R_p = 80$ نيوتن."
       ],
       "teacherTipEn": "Vertical equilibrium often solves smooth-wall peg problems in a single line without expanding moments.",
-      "teacherTipAr": "الاتزان الرأسي يحل مسائل الوتد مع الحائط الأملس في سطر واحد مباشرة."
+      "teacherTipAr": "الاتزان الرأسي يحل مسائل الوتد مع الحائط الأملس في سطر واحد مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_17",
@@ -4915,7 +4998,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. من الاتزان الأفقي: $R_A = 40\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "The peg pushes the rod towards the wall, and the wall pushes back with an equal horizontal normal force.",
-      "teacherTipAr": "يدفع الوتد القضيب باتجاه الحائط، فيرد الحائط بقوة أفقية مساوية ومعاكسة."
+      "teacherTipAr": "يدفع الوتد القضيب باتجاه الحائط، فيرد الحائط بقوة أفقية مساوية ومعاكسة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_18",
@@ -4951,7 +5035,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. $T = 1750 \\times \\frac{0.6}{0.8} = 1750 \\times 0.75 = 1312.5$ نيوتن."
       ],
       "teacherTipEn": "Formula: $T = \\left(\\frac{W_{\\text{boom}}}{2} + W_{\\text{load}}\\right) \\cot \\theta$. Here $1750 \\times 0.75 = 1312.5\\text{ N}$.",
-      "teacherTipAr": "قانون مباشر: الشد = (نصف وزن الصاري + حمل القمة) × ظتا هـ."
+      "teacherTipAr": "قانون مباشر: الشد = (نصف وزن الصاري + حمل القمة) × ظتا هـ.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_19",
@@ -5056,7 +5141,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. معيار رد الفعل: $R = \\sqrt{10^2 + 20^2} = 10\\sqrt{5}\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Notice that R = P * sqrt(5) because Y = 2P.",
-      "teacherTipAr": "لاحظ أن رد فعل المفصل يساوي ق جذر(٥) لأن المركبة الرأسية ضعف الأفقية."
+      "teacherTipAr": "لاحظ أن رد فعل المفصل يساوي ق جذر(٥) لأن المركبة الرأسية ضعف الأفقية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_22",
@@ -5092,7 +5178,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. معيار رد الفعل: $R = \\sqrt{20^2 + 40^2} = 20\\sqrt{5}\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Notice that R = P * sqrt(5) because Y = 2P.",
-      "teacherTipAr": "لاحظ أن رد فعل المفصل يساوي ق جذر(٥) لأن المركبة الرأسية ضعف الأفقية."
+      "teacherTipAr": "لاحظ أن رد فعل المفصل يساوي ق جذر(٥) لأن المركبة الرأسية ضعف الأفقية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_23",
@@ -5128,7 +5215,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. بالتعويض: $\\tan \\theta = \\frac{1}{2 \\tan \\lambda} = \\frac{1}{2} \\cot \\lambda$."
       ],
       "teacherTipEn": "Remember: $\\tan \\theta \\cdot \\tan \\lambda = \\frac{1}{2}$. This is an iconic Thanawiya Amma identity.",
-      "teacherTipAr": "احفظ هذه المتطابقة الشهيرة: ظا هـ × ظا ل = 1/2 لسلم منتظم في اتزان نهائي على حائط أملس."
+      "teacherTipAr": "احفظ هذه المتطابقة الشهيرة: ظا هـ × ظا ل = 1/2 لسلم منتظم في اتزان نهائي على حائط أملس.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_24",
@@ -5198,7 +5286,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $\\mu_f = \\tan \\lambda_1$ و $\\mu_w = \\tan \\lambda_2$ نحصل على الصيغة المطلوبة."
       ],
       "teacherTipEn": "Note that this can also be written in trigonometric form using $\\cot(2\\lambda)$ or angle difference identities.",
-      "teacherTipAr": "يمكن أيضاً ربط هذه الصيغة بمتطابقات ضعف الزاوية عند تساوي زاويتي الاحتكاك."
+      "teacherTipAr": "يمكن أيضاً ربط هذه الصيغة بمتطابقات ضعف الزاوية عند تساوي زاويتي الاحتكاك.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_26",
@@ -5238,7 +5327,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. إذن $\\tan \\theta = \\cot(2\\lambda)$."
       ],
       "teacherTipEn": "Since $\\tan \\theta = \\cot(2\\lambda)$, we get $\\theta + 2\\lambda = 90^\\circ$! A beautiful, elegant theorem of statics.",
-      "teacherTipAr": "من ظا هـ = ظتا 2ل نستنتج أن هـ + 2ل = 90 درجة! علاقة هندسية بديعة ومبهرة."
+      "teacherTipAr": "من ظا هـ = ظتا 2ل نستنتج أن هـ + 2ل = 90 درجة! علاقة هندسية بديعة ومبهرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_27",
@@ -5274,7 +5364,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. ويكون $\\theta + 2\\lambda = 90^\\circ$."
       ],
       "teacherTipEn": "This elegant result $\\theta + 2\\lambda = 90^\\circ$ frequently appears in high-level Thanawiya Amma tests.",
-      "teacherTipAr": "هذه النتيجة الأنيقة هـ + 2ل = 90 درجة تتكرر في مسائل المستويات العليا للتفكير."
+      "teacherTipAr": "هذه النتيجة الأنيقة هـ + 2ل = 90 درجة تتكرر في مسائل المستويات العليا للتفكير.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_28",
@@ -5310,7 +5401,8 @@ export const statCh4Databank: ChapterDatabank = {
         "   $\\tan \\theta = \\frac{1 - 1/9}{2/3} = \\frac{8/9}{2/3} = \\frac{4}{3}$."
       ],
       "teacherTipEn": "With both surfaces having $\\mu = \\frac{1}{3}$, the critical angle is exactly the 3-4-5 angle: $\\tan \\theta = \\frac{4}{3}$ ($53.13^\\circ$).",
-      "teacherTipAr": "عندما يكون الاحتكاك 1/3 عند السطحين، تكون زاوية الميل الحرجة زاوية المثلث الشهير 3-4-5 بالضبط."
+      "teacherTipAr": "عندما يكون الاحتكاك 1/3 عند السطحين، تكون زاوية الميل الحرجة زاوية المثلث الشهير 3-4-5 بالضبط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_29",
@@ -5350,7 +5442,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن $R_C = \\frac{3}{2} W$."
       ],
       "teacherTipEn": "For vertical segments hanging from a horizontal member, their entire horizontal moment arm equals their attachment distance.",
-      "teacherTipAr": "للقطع الرأسية المتدلية من عضو أفقي، يكون ذراع عزمها الأفقي مساوياً بالكامل لبعد نقطة تعليقها."
+      "teacherTipAr": "للقطع الرأسية المتدلية من عضو أفقي، يكون ذراع عزمها الأفقي مساوياً بالكامل لبعد نقطة تعليقها.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_30",
@@ -5495,7 +5588,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. $T = 60 \\times \\frac{\\sqrt{3}}{2} = 30\\sqrt{3}$ نيوتن."
       ],
       "teacherTipEn": "Concurrency turns rigid body equilibrium into a concurrent particle problem solvable by Lami's Theorem.",
-      "teacherTipAr": "تلاقي القوى الثلاث يحول المسألة هندسياً إلى اتزان جسيم يُحل بقاعدة لامي مباشرة."
+      "teacherTipAr": "تلاقي القوى الثلاث يحول المسألة هندسياً إلى اتزان جسيم يُحل بقاعدة لامي مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_34",
@@ -5531,7 +5625,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. إذن $R_A = 60 \\times 0.5 = 30$ نيوتن."
       ],
       "teacherTipEn": "Notice that $T^2 + R_A^2 = (30\\sqrt{3})^2 + 30^2 = 2700 + 900 = 3600 = 60^2 = W^2$. Pythagoras verifies the $90^\\circ$ angle!",
-      "teacherTipAr": "تحقق بفيثاغورس: مربع الشد + مربع رد الفعل = مربع الوزن (60² = 3600)، وهو ما يؤكد تعامد القوتين!"
+      "teacherTipAr": "تحقق بفيثاغورس: مربع الشد + مربع رد الفعل = مربع الوزن (60² = 3600)، وهو ما يؤكد تعامد القوتين!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_hots_35",
@@ -5574,7 +5669,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. $1200 = 360 + 6 P \\implies 6 P = 840 \\implies P = 140$ نيوتن."
       ],
       "teacherTipEn": "Taking moments about the hinge isolates the cable tension and the load without involving the hinge reaction.",
-      "teacherTipAr": "أخذ العزوم حول المفصل يربط شد الكابل بالحمل المعلق مباشرة دون الحاجة لرد فعل المفصل."
+      "teacherTipAr": "أخذ العزوم حول المفصل يربط شد الكابل بالحمل المعلق مباشرة دون الحاجة لرد فعل المفصل.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_36",
@@ -5688,7 +5784,8 @@ export const statCh4Databank: ChapterDatabank = {
         "   $N = 100(0.8) + 75(0.6) = 80 + 45 = 125$ نيوتن."
       ],
       "teacherTipEn": "Notice that $N = \\sqrt{W^2 + P^2} = \\sqrt{100^2 + 75^2} = 125\\text{ N}$! The plane reaction is simply the resultant of the two applied forces.",
-      "teacherTipAr": "لاحظ أن ر = الجذر التربيعي لـ (100² + 75²) = 125 نيوتن! فرد فعل المستوى هو المحصلة المباشرة للقوتين."
+      "teacherTipAr": "لاحظ أن ر = الجذر التربيعي لـ (100² + 75²) = 125 نيوتن! فرد فعل المستوى هو المحصلة المباشرة للقوتين.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch4_db_hots_39",
@@ -5727,7 +5824,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. من الاتزان الأفقي: $f_s = R_w = 1.5 W$."
       ],
       "teacherTipEn": "Peak friction demand is always at the summit of the ladder.",
-      "teacherTipAr": "أقصى طلب على قوة الاحتكاك يحدث دائماً عندما يستقر الحمل عند أعلى نقطة في السلم."
+      "teacherTipAr": "أقصى طلب على قوة الاحتكاك يحدث دائماً عندما يستقر الحمل عند أعلى نقطة في السلم.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_40",
@@ -5763,7 +5861,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. معامل الاحتكاك: $\\mu_s = 1.5 / 2 = 0.75$."
       ],
       "teacherTipEn": "A friction coefficient of at least $0.75$ is required to climb all the way to the top at $45^\\circ$.",
-      "teacherTipAr": "يلزم معامل احتكاك لا يقل عن 0.75 لضمان الصعود الآمن حتى قمة السلم عند زاوية 45 درجة."
+      "teacherTipAr": "يلزم معامل احتكاك لا يقل عن 0.75 لضمان الصعود الآمن حتى قمة السلم عند زاوية 45 درجة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_41",
@@ -5874,7 +5973,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. $45 = 2.0 T \\implies T = 22.5$ نيوتن."
       ],
       "teacherTipEn": "Taking moments about the apex $A$ for one leg isolates the cord tension $T$ immediately.",
-      "teacherTipAr": "أخذ العزوم حول قمة السلم لساق واحدة يعزل شد الخيط ويلغي رد فعل المفصل تماماً."
+      "teacherTipAr": "أخذ العزوم حول قمة السلم لساق واحدة يعزل شد الخيط ويلغي رد فعل المفصل تماماً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_44",
@@ -5917,7 +6017,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٥. $690 - 45 = 645 = 2.0 T \\implies T = 322.5$ نيوتن."
       ],
       "teacherTipEn": "Notice that each Newton added by the painter at the apex increases the tie tension by $\\frac{1.5}{2.0} \\times 0.5 = 0.375\\text{ N}$!",
-      "teacherTipAr": "كل نيوتن يضيفه الشخص عند القمة يزيد الشد في الخيط بمقدار 0.375 نيوتن بالضبط."
+      "teacherTipAr": "كل نيوتن يضيفه الشخص عند القمة يزيد الشد في الخيط بمقدار 0.375 نيوتن بالضبط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_45",
@@ -5954,7 +6055,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. $\\tan \\lambda = 0.5 \\implies \\lambda = \\arctan(0.5) \\approx 26.57^\\circ$."
       ],
       "teacherTipEn": "Remember: for a uniform ladder leaning at $45^\\circ$ against a smooth wall, the required coefficient of friction is always $\\mu_s = 0.5$.",
-      "teacherTipAr": "تذكر: عند ميل السلم المنتظم بزاوية 45 درجة على حائط أملس، يكون معامل الاحتكاك الحرج دائماً 0.5."
+      "teacherTipAr": "تذكر: عند ميل السلم المنتظم بزاوية 45 درجة على حائط أملس، يكون معامل الاحتكاك الحرج دائماً 0.5.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_46",
@@ -6069,7 +6171,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٤. إذن $\\mu_s = k \\cot \\theta \\implies \\tan \\theta = \\frac{k}{\\mu_s}$."
       ],
       "teacherTipEn": "General theorem: $\\tan \\theta = \\frac{k}{\\mu_s}$. For a uniform ladder, $k = 0.5$, recovering $\\tan \\theta = \\frac{1}{2 \\mu_s}$!",
-      "teacherTipAr": "قاعدة عامة عبقرية: ظا هـ = ك / م_س. للسلم المنتظم ك = 0.5 فتتحول فوراً إلى 1 / (2 م_س)!"
+      "teacherTipAr": "قاعدة عامة عبقرية: ظا هـ = ك / م_س. للسلم المنتظم ك = 0.5 فتتحول فوراً إلى 1 / (2 م_س)!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_49",
@@ -6106,7 +6209,8 @@ export const statCh4Databank: ChapterDatabank = {
         "٣. صغر الزاوية الحرجة يعني زيادة ثبات السلم وإمكانية استناده بميل أكبر دون خطر الانزلاق."
       ],
       "teacherTipEn": "Engineering wisdom: adding weight to the base of a ladder (lowering $k$) significantly enhances its stability.",
-      "teacherTipAr": "حكمة هندسية عملية: تثقيل قاعدة السلم يخفض مركز ثقله ويرفع معامل الأمان ضد الانزلاق بشكل كبير."
+      "teacherTipAr": "حكمة هندسية عملية: تثقيل قاعدة السلم يخفض مركز ثقله ويرفع معامل الأمان ضد الانزلاق بشكل كبير.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch4_db_hots_50",
@@ -6262,7 +6366,8 @@ export const statCh4Databank: ChapterDatabank = {
         "للاتزان، يجب أن يساوي معيار عزم الازدواج عزم الوزن: $M = 4\\sqrt{3}\\text{ ن}\\cdot\\text{م}$."
       ],
       "teacherTipEn": "Centroid of a triangle is at $\\frac{1}{3}$ the altitude from each base.",
-      "teacherTipAr": "مركز ثقل المثلث يقع على مسافة ثلث الارتفاع من القاعدة."
+      "teacherTipAr": "مركز ثقل المثلث يقع على مسافة ثلث الارتفاع من القاعدة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch4_db_hots_54",
@@ -6379,7 +6484,8 @@ export const statCh4Databank: ChapterDatabank = {
         "بما أن ردي فعلي الوتدين عموديان على الساق ومتساويان في المقدار، فهما يكوّنان ازدواجاً عزمه يساوي تماماً $15\\sqrt{3}\\text{ ن}\\cdot\\text{م}$ لتحقيق الاتزان الدوراني."
       ],
       "teacherTipEn": "Smooth pegs always exert forces perpendicular to the contacted surface of the rod.",
-      "teacherTipAr": "الأوتاد الملساء تؤثر دائماً بقوى عمودية على سطح الساق الملامس لها."
+      "teacherTipAr": "الأوتاد الملساء تؤثر دائماً بقوى عمودية على سطح الساق الملامس لها.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch4_db_hots_57",

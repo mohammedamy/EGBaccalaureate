@@ -312,7 +312,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٣. نصل إلى النتيجة المؤكدة."
       ],
       "teacherTipEn": "All diagonal elements of a skew-symmetric matrix are always 0.",
-      "teacherTipAr": "جميع عناصر القطر الرئيسي لأي مصفوفة شبه متماثلة أصفار دائماً."
+      "teacherTipAr": "جميع عناصر القطر الرئيسي لأي مصفوفة شبه متماثلة أصفار دائماً.",
+      "diagramType": "polygon_diagonals"
     },
     {
       "id": "alg_ch3_db_easy_10",
@@ -551,7 +552,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٢. بما أن $\\omega^3 = 1$، فإن القيمة = $1 - 1 = 0$."
       ],
       "teacherTipEn": "Whenever omega^3 appears, replace it with 1.",
-      "teacherTipAr": "كلما ظهرت أوميجا تكعيب استبدلها بالعدد 1."
+      "teacherTipAr": "كلما ظهرت أوميجا تكعيب استبدلها بالعدد 1.",
+      "diagramType": "complex_roots_polygon"
     },
     {
       "id": "alg_ch3_db_easy_17",
@@ -585,7 +587,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٢. وبما أن $\\omega^3 = 1$، فإن القيمة = 1."
       ],
       "teacherTipEn": "The product of all three cube roots of unity is 1.",
-      "teacherTipAr": "حاصل ضرب الجذور التكعيبية الثلاثة للواحد الصحيح هو 1."
+      "teacherTipAr": "حاصل ضرب الجذور التكعيبية الثلاثة للواحد الصحيح هو 1.",
+      "diagramType": "polygon_diagonals"
     },
     {
       "id": "alg_ch3_db_easy_18",
@@ -759,7 +762,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٢. $D^{-1} = \\begin{pmatrix} 1/2 & 0 \\\\ 0 & 1/5 \\end{pmatrix}$."
       ],
       "teacherTipEn": "Diagonal matrices commute and invert component-wise.",
-      "teacherTipAr": "المصفوفات القطرية تنعكس عناصرها مباشرة كلٍ على حدة."
+      "teacherTipAr": "المصفوفات القطرية تنعكس عناصرها مباشرة كلٍ على حدة.",
+      "diagramType": "polygon_diagonals"
     },
     {
       "id": "alg_ch3_db_easy_23",
@@ -2308,7 +2312,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٣. بما أن $1 + \\omega + \\omega^2 = 0$، فإن العمود الأول يصبح صفرياً بالكامل وتكون القيمة 0."
       ],
       "teacherTipEn": "The identity 1 + omega + omega^2 = 0 is essential in determinant simplification.",
-      "teacherTipAr": "المتطابقة 1 + ω + ω² = 0 حاسمة في تبسيط محددات الأعداد المركبة."
+      "teacherTipAr": "المتطابقة 1 + ω + ω² = 0 حاسمة في تبسيط محددات الأعداد المركبة.",
+      "diagramType": "complex_roots_polygon"
     },
     {
       "id": "alg_ch3_db_medium_09",
@@ -3117,7 +3122,8 @@ export const algCh3Databank: ChapterDatabank = {
         "١. المساحة = نصف القيمة المطلقة للمحدد: $\\frac{1}{2} \\times |24| = 12$."
       ],
       "teacherTipEn": "Standard geometric application in Thanaweya coordinate geometry.",
-      "teacherTipAr": "تطبيق هندسي كلاسيكي في منهج الثانوية العامة."
+      "teacherTipAr": "تطبيق هندسي كلاسيكي في منهج الثانوية العامة.",
+      "diagramType": "polygon_diagonals"
     },
     {
       "id": "alg_ch3_db_medium_32",
@@ -4832,7 +4838,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٢. إذن قيمة المحدد = 0."
       ],
       "teacherTipEn": "Standard omega identity test.",
-      "teacherTipAr": "اختبار لمتطابقة أوميجا القياسية."
+      "teacherTipAr": "اختبار لمتطابقة أوميجا القياسية.",
+      "diagramType": "complex_roots_polygon"
     },
     {
       "id": "alg_ch3_db_hots_21",
@@ -5561,7 +5568,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٣. القاعدة العامة: $|e^A| = e^{\\text{tr}(A)}$."
       ],
       "teacherTipEn": "The Jacobi determinant formula: det(exp(A)) = exp(tr(A)).",
-      "teacherTipAr": "صيغة ياكوبي الشهيرة في التحليل المصفوفي."
+      "teacherTipAr": "صيغة ياكوبي الشهيرة في التحليل المصفوفي.",
+      "diagramType": "polygon_diagonals"
     },
     {
       "id": "alg_ch3_db_hots_42",
@@ -5631,7 +5639,8 @@ export const algCh3Databank: ChapterDatabank = {
         "٢. $\\text{adj}(D) = 24 \\times \\text{diag}(1/2, 1/3, 1/4) = \\text{diag}(12, 8, 6)$."
       ],
       "teacherTipEn": "Each diagonal entry of the adjoint is the product of the other diagonal entries.",
-      "teacherTipAr": "كل عنصر في قطر الملحقة هو حاصل ضرب العنصرين الآخرين."
+      "teacherTipAr": "كل عنصر في قطر الملحقة هو حاصل ضرب العنصرين الآخرين.",
+      "diagramType": "polygon_diagonals"
     },
     {
       "id": "alg_ch3_db_hots_44",

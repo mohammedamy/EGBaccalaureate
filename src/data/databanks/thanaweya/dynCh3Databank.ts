@@ -4246,7 +4246,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{1}{19.6} = 0.051\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_02",
@@ -4282,7 +4283,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{4}{19.6} = 0.204\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_03",
@@ -4318,7 +4320,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{9}{19.6} = 0.459\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_04",
@@ -4354,7 +4357,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{16}{19.6} = 0.816\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_05",
@@ -4390,7 +4394,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{25}{19.6} = 1.276\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_06",
@@ -4426,7 +4431,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{36}{19.6} = 1.837\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_07",
@@ -4462,7 +4468,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{49}{19.6} = 2.5\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_08",
@@ -4498,7 +4505,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{64}{19.6} = 3.265\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_09",
@@ -4534,7 +4542,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{81}{19.6} = 4.133\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_10",
@@ -4570,7 +4579,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٣. أقصى ارتفاع رأسي: $h = \\frac{v'^2}{2g} = \\frac{100}{19.6} = 5.102\\text{ م}$."
       ],
       "teacherTipEn": "During collision momentum is conserved; during vertical swing mechanical energy is conserved.",
-      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية."
+      "teacherTipAr": "أثناء التصادم تُحفظ كمية الحركة، وأثناء الصعود الرأسي تُحفظ الطاقة الميكانيكية.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_11",
@@ -5324,7 +5334,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 0 \\implies v_1' = 0\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_32",
@@ -5358,7 +5369,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 400 \\implies v_1' = 2\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_33",
@@ -5392,7 +5404,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 800 \\implies v_1' = 4\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_34",
@@ -5426,7 +5439,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 1200 \\implies v_1' = 6\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_35",
@@ -5460,7 +5474,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 1600 \\implies v_1' = 8\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_36",
@@ -5494,7 +5509,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 2000 \\implies v_1' = 10\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_37",
@@ -5528,7 +5544,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 2400 \\implies v_1' = 12\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_38",
@@ -5562,7 +5579,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 2800 \\implies v_1' = 14\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_39",
@@ -5596,7 +5614,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 3200 \\implies v_1' = 16\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_40",
@@ -5630,7 +5649,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "٢. إيجاد $v_1'$: $200 v_1' = 3600 \\implies v_1' = 18\\text{ م/ث}$."
       ],
       "teacherTipEn": "Check whether the first sphere continues in the same direction or rebounds based on the sign of v1'.",
-      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت."
+      "teacherTipAr": "تحقق دائماً من إشارة ع١' لمعرفة ما إذا كانت الكرة واصلت حركتها أم ارتدت.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_41",
@@ -6165,7 +6185,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "للتحقق مع $B$: $|3(6 - 10)| = 12\\text{ ن}\\cdot\\text{ث}$."
       ],
       "teacherTipEn": "An inelastic collision and a jerked inextensible string share the exact same mathematical model: sudden velocity equalization.",
-      "teacherTipAr": "الشد المفاجئ في خيط غير مرن يماثل تماماً فيزيائياً ورياضياً التصادم غير المرن الملتحم."
+      "teacherTipAr": "الشد المفاجئ في خيط غير مرن يماثل تماماً فيزيائياً ورياضياً التصادم غير المرن الملتحم.",
+      "diagramType": "dynamics_atwood_pulley"
     },
     {
       "id": "dyn_ch3_db_hots_55",
@@ -6321,7 +6342,8 @@ export const dynCh3Databank: ChapterDatabank = {
         "$3 \\sqrt{98} = (3 + 2) V \\implies V = \\frac{3}{5} \\sqrt{98} \\approx 5.94\\text{ م/ث}$."
       ],
       "teacherTipEn": "Gravitational weight forces during an instantaneous impact ($dt \\to 0$) are non-impulsive and can be neglected during the jerk.",
-      "teacherTipAr": "قوى الوزن العادية أثناء التصادمات والشدود اللحظية تعتبر قوى غير دفعية وتُهمل خلال لحظة التأثير القصيرة جداً."
+      "teacherTipAr": "قوى الوزن العادية أثناء التصادمات والشدود اللحظية تعتبر قوى غير دفعية وتُهمل خلال لحظة التأثير القصيرة جداً.",
+      "diagramType": "dynamics_atwood_pulley"
     }
   ]
 };

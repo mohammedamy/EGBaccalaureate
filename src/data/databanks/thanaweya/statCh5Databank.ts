@@ -142,7 +142,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار عزم الازدواج: $M = 30 \\times 10 = 300$ نيوتن.سم."
       ],
       "teacherTipEn": "When forces act at points $A$ and $B$, the perpendicular arm is always $AB \\sin \\theta$.",
-      "teacherTipAr": "عندما تؤثر القوتان عند نقطتين أ، ب فإن ذراع الازدواج العمودي هو دائماً أ ب × جا هـ."
+      "teacherTipAr": "عندما تؤثر القوتان عند نقطتين أ، ب فإن ذراع الازدواج العمودي هو دائماً أ ب × جا هـ.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_easy_05",
@@ -178,7 +179,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار العزم: $M = 40 \\times 15 = 600$ نيوتن.سم."
       ],
       "teacherTipEn": "When forces are perpendicular to the segment joining their application points, no trigonometric multiplier is needed.",
-      "teacherTipAr": "إذا كانت القوتان عموديتين على القطعة الواصلة، فالذراع هو طول القطعة المستقيمة كاملاً مباشرة."
+      "teacherTipAr": "إذا كانت القوتان عموديتين على القطعة الواصلة، فالذراع هو طول القطعة المستقيمة كاملاً مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_06",
@@ -807,7 +809,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار عزم الازدواج: $M = 2 \\times 25\\sqrt{3} \\times 2 = 100\\sqrt{3}$ نيوتن.سم."
       ],
       "teacherTipEn": "Formula: For forces represented in cyclic order by a closed polygon, $M = 2 \\times \\text{Area} \\times \\left(\\frac{F}{L}\\right)$.",
-      "teacherTipAr": "قانون هام: للقوى الممثلة تمثيلاً تاماً بأضلاع مضلع مغلق في ترتيب دوري واحد: العزم = 2 × المساحة × مقياس الرسم."
+      "teacherTipAr": "قانون هام: للقوى الممثلة تمثيلاً تاماً بأضلاع مضلع مغلق في ترتيب دوري واحد: العزم = 2 × المساحة × مقياس الرسم.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_easy_24",
@@ -843,7 +846,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. النسبة الثابتة: $m = \\frac{15}{6} = 2.5$ نيوتن/سم."
       ],
       "teacherTipEn": "The constant ratio $m$ is the scale factor relating force vectors to geometry.",
-      "teacherTipAr": "النسبة الثابتة م تمثل مقياس الرسم الهندسي بين القوى والأطوال."
+      "teacherTipAr": "النسبة الثابتة م تمثل مقياس الرسم الهندسي بين القوى والأطوال.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_easy_25",
@@ -929,7 +933,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. بما أن كلا الزوجين يدوران في نفس الاتجاه: $M = 120 + 150 = 270$ نيوتن.سم."
       ],
       "teacherTipEn": "Carefully identify the perpendicular distance for each pair: the arm for forces along the length is the width, and vice versa.",
-      "teacherTipAr": "انتبه للذراع العمودي لكل زوج: ذراع القوتين على الطول هو العرض، وذراع القوتين على العرض هو الطول."
+      "teacherTipAr": "انتبه للذراع العمودي لكل زوج: ذراع القوتين على الطول هو العرض، وذراع القوتين على العرض هو الطول.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_easy_27",
@@ -1219,7 +1224,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار القوة: $F = \\frac{400}{20} = 20$ نيوتن."
       ],
       "teacherTipEn": "Remember that $\\sqrt{2} \\sin 45^\\circ = 1$, simplifying the perpendicular arm calculation.",
-      "teacherTipAr": "تذكر أن جذر 2 × جا 45 = 1، مما يسهل حساب البعد العمودي فوراً."
+      "teacherTipAr": "تذكر أن جذر 2 × جا 45 = 1، مما يسهل حساب البعد العمودي فوراً.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_easy_35",
@@ -1257,7 +1263,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. إذن رد فعل المفصل يجب أن يكون رأسياً لأعلى ومساوياً للوزن: $R = 20$ نيوتن."
       ],
       "teacherTipEn": "Golden rule: A body in equilibrium under a couple and two forces implies the two forces form an equal and opposite couple.",
-      "teacherTipAr": "قاعدة ذهبية: اتزان جسم تحت تأثير ازدواج وقوتين يقتضي أن القوتين تكونان ازدواجاً متزناً معه."
+      "teacherTipAr": "قاعدة ذهبية: اتزان جسم تحت تأثير ازدواج وقوتين يقتضي أن القوتين تكونان ازدواجاً متزناً معه.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_36",
@@ -1295,7 +1302,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. إذن عزم الازدواج الخارجي الحافظ للاتزان يجب أن يساويه في المقدار: $M = 900$ نيوتن.سم."
       ],
       "teacherTipEn": "Taking moments about hinge $A$ directly gives $M = W \\times \\frac{L}{2}$.",
-      "teacherTipAr": "أخذ العزم حول المفصل أ يعطي مباشرة: جـ = و × (ل / 2)."
+      "teacherTipAr": "أخذ العزم حول المفصل أ يعطي مباشرة: جـ = و × (ل / 2).",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_37",
@@ -1547,7 +1555,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. تطبيق نظرية المضلع: $M = 2 \\times 6 \\times 2 = 24$ نيوتن.سم."
       ],
       "teacherTipEn": "When forces are proportional to sides in cyclic order, $M = 2 \\times \\text{Area} \\times m$ is the fastest solution.",
-      "teacherTipAr": "إذا كانت القوى متناسبة مع الأضلاع في ترتيب دوري واحد، فإن 2 × المساحة × م هو أسرع وأدق حل."
+      "teacherTipAr": "إذا كانت القوى متناسبة مع الأضلاع في ترتيب دوري واحد، فإن 2 × المساحة × م هو أسرع وأدق حل.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_easy_44",
@@ -1583,7 +1592,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار عزم الازدواج: $M = 2 \\times 30 \\times 3 = 180$ نيوتن.سم."
       ],
       "teacherTipEn": "Check that the two legs are used for area, not the hypotenuse: $\\frac{1}{2} \\times 5 \\times 12$.",
-      "teacherTipAr": "احرص على استخدام ضلعي القائمة لحساب المساحة وليس الوتر: نصف × 5 × 12."
+      "teacherTipAr": "احرص على استخدام ضلعي القائمة لحساب المساحة وليس الوتر: نصف × 5 × 12.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_easy_45",
@@ -1840,7 +1850,8 @@ export const statCh5Databank: ChapterDatabank = {
         "لمنع الدوران حول أي نقطة اختيارية $A$ في المستوى: $\\sum M_A = 0$."
       ],
       "teacherTipEn": "Alternatively, vanishing moments about three non-collinear points is also a sufficient condition.",
-      "teacherTipAr": "بدلاً من ذلك، انعدام العزوم حول ثلاث نقاط ليست على استقامة واحدة يعد أيضاً شرطاً كافياً للاتزان."
+      "teacherTipAr": "بدلاً من ذلك، انعدام العزوم حول ثلاث نقاط ليست على استقامة واحدة يعد أيضاً شرطاً كافياً للاتزان.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_52",
@@ -1876,7 +1887,8 @@ export const statCh5Databank: ChapterDatabank = {
         "يقتصر رد الفعل على القوة العمودية فقط، وهي عمودية على الحائط الرأسي، أي أفقية."
       ],
       "teacherTipEn": "Smooth wall $\\implies N_w$ is purely horizontal. Rough wall $\\implies$ friction acts vertically along the wall.",
-      "teacherTipAr": "حائط أملس $\\implies$ رد الفعل أفقي تماماً. حائط خشن $\\implies$ توجد قوة احتكاك رأسية موازية للحائط."
+      "teacherTipAr": "حائط أملس $\\implies$ رد الفعل أفقي تماماً. حائط خشن $\\implies$ توجد قوة احتكاك رأسية موازية للحائط.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_53",
@@ -1912,7 +1924,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$R_f - W = 0 \\implies R_f = W = 200\\text{ ن}$."
       ],
       "teacherTipEn": "When the wall is smooth, $R_f$ always equals the total vertical weight on the ladder, regardless of inclination angle!",
-      "teacherTipAr": "عندما يكون الحائط أملس، فإن $R_f$ يساوي دائماً مجموع الأوزان الرأسية بغض النظر عن زاوية ميل السلم!"
+      "teacherTipAr": "عندما يكون الحائط أملس، فإن $R_f$ يساوي دائماً مجموع الأوزان الرأسية بغض النظر عن زاوية ميل السلم!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_54",
@@ -1946,7 +1959,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$R = \\sqrt{30^2 + 40^2} = \\sqrt{900 + 1600} = \\sqrt{2500} = 50\\text{ ن}$."
       ],
       "teacherTipEn": "A smooth hinge can exert a force in any direction in the plane, always resolved into unknown components $X$ and $Y$.",
-      "teacherTipAr": "المفصل الأملس يمكنه التأثير بقوة في أي اتجاه في المستوى، ونحللها دائماً إلى مركبتين مجهولتين $X$ و $Y$."
+      "teacherTipAr": "المفصل الأملس يمكنه التأثير بقوة في أي اتجاه في المستوى، ونحللها دائماً إلى مركبتين مجهولتين $X$ و $Y$.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_55",
@@ -1982,7 +1996,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$(60 \\times 1) - (T \\times 2) = 0 \\implies 2T = 60 \\implies T = 30\\text{ ن}$."
       ],
       "teacherTipEn": "Taking moments about the hinge is always the quickest first step in hinged rod problems.",
-      "teacherTipAr": "أخذ العزوم حول المفصل هو دائماً أسرع خطوة أولى لحل مسائل القضبان المفصلية."
+      "teacherTipAr": "أخذ العزوم حول المفصل هو دائماً أسرع خطوة أولى لحل مسائل القضبان المفصلية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_56",
@@ -2016,7 +2031,8 @@ export const statCh5Databank: ChapterDatabank = {
         "بما أن الاحتكاك يعاكس اتجاه الحركة الوشيكة، فإن قوة الاحتكاك عند القاعدة تؤثر أفقياً باتجاه الحائط."
       ],
       "teacherTipEn": "Horizontal equilibrium also dictates: $F_{\\text{friction}} = N_{\\text{wall}}$, both pointing opposite each other.",
-      "teacherTipAr": "الاتزان الأفقي يقتضي أيضاً: $F_{\\text{احتكاك}} = N_{\\text{حائط}}$، والقوتان في اتجاهين متضادين."
+      "teacherTipAr": "الاتزان الأفقي يقتضي أيضاً: $F_{\\text{احتكاك}} = N_{\\text{حائط}}$، والقوتان في اتجاهين متضادين.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_57",
@@ -2050,7 +2066,8 @@ export const statCh5Databank: ChapterDatabank = {
         "وحيث أن القضيب يمثل المماس، فإن رد الفعل العمودي للوتد يكون عمودياً على القضيب."
       ],
       "teacherTipEn": "Contrast this with a corner resting on a smooth plane, where reaction is perpendicular to the plane!",
-      "teacherTipAr": "قارن ذلك بطرف يرتكز على سطح مستوٍ أملس، حيث يكون رد الفعل عمودياً على السطح!"
+      "teacherTipAr": "قارن ذلك بطرف يرتكز على سطح مستوٍ أملس، حيث يكون رد الفعل عمودياً على السطح!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_easy_58",
@@ -2571,7 +2588,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. لكي يحدث الاتزان: $F \\times 12\\sqrt{2} = 360 \\implies F = \\frac{30}{\\sqrt{2}} = 15\\sqrt{2}$ نيوتن."
       ],
       "teacherTipEn": "Remember: $\\frac{30}{\\sqrt{2}} = 15\\sqrt{2}$, rationalizing the denominator.",
-      "teacherTipAr": "تذكر إنطاق المقام: 30 / جذر 2 = 15 جذر 2."
+      "teacherTipAr": "تذكر إنطاق المقام: 30 / جذر 2 = 15 جذر 2.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_14",
@@ -2682,7 +2700,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. مقدار عزم الازدواج: $M = 2 \\times 48 \\times 2 = 192$ نيوتن.سم."
       ],
       "teacherTipEn": "Remember Pythagoras on the halved base: $10^2 - 6^2 = 8^2$ gives the altitude directly.",
-      "teacherTipAr": "تذكر فيثاغورس على نصف القاعدة: 10² - 6² = 8² لإيجاد الارتفاع مباشرة."
+      "teacherTipAr": "تذكر فيثاغورس على نصف القاعدة: 10² - 6² = 8² لإيجاد الارتفاع مباشرة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_17",
@@ -2718,7 +2737,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار العزم: $M = 2 \\times 32 \\times 2 = 128$ نيوتن.سم."
       ],
       "teacherTipEn": "When forces are proportional to sides in cyclic order, the system is always equivalent to a couple of moment $2 \\times \\text{Area} \\times m$.",
-      "teacherTipAr": "إذا تناسبت القوى مع أطوال الأضلاع في اتجاه دوري واحد، فالمنظومة تكافئ ازدواجاً عزمه 2 × المساحة × م دائماً."
+      "teacherTipAr": "إذا تناسبت القوى مع أطوال الأضلاع في اتجاه دوري واحد، فالمنظومة تكافئ ازدواجاً عزمه 2 × المساحة × م دائماً.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_18",
@@ -2754,7 +2774,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. إذن: $M = 2 \\times 25 \\times 4 = 200$ نيوتن.سم."
       ],
       "teacherTipEn": "Do not forget the factor of 2 in $M = 2 \\times \\text{Area} \\times m$!",
-      "teacherTipAr": "لا تنسَ أبداً ضرب المساحة في 2 في قانون نظرية المضلع!"
+      "teacherTipAr": "لا تنسَ أبداً ضرب المساحة في 2 في قانون نظرية المضلع!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_19",
@@ -2790,7 +2811,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٢. بالتعويض: $\\text{المساحة} = \\frac{150}{2 \\times 3} = \\frac{150}{6} = 25$ سم²."
       ],
       "teacherTipEn": "Always divide by $2m$, not just $m$, when solving for area.",
-      "teacherTipAr": "تأكد من القسمة على 2م وليس م فقط عند حساب المساحة."
+      "teacherTipAr": "تأكد من القسمة على 2م وليس م فقط عند حساب المساحة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_20",
@@ -2830,7 +2852,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. يجب أن تتبع الاتجاه الدوري $AB \\to BC \\to CA$، أي في اتجاه المتجه $\\vec{CA}$."
       ],
       "teacherTipEn": "Direction matters: $\\vec{CA}$ maintains the cyclic loop, whereas $\\vec{AC}$ would oppose it.",
-      "teacherTipAr": "الاتجاه مهم جداً: الاتجاه في اتجاه جـ أ يحفظ الترتيب الدوري، بينما أ جـ يعاكسه."
+      "teacherTipAr": "الاتجاه مهم جداً: الاتجاه في اتجاه جـ أ يحفظ الترتيب الدوري، بينما أ جـ يعاكسه.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_21",
@@ -3207,7 +3230,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٥. بما أن المحصلة لا تساوي صفراً، فالمنظومة تكافئ قوة محصلة وحيدة ولا تكافئ ازدواجاً."
       ],
       "teacherTipEn": "Reversing one force breaks the cyclic condition, resulting in a non-zero net force vector.",
-      "teacherTipAr": "عكس اتجاه إحدى القوى يكسر الترتيب الدوري ويؤدي إلى محصلة متجهة غير منعدمة."
+      "teacherTipAr": "عكس اتجاه إحدى القوى يكسر الترتيب الدوري ويؤدي إلى محصلة متجهة غير منعدمة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_31",
@@ -3243,7 +3267,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. $M = 2 \\times 3 \\times 32 = 192\\text{ نيوتن.سم}$."
       ],
       "teacherTipEn": "Remember that $M = 2 m A$ applies to any closed polygon whose sides represent the forces in cyclic order.",
-      "teacherTipAr": "تذكر دائماً أن $M = 2 m \\times \\text{المساحة}$ ينطبق على أي مضلع مغلق تمثل أضلاعه القوى في ترتيب دوري واحد."
+      "teacherTipAr": "تذكر دائماً أن $M = 2 m \\times \\text{المساحة}$ ينطبق على أي مضلع مغلق تمثل أضلاعه القوى في ترتيب دوري واحد.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_32",
@@ -3279,7 +3304,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. $M = 2 \\times 4 \\times 40 = 320\\text{ نيوتن.سم}$."
       ],
       "teacherTipEn": "Remember that $M = 2 m A$ applies to any closed polygon whose sides represent the forces in cyclic order.",
-      "teacherTipAr": "تذكر دائماً أن $M = 2 m \\times \\text{المساحة}$ ينطبق على أي مضلع مغلق تمثل أضلاعه القوى في ترتيب دوري واحد."
+      "teacherTipAr": "تذكر دائماً أن $M = 2 m \\times \\text{المساحة}$ ينطبق على أي مضلع مغلق تمثل أضلاعه القوى في ترتيب دوري واحد.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_33",
@@ -3317,7 +3343,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. لكي يتزن القضيب، يجب أن يعادله عزم الازدواج الخارجي: $M = 800\\sqrt{3}$ نيوتن.سم."
       ],
       "teacherTipEn": "Notice the cosine for angle with horizontal: the horizontal lever arm is $\\frac{L}{2} \\cos \\theta$.",
-      "teacherTipAr": "انتبه لزاوية الميل مع الأفقي: ذراع عزم القوة الرأسية (الوزن) هو (ل / 2) جتا هـ."
+      "teacherTipAr": "انتبه لزاوية الميل مع الأفقي: ذراع عزم القوة الرأسية (الوزن) هو (ل / 2) جتا هـ.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_34",
@@ -3353,7 +3380,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. عزم الازدواج الموازن: $M = 50 \\times 25 = 1250$ نيوتن.سم."
       ],
       "teacherTipEn": "Since $\\cos 60^\\circ = 0.5$, the lever arm is simply half the distance to the center of gravity.",
-      "teacherTipAr": "بما أن جتا 60 = 0.5، فإن ذراع العزم يساوي نصف المسافة إلى مركز الثقل مباشرة."
+      "teacherTipAr": "بما أن جتا 60 = 0.5، فإن ذراع العزم يساوي نصف المسافة إلى مركز الثقل مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_35",
@@ -3393,7 +3421,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. إذن: $\\theta = 60^\\circ$."
       ],
       "teacherTipEn": "Check that the couple moment $M$ does not exceed $W \\frac{L}{2}$, which is the maximum possible restoring moment at $\\theta = 0^\\circ$.",
-      "teacherTipAr": "تأكد دائماً أن عزم الازدواج لا يتجاوز و (ل / 2)، وهو أقصى عزم ممكن عند الوضع الأفقي."
+      "teacherTipAr": "تأكد دائماً أن عزم الازدواج لا يتجاوز و (ل / 2)، وهو أقصى عزم ممكن عند الوضع الأفقي.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_36",
@@ -3431,7 +3460,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. $4800 \\sin \\alpha = 2400 \\implies \\sin \\alpha = 0.5 \\implies \\alpha = 30^\\circ$."
       ],
       "teacherTipEn": "Carefully distinguish between inclination with horizontal (uses $\\cos \\theta$) versus vertical (uses $\\sin \\alpha$).",
-      "teacherTipAr": "فرق بدقة بين زاوية الميل مع الأفقي (نستخدم جتا) وزاوية الميل مع الرأسي (نستخدم جا)."
+      "teacherTipAr": "فرق بدقة بين زاوية الميل مع الأفقي (نستخدم جتا) وزاوية الميل مع الرأسي (نستخدم جا).",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_37",
@@ -3546,7 +3576,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. عزم الازدواج المطلوب للاتزان: $M = 30 \\times 5\\sqrt{2} = 150\\sqrt{2}$ نيوتن.سم."
       ],
       "teacherTipEn": "In free suspension under a couple, the reaction at the suspension point equals $W$ upward, and $(R, W)$ forms a couple balancing $M$.",
-      "teacherTipAr": "في التعليق الحر تحت تأثير ازدواج، رد الفعل عند نقطة التعليق يعادل الوزن لأعلى، ويكونان معاً ازدواجاً يوازن الازدواج الخارجي."
+      "teacherTipAr": "في التعليق الحر تحت تأثير ازدواج، رد الفعل عند نقطة التعليق يعادل الوزن لأعلى، ويكونان معاً ازدواجاً يوازن الازدواج الخارجي.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_med_40",
@@ -3588,7 +3619,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. عزم الازدواج الحافظ للاتزان: $M = 18 \\times 2\\sqrt{3} = 36\\sqrt{3}$ نيوتن.سم."
       ],
       "teacherTipEn": "Remember that the centroid of a triangle lies at two-thirds of the median from any vertex.",
-      "teacherTipAr": "تذكر أن نقطة تلاقي المتوسطات تقع على بعد ثلثي المتوسط من جهة الرأس."
+      "teacherTipAr": "تذكر أن نقطة تلاقي المتوسطات تقع على بعد ثلثي المتوسط من جهة الرأس.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_med_41",
@@ -3858,7 +3890,8 @@ export const statCh5Databank: ChapterDatabank = {
         "   $\\frac{M_T}{M_S} = \\frac{16\\sqrt{3}}{36} = \\frac{4\\sqrt{3}}{9}$."
       ],
       "teacherTipEn": "For constant perimeter, polygons with more sides enclose greater area, so $M_{square} > M_{triangle}$.",
-      "teacherTipAr": "بثبوت المحيط، كلما زاد عدد أضلاع المضلع المنتظم زادت مساحته، وبالتالي عزم المربع أكبر من عزم المثلث."
+      "teacherTipAr": "بثبوت المحيط، كلما زاد عدد أضلاع المضلع المنتظم زادت مساحته، وبالتالي عزم المربع أكبر من عزم المثلث.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_med_48",
@@ -4016,7 +4049,8 @@ export const statCh5Databank: ChapterDatabank = {
         "عند $\\theta = 45^\\circ$: $\\mu = \\frac{1}{2} \\cot 45^\\circ = 0.5$."
       ],
       "teacherTipEn": "The formula $\\mu = \\frac{1}{2} \\cot\\theta$ is a standard benchmark result for uniform ladders on a smooth wall.",
-      "teacherTipAr": "القاعدة $\\mu = \\frac{1}{2} \\cot\\theta$ نتيجة قياسية هامة للسلم المنتظم المستند على حائط أملس."
+      "teacherTipAr": "القاعدة $\\mu = \\frac{1}{2} \\cot\\theta$ نتيجة قياسية هامة للسلم المنتظم المستند على حائط أملس.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_52",
@@ -4056,7 +4090,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$40 = T \\times \\frac{1}{\\sqrt{2}} \\implies T = 40\\sqrt{2}\\text{ ن}$."
       ],
       "teacherTipEn": "The moment arm of $T$ about $A$ is also the perpendicular distance from $A$ to line $BC$, which is $\\frac{1}{\\sqrt{2}}\\text{ m}$.",
-      "teacherTipAr": "ذراع عزم الشد حول $A$ هو العمود الساقط من $A$ على الخط $BC$ وطوله $\\frac{1}{\\sqrt{2}}\\text{ م}$."
+      "teacherTipAr": "ذراع عزم الشد حول $A$ هو العمود الساقط من $A$ على الخط $BC$ وطوله $\\frac{1}{\\sqrt{2}}\\text{ م}$.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_53",
@@ -4144,7 +4179,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$300 + 360 s = 1280 \\implies 360 s = 980 \\implies s = 2.72\\text{ م}$."
       ],
       "teacherTipEn": "As the climber ascends, the overturning moment increases, requiring higher friction to prevent slipping.",
-      "teacherTipAr": "كلما صعد الشخص لأعلى، يزداد عزم الانقلاب مما يتطلب قوة احتكاك أكبر لمنع الانزلاق."
+      "teacherTipAr": "كلما صعد الشخص لأعلى، يزداد عزم الانقلاب مما يتطلب قوة احتكاك أكبر لمنع الانزلاق.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_55",
@@ -4189,7 +4225,8 @@ export const statCh5Databank: ChapterDatabank = {
         "بالقسمة على $W$: $d = L \\cos^3\\theta$."
       ],
       "teacherTipEn": "This is one of the most famous classical problems in Thanaweya General Equilibrium.",
-      "teacherTipAr": "هذه واحدة من أشهر المسائل الكلاسيكية في الاتزان العام بالثانوية العامة المصرية."
+      "teacherTipAr": "هذه واحدة من أشهر المسائل الكلاسيكية في الاتزان العام بالثانوية العامة المصرية.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_56",
@@ -4236,7 +4273,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$\\tan\\theta = \\frac{1 - \\mu_w \\mu_f}{2 \\mu_f}$."
       ],
       "teacherTipEn": "Notice that when $\\mu_w = 0$ (smooth wall), this simplifies directly to $\\tan\\theta = \\frac{1}{2\\mu_f}$, which matches our earlier formula $\\mu_f = \\frac{1}{2}\\cot\\theta$!",
-      "teacherTipAr": "لاحظ أنه عندما يكون الحائط أملس ($\\mu_w = 0$) تؤول الصيغة مباشرة إلى $\\tan\\theta = \\frac{1}{2\\mu_f}$ وهي مطابقة تماماً لصيغتنا السابقة!"
+      "teacherTipAr": "لاحظ أنه عندما يكون الحائط أملس ($\\mu_w = 0$) تؤول الصيغة مباشرة إلى $\\tan\\theta = \\frac{1}{2\\mu_f}$ وهي مطابقة تماماً لصيغتنا السابقة!",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_57",
@@ -4279,7 +4317,8 @@ export const statCh5Databank: ChapterDatabank = {
         "الاتزان الرأسي: $T \\cos\\theta = W \\implies T \\times \\frac{4}{5} = 100 \\implies T = 125\\text{ ن}$."
       ],
       "teacherTipEn": "Normal contact force from a spherical surface always points through the geometric center of the sphere.",
-      "teacherTipAr": "قوة رد الفعل العمودي لسطح كروي تمر دائماً وأبداً بالمركز الهندسي للكرة."
+      "teacherTipAr": "قوة رد الفعل العمودي لسطح كروي تمر دائماً وأبداً بالمركز الهندسي للكرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_58",
@@ -4320,7 +4359,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$40 R_D - (50 \\times 60) = 0 \\implies 40 R_D = 3000 \\implies R_D = 75\\text{ ن}$."
       ],
       "teacherTipEn": "Notice that $R_C = R_D + W = 75 + 50 = 125\\text{ N}$.",
-      "teacherTipAr": "لاحظ أن رد فعل الوتد السفلي $R_C = R_D + W = 125\\text{ ن}$."
+      "teacherTipAr": "لاحظ أن رد فعل الوتد السفلي $R_C = R_D + W = 125\\text{ ن}$.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_med_59",
@@ -4360,7 +4400,8 @@ export const statCh5Databank: ChapterDatabank = {
         "الاتزان: $3T = 9000\\sqrt{3} \\implies T = 3000\\sqrt{3}\\text{ ن}$."
       ],
       "teacherTipEn": "Notice the perpendicular arm of the horizontal cable is the vertical height $6 \\sin 30^\\circ = 3\\text{ m}$.",
-      "teacherTipAr": "لاحظ أن الذراع العمودي للكابل الأفقي هو الارتفاع الرأسي $6 \\sin 30^\\circ = 3\\text{ م}$."
+      "teacherTipAr": "لاحظ أن الذراع العمودي للكابل الأفقي هو الارتفاع الرأسي $6 \\sin 30^\\circ = 3\\text{ م}$.",
+      "diagramType": "statics_inclined_friction"
     }
   ],
   "hots": [
@@ -4584,7 +4625,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. لكي يحدث الاتزان، يتساوى عزم الازدواج الموازن: $F \\times 12\\sqrt{3} = 720\\sqrt{3} \\implies F = 60$ نيوتن."
       ],
       "teacherTipEn": "Always compute the perpendicular lever arm $AD \\sin \\theta$ before equating moments.",
-      "teacherTipAr": "احسب دائماً ذراع الازدواج المتعامد أ د × جا هـ أولاً قبل مساواة العزوم."
+      "teacherTipAr": "احسب دائماً ذراع الازدواج المتعامد أ د × جا هـ أولاً قبل مساواة العزوم.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_07",
@@ -4866,7 +4908,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. إذن عزم الازدواج الخارجي الحافظ للاتزان: $M = 600$ نيوتن.سم."
       ],
       "teacherTipEn": "Sum the individual moments of all gravitational loads about the suspension point to find the balancing couple.",
-      "teacherTipAr": "اجمع عزوم جميع الأوزان والكتل المعلقة حول نقطة التعليق لإيجاد عزم الازدواج الحافظ للاتزان."
+      "teacherTipAr": "اجمع عزوم جميع الأوزان والكتل المعلقة حول نقطة التعليق لإيجاد عزم الازدواج الحافظ للاتزان.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_14",
@@ -4902,7 +4945,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٣. مقدار عزم الازدواج المطلوب: $M = 50 \\times 15\\sqrt{2} = 750\\sqrt{2}$ نيوتن.سم."
       ],
       "teacherTipEn": "In non-uniform rods, always use the explicitly given distance to the center of gravity $AG$.",
-      "teacherTipAr": "في القضبان غير المنتظمة، استخدم دائماً البعد المحدد صراحة لمركز الثقل عن نقطة التعليق."
+      "teacherTipAr": "في القضبان غير المنتظمة، استخدم دائماً البعد المحدد صراحة لمركز الثقل عن نقطة التعليق.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_15",
@@ -5026,7 +5070,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٦. إذن: $M_2 = 20 \\times 12.5 = 250$ نيوتن.سم."
       ],
       "teacherTipEn": "Isolating sub-elements and recognizing that two forces balancing a couple must form a couple simplifies multi-body statics.",
-      "teacherTipAr": "فصل الأجزاء المكونة وتطبيق قاعدة أن أي قوتين تتزنان مع ازدواج تشكلان ازدواجاً يسهل الحل بشكل فائق."
+      "teacherTipAr": "فصل الأجزاء المكونة وتطبيق قاعدة أن أي قوتين تتزنان مع ازدواج تشكلان ازدواجاً يسهل الحل بشكل فائق.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_18",
@@ -5068,7 +5113,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٥. معادلة الاتزان: $60 T = 3600 + 1800 = 5400 \\implies T = 90$ نيوتن."
       ],
       "teacherTipEn": "Couples simply enter the moment equation as a pure constant scalar term $\\pm M$, independent of position.",
-      "teacherTipAr": "يدخل عزم الازدواج في معادلة العزوم كحد قياسي ثابت مستقل تماماً عن نقطة أخذ العزم."
+      "teacherTipAr": "يدخل عزم الازدواج في معادلة العزوم كحد قياسي ثابت مستقل تماماً عن نقطة أخذ العزم.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_19",
@@ -5153,7 +5199,8 @@ export const statCh5Databank: ChapterDatabank = {
         "   $y_G = \\frac{400(10) - 100(15)}{300} = \\frac{2500}{300} = \\frac{25}{3}$ سم."
       ],
       "teacherTipEn": "Negative mass method: $x_G = \\frac{\\sum m_i x_i}{\\sum m_i}$ with cutouts treated as negative areas.",
-      "teacherTipAr": "طريقة الكتلة السالبة: تعامل الأجزاء المقتطعة كمساحات سالبة في حساب مركز الثقل."
+      "teacherTipAr": "طريقة الكتلة السالبة: تعامل الأجزاء المقتطعة كمساحات سالبة في حساب مركز الثقل.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_21",
@@ -5191,7 +5238,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. $\\sin\\theta = \\frac{96}{192} = 0.5 \\implies \\theta = 30^\\circ$."
       ],
       "teacherTipEn": "A couple can only be equilibrated by another couple, so the hinge reaction and weight MUST form a couple.",
-      "teacherTipAr": "لا يمكن موازنة ازدواج إلا بازدواج مثله، لذا فإن رد فعل المفصل والوزن يكونان حتماً ازدواجاً."
+      "teacherTipAr": "لا يمكن موازنة ازدواج إلا بازدواج مثله، لذا فإن رد فعل المفصل والوزن يكونان حتماً ازدواجاً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_22",
@@ -5229,7 +5277,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. $\\sin\\theta = \\frac{119}{238} = 0.5 \\implies \\theta = 30^\\circ$."
       ],
       "teacherTipEn": "A couple can only be equilibrated by another couple, so the hinge reaction and weight MUST form a couple.",
-      "teacherTipAr": "لا يمكن موازنة ازدواج إلا بازدواج مثله، لذا فإن رد فعل المفصل والوزن يكونان حتماً ازدواجاً."
+      "teacherTipAr": "لا يمكن موازنة ازدواج إلا بازدواج مثله، لذا فإن رد فعل المفصل والوزن يكونان حتماً ازدواجاً.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_23",
@@ -5350,7 +5399,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٥. بما أن المحصلة صفر والعزم صفر، فإن قوى المتوسطات متزنة اتزاناً تاماً ولا تحدث أي أثر دوراني."
       ],
       "teacherTipEn": "Three equal forces separated by $120^\\circ$ through a single point always cancel out completely.",
-      "teacherTipAr": "ثلاث قوى متساوية بينها زوايا 120 درجة وتمر بنقطة واحدة تتلاشى تماماً ويكون عزمها صفراً."
+      "teacherTipAr": "ثلاث قوى متساوية بينها زوايا 120 درجة وتمر بنقطة واحدة تتلاشى تماماً ويكون عزمها صفراً.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_hots_26",
@@ -5513,7 +5563,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٥. إذن التأثير بالقوتين عمودياً على $AB$ يعطي أقصى ذراع عزم ويتطلب أقل قوة ممكنة."
       ],
       "teacherTipEn": "Maximizing lever arm ($d = L \\sin \\theta$) minimizes required force: always choose $\\theta = 90^\\circ$.",
-      "teacherTipAr": "تعظيم ذراع العزم يقلل القوة المطلوبة للحد الأدنى: الخيار الأمثل دائماً هو الزاوية 90 درجة."
+      "teacherTipAr": "تعظيم ذراع العزم يقلل القوة المطلوبة للحد الأدنى: الخيار الأمثل دائماً هو الزاوية 90 درجة.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_30",
@@ -5587,7 +5638,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٢. تطبيق القانون: $M = 2 \\times m \\times \\text{المساحة} = 2 \\times 2 \\times 99 = 396\\text{ نيوتن.سم}$."
       ],
       "teacherTipEn": "The polygon theorem holds for any polygon regardless of its shape, provided forces are proportional to sides in cyclic order.",
-      "teacherTipAr": "تنطبق نظرية المضلع على أي مضلع هندسي طالما كانت القوى متناسبة مع الأضلاع في اتجاه دوري واحد."
+      "teacherTipAr": "تنطبق نظرية المضلع على أي مضلع هندسي طالما كانت القوى متناسبة مع الأضلاع في اتجاه دوري واحد.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_hots_32",
@@ -5621,7 +5673,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٢. تطبيق القانون: $M = 2 \\times m \\times \\text{المساحة} = 2 \\times 2 \\times 120 = 480\\text{ نيوتن.سم}$."
       ],
       "teacherTipEn": "The polygon theorem holds for any polygon regardless of its shape, provided forces are proportional to sides in cyclic order.",
-      "teacherTipAr": "تنطبق نظرية المضلع على أي مضلع هندسي طالما كانت القوى متناسبة مع الأضلاع في اتجاه دوري واحد."
+      "teacherTipAr": "تنطبق نظرية المضلع على أي مضلع هندسي طالما كانت القوى متناسبة مع الأضلاع في اتجاه دوري واحد.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_hots_33",
@@ -5661,7 +5714,8 @@ export const statCh5Databank: ChapterDatabank = {
         "   $0.06 N = 90 \\implies N = \\frac{90}{0.06} = 1500$ نيوتن."
       ],
       "teacherTipEn": "Remember to convert radius from centimetres to metres ($15\\text{ cm} = 0.15\\text{ m}$) when couple is in $\\text{N}\\cdot\\text{m}$.",
-      "teacherTipAr": "تأكد دائماً من تحويل نصف القطر إلى أمتار عندما يكون عزم الازدواج معطى بوحدة نيوتن.متر."
+      "teacherTipAr": "تأكد دائماً من تحويل نصف القطر إلى أمتار عندما يكون عزم الازدواج معطى بوحدة نيوتن.متر.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "stat_ch5_db_hots_34",
@@ -5901,7 +5955,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. إذن: $M = 50 \\times 50 = 2500$ نيوتن.سم."
       ],
       "teacherTipEn": "Taking moments about the other support eliminates its reaction and directly yields the critical liftoff couple.",
-      "teacherTipAr": "أخذ العزم حول نقطة التثبيت الأخرى يلغي رد فعلها ويعطي عزم الازدواج الحرج للانفصال مباشرة."
+      "teacherTipAr": "أخذ العزم حول نقطة التثبيت الأخرى يلغي رد فعلها ويعطي عزم الازدواج الحرج للانفصال مباشرة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_40",
@@ -5941,7 +5996,8 @@ export const statCh5Databank: ChapterDatabank = {
         "   $T \\times 40 = 600 \\implies T = 15$ نيوتن."
       ],
       "teacherTipEn": "Isolating one leg of a stepladder and taking moments about the apex hinge is the standard procedure.",
-      "teacherTipAr": "دراسة اتزان إحدى ساقي السلم المزدوج وأخذ العزم حول مفصل القمة هي الطريقة القياسية المعتمدة."
+      "teacherTipAr": "دراسة اتزان إحدى ساقي السلم المزدوج وأخذ العزم حول مفصل القمة هي الطريقة القياسية المعتمدة.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_41",
@@ -5975,7 +6031,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٢. شرط التوازن: $F \\times d = M \\implies F \\times 16 = 544 \\implies F = \\frac{544}{16} = 34\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Multiple couples can be combined into a single couple by summing their algebraic moments.",
-      "teacherTipAr": "يمكن اختزال عدة ازدواجات إلى ازدواج وحيد عزمه يساوي المجموع الجبري لعزومها."
+      "teacherTipAr": "يمكن اختزال عدة ازدواجات إلى ازدواج وحيد عزمه يساوي المجموع الجبري لعزومها.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_hots_42",
@@ -6009,7 +6066,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٢. شرط التوازن: $F \\times d = M \\implies F \\times 17 = 646 \\implies F = \\frac{646}{17} = 38\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Multiple couples can be combined into a single couple by summing their algebraic moments.",
-      "teacherTipAr": "يمكن اختزال عدة ازدواجات إلى ازدواج وحيد عزمه يساوي المجموع الجبري لعزومها."
+      "teacherTipAr": "يمكن اختزال عدة ازدواجات إلى ازدواج وحيد عزمه يساوي المجموع الجبري لعزومها.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_hots_43",
@@ -6166,7 +6224,8 @@ export const statCh5Databank: ChapterDatabank = {
         "٤. تساوي العزمين غير الصفريين حول $B$ و $D$ يعني أن خط عمل المحصلة $\\vec{R}$ يوازي المستقيم $BD$ (المتوسط الخارج من $B$)."
       ],
       "teacherTipEn": "Classic exam principle: $M_1 = M_2 \\implies \\vec{R} \\parallel \\text{segment}$, and $M_{mid} = \\frac{M_1 + M_2}{2}$.",
-      "teacherTipAr": "مبدأ امتحاني أساسي: تساوي العزمين حول نقطتين يعني موازاة المحصلة للخط الواصل بينهما، وعزم المنتصف هو المتوسط الحسابي."
+      "teacherTipAr": "مبدأ امتحاني أساسي: تساوي العزمين حول نقطتين يعني موازاة المحصلة للخط الواصل بينهما، وعزم المنتصف هو المتوسط الحسابي.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch5_db_hots_47",
@@ -6379,7 +6438,8 @@ export const statCh5Databank: ChapterDatabank = {
         "$0.5W + T \\frac{\\sqrt{3}}{2} - 2W = 0 \\implies T \\frac{\\sqrt{3}}{2} = 1.5W \\implies T = \\sqrt{3} W$."
       ],
       "teacherTipEn": "Taking moments about the hinge eliminates the internal reaction forces between the two legs.",
-      "teacherTipAr": "أخذ العزوم حول المفصل المشترك يلغي قوى رد الفعل الداخلية المتبادلة بين الساقين."
+      "teacherTipAr": "أخذ العزوم حول المفصل المشترك يلغي قوى رد الفعل الداخلية المتبادلة بين الساقين.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_52",
@@ -6421,7 +6481,8 @@ export const statCh5Databank: ChapterDatabank = {
         "وبالتالي فإن قوة الاحتكاك المتاحة $\\mu N_A = 0$ لا تكفي لمنع الانزلاق إلا إذا تواجدت قوة ضغط أفقية."
       ],
       "teacherTipEn": "Always check $\\sum F_x = 0$ first: friction requires a non-zero normal force ($F_s \\le \\mu N$).",
-      "teacherTipAr": "تحقق دائماً من $\\sum F_x = 0$: الاحتكاك يستلزم وجود قوة عمودية غير صفرية ($F_s \\le \\mu N$)."
+      "teacherTipAr": "تحقق دائماً من $\\sum F_x = 0$: الاحتكاك يستلزم وجود قوة عمودية غير صفرية ($F_s \\le \\mu N$).",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_53",
@@ -6463,7 +6524,8 @@ export const statCh5Databank: ChapterDatabank = {
         "أقل شد ممكن هو $T_{\\min} = \\frac{W}{2}$."
       ],
       "teacherTipEn": "Perpendicular pulling provides the maximum lever arm, thereby minimizing the required force.",
-      "teacherTipAr": "الشد العمودي يوفر أطول ذراع عزم ممكن، مما يقلل القوة المطلوبة إلى أدنى حد."
+      "teacherTipAr": "الشد العمودي يوفر أطول ذراع عزم ممكن، مما يقلل القوة المطلوبة إلى أدنى حد.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_54",
@@ -6594,7 +6656,8 @@ export const statCh5Databank: ChapterDatabank = {
         "عزم رد فعل الدحروج: $4 R_B = 170 \\implies R_B = 42.5\\text{ ك.ن}$."
       ],
       "teacherTipEn": "Roller supports can only provide normal reactions perpendicular to the rolling plane.",
-      "teacherTipAr": "الركائز الدحروجية توفر دائماً رد فعل عمودي فقط على مستوى التدحرج."
+      "teacherTipAr": "الركائز الدحروجية توفر دائماً رد فعل عمودي فقط على مستوى التدحرج.",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "stat_ch5_db_hots_57",
@@ -6632,7 +6695,8 @@ export const statCh5Databank: ChapterDatabank = {
         "لذا فإن خط عمل رد الفعل عند $A$ يمر بالمركز الهندسي لنصف الكرة."
       ],
       "teacherTipEn": "This geometric principle eliminates complex angle calculations in spherical contact problems.",
-      "teacherTipAr": "هذا المبدأ الهندسي يلغي الحسابات المثلثية المعقدة في مسائل التلامس الكروي."
+      "teacherTipAr": "هذا المبدأ الهندسي يلغي الحسابات المثلثية المعقدة في مسائل التلامس الكروي.",
+      "diagramType": "statics_ladder_friction"
     },
     {
       "id": "stat_ch5_db_hots_58",
@@ -6674,7 +6738,8 @@ export const statCh5Databank: ChapterDatabank = {
         "الاستطالة: $\\Delta x = \\frac{67.32}{200} \\approx 0.337\\text{ م}$."
       ],
       "teacherTipEn": "Pay close attention to impending motion direction: verge of moving up vs verge of slipping down reverses the friction sign.",
-      "teacherTipAr": "انتبه دائماً لاتجاه الحركة الوشيكة: وشك الحركة لأعلى يعكس اتجاه الاحتكاك لأسفل."
+      "teacherTipAr": "انتبه دائماً لاتجاه الحركة الوشيكة: وشك الحركة لأعلى يعكس اتجاه الاحتكاك لأسفل.",
+      "diagramType": "statics_inclined_friction"
     }
   ]
 };
