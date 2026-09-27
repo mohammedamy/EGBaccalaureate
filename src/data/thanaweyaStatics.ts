@@ -42,82 +42,82 @@ export const thanaweyaStaticsBranch: Branch = {
 When two rough surfaces are in contact, microscopic irregularities (asperities) interlock, creating resisting forces parallel to the contact interface.
 - **The Static Friction Inequality:**
   The actual static friction force $F$ is a self-adjusting reaction that balances applied tangential forces up to a maximum threshold:
-  $$0 \le F \le F_s \quad \text{where } F_s = \mu_s R$$
+  $$0 \\le F \\le F_s \\quad \\text{where } F_s = \\mu_s R$$
   - $F_s$ is the **limiting static friction force** (قوة الاحتكاك السكوني النهائي).
-  - $\mu_s$ is the dimensionless **coefficient of static friction**, depending solely on the material nature of the contact surfaces.
+  - $\\mu_s$ is the dimensionless **coefficient of static friction**, depending solely on the material nature of the contact surfaces.
   - $R$ is the **normal reaction force** perpendicular to the contact plane.
-- **Kinetic Friction ($F_k$):** Once slipping occurs, friction drops to $F_k = \mu_k R$, where $\mu_k < \mu_s$.
+- **Kinetic Friction ($F_k$):** Once slipping occurs, friction drops to $F_k = \\mu_k R$, where $\\mu_k < \\mu_s$.
 
 ### 2. Resultant Reaction ($R'$) & Friction Cone
 The total reaction of a rough surface on a body is the vector resultant of the normal reaction $R$ and the friction force $F$:
-$$\vec{R}' = \vec{R} + \vec{F} \implies R' = \sqrt{R^2 + F^2}$$
-When friction is limiting ($F = F_s = \mu_s R$):
-$$R' = \sqrt{R^2 + (\mu_s R)^2} = R \sqrt{1 + \mu_s^2} = R \sec\lambda$$
-- **Angle of Friction ($\lambda$):**
+$$\\vec{R}' = \\vec{R} + \\vec{F} \\implies R' = \\sqrt{R^2 + F^2}$$
+When friction is limiting ($F = F_s = \\mu_s R$):
+$$R' = \\sqrt{R^2 + (\\mu_s R)^2} = R \\sqrt{1 + \\mu_s^2} = R \\sec\\lambda$$
+- **Angle of Friction ($\\lambda$):**
   The angle between the normal reaction $R$ and the limiting resultant reaction $R'$:
-  $$\tan\lambda = \frac{F_s}{R} = \frac{\mu_s R}{R} = \mu_s \implies \lambda = \arctan(\mu_s)$$
+  $$\\tan\\lambda = \\frac{F_s}{R} = \\frac{\\mu_s R}{R} = \\mu_s \\implies \\lambda = \\arctan(\\mu_s)$$
 
-### 3. Equilibrium of a Body on a Rough Inclined Plane (Angle $\theta$)
-Consider a body of weight $W$ on a plane inclined at angle $\theta$ to the horizontal under its weight alone:
-1. **If $\theta < \lambda$:** The body remains in complete rest ($F = W \sin\theta < \mu_s W \cos\theta$).
-2. **If $\theta = \lambda$:** The body is on the verge of sliding down under gravity alone. The angle of inclination equals the angle of friction (Angle of Repose).
-3. **If $\theta > \lambda$:** The body accelerates downwards unless sustained by an external force.
+### 3. Equilibrium of a Body on a Rough Inclined Plane (Angle $\\theta$)
+Consider a body of weight $W$ on a plane inclined at angle $\\theta$ to the horizontal under its weight alone:
+1. **If $\\theta < \\lambda$:** The body remains in complete rest ($F = W \\sin\\theta < \\mu_s W \\cos\\theta$).
+2. **If $\\theta = \\lambda$:** The body is on the verge of sliding down under gravity alone. The angle of inclination equals the angle of friction (Angle of Repose).
+3. **If $\\theta > \\lambda$:** The body accelerates downwards unless sustained by an external force.
 
 ### 4. Minimum Pulling Force Theorems (Lami's Theorem Optimization)
 - **Least Force on Horizontal Plane:**
-  Pulling at angle $\alpha$ to the horizontal:
-  $$P = \frac{W \sin\lambda}{\cos(\alpha - \lambda)} \implies P_{\min} = W \sin\lambda$$
-  *Occurs when $\alpha = \lambda$ (pulling direction is inclined at the friction angle $\lambda$ above the horizontal).*
+  Pulling at angle $\\alpha$ to the horizontal:
+  $$P = \\frac{W \\sin\\lambda}{\\cos(\\alpha - \\lambda)} \\implies P_{\\min} = W \\sin\\lambda$$
+  *Occurs when $\\alpha = \\lambda$ (pulling direction is inclined at the friction angle $\\lambda$ above the horizontal).*
 - **Least Force to Prevent Slipping Down Inclined Plane:**
-  $$P_1 = W (\sin\theta - \mu_s \cos\theta) = W \frac{\sin(\theta - \lambda)}{\cos\lambda}$$
+  $$P_1 = W (\\sin\\theta - \\mu_s \\cos\\theta) = W \\frac{\\sin(\\theta - \\lambda)}{\\cos\\lambda}$$
 - **Least Force to Put Body on Verge of Moving Up Inclined Plane:**
-  $$P_2 = W (\sin\theta + \mu_s \cos\theta) = W \frac{\sin(\theta + \lambda)}{\cos\lambda}$$
+  $$P_2 = W (\\sin\\theta + \\mu_s \\cos\\theta) = W \\frac{\\sin(\\theta + \\lambda)}{\\cos\\lambda}$$
 - **Least Force in Any Spatial Direction to Move Body Up Plane:**
-  $$P_{\min} = W \sin(\theta + \lambda) \quad \text{at an angle } \lambda \text{ to the line of greatest slope}.$$
+  $$P_{\\min} = W \\sin(\\theta + \\lambda) \\quad \\text{at an angle } \\lambda \\text{ to the line of greatest slope}.$$
 
 ### 5. Critical Examination Pitfalls & Traps
-- **Normal Reaction Trap:** $R$ is NOT automatically equal to $W$! If pulling force $P$ acts at angle $\alpha$ above horizontal, resolve vertically:
-  $$R + P \sin\alpha = W \implies R = W - P \sin\alpha \implies F_s = \mu_s (W - P \sin\alpha)$$
+- **Normal Reaction Trap:** $R$ is NOT automatically equal to $W$! If pulling force $P$ acts at angle $\\alpha$ above horizontal, resolve vertically:
+  $$R + P \\sin\\alpha = W \\implies R = W - P \\sin\\alpha \\implies F_s = \\mu_s (W - P \\sin\\alpha)$$
   Using $R = W$ is the number one source of student marks loss.
 - **Direction of Friction:** Friction always directly OPPOSES the impending direction of motion. If a force pushes the body upwards, friction acts downwards. If the body is on the verge of slipping downwards, friction acts upwards.`,
           theoryContentAr: `### ١. قوة الاحتكاك السكوني النهائي والأسس الميكروسكوبية
 تنتج قوة الاحتكاك من تداخل النتوءات الميكروسكوبية للسطحين المتلامسين مسببة مقاومة موازية لسطح التماس.
 - **متباينة الاحتكاك السكوني:**
   قوة الاحتكاك السكوني $F$ هي قوة متغيرة ذاتياً تقاوم محاولة تحريك الجسم:
-  $$0 \le F \le F_s \quad \text{حيث } F_s = \mu_s R$$
+  $$0 \\le F \\le F_s \\quad \\text{حيث } F_s = \\mu_s R$$
   - $F_s$: **قوة الاحتكاك السكوني النهائي** (أكبر قوة احتكاك سكوني ممكنة قبل بدء الحركة مباشرة).
-  - $\mu_s$: **معامل الاحتكاك السكوني** (كمية قياسية بلا تمييز تعتمد فقط على طبيعة مادتي السطحين).
+  - $\\mu_s$: **معامل الاحتكاك السكوني** (كمية قياسية بلا تمييز تعتمد فقط على طبيعة مادتي السطحين).
   - $R$: **رد الفعل العمودي** الضاغط على مستوى التماس.
-- **الاحتكاك الحركي ($F_k$):** بمجرد بدء الحركة تنكسر النتوءات وتهبط القوة إلى $F_k = \mu_k R$ حيث $\mu_k < \mu_s$.
+- **الاحتكاك الحركي ($F_k$):** بمجرد بدء الحركة تنكسر النتوءات وتهبط القوة إلى $F_k = \\mu_k R$ حيث $\\mu_k < \\mu_s$.
 
 ### ٢. رد الفعل المحصل ($R'$) ومخروط الاحتكاك
 رد فعل المستوى الخشن الكلي هو محصلة رد الفعل العمودي $R$ وقوة الاحتكاك $F$:
-$$\vec{R}' = \vec{R} + \vec{F} \implies R' = \sqrt{R^2 + F^2}$$
-عندما يكون الاحتكاك نهائياً ($F = F_s = \mu_s R$):
-$$R' = \sqrt{R^2 + (\mu_s R)^2} = R \sqrt{1 + \mu_s^2} = R \sec\lambda$$
-- **زاوية الاحتكاك ($\lambda$):**
+$$\\vec{R}' = \\vec{R} + \\vec{F} \\implies R' = \\sqrt{R^2 + F^2}$$
+عندما يكون الاحتكاك نهائياً ($F = F_s = \\mu_s R$):
+$$R' = \\sqrt{R^2 + (\\mu_s R)^2} = R \\sqrt{1 + \\mu_s^2} = R \\sec\\lambda$$
+- **زاوية الاحتكاك ($\\lambda$):**
   هي الزاوية المحصورة بين رد الفعل العمودي $R$ ورد الفعل المحصل $R'$ عندما يبلغ الاحتكاك قيمته القصوى:
-  $$\tan\lambda = \frac{F_s}{R} = \mu_s \implies \lambda = \arctan(\mu_s)$$
+  $$\\tan\\lambda = \\frac{F_s}{R} = \\mu_s \\implies \\lambda = \\arctan(\\mu_s)$$
 
-### ٣. اتزان جسم على مستوى مائل خشن يميل بزاوية $\theta$
-عند وضع جسم وزنه $W$ على مستوى خشن يميل بزاوية $\theta$ تحت تأثير وزنه فقط:
-١. **إذا كان $\theta < \lambda$:** يستقر الجسم تماماً ويكون الاحتكاك غير نهائي ($F = W \sin\theta < F_s$).
-٢. **إذا كان $\theta = \lambda$:** يكون الجسم على وشك الانزلاق لأسفل المستوى تحت تأثير وزنه فقط (زاوية الميل = زاوية الاحتكاك).
-٣. **إذا كان $\theta > \lambda$:** ينزلق الجسم متسارعاً لأسفل ولا يمكنه البقاء في حالة سكون إلا بقوة خارجية تسنده.
+### ٣. اتزان جسم على مستوى مائل خشن يميل بزاوية $\\theta$
+عند وضع جسم وزنه $W$ على مستوى خشن يميل بزاوية $\\theta$ تحت تأثير وزنه فقط:
+١. **إذا كان $\\theta < \\lambda$:** يستقر الجسم تماماً ويكون الاحتكاك غير نهائي ($F = W \\sin\\theta < F_s$).
+٢. **إذا كان $\\theta = \\lambda$:** يكون الجسم على وشك الانزلاق لأسفل المستوى تحت تأثير وزنه فقط (زاوية الميل = زاوية الاحتكاك).
+٣. **إذا كان $\\theta > \\lambda$:** ينزلق الجسم متسارعاً لأسفل ولا يمكنه البقاء في حالة سكون إلا بقوة خارجية تسنده.
 
 ### ٤. نظريات القوة الصغرى (استخدام قاعدة لامي للتفاضل)
 - **أقل قوة أفقية تميل على الأفقي لتحريك جسم على مستوى أفقي:**
-  $$P_{\min} = W \sin\lambda \quad \text{وتصنع زاوية } \alpha = \lambda \text{ مع الأفقي}.$$
+  $$P_{\\min} = W \\sin\\lambda \\quad \\text{وتصنع زاوية } \\alpha = \\lambda \\text{ مع الأفقي}.$$
 - **أقل قوة موازية لخط أكبر ميل لمنع الجسم من الانزلاق لأسفل المستوى:**
-  $$P_1 = W (\sin\theta - \mu_s \cos\theta) = W \frac{\sin(\theta - \lambda)}{\cos\lambda}$$
+  $$P_1 = W (\\sin\\theta - \\mu_s \\cos\\theta) = W \\frac{\\sin(\\theta - \\lambda)}{\\cos\\lambda}$$
 - **أقل قوة موازية لخط أكبر ميل لجعل الجسم على وشك الحركة لأعلى المستوى:**
-  $$P_2 = W (\sin\theta + \mu_s \cos\theta) = W \frac{\sin(\theta + \lambda)}{\cos\lambda}$$
+  $$P_2 = W (\\sin\\theta + \\mu_s \\cos\\theta) = W \\frac{\\sin(\\theta + \\lambda)}{\\cos\\lambda}$$
 - **أقل قوة في أي اتجاه لتحريك الجسم لأعلى المستوى:**
-  $$P_{\min} = W \sin(\theta + \lambda) \quad \text{وتميل بزاوية } \lambda \text{ على خط أكبر ميل}.$$
+  $$P_{\\min} = W \\sin(\\theta + \\lambda) \\quad \\text{وتميل بزاوية } \\lambda \\text{ على خط أكبر ميل}.$$
 
 ### ٥. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ رد الفعل العمودي:** رد الفعل العمودي $R$ لا يساوي الوزن $W$ دائماً! إذا كانت قوة الشد تميل بزاوية $\alpha$ لأعلى:
-  $$R + P \sin\alpha = W \implies R = W - P \sin\alpha$$
+- **فخ رد الفعل العمودي:** رد الفعل العمودي $R$ لا يساوي الوزن $W$ دائماً! إذا كانت قوة الشد تميل بزاوية $\\alpha$ لأعلى:
+  $$R + P \\sin\\alpha = W \\implies R = W - P \\sin\\alpha$$
   واستخدام $R = W$ يفقد الطالب درجات المسألة.
 - **اتجاه قوة الاحتكاك:** قوة الاحتكاك تضاد اتجاه الحركة الوشيكة دائماً؛ إذا كانت القوة تدفع الجسم لأعلى فالاحتكاك لأسفل، وإذا كان الجسم سينزلق لأسفل فالاحتكاك لأعلى.`,
           formulas: [
@@ -320,70 +320,70 @@ $$R' = \sqrt{R^2 + (\mu_s R)^2} = R \sqrt{1 + \mu_s^2} = R \sec\lambda$$
           theoryContentEn: `### 1. Vector & Scalar Foundations of Moments in 2D
 The moment of a force measures its quantitative capacity to induce rotation about a reference pivot point.
 - **Vector Definition in the Cartesian Plane:**
-  Let $\vec{F} = F_x \hat{i} + F_y \hat{j}$ act at point $A(x_A, y_A)$, and let $O(x_O, y_O)$ be the center of moments. The position vector of the point of action relative to $O$ is $\vec{r} = \vec{OA} = (x_A - x_O)\hat{i} + (y_A - y_O)\hat{j}$.
-  The vector moment $\vec{M}_O$ is the cross product:
-  $$\vec{M}_O = \vec{r} \times \vec{F} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ x & y & 0 \\ F_x & F_y & 0 \end{vmatrix} = (x F_y - y F_x) \hat{k}$$
+  Let $\\vec{F} = F_x \\hat{i} + F_y \\hat{j}$ act at point $A(x_A, y_A)$, and let $O(x_O, y_O)$ be the center of moments. The position vector of the point of action relative to $O$ is $\\vec{r} = \\vec{OA} = (x_A - x_O)\\hat{i} + (y_A - y_O)\\hat{j}$.
+  The vector moment $\\vec{M}_O$ is the cross product:
+  $$\\vec{M}_O = \\vec{r} \\times \\vec{F} = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ x & y & 0 \\\\ F_x & F_y & 0 \\end{vmatrix} = (x F_y - y F_x) \\hat{k}$$
 - **Scalar Formulation:**
-  $$M_O = \pm F \cdot d$$
-  where $F = \|\vec{F}\|$ and $d = r \sin\theta$ is the perpendicular lever arm from pivot $O$ to the line of action of $\vec{F}$.
+  $$M_O = \\pm F \\cdot d$$
+  where $F = \\|\\vec{F}\\|$ and $d = r \\sin\\theta$ is the perpendicular lever arm from pivot $O$ to the line of action of $\\vec{F}$.
 - **Sign Convention:**
   - Counter-clockwise rotation: Positive ($+$).
   - Clockwise rotation: Negative ($-$).
 
 ### 2. Varignon's Theorem of Moments
-*The algebraic sum of the moments of a system of concurrent coplanar forces about any point $O$ equals the moment of their resultant $\vec{R}$ about the same point:*
-$$\sum_{i=1}^n \vec{M}_O(\vec{F}_i) = \vec{M}_O(\vec{R})$$
-$$\sum_{i=1}^n (\vec{r} \times \vec{F}_i) = \vec{r} \times \left( \sum_{i=1}^n \vec{F}_i \right) = \vec{r} \times \vec{R}$$
+*The algebraic sum of the moments of a system of concurrent coplanar forces about any point $O$ equals the moment of their resultant $\\vec{R}$ about the same point:*
+$$\\sum_{i=1}^n \\vec{M}_O(\\vec{F}_i) = \\vec{M}_O(\\vec{R})$$
+$$\\sum_{i=1}^n (\\vec{r} \\times \\vec{F}_i) = \\vec{r} \\times \\left( \\sum_{i=1}^n \\vec{F}_i \\right) = \\vec{r} \\times \\vec{R}$$
 *Practical Rule:* To calculate the moment of an inclined force, resolve it into perpendicular components $F_x$ and $F_y$ at a convenient point on its line of action, and sum the moments of the components.
 
 ### 3. Geometric Theorems on the Resultant via Moments
-For a coplanar force system with non-zero resultant $\vec{R} \neq \vec{0}$:
+For a coplanar force system with non-zero resultant $\\vec{R} \\neq \\vec{0}$:
 1. **Resultant Line of Action Passes through $O$:**
-   $$M_O = 0 \iff O \text{ lies on the line of action of } \vec{R}$$
+   $$M_O = 0 \\iff O \\text{ lies on the line of action of } \\vec{R}$$
 2. **Resultant Parallel to Segment $AB$:**
-   $$M_A = M_B \iff \vec{R} \parallel \vec{AB}$$
+   $$M_A = M_B \\iff \\vec{R} \\parallel \\vec{AB}$$
 3. **Resultant Bisects Segment $AB$:**
-   $$M_A = -M_B \iff \text{Line of action of } \vec{R} \text{ bisects } AB$$
+   $$M_A = -M_B \\iff \\text{Line of action of } \\vec{R} \\text{ bisects } AB$$
 4. **General Ratio Division of $AB$:**
-   If the line of action of $\vec{R}$ intersects segment $AB$ at point $C$ dividing it in ratio $\frac{AC}{CB} = \frac{m}{n}$, then:
+   If the line of action of $\\vec{R}$ intersects segment $AB$ at point $C$ dividing it in ratio $\\frac{AC}{CB} = \\frac{m}{n}$, then:
    $$n M_A + m M_B = 0$$
 
 ### 4. Critical Examination Pitfalls & Common Traps
-- **The Perpendicular Arm Error:** Using distance $OA$ instead of perpendicular distance $d = OA \sin\theta$. Always resolve the force into components if calculating $d$ requires intricate trigonometry.
+- **The Perpendicular Arm Error:** Using distance $OA$ instead of perpendicular distance $d = OA \\sin\\theta$. Always resolve the force into components if calculating $d$ requires intricate trigonometry.
 - **Clockwise Sign Omission:** Forgetting to inspect whether the force turns clockwise around $O$, causing a sign error that corrupts the entire resultant position equation.
-- **Vanishing Moments Ambiguity:** $M_O = 0$ does NOT prove equilibrium! It only proves that the resultant passes through $O$ (or $\vec{R} = 0$).`,
+- **Vanishing Moments Ambiguity:** $M_O = 0$ does NOT prove equilibrium! It only proves that the resultant passes through $O$ (or $\\vec{R} = 0$).`,
           theoryContentAr: `### ١. الأسس المتجهة والقياسية لعزم القوة في المستوى الثنائي
 عزم القوة حول نقطة يعبر كمياً عن مقدرة القوة على إحداث دوران للجسم حول هذه النقطة.
 - **التعريف المتجه في المستوى الديكارتي:**
-  إذا كانت القوة $\vec{F} = F_x \hat{i} + F_y \hat{j}$ تؤثر في النقطة $A(x, y)$ ومركز العزوم $O$ هو نقطة الأصل، فإن متجه الموضع هو $\vec{r} = \vec{OA} = x \hat{i} + y \hat{j}$.
-  ويكون متجه العزم $\vec{M}_O$ هو حاصل الضرب الاتجاهي:
-  $$\vec{M}_O = \vec{r} \times \vec{F} = (x F_y - y F_x) \hat{k}$$
+  إذا كانت القوة $\\vec{F} = F_x \\hat{i} + F_y \\hat{j}$ تؤثر في النقطة $A(x, y)$ ومركز العزوم $O$ هو نقطة الأصل، فإن متجه الموضع هو $\\vec{r} = \\vec{OA} = x \\hat{i} + y \\hat{j}$.
+  ويكون متجه العزم $\\vec{M}_O$ هو حاصل الضرب الاتجاهي:
+  $$\\vec{M}_O = \\vec{r} \\times \\vec{F} = (x F_y - y F_x) \\hat{k}$$
 - **الصيغة القياسية لحساب العزم:**
-  $$M_O = \pm F \cdot d$$
-  حيث $F$ هو مقدار القوة، و $d = r \sin\theta$ هو طول الذراع العمودي الساقط من مركز العزوم $O$ على خط عمل القوة.
+  $$M_O = \\pm F \\cdot d$$
+  حيث $F$ هو مقدار القوة، و $d = r \\sin\\theta$ هو طول الذراع العمودي الساقط من مركز العزوم $O$ على خط عمل القوة.
 - **قاعدة الإشارات العالمية:**
   - الدوران ضد عقارب الساعة: موجب ($+$).
   - الدوران مع عقارب الساعة: سالب ($-$).
 
 ### ٢. نظرية فارينون (نظرية العزوم)
 *المجموع الجبري لعزوم مجموعة من القوى المتلاقية حول أي نقطة في مستواها يساوي عزم محصلتها حول نفس النقطة:*
-$$\sum \vec{M}_O(\vec{F}_i) = \vec{M}_O(\vec{R})$$
+$$\\sum \\vec{M}_O(\\vec{F}_i) = \\vec{M}_O(\\vec{R})$$
 *التطبيق العملي:* لحساب عزم أي قوة مائلة، نقوم بتحليلها إلى مركبتين متعامدتين $F_x$ و $F_y$ عند نقطة معلومة على خط عملها، ونجمع عزمي المركبتين.
 
 ### ٣. العلاقات الهندسية بين العزوم وخط عمل المحصلة
-لمجموعة من القوى محصلتها $\vec{R} \neq \vec{0}$:
+لمجموعة من القوى محصلتها $\\vec{R} \\neq \\vec{0}$:
 ١. **خط عمل المحصلة يمر بالنقطة $O$:**
-   $$M_O = 0 \iff \text{المحصلة تمر بالنقطة } O$$
+   $$M_O = 0 \\iff \\text{المحصلة تمر بالنقطة } O$$
 ٢. **خط عمل المحصلة يوازي القطعة المستقيمة $AB$:**
-   $$M_A = M_B \iff \vec{R} \parallel \vec{AB}$$
+   $$M_A = M_B \\iff \\vec{R} \\parallel \\vec{AB}$$
 ٣. **خط عمل المحصلة ينصف القطعة المستقيمة $AB$:**
-   $$M_A = -M_B \iff \text{المحصلة تنصف } AB$$
+   $$M_A = -M_B \\iff \\text{المحصلة تنصف } AB$$
 ٤. **تقسيم القطعة بنسبة معينة:**
-   إذا كان خط عمل المحصلة يقطع $AB$ عند النقطة $C$ حيث $\frac{AC}{CB} = \frac{m}{n}$ فإن:
+   إذا كان خط عمل المحصلة يقطع $AB$ عند النقطة $C$ حيث $\\frac{AC}{CB} = \\frac{m}{n}$ فإن:
    $$n M_A + m M_B = 0$$
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ الذراع العمودي:** استخدام البعد المائل $OA$ بدلاً من الذراع العمودي $d = OA \sin\theta$. لتجنب هذا الفخ حلل القوة لمركبات رأسية وأفقية دائماً.
+- **فخ الذراع العمودي:** استخدام البعد المائل $OA$ بدلاً من الذراع العمودي $d = OA \\sin\\theta$. لتجنب هذا الفخ حلل القوة لمركبات رأسية وأفقية دائماً.
 - **نسيان إشارة الدوران:** دوران عقارب الساعة سالب دائماً، وإهمال الإشارة يقلب موضع المحصلة تماماً.
 - **معنى انعدام العزم:** $M_O = 0$ لا يعني أن القوى متزنة، بل يعني فقط أن خط عمل المحصلة يمر بمركز العزوم $O$.`,
           formulas: [
@@ -647,42 +647,42 @@ $$\sum \vec{M}_O(\vec{F}_i) = \vec{M}_O(\vec{R})$$
           summaryEn: 'Moments in 3D space using determinant cross product $\\vec{M}_O = \\vec{r} \\times \\vec{F}$, finding components $M_x, M_y, M_z$ about coordinate axes, perpendicular distance $L = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|}$, and moment about a directed line.',
           summaryAr: 'عزوم القوى في الفراغ ثلاثي الأبعاد باستخدام محدد الضرب الاتجاهي $\\vec{M}_O = \\vec{r} \\times \\vec{F}$، إيجاد مركبات العزم $M_x, M_y, M_z$ حول محاور الإحداثيات، وحساب طول العمود الساقط $L$.',
           theoryContentEn: `### 1. Vector Formulation of Moments in 3D Space
-In three-dimensional space, the moment of a force $\vec{F}$ acting at a point $A$ about a point of reference $O$ is defined by the cross product:
-$$\vec{M}_O = \vec{r} \times \vec{F} \quad \text{where } \vec{r} = \vec{OA} = \vec{A} - \vec{O}$$
+In three-dimensional space, the moment of a force $\\vec{F}$ acting at a point $A$ about a point of reference $O$ is defined by the cross product:
+$$\\vec{M}_O = \\vec{r} \\times \\vec{F} \\quad \\text{where } \\vec{r} = \\vec{OA} = \\vec{A} - \\vec{O}$$
 Expanding the 3D determinant:
-$$\vec{M}_O = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ x & y & z \\ F_x & F_y & F_z \end{vmatrix} = (y F_z - z F_y)\hat{i} - (x F_z - z F_x)\hat{j} + (x F_y - y F_x)\hat{k}$$
+$$\\vec{M}_O = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ x & y & z \\\\ F_x & F_y & F_z \\end{vmatrix} = (y F_z - z F_y)\\hat{i} - (x F_z - z F_x)\\hat{j} + (x F_y - y F_x)\\hat{k}$$
 
 ### 2. Moments About Coordinate Axes
-The scalar components of the vector moment $\vec{M}_O$ represent the orthogonal projections of the moment onto the three Cartesian coordinate axes:
+The scalar components of the vector moment $\\vec{M}_O$ represent the orthogonal projections of the moment onto the three Cartesian coordinate axes:
 - **Moment about the X-Axis:** $M_x = y F_z - z F_y$
 - **Moment about the Y-Axis:** $M_y = z F_x - x F_z$
 - **Moment about the Z-Axis:** $M_z = x F_y - y F_x$
 - **Vanishing Axis Moment Criteria:**
-  The moment of a force $\vec{F}$ about a line or axis $L$ vanishes ($M_L = 0$) if and only if:
-  1. The force is parallel to the axis ($\vec{F} \parallel L$).
-  2. The line of action of the force intersects the axis ($L \cap \text{Line}(\vec{F}) \neq \emptyset$).
+  The moment of a force $\\vec{F}$ about a line or axis $L$ vanishes ($M_L = 0$) if and only if:
+  1. The force is parallel to the axis ($\\vec{F} \\parallel L$).
+  2. The line of action of the force intersects the axis ($L \\cap \\text{Line}(\\vec{F}) \\neq \\emptyset$).
 
 ### 3. Perpendicular Distance from Center of Moments to Line of Action
-The length of the perpendicular lever arm $d$ dropped from $O$ to the line of action of $\vec{F}$ in 3D space is:
-$$d = \frac{\|\vec{M}_O\|}{\|\vec{F}\|} = \frac{\sqrt{M_x^2 + M_y^2 + M_z^2}}{\sqrt{F_x^2 + F_y^2 + F_z^2}}$$
+The length of the perpendicular lever arm $d$ dropped from $O$ to the line of action of $\\vec{F}$ in 3D space is:
+$$d = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|} = \\frac{\\sqrt{M_x^2 + M_y^2 + M_z^2}}{\\sqrt{F_x^2 + F_y^2 + F_z^2}}$$
 
 ### 4. Constructing 3D Force Vectors from Given Magnitudes
-When force magnitude $F = \|\vec{F}\|$ and two points on its line of action $A$ and $B$ are specified (acting from $A$ to $B$):
-1. Compute the displacement vector: $\vec{AB} = \vec{B} - \vec{A}$.
-2. Compute the magnitude: $\|\vec{AB}\| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$.
-3. Find the unit direction vector: $\hat{u}_{AB} = \frac{\vec{AB}}{\|\vec{AB}\|}$.
-4. Construct the force vector: $\vec{F} = \|\vec{F}\| \hat{u}_{AB}$.
+When force magnitude $F = \\|\\vec{F}\\|$ and two points on its line of action $A$ and $B$ are specified (acting from $A$ to $B$):
+1. Compute the displacement vector: $\\vec{AB} = \\vec{B} - \\vec{A}$.
+2. Compute the magnitude: $\\|\\vec{AB}\\| = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$.
+3. Find the unit direction vector: $\\hat{u}_{AB} = \\frac{\\vec{AB}}{\\|\\vec{AB}\\|}$.
+4. Construct the force vector: $\\vec{F} = \\|\\vec{F}\\| \\hat{u}_{AB}$.
 
 ### 5. Critical Examination Pitfalls & Common Traps
-- **Position Vector Direction Trap:** The vector $\vec{r}$ MUST point FROM the center of moments $O$ TO the point of action $A$:
-  $$\vec{r} = \vec{OA} = \vec{A} - \vec{O}$$
-  Calculating $\vec{r} = \vec{O} - \vec{A}$ reverses the sign of all three components of the moment vector!
-- **Point of Action Selection:** You can choose ANY point $A$ on the line of action of $ec{F}$. The cross product $\vec{r} \times \vec{F}$ yields the exact same vector $\vec{M}_O$ regardless of which point on the line of action is selected.`,
+- **Position Vector Direction Trap:** The vector $\\vec{r}$ MUST point FROM the center of moments $O$ TO the point of action $A$:
+  $$\\vec{r} = \\vec{OA} = \\vec{A} - \\vec{O}$$
+  Calculating $\\vec{r} = \\vec{O} - \\vec{A}$ reverses the sign of all three components of the moment vector!
+- **Point of Action Selection:** You can choose ANY point $A$ on the line of action of $ec{F}$. The cross product $\\vec{r} \\times \\vec{F}$ yields the exact same vector $\\vec{M}_O$ regardless of which point on the line of action is selected.`,
           theoryContentAr: `### ١. الصورة المتجهة لعزم القوة في الفراغ ثلاثي الأبعاد
-في الفراغ ثلاثي الأبعاد، عزم القوة $\vec{F}$ التي تؤثر في نقطة $A$ حول نقطة العزوم $O$ يُعرف بحاصل الضرب الاتجاهي:
-$$\vec{M}_O = \vec{r} \times \vec{F} \quad \text{حيث } \vec{r} = \vec{OA} = \vec{A} - \vec{O}$$
+في الفراغ ثلاثي الأبعاد، عزم القوة $\\vec{F}$ التي تؤثر في نقطة $A$ حول نقطة العزوم $O$ يُعرف بحاصل الضرب الاتجاهي:
+$$\\vec{M}_O = \\vec{r} \\times \\vec{F} \\quad \\text{حيث } \\vec{r} = \\vec{OA} = \\vec{A} - \\vec{O}$$
 وبفك المحدد الثلاثي:
-$$\vec{M}_O = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ x & y & z \\ F_x & F_y & F_z \end{vmatrix} = (y F_z - z F_y)\hat{i} + (z F_x - x F_z)\hat{j} + (x F_y - y F_x)\hat{k}$$
+$$\\vec{M}_O = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ x & y & z \\\\ F_x & F_y & F_z \\end{vmatrix} = (y F_z - z F_y)\\hat{i} + (z F_x - x F_z)\\hat{j} + (x F_y - y F_x)\\hat{k}$$
 
 ### ٢. عزم القوة حول محاور الإحداثيات الأساسية
 مركبات متجه العزم الثلاث تمثل جبرياً عزم القوة حول كل محور من محاور الإحداثيات:
@@ -696,17 +696,17 @@ $$\vec{M}_O = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ x & y & z \\ F_x & 
 
 ### ٣. طول العمود الساقط من مركز العزوم على خط عمل القوة
 طول الذراع العمودي $d$ الساقط من النقطة $O$ على خط عمل القوة في الفراغ:
-$$d = \frac{\|\vec{M}_O\|}{\|\vec{F}\|} = \frac{\sqrt{M_x^2 + M_y^2 + M_z^2}}{\sqrt{F_x^2 + F_y^2 + F_z^2}}$$
+$$d = \\frac{\\|\\vec{M}_O\\|}{\\|\\vec{F}\\|} = \\frac{\\sqrt{M_x^2 + M_y^2 + M_z^2}}{\\sqrt{F_x^2 + F_y^2 + F_z^2}}$$
 
 ### ٤. تكوين متجه القوة في الفراغ بدلالة معيارها ونقطتين على خط عملها
-إذا علم معيار القوة $\|\vec{F}\|$ وكانت تؤثر في اتجاه $\vec{AB}$:
-١. نحسب متجه الإزاحة: $\vec{AB} = \vec{B} - \vec{A}$.
-٢. نحسب معيار الإزاحة: $\|\vec{AB}\| = \sqrt{\Delta x^2 + \Delta y^2 + \Delta z^2}$.
-٣. نوجد متجه وحدة الاتجاه: $\hat{u}_{AB} = \frac{\vec{AB}}{\|\vec{AB}\|}$.
-٤. نكتب متجه القوة: $\vec{F} = \|\vec{F}\| \hat{u}_{AB}$.
+إذا علم معيار القوة $\\|\\vec{F}\\|$ وكانت تؤثر في اتجاه $\\vec{AB}$:
+١. نحسب متجه الإزاحة: $\\vec{AB} = \\vec{B} - \\vec{A}$.
+٢. نحسب معيار الإزاحة: $\\|\\vec{AB}\\| = \\sqrt{\\Delta x^2 + \\Delta y^2 + \\Delta z^2}$.
+٣. نوجد متجه وحدة الاتجاه: $\\hat{u}_{AB} = \\frac{\\vec{AB}}{\\|\\vec{AB}\\|}$.
+٤. نكتب متجه القوة: $\\vec{F} = \\|\\vec{F}\\| \\hat{u}_{AB}$.
 
 ### ٥. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ ترتيب نقطة متجه الموضع:** المتجه $\vec{r}$ يبدأ دائماً من مركز العزوم $O$ وينتهي عند نقطة التأثير $A$ أي $\vec{r} = \vec{A} - \vec{O}$. عكس الترتيب يغير إشارات مركبات العزم بالكامل!
+- **فخ ترتيب نقطة متجه الموضع:** المتجه $\\vec{r}$ يبدأ دائماً من مركز العزوم $O$ وينتهي عند نقطة التأثير $A$ أي $\\vec{r} = \\vec{A} - \\vec{O}$. عكس الترتيب يغير إشارات مركبات العزم بالكامل!
 - **حرية اختيار نقطة التأثير:** يمكن اختيار أي نقطة تقع على خط عمل القوة لحساب العزم، والناتج النهائي لمتجه العزم لا يتغير مطلقاً.`,
           formulas: [
             { labelEn: '3D Determinant Moment Formula', labelAr: 'محدد العزم ثلاثي الأبعاد', latex: '\\vec{M}_O = \\begin{vmatrix} \\hat{i} & \\hat{j} & \\hat{k} \\\\ x & y & z \\\\ F_x & F_y & F_z \\end{vmatrix}' },
@@ -962,53 +962,53 @@ $$d = \frac{\|\vec{M}_O\|}{\|\vec{F}\|} = \frac{\sqrt{M_x^2 + M_y^2 + M_z^2}}{\s
           summaryEn: 'Resultant magnitude and line of action for like parallel forces (internal division) and unlike parallel forces (external division), and resultant of multiple forces using Varignon\'s theorem.',
           summaryAr: 'مقدار وخط عمل محصلة قوتين متوازيتين في اتجاه واحد (تقسيم من الداخل) وفي اتجاهين متضادين (تقسيم من الخارج)، ومحصلة عدة قوى متوازية بنظرية فارينون.',
           theoryContentEn: `### 1. Resultant of Two Parallel Coplanar Forces
-Let two parallel forces $\vec{F}_1$ and $\vec{F}_2$ act at points $A$ and $B$ separated by distance $AB$.
+Let two parallel forces $\\vec{F}_1$ and $\\vec{F}_2$ act at points $A$ and $B$ separated by distance $AB$.
 - **Case 1: Like Parallel Forces (القوتان في نفس الاتجاه):**
   - **Magnitude:** $R = F_1 + F_2$
-  - **Direction:** Same direction as $\vec{F}_1$ and $\vec{F}_2$.
+  - **Direction:** Same direction as $\\vec{F}_1$ and $\\vec{F}_2$.
   - **Point of Action ($C$):** Lies internally on segment $AB$ between $A$ and $B$:
-    $$F_1 \cdot AC = F_2 \cdot BC \implies \frac{AC}{BC} = \frac{F_2}{F_1}$$
+    $$F_1 \\cdot AC = F_2 \\cdot BC \\implies \\frac{AC}{BC} = \\frac{F_2}{F_1}$$
     *The resultant is closer to the larger force.*
 - **Case 2: Unlike Parallel Forces (القوتان في اتجاهين متضادين, $F_1 > F_2$):**
   - **Magnitude:** $R = F_1 - F_2$
-  - **Direction:** Same direction as the larger force $\vec{F}_1$.
-  - **Point of Action ($C$):** Lies externally on the ray extending beyond the larger force ($C \notin AB$, beyond $A$):
-    $$F_1 \cdot AC = F_2 \cdot BC \implies \frac{AC}{BC} = \frac{F_2}{F_1}$$
+  - **Direction:** Same direction as the larger force $\\vec{F}_1$.
+  - **Point of Action ($C$):** Lies externally on the ray extending beyond the larger force ($C \\notin AB$, beyond $A$):
+    $$F_1 \\cdot AC = F_2 \\cdot BC \\implies \\frac{AC}{BC} = \\frac{F_2}{F_1}$$
 
 ### 2. System of Multiple Parallel Forces (Varignon's Theorem Method)
-For parallel forces $F_1, F_2, \dots, F_n$ acting along parallel lines at coordinates $x_1, x_2, \dots, x_n$ along a reference beam:
-1. Define a positive direction unit vector $\hat{e}$.
+For parallel forces $F_1, F_2, \\dots, F_n$ acting along parallel lines at coordinates $x_1, x_2, \\dots, x_n$ along a reference beam:
+1. Define a positive direction unit vector $\\hat{e}$.
 2. Algebraic Resultant:
-   $$R = \sum_{i=1}^n F_i$$
-3. Coordinate of Point of Action ($\bar{x}$):
+   $$R = \\sum_{i=1}^n F_i$$
+3. Coordinate of Point of Action ($\\bar{x}$):
    By taking moments about reference point $O$ ($x = 0$):
-   $$R \cdot \bar{x} = \sum_{i=1}^n (F_i \cdot x_i) \implies \bar{x} = \frac{\sum F_i x_i}{\sum F_i}$$
+   $$R \\cdot \\bar{x} = \\sum_{i=1}^n (F_i \\cdot x_i) \\implies \\bar{x} = \\frac{\\sum F_i x_i}{\\sum F_i}$$
 
 ### 3. Critical Examination Pitfalls & Traps
 - **Equal and Opposite Parallel Forces ($F_1 = F_2$ in opposite directions):**
-  Here $R = F_1 - F_2 = 0$, but the sum of moments is $F_1 \cdot AB \neq 0$.
+  Here $R = F_1 - F_2 = 0$, but the sum of moments is $F_1 \\cdot AB \\neq 0$.
   *CRITICAL RESULT:* The system does NOT reduce to a single resultant force; it forms a **Couple** (ازدواج).
-- **External Division Distance Calculation:** In unlike parallel forces, if $C$ lies outside $AB$ beyond $A$, then $BC = AC + AB$. Substituting this yields $F_1 \cdot AC = F_2 \cdot (AC + AB) \implies AC = \frac{F_2 \cdot AB}{F_1 - F_2}$.`,
+- **External Division Distance Calculation:** In unlike parallel forces, if $C$ lies outside $AB$ beyond $A$, then $BC = AC + AB$. Substituting this yields $F_1 \\cdot AC = F_2 \\cdot (AC + AB) \\implies AC = \\frac{F_2 \\cdot AB}{F_1 - F_2}$.`,
           theoryContentAr: `### ١. محصلة قوتين متوازيتين في المستوى
-لتكن القوتان المتوازيتان $\vec{F}_1$ و $\vec{F}_2$ تؤثران عند النقطتين $A$ و $B$:
+لتكن القوتان المتوازيتان $\\vec{F}_1$ و $\\vec{F}_2$ تؤثران عند النقطتين $A$ و $B$:
 - **الحالة الأولى: القوتان متحتدا الاتجاه (في نفس الاتجاه):**
   - **المقدار:** $R = F_1 + F_2$
   - **الاتجاه:** في نفس اتجاه القوتين.
   - **نقطة التأثير ($C$):** تقع في الداخل على القطعة المستقيمة $AB$ بين $A$ و $B$:
-    $$F_1 \cdot AC = F_2 \cdot BC \implies \frac{AC}{BC} = \frac{F_2}{F_1}$$
+    $$F_1 \\cdot AC = F_2 \\cdot BC \\implies \\frac{AC}{BC} = \\frac{F_2}{F_1}$$
     *المحصلة تكون دائماً أقرب إلى القوة الأكبر مقداراً.*
 - **الحالة الثانية: القوتان متضادتان في الاتجاه (بفرض $F_1 > F_2$):**
   - **المقدار:** $R = F_1 - F_2$
   - **الاتجاه:** في اتجاه القوة الكبرى $F_1$.
   - **نقطة التأثير ($C$):** تقع خارج القطعة $AB$ من جهة القوة الكبرى $F_1$:
-    $$F_1 \cdot AC = F_2 \cdot BC$$
+    $$F_1 \\cdot AC = F_2 \\cdot BC$$
 
 ### ٢. محصلة عدة قوى متوازية (طريقة نظرية العزوم)
-لقوى متوازية تؤثر عند إحداثيات $x_1, x_2, \dots, x_n$:
-١. نحدد اتجاهاً موجباً $\hat{e}$ للقوى (مثلاً لأعلى).
-٢. نجمع القوى جبرياً لإيجاد المحصلة: $R = \sum F_i$.
+لقوى متوازية تؤثر عند إحداثيات $x_1, x_2, \\dots, x_n$:
+١. نحدد اتجاهاً موجباً $\\hat{e}$ للقوى (مثلاً لأعلى).
+٢. نجمع القوى جبرياً لإيجاد المحصلة: $R = \\sum F_i$.
 ٣. نعين موضع المحصلة بنظرية العزوم (عزم المحصلة حول نقطة الأصل = مجموع عزوم القوى حول نفس النقطة):
-   $$R \cdot \bar{x} = \sum (F_i \cdot x_i) \implies \bar{x} = \frac{\sum F_i x_i}{\sum F_i}$$
+   $$R \\cdot \\bar{x} = \\sum (F_i \\cdot x_i) \\implies \\bar{x} = \\frac{\\sum F_i x_i}{\\sum F_i}$$
 
 ### ٣. فخاخ ومكائد امتحانات الثانوية العامة
 - **قوتان متساويتان ومتضادتان في الاتجاه:** إذا كانت القوتان متساويتين ومتضادتين، فإن المحصلة $R = 0$ ولكن عزم الدوران لا يساوي صفراً! في هذه الحالة **لا توجد محصلة وحيدة** للقوتين بل تكونان **ازدواجاً**.
@@ -1161,48 +1161,48 @@ For parallel forces $F_1, F_2, \dots, F_n$ acting along parallel lines at coordi
           theoryContentEn: `### 1. Necessary & Sufficient Conditions for Equilibrium of Parallel Forces
 A system of coplanar parallel forces is in complete static equilibrium if and only if TWO independent conditions are satisfied simultaneously:
 1. **Sum of Forces Vanishes (No Translation):**
-   $$\sum F = 0 \implies \sum F_{\text{upward}} = \sum F_{\text{downward}}$$
+   $$\\sum F = 0 \\implies \\sum F_{\\text{upward}} = \\sum F_{\\text{downward}}$$
 2. **Sum of Moments Vanishes About ANY Point (No Rotation):**
-   $$\sum M_O = 0 \quad \text{for any arbitrary reference pivot } O$$
+   $$\\sum M_O = 0 \\quad \\text{for any arbitrary reference pivot } O$$
 
 ### 2. Strategic Choice of Moment Centers
-While equilibrium guarantees $\sum M = 0$ about any point, strategically choosing the pivot point at the line of action of an **unknown reaction** eliminates that variable from the equation, yielding a single equation with a single unknown:
+While equilibrium guarantees $\\sum M = 0$ about any point, strategically choosing the pivot point at the line of action of an **unknown reaction** eliminates that variable from the equation, yielding a single equation with a single unknown:
 - If a beam rests on two supports $A$ and $B$, taking moments about $A$ immediately gives reaction $R_B$.
 - Taking moments about $B$ immediately gives reaction $R_A$.
-- Verify correctness using $\sum F = R_A + R_B - \sum W_i = 0$.
+- Verify correctness using $\\sum F = R_A + R_B - \\sum W_i = 0$.
 
 ### 3. Rod on the Verge of Tilting or Overturning (القضيب على وشك الدوران)
 When extra weights are added to one end of a rod supported by two supports $A$ and $B$:
 - As the weight increases, the reaction at the distant support decreases.
 - **The Verge of Tilting Criterion:** When the rod is on the verge of rotating about support $A$, the contact pressure at the distant support $B$ completely vanishes:
   $$R_B = 0$$
-- In this limiting state, the entire weight of the system is counterbalanced solely by support $A$ ($R_A = \sum W_i$).
+- In this limiting state, the entire weight of the system is counterbalanced solely by support $A$ ($R_A = \\sum W_i$).
 
 ### 4. Critical Examination Pitfalls & Traps
 - **Overlooking Beam Self-Weight:** Unless explicitly described as "light" (مهمل الوزن / خفيف), every uniform rod has weight $W$ acting strictly at its geometric midpoint.
-- **Support Reaction Non-Negativity:** Physical simple supports cannot pull downwards ($R \ge 0$). If solving equations yields $R < 0$, the beam has already overturned or lifted off that support.`,
+- **Support Reaction Non-Negativity:** Physical simple supports cannot pull downwards ($R \\ge 0$). If solving equations yields $R < 0$, the beam has already overturned or lifted off that support.`,
           theoryContentAr: `### ١. الشروط اللازمة والكافية لاتزان مجموعة قوى متوازية
 تتزن مجموعة من القوى المتوازية المستوية إذا وفقط إذا تحقق شرطان أساسيان معاً:
 ١. **انعدام المجموع الجبري للقوى (انعدام الحركة الانتقالية):**
-   $$\sum F = 0 \implies \text{مجموع القوى لأعلى} = \text{مجموع القوى لأسفل}$$
+   $$\\sum F = 0 \\implies \\text{مجموع القوى لأعلى} = \\text{مجموع القوى لأسفل}$$
 ٢. **انعدام مجموع العزوم حول أي نقطة (انعدام الحركة الدورانية):**
-   $$\sum M_O = 0 \quad \text{حول أي نقطة اختيارية } O$$
+   $$\\sum M_O = 0 \\quad \\text{حول أي نقطة اختيارية } O$$
 
 ### ٢. الاختيار الاستراتيجي لمركز العزوم
 لحل المسألة بأقل عدد من الخطوات الجبرية وبدون معادلات آنية:
 - نأخذ العزوم حول إحدى نقطتي الارتكاز (وليكن الحامل $A$)، فيتلاشى عزم رد فعله المجهول $R_A$ ونحصل مباشرة على قيمة رد الفعل الآخر $R_B$.
-- ثم نطبق $\sum F = 0$ لحساب $R_A$.
+- ثم نطبق $\\sum F = 0$ لحساب $R_A$.
 
 ### ٣. القضيب على وشك الانقلاب أو الدوران
 عند تعليق أثقال متزايدة عند طرف قضيب يرتكز على حاملين $A$ و $B$:
 - يقل الضغط تدريجياً على الحامل البعيد.
 - **شرط وشك الانقلاب:** عندما يصبح القضيب على وشك الدوران حول الحامل $A$، ينعدم رد الفعل عند الحامل البعيد $B$ تماماً:
   $$R_B = 0$$
-- وفي هذه اللحظة الحرجة يتحمل الحامل $A$ وحده كامل أوزان القضيب والأثقال المعلقة ($R_A = \sum W_i$).
+- وفي هذه اللحظة الحرجة يتحمل الحامل $A$ وحده كامل أوزان القضيب والأثقال المعلقة ($R_A = \\sum W_i$).
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
 - **إهمال وزن القضيب المنتظم:** ما لم يُذكر في المسألة أن القضيب "خفيف" أو "مهمل الوزن"، فإن للقضيب وزناً يؤثر رأسياً لأسفل في منتصفه تماماً.
-- **إشارة ردود أفعال الحوامل:** رد فعل الحامل البسيط يجب أن يكون ضاغطاً ($R \ge 0$). خروج قيمة سالبة لرد الفعل يعني أن القضيب انفصل وارتفع عن الحامل.`,
+- **إشارة ردود أفعال الحوامل:** رد فعل الحامل البسيط يجب أن يكون ضاغطاً ($R \\ge 0$). خروج قيمة سالبة لرد الفعل يعني أن القضيب انفصل وارتفع عن الحامل.`,
           formulas: [
             { labelEn: 'Force Equilibrium Condition', labelAr: 'شرط اتزان القوى', latex: '\\sum F_y = 0 \\iff \\sum F_{\\text{up}} = \\sum F_{\\text{down}}' },
             { labelEn: 'Moment Equilibrium Condition', labelAr: 'شرط اتزان العزوم', latex: '\\sum M_P = 0' },
@@ -1367,52 +1367,52 @@ When extra weights are added to one end of a rod supported by two supports $A$ a
           theoryContentEn: `### 1. The Master Conditions of General Static Equilibrium
 A rigid body subjected to a system of coplanar forces is in complete static equilibrium if and only if it has zero linear acceleration in all directions and zero angular acceleration about any pivot.
 - **The Tripartite Equations of Equilibrium:**
-  1. $\sum F_x = 0$ (Algebraic sum of horizontal components vanishes)
-  2. $\sum F_y = 0$ (Algebraic sum of vertical components vanishes)
-  3. $\sum M_A = 0$ (Sum of moments about ANY point $A$ vanishes)
+  1. $\\sum F_x = 0$ (Algebraic sum of horizontal components vanishes)
+  2. $\\sum F_y = 0$ (Algebraic sum of vertical components vanishes)
+  3. $\\sum M_A = 0$ (Sum of moments about ANY point $A$ vanishes)
 - **Alternative Equivalent Three-Moment Formulation:**
-  A system is in equilibrium if $\sum M_A = 0$, $\sum M_B = 0$, and $\sum M_C = 0$ for three non-collinear points $A, B, C$.
+  A system is in equilibrium if $\\sum M_A = 0$, $\\sum M_B = 0$, and $\\sum M_C = 0$ for three non-collinear points $A, B, C$.
 
 ### 2. Standard Support Reactions & Mechanical Constraints
 1. **Smooth Horizontal/Vertical Surface:** Reaction force $R$ is strictly perpendicular to the surface.
-2. **Rough Surface:** Normal reaction $R$ perpendicular to surface, plus friction force $F$ ($0 \le F \le \mu_s R$) directed tangentially opposing impending motion.
+2. **Rough Surface:** Normal reaction $R$ perpendicular to surface, plus friction force $F$ ($0 \\le F \\le \\mu_s R$) directed tangentially opposing impending motion.
 3. **Smooth Hinge (مفصل أملس):** The direction of the hinge reaction is initially unknown; resolve into two independent orthogonal components $X$ and $Y$:
-   $$R_{\text{hinge}} = \sqrt{X^2 + Y^2}, \quad \tan\theta = \frac{Y}{X}$$
+   $$R_{\\text{hinge}} = \\sqrt{X^2 + Y^2}, \\quad \\tan\\theta = \\frac{Y}{X}$$
 4. **Light Inextensible String:** Tension force $T$ directed strictly along the string towards the tie point.
 
 ### 3. Theorem of Three Non-Parallel Coplanar Forces
 *If a rigid body is maintained in equilibrium under the action of three non-parallel coplanar forces, their lines of action MUST be concurrent (intersect at a single common point).*
 - **Geometric Corollaries:**
-  - Lami's Theorem: $\frac{F_1}{\sin\alpha} = \frac{F_2}{\sin\beta} = \frac{F_3}{\sin\gamma}$
-  - Triangle of Forces Rule: If a triangle can be drawn with sides parallel to the three forces in cyclic order, then $\frac{F_1}{a} = \frac{F_2}{b} = \frac{F_3}{c}$.
+  - Lami's Theorem: $\\frac{F_1}{\\sin\\alpha} = \\frac{F_2}{\\sin\\beta} = \\frac{F_3}{\\sin\\gamma}$
+  - Triangle of Forces Rule: If a triangle can be drawn with sides parallel to the three forces in cyclic order, then $\\frac{F_1}{a} = \\frac{F_2}{b} = \\frac{F_3}{c}$.
 
 ### 4. Critical Examination Pitfalls & Common Traps
-- **Presuming Hinge Reaction Direction:** Never assume the hinge reaction acts along the rod! The hinge reaction components $X$ and $Y$ must be determined entirely by $\sum F_x = 0$ and $\sum F_y = 0$.
+- **Presuming Hinge Reaction Direction:** Never assume the hinge reaction acts along the rod! The hinge reaction components $X$ and $Y$ must be determined entirely by $\\sum F_x = 0$ and $\\sum F_y = 0$.
 - **Moment Center Strategy:** Always take moments about the support point containing the greatest number of unknown forces (e.g., the hinge or ground contact point) to eliminate two unknowns simultaneously.`,
           theoryContentAr: `### ١. الشروط العامة الشاملة للاتزان العام لجسم جاسيء
 يتزن جسم جاسيء واقع تحت تأثير مجموعة من القوى المستوية إذا وفقط إذا انعدمت حركته الانتقالية تماماً في أي اتجاه وانعدمت حركته الدورانية حول أي نقطة.
 - **معادلات الاتزان الثلاث الأساسية:**
-  ١. $\sum F_x = 0$ (انعدام المجموع الجبري للمركبات الأفقية للقوى)
-  ٢. $\sum F_y = 0$ (انعدام المجموع الجبري للمركبات الرأسية للقوى)
-  ٣. $\sum M_A = 0$ (انعدام مجموع عزوم القوى حول أي نقطة $A$ في المستوى)
+  ١. $\\sum F_x = 0$ (انعدام المجموع الجبري للمركبات الأفقية للقوى)
+  ٢. $\\sum F_y = 0$ (انعدام المجموع الجبري للمركبات الرأسية للقوى)
+  ٣. $\\sum M_A = 0$ (انعدام مجموع عزوم القوى حول أي نقطة $A$ في المستوى)
 - **صيغة العزوم الثلاثية البديلة:**
-  تتزن القوى المستوية إذا انعدم مجموع العزوم حول ثلاث نقط ليست على استقامة واحدة: $\sum M_A = \sum M_B = \sum M_C = 0$.
+  تتزن القوى المستوية إذا انعدم مجموع العزوم حول ثلاث نقط ليست على استقامة واحدة: $\\sum M_A = \\sum M_B = \\sum M_C = 0$.
 
 ### ٢. ردود أفعال الدعامات والقيود الميكانيكية
 ١. **المستوى الأملس:** رد الفعل عمودي تماماً على المستوى في نقطة التماس.
 ٢. **المستوى الخشن:** يتحلل إلى رد فعل عمودي $R$ وقوة احتكاك $F$ موازية للمستوى تضاد اتجاه الحركة.
 ٣. **المفصل الأملس:** اتجاه رد فعل المفصل غير معلوم، لذا يُحلل دائماً إلى مركبتين متعامدتين $X$ أفقية و $Y$ رأسية:
-   $$R_{\text{مفصل}} = \sqrt{X^2 + Y^2}, \quad \tan\theta = \frac{Y}{X}$$
+   $$R_{\\text{مفصل}} = \\sqrt{X^2 + Y^2}, \\quad \\tan\\theta = \\frac{Y}{X}$$
 ٤. **الخيط الخفيف:** قوة الشد $T$ تؤثر في اتجاه الخيط دائماً نحو نقطة التعليق.
 
 ### ٣. نظرية اتزان جسم تحت تأثير ثلاث قوى مستوية غير متوازية
 *إذا اتزن جسم جاسيء تحت تأثير ثلاث قوى مستوية غير متوازية، فإن خطوط عمل هذه القوى يجب أن تتقاطع في نقطة واحدة حتماً.*
 - **النتائج الهندسية:**
-  - تطبيق قاعدة لامي: $\frac{F_1}{\sin\alpha} = \frac{F_2}{\sin\beta} = \frac{F_3}{\sin\gamma}$.
-  - مثلث القوى: $\frac{F_1}{a} = \frac{F_2}{b} = \frac{F_3}{c}$.
+  - تطبيق قاعدة لامي: $\\frac{F_1}{\\sin\\alpha} = \\frac{F_2}{\\sin\\beta} = \\frac{F_3}{\\sin\\gamma}$.
+  - مثلث القوى: $\\frac{F_1}{a} = \\frac{F_2}{b} = \\frac{F_3}{c}$.
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ اتجاه رد فعل المفصل:** لا تفترض أبداً أن رد فعل المفصل يقع في اتجاه القضيب! مركبات المفصل $X$ و $Y$ تُستنتج حصراً من معادلتي الاتزان $\sum F_x = 0$ و $\sum F_y = 0$.
+- **فخ اتجاه رد فعل المفصل:** لا تفترض أبداً أن رد فعل المفصل يقع في اتجاه القضيب! مركبات المفصل $X$ و $Y$ تُستنتج حصراً من معادلتي الاتزان $\\sum F_x = 0$ و $\\sum F_y = 0$.
 - **نقطة أخذ العزوم المثالية:** اختر دائماً مركز العزوم عند النقطة التي تلتقي عندها أكبر عدد من المجاهيل (مثل المفصل) للتخلص منها مباشرة.`,
           formulas: [
             { labelEn: 'Horizontal Force Equilibrium', labelAr: 'اتزان المركبات الأفقية', latex: '\\sum X = 0' },
@@ -1604,62 +1604,62 @@ A rigid body subjected to a system of coplanar forces is in complete static equi
           summaryEn: 'Equilibrium of ladders on smooth vertical walls and rough floors, limiting friction $\\mu_s = \\frac{1}{2}\\cot\\theta$, climber ascent limits, and equilibrium on two rough surfaces.',
           summaryAr: 'اتزان السلالم على الحوائط الملساء والأرضيات الخشنة، وشرط وشك الانزلاق $\\mu_s = \\frac{1}{2}\\cot\\theta$، وأقصى مسافة صعود لمتسلق، والاتزان على سطحين خشنين.',
           theoryContentEn: `### 1. The Classic Uniform Ladder on Rough Ground and Smooth Wall
-Consider a uniform ladder $AB$ of weight $W$ and length $2L$ inclined at angle $\theta$ to the horizontal:
-- Foot $A$ rests on rough horizontal ground ($mu_1$): normal reaction $R_1$, friction force $F_1 = \mu_1 R_1$ towards the wall.
+Consider a uniform ladder $AB$ of weight $W$ and length $2L$ inclined at angle $\\theta$ to the horizontal:
+- Foot $A$ rests on rough horizontal ground ($mu_1$): normal reaction $R_1$, friction force $F_1 = \\mu_1 R_1$ towards the wall.
 - Top $B$ rests against a smooth vertical wall: normal reaction $R_2$ horizontal (no friction).
 - **Equilibrium Formulation:**
-  1. Horizontal forces: $\sum F_x = 0 \implies R_2 = F_1 = \mu_1 R_1$
-  2. Vertical forces: $\sum F_y = 0 \implies R_1 = W$
+  1. Horizontal forces: $\\sum F_x = 0 \\implies R_2 = F_1 = \\mu_1 R_1$
+  2. Vertical forces: $\\sum F_y = 0 \\implies R_1 = W$
   3. Moments about foot $A$:
-     $$\sum M_A = 0 \implies R_2 (2L \sin\theta) - W (L \cos\theta) = 0 \implies R_2 = \frac{W}{2} \cot\theta$$
+     $$\\sum M_A = 0 \\implies R_2 (2L \\sin\\theta) - W (L \\cos\\theta) = 0 \\implies R_2 = \\frac{W}{2} \\cot\\theta$$
 - **Verge of Slipping Angle:**
   Equating the two expressions for $R_2$:
-  $$\mu_1 W = \frac{W}{2} \cot\theta \implies \tan\theta = \frac{1}{2\mu_1}$$
+  $$\\mu_1 W = \\frac{W}{2} \\cot\\theta \\implies \\tan\\theta = \\frac{1}{2\\mu_1}$$
 
 ### 2. Ladder with Both Wall and Ground Rough
-If the vertical wall is also rough with coefficient $\mu_2$:
+If the vertical wall is also rough with coefficient $\\mu_2$:
 - Normal reaction at wall: $R_2$ (horizontal).
-- Friction at wall: $F_2 = \mu_2 R_2$ (vertically upwards, resisting downward slip).
+- Friction at wall: $F_2 = \\mu_2 R_2$ (vertically upwards, resisting downward slip).
 - **Equilibrium System:**
-  $$\sum F_x = 0 \implies R_2 = \mu_1 R_1$$
-  $$\sum F_y = 0 \implies R_1 + \mu_2 R_2 = W \implies R_1(1 + \mu_1 \mu_2) = W$$
-  $$\sum M_A = 0 \implies R_2(2L \sin\theta) + \mu_2 R_2 (2L \cos\theta) - W(L \cos\theta) = 0$$
+  $$\\sum F_x = 0 \\implies R_2 = \\mu_1 R_1$$
+  $$\\sum F_y = 0 \\implies R_1 + \\mu_2 R_2 = W \\implies R_1(1 + \\mu_1 \\mu_2) = W$$
+  $$\\sum M_A = 0 \\implies R_2(2L \\sin\\theta) + \\mu_2 R_2 (2L \\cos\\theta) - W(L \\cos\\theta) = 0$$
 - **Limiting Angle Formula:**
-  $$\tan\theta = \frac{1 - \mu_1 \mu_2}{2\mu_1}$$
+  $$\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2\\mu_1}$$
 
 ### 3. Man Ascending the Ladder (Critical Climbing Distance)
 When a person of weight $W_m$ climbs up the ladder distance $x$ from base $A$:
-$$\sum M_A = R_2(2L \sin\theta) - W(L \cos\theta) - W_m(x \cos\theta) = 0$$
-$$R_2 = \frac{[W L + W_m x] \cos\theta}{2L \sin\theta}$$
-Since $R_2 = \mu_1 (W + W_m)$, as $x$ increases, the required normal reaction $R_2$ and required ground friction increase until the person reaches the maximum safe climbing distance $x_{\max}$ where ground friction reaches its limiting value $\mu_1 R_1$.
+$$\\sum M_A = R_2(2L \\sin\\theta) - W(L \\cos\\theta) - W_m(x \\cos\\theta) = 0$$
+$$R_2 = \\frac{[W L + W_m x] \\cos\\theta}{2L \\sin\\theta}$$
+Since $R_2 = \\mu_1 (W + W_m)$, as $x$ increases, the required normal reaction $R_2$ and required ground friction increase until the person reaches the maximum safe climbing distance $x_{\\max}$ where ground friction reaches its limiting value $\\mu_1 R_1$.
 
 ### 4. Critical Examination Pitfalls & Traps
 - **Direction of Wall Friction:** Friction opposes the relative velocity or impending motion. Since the ladder top tends to slip DOWN the wall, wall friction acts UPWARDS. If an external force lifts the ladder, wall friction flips downwards!
 - **Reaction at Smooth Peg (وتد أملس):** Reaction of a smooth peg on a rod is strictly perpendicular to the ROD, NOT to the peg!`,
           theoryContentAr: `### ١. مسألة السلم المنتظم على أرض خشنة وحائط رأسي أملس
-سلم منتظم $AB$ وزنه $W$ وطوله $2L$ يستند بطرفه السفلي $A$ على أرض أفقية خشنة معامل احتكاكها $\mu_1$ وبطرفه العلوي $B$ على حائط رأسي أملس ويميل على الأفقي بزاوية $\theta$:
-- عند الأرض $A$: رد فعل عمودي $R_1$ لأعلى، وقوة احتكاك $F_1 = \mu_1 R_1$ متجهة نحو الحائط.
+سلم منتظم $AB$ وزنه $W$ وطوله $2L$ يستند بطرفه السفلي $A$ على أرض أفقية خشنة معامل احتكاكها $\\mu_1$ وبطرفه العلوي $B$ على حائط رأسي أملس ويميل على الأفقي بزاوية $\\theta$:
+- عند الأرض $A$: رد فعل عمودي $R_1$ لأعلى، وقوة احتكاك $F_1 = \\mu_1 R_1$ متجهة نحو الحائط.
 - عند الحائط $B$: رد فعل عمودي $R_2$ أفقي بعيداً عن الحائط (بدون احتكاك).
 - **معادلات الاتزان:**
-  ١. أفقياً: $\sum F_x = 0 \implies R_2 = \mu_1 R_1$
-  ٢. رأسياً: $\sum F_y = 0 \implies R_1 = W$
+  ١. أفقياً: $\\sum F_x = 0 \\implies R_2 = \\mu_1 R_1$
+  ٢. رأسياً: $\\sum F_y = 0 \\implies R_1 = W$
   ٣. العزوم حول النقطة $A$:
-     $$\sum M_A = 0 \implies R_2 (2L \sin\theta) - W (L \cos\theta) = 0 \implies R_2 = \frac{W}{2} \cot\theta$$
+     $$\\sum M_A = 0 \\implies R_2 (2L \\sin\\theta) - W (L \\cos\\theta) = 0 \\implies R_2 = \\frac{W}{2} \\cot\\theta$$
 - **زاوية الميل عند وشك الانزلاق:**
   بمساواة معادلتي $R_2$:
-  $$\mu_1 W = \frac{W}{2} \cot\theta \implies \tan\theta = \frac{1}{2\mu_1}$$
+  $$\\mu_1 W = \\frac{W}{2} \\cot\\theta \\implies \\tan\\theta = \\frac{1}{2\\mu_1}$$
 
 ### ٢. اتزان السلم إذا كان الحائط والأرض كلاهما خشناً
-إذا كان الحائط خشناً بمعامل $\mu_2$:
-- تتولد قوة احتكاك عند الحائط لأعلى: $F_2 = \mu_2 R_2$.
-- معادلة القوى الرأسية تصبح: $R_1 + \mu_2 R_2 = W$.
+إذا كان الحائط خشناً بمعامل $\\mu_2$:
+- تتولد قوة احتكاك عند الحائط لأعلى: $F_2 = \\mu_2 R_2$.
+- معادلة القوى الرأسية تصبح: $R_1 + \\mu_2 R_2 = W$.
 - زاوية الميل عند وشك الانزلاق:
-  $$\tan\theta = \frac{1 - \mu_1 \mu_2}{2\mu_1}$$
+  $$\\tan\\theta = \\frac{1 - \\mu_1 \\mu_2}{2\\mu_1}$$
 
 ### ٣. صعود شخص على السلم وأقصى مسافة آمنة للصعود
 كلما صعد شخص وزنه $W_m$ مسافة $x$ على السلم مبتعداً عن القاعدة:
 - يزداد عزم وزنه حول القاعدة، مما يتطلب زيادة رد الفعل $R_2$ وزيادة قوة الاحتكاك المطلوبة عند الأرض لمنع الانزلاق.
-- يستمر الصعود بأمان حتى يبلغ الاحتكاك قيمته القصوى $\mu_1 R_1$، وتكون هذه أقصى مسافة يمكن صعودها $x_{\max}$.
+- يستمر الصعود بأمان حتى يبلغ الاحتكاك قيمته القصوى $\\mu_1 R_1$، وتكون هذه أقصى مسافة يمكن صعودها $x_{\\max}$.
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
 - **اتجاه احتكاك الحائط:** بما أن طرف السلم العلوي يميل للانزلاق لأسفل الحائط، فإن قوة احتكاك الحائط تؤثر **لأعلى**.
@@ -1870,37 +1870,37 @@ Since $R_2 = \mu_1 (W + W_m)$, as $x$ increases, the required normal reaction $R
           summaryEn: 'Fundamental concept of a couple: two parallel, equal in magnitude, opposite in direction forces not along the same line. Moment invariance about any point $M = F \\cdot d$, vector form $\\vec{M} = \\vec{r}_{AB} \\times \\vec{F}$, and sense of rotation.',
           summaryAr: 'المفهوم الأساسي للازدواج: قوتان متوازيتان متساويتان في المقدار ومتضادتان في الاتجاه ولا يجمعهما خط عمل واحد. ثبات عزم الازدواج حول أي نقطة $M = F \\cdot d$، والصورة الاتجاهية $\\vec{M} = \\vec{r}_{AB} \\times \\vec{F}$، واتجاه الدوران.',
           theoryContentEn: `### 1. Rigorous Definition of a Couple (الازدواج)
-A couple is a mechanical force system consisting of two forces $\vec{F}_1$ and $\vec{F}_2$ having:
-1. Exactly equal magnitudes: $\|\vec{F}_1\| = \|\vec{F}_2\| = F$
-2. Opposite directions: $\vec{F}_1 = -\vec{F}_2 \implies \vec{F}_1 + \vec{F}_2 = \vec{0}$
+A couple is a mechanical force system consisting of two forces $\\vec{F}_1$ and $\\vec{F}_2$ having:
+1. Exactly equal magnitudes: $\\|\\vec{F}_1\\| = \\|\\vec{F}_2\\| = F$
+2. Opposite directions: $\\vec{F}_1 = -\\vec{F}_2 \\implies \\vec{F}_1 + \\vec{F}_2 = \\vec{0}$
 3. Non-coincident lines of action (separated by a perpendicular distance $d > 0$).
 *Key Dynamic Result:* A couple produces pure rotation with zero linear translation ($R = 0$).
 
 ### 2. Invariance of Couple Moment (Theorem of Couple Invariance)
 *The moment of a couple is identical about ANY point in space!*
 - **Mathematical Proof:**
-  Let forces $\vec{F}$ and $-\vec{F}$ act at points $A$ and $B$. Let $O$ be any arbitrary point in space:
-  $$\vec{M}_O = \vec{OA} \times \vec{F} + \vec{OB} \times (-\vec{F}) = (\vec{OA} - \vec{OB}) \times \vec{F} = \vec{BA} \times \vec{F}$$
-  Since $\vec{BA}$ is a fixed geometric vector between the two points of action, $\vec{M}_O$ is completely independent of the choice of origin $O$!
+  Let forces $\\vec{F}$ and $-\\vec{F}$ act at points $A$ and $B$. Let $O$ be any arbitrary point in space:
+  $$\\vec{M}_O = \\vec{OA} \\times \\vec{F} + \\vec{OB} \\times (-\\vec{F}) = (\\vec{OA} - \\vec{OB}) \\times \\vec{F} = \\vec{BA} \\times \\vec{F}$$
+  Since $\\vec{BA}$ is a fixed geometric vector between the two points of action, $\\vec{M}_O$ is completely independent of the choice of origin $O$!
 - **Magnitude:**
-  $$M = \pm F \cdot d$$
+  $$M = \\pm F \\cdot d$$
   where $d$ is the perpendicular distance (arm of the couple).
 
 ### 3. The Cyclic Polygon Couple Theorem
 *If a system of coplanar forces is represented in magnitude, direction, and sense by the sides of a closed polygon taken in cyclic order:*
-$$\frac{F_1}{A_1 A_2} = \frac{F_2}{A_2 A_3} = \dots = \frac{F_n}{A_n A_1} = m \quad (\text{constant scale factor})$$
+$$\\frac{F_1}{A_1 A_2} = \\frac{F_2}{A_2 A_3} = \\dots = \\frac{F_n}{A_n A_1} = m \\quad (\\text{constant scale factor})$$
 Then the system is equivalent to a pure **Couple** whose moment magnitude is:
-$$M = \pm 2 m \times (\text{Area of the Polygon})$$
-- Counter-clockwise cyclic direction $\implies M = +2 m \times \text{Area}$.
-- Clockwise cyclic direction $\implies M = -2 m \times \text{Area}$.
+$$M = \\pm 2 m \\times (\\text{Area of the Polygon})$$
+- Counter-clockwise cyclic direction $\\implies M = +2 m \\times \\text{Area}$.
+- Clockwise cyclic direction $\\implies M = -2 m \\times \\text{Area}$.
 
 ### 4. Critical Examination Pitfalls & Common Traps
-- **Resultant of a Couple Trap:** Never write "Resultant of the couple = $F$". The resultant of a couple is strictly ZERO ($\vec{R} = \vec{0}$).
+- **Resultant of a Couple Trap:** Never write "Resultant of the couple = $F$". The resultant of a couple is strictly ZERO ($\\vec{R} = \\vec{0}$).
 - **Polygon Orientation Order:** All forces must flow head-to-tail in continuous cyclic order around the polygon. If even one force reverses direction, the cyclic polygon theorem fails and the system must be analyzed via individual moments.`,
           theoryContentAr: `### ١. التعريف الرياضي الدقيق للازدواج
-الازدواج هو نظام ميكانيكي يتكون من قوتين متوازيتين $\vec{F}_1$ و $\vec{F}_2$ يتوفر فيهما ثلاثة شروط حاسمة:
-١. متساويتان في المقدار: $\|\vec{F}_1\| = \|\vec{F}_2\| = F$.
-٢. متضادتان في الاتجاه: $\vec{F}_1 = -\vec{F}_2 \implies \vec{F}_1 + \vec{F}_2 = \vec{0}$.
+الازدواج هو نظام ميكانيكي يتكون من قوتين متوازيتين $\\vec{F}_1$ و $\\vec{F}_2$ يتوفر فيهما ثلاثة شروط حاسمة:
+١. متساويتان في المقدار: $\\|\\vec{F}_1\\| = \\|\\vec{F}_2\\| = F$.
+٢. متضادتان في الاتجاه: $\\vec{F}_1 = -\\vec{F}_2 \\implies \\vec{F}_1 + \\vec{F}_2 = \\vec{0}$.
 ٣. خطا عملهما ليسا على استقامة واحدة (بينهما بعد عمودي $d > 0$).
 *الخاصية الحركية:* الازدواج يحدث دوراناً نقياً للجسم دون أي حركة انتقالية لأن محصلته تساوي صفراً.
 
@@ -1908,22 +1908,22 @@ $$M = \pm 2 m \times (\text{Area of the Polygon})$$
 *عزم الازدواج ثابت وقيمته لا تتغير حول أي نقطة في الفراغ!*
 - **البرهان الرياضي:**
   بأخذ العزوم حول أي نقطة اختيارية $O$:
-  $$\vec{M}_O = \vec{OA} \times \vec{F} + \vec{OB} \times (-\vec{F}) = (\vec{OA} - \vec{OB}) \times \vec{F} = \vec{BA} \times \vec{F}$$
-  وحيث إن المتجه $\vec{BA}$ متجه ثابت بين نقطتي التأثير، فإن العزم مستقل تماماً عن موضع النقطة $O$.
+  $$\\vec{M}_O = \\vec{OA} \\times \\vec{F} + \\vec{OB} \\times (-\\vec{F}) = (\\vec{OA} - \\vec{OB}) \\times \\vec{F} = \\vec{BA} \\times \\vec{F}$$
+  وحيث إن المتجه $\\vec{BA}$ متجه ثابت بين نقطتي التأثير، فإن العزم مستقل تماماً عن موضع النقطة $O$.
 - **الصيغة القياسية:**
-  $$M = \pm F \cdot d$$
+  $$M = \\pm F \\cdot d$$
   حيث $d$ هو طول الذراع العمودي للازدواج.
 
 ### ٣. نظرية المضلع المغلق الممثل للازدواج في ترتيب دوري واحد
 *إذا مثلت مجموعة من القوى المستوية تمثيلاً تاماً بأضلاع مضلع مغلق مأخوذة في ترتيب دوري واحد:*
-$$\frac{F_1}{AB} = \frac{F_2}{BC} = \dots = m \quad (\text{مقياس الرسم الثابت})$$
+$$\\frac{F_1}{AB} = \\frac{F_2}{BC} = \\dots = m \\quad (\\text{مقياس الرسم الثابت})$$
 فإن المجموعة تكافئ **ازدواجاً** عزمه:
-$$M = \pm 2 m \times (\text{مساحة المضلع})$$
+$$M = \\pm 2 m \\times (\\text{مساحة المضلع})$$
 - إذا كان الترتيب الدوري ضد عقارب الساعة: العزم موجب ($+$).
 - إذا كان الترتيب الدوري مع عقارب الساعة: العزم سالب ($-$).
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ محصلة الازدواج:** لا تكتب أبداً أن محصلة الازدواج تساوي $F$؛ محصلة أي ازدواج هي المتجه الصفري $\vec{R} = \vec{0}$.
+- **فخ محصلة الازدواج:** لا تكتب أبداً أن محصلة الازدواج تساوي $F$؛ محصلة أي ازدواج هي المتجه الصفري $\\vec{R} = \\vec{0}$.
 - **ترتيب الأسهم في المضلع:** يجب أن تدور الأسهم في اتجاه دوري واحد متتابع (كل سهم يسلم السهم الذي يليه)؛ وإذا انعكس سهم واحد يفشل تطبيق قانون المساحة فوراً.`,
           formulas: [
             { labelEn: 'Scalar Couple Moment', labelAr: 'القياس الجبري لعزم الازدواج', latex: 'M = \\pm F \\times d' },
@@ -2120,44 +2120,44 @@ A couple of forces $F_1$ and arm $d_1$ is mechanically indistinguishable from a 
 ### 2. Equilibrium of Couples (اتزان الازدواجات)
 - A couple CANNOT be balanced by a single force.
 - A couple can ONLY be balanced by another couple of equal magnitude and opposite rotational sense:
-  $$M_1 + M_2 = 0 \iff M_1 = -M_2$$
+  $$M_1 + M_2 = 0 \\iff M_1 = -M_2$$
 - For a system of multiple couples:
-  $$\sum M_i = 0$$
+  $$\\sum M_i = 0$$
 
 ### 3. General Reduction of Coplanar Force Systems
-Any system of coplanar forces can be reduced at an arbitrary base center $O$ to a single force $\vec{R}$ acting at $O$ and a couple of moment $M_O$:
-1. $\vec{R} = \sum \vec{F}_i$
-2. $M_O = \sum \vec{r}_i \times \vec{F}_i$
+Any system of coplanar forces can be reduced at an arbitrary base center $O$ to a single force $\\vec{R}$ acting at $O$ and a couple of moment $M_O$:
+1. $\\vec{R} = \\sum \\vec{F}_i$
+2. $M_O = \\sum \\vec{r}_i \\times \\vec{F}_i$
 - **Classification of System State:**
-  - **Complete Equilibrium:** $\vec{R} = \vec{0}$ AND $M_O = 0$.
-  - **Equivalent to a Couple:** $\vec{R} = \vec{0}$ BUT $M_O \neq 0$. The moment of the couple is $M_O$.
-  - **Equivalent to a Single Resultant Force:** $\vec{R} \neq \vec{0}$. The line of action of $\vec{R}$ is shifted from $O$ by perpendicular distance $d = \frac{|M_O|}{\|\vec{R}\|}$.
+  - **Complete Equilibrium:** $\\vec{R} = \\vec{0}$ AND $M_O = 0$.
+  - **Equivalent to a Couple:** $\\vec{R} = \\vec{0}$ BUT $M_O \\neq 0$. The moment of the couple is $M_O$.
+  - **Equivalent to a Single Resultant Force:** $\\vec{R} \\neq \\vec{0}$. The line of action of $\\vec{R}$ is shifted from $O$ by perpendicular distance $d = \\frac{|M_O|}{\\|\\vec{R}\\|}$.
 
 ### 4. Critical Examination Pitfalls & Common Traps
-- **Unit Dimensional Integrity:** Forces are in Newtons ($N$), moments are in Newton-meters ($N \cdot m$). Never add a force value directly to a couple moment.
+- **Unit Dimensional Integrity:** Forces are in Newtons ($N$), moments are in Newton-meters ($N \\cdot m$). Never add a force value directly to a couple moment.
 - **Couple Balancing Trap:** A body acted upon by a non-zero couple cannot be kept in equilibrium by adding a single support force. It requires a reaction couple (such as from a clamped joint or two support reactions).`,
           theoryContentAr: `### ١. تكافؤ الازدواجات
 يتكافأ ازدواجان في المستوى (أو في مستويين متوازيين) إذا وفقط إذا تساوى عزماهما الجبريان في المقدار والاتجاه:
 $$M_1 = M_2$$
-فالازدواج المكون من قوتين $10\text{ N}$ بذراع $4\text{ m}$ يكافئ تماماً ازدواجاً مكوناً من قوتين $20\text{ N}$ بذراع $2\text{ m}$ لأن كليهما يحدث عزماً مقداره $40\text{ N}\cdot\text{m}$.
+فالازدواج المكون من قوتين $10\\text{ N}$ بذراع $4\\text{ m}$ يكافئ تماماً ازدواجاً مكوناً من قوتين $20\\text{ N}$ بذراع $2\\text{ m}$ لأن كليهما يحدث عزماً مقداره $40\\text{ N}\\cdot\\text{m}$.
 
 ### ٢. اتزان الازدواجات
 - الازدواج **لا يتزن أبداً مع قوة منفردة** لأن القوة تحدث حركة انتقالية.
 - لا يتزن الازدواج إلا مع **ازدواج آخر** مساوٍ له في المقدار ومضاد له في اتجاه الدوران:
-  $$M_1 + M_2 = 0 \iff M_1 = -M_2$$
-- وإذا أثرت عدة ازدواجات على جسم، فإن شرط اتزانه هو انعدام المجموع الجبري لعزومها: $\sum M_i = 0$.
+  $$M_1 + M_2 = 0 \\iff M_1 = -M_2$$
+- وإذا أثرت عدة ازدواجات على جسم، فإن شرط اتزانه هو انعدام المجموع الجبري لعزومها: $\\sum M_i = 0$.
 
 ### ٣. الاختزال العام لمجموعة قوى مستوية
-أي مجموعة قوى مستوية يمكن اختزالها عند أي نقطة $O$ إلى قوة محصلة $\vec{R}$ تؤثر عند $O$ وازدواج عزمه $M_O$:
-١. $\vec{R} = \sum \vec{F}_i$
-٢. $M_O = \sum \vec{M}_O(\vec{F}_i)$
+أي مجموعة قوى مستوية يمكن اختزالها عند أي نقطة $O$ إلى قوة محصلة $\\vec{R}$ تؤثر عند $O$ وازدواج عزمه $M_O$:
+١. $\\vec{R} = \\sum \\vec{F}_i$
+٢. $M_O = \\sum \\vec{M}_O(\\vec{F}_i)$
 - **تصنيف الحالة النهائية للمجموعة:**
-  - **اتزان تام:** إذا كان $\vec{R} = \vec{0}$ و $M_O = 0$.
-  - **تؤول المجموعة إلى ازدواج:** إذا كان $\vec{R} = \vec{0}$ بينما $M_O \neq 0$.
-  - **تؤول المجموعة إلى قوة وحيدة:** إذا كان $\vec{R} \neq \vec{0}$، ويبعد خط عملها عن $O$ مسافة عمودية $d = \frac{|M_O|}{\|\vec{R}\|}$.
+  - **اتزان تام:** إذا كان $\\vec{R} = \\vec{0}$ و $M_O = 0$.
+  - **تؤول المجموعة إلى ازدواج:** إذا كان $\\vec{R} = \\vec{0}$ بينما $M_O \\neq 0$.
+  - **تؤول المجموعة إلى قوة وحيدة:** إذا كان $\\vec{R} \\neq \\vec{0}$، ويبعد خط عملها عن $O$ مسافة عمودية $d = \\frac{|M_O|}{\\|\\vec{R}\\|}$.
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ تجانس الوحدات:** القوة تقاس بالنيوتن ($N$) والعزم بالنيوتن.متر ($N\cdot m$)، ولا يجوز جبرياً جمع قوة مع عزم.
+- **فخ تجانس الوحدات:** القوة تقاس بالنيوتن ($N$) والعزم بالنيوتن.متر ($N\\cdot m$)، ولا يجوز جبرياً جمع قوة مع عزم.
 - **اتزان الازدواج بقوة:** إذا طلبت المسألة أقل قوة تحفظ اتزان جسم خاضع لازدواج، فالجواب مستحيل بقوة واحدة؛ بل يجب التأثير بقوتين متساويتين ومتضادتين (ازدواج).`,
           formulas: [
             { labelEn: 'Equilibrium of Couples', labelAr: 'شرط اتزان الازدواجات', latex: '\\sum M_i = 0 \\implies M_1 + M_2 = 0' },
@@ -2366,23 +2366,23 @@ $$M_1 = M_2$$
 The center of gravity $G$ of a body or system of particles is the unique point through which the resultant gravitational force (total weight) acts, regardless of the orientation of the body in space.
 - **Center of Mass vs. Center of Gravity:** In a uniform gravitational field (standard Earth surface conditions), the center of gravity coincides exactly with the center of mass.
 - **Discrete Particles Formulation (Weighted Average Coordinates):**
-  For a system of particles of masses $m_1, m_2, \dots, m_n$ located at coordinates $(x_i, y_i, z_i)$:
-  $$\bar{x} = \frac{\sum m_i x_i}{\sum m_i}, \quad \bar{y} = \frac{\sum m_i y_i}{\sum m_i}, \quad \bar{z} = \frac{\sum m_i z_i}{\sum m_i}$$
+  For a system of particles of masses $m_1, m_2, \\dots, m_n$ located at coordinates $(x_i, y_i, z_i)$:
+  $$\\bar{x} = \\frac{\\sum m_i x_i}{\\sum m_i}, \\quad \\bar{y} = \\frac{\\sum m_i y_i}{\\sum m_i}, \\quad \\bar{z} = \\frac{\\sum m_i z_i}{\\sum m_i}$$
 
 ### 2. Mass Proportionality Principles for Homogeneous Bodies
 For uniform (homogeneous) materials:
 1. **Thin Uniform Wires (سلك منتظم المقطع والسمك):** Mass is directly proportional to wire length:
-   $$m_i \propto L_i$$
+   $$m_i \\propto L_i$$
    The center of gravity of each straight segment is at its geometric **midpoint**.
 2. **Thin Uniform Laminae (صفيحة رقيقة منتظمة):** Mass is directly proportional to planar area:
-   $$m_i \propto A_i$$
-3. **Homogeneous 3D Solids:** Mass is directly proportional to volume ($m_i \propto V_i$).
+   $$m_i \\propto A_i$$
+3. **Homogeneous 3D Solids:** Mass is directly proportional to volume ($m_i \\propto V_i$).
 
 ### 3. The Free Suspension Equilibrium Theorem (التعليق الحر)
 *When a rigid body is suspended freely from any suspension point $A$, it reaches static equilibrium with the line joining $A$ to the center of gravity $G$ ($AG$) lying strictly along the TRUE VERTICAL LINE.*
 - **Inclination of Geometric Edges:**
-  To find the inclination angle $\theta$ of an edge $AB$ (aligned with the x-axis) to the vertical:
-  $$\tan\theta = \frac{|\bar{x} - x_A|}{|\bar{y} - y_A|}$$
+  To find the inclination angle $\\theta$ of an edge $AB$ (aligned with the x-axis) to the vertical:
+  $$\\tan\\theta = \\frac{|\\bar{x} - x_A|}{|\\bar{y} - y_A|}$$
   *(Since the line $AG$ is vertical, the horizontal separation divided by vertical separation gives the tangent of the angle with the vertical).*
 
 ### 4. Critical Examination Pitfalls & Traps
@@ -2391,22 +2391,22 @@ For uniform (homogeneous) materials:
           theoryContentAr: `### ١. الأسس الفيزيائية لمركز الثقل
 مركز الثقل $G$ لجسم أو لمجموعة جسيمات هو النقطة الوحيدة الثابتة التي يمر بها خط عمل محصلة قوى التثاقل (الوزن الكلي) للجسم أياً كان وضع استقراره في الفراغ.
 - **صيغة حساب إحداثيات مركز الثقل لمجموعة كتل نقطية:**
-  لمجموعة كتل $m_1, m_2, \dots$ عند إحداثيات $(x_i, y_i)$:
-  $$\bar{x} = \frac{\sum m_i x_i}{\sum m_i}, \quad \bar{y} = \frac{\sum m_i y_i}{\sum m_i}$$
+  لمجموعة كتل $m_1, m_2, \\dots$ عند إحداثيات $(x_i, y_i)$:
+  $$\\bar{x} = \\frac{\\sum m_i x_i}{\\sum m_i}, \\quad \\bar{y} = \\frac{\\sum m_i y_i}{\\sum m_i}$$
 
 ### ٢. قواعد التناسب للكتل في الأجسام المنتظمة الكثافة
 ١. **الأسلاك الرفيعة المنتظمة:** تتناسب كتل أجزاء السلك مع **أطوالها**:
-   $$m_i \propto L_i$$
+   $$m_i \\propto L_i$$
    ومركز ثقل كل جزء مستقيم يقع في **منتصفه تماماً**.
 ٢. **الصفائح الرقيقة المنتظمة:** تتناسب كتل الأجزاء مع **مساحاتها**:
-   $$m_i \propto A_i$$
-٣. **المجسمات المنتظمة:** تتناسب الكتل مع **الحجوم**: $m_i \propto V_i$.
+   $$m_i \\propto A_i$$
+٣. **المجسمات المنتظمة:** تتناسب الكتل مع **الحجوم**: $m_i \\propto V_i$.
 
 ### ٣. نظرية التعليق الحر والخط الرأسي
 *إذا عُلق جسم تعليقاً حراً من أي نقطة فيه $A$، فإن الجسم يتزن عندما يقع الخط المستقيم الواصل بين نقطة التعليق $A$ ومركز ثقله $G$ ($AG$) على الخط الرأسي تماماً.*
 - **زاوية ميل أي ضلع على الرأسي:**
-  الخط $AG$ هو الرأسي؛ ولإيجاد زاوية ميله $\theta$ مع الأفقي أو الرأسي:
-  $$\tan\theta = \frac{|\bar{x} - x_A|}{|\bar{y} - y_A|}$$
+  الخط $AG$ هو الرأسي؛ ولإيجاد زاوية ميله $\\theta$ مع الأفقي أو الرأسي:
+  $$\\tan\\theta = \\frac{|\\bar{x} - x_A|}{|\\bar{y} - y_A|}$$
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
 - **فخ منتصفات أضلاع السلك:** عند ثني سلك على شكل مضلع، تؤثر كتل الأضلاع في **منتصفات الأضلاع** وليس عند الرؤوس!
@@ -2609,51 +2609,51 @@ For uniform (homogeneous) materials:
           theoryContentEn: `### 1. Centers of Gravity of Standard Uniform Geometric Laminae
 For homogeneous thin sheets, the center of gravity coincides with the geometric centroid:
 1. **Triangular Lamina:**
-   $$G = \left( \frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3} \right)$$
+   $$G = \\left( \\frac{x_1 + x_2 + x_3}{3}, \\frac{y_1 + y_2 + y_3}{3} \\right)$$
    *(Intersection of the three medians; divides each median in ratio $1:2$ from the base).*
 2. **Parallelogram, Rectangle, Square, Rhombus:** Intersection of diagonals.
 3. **Circular Disk / Ring:** Geometric center of the circle.
 4. **Semicircular Lamina of Radius $r$:** Lies on symmetry axis at distance:
-   $$\bar{y} = \frac{4r}{3\pi}$$
+   $$\\bar{y} = \\frac{4r}{3\\pi}$$
 5. **Semicircular Wire Arc of Radius $r$:**
-   $$\bar{y} = \frac{2r}{\pi}$$
+   $$\\bar{y} = \\frac{2r}{\\pi}$$
 
 ### 2. The Negative Mass Method (طريقة الكتلة السالبة)
 When a hole or portion is cut out or removed from a homogeneous body:
 Treat the composite remaining body as the complete original body of mass $+M_1$ PLUS the removed cutout treated as an object of **Negative Mass** $-M_2$:
-$$\bar{x} = \frac{M_1 x_1 - M_2 x_2}{M_1 - M_2}, \quad \bar{y} = \frac{M_1 y_1 - M_2 y_2}{M_1 - M_2}$$
+$$\\bar{x} = \\frac{M_1 x_1 - M_2 x_2}{M_1 - M_2}, \\quad \\bar{y} = \\frac{M_1 y_1 - M_2 y_2}{M_1 - M_2}$$
 - **Area Ratio Formulation:** Since mass is proportional to area:
-  $$\bar{x} = \frac{A_{\text{orig}} x_1 - A_{\text{cut}} x_2}{A_{\text{orig}} - A_{\text{cut}}}$$
+  $$\\bar{x} = \\frac{A_{\\text{orig}} x_1 - A_{\\text{cut}} x_2}{A_{\\text{orig}} - A_{\\text{cut}}}$$
 
 ### 3. Folded Laminae Calculations
 When part of a lamina is cut and folded over another part (or a mass is added):
-1. Compute the mass of the folded piece $+M_{\text{folded}}$.
-2. Deduce the coordinates of its new flipped centroid $(x_{\text{new}}, y_{\text{new}})$ by reflecting across the fold axis line.
+1. Compute the mass of the folded piece $+M_{\\text{folded}}$.
+2. Deduce the coordinates of its new flipped centroid $(x_{\\text{new}}, y_{\\text{new}})$ by reflecting across the fold axis line.
 3. Add as an additional positive mass at its new coordinate.
 
 ### 4. Critical Examination Pitfalls & Common Traps
 - **Square Area Scaling:** In similar shapes, area scales with the SQUARE of the linear dimension ratio:
-  $$\frac{A_1}{A_2} = \left(\frac{L_1}{L_2}\right)^2$$
-  *Example:* Cutting out a square of side $L/2$ removes $\frac{1}{4}$ of the area, NOT $\frac{1}{2}$!
+  $$\\frac{A_1}{A_2} = \\left(\\frac{L_1}{L_2}\\right)^2$$
+  *Example:* Cutting out a square of side $L/2$ removes $\\frac{1}{4}$ of the area, NOT $\\frac{1}{2}$!
 - **Negative Sign in Denominator:** In the negative mass formula, the denominator is the REMAINING mass: $M_1 - M_2$. Never write $M_1 + M_2$ in the denominator when calculating cutouts.`,
           theoryContentAr: `### ١. مراكز ثقل الصفائح الهندسية المنتظمة القياسية
 في الصفائح الرقيقة المنتظمة الكثافة، ينطبق مركز الثقل على المركز الهندسي:
 ١. **الصفيحة المثلثة:** نقطة تلاقي المتوسطات:
-   $$G = \left( \frac{x_1 + x_2 + x_3}{3}, \frac{y_1 + y_2 + y_3}{3} \right)$$
+   $$G = \\left( \\frac{x_1 + x_2 + x_3}{3}, \\frac{y_1 + y_2 + y_3}{3} \\right)$$
    *(وتقسم كل متوسط بنسبة $١ : ٢$ من جهة القاعدة).*
 ٢. **متوازي الأضلاع والمستطيل والمربع والمعين:** نقطة تقاطع القطرين.
 ٣. **القرص الدائري:** مركز الدائرة الهندسي.
 ٤. **صفيحة على شكل نصف قرص دائري نصف قطره $r$:**
-   $$\bar{y} = \frac{4r}{3\pi} \quad (\text{على محور التماثل من المركز})$$
+   $$\\bar{y} = \\frac{4r}{3\\pi} \\quad (\\text{على محور التماثل من المركز})$$
 ٥. **سلك على شكل نصف دائرة نصف قطره $r$:**
-   $$\bar{y} = \frac{2r}{\pi}$$
+   $$\\bar{y} = \\frac{2r}{\\pi}$$
 
 ### ٢. طريقة الكتلة السالبة (للأجزاء المقتطعة)
 عند فصل أو اقتطاع جزء من صفيحة منتظمة:
 نعتبر الصفيحة المتبقية ناتجة عن إضافة **كتلة سالبة** $-M_2$ (تمثل الجزء المقتطع) إلى الكتلة الأصلية الكلية الموجبة $+M_1$:
-$$\bar{x} = \frac{M_1 x_1 - M_2 x_2}{M_1 - M_2}, \quad \bar{y} = \frac{M_1 y_1 - M_2 y_2}{M_1 - M_2}$$
+$$\\bar{x} = \\frac{M_1 x_1 - M_2 x_2}{M_1 - M_2}, \\quad \\bar{y} = \\frac{M_1 y_1 - M_2 y_2}{M_1 - M_2}$$
 وحيث إن الكتلة تتناسب مع المساحة، يمكن استخدام المساحات مباشرة:
-$$\bar{x} = \frac{A_1 x_1 - A_2 x_2}{A_1 - A_2}, \quad \bar{y} = \frac{A_1 y_1 - A_2 y_2}{A_1 - A_2}$$
+$$\\bar{x} = \\frac{A_1 x_1 - A_2 x_2}{A_1 - A_2}, \\quad \\bar{y} = \\frac{A_1 y_1 - A_2 y_2}{A_1 - A_2}$$
 
 ### ٣. الصفائح المطوية
 عند ثني جزء من صفيحة على باقي الصفيحة:
@@ -2663,7 +2663,7 @@ $$\bar{x} = \frac{A_1 x_1 - A_2 x_2}{A_1 - A_2}, \quad \bar{y} = \frac{A_1 y_1 -
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
 - **فخ نسبة المساحات المربعة:** مساحات الأشكال المتشابهة تتناسب مع **مربع** أبعادها:
-  $$\frac{A_1}{A_2} = \left(\frac{L_1}{L_2}\right)^2$$
+  $$\\frac{A_1}{A_2} = \\left(\\frac{L_1}{L_2}\\right)^2$$
   فاقتطاع مربع طول ضلعه نصف طول ضلع المربع الأصلي يقتطع ربع المساحة ($1/4$) وليس نصفها!
 - **إشارة المقام في الكتلة السالبة:** مقام قانون الكتلة السالبة هو الكتلة المتبقية ($M_1 - M_2$)، ووضع إشارة موجبة في المقام خطأ فادح يقلب موضع مركز الثقل.`,
           formulas: [

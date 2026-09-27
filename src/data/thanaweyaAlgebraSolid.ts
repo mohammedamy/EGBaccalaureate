@@ -39,10 +39,10 @@ export const thanaweyaAlgebraSolidBranch: Branch = {
 If an action $A_1$ can be executed in $n_1$ distinct ways, and an action $A_2$ can be executed in $n_2$ ways:
 - **The Multiplication Principle (AND rule / معاً أو على الترتيب):**
   Executing both action $A_1$ AND action $A_2$ sequentially or simultaneously can be performed in:
-  $$N = n_1 \times n_2 \text{ ways}$$
+  $$N = n_1 \\times n_2 \\text{ ways}$$
 - **The Addition Principle (OR rule / إحداهما أو الأخرى - أحداث مانعة):**
   Executing either action $A_1$ OR action $A_2$ (mutually exclusive) can be performed in:
-  $$N = n_1 + n_2 \text{ ways}$$
+  $$N = n_1 + n_2 \\text{ ways}$$
 
 ### 2. The Four Fundamental Sampling Models (مصفوفة الاختيار والترتيب)
 When selecting $r$ items from a set of $n$ distinct available items:
@@ -50,13 +50,13 @@ When selecting $r$ items from a set of $n$ distinct available items:
    $$N = n^r$$
    *(Examples: digital passcodes, license plates, telephone numbers).*
 2. **With Order and Without Replacement (ترتيب بدون إحلال — التباديل Permutations):**
-   $$P(n, r) = \frac{n!}{(n - r)!} = n(n-1)(n-2)\cdots(n-r+1)$$
+   $$P(n, r) = \\frac{n!}{(n - r)!} = n(n-1)(n-2)\\cdots(n-r+1)$$
    *(Examples: forming distinct digit numbers, seating people in numbered chairs, awarding 1st, 2nd, 3rd prizes).*
 3. **Without Order and Without Replacement (بدون ترتيب وبدون إحلال — التوافيق Combinations):**
-   $$C(n, r) = \binom{n}{r} = \frac{n!}{r!(n - r)!} = \frac{P(n, r)}{r!}$$
+   $$C(n, r) = \\binom{n}{r} = \\frac{n!}{r!(n - r)!} = \\frac{P(n, r)}{r!}$$
    *(Examples: selecting a committee of students, choosing a hand of cards, geometric polygons).*
 4. **Without Order and With Replacement (بدون ترتيب مع إحلال — Stars and Bars):**
-   $$N = \binom{n + r - 1}{r}$$
+   $$N = \\binom{n + r - 1}{r}$$
    *(Examples: distributing $r$ identical identical balls into $n$ distinct boxes, purchasing $r$ pieces of fruit from $n$ distinct varieties).*
 
 ### 3. Permutations in a Row vs. in a Circle
@@ -64,37 +64,37 @@ When selecting $r$ items from a set of $n$ distinct available items:
 - **Arranging $n$ distinct elements in a Circle without reference mark (دائرة بلا علامة مميزة):**
   $$N = (n - 1)!$$
 - **Arranging $n$ distinct elements in a Circle WITH a fixed reference mark (دائرة بعلامة مميزة مثل باب أو نافذة):**
-  $$N = n! \quad (\text{the reference mark destroys rotational symmetry, reducing it to a linear row!})$$
+  $$N = n! \\quad (\\text{the reference mark destroys rotational symmetry, reducing it to a linear row!})$$
 - **Arranging $n$ elements in a Bracelet or Necklace (قلادة أو سوار - الوجه والظهر متطابقان):**
-  $$N = \frac{(n - 1)!}{2}$$
+  $$N = \\frac{(n - 1)!}{2}$$
 
 ### 4. Golden Identities of Combinations (قوانين التوافيق)
-1. **Symmetry Law (قانون التبسيط):** $\binom{n}{r} = \binom{n}{n - r}$
-2. **Equality Law (قانون التساوي):** If $\binom{n}{x} = \binom{n}{y}$, then either:
-   $$x = y \quad \text{or} \quad x + y = n$$
+1. **Symmetry Law (قانون التبسيط):** $\\binom{n}{r} = \\binom{n}{n - r}$
+2. **Equality Law (قانون التساوي):** If $\\binom{n}{x} = \\binom{n}{y}$, then either:
+   $$x = y \\quad \\text{or} \\quad x + y = n$$
 3. **Pascal Addition Law (قانون الجمع):**
-   $$\binom{n}{r} + \binom{n}{r - 1} = \binom{n + 1}{r}$$
+   $$\\binom{n}{r} + \\binom{n}{r - 1} = \\binom{n + 1}{r}$$
 4. **Consecutive Combinations Ratio Law (قانون النسبة):**
-   $$\frac{\binom{n}{r}}{\binom{n}{r - 1}} = \frac{n - r + 1}{r}$$
-5. **Permutations Ratio Law:** $\frac{P(n, r)}{P(n, r-1)} = n - r + 1$
+   $$\\frac{\\binom{n}{r}}{\\binom{n}{r - 1}} = \\frac{n - r + 1}{r}$$
+5. **Permutations Ratio Law:** $\\frac{P(n, r)}{P(n, r-1)} = n - r + 1$
 
 ### 5. Geometric Combinatorics Corollaries
-- **Lines from $n$ Points (no three collinear):** $\binom{n}{2}$
-- **Lines when $k$ points are collinear:** $\binom{n}{2} - \binom{k}{2} + 1$
-- **Number of Diagonals of a Convex $n$-gon:** $D = \binom{n}{2} - n = \frac{n(n - 3)}{2}$
-- **Triangles from $n$ Points:** $\binom{n}{3}$ (if $k$ points are collinear: $\binom{n}{3} - \binom{k}{3}$).
+- **Lines from $n$ Points (no three collinear):** $\\binom{n}{2}$
+- **Lines when $k$ points are collinear:** $\\binom{n}{2} - \\binom{k}{2} + 1$
+- **Number of Diagonals of a Convex $n$-gon:** $D = \\binom{n}{2} - n = \\frac{n(n - 3)}{2}$
+- **Triangles from $n$ Points:** $\\binom{n}{3}$ (if $k$ points are collinear: $\\binom{n}{3} - \\binom{k}{3}$).
 
 ### 6. Critical Examination Pitfalls & Common Traps
 - **Circular Table with Fixed Reference Trap:** If people are seated around a circular table where one seat is adjacent to a door or window, the number of arrangements is $n!$, NOT $(n-1)!$!
-- **Combinations Addition Condition:** Pascal's addition law requires the UPPER index $n$ to be IDENTICAL and the lower indices to differ by exactly $1$: $\binom{n}{r} + \binom{n}{r-1} = \binom{n+1}{r}$. If upper indices differ, simplify algebraically first.`,
+- **Combinations Addition Condition:** Pascal's addition law requires the UPPER index $n$ to be IDENTICAL and the lower indices to differ by exactly $1$: $\\binom{n}{r} + \\binom{n}{r-1} = \\binom{n+1}{r}$. If upper indices differ, simplify algebraically first.`,
           theoryContentAr: `### ١. القواعد الأساسية لمبدأ العد
 إذا كان لدينا عمليتان مستقلتان $A_1$ و $A_2$ تتم الأولى بـ $n_1$ طريقة وتتم الثانية بـ $n_2$ طريقة:
 - **قاعدة الضرب (معاً / و / على الترتيب):**
   إجراء العمليتين معاً يتم بـ:
-  $$N = n_1 \times n_2 \text{ طريقة}$$
+  $$N = n_1 \\times n_2 \\text{ طريقة}$$
 - **قاعدة الجمع (إحداهما أو الأخرى - أحداث متنافية مانعة):**
   إجراء إحدى العمليتين فقط يتم بـ:
-  $$N = n_1 + n_2 \text{ طريقة}$$
+  $$N = n_1 + n_2 \\text{ طريقة}$$
 
 ### ٢. مصفوفة النماذج الأربعة للاختيار والترتيب
 عند اختيار $r$ من العناصر من بين $n$ من العناصر المختلفة المتاحة:
@@ -102,13 +102,13 @@ When selecting $r$ items from a set of $n$ distinct available items:
    $$N = n^r$$
    *(أمثلة: كلمات المرور الرقمية، أرقام الهواتف، لوحات السيارات).*
 ٢. **مع الترتيب وبدون إحلال (التباديل):**
-   $$P(n, r) = \frac{n!}{(n - r)!} = n(n-1)(n-2)\cdots(n-r+1)$$
+   $$P(n, r) = \\frac{n!}{(n - r)!} = n(n-1)(n-2)\\cdots(n-r+1)$$
    *(أمثلة: تكوين أعداد من أرقام مختلفة، ترتيب أشخاص على كراسي مرقمة، توزيع الجوائز الأولى والثانية).*
 ٣. **بدون ترتيب وبدون إحلال (التوافيق):**
-   $$C(n, r) = \binom{n}{r} = \frac{n!}{r!(n - r)!} = \frac{P(n, r)}{r!}$$
+   $$C(n, r) = \\binom{n}{r} = \\frac{n!}{r!(n - r)!} = \\frac{P(n, r)}{r!}$$
    *(أمثلة: تشكيل اللجان، اختيار أوراق اللعب، تكوين المثلثات والقطع المستقيمة).*
 ٤. **بدون ترتيب ومع الإحلال (الكرات المتطابقة والصناديق):**
-   $$N = \binom{n + r - 1}{r}$$
+   $$N = \\binom{n + r - 1}{r}$$
    *(أمثلة: توزيع $r$ من الكرات المتماثلة في $n$ من الصناديق، شراء $r$ قطع من الفاكهة من بين $n$ أنواع معروضة).*
 
 ### ٣. التباديل في صف وفي دائرة
@@ -116,28 +116,28 @@ When selecting $r$ items from a set of $n$ distinct available items:
 - **ترتيب $n$ من العناصر في دائرة بدون علامة مميزة:**
   $$(n - 1)!$$
 - **ترتيب $n$ من العناصر في دائرة مع وجود علامة مميزة (مثل جوار نافذة أو باب):**
-  $$n! \quad (\text{وجود العلامة يلغي التماثل الدوراني ويحول الدائرة إلى صف!})$$
+  $$n! \\quad (\\text{وجود العلامة يلغي التماثل الدوراني ويحول الدائرة إلى صف!})$$
 - **ترتيب $n$ من العناصر في سوار أو قلادة (الوجهان متطابقان في الفراغ):**
-  $$\frac{(n - 1)!}{2}$$
+  $$\\frac{(n - 1)!}{2}$$
 
 ### ٤. قوانين التوافيق الذهبية
-١. **قانون التبسيط:** $\binom{n}{r} = \binom{n}{n - r}$
-٢. **قانون التساوي:** إذا كان $\binom{n}{x} = \binom{n}{y}$ فإن:
-   $$x = y \quad \text{أو} \quad x + y = n$$
+١. **قانون التبسيط:** $\\binom{n}{r} = \\binom{n}{n - r}$
+٢. **قانون التساوي:** إذا كان $\\binom{n}{x} = \\binom{n}{y}$ فإن:
+   $$x = y \\quad \\text{أو} \\quad x + y = n$$
 ٣. **قانون الجمع (مثلث باسكال):**
-   $$\binom{n}{r} + \binom{n}{r - 1} = \binom{n + 1}{r}$$
+   $$\\binom{n}{r} + \\binom{n}{r - 1} = \\binom{n + 1}{r}$$
 ٤. **قانون النسبة بين توفيقتين متتاليتين:**
-   $$\frac{\binom{n}{r}}{\binom{n}{r - 1}} = \frac{n - r + 1}{r}$$
-٥. **قانون النسبة بين تبديلتين متتاليتين:** $\frac{P(n, r)}{P(n, r-1)} = n - r + 1$
+   $$\\frac{\\binom{n}{r}}{\\binom{n}{r - 1}} = \\frac{n - r + 1}{r}$$
+٥. **قانون النسبة بين تبديلتين متتاليتين:** $\\frac{P(n, r)}{P(n, r-1)} = n - r + 1$
 
 ### ٥. نتائج هندسية هامة للتوافيق
-- **عدد القطع المستقيمة من $n$ نقطة (لا تقع أي ٣ منها على استقامة واحدة):** $\binom{n}{2}$
-- **عدد أقطار مضلع محدب عدد أضلاعه $n$:** $D = \binom{n}{2} - n = \frac{n(n - 3)}{2}$
-- **عدد المثلثات من $n$ نقطة:** $\binom{n}{3}$
+- **عدد القطع المستقيمة من $n$ نقطة (لا تقع أي ٣ منها على استقامة واحدة):** $\\binom{n}{2}$
+- **عدد أقطار مضلع محدب عدد أضلاعه $n$:** $D = \\binom{n}{2} - n = \\frac{n(n - 3)}{2}$
+- **عدد المثلثات من $n$ نقطة:** $\\binom{n}{3}$
 
 ### ٦. فخاخ ومكائد امتحانات الثانوية العامة
 - **فخ المائدة الدائرية ذات العلامة المميزة:** إذا جلس أشخاص حول مائدة دائرية بحيث يجلس أحدهم بجوار باب أو نافذة، فالترتيب يتم بـ $n!$ طريقة وليس $(n-1)!$!
-- **شرط تطبيق قانون جمع التوافيق:** يجب أن يكون العلم $n$ متطابقاً في التوفيقتين، والدليلان متتاليين فرق بينهما $1$: $\binom{n}{r} + \binom{n}{r-1} = \binom{n+1}{r}$.`,
+- **شرط تطبيق قانون جمع التوافيق:** يجب أن يكون العلم $n$ متطابقاً في التوفيقتين، والدليلان متتاليين فرق بينهما $1$: $\\binom{n}{r} + \\binom{n}{r-1} = \\binom{n+1}{r}$.`,
               formulas: [
                 { labelEn: 'Permutations Formula', labelAr: 'قانون التباديل', latex: 'P(n,r) = \\frac{n!}{(n-r)!}' },
                 { labelEn: 'Combinations Formula', labelAr: 'قانون التوافيق', latex: '\\binom{n}{r} = \\frac{n!}{r!(n-r)!}' },
@@ -386,71 +386,71 @@ When selecting $r$ items from a set of $n$ distinct available items:
               summaryEn: 'Expansion of $(a + b)^n$, general term $T_{r+1}$, middle term determination, and coefficient properties.',
               summaryAr: 'مفكوك $(a + b)^n$، قانون الحد العام $T_{r+1}$، رتبة الحد الأوسط والحدين الأوسطين، وحساب مجموع المعاملات.',
               theoryContentEn: `### 1. The Binomial Theorem for Positive Integral Exponents
-For any real or complex numbers $a$ and $b$, and any positive integer $n \in \mathbb{N}$:
-$$(a + b)^n = \sum_{r=0}^n \binom{n}{r} a^{n-r} b^r = \binom{n}{0} a^n + \binom{n}{1} a^{n-1} b + \binom{n}{2} a^{n-2} b^2 + \cdots + \binom{n}{n} b^n$$
+For any real or complex numbers $a$ and $b$, and any positive integer $n \\in \\mathbb{N}$:
+$$(a + b)^n = \\sum_{r=0}^n \\binom{n}{r} a^{n-r} b^r = \\binom{n}{0} a^n + \\binom{n}{1} a^{n-1} b + \\binom{n}{2} a^{n-2} b^2 + \\cdots + \\binom{n}{n} b^n$$
 - Total number of terms in the expansion is strictly $n + 1$.
 - Sum of the exponents of $a$ and $b$ in every single term is constant and equals $n$: $(n - r) + r = n$.
 
 ### 2. The General Term Formula ($T_{r+1}$)
 The $(r+1)$-th term of the expansion $(a + b)^n$ is given by:
-$$T_{r+1} = \binom{n}{r} a^{n-r} b^r = \binom{n}{r} (\text{First})^{n-r} (\text{Second})^r$$
+$$T_{r+1} = \\binom{n}{r} a^{n-r} b^r = \\binom{n}{r} (\\text{First})^{n-r} (\\text{Second})^r$$
 - **The Term Independent of $x$ (الحد الخالي من س):**
-  Write $T_{r+1}$ collecting all powers of the variable $x$: $T_{r+1} = K \cdot x^{\alpha - \beta r}$.
-  Set the net exponent of $x$ equal to zero: $\alpha - \beta r = 0 \implies r = \alpha / \beta$.
-  *Criterion:* A term independent of $x$ exists if and only if $r$ is an integer satisfying $0 \le r \le n$.
+  Write $T_{r+1}$ collecting all powers of the variable $x$: $T_{r+1} = K \\cdot x^{\\alpha - \\beta r}$.
+  Set the net exponent of $x$ equal to zero: $\\alpha - \\beta r = 0 \\implies r = \\alpha / \\beta$.
+  *Criterion:* A term independent of $x$ exists if and only if $r$ is an integer satisfying $0 \\le r \\le n$.
 
 ### 3. Middle Terms of the Expansion (الحد أو الحدان الأوسطان)
 - **If $n$ is EVEN:** There is exactly **ONE Middle Term**:
-  $$\text{Rank of the Middle Term} = \frac{n}{2} + 1 \implies T_{\frac{n}{2} + 1}$$
+  $$\\text{Rank of the Middle Term} = \\frac{n}{2} + 1 \\implies T_{\\frac{n}{2} + 1}$$
 - **If $n$ is ODD:** There are exactly **TWO Middle Terms**:
-  $$\text{Ranks} = \frac{n + 1}{2} \quad \text{and} \quad \frac{n + 3}{2} \implies T_{\frac{n+1}{2}} \quad \text{and} \quad T_{\frac{n+3}{2}}$$
+  $$\\text{Ranks} = \\frac{n + 1}{2} \\quad \\text{and} \\quad \\frac{n + 3}{2} \\implies T_{\\frac{n+1}{2}} \\quad \\text{and} \\quad T_{\\frac{n+3}{2}}$$
 
 ### 4. Ratio of Consecutive Terms (قانون النسبة بين حدين متتاليين)
-$$\frac{T_{r+1}}{T_r} = \frac{\binom{n}{r} a^{n-r} b^r}{\binom{n}{r-1} a^{n-r+1} b^{r-1}} = \frac{n - r + 1}{r} \cdot \frac{b}{a} = \frac{n - r + 1}{r} \cdot \frac{\text{Second Term}}{\text{First Term}}$$
+$$\\frac{T_{r+1}}{T_r} = \\frac{\\binom{n}{r} a^{n-r} b^r}{\\binom{n}{r-1} a^{n-r+1} b^{r-1}} = \\frac{n - r + 1}{r} \\cdot \\frac{b}{a} = \\frac{n - r + 1}{r} \\cdot \\frac{\\text{Second Term}}{\\text{First Term}}$$
 - **Finding the Greatest Term (أكبر حدود المفكوك عدداً):**
   Solve the inequality:
-  $$\left| \frac{T_{r+1}}{T_r} \right| \ge 1 \implies \frac{n - r + 1}{r} \left| \frac{b}{a} \right| \ge 1$$
+  $$\\left| \\frac{T_{r+1}}{T_r} \\right| \\ge 1 \\implies \\frac{n - r + 1}{r} \\left| \\frac{b}{a} \\right| \\ge 1$$
   Solve for integer $r$.
 
 ### 5. Sum of Coefficients Theorem (مجموع معاملات المفكوك)
 To find the sum of all coefficients in any binomial expansion $(u x + v y)^n$, substitute $x = 1, y = 1$:
-$$\text{Sum of Coefficients} = (u(1) + v(1))^n = (u + v)^n$$
+$$\\text{Sum of Coefficients} = (u(1) + v(1))^n = (u + v)^n$$
 
 ### 6. Critical Examination Pitfalls & Common Traps
-- **Alternating Signs in $(a - b)^n$:** The general term is $T_{r+1} = \binom{n}{r} a^{n-r} (-b)^r = (-1)^r \binom{n}{r} a^{n-r} b^r$. Even-ranked terms ($T_2, T_4, T_6$) carry negative signs!
+- **Alternating Signs in $(a - b)^n$:** The general term is $T_{r+1} = \\binom{n}{r} a^{n-r} (-b)^r = (-1)^r \\binom{n}{r} a^{n-r} b^r$. Even-ranked terms ($T_2, T_4, T_6$) carry negative signs!
 - **Rank Shift Trap:** The combination index is $r$ for term $T_{r+1}$. To find the 5th term ($T_5$), $r = 4$, NOT $5$!`,
           theoryContentAr: `### ١. نظرية ذات الحدين لأس صحيح موجب
-لأي عددين حقيقيين أو مركبين $a$ و $b$ ولأي أس صحيح موجب $n \in \mathbb{N}$:
-$$(a + b)^n = \sum_{r=0}^n \binom{n}{r} a^{n-r} b^r = \binom{n}{0} a^n + \binom{n}{1} a^{n-1} b + \cdots + \binom{n}{n} b^n$$
+لأي عددين حقيقيين أو مركبين $a$ و $b$ ولأي أس صحيح موجب $n \\in \\mathbb{N}$:
+$$(a + b)^n = \\sum_{r=0}^n \\binom{n}{r} a^{n-r} b^r = \\binom{n}{0} a^n + \\binom{n}{1} a^{n-1} b + \\cdots + \\binom{n}{n} b^n$$
 - عدد حدود المفكوك دائماً يساوي $n + 1$.
 - مجموع أسس الحدين الأول والثاني في أي حد من حدود المفكوك يساوي الأس الكلي $n$.
 
 ### ٢. قانون الحد العام ($T_{r+1}$)
 الحد الذي رتبته $r + 1$ في مفكوك $(a + b)^n$:
-$$T_{r+1} = \binom{n}{r} a^{n-r} b^r = \binom{n}{r} (\text{الأول})^{n-r} (\text{الثاني})^r$$
+$$T_{r+1} = \\binom{n}{r} a^{n-r} b^r = \\binom{n}{r} (\\text{الأول})^{n-r} (\\text{الثاني})^r$$
 - **الحد الخالي من س:**
-  نكتب الحد العام ونجمع أسس المتغير $x$: $T_{r+1} = K \cdot x^{p - q r}$.
-  نضع الأس مساوياً للصفر: $p - q r = 0 \implies r = p / q$.
-  *شرط وجود حد خالٍ من س:* أن تكون قيمة $r$ عدداً صحيحاً ينتمي إلى $\{0, 1, 2, \dots, n\}$.
+  نكتب الحد العام ونجمع أسس المتغير $x$: $T_{r+1} = K \\cdot x^{p - q r}$.
+  نضع الأس مساوياً للصفر: $p - q r = 0 \\implies r = p / q$.
+  *شرط وجود حد خالٍ من س:* أن تكون قيمة $r$ عدداً صحيحاً ينتمي إلى $\\{0, 1, 2, \\dots, n\\}$.
 
 ### ٣. الحد أو الحدان الأوسطان
 - **إذا كان الأس $n$ زوجياً:** يوجد **حد أوسط وحيد** رتبته:
-  $$\text{رتبة الحد الأوسط} = \frac{n}{2} + 1 \implies T_{\frac{n}{2} + 1}$$
+  $$\\text{رتبة الحد الأوسط} = \\frac{n}{2} + 1 \\implies T_{\\frac{n}{2} + 1}$$
 - **إذا كان الأس $n$ فردياً:** يوجد **حدان أوسطان** رتبتاهما:
-  $$\text{الرتبتان} = \frac{n + 1}{2} \quad \text{و} \quad \frac{n + 3}{2}$$
+  $$\\text{الرتبتان} = \\frac{n + 1}{2} \\quad \\text{و} \\quad \\frac{n + 3}{2}$$
 
 ### ٤. قانون النسبة بين حدين متتاليين
-$$\frac{T_{r+1}}{T_r} = \frac{n - r + 1}{r} \cdot \frac{b}{a} = \frac{n - r + 1}{r} \cdot \frac{\text{الحد الثاني}}{\text{الحد الأول}}$$
+$$\\frac{T_{r+1}}{T_r} = \\frac{n - r + 1}{r} \\cdot \\frac{b}{a} = \\frac{n - r + 1}{r} \\cdot \\frac{\\text{الحد الثاني}}{\\text{الحد الأول}}$$
 - **إيجاد أكبر حدود المفكوك قيمة عددية:**
   نحل المتباينة:
-  $$\left| \frac{T_{r+1}}{T_r} \right| \ge 1 \implies \frac{n - r + 1}{r} \left| \frac{b}{a} \right| \ge 1$$
+  $$\\left| \\frac{T_{r+1}}{T_r} \\right| \\ge 1 \\implies \\frac{n - r + 1}{r} \\left| \\frac{b}{a} \\right| \\ge 1$$
 
 ### ٥. نظرية مجموع معاملات المفكوك
 لحساب مجموع معاملات أي مفكوك ذي حدين، نضع جميع المتغيرات مساوية للواحد الصحيح ($x = 1, y = 1$):
-$$\text{مجموع المعاملات} = (u + v)^n$$
+$$\\text{مجموع المعاملات} = (u + v)^n$$
 
 ### ٦. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ إشارة السالب في مفكوك $(a - b)^n$:** إشارة الحد العام هي $(-1)^r$؛ الحدود ذات الرتبة الزوجية ($T_2, T_4, \dots$) تكون سالبة.
+- **فخ إشارة السالب في مفكوك $(a - b)^n$:** إشارة الحد العام هي $(-1)^r$؛ الحدود ذات الرتبة الزوجية ($T_2, T_4, \\dots$) تكون سالبة.
 - **الفرق بين الرتبة وقيمة $r$:** الحد الخامس $T_5$ نعوض فيه بـ $r = 4$ وليس $r = 5$.`,
               formulas: [
                 { labelEn: 'Binomial Expansion', labelAr: 'مفكوك ذات الحدين', latex: '(a+b)^n = \\sum_{r=0}^n \\binom{n}{r} a^{n-r} b^r' },
@@ -688,89 +688,89 @@ $$\text{مجموع المعاملات} = (u + v)^n$$
               summaryAr: 'المقياس $r = |z| = \\sqrt{x^2 + y^2}$، والسعة الأساسية $\\theta \\in (-\\pi, \\pi]$، الصورة المثلثية $z = r(\\cos\\theta + i\\sin\\theta)$، والصورة الأسية لأويلر $z = r e^{i\\theta}$، وقواعد الضرب والقسمة.',
               theoryContentEn: `### 1. Algebraic & Geometric Foundations of Complex Numbers
 A complex number $z$ in algebraic (Cartesian) form is defined by:
-$$z = a + b i \quad \text{where } a, b \in \mathbb{R} \text{ and } i^2 = -1$$
-- $a = \text{Re}(z)$ is the real part, $b = \text{Im}(z)$ is the imaginary part.
-- Complex Conjugate: $\bar{z} = a - b i$, with $z \bar{z} = a^2 + b^2 = |z|^2$.
-- Powers of $i$: $i^1 = i, \, i^2 = -1, \, i^3 = -i, \, i^4 = 1$ (cycles mod 4: $i^{4k+m} = i^m$).
+$$z = a + b i \\quad \\text{where } a, b \\in \\mathbb{R} \\text{ and } i^2 = -1$$
+- $a = \\text{Re}(z)$ is the real part, $b = \\text{Im}(z)$ is the imaginary part.
+- Complex Conjugate: $\\bar{z} = a - b i$, with $z \\bar{z} = a^2 + b^2 = |z|^2$.
+- Powers of $i$: $i^1 = i, \\, i^2 = -1, \\, i^3 = -i, \\, i^4 = 1$ (cycles mod 4: $i^{4k+m} = i^m$).
 
 ### 2. Modulus & The Principal Argument on the Argand Plane
 Plotted as point $(a, b)$ on the Argand plane:
 - **Modulus (المقياس):** The Euclidean distance from origin:
-  $$r = |z| = \sqrt{a^2 + b^2} \ge 0$$
-- **Principal Argument (السعة الأساسية $\theta = \text{Arg}(z)$):**
+  $$r = |z| = \\sqrt{a^2 + b^2} \\ge 0$$
+- **Principal Argument (السعة الأساسية $\\theta = \\text{Arg}(z)$):**
   Strictly constrained to the half-open interval:
-  $$\theta \in (-\pi, \pi] \quad \text{or} \quad -180^\circ < \theta \le 180^\circ$$
-  - **Quadrant 1 ($a > 0, b > 0$):** $\theta = \arctan\left(\frac{b}{a}\right)$
-  - **Quadrant 2 ($a < 0, b > 0$):** $\theta = \pi - \arctan\left|\frac{b}{a}\right|$
-  - **Quadrant 3 ($a < 0, b < 0$):** $\theta = -\pi + \arctan\left|\frac{b}{a}\right|$
-  - **Quadrant 4 ($a > 0, b < 0$):** $\theta = -\arctan\left|\frac{b}{a}\right|$
+  $$\\theta \\in (-\\pi, \\pi] \\quad \\text{or} \\quad -180^\\circ < \\theta \\le 180^\\circ$$
+  - **Quadrant 1 ($a > 0, b > 0$):** $\\theta = \\arctan\\left(\\frac{b}{a}\\right)$
+  - **Quadrant 2 ($a < 0, b > 0$):** $\\theta = \\pi - \\arctan\\left|\\frac{b}{a}\\right|$
+  - **Quadrant 3 ($a < 0, b < 0$):** $\\theta = -\\pi + \\arctan\\left|\\frac{b}{a}\\right|$
+  - **Quadrant 4 ($a > 0, b < 0$):** $\\theta = -\\arctan\\left|\\frac{b}{a}\\right|$
 
 ### 3. Trigonometric (Polar) & Exponential (Euler) Forms
 - **Standard Trigonometric / Polar Form:**
-  $$z = r(\cos\theta + i\sin\theta)$$
-  *(Requires: $r > 0$, real part is cosine, imaginary part is positive $i \sin$, and the two angles are strictly identical).*
+  $$z = r(\\cos\\theta + i\\sin\\theta)$$
+  *(Requires: $r > 0$, real part is cosine, imaginary part is positive $i \\sin$, and the two angles are strictly identical).*
 - **Euler's Exponential Form:**
-  $$z = r e^{i\theta} \quad (\text{where } \theta \text{ is in radians!})$$
+  $$z = r e^{i\\theta} \\quad (\\text{where } \\theta \\text{ is in radians!})$$
 - **Canonical Boundary Units:**
-  $$1 = \cos 0 + i\sin 0 = e^{i 0}, \qquad -1 = \cos\pi + i\sin\pi = e^{i \pi}$$
-  $$i = \cos\left(\frac{\pi}{2}\right) + i\sin\left(\frac{\pi}{2}\right) = e^{i \pi/2}, \qquad -i = \cos\left(-\frac{\pi}{2}\right) + i\sin\left(-\frac{\pi}{2}\right) = e^{-i \pi/2}$$
+  $$1 = \\cos 0 + i\\sin 0 = e^{i 0}, \\qquad -1 = \\cos\\pi + i\\sin\\pi = e^{i \\pi}$$
+  $$i = \\cos\\left(\\frac{\\pi}{2}\\right) + i\\sin\\left(\\frac{\\pi}{2}\\right) = e^{i \\pi/2}, \\qquad -i = \\cos\\left(-\\frac{\\pi}{2}\\right) + i\\sin\\left(-\\frac{\\pi}{2}\\right) = e^{-i \\pi/2}$$
 
 ### 4. Multiplication and Division in Polar/Exponential Forms
-For $z_1 = r_1 e^{i\theta_1}$ and $z_2 = r_2 e^{i\theta_2}$:
+For $z_1 = r_1 e^{i\\theta_1}$ and $z_2 = r_2 e^{i\\theta_2}$:
 - **Multiplication:** Moduli multiply, arguments add:
-  $$z_1 z_2 = r_1 r_2 [\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)] = r_1 r_2 e^{i(\theta_1 + \theta_2)}$$
+  $$z_1 z_2 = r_1 r_2 [\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)] = r_1 r_2 e^{i(\\theta_1 + \\theta_2)}$$
 - **Division:** Moduli divide, arguments subtract:
-  $$\frac{z_1}{z_2} = \frac{r_1}{r_2} [\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)] = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}$$
+  $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2} [\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)] = \\frac{r_1}{r_2} e^{i(\\theta_1 - \\theta_2)}$$
 
 ### 5. Critical Examination Pitfalls & Common Traps
 - **Non-Standard Polar Forms (Adjusting Tricky Expressions):**
   If given non-standard trigonometric combinations:
-  1. $z = r(\cos\theta - i\sin\theta) = r[\cos(-\theta) + i\sin(-\theta)]$ (4th quadrant).
-  2. $z = r(-\cos\theta + i\sin\theta) = r[\cos(\pi - \theta) + i\sin(\pi - \theta)]$ (2nd quadrant).
-  3. $z = r(\sin\theta + i\cos\theta) = r[\cos(\frac{\pi}{2} - \theta) + i\sin(\frac{\pi}{2} - \theta)]$.
-  4. $z = r(\sin\theta - i\cos\theta) = r[\cos(-\frac{\pi}{2} + \theta) + i\sin(-\frac{\pi}{2} + \theta)]$.
-- **Principal Argument Range Violation:** When adding angles in multiplication, if $\theta_1 + \theta_2 > \pi$, subtract $2\pi$. If $\theta_1 + \theta_2 \le -\pi$, add $2\pi$.`,
+  1. $z = r(\\cos\\theta - i\\sin\\theta) = r[\\cos(-\\theta) + i\\sin(-\\theta)]$ (4th quadrant).
+  2. $z = r(-\\cos\\theta + i\\sin\\theta) = r[\\cos(\\pi - \\theta) + i\\sin(\\pi - \\theta)]$ (2nd quadrant).
+  3. $z = r(\\sin\\theta + i\\cos\\theta) = r[\\cos(\\frac{\\pi}{2} - \\theta) + i\\sin(\\frac{\\pi}{2} - \\theta)]$.
+  4. $z = r(\\sin\\theta - i\\cos\\theta) = r[\\cos(-\\frac{\\pi}{2} + \\theta) + i\\sin(-\\frac{\\pi}{2} + \\theta)]$.
+- **Principal Argument Range Violation:** When adding angles in multiplication, if $\\theta_1 + \\theta_2 > \\pi$, subtract $2\\pi$. If $\\theta_1 + \\theta_2 \\le -\\pi$, add $2\\pi$.`,
           theoryContentAr: `### ١. الصورة الجبرية للأعداد المركبة
 يُكتب العدد المركب $z$ في صورته الجبرية الديكارتية:
-$$z = a + b i \quad \text{حيث } a, b \in \mathbb{R} \text{ و } i^2 = -1$$
-- $a = \text{Re}(z)$ هو الجزء الحقيقي، $b = \text{Im}(z)$ هو الجزء التخيلي.
-- مرافق العدد المركب: $\bar{z} = a - b i$ وحاصل ضربهما: $z \bar{z} = a^2 + b^2 = |z|^2$.
-- قوى ت: $i^1 = i, \, i^2 = -1, \, i^3 = -i, \, i^4 = 1$ وتتكرر بدورة رباعية.
+$$z = a + b i \\quad \\text{حيث } a, b \\in \\mathbb{R} \\text{ و } i^2 = -1$$
+- $a = \\text{Re}(z)$ هو الجزء الحقيقي، $b = \\text{Im}(z)$ هو الجزء التخيلي.
+- مرافق العدد المركب: $\\bar{z} = a - b i$ وحاصل ضربهما: $z \\bar{z} = a^2 + b^2 = |z|^2$.
+- قوى ت: $i^1 = i, \\, i^2 = -1, \\, i^3 = -i, \\, i^4 = 1$ وتتكرر بدورة رباعية.
 
 ### ٢. المقياس والسعة الأساسية في شكل أرجاند
 يمثل العدد بالنقطة $(a, b)$ على مستوى أرجاند:
 - **المقياس ($r = |z|$):** بعد النقطة عن نقطة الأصل:
-  $$r = \sqrt{a^2 + b^2} \ge 0$$
-- **السعة الأساسية ($\theta = \text{Arg}(z)$):**
+  $$r = \\sqrt{a^2 + b^2} \\ge 0$$
+- **السعة الأساسية ($\\theta = \\text{Arg}(z)$):**
   تقتصر قانونياً في كتاب الوزارة على الفترة نصف المفتوحة:
-  $$\theta \in (-\pi, \pi] \quad \text{أو} \quad -180^\circ < \theta \le 180^\circ$$
-  - **الربع الأول ($a > 0, b > 0$):** $\theta = \arctan(b/a)$
-  - **الربع الثاني ($a < 0, b > 0$):** $\theta = \pi - \arctan|b/a|$
-  - **الربع الثالث ($a < 0, b < 0$):** $\theta = -\pi + \arctan|b/a|$
-  - **الربع الرابع ($a > 0, b < 0$):** $\theta = -\arctan|b/a|$
+  $$\\theta \\in (-\\pi, \\pi] \\quad \\text{أو} \\quad -180^\\circ < \\theta \\le 180^\\circ$$
+  - **الربع الأول ($a > 0, b > 0$):** $\\theta = \\arctan(b/a)$
+  - **الربع الثاني ($a < 0, b > 0$):** $\\theta = \\pi - \\arctan|b/a|$
+  - **الربع الثالث ($a < 0, b < 0$):** $\\theta = -\\pi + \\arctan|b/a|$
+  - **الربع الرابع ($a > 0, b < 0$):** $\\theta = -\\arctan|b/a|$
 
 ### ٣. الصورة المثلثية القياسية وصورة أويلر الأسية
 - **الصورة المثلثية القياسية:**
-  $$z = r(\cos\theta + i\sin\theta)$$
+  $$z = r(\\cos\\theta + i\\sin\\theta)$$
   *(شروطها الصارمة: $r > 0$، الجزء الحقيقي جتا، التخيلي جا مسبوق بموجب ت، والزاويتان متطابقتان تماماً).*
 - **الصورة الأسية لأويلر:**
-  $$z = r e^{i\theta} \quad (\text{حيث } \theta \text{ بالتقدير الدائري بالراديان})$$
+  $$z = r e^{i\\theta} \\quad (\\text{حيث } \\theta \\text{ بالتقدير الدائري بالراديان})$$
 - **الصور المثلثية القياسية للثوابت الشهيرة:**
-  $$1 = \cos 0 + i\sin 0 = e^{i 0}, \qquad -1 = \cos\pi + i\sin\pi = e^{i \pi}$$
-  $$i = \cos(90^\circ) + i\sin(90^\circ) = e^{i \pi/2}, \qquad -i = \cos(-90^\circ) + i\sin(-90^\circ) = e^{-i \pi/2}$$
+  $$1 = \\cos 0 + i\\sin 0 = e^{i 0}, \\qquad -1 = \\cos\\pi + i\\sin\\pi = e^{i \\pi}$$
+  $$i = \\cos(90^\\circ) + i\\sin(90^\\circ) = e^{i \\pi/2}, \\qquad -i = \\cos(-90^\\circ) + i\\sin(-90^\\circ) = e^{-i \\pi/2}$$
 
 ### ٤. ضرب وقسمة الأعداد المركبة
 - **الضرب:** نضرب المقاييس ونجمع السعات:
-  $$z_1 z_2 = r_1 r_2 e^{i(\theta_1 + \theta_2)}$$
+  $$z_1 z_2 = r_1 r_2 e^{i(\\theta_1 + \\theta_2)}$$
 - **القسمة:** نقسم المقاييس ونطرح السعات:
-  $$\frac{z_1}{z_2} = \frac{r_1}{r_2} e^{i(\theta_1 - \theta_2)}$$
+  $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2} e^{i(\\theta_1 - \\theta_2)}$$
 
 ### ٥. فخاخ ومكائد امتحانات الثانوية العامة
 - **تعديل الصور المثلثية غير القياسية:**
-  ١. $r(\cos\theta - i\sin\theta) = r[\cos(-\theta) + i\sin(-\theta)]$
-  ٢. $r(-\cos\theta + i\sin\theta) = r[\cos(180^\circ - \theta) + i\sin(180^\circ - \theta)]$
-  ٣. $r(\sin\theta + i\cos\theta) = r[\cos(90^\circ - \theta) + i\sin(90^\circ - \theta)]$
-- **تعديل السعة الأساسية إذا خرجت عن المدى:** إذا زادت السعة عن $\pi$ نطرح $2\pi$؛ وإذا نقصت عن $-\pi$ نضيف $2\pi$.`,
+  ١. $r(\\cos\\theta - i\\sin\\theta) = r[\\cos(-\\theta) + i\\sin(-\\theta)]$
+  ٢. $r(-\\cos\\theta + i\\sin\\theta) = r[\\cos(180^\\circ - \\theta) + i\\sin(180^\\circ - \\theta)]$
+  ٣. $r(\\sin\\theta + i\\cos\\theta) = r[\\cos(90^\\circ - \\theta) + i\\sin(90^\\circ - \\theta)]$
+- **تعديل السعة الأساسية إذا خرجت عن المدى:** إذا زادت السعة عن $\\pi$ نطرح $2\\pi$؛ وإذا نقصت عن $-\\pi$ نضيف $2\\pi$.`,
               formulas: [
                 { labelEn: 'Complex Modulus Formula', labelAr: 'مقياس العدد المركب', latex: 'r = |z| = \\sqrt{x^2 + y^2}' },
                 { labelEn: 'Trigonometric Form', labelAr: 'الصورة المثلثية القياسية', latex: 'z = r(\\cos\\theta + i\\sin\\theta)' },
@@ -1014,71 +1014,71 @@ $$z = a + b i \quad \text{حيث } a, b \in \mathbb{R} \text{ و } i^2 = -1$$
               summaryEn: 'De Moivre\'s theorem for integral and rational exponents, finding the $n$-th roots of complex numbers, and properties of the cube roots of unity $1, \\omega, \\omega^2$ with algebraic simplifications.',
               summaryAr: 'نظرية ديموافر للأسس الصحيحة والنسبية، إيجاد الجذور النونية للعدد المركب، وخواص الجذور التكعيبية للواحد الصحيح $1, \\omega, \\omega^2$ وتبسيط المقادير الجبرية.',
               theoryContentEn: `### 1. De Moivre's Theorem for Integral Exponents
-For any complex number in standard polar form $z = r(\cos\theta + i\sin\theta)$ and any integer $n \in \mathbb{Z}$:
-$$z^n = [r(\cos\theta + i\sin\theta)]^n = r^n [\cos(n\theta) + i\sin(n\theta)] = r^n e^{i n\theta}$$
+For any complex number in standard polar form $z = r(\\cos\\theta + i\\sin\\theta)$ and any integer $n \\in \\mathbb{Z}$:
+$$z^n = [r(\\cos\\theta + i\\sin\\theta)]^n = r^n [\\cos(n\\theta) + i\\sin(n\\theta)] = r^n e^{i n\\theta}$$
 
 ### 2. Fractional Exponents & Finding the $n$-th Roots of a Complex Number
-To find the $n$ distinct roots of $z^{1/n}$ where $n \in \mathbb{N}$:
-$$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i\sin\left(\frac{\theta + 2k\pi}{n}\right) \right] \quad \text{for } k = 0, 1, 2, \dots, n - 1$$
+To find the $n$ distinct roots of $z^{1/n}$ where $n \\in \\mathbb{N}$:
+$$z^{1/n} = r^{1/n} \\left[ \\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right) \\right] \\quad \\text{for } k = 0, 1, 2, \\dots, n - 1$$
 - **Geometric Interpretation on the Argand Plane:**
-  The $n$ roots of any complex number have identical modulus $r^{1/n}$ and lie on a circle centered at the origin. They form the vertices of a **regular $n$-gon** (مضلع منتظم ذو $n$ من الأضلاع) with angular separation $\frac{2\pi}{n}$.
+  The $n$ roots of any complex number have identical modulus $r^{1/n}$ and lie on a circle centered at the origin. They form the vertices of a **regular $n$-gon** (مضلع منتظم ذو $n$ من الأضلاع) with angular separation $\\frac{2\\pi}{n}$.
 
-### 3. The Cube Roots of Unity ($1, \omega, \omega^2$)
-Solving $z^3 = 1 = \cos 0 + i\sin 0$ yields the three fundamental roots:
+### 3. The Cube Roots of Unity ($1, \\omega, \\omega^2$)
+Solving $z^3 = 1 = \\cos 0 + i\\sin 0$ yields the three fundamental roots:
 1. $z_0 = 1$
-2. $z_1 = \omega = -\frac{1}{2} + i\frac{\sqrt{3}}{2} = \cos\left(\frac{2\pi}{3}\right) + i\sin\left(\frac{2\pi}{3}\right) = e^{i 2\pi/3}$
-3. $z_2 = \omega^2 = -\frac{1}{2} - i\frac{\sqrt{3}}{2} = \cos\left(-\frac{2\pi}{3}\right) + i\sin\left(-\frac{2\pi}{3}\right) = e^{-i 2\pi/3}$
+2. $z_1 = \\omega = -\\frac{1}{2} + i\\frac{\\sqrt{3}}{2} = \\cos\\left(\\frac{2\\pi}{3}\\right) + i\\sin\\left(\\frac{2\\pi}{3}\\right) = e^{i 2\\pi/3}$
+3. $z_2 = \\omega^2 = -\\frac{1}{2} - i\\frac{\\sqrt{3}}{2} = \\cos\\left(-\\frac{2\\pi}{3}\\right) + i\\sin\\left(-\\frac{2\\pi}{3}\\right) = e^{-i 2\\pi/3}$
 
-### 4. Master Algebraic Properties of $\omega$
-1. **Periodic Powers of $\omega$:**
-   $$\omega^3 = 1, \quad \omega^{3k} = 1, \quad \omega^{3k+1} = \omega, \quad \omega^{3k+2} = \omega^2$$
+### 4. Master Algebraic Properties of $\\omega$
+1. **Periodic Powers of $\\omega$:**
+   $$\\omega^3 = 1, \\quad \\omega^{3k} = 1, \\quad \\omega^{3k+1} = \\omega, \\quad \\omega^{3k+2} = \\omega^2$$
 2. **The Fundamental Sum Zero Identity:**
-   $$1 + \omega + \omega^2 = 0$$
-   - $1 + \omega = -\omega^2, \quad 1 + \omega^2 = -\omega, \quad \omega + \omega^2 = -1$
+   $$1 + \\omega + \\omega^2 = 0$$
+   - $1 + \\omega = -\\omega^2, \\quad 1 + \\omega^2 = -\\omega, \\quad \\omega + \\omega^2 = -1$
 3. **Inverses and Conjugates:**
-   $$\frac{1}{\omega} = \omega^2, \quad \frac{1}{\omega^2} = \omega, \quad \bar{\omega} = \omega^2, \quad |\omega| = |\omega^2| = 1$$
+   $$\\frac{1}{\\omega} = \\omega^2, \\quad \\frac{1}{\\omega^2} = \\omega, \\quad \\bar{\\omega} = \\omega^2, \\quad |\\omega| = |\\omega^2| = 1$$
 4. **The Difference Identity:**
-   $$\omega - \omega^2 = -(\omega^2 - \omega) = \pm i\sqrt{3} \implies (\omega - \omega^2)^2 = -3$$
-5. **Factorization using $\omega$:**
-   $$x^2 + xy + y^2 = (x - \omega y)(x - \omega^2 y)$$
-   $$x^3 + y^3 = (x + y)(x + \omega y)(x + \omega^2 y)$$
-   $$x^3 - y^3 = (x - y)(x - \omega y)(x - \omega^2 y)$$
+   $$\\omega - \\omega^2 = -(\\omega^2 - \\omega) = \\pm i\\sqrt{3} \\implies (\\omega - \\omega^2)^2 = -3$$
+5. **Factorization using $\\omega$:**
+   $$x^2 + xy + y^2 = (x - \\omega y)(x - \\omega^2 y)$$
+   $$x^3 + y^3 = (x + y)(x + \\omega y)(x + \\omega^2 y)$$
+   $$x^3 - y^3 = (x - y)(x - \\omega y)(x - \\omega^2 y)$$
 
 ### 5. Critical Examination Pitfalls & Common Traps
-- **Sign in Difference Squared:** $(\omega - \omega^2)^2 = (\pm i\sqrt{3})^2 = i^2 \times 3 = -3$. A very common mistake is writing $+3$!
-- **Coefficient Multiplication Trick:** In expressions like $\frac{a + b\omega + c\omega^2}{c + a\omega + b\omega^2}$, multiply the single coefficient $a$ by $\omega^3 = 1$ to factor out $\omega$ or $\omega^2$ and cancel identical brackets.`,
+- **Sign in Difference Squared:** $(\\omega - \\omega^2)^2 = (\\pm i\\sqrt{3})^2 = i^2 \\times 3 = -3$. A very common mistake is writing $+3$!
+- **Coefficient Multiplication Trick:** In expressions like $\\frac{a + b\\omega + c\\omega^2}{c + a\\omega + b\\omega^2}$, multiply the single coefficient $a$ by $\\omega^3 = 1$ to factor out $\\omega$ or $\\omega^2$ and cancel identical brackets.`,
           theoryContentAr: `### ١. نظرية ديموافر للأسس الصحيحة
-لأي عدد مركب بالصورة المثلثية القياسية $z = r(\cos\theta + i\sin\theta)$ ولأي عدد صحيح $n$:
-$$z^n = r^n [\cos(n\theta) + i\sin(n\theta)] = r^n e^{i n\theta}$$
+لأي عدد مركب بالصورة المثلثية القياسية $z = r(\\cos\\theta + i\\sin\\theta)$ ولأي عدد صحيح $n$:
+$$z^n = r^n [\\cos(n\\theta) + i\\sin(n\\theta)] = r^n e^{i n\\theta}$$
 
 ### ٢. الجذور النونية للعدد المركب (الأسس الكسرية)
 لإيجاد الجذور النونية $z^{1/n}$:
-$$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i\sin\left(\frac{\theta + 2k\pi}{n}\right) \right] \quad \text{حيث } k = 0, 1, 2, \dots, n - 1$$
+$$z^{1/n} = r^{1/n} \\left[ \\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right) \\right] \\quad \\text{حيث } k = 0, 1, 2, \\dots, n - 1$$
 - **التفسير الهندسي في شكل أرجاند:**
-  جميع الجذور النونية لها نفس المقياس $r^{1/n}$ وتقع على دائرة مركزها نقطة الأصل، وتشكل رؤوس **مضلع منتظم عدد أضلاعه $n$**، والزاوية بين كل جذرين متتاليين تساوي $\frac{2\pi}{n}$.
+  جميع الجذور النونية لها نفس المقياس $r^{1/n}$ وتقع على دائرة مركزها نقطة الأصل، وتشكل رؤوس **مضلع منتظم عدد أضلاعه $n$**، والزاوية بين كل جذرين متتاليين تساوي $\\frac{2\\pi}{n}$.
 
-### ٣. الجذور التكعيبية للواحد الصحيح ($1, \omega, \omega^2$)
+### ٣. الجذور التكعيبية للواحد الصحيح ($1, \\omega, \\omega^2$)
 بحل المعادلة $z^3 = 1$ نحصل على الجذور الثلاثة الشهيرة:
 ١. $1$
-٢. $\omega = -\frac{1}{2} + i\frac{\sqrt{3}}{2} = e^{i 2\pi/3}$
-٣. $\omega^2 = -\frac{1}{2} - i\frac{\sqrt{3}}{2} = e^{-i 2\pi/3}$
+٢. $\\omega = -\\frac{1}{2} + i\\frac{\\sqrt{3}}{2} = e^{i 2\\pi/3}$
+٣. $\\omega^2 = -\\frac{1}{2} - i\\frac{\\sqrt{3}}{2} = e^{-i 2\\pi/3}$
 
-### ٤. القوانين الجبرية الأساسية للأوميجا ($\omega$)
+### ٤. القوانين الجبرية الأساسية للأوميجا ($\\omega$)
 ١. **دورية قوى أوميجا:**
-   $$\omega^3 = 1, \quad \omega^{3k} = 1, \quad \omega^{3k+1} = \omega, \quad \omega^{3k+2} = \omega^2$$
+   $$\\omega^3 = 1, \\quad \\omega^{3k} = 1, \\quad \\omega^{3k+1} = \\omega, \\quad \\omega^{3k+2} = \\omega^2$$
 ٢. **قانون مجموع الجذور التكعيبية:**
-   $$1 + \omega + \omega^2 = 0$$
-   - $1 + \omega = -\omega^2, \quad 1 + \omega^2 = -\omega, \quad \omega + \omega^2 = -1$
+   $$1 + \\omega + \\omega^2 = 0$$
+   - $1 + \\omega = -\\omega^2, \\quad 1 + \\omega^2 = -\\omega, \\quad \\omega + \\omega^2 = -1$
 ٣. **المقلوب والمرافق:**
-   $$\frac{1}{\omega} = \omega^2, \quad \frac{1}{\omega^2} = \omega, \quad \bar{\omega} = \omega^2, \quad |\omega| = 1$$
+   $$\\frac{1}{\\omega} = \\omega^2, \\quad \\frac{1}{\\omega^2} = \\omega, \\quad \\bar{\\omega} = \\omega^2, \\quad |\\omega| = 1$$
 ٤. **قانون الفرق والتربيع:**
-   $$\omega - \omega^2 = \pm i\sqrt{3} \implies (\omega - \omega^2)^2 = -3$$
+   $$\\omega - \\omega^2 = \\pm i\\sqrt{3} \\implies (\\omega - \\omega^2)^2 = -3$$
 ٥. **التحليل باستخدام أوميجا:**
-   $$x^3 + y^3 = (x + y)(x + \omega y)(x + \omega^2 y)$$
+   $$x^3 + y^3 = (x + y)(x + \\omega y)(x + \\omega^2 y)$$
 
 ### ٥. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ إشارة مربع الفرق:** $(\omega - \omega^2)^2 = -3$ وليس $+3$ لأن $i^2 = -1$!
-- **مهارة توحيد المعاملات بالأوميجا:** عند وجود كسر مثل $\frac{a + b\omega + c\omega^2}{b + c\omega + a\omega^2}$ نضرب الحد الخالي $a$ في $\omega^3 = 1$ ثم نأخذ عاملاً مشتركاً لاختصار البسط مع المقام.`,
+- **فخ إشارة مربع الفرق:** $(\\omega - \\omega^2)^2 = -3$ وليس $+3$ لأن $i^2 = -1$!
+- **مهارة توحيد المعاملات بالأوميجا:** عند وجود كسر مثل $\\frac{a + b\\omega + c\\omega^2}{b + c\\omega + a\\omega^2}$ نضرب الحد الخالي $a$ في $\\omega^3 = 1$ ثم نأخذ عاملاً مشتركاً لاختصار البسط مع المقام.`,
               formulas: [
                 { labelEn: 'De Moivre\'s Theorem', labelAr: 'نص نظرية ديموافر', latex: '(\\cos\\theta + i\\sin\\theta)^n = \\cos n\\theta + i\\sin n\\theta' },
                 { labelEn: 'N-th Roots of Complex Number', labelAr: 'قانون الجذور النونية', latex: 'z^{1/n} = r^{1/n} \\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right]' },
@@ -1331,57 +1331,57 @@ $$z^{1/n} = r^{1/n} \left[ \cos\left(\frac{\theta + 2k\pi}{n}\right) + i\sin\lef
               summaryEn: '$2 \\times 2$ and $3 \\times 3$ determinants, expansion along rows/columns, invariant properties under elementary row/column operations, splitting determinants, and upper/lower triangular forms.',
               summaryAr: 'المحددات الثنائية والثلاثية، مفكوك المحدد بدلالة عناصر أي صف أو عمود، خواص المحددات عند إجراء العمليات الأولية، تجزئة المحدد، ومحدد المصفوفة المثلثية.',
               theoryContentEn: `### 1. Rigorous Definition & Invariants of Determinants
-The determinant $\det(A) = |A|$ is a scalar value uniquely associated with a square matrix $A \in M_{n \times n}(\mathbb{R})$.
-- **2x2 Determinant:** $\begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc$
+The determinant $\\det(A) = |A|$ is a scalar value uniquely associated with a square matrix $A \\in M_{n \\times n}(\\mathbb{R})$.
+- **2x2 Determinant:** $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$
 - **3x3 Determinant via Laplace Expansion along row 1:**
-  $$\begin{vmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{vmatrix} = a_1 (b_2 c_3 - b_3 c_2) - b_1 (a_2 c_3 - a_3 c_2) + c_1 (a_2 b_3 - a_3 b_2)$$
+  $$\\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix} = a_1 (b_2 c_3 - b_3 c_2) - b_1 (a_2 c_3 - a_3 c_2) + c_1 (a_2 b_3 - a_3 b_2)$$
 
 ### 2. Fundamental Properties of Determinants (خواص المحددات)
-1. **Transpose Invariance:** $\det(A^T) = \det(A)$.
+1. **Transpose Invariance:** $\\det(A^T) = \\det(A)$.
 2. **Row / Column Interchange Sign Flip:** Swapping any two rows (or two columns) multiplies the determinant by $-1$.
-3. **Vanishing Determinant Criteria ($\det(A) = 0$):**
+3. **Vanishing Determinant Criteria ($\\det(A) = 0$):**
    - Any entire row or column consists of zeros.
    - Two rows (or two columns) are identical.
    - Two rows (or two columns) are linearly proportional ($R_i = k R_j$).
 4. **Scalar Multiplication of Matrices vs. Determinants:**
-   Factoring a scalar $k$ from a single row scales the determinant by $k$. Therefore, for an $n \times n$ matrix:
-   $$\det(k A) = k^n \det(A)$$
-   *(For a 3x3 matrix: $\det(3A) = 3^3 \det(A) = 27 \det(A)$).*
+   Factoring a scalar $k$ from a single row scales the determinant by $k$. Therefore, for an $n \\times n$ matrix:
+   $$\\det(k A) = k^n \\det(A)$$
+   *(For a 3x3 matrix: $\\det(3A) = 3^3 \\det(A) = 27 \\det(A)$).*
 5. **Elementary Row Addition Invariance (The Gaussian Elimination Pivot):**
    Adding a scalar multiple of one row to another row leaves the determinant completely unchanged:
-   $$R_i \to R_i + k R_j \implies \det(A') = \det(A)$$
+   $$R_i \\to R_i + k R_j \\implies \\det(A') = \\det(A)$$
 6. **Triangular Matrix Determinant Theorem:**
    If all elements above (or below) the main diagonal are zero, the determinant is the product of its diagonal entries:
-   $$\begin{vmatrix} a_1 & * & * \\ 0 & b_2 & * \\ 0 & 0 & c_3 \end{vmatrix} = a_1 \cdot b_2 \cdot c_3$$
-7. **Product of Determinants:** $\det(AB) = \det(A) \cdot \det(B)$.
+   $$\\begin{vmatrix} a_1 & * & * \\\\ 0 & b_2 & * \\\\ 0 & 0 & c_3 \\end{vmatrix} = a_1 \\cdot b_2 \\cdot c_3$$
+7. **Product of Determinants:** $\\det(AB) = \\det(A) \\cdot \\det(B)$.
 
 ### 3. Critical Examination Pitfalls & Common Traps
-- **The $\det(kA)$ Scaling Trap:** In 3D matrices, confusing $\det(2A)$ with $2\det(A)$. It is strictly $2^3 \det(A) = 8\det(A)$!
+- **The $\\det(kA)$ Scaling Trap:** In 3D matrices, confusing $\\det(2A)$ with $2\\det(A)$. It is strictly $2^3 \\det(A) = 8\\det(A)$!
 - **Splitting Property of Determinants:** A determinant with a sum in one row can be split into the sum of TWO determinants with other rows kept identical:
-  $$\begin{vmatrix} a_1+x & b_1+y & c_1+z \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{vmatrix} = \begin{vmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{vmatrix} + \begin{vmatrix} x & y & z \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{vmatrix}$$`,
+  $$\\begin{vmatrix} a_1+x & b_1+y & c_1+z \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix} = \\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix} + \\begin{vmatrix} x & y & z \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix}$$`,
           theoryContentAr: `### ١. تعريف المحدد وفكه
-المحدد $\det(A) = |A|$ هو قيمة عددية ترتبط بالمصفوفة المربعة حصراً.
-- **محدد الرتبة الثانية:** $\begin{vmatrix} a & b \\ c & d \end{vmatrix} = ad - bc$
+المحدد $\\det(A) = |A|$ هو قيمة عددية ترتبط بالمصفوفة المربعة حصراً.
+- **محدد الرتبة الثانية:** $\\begin{vmatrix} a & b \\\\ c & d \\end{vmatrix} = ad - bc$
 - **محدد الرتبة الثالثة بالفك بعناصر الصف الأول:**
-  $$\begin{vmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{vmatrix} = a_1 \begin{vmatrix} b_2 & c_2 \\ b_3 & c_3 \end{vmatrix} - b_1 \begin{vmatrix} a_2 & c_2 \\ a_3 & c_3 \end{vmatrix} + c_1 \begin{vmatrix} a_2 & b_2 \\ a_3 & b_3 \end{vmatrix}$$
+  $$\\begin{vmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{vmatrix} = a_1 \\begin{vmatrix} b_2 & c_2 \\\\ b_3 & c_3 \\end{vmatrix} - b_1 \\begin{vmatrix} a_2 & c_2 \\\\ a_3 & c_3 \\end{vmatrix} + c_1 \\begin{vmatrix} a_2 & b_2 \\\\ a_3 & b_3 \\end{vmatrix}$$
 
 ### ٢. خواص المحددات الأساسية
-١. **قيمة المحدد لا تتغير بالتدوير:** $\det(A^T) = \det(A)$.
+١. **قيمة المحدد لا تتغير بالتدوير:** $\\det(A^T) = \\det(A)$.
 ٢. **تبديل صفين أو عمودين:** يغير إشارة المحدد فقط (يضرب في $-1$).
 ٣. **حالات انعدام قيمة المحدد ($|A| = 0$):**
    - إذا كانت جميع عناصر أي صف (أو عمود) أصفاراً.
    - إذا تساوت عناصر صفين متناظرين (أو عمودين).
    - إذا كانت عناصر صفين متناسبة ($R_i = k R_j$).
 ٤. **ضرب المصفوفة في ثابت ومحددها:**
-   للمصفوفة المربعة من الرتبة $n \times n$:
-   $$\det(k A) = k^n \det(A)$$
+   للمصفوفة المربعة من الرتبة $n \\times n$:
+   $$\\det(k A) = k^n \\det(A)$$
    *(للرتبة الثالثة: $|2A| = 2^3 |A| = 8 |A|$).*
 ٥. **إضافة مضاعفات صف لصف آخر:** لا تغير من قيمة المحدد مطلقاً:
-   $$R_1 \to R_1 + k R_2 \implies |A'| = |A|$$
+   $$R_1 \\to R_1 + k R_2 \\implies |A'| = |A|$$
 ٦. **المحدد على الصورة المثلثية:**
    إذا كانت جميع العناصر أعلى أو أسفل القطر الرئيسي أصفاراً، فإن قيمة المحدد تساوي حاصل ضرب عناصر القطر الرئيسي:
-   $$\begin{vmatrix} a & * & * \\ 0 & b & * \\ 0 & 0 & c \end{vmatrix} = a \cdot b \cdot c$$
-٧. **محدد حاصل الضرب:** $|AB| = |A| \cdot |B|$.
+   $$\\begin{vmatrix} a & * & * \\\\ 0 & b & * \\\\ 0 & 0 & c \\end{vmatrix} = a \\cdot b \\cdot c$$
+٧. **محدد حاصل الضرب:** $|AB| = |A| \\cdot |B|$.
 
 ### ٣. فخاخ ومكائد امتحانات الثانوية العامة
 - **فخ إخراج العامل المشترك:** في المصفوفات يؤخذ العامل المشترك من جميع العناصر، بينما في المحددات يؤخذ العامل المشترك من **صف واحد أو عمود واحد فقط**!
@@ -1532,13 +1532,13 @@ The determinant $\det(A) = |A|$ is a scalar value uniquely associated with a squ
               summaryEn: 'Adjugate matrix, formula for $A^{-1}$, properties of inverses, matrix rank $\\text{rank}(A)$, Cramer\'s rule, and Rouché-Capelli theorem on consistency of linear systems.',
               summaryAr: 'المصفوفة الملحقة، قانون المعكوس الضربي $A^{-1}$، خواص المعكوسات، رتبة المصفوفة والمصفوفة الموسعة، قاعدة كرامر، ونظرية روجيه-كابيلي لبحث حلول الأنظمة الخطية.',
               theoryContentEn: `### 1. Matrix Inverse & The Adjugate Method
-For an $n \times n$ square matrix $A$, the multiplicative inverse $A^{-1}$ exists if and only if $\det(A) \neq 0$ ($A$ is a **non-singular matrix** مصفوفة غير منفردة).
+For an $n \\times n$ square matrix $A$, the multiplicative inverse $A^{-1}$ exists if and only if $\\det(A) \\neq 0$ ($A$ is a **non-singular matrix** مصفوفة غير منفردة).
 - **The Adjugate Formula:**
-  $$A^{-1} = \frac{1}{\det(A)} \text{adj}(A)$$
-  where $\text{adj}(A) = C^T$ is the transpose of the cofactor matrix $C$.
+  $$A^{-1} = \\frac{1}{\\det(A)} \\text{adj}(A)$$
+  where $\\text{adj}(A) = C^T$ is the transpose of the cofactor matrix $C$.
 - **Fundamental Invariants:**
-  1. $A \cdot \text{adj}(A) = \text{adj}(A) \cdot A = \det(A) \cdot I_n$
-  2. $\det(\text{adj}(A)) = [\det(A)]^{n - 1}$
+  1. $A \\cdot \\text{adj}(A) = \\text{adj}(A) \\cdot A = \\det(A) \\cdot I_n$
+  2. $\\det(\\text{adj}(A)) = [\\det(A)]^{n - 1}$
   3. $(AB)^{-1} = B^{-1} A^{-1}$
   4. $(A^T)^{-1} = (A^{-1})^T$
 
@@ -1548,49 +1548,49 @@ $$a_1 x + b_1 y + c_1 z = d_1$$
 $$a_2 x + b_2 y + c_2 z = d_2$$
 $$a_3 x + b_3 y + c_3 z = d_3$$
 Express in matrix form: $AX = B$ where:
-$$A = \begin{bmatrix} a_1 & b_1 & c_1 \\ a_2 & b_2 & c_2 \\ a_3 & b_3 & c_3 \end{bmatrix}, \quad X = \begin{bmatrix} x \\ y \\ z \end{bmatrix}, \quad B = \begin{bmatrix} d_1 \\ d_2 \\ d_3 \end{bmatrix}$$
-If $\det(A) \neq 0$, the unique solution vector is:
+$$A = \\begin{bmatrix} a_1 & b_1 & c_1 \\\\ a_2 & b_2 & c_2 \\\\ a_3 & b_3 & c_3 \\end{bmatrix}, \\quad X = \\begin{bmatrix} x \\\\ y \\\\ z \\end{bmatrix}, \\quad B = \\begin{bmatrix} d_1 \\\\ d_2 \\\\ d_3 \\end{bmatrix}$$
+If $\\det(A) \\neq 0$, the unique solution vector is:
 $$X = A^{-1} B$$
 
 ### 3. Rank of a Matrix & The Rouché–Capelli Consistency Theorem
-The **rank** of a matrix, $\text{rank}(A)$ or $\rho(A)$, is the order of the largest non-zero sub-determinant (minor) contained within $A$.
-- **Augmented Matrix (المصفوفة الموسعة):** $A^* = [A \mid B]$
+The **rank** of a matrix, $\\text{rank}(A)$ or $\\rho(A)$, is the order of the largest non-zero sub-determinant (minor) contained within $A$.
+- **Augmented Matrix (المصفوفة الموسعة):** $A^* = [A \\mid B]$
 - **Classification of Solutions for Non-Homogeneous Systems ($AX = B$):**
-  1. **Unique Single Solution:** $\text{rank}(A) = \text{rank}(A^*) = n$ (where $n$ is the number of unknowns).
-  2. **Infinitely Many Solutions:** $\text{rank}(A) = \text{rank}(A^*) = r < n$.
-  3. **No Solution (Inconsistent System):** $\text{rank}(A) < \text{rank}(A^*)$.
+  1. **Unique Single Solution:** $\\text{rank}(A) = \\text{rank}(A^*) = n$ (where $n$ is the number of unknowns).
+  2. **Infinitely Many Solutions:** $\\text{rank}(A) = \\text{rank}(A^*) = r < n$.
+  3. **No Solution (Inconsistent System):** $\\text{rank}(A) < \\text{rank}(A^*)$.
 - **Homogeneous Systems ($AX = 0$):** Always consistent because $X = (0,0,0)$ is always a trivial solution.
-  - Only the trivial zero solution exists $\iff \text{rank}(A) = n \iff \det(A) \neq 0$.
-  - Infinitely many non-trivial solutions exist $\iff \text{rank}(A) < n \iff \det(A) = 0$.
+  - Only the trivial zero solution exists $\\iff \\text{rank}(A) = n \\iff \\det(A) \\neq 0$.
+  - Infinitely many non-trivial solutions exist $\\iff \\text{rank}(A) < n \\iff \\det(A) = 0$.
 
 ### 4. Critical Examination Pitfalls & Common Traps
-- **Order of Matrix Multiplication:** Matrix multiplication is non-commutative: $X = A^{-1} B \neq B A^{-1}$! In fact, $B A^{-1}$ is undefined because their dimensions are incompatible.
-- **Homogeneous Non-Trivial Solution Condition:** When an exam problem states: "The homogeneous system has non-trivial solutions", immediately set $\det(A) = 0$ and solve for the unknown parameter.`,
+- **Order of Matrix Multiplication:** Matrix multiplication is non-commutative: $X = A^{-1} B \\neq B A^{-1}$! In fact, $B A^{-1}$ is undefined because their dimensions are incompatible.
+- **Homogeneous Non-Trivial Solution Condition:** When an exam problem states: "The homogeneous system has non-trivial solutions", immediately set $\\det(A) = 0$ and solve for the unknown parameter.`,
           theoryContentAr: `### ١. معكوس المصفوفة والمصفوفة الملحقة
-للمصفوفة المربعة $A$، يوجد معكوس ضربي $A^{-1}$ إذا وفقط إذا كان $|A| \neq 0$ (مصفوفة غير منفردة).
+للمصفوفة المربعة $A$، يوجد معكوس ضربي $A^{-1}$ إذا وفقط إذا كان $|A| \\neq 0$ (مصفوفة غير منفردة).
 - **قانون المعكوس الضربي:**
-  $$A^{-1} = \frac{1}{|A|} \text{adj}(A)$$
-  حيث $\text{adj}(A)$ هي المصفوفة الملحقة (مدور مصفوفة العوامل المرافقة).
+  $$A^{-1} = \\frac{1}{|A|} \\text{adj}(A)$$
+  حيث $\\text{adj}(A)$ هي المصفوفة الملحقة (مدور مصفوفة العوامل المرافقة).
 - **خواص جبرية حاسمة:**
-  ١. $A \cdot \text{adj}(A) = |A| \cdot I$
-  ٢. $|\text{adj}(A)| = |A|^{n-1}$
+  ١. $A \\cdot \\text{adj}(A) = |A| \\cdot I$
+  ٢. $|\\text{adj}(A)| = |A|^{n-1}$
   ٣. $(AB)^{-1} = B^{-1} A^{-1}$
 
 ### ٢. حل المعادلات الخطية بالمعكوس الضربي للمصفوفات
 للنظام الخطي $AX = B$:
-إذا كان $|A| \neq 0$، فإن حل النظام هو:
+إذا كان $|A| \\neq 0$، فإن حل النظام هو:
 $$X = A^{-1} B$$
 
 ### ٣. رتبة المصفوفة وبحث إمكانية تجانس وتوافق الحلول
-**رتبة المصفوفة** $\text{rank}(A)$ أو $\rho(A)$ هي أعلى درجة لمحدد غير صفري يمكن استخراجه من المصفوفة.
-- **المصفوفة الموسعة:** $A^* = [A \mid B]$
+**رتبة المصفوفة** $\\text{rank}(A)$ أو $\\rho(A)$ هي أعلى درجة لمحدد غير صفري يمكن استخراجه من المصفوفة.
+- **المصفوفة الموسعة:** $A^* = [A \\mid B]$
 - **شروط حل النظام غير المتجانس ($AX = B$):**
-  ١. **حل وحيد:** $\text{rank}(A) = \text{rank}(A^*) = n$ (حيث $n$ عدد المجاهيل).
-  ٢. **عدد لا نهائي من الحلول:** $\text{rank}(A) = \text{rank}(A^*) < n$.
-  ٣. **لا يوجد حل (نظام غير متسق):** $\text{rank}(A) < \text{rank}(A^*)$.
+  ١. **حل وحيد:** $\\text{rank}(A) = \\text{rank}(A^*) = n$ (حيث $n$ عدد المجاهيل).
+  ٢. **عدد لا نهائي من الحلول:** $\\text{rank}(A) = \\text{rank}(A^*) < n$.
+  ٣. **لا يوجد حل (نظام غير متسق):** $\\text{rank}(A) < \\text{rank}(A^*)$.
 - **شروط حل النظام المتجانس ($AX = 0$):**
-  - **الحل الصفري فقط:** $\text{rank}(A) = n \iff |A| \neq 0$.
-  - **حلول غير صفرية (عدد لا نهائي):** $\text{rank}(A) < n \iff |A| = 0$.
+  - **الحل الصفري فقط:** $\\text{rank}(A) = n \\iff |A| \\neq 0$.
+  - **حلول غير صفرية (عدد لا نهائي):** $\\text{rank}(A) < n \\iff |A| = 0$.
 
 ### ٤. فخاخ ومكائد امتحانات الثانوية العامة
 - **فخ ترتيب الضرب في المعكوس:** $X = A^{-1} B$؛ والضرب $B A^{-1}$ خطأ جسيم وغير معرف الأبعاد أصلاً!
@@ -1766,15 +1766,15 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
   - Distance to $xy$-plane: $d = |z_0|$
   - Distance to $yz$-plane: $d = |x_0|$
   - Distance to $xz$-plane: $d = |y_0|$
-  - Distance to X-Axis: $d_x = \sqrt{y_0^2 + z_0^2}$
-  - Distance to Y-Axis: $d_y = \sqrt{x_0^2 + z_0^2}$
-  - Distance to Z-Axis: $d_z = \sqrt{x_0^2 + y_0^2}$
+  - Distance to X-Axis: $d_x = \\sqrt{y_0^2 + z_0^2}$
+  - Distance to Y-Axis: $d_y = \\sqrt{x_0^2 + z_0^2}$
+  - Distance to Z-Axis: $d_z = \\sqrt{x_0^2 + y_0^2}$
 
 ### 2. Distance and Division Coordinates in 3D
 - **Distance Between Points $A(x_1, y_1, z_1)$ and $B(x_2, y_2, z_2)$:**
-  $$AB = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
+  $$AB = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
 - **Midpoint Formula:**
-  $$M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}, \frac{z_1 + z_2}{2} \right)$$
+  $$M = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}, \\frac{z_1 + z_2}{2} \\right)$$
 
 ### 3. The Standard & General Equations of a Sphere
 - **Standard Equation (Center $(a, b, c)$, Radius $r$):**
@@ -1782,7 +1782,7 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
 - **General Equation of a Sphere:**
   $$x^2 + y^2 + z^2 + 2ux + 2vy + 2wz + d = 0$$
   - **Center:** $(-u, -v, -w)$
-  - **Radius:** $r = \sqrt{u^2 + v^2 + w^2 - d}$
+  - **Radius:** $r = \\sqrt{u^2 + v^2 + w^2 - d}$
   - **Real Sphere Existence Condition:** $u^2 + v^2 + w^2 - d > 0$.
 
 ### 4. Sphere Tangency Conditions to Coordinate Planes & Axes
@@ -1792,9 +1792,9 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
   - Tangent to $xz$-plane ($y = 0$): $r = |b|$
   - Tangent to all three coordinate planes in 1st octant: Center is $(r, r, r)$ and equation is $(x-r)^2 + (y-r)^2 + (z-r)^2 = r^2$.
 - **Sphere Tangent to Coordinate Axes:**
-  - Tangent to X-Axis: $r = \sqrt{b^2 + c^2}$
-  - Tangent to Y-Axis: $r = \sqrt{a^2 + c^2}$
-  - Tangent to Z-Axis: $r = \sqrt{a^2 + b^2}$
+  - Tangent to X-Axis: $r = \\sqrt{b^2 + c^2}$
+  - Tangent to Y-Axis: $r = \\sqrt{a^2 + c^2}$
+  - Tangent to Z-Axis: $r = \\sqrt{a^2 + b^2}$
 
 ### 5. Mutual Position of Two Spheres (Centers $M_1, M_2$, radii $r_1, r_2$, distance $d = M_1 M_2$)
 1. **Touching Externally (متماستان من الخارج):** $d = r_1 + r_2$
@@ -1804,8 +1804,8 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
 5. **One Inside Another (متداخلتان):** $d < |r_1 - r_2|$
 
 ### 6. Critical Examination Pitfalls & Common Traps
-- **Unit Coefficients Requirement:** Before computing center and radius from general form $A x^2 + A y^2 + A z^2 + \dots$, you MUST divide by coefficient $A$ so that coefficients of $x^2, y^2, z^2$ are strictly $1$!
-- **Radius Radical Positivity:** If $u^2 + v^2 + w^2 - d \le 0$, the equation represents a single degenerate point (if $=0$) or an imaginary/empty set (if $<0$), NOT a real sphere.`,
+- **Unit Coefficients Requirement:** Before computing center and radius from general form $A x^2 + A y^2 + A z^2 + \\dots$, you MUST divide by coefficient $A$ so that coefficients of $x^2, y^2, z^2$ are strictly $1$!
+- **Radius Radical Positivity:** If $u^2 + v^2 + w^2 - d \\le 0$, the equation represents a single degenerate point (if $=0$) or an imaginary/empty set (if $<0$), NOT a real sphere.`,
           theoryContentAr: `### ١. الهندسة الإحداثية ثلاثية الأبعاد
 في الفراغ ثلاثي الأبعاد لنقطة $P(x_0, y_0, z_0)$:
 - **مساقط النقطة على مستويات الإحداثيات:**
@@ -1816,15 +1816,15 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
   - البعد عن المستوى $xy$ هو: $|z_0|$
   - البعد عن المستوى $yz$ هو: $|x_0|$
   - البعد عن المستوى $xz$ هو: $|y_0|$
-  - البعد عن محور السينات هو: $d_x = \sqrt{y_0^2 + z_0^2}$
-  - البعد عن محور الصادات هو: $d_y = \sqrt{x_0^2 + z_0^2}$
-  - البعد عن محور العينات هو: $d_z = \sqrt{x_0^2 + y_0^2}$
+  - البعد عن محور السينات هو: $d_x = \\sqrt{y_0^2 + z_0^2}$
+  - البعد عن محور الصادات هو: $d_y = \\sqrt{x_0^2 + z_0^2}$
+  - البعد عن محور العينات هو: $d_z = \\sqrt{x_0^2 + y_0^2}$
 
 ### ٢. البعد بين نقطتين ونقطة المنتصف في الفراغ
 - البعد بين $A$ و $B$:
-  $$AB = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
+  $$AB = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}$$
 - إحداثيات نقطة المنتصف:
-  $$M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}, \frac{z_1 + z_2}{2} \right)$$
+  $$M = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2}, \\frac{z_1 + z_2}{2} \\right)$$
 
 ### ٣. معادلتا الكرة القياسية والعامة
 - **الصورة القياسية لمعادلة الكرة (مركزها $(a, b, c)$ ونصف قطرها $r$):**
@@ -1832,7 +1832,7 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
 - **الصورة العامة لمعادلة الكرة:**
   $$x^2 + y^2 + z^2 + 2ux + 2vy + 2wz + d = 0$$
   - **المركز:** $(-u, -v, -w)$
-  - **نصف القطر:** $r = \sqrt{u^2 + v^2 + w^2 - d}$
+  - **نصف القطر:** $r = \\sqrt{u^2 + v^2 + w^2 - d}$
   - **شرط وجود كرة حقيقية:** $u^2 + v^2 + w^2 - d > 0$.
 
 ### ٤. شروط مماسة الكرة لمستويات ومحاور الإحداثيات
@@ -1842,9 +1842,9 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
   - تمس المستوى $xz$: $r = |b|$
   - تمس مستويات الإحداثيات الثلاثة الموجبة: المركز $(r, r, r)$.
 - **مماسة محاور الإحداثيات:**
-  - تمس محور السينات: $r = \sqrt{b^2 + c^2}$
-  - تمس محور الصادات: $r = \sqrt{a^2 + c^2}$
-  - تمس محور العينات: $r = \sqrt{a^2 + b^2}$
+  - تمس محور السينات: $r = \\sqrt{b^2 + c^2}$
+  - تمس محور الصادات: $r = \\sqrt{a^2 + c^2}$
+  - تمس محور العينات: $r = \\sqrt{a^2 + b^2}$
 
 ### ٥. الأوضاع النسبية لكرتين
 ١. **متماستان من الخارج:** $M_1 M_2 = r_1 + r_2$
@@ -1853,7 +1853,7 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
 ٤. **متباعدتان:** $M_1 M_2 > r_1 + r_2$
 
 ### ٦. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ معاملات س²، ص²، ع²:** قبل إيجاد المركز ونصف القطر، يجب أن تكون معاملات التربيع تساوي $1$. إذا كانت المعادلة $2x^2 + 2y^2 + 2z^2 + \dots$ نقسم الطرفين بالكامل على $2$ أولاً!
+- **فخ معاملات س²، ص²، ع²:** قبل إيجاد المركز ونصف القطر، يجب أن تكون معاملات التربيع تساوي $1$. إذا كانت المعادلة $2x^2 + 2y^2 + 2z^2 + \\dots$ نقسم الطرفين بالكامل على $2$ أولاً!
 - **إشارة الحد المطلق $d$:** $d = a^2 + b^2 + c^2 - r^2$؛ لا تخلط بين $d$ ومربع نصف القطر.`,
               formulas: [
                 { labelEn: '3D Distance Formula', labelAr: 'قانون البعد في الفراغ', latex: 'd = \\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}' },
@@ -2095,71 +2095,71 @@ In 3D Cartesian space with origin $O(0, 0, 0)$:
               summaryEn: 'Vector, parametric, and symmetric Cartesian equations of lines, direction cosines $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$, angle between two lines, parallel and perpendicular conditions, and skew lines.',
               summaryAr: 'الصور المتجهية والبارامترية والكارتيزية لمعادلة المستقيم، جيوب تمام الاتجاه $\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$، قياس الزاوية بين مستقيمين، شرطا التوازي والتعامد، والمستقيمان المتخالفان.',
               theoryContentEn: `### 1. Direction Vector, Direction Angles & Direction Cosines of a 3D Line
-A straight line in 3D space is characterized by a direction vector $\vec{d} = (a, b, c) \neq \vec{0}$.
-- **Direction Angles ($\alpha, \beta, \gamma$):** The angles that the line makes with the positive directions of the x, y, and z axes respectively.
+A straight line in 3D space is characterized by a direction vector $\\vec{d} = (a, b, c) \\neq \\vec{0}$.
+- **Direction Angles ($\\alpha, \\beta, \\gamma$):** The angles that the line makes with the positive directions of the x, y, and z axes respectively.
 - **Direction Cosines (جيوب تمام الاتجاه):**
   The components of the unit vector in the direction of the line:
-  $$\hat{u}_d = (\cos\alpha, \cos\beta, \cos\gamma) = \frac{\vec{d}}{\|\vec{d}\|} = \left( \frac{a}{\sqrt{a^2 + b^2 + c^2}}, \frac{b}{\sqrt{a^2 + b^2 + c^2}}, \frac{c}{\sqrt{a^2 + b^2 + c^2}} \right)$$
+  $$\\hat{u}_d = (\\cos\\alpha, \\cos\\beta, \\cos\\gamma) = \\frac{\\vec{d}}{\\|\\vec{d}\\|} = \\left( \\frac{a}{\\sqrt{a^2 + b^2 + c^2}}, \\frac{b}{\\sqrt{a^2 + b^2 + c^2}}, \\frac{c}{\\sqrt{a^2 + b^2 + c^2}} \\right)$$
 - **The Fundamental Pythagorean Identity of Direction Cosines:**
-  $$\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$$
-  $$\sin^2\alpha + \sin^2\beta + \sin^2\gamma = 2$$
+  $$\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$$
+  $$\\sin^2\\alpha + \\sin^2\\beta + \\sin^2\\gamma = 2$$
 
 ### 2. The Three Canonical Forms of a 3D Line Equation
-For a line passing through point $A(x_0, y_0, z_0)$ with direction vector $\vec{d} = (a, b, c)$:
+For a line passing through point $A(x_0, y_0, z_0)$ with direction vector $\\vec{d} = (a, b, c)$:
 1. **Vector Form (الصورة المتجهة):**
-   $$\vec{r} = \vec{r}_0 + t \vec{d} \quad (t \in \mathbb{R})$$
+   $$\\vec{r} = \\vec{r}_0 + t \\vec{d} \\quad (t \\in \\mathbb{R})$$
 2. **Parametric Form (المعادلات البارامترية):**
-   $$x = x_0 + a t, \quad y = y_0 + b t, \quad z = z_0 + c t$$
+   $$x = x_0 + a t, \\quad y = y_0 + b t, \\quad z = z_0 + c t$$
 3. **Cartesian / Symmetric Form (الصورة الإحداثية):**
-   $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
-   *(If any direction component is zero, e.g. $c = 0$, write: $\frac{x - x_0}{a} = \frac{y - y_0}{b}, \, z = z_0$).*
+   $$\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}$$
+   *(If any direction component is zero, e.g. $c = 0$, write: $\\frac{x - x_0}{a} = \\frac{y - y_0}{b}, \\, z = z_0$).*
 
 ### 3. Angle Between Two Lines & Mutual Orthogonality/Parallelism
-Let lines $L_1$ and $L_2$ have direction vectors $\vec{d}_1$ and $\vec{d}_2$:
-- **Angle $\theta$ between the two lines (defined in $[0, \pi/2]$):**
-  $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
-- **Parallel Lines ($L_1 \parallel L_2$):**
-  $$\vec{d}_1 \parallel \vec{d}_2 \iff \frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2} \iff \vec{d}_1 \times \vec{d}_2 = \vec{0}$$
-- **Perpendicular Lines ($L_1 \perp L_2$):**
-  $$\vec{d}_1 \perp \vec{d}_2 \iff \vec{d}_1 \cdot \vec{d}_2 = 0 \iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$$
+Let lines $L_1$ and $L_2$ have direction vectors $\\vec{d}_1$ and $\\vec{d}_2$:
+- **Angle $\\theta$ between the two lines (defined in $[0, \\pi/2]$):**
+  $$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\vec{d}_2\\|}$$
+- **Parallel Lines ($L_1 \\parallel L_2$):**
+  $$\\vec{d}_1 \\parallel \\vec{d}_2 \\iff \\frac{a_1}{a_2} = \\frac{b_1}{b_2} = \\frac{c_1}{c_2} \\iff \\vec{d}_1 \\times \\vec{d}_2 = \\vec{0}$$
+- **Perpendicular Lines ($L_1 \\perp L_2$):**
+  $$\\vec{d}_1 \\perp \\vec{d}_2 \\iff \\vec{d}_1 \\cdot \\vec{d}_2 = 0 \\iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$$
 
 ### 4. Classification of Pairs of Straight Lines in 3D Space
 Two lines in 3D space fall into one of four mutually exclusive geometric categories:
 1. **Intersecting (متقاطعان):** Lie in the same plane and intersect at a unique common point.
-2. **Parallel and Distinct (متوازيان وغير منطبقين):** $\vec{d}_1 \parallel \vec{d}_2$ but have no points in common.
-3. **Coincident (منطبقان):** $\vec{d}_1 \parallel \vec{d}_2$ and share all points.
+2. **Parallel and Distinct (متوازيان وغير منطبقين):** $\\vec{d}_1 \\parallel \\vec{d}_2$ but have no points in common.
+3. **Coincident (منطبقان):** $\\vec{d}_1 \\parallel \\vec{d}_2$ and share all points.
 4. **Skew Lines (مستقيمان متخالفان):** Neither parallel nor intersecting (lie in parallel planes, never meet).
 
 ### 5. Perpendicular Distance from a Point $P$ to a Line
-The length of the perpendicular segment dropped from point $P$ to line $L$ passing through $A$ with direction $\vec{d}$:
-$$d = \frac{\|\vec{AP} \times \vec{d}\|}{\|\vec{d}\|}$$
+The length of the perpendicular segment dropped from point $P$ to line $L$ passing through $A$ with direction $\\vec{d}$:
+$$d = \\frac{\\|\\vec{AP} \\times \\vec{d}\\|}{\\|\\vec{d}\\|}$$
 
 ### 6. Critical Examination Pitfalls & Common Traps
-- **Standardizing Symmetric Equations First:** If given $\frac{3 - x}{4} = \frac{2y + 1}{6} = z$, you must normalize coefficients of variables to $+1$:
-  $$\frac{x - 3}{-4} = \frac{y + 1/2}{3} = \frac{z - 0}{1} \implies \vec{d} = (-4, 3, 1)$$
-  Reading $\vec{d} = (4, 6, 1)$ without normalization leads to a completely incorrect answer.`,
+- **Standardizing Symmetric Equations First:** If given $\\frac{3 - x}{4} = \\frac{2y + 1}{6} = z$, you must normalize coefficients of variables to $+1$:
+  $$\\frac{x - 3}{-4} = \\frac{y + 1/2}{3} = \\frac{z - 0}{1} \\implies \\vec{d} = (-4, 3, 1)$$
+  Reading $\\vec{d} = (4, 6, 1)$ without normalization leads to a completely incorrect answer.`,
           theoryContentAr: `### ١. متجه الاتجاه وزوايا وجيوب تمام الاتجاه لمستقيم في الفراغ
-يتحدد اتجاه المستقيم في الفراغ بمتجه اتجاهه $\vec{d} = (a, b, c) \neq \vec{0}$.
-- **زوايا الاتجاه ($\alpha, \beta, \gamma$):** الزوايا التي يصنعها المستقيم مع الاتجاهات الموجبة لمحاور الإحداثيات $x, y, z$.
+يتحدد اتجاه المستقيم في الفراغ بمتجه اتجاهه $\\vec{d} = (a, b, c) \\neq \\vec{0}$.
+- **زوايا الاتجاه ($\\alpha, \\beta, \\gamma$):** الزوايا التي يصنعها المستقيم مع الاتجاهات الموجبة لمحاور الإحداثيات $x, y, z$.
 - **جيوب تمام الاتجاه:** هي مركبات متجه الوحدة في اتجاه المستقيم:
-  $$(\cos\alpha, \cos\beta, \cos\gamma) = \frac{\vec{d}}{\|\vec{d}\|}$$
+  $$(\\cos\\alpha, \\cos\\beta, \\cos\\gamma) = \\frac{\\vec{d}}{\\|\\vec{d}\\|}$$
 - **المتطابقة الأساسية لجيوب تمام الاتجاه:**
-  $$\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$$
-  $$\sin^2\alpha + \sin^2\beta + \sin^2\gamma = 2$$
+  $$\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1$$
+  $$\\sin^2\\alpha + \\sin^2\\beta + \\sin^2\\gamma = 2$$
 
 ### ٢. الصور الثلاث لمعادلة المستقيم في الفراغ
-للمستقيم المار بالنقطة $A(x_0, y_0, z_0)$ ومتجه اتجاهه $\vec{d} = (a, b, c)$:
-١. **الصورة المتجهة:** $\vec{r} = \vec{r}_0 + t \vec{d}$
+للمستقيم المار بالنقطة $A(x_0, y_0, z_0)$ ومتجه اتجاهه $\\vec{d} = (a, b, c)$:
+١. **الصورة المتجهة:** $\\vec{r} = \\vec{r}_0 + t \\vec{d}$
 ٢. **المعادلات البارامترية:**
-   $$x = x_0 + a t, \quad y = y_0 + b t, \quad z = z_0 + c t$$
+   $$x = x_0 + a t, \\quad y = y_0 + b t, \\quad z = z_0 + c t$$
 ٣. **الصورة الإحداثية القياسية:**
-   $$\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}$$
+   $$\\frac{x - x_0}{a} = \\frac{y - y_0}{b} = \\frac{z - z_0}{c}$$
 
 ### ٣. الزاوية بين مستقيمين والتوازي والتعامد
 - **قياس الزاوية الحادة بين مستقيمين:**
-  $$\cos\theta = \frac{|\vec{d}_1 \cdot \vec{d}_2|}{\|\vec{d}_1\| \|\vec{d}_2\|}$$
-- **شرط التوازي:** $\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}$ أو $\vec{d}_1 \times \vec{d}_2 = \vec{0}$
-- **شرط التعامد:** $\vec{d}_1 \cdot \vec{d}_2 = 0 \iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$
+  $$\\cos\\theta = \\frac{|\\vec{d}_1 \\cdot \\vec{d}_2|}{\\|\\vec{d}_1\\| \\|\\vec{d}_2\\|}$$
+- **شرط التوازي:** $\\frac{a_1}{a_2} = \\frac{b_1}{b_2} = \\frac{c_1}{c_2}$ أو $\\vec{d}_1 \\times \\vec{d}_2 = \\vec{0}$
+- **شرط التعامد:** $\\vec{d}_1 \\cdot \\vec{d}_2 = 0 \\iff a_1 a_2 + b_1 b_2 + c_1 c_2 = 0$
 
 ### ٤. أوضاع مستقيمين في الفراغ
 ١. **متقاطعان:** يقعان في مستوى واحد ويشتركان في نقطة واحدة.
@@ -2168,12 +2168,12 @@ $$d = \frac{\|\vec{AP} \times \vec{d}\|}{\|\vec{d}\|}$$
 ٤. **متخالفان:** لا يجمعهما مستوى واحد، غير متوازيين ولا يتقاطعان أبداً.
 
 ### ٥. طول العمود الساقط من نقطة على مستقيم
-طول العمود الساقط من النقطة $P$ على المستقيم المار بـ $A$ واتجاهه $\vec{d}$:
-$$d = \frac{\|\vec{AP} \times \vec{d}\|}{\|\vec{d}\|}$$
+طول العمود الساقط من النقطة $P$ على المستقيم المار بـ $A$ واتجاهه $\\vec{d}$:
+$$d = \\frac{\\|\\vec{AP} \\times \\vec{d}\\|}{\\|\\vec{d}\\|}$$
 
 ### ٦. فخاخ ومكائد امتحانات الثانوية العامة
-- **فخ تعديل معاملات البسط في الصورة الإحداثية:** إذا أعطيت المعادلة $\frac{5 - x}{2} = \frac{2y + 4}{6} = z$، يجب جعل معاملات س، ص، ع موجبة وتساوي $1$ أولاً:
-  $$\frac{x - 5}{-2} = \frac{y + 2}{3} = \frac{z}{1} \implies \vec{d} = (-2, 3, 1)$$`,
+- **فخ تعديل معاملات البسط في الصورة الإحداثية:** إذا أعطيت المعادلة $\\frac{5 - x}{2} = \\frac{2y + 4}{6} = z$، يجب جعل معاملات س، ص، ع موجبة وتساوي $1$ أولاً:
+  $$\\frac{x - 5}{-2} = \\frac{y + 2}{3} = \\frac{z}{1} \\implies \\vec{d} = (-2, 3, 1)$$`,
               formulas: [
                 { labelEn: 'Direction Cosines Identity', labelAr: 'متطابقة جيوب تمام الاتجاه', latex: '\\cos^2\\alpha + \\cos^2\\beta + \\cos^2\\gamma = 1' },
                 { labelEn: '3D Line Vector Form', labelAr: 'معادلة المستقيم المتجهية', latex: '\\vec{r} = \\vec{r}_0 + t \\vec{d}' },
@@ -2415,105 +2415,105 @@ $$d = \frac{\|\vec{AP} \times \vec{d}\|}{\|\vec{d}\|}$$
               summaryEn: 'General, vector, and intercept forms of a plane equation $Ax + By + Cz + D = 0$, normal vector $\\vec{n}$, perpendicular distance from point to plane $L = \\frac{|Ax_1 + By_1 + Cz_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$, and angle between planes.',
               summaryAr: 'الصور العامة والمتجهية وصورة الأجزاء المقطوعة لمعادلة المستوى $Ax + By + Cz + D = 0$، المتجه العمودي $\\vec{n}$، وطول العمود الساقط من نقطة على مستوى $L = \\frac{|Ax_1 + By_1 + Cz_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$، وقياس الزاوية بين مستويين.',
               theoryContentEn: `### 1. Vector & Normal Foundations of a Plane in 3D Space
-A plane in three-dimensional space is uniquely determined by a fixed point $A(x_0, y_0, z_0)$ on the plane and a non-zero **normal vector** $\vec{n} = (A, B, C)$ perpendicular to the plane.
-- **Fundamental Vector Condition:** For any point $P(x, y, z)$ on the plane, the displacement vector $\vec{AP}$ is orthogonal to $\vec{n}$:
-  $$\vec{AP} \cdot \vec{n} = 0 \implies (\vec{r} - \vec{r}_0) \cdot \vec{n} = 0$$
+A plane in three-dimensional space is uniquely determined by a fixed point $A(x_0, y_0, z_0)$ on the plane and a non-zero **normal vector** $\\vec{n} = (A, B, C)$ perpendicular to the plane.
+- **Fundamental Vector Condition:** For any point $P(x, y, z)$ on the plane, the displacement vector $\\vec{AP}$ is orthogonal to $\\vec{n}$:
+  $$\\vec{AP} \\cdot \\vec{n} = 0 \\implies (\\vec{r} - \\vec{r}_0) \\cdot \\vec{n} = 0$$
 
 ### 2. The Four Canonical Equations of a Plane
 1. **Vector Form (الصورة المتجهة):**
-   $$\vec{r} \cdot \vec{n} = \vec{r}_0 \cdot \vec{n} \quad \text{or} \quad \vec{r} \cdot \vec{n} = d \quad (\text{where } d = \vec{r}_0 \cdot \vec{n})$$
+   $$\\vec{r} \\cdot \\vec{n} = \\vec{r}_0 \\cdot \\vec{n} \\quad \\text{or} \\quad \\vec{r} \\cdot \\vec{n} = d \\quad (\\text{where } d = \\vec{r}_0 \\cdot \\vec{n})$$
 2. **Point-Normal Form:**
    $$A(x - x_0) + B(y - y_0) + C(z - z_0) = 0$$
 3. **General Cartesian Form (الصورة العامة):**
-   $$Ax + By + Cz + D = 0 \quad (\text{where } D = -d = -(A x_0 + B y_0 + C z_0))$$
+   $$Ax + By + Cz + D = 0 \\quad (\\text{where } D = -d = -(A x_0 + B y_0 + C z_0))$$
 4. **Intercept Form (الصورة بدلالة الأجزاء المقطوعة من المحاور):**
-   $$\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$$
+   $$\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$$
    where $a, b, c$ are the directed intercepts on the x, y, and z axes respectively.
 
 ### 3. Normal Vector from Three Non-Collinear Points
 If points $A, B, C$ lie on the plane, the normal vector is obtained via the cross product:
-$$\vec{n} = \vec{AB} \times \vec{AC}$$
+$$\\vec{n} = \\vec{AB} \\times \\vec{AC}$$
 
 ### 4. Angles, Orthogonality & Parallelism of Planes
-Let $\vec{n}_1 = (A_1, B_1, C_1)$ and $\vec{n}_2 = (A_2, B_2, C_2)$ be normal vectors of planes $\Pi_1$ and $\Pi_2$:
-- **Angle Between Two Planes ($\theta \in [0, \pi/2]$):**
-  $$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{\|\vec{n}_1\| \|\vec{n}_2\|} = \frac{|A_1 A_2 + B_1 B_2 + C_1 C_2|}{\sqrt{A_1^2 + B_1^2 + C_1^2} \sqrt{A_2^2 + B_2^2 + C_2^2}}$$
-- **Parallel Planes:** $\vec{n}_1 \parallel \vec{n}_2 \iff \frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2}$
-- **Perpendicular Planes:** $\vec{n}_1 \perp \vec{n}_2 \iff A_1 A_2 + B_1 B_2 + C_1 C_2 = 0$
+Let $\\vec{n}_1 = (A_1, B_1, C_1)$ and $\\vec{n}_2 = (A_2, B_2, C_2)$ be normal vectors of planes $\\Pi_1$ and $\\Pi_2$:
+- **Angle Between Two Planes ($\\theta \\in [0, \\pi/2]$):**
+  $$\\cos\\theta = \\frac{|\\vec{n}_1 \\cdot \\vec{n}_2|}{\\|\\vec{n}_1\\| \\|\\vec{n}_2\\|} = \\frac{|A_1 A_2 + B_1 B_2 + C_1 C_2|}{\\sqrt{A_1^2 + B_1^2 + C_1^2} \\sqrt{A_2^2 + B_2^2 + C_2^2}}$$
+- **Parallel Planes:** $\\vec{n}_1 \\parallel \\vec{n}_2 \\iff \\frac{A_1}{A_2} = \\frac{B_1}{B_2} = \\frac{C_1}{C_2}$
+- **Perpendicular Planes:** $\\vec{n}_1 \\perp \\vec{n}_2 \\iff A_1 A_2 + B_1 B_2 + C_1 C_2 = 0$
 
 ### 5. Geometric Interrelations: Line and Plane
-Let a line have direction vector $\vec{d}$ and a plane have normal vector $\vec{n}$:
-- **Angle $\alpha$ Between Line and Plane:**
-  $$\sin\alpha = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$
-  *(Crucial: Sine is used because $\vec{n}$ is normal to the plane, so the angle with the plane is the complement $90^\circ - \theta$).*
-- **Line Parallel to Plane:** $\vec{d} \cdot \vec{n} = 0$
-- **Line Perpendicular to Plane:** $\vec{d} \parallel \vec{n} \iff \frac{d_x}{A} = \frac{d_y}{B} = \frac{d_z}{C}$
+Let a line have direction vector $\\vec{d}$ and a plane have normal vector $\\vec{n}$:
+- **Angle $\\alpha$ Between Line and Plane:**
+  $$\\sin\\alpha = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$$
+  *(Crucial: Sine is used because $\\vec{n}$ is normal to the plane, so the angle with the plane is the complement $90^\\circ - \\theta$).*
+- **Line Parallel to Plane:** $\\vec{d} \\cdot \\vec{n} = 0$
+- **Line Perpendicular to Plane:** $\\vec{d} \\parallel \\vec{n} \\iff \\frac{d_x}{A} = \\frac{d_y}{B} = \\frac{d_z}{C}$
 
 ### 6. Perpendicular Distance Formulas
 - **Distance from Point $(x_1, y_1, z_1)$ to Plane $Ax + By + Cz + D = 0$:**
-  $$D = \frac{|A x_1 + B y_1 + C z_1 + D|}{\sqrt{A^2 + B^2 + C^2}}$$
+  $$D = \\frac{|A x_1 + B y_1 + C z_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$$
 - **Distance Between Two Parallel Planes $Ax + By + Cz + D_1 = 0$ and $Ax + By + Cz + D_2 = 0$:**
-  $$D = \frac{|D_1 - D_2|}{\sqrt{A^2 + B^2 + C^2}}$$
+  $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$
 
 ### 7. Line of Intersection of Two Non-Parallel Planes
-The direction vector $\vec{d}$ of the straight line formed by the intersection of two planes is perpendicular to BOTH normal vectors:
-$$\vec{d} = \vec{n}_1 \times \vec{n}_2$$
+The direction vector $\\vec{d}$ of the straight line formed by the intersection of two planes is perpendicular to BOTH normal vectors:
+$$\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2$$
 
 ### 8. Critical Examination Pitfalls & Common Traps
-- **Line-Plane Angle Formula Trap:** Using $\cos$ instead of $\sin$ when finding the angle between a line and a plane! The formula is strictly $\sin\alpha = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$.
+- **Line-Plane Angle Formula Trap:** Using $\\cos$ instead of $\\sin$ when finding the angle between a line and a plane! The formula is strictly $\\sin\\alpha = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$.
 - **Parallel vs. Perpendicular Line and Plane Conditions:**
-  - Line is PARALLEL to plane $\implies \vec{d} \cdot \vec{n} = 0$ (direction vector is orthogonal to the normal!).
-  - Line is PERPENDICULAR to plane $\implies \vec{d} \parallel \vec{n}$ (direction vector is parallel to the normal!).`,
+  - Line is PARALLEL to plane $\\implies \\vec{d} \\cdot \\vec{n} = 0$ (direction vector is orthogonal to the normal!).
+  - Line is PERPENDICULAR to plane $\\implies \\vec{d} \\parallel \\vec{n}$ (direction vector is parallel to the normal!).`,
           theoryContentAr: `### ١. الأساس المتجه لتعريف المستوى في الفراغ
-يتعين المستوى في الفراغ ثلاثي الأبعاد تعييناً تاماً بمعرفة نقطة معلومة $A(x_0, y_0, z_0)$ تنتمي للمستوى و**متجه عمودي** غير صفري $\vec{n} = (A, B, C)$ على المستوى.
-- **الشرط المتجه الأساسي:** لأي نقطة عامة $P(x, y, z)$ في المستوى، يكون المتجه $\vec{AP}$ عمودياً على $\vec{n}$:
-  $$(\vec{r} - \vec{r}_0) \cdot \vec{n} = 0$$
+يتعين المستوى في الفراغ ثلاثي الأبعاد تعييناً تاماً بمعرفة نقطة معلومة $A(x_0, y_0, z_0)$ تنتمي للمستوى و**متجه عمودي** غير صفري $\\vec{n} = (A, B, C)$ على المستوى.
+- **الشرط المتجه الأساسي:** لأي نقطة عامة $P(x, y, z)$ في المستوى، يكون المتجه $\\vec{AP}$ عمودياً على $\\vec{n}$:
+  $$(\\vec{r} - \\vec{r}_0) \\cdot \\vec{n} = 0$$
 
 ### ٢. الصور الأربع لمعادلة المستوى
 ١. **الصورة المتجهة:**
-   $$\vec{r} \cdot \vec{n} = \vec{r}_0 \cdot \vec{n} \quad \text{أو} \quad \vec{r} \cdot \vec{n} = d$$
+   $$\\vec{r} \\cdot \\vec{n} = \\vec{r}_0 \\cdot \\vec{n} \\quad \\text{أو} \\quad \\vec{r} \\cdot \\vec{n} = d$$
 ٢. **الصورة القياسية بنقطة والعمودي:**
    $$A(x - x_0) + B(y - y_0) + C(z - z_0) = 0$$
 ٣. **الصورة العامة لمعادلة المستوى:**
    $$Ax + By + Cz + D = 0$$
 ٤. **صورة الأجزاء المقطوعة من محاور الإحداثيات:**
-   $$\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$$
+   $$\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1$$
    حيث $a, b, c$ هي الأجزاء المقطوعة من المحاور $x, y, z$ على الترتيب.
 
 ### ٣. تعيين العمودي بمعلومية ثلاث نقط ليست على استقامة واحدة
 إذا كانت النقط $A, B, C$ تقع في المستوى:
-$$\vec{n} = \vec{AB} \times \vec{AC}$$
+$$\\vec{n} = \\vec{AB} \\times \\vec{AC}$$
 
 ### ٤. الزاوية بين مستويين والتوازي والتعامد
-لمستويين متجهي عموديهما $\vec{n}_1$ و $\vec{n}_2$:
+لمستويين متجهي عموديهما $\\vec{n}_1$ و $\\vec{n}_2$:
 - **قياس الزاوية الحادة بين مستويين:**
-  $$\cos\theta = \frac{|\vec{n}_1 \cdot \vec{n}_2|}{\|\vec{n}_1\| \|\vec{n}_2\|}$$
-- **شرط توازي مستويين:** $\frac{A_1}{A_2} = \frac{B_1}{B_2} = \frac{C_1}{C_2}$ أو $\vec{n}_1 \times \vec{n}_2 = \vec{0}$
-- **شرط تعامد مستويين:** $\vec{n}_1 \cdot \vec{n}_2 = 0 \iff A_1 A_2 + B_1 B_2 + C_1 C_2 = 0$
+  $$\\cos\\theta = \\frac{|\\vec{n}_1 \\cdot \\vec{n}_2|}{\\|\\vec{n}_1\\| \\|\\vec{n}_2\\|}$$
+- **شرط توازي مستويين:** $\\frac{A_1}{A_2} = \\frac{B_1}{B_2} = \\frac{C_1}{C_2}$ أو $\\vec{n}_1 \\times \\vec{n}_2 = \\vec{0}$
+- **شرط تعامد مستويين:** $\\vec{n}_1 \\cdot \\vec{n}_2 = 0 \\iff A_1 A_2 + B_1 B_2 + C_1 C_2 = 0$
 
 ### ٥. العلاقة الهندسية بين مستقيم ومستوى
-لمستقيم متجه اتجاهه $\vec{d}$ ومستوى متجه عموديه $\vec{n}$:
+لمستقيم متجه اتجاهه $\\vec{d}$ ومستوى متجه عموديه $\\vec{n}$:
 - **قياس الزاوية بين المستقيم والمستوى:**
-  $$\sin\alpha = \frac{|\vec{d} \cdot \vec{n}|}{\|\vec{d}\| \|\vec{n}\|}$$
-  *(لاحظ استخدام دالة الجيب جا لأن $\vec{n}$ عمودي على المستوى).*
-- **المستقيم يوازي المستوى:** $\vec{d} \cdot \vec{n} = 0$
-- **المستقيم يعامد المستوى:** $\vec{d} \parallel \vec{n}$
+  $$\\sin\\alpha = \\frac{|\\vec{d} \\cdot \\vec{n}|}{\\|\\vec{d}\\| \\|\\vec{n}\\|}$$
+  *(لاحظ استخدام دالة الجيب جا لأن $\\vec{n}$ عمودي على المستوى).*
+- **المستقيم يوازي المستوى:** $\\vec{d} \\cdot \\vec{n} = 0$
+- **المستقيم يعامد المستوى:** $\\vec{d} \\parallel \\vec{n}$
 
 ### ٦. أطوال الأعمدة
 - **طول العمود الساقط من نقطة $(x_1, y_1, z_1)$ على المستوى:**
-  $$D = \frac{|A x_1 + B y_1 + C z_1 + D|}{\sqrt{A^2 + B^2 + C^2}}$$
+  $$D = \\frac{|A x_1 + B y_1 + C z_1 + D|}{\\sqrt{A^2 + B^2 + C^2}}$$
 - **البعد بين مستويين متوازيين:**
-  $$D = \frac{|D_1 - D_2|}{\sqrt{A^2 + B^2 + C^2}}$$
+  $$D = \\frac{|D_1 - D_2|}{\\sqrt{A^2 + B^2 + C^2}}$$
 
 ### ٧. خط تقاطع مستويين
 متجه اتجاه خط تقاطع مستويين يعامد كلاً من العموديين:
-$$\vec{d} = \vec{n}_1 \times \vec{n}_2$$
+$$\\vec{d} = \\vec{n}_1 \\times \\vec{n}_2$$
 
 ### ٨. فخاخ ومكائد امتحانات الثانوية العامة
 - **فخ زاوية المستقيم والمستوى:** قانون الزاوية بين مستقيم ومستوى يستخدم **جا (sin)** وليس جتا (cos)!
 - **شروط التوازي والتعامد المعكوسة بين المستقيم والمستوى:**
-  - المستقيم **يوازي** المستوى $\implies \vec{d} \cdot \vec{n} = 0$ (متجه الاتجاه عمودي على العمودي!).
-  - المستقيم **يعامد** المستوى $\implies \vec{d} \parallel \vec{n}$ (متجه الاتجاه يوازي العمودي!).`,
+  - المستقيم **يوازي** المستوى $\\implies \\vec{d} \\cdot \\vec{n} = 0$ (متجه الاتجاه عمودي على العمودي!).
+  - المستقيم **يعامد** المستوى $\\implies \\vec{d} \\parallel \\vec{n}$ (متجه الاتجاه يوازي العمودي!).`,
               formulas: [
                 { labelEn: '3D Plane General Form', labelAr: 'معادلة المستوى العامة', latex: 'Ax + By + Cz + D = 0' },
                 { labelEn: 'Intercept Form of Plane', labelAr: 'صورة الأجزاء المقطوعة', latex: '\\frac{x}{a} + \\frac{y}{b} + \\frac{z}{c} = 1' },
