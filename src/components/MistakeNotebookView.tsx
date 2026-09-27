@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { Language } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
 import { TextbookDiagram } from './TextbookDiagram';
@@ -23,11 +23,14 @@ import {
   Trash2,
   Play,
   Printer,
-  RotateCcw,
   Filter,
   Check,
   ChevronDown,
   ChevronUp,
+  ChevronLeft,
+  ChevronRight,
+  Grid,
+  List,
   X,
 } from 'lucide-react';
 
@@ -57,6 +60,10 @@ export const MistakeNotebookView: React.FC<Props> = ({
 
   // Question count limit for launching remediation quiz
   const [remediationCount, setRemediationCount] = useState<number>(10);
+
+  // View mode: 'single' (one question per screen) or 'list' (scrolling list)
+  const [viewMode, setViewMode] = useState<'single' | 'list'>('single');
+  const [activeMistakeIdx, setActiveMistakeIdx] = useState<number>(0);
 
   // Compute stats
   const stats = useMemo(() => getMistakeStats(records), [records]);
@@ -100,6 +107,46 @@ export const MistakeNotebookView: React.FC<Props> = ({
       return true;
     });
   }, [records, statusFilter, selectedSubject, selectedDifficulty, searchQuery, isAr]);
+
+  // Clamp activeMistakeIdx when filteredRecords count changes
+  useEffect(() => {
+    setActiveMistakeIdx((prev) => {
+      if (filteredRecords.length === 0) return 0;
+      if (prev >= filteredRecords.length) return filteredRecords.length - 1;
+      return prev;
+    });
+  }, [filteredRecords.length]);
+
+  // Reset to first question when filters change
+  useEffect(() => {
+    setActiveMistakeIdx(0);
+  }, [selectedSubject, selectedDifficulty, statusFilter, searchQuery]);
+
+  // Global Keyboard Navigation (Arrow Keys) for Single Question Viewport
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (viewMode !== 'single' || filteredRecords.length === 0) return;
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        if (isAr) {
+          setActiveMistakeIdx((curr) => Math.max(0, curr - 1));
+        } else {
+          setActiveMistakeIdx((curr) => Math.min(filteredRecords.length - 1, curr + 1));
+        }
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (isAr) {
+          setActiveMistakeIdx((curr) => Math.min(filteredRecords.length - 1, curr + 1));
+        } else {
+          setActiveMistakeIdx((curr) => Math.max(0, curr - 1));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [viewMode, filteredRecords.length, isAr]);
 
   // Toggle solution expansion
   const toggleSolution = (id: string) => {
@@ -369,11 +416,43 @@ export const MistakeNotebookView: React.FC<Props> = ({
             className="flex-1 min-w-[160px] px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:border-indigo-500 outline-none"
           />
 
-          <span className="text-xs text-slate-400 font-bold ml-auto">
-            {isAr
-              ? `عرض ${toHindiDigits(filteredRecords.length)} من أصل ${toHindiDigits(records.length)} سؤال`
-              : `Showing ${filteredRecords.length} of ${records.length} records`}
-          </span>
+          <div className="flex items-center gap-3 ml-auto flex-wrap">
+            <span className="text-xs text-slate-400 font-bold">
+              {isAr
+                ? `عرض ${toHindiDigits(filteredRecords.length)} من أصل ${toHindiDigits(records.length)} سؤال`
+                : `Showing ${filteredRecords.length} of ${records.length} records`}
+            </span>
+
+            {/* View Mode Toggle: Single Question vs Continuous List */}
+            <div className="flex items-center gap-1 p-1 bg-slate-950 border border-slate-800 rounded-xl">
+              <button
+                type="button"
+                onClick={() => setViewMode('single')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  viewMode === 'single'
+                    ? 'bg-cyan-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+                title={isAr ? 'عرض سؤال واحد لكل شاشة' : 'Single Question View'}
+              >
+                <Grid className="w-3.5 h-3.5" />
+                <span>{isAr ? 'سؤال بشاشة' : 'Single'}</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('list')}
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  viewMode === 'list'
+                    ? 'bg-cyan-600 text-white shadow-xs'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+                title={isAr ? 'عرض كل الأسئلة في قائمة' : 'Continuous List View'}
+              >
+                <List className="w-3.5 h-3.5" />
+                <span>{isAr ? 'قائمة متصلة' : 'List'}</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -410,9 +489,9 @@ export const MistakeNotebookView: React.FC<Props> = ({
         </div>
       )}
 
-      {/* Mistake Cards List */}
-      <div className="space-y-4">
-        {filteredRecords.map((record, index) => {
+      {/* Mistake Cards Container */}
+      {filteredRecords.length > 0 && (() => {
+        const renderMistakeCard = (record: MistakeRecord, index: number) => {
           const q = record.question;
           const isExpanded = !!expandedSolutions[record.id];
           const questionText = isAr ? q.questionAr : q.questionEn;
@@ -452,94 +531,88 @@ export const MistakeNotebookView: React.FC<Props> = ({
                   )}
 
                   <span
-                    className={`px-2.5 py-0.5 rounded-md text-[11px] font-extrabold uppercase ${
+                    className={`px-2 py-0.5 rounded-full text-[11px] font-extrabold uppercase tracking-wider ${
                       q.difficulty === 'hots'
-                        ? 'bg-amber-500/20 border border-amber-500/40 text-amber-300'
+                        ? 'bg-purple-900/50 text-purple-300 border border-purple-700/40'
                         : q.difficulty === 'medium'
-                        ? 'bg-sky-500/20 border border-sky-500/40 text-sky-300'
-                        : 'bg-emerald-500/20 border border-emerald-500/40 text-emerald-300'
+                        ? 'bg-blue-900/50 text-blue-300 border border-blue-700/40'
+                        : 'bg-emerald-900/50 text-emerald-300 border border-emerald-700/40'
                     }`}
                   >
-                    {q.difficulty === 'hots'
-                      ? isAr
-                        ? 'مستويات عليا HOTS'
-                        : 'HOTS'
-                      : q.difficulty === 'medium'
-                      ? isAr
-                        ? 'متوسط'
-                        : 'Medium'
-                      : isAr
-                      ? 'تأسيسي'
-                      : 'Easy'}
+                    {q.difficulty}
                   </span>
 
-                  {record.attemptsCount > 1 && (
-                    <span className="px-2 py-0.5 rounded-md bg-rose-500/10 border border-rose-500/30 text-rose-300 text-[11px] font-bold flex items-center gap-1">
-                      <RotateCcw className="w-3 h-3" />
-                      <span>
-                        {isAr
-                          ? `أخطأت بها ${toHindiDigits(record.attemptsCount)} مرات`
-                          : `${record.attemptsCount} missed attempts`}
-                      </span>
+                  {record.mastered ? (
+                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-extrabold flex items-center gap-1">
+                      <Check className="w-3 h-3" />
+                      <span>{isAr ? 'تم الإتقان' : 'Mastered'}</span>
+                    </span>
+                  ) : (
+                    <span className="px-2.5 py-0.5 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 text-xs font-extrabold flex items-center gap-1">
+                      <AlertCircle className="w-3 h-3" />
+                      <span>{isAr ? 'يحتاج مراجعة' : 'Needs Review'}</span>
                     </span>
                   )}
                 </div>
 
-                {/* Right / Status Toggle & Remove */}
+                {/* Action Buttons: Mark Mastered & Remove */}
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleToggleMastered(record.id, record.mastered)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-bold border transition-all flex items-center gap-1.5 cursor-pointer ${
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                       record.mastered
-                        ? 'bg-emerald-600/20 border-emerald-500/50 text-emerald-300 hover:bg-emerald-600/30'
-                        : 'bg-slate-800 hover:bg-emerald-950/60 border-slate-700 text-slate-300 hover:text-emerald-300'
+                        ? 'bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                        : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs shadow-emerald-900/40'
                     }`}
+                    title={
+                      record.mastered
+                        ? isAr
+                          ? 'إعادة السؤال لقائمة المراجعة'
+                          : 'Move back to review list'
+                        : isAr
+                        ? 'تحديد السؤال كتم الإتقان'
+                        : 'Mark question as mastered'
+                    }
                   >
-                    <Check className={`w-3.5 h-3.5 ${record.mastered ? 'text-emerald-400' : 'text-slate-400'}`} />
+                    <CheckCircle2 className="w-3.5 h-3.5" />
                     <span>
                       {record.mastered
                         ? isAr
-                          ? 'تم التدارك والتثبيت ✓'
-                          : 'Mastered ✓'
+                          ? 'إلغاء الإتقان'
+                          : 'Unmark'
                         : isAr
-                        ? 'تحديد كـ "تم الاستيعاب"'
-                        : 'Mark as Mastered'}
+                        ? 'إتقان'
+                        : 'Master'}
                     </span>
                   </button>
 
                   <button
                     onClick={() => handleRemoveRecord(record.id)}
-                    title={isAr ? 'حذف من الكشكول' : 'Remove from notebook'}
-                    className="p-1.5 rounded-lg text-slate-500 hover:text-rose-400 hover:bg-rose-950/40 transition-all cursor-pointer"
+                    className="p-1.5 rounded-xl bg-slate-900/80 hover:bg-rose-950/60 border border-slate-800 hover:border-rose-800/60 text-slate-400 hover:text-rose-400 transition-all cursor-pointer"
+                    title={isAr ? 'حذف من كشكول الأخطاء' : 'Delete from Notebook'}
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
               </div>
 
-              {/* Question Body */}
-              <div className="py-4 space-y-3">
+              {/* Question Text & Diagram */}
+              <div className="pt-4 space-y-3">
                 <div className="text-base sm:text-lg font-bold text-slate-100 leading-relaxed">
                   <MathRenderer text={questionText} lang={lang} />
                 </div>
 
                 {q.diagramType && (
-                  <div className="max-w-md mx-auto">
+                  <div className="pt-2">
                     <TextbookDiagram type={q.diagramType} lang={lang} />
                   </div>
                 )}
-              </div>
 
-              {/* Answers Comparison Matrix */}
-              <div className="space-y-2 pt-2 border-t border-slate-800/80">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                  {isAr ? 'مقارنة الخيارات وتصحيح المفهوم:' : 'Options Comparison:'}
-                </span>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                {/* Options List */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
                   {options.map((optText, optIdx) => {
-                    const isUserMistake = optIdx === record.userAnswerIndex;
                     const isCorrect = optIdx === q.correctIndex;
+                    const isUserMistake = optIdx === record.userAnswerIndex;
 
                     let cardStyle =
                       'bg-slate-950/60 border-slate-800 text-slate-300';
@@ -627,8 +700,101 @@ export const MistakeNotebookView: React.FC<Props> = ({
               )}
             </div>
           );
-        })}
-      </div>
+        };
+
+        if (viewMode === 'list') {
+          return (
+            <div className="space-y-4">
+              {filteredRecords.map((record, index) => renderMistakeCard(record, index))}
+            </div>
+          );
+        }
+
+        const currentRecord = filteredRecords[activeMistakeIdx] || filteredRecords[0];
+
+        return (
+          <div className="space-y-4">
+            {/* Question Jumper Palette */}
+            <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 shadow-md">
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="text-xs font-bold text-slate-300">
+                  {isAr ? 'لوحة التنقل السريع بين الأسئلة:' : 'Direct Question Jumper:'}
+                </span>
+                <span className="text-xs font-mono text-cyan-400 font-bold">
+                  {isAr
+                    ? `سؤال ${toHindiDigits(activeMistakeIdx + 1)} من ${toHindiDigits(filteredRecords.length)}`
+                    : `Question ${activeMistakeIdx + 1} of ${filteredRecords.length}`}
+                </span>
+              </div>
+              <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1">
+                {filteredRecords.map((r, idx) => {
+                  const isActive = idx === activeMistakeIdx;
+                  const isMastered = r.mastered;
+                  return (
+                    <button
+                      key={r.id}
+                      onClick={() => setActiveMistakeIdx(idx)}
+                      className={`w-8 h-8 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center shrink-0 ${
+                        isActive
+                          ? 'ring-2 ring-cyan-400 ring-offset-2 ring-offset-slate-950 font-black scale-105 z-10 ' +
+                            (isMastered ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white')
+                          : isMastered
+                          ? 'bg-emerald-950/60 border border-emerald-700/50 text-emerald-300 hover:bg-emerald-900/60'
+                          : 'bg-rose-950/60 border border-rose-800/50 text-rose-300 hover:bg-rose-900/60'
+                      }`}
+                    >
+                      {isAr ? toHindiDigits(idx + 1) : idx + 1}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Single Active Mistake Card */}
+            {currentRecord && renderMistakeCard(currentRecord, activeMistakeIdx)}
+
+            {/* Pagination Controls */}
+            <div className="flex items-center justify-between gap-3 pt-2">
+              <button
+                onClick={() => setActiveMistakeIdx((prev) => Math.max(0, prev - 1))}
+                disabled={activeMistakeIdx === 0}
+                className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all ${
+                  activeMistakeIdx === 0
+                    ? 'bg-slate-900 text-slate-600 border border-slate-800 cursor-not-allowed'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 cursor-pointer shadow-sm'
+                }`}
+              >
+                {isAr ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                <span>{isAr ? 'السؤال السابق' : 'Previous Question'}</span>
+              </button>
+
+              <div className="flex flex-col items-center">
+                <span className="text-xs sm:text-sm font-bold text-slate-300">
+                  {isAr
+                    ? `${toHindiDigits(activeMistakeIdx + 1)} / ${toHindiDigits(filteredRecords.length)}`
+                    : `${activeMistakeIdx + 1} of ${filteredRecords.length}`}
+                </span>
+                <span className="text-[10px] text-slate-500 hidden sm:inline">
+                  {isAr ? 'استخدم الأسهم ◄ ► للتنقل' : 'Use arrow keys ◄ ► to navigate'}
+                </span>
+              </div>
+
+              <button
+                onClick={() => setActiveMistakeIdx((prev) => Math.min(filteredRecords.length - 1, prev + 1))}
+                disabled={activeMistakeIdx >= filteredRecords.length - 1}
+                className={`px-4 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all ${
+                  activeMistakeIdx >= filteredRecords.length - 1
+                    ? 'bg-slate-900 text-slate-600 border border-slate-800 cursor-not-allowed'
+                    : 'bg-indigo-600 hover:bg-indigo-500 text-white border border-indigo-500 cursor-pointer shadow-sm'
+                }`}
+              >
+                <span>{isAr ? 'السؤال التالي' : 'Next Question'}</span>
+                {isAr ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+              </button>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 };
