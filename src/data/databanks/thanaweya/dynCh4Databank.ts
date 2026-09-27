@@ -34,7 +34,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 10 \\times 6 = 60\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_02",
@@ -68,7 +69,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 20 \\times 7 = 140\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_03",
@@ -102,7 +104,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 30 \\times 8 = 240\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_04",
@@ -136,7 +139,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 40 \\times 9 = 360\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_05",
@@ -170,7 +174,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 50 \\times 10 = 500\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_06",
@@ -204,7 +209,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 60 \\times 11 = 660\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_07",
@@ -238,7 +244,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 70 \\times 12 = 840\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_08",
@@ -272,7 +279,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 80 \\times 13 = 1040\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_09",
@@ -306,7 +314,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 90 \\times 14 = 1260\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_10",
@@ -340,7 +349,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 100 \\times 15 = 1500\\text{ جول}$."
       ],
       "teacherTipEn": "Work is measured in Joules (Newton-meters) in the SI system.",
-      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي."
+      "teacherTipAr": "يقاس الشغل بوحدة الجول (نيوتن.متر) في النظام الدولي.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_11",
@@ -374,7 +384,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 20 \\times 10 \\times 0.5 = 100\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_12",
@@ -408,7 +419,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 40 \\times 10 \\times 0.5 = 200\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_13",
@@ -442,7 +454,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 60 \\times 10 \\times 0.5 = 300\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_14",
@@ -476,7 +489,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 80 \\times 10 \\times 0.5 = 400\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_15",
@@ -510,7 +524,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 100 \\times 10 \\times 0.5 = 500\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_16",
@@ -544,7 +559,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 120 \\times 10 \\times 0.5 = 600\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_17",
@@ -578,7 +594,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 140 \\times 10 \\times 0.5 = 700\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_18",
@@ -612,7 +629,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 160 \\times 10 \\times 0.5 = 800\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_19",
@@ -646,7 +664,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 180 \\times 10 \\times 0.5 = 900\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_20",
@@ -680,7 +699,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $W = 200 \\times 10 \\times 0.5 = 1000\\text{ جول}$."
       ],
       "teacherTipEn": "Always check whether the angle given is with the line of displacement.",
-      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة."
+      "teacherTipAr": "تأكد دائماً أن الزاوية المعطاة هي الزاوية المحصورة بين القوة والإزاحة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_21",
@@ -714,7 +734,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 8 + 6 = 14\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_22",
@@ -748,7 +769,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 16 + 12 = 28\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_23",
@@ -782,7 +804,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 24 + 18 = 42\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_24",
@@ -816,7 +839,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 32 + 24 = 56\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_25",
@@ -850,7 +874,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 40 + 30 = 70\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_26",
@@ -884,7 +909,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 48 + 36 = 84\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_27",
@@ -918,7 +944,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 56 + 42 = 98\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_28",
@@ -952,7 +979,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 64 + 48 = 112\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_29",
@@ -986,7 +1014,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 72 + 54 = 126\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_30",
@@ -1020,7 +1049,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. $W = 80 + 60 = 140\\text{ جول}$."
       ],
       "teacherTipEn": "Dot product is scalar; do not write unit vectors in the work result.",
-      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل."
+      "teacherTipAr": "الضرب القياسي ينتج كمية قياسية عددية؛ لا تكتب متجهات وحدة في ناتج الشغل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_31",
@@ -1054,7 +1084,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(2)(5^2) = 25\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_32",
@@ -1088,7 +1119,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(4)(5^2) = 50\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_33",
@@ -1122,7 +1154,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(6)(5^2) = 75\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_34",
@@ -1156,7 +1189,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(8)(5^2) = 100\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_35",
@@ -1190,7 +1224,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(10)(5^2) = 125\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_36",
@@ -1224,7 +1259,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(12)(5^2) = 150\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_37",
@@ -1258,7 +1294,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(14)(5^2) = 175\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_38",
@@ -1292,7 +1329,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(16)(5^2) = 200\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_39",
@@ -1326,7 +1364,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(18)(5^2) = 225\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_40",
@@ -1360,7 +1399,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $T = \\frac{1}{2}(20)(5^2) = 250\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic energy is always non-negative since v^2 >= 0 and m > 0.",
-      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً."
+      "teacherTipAr": "طاقة الحركة دائماً موجبة أو صفر لأن السرعة مربعة والكتلة موجبة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_41",
@@ -1394,7 +1434,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (1)(9.8)(10) = 98\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_42",
@@ -1428,7 +1469,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (2)(9.8)(10) = 196\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_43",
@@ -1462,7 +1504,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (3)(9.8)(10) = 294\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_44",
@@ -1496,7 +1539,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (4)(9.8)(10) = 392\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_45",
@@ -1530,7 +1574,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (5)(9.8)(10) = 490\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_46",
@@ -1564,7 +1609,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (6)(9.8)(10) = 588\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_47",
@@ -1598,7 +1644,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (7)(9.8)(10) = 686\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_48",
@@ -1632,7 +1679,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (8)(9.8)(10) = 784\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_49",
@@ -1666,7 +1714,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (9)(9.8)(10) = 882\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_50",
@@ -1700,7 +1749,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض: $V = (10)(9.8)(10) = 980\\text{ جول}$."
       ],
       "teacherTipEn": "Potential energy depends on the chosen zero reference plane.",
-      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة."
+      "teacherTipAr": "طاقة الوضع تعتمد دائماً على المستوى المرجعي المختار لطاقة الوضع المنعدمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_51",
@@ -1732,7 +1782,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$W = F \\cdot s \\cdot \\cos\\theta = 50 \\times 10 \\times \\cos 60^\\circ = 250\\text{ جول}$."
       ],
       "teacherTipEn": "Only the force component parallel to displacement ($F \\cos\\theta$) does mechanical work.",
-      "teacherTipAr": "مركبة القوة الموازية للإزاحة ($F \\cos\\theta$) هي وحدها التي تبذل شغلاً ميكانيكياً."
+      "teacherTipAr": "مركبة القوة الموازية للإزاحة ($F \\cos\\theta$) هي وحدها التي تبذل شغلاً ميكانيكياً.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_52",
@@ -1766,7 +1817,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$W_g = m g h = 25 \\times 9.8 \\times 8 = 1960\\text{ جول}$."
       ],
       "teacherTipEn": "Remember: gravity does POSITIVE work on descending bodies and NEGATIVE work on ascending bodies.",
-      "teacherTipAr": "تذكر: تبذل الجاذبية شغلاً موجباً على الأجسام الهابطة، وشغلاً سالباً على الأجسام الصاعدة."
+      "teacherTipAr": "تذكر: تبذل الجاذبية شغلاً موجباً على الأجسام الهابطة، وشغلاً سالباً على الأجسام الصاعدة.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_easy_53",
@@ -1798,7 +1850,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$T = \\frac{1}{2} m v^2 = \\frac{1}{2} \\times 1200 \\times 400 = 240000\\text{ جول}$."
       ],
       "teacherTipEn": "Always make sure speed is in m/s before squaring: multiply km/h by $\\frac{5}{18}$.",
-      "teacherTipAr": "تأكد دائماً أن السرعة بوحدة م/ث قبل التربيع: اضرب كم/س في $\\frac{5}{18}$."
+      "teacherTipAr": "تأكد دائماً أن السرعة بوحدة م/ث قبل التربيع: اضرب كم/س في $\\frac{5}{18}$.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_54",
@@ -1832,7 +1885,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "بالكيلووات: $P = 72\\text{ ك.وات}$."
       ],
       "teacherTipEn": "If asked for horsepower (hp): $1\\text{ metric hp} = 735\\text{ W}$, or $1\\text{ mechanical hp} = 746\\text{ W}$.",
-      "teacherTipAr": "إذا طُلبت القدرة بالحصان: $1\\text{ حصان متري} = 735\\text{ وات}$ (أو $75\\text{ ث.كجم}\\cdot\\text{م/ث}$)."
+      "teacherTipAr": "إذا طُلبت القدرة بالحصان: $1\\text{ حصان متري} = 735\\text{ وات}$ (أو $75\\text{ ث.كجم}\\cdot\\text{م/ث}$).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_55",
@@ -1866,7 +1920,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "الشغل: $W = \\vec{F} \\cdot \\vec{s} = 8(3) + (-5)(4) = 24 - 20 = 4\\text{ جول}$."
       ],
       "teacherTipEn": "The dot product $F_x s_x + F_y s_y$ automatically takes into account the cosine of the angle between them.",
-      "teacherTipAr": "الضرب القياسي يراعي تلقائياً جيب تمام الزاوية المحصورة بين المتجهين."
+      "teacherTipAr": "الضرب القياسي يراعي تلقائياً جيب تمام الزاوية المحصورة بين المتجهين.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_56",
@@ -1898,7 +1953,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$V_e = \\frac{1}{2} k x^2 = \\frac{1}{2} \\times 500 \\times 0.04 = 10\\text{ جول}$."
       ],
       "teacherTipEn": "Elastic potential energy is always positive ($x^2 > 0$), whether the spring is stretched or compressed.",
-      "teacherTipAr": "طاقة الوضع المرنة موجبة دائماً سواء كان الزنبرك مشدوداً أو مضغوطاً."
+      "teacherTipAr": "طاقة الوضع المرنة موجبة دائماً سواء كان الزنبرك مشدوداً أو مضغوطاً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_easy_57",
@@ -1934,7 +1990,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "شغل الاحتكاك: $W_f = - 11.76 \\times 5 = -58.8\\text{ جول}$."
       ],
       "teacherTipEn": "Kinetic friction always opposes the direction of motion, so its work is invariably negative.",
-      "teacherTipAr": "الاحتكاك الحركي يعاكس دائماً اتجاه الحركة، ولذلك فشغله سالب دائماً."
+      "teacherTipAr": "الاحتكاك الحركي يعاكس دائماً اتجاه الحركة، ولذلك فشغله سالب دائماً.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_easy_58",
@@ -1972,7 +2029,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$W = 39 - 5 = 34\\text{ جول}$."
       ],
       "teacherTipEn": "Work is the definite integral of force over displacement: $W = \\int F\\,dx$.",
-      "teacherTipAr": "الشغل هو التكامل المحدد للقوة بالنسبة للإزاحة: $W = \\int F\\,dx$."
+      "teacherTipAr": "الشغل هو التكامل المحدد للقوة بالنسبة للإزاحة: $W = \\int F\\,dx$.",
+      "diagramType": "cartesian_plane"
     }
   ],
   "medium": [
@@ -2008,7 +2066,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(1) + 12 = 21\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_02",
@@ -2042,7 +2101,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(2) + 12 = 30\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_03",
@@ -2076,7 +2136,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(3) + 12 = 39\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_04",
@@ -2110,7 +2171,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(4) + 12 = 48\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_05",
@@ -2144,7 +2206,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(5) + 12 = 57\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_06",
@@ -2178,7 +2241,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(6) + 12 = 66\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_07",
@@ -2212,7 +2276,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(7) + 12 = 75\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_08",
@@ -2246,7 +2311,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(8) + 12 = 84\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_09",
@@ -2280,7 +2346,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(9) + 12 = 93\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_10",
@@ -2314,7 +2381,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. بالتعويض عن $s = 3$: $9(10) + 12 = 102\\text{ جول}$."
       ],
       "teacherTipEn": "Always integrate force with respect to position to find work for a variable force.",
-      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة."
+      "teacherTipAr": "كامل دائماً القوة بالنسبة للموضع لحساب شغل القوة المتغيرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_11",
@@ -2350,7 +2418,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{72000}{2500} = 28.8\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_12",
@@ -2386,7 +2455,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{98000}{2500} = 39.2\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_13",
@@ -2422,7 +2492,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{128000}{2500} = 51.2\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_14",
@@ -2458,7 +2529,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{162000}{2500} = 64.8\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_15",
@@ -2494,7 +2566,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{200000}{2500} = 80\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_16",
@@ -2530,7 +2603,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{242000}{2500} = 96.8\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_17",
@@ -2566,7 +2640,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{288000}{2500} = 115.2\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_18",
@@ -2602,7 +2677,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{338000}{2500} = 135.2\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_19",
@@ -2638,7 +2714,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{392000}{2500} = 156.8\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_20",
@@ -2674,7 +2751,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٣. بالتعويض في مبدأ الشغل والطاقة: $s = \\frac{450000}{2500} = 180\\text{ متراً}$."
       ],
       "teacherTipEn": "Notice how cleanly the work-energy theorem solves the stopping distance without calculating acceleration.",
-      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة."
+      "teacherTipAr": "لاحظ كيف يحل مبدأ الشغل والطاقة مسافة التوقف مباشرة دون الحاجة لحساب العجلة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_21",
@@ -3068,7 +3146,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{150 \\times 22}{75} = 44\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_32",
@@ -3102,7 +3181,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{300 \\times 24}{75} = 96\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_33",
@@ -3136,7 +3216,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{450 \\times 26}{75} = 156\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_34",
@@ -3170,7 +3251,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{600 \\times 28}{75} = 224\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_35",
@@ -3204,7 +3286,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{750 \\times 30}{75} = 300\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_36",
@@ -3238,7 +3321,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{900 \\times 32}{75} = 384\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_37",
@@ -3272,7 +3356,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{1050 \\times 34}{75} = 476\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_38",
@@ -3306,7 +3391,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{1200 \\times 36}{75} = 576\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_39",
@@ -3340,7 +3426,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{1350 \\times 38}{75} = 684\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_40",
@@ -3374,7 +3461,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٢. قانون القدرة بالحصان: $P = \\frac{1500 \\times 40}{75} = 800\\text{ حصان}$."
       ],
       "teacherTipEn": "Dividing by 75 directly yields Horsepower when force is in kg-wt and speed is in m/s.",
-      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية."
+      "teacherTipAr": "القسمة على ٧٥ تعطي القدرة بالحصان مباشرة إذا كانت القوة بالثقل كجم والسرعة بالمتر/ثانية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_41",
@@ -3842,7 +3930,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$m g = \\frac{m v^2}{R} \\implies v = \\sqrt{g R} = \\sqrt{98} \\approx 9.90\\text{ م/ث}$."
       ],
       "teacherTipEn": "At the bottom of the loop, the minimum speed required to reach the top is $\\sqrt{5gR}$.",
-      "teacherTipAr": "عند قاع الدائرة الرأسية، أدنى سرعة مطلوبة للوصول إلى القمة وإكمال الدورة هي $\\sqrt{5gR}$."
+      "teacherTipAr": "عند قاع الدائرة الرأسية، أدنى سرعة مطلوبة للوصول إلى القمة وإكمال الدورة هي $\\sqrt{5gR}$.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_med_54",
@@ -3879,7 +3968,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "بالكيلووات: $P = 2.94\\text{ ك.وات}$."
       ],
       "teacherTipEn": "Always convert rates from per-minute to per-second (divide by 60) for Watt units.",
-      "teacherTipAr": "حول المعدلات دائماً من الدقيقة إلى الثانية (بالقسمة على 60) للوصول لوحدة الوات."
+      "teacherTipAr": "حول المعدلات دائماً من الدقيقة إلى الثانية (بالقسمة على 60) للوصول لوحدة الوات.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_med_55",
@@ -3917,7 +4007,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "الزيادة المئوية: $(2.25 - 1) \\times 100\\% = 125\\%$."
       ],
       "teacherTipEn": "Because $T \\propto p^2$, small fractional increases in momentum produce more than double the effect in kinetic energy.",
-      "teacherTipAr": "نظراً لأن طاقة الحركة تتناسب مع مربع كمية الحركة، فإن أي زيادة في كمية الحركة تتضاعف تربيعياً في طاقة الحركة."
+      "teacherTipAr": "نظراً لأن طاقة الحركة تتناسب مع مربع كمية الحركة، فإن أي زيادة في كمية الحركة تتضاعف تربيعياً في طاقة الحركة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_56",
@@ -3951,7 +4042,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "$W = 120 \\left( \\frac{1}{2} - \\frac{1}{6} \\right) = 120 \\times \\frac{1}{3} = 40\\text{ جول}$."
       ],
       "teacherTipEn": "This inverse-square integration is the fundamental basis of gravitational and electrostatic potential energy.",
-      "teacherTipAr": "تكامل التربيع العكسي هذا هو الأساس الرياضي لطاقة الوضع التثاقلية والكهروستاتيكية."
+      "teacherTipAr": "تكامل التربيع العكسي هذا هو الأساس الرياضي لطاقة الوضع التثاقلية والكهروستاتيكية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_57",
@@ -3989,7 +4081,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "قوة الفرملة: $F = \\frac{135000000}{450} = 300000\\text{ ن} = 300\\text{ ك.ن}$."
       ],
       "teacherTipEn": "Equating braking work $F s$ to kinetic energy $\\frac{1}{2}mv^2$ is the most direct method in stopping distance calculations.",
-      "teacherTipAr": "مساواة شغل الفرامل بطاقة الحركة هي أسرع طريقة لحساب مسافات وقوى التوقف."
+      "teacherTipAr": "مساواة شغل الفرامل بطاقة الحركة هي أسرع طريقة لحساب مسافات وقوى التوقف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_58",
@@ -4025,7 +4118,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "الكفاءة: $\\eta = \\frac{3528}{5000} \\times 100\\% = 70.56\\%$."
       ],
       "teacherTipEn": "Efficiency is always less than $100\\%$ in real machines due to friction and electrical resistance.",
-      "teacherTipAr": "الكفاءة في الآلات الحقيقية تكون دائماً أقل من $100\\%$ بسبب الاحتكاك ومقاومة الأسلاك."
+      "teacherTipAr": "الكفاءة في الآلات الحقيقية تكون دائماً أقل من $100\\%$ بسبب الاحتكاك ومقاومة الأسلاك.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_med_59",
@@ -4067,7 +4161,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "إذن موضع الاتزان المستقر عند $x = 3\\text{ م}$."
       ],
       "teacherTipEn": "Minimum potential energy = stable equilibrium (like a ball in a bowl).",
-      "teacherTipAr": "القيمة الصغرى لطاقة الوضع تمثل اتزاناً مستقراً (مثل كرة في قاع وعاء)."
+      "teacherTipAr": "القيمة الصغرى لطاقة الوضع تمثل اتزاناً مستقراً (مثل كرة في قاع وعاء).",
+      "diagramType": "cartesian_plane"
     }
   ],
   "hots": [
@@ -4109,7 +4204,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{9}{3} = 3\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_02",
@@ -4149,7 +4245,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{12}{3} = 4\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_03",
@@ -4189,7 +4286,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{15}{3} = 5\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_04",
@@ -4229,7 +4327,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{18}{3} = 6\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_05",
@@ -4269,7 +4368,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{21}{3} = 7\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_06",
@@ -4309,7 +4409,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{24}{3} = 8\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_07",
@@ -4349,7 +4450,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{27}{3} = 9\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_08",
@@ -4389,7 +4491,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{30}{3} = 10\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_09",
@@ -4429,7 +4532,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{33}{3} = 11\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_10",
@@ -4469,7 +4573,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. بقسمة المعادلتين: $s_2 = \\frac{s_1}{3} = \\frac{36}{3} = 12\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that kinetic energy is proportional to velocity squared, so losing half the speed means losing 75% of the kinetic energy!",
-      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!"
+      "teacherTipAr": "لاحظ أن طاقة الحركة تتناسب مع مربع السرعة؛ لذا فإن فقدان نصف السرعة يعني استهلاك ٧٥٪ من طاقة الحركة!",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_11",
@@ -5297,7 +5402,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{16} = 4\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_32",
@@ -5335,7 +5441,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{64} = 8\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_33",
@@ -5373,7 +5480,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{144} = 12\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_34",
@@ -5411,7 +5519,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{256} = 16\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_35",
@@ -5449,7 +5558,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{400} = 20\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_36",
@@ -5487,7 +5597,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{576} = 24\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_37",
@@ -5525,7 +5636,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{784} = 28\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_38",
@@ -5563,7 +5675,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{1024} = 32\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_39",
@@ -5601,7 +5714,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{1296} = 36\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_40",
@@ -5639,7 +5753,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٤. السرعة النهائية: $v = \\sqrt{1600} = 40\\text{ م/ث}$."
       ],
       "teacherTipEn": "Area under the F-s graph gives net work done, which directly equals the change in kinetic energy.",
-      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة."
+      "teacherTipAr": "المساحة تحت منحنى (ق - ف) تعطي الشغل الكلي المبذول، والذي يساوي تماماً التغير في طاقة الحركة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_41",
@@ -5680,7 +5795,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.12) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.12} = 132953\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_42",
@@ -5721,7 +5837,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.14) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.14} = 114660\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_43",
@@ -5762,7 +5879,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.16) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.16} = 100940\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_44",
@@ -5803,7 +5921,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.18) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.18} = 90269\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_45",
@@ -5844,7 +5963,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.2) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.2} = 81732\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_46",
@@ -5885,7 +6005,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.22) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.22} = 74747\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_47",
@@ -5926,7 +6047,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.24) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.24} = 68927\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_48",
@@ -5967,7 +6089,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.26) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.26} = 64002\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_49",
@@ -6008,7 +6131,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.28) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.28} = 59780\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_50",
@@ -6049,7 +6173,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "٥. $(4900 - R)(0.3) = -15,366.4 \\implies R = 4900 + \\frac{15,366.4}{0.3} = 56121\\text{ نيوتن}$."
       ],
       "teacherTipEn": "Always include the total weight (M + m)g doing positive downward work alongside resistance doing negative work.",
-      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل."
+      "teacherTipAr": "لا تنسَ دائماً تضمين وزن المجموعة كلياً (ك١ + ك٢) د الذي يبذل شغلاً موجباً في اتجاه الحركة لأسفل.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch4_db_hots_51",
@@ -6088,7 +6213,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "بإعادة الترتيب: $k v_t^3 + (M g \\sin\\theta) v_t - P = 0$."
       ],
       "teacherTipEn": "Because aerodynamic drag is quadratic in velocity, power required scales with the CUBE of velocity ($v^3$)!",
-      "teacherTipAr": "نظراً لأن مقاومة الهواء تتناسب مع مربع السرعة، فإن القدرة المطلوبة تتناسب مع مكعب السرعة ($v^3$)!"
+      "teacherTipAr": "نظراً لأن مقاومة الهواء تتناسب مع مربع السرعة، فإن القدرة المطلوبة تتناسب مع مكعب السرعة ($v^3$)!",
+      "diagramType": "statics_inclined_friction"
     },
     {
       "id": "dyn_ch4_db_hots_52",
@@ -6127,7 +6253,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "بالتعويض عن $g R_E = \\frac{G M_E}{R_E}$ نجد أن: $v_{\\text{esc}} = \\sqrt{2 g R_E}$."
       ],
       "teacherTipEn": "Notice that orbital speed is $\\sqrt{g R_E}$, while escape speed is $\\sqrt{2}$ times the orbital speed.",
-      "teacherTipAr": "لاحظ أن السرعة المدارية هي $\\sqrt{g R_E}$ وسرعة الهروب تساوي $\\sqrt{2}$ في السرعة المدارية."
+      "teacherTipAr": "لاحظ أن السرعة المدارية هي $\\sqrt{g R_E}$ وسرعة الهروب تساوي $\\sqrt{2}$ في السرعة المدارية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_hots_53",
@@ -6170,7 +6297,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "حل المعادلة التربيعية في $x^2$: $x^2 \\approx 0.1531 \\implies x_{\\max} \\approx 0.391\\text{ م}$."
       ],
       "teacherTipEn": "Non-linear springs are used in automotive bumpers to prevent bottoming out during heavy impacts.",
-      "teacherTipAr": "الزنبركات اللاخطية تُستخدم في مصدات السيارات لزيادة المقاومة مع زيادة الانضغاط وتجنب الاصطدام القاسي."
+      "teacherTipAr": "الزنبركات اللاخطية تُستخدم في مصدات السيارات لزيادة المقاومة مع زيادة الانضغاط وتجنب الاصطدام القاسي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_hots_54",
@@ -6210,7 +6338,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "إذن $h_{\\min} = 2.5 R = \\frac{5}{2} R$."
       ],
       "teacherTipEn": "Notice the bead must be released from higher than the top of the loop ($2.5R > 2.0R$) to supply the necessary kinetic energy at the apex.",
-      "teacherTipAr": "لاحظ أن نقطة البداية يجب أن تكون أعلى من قمة المسار ($2.5R > 2R$) لتوفير طاقة الحركة اللازمة عند القمة."
+      "teacherTipAr": "لاحظ أن نقطة البداية يجب أن تكون أعلى من قمة المسار ($2.5R > 2R$) لتوفير طاقة الحركة اللازمة عند القمة.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_55",
@@ -6245,7 +6374,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "الشغل المبذول: $W = \\frac{1}{2} k (\\Delta L)^2 = \\frac{1}{2} (10^6) (1.6 \\times 10^{-5}) = 8\\text{ جول}$."
       ],
       "teacherTipEn": "Hooke's law for solid rods links directly with standard spring potential energy.",
-      "teacherTipAr": "قانون هوك للمواد الصلبة يرتبط مباشرة بطاقة الوضع المرنة للزنبركات."
+      "teacherTipAr": "قانون هوك للمواد الصلبة يرتبط مباشرة بطاقة الوضع المرنة للزنبركات.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_hots_56",
@@ -6285,7 +6415,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "النسبة: $\\frac{P(t_1)}{P_{\\text{avg}}} = 2 : 1$."
       ],
       "teacherTipEn": "Because instantaneous power grows linearly with time ($P \\propto t$), its average value over $[0, t_1]$ is exactly half its final value.",
-      "teacherTipAr": "نظراً لأن القدرة اللحظية تتزايد خطياً مع الزمن ($P \\propto t$)، فإن قيمتها المتوسطة تساوي تماماً نصف قيمتها النهائية."
+      "teacherTipAr": "نظراً لأن القدرة اللحظية تتزايد خطياً مع الزمن ($P \\propto t$)، فإن قيمتها المتوسطة تساوي تماماً نصف قيمتها النهائية.",
+      "diagramType": "statics_horizontal_friction"
     },
     {
       "id": "dyn_ch4_db_hots_57",
@@ -6323,7 +6454,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "وعليه فإن الشغل المبذول عبر أي مسار مغلق يساوي صفراً تماماً: $\\oint \\vec{F} \\cdot d\\vec{r} = 0$."
       ],
       "teacherTipEn": "Conservative force fields allow defining potential energy $V$ such that $W = - \\Delta V$.",
-      "teacherTipAr": "مجالات القوى المحافظة هي الوحيدة التي تتيح تعريف طاقة الوضع $V$ بحيث $W = - \\Delta V$."
+      "teacherTipAr": "مجالات القوى المحافظة هي الوحيدة التي تتيح تعريف طاقة الوضع $V$ بحيث $W = - \\Delta V$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch4_db_hots_58",
@@ -6366,7 +6498,8 @@ export const dynCh4Databank: ChapterDatabank = {
         "طاقة الحركة النهائية: $T = 660 - 588 = 72\\text{ جول}$."
       ],
       "teacherTipEn": "When friction and gravity are constant, their work is simply their sum multiplied by distance.",
-      "teacherTipAr": "عندما تكون قوى الاحتكاك والجاذبية ثوابت، فإن شغلها يساوي ببساطة مجموعهما مضروباً في المسافة."
+      "teacherTipAr": "عندما تكون قوى الاحتكاك والجاذبية ثوابت، فإن شغلها يساوي ببساطة مجموعهما مضروباً في المسافة.",
+      "diagramType": "statics_inclined_friction"
     }
   ]
 };

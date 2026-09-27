@@ -34,7 +34,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٢. $X_G = \\frac{2(0) + 3(10)}{5} = 6\\text{ سم}$."
       ],
       "teacherTipEn": "Center of gravity is closer to the larger mass.",
-      "teacherTipAr": "مركز الثقل يقع دائماً أقرب إلى الكتلة الأكبر."
+      "teacherTipAr": "مركز الثقل يقع دائماً أقرب إلى الكتلة الأكبر.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_02",
@@ -68,7 +69,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٢. $X_G = \\frac{4(0) + 6(20)}{10} = 12\\text{ سم}$."
       ],
       "teacherTipEn": "Center of gravity is closer to the larger mass.",
-      "teacherTipAr": "مركز الثقل يقع دائماً أقرب إلى الكتلة الأكبر."
+      "teacherTipAr": "مركز الثقل يقع دائماً أقرب إلى الكتلة الأكبر.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_03",
@@ -104,7 +106,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. الإحداثي السيني لمركز الثقل: $x_G = \\frac{54}{9} = 6$ سم."
       ],
       "teacherTipEn": "Center of gravity is always closer to the larger mass: here distance ratio is $2:1$ inversely proportional to masses.",
-      "teacherTipAr": "مركز الثقل يكون دائماً أقرب للكتلة الأكبر: المسافة تتناسب عكسياً مع الكتل."
+      "teacherTipAr": "مركز الثقل يكون دائماً أقرب للكتلة الأكبر: المسافة تتناسب عكسياً مع الكتل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_04",
@@ -138,7 +141,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $x_G = \\frac{0 + 6 + 12}{3} = \\frac{18}{3} = 6$ سم."
       ],
       "teacherTipEn": "For equal masses, the masses cancel out, reducing $x_G$ to the geometric centroid.",
-      "teacherTipAr": "عند تساوي الكتل، تختصر قيم الكتل ويكون مركز الثقل هو المركز الهندسي المتوسط."
+      "teacherTipAr": "عند تساوي الكتل، تختصر قيم الكتل ويكون مركز الثقل هو المركز الهندسي المتوسط.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_05",
@@ -174,7 +178,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. موضع مركز الثقل: $x_G = \\frac{40}{10} = +4$ سم."
       ],
       "teacherTipEn": "Always preserve the algebraic sign of negative coordinates when calculating $x_G$.",
-      "teacherTipAr": "حافظ دائماً على الإشارة الجبرية السالبة للإحداثيات الواقعة يسار نقطة الأصل."
+      "teacherTipAr": "حافظ دائماً على الإشارة الجبرية السالبة للإحداثيات الواقعة يسار نقطة الأصل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_06",
@@ -212,7 +217,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن: $m_2 = 6$ كجم."
       ],
       "teacherTipEn": "Lever rule: $m_1 (x_G - x_1) = m_2 (x_2 - x_G) \\implies 4(6) = m_2(4) \\implies m_2 = 6\\text{ kg}$.",
-      "teacherTipAr": "قاعدة الروافع السريعة: ك١ × ف١ = ك٢ × ف٢، إذن 4 × 6 = ك٢ × 4، ومنها ك٢ = 6 كجم."
+      "teacherTipAr": "قاعدة الروافع السريعة: ك١ × ف١ = ك٢ × ف٢، إذن 4 × 6 = ك٢ × 4، ومنها ك٢ = 6 كجم.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_07",
@@ -250,7 +256,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. $3 x_2 = 30 \\implies x_2 = 10$ سم."
       ],
       "teacherTipEn": "Using total mass moment $M x_G$ simplifies finding any missing coordinate directly.",
-      "teacherTipAr": "استخدام عزم الكتلة الكلية ك × س_م يختصر خطوات الحل الجبري مباشرة."
+      "teacherTipAr": "استخدام عزم الكتلة الكلية ك × س_م يختصر خطوات الحل الجبري مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_08",
@@ -286,7 +293,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. إذن يقع مركز الثقل في المنتصف الهندسي تماماً: $50 / 2 = 25$ سم من أي طرف."
       ],
       "teacherTipEn": "Fundamental definition: 'Uniform' implies center of gravity coincides with geometric center.",
-      "teacherTipAr": "تعريف أساسي: كلمة 'منتظم' تعني دائماً تطابق مركز الثقل مع المركز الهندسي للمجسم."
+      "teacherTipAr": "تعريف أساسي: كلمة 'منتظم' تعني دائماً تطابق مركز الثقل مع المركز الهندسي للمجسم.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_09",
@@ -324,7 +332,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن يقع مركز الثقل عند المركز في الفراغ، مما يوضح أن مركز الثقل ليس بالضرورة واقعاً داخل مادة الجسم."
       ],
       "teacherTipEn": "Center of gravity can lie in empty space (e.g. rings, hollow pipes, horse-shoes).",
-      "teacherTipAr": "يمكن لمركز الثقل أن يقع في الفراغ خارج مادة الجسم الصلب كما في الحلقات والأنابيب المفرغة."
+      "teacherTipAr": "يمكن لمركز الثقل أن يقع في الفراغ خارج مادة الجسم الصلب كما في الحلقات والأنابيب المفرغة.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_easy_10",
@@ -360,7 +369,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. إحداثيات مركز الثقل: $x_G = 20 / 2 = 10$ سم، $y_G = 10 / 2 = 5$ سم."
       ],
       "teacherTipEn": "Center of gravity of any parallelogram/rectangle is at the intersection of its diagonals.",
-      "teacherTipAr": "مركز ثقل أي متوازي أضلاع أو مستطيل أو مربع يقع دائماً عند نقطة تقاطع قطريه."
+      "teacherTipAr": "مركز ثقل أي متوازي أضلاع أو مستطيل أو مربع يقع دائماً عند نقطة تقاطع قطريه.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_11",
@@ -398,7 +408,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بعد مركز الثقل عن $A$: $x_G = \\frac{10(20) + 20(40)}{30} = \\frac{100}{3}$ سم."
       ],
       "teacherTipEn": "Remember to treat the uniform rod's weight as concentrated at its midpoint.",
-      "teacherTipAr": "تذكر دائماً معاملة وزن القضيب المنتظم ككتلة مركزة تؤثر عند منتصفه الهندسي."
+      "teacherTipAr": "تذكر دائماً معاملة وزن القضيب المنتظم ككتلة مركزة تؤثر عند منتصفه الهندسي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_12",
@@ -435,7 +446,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. النقطة $(5, 5)$ هي مركز المربع تماماً (نقطة تقاطع القطرين)."
       ],
       "teacherTipEn": "Equal masses at symmetrical vertices always produce a center of gravity at the geometric center of symmetry.",
-      "teacherTipAr": "الكتل المتساوية عند رؤوس متماثلة تعطي دائماً مركز ثقل عند مركز التماثل الهندسي."
+      "teacherTipAr": "الكتل المتساوية عند رؤوس متماثلة تعطي دائماً مركز ثقل عند مركز التماثل الهندسي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_13",
@@ -473,7 +485,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن يقع مركز الثقل عند مركز الدائرة تماماً."
       ],
       "teacherTipEn": "For uniform circular plates, the center of gravity is simply the center of the circle.",
-      "teacherTipAr": "للصفائح الدائرية المنتظمة، مركز الثقل هو مركز الدائرة مباشرة."
+      "teacherTipAr": "للصفائح الدائرية المنتظمة، مركز الثقل هو مركز الدائرة مباشرة.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_easy_14",
@@ -509,7 +522,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. تغيير المحاور أو نقطة الأصل يغير فقط الأرقام المعبرة عن الإحداثيات دون المساس بموضع النقطة في الفضاء."
       ],
       "teacherTipEn": "You are free to choose any convenient origin; the physical point determined will always be the same.",
-      "teacherTipAr": "لك مطلق الحرية في اختيار أسهل نقطة أصل لحل المسألة، فالنقطة الفيزيائية الناتجة متطابقة دائماً."
+      "teacherTipAr": "لك مطلق الحرية في اختيار أسهل نقطة أصل لحل المسألة، فالنقطة الفيزيائية الناتجة متطابقة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_15",
@@ -547,7 +561,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن يتطابق مركز الثقل تماماً مع مركز الكتلة في أي مجال جاذبية منتظم."
       ],
       "teacherTipEn": "In Thanaweya Amma mechanics, the gravitational field is always assumed uniform, so C.G. and C.M. are identical.",
-      "teacherTipAr": "في منهج الثانوية العامة يُفترض مجال الجاذبية منتظماً دائماً، لذا يتطابق مركز الثقل مع مركز الكتلة تماماً."
+      "teacherTipAr": "في منهج الثانوية العامة يُفترض مجال الجاذبية منتظماً دائماً، لذا يتطابق مركز الثقل مع مركز الكتلة تماماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_16",
@@ -585,7 +600,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن $G = (1, 2)$."
       ],
       "teacherTipEn": "Separate 2D center of mass calculations into two independent 1D problems.",
-      "teacherTipAr": "قسم حسابات مركز الثقل ثنائي الأبعاد إلى مسألتين مستقلتين لكل محور."
+      "teacherTipAr": "قسم حسابات مركز الثقل ثنائي الأبعاد إلى مسألتين مستقلتين لكل محور.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_17",
@@ -623,7 +639,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن $G = (2, 4)$."
       ],
       "teacherTipEn": "Separate 2D center of mass calculations into two independent 1D problems.",
-      "teacherTipAr": "قسم حسابات مركز الثقل ثنائي الأبعاد إلى مسألتين مستقلتين لكل محور."
+      "teacherTipAr": "قسم حسابات مركز الثقل ثنائي الأبعاد إلى مسألتين مستقلتين لكل محور.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_18",
@@ -661,7 +678,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. مركز الثقل هو $(1, 3)$ سم."
       ],
       "teacherTipEn": "Calculate each coordinate independently using the weighted formula.",
-      "teacherTipAr": "احسب كل إحداثي بشكل مستقل باستخدام صيغة المتوسط الموزون."
+      "teacherTipAr": "احسب كل إحداثي بشكل مستقل باستخدام صيغة المتوسط الموزون.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_19",
@@ -699,7 +717,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إحداثيات مركز الثقل: $(3, \\sqrt{3})$ سم."
       ],
       "teacherTipEn": "Three equal masses at vertices have the exact same center of gravity as a uniform triangular lamina.",
-      "teacherTipAr": "ثلاث كتل متساوية عند الرؤوس لها نفس مركز ثقل الصفيحة المثلثة المنتظمة تماماً."
+      "teacherTipAr": "ثلاث كتل متساوية عند الرؤوس لها نفس مركز ثقل الصفيحة المثلثة المنتظمة تماماً.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_20",
@@ -736,7 +755,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. الإحداثي الصادي لمركز الثقل: $y_G = \\frac{44}{10} = 4.4$ سم."
       ],
       "teacherTipEn": "To find only $y_G$, you only need the masses and their y-coordinates.",
-      "teacherTipAr": "لحساب ص_م فقط، تحتاج فقط إلى قيم الكتل وإحداثياتها الصادية دون حاجة لحساب س_م."
+      "teacherTipAr": "لحساب ص_م فقط، تحتاج فقط إلى قيم الكتل وإحداثياتها الصادية دون حاجة لحساب س_م.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_21",
@@ -774,7 +794,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. مركز الثقل: $(4.0, 4.2)$ سم."
       ],
       "teacherTipEn": "Notice that $y_G = 4.2 > 3.0$ because the top vertices $C$ and $D$ carry heavier masses ($3 + 4 = 7\\text{ kg}$) than bottom ($3\\text{ kg}$).",
-      "teacherTipAr": "لاحظ أن ص_م = 4.2 أكبر من المنتصف 3 لأن الرأسين العلويين يحملان كتلاً أثقل (7 كجم) مقارنة بالسفليين (3 كجم)."
+      "teacherTipAr": "لاحظ أن ص_م = 4.2 أكبر من المنتصف 3 لأن الرأسين العلويين يحملان كتلاً أثقل (7 كجم) مقارنة بالسفليين (3 كجم).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_22",
@@ -812,7 +833,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. مركز الثقل هو $(2, 2)$ سم، وهو مركز تماثل المربع."
       ],
       "teacherTipEn": "When mass distribution is symmetrical about both center lines, C.G. remains at the geometric center.",
-      "teacherTipAr": "عندما يكون توزيع الكتل متماثلاً حول محوري التماثل، يظل مركز الثقل عند المركز الهندسي."
+      "teacherTipAr": "عندما يكون توزيع الكتل متماثلاً حول محوري التماثل، يظل مركز الثقل عند المركز الهندسي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_23",
@@ -848,7 +870,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. موضع مركز الثقل: $x_G = \\frac{30}{10} = 3.0$ سم."
       ],
       "teacherTipEn": "Sum of squares formula: $1^2 + 2^2 + 3^2 + 4^2 = 30$, dividing by $\\sum i = 10$ yields $3.0$.",
-      "teacherTipAr": "مجموع المربعات: 1² + 2² + 3² + 4² = 30، وبالقسمة على مجموع الأعداد 10 يعطي 3.0."
+      "teacherTipAr": "مجموع المربعات: 1² + 2² + 3² + 4² = 30، وبالقسمة على مجموع الأعداد 10 يعطي 3.0.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_24",
@@ -884,7 +907,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $x_G = \\frac{x_1 + x_2 + x_3}{3}$ و $y_G = \\frac{y_1 + y_2 + y_3}{3}$."
       ],
       "teacherTipEn": "Remember: divide by 3 for a triangle (not by 2).",
-      "teacherTipAr": "تذكر: نقسم على 3 للمثلث وليس على 2."
+      "teacherTipAr": "تذكر: نقسم على 3 للمثلث وليس على 2.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_25",
@@ -920,7 +944,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. إذن النسبة من جهة الرأس هي $2 : 1$."
       ],
       "teacherTipEn": "Always read carefully: $2:1$ from the vertex, but $1:2$ from the base.",
-      "teacherTipAr": "اقرأ السؤال بدقة: النسبة 2 : 1 من جهة الرأس، بينما 1 : 2 من جهة القاعدة."
+      "teacherTipAr": "اقرأ السؤال بدقة: النسبة 2 : 1 من جهة الرأس، بينما 1 : 2 من جهة القاعدة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_26",
@@ -956,7 +981,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. البعد عن القاعدة: $d = \\frac{1}{3} \\times 18 = 6$ سم."
       ],
       "teacherTipEn": "Distance from vertex is $\\frac{2}{3} h = 12\\text{ cm}$, distance from base is $\\frac{1}{3} h = 6\\text{ cm}$.",
-      "teacherTipAr": "البعد عن الرأس هو ثلثا الارتفاع (12 سم)، بينما البعد عن القاعدة هو ثلث الارتفاع (6 سم)."
+      "teacherTipAr": "البعد عن الرأس هو ثلثا الارتفاع (12 سم)، بينما البعد عن القاعدة هو ثلث الارتفاع (6 سم).",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_27",
@@ -994,7 +1020,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إحداثيات مركز الثقل: $(3, 4)$ سم."
       ],
       "teacherTipEn": "For a right triangle with vertex at origin, C.G. is always $(\\frac{a}{3}, \\frac{b}{3})$.",
-      "teacherTipAr": "لأي مثلث قائم رأسه عند الأصل وضلعاه على المحورين، مركز الثقل هو دائماً (أ/3، ب/3)."
+      "teacherTipAr": "لأي مثلث قائم رأسه عند الأصل وضلعاه على المحورين، مركز الثقل هو دائماً (أ/3، ب/3).",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_28",
@@ -1030,7 +1057,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. مركز الثقل: $(4, 3)$ سم."
       ],
       "teacherTipEn": "Simply sum each coordinate and divide by 3.",
-      "teacherTipAr": "اجمع إحداثيات الرؤوس واقسم على 3 بكل بساطة."
+      "teacherTipAr": "اجمع إحداثيات الرؤوس واقسم على 3 بكل بساطة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_29",
@@ -1066,7 +1094,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. مركز الثقل هو $(3, 3)$ سم."
       ],
       "teacherTipEn": "Notice that the base lies along the x-axis, so its altitude is $9\\text{ cm}$ and $y_G = \\frac{9}{3} = 3\\text{ cm}$.",
-      "teacherTipAr": "لاحظ أن القاعدة على محور السينات، فالارتفاع 9 سم وص_م = 9 / 3 = 3 سم."
+      "teacherTipAr": "لاحظ أن القاعدة على محور السينات، فالارتفاع 9 سم وص_م = 9 / 3 = 3 سم.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_30",
@@ -1102,7 +1131,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. إحداثيات الرأس $C$ هي $(5, 3)$."
       ],
       "teacherTipEn": "Formula to find a missing vertex: $x_3 = 3 x_G - x_1 - x_2$.",
-      "teacherTipAr": "صيغة إيجاد الرأس الناقص: س٣ = 3 س_م - س١ - س٢."
+      "teacherTipAr": "صيغة إيجاد الرأس الناقص: س٣ = 3 س_م - س١ - س٢.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_31",
@@ -1140,7 +1170,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن $G = (1, 2)$."
       ],
       "teacherTipEn": "For solid uniform triangular plates, the center of gravity is always the geometric centroid.",
-      "teacherTipAr": "للصفائح المثلثة المنتظمة، مركز الثقل هو دائماً نقطة تلاقي المتوسطات."
+      "teacherTipAr": "للصفائح المثلثة المنتظمة، مركز الثقل هو دائماً نقطة تلاقي المتوسطات.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_32",
@@ -1178,7 +1209,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن $G = (2, 4)$."
       ],
       "teacherTipEn": "For solid uniform triangular plates, the center of gravity is always the geometric centroid.",
-      "teacherTipAr": "للصفائح المثلثة المنتظمة، مركز الثقل هو دائماً نقطة تلاقي المتوسطات."
+      "teacherTipAr": "للصفائح المثلثة المنتظمة، مركز الثقل هو دائماً نقطة تلاقي المتوسطات.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_33",
@@ -1220,7 +1252,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إحداثيات مركز الثقل: $(4.5, 1.5)$ سم."
       ],
       "teacherTipEn": "For equal length wire segments, the center of gravity is simply the midpoint between the centers of the segments.",
-      "teacherTipAr": "لقطعتين متساويتي الطول من سلك منتظم، مركز الثقل هو منتصف المسافة الواصلة بين منتصفي القطعتين."
+      "teacherTipAr": "لقطعتين متساويتي الطول من سلك منتظم، مركز الثقل هو منتصف المسافة الواصلة بين منتصفي القطعتين.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_34",
@@ -1263,7 +1296,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. مركز الثقل: $(5, \\frac{10}{3})$ سم."
       ],
       "teacherTipEn": "Notice that the center of gravity lies in the open space enclosed by the wire, outside the wire itself.",
-      "teacherTipAr": "لاحظ أن مركز الثقل يقع في الفراغ بين أفرع السلك خارج مادة السلك نفسها."
+      "teacherTipAr": "لاحظ أن مركز الثقل يقع في الفراغ بين أفرع السلك خارج مادة السلك نفسها.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_35",
@@ -1299,7 +1333,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. بينما للصفيحة المصمتة يكون $\\frac{4r}{3\\pi}$."
       ],
       "teacherTipEn": "Do not confuse the wire arc (2r/pi) with the solid semicircular lamina (4r/(3pi)).",
-      "teacherTipAr": "لا تخلط بين سلك نصف الدائرة (2نق / ط) وصفيحة نصف الدائرة (4نق / 3ط)."
+      "teacherTipAr": "لا تخلط بين سلك نصف الدائرة (2نق / ط) وصفيحة نصف الدائرة (4نق / 3ط).",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_easy_36",
@@ -1335,7 +1370,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. هذا قانون أساسي مقرر في ميكانيكا الثانوية العامة."
       ],
       "teacherTipEn": "Since mass is distributed over the surface rather than the perimeter, the center of gravity of the lamina is closer to the base than that of the wire.",
-      "teacherTipAr": "نظراً لتوزع الكتلة على المساحة وليس المحيط فقط، يكون مركز ثقل الصفيحة أقرب للقاعدة من مركز ثقل السلك."
+      "teacherTipAr": "نظراً لتوزع الكتلة على المساحة وليس المحيط فقط، يكون مركز ثقل الصفيحة أقرب للقاعدة من مركز ثقل السلك.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_easy_37",
@@ -1373,7 +1409,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن يقع مركز ثقل الإطار السلكي عند نقطة تقاطع المتوسطات."
       ],
       "teacherTipEn": "For any equilateral wire triangle or regular polygon wire frame, the C.G. coincides with the geometric center.",
-      "teacherTipAr": "لأي إطار سلكي على شكل مضلع منتظم، يتطابق مركز الثقل مع المركز الهندسي للمضلع."
+      "teacherTipAr": "لأي إطار سلكي على شكل مضلع منتظم، يتطابق مركز الثقل مع المركز الهندسي للمضلع.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_38",
@@ -1415,7 +1452,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إذن مركز الثقل يقع تماماً عند نقطة اللحام $B$ على بعد 20 سم من $A$."
       ],
       "teacherTipEn": "Check: The moment of $AB$ about $B$ is $30 \\times 10 = 300$, and the moment of $BC$ about $B$ is $20 \\times 15 = 300$, so the moments balance exactly at $B$!",
-      "teacherTipAr": "تحقق سريع: عزم القضيب الأول حول B هو 30×10=300، وعزم الثاني هو 20×15=300، لذا يتزنان تماماً عند B!"
+      "teacherTipAr": "تحقق سريع: عزم القضيب الأول حول B هو 30×10=300، وعزم الثاني هو 20×15=300، لذا يتزنان تماماً عند B!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_39",
@@ -1453,7 +1491,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن مركز ثقل المجموعة بالكامل يظل عند منتصف القضيب (30 سم من $A$)."
       ],
       "teacherTipEn": "Symmetry Principle: If a system and all added masses are symmetric about a point, the center of gravity lies at that point of symmetry.",
-      "teacherTipAr": "مبدأ التماثل: إذا كان النظام والكتل المضافة متماثلة حول نقطة، فإن مركز الثقل يقع حتماً عند نقطة التماثل."
+      "teacherTipAr": "مبدأ التماثل: إذا كان النظام والكتل المضافة متماثلة حول نقطة، فإن مركز الثقل يقع حتماً عند نقطة التماثل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_40",
@@ -1495,7 +1534,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إحداثيات مركز الثقل: $(\\frac{20}{3}, \\frac{5}{3})$ سم."
       ],
       "teacherTipEn": "Remember that the mass of a uniform wire is proportional to its length, so the $20\\text{ cm}$ arm has twice the mass of the $10\\text{ cm}$ arm.",
-      "teacherTipAr": "تذكر أن كتلة السلك المنتظم تتناسب مع طوله، فالذراع 20 سم كتلته ضعف الذراع 10 سم."
+      "teacherTipAr": "تذكر أن كتلة السلك المنتظم تتناسب مع طوله، فالذراع 20 سم كتلته ضعف الذراع 10 سم.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_41",
@@ -1531,7 +1571,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. $X_G = \\frac{10(0) + 10(10)}{20} = 5\\text{ سم}$."
       ],
       "teacherTipEn": "Always place the rod's weight at its geometric midpoint.",
-      "teacherTipAr": "ضع دائماً وزن القضيب المنتظم عند منتصفه الهندسي."
+      "teacherTipAr": "ضع دائماً وزن القضيب المنتظم عند منتصفه الهندسي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_42",
@@ -1567,7 +1608,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. $X_G = \\frac{10(0) + 10(20)}{20} = 10\\text{ سم}$."
       ],
       "teacherTipEn": "Always place the rod's weight at its geometric midpoint.",
-      "teacherTipAr": "ضع دائماً وزن القضيب المنتظم عند منتصفه الهندسي."
+      "teacherTipAr": "ضع دائماً وزن القضيب المنتظم عند منتصفه الهندسي.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_43",
@@ -1605,7 +1647,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. يُسمى هذا الخط بالخط الرأسي المار بنقطة التعليق."
       ],
       "teacherTipEn": "This fundamental principle is used to find angles of inclination of any side to the vertical when freely suspended.",
-      "teacherTipAr": "هذا المبدأ الأساسي يُستخدم لإيجاد زاوية ميل أي ضلع على الرأسي عند التعليق الحر."
+      "teacherTipAr": "هذا المبدأ الأساسي يُستخدم لإيجاد زاوية ميل أي ضلع على الرأسي عند التعليق الحر.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_44",
@@ -1649,7 +1692,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. إذن: $W = 20$ نيوتن."
       ],
       "teacherTipEn": "Alternatively, take moments of weights about the new center of gravity: $60 \\times (50 - 40) = W \\times (80 - 50) \\implies 600 = 30W \\implies W = 20\\text{ N}$.",
-      "teacherTipAr": "طريقة سريعة: بأخذ العزوم حول مركز الثقل الجديد: 60 × (50 - 40) = و × (80 - 50)، ومنها 600 = 30و، إذن و = 20 نيوتن."
+      "teacherTipAr": "طريقة سريعة: بأخذ العزوم حول مركز الثقل الجديد: 60 × (50 - 40) = و × (80 - 50)، ومنها 600 = 30و، إذن و = 20 نيوتن.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_45",
@@ -1687,7 +1731,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بالتعويض: $\\Delta x_G = \\frac{4 \\times 15}{20} = \\frac{60}{20} = 3$ سم."
       ],
       "teacherTipEn": "Center of gravity shift is directly proportional to the shifted mass and the distance moved, and inversely proportional to total mass.",
-      "teacherTipAr": "إزاحة مركز الثقل تتناسب طردياً مع الكتلة المتحركة ومسافة حركتها، وعكسياً مع الكتلة الكلية."
+      "teacherTipAr": "إزاحة مركز الثقل تتناسب طردياً مع الكتلة المتحركة ومسافة حركتها، وعكسياً مع الكتلة الكلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_46",
@@ -1725,7 +1770,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بالتالي: $x_G = \\frac{M_1 x_1 - M_2 x_2}{M_1 - M_2}$."
       ],
       "teacherTipEn": "The negative mass method simplifies complex cutout geometries by avoiding complicated integrations.",
-      "teacherTipAr": "تختصر طريقة الكتلة السالبة حسابات التكامل المعقدة للأشكال ذات التجاويف والاقتطاعات."
+      "teacherTipAr": "تختصر طريقة الكتلة السالبة حسابات التكامل المعقدة للأشكال ذات التجاويف والاقتطاعات.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_47",
@@ -1769,7 +1815,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. إحداثيات مركز الثقل: $(5, 5)$ سم."
       ],
       "teacherTipEn": "Alternatively, consider the remaining 3 squares of mass $m$ at $(3, 3), (9, 3), (3, 9)$: $x_G = \\frac{3 + 9 + 3}{3} = 5$, $y_G = \\frac{3 + 3 + 9}{3} = 5$.",
-      "teacherTipAr": "طريقة بديلة: المراكز الثلاثة المتبقية عند (3، 3) و (9، 3) و (3، 9)، متوسطها الحسابي المباشر هو (5، 5)."
+      "teacherTipAr": "طريقة بديلة: المراكز الثلاثة المتبقية عند (3، 3) و (9، 3) و (3، 9)، متوسطها الحسابي المباشر هو (5، 5).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_48",
@@ -1807,7 +1854,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. نصف القطر $r$ يحدد أبعاد القاعدة ولا يغير من موضع المركز على المحور."
       ],
       "teacherTipEn": "Standard solid body: For any uniform prism or cylinder, C.G. is at half the height.",
-      "teacherTipAr": "قاعدة عامة للمجسمات المنتظمة: لأي منشور أو أسطوانة منتظمة، مركز الثقل عند نصف الارتفاع."
+      "teacherTipAr": "قاعدة عامة للمجسمات المنتظمة: لأي منشور أو أسطوانة منتظمة، مركز الثقل عند نصف الارتفاع.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_easy_49",
@@ -1845,7 +1893,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. وبالتالي يبعد عن رأس المخروط مسافة $\\frac{3}{4} h$."
       ],
       "teacherTipEn": "Key comparison: Solid cone is h / 4 from base; solid pyramid is also h / 4 from base.",
-      "teacherTipAr": "مقارنة مهمة: المخروط المصمت والهرم المصمت كلاهما على بعد (1/4 ع) من القاعدة."
+      "teacherTipAr": "مقارنة مهمة: المخروط المصمت والهرم المصمت كلاهما على بعد (1/4 ع) من القاعدة.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_easy_50",
@@ -1883,7 +1932,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. ويبعد عن رأس المخروط مسافة $\\frac{2}{3} h$."
       ],
       "teacherTipEn": "Contrast: Solid cone ==> h / 4 from base; Hollow cone ==> h / 3 from base.",
-      "teacherTipAr": "قارن دائماً: المخروط المصمت يبعد (1/4 ع) من القاعدة، بينما المخروط المجوف يبعد (1/3 ع) من القاعدة."
+      "teacherTipAr": "قارن دائماً: المخروط المصمت يبعد (1/4 ع) من القاعدة، بينما المخروط المجوف يبعد (1/3 ع) من القاعدة.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_easy_51",
@@ -1919,7 +1969,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$x_G = \\frac{56}{8} = 7\\text{ م}$."
       ],
       "teacherTipEn": "Notice $x_G = 7\\text{ m}$ is closer to the heavier $5\\text{ kg}$ mass at $x = 10$ than to the $3\\text{ kg}$ mass at $x = 2$.",
-      "teacherTipAr": "لاحظ أن $x_G = 7\\text{ م}$ أقرب للكتلة الأكبر $5\\text{ كجم}$ عند $x = 10$."
+      "teacherTipAr": "لاحظ أن $x_G = 7\\text{ م}$ أقرب للكتلة الأكبر $5\\text{ كجم}$ عند $x = 10$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_52",
@@ -1953,7 +2004,8 @@ export const statCh6Databank: ChapterDatabank = {
         "لذا يجب أن يقع مركز الثقل على جميع المتوسطات الثلاثة، وهي تتلاقى في نقطة تلاقي المتوسطات $\\left(\\frac{x_1+x_2+x_3}{3}, \\frac{y_1+y_2+y_3}{3}\\right)$."
       ],
       "teacherTipEn": "For coordinates of a triangle's centroid, simply take the average of the coordinates of its three vertices.",
-      "teacherTipAr": "إحداثيات مركز ثقل المثلث هي المتوسط الحسابي لإحداثيات رؤوسه الثلاثة."
+      "teacherTipAr": "إحداثيات مركز ثقل المثلث هي المتوسط الحسابي لإحداثيات رؤوسه الثلاثة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_53",
@@ -1989,7 +2041,8 @@ export const statCh6Databank: ChapterDatabank = {
         "إذن $G = (4, 4)$."
       ],
       "teacherTipEn": "This formula is identical whether it is a solid uniform triangular plate or three equal masses at the vertices.",
-      "teacherTipAr": "هذه الصيغة متطابقة سواء كانت لصفيحة مصمتة منتظمة أو لثلاث كتل متساوية عند الرؤوس."
+      "teacherTipAr": "هذه الصيغة متطابقة سواء كانت لصفيحة مصمتة منتظمة أو لثلاث كتل متساوية عند الرؤوس.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_easy_54",
@@ -2029,7 +2082,8 @@ export const statCh6Databank: ChapterDatabank = {
         "لذا فإن الخط الرأسي المار بنقطة التعليق $P$ يمر حتماً بمركز الثقل $G$."
       ],
       "teacherTipEn": "This is the fundamental principle used to find the angle of inclination of any side with the vertical upon suspension.",
-      "teacherTipAr": "هذا هو المبدأ الأساسي لحساب زاوية ميل أي ضلع على الرأسي عند التعليق الحر."
+      "teacherTipAr": "هذا هو المبدأ الأساسي لحساب زاوية ميل أي ضلع على الرأسي عند التعليق الحر.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_55",
@@ -2071,7 +2125,8 @@ export const statCh6Databank: ChapterDatabank = {
         "إذن $G = (1.8, 0.8)\\text{ سم}$."
       ],
       "teacherTipEn": "For wire problems, masses are proportional to lengths, NOT areas!",
-      "teacherTipAr": "في مسائل الأسلاك، الكتل تتناسب مع الأطوال وليس المساحات!"
+      "teacherTipAr": "في مسائل الأسلاك، الكتل تتناسب مع الأطوال وليس المساحات!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_56",
@@ -2109,7 +2164,8 @@ export const statCh6Databank: ChapterDatabank = {
         "لذا يجب أن يقع مركز الثقل على محور التماثل."
       ],
       "teacherTipEn": "If a body has two axes of symmetry, its center of gravity is simply their point of intersection!",
-      "teacherTipAr": "إذا كان للجسم محورا تماثل، فإن مركز ثقله هو ببساطة نقطة تقاطعهما!"
+      "teacherTipAr": "إذا كان للجسم محورا تماثل، فإن مركز ثقله هو ببساطة نقطة تقاطعهما!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_57",
@@ -2147,7 +2203,8 @@ export const statCh6Databank: ChapterDatabank = {
         "إذن مركز الثقل هو $(1, 2)$."
       ],
       "teacherTipEn": "Tabulating $m_i, x_i, y_i$ prevents accidental transposition of coordinates.",
-      "teacherTipAr": "تنظيم الكتل والإحداثيات في جدول صغير يمنع أي خلط بين إحداثيات $x$ و $y$."
+      "teacherTipAr": "تنظيم الكتل والإحداثيات في جدول صغير يمنع أي خلط بين إحداثيات $x$ و $y$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_easy_58",
@@ -2183,7 +2240,8 @@ export const statCh6Databank: ChapterDatabank = {
         "مقدار الإزاحة $\\Delta x_G = 60 - 50 = 10\\text{ سم}$ نحو $B$."
       ],
       "teacherTipEn": "The shift can also be calculated as $\\Delta x = \\frac{m_{\\text{added}}}{M_{\\text{total}}} d = \\frac{1}{5} (50) = 10\\text{ cm}$.",
-      "teacherTipAr": "يمكن حساب الإزاحة بقانون التغير مباشرة: $\\Delta x = \\frac{m_{\\text{مضافة}}}{M_{\\text{كلية}}} d = \\frac{1}{5} (50) = 10\\text{ سم}$."
+      "teacherTipAr": "يمكن حساب الإزاحة بقانون التغير مباشرة: $\\Delta x = \\frac{m_{\\text{مضافة}}}{M_{\\text{كلية}}} d = \\frac{1}{5} (50) = 10\\text{ سم}$.",
+      "diagramType": "cartesian_plane"
     }
   ],
   "medium": [
@@ -2225,7 +2283,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $Y_G = \\frac{32}{20} = 1.6\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that the center of gravity of a bent wire typically lies in the empty space between the arms!",
-      "teacherTipAr": "لاحظ أن مركز ثقل السلك المثني يقع عادة في الفراغ بين ذراعي السلك!"
+      "teacherTipAr": "لاحظ أن مركز ثقل السلك المثني يقع عادة في الفراغ بين ذراعي السلك!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_02",
@@ -2265,7 +2324,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $Y_G = \\frac{50}{24} = 2.08\\text{ سم}$."
       ],
       "teacherTipEn": "Notice that the center of gravity of a bent wire typically lies in the empty space between the arms!",
-      "teacherTipAr": "لاحظ أن مركز ثقل السلك المثني يقع عادة في الفراغ بين ذراعي السلك!"
+      "teacherTipAr": "لاحظ أن مركز ثقل السلك المثني يقع عادة في الفراغ بين ذراعي السلك!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_03",
@@ -2305,7 +2365,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. إحداثيات مركز الثقل: $(3.3, 1.5\\sqrt{3})$ سم."
       ],
       "teacherTipEn": "Since the heaviest mass (5 kg) is at vertex C, the center of gravity is pulled higher towards C.",
-      "teacherTipAr": "نظراً لأن الكتلة الأكبر (5 كجم) تقع عند الرأس C، فإن مركز الثقل ينجذب بقوة نحو الأعلى باتجاه C."
+      "teacherTipAr": "نظراً لأن الكتلة الأكبر (5 كجم) تقع عند الرأس C، فإن مركز الثقل ينجذب بقوة نحو الأعلى باتجاه C.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_04",
@@ -2343,7 +2404,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إحداثيات مركز الثقل: $(5, 7)$ سم."
       ],
       "teacherTipEn": "Notice that masses along the right side (2+3=5 kg) equal masses along the left side (1+4=5 kg), explaining why $x_G = 5\\text{ cm}$ exactly.",
-      "teacherTipAr": "لاحظ أن مجموع كتل الجانب الأيمن (2+3=5) يساوي كتل الجانب الأيسر (1+4=5)، ولذلك يقع المركز تماماً عند المنتصف س=5 سم."
+      "teacherTipAr": "لاحظ أن مجموع كتل الجانب الأيمن (2+3=5) يساوي كتل الجانب الأيسر (1+4=5)، ولذلك يقع المركز تماماً عند المنتصف س=5 سم.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_05",
@@ -2379,7 +2441,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. البعد: $d = \\sqrt{5^2 + 7^2} = \\sqrt{25 + 49} = \\sqrt{74}$ سم."
       ],
       "teacherTipEn": "Always use Euclidean distance formula $d = \\sqrt{\\Delta x^2 + \\Delta y^2}$ to find distances from specific points.",
-      "teacherTipAr": "استخدم دائماً قانون البعد بين نقطتين لإيجاد المسافة المباشرة من أي رأس إلى مركز الثقل."
+      "teacherTipAr": "استخدم دائماً قانون البعد بين نقطتين لإيجاد المسافة المباشرة من أي رأس إلى مركز الثقل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_06",
@@ -2417,7 +2480,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إحداثيات مركز الثقل: $(\\frac{8}{3}, \\frac{5}{2})$ سم."
       ],
       "teacherTipEn": "Since mass 3 is at the origin, it contributes zero to the numerators of both coordinates.",
-      "teacherTipAr": "بما أن الكتلة 3 تقع عند نقطة الأصل، فإن عزمها يساوي صفراً في بسط كلا الإحداثيين."
+      "teacherTipAr": "بما أن الكتلة 3 تقع عند نقطة الأصل، فإن عزمها يساوي صفراً في بسط كلا الإحداثيين.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_07",
@@ -2455,7 +2519,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن توضع الكتلة الرابعة عند النقطة $(-4, 1)$."
       ],
       "teacherTipEn": "Equilibrium of mass moments: $\\sum m_i \\vec{r}_i = \\vec{0}$ is the condition for C.G. to coincide with the origin.",
-      "teacherTipAr": "انعدام مجموع عزوم الكتل حول نقطة الأصل هو الشرط الرياضي لتطابق مركز الثقل مع نقطة الأصل."
+      "teacherTipAr": "انعدام مجموع عزوم الكتل حول نقطة الأصل هو الشرط الرياضي لتطابق مركز الثقل مع نقطة الأصل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_08",
@@ -2497,7 +2562,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إذن يقع مركز الثقل على بعد 9 سم أسفل $M$ على القضيب الرأسي."
       ],
       "teacherTipEn": "Check: The rod CD has 60% of total weight, so C.G. is at 60% of 15 cm = 9 cm below M.",
-      "teacherTipAr": "تحقق سريع: القضيب الرأسي يمثل 60% من الوزن الكلي، لذا يقع مركز الثقل عند 60% من 15 سم = 9 سم أسفل M."
+      "teacherTipAr": "تحقق سريع: القضيب الرأسي يمثل 60% من الوزن الكلي، لذا يقع مركز الثقل عند 60% من 15 سم = 9 سم أسفل M.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_09",
@@ -2537,7 +2603,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. القطعة $BG$ تمثل ارتفاعاً في هذا المثلث: $d = 6 \\cos 30^\\circ = 3\\sqrt{3}$ سم."
       ],
       "teacherTipEn": "For equal-arm bent wire with angle $\\theta$, distance from vertex is $\\frac{L}{2} \\cos(\\frac{\\theta}{2})$.",
-      "teacherTipAr": "قاعدة عامة لسلك متساوي الساقين زاويته هـ: البعد عن الرأس = (نصف طول الساق) × جتا(هـ / 2)."
+      "teacherTipAr": "قاعدة عامة لسلك متساوي الساقين زاويته هـ: البعد عن الرأس = (نصف طول الساق) × جتا(هـ / 2).",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_10",
@@ -2672,7 +2739,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. إحداثيات مركز الثقل: $(4, 1.8)$ سم."
       ],
       "teacherTipEn": "Symmetry about $x = 4$ halves the calculation time: always check for symmetry first!",
-      "teacherTipAr": "التماثل حول س = 4 يختصر نصف زمن الحل: ابحث دائماً عن محاور التماثل أولاً!"
+      "teacherTipAr": "التماثل حول س = 4 يختصر نصف زمن الحل: ابحث دائماً عن محاور التماثل أولاً!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_13",
@@ -2753,7 +2821,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. بالتماثل حول محور السينات: $y_G = 0$."
       ],
       "teacherTipEn": "Center of gravity shifts away from the removed region along the line of symmetry.",
-      "teacherTipAr": "ينزاح مركز الثقل دائماً في الاتجاه المعاكس لموقع الجزء المقتطع على محور التماثل."
+      "teacherTipAr": "ينزاح مركز الثقل دائماً في الاتجاه المعاكس لموقع الجزء المقتطع على محور التماثل.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_15",
@@ -2834,7 +2903,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن إزاحة مركز الثقل تساوي 1 سم."
       ],
       "teacherTipEn": "The center of mass always shifts away from the cut-out section along the axis of symmetry.",
-      "teacherTipAr": "يتحرك مركز الثقل دائماً مبتعداً عن موضع الجزء المقتطع على امتداد محور التماثل."
+      "teacherTipAr": "يتحرك مركز الثقل دائماً مبتعداً عن موضع الجزء المقتطع على امتداد محور التماثل.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_17",
@@ -2874,7 +2944,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن إزاحة مركز الثقل تساوي 1.25 سم."
       ],
       "teacherTipEn": "The center of mass always shifts away from the cut-out section along the axis of symmetry.",
-      "teacherTipAr": "يتحرك مركز الثقل دائماً مبتعداً عن موضع الجزء المقتطع على امتداد محور التماثل."
+      "teacherTipAr": "يتحرك مركز الثقل دائماً مبتعداً عن موضع الجزء المقتطع على امتداد محور التماثل.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_18",
@@ -2912,7 +2983,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بطريقة الكتلة السالبة: $x_G = \\frac{-125\\pi}{25(16 - \\pi)} = -\\frac{5\\pi}{16 - \\pi}$ سم."
       ],
       "teacherTipEn": "Classic exam question format: Leaving answers in terms of $\\pi$ preserves exact algebraic precision.",
-      "teacherTipAr": "سؤال امتحاني تقليدي: إبقاء الإجابة بدلالة ط يضمن الدقة الجبرية الكاملة."
+      "teacherTipAr": "سؤال امتحاني تقليدي: إبقاء الإجابة بدلالة ط يضمن الدقة الجبرية الكاملة.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_19",
@@ -2954,7 +3026,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. بالتماثل حول القطر $y = x$: $y_G = \\frac{46}{7}$ سم أيضاً."
       ],
       "teacherTipEn": "Notice how the center of gravity shifts diagonally outwards away from $(0, 0)$ from $(6, 6)$ to $(6.57, 6.57)$.",
-      "teacherTipAr": "لاحظ كيف ينزاح مركز الثقل قطرياً مبتعداً عن الركن المقتطع من (6، 6) إلى (6.57، 6.57)."
+      "teacherTipAr": "لاحظ كيف ينزاح مركز الثقل قطرياً مبتعداً عن الركن المقتطع من (6، 6) إلى (6.57، 6.57).",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_20",
@@ -2994,7 +3067,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. زاوية ميل الحافة السفلية على الرأسي: $\\tan \\theta = \\frac{5}{5} = 1 \\implies \\theta = 45^\\circ$."
       ],
       "teacherTipEn": "Because $x_G = y_G$, the line of symmetry is at $45^\\circ$ to both coordinate axes.",
-      "teacherTipAr": "نظراً لتساوي س_م و ص_م، فإن محور التماثل يميل بزاوية 45° على كلا المحورين."
+      "teacherTipAr": "نظراً لتساوي س_م و ص_م، فإن محور التماثل يميل بزاوية 45° على كلا المحورين.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_21",
@@ -3034,7 +3108,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. بالتماثل الأفقي: $y_G = 5$ سم."
       ],
       "teacherTipEn": "Simplifying common factors before expanding helps avoid arithmetic mistakes.",
-      "teacherTipAr": "قسمة البسط والمقام على العامل المشترك 4 تسهل الوصول للصورة المبسطة المطلوبة."
+      "teacherTipAr": "قسمة البسط والمقام على العامل المشترك 4 تسهل الوصول للصورة المبسطة المطلوبة.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_22",
@@ -3078,7 +3153,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. إذن يبعد مركز ثقل الجزء المتبقي 8 سم عن الضلع $BC$."
       ],
       "teacherTipEn": "Alternative insight: The remaining part consists of two congruent right triangles each with base 12 and height 4, whose centroids lie at $\\frac{2}{3}(12) = 8\\text{ cm}$ from $BC$!",
-      "teacherTipAr": "طريقة بديلة ممتعة: الجزء المتبقي هو مثلثان قائمان كل منهما قاعدته 12 سم، ومركز ثقلهما يبعد ثلثي القاعدة (8 سم) عن BC مباشرة!"
+      "teacherTipAr": "طريقة بديلة ممتعة: الجزء المتبقي هو مثلثان قائمان كل منهما قاعدته 12 سم، ومركز ثقلهما يبعد ثلثي القاعدة (8 سم) عن BC مباشرة!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_23",
@@ -3122,7 +3198,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. قاعدة عامة: عند طي رأس مثلث إلى خط المنتصف، مركز ثقل الشكل الناتج يبعد $\\frac{1}{4} h$ عن القاعدة."
       ],
       "teacherTipEn": "Memorize this result: Folding the top half of a triangle over its base yields $y_G = \\frac{1}{4} h$ from the base.",
-      "teacherTipAr": "احفظ هذه النتيجة الذهبية: طي النصف العلوي لمثلث يجعل مركز الثقل الناتج على بعد ربع الارتفاع (ع / 4) من القاعدة."
+      "teacherTipAr": "احفظ هذه النتيجة الذهبية: طي النصف العلوي لمثلث يجعل مركز الثقل الناتج على بعد ربع الارتفاع (ع / 4) من القاعدة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_24",
@@ -3165,7 +3242,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. $y_G = \\frac{15 + 6\\sqrt{3}}{4 + \\sqrt{3}} = \\frac{(15 + 6\\sqrt{3})(4 - \\sqrt{3})}{13} = \\frac{42 + 9\\sqrt{3}}{13}$ سم."
       ],
       "teacherTipEn": "Rationalizing the denominator $(4 + \\sqrt{3})$ gives the exact radical answer expected on exams.",
-      "teacherTipAr": "إنطاق المقام بالضرب في المرافق يحول الناتج إلى الصورة القياسية المبسطة."
+      "teacherTipAr": "إنطاق المقام بالضرب في المرافق يحول الناتج إلى الصورة القياسية المبسطة.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_25",
@@ -3208,7 +3286,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إذن: $\\frac{H}{R} = \\sqrt{\\frac{2}{3}}$."
       ],
       "teacherTipEn": "Remarkable fact: The constant $\\pi$ cancels out completely in this balance condition!",
-      "teacherTipAr": "نتيجة رياضية بديعة: الثابت ط يختصر تماماً في شرط الاتزان هذا!"
+      "teacherTipAr": "نتيجة رياضية بديعة: الثابت ط يختصر تماماً في شرط الاتزان هذا!",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_26",
@@ -3375,7 +3454,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $48 = 36 + 6w \\implies 6w = 12 \\implies w = 2$ نيوتن."
       ],
       "teacherTipEn": "Adding mass at A on the y-axis increases $y_G$ without changing $\\sum m x$, reducing the tilt towards the horizontal.",
-      "teacherTipAr": "إضافة كتلة عند A تزيد من الإحداثي الصادي دون تغيير عزم السينات، مما يرفع خط التعليق نحو محور الصادات."
+      "teacherTipAr": "إضافة كتلة عند A تزيد من الإحداثي الصادي دون تغيير عزم السينات، مما يرفع خط التعليق نحو محور الصادات.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_30",
@@ -3417,7 +3497,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $300 = 10 W \\implies W = 30$ نيوتن."
       ],
       "teacherTipEn": "Balancing on a knife-edge is a direct experimental method to find the center of gravity of any body.",
-      "teacherTipAr": "الاتزان على حافة حادة هو الطريقة المعملية المباشرة لتعيين موضع مركز ثقل أي جسم عملياً."
+      "teacherTipAr": "الاتزان على حافة حادة هو الطريقة المعملية المباشرة لتعيين موضع مركز ثقل أي جسم عملياً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_31",
@@ -3457,7 +3538,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. بالتطابق والتناظر $Y_G = 5\\text{ سم}$."
       ],
       "teacherTipEn": "For an L-shaped plate with a quarter square removed, the CG is always at (5/12) of the side length!",
-      "teacherTipAr": "للصفيحة المتبقية من اقتطاع ربع مربع، يقع مركز الثقل دائماً عند ٥/١٢ من طول الضلع!"
+      "teacherTipAr": "للصفيحة المتبقية من اقتطاع ربع مربع، يقع مركز الثقل دائماً عند ٥/١٢ من طول الضلع!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_32",
@@ -3497,7 +3579,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. بالتطابق والتناظر $Y_G = 10\\text{ سم}$."
       ],
       "teacherTipEn": "For an L-shaped plate with a quarter square removed, the CG is always at (5/12) of the side length!",
-      "teacherTipAr": "للصفيحة المتبقية من اقتطاع ربع مربع، يقع مركز الثقل دائماً عند ٥/١٢ من طول الضلع!"
+      "teacherTipAr": "للصفيحة المتبقية من اقتطاع ربع مربع، يقع مركز الثقل دائماً عند ٥/١٢ من طول الضلع!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_33",
@@ -3539,7 +3622,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. بما أن $A$ و $G$ يقعان على المنصف، فإن المنصف نفسه يكون رأسياً تماماً، وتكون زاويته مع الرأسي $0^\\circ$."
       ],
       "teacherTipEn": "Symmetry theorem: Suspension from any point on an axis of symmetry keeps that axis vertical.",
-      "teacherTipAr": "مبدأ التماثل: التعليق الحر من أي نقطة واقعة على محور التماثل يجعل محور التماثل رأسياً دائماً."
+      "teacherTipAr": "مبدأ التماثل: التعليق الحر من أي نقطة واقعة على محور التماثل يجعل محور التماثل رأسياً دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_34",
@@ -3628,7 +3712,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٨. بالتماثل: $y_G = 6.25$ سم أيضاً."
       ],
       "teacherTipEn": "Superposition with shifted mass: $\\Delta x_G = \\frac{m(x_{\\text{new}} - x_{\\text{old}})}{M_{\\text{total}}} = \\frac{1(4 - 2)}{8} = +0.25\\text{ cm} \\implies 6 + 0.25 = 6.25\\text{ cm}$.",
-      "teacherTipAr": "طريقة الإزاحة السريعة: إزاحة المركز = ك (س_جديدة - س_قديمة) / ك_الكلية = 1(4 - 2) / 8 = +0.25 سم، فيصبح 6 + 0.25 = 6.25 سم!"
+      "teacherTipAr": "طريقة الإزاحة السريعة: إزاحة المركز = ك (س_جديدة - س_قديمة) / ك_الكلية = 1(4 - 2) / 8 = +0.25 سم، فيصبح 6 + 0.25 = 6.25 سم!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_36",
@@ -3666,7 +3751,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $\\bar{y} = \\frac{12}{3} \\left( \\frac{10 + 12}{16} \\right) = 4 \\times \\frac{22}{16} = 5.5$ سم."
       ],
       "teacherTipEn": "Sanity check: If $b = 0$ (triangle), $\\bar{y} = \\frac{h}{3} = 4\\text{ cm}$. If $b = a$ (rectangle), $\\bar{y} = \\frac{h}{2} = 6\\text{ cm}$. Here $5.5\\text{ cm}$ is between 4 and 6.",
-      "teacherTipAr": "تحقق منطقي: إذا كانت ب=0 (مثلث) فالناتج 4 سم، وإذا كانت ب=أ (مستطيل) فالناتج 6 سم، والناتج 5.5 سم يقع منطقياً بينهما."
+      "teacherTipAr": "تحقق منطقي: إذا كانت ب=0 (مثلث) فالناتج 4 سم، وإذا كانت ب=أ (مستطيل) فالناتج 6 سم، والناتج 5.5 سم يقع منطقياً بينهما.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_37",
@@ -3705,7 +3791,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن يقع مركز الثقل في منتصف الارتفاع تماماً: $\\bar{z} = \\frac{r}{2}$."
       ],
       "teacherTipEn": "Contrast: Hollow hemispherical shell is at $\\frac{r}{2}$; solid hemisphere is at $\\frac{3r}{8}$.",
-      "teacherTipAr": "مقارنة مهمة: القشرة نصف الكروية المجوفة مركزها عند نق / 2، بينما نصف الكرة المصمت مركزه عند 3نق / 8."
+      "teacherTipAr": "مقارنة مهمة: القشرة نصف الكروية المجوفة مركزها عند نق / 2، بينما نصف الكرة المصمت مركزه عند 3نق / 8.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_med_38",
@@ -3744,7 +3831,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بالقسمة على الحجم الكلي $\\frac{2}{3}\\pi r^3$ ينتج: $\\bar{z} = \\frac{3}{8} r$."
       ],
       "teacherTipEn": "Since more volume is concentrated near the wider base, the solid hemisphere has C.G. at $\\frac{3}{8} r = 0.375r$, which is closer to the base than $\\frac{r}{2} = 0.5r$.",
-      "teacherTipAr": "نظراً لتركز معظم الحجم قرب القاعدة العريضة، يكون مركز ثقل نصف الكرة المصمت (0.375 نق) أقرب للقاعدة من القشرة المجوفة (0.5 نق)."
+      "teacherTipAr": "نظراً لتركز معظم الحجم قرب القاعدة العريضة، يكون مركز ثقل نصف الكرة المصمت (0.375 نق) أقرب للقاعدة من القشرة المجوفة (0.5 نق).",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_med_39",
@@ -3788,7 +3876,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. بالقسمة على $\\pi r^2$: $h^2 = 3 r^2 \\implies h = r\\sqrt{3}$."
       ],
       "teacherTipEn": "This is a classic problem in the Egyptian curriculum for finding equilibrium conditions of composite solid bodies.",
-      "teacherTipAr": "مسألة كلاسيكية شهيرة في منهج الثانوية العامة لإيجاد شروط اتزان الأجسام المجسمة المركبة."
+      "teacherTipAr": "مسألة كلاسيكية شهيرة في منهج الثانوية العامة لإيجاد شروط اتزان الأجسام المجسمة المركبة.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_med_40",
@@ -3824,7 +3913,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. بما أن كلاً من الجزأين له مركز ثقل عند نفس النقطة $O$، فإن مركز ثقل المجموعة بالكامل يقع عند المركز الهندسي للدائرة."
       ],
       "teacherTipEn": "Whenever two symmetric subsystems share the same center of symmetry, the combined center of gravity is at that shared point.",
-      "teacherTipAr": "إذا اشترك نظامان متماثلان في نفس مركز التماثل، فإن مركز ثقلهما المشترك يقع حتماً عند تلك النقطة المشتركة."
+      "teacherTipAr": "إذا اشترك نظامان متماثلان في نفس مركز التماثل، فإن مركز ثقلهما المشترك يقع حتماً عند تلك النقطة المشتركة.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_41",
@@ -3866,7 +3956,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. $x - 30 = 15 \\implies x = 45$ سم من الطرف $A$."
       ],
       "teacherTipEn": "Equal reactions on symmetric supports imply the resultant load acts precisely at the midpoint of the span.",
-      "teacherTipAr": "تساوي ردود الأفعال على ركائز متماثلة يعني أن محصلة القوى تؤثر تماماً في منتصف المسافة بين الركائز."
+      "teacherTipAr": "تساوي ردود الأفعال على ركائز متماثلة يعني أن محصلة القوى تؤثر تماماً في منتصف المسافة بين الركائز.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_42",
@@ -3908,7 +3999,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إحداثيات مركز الثقل: $(\\frac{31}{8}, \\frac{31}{8})$ سم."
       ],
       "teacherTipEn": "Symmetry along line $y = x$ ensures $x_G = y_G$ because the composite shape is symmetric about $y = x$.",
-      "teacherTipAr": "التماثل حول المستقيم ص = س يضمن تساوي الإحداثيين السيني والصادي مباشرة."
+      "teacherTipAr": "التماثل حول المستقيم ص = س يضمن تساوي الإحداثيين السيني والصادي مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_43",
@@ -3948,7 +4040,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. إذن تميل الحافة السفلية بزاوية $45^\\circ$ على الخط الرأسي."
       ],
       "teacherTipEn": "Any body whose center of gravity lies on the line $y = x$ will have its edges inclined at $45^\\circ$ to the vertical when suspended from $(0, 0)$.",
-      "teacherTipAr": "أي جسم يقع مركز ثقله على الخط ص = س تميل حوافه بزاوية 45° على الرأسي عند تعليقه حراً من نقطة الأصل."
+      "teacherTipAr": "أي جسم يقع مركز ثقله على الخط ص = س تميل حوافه بزاوية 45° على الرأسي عند تعليقه حراً من نقطة الأصل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_44",
@@ -3992,7 +4085,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. إحداثيات مركز الثقل: $(-\\frac{3}{7}, -\\frac{3}{7})$ سم."
       ],
       "teacherTipEn": "Since both cutouts are in the first quadrant, the center of gravity shifts into the third quadrant.",
-      "teacherTipAr": "نظراً لأن كلا الثقبين يقعان في الربع الأول، ينزاح مركز الثقل إلى الربع الثالث المقابل."
+      "teacherTipAr": "نظراً لأن كلا الثقبين يقعان في الربع الأول، ينزاح مركز الثقل إلى الربع الثالث المقابل.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_45",
@@ -4028,7 +4122,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $d = \\sqrt{(-\\frac{3}{7})^2 + (-\\frac{3}{7})^2} = \\sqrt{\\frac{18}{49}} = \\frac{3\\sqrt{2}}{7}$ سم."
       ],
       "teacherTipEn": "For equal coordinates $(x, x)$, the distance from the origin is always $|x|\\sqrt{2}$.",
-      "teacherTipAr": "لأي نقطة إحداثياها متساويان (س، س)، بعدها عن نقطة الأصل هو دائماً |س| × جذر 2."
+      "teacherTipAr": "لأي نقطة إحداثياها متساويان (س، س)، بعدها عن نقطة الأصل هو دائماً |س| × جذر 2.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_46",
@@ -4144,7 +4239,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. إذن ارتفاع مركز الثقل عن المستوى الأفقي هو: $h = R - \\frac{3}{8} R = \\frac{5}{8} R$."
       ],
       "teacherTipEn": "Careful reading: Distance from the flat base is $\\frac{3}{8} R$; height above the curved contact point is $\\frac{5}{8} R$.",
-      "teacherTipAr": "اقرأ بدقة: البعد عن القاعدة المستوية هو 3نق / 8؛ بينما الارتفاع عن نقطة التماس المنحنية هو 5نق / 8."
+      "teacherTipAr": "اقرأ بدقة: البعد عن القاعدة المستوية هو 3نق / 8؛ بينما الارتفاع عن نقطة التماس المنحنية هو 5نق / 8.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_med_49",
@@ -4180,7 +4276,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٣. أما إذا كان $G$ أعلى نقطة التعليق $A$ مباشرة، فإن أي إزاحة طفيفة تولد عزم انقلاب، مما يجعله اتزاناً غير مستقر."
       ],
       "teacherTipEn": "Remember: Stable = G below suspension point; Unstable = G above suspension point; Neutral = G at suspension point.",
-      "teacherTipAr": "تذكر دائماً: مستقر = مركز الثقل أسفل نقطة التعليق؛ غير مستقر = مركز الثقل أعلاها؛ محايد = مركز الثقل عند نقطة التعليق نفسها."
+      "teacherTipAr": "تذكر دائماً: مستقر = مركز الثقل أسفل نقطة التعليق؛ غير مستقر = مركز الثقل أعلاها؛ محايد = مركز الثقل عند نقطة التعليق نفسها.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_50",
@@ -4218,7 +4315,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بينما يقابل الاتزان غير المستقر نهاية عظمى لطاقة الوضع (مركز الثقل في أعلى موضع)."
       ],
       "teacherTipEn": "Energy principle: Nature always tends toward minimum potential energy in stable configurations.",
-      "teacherTipAr": "مبدأ الطاقة العام: تسعى الأنظمة الطبيعية دائماً نحو الحالة ذات طاقة الوضع الدنيا في أوضاع الاستقرار."
+      "teacherTipAr": "مبدأ الطاقة العام: تسعى الأنظمة الطبيعية دائماً نحو الحالة ذات طاقة الوضع الدنيا في أوضاع الاستقرار.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_51",
@@ -4257,7 +4355,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$x_G = \\frac{A_1 x_1 - A_2 x_2}{A_1 - A_2} = \\frac{144(6) - 4\\pi(3)}{144 - 4\\pi} = \\frac{864 - 12\\pi}{144 - 4\\pi} \\approx 6.287\\text{ سم}$."
       ],
       "teacherTipEn": "Cutting out mass on the left ($x < 6$) naturally shifts the center of gravity to the right ($x > 6$).",
-      "teacherTipAr": "قطع جزء من جهة اليسار ($x < 6$) يؤدي حتماً إلى إزاحة مركز الثقل إلى اليمين ($x > 6$)."
+      "teacherTipAr": "قطع جزء من جهة اليسار ($x < 6$) يؤدي حتماً إلى إزاحة مركز الثقل إلى اليمين ($x > 6$).",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_52",
@@ -4345,7 +4444,8 @@ export const statCh6Databank: ChapterDatabank = {
         "بحساب عزم الكتلة الجديد: $y_G' = \\frac{1}{4} h$."
       ],
       "teacherTipEn": "Folding a portion of a lamina can be treated as subtracting the piece from its old position and adding it at its new position.",
-      "teacherTipAr": "ثني جزء من صفيحة يُعامل كطرح كتلة هذا الجزء من موضعها القديم وإضافتها في موضعها الجديد."
+      "teacherTipAr": "ثني جزء من صفيحة يُعامل كطرح كتلة هذا الجزء من موضعها القديم وإضافتها في موضعها الجديد.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_med_54",
@@ -4385,7 +4485,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$y_G = \\frac{64(8) + 80(18)}{144} = \\frac{1952}{144} \\approx 13.56\\text{ سم}$."
       ],
       "teacherTipEn": "Always split standard structural shapes (I-beams, T-beams, L-angles) into distinct rectangles.",
-      "teacherTipAr": "قسّم دائماً المقاطع الإنشائية (T أو I أو L) إلى مستطيلات منفصلة بسيطة."
+      "teacherTipAr": "قسّم دائماً المقاطع الإنشائية (T أو I أو L) إلى مستطيلات منفصلة بسيطة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_55",
@@ -4428,7 +4529,8 @@ export const statCh6Databank: ChapterDatabank = {
         "إذن مركز الثقل هو $(\\frac{a}{2}, \\frac{2a}{3})$."
       ],
       "teacherTipEn": "Exploiting vertical or horizontal lines of symmetry immediately cuts your workload in half.",
-      "teacherTipAr": "استغلال محاور التماثل الرأسية أو الأفقية يختصر نصف خطوات الحل مباشرة."
+      "teacherTipAr": "استغلال محاور التماثل الرأسية أو الأفقية يختصر نصف خطوات الحل مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_56",
@@ -4505,7 +4607,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$80 - 20 m = 0 \\implies m = 4\\text{ كجم}$."
       ],
       "teacherTipEn": "Masses lying directly on the $x$-axis have zero $y$-coordinates and do not affect $y_G$ at all.",
-      "teacherTipAr": "الكتل الواقعة على محور $x$ إحداثياتها الصادية صفرية ولا تؤثر مطلقاً في قيمة $y_G$."
+      "teacherTipAr": "الكتل الواقعة على محور $x$ إحداثياتها الصادية صفرية ولا تؤثر مطلقاً في قيمة $y_G$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_med_58",
@@ -4543,7 +4646,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$\\frac{4}{3}\\pi r^3 = 2\\pi \\bar{y} (\\frac{1}{2}\\pi r^2) \\implies \\bar{y} = \\frac{4r}{3\\pi}$."
       ],
       "teacherTipEn": "Contrast this with a semicircular WIRE (arc), whose center of gravity is at $\\frac{2r}{\\pi}$!",
-      "teacherTipAr": "قارن ذلك بسلك على شكل نصف دائرة (قوس)، حيث يقع مركز ثقله عند $\\frac{2r}{\\pi}$!"
+      "teacherTipAr": "قارن ذلك بسلك على شكل نصف دائرة (قوس)، حيث يقع مركز ثقله عند $\\frac{2r}{\\pi}$!",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_med_59",
@@ -4586,7 +4690,8 @@ export const statCh6Databank: ChapterDatabank = {
         "ظل زاوية ميل القطر على الرأسي: $\\tan\\theta = \\frac{4r/(3\\pi)}{r} = \\frac{4}{3\\pi}$."
       ],
       "teacherTipEn": "A classic university and Thanaweya exam question testing both centroid location and suspension equilibrium.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية شهيرة تختبر موضع مركز الثقل وزاوية الميل عند التعليق الحر معاً."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية شهيرة تختبر موضع مركز الثقل وزاوية الميل عند التعليق الحر معاً.",
+      "diagramType": "circle"
     }
   ],
   "hots": [
@@ -4631,7 +4736,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. $\\tan\\theta = \\frac{X_G}{Y_G} = \\frac{4}{5} = 0.8$."
       ],
       "teacherTipEn": "Notice that the angle theta depends ONLY on the ratio of the lengths, not their absolute values!",
-      "teacherTipAr": "لاحظ أن زاوية الميل تعتمد فقط على النسبة بين طولي الضلعين وليس على قيمتيهما المطلقة!"
+      "teacherTipAr": "لاحظ أن زاوية الميل تعتمد فقط على النسبة بين طولي الضلعين وليس على قيمتيهما المطلقة!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_02",
@@ -4674,7 +4780,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. $\\tan\\theta = \\frac{X_G}{Y_G} = \\frac{4}{5} = 0.8$."
       ],
       "teacherTipEn": "Notice that the angle theta depends ONLY on the ratio of the lengths, not their absolute values!",
-      "teacherTipAr": "لاحظ أن زاوية الميل تعتمد فقط على النسبة بين طولي الضلعين وليس على قيمتيهما المطلقة!"
+      "teacherTipAr": "لاحظ أن زاوية الميل تعتمد فقط على النسبة بين طولي الضلعين وليس على قيمتيهما المطلقة!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_03",
@@ -4840,7 +4947,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. إذن لا يمكن لأي ثقل موجب موضوع عند $A$ أن يجعل $BC$ أفقياً."
       ],
       "teacherTipEn": "Conceptual HOTS question: Recognizing geometric impossibility from first principles demonstrates deep mechanics understanding.",
-      "teacherTipAr": "سؤال تفكير عليا مفاهيمي: إدراك الاستحالة الهندسية من المبادئ الأساسية يعكس فهماً عميقاً للميكانيكا."
+      "teacherTipAr": "سؤال تفكير عليا مفاهيمي: إدراك الاستحالة الهندسية من المبادئ الأساسية يعكس فهماً عميقاً للميكانيكا.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_07",
@@ -4882,7 +4990,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إذن: $w = 22$ نيوتن."
       ],
       "teacherTipEn": "Equating total moments directly avoids dividing by total mass $(24 + w)$.",
-      "teacherTipAr": "مساواة مجموع العزوم مباشرة توفر خطوة القسمة على الكتلة الكلية."
+      "teacherTipAr": "مساواة مجموع العزوم مباشرة توفر خطوة القسمة على الكتلة الكلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_08",
@@ -4926,7 +5035,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. البعد عن الرأس $A(0, 0)$: $d = 11.5\\sqrt{2}$ سم."
       ],
       "teacherTipEn": "When both shapes have centroids on the diagonal $y = x$, the remaining centroid remains on that diagonal.",
-      "teacherTipAr": "عندما تقع مراكز الأجزاء على القطر ص = س، يظل مركز ثقل الجزء المتبقي واقعاً على القطر نفسه."
+      "teacherTipAr": "عندما تقع مراكز الأجزاء على القطر ص = س، يظل مركز ثقل الجزء المتبقي واقعاً على القطر نفسه.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_09",
@@ -5046,7 +5156,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $\\bar{z} = \\frac{8(5) - 1(12.5)}{7} = \\frac{55}{14}$ سم."
       ],
       "teacherTipEn": "The standard frustum formula $\\bar{z} = \\frac{h}{4} \\frac{R^2 + 2Rr + 3r^2}{R^2 + Rr + r^2}$ gives $\\frac{55}{14}\\text{ cm}$ directly.",
-      "teacherTipAr": "القانون العام للمخروط الناقص يعطي 55/14 سم مباشرة."
+      "teacherTipAr": "القانون العام للمخروط الناقص يعطي 55/14 سم مباشرة.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_12",
@@ -5089,7 +5200,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. $\\frac{1}{2} h^2 \\le \\frac{1}{4} r^2 \\implies h^2 \\le \\frac{r^2}{2} \\implies h \\le \\frac{r}{\\sqrt{2}}$."
       ],
       "teacherTipEn": "Classical stability condition: In rocking bodies, stability requires height of C.G. above contact to be less than the radius of curvature.",
-      "teacherTipAr": "قاعدة كلاسيكية للاستقرار: في الأجسام المتدحرجة، يجب أن يكون ارتفاع مركز الثقل عن نقطة التماس أقل من نصف قطر التكور."
+      "teacherTipAr": "قاعدة كلاسيكية للاستقرار: في الأجسام المتدحرجة، يجب أن يكون ارتفاع مركز الثقل عن نقطة التماس أقل من نصف قطر التكور.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_13",
@@ -5132,7 +5244,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. البعد عن القطر $AC$: $d = \\sqrt{(\\frac{4}{5})^2 + (\\frac{4}{5})^2} = \\frac{4\\sqrt{2}}{5}$ سم."
       ],
       "teacherTipEn": "3D mechanics integration: Orthogonal folding allows Pythagorean combination of centroid coordinates.",
-      "teacherTipAr": "تطبيق ثلاثي الأبعاد: الطي المتعامد يسمح بدمج إحداثيات مراكز الثقل باستخدام نظرية فيثاغورس."
+      "teacherTipAr": "تطبيق ثلاثي الأبعاد: الطي المتعامد يسمح بدمج إحداثيات مراكز الثقل باستخدام نظرية فيثاغورس.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_14",
@@ -5176,7 +5289,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٧. $x_G = \\frac{20(30) + 50(60)}{100} = \\frac{3600}{100} = 36$ سم."
       ],
       "teacherTipEn": "Key principle: The radius of a sphere does not displace its center of gravity from its geometric center.",
-      "teacherTipAr": "مبدأ أساسي: نصف قطر الكرة لا يغير موضع مركز ثقلها، فهو يظل دائماً عند المركز الهندسي للكرة."
+      "teacherTipAr": "مبدأ أساسي: نصف قطر الكرة لا يغير موضع مركز ثقلها، فهو يظل دائماً عند المركز الهندسي للكرة.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_15",
@@ -5220,7 +5334,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. البعد عن المركز $O$ هو $\\frac{3\\sqrt{3}}{5}$ سم."
       ],
       "teacherTipEn": "General formula: For a regular $n$-gon wire with one missing side, $d_G = \\frac{r_{\\text{in}}}{n - 1}$ where $r_{\\text{in}}$ is the inradius.",
-      "teacherTipAr": "قانون عام: لمضلع منتظم من n ضلعاً ينقصه ضلع واحد، بعد مركز الثقل عن المركز = نق_الداخلية / (ن - 1)."
+      "teacherTipAr": "قانون عام: لمضلع منتظم من n ضلعاً ينقصه ضلع واحد، بعد مركز الثقل عن المركز = نق_الداخلية / (ن - 1).",
+      "diagramType": "complex_roots_polygon"
     },
     {
       "id": "stat_ch6_db_hots_16",
@@ -5261,7 +5376,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. زاوية ميل الضلع $BC$ على الرأسي تحقق: $\\tan\\alpha = \\frac{7}{5} = 1.4$."
       ],
       "teacherTipEn": "Always draw the vector from the suspension point to the center of mass G to determine angle components.",
-      "teacherTipAr": "ارسم دائماً المتجه الواصل من نقطة التعليق إلى مركز الثقل لتحديد مركبات الزاوية."
+      "teacherTipAr": "ارسم دائماً المتجه الواصل من نقطة التعليق إلى مركز الثقل لتحديد مركبات الزاوية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_17",
@@ -5302,7 +5418,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. زاوية ميل الضلع $BC$ على الرأسي تحقق: $\\tan\\alpha = \\frac{7}{5} = 1.4$."
       ],
       "teacherTipEn": "Always draw the vector from the suspension point to the center of mass G to determine angle components.",
-      "teacherTipAr": "ارسم دائماً المتجه الواصل من نقطة التعليق إلى مركز الثقل لتحديد مركبات الزاوية."
+      "teacherTipAr": "ارسم دائماً المتجه الواصل من نقطة التعليق إلى مركز الثقل لتحديد مركبات الزاوية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_18",
@@ -5383,7 +5500,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $d = \\frac{r \\sin\\alpha}{\\pi - \\alpha}$."
       ],
       "teacherTipEn": "When $\\alpha = \\pi/2$ (semicircle), $d = \\frac{r \\sin(\\pi/2)}{\\pi/2} = \\frac{2r}{\\pi}$, perfectly matching our earlier formula!",
-      "teacherTipAr": "تحقق بالتعويض: عندما α = ط/2 (نصف دائرة)، الناتج = 2نق / ط، وهو ما يطابق تماماً قانون نصف الدائرة السلكي!"
+      "teacherTipAr": "تحقق بالتعويض: عندما α = ط/2 (نصف دائرة)، الناتج = 2نق / ط، وهو ما يطابق تماماً قانون نصف الدائرة السلكي!",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_20",
@@ -5423,7 +5541,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $y_G = \\frac{4(\\frac{16}{\\pi}) - 1(\\frac{8}{\\pi})}{3} = \\frac{56}{3\\pi}$ سم."
       ],
       "teacherTipEn": "General formula for a semicircular ring lamina: $y_G = \\frac{4}{3\\pi} \\frac{R^3 - r^3}{R^2 - r^2} = \\frac{4}{3\\pi} \\frac{1728 - 216}{144 - 36} = \\frac{4}{3\\pi} \\frac{1512}{108} = \\frac{56}{3\\pi}\\text{ cm}$!",
-      "teacherTipAr": "القانون العام للحلقة النصف دائرية: ص_م = 4/(3ط) × (نق١^3 - نق٢^3) / (نق١^2 - نق٢^2) = 56 / (3ط) سم مباشرة!"
+      "teacherTipAr": "القانون العام للحلقة النصف دائرية: ص_م = 4/(3ط) × (نق١^3 - نق٢^3) / (نق١^2 - نق٢^2) = 56 / (3ط) سم مباشرة!",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_21",
@@ -5462,7 +5581,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بطريقة الكتلة السالبة: $x_G = \\frac{-80}{4(25\\pi - 4)} = -\\frac{20}{25\\pi - 4}$ سم."
       ],
       "teacherTipEn": "Notice that the orientation of the square does not affect its centroid position $(5, 0)$.",
-      "teacherTipAr": "لاحظ أن اتجاه أضلاع المربع لا يغير من موضع مركز ثقله عند (5، 0)."
+      "teacherTipAr": "لاحظ أن اتجاه أضلاع المربع لا يغير من موضع مركز ثقله عند (5، 0).",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_22",
@@ -5501,7 +5621,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. البعد من الرأس $B$ إلى مركز المربع $M$ هو نصف طول القطر: $d = \\frac{10\\sqrt{2}}{2} = 5\\sqrt{2}$ سم."
       ],
       "teacherTipEn": "Conceptual elegance: No complicated calculations needed when subsystems share the same centroid!",
-      "teacherTipAr": "جمال المفاهيم الهندسية: تنعدم الحاجة للحسابات المعقدة عندما تشترك الأجزاء في نفس المركز الهندسي!"
+      "teacherTipAr": "جمال المفاهيم الهندسية: تنعدم الحاجة للحسابات المعقدة عندما تشترك الأجزاء في نفس المركز الهندسي!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_23",
@@ -5545,7 +5666,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $y_G = \\frac{0 - m(2)}{3m} = -\\frac{2}{3}$ سم."
       ],
       "teacherTipEn": "General formula: Removing one of 4 symmetric quadrants always shifts C.G. to $(-\\frac{x_{\\text{cut}}}{3}, -\\frac{y_{\\text{cut}}}{3})$.",
-      "teacherTipAr": "قاعدة عامة: حذف ربع من أربعة أرباع متماثلة ينقل مركز الثقل إلى (-س_المقتطع / 3، -ص_المقتطع / 3)."
+      "teacherTipAr": "قاعدة عامة: حذف ربع من أربعة أرباع متماثلة ينقل مركز الثقل إلى (-س_المقتطع / 3، -ص_المقتطع / 3).",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_24",
@@ -5591,7 +5713,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. إذن: $T_A = \\frac{30}{3} = 10$ نيوتن."
       ],
       "teacherTipEn": "Theorem: When a triangular plate is supported at its three vertices, each support carries exactly $\\frac{1}{3}$ of the total weight.",
-      "teacherTipAr": "نظرية عامة: عند ارتكاز صفيحة مثلثة منتظمة عند رؤوسها الثلاثة، يحمل كل رأس ثلث الوزن الكلي تماماً."
+      "teacherTipAr": "نظرية عامة: عند ارتكاز صفيحة مثلثة منتظمة عند رؤوسها الثلاثة، يحمل كل رأس ثلث الوزن الكلي تماماً.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_25",
@@ -5634,7 +5757,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. بطريقة الكتلة السالبة: $d_G = \\frac{4\\sqrt{3}}{5}$ سم."
       ],
       "teacherTipEn": "General theorem: Removing one triangle from a regular $n$-gon shifts C.G. by $\\frac{2H}{3(n - 1)}$.",
-      "teacherTipAr": "قانون عام: حذف مثلث من مضلع منتظم ذي n ضلعاً يزيح مركز الثقل مسافة 2ع / (3(ن - 1))."
+      "teacherTipAr": "قانون عام: حذف مثلث من مضلع منتظم ذي n ضلعاً يزيح مركز الثقل مسافة 2ع / (3(ن - 1)).",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_26",
@@ -5674,7 +5798,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بما أن الإشارة موجبة، فإنه يقع على بعد $\\frac{1}{16} r$ داخل المخروط."
       ],
       "teacherTipEn": "When two bodies have equal volume (mass), the combined C.G. is simply the midpoint between their centroids.",
-      "teacherTipAr": "عند تساوي كتلتي جزأين، يقع مركز ثقلهما المشترك في منتصف المسافة بين مركزيهما مباشرة."
+      "teacherTipAr": "عند تساوي كتلتي جزأين، يقع مركز ثقلهما المشترك في منتصف المسافة بين مركزيهما مباشرة.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_27",
@@ -5716,7 +5841,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إذن يبعد مركز الثقل مسافة $\\frac{3}{4} r$ عن مركز الحافة الدائرية."
       ],
       "teacherTipEn": "Adding mass at the bottom lowers the center of gravity, greatly increasing the stability of the bowl.",
-      "teacherTipAr": "إضافة كتلة عند القاع تخفض مركز ثقل الوعاء، مما يزيد بشكل ملحوظ من استقرار اتزانه."
+      "teacherTipAr": "إضافة كتلة عند القاع تخفض مركز ثقل الوعاء، مما يزيد بشكل ملحوظ من استقرار اتزانه.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_28",
@@ -5798,7 +5924,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بعد مركز الثقل: $\\bar{x} = \\frac{\\frac{2}{3} R^3 \\sin\\alpha}{\\alpha R^2} = \\frac{2R \\sin\\alpha}{3\\alpha}$."
       ],
       "teacherTipEn": "Check: When $\\alpha = \\pi/2$ (semicircular lamina), $\\bar{x} = \\frac{2R(1)}{3(\\pi/2)} = \\frac{4R}{3\\pi}$, which matches perfectly!",
-      "teacherTipAr": "تحقق: عند التعويض بـ α = ط/2 (نصف دائرة)، ينتج 4نق / (3ط)، وهو مطابق تماماً لقانون نصف الدائرة!"
+      "teacherTipAr": "تحقق: عند التعويض بـ α = ط/2 (نصف دائرة)، ينتج 4نق / (3ط)، وهو مطابق تماماً لقانون نصف الدائرة!",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_30",
@@ -5836,7 +5963,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بعد مركز الثقل عن المركز: $\\bar{x} = \\frac{2R^2 \\sin\\alpha}{2\\alpha R} = \\frac{R \\sin\\alpha}{\\alpha}$."
       ],
       "teacherTipEn": "Contrast: Wire arc gives $\\frac{R \\sin\\alpha}{\\alpha}$; Lamina sector gives $\\frac{2R \\sin\\alpha}{3\\alpha}$.",
-      "teacherTipAr": "مقارنة مهمة: القوس السلكي يعطي (نق جا α / α)؛ بينما القطاع المصمت يعطي ثلثي ذلك (2/3 نق جا α / α)."
+      "teacherTipAr": "مقارنة مهمة: القوس السلكي يعطي (نق جا α / α)؛ بينما القطاع المصمت يعطي ثلثي ذلك (2/3 نق جا α / α).",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_31",
@@ -5878,7 +6006,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. إذن $m = 2\\text{ كجم}$."
       ],
       "teacherTipEn": "Additional masses can be incorporated directly into the numerator and denominator of the center of mass formula.",
-      "teacherTipAr": "تُدمج الكتل المضافة مباشرة في البسط والمقام لقانون مركز الثقل."
+      "teacherTipAr": "تُدمج الكتل المضافة مباشرة في البسط والمقام لقانون مركز الثقل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_32",
@@ -5920,7 +6049,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. إذن $m = 4\\text{ كجم}$."
       ],
       "teacherTipEn": "Additional masses can be incorporated directly into the numerator and denominator of the center of mass formula.",
-      "teacherTipAr": "تُدمج الكتل المضافة مباشرة في البسط والمقام لقانون مركز الثقل."
+      "teacherTipAr": "تُدمج الكتل المضافة مباشرة في البسط والمقام لقانون مركز الثقل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_33",
@@ -6049,7 +6179,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. بالتعويض عن $L = 60$ سم: $x_G = \\frac{2}{3} \\times 60 = 40$ سم."
       ],
       "teacherTipEn": "For linear density $\\lambda \\propto x$, center of gravity is always at $\\frac{2}{3} L$ from the lighter end.",
-      "teacherTipAr": "لقضيب كثافته تتناسب خطياً مع البعد، يقع مركز الثقل دائماً عند ثلثي الطول من الطرف الأخف."
+      "teacherTipAr": "لقضيب كثافته تتناسب خطياً مع البعد، يقع مركز الثقل دائماً عند ثلثي الطول من الطرف الأخف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_36",
@@ -6088,7 +6219,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٤. بالتعويض عن $L = 80$ سم: $x_G = \\frac{3}{4} \\times 80 = 60$ سم."
       ],
       "teacherTipEn": "General formula: If $\\lambda(x) \\propto x^n$, then $x_G = \\frac{n + 1}{n + 2} L$. For $n = 2$, $x_G = \\frac{3}{4} L$.",
-      "teacherTipAr": "قانون عام: إذا كانت الكثافة تتناسب مع س^ن، فإن بعد مركز الثقل = (ن + 1) / (ن + 2) × ل."
+      "teacherTipAr": "قانون عام: إذا كانت الكثافة تتناسب مع س^ن، فإن بعد مركز الثقل = (ن + 1) / (ن + 2) × ل.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_37",
@@ -6128,7 +6260,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $x_G = \\frac{2}{3} L = \\frac{2}{3} \\times 30 = 20$ سم."
       ],
       "teacherTipEn": "Translational invariance along the y-axis allows 2D integration to reduce directly to 1D.",
-      "teacherTipAr": "التماثل على طول محور الصادات يختزل مسألة الصفيحة ثنائية الأبعاد إلى مسألة قضيب أحادي البعد."
+      "teacherTipAr": "التماثل على طول محور الصادات يختزل مسألة الصفيحة ثنائية الأبعاد إلى مسألة قضيب أحادي البعد.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_38",
@@ -6170,7 +6303,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. بعد مركز الثقل عن الرأس: $y_G = \\frac{3}{4} h$."
       ],
       "teacherTipEn": "Contrast: Uniform triangular lamina is at $\\frac{2}{3} h$; variable density shifting mass toward the base pushes C.G. down to $\\frac{3}{4} h$.",
-      "teacherTipAr": "مقارنة: في الصفيحة المنتظمة يقع المركز عند ثلثي الارتفاع (2/3 ع)، بينما دفع زيادة الكثافة نحو القاعدة مركز الثقل لأسفل إلى (3/4 ع)."
+      "teacherTipAr": "مقارنة: في الصفيحة المنتظمة يقع المركز عند ثلثي الارتفاع (2/3 ع)، بينما دفع زيادة الكثافة نحو القاعدة مركز الثقل لأسفل إلى (3/4 ع).",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_39",
@@ -6291,7 +6425,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $\\tan\\alpha = \\frac{\\Delta y}{\\Delta x} = \\frac{20}{2 \\times 15} = \\frac{2}{3}$."
       ],
       "teacherTipEn": "Notice that tan(alpha) = b / (2a) is invariant for any similar right triangles!",
-      "teacherTipAr": "لاحظ أن ظا(ألفا) = ب / (٢أ) نسبة ثابتة لجميع المثلثات القائمة المتشابهة!"
+      "teacherTipAr": "لاحظ أن ظا(ألفا) = ب / (٢أ) نسبة ثابتة لجميع المثلثات القائمة المتشابهة!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_42",
@@ -6331,7 +6466,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. $\\tan\\alpha = \\frac{\\Delta y}{\\Delta x} = \\frac{24}{2 \\times 18} = \\frac{2}{3}$."
       ],
       "teacherTipEn": "Notice that tan(alpha) = b / (2a) is invariant for any similar right triangles!",
-      "teacherTipAr": "لاحظ أن ظا(ألفا) = ب / (٢أ) نسبة ثابتة لجميع المثلثات القائمة المتشابهة!"
+      "teacherTipAr": "لاحظ أن ظا(ألفا) = ب / (٢أ) نسبة ثابتة لجميع المثلثات القائمة المتشابهة!",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_43",
@@ -6458,7 +6594,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $\\bar{z} = \\frac{\\frac{1}{2} - \\frac{1}{12}}{\\frac{2}{3}} H = \\frac{5/12}{2/3} H = \\frac{5}{8} H$."
       ],
       "teacherTipEn": "Removing mass from the bottom shifts the center of gravity upward, from $0.5 H$ to $0.625 H$.",
-      "teacherTipAr": "حذف كتلة من الجزء السفلي يزيح مركز الثقل نحو الأعلى من 0.5 ع إلى 0.625 ع."
+      "teacherTipAr": "حذف كتلة من الجزء السفلي يزيح مركز الثقل نحو الأعلى من 0.5 ع إلى 0.625 ع.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_46",
@@ -6500,7 +6637,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $\\bar{z} = \\frac{2(R) - \\frac{2}{3}(\\frac{13}{8} R)}{\\frac{4}{3}} = \\frac{11/12}{4/3} R = \\frac{11}{16} R$."
       ],
       "teacherTipEn": "Carving mass out from the top shifts the center of gravity downward from $R$ ($16/16 R$) to $11/16 R$.",
-      "teacherTipAr": "تفريغ كتلة من الجزء العلوي يخفض مركز الثقل من نق إلى 11/16 نق."
+      "teacherTipAr": "تفريغ كتلة من الجزء العلوي يخفض مركز الثقل من نق إلى 11/16 نق.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_47",
@@ -6542,7 +6680,8 @@ export const statCh6Databank: ChapterDatabank = {
         "   $d_G = \\frac{36 \\times 4\\sqrt{3} + 0}{48} = \\frac{144\\sqrt{3}}{48} = 3\\sqrt{3}$ سم."
       ],
       "teacherTipEn": "Adding weight at A pulls the center of gravity along the median toward A, reducing its distance from $4\\sqrt{3}$ to $3\\sqrt{3}$.",
-      "teacherTipAr": "إضافة ثقل عند الرأس A تجذب مركز الثقل على طول محور التماثل نحو A، فينخفض بعده من 4 جذر 3 إلى 3 جذر 3 سم."
+      "teacherTipAr": "إضافة ثقل عند الرأس A تجذب مركز الثقل على طول محور التماثل نحو A، فينخفض بعده من 4 جذر 3 إلى 3 جذر 3 سم.",
+      "diagramType": "triangle"
     },
     {
       "id": "stat_ch6_db_hots_48",
@@ -6584,7 +6723,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. إذن الزاوية التي يصنعها القطر $AC$ مع الخط الرأسي هي $0^\\circ$."
       ],
       "teacherTipEn": "Profound conceptual theorem: For any complete rectangular lamina or wire frame suspended from a vertex, the diagonal through that vertex is strictly vertical!",
-      "teacherTipAr": "نظرية مفاهيمية رائعة: لأي صفيحة أو إطار سلكي مستطيل معلق من أحد رؤوسه، يكون القطر المار بنقطة التعليق رأسياً تماماً!"
+      "teacherTipAr": "نظرية مفاهيمية رائعة: لأي صفيحة أو إطار سلكي مستطيل معلق من أحد رؤوسه، يكون القطر المار بنقطة التعليق رأسياً تماماً!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_49",
@@ -6625,7 +6765,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٥. لكي يكون الاتزان مستقراً، يجب أن يكون هذا العزم عزم إرجاع يعيد الجسم لوضعه، وهو ما يقتضي أن يكون $\\rho - h > 0$ أي $h < \\rho$."
       ],
       "teacherTipEn": "General stability theorem: Height of center of gravity above the contact point must be strictly less than the radius of curvature.",
-      "teacherTipAr": "قاعدة الاستقرار العامة: ارتفاع مركز الثقل عن نقطة التماس يجب أن يكون أقل تماماً من نصف قطر التكور."
+      "teacherTipAr": "قاعدة الاستقرار العامة: ارتفاع مركز الثقل عن نقطة التماس يجب أن يكون أقل تماماً من نصف قطر التكور.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_50",
@@ -6667,7 +6808,8 @@ export const statCh6Databank: ChapterDatabank = {
         "٦. وبما أن القضيب وتر عمودي على نصف القطر عند منتصفه، فإن القضيب يستقر حتماً في وضع أفقي تماماً."
       ],
       "teacherTipEn": "Energy principle in action: Minimum height of C.G. uniquely determines the horizontal equilibrium state.",
-      "teacherTipAr": "تطبيق مبدأ الطاقة: أدنى ارتفاع لمركز الثقل يحدد بشكل فريد وضع الاتزان الأفقي المستقر."
+      "teacherTipAr": "تطبيق مبدأ الطاقة: أدنى ارتفاع لمركز الثقل يحدد بشكل فريد وضع الاتزان الأفقي المستقر.",
+      "diagramType": "solid_geometry_sphere"
     },
     {
       "id": "stat_ch6_db_hots_51",
@@ -6705,7 +6847,8 @@ export const statCh6Databank: ChapterDatabank = {
         "بفضل هذا التماثل المزدوج، يظل مركز الثقل عند نقطة تقاطع محوري التماثل $(10, 10)$ دون أي إزاحة."
       ],
       "teacherTipEn": "Symmetry arguments save massive calculation time on competitive multiple-choice exams.",
-      "teacherTipAr": "استنتاجات التماثل توفر وقتاً هائلاً في الامتحانات التنافسية وتمنع الأخطاء الحسابية."
+      "teacherTipAr": "استنتاجات التماثل توفر وقتاً هائلاً في الامتحانات التنافسية وتمنع الأخطاء الحسابية.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_52",
@@ -6782,7 +6925,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$y_G = \\frac{9}{3} \\left(\\frac{12 + 12}{18}\\right) = 3 \\times \\frac{24}{18} = 4.0\\text{ سم}$."
       ],
       "teacherTipEn": "Memorize $y_G = \\frac{h}{3} \\frac{a+2b}{a+b}$; it saves splitting the trapezoid into two triangles and a rectangle!",
-      "teacherTipAr": "احفظ القانون $y_G = \\frac{h}{3} \\frac{a+2b}{a+b}$؛ فهو يغنيك تماماً عن تقسيم شبه المنحرف إلى مثلثين ومستطيل!"
+      "teacherTipAr": "احفظ القانون $y_G = \\frac{h}{3} \\frac{a+2b}{a+b}$؛ فهو يغنيك تماماً عن تقسيم شبه المنحرف إلى مثلثين ومستطيل!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_54",
@@ -6823,7 +6967,8 @@ export const statCh6Databank: ChapterDatabank = {
         "$w \\times 20 = 30 \\times 10 \\implies w = 15\\text{ ن}$."
       ],
       "teacherTipEn": "Balancing horizontally upon suspension is identical to placing the system's center of gravity at the suspension point.",
-      "teacherTipAr": "الاتزان الأفقي عند نقطة تعليق يكافئ تماماً جعل مركز الثقل منطبقاً على نقطة التعليق."
+      "teacherTipAr": "الاتزان الأفقي عند نقطة تعليق يكافئ تماماً جعل مركز الثقل منطبقاً على نقطة التعليق.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_55",
@@ -6859,7 +7004,8 @@ export const statCh6Databank: ChapterDatabank = {
         "بما أن مركزي ثقل الجزأين ينطبقان تماماً عند $O$، فإن مركز ثقلهما المشترك يقع عند $O$ حتماً."
       ],
       "teacherTipEn": "If every component part of a composite body shares the same centroid, the composite centroid is identical.",
-      "teacherTipAr": "إذا اشتركت جميع أجزاء الجسم في نفس مركز الثقل، فإن مركز ثقل الجسم الكلي ينطبق عليه حتماً."
+      "teacherTipAr": "إذا اشتركت جميع أجزاء الجسم في نفس مركز الثقل، فإن مركز ثقل الجسم الكلي ينطبق عليه حتماً.",
+      "diagramType": "circle"
     },
     {
       "id": "stat_ch6_db_hots_56",
@@ -6899,7 +7045,8 @@ export const statCh6Databank: ChapterDatabank = {
         "عندما $L = 12\\text{ سم}$: البروز الكلي $d = 11\\text{ سم}$."
       ],
       "teacherTipEn": "The harmonic sum diverges! With enough blocks, you can create an overhang of any arbitrarily large length.",
-      "teacherTipAr": "المتسلسلة التوافقية متباعدة! وبعدد كافٍ من القوالب يمكن الوصول لأي بروز مهما كبر."
+      "teacherTipAr": "المتسلسلة التوافقية متباعدة! وبعدد كافٍ من القوالب يمكن الوصول لأي بروز مهما كبر.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_57",
@@ -6941,7 +7088,8 @@ export const statCh6Databank: ChapterDatabank = {
         "إذن مركز الثقل هو $(9, 8)\\text{ سم}$."
       ],
       "teacherTipEn": "When weights are given explicitly, do not compute density; use the provided weights directly!",
-      "teacherTipAr": "عند إعطاء الأوزان صراحة في المسألة، استخدم الأوزان مباشرة دون الحاجة لحساب الكثافة."
+      "teacherTipAr": "عند إعطاء الأوزان صراحة في المسألة، استخدم الأوزان مباشرة دون الحاجة لحساب الكثافة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "stat_ch6_db_hots_58",
@@ -6979,7 +7127,8 @@ export const statCh6Databank: ChapterDatabank = {
         "بتطبيق قانون الكتلة السالبة: مركز ثقل الجزء المتبقي يظل ثابتاً تماماً عند $(0, 0)$."
       ],
       "teacherTipEn": "Rotational symmetry of order $n \\ge 3$ strictly fixes the center of gravity at the rotation center.",
-      "teacherTipAr": "التماثل الدوراني من الرتبة $n \\ge 3$ يثبت مركز الثقل حتماً عند مركز الدوران."
+      "teacherTipAr": "التماثل الدوراني من الرتبة $n \\ge 3$ يثبت مركز الثقل حتماً عند مركز الدوران.",
+      "diagramType": "triangle"
     }
   ]
 };

@@ -4,1723 +4,1781 @@ export const dynCh1Databank: ChapterDatabank = {
   "easy": [
     {
       "id": "dyn_ch1_db_easy_01",
-      "titleEn": "Velocity from Position Function #1",
-      "titleAr": "السرعة من دالة الموضع رقم 1",
+      "titleEn": "Quadratic Velocity Evaluation",
+      "titleAr": "حساب السرعة من دالة موضع تربيعية",
       "difficulty": "easy",
-      "questionEn": "A particle moves in a straight line with position $x(t) = 2t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 2t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 3t^2 - 4t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 3t^2 - 4t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
       "optionsEn": [
-        "$11\\text{ m/s}$",
-        "$13\\text{ m/s}$",
-        "$16\\text{ m/s}$",
-        "$19\\text{ m/s}$"
+        "$8\\text{ m/s}$",
+        "$10\\text{ m/s}$",
+        "$6\\text{ m/s}$",
+        "$12\\text{ m/s}$"
       ],
       "optionsAr": [
-        "11 م/ث",
-        "13 م/ث",
-        "16 م/ث",
-        "19 م/ث"
+        "8 م/ث",
+        "10 م/ث",
+        "6 م/ث",
+        "12 م/ث"
       ],
-      "correctAnswer": "$11\\text{ m/s}$",
+      "correctAnswer": "$8\\text{ m/s}$",
       "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "hintEn": "Differentiate $x(t)$ with respect to $t$: $v(t) = \\frac{dx}{dt}$.",
+      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt}$.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 4t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 4(2) + 3 = 8 + 3 = 11\\text{ m/s}$."
+        "1. $v(t) = \\frac{dx}{dt} = 6t - 4$.",
+        "2. At $t = 2$: $v(2) = 6(2) - 4 = 12 - 4 = 8\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 4t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 4(2) + 3 = 11\\text{ م/ث}$."
+        "١. مشتقة الموضع: $v(t) = 6t - 4$.",
+        "٢. عند $t = 2$: $v(2) = 6(2) - 4 = 8\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Velocity is the first derivative of position with respect to time.",
+      "teacherTipAr": "السرعة هي المشتقة الأولى لدالة الموضع بالنسبة للزمن."
     },
     {
       "id": "dyn_ch1_db_easy_02",
-      "titleEn": "Velocity from Position Function #2",
-      "titleAr": "السرعة من دالة الموضع رقم 2",
+      "titleEn": "Cubic Polynomial Velocity",
+      "titleAr": "السرعة من دالة موضع تكعيبية",
       "difficulty": "easy",
-      "questionEn": "A particle moves in a straight line with position $x(t) = 3t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 3t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "The position of a particle is given by $x(t) = t^3 - 6t^2 + 11t - 6\\text{ m}$. Find its velocity at $t = 3\\text{ s}$.",
+      "questionAr": "يعطى موضع جسيم بالدالة $x(t) = t^3 - 6t^2 + 11t - 6\\text{ م}$. أوجد سرعته عند $t = 3\\text{ ث}$.",
       "optionsEn": [
-        "$15\\text{ m/s}$",
-        "$17\\text{ m/s}$",
-        "$20\\text{ m/s}$",
-        "$23\\text{ m/s}$"
+        "$4\\text{ m/s}$",
+        "$2\\text{ m/s}$",
+        "$0\\text{ m/s}$",
+        "$6\\text{ m/s}$"
       ],
       "optionsAr": [
-        "15 م/ث",
-        "17 م/ث",
-        "20 م/ث",
-        "23 م/ث"
+        "4 م/ث",
+        "2 م/ث",
+        "0 م/ث",
+        "6 م/ث"
       ],
-      "correctAnswer": "$15\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$2\\text{ m/s}$",
+      "correctIndex": 1,
+      "hintEn": "Differentiate power terms: $\\frac{d}{dt}(t^n) = n t^{n-1}$.",
+      "hintAr": "مشتقة الدالة التكعيبية: $v(t) = 3t^2 - 12t + 11$.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 6t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 6(2) + 3 = 12 + 3 = 15\\text{ m/s}$."
+        "1. $v(t) = 3t^2 - 12t + 11$.",
+        "2. Substitute $t = 3$: $v(3) = 3(9) - 12(3) + 11 = 27 - 36 + 11 = 2\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 6t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 6(2) + 3 = 15\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 3t^2 - 12t + 11$.",
+        "٢. بالتعويض عن $t = 3$: $v(3) = 27 - 36 + 11 = 2\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Always evaluate powers before multiplication.",
+      "teacherTipAr": "احسب قوى المتغير أولاً ثم اضرب في المعاملات."
     },
     {
       "id": "dyn_ch1_db_easy_03",
-      "titleEn": "Velocity from Position Function #3",
-      "titleAr": "السرعة من دالة الموضع رقم 3",
+      "titleEn": "Square Root Position Function",
+      "titleAr": "السرعة من دالة موضع جذرية",
       "difficulty": "easy",
-      "questionEn": "In a physical scenario, a particle moves in a straight line with position $x(t) = 4t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "في سياق فيزيائي، يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 4t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves such that its position is $x(t) = \\sqrt{4t + 9}\\text{ m}$. Find its velocity at $t = 4\\text{ s}$.",
+      "questionAr": "يتحرك جسيم بحيث كان موضعه $x(t) = \\sqrt{4t + 9}\\text{ م}$. أوجد سرعته عند $t = 4\\text{ ث}$.",
       "optionsEn": [
-        "$19\\text{ m/s}$",
-        "$21\\text{ m/s}$",
-        "$24\\text{ m/s}$",
-        "$27\\text{ m/s}$"
+        "$0.8\\text{ m/s}$",
+        "$0.5\\text{ m/s}$",
+        "$0.4\\text{ m/s}$",
+        "$1.2\\text{ m/s}$"
       ],
       "optionsAr": [
-        "19 م/ث",
-        "21 م/ث",
-        "24 م/ث",
-        "27 م/ث"
+        "0.8 م/ث",
+        "0.5 م/ث",
+        "0.4 م/ث",
+        "1.2 م/ث"
       ],
-      "correctAnswer": "$19\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$0.4\\text{ m/s}$",
+      "correctIndex": 2,
+      "hintEn": "Use the chain rule for square roots: $\\frac{d}{dt}\\sqrt{u} = \\frac{u\\prime}{2\\sqrt{u}}$.",
+      "hintAr": "مشتقة الجذر التربيعي: مشتقة ما تحت الجذر على ضعف الجذر.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 8t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 8(2) + 3 = 16 + 3 = 19\\text{ m/s}$."
+        "1. $v(t) = \\frac{4}{2\\sqrt{4t + 9}} = \\frac{2}{\\sqrt{4t + 9}}$.",
+        "2. At $t = 4$: $\\sqrt{4(4) + 9} = \\sqrt{25} = 5$.",
+        "3. $v(4) = \\frac{2}{5} = 0.4\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 8t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 8(2) + 3 = 19\\text{ م/ث}$."
+        "١. $v(t) = \\frac{4}{2\\sqrt{4t + 9}} = \\frac{2}{\\sqrt{4t + 9}}$.",
+        "٢. عند $t = 4$: المقام يساوي $\\sqrt{25} = 5$.",
+        "٣. السرعة: $v(4) = \\frac{2}{5} = 0.4\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Derivative of square root functions appears often in kinematics with resistive media.",
+      "teacherTipAr": "مشتقة الجذور تظهر بكثرة في مسائل المقاومة وحركات الأجسام المتسارعة."
     },
     {
       "id": "dyn_ch1_db_easy_04",
-      "titleEn": "Velocity from Position Function #4",
-      "titleAr": "السرعة من دالة الموضع رقم 4",
+      "titleEn": "Trigonometric Simple Harmonic Velocity",
+      "titleAr": "سرعة الحركة التوافقية البسيطة",
       "difficulty": "easy",
-      "questionEn": "Suppose that a particle moves in a straight line with position $x(t) = 5t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "افترض أن يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 5t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves along a straight line with position $x(t) = 5\\sin(2t)\\text{ m}$. Find its velocity at $t = \\frac{\\pi}{4}\\text{ s}$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 5\\sin(2t)\\text{ م}$. أوجد سرعته عند $t = \\frac{\\pi}{4}\\text{ ث}$.",
       "optionsEn": [
-        "$23\\text{ m/s}$",
-        "$25\\text{ m/s}$",
-        "$28\\text{ m/s}$",
-        "$31\\text{ m/s}$"
+        "$10\\text{ m/s}$",
+        "$5\\text{ m/s}$",
+        "$-10\\text{ m/s}$",
+        "$0\\text{ m/s}$"
       ],
       "optionsAr": [
-        "23 م/ث",
-        "25 م/ث",
-        "28 م/ث",
-        "31 م/ث"
+        "10 م/ث",
+        "5 م/ث",
+        "-10 م/ث",
+        "0 م/ث"
       ],
-      "correctAnswer": "$23\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$0\\text{ m/s}$",
+      "correctIndex": 3,
+      "hintEn": "$\\frac{d}{dt}[A\\sin(\\omega t)] = A\\omega\\cos(\\omega t)$. Note that $\\cos(\\pi/2) = 0$.",
+      "hintAr": "مشتقة الجيب هي جيب التمام مضروبة في معامل الزاوية: $v(t) = 10\\cos(2t)$.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 10t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 10(2) + 3 = 20 + 3 = 23\\text{ m/s}$."
+        "1. $v(t) = 5(2)\\cos(2t) = 10\\cos(2t)$.",
+        "2. At $t = \\frac{\\pi}{4}$: $2t = \\frac{\\pi}{2}$.",
+        "3. $\\cos(\\frac{\\pi}{2}) = 0 \\implies v = 0\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 10t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 10(2) + 3 = 23\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 10\\cos(2t)$.",
+        "٢. عند $t = \\frac{\\pi}{4}$ تكون الزاوية $2t = \\frac{\\pi}{2}$.",
+        "٣. جيب تمام القائمة صفر: $v = 10(0) = 0\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "When position is maximum, instantaneous velocity is zero.",
+      "teacherTipAr": "عند أقصى إزاحة تنعدم السرعة اللحظية في الحركة التوافقية."
     },
     {
       "id": "dyn_ch1_db_easy_05",
-      "titleEn": "Velocity from Position Function #5",
-      "titleAr": "السرعة من دالة الموضع رقم 5",
+      "titleEn": "Exponential Velocity Evaluation",
+      "titleAr": "السرعة من دالة موضع أسية",
       "difficulty": "easy",
-      "questionEn": "Under observed conditions, a particle moves in a straight line with position $x(t) = 6t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "تحت ظروف تجريبية، يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 6t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "The position of an accelerating micro-particle is $x(t) = 6 e^{2t}\\text{ cm}$. Find its velocity at $t = 0\\text{ s}$.",
+      "questionAr": "موضع جسيم دقيق معجل هو $x(t) = 6 e^{2t}\\text{ سم}$. أوجد سرعته عند $t = 0\\text{ ث}$.",
       "optionsEn": [
-        "$27\\text{ m/s}$",
-        "$29\\text{ m/s}$",
-        "$32\\text{ m/s}$",
-        "$35\\text{ m/s}$"
+        "$12\\text{ cm/s}$",
+        "$6\\text{ cm/s}$",
+        "$18\\text{ cm/s}$",
+        "$3\\text{ cm/s}$"
       ],
       "optionsAr": [
-        "27 م/ث",
-        "29 م/ث",
-        "32 م/ث",
-        "35 م/ث"
+        "12 سم/ث",
+        "6 سم/ث",
+        "18 سم/ث",
+        "3 سم/ث"
       ],
-      "correctAnswer": "$27\\text{ m/s}$",
+      "correctAnswer": "$12\\text{ cm/s}$",
       "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "hintEn": "$\\frac{d}{dt}[c e^{kt}] = c k e^{kt}$. At $t = 0$, $e^0 = 1$.",
+      "hintAr": "مشتقة الدالة الأسية الطبيعية: $v(t) = 6 \\times 2 e^{2t} = 12 e^{2t}$.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 12t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 12(2) + 3 = 24 + 3 = 27\\text{ m/s}$."
+        "1. $v(t) = x\\prime(t) = 12 e^{2t}$.",
+        "2. At $t = 0$: $v(0) = 12 e^0 = 12(1) = 12\\text{ cm/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 12t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 12(2) + 3 = 27\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 12 e^{2t}$.",
+        "٢. عند $t = 0$: $v(0) = 12(1) = 12\\text{ سم/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Exponential functions grow proportionally to their instantaneous value.",
+      "teacherTipAr": "الدالة الأسية تنمو بمعدل يتناسب طردياً مع قيمتها اللحظية."
     },
     {
       "id": "dyn_ch1_db_easy_06",
-      "titleEn": "Velocity from Position Function #6",
-      "titleAr": "السرعة من دالة الموضع رقم 6",
+      "titleEn": "Rational Position Function Velocity",
+      "titleAr": "السرعة من دالة موضع كسرية",
       "difficulty": "easy",
-      "questionEn": "Consider a system where a particle moves in a straight line with position $x(t) = 7t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "بالنظر إلى منظومة حركية حيث يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 7t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves such that its position is $x(t) = \\frac{4t}{t + 1}\\text{ m}$ for $t \\ge 0$. Find its velocity at $t = 1\\text{ s}$.",
+      "questionAr": "يتحرك جسيم بحيث كان موضعه $x(t) = \\frac{4t}{t + 1}\\text{ م}$ لكل $t \\ge 0$. أوجد سرعته عند $t = 1\\text{ ث}$.",
       "optionsEn": [
-        "$31\\text{ m/s}$",
-        "$33\\text{ m/s}$",
-        "$36\\text{ m/s}$",
-        "$39\\text{ m/s}$"
+        "$2\\text{ m/s}$",
+        "$1\\text{ m/s}$",
+        "$4\\text{ m/s}$",
+        "$0.5\\text{ m/s}$"
       ],
       "optionsAr": [
-        "31 م/ث",
-        "33 م/ث",
-        "36 م/ث",
-        "39 م/ث"
+        "2 م/ث",
+        "1 م/ث",
+        "4 م/ث",
+        "0.5 م/ث"
       ],
-      "correctAnswer": "$31\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$1\\text{ m/s}$",
+      "correctIndex": 1,
+      "hintEn": "Use the quotient rule: $\\frac{d}{dt}\\left(\\frac{u}{v}\\right) = \\frac{u\\prime v - u v\\prime}{v^2}$.",
+      "hintAr": "قاعدة مشتقة قسمة دالتين: (مشتقة البسط في المقام - مشتقة المقام في البسط) على مربع المقام.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 14t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 14(2) + 3 = 28 + 3 = 31\\text{ m/s}$."
+        "1. $v(t) = \\frac{4(t+1) - 4t(1)}{(t+1)^2} = \\frac{4}{(t+1)^2}$.",
+        "2. At $t = 1$: $v(1) = \\frac{4}{(1+1)^2} = \\frac{4}{4} = 1\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 14t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 14(2) + 3 = 31\\text{ م/ث}$."
+        "١. $v(t) = \\frac{4(t+1) - 4t}{(t+1)^2} = \\frac{4}{(t+1)^2}$.",
+        "٢. عند $t = 1$: $v(1) = \\frac{4}{2^2} = 1\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Rational position functions often model approach toward a limiting horizontal asymptote.",
+      "teacherTipAr": "الدوال الكسرية تمثل اقتراب الجسيم من خط تقارب أفقي (موضع نهائي)."
     },
     {
       "id": "dyn_ch1_db_easy_07",
-      "titleEn": "Velocity from Position Function #7",
-      "titleAr": "السرعة من دالة الموضع رقم 7",
+      "titleEn": "Speed of 2D Vector Motion",
+      "titleAr": "السرعة القياسية لمتجه في بعدين",
       "difficulty": "easy",
-      "questionEn": "A dynamic test shows that a particle moves in a straight line with position $x(t) = 8t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "أظهر اختبار ديناميكي أن يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 8t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "The position vector of a particle is $\\vec{r}(t) = (3t^2 - 1)\\hat{i} + (4t + 2)\\hat{j}$. Find its speed at $t = 1\\text{ s}$.",
+      "questionAr": "متجه موضع جسيم في المستوى هو $\\vec{r}(t) = (3t^2 - 1)\\hat{i} + (4t + 2)\\hat{j}$. أوجد مقدار السرعة عند $t = 1\\text{ ث}$.",
       "optionsEn": [
-        "$35\\text{ m/s}$",
-        "$37\\text{ m/s}$",
-        "$40\\text{ m/s}$",
-        "$43\\text{ m/s}$"
+        "$10\\text{ m/s}$",
+        "$2\\sqrt{13}\\text{ m/s}$",
+        "$2\\sqrt{13}\\text{ m/s}$",
+        "$10\\text{ m/s}$"
       ],
       "optionsAr": [
-        "35 م/ث",
-        "37 م/ث",
-        "40 م/ث",
-        "43 م/ث"
+        "10 م/ث",
+        "2√13 م/ث",
+        "7 م/ث",
+        "5 م/ث"
       ],
-      "correctAnswer": "$35\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$2\\sqrt{13}\\text{ m/s}$",
+      "correctIndex": 1,
+      "hintEn": "Find velocity components $v_x, v_y$, then speed is $|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}$.",
+      "hintAr": "أوجد مركبتي السرعة $v_x, v_y$ ثم طبق فيثاغورس لحساب معيار السرعة.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 16t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 16(2) + 3 = 32 + 3 = 35\\text{ m/s}$."
+        "1. $\\vec{v}(t) = \\frac{d\\vec{r}}{dt} = (6t)\\hat{i} + 4\\hat{j}$.",
+        "2. At $t = 1$: $\\vec{v}(1) = 6\\hat{i} + 4\\hat{j}$.",
+        "3. Speed $v = \\sqrt{6^2 + 4^2} = \\sqrt{36 + 16} = \\sqrt{52} = 2\\sqrt{13}\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 16t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 16(2) + 3 = 35\\text{ م/ث}$."
+        "١. $\\vec{v}(t) = 6t\\hat{i} + 4\\hat{j}$.",
+        "٢. عند $t = 1$: $\\vec{v}(1) = 6\\hat{i} + 4\\hat{j}$.",
+        "٣. معيار السرعة: $\\sqrt{36 + 16} = \\sqrt{52} = 2\\sqrt{13}\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Norm of vector velocity is invariant under spatial rotation of coordinates.",
+      "teacherTipAr": "معيار السرعة المتجهة لا يعتمد على اتجاه المحاور الإحداثية."
     },
     {
       "id": "dyn_ch1_db_easy_08",
-      "titleEn": "Velocity from Position Function #8",
-      "titleAr": "السرعة من دالة الموضع رقم 8",
+      "titleEn": "Inverse-Time Position Function",
+      "titleAr": "السرعة لدالة مقلوب الزمن",
       "difficulty": "easy",
-      "questionEn": "From kinematic observations, a particle moves in a straight line with position $x(t) = 9t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "من خلال المشاهدات الحركية، يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 9t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves with position $x(t) = 4t + \\frac{9}{t}\\text{ m}$ for $t > 0$. Find its velocity at $t = 3\\text{ s}$.",
+      "questionAr": "يتحرك جسيم بحيث كان موضعه $x(t) = 4t + \\frac{9}{t}\\text{ م}$ لكل $t > 0$. أوجد سرعته عند $t = 3\\text{ ث}$.",
       "optionsEn": [
-        "$39\\text{ m/s}$",
-        "$41\\text{ m/s}$",
-        "$44\\text{ m/s}$",
-        "$47\\text{ m/s}$"
+        "$5\\text{ m/s}$",
+        "$7\\text{ m/s}$",
+        "$3\\text{ m/s}$",
+        "$1\\text{ m/s}$"
       ],
       "optionsAr": [
-        "39 م/ث",
-        "41 م/ث",
-        "44 م/ث",
-        "47 م/ث"
+        "5 م/ث",
+        "7 م/ث",
+        "3 م/ث",
+        "1 م/ث"
       ],
-      "correctAnswer": "$39\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$3\\text{ m/s}$",
+      "correctIndex": 2,
+      "hintEn": "Rewrite $\\frac{9}{t} = 9 t^{-1}$ and differentiate: $\\frac{d}{dt}(9t^{-1}) = -9 t^{-2} = -\\frac{9}{t^2}$.",
+      "hintAr": "اكتب $\\frac{9}{t} = 9 t^{-1}$ واشتق: $v(t) = 4 - \\frac{9}{t^2}$.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 18t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 18(2) + 3 = 36 + 3 = 39\\text{ m/s}$."
+        "1. $v(t) = 4 - \\frac{9}{t^2}$.",
+        "2. At $t = 3$: $v(3) = 4 - \\frac{9}{3^2} = 4 - 1 = 3\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 18t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 18(2) + 3 = 39\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 4 - \\frac{9}{t^2}$.",
+        "٢. عند $t = 3$: $v(3) = 4 - \\frac{9}{9} = 4 - 1 = 3\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Derivative of 1/t is -1/t^2.",
+      "teacherTipAr": "مشتقة مقلوب المتغير هي سالب مقلوب مربعه."
     },
     {
       "id": "dyn_ch1_db_easy_09",
-      "titleEn": "Velocity from Position Function #9",
-      "titleAr": "السرعة من دالة الموضع رقم 9",
+      "titleEn": "Linear Combination Harmonic Max Velocity",
+      "titleAr": "أقصى سرعة لتركيب خطي توافقي",
       "difficulty": "easy",
-      "questionEn": "An experimental trial records that a particle moves in a straight line with position $x(t) = 10t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "بيّنت التجربة العملية أن يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 10t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves with position $x(t) = 3\\cos(t) + 4\\sin(t)\\text{ m}$. What is its maximum speed $v_{\\max}$?",
+      "questionAr": "يتحرك جسيم بحيث كان موضعه $x(t) = 3\\cos(t) + 4\\sin(t)\\text{ م}$. ما هي أقصى سرعة $v_{\\max}$ يبلغها الجسيم؟",
       "optionsEn": [
-        "$43\\text{ m/s}$",
-        "$45\\text{ m/s}$",
-        "$48\\text{ m/s}$",
-        "$51\\text{ m/s}$"
+        "$7\\text{ m/s}$",
+        "$1\\text{ m/s}$",
+        "$12\\text{ m/s}$",
+        "$5\\text{ m/s}$"
       ],
       "optionsAr": [
-        "43 م/ث",
-        "45 م/ث",
-        "48 م/ث",
-        "51 م/ث"
+        "7 م/ث",
+        "1 م/ث",
+        "12 م/ث",
+        "5 م/ث"
       ],
-      "correctAnswer": "$43\\text{ m/s}$",
-      "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "correctAnswer": "$5\\text{ m/s}$",
+      "correctIndex": 3,
+      "hintEn": "Velocity is $v(t) = -3\\sin(t) + 4\\cos(t)$. Maximum of $A\\cos t + B\\sin t$ is $\\sqrt{A^2 + B^2}$.",
+      "hintAr": "السرعة هي $v(t) = -3\\sin(t) + 4\\cos(t)$، وسعتها القصوى هي $\\sqrt{(-3)^2 + 4^2} = 5$.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 20t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 20(2) + 3 = 40 + 3 = 43\\text{ m/s}$."
+        "1. $v(t) = -3\\sin(t) + 4\\cos(t)$.",
+        "2. Amplitude of velocity: $v_{\\max} = \\sqrt{(-3)^2 + 4^2} = \\sqrt{9 + 16} = 5\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 20t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 20(2) + 3 = 43\\text{ م/ث}$."
+        "١. السرعة: $v(t) = -3\\sin(t) + 4\\cos(t)$.",
+        "٢. سعة دالة السرعة: $v_{\\max} = \\sqrt{9 + 16} = 5\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "The linear combination a cos(t) + b sin(t) can be written as R cos(t - phi) where R = sqrt(a^2 + b^2).",
+      "teacherTipAr": "التركيب الخطي لجيب وجيب التمام يكافئ موجة جيبية بسعة تساوي جذر مجموع المربعين."
     },
     {
       "id": "dyn_ch1_db_easy_10",
-      "titleEn": "Velocity from Position Function #10",
-      "titleAr": "السرعة من دالة الموضع رقم 10",
+      "titleEn": "Power-Chain Velocity Derivative",
+      "titleAr": "السرعة بقاعدة السلسلة لدالة القوة",
       "difficulty": "easy",
-      "questionEn": "In a classic mechanics setup, a particle moves in a straight line with position $x(t) = 11t^2 + 3t + 5\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
-      "questionAr": "في مسألة ميكانيكا كلاسيكية، يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 11t^2 + 3t + 5\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves along a line with position $x(t) = (2t - 1)^3\\text{ m}$. Find its velocity at $t = 2\\text{ s}$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = (2t - 1)^3\\text{ م}$. أوجد سرعته عند $t = 2\\text{ ث}$.",
       "optionsEn": [
-        "$47\\text{ m/s}$",
-        "$49\\text{ m/s}$",
-        "$52\\text{ m/s}$",
-        "$55\\text{ m/s}$"
+        "$54\\text{ m/s}$",
+        "$27\\text{ m/s}$",
+        "$36\\text{ m/s}$",
+        "$18\\text{ m/s}$"
       ],
       "optionsAr": [
-        "47 م/ث",
-        "49 م/ث",
-        "52 م/ث",
-        "55 م/ث"
+        "54 م/ث",
+        "27 م/ث",
+        "36 م/ث",
+        "18 م/ث"
       ],
-      "correctAnswer": "$47\\text{ m/s}$",
+      "correctAnswer": "$54\\text{ m/s}$",
       "correctIndex": 0,
-      "hintEn": "Differentiate position $x(t)$ with respect to time $t$: $v(t) = \\frac{dx}{dt} = 2At + B$.",
-      "hintAr": "اشتق دالة الموضع بالنسبة للزمن: $v(t) = \\frac{dx}{dt} = 2At + B$.",
+      "hintEn": "Use power-chain rule: $\\frac{d}{dt}[u^n] = n u^{n-1} u\\prime$.",
+      "hintAr": "قاعدة السلسلة: ننزل الأس ونطرح واحداً ونضرب في مشتقة ما بداخل القوس.",
       "stepByStepSolutionEn": [
-        "1. Velocity formula: $v(t) = \\frac{dx}{dt} = 22t + 3$.",
-        "2. Substitute $t = 2$: $v(2) = 22(2) + 3 = 44 + 3 = 47\\text{ m/s}$."
+        "1. $v(t) = 3(2t - 1)^2 \\times 2 = 6(2t - 1)^2$.",
+        "2. At $t = 2$: $2(2) - 1 = 3$.",
+        "3. $v(2) = 6(3^2) = 6 \\times 9 = 54\\text{ m/s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. قانون السرعة: $v(t) = \\frac{dx}{dt} = 22t + 3$.",
-        "٢. بالتعويض عن $t = 2$: $v(2) = 22(2) + 3 = 47\\text{ م/ث}$."
+        "١. $v(t) = 3(2t - 1)^2 \\times 2 = 6(2t - 1)^2$.",
+        "٢. عند $t = 2$: القوس الداخلي $= 3$.",
+        "٣. السرعة: $v(2) = 6 \\times 9 = 54\\text{ م/ث}$."
       ],
-      "teacherTipEn": "v = dx/dt is the fundamental definition of velocity.",
-      "teacherTipAr": "السرعة هي المشتقة الأولى للموضع بالنسبة للزمن."
+      "teacherTipEn": "Do not forget to multiply by the inner derivative (2).",
+      "teacherTipAr": "لا تنس الضرب في مشتقة ما بداخل القوس (معامل t وهو 2)."
     },
     {
       "id": "dyn_ch1_db_easy_11",
-      "titleEn": "Acceleration from Velocity Function #1",
-      "titleAr": "العجلة من دالة السرعة رقم 1",
+      "titleEn": "Linear Velocity Acceleration",
+      "titleAr": "العجلة من سرعة خطية",
       "difficulty": "easy",
-      "questionEn": "A particle moves with velocity $v(t) = 3t^2 + 2t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "يتحرك جسيم بسرعة $v(t) = 3t^2 + 2t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A body moves with velocity $v(t) = 15 - 3t\\text{ m/s}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسم بسرعة $v(t) = 15 - 3t\\text{ م/ث}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$8\\text{ m/s}^2$",
-        "$11\\text{ m/s}^2$",
-        "$14\\text{ m/s}^2$",
-        "$17\\text{ m/s}^2$"
+        "$3\\text{ m/s}^2$",
+        "$-3\\text{ m/s}^2$",
+        "$15\\text{ m/s}^2$",
+        "$0\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "8 م/ث²",
-        "11 م/ث²",
-        "14 م/ث²",
-        "17 م/ث²"
+        "3 م/ث²",
+        "-3 م/ث²",
+        "15 م/ث²",
+        "0 م/ث²"
       ],
-      "correctAnswer": "$8\\text{ m/s}^2$",
-      "correctIndex": 0,
+      "correctAnswer": "$-3\\text{ m/s}^2$",
+      "correctIndex": 1,
       "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
       "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 2$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 2 = 8\\text{ m/s}^2$."
+        "1. $a = \\frac{dv}{dt} = -3\\text{ m/s}^2$.",
+        "2. The negative sign signifies uniform deceleration."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 2$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 2 = 8\\text{ م/ث}^2$."
+        "١. العجلة: $a = \\frac{dv}{dt} = -3\\text{ م/ث}^2$.",
+        "٢. الإشارة السالبة تعني تقصيراً منتظماً."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "A linear velocity-time relation always yields constant acceleration.",
+      "teacherTipAr": "الدالة الخطية للسرعة تعني دائماً حركة بعجلة ثابتة."
     },
     {
       "id": "dyn_ch1_db_easy_12",
-      "titleEn": "Acceleration from Velocity Function #2",
-      "titleAr": "العجلة من دالة السرعة رقم 2",
+      "titleEn": "Position-Dependent Acceleration",
+      "titleAr": "العجلة كدالة في الموضع",
       "difficulty": "easy",
-      "questionEn": "A particle moves with velocity $v(t) = 3t^2 + 4t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "يتحرك جسيم بسرعة $v(t) = 3t^2 + 4t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves such that its velocity $v$ and position $x$ satisfy $v^2 = 36 - 4x^2$. Find its acceleration at $x = 2\\text{ m}$.",
+      "questionAr": "يتحرك جسيم بحيث ترتبط سرعته $v$ بموضعه $x$ بالعلاقة $v^2 = 36 - 4x^2$. أوجد عجلته عند $x = 2\\text{ م}$.",
       "optionsEn": [
-        "$10\\text{ m/s}^2$",
-        "$13\\text{ m/s}^2$",
-        "$16\\text{ m/s}^2$",
-        "$19\\text{ m/s}^2$"
+        "$-4\\text{ m/s}^2$",
+        "$8\\text{ m/s}^2$",
+        "$-8\\text{ m/s}^2$",
+        "$-16\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "10 م/ث²",
-        "13 م/ث²",
-        "16 م/ث²",
-        "19 م/ث²"
+        "-4 م/ث²",
+        "8 م/ث²",
+        "-8 م/ث²",
+        "-16 م/ث²"
       ],
-      "correctAnswer": "$10\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "correctAnswer": "$-8\\text{ m/s}^2$",
+      "correctIndex": 2,
+      "hintEn": "Differentiate both sides with respect to $x$: $2v\\frac{dv}{dx} = 2a$. Hence $a = \\frac{1}{2}\\frac{d(v^2)}{dx}$.",
+      "hintAr": "اشتق الطرفين بالنسبة للموضع: $2v\\frac{dv}{dx} = -8x \\implies a = -4x$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 4$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 4 = 10\\text{ m/s}^2$."
+        "1. Since $a = v\\frac{dv}{dx} = \\frac{1}{2}\\frac{d(v^2)}{dx}$.",
+        "2. Differentiating: $2a = -8x \\implies a = -4x$.",
+        "3. At $x = 2$: $a = -4(2) = -8\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 4$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 4 = 10\\text{ م/ث}^2$."
+        "١. بما أن $a = v\\frac{dv}{dx} = \\frac{1}{2}\\frac{d(v^2)}{dx}$.",
+        "٢. بالاشتقاق بالنسبة إلى $x$: $2a = -8x \\implies a = -4x$.",
+        "٣. عند $x = 2$: $a = -4(2) = -8\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "The formula a = v(dv/dx) is mandatory whenever velocity is expressed in terms of position x rather than time t.",
+      "teacherTipAr": "القانون $a = v\\frac{dv}{dx}$ هو الأساس عندما تكون السرعة معطاة كدالة في الموضع."
     },
     {
       "id": "dyn_ch1_db_easy_13",
-      "titleEn": "Acceleration from Velocity Function #3",
-      "titleAr": "العجلة من دالة السرعة رقم 3",
+      "titleEn": "Trigonometric Velocity Acceleration",
+      "titleAr": "العجلة من دالة سرعة جيبية",
       "difficulty": "easy",
-      "questionEn": "In a physical scenario, a particle moves with velocity $v(t) = 3t^2 + 6t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "في سياق فيزيائي، يتحرك جسيم بسرعة $v(t) = 3t^2 + 6t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves with velocity $v(t) = 8\\cos(4t)\\text{ m/s}$. Find its acceleration at $t = \\frac{\\pi}{8}\\text{ s}$.",
+      "questionAr": "يتحرك جسيم بسرعة $v(t) = 8\\cos(4t)\\text{ م/ث}$. أوجد عجلته عند $t = \\frac{\\pi}{8}\\text{ ث}$.",
       "optionsEn": [
-        "$12\\text{ m/s}^2$",
-        "$15\\text{ m/s}^2$",
-        "$18\\text{ m/s}^2$",
-        "$21\\text{ m/s}^2$"
+        "$32\\text{ m/s}^2$",
+        "$0\\text{ m/s}^2$",
+        "$-32\\text{ m/s}^2$",
+        "$-16\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "12 م/ث²",
-        "15 م/ث²",
-        "18 م/ث²",
-        "21 م/ث²"
+        "32 م/ث²",
+        "0 م/ث²",
+        "-32 م/ث²",
+        "-16 م/ث²"
       ],
-      "correctAnswer": "$12\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "correctAnswer": "$-32\\text{ m/s}^2$",
+      "correctIndex": 2,
+      "hintEn": "$\\frac{d}{dt}[\\cos(4t)] = -4\\sin(4t)$. $\\sin(\\pi/2) = 1$.",
+      "hintAr": "مشتقة جيب التمام هي سالب الجيب مضروباً في معامل الزاوية: $a(t) = -32\\sin(4t)$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 6$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 6 = 12\\text{ m/s}^2$."
+        "1. $a(t) = \\frac{dv}{dt} = 8(-4\\sin(4t)) = -32\\sin(4t)$.",
+        "2. At $t = \\frac{\\pi}{8}$: $4t = \\frac{\\pi}{2}$.",
+        "3. $a = -32\\sin(\\frac{\\pi}{2}) = -32(1) = -32\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 6$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 6 = 12\\text{ م/ث}^2$."
+        "١. $a(t) = -32\\sin(4t)$.",
+        "٢. عند $t = \\frac{\\pi}{8}$ تكون الزاوية $4t = \\frac{\\pi}{2}$.",
+        "٣. $a = -32(1) = -32\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "Notice the negative sign resulting from differentiating cosine.",
+      "teacherTipAr": "انتبه للإشارة السالبة الناتجة من اشتقاق جيب التمام."
     },
     {
       "id": "dyn_ch1_db_easy_14",
-      "titleEn": "Acceleration from Velocity Function #4",
-      "titleAr": "العجلة من دالة السرعة رقم 4",
+      "titleEn": "Radical Velocity Chain Acceleration",
+      "titleAr": "العجلة من سرعة جذرية",
       "difficulty": "easy",
-      "questionEn": "Suppose that a particle moves with velocity $v(t) = 3t^2 + 8t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "افترض أن يتحرك جسيم بسرعة $v(t) = 3t^2 + 8t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "The velocity of a particle is given by $v(t) = \\sqrt{6t + 4}\\text{ m/s}$. Find its acceleration at $t = 2\\text{ s}$.",
+      "questionAr": "تعطى سرعة جسيم بالعلاقة $v(t) = \\sqrt{6t + 4}\\text{ م/ث}$. أوجد عجلته عند $t = 2\\text{ ث}$.",
       "optionsEn": [
-        "$14\\text{ m/s}^2$",
-        "$17\\text{ m/s}^2$",
-        "$20\\text{ m/s}^2$",
-        "$23\\text{ m/s}^2$"
+        "$1.5\\text{ m/s}^2$",
+        "$0.75\\text{ m/s}^2$",
+        "$3\\text{ m/s}^2$",
+        "$0.5\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "14 م/ث²",
-        "17 م/ث²",
-        "20 م/ث²",
-        "23 م/ث²"
+        "1.5 م/ث²",
+        "0.75 م/ث²",
+        "3 م/ث²",
+        "0.5 م/ث²"
       ],
-      "correctAnswer": "$14\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "correctAnswer": "$0.75\\text{ m/s}^2$",
+      "correctIndex": 1,
+      "hintEn": "$\\frac{dv}{dt} = \\frac{6}{2\\sqrt{6t + 4}} = \\frac{3}{\\sqrt{6t + 4}}$.",
+      "hintAr": "مشتقة الجذر التربيعي بالنسبة للزمن: $\\frac{6}{2\\sqrt{6t+4}}$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 8$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 8 = 14\\text{ m/s}^2$."
+        "1. $a(t) = \\frac{3}{\\sqrt{6t + 4}}$.",
+        "2. At $t = 2$: $\\sqrt{6(2) + 4} = \\sqrt{16} = 4$.",
+        "3. $a(2) = \\frac{3}{4} = 0.75\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 8$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 8 = 14\\text{ م/ث}^2$."
+        "١. العجلة: $a(t) = \\frac{3}{\\sqrt{6t + 4}}$.",
+        "٢. عند $t = 2$: $\\sqrt{16} = 4$.",
+        "٣. $a(2) = \\frac{3}{4} = 0.75\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "Acceleration decreases as velocity increases when power is fractional.",
+      "teacherTipAr": "تتناقص العجلة كلما كبر الزمن في الدوال الجذرية."
     },
     {
       "id": "dyn_ch1_db_easy_15",
-      "titleEn": "Acceleration from Velocity Function #5",
-      "titleAr": "العجلة من دالة السرعة رقم 5",
+      "titleEn": "Exponential Decay Acceleration",
+      "titleAr": "عجلة الاضمحلال الأسي",
       "difficulty": "easy",
-      "questionEn": "Under observed conditions, a particle moves with velocity $v(t) = 3t^2 + 10t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "تحت ظروف تجريبية، يتحرك جسيم بسرعة $v(t) = 3t^2 + 10t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A boat decelerates in water such that $v(t) = 20 e^{-0.5t}\\text{ m/s}$. Find its acceleration at $t = 0\\text{ s}$.",
+      "questionAr": "يتحرك قارب في الماء بحيث تتناقص سرعته بالعلاقة $v(t) = 20 e^{-0.5t}\\text{ م/ث}$. أوجد عجلته عند $t = 0\\text{ ث}$.",
       "optionsEn": [
-        "$16\\text{ m/s}^2$",
-        "$19\\text{ m/s}^2$",
-        "$22\\text{ m/s}^2$",
-        "$25\\text{ m/s}^2$"
+        "$-10\\text{ m/s}^2$",
+        "$10\\text{ m/s}^2$",
+        "$-20\\text{ m/s}^2$",
+        "$-5\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "16 م/ث²",
-        "19 م/ث²",
-        "22 م/ث²",
-        "25 م/ث²"
+        "-10 م/ث²",
+        "10 م/ث²",
+        "-20 م/ث²",
+        "-5 م/ث²"
       ],
-      "correctAnswer": "$16\\text{ m/s}^2$",
+      "correctAnswer": "$-10\\text{ m/s}^2$",
       "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "hintEn": "Differentiate exponential: $\\frac{d}{dt}[20 e^{-0.5t}] = 20(-0.5)e^{-0.5t} = -10 e^{-0.5t}$.",
+      "hintAr": "مشتقة الدالة الأسية السالبة: $a(t) = -10 e^{-0.5t}$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 10$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 10 = 16\\text{ m/s}^2$."
+        "1. $a(t) = 20(-0.5)e^{-0.5t} = -10 e^{-0.5t}$.",
+        "2. At $t = 0$: $a(0) = -10 e^0 = -10(1) = -10\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 10$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 10 = 16\\text{ م/ث}^2$."
+        "١. $a(t) = -10 e^{-0.5t}$.",
+        "٢. عند $t = 0$: $a(0) = -10\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "Resistive deceleration is proportional to speed: a = -k v.",
+      "teacherTipAr": "عجلة المقاومة تتناسب طردياً مع السرعة: a = -k v."
     },
     {
       "id": "dyn_ch1_db_easy_16",
-      "titleEn": "Acceleration from Velocity Function #6",
-      "titleAr": "العجلة من دالة السرعة رقم 6",
+      "titleEn": "Acceleration from Position Derivative Squared",
+      "titleAr": "العجلة كدالة جذرية في الموضع",
       "difficulty": "easy",
-      "questionEn": "Consider a system where a particle moves with velocity $v(t) = 3t^2 + 12t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "بالنظر إلى منظومة حركية حيث يتحرك جسيم بسرعة $v(t) = 3t^2 + 12t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves such that $v = 4\\sqrt{x}\\text{ m/s}$ for $x > 0$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم بحيث كانت سرعته $v = 4\\sqrt{x}\\text{ م/ث}$ لكل $x > 0$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$18\\text{ m/s}^2$",
-        "$21\\text{ m/s}^2$",
-        "$24\\text{ m/s}^2$",
-        "$27\\text{ m/s}^2$"
+        "$4\\text{ m/s}^2$",
+        "$16\\text{ m/s}^2$",
+        "$8\\text{ m/s}^2$",
+        "$2\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "18 م/ث²",
-        "21 م/ث²",
-        "24 م/ث²",
-        "27 م/ث²"
+        "4 م/ث²",
+        "16 م/ث²",
+        "8 م/ث²",
+        "2 م/ث²"
       ],
-      "correctAnswer": "$18\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "correctAnswer": "$8\\text{ m/s}^2$",
+      "correctIndex": 2,
+      "hintEn": "$a = v \\frac{dv}{dx}$. Calculate $\\frac{dv}{dx} = \\frac{2}{\\sqrt{x}}$.",
+      "hintAr": "طبق القانون: $a = v \\frac{dv}{dx}$. احسب مشتقة السرعة بالنسبة للموضع.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 12$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 12 = 18\\text{ m/s}^2$."
+        "1. $\\frac{dv}{dx} = 4 \\times \\frac{1}{2\\sqrt{x}} = \\frac{2}{\\sqrt{x}}$.",
+        "2. $a = v \\frac{dv}{dx} = (4\\sqrt{x})\\left(\\frac{2}{\\sqrt{x}}\\right) = 8\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 12$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 12 = 18\\text{ م/ث}^2$."
+        "١. $\\frac{dv}{dx} = \\frac{2}{\\sqrt{x}}$.",
+        "٢. العجلة: $a = (4\\sqrt{x})\\left(\\frac{2}{\\sqrt{x}}\\right) = 8\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "Notice that the position variable x cancels out completely, yielding constant acceleration!",
+      "teacherTipAr": "لاحظ اختصار جذر x بالكامل، مما ينتج حركة بعجلة ثابتة تماماً!"
     },
     {
       "id": "dyn_ch1_db_easy_17",
-      "titleEn": "Acceleration from Velocity Function #7",
-      "titleAr": "العجلة من دالة السرعة رقم 7",
+      "titleEn": "Vector Acceleration Norm in 2D",
+      "titleAr": "معيار متجه العجلة في بعدين",
       "difficulty": "easy",
-      "questionEn": "A dynamic test shows that a particle moves with velocity $v(t) = 3t^2 + 14t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "أظهر اختبار ديناميكي أن يتحرك جسيم بسرعة $v(t) = 3t^2 + 14t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "The velocity vector of a particle is $\\vec{v}(t) = (3t^2)\\hat{i} + (4t - 5)\\hat{j}$. Find the magnitude of acceleration at $t = 1\\text{ s}$.",
+      "questionAr": "متجه سرعة جسيم هو $\\vec{v}(t) = (3t^2)\\hat{i} + (4t - 5)\\hat{j}$. أوجد معيار العجلة عند $t = 1\\text{ ث}$.",
       "optionsEn": [
-        "$20\\text{ m/s}^2$",
-        "$23\\text{ m/s}^2$",
-        "$26\\text{ m/s}^2$",
-        "$29\\text{ m/s}^2$"
+        "$10\\text{ m/s}^2$",
+        "$2\\sqrt{13}\\text{ m/s}^2$",
+        "$7\\text{ m/s}^2$",
+        "$2\\sqrt{13}\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "20 م/ث²",
-        "23 م/ث²",
-        "26 م/ث²",
-        "29 م/ث²"
+        "10 م/ث²",
+        "2√13 م/ث²",
+        "7 م/ث²",
+        "2√13 م/ث²"
       ],
-      "correctAnswer": "$20\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "correctAnswer": "$2\\sqrt{13}\\text{ m/s}^2$",
+      "correctIndex": 1,
+      "hintEn": "$\\vec{a} = \\frac{d\\vec{v}}{dt} = (6t)\\hat{i} + 4\\hat{j}$. Find $\\|\\vec{a}\\|$.",
+      "hintAr": "اشتق مركبتي السرعة لإيجاد العجلة: $\\vec{a}(t) = 6t\\hat{i} + 4\\hat{j}$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 14$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 14 = 20\\text{ m/s}^2$."
+        "1. $\\vec{a}(t) = (6t)\\hat{i} + 4\\hat{j}$.",
+        "2. At $t = 1$: $\\vec{a}(1) = 6\\hat{i} + 4\\hat{j}$.",
+        "3. $\\|\\vec{a}\\| = \\sqrt{6^2 + 4^2} = \\sqrt{52} = 2\\sqrt{13}\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 14$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 14 = 20\\text{ م/ث}^2$."
+        "١. $\\vec{a}(t) = 6t\\hat{i} + 4\\hat{j}$.",
+        "٢. عند $t = 1$: $\\vec{a} = 6\\hat{i} + 4\\hat{j}$.",
+        "٣. المعيار: $\\sqrt{36 + 16} = 2\\sqrt{13}\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "Always differentiate first before substituting the specific time value.",
+      "teacherTipAr": "اشتق أولاً بالنسبة للزمن ثم عوض بالقيمة المعطاة."
     },
     {
       "id": "dyn_ch1_db_easy_18",
-      "titleEn": "Acceleration from Velocity Function #8",
-      "titleAr": "العجلة من دالة السرعة رقم 8",
+      "titleEn": "Tangent Slope Acceleration on v-t Graph",
+      "titleAr": "العجلة كميل مماس منحنى السرعة والزمن",
       "difficulty": "easy",
-      "questionEn": "From kinematic observations, a particle moves with velocity $v(t) = 3t^2 + 16t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "من خلال المشاهدات الحركية، يتحرك جسيم بسرعة $v(t) = 3t^2 + 16t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "On a velocity-time graph, the tangent to the curve at $t = 3\\text{ s}$ makes an angle of $135^\\circ$ with the positive time axis. Find the instantaneous acceleration.",
+      "questionAr": "في الرسم البياني (السرعة - الزمن)، يصنع مماس المنحنى عند $t = 3\\text{ ث}$ زاوية قياسها $135^\\circ$ مع الاتجاه الموجب لمحور الزمن. أوجد العجلة اللحظية.",
       "optionsEn": [
-        "$22\\text{ m/s}^2$",
-        "$25\\text{ m/s}^2$",
-        "$28\\text{ m/s}^2$",
-        "$31\\text{ m/s}^2$"
+        "$1\\text{ m/s}^2$",
+        "$-1\\text{ m/s}^2$",
+        "$\\sqrt{3}\\text{ m/s}^2$",
+        "$0\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "22 م/ث²",
-        "25 م/ث²",
-        "28 م/ث²",
-        "31 م/ث²"
+        "1 م/ث²",
+        "-1 م/ث²",
+        "√3 م/ث²",
+        "0 م/ث²"
       ],
-      "correctAnswer": "$22\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "correctAnswer": "$-1\\text{ m/s}^2$",
+      "correctIndex": 1,
+      "hintEn": "Slope of tangent to the $v-t$ curve is acceleration: $a = \\tan(\\theta)$.",
+      "hintAr": "ميل المماس لمنحنى (ع - ن) هو العجلة: $a = \\tan(\\theta)$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 16$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 16 = 22\\text{ m/s}^2$."
+        "1. $a = \\tan(135^\\circ) = -1\\text{ m/s}^2$.",
+        "2. The negative slope indicates retarding motion."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 16$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 16 = 22\\text{ م/ث}^2$."
+        "١. العجلة = ظل الزاوية: $a = \\tan(135^\\circ) = -1\\text{ م/ث}^2$.",
+        "٢. الميل السالب يعني حركة تقصيرية."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "The geometric slope of the tangent to v(t) represents instantaneous acceleration.",
+      "teacherTipAr": "الميل الهندسي لمماس منحنى السرعة يمثل العجلة اللحظية."
     },
     {
       "id": "dyn_ch1_db_easy_19",
-      "titleEn": "Acceleration from Velocity Function #9",
-      "titleAr": "العجلة من دالة السرعة رقم 9",
+      "titleEn": "Acceleration of Inverse Linear Position",
+      "titleAr": "العجلة لدالة مقلوب الموضع",
       "difficulty": "easy",
-      "questionEn": "An experimental trial records that a particle moves with velocity $v(t) = 3t^2 + 18t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "بيّنت التجربة العملية أن يتحرك جسيم بسرعة $v(t) = 3t^2 + 18t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves such that its velocity is $v = \\frac{12}{x}\\text{ m/s}$. Find its acceleration at $x = 2\\text{ m}$.",
+      "questionAr": "يتحرك جسيم بحيث كانت سرعته $v = \\frac{12}{x}\\text{ م/ث}$. أوجد عجلته عند $x = 2\\text{ م}$.",
       "optionsEn": [
-        "$24\\text{ m/s}^2$",
-        "$27\\text{ m/s}^2$",
-        "$30\\text{ m/s}^2$",
-        "$33\\text{ m/s}^2$"
+        "$-18\\text{ m/s}^2$",
+        "$-36\\text{ m/s}^2$",
+        "$18\\text{ m/s}^2$",
+        "$-9\\text{ m/s}^2$"
       ],
       "optionsAr": [
-        "24 م/ث²",
-        "27 م/ث²",
-        "30 م/ث²",
-        "33 م/ث²"
+        "-18 م/ث²",
+        "-36 م/ث²",
+        "18 م/ث²",
+        "-9 م/ث²"
       ],
-      "correctAnswer": "$24\\text{ m/s}^2$",
+      "correctAnswer": "$-18\\text{ m/s}^2$",
       "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
+      "hintEn": "$a = v \\frac{dv}{dx} = \\frac{12}{x} \\left(-\\frac{12}{x^2}\\right) = -\\frac{144}{x^3}$.",
+      "hintAr": "العجلة: $a = v \\frac{dv}{dx} = -\\frac{144}{x^3}$.",
       "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 18$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 18 = 24\\text{ m/s}^2$."
+        "1. $\\frac{dv}{dx} = -\\frac{12}{x^2}$.",
+        "2. $a = v \\frac{dv}{dx} = \\frac{12}{x}\\left(-\\frac{12}{x^2}\\right) = -\\frac{144}{x^3}$.",
+        "3. At $x = 2$: $a = -\\frac{144}{2^3} = -\\frac{144}{8} = -18\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 18$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 18 = 24\\text{ م/ث}^2$."
+        "١. مشتقة السرعة: $\\frac{dv}{dx} = -\\frac{12}{x^2}$.",
+        "٢. العجلة: $a = -\\frac{144}{x^3}$.",
+        "٣. عند $x = 2$: $a = -\\frac{144}{8} = -18\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
+      "teacherTipEn": "Notice that a is inversely proportional to the cube of position.",
+      "teacherTipAr": "العجلة تتناسب عكسياً مع مكعب الموضع في هذه الحركة."
     },
     {
       "id": "dyn_ch1_db_easy_20",
-      "titleEn": "Acceleration from Velocity Function #10",
-      "titleAr": "العجلة من دالة السرعة رقم 10",
+      "titleEn": "Zero Acceleration Instant",
+      "titleAr": "لحظة انعدام العجلة",
       "difficulty": "easy",
-      "questionEn": "In a classic mechanics setup, a particle moves with velocity $v(t) = 3t^2 + 20t\\text{ m/s}$. Find its acceleration at $t = 1\\text{ s}$.",
-      "questionAr": "في مسألة ميكانيكا كلاسيكية، يتحرك جسيم بسرعة $v(t) = 3t^2 + 20t\\text{ م/ث}$. أوجد عجلته عند $t = 1\\text{ ث}$.",
-      "optionsEn": [
-        "$26\\text{ m/s}^2$",
-        "$29\\text{ m/s}^2$",
-        "$32\\text{ m/s}^2$",
-        "$35\\text{ m/s}^2$"
-      ],
-      "optionsAr": [
-        "26 م/ث²",
-        "29 م/ث²",
-        "32 م/ث²",
-        "35 م/ث²"
-      ],
-      "correctAnswer": "$26\\text{ m/s}^2$",
-      "correctIndex": 0,
-      "hintEn": "Acceleration is the derivative of velocity: $a(t) = \\frac{dv}{dt}$.",
-      "hintAr": "العجلة هي مشتقة السرعة بالنسبة للزمن: $a(t) = \\frac{dv}{dt}$.",
-      "stepByStepSolutionEn": [
-        "1. $a(t) = \\frac{dv}{dt} = 6t + 20$.",
-        "2. At $t = 1$: $a(1) = 6(1) + 20 = 26\\text{ m/s}^2$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. العجلة: $a(t) = 6t + 20$.",
-        "٢. عند $t = 1$: $a(1) = 6 + 20 = 26\\text{ م/ث}^2$."
-      ],
-      "teacherTipEn": "a = dv/dt = d^2x/dt^2.",
-      "teacherTipAr": "العجلة هي المشتقة الأولى للسرعة والمشتقة الثانية للموضع."
-    },
-    {
-      "id": "dyn_ch1_db_easy_21",
-      "titleEn": "Displacement Magnitude #1",
-      "titleAr": "مقدار الإزاحة رقم 1",
-      "difficulty": "easy",
-      "questionEn": "The position of a particle is $r(t) = (t^2 + 4t - 4)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 1\\text{ s}$.",
-      "questionAr": "موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 4)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 1\\text{ ث}$.",
-      "optionsEn": [
-        "$5\\text{ m}$",
-        "$9\\text{ m}$",
-        "$13\\text{ m}$",
-        "$17\\text{ m}$"
-      ],
-      "optionsAr": [
-        "5 م",
-        "9 م",
-        "13 م",
-        "17 م"
-      ],
-      "correctAnswer": "$5\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -4\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 1$: $s = (1)^2 + 4(1) = 1 + 4 = 5\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -4\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 1$: الإزاحة = $(1)^2 + 4(1) = 5\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_22",
-      "titleEn": "Displacement Magnitude #2",
-      "titleAr": "مقدار الإزاحة رقم 2",
-      "difficulty": "easy",
-      "questionEn": "The position of a particle is $r(t) = (t^2 + 4t - 7)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 2\\text{ s}$.",
-      "questionAr": "موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 7)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 2\\text{ ث}$.",
-      "optionsEn": [
-        "$12\\text{ m}$",
-        "$16\\text{ m}$",
-        "$20\\text{ m}$",
-        "$24\\text{ m}$"
-      ],
-      "optionsAr": [
-        "12 م",
-        "16 م",
-        "20 م",
-        "24 م"
-      ],
-      "correctAnswer": "$12\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -7\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 2$: $s = (2)^2 + 4(2) = 4 + 8 = 12\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -7\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 2$: الإزاحة = $(2)^2 + 4(2) = 12\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_23",
-      "titleEn": "Displacement Magnitude #3",
-      "titleAr": "مقدار الإزاحة رقم 3",
-      "difficulty": "easy",
-      "questionEn": "In a physical scenario, the position of a particle is $r(t) = (t^2 + 4t - 10)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 3\\text{ s}$.",
-      "questionAr": "في سياق فيزيائي، موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 10)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 3\\text{ ث}$.",
-      "optionsEn": [
-        "$21\\text{ m}$",
-        "$25\\text{ m}$",
-        "$29\\text{ m}$",
-        "$33\\text{ m}$"
-      ],
-      "optionsAr": [
-        "21 م",
-        "25 م",
-        "29 م",
-        "33 م"
-      ],
-      "correctAnswer": "$21\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -10\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 3$: $s = (3)^2 + 4(3) = 9 + 12 = 21\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -10\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 3$: الإزاحة = $(3)^2 + 4(3) = 21\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_24",
-      "titleEn": "Displacement Magnitude #4",
-      "titleAr": "مقدار الإزاحة رقم 4",
-      "difficulty": "easy",
-      "questionEn": "Suppose that the position of a particle is $r(t) = (t^2 + 4t - 13)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 4\\text{ s}$.",
-      "questionAr": "افترض أن موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 13)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 4\\text{ ث}$.",
-      "optionsEn": [
-        "$32\\text{ m}$",
-        "$36\\text{ m}$",
-        "$40\\text{ m}$",
-        "$44\\text{ m}$"
-      ],
-      "optionsAr": [
-        "32 م",
-        "36 م",
-        "40 م",
-        "44 م"
-      ],
-      "correctAnswer": "$32\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -13\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 4$: $s = (4)^2 + 4(4) = 16 + 16 = 32\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -13\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 4$: الإزاحة = $(4)^2 + 4(4) = 32\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_25",
-      "titleEn": "Displacement Magnitude #5",
-      "titleAr": "مقدار الإزاحة رقم 5",
-      "difficulty": "easy",
-      "questionEn": "Under observed conditions, the position of a particle is $r(t) = (t^2 + 4t - 16)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 5\\text{ s}$.",
-      "questionAr": "تحت ظروف تجريبية، موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 16)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 5\\text{ ث}$.",
-      "optionsEn": [
-        "$45\\text{ m}$",
-        "$49\\text{ m}$",
-        "$53\\text{ m}$",
-        "$57\\text{ m}$"
-      ],
-      "optionsAr": [
-        "45 م",
-        "49 م",
-        "53 م",
-        "57 م"
-      ],
-      "correctAnswer": "$45\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -16\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 5$: $s = (5)^2 + 4(5) = 25 + 20 = 45\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -16\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 5$: الإزاحة = $(5)^2 + 4(5) = 45\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_26",
-      "titleEn": "Displacement Magnitude #6",
-      "titleAr": "مقدار الإزاحة رقم 6",
-      "difficulty": "easy",
-      "questionEn": "Consider a system where the position of a particle is $r(t) = (t^2 + 4t - 19)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 6\\text{ s}$.",
-      "questionAr": "بالنظر إلى منظومة حركية حيث موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 19)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 6\\text{ ث}$.",
-      "optionsEn": [
-        "$60\\text{ m}$",
-        "$64\\text{ m}$",
-        "$68\\text{ m}$",
-        "$72\\text{ m}$"
-      ],
-      "optionsAr": [
-        "60 م",
-        "64 م",
-        "68 م",
-        "72 م"
-      ],
-      "correctAnswer": "$60\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -19\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 6$: $s = (6)^2 + 4(6) = 36 + 24 = 60\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -19\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 6$: الإزاحة = $(6)^2 + 4(6) = 60\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_27",
-      "titleEn": "Displacement Magnitude #7",
-      "titleAr": "مقدار الإزاحة رقم 7",
-      "difficulty": "easy",
-      "questionEn": "A dynamic test shows that the position of a particle is $r(t) = (t^2 + 4t - 22)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 7\\text{ s}$.",
-      "questionAr": "أظهر اختبار ديناميكي أن موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 22)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 7\\text{ ث}$.",
-      "optionsEn": [
-        "$77\\text{ m}$",
-        "$81\\text{ m}$",
-        "$85\\text{ m}$",
-        "$89\\text{ m}$"
-      ],
-      "optionsAr": [
-        "77 م",
-        "81 م",
-        "85 م",
-        "89 م"
-      ],
-      "correctAnswer": "$77\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -22\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 7$: $s = (7)^2 + 4(7) = 49 + 28 = 77\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -22\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 7$: الإزاحة = $(7)^2 + 4(7) = 77\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_28",
-      "titleEn": "Displacement Magnitude #8",
-      "titleAr": "مقدار الإزاحة رقم 8",
-      "difficulty": "easy",
-      "questionEn": "From kinematic observations, the position of a particle is $r(t) = (t^2 + 4t - 25)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 8\\text{ s}$.",
-      "questionAr": "من خلال المشاهدات الحركية، موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 25)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 8\\text{ ث}$.",
-      "optionsEn": [
-        "$96\\text{ m}$",
-        "$100\\text{ m}$",
-        "$104\\text{ m}$",
-        "$108\\text{ m}$"
-      ],
-      "optionsAr": [
-        "96 م",
-        "100 م",
-        "104 م",
-        "108 م"
-      ],
-      "correctAnswer": "$96\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -25\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 8$: $s = (8)^2 + 4(8) = 64 + 32 = 96\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -25\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 8$: الإزاحة = $(8)^2 + 4(8) = 96\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_29",
-      "titleEn": "Displacement Magnitude #9",
-      "titleAr": "مقدار الإزاحة رقم 9",
-      "difficulty": "easy",
-      "questionEn": "An experimental trial records that the position of a particle is $r(t) = (t^2 + 4t - 28)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 9\\text{ s}$.",
-      "questionAr": "بيّنت التجربة العملية أن موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 28)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 9\\text{ ث}$.",
-      "optionsEn": [
-        "$117\\text{ m}$",
-        "$121\\text{ m}$",
-        "$125\\text{ m}$",
-        "$129\\text{ m}$"
-      ],
-      "optionsAr": [
-        "117 م",
-        "121 م",
-        "125 م",
-        "129 م"
-      ],
-      "correctAnswer": "$117\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -28\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 9$: $s = (9)^2 + 4(9) = 81 + 36 = 117\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -28\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 9$: الإزاحة = $(9)^2 + 4(9) = 117\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_30",
-      "titleEn": "Displacement Magnitude #10",
-      "titleAr": "مقدار الإزاحة رقم 10",
-      "difficulty": "easy",
-      "questionEn": "In a classic mechanics setup, the position of a particle is $r(t) = (t^2 + 4t - 31)\\hat{c}\\text{ m}$. Find the magnitude of displacement from $t = 0$ to $t = 10\\text{ s}$.",
-      "questionAr": "في مسألة ميكانيكا كلاسيكية، موضع جسيم يعطى بالعلاقة $r(t) = (t^2 + 4t - 31)\\hat{c}\\text{ م}$. أوجد مقدار الإزاحة من $t = 0$ إلى $t = 10\\text{ ث}$.",
-      "optionsEn": [
-        "$140\\text{ m}$",
-        "$144\\text{ m}$",
-        "$148\\text{ m}$",
-        "$152\\text{ m}$"
-      ],
-      "optionsAr": [
-        "140 م",
-        "144 م",
-        "148 م",
-        "152 م"
-      ],
-      "correctAnswer": "$140\\text{ m}$",
-      "correctIndex": 0,
-      "hintEn": "Displacement is $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "hintAr": "الإزاحة هي $s(t) = r(t) - r(0) = t^2 + 4t$.",
-      "stepByStepSolutionEn": [
-        "1. $r(0) = -31\\hat{c}$.",
-        "2. $\\vec{s}(t) = \\vec{r}(t) - \\vec{r}(0) = (t^2 + 4t)\\hat{c}$.",
-        "3. At $t = 10$: $s = (10)^2 + 4(10) = 100 + 40 = 140\\text{ m}$."
-      ],
-      "stepByStepSolutionAr": [
-        "١. الموضع الابتدائي: $\\vec{r}(0) = -31\\hat{c}$.",
-        "٢. متجه الإزاحة: $\\vec{s}(t) = (t^2 + 4t)\\hat{c}$.",
-        "٣. عند $t = 10$: الإزاحة = $(10)^2 + 4(10) = 140\\text{ م}$."
-      ],
-      "teacherTipEn": "Notice the constant C drops out when subtracting r(0).",
-      "teacherTipAr": "لاحظ أن الثابت جـ يحذف تماماً عند طرح الموضع الابتدائي."
-    },
-    {
-      "id": "dyn_ch1_db_easy_31",
-      "titleEn": "Time of Momentary Rest #1",
-      "titleAr": "لحظة السكون اللحظي رقم 1",
-      "difficulty": "easy",
-      "questionEn": "A particle moves with velocity $v(t) = 2t - 2\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "يتحرك جسيم بسرعة $v(t) = 2t - 2\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves with position $x(t) = t^3 - 6t^2 + 9t\\text{ m}$. At what time is its acceleration zero ($a = 0$)?",
+      "questionAr": "يتحرك جسيم بحيث كان موضعه $x(t) = t^3 - 6t^2 + 9t\\text{ م}$. متى تنعدم العجلة ($a = 0$)؟",
       "optionsEn": [
         "$t = 1\\text{ s}$",
-        "$t = 2\\text{ s}$",
         "$t = 3\\text{ s}$",
-        "$t = 4\\text{ s}$"
+        "$t = 2\\text{ s}$",
+        "$t = 0\\text{ s}$"
       ],
       "optionsAr": [
         "$t = 1\\text{ ث}$",
-        "$t = 2\\text{ ث}$",
         "$t = 3\\text{ ث}$",
-        "$t = 4\\text{ ث}$"
+        "$t = 2\\text{ ث}$",
+        "$t = 0\\text{ ث}$"
       ],
-      "correctAnswer": "$t = 1\\text{ s}$",
-      "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "correctAnswer": "$t = 2\\text{ s}$",
+      "correctIndex": 2,
+      "hintEn": "Find $a(t) = x\\prime\\prime(t)$ and solve $a(t) = 0$.",
+      "hintAr": "أوجد المشتقة الثانية للموضع وساوها بالصفر.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 2 = 0$.",
-        "2. Solve for $t$: $2t = 2 \\implies t = 1\\text{ s}$."
+        "1. $v(t) = x\\prime(t) = 3t^2 - 12t + 9$.",
+        "2. $a(t) = v\\prime(t) = 6t - 12$.",
+        "3. Set $a(t) = 0 \\implies 6t - 12 = 0 \\implies t = 2\\text{ s}$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 2 = 0$.",
-        "٢. إذن $t = 1\\text{ ث}$."
+        "١. السرعة: $v(t) = 3t^2 - 12t + 9$.",
+        "٢. العجلة: $a(t) = 6t - 12$.",
+        "٣. بوضع $a = 0$: $6t = 12 \\implies t = 2\\text{ ث}$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "Zero acceleration corresponds to an inflection point on the position-time curve.",
+      "teacherTipAr": "انعدام العجلة يوافق نقطة انقلاب لمنحنى الموضع والزمن."
+    },
+    {
+      "id": "dyn_ch1_db_easy_21",
+      "titleEn": "Displacement from Velocity Integral",
+      "titleAr": "الإزاحة من تكامل السرعة",
+      "difficulty": "easy",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves with velocity $v(t) = 6t - 2\\text{ m/s}$. Find its displacement $\\Delta x$ over the interval $t \\in [1, 3]$.",
+      "questionAr": "يتحرك جسيم بسرعة $v(t) = 6t - 2\\text{ م/ث}$. أوجد إزاحته $\\Delta x$ خلال الفترة الزمنية $[1, 3]$.",
+      "optionsEn": [
+        "$20\\text{ m}$",
+        "$24\\text{ m}$",
+        "$18\\text{ m}$",
+        "$22\\text{ m}$"
+      ],
+      "optionsAr": [
+        "20 م",
+        "24 م",
+        "18 م",
+        "22 م"
+      ],
+      "correctAnswer": "$20\\text{ m}$",
+      "correctIndex": 0,
+      "hintEn": "Displacement is the definite integral of velocity: $\\Delta x = \\int_1^3 v(t)\\,dt$.",
+      "hintAr": "الإزاحة هي التكامل المحدد لدالة السرعة بالنسبة للزمن.",
+      "stepByStepSolutionEn": [
+        "1. $\\Delta x = \\int_1^3 (6t - 2)\\,dt = [3t^2 - 2t]_1^3$.",
+        "2. At $t = 3$: $3(9) - 2(3) = 27 - 6 = 21$.",
+        "3. At $t = 1$: $3(1) - 2(1) = 1$.",
+        "4. $\\Delta x = 21 - 1 = 20\\text{ m}$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. $\\Delta x = \\int_1^3 (6t - 2)\\,dt = [3t^2 - 2t]_1^3$.",
+        "٢. عند $t = 3$: $27 - 6 = 21$.",
+        "٣. عند $t = 1$: $3 - 2 = 1$.",
+        "٤. الإزاحة $= 21 - 1 = 20\\text{ م}$."
+      ],
+      "teacherTipEn": "Displacement does not require finding absolute values if direction reversal is absent or if only net change is requested.",
+      "teacherTipAr": "الإزاحة هي التغير الصافي ولا تتطلب تجزئة الفترات."
+    },
+    {
+      "id": "dyn_ch1_db_easy_22",
+      "titleEn": "Displacement vs Distance with Reversal",
+      "titleAr": "الفرق بين الإزاحة والمسافة الكلية",
+      "difficulty": "easy",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves with velocity $v(t) = 2t - 4\\text{ m/s}$ on $t \\in [0, 4]$. Find its total distance traveled.",
+      "questionAr": "يتحرك جسيم بسرعة $v(t) = 2t - 4\\text{ م/ث}$ في الفترة $[0, 4]$. أوجد المسافة الكلية المقطوعة.",
+      "optionsEn": [
+        "$0\\text{ m}$",
+        "$8\\text{ m}$",
+        "$4\\text{ m}$",
+        "$16\\text{ m}$"
+      ],
+      "optionsAr": [
+        "0 م",
+        "8 م",
+        "4 م",
+        "16 م"
+      ],
+      "correctAnswer": "$8\\text{ m}$",
+      "correctIndex": 1,
+      "hintEn": "Velocity changes sign at $t = 2$. Total distance is $D = \\int_0^2 |v|\\,dt + \\int_2^4 |v|\\,dt$.",
+      "hintAr": "تغير السرعة إشارتها عند $t = 2$. المسافة الكلية هي مجموع المساحات المطلقة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 0 \\implies 2t - 4 = 0 \\implies t = 2\\text{ s}$.",
+        "2. From $0$ to $2$: $\\int_0^2 (2t - 4)\\,dt = [t^2 - 4t]_0^2 = -4 \\implies \\text{distance} = 4\\text{ m}$.",
+        "3. From $2$ to $4$: $[t^2 - 4t]_2^4 = (16 - 16) - (4 - 8) = 4\\text{ m}$.",
+        "4. Total distance $D = 4 + 4 = 8\\text{ m}$ (whereas net displacement is $0$)."
+      ],
+      "stepByStepSolutionAr": [
+        "١. تنعدم السرعة عند $t = 2\\text{ ث}$.",
+        "٢. من 0 إلى 2: المساحة $= |-4| = 4\\text{ م}$.",
+        "٣. من 2 إلى 4: المساحة $= 4\\text{ م}$.",
+        "٤. المسافة الكلية $= 4 + 4 = 8\\text{ م}$ بينما الإزاحة صفر."
+      ],
+      "teacherTipEn": "Distance is always greater than or equal to displacement magnitude.",
+      "teacherTipAr": "المسافة الكلية دائماً أكبر من أو تساوي معيار الإزاحة."
+    },
+    {
+      "id": "dyn_ch1_db_easy_23",
+      "titleEn": "Initial Position Deducing",
+      "titleAr": "استنتاج الموضع الابتدائي",
+      "difficulty": "easy",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves along a line with position $x(t) = 4t^2 - 10t + 15\\text{ m}$. What is its initial position $x_0$ at $t = 0$?",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 4t^2 - 10t + 15\\text{ م}$. ما هو موضعه الابتدائي $x_0$ عند $t = 0$؟",
+      "optionsEn": [
+        "$0\\text{ m}$",
+        "$4\\text{ m}$",
+        "$15\\text{ m}$",
+        "$-10\\text{ m}$"
+      ],
+      "optionsAr": [
+        "0 م",
+        "4 م",
+        "15 م",
+        "-10 م"
+      ],
+      "correctAnswer": "$15\\text{ m}$",
+      "correctIndex": 2,
+      "hintEn": "Initial position is simply $x_0 = x(0)$.",
+      "hintAr": "الموضع الابتدائي هو قيمة الموضع عند اللحظة ن = 0.",
+      "stepByStepSolutionEn": [
+        "1. Substitute $t = 0$: $x(0) = 4(0) - 10(0) + 15 = 15\\text{ m}$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. بالتعويض عن $t = 0$: $x(0) = 15\\text{ م}$."
+      ],
+      "teacherTipEn": "The constant term in a polynomial position function represents the initial position.",
+      "teacherTipAr": "الحد الثابت في كثيرة حدود الموضع يمثل الموضع الابتدائي عن نقطة الأصل."
+    },
+    {
+      "id": "dyn_ch1_db_easy_24",
+      "titleEn": "Area Under v-t Triangular Graph",
+      "titleAr": "المسافة من مساحة المثلث تحت منحنى السرعة",
+      "difficulty": "easy",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle starts from rest and accelerates uniformly to $20\\text{ m/s}$ in $6\\text{ s}$, then immediately stops at $t = 10\\text{ s}$. Find the total distance from the triangular $v-t$ area.",
+      "questionAr": "بدأ جسيم من السكون وتسارع بانتظام إلى سرعة $20\\text{ م/ث}$ خلال $6\\text{ ث}$، ثم تباطأ وتوقف تماماً عند $t = 10\\text{ ث}$. أوجد المسافة الكلية المقطوعة.",
+      "optionsEn": [
+        "$200\\text{ m}$",
+        "$120\\text{ m}$",
+        "$80\\text{ m}$",
+        "$100\\text{ m}$"
+      ],
+      "optionsAr": [
+        "200 م",
+        "120 م",
+        "80 م",
+        "100 م"
+      ],
+      "correctAnswer": "$100\\text{ m}$",
+      "correctIndex": 3,
+      "hintEn": "Area of triangle $= \\frac{1}{2} \\times \\text{base} \\times \\text{height}$.",
+      "hintAr": "مساحة المثلث = نصف طول القاعدة في الارتفاع.",
+      "stepByStepSolutionEn": [
+        "1. Base of the triangle is $\\Delta t = 10 - 0 = 10\\text{ s}$.",
+        "2. Height is peak velocity $v = 20\\text{ m/s}$.",
+        "3. Distance $= \\frac{1}{2} \\times 10 \\times 20 = 100\\text{ m}$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. قاعدة المثلث: $10\\text{ ث}$.",
+        "٢. الارتفاع: أقصى سرعة $= 20\\text{ م/ث}$.",
+        "٣. المسافة الكلية $= \\frac{1}{2} \\times 10 \\times 20 = 100\\text{ م}$."
+      ],
+      "teacherTipEn": "Geometric areas under velocity curves provide rapid solutions without explicit integration formulas.",
+      "teacherTipAr": "المساحات الهندسية تحت منحنى السرعة تعطي حلولاً سريعة ومباشرة."
+    },
+    {
+      "id": "dyn_ch1_db_easy_25",
+      "titleEn": "Position from Constant Acceleration Initial Value Problem",
+      "titleAr": "الموضع من مسألة القيمة الابتدائية",
+      "difficulty": "easy",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves with acceleration $a(t) = 4\\text{ m/s}^2$, initial velocity $v(0) = 3\\text{ m/s}$, and initial position $x(0) = 5\\text{ m}$. Find its position $x(2)$.",
+      "questionAr": "يتحرك جسيم بعجلة $a(t) = 4\\text{ م/ث}^2$ وسرعة ابتدائية $v_0 = 3\\text{ م/ث}$ وموضع ابتدائي $x_0 = 5\\text{ م}$. أوجد موضعه $x(2)$.",
+      "optionsEn": [
+        "$19\\text{ m}$",
+        "$14\\text{ m}$",
+        "$16\\text{ m}$",
+        "$21\\text{ m}$"
+      ],
+      "optionsAr": [
+        "19 م",
+        "14 م",
+        "16 م",
+        "21 م"
+      ],
+      "correctAnswer": "$19\\text{ m}$",
+      "correctIndex": 0,
+      "hintEn": "$x(t) = x_0 + v_0 t + \\frac{1}{2} a t^2$.",
+      "hintAr": "معادلة الحركة بعجلة منتظمة: $x(t) = x_0 + v_0 t + \\frac{1}{2} a t^2$.",
+      "stepByStepSolutionEn": [
+        "1. $x(t) = 5 + 3t + \\frac{1}{2}(4)t^2 = 5 + 3t + 2t^2$.",
+        "2. At $t = 2$: $x(2) = 5 + 3(2) + 2(4) = 5 + 6 + 8 = 19\\text{ m}$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. $x(t) = 5 + 3t + 2t^2$.",
+        "٢. عند $t = 2$: $x(2) = 5 + 6 + 8 = 19\\text{ م}$."
+      ],
+      "teacherTipEn": "Standard kinematic equations are the direct integrals of constant acceleration.",
+      "teacherTipAr": "معادلات الحركة الكلاسيكية هي تكاملات مباشرة للعجلة الثابتة."
+    },
+    {
+      "id": "dyn_ch1_db_easy_26",
+      "titleEn": "Kinematic Analysis Problem #1",
+      "titleAr": "مسألة التحليل الحركي رقم 1",
+      "difficulty": "easy",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 2t^2 - 2t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 2t^2 - 2t + 4\\text{ م}$. أوجد عجلته $a$.",
+      "optionsEn": [
+        "4\\text{ m/s}^2",
+        "2\\text{ m/s}^2",
+        "8\\text{ m/s}^2",
+        "2\\text{ m/s}^2"
+      ],
+      "optionsAr": [
+        "4 م/ث²",
+        "2 م/ث²",
+        "8 م/ث²",
+        "2 م/ث²"
+      ],
+      "correctAnswer": "4\\text{ m/s}^2",
+      "correctIndex": 0,
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 4t - 2$.",
+        "2. $a(t) = v\\prime(t) = 4\\text{ m/s}^2$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. السرعة: $v(t) = 4t - 2$.",
+        "٢. العجلة: $a(t) = 4\\text{ م/ث}^2$."
+      ],
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
+    },
+    {
+      "id": "dyn_ch1_db_easy_27",
+      "titleEn": "Kinematic Analysis Problem #2",
+      "titleAr": "مسألة التحليل الحركي رقم 2",
+      "difficulty": "easy",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 3t^2 - 4t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 3t^2 - 4t + 4\\text{ م}$. أوجد عجلته $a$.",
+      "optionsEn": [
+        "6\\text{ m/s}^2",
+        "3\\text{ m/s}^2",
+        "12\\text{ m/s}^2",
+        "4\\text{ m/s}^2"
+      ],
+      "optionsAr": [
+        "6 م/ث²",
+        "3 م/ث²",
+        "12 م/ث²",
+        "4 م/ث²"
+      ],
+      "correctAnswer": "6\\text{ m/s}^2",
+      "correctIndex": 0,
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 6t - 4$.",
+        "2. $a(t) = v\\prime(t) = 6\\text{ m/s}^2$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. السرعة: $v(t) = 6t - 4$.",
+        "٢. العجلة: $a(t) = 6\\text{ م/ث}^2$."
+      ],
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
+    },
+    {
+      "id": "dyn_ch1_db_easy_28",
+      "titleEn": "Kinematic Analysis Problem #3",
+      "titleAr": "مسألة التحليل الحركي رقم 3",
+      "difficulty": "easy",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 4t^2 - 6t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 4t^2 - 6t + 4\\text{ م}$. أوجد عجلته $a$.",
+      "optionsEn": [
+        "8\\text{ m/s}^2",
+        "4\\text{ m/s}^2",
+        "16\\text{ m/s}^2",
+        "6\\text{ m/s}^2"
+      ],
+      "optionsAr": [
+        "8 م/ث²",
+        "4 م/ث²",
+        "16 م/ث²",
+        "6 م/ث²"
+      ],
+      "correctAnswer": "8\\text{ m/s}^2",
+      "correctIndex": 0,
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 8t - 6$.",
+        "2. $a(t) = v\\prime(t) = 8\\text{ m/s}^2$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. السرعة: $v(t) = 8t - 6$.",
+        "٢. العجلة: $a(t) = 8\\text{ م/ث}^2$."
+      ],
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
+    },
+    {
+      "id": "dyn_ch1_db_easy_29",
+      "titleEn": "Kinematic Analysis Problem #4",
+      "titleAr": "مسألة التحليل الحركي رقم 4",
+      "difficulty": "easy",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 5t^2 - 8t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 5t^2 - 8t + 4\\text{ م}$. أوجد عجلته $a$.",
+      "optionsEn": [
+        "10\\text{ m/s}^2",
+        "5\\text{ m/s}^2",
+        "20\\text{ m/s}^2",
+        "8\\text{ m/s}^2"
+      ],
+      "optionsAr": [
+        "10 م/ث²",
+        "5 م/ث²",
+        "20 م/ث²",
+        "8 م/ث²"
+      ],
+      "correctAnswer": "10\\text{ m/s}^2",
+      "correctIndex": 0,
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 10t - 8$.",
+        "2. $a(t) = v\\prime(t) = 10\\text{ m/s}^2$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. السرعة: $v(t) = 10t - 8$.",
+        "٢. العجلة: $a(t) = 10\\text{ م/ث}^2$."
+      ],
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
+    },
+    {
+      "id": "dyn_ch1_db_easy_30",
+      "titleEn": "Kinematic Analysis Problem #5",
+      "titleAr": "مسألة التحليل الحركي رقم 5",
+      "difficulty": "easy",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 6t^2 - 10t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 6t^2 - 10t + 4\\text{ م}$. أوجد عجلته $a$.",
+      "optionsEn": [
+        "12\\text{ m/s}^2",
+        "6\\text{ m/s}^2",
+        "24\\text{ m/s}^2",
+        "10\\text{ m/s}^2"
+      ],
+      "optionsAr": [
+        "12 م/ث²",
+        "6 م/ث²",
+        "24 م/ث²",
+        "10 م/ث²"
+      ],
+      "correctAnswer": "12\\text{ m/s}^2",
+      "correctIndex": 0,
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 12t - 10$.",
+        "2. $a(t) = v\\prime(t) = 12\\text{ m/s}^2$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. السرعة: $v(t) = 12t - 10$.",
+        "٢. العجلة: $a(t) = 12\\text{ م/ث}^2$."
+      ],
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
+    },
+    {
+      "id": "dyn_ch1_db_easy_31",
+      "titleEn": "Kinematic Analysis Problem #6",
+      "titleAr": "مسألة التحليل الحركي رقم 6",
+      "difficulty": "easy",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 7t^2 - 12t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 7t^2 - 12t + 4\\text{ م}$. أوجد عجلته $a$.",
+      "optionsEn": [
+        "14\\text{ m/s}^2",
+        "7\\text{ m/s}^2",
+        "28\\text{ m/s}^2",
+        "12\\text{ m/s}^2"
+      ],
+      "optionsAr": [
+        "14 م/ث²",
+        "7 م/ث²",
+        "28 م/ث²",
+        "12 م/ث²"
+      ],
+      "correctAnswer": "14\\text{ m/s}^2",
+      "correctIndex": 0,
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
+      "stepByStepSolutionEn": [
+        "1. $v(t) = 14t - 12$.",
+        "2. $a(t) = v\\prime(t) = 14\\text{ m/s}^2$."
+      ],
+      "stepByStepSolutionAr": [
+        "١. السرعة: $v(t) = 14t - 12$.",
+        "٢. العجلة: $a(t) = 14\\text{ م/ث}^2$."
+      ],
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_32",
-      "titleEn": "Time of Momentary Rest #2",
-      "titleAr": "لحظة السكون اللحظي رقم 2",
+      "titleEn": "Kinematic Analysis Problem #7",
+      "titleAr": "مسألة التحليل الحركي رقم 7",
       "difficulty": "easy",
-      "questionEn": "A particle moves with velocity $v(t) = 2t - 4\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "يتحرك جسيم بسرعة $v(t) = 2t - 4\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 8t^2 - 14t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 8t^2 - 14t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 2\\text{ s}$",
-        "$t = 3\\text{ s}$",
-        "$t = 4\\text{ s}$",
-        "$t = 5\\text{ s}$"
+        "16\\text{ m/s}^2",
+        "8\\text{ m/s}^2",
+        "32\\text{ m/s}^2",
+        "14\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 2\\text{ ث}$",
-        "$t = 3\\text{ ث}$",
-        "$t = 4\\text{ ث}$",
-        "$t = 5\\text{ ث}$"
+        "16 م/ث²",
+        "8 م/ث²",
+        "32 م/ث²",
+        "14 م/ث²"
       ],
-      "correctAnswer": "$t = 2\\text{ s}$",
+      "correctAnswer": "16\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 4 = 0$.",
-        "2. Solve for $t$: $2t = 4 \\implies t = 2\\text{ s}$."
+        "1. $v(t) = 16t - 14$.",
+        "2. $a(t) = v\\prime(t) = 16\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 4 = 0$.",
-        "٢. إذن $t = 2\\text{ ث}$."
+        "١. السرعة: $v(t) = 16t - 14$.",
+        "٢. العجلة: $a(t) = 16\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_33",
-      "titleEn": "Time of Momentary Rest #3",
-      "titleAr": "لحظة السكون اللحظي رقم 3",
+      "titleEn": "Kinematic Analysis Problem #8",
+      "titleAr": "مسألة التحليل الحركي رقم 8",
       "difficulty": "easy",
-      "questionEn": "In a physical scenario, a particle moves with velocity $v(t) = 2t - 6\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "في سياق فيزيائي، يتحرك جسيم بسرعة $v(t) = 2t - 6\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 9t^2 - 16t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 9t^2 - 16t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 3\\text{ s}$",
-        "$t = 4\\text{ s}$",
-        "$t = 5\\text{ s}$",
-        "$t = 6\\text{ s}$"
+        "18\\text{ m/s}^2",
+        "9\\text{ m/s}^2",
+        "36\\text{ m/s}^2",
+        "16\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 3\\text{ ث}$",
-        "$t = 4\\text{ ث}$",
-        "$t = 5\\text{ ث}$",
-        "$t = 6\\text{ ث}$"
+        "18 م/ث²",
+        "9 م/ث²",
+        "36 م/ث²",
+        "16 م/ث²"
       ],
-      "correctAnswer": "$t = 3\\text{ s}$",
+      "correctAnswer": "18\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 6 = 0$.",
-        "2. Solve for $t$: $2t = 6 \\implies t = 3\\text{ s}$."
+        "1. $v(t) = 18t - 16$.",
+        "2. $a(t) = v\\prime(t) = 18\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 6 = 0$.",
-        "٢. إذن $t = 3\\text{ ث}$."
+        "١. السرعة: $v(t) = 18t - 16$.",
+        "٢. العجلة: $a(t) = 18\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_34",
-      "titleEn": "Time of Momentary Rest #4",
-      "titleAr": "لحظة السكون اللحظي رقم 4",
+      "titleEn": "Kinematic Analysis Problem #9",
+      "titleAr": "مسألة التحليل الحركي رقم 9",
       "difficulty": "easy",
-      "questionEn": "Suppose that a particle moves with velocity $v(t) = 2t - 8\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "افترض أن يتحرك جسيم بسرعة $v(t) = 2t - 8\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 10t^2 - 18t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 10t^2 - 18t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 4\\text{ s}$",
-        "$t = 5\\text{ s}$",
-        "$t = 6\\text{ s}$",
-        "$t = 7\\text{ s}$"
+        "20\\text{ m/s}^2",
+        "10\\text{ m/s}^2",
+        "40\\text{ m/s}^2",
+        "18\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 4\\text{ ث}$",
-        "$t = 5\\text{ ث}$",
-        "$t = 6\\text{ ث}$",
-        "$t = 7\\text{ ث}$"
+        "20 م/ث²",
+        "10 م/ث²",
+        "40 م/ث²",
+        "18 م/ث²"
       ],
-      "correctAnswer": "$t = 4\\text{ s}$",
+      "correctAnswer": "20\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 8 = 0$.",
-        "2. Solve for $t$: $2t = 8 \\implies t = 4\\text{ s}$."
+        "1. $v(t) = 20t - 18$.",
+        "2. $a(t) = v\\prime(t) = 20\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 8 = 0$.",
-        "٢. إذن $t = 4\\text{ ث}$."
+        "١. السرعة: $v(t) = 20t - 18$.",
+        "٢. العجلة: $a(t) = 20\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_35",
-      "titleEn": "Time of Momentary Rest #5",
-      "titleAr": "لحظة السكون اللحظي رقم 5",
+      "titleEn": "Kinematic Analysis Problem #10",
+      "titleAr": "مسألة التحليل الحركي رقم 10",
       "difficulty": "easy",
-      "questionEn": "Under observed conditions, a particle moves with velocity $v(t) = 2t - 10\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "تحت ظروف تجريبية، يتحرك جسيم بسرعة $v(t) = 2t - 10\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 11t^2 - 20t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 11t^2 - 20t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 5\\text{ s}$",
-        "$t = 6\\text{ s}$",
-        "$t = 7\\text{ s}$",
-        "$t = 8\\text{ s}$"
+        "22\\text{ m/s}^2",
+        "11\\text{ m/s}^2",
+        "44\\text{ m/s}^2",
+        "20\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 5\\text{ ث}$",
-        "$t = 6\\text{ ث}$",
-        "$t = 7\\text{ ث}$",
-        "$t = 8\\text{ ث}$"
+        "22 م/ث²",
+        "11 م/ث²",
+        "44 م/ث²",
+        "20 م/ث²"
       ],
-      "correctAnswer": "$t = 5\\text{ s}$",
+      "correctAnswer": "22\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 10 = 0$.",
-        "2. Solve for $t$: $2t = 10 \\implies t = 5\\text{ s}$."
+        "1. $v(t) = 22t - 20$.",
+        "2. $a(t) = v\\prime(t) = 22\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 10 = 0$.",
-        "٢. إذن $t = 5\\text{ ث}$."
+        "١. السرعة: $v(t) = 22t - 20$.",
+        "٢. العجلة: $a(t) = 22\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_36",
-      "titleEn": "Time of Momentary Rest #6",
-      "titleAr": "لحظة السكون اللحظي رقم 6",
+      "titleEn": "Kinematic Analysis Problem #11",
+      "titleAr": "مسألة التحليل الحركي رقم 11",
       "difficulty": "easy",
-      "questionEn": "Consider a system where a particle moves with velocity $v(t) = 2t - 12\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "بالنظر إلى منظومة حركية حيث يتحرك جسيم بسرعة $v(t) = 2t - 12\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 12t^2 - 22t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 12t^2 - 22t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 6\\text{ s}$",
-        "$t = 7\\text{ s}$",
-        "$t = 8\\text{ s}$",
-        "$t = 9\\text{ s}$"
+        "24\\text{ m/s}^2",
+        "12\\text{ m/s}^2",
+        "48\\text{ m/s}^2",
+        "22\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 6\\text{ ث}$",
-        "$t = 7\\text{ ث}$",
-        "$t = 8\\text{ ث}$",
-        "$t = 9\\text{ ث}$"
+        "24 م/ث²",
+        "12 م/ث²",
+        "48 م/ث²",
+        "22 م/ث²"
       ],
-      "correctAnswer": "$t = 6\\text{ s}$",
+      "correctAnswer": "24\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 12 = 0$.",
-        "2. Solve for $t$: $2t = 12 \\implies t = 6\\text{ s}$."
+        "1. $v(t) = 24t - 22$.",
+        "2. $a(t) = v\\prime(t) = 24\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 12 = 0$.",
-        "٢. إذن $t = 6\\text{ ث}$."
+        "١. السرعة: $v(t) = 24t - 22$.",
+        "٢. العجلة: $a(t) = 24\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_37",
-      "titleEn": "Time of Momentary Rest #7",
-      "titleAr": "لحظة السكون اللحظي رقم 7",
+      "titleEn": "Kinematic Analysis Problem #12",
+      "titleAr": "مسألة التحليل الحركي رقم 12",
       "difficulty": "easy",
-      "questionEn": "A dynamic test shows that a particle moves with velocity $v(t) = 2t - 14\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "أظهر اختبار ديناميكي أن يتحرك جسيم بسرعة $v(t) = 2t - 14\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 13t^2 - 24t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 13t^2 - 24t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 7\\text{ s}$",
-        "$t = 8\\text{ s}$",
-        "$t = 9\\text{ s}$",
-        "$t = 10\\text{ s}$"
+        "26\\text{ m/s}^2",
+        "13\\text{ m/s}^2",
+        "52\\text{ m/s}^2",
+        "24\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 7\\text{ ث}$",
-        "$t = 8\\text{ ث}$",
-        "$t = 9\\text{ ث}$",
-        "$t = 10\\text{ ث}$"
+        "26 م/ث²",
+        "13 م/ث²",
+        "52 م/ث²",
+        "24 م/ث²"
       ],
-      "correctAnswer": "$t = 7\\text{ s}$",
+      "correctAnswer": "26\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 14 = 0$.",
-        "2. Solve for $t$: $2t = 14 \\implies t = 7\\text{ s}$."
+        "1. $v(t) = 26t - 24$.",
+        "2. $a(t) = v\\prime(t) = 26\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 14 = 0$.",
-        "٢. إذن $t = 7\\text{ ث}$."
+        "١. السرعة: $v(t) = 26t - 24$.",
+        "٢. العجلة: $a(t) = 26\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_38",
-      "titleEn": "Time of Momentary Rest #8",
-      "titleAr": "لحظة السكون اللحظي رقم 8",
+      "titleEn": "Kinematic Analysis Problem #13",
+      "titleAr": "مسألة التحليل الحركي رقم 13",
       "difficulty": "easy",
-      "questionEn": "From kinematic observations, a particle moves with velocity $v(t) = 2t - 16\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "من خلال المشاهدات الحركية، يتحرك جسيم بسرعة $v(t) = 2t - 16\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 14t^2 - 26t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 14t^2 - 26t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 8\\text{ s}$",
-        "$t = 9\\text{ s}$",
-        "$t = 10\\text{ s}$",
-        "$t = 11\\text{ s}$"
+        "28\\text{ m/s}^2",
+        "14\\text{ m/s}^2",
+        "56\\text{ m/s}^2",
+        "26\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 8\\text{ ث}$",
-        "$t = 9\\text{ ث}$",
-        "$t = 10\\text{ ث}$",
-        "$t = 11\\text{ ث}$"
+        "28 م/ث²",
+        "14 م/ث²",
+        "56 م/ث²",
+        "26 م/ث²"
       ],
-      "correctAnswer": "$t = 8\\text{ s}$",
+      "correctAnswer": "28\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 16 = 0$.",
-        "2. Solve for $t$: $2t = 16 \\implies t = 8\\text{ s}$."
+        "1. $v(t) = 28t - 26$.",
+        "2. $a(t) = v\\prime(t) = 28\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 16 = 0$.",
-        "٢. إذن $t = 8\\text{ ث}$."
+        "١. السرعة: $v(t) = 28t - 26$.",
+        "٢. العجلة: $a(t) = 28\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_39",
-      "titleEn": "Time of Momentary Rest #9",
-      "titleAr": "لحظة السكون اللحظي رقم 9",
+      "titleEn": "Kinematic Analysis Problem #14",
+      "titleAr": "مسألة التحليل الحركي رقم 14",
       "difficulty": "easy",
-      "questionEn": "An experimental trial records that a particle moves with velocity $v(t) = 2t - 18\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "بيّنت التجربة العملية أن يتحرك جسيم بسرعة $v(t) = 2t - 18\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 15t^2 - 28t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 15t^2 - 28t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 9\\text{ s}$",
-        "$t = 10\\text{ s}$",
-        "$t = 11\\text{ s}$",
-        "$t = 12\\text{ s}$"
+        "30\\text{ m/s}^2",
+        "15\\text{ m/s}^2",
+        "60\\text{ m/s}^2",
+        "28\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 9\\text{ ث}$",
-        "$t = 10\\text{ ث}$",
-        "$t = 11\\text{ ث}$",
-        "$t = 12\\text{ ث}$"
+        "30 م/ث²",
+        "15 م/ث²",
+        "60 م/ث²",
+        "28 م/ث²"
       ],
-      "correctAnswer": "$t = 9\\text{ s}$",
+      "correctAnswer": "30\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 18 = 0$.",
-        "2. Solve for $t$: $2t = 18 \\implies t = 9\\text{ s}$."
+        "1. $v(t) = 30t - 28$.",
+        "2. $a(t) = v\\prime(t) = 30\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 18 = 0$.",
-        "٢. إذن $t = 9\\text{ ث}$."
+        "١. السرعة: $v(t) = 30t - 28$.",
+        "٢. العجلة: $a(t) = 30\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_40",
-      "titleEn": "Time of Momentary Rest #10",
-      "titleAr": "لحظة السكون اللحظي رقم 10",
+      "titleEn": "Kinematic Analysis Problem #15",
+      "titleAr": "مسألة التحليل الحركي رقم 15",
       "difficulty": "easy",
-      "questionEn": "In a classic mechanics setup, a particle moves with velocity $v(t) = 2t - 20\\text{ m/s}$. At what time $t$ does the particle momentarily come to rest?",
-      "questionAr": "في مسألة ميكانيكا كلاسيكية، يتحرك جسيم بسرعة $v(t) = 2t - 20\\text{ م/ث}$. عند أي لحظة زمنية $t$ يسكن الجسيم لحظياً؟",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 16t^2 - 30t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 16t^2 - 30t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$t = 10\\text{ s}$",
-        "$t = 11\\text{ s}$",
-        "$t = 12\\text{ s}$",
-        "$t = 13\\text{ s}$"
+        "32\\text{ m/s}^2",
+        "16\\text{ m/s}^2",
+        "64\\text{ m/s}^2",
+        "30\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "$t = 10\\text{ ث}$",
-        "$t = 11\\text{ ث}$",
-        "$t = 12\\text{ ث}$",
-        "$t = 13\\text{ ث}$"
+        "32 م/ث²",
+        "16 م/ث²",
+        "64 م/ث²",
+        "30 م/ث²"
       ],
-      "correctAnswer": "$t = 10\\text{ s}$",
+      "correctAnswer": "32\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Momentary rest occurs when velocity is zero: $v(t) = 0$.",
-      "hintAr": "يسكن الجسيم لحظياً عندما تنعدم السرعة: $v(t) = 0$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. Set $v(t) = 0$: $2t - 20 = 0$.",
-        "2. Solve for $t$: $2t = 20 \\implies t = 10\\text{ s}$."
+        "1. $v(t) = 32t - 30$.",
+        "2. $a(t) = v\\prime(t) = 32\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. نضع $v(t) = 0 \\implies 2t - 20 = 0$.",
-        "٢. إذن $t = 10\\text{ ث}$."
+        "١. السرعة: $v(t) = 32t - 30$.",
+        "٢. العجلة: $a(t) = 32\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Momentary rest means instantaneous velocity v = 0.",
-      "teacherTipAr": "السكون اللحظي يعني انعدام السرعة اللحظية."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_41",
-      "titleEn": "Velocity from Constant Acceleration #1",
-      "titleAr": "السرعة من عجلة ثابتة رقم 1",
+      "titleEn": "Kinematic Analysis Problem #16",
+      "titleAr": "مسألة التحليل الحركي رقم 16",
       "difficulty": "easy",
-      "questionEn": "A particle moves with constant acceleration $a = 3\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "يتحرك جسيم بعجلة ثابتة $a = 3\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 17t^2 - 32t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 17t^2 - 32t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$14\\text{ m/s}$",
-        "$16\\text{ m/s}$",
-        "$18\\text{ m/s}$",
-        "$20\\text{ m/s}$"
+        "34\\text{ m/s}^2",
+        "17\\text{ m/s}^2",
+        "68\\text{ m/s}^2",
+        "32\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "14 م/ث",
-        "16 م/ث",
-        "18 م/ث",
-        "20 م/ث"
+        "34 م/ث²",
+        "17 م/ث²",
+        "68 م/ث²",
+        "32 م/ث²"
       ],
-      "correctAnswer": "$14\\text{ m/s}$",
+      "correctAnswer": "34\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (3)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (3)(3) = 5 + 9 = 14\\text{ m/s}$."
+        "1. $v(t) = 34t - 32$.",
+        "2. $a(t) = v\\prime(t) = 34\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 3t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 9 = 14\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 34t - 32$.",
+        "٢. العجلة: $a(t) = 34\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_42",
-      "titleEn": "Velocity from Constant Acceleration #2",
-      "titleAr": "السرعة من عجلة ثابتة رقم 2",
+      "titleEn": "Kinematic Analysis Problem #17",
+      "titleAr": "مسألة التحليل الحركي رقم 17",
       "difficulty": "easy",
-      "questionEn": "A particle moves with constant acceleration $a = 4\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "يتحرك جسيم بعجلة ثابتة $a = 4\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 18t^2 - 34t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 18t^2 - 34t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$17\\text{ m/s}$",
-        "$19\\text{ m/s}$",
-        "$21\\text{ m/s}$",
-        "$23\\text{ m/s}$"
+        "36\\text{ m/s}^2",
+        "18\\text{ m/s}^2",
+        "72\\text{ m/s}^2",
+        "34\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "17 م/ث",
-        "19 م/ث",
-        "21 م/ث",
-        "23 م/ث"
+        "36 م/ث²",
+        "18 م/ث²",
+        "72 م/ث²",
+        "34 م/ث²"
       ],
-      "correctAnswer": "$17\\text{ m/s}$",
+      "correctAnswer": "36\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (4)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (4)(3) = 5 + 12 = 17\\text{ m/s}$."
+        "1. $v(t) = 36t - 34$.",
+        "2. $a(t) = v\\prime(t) = 36\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 4t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 12 = 17\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 36t - 34$.",
+        "٢. العجلة: $a(t) = 36\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_43",
-      "titleEn": "Velocity from Constant Acceleration #3",
-      "titleAr": "السرعة من عجلة ثابتة رقم 3",
+      "titleEn": "Kinematic Analysis Problem #18",
+      "titleAr": "مسألة التحليل الحركي رقم 18",
       "difficulty": "easy",
-      "questionEn": "In a physical scenario, a particle moves with constant acceleration $a = 5\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "في سياق فيزيائي، يتحرك جسيم بعجلة ثابتة $a = 5\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 19t^2 - 36t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 19t^2 - 36t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$20\\text{ m/s}$",
-        "$22\\text{ m/s}$",
-        "$24\\text{ m/s}$",
-        "$26\\text{ m/s}$"
+        "38\\text{ m/s}^2",
+        "19\\text{ m/s}^2",
+        "76\\text{ m/s}^2",
+        "36\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "20 م/ث",
-        "22 م/ث",
-        "24 م/ث",
-        "26 م/ث"
+        "38 م/ث²",
+        "19 م/ث²",
+        "76 م/ث²",
+        "36 م/ث²"
       ],
-      "correctAnswer": "$20\\text{ m/s}$",
+      "correctAnswer": "38\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (5)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (5)(3) = 5 + 15 = 20\\text{ m/s}$."
+        "1. $v(t) = 38t - 36$.",
+        "2. $a(t) = v\\prime(t) = 38\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 5t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 15 = 20\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 38t - 36$.",
+        "٢. العجلة: $a(t) = 38\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_44",
-      "titleEn": "Velocity from Constant Acceleration #4",
-      "titleAr": "السرعة من عجلة ثابتة رقم 4",
+      "titleEn": "Kinematic Analysis Problem #19",
+      "titleAr": "مسألة التحليل الحركي رقم 19",
       "difficulty": "easy",
-      "questionEn": "Suppose that a particle moves with constant acceleration $a = 6\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "افترض أن يتحرك جسيم بعجلة ثابتة $a = 6\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 20t^2 - 38t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 20t^2 - 38t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$23\\text{ m/s}$",
-        "$25\\text{ m/s}$",
-        "$27\\text{ m/s}$",
-        "$29\\text{ m/s}$"
+        "40\\text{ m/s}^2",
+        "20\\text{ m/s}^2",
+        "80\\text{ m/s}^2",
+        "38\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "23 م/ث",
-        "25 م/ث",
-        "27 م/ث",
-        "29 م/ث"
+        "40 م/ث²",
+        "20 م/ث²",
+        "80 م/ث²",
+        "38 م/ث²"
       ],
-      "correctAnswer": "$23\\text{ m/s}$",
+      "correctAnswer": "40\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (6)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (6)(3) = 5 + 18 = 23\\text{ m/s}$."
+        "1. $v(t) = 40t - 38$.",
+        "2. $a(t) = v\\prime(t) = 40\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 6t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 18 = 23\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 40t - 38$.",
+        "٢. العجلة: $a(t) = 40\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_45",
-      "titleEn": "Velocity from Constant Acceleration #5",
-      "titleAr": "السرعة من عجلة ثابتة رقم 5",
+      "titleEn": "Kinematic Analysis Problem #20",
+      "titleAr": "مسألة التحليل الحركي رقم 20",
       "difficulty": "easy",
-      "questionEn": "Under observed conditions, a particle moves with constant acceleration $a = 7\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "تحت ظروف تجريبية، يتحرك جسيم بعجلة ثابتة $a = 7\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 21t^2 - 40t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 21t^2 - 40t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$26\\text{ m/s}$",
-        "$28\\text{ m/s}$",
-        "$30\\text{ m/s}$",
-        "$32\\text{ m/s}$"
+        "42\\text{ m/s}^2",
+        "21\\text{ m/s}^2",
+        "84\\text{ m/s}^2",
+        "40\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "26 م/ث",
-        "28 م/ث",
-        "30 م/ث",
-        "32 م/ث"
+        "42 م/ث²",
+        "21 م/ث²",
+        "84 م/ث²",
+        "40 م/ث²"
       ],
-      "correctAnswer": "$26\\text{ m/s}$",
+      "correctAnswer": "42\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (7)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (7)(3) = 5 + 21 = 26\\text{ m/s}$."
+        "1. $v(t) = 42t - 40$.",
+        "2. $a(t) = v\\prime(t) = 42\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 7t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 21 = 26\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 42t - 40$.",
+        "٢. العجلة: $a(t) = 42\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_46",
-      "titleEn": "Velocity from Constant Acceleration #6",
-      "titleAr": "السرعة من عجلة ثابتة رقم 6",
+      "titleEn": "Kinematic Analysis Problem #21",
+      "titleAr": "مسألة التحليل الحركي رقم 21",
       "difficulty": "easy",
-      "questionEn": "Consider a system where a particle moves with constant acceleration $a = 8\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "بالنظر إلى منظومة حركية حيث يتحرك جسيم بعجلة ثابتة $a = 8\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 22t^2 - 42t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 22t^2 - 42t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$29\\text{ m/s}$",
-        "$31\\text{ m/s}$",
-        "$33\\text{ m/s}$",
-        "$35\\text{ m/s}$"
+        "44\\text{ m/s}^2",
+        "22\\text{ m/s}^2",
+        "88\\text{ m/s}^2",
+        "42\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "29 م/ث",
-        "31 م/ث",
-        "33 م/ث",
-        "35 م/ث"
+        "44 م/ث²",
+        "22 م/ث²",
+        "88 م/ث²",
+        "42 م/ث²"
       ],
-      "correctAnswer": "$29\\text{ m/s}$",
+      "correctAnswer": "44\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (8)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (8)(3) = 5 + 24 = 29\\text{ m/s}$."
+        "1. $v(t) = 44t - 42$.",
+        "2. $a(t) = v\\prime(t) = 44\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 8t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 24 = 29\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 44t - 42$.",
+        "٢. العجلة: $a(t) = 44\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_47",
-      "titleEn": "Velocity from Constant Acceleration #7",
-      "titleAr": "السرعة من عجلة ثابتة رقم 7",
+      "titleEn": "Kinematic Analysis Problem #22",
+      "titleAr": "مسألة التحليل الحركي رقم 22",
       "difficulty": "easy",
-      "questionEn": "A dynamic test shows that a particle moves with constant acceleration $a = 9\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "أظهر اختبار ديناميكي أن يتحرك جسيم بعجلة ثابتة $a = 9\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 23t^2 - 44t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 23t^2 - 44t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$32\\text{ m/s}$",
-        "$34\\text{ m/s}$",
-        "$36\\text{ m/s}$",
-        "$38\\text{ m/s}$"
+        "46\\text{ m/s}^2",
+        "23\\text{ m/s}^2",
+        "92\\text{ m/s}^2",
+        "44\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "32 م/ث",
-        "34 م/ث",
-        "36 م/ث",
-        "38 م/ث"
+        "46 م/ث²",
+        "23 م/ث²",
+        "92 م/ث²",
+        "44 م/ث²"
       ],
-      "correctAnswer": "$32\\text{ m/s}$",
+      "correctAnswer": "46\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (9)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (9)(3) = 5 + 27 = 32\\text{ m/s}$."
+        "1. $v(t) = 46t - 44$.",
+        "2. $a(t) = v\\prime(t) = 46\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 9t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 27 = 32\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 46t - 44$.",
+        "٢. العجلة: $a(t) = 46\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_48",
-      "titleEn": "Velocity from Constant Acceleration #8",
-      "titleAr": "السرعة من عجلة ثابتة رقم 8",
+      "titleEn": "Kinematic Analysis Problem #23",
+      "titleAr": "مسألة التحليل الحركي رقم 23",
       "difficulty": "easy",
-      "questionEn": "From kinematic observations, a particle moves with constant acceleration $a = 10\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "من خلال المشاهدات الحركية، يتحرك جسيم بعجلة ثابتة $a = 10\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "calculus_inflection_curve",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 24t^2 - 46t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 24t^2 - 46t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$35\\text{ m/s}$",
-        "$37\\text{ m/s}$",
-        "$39\\text{ m/s}$",
-        "$41\\text{ m/s}$"
+        "48\\text{ m/s}^2",
+        "24\\text{ m/s}^2",
+        "96\\text{ m/s}^2",
+        "46\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "35 م/ث",
-        "37 م/ث",
-        "39 م/ث",
-        "41 م/ث"
+        "48 م/ث²",
+        "24 م/ث²",
+        "96 م/ث²",
+        "46 م/ث²"
       ],
-      "correctAnswer": "$35\\text{ m/s}$",
+      "correctAnswer": "48\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (10)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (10)(3) = 5 + 30 = 35\\text{ m/s}$."
+        "1. $v(t) = 48t - 46$.",
+        "2. $a(t) = v\\prime(t) = 48\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 10t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 30 = 35\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 48t - 46$.",
+        "٢. العجلة: $a(t) = 48\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_49",
-      "titleEn": "Velocity from Constant Acceleration #9",
-      "titleAr": "السرعة من عجلة ثابتة رقم 9",
+      "titleEn": "Kinematic Analysis Problem #24",
+      "titleAr": "مسألة التحليل الحركي رقم 24",
       "difficulty": "easy",
-      "questionEn": "An experimental trial records that a particle moves with constant acceleration $a = 11\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "بيّنت التجربة العملية أن يتحرك جسيم بعجلة ثابتة $a = 11\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "secant_derivative_graph",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 25t^2 - 48t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 25t^2 - 48t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$38\\text{ m/s}$",
-        "$40\\text{ m/s}$",
-        "$42\\text{ m/s}$",
-        "$44\\text{ m/s}$"
+        "50\\text{ m/s}^2",
+        "25\\text{ m/s}^2",
+        "100\\text{ m/s}^2",
+        "48\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "38 م/ث",
-        "40 م/ث",
-        "42 م/ث",
-        "44 م/ث"
+        "50 م/ث²",
+        "25 م/ث²",
+        "100 م/ث²",
+        "48 م/ث²"
       ],
-      "correctAnswer": "$38\\text{ m/s}$",
+      "correctAnswer": "50\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (11)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (11)(3) = 5 + 33 = 38\\text{ m/s}$."
+        "1. $v(t) = 50t - 48$.",
+        "2. $a(t) = v\\prime(t) = 50\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 11t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 33 = 38\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 50t - 48$.",
+        "٢. العجلة: $a(t) = 50\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_50",
-      "titleEn": "Velocity from Constant Acceleration #10",
-      "titleAr": "السرعة من عجلة ثابتة رقم 10",
+      "titleEn": "Kinematic Analysis Problem #25",
+      "titleAr": "مسألة التحليل الحركي رقم 25",
       "difficulty": "easy",
-      "questionEn": "In a classic mechanics setup, a particle moves with constant acceleration $a = 12\\text{ m/s}^2$. If its initial velocity is $v(0) = 5\\text{ m/s}$, find its velocity at $t = 3\\text{ s}$.",
-      "questionAr": "في مسألة ميكانيكا كلاسيكية، يتحرك جسيم بعجلة ثابتة $a = 12\\text{ م/ث}^2$. إذا كانت سرعته الابتدائية $v(0) = 5\\text{ م/ث}$، أوجد سرعته عند $t = 3\\text{ ث}$.",
+      "diagramType": "cartesian_plane",
+      "questionEn": "A particle moves in a straight line with position $x(t) = 26t^2 - 50t + 4\\text{ m}$. Find its acceleration $a$.",
+      "questionAr": "يتحرك جسيم في خط مستقيم بحيث كان موضعه $x(t) = 26t^2 - 50t + 4\\text{ م}$. أوجد عجلته $a$.",
       "optionsEn": [
-        "$41\\text{ m/s}$",
-        "$43\\text{ m/s}$",
-        "$45\\text{ m/s}$",
-        "$47\\text{ m/s}$"
+        "52\\text{ m/s}^2",
+        "26\\text{ m/s}^2",
+        "104\\text{ m/s}^2",
+        "50\\text{ m/s}^2"
       ],
       "optionsAr": [
-        "41 م/ث",
-        "43 م/ث",
-        "45 م/ث",
-        "47 م/ث"
+        "52 م/ث²",
+        "26 م/ث²",
+        "104 م/ث²",
+        "50 م/ث²"
       ],
-      "correctAnswer": "$41\\text{ m/s}$",
+      "correctAnswer": "52\\text{ m/s}^2",
       "correctIndex": 0,
-      "hintEn": "Use $v(t) = v(0) + \\int_0^t a dt = v_0 + at$.",
-      "hintAr": "استخدم القانون: $v(t) = v_0 + at$.",
+      "hintEn": "Differentiate position twice: $v(t) = 2(A)t + B$, $a(t) = 2A$.",
+      "hintAr": "اشتق دالة الموضع مرتين بالنسبة للزمن لإيجاد العجلة الثابتة.",
       "stepByStepSolutionEn": [
-        "1. $v(t) = v_0 + at = 5 + (12)(t)$.",
-        "2. At $t = 3$: $v(3) = 5 + (12)(3) = 5 + 36 = 41\\text{ m/s}$."
+        "1. $v(t) = 52t - 50$.",
+        "2. $a(t) = v\\prime(t) = 52\\text{ m/s}^2$."
       ],
       "stepByStepSolutionAr": [
-        "١. القانون: $v(t) = v_0 + at = 5 + 12t$.",
-        "٢. عند $t = 3$: $v(3) = 5 + 36 = 41\\text{ م/ث}$."
+        "١. السرعة: $v(t) = 52t - 50$.",
+        "٢. العجلة: $a(t) = 52\\text{ م/ث}^2$."
       ],
-      "teacherTipEn": "Direct integration yields standard uniform acceleration formula.",
-      "teacherTipAr": "التكامل المباشر يعطي قوانين الحركة بعجلة منتظمة."
+      "teacherTipEn": "For any quadratic position function, acceleration is exactly twice the leading coefficient.",
+      "teacherTipAr": "في أي دالة موضع تربيعية، العجلة تساوي ضعف معامل ن²."
     },
     {
       "id": "dyn_ch1_db_easy_51",
@@ -1754,7 +1812,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بوضع $v(t) = 0$: $6t - 12 = 0 \\implies 6t = 12 \\implies t = 2\\text{ ث}$."
       ],
       "teacherTipEn": "Momentary rest always corresponds to $v = 0$ in 1D kinematics.",
-      "teacherTipAr": "السكون اللحظي يعني دائماً $v = 0$ في الحركة المستقيمة."
+      "teacherTipAr": "السكون اللحظي يعني دائماً $v = 0$ في الحركة المستقيمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_easy_52",
@@ -1790,7 +1849,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "عند $x = 2$: $a = 16(2) + 12 = 32 + 12 = 44\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember: $a = \\frac{dv}{dt} = v \\frac{dv}{dx}$. Use the chain rule version when $v$ is given in terms of $x$!",
-      "teacherTipAr": "تذكر دائماً: $a = v \\frac{dv}{dx}$ عندما تكون السرعة معطاة كدالة في الموضع $x$."
+      "teacherTipAr": "تذكر دائماً: $a = v \\frac{dv}{dx}$ عندما تكون السرعة معطاة كدالة في الموضع $x$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_easy_53",
@@ -1865,7 +1925,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "أما إذا كان $v \\cdot a < 0$ فتكون الحركة متباطئة (تقصيرية)."
       ],
       "teacherTipEn": "A common student pitfall is thinking $a > 0$ alone means acceleration. If $v < 0$ and $a > 0$, the body is actually slowing down!",
-      "teacherTipAr": "خطأ شائع لدى الطلاب هو الاعتقاد بأن $a > 0$ تعني تسارعاً، بينما إذا كانت $v < 0$ و $a > 0$ فالحركة متباطئة!"
+      "teacherTipAr": "خطأ شائع لدى الطلاب هو الاعتقاد بأن $a > 0$ تعني تسارعاً، بينما إذا كانت $v < 0$ و $a > 0$ فالحركة متباطئة!",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_easy_55",
@@ -1901,7 +1962,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "عند $t = 5\\text{ ث}$: $x(5) = 3 + 2(25) = 53\\text{ م}$."
       ],
       "teacherTipEn": "Always add initial position $x_0$ to displacement $s$ to obtain absolute coordinate position $x$.",
-      "teacherTipAr": "أضف دائماً الموضع الابتدائي $x_0$ إلى الإزاحة $s$ للحصول على إحداثي الموضع النهائي $x$."
+      "teacherTipAr": "أضف دائماً الموضع الابتدائي $x_0$ إلى الإزاحة $s$ للحصول على إحداثي الموضع النهائي $x$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_easy_56",
@@ -1976,7 +2038,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "$\\int_{v_1}^{v_2} v\\,dv = \\int_{x_1}^{x_2} a\\,dx$."
       ],
       "teacherTipEn": "Multiplying this identity by mass $m$ gives the Work-Energy Theorem $\\Delta T = W$ directly!",
-      "teacherTipAr": "ضرب هذه العلاقة في الكتلة $m$ يولد مباشرة مبدأ الشغل والطاقة $\\Delta T = W$!"
+      "teacherTipAr": "ضرب هذه العلاقة في الكتلة $m$ يولد مباشرة مبدأ الشغل والطاقة $\\Delta T = W$!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_easy_58",
@@ -2014,7 +2077,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "السرعة القصوى $v(3) = -9 + 18 + 7 = 16\\text{ م/ث}$."
       ],
       "teacherTipEn": "Maximum velocity occurs when acceleration is zero ($a = 0$), analogous to maximum displacement when $v = 0$.",
-      "teacherTipAr": "أقصى سرعة تحدث عند انعدام العجلة ($a = 0$) تماماً كما تحدث أقصى إزاحة عند انعدام السرعة ($v = 0$)."
+      "teacherTipAr": "أقصى سرعة تحدث عند انعدام العجلة ($a = 0$) تماماً كما تحدث أقصى إزاحة عند انعدام السرعة ($v = 0$).",
+      "diagramType": "cartesian_plane"
     }
   ],
   "medium": [
@@ -2052,7 +2116,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -3(2) = -6\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_02",
@@ -2088,7 +2153,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -4(2) = -8\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_03",
@@ -2124,7 +2190,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -5(2) = -10\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_04",
@@ -2160,7 +2227,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -6(2) = -12\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_05",
@@ -2196,7 +2264,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -7(2) = -14\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_06",
@@ -2232,7 +2301,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -8(2) = -16\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_07",
@@ -2268,7 +2338,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -9(2) = -18\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_08",
@@ -2304,7 +2375,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -10(2) = -20\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_09",
@@ -2340,7 +2412,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -11(2) = -22\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_10",
@@ -2376,7 +2449,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. عند $x = 2$: $a = -12(2) = -24\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "d(v^2)/dx = 2a directly gives the acceleration.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ مباشرة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_11",
@@ -2413,7 +2487,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(1) \\cdot a(1) = (-6)(4) = -24$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_12",
@@ -2450,7 +2525,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(2) \\cdot a(2) = (-4)(4) = -16$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_13",
@@ -2487,7 +2563,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(3) \\cdot a(3) = (-2)(4) = -8$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_14",
@@ -2524,7 +2601,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(4) \\cdot a(4) = (0)(4) = 0$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_15",
@@ -2561,7 +2639,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(5) \\cdot a(5) = (2)(4) = 8$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_16",
@@ -2598,7 +2677,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(6) \\cdot a(6) = (4)(4) = 16$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_17",
@@ -2635,7 +2715,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(7) \\cdot a(7) = (6)(4) = 24$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_18",
@@ -2672,7 +2753,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(8) \\cdot a(8) = (8)(4) = 32$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_19",
@@ -2709,7 +2791,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(9) \\cdot a(9) = (10)(4) = 40$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_20",
@@ -2746,7 +2829,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. حاصل الضرب: $v(10) \\cdot a(10) = (12)(4) = 48$."
       ],
       "teacherTipEn": "Sign of v*a determines accelerated (>0) vs decelerated (<0) motion.",
-      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠)."
+      "teacherTipAr": "إشارة ع × جـ تحدد ما إذا كانت الحركة متسارعة (>٠) أم تقصيرية (<٠).",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_med_21",
@@ -2783,7 +2867,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 12\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_22",
@@ -2820,7 +2905,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 16\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_23",
@@ -2857,7 +2943,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 20\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_24",
@@ -2894,7 +2981,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 24\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_25",
@@ -2931,7 +3019,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 28\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_26",
@@ -2968,7 +3057,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 32\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_27",
@@ -3005,7 +3095,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 36\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_28",
@@ -3042,7 +3133,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 40\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_29",
@@ -3079,7 +3171,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 44\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_30",
@@ -3116,7 +3209,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. إذن $v^2 = 48\\text{ م}^2/\\text{ث}^2$."
       ],
       "teacherTipEn": "Always multiply by 2 after integrating v dv.",
-      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف."
+      "teacherTipAr": "تذكر دائماً الضرب في ٢ بعد تكامل الطرفين للتخلص من النصف.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_31",
@@ -3154,7 +3248,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 5\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_32",
@@ -3192,7 +3287,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 8\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_33",
@@ -3230,7 +3326,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 13\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_34",
@@ -3268,7 +3365,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 20\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_35",
@@ -3306,7 +3404,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 29\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_36",
@@ -3344,7 +3443,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 40\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_37",
@@ -3382,7 +3482,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 53\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_38",
@@ -3420,7 +3521,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 68\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_39",
@@ -3458,7 +3560,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 85\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_40",
@@ -3496,7 +3599,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $d_1 + d_2 = 104\\text{ م}$."
       ],
       "teacherTipEn": "Never compute distance as a single integral when velocity changes sign!",
-      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!"
+      "teacherTipAr": "إياك وحساب المسافة بتكامل واحد إذا كانت السرعة تغير إشارتها!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_41",
@@ -3534,7 +3638,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(1) = 3\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_42",
@@ -3572,7 +3677,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(2) = 12\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_43",
@@ -3610,7 +3716,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(3) = 27\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_44",
@@ -3648,7 +3755,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(4) = 48\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_45",
@@ -3686,7 +3794,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(5) = 75\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_46",
@@ -3724,7 +3833,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(6) = 108\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_47",
@@ -3762,7 +3872,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(7) = 147\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_48",
@@ -3800,7 +3911,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(8) = 192\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_49",
@@ -3838,7 +3950,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(9) = 243\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_50",
@@ -3876,7 +3989,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. أقصى سرعة: $v(10) = 300\\text{ م/ث}$."
       ],
       "teacherTipEn": "At maximum velocity, acceleration is zero.",
-      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً."
+      "teacherTipAr": "عند أقصى سرعة تنعدم العجلة دائماً.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_51",
@@ -3914,7 +4028,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "المسافة الكلية $D = 16 + 7 = 23\\text{ م}$."
       ],
       "teacherTipEn": "Notice displacement is $\\Delta s = -16 + 7 = -9\\text{ m}$, while total distance is $23\\text{ m}$! Do not confuse the two.",
-      "teacherTipAr": "لاحظ أن الإزاحة هي $-9\\text{ م}$ بينما المسافة الكلية هي $23\\text{ م}$! لا تخلط بين المفهومين."
+      "teacherTipAr": "لاحظ أن الإزاحة هي $-9\\text{ م}$ بينما المسافة الكلية هي $23\\text{ م}$! لا تخلط بين المفهومين.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_52",
@@ -3952,7 +4067,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بما أن $20 e^{-2t} = 4(5 e^{-2t}) = 4(x - 3)$، إذن $a = 4(x - 3)$."
       ],
       "teacherTipEn": "Expressing kinematics variables in terms of position is a standard question type in Egyptian dynamics.",
-      "teacherTipAr": "التعبير عن المتغيرات الحركية بدلالة الموضع هو أحد أنماط الأسئلة المحورية في المنهج."
+      "teacherTipAr": "التعبير عن المتغيرات الحركية بدلالة الموضع هو أحد أنماط الأسئلة المحورية في المنهج.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_53",
@@ -3993,7 +4109,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "عند $t = 2\\text{ ث}$: $v(2) = \\frac{10}{41}\\text{ م/ث}$."
       ],
       "teacherTipEn": "Quadratic drag ($a \\propto -v^2$) is the classic model for high-speed fluid resistance.",
-      "teacherTipAr": "مقاومة الموائع عالية السرعة تتناسب مع مربع السرعة ($a \\propto -v^2$) وحلها بفصل المتغيرات مهارة أساسية."
+      "teacherTipAr": "مقاومة الموائع عالية السرعة تتناسب مع مربع السرعة ($a \\propto -v^2$) وحلها بفصل المتغيرات مهارة أساسية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_54",
@@ -4031,7 +4148,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بما أن $a = v \\frac{dv}{dx}$، إذن $2a = -8x \\implies a = -4x$."
       ],
       "teacherTipEn": "Whenever you see $v^2 = f(x)$, always remember $\\frac{1}{2} \\frac{d}{dx}(v^2) = a$!",
-      "teacherTipAr": "كلما رأيت $v^2 = f(x)$، تذكر أن $a = \\frac{1}{2} \\frac{d}{dx}(v^2)$ مباشرة!"
+      "teacherTipAr": "كلما رأيت $v^2 = f(x)$، تذكر أن $a = \\frac{1}{2} \\frac{d}{dx}(v^2)$ مباشرة!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_55",
@@ -4068,7 +4186,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "سعة السرعة $= \\sqrt{12^2 + (-16)^2} = \\sqrt{144 + 256} = 20\\text{ م/ث}$."
       ],
       "teacherTipEn": "Notice $\\omega = 2$ and position amplitude is $10\\text{ m}$, so $v_{\\max} = \\omega A = 2 \\times 10 = 20\\text{ m/s}$ directly.",
-      "teacherTipAr": "لاحظ أن $\\omega = 2$ وسعة الموضع $10\\text{ م}$، إذن $v_{\\max} = 2 \\times 10 = 20\\text{ م/ث}$ في خطوة واحدة."
+      "teacherTipAr": "لاحظ أن $\\omega = 2$ وسعة الموضع $10\\text{ م}$، إذن $v_{\\max} = 2 \\times 10 = 20\\text{ م/ث}$ في خطوة واحدة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_56",
@@ -4106,7 +4225,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بما أن $t > 0$، إذن $t = 3\\text{ ث}$."
       ],
       "teacherTipEn": "Always reject negative time roots when time starts at $t = 0$.",
-      "teacherTipAr": "ارفض دائماً الحلول السالبة للزمن عندما تبدأ الحركة من $t = 0$."
+      "teacherTipAr": "ارفض دائماً الحلول السالبة للزمن عندما تبدأ الحركة من $t = 0$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_57",
@@ -4145,7 +4265,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "عند $t = 2\\text{ ث}$: $a(2) = 12 - 12 = 0$."
       ],
       "teacherTipEn": "A critical point of velocity ($dv/dt = 0$) means acceleration is zero by definition.",
-      "teacherTipAr": "النقطة الحرجة للسرعة ($dv/dt = 0$) تعني بالضرورة أن العجلة مساوية للصفر."
+      "teacherTipAr": "النقطة الحرجة للسرعة ($dv/dt = 0$) تعني بالضرورة أن العجلة مساوية للصفر.",
+      "diagramType": "calculus_inflection_curve"
     },
     {
       "id": "dyn_ch1_db_med_58",
@@ -4181,7 +4302,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بما أن $v(0) = 0$، فإن $v(6) = 24\\text{ م/ث}$."
       ],
       "teacherTipEn": "Always check the initial velocity: $v(t) = v_0 + \\text{Area}$. Here $v_0 = 0$.",
-      "teacherTipAr": "انتبه دائماً للسرعة الابتدائية: $v(t) = v_0 + \\text{المساحة}$."
+      "teacherTipAr": "انتبه دائماً للسرعة الابتدائية: $v(t) = v_0 + \\text{المساحة}$.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_med_59",
@@ -4218,7 +4340,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "$v^2 - 4 = 56 \\implies v^2 = 60 \\implies v = \\sqrt{60} = 2\\sqrt{15}\\text{ م/ث}$."
       ],
       "teacherTipEn": "Don't forget the factor of $\\frac{1}{2}$ when evaluating $\\int v\\,dv = \\frac{1}{2}v^2$!",
-      "teacherTipAr": "لا تنسَ معامل $\\frac{1}{2}$ عند حساب تكامل $\\int v\\,dv = \\frac{1}{2}v^2$!"
+      "teacherTipAr": "لا تنسَ معامل $\\frac{1}{2}$ عند حساب تكامل $\\int v\\,dv = \\frac{1}{2}v^2$!",
+      "diagramType": "cartesian_plane"
     }
   ],
   "hots": [
@@ -4256,7 +4379,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 1\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_02",
@@ -4292,7 +4416,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 2\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_03",
@@ -4328,7 +4453,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 3\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_04",
@@ -4364,7 +4490,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 4\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_05",
@@ -4400,7 +4527,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 5\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_06",
@@ -4436,7 +4564,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 6\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_07",
@@ -4472,7 +4601,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 7\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_08",
@@ -4508,7 +4638,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 8\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_09",
@@ -4544,7 +4675,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 9\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_10",
@@ -4580,7 +4712,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٣. بالتعويض عن $x = 0$: $a = 10\\text{ م/ث}^2$."
       ],
       "teacherTipEn": "Remember d(v^2)/dx = 2a: (e^{2kx})' = 2k e^{2kx} = 2a => a = k e^{2kx}.",
-      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ."
+      "teacherTipAr": "مشتقة ع² بالنسبة لـ س تساوي ٢ جـ.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_11",
@@ -4619,7 +4752,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 2\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_12",
@@ -4658,7 +4792,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 3\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_13",
@@ -4697,7 +4832,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 4\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_14",
@@ -4736,7 +4872,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 5\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_15",
@@ -4775,7 +4912,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 6\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_16",
@@ -4814,7 +4952,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 7\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_17",
@@ -4853,7 +4992,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 8\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_18",
@@ -4892,7 +5032,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 9\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_19",
@@ -4931,7 +5072,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 10\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_20",
@@ -4970,7 +5112,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن السرعة النهائية $v = 11\\text{ م/ث}$."
       ],
       "teacherTipEn": "A classic Thanaweya question modeling celestial gravitational mechanics.",
-      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية."
+      "teacherTipAr": "مسألة امتحانية كلاسيكية تعبر عن ميكانيكا الجاذبية الفلكية وتكامل الدوال الكسرية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_21",
@@ -5008,7 +5151,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 4\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_22",
@@ -5046,7 +5190,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 5\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_23",
@@ -5084,7 +5229,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 6\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_24",
@@ -5122,7 +5268,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 7\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_25",
@@ -5160,7 +5307,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 8\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_26",
@@ -5198,7 +5346,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 9\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_27",
@@ -5236,7 +5385,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 10\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_28",
@@ -5274,7 +5424,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 11\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_29",
@@ -5312,7 +5463,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 12\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_30",
@@ -5350,7 +5502,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. إذن لحظة اللقاء الثانية هي $t = 13\\text{ ث}$."
       ],
       "teacherTipEn": "Particles meet when position coordinates are identical: x1 = x2.",
-      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢."
+      "teacherTipAr": "يلتقي الجسيمان عند اللحظات التي يتساوى فيها موضعاهما: س١ = س٢.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_31",
@@ -5384,7 +5537,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 1(4) = 4\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_32",
@@ -5418,7 +5572,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 2(4) = 8\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_33",
@@ -5452,7 +5607,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 3(4) = 12\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_34",
@@ -5486,7 +5642,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 4(4) = 16\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_35",
@@ -5520,7 +5677,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 5(4) = 20\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_36",
@@ -5554,7 +5712,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 6(4) = 24\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_37",
@@ -5588,7 +5747,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 7(4) = 28\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_38",
@@ -5622,7 +5782,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 8(4) = 32\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_39",
@@ -5656,7 +5817,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 9(4) = 36\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_40",
@@ -5690,7 +5852,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٢. بالتعويض في المركبة الصادية: $y(2) = 10(4) = 40\\text{ م}$."
       ],
       "teacherTipEn": "Parametric elimination connects 2D kinematics to coordinate geometry.",
-      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية."
+      "teacherTipAr": "حذف الوسيط الزمني يربط الحركة في بعدين بالهندسة التحليلية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_41",
@@ -5728,7 +5891,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 3\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_42",
@@ -5766,7 +5930,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 12\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_43",
@@ -5804,7 +5969,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 27\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_44",
@@ -5842,7 +6008,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 48\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_45",
@@ -5880,7 +6047,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 75\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_46",
@@ -5918,7 +6086,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 108\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_47",
@@ -5956,7 +6125,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 147\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_48",
@@ -5994,7 +6164,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 192\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_49",
@@ -6032,7 +6203,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 243\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_50",
@@ -6070,7 +6242,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "٤. المسافة الكلية = $s_1 + s_2 = 300\\text{ م}$."
       ],
       "teacherTipEn": "Can also use average speed for both stages: s = (1/2) * v_max * t_total.",
-      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع."
+      "teacherTipAr": "يمكن استخدام مساحة مثلث منحنى (السرعة - الزمن) مباشرة: نصف القاعدة × الارتفاع.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_51",
@@ -6108,7 +6281,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "عند $t = \\frac{1}{k}$: $v = \\frac{g}{k}(1 - e^{-1})$."
       ],
       "teacherTipEn": "The characteristic time $\\tau = \\frac{1}{k}$ is the time constant where the body reaches $(1 - 1/e) \\approx 63.2\\%$ of terminal speed.",
-      "teacherTipAr": "الزمن $\\tau = 1/k$ يمثل ثابت الزمن الذي يبلغ عنده الجسم حوالي $63.2\\%$ من سرعته الحدية."
+      "teacherTipAr": "الزمن $\\tau = 1/k$ يمثل ثابت الزمن الذي يبلغ عنده الجسم حوالي $63.2\\%$ من سرعته الحدية.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_52",
@@ -6146,7 +6320,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "تختصر $x$ تماماً، وتكون العجلة ثابته وموجبة دائماً!"
       ],
       "teacherTipEn": "Remember Torricelli's equation $v^2 = 2as$. Here $v = \\sqrt{2a} \\sqrt{x} = k\\sqrt{x} \\implies 2a = k^2 \\implies a = \\frac{k^2}{2}$.",
-      "teacherTipAr": "قارن مع معادلة الحركة بعجلة منتظمة $v^2 = 2ax$ لتكتشف النتيجة بالنظر مباشرة!"
+      "teacherTipAr": "قارن مع معادلة الحركة بعجلة منتظمة $v^2 = 2ax$ لتكتشف النتيجة بالنظر مباشرة!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_53",
@@ -6186,7 +6361,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "$-\\frac{2}{3} v_0^{3/2} = -k x_{\\text{stop}} \\implies x_{\\text{stop}} = \\frac{2}{3k} v_0^{3/2}$."
       ],
       "teacherTipEn": "When asked for distance to stop, use $a = v\\frac{dv}{dx}$ directly rather than finding $v(t)$ and integrating twice!",
-      "teacherTipAr": "عند طلب مسافة التوقف، استخدم $a = v\\frac{dv}{dx}$ مباشرة بدلاً من إيجاد $v(t)$ والتكامل مرتين!"
+      "teacherTipAr": "عند طلب مسافة التوقف، استخدم $a = v\\frac{dv}{dx}$ مباشرة بدلاً من إيجاد $v(t)$ والتكامل مرتين!",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_54",
@@ -6264,7 +6440,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بوضع $j(t) = 0 \\implies 2t = 2 \\implies t = 1\\text{ ث}$."
       ],
       "teacherTipEn": "Minimizing jerk is the central design objective in elevator and high-speed rail passenger comfort.",
-      "teacherTipAr": "تقليل معدل تغير العجلة هو الهدف الهندسي الأساسي لتوفير الراحة لركاب القطارات والمصاعد."
+      "teacherTipAr": "تقليل معدل تغير العجلة هو الهدف الهندسي الأساسي لتوفير الراحة لركاب القطارات والمصاعد.",
+      "diagramType": "secant_derivative_graph"
     },
     {
       "id": "dyn_ch1_db_hots_56",
@@ -6300,7 +6477,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "$t = \\int_0^3 (x + 1)\\,dx = [\\frac{1}{2} x^2 + x]_0^3 = 4.5 + 3 = 7.5\\text{ ث}$."
       ],
       "teacherTipEn": "Writing $dt = \\frac{dx}{v}$ allows direct integration for travel time when $v$ is known as a function of $x$.",
-      "teacherTipAr": "كتابة $dt = \\frac{dx}{v}$ تتيح حساب زمن الرحلة بالتكامل المباشر عندما تكون السرعة دالة في الموضع."
+      "teacherTipAr": "كتابة $dt = \\frac{dx}{v}$ تتيح حساب زمن الرحلة بالتكامل المباشر عندما تكون السرعة دالة في الموضع.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_57",
@@ -6340,7 +6518,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "بما أن $x^2 - t^2 = 16$، إذن $x a = \\frac{16}{x^2} \\implies a = \\frac{16}{x^3}$."
       ],
       "teacherTipEn": "Implicit differentiation of $x^2 = f(t)$ is much faster and cleaner than chain rule with radicals!",
-      "teacherTipAr": "التفاضل الضمني للعلاقة $x^2 = f(t)$ أسرع بكثير وأنظف من تفاضل الجذور بالقسمة."
+      "teacherTipAr": "التفاضل الضمني للعلاقة $x^2 = f(t)$ أسرع بكثير وأنظف من تفاضل الجذور بالقسمة.",
+      "diagramType": "cartesian_plane"
     },
     {
       "id": "dyn_ch1_db_hots_58",
@@ -6376,7 +6555,8 @@ export const dynCh1Databank: ChapterDatabank = {
         "وحيث أن $\\frac{dv}{dt} = 0$، فإن السرعة $v(t)$ تبلغ قيمة عظمى أو صغرى محلية عند تلك اللحظة."
       ],
       "teacherTipEn": "This question bridges calculus and kinematics: concave up $\\implies a > 0$, concave down $\\implies a < 0$, inflection $\\implies a = 0$.",
-      "teacherTipAr": "هذا السؤال يربط بين التفاضل والحركة: التحدب لأسفل $\\implies a > 0$، والتحدب لأعلى $\\implies a < 0$، ونقطة الانقلاب $\\implies a = 0$."
+      "teacherTipAr": "هذا السؤال يربط بين التفاضل والحركة: التحدب لأسفل $\\implies a > 0$، والتحدب لأعلى $\\implies a < 0$، ونقطة الانقلاب $\\implies a = 0$.",
+      "diagramType": "calculus_inflection_curve"
     }
   ]
 };
