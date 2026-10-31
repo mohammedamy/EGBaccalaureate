@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import type { Language } from '../../i18n/translations';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import {
   HOLY_SACRAMENTS,
   MONASTIC_MILESTONES,
@@ -3925,12 +3926,24 @@ export const ChristianHeritageStudio: React.FC<Props> = ({
                   isLight ? 'bg-amber-100/60 border-amber-300 shadow-sm' : 'bg-slate-900/80 border-slate-700'
                 }`}
               >
-                <div
-                  className={`text-xs font-black uppercase tracking-wider ${
-                    isLight ? 'text-amber-950' : 'text-amber-400'
-                  }`}
-                >
-                  {isArabic ? 'التحليل المنهجي المعتمد' : 'Accredited Curriculum Analysis'}
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div
+                    className={`text-xs font-black uppercase tracking-wider ${
+                      isLight ? 'text-amber-950' : 'text-amber-400'
+                    }`}
+                  >
+                    {isArabic ? 'التحليل المنهجي المعتمد' : 'Accredited Curriculum Analysis'}
+                  </div>
+                  <SpeechNarrationButton
+                    text={
+                      isArabic
+                        ? CHRISTIAN_SCENARIO_QUIZ[currentQIndex].explanationAr
+                        : CHRISTIAN_SCENARIO_QUIZ[currentQIndex].explanationEn
+                    }
+                    lang={isArabic ? 'ar' : 'en'}
+                    context="explanation"
+                    compact
+                  />
                 </div>
                 <p className={`text-sm leading-relaxed ${isLight ? 'text-slate-900 font-medium' : 'text-slate-300'}`}>
                   {isArabic

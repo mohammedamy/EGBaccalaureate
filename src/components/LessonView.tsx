@@ -49,6 +49,7 @@ import { RenewableEnergyStudio } from './labs/RenewableEnergyStudio';
 import { NationalCivicsStudio } from './labs/NationalCivicsStudio';
 import { TextbookDiagram } from './TextbookDiagram';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { getProgressiveHintsForQuestion } from '../services/aiStudyHintService';
 import { Printer, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, ListFilter, Lightbulb, Clock, CheckCircle, Target, BookOpen, Layers, Award, Star, Check, RotateCcw, XCircle, CheckCircle2, Compass, HelpCircle, Calculator, FlaskConical, Microscope, Copy, ExternalLink, Download, Bookmark, Sparkles, Maximize2, Minimize2, FileText, Languages } from 'lucide-react';
 import { useNativeLabFullscreen } from '../core/labs/useNativeLabFullscreen';
@@ -1539,9 +1540,19 @@ export const LessonView: React.FC<Props> = ({
         </div>
 
         {isHintOpen && (
-          <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-500/30 p-3 rounded-lg text-xs text-amber-950 dark:text-amber-200 print-avoid-break">
-            <span className="font-bold">💡 {t.showHint}: </span>
-            <MathRenderer math={lang === 'ar' ? prob.hintAr : prob.hintEn} lang={lang} />
+          <div className="bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-500/30 p-3 rounded-lg text-xs text-amber-950 dark:text-amber-200 print-avoid-break space-y-1.5">
+            <div className="flex items-center justify-between gap-2 flex-wrap">
+              <span className="font-bold">💡 {t.showHint}: </span>
+              <SpeechNarrationButton
+                text={lang === 'ar' ? prob.hintAr : prob.hintEn}
+                lang={lang}
+                context="hint"
+                compact
+              />
+            </div>
+            <div>
+              <MathRenderer math={lang === 'ar' ? prob.hintAr : prob.hintEn} lang={lang} />
+            </div>
           </div>
         )}
 
@@ -1551,7 +1562,23 @@ export const LessonView: React.FC<Props> = ({
               ? 'bg-white border-slate-200 text-slate-800 shadow-xs'
               : 'bg-slate-900/90 border-slate-800 text-slate-200'
           }`}>
-            <span className="font-bold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider">{t.stepByStepSolution}</span>
+            <div className="flex items-center justify-between gap-2 flex-wrap">
+              <span className="font-bold text-emerald-600 dark:text-emerald-400 block uppercase tracking-wider">{t.stepByStepSolution}</span>
+              <SpeechNarrationButton
+                text={[
+                  ...(lang === 'ar' ? prob.stepByStepSolutionAr : prob.stepByStepSolutionEn),
+                  ...(lang === 'ar'
+                    ? prob.teacherTipAr
+                      ? [prob.teacherTipAr]
+                      : []
+                    : prob.teacherTipEn
+                    ? [prob.teacherTipEn]
+                    : []),
+                ]}
+                lang={lang}
+                context="explanation"
+              />
+            </div>
             <ol className={`space-y-2 list-decimal list-inside ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
               {(lang === 'ar' ? prob.stepByStepSolutionAr : prob.stepByStepSolutionEn).map((step, sIdx) => (
                 <li key={sIdx} className="leading-relaxed">
@@ -2071,12 +2098,21 @@ export const LessonView: React.FC<Props> = ({
               ? 'bg-white border-slate-200 shadow-md text-slate-900'
               : 'bg-slate-900/90 border-slate-800 shadow-2xl text-slate-100'
           }`}>
-            <h3 className={`text-lg font-bold flex items-center gap-2 border-b pb-3 ${
-              isLight ? 'text-indigo-800 border-slate-200' : 'text-indigo-400 border-slate-800'
+            <div className={`flex items-center justify-between gap-2 flex-wrap border-b pb-3 ${
+              isLight ? 'border-slate-200' : 'border-slate-800'
             }`}>
-              <BookOpen className="w-5 h-5" />
-              <span>{lang === 'ar' ? 'الشرح والنظريات الأساسية' : 'Theoretical Foundations & Proofs'}</span>
-            </h3>
+              <h3 className={`text-lg font-bold flex items-center gap-2 ${
+                isLight ? 'text-indigo-800' : 'text-indigo-400'
+              }`}>
+                <BookOpen className="w-5 h-5" />
+                <span>{lang === 'ar' ? 'الشرح والنظريات الأساسية' : 'Theoretical Foundations & Proofs'}</span>
+              </h3>
+              <SpeechNarrationButton
+                text={lang === 'ar' ? lesson.theoryContentAr : lesson.theoryContentEn}
+                lang={lang}
+                context="explanation"
+              />
+            </div>
 
             <div className={`prose max-w-none text-sm sm:text-base leading-relaxed space-y-4 ${
               isLight ? 'prose-slate text-slate-800' : 'prose-invert text-slate-200'
@@ -2145,11 +2181,23 @@ export const LessonView: React.FC<Props> = ({
                       ? 'bg-amber-50/70 border-amber-200 text-amber-950 shadow-xs'
                       : 'bg-amber-950/20 border-amber-800/40 text-amber-200 shadow-xs'
                   }`}>
-                    <div className="flex items-center gap-2 mb-3 pb-2 border-b border-amber-500/20">
-                      <span className="text-amber-500 font-bold text-base">⚠️</span>
-                      <h4 className="text-sm font-bold text-amber-600 dark:text-amber-400">
-                        {lang === 'ar' ? 'فخاخ الامتحانات والمفاهيم الخاطئة الشائعة' : 'Exam Traps & Common Misconceptions'}
-                      </h4>
+                    <div className="flex items-center justify-between gap-2 mb-3 pb-2 border-b border-amber-500/20">
+                      <div className="flex items-center gap-2">
+                        <span className="text-amber-500 font-bold text-base">⚠️</span>
+                        <h4 className="text-sm font-bold text-amber-600 dark:text-amber-400">
+                          {lang === 'ar' ? 'فخاخ الامتحانات والمفاهيم الخاطئة الشائعة' : 'Exam Traps & Common Misconceptions'}
+                        </h4>
+                      </div>
+                      <SpeechNarrationButton
+                        text={
+                          lang === 'ar'
+                            ? lesson.lessonPlan.commonMisconceptionsAr || lesson.lessonPlan.commonMisconceptionsEn
+                            : lesson.lessonPlan.commonMisconceptionsEn
+                        }
+                        lang={lang}
+                        context="hint"
+                        compact
+                      />
                     </div>
                     <ul className="space-y-2 text-xs leading-relaxed list-disc list-inside">
                       {(lang === 'ar'
@@ -3132,7 +3180,15 @@ export const LessonView: React.FC<Props> = ({
               <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion?.questionAr : lesson.lessonPlan.exitTicketQuestion?.questionEn} lang={lang} />
             </div>
             <div className={`p-3 rounded-lg ${isLight ? 'bg-white border border-slate-200 text-slate-800' : 'bg-slate-900 text-slate-300'}`}>
-              <strong className={`block mb-1 ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>{t.stepByStepSolution}:</strong>
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <strong className={`block ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>{t.stepByStepSolution}:</strong>
+                <SpeechNarrationButton
+                  text={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion?.solutionAr : lesson.lessonPlan.exitTicketQuestion?.solutionEn}
+                  lang={lang}
+                  context="explanation"
+                  compact
+                />
+              </div>
               <MathRenderer math={lang === 'ar' ? lesson.lessonPlan.exitTicketQuestion?.solutionAr : lesson.lessonPlan.exitTicketQuestion?.solutionEn} lang={lang} />
             </div>
           </div>

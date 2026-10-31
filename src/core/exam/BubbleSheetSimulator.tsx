@@ -19,6 +19,7 @@ import {
   Printer,
 } from 'lucide-react';
 import { MathRenderer } from '../../components/MathRenderer';
+import { SpeechNarrationButton } from '../../components/SpeechNarrationButton';
 import { TextbookDiagram } from '../../components/TextbookDiagram';
 import { EgyptFlag } from '../../components/EgyptFlag';
 import { toHindiDigits } from '../../utils/arabicNumerals';
@@ -953,9 +954,16 @@ export const BubbleSheetSimulator: React.FC<BubbleSheetSimulatorProps> = ({
                   <div className={`mt-4 p-4 rounded-2xl border space-y-2 text-xs ${
                     isLight ? 'bg-indigo-50/70 border-indigo-200 text-slate-900' : 'bg-slate-950 border-slate-800'
                   }`}>
-                    <div className="flex items-center gap-2 font-bold text-indigo-600 dark:text-indigo-300">
-                      <HelpCircle className="w-4 h-4" />
-                      <span>{isAr ? 'خطوات الحل والتعليل الوزاري النموذجي:' : 'Ministry Step-by-Step Solution:'}</span>
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="flex items-center gap-2 font-bold text-indigo-600 dark:text-indigo-300">
+                        <HelpCircle className="w-4 h-4" />
+                        <span>{isAr ? 'خطوات الحل والتعليل الوزاري النموذجي:' : 'Ministry Step-by-Step Solution:'}</span>
+                      </div>
+                      <SpeechNarrationButton
+                        text={isAr ? activeQuestion.explanationAr : activeQuestion.explanationEn}
+                        lang={isAr ? 'ar' : 'en'}
+                        context="explanation"
+                      />
                     </div>
                     <div className={`space-y-1.5 font-sans ${isLight ? 'text-slate-800' : 'text-slate-300'}`}>
                       {(isAr ? activeQuestion.explanationAr : activeQuestion.explanationEn)?.map((step, idx) => (

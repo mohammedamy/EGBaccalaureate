@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import type { Language } from '../../i18n/translations';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import {
   Cpu,
   Play,
@@ -4103,9 +4104,17 @@ export const ArduinoRoboticsStudio: React.FC<Props> = ({
                   </div>
 
                   <div className={`p-4 rounded-2xl border space-y-2 text-xs ${subCardThemeClass}`}>
-                    <div className={`font-bold flex items-center gap-1.5 ${isLight ? 'text-cyan-800' : 'text-cyan-300'}`}>
-                      <HelpCircle className="w-4 h-4 text-cyan-400" />
-                      <span>{isArabic ? 'إرشادات الحل والتلميح البرمجي:' : 'Solution Hint & Circuit Guidance:'}</span>
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className={`font-bold flex items-center gap-1.5 ${isLight ? 'text-cyan-800' : 'text-cyan-300'}`}>
+                        <HelpCircle className="w-4 h-4 text-cyan-400" />
+                        <span>{isArabic ? 'إرشادات الحل والتلميح البرمجي:' : 'Solution Hint & Circuit Guidance:'}</span>
+                      </div>
+                      <SpeechNarrationButton
+                        text={isArabic ? currentCh.hintAr : currentCh.hintEn}
+                        lang={isArabic ? 'ar' : 'en'}
+                        context="hint"
+                        compact
+                      />
                     </div>
                     <p className={`font-mono text-[11px] leading-relaxed ${isLight ? 'text-slate-700' : isContrast ? 'text-yellow-200' : 'text-slate-400'}`}>
                       {isArabic ? currentCh.hintAr : currentCh.hintEn}

@@ -448,11 +448,11 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 </span>
               </div>
 
-              <h3 className="text-lg font-black text-emerald-400 mb-2">
+              <h3 className={`text-lg font-black mb-2 ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>
                 {isArabic ? selectedHotspot.titleAr : selectedHotspot.titleEn}
               </h3>
 
-              <p className="text-sm leading-relaxed text-stone-300 mb-4">
+              <p className={`text-sm leading-relaxed mb-4 ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic ? selectedHotspot.descAr : selectedHotspot.descEn}
               </p>
 
@@ -463,7 +463,7 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                     : 'bg-emerald-950/20 border-emerald-500/30 text-emerald-200'
                 }`}
               >
-                <div className="font-bold flex items-center gap-1.5 text-emerald-400">
+                <div className={`font-bold flex items-center gap-1.5 ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>
                   <Shield className="w-3.5 h-3.5" />
                   <span>{isArabic ? 'الشاهد الحقلي التشخيصي:' : 'Field Diagnostic Criteria:'}</span>
                 </div>
@@ -544,10 +544,10 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
           }`}
         >
           <div className="mb-4">
-            <h4 className="text-base font-black text-emerald-300 mb-1">
+            <h4 className={`text-base font-black mb-1 ${isLight ? 'text-emerald-800' : 'text-emerald-300'}`}>
               {isArabic ? activeType.nameAr : activeType.nameEn}
             </h4>
-            <p className="text-sm text-stone-300 leading-relaxed">
+            <p className={`text-sm leading-relaxed ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
               {isArabic ? activeType.definitionAr : activeType.definitionEn}
             </p>
           </div>
@@ -558,10 +558,10 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-amber-50/50 border-amber-200' : 'bg-stone-950/60 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-amber-500 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-amber-800' : 'text-amber-500'}`}>
                 {isArabic ? 'الصخور السفلية (الأقدم):' : 'Lower (Older) Rock Unit:'}
               </div>
-              <div className="text-xs text-stone-200 leading-relaxed">
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-800' : 'text-stone-200'}`}>
                 {isArabic ? activeType.lowerRockAr : activeType.lowerRockEn}
               </div>
             </div>
@@ -571,10 +571,10 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-sky-50/50 border-sky-200' : 'bg-stone-950/60 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-sky-400 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-sky-800' : 'text-sky-400'}`}>
                 {isArabic ? 'الصخور العلوية (الأحدث):' : 'Upper (Younger) Rock Unit:'}
               </div>
-              <div className="text-xs text-stone-200 leading-relaxed">
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-800' : 'text-stone-200'}`}>
                 {isArabic ? activeType.upperRockAr : activeType.upperRockEn}
               </div>
             </div>
@@ -586,14 +586,14 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
               isLight ? 'bg-emerald-50/60 border-emerald-200' : 'bg-emerald-950/20 border-emerald-500/20'
             }`}
           >
-            <div className="text-xs font-bold text-emerald-400 mb-2 flex items-center gap-1.5">
+            <div className={`text-xs font-bold mb-2 flex items-center gap-1.5 ${isLight ? 'text-emerald-800' : 'text-emerald-400'}`}>
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>{isArabic ? 'شواهد ودلائل وجود هذا السطح في الحقل:' : 'Field Diagnostic Criteria:'}</span>
             </div>
             <ul className="text-xs space-y-1.5">
               {(isArabic ? activeType.fieldEvidencesAr : activeType.fieldEvidencesEn).map((ev, i) => (
-                <li key={i} className="flex items-start gap-2 text-stone-200">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
+                <li key={i} className={`flex items-start gap-2 ${isLight ? 'text-stone-800' : 'text-stone-200'}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
                   <span>{ev}</span>
                 </li>
               ))}
@@ -662,8 +662,8 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-red-400 mb-1">{isArabic ? 'فالق عادي (Normal Fault)' : 'Normal Fault'}</div>
-              <div className="text-xs text-stone-300 leading-relaxed">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-red-700' : 'text-red-400'}`}>{isArabic ? 'فالق عادي (Normal Fault)' : 'Normal Fault'}</div>
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic
                   ? 'ينشأ بفعل قوى شد تكتونية؛ تتحرك فيه صخور الحائط العلوي إلى أسفل بالنسبة لصخور الحائط السفلي. يسبب زيادة في مساحة القشرة الأرضية وتكراراً رأسياً مفقوداً.'
                   : 'Formed by extensional tensional stress; hanging wall moves downward relative to footwall, resulting in crustal extension.'}
@@ -676,10 +676,10 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-amber-400 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>
                 {isArabic ? 'فالق معكوس / دسر (Reverse & Thrust)' : 'Reverse / Thrust Fault'}
               </div>
-              <div className="text-xs text-stone-300 leading-relaxed">
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic
                   ? 'ينشأ بفعل قوى ضغط؛ تتحرك فيه صخور الحائط العلوي إلى أعلى بالنسبة لصخور الحائط السفلي. إذا قل ميل مستوى الفالق عن 45° يسمى فالق دسر (يزحف أفقياً تقريباً).'
                   : 'Formed by compressional stress; hanging wall thrusts upward relative to footwall. When dip is <45°, it is classified as a low-angle thrust.'}
@@ -692,10 +692,10 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-sky-400 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-sky-700' : 'text-sky-400'}`}>
                 {isArabic ? 'فالق ذو حركة أفقية / بارز / خندقي' : 'Strike-Slip & Horst/Graben'}
               </div>
-              <div className="text-xs text-stone-300 leading-relaxed">
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic
                   ? 'الحركة الأفقية: إزاحة جانبية دون حركة رأسية. الفالق البارز (Horst) والخندقي (Graben): فوالق عادية تتحد في الحائط السفلي (بارز) أو الحائط العلوي (خندق/أخدود).'
                   : 'Strike-slip involves lateral shear without vertical offset. Horst and graben structures form when adjacent normal faults uplift or drop fault blocks.'}
@@ -710,13 +710,13 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-emerald-400 mb-1">{isArabic ? 'طية محدبة (Anticline)' : 'Anticline'}</div>
-              <div className="text-xs text-stone-300 leading-relaxed">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-emerald-700' : 'text-emerald-400'}`}>{isArabic ? 'طية محدبة (Anticline)' : 'Anticline'}</div>
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic
                   ? 'تنثني فيها الطبقات إلى أعلى؛ تتباعد الأجنحة بعيداً عن المستوى المحوري، وتوجد أقدم الطبقات في المركز والمحور.'
                   : 'Upward-arching convex fold; limbs dip away from the axial plane, and the oldest strata are located at the core.'}
               </div>
-              <div className="mt-2 text-[11px] text-emerald-300 font-mono">
+              <div className={`mt-2 text-[11px] font-mono ${isLight ? 'text-emerald-700' : 'text-emerald-300'}`}>
                 {isArabic ? 'الأقدم في المركز' : 'Oldest strata in core'}
               </div>
             </div>
@@ -726,13 +726,13 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-purple-400 mb-1">{isArabic ? 'طية مقعرة (Syncline)' : 'Syncline'}</div>
-              <div className="text-xs text-stone-300 leading-relaxed">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-purple-700' : 'text-purple-400'}`}>{isArabic ? 'طية مقعرة (Syncline)' : 'Syncline'}</div>
+              <div className={`text-xs leading-relaxed ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic
                   ? 'تنثني فيها الطبقات إلى أسفل؛ تميل الأجنحة باتجاه المستوى المحوري، وتوجد أحدث الطبقات في المركز والمحور.'
                   : 'Downward-trough concave fold; limbs dip toward the axial plane, and the youngest strata are located at the core.'}
               </div>
-              <div className="mt-2 text-[11px] text-purple-300 font-mono">
+              <div className={`mt-2 text-[11px] font-mono ${isLight ? 'text-purple-700' : 'text-purple-300'}`}>
                 {isArabic ? 'الأحدث في المركز' : 'Youngest strata in core'}
               </div>
             </div>
@@ -793,6 +793,8 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                       : isLight
                       ? 'bg-white border-emerald-300 shadow-sm'
                       : 'bg-stone-900/80 border-emerald-600/40'
+                    : isLight
+                    ? 'opacity-60 bg-stone-100 border-stone-200'
                     : 'opacity-50 bg-stone-950/40 border-stone-800'
                 }`}
               >
@@ -800,12 +802,12 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                   <div className="flex items-center gap-3">
                     <span
                       className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs ${
-                        isRevealed ? 'bg-emerald-500 text-black' : 'bg-stone-800 text-stone-500'
+                        isRevealed ? 'bg-emerald-500 text-black' : isLight ? 'bg-stone-200 text-stone-600' : 'bg-stone-800 text-stone-500'
                       }`}
                     >
                       {ev.step}
                     </span>
-                    <span className="font-bold text-sm text-stone-200">
+                    <span className={`font-bold text-sm ${isLight ? 'text-stone-900' : 'text-stone-200'}`}>
                       {isArabic ? ev.nameAr : ev.nameEn}
                     </span>
                   </div>
@@ -816,7 +818,7 @@ export const StratigraphicUnconformityStudio: React.FC<Props> = ({
                 </div>
 
                 {isRevealed ? (
-                  <div className="mt-2.5 pt-2.5 border-t border-stone-800 text-xs text-stone-300 flex items-start gap-2">
+                  <div className={`mt-2.5 pt-2.5 border-t text-xs flex items-start gap-2 ${isLight ? 'border-stone-200 text-stone-700' : 'border-stone-800 text-stone-300'}`}>
                     <ChevronRight className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                     <span>{isArabic ? ev.ruleAr : ev.ruleEn}</span>
                   </div>

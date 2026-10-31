@@ -34,15 +34,15 @@ interface Props {
   isFullscreen?: boolean;
   defaultFullscreen?: boolean;
   initialMode?:
-    | 'morphology'
-    | 'unclos'
-    | 'hotspots'
-    | 'blocs'
-    | 'geopower'
-    | 'taba_arbitration'
-    | 'maritime_zones'
-    | 'state_morphology'
-    | 'economic_military_blocs';
+  | 'morphology'
+  | 'unclos'
+  | 'hotspots'
+  | 'blocs'
+  | 'geopower'
+  | 'taba_arbitration'
+  | 'maritime_zones'
+  | 'state_morphology'
+  | 'economic_military_blocs';
 }
 
 type StudioMode =
@@ -722,10 +722,10 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
 
   const overallPowerScore = Math.round(
     geoFactors.morphology * 0.2 +
-      geoFactors.demographics * 0.2 +
-      geoFactors.economics * 0.25 +
-      geoFactors.military * 0.2 +
-      geoFactors.organization * 0.15
+    geoFactors.demographics * 0.2 +
+    geoFactors.economics * 0.25 +
+    geoFactors.military * 0.2 +
+    geoFactors.organization * 0.15
   );
 
   const getPowerClassification = (score: number) => {
@@ -739,32 +739,31 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
 
   return (
     <div
-      className={`rounded-3xl border transition-all overflow-hidden ${
-        isContrast
+      className={`rounded-3xl border transition-all overflow-hidden ${isContrast
           ? 'bg-black border-yellow-400 text-white'
           : isLight
-          ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-xl'
-          : 'bg-slate-900 border-slate-800 text-white shadow-2xl'
-      } ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-6' : 'p-4 sm:p-6'}`}
+            ? 'bg-slate-50 border-slate-200 text-slate-900 shadow-xl'
+            : 'bg-slate-900 border-slate-800 text-white shadow-2xl'
+        } ${isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-6' : 'p-4 sm:p-6'}`}
       data-fullscreen-lab={isFullscreen ? 'true' : undefined}
       dir={isArabic ? 'rtl' : 'ltr'}
     >
       {/* Studio Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-6 border-b border-slate-800/80">
-        <div className="flex items-center gap-3">
+      <div className={`flex flex-col gap-4 pb-6 border-b w-full min-w-0 max-w-full ${isLight ? 'border-slate-200' : 'border-slate-800/80'}`}>
+        <div className="flex items-center gap-3 min-w-0">
           <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 via-emerald-500 to-cyan-600 flex items-center justify-center text-white shadow-lg shadow-teal-500/20 shrink-0">
             <Globe className="w-6 h-6 animate-pulse" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
               <h2 className="text-xl sm:text-2xl font-black tracking-tight">
                 {isArabic ? 'استوديو الخرائط والجيوبولتيك التفاعلي' : 'Geopolitical Map & Analysis Studio'}
               </h2>
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-500/10 text-teal-400 border border-teal-500/20">
-                MoE MoE-Certified
+              <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold shrink-0 ${isLight ? 'bg-teal-100 text-teal-800 border border-teal-300' : 'bg-teal-500/10 text-teal-400 border border-teal-500/20'}`}>
+                MoE-Certified
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
+            <p className={`text-xs sm:text-sm mt-0.5 ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
               {isArabic
                 ? 'محاكاة أشكال الدول، الحدود البحرية UNCLOS، بؤر النزاعات الدولية، والتكتلات الاقتصادية'
                 : 'Interactive state morphology, UNCLOS maritime zones, dispute hotspots & economic blocs'}
@@ -773,17 +772,16 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
         </div>
 
         {/* Museum 4K Archival Showcase Jump Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
           {/* Card 1: Taba International Arbitration 1989 */}
           <button
             onClick={() => setActiveMode('taba_arbitration')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
-              activeMode === 'taba_arbitration'
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${activeMode === 'taba_arbitration'
                 ? 'bg-amber-500/20 border-amber-400 ring-2 ring-amber-400/50'
                 : isLight
-                ? 'bg-white/90 border-amber-200 hover:border-amber-400 hover:bg-amber-50/50'
-                : 'bg-slate-900/60 border-amber-900/40 hover:border-amber-500/60 hover:bg-slate-900/80'
-            }`}
+                  ? 'bg-white/90 border-amber-200 hover:border-amber-400 hover:bg-amber-50/50'
+                  : 'bg-slate-900/60 border-amber-900/40 hover:border-amber-500/60 hover:bg-slate-900/80'
+              }`}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold">
@@ -802,13 +800,12 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
           {/* Card 2: UNCLOS Maritime Zones */}
           <button
             onClick={() => setActiveMode('maritime_zones')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
-              activeMode === 'maritime_zones'
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${activeMode === 'maritime_zones'
                 ? 'bg-cyan-500/20 border-cyan-400 ring-2 ring-cyan-400/50'
                 : isLight
-                ? 'bg-white/90 border-cyan-200 hover:border-cyan-400 hover:bg-cyan-50/50'
-                : 'bg-slate-900/60 border-cyan-900/40 hover:border-cyan-500/60 hover:bg-slate-900/80'
-            }`}
+                  ? 'bg-white/90 border-cyan-200 hover:border-cyan-400 hover:bg-cyan-50/50'
+                  : 'bg-slate-900/60 border-cyan-900/40 hover:border-cyan-500/60 hover:bg-slate-900/80'
+              }`}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-bold">
@@ -827,13 +824,12 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
           {/* Card 3: State Morphology */}
           <button
             onClick={() => setActiveMode('state_morphology')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
-              activeMode === 'state_morphology'
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${activeMode === 'state_morphology'
                 ? 'bg-emerald-500/20 border-emerald-400 ring-2 ring-emerald-400/50'
                 : isLight
-                ? 'bg-white/90 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50/50'
-                : 'bg-slate-900/60 border-emerald-900/40 hover:border-emerald-500/60 hover:bg-slate-900/80'
-            }`}
+                  ? 'bg-white/90 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50/50'
+                  : 'bg-slate-900/60 border-emerald-900/40 hover:border-emerald-500/60 hover:bg-slate-900/80'
+              }`}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
@@ -852,13 +848,12 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
           {/* Card 4: Economic & Military Blocs */}
           <button
             onClick={() => setActiveMode('economic_military_blocs')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
-              activeMode === 'economic_military_blocs'
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${activeMode === 'economic_military_blocs'
                 ? 'bg-blue-500/20 border-blue-400 ring-2 ring-blue-400/50'
                 : isLight
-                ? 'bg-white/90 border-blue-200 hover:border-blue-400 hover:bg-blue-50/50'
-                : 'bg-slate-900/60 border-blue-900/40 hover:border-blue-500/60 hover:bg-slate-900/80'
-            }`}
+                  ? 'bg-white/90 border-blue-200 hover:border-blue-400 hover:bg-blue-50/50'
+                  : 'bg-slate-900/60 border-blue-900/40 hover:border-blue-500/60 hover:bg-slate-900/80'
+              }`}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold">
@@ -876,7 +871,7 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-950/60 border border-slate-800/80 overflow-x-auto max-w-full">
+        <div className={`flex flex-wrap items-center gap-1.5 p-1.5 rounded-2xl border w-full max-w-full ${isLight ? 'bg-slate-100 border-slate-300' : 'bg-slate-950/60 border-slate-800/80'}`}>
           {[
             { id: 'morphology', labelEn: 'Morphology', labelAr: 'شكل الدولة والاندماج', icon: Sliders },
             { id: 'unclos', labelEn: 'UNCLOS Maritime', labelAr: 'المناطق المائية', icon: Anchor },
@@ -895,13 +890,12 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveMode(tab.id as StudioMode)}
-                className={`flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                  isSelected
+                className={`flex items-center gap-2 px-3.5 py-2 min-h-[44px] rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${isSelected
                     ? 'bg-gradient-to-r from-teal-600 to-emerald-600 text-white shadow-md shadow-teal-500/30'
                     : isLight
-                    ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
-                    : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
-                }`}
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-200'
+                      : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  }`}
               >
                 <IconComponent className="w-3.5 h-3.5" />
                 <span>{isArabic ? tab.labelAr : tab.labelEn}</span>
@@ -937,13 +931,12 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                     key={key}
                     type="button"
                     onClick={() => setSelectedCountryPreset(key)}
-                    className={`p-3 rounded-2xl text-start transition-all border cursor-pointer ${
-                      isSelected
+                    className={`p-3 rounded-2xl text-start transition-all border cursor-pointer ${isSelected
                         ? 'bg-teal-500/10 border-teal-500 text-teal-300 shadow-md shadow-teal-500/10'
                         : isLight
-                        ? 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
-                        : 'bg-slate-950/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
-                    }`}
+                          ? 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
+                          : 'bg-slate-950/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
+                      }`}
                   >
                     <div className="text-xs font-black truncate">{isArabic ? item.nameAr : item.nameEn}</div>
                     <div className="text-[10px] text-slate-500 mt-1 truncate">
@@ -1045,8 +1038,8 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                             ? 'خطوط إمداد دفاعية قصيرة وسريعة؛ انخفاض طول الحدود مقارنة بالمساحة يقلل احتمالات الاختراق.'
                             : 'Short internal supply lines, minimal borders relative to area, superior rapid troop deployment.'
                           : isArabic
-                          ? 'حدود مفرطة الطول تزيد من صعوبة التأمين وتجعل أطراف الدولة عرضة للتهديدات الخارجية.'
-                          : 'Vulnerable extended borders require elevated defense spending and dispersed border patrols.'}
+                            ? 'حدود مفرطة الطول تزيد من صعوبة التأمين وتجعل أطراف الدولة عرضة للتهديدات الخارجية.'
+                            : 'Vulnerable extended borders require elevated defense spending and dispersed border patrols.'}
                       </p>
                     </div>
 
@@ -1072,8 +1065,8 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                             ? 'سهولة بسط سلطة الحكومة المركزية، تقليل فرص النزعات الانفصالية، وتجانس ثقافي واجتماعي.'
                             : 'Seamless centralized administrative authority, reduced secessionist risk, robust societal cohesion.'
                           : isArabic
-                          ? 'عزلة جغرافية لبعض الأقاليم؛ صعوبة في السيطرة الإدارية المركزية وقد يشجع النزعات الانفصالية.'
-                          : 'Geographical isolation of outlying provinces can foment separatist tendencies or administrative neglect.'}
+                            ? 'عزلة جغرافية لبعض الأقاليم؛ صعوبة في السيطرة الإدارية المركزية وقد يشجع النزعات الانفصالية.'
+                            : 'Geographical isolation of outlying provinces can foment separatist tendencies or administrative neglect.'}
                       </p>
                     </div>
                   </div>
@@ -1114,12 +1107,12 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                             ? 'مندمج / منتظم ممتاز'
                             : 'High Compactness'
                           : compactnessPercent >= 20
-                          ? isArabic
-                            ? 'متوسط الاندماج'
-                            : 'Moderate'
-                          : isArabic
-                          ? 'شريطي / مجزأ عالي الهشاشة'
-                          : 'Low / Elongated'}
+                            ? isArabic
+                              ? 'متوسط الاندماج'
+                              : 'Moderate'
+                            : isArabic
+                              ? 'شريطي / مجزأ عالي الهشاشة'
+                              : 'Low / Elongated'}
                       </div>
                     </div>
                   </div>
@@ -1372,11 +1365,10 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                       key={key}
                       type="button"
                       onClick={() => setSelectedMaritimeZone(key)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${
-                        isSelected
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border cursor-pointer ${isSelected
                           ? `${z.badgeColor} text-white border-transparent shadow-md shadow-teal-500/20`
                           : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700'
-                      }`}
+                        }`}
                     >
                       {isArabic ? z.titleAr : z.titleEn}
                     </button>
@@ -1494,11 +1486,10 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                     key={hKey}
                     type="button"
                     onClick={() => setSelectedHotspot(hKey)}
-                    className={`p-3.5 rounded-2xl text-start transition-all border cursor-pointer ${
-                      isSelected
+                    className={`p-3.5 rounded-2xl text-start transition-all border cursor-pointer ${isSelected
                         ? 'bg-gradient-to-r from-teal-500/20 to-emerald-500/10 border-teal-500 text-teal-300 shadow-lg shadow-teal-500/10'
                         : 'bg-slate-950/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center justify-between gap-1 mb-1">
                       <span className="text-[10px] text-slate-500 font-mono uppercase">
@@ -1652,11 +1643,10 @@ export const GeopoliticalMapStudio: React.FC<Props> = ({
                     key={bKey}
                     type="button"
                     onClick={() => setSelectedBloc(bKey)}
-                    className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all border flex items-center gap-2 cursor-pointer ${
-                      isSelected
+                    className={`px-4 py-2.5 rounded-2xl text-xs font-bold transition-all border flex items-center gap-2 cursor-pointer ${isSelected
                         ? 'bg-teal-500/20 border-teal-500 text-teal-300 shadow-md shadow-teal-500/10'
                         : 'bg-slate-950/40 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-white'
-                    }`}
+                      }`}
                   >
                     <Building2 className="w-3.5 h-3.5" />
                     <span>{isArabic ? bloc.nameAr : bloc.nameEn}</span>

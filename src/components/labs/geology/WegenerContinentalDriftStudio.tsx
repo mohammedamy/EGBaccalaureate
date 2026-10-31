@@ -383,14 +383,14 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
 
         <div className="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
           <div>
-            <div className="text-xs font-bold text-amber-400">
+            <div className={`text-xs font-bold ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
               {isArabic ? currentEra.nameAr : currentEra.nameEn}
             </div>
-            <div className="text-xs text-stone-300 mt-0.5">
+            <div className={`text-xs mt-0.5 ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
               {currentEra.statusAr}
             </div>
           </div>
-          <div className="text-xs font-mono font-black text-amber-400 bg-amber-500/20 px-3 py-1.5 rounded-lg border border-amber-500/40">
+          <div className={`text-xs font-mono font-black bg-amber-500/20 px-3 py-1.5 rounded-lg border border-amber-500/40 ${isLight ? 'text-amber-900' : 'text-amber-400'}`}>
             Tethys & Gondwana
           </div>
         </div>
@@ -403,7 +403,7 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
             isLight ? 'bg-white border-amber-200' : 'bg-stone-900/60 border-amber-900/40'
           }`}
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-3">
+          <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-3 ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>
             <Activity className="w-4 h-4" />
             <span>{isArabic ? 'حاسبة معدل توسع قاع المحيط (Seafloor Spreading Rate)' : 'Seafloor Spreading Rate Calculator'}</span>
           </div>
@@ -412,7 +412,7 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
             <div>
               <div className="flex justify-between mb-1">
                 <span>{isArabic ? 'المسافة بين القارتين عبر المحيط:' : 'Separation Distance:'}</span>
-                <span className="font-mono font-bold text-amber-400">{distanceKm} km</span>
+                <span className={`font-mono font-bold ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>{distanceKm} km</span>
               </div>
               <input
                 type="range"
@@ -428,7 +428,7 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
             <div>
               <div className="flex justify-between mb-1">
                 <span>{isArabic ? 'الزمن المنقضي منذ بداية الانفتاح:' : 'Elapsed Rifting Duration:'}</span>
-                <span className="font-mono font-bold text-amber-400">{spreadingTimeMa} Ma (مليون سنة)</span>
+                <span className={`font-mono font-bold ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>{spreadingTimeMa} Ma (مليون سنة)</span>
               </div>
               <input
                 type="range"
@@ -441,13 +441,13 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
               />
             </div>
 
-            <div className="p-3 rounded-xl bg-black/40 border border-amber-500/30 flex items-center justify-between mt-2">
-              <span className="text-stone-300 font-semibold">{isArabic ? 'معدل التباعد السنوي (v = d / t):' : 'Spreading Velocity:'}</span>
-              <span className="text-sm font-mono font-black text-amber-400">
+            <div className={`p-3 rounded-xl border border-amber-500/30 flex items-center justify-between mt-2 ${isLight ? 'bg-amber-50' : 'bg-black/40'}`}>
+              <span className={`font-semibold ${isLight ? 'text-stone-800' : 'text-stone-300'}`}>{isArabic ? 'معدل التباعد السنوي (v = d / t):' : 'Spreading Velocity:'}</span>
+              <span className={`text-sm font-mono font-black ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                 {calculatedRateCmYear.toFixed(2)} cm/year (سم/سنة)
               </span>
             </div>
-            <p className="text-[11px] text-stone-400">
+            <p className={`text-[11px] ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
               {isArabic
                 ? 'معدل تباعد قاع المحيط الأطلسي يبلغ حوالي 2.5 سم/سنة، ومعدل اتساع البحر الأحمر 2.5 سم/سنة كحوض محيطي وليد.'
                 : 'Mid-Atlantic spreading averages ~2.5 cm/yr; the Red Sea widens at ~2.5 cm/yr as an incipient proto-ocean.'}
@@ -460,7 +460,7 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
             isLight ? 'bg-white border-amber-200' : 'bg-stone-900/60 border-amber-900/40'
           }`}
         >
-          <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-3">
+          <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-3 ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>
             <Layers className="w-4 h-4" />
             <span>{isArabic ? 'أنواع حدود الصفائح التكتونية الوزارية' : 'Ministerial Plate Boundaries Matrix'}</span>
           </div>
@@ -468,26 +468,26 @@ export const WegenerContinentalDriftStudio: React.FC<Props> = ({
           <div className="space-y-2 text-xs">
             <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
               <div>
-                <span className="font-bold text-amber-400">{isArabic ? '1. حدود تباعدية (بناءة / Divergent):' : '1. Divergent (Constructive):'}</span>
-                <p className="text-[11px] text-stone-300 mt-0.5">{isArabic ? 'قوى شد ينتج عنها حيد وسط المحيط والبحر الأحمر وخليج السويس.' : 'Tensile stress producing mid-ocean ridges, Red Sea rift.'}</p>
+                <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{isArabic ? '1. حدود تباعدية (بناءة / Divergent):' : '1. Divergent (Constructive):'}</span>
+                <p className={`text-[11px] mt-0.5 ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'قوى شد ينتج عنها حيد وسط المحيط والبحر الأحمر وخليج السويس.' : 'Tensile stress producing mid-ocean ridges, Red Sea rift.'}</p>
               </div>
-              <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-mono">Constructive</span>
+              <span className={`px-2 py-0.5 rounded bg-emerald-500/20 text-[10px] font-mono ${isLight ? 'text-emerald-800 font-bold' : 'text-emerald-400'}`}>Constructive</span>
             </div>
 
             <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
               <div>
-                <span className="font-bold text-amber-400">{isArabic ? '2. حدود تقاربية (هدامة / Convergent):' : '2. Convergent (Destructive):'}</span>
-                <p className="text-[11px] text-stone-300 mt-0.5">{isArabic ? 'قوى ضغط (قاري-قاري كالهيمالايا، قاري-محيطي كالأنديز والبحر المتوسط).' : 'Compressional stress (Himalayas, Andes, Mediterranean).'}</p>
+                <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{isArabic ? '2. حدود تقاربية (هدامة / Convergent):' : '2. Convergent (Destructive):'}</span>
+                <p className={`text-[11px] mt-0.5 ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'قوى ضغط (قاري-قاري كالهيمالايا، قاري-محيطي كالأنديز والبحر المتوسط).' : 'Compressional stress (Himalayas, Andes, Mediterranean).'}</p>
               </div>
-              <span className="px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 text-[10px] font-mono">Destructive</span>
+              <span className={`px-2 py-0.5 rounded bg-rose-500/20 text-[10px] font-mono ${isLight ? 'text-rose-800 font-bold' : 'text-rose-400'}`}>Destructive</span>
             </div>
 
             <div className="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between">
               <div>
-                <span className="font-bold text-amber-400">{isArabic ? '3. حدود تطاحنية (انزلاقية / Transform):' : '3. Transform (Conservative):'}</span>
-                <p className="text-[11px] text-stone-300 mt-0.5">{isArabic ? 'حركة أفقية انزلاقية لكتلتي الصخور كصدع سان أندرياس وخليج العقبة.' : 'Shear strike-slip faulting (San Andreas, Gulf of Aqaba).'}</p>
+                <span className={`font-bold ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>{isArabic ? '3. حدود تطاحنية (انزلاقية / Transform):' : '3. Transform (Conservative):'}</span>
+                <p className={`text-[11px] mt-0.5 ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? 'حركة أفقية انزلاقية لكتلتي الصخور كصدع سان أندرياس وخليج العقبة.' : 'Shear strike-slip faulting (San Andreas, Gulf of Aqaba).'}</p>
               </div>
-              <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 text-[10px] font-mono">Conservative</span>
+              <span className={`px-2 py-0.5 rounded bg-blue-500/20 text-[10px] font-mono ${isLight ? 'text-blue-800 font-bold' : 'text-blue-400'}`}>Conservative</span>
             </div>
           </div>
         </div>

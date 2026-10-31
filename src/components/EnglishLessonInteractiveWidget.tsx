@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 
 import { EnglishAudioPhoneticsStudio } from './labs/EnglishAudioPhoneticsStudio';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { aiVoiceEngine } from '../services/aiVoiceEngine';
 
 interface Props {
@@ -616,9 +617,17 @@ export const EnglishLessonInteractiveWidget: React.FC<Props> = ({
                 {/* Explanation Card */}
                 {isTransformed && (
                   <div className="p-4 rounded-xl border border-violet-500/30 bg-violet-950/10 text-xs animate-fadeIn">
-                    <div className="font-bold text-violet-300 flex items-center gap-1.5 mb-1">
-                      <Sparkles className="w-4 h-4 text-violet-400" />
-                      <span>Syntactic Rule & Exam Tip:</span>
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <div className="font-bold text-violet-300 flex items-center gap-1.5">
+                        <Sparkles className="w-4 h-4 text-violet-400" />
+                        <span>Syntactic Rule & Exam Tip:</span>
+                      </div>
+                      <SpeechNarrationButton
+                        text={active.rule}
+                        lang="en"
+                        context="explanation"
+                        compact
+                      />
                     </div>
                     <p className="text-slate-300 leading-relaxed">{active.rule}</p>
                   </div>

@@ -1,7 +1,14 @@
 /**
  * AI Vocal Engine Service (محرك النطق الصوتي المتقدم بالذكاء الاصطناعي)
- * 
- * Provides ultra high-definition, natural human-realistic vocal synthesis across all languages:
+ *
+ * Primary Cloud TTS for Hints & Explanations:
+ * - OpenRouter `fish-audio/s2.1-pro-free:free` served securely via Supabase Edge Function (`openrouter-tts`)
+ *   so `OPENROUTER_API_KEY` remains strictly in Supabase server secrets and never reaches client bundles.
+ * - Includes LaTeX/KaTeX mathematical & scientific speech verbalization (Arabic & English), LRU audio Blob caching,
+ *   rate-limit cooldown protection, and automatic zero-interruption fallback to the local Neural Web Speech engine
+ *   whenever the API is unconfigured, offline, fails, or exceeds rate/quota limits.
+ *
+ * Native Neural Voice Engine (Fallback & Language Phonetics Studios):
  * - English (UK Received Pronunciation & US General American)
  * - French (Parisian Standard & Liaison)
  * - German (Standard Hochdeutsch)
@@ -9,21 +16,14 @@
  * - Spanish (Castilian & Latin American)
  * - Chinese (Mandarin Putonghua)
  * - Arabic (Modern Standard Classical Fusha / المصرية والفصحى)
- * 
- * Key Architecture Highlights:
- * 1. Immediate Synchronous Dispatch: Invoked directly within user interaction tick so browsers (Chrome/Safari/Edge)
- *    never block audio playback due to autoplay or lost user activation policies.
- * 2. Intelligent Neural & Natural AI Voice Discovery: Scans and ranks all browser and cloud-synced voices,
- *    heavily prioritizing Edge Natural AI (Azure Neural), Google Cloud Neural, and Apple Siri Enhanced/Premium voices.
- * 3. Exact Accent & Dialect Enforcement: Prevents US voices from overriding British English when UK RP is chosen,
- *    and prioritizes Egyptian Arabic (ar-EG) for the Egyptian curriculum with Saudi Fusha (ar-SA) compatibility.
- * 4. User Voice Memory: Remembers chosen preferred voices per language in localStorage.
- * 5. Chromium Keepalive Fix: Automatically pings pause/resume to eliminate the 15-second speech cutoff bug.
- * 6. Humanized Cadence & Phonetic Sanitization: Cleans IPA slashes, French liaisons, and preserves Arabic Tashkeel diacritics.
- * 7. Turn-Taking Dialogue Sequencer: Seamlessly chains conversational audio tracks with natural turn-taking pauses.
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+
+export const OPENROUTER_FISH_AUDIO_MODEL = 'fish-audio/s2.1-pro-free:free' as const;
+
+export type SpeechContextType = 'general' | 'hint' | 'explanation';
+export type SpeechProviderSource = 'openrouter_fish_audio' | 'native_fallback';
 
 export type VoiceLanguageCode =
   | 'en'
@@ -44,10 +44,15 @@ export type VoiceLanguageCode =
   | 'ar-EG';
 
 export interface SpeakOptions {
+  id?: string;
   lang?: VoiceLanguageCode | string;
   rate?: number; // 0.5 to 2.0 (default 0.95 for optimal educational clarity)
   pitch?: number; // 0.8 to 1.3 (default 1.0)
   voiceName?: string;
+  context?: SpeechContextType;
+  useOpenRouterFishAudio?: boolean;
+  onLoadingChange?: (loading: boolean) => void;
+  onSourceResolved?: (source: SpeechProviderSource) => void;
   onStart?: () => void;
   onEnd?: () => void;
   onError?: (err: any) => void;
@@ -78,6 +83,49 @@ export interface VoiceQualityInfo {
   badgeClass: string;
   gender?: 'female' | 'male';
   localeLabel: string;
+}
+
+export type VoiceEngineSubscriber = (
+  playing: boolean,
+  text: string | null,
+  voice: string | null,
+  isLoading: boolean,
+  activeId: string | null,
+  source: SpeechProviderSource | null
+) => void;
+
+// ---------------------------------------------------------------------------
+// Safe Supabase TTS Endpoint Discovery (Public URL + Anon/Publishable Key Only)
+// ---------------------------------------------------------------------------
+export interface SupabaseTtsEndpointConfig {
+  endpointUrl: string;
+  anonOrPublishableKey?: string;
+}
+
+export function resolveSupabaseTtsConfig(): SupabaseTtsEndpointConfig | null {
+  const env = (import.meta as unknown as { env?: Record<string, string | undefined> }).env;
+  const explicitFnUrl = env?.VITE_SUPABASE_TTS_FUNCTION_URL?.trim();
+  const supabaseUrl = env?.VITE_SUPABASE_URL?.trim();
+  const anonKey =
+    env?.VITE_SUPABASE_ANON_KEY?.trim() ||
+    env?.VITE_SUPABASE_PUBLISHABLE_KEY?.trim();
+
+  if (explicitFnUrl && !explicitFnUrl.includes('your-project-ref')) {
+    return {
+      endpointUrl: explicitFnUrl,
+      anonOrPublishableKey: anonKey && !anonKey.includes('your-supabase-') ? anonKey : undefined,
+    };
+  }
+
+  if (supabaseUrl && !supabaseUrl.includes('your-project-ref')) {
+    const cleanBase = supabaseUrl.replace(/\/+$/, '');
+    return {
+      endpointUrl: `${cleanBase}/functions/v1/openrouter-tts`,
+      anonOrPublishableKey: anonKey && !anonKey.includes('your-supabase-') ? anonKey : undefined,
+    };
+  }
+
+  return null;
 }
 
 // ---------------------------------------------------------------------------
@@ -119,6 +167,93 @@ export function normalizeLanguageCode(lang?: string): { bcp47: string; langPrefi
 }
 
 // ---------------------------------------------------------------------------
+// Mathematical (KaTeX / LaTeX) & Markdown Verbalizer for Hints & Explanations
+// ---------------------------------------------------------------------------
+export function formatMathAndMarkdownForSpeech(input: string | string[], lang?: string): string {
+  const raw = Array.isArray(input) ? input.filter(Boolean).join('. ') : input || '';
+  if (!raw.trim()) return '';
+
+  const isAr = (lang || '').toLowerCase().startsWith('ar') || (!lang && /[\u0600-\u06FF]/.test(raw));
+  let s = raw;
+
+  // Strip display/inline LaTeX math delimiters
+  s = s.replace(/\$\$/g, ' ').replace(/\$/g, ' ').replace(/\\\[|\\\]|\\\(|\\\)/g, ' ');
+
+  // Unwrap \text{...}, \mathrm{...}, \mathbf{...}, \textbf{...}
+  for (let i = 0; i < 3; i++) {
+    s = s.replace(/\\(?:text|mathrm|mathbf|textbf|mathit|operatorname)\{([^{}]*)\}/g, ' $1 ');
+  }
+
+  // Verbalize fractions \frac{a}{b} (up to 3 nested levels)
+  for (let i = 0; i < 3; i++) {
+    s = s.replace(
+      /\\(?:d|t)?frac\{([^{}]+)\}\{([^{}]+)\}/g,
+      isAr ? ' $1 على $2 ' : ' $1 over $2 '
+    );
+  }
+
+  // Verbalize roots \sqrt{x}
+  for (let i = 0; i < 2; i++) {
+    s = s.replace(
+      /\\sqrt\{([^{}]+)\}/g,
+      isAr ? ' الجذر التربيعي لـ $1 ' : ' square root of $1 '
+    );
+  }
+
+  // Superscripts & powers
+  s = s.replace(/\^\{2\}|\^2\b/g, isAr ? ' تربيع ' : ' squared ');
+  s = s.replace(/\^\{3\}|\^3\b/g, isAr ? ' تكعيب ' : ' cubed ');
+  s = s.replace(/\^\{([^{}]+)\}/g, isAr ? ' أس $1 ' : ' to the power of $1 ');
+  s = s.replace(/_\{([^{}]+)\}/g, ' $1 ');
+  s = s.replace(/_([a-zA-Z0-9]+)/g, ' $1 ');
+
+  // Common LaTeX symbols, Greek letters, and operators
+  const symbolMap: Array<[RegExp, string, string]> = [
+    [/\\implies|\\Rightarrow/g, ' ومنه فإن ', ' which implies '],
+    [/\\Leftarrow/g, ' وبذلك ', ' therefore '],
+    [/\\leftrightarrow|\\rightleftharpoons|⇌/g, ' في اتزان مع ', ' in equilibrium with '],
+    [/\\rightarrow|\\to|→/g, ' يعطي ', ' yields '],
+    [/\\Delta|Δ/g, ' دلتا ', ' delta '],
+    [/\\Phi/g, ' فاي ', ' phi '],
+    [/\\phi/g, ' فاي ', ' phi '],
+    [/\\theta|θ/g, ' ثيتا ', ' theta '],
+    [/\\pi|π/g, ' باي ', ' pi '],
+    [/\\Omega|Ω/g, ' أوم ', ' ohms '],
+    [/\\alpha|α/g, ' ألفا ', ' alpha '],
+    [/\\beta|β/g, ' بيتا ', ' beta '],
+    [/\\gamma|γ/g, ' جاما ', ' gamma '],
+    [/\\lambda|λ/g, ' لمادا ', ' lambda '],
+    [/\\mu|μ/g, ' ميو ', ' micro '],
+    [/\\omega|ω/g, ' أوميجا ', ' omega '],
+    [/\\sigma|σ/g, ' سيجما ', ' sigma '],
+    [/\\tau|τ/g, ' تاو ', ' tau '],
+    [/\\infty|∞/g, ' ما لا نهاية ', ' infinity '],
+    [/\\propto|∝/g, ' يتناسب مع ', ' is proportional to '],
+    [/\\approx|≈/g, ' يساوي تقريباً ', ' approximately equals '],
+    [/\\neq|≠/g, ' لا يساوي ', ' does not equal '],
+    [/\\leq|\\le|≤/g, ' أقل من أو يساوي ', ' less than or equal to '],
+    [/\\geq|\\ge|≥/g, ' أكبر من أو يساوي ', ' greater than or equal to '],
+    [/\\pm|±/g, ' موجب أو سالب ', ' plus or minus '],
+    [/\\times|×/g, ' في ', ' times '],
+    [/\\cdot/g, ' في ', ' times '],
+    [/\\div|÷/g, ' على ', ' divided by '],
+    [/\\degree|°/g, ' درجة ', ' degrees '],
+  ];
+
+  for (const [pattern, arWord, enWord] of symbolMap) {
+    s = s.replace(pattern, isAr ? arWord : enWord);
+  }
+
+  // Strip remaining LaTeX formatting commands like \, \; \! \quad \left \right \{ \}
+  s = s.replace(/\\[,;!:]\s*/g, ' ');
+  s = s.replace(/\\(?:left|right|quad|qquad|displaystyle)\b/g, ' ');
+  s = s.replace(/\\[a-zA-Z]+/g, ' ');
+  s = s.replace(/[{}]/g, ' ');
+
+  return sanitizeSpeechText(s);
+}
+
+// ---------------------------------------------------------------------------
 // Speech Text Sanitization & Phonetic Preprocessing
 // ---------------------------------------------------------------------------
 export function sanitizeSpeechText(text: string): string {
@@ -130,7 +265,7 @@ export function sanitizeSpeechText(text: string): string {
   cleaned = cleaned.replace(/[*_#`~>]/g, ' ');
 
   // 2. Remove IPA delimiters /.../ or [...] if passing isolated phonemes, e.g. "/θ/" -> "θ"
-  cleaned = cleaned.replace(/^\s*\/+([^\/]+)\/+\s*$/g, '$1');
+  cleaned = cleaned.replace(/^\s*\/+([^/]+)\/+\s*$/g, '$1');
   cleaned = cleaned.replace(/^\s*\[+([^\]]+)\]+\s*$/g, '$1');
 
   // 3. Clean French liaison symbol (‿) into smooth word spacing
@@ -183,7 +318,7 @@ const PREMIUM_PERSONAS = [
 // Eager & Asynchronous Voice Discovery Engine
 // ---------------------------------------------------------------------------
 let cachedVoices: SpeechSynthesisVoice[] = [];
-let voiceChangeSubscribers = new Set<() => void>();
+const voiceChangeSubscribers = new Set<() => void>();
 
 export function refreshVoices(): SpeechSynthesisVoice[] {
   if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
@@ -319,7 +454,7 @@ export function getVoiceQualityInfo(voice: SpeechSynthesisVoice): VoiceQualityIn
   }
 
   // Clean friendly display name
-  let displayName = voice.name
+  const displayName = voice.name
     .replace(/^Microsoft\s+/i, '')
     .replace(/^Google\s+/i, 'Google ')
     .replace(/^Apple\s+/i, '')
@@ -488,26 +623,61 @@ export function getAvailableVoicesForLanguage(lang?: string): SpeechSynthesisVoi
 // ---------------------------------------------------------------------------
 // AI Voice Engine Core Singleton
 // ---------------------------------------------------------------------------
+const MAX_AUDIO_BLOB_CACHE = 40;
+const DEFAULT_RATE_LIMIT_COOLDOWN_MS = 60_000;
+const OPENROUTER_FETCH_TIMEOUT_MS = 9_000;
+
 class AiVoiceEngineCore {
   private currentPlayingText: string | null = null;
   private isCurrentlyPlaying = false;
+  private isCurrentlyLoading = false;
   private currentVoiceName: string | null = null;
+  private currentActiveId: string | null = null;
+  private currentSource: SpeechProviderSource | null = null;
+
   private keepaliveTimer: ReturnType<typeof setInterval> | null = null;
   private activeUtterance: SpeechSynthesisUtterance | null = null;
   private activeDialogueAbortController: AbortController | null = null;
-  private subscribers = new Set<(playing: boolean, text: string | null, voice: string | null) => void>();
 
-  public subscribe(cb: (playing: boolean, text: string | null, voice: string | null) => void) {
+  // OpenRouter Fish Audio S2.1 Pro playback & caching state
+  private activeFetchAbort: AbortController | null = null;
+  private activeAudioElement: HTMLAudioElement | null = null;
+  private activeObjectUrl: string | null = null;
+  private audioBlobCache = new Map<string, Blob>();
+  private openRouterCooldownUntil = 0;
+
+  private subscribers = new Set<VoiceEngineSubscriber>();
+
+  public subscribe(cb: VoiceEngineSubscriber) {
     this.subscribers.add(cb);
-    cb(this.isCurrentlyPlaying, this.currentPlayingText, this.currentVoiceName);
-    return () => this.subscribers.delete(cb);
+    cb(
+      this.isCurrentlyPlaying,
+      this.currentPlayingText,
+      this.currentVoiceName,
+      this.isCurrentlyLoading,
+      this.currentActiveId,
+      this.currentSource
+    );
+    return () => {
+      this.subscribers.delete(cb);
+    };
   }
 
-  private notify(playing: boolean, text: string | null, voice: string | null = this.currentVoiceName) {
+  private notify(
+    playing: boolean,
+    text: string | null,
+    voice: string | null = this.currentVoiceName,
+    loading = false,
+    activeId: string | null = this.currentActiveId,
+    source: SpeechProviderSource | null = this.currentSource
+  ) {
     this.isCurrentlyPlaying = playing;
     this.currentPlayingText = text;
     this.currentVoiceName = voice;
-    this.subscribers.forEach((cb) => cb(playing, text, voice));
+    this.isCurrentlyLoading = loading;
+    this.currentActiveId = activeId;
+    this.currentSource = source;
+    this.subscribers.forEach((cb) => cb(playing, text, voice, loading, activeId, source));
   }
 
   private clearKeepalive() {
@@ -531,8 +701,59 @@ class AiVoiceEngineCore {
     }, 10000);
   }
 
+  private cleanupAudioElement() {
+    if (this.activeAudioElement) {
+      try {
+        this.activeAudioElement.onended = null;
+        this.activeAudioElement.onerror = null;
+        this.activeAudioElement.onplay = null;
+        this.activeAudioElement.pause();
+        this.activeAudioElement.removeAttribute('src');
+        this.activeAudioElement.load();
+      } catch {
+        // ignore
+      }
+    }
+    if (this.activeObjectUrl && typeof URL !== 'undefined' && URL.revokeObjectURL) {
+      try {
+        URL.revokeObjectURL(this.activeObjectUrl);
+      } catch {
+        // ignore
+      }
+      this.activeObjectUrl = null;
+    }
+  }
+
+  private ensureAudioElement(): HTMLAudioElement | null {
+    if (typeof window === 'undefined' || typeof Audio === 'undefined') return null;
+    if (!this.activeAudioElement) {
+      this.activeAudioElement = new Audio();
+      this.activeAudioElement.preload = 'auto';
+    }
+    return this.activeAudioElement;
+  }
+
+  private cacheAudioBlob(key: string, blob: Blob) {
+    if (this.audioBlobCache.has(key)) {
+      this.audioBlobCache.delete(key);
+    } else if (this.audioBlobCache.size >= MAX_AUDIO_BLOB_CACHE) {
+      const oldestKey = this.audioBlobCache.keys().next().value;
+      if (oldestKey) {
+        this.audioBlobCache.delete(oldestKey);
+      }
+    }
+    this.audioBlobCache.set(key, blob);
+  }
+
   public stopAll(): void {
     this.clearKeepalive();
+
+    if (this.activeFetchAbort) {
+      this.activeFetchAbort.abort('stopped_by_user');
+      this.activeFetchAbort = null;
+    }
+
+    this.cleanupAudioElement();
 
     if (this.activeDialogueAbortController) {
       this.activeDialogueAbortController.abort();
@@ -558,25 +779,253 @@ class AiVoiceEngineCore {
       }
     }
 
-    this.notify(false, null, this.currentVoiceName);
+    this.notify(false, null, this.currentVoiceName, false, null, null);
   }
 
   /**
-   * Speak text immediately using synchronous dispatch to preserve user activation.
-   * Automatically falls back to high-ranked alternatives if chosen voice fails.
+   * Dedicated entry point for all Hints & Explanations:
+   * 1. Converts KaTeX/LaTeX equations & symbols into clear spoken Arabic/English.
+   * 2. Synthesizes natural speech via OpenRouter `fish-audio/s2.1-pro-free:free` (Supabase Edge Function).
+   * 3. Seamlessly falls back to the current Web Speech neural voice method if the API fails, times out,
+   *    is unconfigured, or exceeds rate/quota limits.
+   */
+  public speakHintOrExplanation(
+    textOrSteps: string | string[],
+    options: SpeakOptions = {}
+  ): void {
+    const formatted = formatMathAndMarkdownForSpeech(textOrSteps, options.lang);
+    if (!formatted) return;
+
+    this.speak(formatted, {
+      ...options,
+      context: options.context || 'explanation',
+      useOpenRouterFishAudio: true,
+    });
+  }
+
+  /**
+   * Speak text:
+   * - Routes through OpenRouter `fish-audio/s2.1-pro-free:free` (with native fallback) when
+   *   `context` is `'hint'` or `'explanation'` or `useOpenRouterFishAudio` is true.
+   * - Otherwise dispatches synchronously via the native neural Web Speech engine.
    */
   public speak(text: string, options: SpeakOptions = {}): void {
-    const clean = sanitizeSpeechText(text);
+    const shouldUseFishAudio =
+      Boolean(options.useOpenRouterFishAudio) ||
+      options.context === 'hint' ||
+      options.context === 'explanation';
+
+    const clean = shouldUseFishAudio
+      ? formatMathAndMarkdownForSpeech(text, options.lang)
+      : sanitizeSpeechText(text);
+
+    if (!clean) return;
+
+    if (shouldUseFishAudio) {
+      void this.speakWithOpenRouterOrFallback(clean, options);
+      return;
+    }
+
+    this.stopAll();
+    this.speakNative(clean, options);
+  }
+
+  /**
+   * Play audio Blob via HTMLAudioElement and resolve/reject if playback fails.
+   */
+  private playAudioBlob(
+    blob: Blob,
+    cleanText: string,
+    options: SpeakOptions
+  ): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const audio = this.ensureAudioElement();
+      if (!audio || typeof URL === 'undefined' || !URL.createObjectURL) {
+        reject(new Error('HTMLAudioElement unavailable'));
+        return;
+      }
+
+      const objectUrl = URL.createObjectURL(blob);
+      this.activeObjectUrl = objectUrl;
+      audio.src = objectUrl;
+      audio.playbackRate = Math.max(0.6, Math.min(1.5, options.rate ?? 1.0));
+
+      const activeId = options.id ?? null;
+      const modelLabel = `Fish Audio S2.1 Pro (${OPENROUTER_FISH_AUDIO_MODEL})`;
+
+      audio.onplay = () => {
+        options.onLoadingChange?.(false);
+        options.onSourceResolved?.('openrouter_fish_audio');
+        this.notify(true, cleanText, modelLabel, false, activeId, 'openrouter_fish_audio');
+        options.onStart?.();
+        resolve();
+      };
+
+      audio.onended = () => {
+        this.cleanupAudioElement();
+        this.notify(false, null, modelLabel, false, null, null);
+        options.onEnd?.();
+      };
+
+      audio.onerror = () => {
+        const mediaErr = audio.error || new Error('Audio playback failed');
+        this.cleanupAudioElement();
+        reject(mediaErr);
+      };
+
+      audio.play().catch((err) => {
+        this.cleanupAudioElement();
+        reject(err);
+      });
+    });
+  }
+
+  /**
+   * Primary OpenRouter `fish-audio/s2.1-pro-free:free` synthesis via Supabase Edge Function
+   * with automatic fallback to `speakNative` on error, timeout, offline state, or rate limit.
+   */
+  private async speakWithOpenRouterOrFallback(
+    cleanText: string,
+    options: SpeakOptions
+  ): Promise<void> {
+    this.stopAll();
+
+    const activeId = options.id ?? null;
+    const { bcp47 } = normalizeLanguageCode(options.lang);
+    const cacheKey = `${OPENROUTER_FISH_AUDIO_MODEL}::${bcp47}::${cleanText}`;
+
+    // 1. Instant replay from LRU memory cache (zero quota usage)
+    const cachedBlob = this.audioBlobCache.get(cacheKey);
+    if (cachedBlob) {
+      try {
+        await this.playAudioBlob(cachedBlob, cleanText, options);
+        return;
+      } catch {
+        this.audioBlobCache.delete(cacheKey);
+      }
+    }
+
+    // 2. Check if Supabase Edge Function is configured, browser is online, and not in rate-limit cooldown
+    const supabaseCfg = resolveSupabaseTtsConfig();
+    const isOnline = typeof navigator === 'undefined' || navigator.onLine !== false;
+    const isCoolingDown = Date.now() < this.openRouterCooldownUntil;
+
+    if (!supabaseCfg || !isOnline || isCoolingDown) {
+      options.onLoadingChange?.(false);
+      options.onSourceResolved?.('native_fallback');
+      this.speakNative(cleanText, options);
+      return;
+    }
+
+    // Pre-prime reusable Audio element within the user interaction tick for Safari/WebKit
+    this.ensureAudioElement();
+
+    const abortController = new AbortController();
+    this.activeFetchAbort = abortController;
+    const timeoutId = setTimeout(() => abortController.abort('timeout'), OPENROUTER_FETCH_TIMEOUT_MS);
+
+    options.onLoadingChange?.(true);
+    this.notify(
+      false,
+      cleanText,
+      `Fish Audio S2.1 Pro (${OPENROUTER_FISH_AUDIO_MODEL})`,
+      true,
+      activeId,
+      'openrouter_fish_audio'
+    );
+
+    try {
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      };
+      if (supabaseCfg.anonOrPublishableKey) {
+        headers.apikey = supabaseCfg.anonOrPublishableKey;
+        headers.Authorization = `Bearer ${supabaseCfg.anonOrPublishableKey}`;
+      }
+
+      const response = await fetch(supabaseCfg.endpointUrl, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          model: OPENROUTER_FISH_AUDIO_MODEL,
+          text: cleanText,
+          lang: bcp47,
+          context: options.context || 'explanation',
+        }),
+        signal: abortController.signal,
+      });
+
+      clearTimeout(timeoutId);
+
+      // If user clicked Stop while fetch was in flight, exit quietly without fallback speech
+      if (this.activeFetchAbort !== abortController) {
+        options.onLoadingChange?.(false);
+        return;
+      }
+      this.activeFetchAbort = null;
+
+      if (!response.ok) {
+        // Respect rate-limit / quota exceeded windows so UI stays responsive
+        if (response.status === 429 || response.status === 402) {
+          const retryHeader = Number(response.headers.get('retry-after'));
+          const cooldownMs =
+            Number.isFinite(retryHeader) && retryHeader > 0
+              ? Math.min(retryHeader * 1000, 300_000)
+              : DEFAULT_RATE_LIMIT_COOLDOWN_MS;
+          this.openRouterCooldownUntil = Date.now() + cooldownMs;
+        }
+        throw new Error(`OpenRouter TTS HTTP ${response.status}`);
+      }
+
+      const contentType = (response.headers.get('content-type') || '').toLowerCase();
+      if (contentType.includes('application/json')) {
+        throw new Error('Expected audio stream from OpenRouter TTS, received JSON error');
+      }
+
+      const audioBlob = await response.blob();
+      if (!audioBlob || audioBlob.size === 0) {
+        throw new Error('OpenRouter TTS returned an empty audio payload');
+      }
+
+      this.cacheAudioBlob(cacheKey, audioBlob);
+      await this.playAudioBlob(audioBlob, cleanText, options);
+    } catch (err: any) {
+      clearTimeout(timeoutId);
+      const wasUserStopped =
+        abortController.signal.aborted &&
+        abortController.signal.reason === 'stopped_by_user';
+
+      if (this.activeFetchAbort === abortController) {
+        this.activeFetchAbort = null;
+      }
+      options.onLoadingChange?.(false);
+
+      if (wasUserStopped) {
+        return;
+      }
+
+      console.warn(
+        `[AiVoiceEngine] OpenRouter (${OPENROUTER_FISH_AUDIO_MODEL}) failed or exceeded limits (${err?.message || err}). Falling back to built-in neural voice engine.`
+      );
+      options.onSourceResolved?.('native_fallback');
+      this.speakNative(cleanText, options);
+    }
+  }
+
+  /**
+   * Current built-in Web Speech Neural Synthesis method.
+   * Preserved intact for direct language phonetics and as automatic fallback when OpenRouter fails or exceeds limits.
+   */
+  public speakNative(clean: string, options: SpeakOptions = {}): void {
     if (!clean) return;
 
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      this.notify(false, null, null, false, null, null);
       options.onError?.(new Error('SpeechSynthesis not supported'));
       return;
     }
 
-    // Cancel any previous speech synchronously
-    this.stopAll();
-
+    const activeId = options.id ?? null;
     const { bcp47 } = normalizeLanguageCode(options.lang);
     const bestVoice = findBestVoice(options.lang, options.voiceName);
 
@@ -594,7 +1043,7 @@ class AiVoiceEngineCore {
 
     utterance.onstart = () => {
       hasStarted = true;
-      this.notify(true, clean, bestVoice?.name || 'Natural Vocal');
+      this.notify(true, clean, bestVoice?.name || 'Natural Vocal', false, activeId, 'native_fallback');
       this.startKeepalive();
       options.onStart?.();
     };
@@ -602,14 +1051,14 @@ class AiVoiceEngineCore {
     utterance.onend = () => {
       this.clearKeepalive();
       this.activeUtterance = null;
-      this.notify(false, null, bestVoice?.name || null);
+      this.notify(false, null, bestVoice?.name || null, false, null, null);
       options.onEnd?.();
     };
 
     utterance.onerror = (err: any) => {
       this.clearKeepalive();
       this.activeUtterance = null;
-      this.notify(false, null, null);
+      this.notify(false, null, null, false, null, null);
 
       // Automatic fallback: If chosen voice errored before starting, retry with alternative voice
       if (!hasStarted && bestVoice && err?.error !== 'canceled' && err?.error !== 'interrupted') {
@@ -620,20 +1069,20 @@ class AiVoiceEngineCore {
           fallback.rate = utterance.rate;
           fallback.pitch = utterance.pitch;
           fallback.onstart = () => {
-            this.notify(true, clean, 'System Default Voice');
+            this.notify(true, clean, 'System Default Voice', false, activeId, 'native_fallback');
             this.startKeepalive();
             options.onStart?.();
           };
           fallback.onend = () => {
             this.clearKeepalive();
             this.activeUtterance = null;
-            this.notify(false, null, null);
+            this.notify(false, null, null, false, null, null);
             options.onEnd?.();
           };
           fallback.onerror = (e) => {
             this.clearKeepalive();
             this.activeUtterance = null;
-            this.notify(false, null, null);
+            this.notify(false, null, null, false, null, null);
             if (e?.error !== 'canceled' && e?.error !== 'interrupted') {
               options.onError?.(e);
             }
@@ -658,7 +1107,6 @@ class AiVoiceEngineCore {
     this.activeUtterance = utterance;
 
     try {
-      // 100% synchronous dispatch in user gesture tick
       window.speechSynthesis.speak(utterance);
       if (window.speechSynthesis.paused) {
         window.speechSynthesis.resume();
@@ -692,7 +1140,7 @@ class AiVoiceEngineCore {
         if (!abortController.signal.aborted) {
           options.onComplete?.();
         }
-        this.notify(false, null, this.currentVoiceName);
+        this.notify(false, null, this.currentVoiceName, false, null, null);
         return;
       }
 
@@ -736,12 +1184,15 @@ class AiVoiceEngineCore {
 export const aiVoiceEngine = new AiVoiceEngineCore();
 
 // ---------------------------------------------------------------------------
-// React Hook for Language Studios
+// React Hook for Language Studios & Explanations
 // ---------------------------------------------------------------------------
 export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [activeText, setActiveText] = useState<string | null>(null);
   const [activeVoice, setActiveVoice] = useState<string | null>(null);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  const [activeSource, setActiveSource] = useState<SpeechProviderSource | null>(null);
   const [voiceRate, setVoiceRate] = useState<number>(0.95);
   const [pitch, setPitch] = useState<number>(1.0);
   const [availableVoices, setAvailableVoices] = useState<SpeechSynthesisVoice[]>([]);
@@ -763,10 +1214,13 @@ export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = aiVoiceEngine.subscribe((playing, text, voice) => {
+    const unsubscribe = aiVoiceEngine.subscribe((playing, text, voice, loading, id, source) => {
       setIsPlaying(playing);
       setActiveText(text);
       setActiveVoice(voice);
+      setIsLoading(loading);
+      setActiveId(id);
+      setActiveSource(source);
     });
 
     ensureVoicesLoaded().then(() => {
@@ -804,6 +1258,19 @@ export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
     [voiceRate, pitch, selectedVoiceName]
   );
 
+  const speakHintOrExplanation = useCallback(
+    (textOrSteps: string | string[], options?: Partial<SpeakOptions>) => {
+      aiVoiceEngine.speakHintOrExplanation(textOrSteps, {
+        lang: options?.lang || defaultLangRef.current,
+        voiceName: options?.voiceName || selectedVoiceName || undefined,
+        rate: options?.rate ?? voiceRate,
+        pitch: options?.pitch ?? pitch,
+        ...options,
+      });
+    },
+    [voiceRate, pitch, selectedVoiceName]
+  );
+
   const stop = useCallback(() => {
     aiVoiceEngine.stopAll();
   }, []);
@@ -820,8 +1287,11 @@ export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
 
   return {
     isPlaying,
+    isLoading,
     activeText,
     activeVoice,
+    activeId,
+    activeSource,
     availableVoices,
     selectedVoiceName,
     setSelectedVoiceName,
@@ -830,6 +1300,7 @@ export function useAiVoiceEngine(defaultLang?: VoiceLanguageCode | string) {
     pitch,
     setPitch,
     speak,
+    speakHintOrExplanation,
     stop,
     playDialogue,
     refreshVoiceList: updateVoiceList,

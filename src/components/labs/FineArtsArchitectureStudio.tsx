@@ -29,6 +29,7 @@ import {
   Minimize2,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import { ThutmoseNefertitiStudio } from './fine_arts/ThutmoseNefertitiStudio';
 import { MahmoudMokhtarNahdatMisrStudio } from './fine_arts/MahmoudMokhtarNahdatMisrStudio';
 import { HassanFathyNewGournaStudio } from './fine_arts/HassanFathyNewGournaStudio';
@@ -135,17 +136,17 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
       data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-6 border-b border-rose-500/20 gap-4">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-600 via-pink-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-600/30">
+      <div className="flex flex-col pb-6 border-b border-rose-500/20 gap-4 w-full min-w-0 max-w-full">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-rose-600 via-pink-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-rose-600/30 shrink-0">
             <Palette className="w-6 h-6" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
               <h2 className="text-xl md:text-2xl font-bold tracking-tight">
                 {isArabic ? 'المرسم المعماري والفنون الجميلة الافتراضي' : 'Virtual Fine Arts & Architectural Studio'}
               </h2>
-              <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-rose-500/10 text-rose-500 border border-rose-500/30">
+              <span className="text-xs px-2.5 py-0.5 rounded-full font-semibold bg-rose-500/10 text-rose-500 border border-rose-500/30 shrink-0">
                 MoE Accredited 🎨
               </span>
             </div>
@@ -158,7 +159,7 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-950/40 border border-rose-500/20">
+        <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-950/40 border border-rose-500/20 w-full max-w-full">
           {/* 4K Archival Museum Studios */}
           <button
             onClick={() => setActiveTab('thutmose_nefertiti')}
@@ -1286,9 +1287,21 @@ export const FineArtsArchitectureStudio: React.FC<Props> = ({
             {/* Explanation Callout */}
             {isQuizSubmitted && (
               <div className="p-4 rounded-xl border border-emerald-500/30 bg-emerald-950/30 text-xs text-emerald-200 leading-relaxed space-y-1">
-                <div className="font-bold flex items-center gap-1.5 text-emerald-400">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  {isArabic ? 'التحليل الأكاديمي النموذجي:' : 'Academic Explanation:'}
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="font-bold flex items-center gap-1.5 text-emerald-400">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    {isArabic ? 'التحليل الأكاديمي النموذجي:' : 'Academic Explanation:'}
+                  </div>
+                  <SpeechNarrationButton
+                    text={
+                      isArabic
+                        ? FINE_ARTS_APTITUDE_QUIZ[quizIndex].explanationAr
+                        : FINE_ARTS_APTITUDE_QUIZ[quizIndex].explanationEn
+                    }
+                    lang={isArabic ? 'ar' : 'en'}
+                    context="explanation"
+                    compact
+                  />
                 </div>
                 <div>
                   {isArabic

@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import type { Language } from '../../i18n/translations';
 import type { ThemeMode } from '../../types/curriculum';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import {
   HISTORY_TIMELINE_EVENTS,
   STRATEGIC_MAP_LOCATIONS,
@@ -1837,18 +1838,26 @@ export const HistoryTimelineStudio: React.FC<Props> = ({
                         : 'bg-rose-500/10 border-rose-500/30 text-rose-200'
                     }`}
                   >
-                    <div className="flex items-center gap-2 font-bold text-xs">
-                      {selectedOption === currentQuiz.correctIndex ? (
-                        <>
-                          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                          <span>{isArabic ? 'إجابة صحيحة وممتازة!' : 'Correct Answer!'}</span>
-                        </>
-                      ) : (
-                        <>
-                          <XCircle className="w-4 h-4 text-rose-400" />
-                          <span>{isArabic ? 'إجابة غير صحيحة، انتبه للمفارقة:' : 'Incorrect, note the trap:'}</span>
-                        </>
-                      )}
+                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                      <div className="flex items-center gap-2 font-bold text-xs">
+                        {selectedOption === currentQuiz.correctIndex ? (
+                          <>
+                            <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                            <span>{isArabic ? 'إجابة صحيحة وممتازة!' : 'Correct Answer!'}</span>
+                          </>
+                        ) : (
+                          <>
+                            <XCircle className="w-4 h-4 text-rose-400" />
+                            <span>{isArabic ? 'إجابة غير صحيحة، انتبه للمفارقة:' : 'Incorrect, note the trap:'}</span>
+                          </>
+                        )}
+                      </div>
+                      <SpeechNarrationButton
+                        text={isArabic ? currentQuiz.explanationAr : currentQuiz.explanationEn}
+                        lang={isArabic ? 'ar' : 'en'}
+                        context="explanation"
+                        compact
+                      />
                     </div>
                     <p className="text-xs leading-relaxed">
                       {isArabic ? currentQuiz.explanationAr : currentQuiz.explanationEn}

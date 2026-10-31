@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
 import { aiVoiceEngine } from '../../services/aiVoiceEngine';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import { StudioVoiceSelector } from './StudioVoiceSelector';
 import { SibawayhGrammarStudio } from './arabic/SibawayhGrammarStudio';
 import { KhalilPoeticsStudio } from './arabic/KhalilPoeticsStudio';
@@ -1343,7 +1344,15 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
                   </div>
 
                   <div>
-                    <div className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'} mb-1`}>التعليل والشرح النحوي:</div>
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <div className={`text-xs font-bold ${isLight ? 'text-slate-700' : 'text-slate-400'}`}>التعليل والشرح النحوي:</div>
+                      <SpeechNarrationButton
+                        text={[currentToken.explanationAr, currentToken.ruleCitationAr].filter(Boolean)}
+                        lang="ar"
+                        context="explanation"
+                        compact
+                      />
+                    </div>
                     <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-800 bg-slate-100 border-slate-200' : 'text-slate-300 bg-slate-900/50 border-slate-800'} p-2.5 rounded-xl border`}>
                       {currentToken.explanationAr}
                     </p>
@@ -1567,7 +1576,14 @@ export const ArabicGrammarStudio: React.FC<ArabicGrammarStudioProps> = ({
             {/* Trap Explanation Card */}
             <div className={`${isLight ? 'bg-white border-amber-300 text-slate-900 shadow-md' : 'bg-slate-900/80 border-amber-500/30 shadow-xl'} rounded-3xl p-5 border space-y-4`}>
               <div>
-                <h3 className={`text-lg font-bold ${isLight ? 'text-amber-950' : 'text-amber-300'}`}>{currentOrthography.titleAr}</h3>
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <h3 className={`text-lg font-bold ${isLight ? 'text-amber-950' : 'text-amber-300'}`}>{currentOrthography.titleAr}</h3>
+                  <SpeechNarrationButton
+                    text={currentOrthography.ruleExplanationAr}
+                    lang="ar"
+                    context="explanation"
+                  />
+                </div>
                 <p className={`text-xs ${isLight ? 'text-slate-700' : 'text-slate-300'} mt-1 leading-relaxed`}>{currentOrthography.ruleExplanationAr}</p>
               </div>
 

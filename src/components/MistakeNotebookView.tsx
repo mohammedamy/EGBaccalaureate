@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import type { Language } from '../i18n/translations';
 import { MathRenderer } from './MathRenderer';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { TextbookDiagram } from './TextbookDiagram';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import type {
@@ -685,9 +686,16 @@ export const MistakeNotebookView: React.FC<Props> = ({
 
                   {isExpanded && (
                     <div className="mt-3 p-4 sm:p-5 rounded-xl bg-indigo-950/20 border border-indigo-900/40 space-y-2 animate-fadeIn">
-                      <div className="text-xs font-extrabold text-indigo-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5" />
-                        <span>{isAr ? 'خطوات الحل والنموذج الوزاري المعتمد:' : 'Ministerial Marking Scheme Steps:'}</span>
+                      <div className="flex items-center justify-between gap-2 flex-wrap mb-2">
+                        <div className="text-xs font-extrabold text-indigo-400 uppercase tracking-wider flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5" />
+                          <span>{isAr ? 'خطوات الحل والنموذج الوزاري المعتمد:' : 'Ministerial Marking Scheme Steps:'}</span>
+                        </div>
+                        <SpeechNarrationButton
+                          text={explanation}
+                          lang={lang}
+                          context="explanation"
+                        />
                       </div>
                       {explanation.map((step, sIdx) => (
                         <div key={sIdx} className="text-xs sm:text-sm text-slate-300 leading-relaxed font-mono">

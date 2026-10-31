@@ -17,6 +17,7 @@ import {
   importLocalDataBackup, 
   resetLocalDeviceData 
 } from '../services/userProfileService';
+import { useSupabaseAuth } from '../services/supabaseAuthContext';
 import { getAllGovernorates } from '../services/governorateAnalyticsService';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import { 
@@ -92,6 +93,7 @@ export const UserProfileModal: React.FC<Props> = ({
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
+  const { isAuthenticated, signOut: supabaseSignOut } = useSupabaseAuth();
 
   const [activeTab, setActiveTab] = useState<'profile' | 'goals' | 'storage'>('profile');
   const [profile, setProfile] = useState<UserProfile>(loadLocalUserProfile);
@@ -140,10 +142,12 @@ export const UserProfileModal: React.FC<Props> = ({
   };
 
   const handleGoogleSignOut = async () => {
+    await supabaseSignOut();
     await signOutGoogleUser();
     const updated = loadLocalUserProfile();
     setProfile(updated);
     onProfileUpdated?.(updated);
+    onClose();
   };
 
   const handleSaveProfile = () => {
@@ -328,11 +332,11 @@ export const UserProfileModal: React.FC<Props> = ({
                     <div>
                       <div className="flex items-center gap-1.5">
                         <p className="font-extrabold text-sm">{profile.displayName}</p>
-                        {profile.isGoogleUser && (
+                        {(profile.isGoogleUser || isAuthenticated) && (
                           <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                             isLight ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-emerald-900/50 text-emerald-300 border-emerald-700/60'
                           }`}>
-                            ✓ {isArabic ? 'حساب Google موثق' : 'Verified Google'}
+                            ✓ {isArabic ? 'حساب Google موثق عبر Supabase' : 'Verified Google • Supabase'}
                           </span>
                         )}
                       </div>
@@ -343,7 +347,7 @@ export const UserProfileModal: React.FC<Props> = ({
                   </div>
 
                   <div className="shrink-0 flex items-center gap-2">
-                    {profile.isGoogleUser ? (
+                    {profile.isGoogleUser || isAuthenticated ? (
                       <button
                         onClick={handleGoogleSignOut}
                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
@@ -405,43 +409,23 @@ export const UserProfileModal: React.FC<Props> = ({
                       <span className="font-semibold leading-relaxed">{signInError}</span>
                     </div>
 
-                    {signInError.includes('configuration-not-found') && (
+                    {(signInError.includes('supabase/not-configured') ||
+                      signInError.toLowerCase().includes('provider is not enabled')) && (
                       <div className="pt-2 border-t border-red-500/20 text-[11px] leading-relaxed text-red-300 space-y-1.5">
                         <p>
                           {isArabic
-                            ? '💡 الحل السريع: ادخل إلى لوحة تحكم Firebase ➔ مشروع egbac-89a25 ➔ Authentication ➔ Sign-in method ➔ فعّل Google واضغط Save.'
-                            : '💡 Quick Fix: Go to Firebase Console ➔ project egbac-89a25 ➔ Authentication ➔ Sign-in method ➔ Enable Google and click Save.'}
-                        </p>
-                        <p className="text-amber-300 font-bold">
-                          {isArabic
-                            ? '✓ تذكير: يمكنك الاستمرار في استخدام المنصة وحفظ بياناتك وتدريباتك محلياً دون أي قيود ودون تسجيل الدخول!'
-                            : '✓ Note: You can still use all platform features and save all your data locally without signing in!'}
+                            ? '💡 الحل السريع: فعّل موفر Google في لوحة تحكم Supabase (Authentication ➔ Sign In / Providers ➔ Google) وتأكد من ضبط VITE_SUPABASE_URL و VITE_SUPABASE_PUBLISHABLE_KEY في ملف .env.local.'
+                            : '💡 Quick Fix: Enable Google in Supabase Dashboard (Authentication ➔ Sign In / Providers ➔ Google) and set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in .env.local.'}
                         </p>
                         <a
-                          href="https://console.firebase.google.com/project/egbac-89a25/authentication/providers"
+                          href="https://supabase.com/dashboard/project/_/auth/providers?provider=Google"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 font-black text-amber-300 underline hover:text-amber-200 mt-1"
                         >
-                          {isArabic ? 'فتح لوحة تحكم Firebase لتفعيل Google ↗' : 'Open Firebase Console to enable Google ↗'}
-                        </a>
-                      </div>
-                    )}
-
-                    {signInError.includes('unauthorized-domain') && (
-                      <div className="pt-2 border-t border-red-500/20 text-[11px] leading-relaxed text-red-300 space-y-1.5">
-                        <p>
                           {isArabic
-                            ? '💡 الحل: أضف الدومين الحالي في Firebase Console ➔ Authentication ➔ Settings ➔ Authorized domains.'
-                            : '💡 Fix: Add the current domain in Firebase Console ➔ Authentication ➔ Settings ➔ Authorized domains.'}
-                        </p>
-                        <a
-                          href="https://console.firebase.google.com/project/egbac-89a25/authentication/settings"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-black text-amber-300 underline hover:text-amber-200 mt-1"
-                        >
-                          {isArabic ? 'فتح صفحة Authorized domains في Firebase ↗' : 'Open Authorized Domains in Firebase ↗'}
+                            ? 'فتح لوحة تحكم Supabase لتفعيل Google ↗'
+                            : 'Open Supabase Dashboard to enable Google ↗'}
                         </a>
                       </div>
                     )}

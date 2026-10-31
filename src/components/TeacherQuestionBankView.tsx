@@ -11,6 +11,7 @@ import {
   importCustomQuestionsJSON,
 } from '../services/teacherQuestionBankService';
 import { MathRenderer } from './MathRenderer';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import {
   Plus,
@@ -520,10 +521,18 @@ export const TeacherQuestionBankView: React.FC<Props> = ({
 
                     {/* Pedagogical Tip or Explanation */}
                     {(q.explanationAr || q.teacherTipAr) && (
-                      <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] space-y-1 text-slate-400">
+                      <div className="pt-2 border-t border-slate-200/60 dark:border-slate-800/60 text-[11px] space-y-1.5 text-slate-400">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="font-bold text-indigo-400">💡 {isAr ? 'الحل النموذجي والإرشاد:' : 'Solution & Guidance:'}</span>
+                          <SpeechNarrationButton
+                            text={[q.explanationAr, q.teacherTipAr].filter(Boolean) as string[]}
+                            lang="ar"
+                            context="explanation"
+                            compact
+                          />
+                        </div>
                         {q.explanationAr && (
                           <p className="flex items-start gap-1">
-                            <span className="font-bold text-indigo-400 shrink-0">💡 {isAr ? 'الحل النموذجي:' : 'Solution:'}</span>
                             <span className="text-slate-300"><MathRenderer text={q.explanationAr} lang={lang} /></span>
                           </p>
                         )}

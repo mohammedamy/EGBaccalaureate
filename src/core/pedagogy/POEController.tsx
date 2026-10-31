@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { ThemeMode } from '../../types/curriculum';
 import { HelpCircle, CheckCircle2, Award, ChevronRight, Unlock, Sparkles, BookOpen } from 'lucide-react';
+import { SpeechNarrationButton } from '../../components/SpeechNarrationButton';
 
 export interface POEPrompt {
   id: string;
@@ -60,32 +61,29 @@ export const POEController: React.FC<POEControllerProps> = ({
   };
 
   return (
-    <div className={`rounded-2xl border transition-all duration-300 shadow-xl overflow-hidden ${
-      phase === 'completed'
+    <div className={`rounded-2xl border transition-all duration-300 shadow-xl overflow-hidden ${phase === 'completed'
         ? isLight
           ? 'bg-emerald-50/90 border-emerald-300 text-slate-900 shadow-sm'
           : 'bg-emerald-950/20 border-emerald-500/40 text-slate-100'
         : isLight
-        ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
-        : 'bg-slate-900/90 border-cyan-500/30 text-slate-100 backdrop-blur-md'
-    }`} dir={isAr ? 'rtl' : 'ltr'}>
+          ? 'bg-white border-slate-200 text-slate-900 shadow-sm'
+          : 'bg-slate-900/90 border-cyan-500/30 text-slate-100 backdrop-blur-md'
+      }`} dir={isAr ? 'rtl' : 'ltr'}>
       {/* Header with Phase Progress */}
-      <div className={`px-5 py-3.5 border-b flex flex-wrap items-center justify-between gap-3 ${
-        isLight
+      <div className={`px-5 py-3.5 border-b flex flex-wrap items-center justify-between gap-3 ${isLight
           ? 'bg-slate-50/90 border-slate-200'
           : 'bg-slate-950/60 border-slate-800/80'
-      }`}>
+        }`}>
         <div className="flex items-center gap-2.5">
           <div className="p-2 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
             <BookOpen className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className={`text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded border ${
-                isLight
+              <span className={`text-xs font-black uppercase tracking-wider px-2 py-0.5 rounded border ${isLight
                   ? 'bg-cyan-100 text-cyan-800 border-cyan-300'
                   : 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
-              }`}>
+                }`}>
                 POE Framework
               </span>
               <h4 className={`text-sm font-bold ${isLight ? 'text-slate-900' : 'text-slate-200'}`}>
@@ -100,35 +98,32 @@ export const POEController: React.FC<POEControllerProps> = ({
 
         {/* Stepper pills */}
         <div className="flex items-center gap-1.5 text-xs font-semibold">
-          <span className={`px-2.5 py-1 rounded-md transition-all ${
-            phase === 'predict'
+          <span className={`px-2.5 py-1 rounded-md transition-all ${phase === 'predict'
               ? 'bg-cyan-500 text-slate-950 font-bold shadow-sm shadow-cyan-500/50'
               : isLight
-              ? 'bg-slate-100 text-slate-600'
-              : 'bg-slate-800 text-slate-400'
-          }`}>
+                ? 'bg-slate-100 text-slate-600'
+                : 'bg-slate-800 text-slate-400'
+            }`}>
             1. {isAr ? 'توقع' : 'Predict'}
           </span>
           <ChevronRight className={`w-3.5 h-3.5 ${isLight ? 'text-slate-400' : 'text-slate-600'} ${isAr ? 'rotate-180' : ''}`} />
-          <span className={`px-2.5 py-1 rounded-md transition-all ${
-            phase === 'observe'
+          <span className={`px-2.5 py-1 rounded-md transition-all ${phase === 'observe'
               ? 'bg-indigo-500 text-white font-bold shadow-sm shadow-indigo-500/50'
               : isLight
-              ? 'bg-slate-100 text-slate-600'
-              : 'bg-slate-800 text-slate-400'
-          }`}>
+                ? 'bg-slate-100 text-slate-600'
+                : 'bg-slate-800 text-slate-400'
+            }`}>
             2. {isAr ? 'لاحظ' : 'Observe'}
           </span>
           <ChevronRight className={`w-3.5 h-3.5 ${isLight ? 'text-slate-400' : 'text-slate-600'} ${isAr ? 'rotate-180' : ''}`} />
-          <span className={`px-2.5 py-1 rounded-md transition-all ${
-            phase === 'explain'
+          <span className={`px-2.5 py-1 rounded-md transition-all ${phase === 'explain'
               ? 'bg-amber-500 text-slate-950 font-bold shadow-sm'
               : phase === 'completed'
-              ? 'bg-emerald-500 text-slate-950 font-bold'
-              : isLight
-              ? 'bg-slate-100 text-slate-600'
-              : 'bg-slate-800 text-slate-400'
-          }`}>
+                ? 'bg-emerald-500 text-slate-950 font-bold'
+                : isLight
+                  ? 'bg-slate-100 text-slate-600'
+                  : 'bg-slate-800 text-slate-400'
+            }`}>
             3. {isAr ? 'فسر' : 'Explain'}
           </span>
         </div>
@@ -138,11 +133,10 @@ export const POEController: React.FC<POEControllerProps> = ({
         {/* Phase 1: PREDICT */}
         {phase === 'predict' && (
           <div className="space-y-4 animate-fadeIn">
-            <div className={`p-3.5 rounded-xl border ${
-              isLight
+            <div className={`p-3.5 rounded-xl border ${isLight
                 ? 'bg-cyan-50/90 border-cyan-200 text-slate-900 shadow-xs'
                 : 'bg-cyan-950/30 border-cyan-800/40'
-            }`}>
+              }`}>
               <p className={`text-xs font-semibold mb-1 ${isLight ? 'text-cyan-800 font-bold' : 'text-cyan-300'}`}>
                 {isAr ? 'السيناريو التجريبي:' : 'Experimental Scenario:'}
               </p>
@@ -152,9 +146,8 @@ export const POEController: React.FC<POEControllerProps> = ({
             </div>
 
             <div>
-              <label className={`block text-sm font-bold mb-2 flex items-center gap-2 ${
-                isLight ? 'text-slate-900' : 'text-slate-100'
-              }`}>
+              <label className={`block text-sm font-bold mb-2 flex items-center gap-2 ${isLight ? 'text-slate-900' : 'text-slate-100'
+                }`}>
                 <HelpCircle className={`w-4 h-4 ${isLight ? 'text-cyan-600' : 'text-cyan-400'}`} />
                 {isAr ? prompt.questionAr : prompt.questionEn}
               </label>
@@ -164,23 +157,21 @@ export const POEController: React.FC<POEControllerProps> = ({
                   <button
                     key={idx}
                     onClick={() => setSelectedPrediction(idx)}
-                    className={`p-3 text-start rounded-xl border text-xs sm:text-sm font-medium transition-all ${
-                      selectedPrediction === idx
+                    className={`p-3 text-start rounded-xl border text-xs sm:text-sm font-medium transition-all ${selectedPrediction === idx
                         ? isLight
                           ? 'bg-cyan-50 border-2 border-cyan-500 text-cyan-950 shadow-sm scale-[1.01] font-bold'
                           : 'bg-cyan-500/20 border-cyan-400 text-cyan-100 shadow-md shadow-cyan-900/30 scale-[1.01]'
                         : isLight
-                        ? 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50 hover:border-slate-300 shadow-xs'
-                        : 'bg-slate-800/60 border-slate-700/60 text-slate-300 hover:bg-slate-800 hover:border-slate-600'
-                    }`}
+                          ? 'bg-white border-slate-200 text-slate-800 hover:bg-slate-50 hover:border-slate-300 shadow-xs'
+                          : 'bg-slate-800/60 border-slate-700/60 text-slate-300 hover:bg-slate-800 hover:border-slate-600'
+                      }`}
                   >
-                    <span className={`inline-block w-5 h-5 rounded-full text-center text-xs font-bold mr-2 rtl:ml-2 rtl:mr-0 ${
-                      selectedPrediction === idx
+                    <span className={`inline-block w-5 h-5 rounded-full text-center text-xs font-bold mr-2 rtl:ml-2 rtl:mr-0 ${selectedPrediction === idx
                         ? 'bg-cyan-500 text-white'
                         : isLight
-                        ? 'bg-slate-200 text-slate-700'
-                        : 'bg-slate-700 text-slate-200'
-                    }`}>
+                          ? 'bg-slate-200 text-slate-700'
+                          : 'bg-slate-700 text-slate-200'
+                      }`}>
                       {String.fromCharCode(65 + idx)}
                     </span>
                     {opt}
@@ -190,9 +181,8 @@ export const POEController: React.FC<POEControllerProps> = ({
             </div>
 
             {/* Confidence Slider */}
-            <div className={`pt-2 border-t flex flex-wrap items-center justify-between gap-3 ${
-              isLight ? 'border-slate-200' : 'border-slate-800'
-            }`}>
+            <div className={`pt-2 border-t flex flex-wrap items-center justify-between gap-3 ${isLight ? 'border-slate-200' : 'border-slate-800'
+              }`}>
               <div className="flex items-center gap-3">
                 <span className={`text-xs font-medium ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
                   {isAr ? 'درجة الثقة بالفرضية:' : 'Hypothesis Confidence:'}
@@ -203,11 +193,10 @@ export const POEController: React.FC<POEControllerProps> = ({
                       key={star}
                       type="button"
                       onClick={() => setConfidence(star)}
-                      className={`text-base transition-transform hover:scale-125 ${
-                        star <= confidence
+                      className={`text-base transition-transform hover:scale-125 ${star <= confidence
                           ? 'text-amber-400'
                           : isLight ? 'text-slate-300' : 'text-slate-600'
-                      }`}
+                        }`}
                     >
                       ★
                     </button>
@@ -230,11 +219,10 @@ export const POEController: React.FC<POEControllerProps> = ({
         {/* Phase 2: OBSERVE */}
         {phase === 'observe' && (
           <div className="space-y-4 animate-fadeIn">
-            <div className={`p-4 rounded-xl flex items-start gap-3 border ${
-              isLight
+            <div className={`p-4 rounded-xl flex items-start gap-3 border ${isLight
                 ? 'bg-indigo-50/80 border-indigo-200 text-slate-900'
                 : 'bg-indigo-950/30 border-indigo-500/30'
-            }`}>
+              }`}>
               <Sparkles className={`w-5 h-5 shrink-0 mt-0.5 ${isLight ? 'text-indigo-600' : 'text-indigo-400'}`} />
               <div>
                 <h5 className={`text-sm font-bold ${isLight ? 'text-indigo-950' : 'text-indigo-200'}`}>
@@ -245,11 +233,10 @@ export const POEController: React.FC<POEControllerProps> = ({
                     ? 'قم بتحريك أدوات المحاكاة، وتدوين القياسات في دفتر المعمل، والتحقق مما إذا كانت نتائجك تدعم توقعك الأولي أو تدحضه.'
                     : 'Manipulate sliders and instruments, record data points in the Lab Notebook, and verify whether the physical phenomenon supports your hypothesis.'}
                 </p>
-                <div className={`mt-2 text-xs px-3 py-1.5 rounded-lg border inline-flex items-center gap-2 ${
-                  isLight
+                <div className={`mt-2 text-xs px-3 py-1.5 rounded-lg border inline-flex items-center gap-2 ${isLight
                     ? 'bg-white border-slate-200 text-slate-800 shadow-xs'
                     : 'bg-slate-900/60 border-slate-700/60 text-slate-300'
-                }`}>
+                  }`}>
                   <span className={isLight ? 'text-slate-500 font-medium' : 'text-slate-400'}>{isAr ? 'توقعك المسجل:' : 'Your Prediction:'}</span>
                   <span className={`font-semibold ${isLight ? 'text-cyan-700' : 'text-cyan-300'}`}>
                     {(isAr ? prompt.optionsAr : prompt.optionsEn)[selectedPrediction ?? 0]}
@@ -273,11 +260,10 @@ export const POEController: React.FC<POEControllerProps> = ({
         {/* Phase 3: EXPLAIN */}
         {phase === 'explain' && (
           <div className="space-y-4 animate-fadeIn">
-            <div className={`p-3.5 rounded-xl border ${
-              isLight
+            <div className={`p-3.5 rounded-xl border ${isLight
                 ? 'bg-amber-50/90 border-amber-200 text-slate-900'
                 : 'bg-amber-950/20 border-amber-600/30'
-            }`}>
+              }`}>
               <h5 className={`text-xs font-bold uppercase tracking-wide mb-1 ${isLight ? 'text-amber-800' : 'text-amber-300'}`}>
                 {isAr ? 'صياغة الاستنتاج العلمي' : 'Scientific Synthesis & Reflection'}
               </h5>
@@ -294,11 +280,10 @@ export const POEController: React.FC<POEControllerProps> = ({
                 onChange={(e) => setStudentExplanation(e.target.value)}
                 placeholder={isAr ? 'اكتب تحليلك واستنتاجك هنا مستنداً إلى القوانين الفيزيائية...' : 'Write your step-by-step reasoning citing the physical laws...'}
                 rows={3}
-                className={`w-full rounded-xl p-3 text-xs sm:text-sm transition-all resize-none ${
-                  isLight
+                className={`w-full rounded-xl p-3 text-xs sm:text-sm transition-all resize-none ${isLight
                     ? 'bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 shadow-xs'
                     : 'bg-slate-800/80 border border-slate-700 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500'
-                }`}
+                  }`}
               />
             </div>
 
@@ -318,15 +303,14 @@ export const POEController: React.FC<POEControllerProps> = ({
         {phase === 'completed' && (
           <div className="space-y-4 animate-fadeIn">
             <div className="flex items-center gap-3">
-              <div className={`p-2.5 rounded-xl ${
-                selectedPrediction === prompt.correctOptionIndex
+              <div className={`p-2.5 rounded-xl ${selectedPrediction === prompt.correctOptionIndex
                   ? isLight
                     ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
                     : 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
                   : isLight
                     ? 'bg-amber-100 text-amber-800 border border-amber-300'
                     : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-              }`}>
+                }`}>
                 <Award className="w-6 h-6" />
               </div>
               <div>
@@ -342,24 +326,28 @@ export const POEController: React.FC<POEControllerProps> = ({
             </div>
 
             {/* Scientific Explanation Box */}
-            <div className={`p-4 rounded-xl space-y-2 border ${
-              isLight
+            <div className={`p-4 rounded-xl space-y-2 border ${isLight
                 ? 'bg-emerald-50/90 border-emerald-200 text-slate-900'
                 : 'bg-slate-950/80 border-emerald-500/30'
-            }`}>
-              <span className={`text-xs font-bold uppercase tracking-wider block ${
-                isLight ? 'text-emerald-800' : 'text-emerald-400'
               }`}>
-                {isAr ? 'التفسير العلمي المنهجي الدقيق:' : 'Authoritative Physical Law Breakdown:'}
-              </span>
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className={`text-xs font-bold uppercase tracking-wider block ${isLight ? 'text-emerald-800' : 'text-emerald-400'
+                  }`}>
+                  {isAr ? 'التفسير العلمي المنهجي الدقيق:' : 'Authoritative Physical Law Breakdown:'}
+                </span>
+                <SpeechNarrationButton
+                  text={isAr ? prompt.scientificExplanationAr : prompt.scientificExplanationEn}
+                  lang={lang}
+                  context="explanation"
+                />
+              </div>
               <p className={`text-xs sm:text-sm leading-relaxed ${isLight ? 'text-slate-800' : 'text-slate-200'}`}>
                 {isAr ? prompt.scientificExplanationAr : prompt.scientificExplanationEn}
               </p>
             </div>
 
-            <div className={`flex items-center justify-between pt-2 border-t text-xs ${
-              isLight ? 'border-slate-200 text-slate-600' : 'border-slate-800 text-slate-400'
-            }`}>
+            <div className={`flex items-center justify-between pt-2 border-t text-xs ${isLight ? 'border-slate-200 text-slate-600' : 'border-slate-800 text-slate-400'
+              }`}>
               <span>{isAr ? 'الحالة: مكتمل' : 'Status: POE Protocol Mastered'}</span>
               <button
                 onClick={() => setPhase('observe')}

@@ -48,6 +48,8 @@ const SchoolOutreachModal = lazy(() => import('./components/SchoolOutreachModal'
 const UserProfileModal = lazy(() => import('./components/UserProfileModal').then(m => ({ default: m.UserProfileModal })));
 import type { UserProfile, AcademicTrack } from './types/userProfile';
 import { loadLocalUserProfile, saveLocalUserProfile, subscribeToUserProfile } from './services/userProfileService';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { useSupabaseAuth } from './services/supabaseAuthContext';
 import type { Assignment } from './types/teacherAssignment';
 import type { TeacherModalTab } from './components/TeacherAssignmentModal';
 import type { PrescribedItem } from './types/adaptivePractice';
@@ -356,8 +358,11 @@ export const App: React.FC = () => {
     }
   }, []);
 
-  // Auto-launch interactive navigation tour for first-time visitors
+  const { isAuthenticated } = useSupabaseAuth();
+
+  // Auto-launch interactive navigation tour for first-time visitors once authenticated
   useEffect(() => {
+    if (!isAuthenticated) return;
     try {
       const hasCompletedTutorial = localStorage.getItem('egbac_tutorial_completed');
       if (!hasCompletedTutorial) {
@@ -367,7 +372,7 @@ export const App: React.FC = () => {
         return () => clearTimeout(timer);
       }
     } catch {}
-  }, []);
+  }, [isAuthenticated]);
 
   // Set Document Title & Direction based on Language
   useEffect(() => {
@@ -747,13 +752,21 @@ export const App: React.FC = () => {
   const t = translations[lang];
 
   return (
-    <div className={`min-h-screen w-full max-w-full overflow-x-clip font-sans flex flex-col transition-colors duration-300 ${
-      theme === 'high-contrast'
-        ? 'bg-black text-white selection:bg-yellow-400 selection:text-black'
-        : theme === 'light'
-        ? 'bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white'
-        : 'bg-slate-950 text-slate-100 selection:bg-indigo-500 selection:text-white'
-    }`}>
+    <ProtectedRoute
+      lang={lang}
+      onLanguageToggle={handleLanguageToggle}
+      theme={theme}
+      onThemeChange={setTheme}
+      requestedTab={activeTab}
+      onReturnToDefaultTab={() => setActiveTab('overview')}
+    >
+      <div className={`min-h-screen w-full max-w-full overflow-x-clip font-sans flex flex-col transition-colors duration-300 ${
+        theme === 'high-contrast'
+          ? 'bg-black text-white selection:bg-yellow-400 selection:text-black'
+          : theme === 'light'
+          ? 'bg-slate-50 text-slate-900 selection:bg-indigo-600 selection:text-white'
+          : 'bg-slate-950 text-slate-100 selection:bg-indigo-500 selection:text-white'
+      }`}>
       {/* Header Navigation */}
       <Navbar
         lang={lang}
@@ -1429,7 +1442,8 @@ export const App: React.FC = () => {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </ProtectedRoute>
   );
 };
 

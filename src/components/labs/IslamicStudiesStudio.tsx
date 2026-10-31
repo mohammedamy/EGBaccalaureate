@@ -32,6 +32,7 @@ import {
   Navigation,
 } from 'lucide-react';
 import { useNativeLabFullscreen } from '../../core/labs/useNativeLabFullscreen';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import { AncientQuranKuficHighResView } from './islamic/AncientQuranKuficHighResView';
 import { IslamicAstrolabeQiblaStudio } from './islamic/IslamicAstrolabeQiblaStudio';
 import { HijriCalendarMoonPhaseStudio } from './islamic/HijriCalendarMoonPhaseStudio';
@@ -1391,10 +1392,18 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                             {ex.highlightedPart}
                           </span>
                         </div>
-                        <p className={`mt-1 ${isLight ? 'text-slate-700' : 'text-emerald-100/80'}`}>
-                          <strong>{isArabic ? 'الشرح والبيان: ' : 'Explanation: '}</strong>
-                          {isArabic ? ex.explanationAr : ex.explanationEn}
-                        </p>
+                        <div className="mt-1 flex items-start justify-between gap-2">
+                          <p className={isLight ? 'text-slate-700' : 'text-emerald-100/80'}>
+                            <strong>{isArabic ? 'الشرح والبيان: ' : 'Explanation: '}</strong>
+                            {isArabic ? ex.explanationAr : ex.explanationEn}
+                          </p>
+                          <SpeechNarrationButton
+                            text={isArabic ? ex.explanationAr : ex.explanationEn}
+                            lang={isArabic ? 'ar' : 'en'}
+                            context="explanation"
+                            compact
+                          />
+                        </div>
                       </div>
                     </div>
                   );
@@ -1907,9 +1916,21 @@ export const IslamicStudiesStudio: React.FC<Props> = ({
                 isLight ? 'bg-emerald-50/80 border-emerald-200 shadow-xs' : 'bg-emerald-950/50 border-emerald-500/30'
               }`}
             >
-              <span className={`text-xs font-bold ${isLight ? 'text-emerald-950' : 'text-emerald-300'}`}>
-                {isArabic ? 'التعليل النموذجي: ' : 'Model Explanation: '}
-              </span>
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <span className={`text-xs font-bold ${isLight ? 'text-emerald-950' : 'text-emerald-300'}`}>
+                  {isArabic ? 'التعليل النموذجي: ' : 'Model Explanation: '}
+                </span>
+                <SpeechNarrationButton
+                  text={
+                    isArabic
+                      ? ISLAMIC_STUDIES_QUIZ_DATA[currentQIndex].explanationAr
+                      : ISLAMIC_STUDIES_QUIZ_DATA[currentQIndex].explanationEn
+                  }
+                  lang={isArabic ? 'ar' : 'en'}
+                  context="explanation"
+                  compact
+                />
+              </div>
               <p
                 className={`text-xs md:text-sm leading-relaxed ${
                   isLight ? 'text-slate-800 font-normal' : 'text-emerald-100/90'

@@ -984,13 +984,13 @@ export const NationalCivicsStudio: React.FC<Props> = ({
       data-fullscreen-lab={isFullscreen ? 'true' : undefined}
     >
       {/* Studio Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-emerald-500/20">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-amber-600 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-white">
+      <div className="flex flex-col gap-4 pb-6 border-b border-emerald-500/20 w-full min-w-0 max-w-full">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-600 to-amber-600 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-white shrink-0">
             <Scale className="w-6 h-6" />
           </div>
-          <div>
-            <div className="flex items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2">
               <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                 {isAr ? 'الاستوديو الافتراضي الخامس عشر' : '15th Virtual Studio'}
               </span>
@@ -998,7 +998,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
                 {isAr ? 'الثانوية العامة & EG-Bac' : 'Thanaweya & EG-Bac'}
               </span>
             </div>
-            <h2 className="text-xl md:text-2xl font-bold tracking-tight mt-1 flex items-center gap-2">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight mt-1 flex flex-wrap items-center gap-2">
               <span>{isAr ? 'استوديو التربية الوطنية والدستور التفاعلي' : 'National Civics & Constitutional Studio'}</span>
               <span className="text-sm font-normal text-emerald-400">⚖️</span>
             </h2>
@@ -1011,7 +1011,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
         </div>
 
         {/* 4K Archival Constitutional Folios Showcase Banner */}
-        <div className="p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/40 via-emerald-950/40 to-sky-950/40 border border-emerald-500/30 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div className="w-full p-3.5 rounded-2xl bg-gradient-to-r from-amber-950/40 via-emerald-950/40 to-sky-950/40 border border-emerald-500/30 flex flex-wrap items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2.5">
             <span className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold">4K</span>
             <div>
@@ -1072,7 +1072,7 @@ export const NationalCivicsStudio: React.FC<Props> = ({
         </div>
 
         {/* Studio Tabs Navigation */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs">
+        <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-xs w-full max-w-full">
           <button
             onClick={() => setActiveTab('constitution_1923')}
             className={`min-h-[44px] px-3.5 py-2 rounded-lg font-medium transition-all flex items-center gap-1.5 ${

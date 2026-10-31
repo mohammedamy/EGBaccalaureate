@@ -461,11 +461,11 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
                 </span>
               </div>
 
-              <h3 className="text-lg font-black text-amber-400 mb-2">
+              <h3 className={`text-lg font-black mb-2 ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                 {isArabic ? selectedHotspot.titleAr : selectedHotspot.titleEn}
               </h3>
 
-              <p className="text-sm leading-relaxed text-stone-300 mb-4">
+              <p className={`text-sm leading-relaxed mb-4 ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>
                 {isArabic ? selectedHotspot.descAr : selectedHotspot.descEn}
               </p>
 
@@ -476,7 +476,7 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
                     : 'bg-amber-950/20 border-amber-500/30 text-amber-200'
                 }`}
               >
-                <div className="font-bold flex items-center gap-1.5 text-amber-400">
+                <div className={`font-bold flex items-center gap-1.5 ${isLight ? 'text-amber-800' : 'text-amber-400'}`}>
                   <Shield className="w-3.5 h-3.5" />
                   <span>{isArabic ? 'الخصائص الجيوكيميائية والبلورية:' : 'Geochemical & Crystal Attributes:'}</span>
                 </div>
@@ -585,12 +585,12 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
               isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
             }`}
           >
-            <div className="text-xs font-bold text-amber-500 mb-1 flex items-center gap-1.5">
+            <div className={`text-xs font-bold mb-1 flex items-center gap-1.5 ${isLight ? 'text-amber-700' : 'text-amber-500'}`}>
               <Sliders className="w-3.5 h-3.5" />
               {isArabic ? 'المرحلة البترولوجية النشطة:' : 'Active Petrological Stage:'}
             </div>
-            <div className="text-sm font-black text-amber-300">{isArabic ? activeCryst.stageAr : activeCryst.stageEn}</div>
-            <div className="text-xs text-stone-400 mt-2">{isArabic ? activeCryst.meltStatusAr : activeCryst.meltStatusEn}</div>
+            <div className={`text-sm font-black ${isLight ? 'text-amber-900' : 'text-amber-300'}`}>{isArabic ? activeCryst.stageAr : activeCryst.stageEn}</div>
+            <div className={`text-xs mt-2 ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>{isArabic ? activeCryst.meltStatusAr : activeCryst.meltStatusEn}</div>
           </div>
 
           <div
@@ -598,14 +598,14 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
               isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
             }`}
           >
-            <div className="text-xs font-bold text-emerald-500 mb-1 flex items-center gap-1.5">
+            <div className={`text-xs font-bold mb-1 flex items-center gap-1.5 ${isLight ? 'text-emerald-700' : 'text-emerald-500'}`}>
               <CheckCircle2 className="w-3.5 h-3.5" />
               {isArabic ? 'المعادن المتبلورة حالياً:' : 'Actively Crystallizing Minerals:'}
             </div>
             <ul className="text-xs space-y-1.5 mt-1.5">
               {(isArabic ? activeCryst.mineralsAr : activeCryst.mineralsEn).map((min, idx) => (
-                <li key={idx} className="flex items-center gap-1.5 text-stone-200 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block" />
+                <li key={idx} className={`flex items-center gap-1.5 font-medium ${isLight ? 'text-stone-800' : 'text-stone-200'}`}>
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 inline-block" />
                   {min}
                 </li>
               ))}
@@ -617,12 +617,12 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
               isLight ? 'bg-white border-stone-200' : 'bg-stone-950/70 border-stone-800'
             }`}
           >
-            <div className="text-xs font-bold text-sky-400 mb-1 flex items-center gap-1.5">
+            <div className={`text-xs font-bold mb-1 flex items-center gap-1.5 ${isLight ? 'text-sky-700' : 'text-sky-400'}`}>
               <Layers className="w-3.5 h-3.5" />
               {isArabic ? 'الصخور الناتجة المقابلة:' : 'Resulting Equivalent Rocks:'}
             </div>
-            <div className="text-sm font-black text-sky-300">{isArabic ? activeCryst.rockTypeAr : activeCryst.rockTypeEn}</div>
-            <div className="text-xs text-stone-400 mt-2">
+            <div className={`text-sm font-black ${isLight ? 'text-sky-900' : 'text-sky-300'}`}>{isArabic ? activeCryst.rockTypeAr : activeCryst.rockTypeEn}</div>
+            <div className={`text-xs mt-2 ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
               {isArabic
                 ? 'تختلف مسميات الصخور باختلاف سرعة التبريد (جوفي في باطن الأرض أو بركاني على السطح).'
                 : 'Rock names vary with cooling rate (deep plutonic vs fast volcanic surface).'}
@@ -693,28 +693,28 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="space-y-1">
-              <span className="text-xs text-stone-400">{isArabic ? 'نسبة السيليكا (SiO2):' : 'Silica Content:'}</span>
-              <div className="text-sm font-black text-amber-400 font-mono">{activeRockRecord.silicaRange}</div>
-              <div className="text-xs text-stone-300">{isArabic ? activeRockRecord.tempAr : activeRockRecord.tempEn}</div>
+              <span className={`text-xs ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>{isArabic ? 'نسبة السيليكا (SiO2):' : 'Silica Content:'}</span>
+              <div className={`text-sm font-black font-mono ${isLight ? 'text-amber-700' : 'text-amber-400'}`}>{activeRockRecord.silicaRange}</div>
+              <div className={`text-xs ${isLight ? 'text-stone-700' : 'text-stone-300'}`}>{isArabic ? activeRockRecord.tempAr : activeRockRecord.tempEn}</div>
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-stone-400">{isArabic ? 'لون الصخر والكثافة:' : 'Color & Density:'}</span>
-              <div className="text-sm font-bold text-stone-200">{isArabic ? activeRockRecord.colorAr : activeRockRecord.colorEn}</div>
-              <div className="text-xs font-mono text-stone-400">{activeRockRecord.density}</div>
+              <span className={`text-xs ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>{isArabic ? 'لون الصخر والكثافة:' : 'Color & Density:'}</span>
+              <div className={`text-sm font-bold ${isLight ? 'text-stone-900' : 'text-stone-200'}`}>{isArabic ? activeRockRecord.colorAr : activeRockRecord.colorEn}</div>
+              <div className={`text-xs font-mono ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>{activeRockRecord.density}</div>
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-stone-400">{isArabic ? 'المعادن المكونة:' : 'Mineral Constituents:'}</span>
-              <div className="text-xs leading-relaxed text-stone-200 font-medium">
+              <span className={`text-xs ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>{isArabic ? 'المعادن المكونة:' : 'Mineral Constituents:'}</span>
+              <div className={`text-xs leading-relaxed font-medium ${isLight ? 'text-stone-800' : 'text-stone-200'}`}>
                 {isArabic ? activeRockRecord.mineralsAr : activeRockRecord.mineralsEn}
               </div>
             </div>
 
             <div className="space-y-1">
-              <span className="text-xs text-stone-400">{isArabic ? 'العناصر الكيميائية السائدة:' : 'Major Elements:'}</span>
-              <div className="text-xs text-amber-300 font-bold">{isArabic ? activeRockRecord.feMgCa : activeRockRecord.feMgCa}</div>
-              <div className="text-xs text-sky-300">{isArabic ? activeRockRecord.naK : activeRockRecord.naK}</div>
+              <span className={`text-xs ${isLight ? 'text-stone-500' : 'text-stone-400'}`}>{isArabic ? 'العناصر الكيميائية السائدة:' : 'Major Elements:'}</span>
+              <div className={`text-xs font-bold ${isLight ? 'text-amber-800' : 'text-amber-300'}`}>{isArabic ? activeRockRecord.feMgCa : activeRockRecord.feMgCa}</div>
+              <div className={`text-xs ${isLight ? 'text-sky-700 font-semibold' : 'text-sky-300'}`}>{isArabic ? activeRockRecord.naK : activeRockRecord.naK}</div>
             </div>
           </div>
 
@@ -725,10 +725,10 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
                 isLight ? 'bg-amber-50/50 border-amber-200' : 'bg-stone-950/60 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-amber-500 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-amber-800' : 'text-amber-500'}`}>
                 {isArabic ? '1. صخر جوفي (نسيج خشن تبريد بطيء في العمق):' : '1. Plutonic (Coarse / Deep Slow Cooling):'}
               </div>
-              <div className="text-sm font-black text-stone-200">
+              <div className={`text-sm font-black ${isLight ? 'text-stone-900' : 'text-stone-200'}`}>
                 {isArabic ? activeRockRecord.plutonicAr : activeRockRecord.plutonicEn}
               </div>
             </div>
@@ -738,10 +738,10 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
                 isLight ? 'bg-amber-50/50 border-amber-200' : 'bg-stone-950/60 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-amber-500 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-amber-800' : 'text-amber-500'}`}>
                 {isArabic ? '2. صخر متداخل (نسيج بورفيري تبريد على مرحلتين):' : '2. Hypabyssal (Porphyritic / Two-Stage Cooling):'}
               </div>
-              <div className="text-sm font-black text-stone-200">
+              <div className={`text-sm font-black ${isLight ? 'text-stone-900' : 'text-stone-200'}`}>
                 {isArabic ? activeRockRecord.hypabyssalAr : activeRockRecord.hypabyssalEn}
               </div>
             </div>
@@ -751,10 +751,10 @@ export const BowenMagmaCrystallizationStudio: React.FC<Props> = ({
                 isLight ? 'bg-amber-50/50 border-amber-200' : 'bg-stone-950/60 border-stone-800'
               }`}
             >
-              <div className="text-xs font-bold text-amber-500 mb-1">
+              <div className={`text-xs font-bold mb-1 ${isLight ? 'text-amber-800' : 'text-amber-500'}`}>
                 {isArabic ? '3. صخر بركاني سطحي (نسيج دقيق/زجاجي تبريد سريع):' : '3. Volcanic (Fine / Glassy / Vesicular Fast):'}
               </div>
-              <div className="text-sm font-black text-stone-200">
+              <div className={`text-sm font-black ${isLight ? 'text-stone-900' : 'text-stone-200'}`}>
                 {isArabic ? activeRockRecord.volcanicAr : activeRockRecord.volcanicEn}
               </div>
             </div>

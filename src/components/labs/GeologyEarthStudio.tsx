@@ -960,51 +960,55 @@ export const GeologyEarthStudio: React.FC<Props> = ({
       dir={isArabic ? 'rtl' : 'ltr'}
     >
       {/* Studio Header */}
-      <div className={`flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b min-w-0 max-w-full ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
-        <div className="flex items-center gap-3 min-w-0">
-          <div className="p-2.5 rounded-xl bg-gradient-to-tr from-amber-600 via-stone-700 to-rose-700 text-white shadow-lg shadow-amber-900/20 shrink-0">
-            <Mountain className="w-7 h-7" />
-          </div>
-          <div className="min-w-0">
-            <h2 className="text-xl md:text-2xl font-bold flex flex-wrap items-center gap-2">
-              <span className={isLight ? 'text-stone-900 font-extrabold' : ''}>
-                {isArabic ? 'استوديو علوم الأرض والبيئة التفاعلي' : 'Earth Science & Environmental Studio'}
-              </span>
-              <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold shrink-0 ${isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'}`}>
-                {isArabic ? 'الجيولوجيا الرسمية 2026' : 'Official Geology 2026'}
-              </span>
-            </h2>
-            <p className={`text-xs md:text-sm break-words ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
-              {isArabic
-                ? 'محاكاة تفاعلية ثلاثية الأبعاد للأنظمة البلورية السبعة، اختبارات موهس والمخدش، بوين، تكتونية الصفائح، الجيولوجيا التركيبية (الفوالق والطيات)، القطاعات، والزلازل ومناطق الظل'
-                : 'Interactive 3D simulator for 7 Crystal Systems, Mohs & Streak testing, Bowen Series, Plate Tectonics, Stratigraphy, Structural Geology (Faults & Folds), and Seismology Shadow Zones'}
-            </p>
+      <div className={`flex flex-col gap-4 pb-5 border-b w-full min-w-0 max-w-full ${isLight ? 'border-stone-200' : 'border-stone-800'}`}>
+        <div className="flex items-start justify-between gap-3 w-full min-w-0">
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            <div className="p-2.5 rounded-xl bg-gradient-to-tr from-amber-600 via-stone-700 to-rose-700 text-white shadow-lg shadow-amber-900/20 shrink-0">
+              <Mountain className="w-7 h-7" />
+            </div>
+            <div className="min-w-0 flex-1">
+              <h2 className="text-xl md:text-2xl font-bold flex flex-wrap items-center gap-2">
+                <span className={isLight ? 'text-stone-900 font-extrabold' : ''}>
+                  {isArabic ? 'استوديو علوم الأرض والبيئة التفاعلي' : 'Earth Science & Environmental Studio'}
+                </span>
+                <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold shrink-0 ${isLight ? 'bg-amber-100 text-amber-900 border border-amber-300' : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'}`}>
+                  {isArabic ? 'الجيولوجيا الرسمية 2026' : 'Official Geology 2026'}
+                </span>
+              </h2>
+              <p className={`text-xs md:text-sm break-words mt-0.5 ${isLight ? 'text-stone-600 font-medium' : 'text-stone-400'}`}>
+                {isArabic
+                  ? 'محاكاة تفاعلية ثلاثية الأبعاد للأنظمة البلورية السبعة، اختبارات موهس والمخدش، بوين، تكتونية الصفائح، الجيولوجيا التركيبية (الفوالق والطيات)، القطاعات، والزلازل ومناطق الظل'
+                  : 'Interactive 3D simulator for 7 Crystal Systems, Mohs & Streak testing, Bowen Series, Plate Tectonics, Stratigraphy, Structural Geology (Faults & Folds), and Seismology Shadow Zones'}
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Museum 4K Archival Showcase Jump Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 my-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 w-full">
           {/* Card 1: Wegener Continental Drift */}
           <button
             onClick={() => setActiveMode('wegener_drift')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-sm cursor-pointer ${
               activeMode === 'wegener_drift'
-                ? 'bg-blue-500/20 border-blue-400 ring-2 ring-blue-400/50'
+                ? isLight
+                  ? 'bg-blue-50 border-blue-500 ring-2 ring-blue-400/40'
+                  : 'bg-blue-500/20 border-blue-400 ring-2 ring-blue-400/50'
                 : isLight
-                ? 'bg-white/90 border-blue-200 hover:border-blue-400 hover:bg-blue-50/50'
+                ? 'bg-white/95 border-blue-200 hover:border-blue-400 hover:bg-blue-50/50'
                 : 'bg-stone-900/60 border-blue-900/40 hover:border-blue-500/60 hover:bg-stone-900/80'
             }`}
           >
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold">
+              <span className={`text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full border font-bold ${isLight ? 'bg-blue-100 text-blue-800 border-blue-300' : 'bg-blue-500/20 text-blue-400 border-blue-500/30'}`}>
                 1912 CE • 4K
               </span>
-              <Globe className="w-4 h-4 text-blue-400 group-hover:scale-110 transition-transform" />
+              <Globe className={`w-4 h-4 group-hover:scale-110 transition-transform ${isLight ? 'text-blue-600' : 'text-blue-400'}`} />
             </div>
-            <h4 className="text-xs sm:text-sm font-bold text-blue-400 line-clamp-1">
+            <h4 className={`text-xs sm:text-sm font-bold line-clamp-1 ${isLight ? 'text-blue-900' : 'text-blue-400'}`}>
               {isArabic ? 'أطلس فيجنر للانجراف القاري' : 'Wegener Continental Drift'}
             </h4>
-            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            <p className={`text-[11px] line-clamp-1 mt-0.5 ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
               {isArabic ? 'بانجيا، شواهد الزواحف والمغناطيسية وسرعة التباعد' : 'Pangaea, fossil & magnetic bands, spreading velocity'}
             </p>
           </button>
@@ -1012,24 +1016,26 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           {/* Card 2: Mohs Hardness Minerals */}
           <button
             onClick={() => setActiveMode('mohs_minerals')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-sm cursor-pointer ${
               activeMode === 'mohs_minerals'
-                ? 'bg-amber-500/20 border-amber-400 ring-2 ring-amber-400/50'
+                ? isLight
+                  ? 'bg-amber-50 border-amber-500 ring-2 ring-amber-400/40'
+                  : 'bg-amber-500/20 border-amber-400 ring-2 ring-amber-400/50'
                 : isLight
-                ? 'bg-white/90 border-amber-200 hover:border-amber-400 hover:bg-amber-50/50'
+                ? 'bg-white/95 border-amber-200 hover:border-amber-400 hover:bg-amber-50/50'
                 : 'bg-stone-900/60 border-amber-900/40 hover:border-amber-500/60 hover:bg-stone-900/80'
             }`}
           >
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30 font-bold">
+              <span className={`text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full border font-bold ${isLight ? 'bg-amber-100 text-amber-900 border-amber-300' : 'bg-amber-500/20 text-amber-400 border-amber-500/30'}`}>
                 1812 CE • 4K
               </span>
-              <Gem className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
+              <Gem className={`w-4 h-4 group-hover:scale-110 transition-transform ${isLight ? 'text-amber-600' : 'text-amber-400'}`} />
             </div>
-            <h4 className="text-xs sm:text-sm font-bold text-amber-400 line-clamp-1">
+            <h4 className={`text-xs sm:text-sm font-bold line-clamp-1 ${isLight ? 'text-amber-900' : 'text-amber-400'}`}>
               {isArabic ? 'مجموعة موهس لصلادة المعادن' : 'Mohs Mineral Hardness'}
             </h4>
-            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            <p className={`text-[11px] line-clamp-1 mt-0.5 ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
               {isArabic ? 'معادن المقياس العشرة، أدوات الخدش، والخواص البصرية' : '10 Mohs minerals, scratch tester & optical cleavage'}
             </p>
           </button>
@@ -1037,24 +1043,26 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           {/* Card 3: Bowen Reaction Series */}
           <button
             onClick={() => setActiveMode('bowen_magma')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-sm cursor-pointer ${
               activeMode === 'bowen_magma'
-                ? 'bg-orange-500/20 border-orange-400 ring-2 ring-orange-400/50'
+                ? isLight
+                  ? 'bg-orange-50 border-orange-500 ring-2 ring-orange-400/40'
+                  : 'bg-orange-500/20 border-orange-400 ring-2 ring-orange-400/50'
                 : isLight
-                ? 'bg-white/90 border-orange-200 hover:border-orange-400 hover:bg-orange-50/50'
+                ? 'bg-white/95 border-orange-200 hover:border-orange-400 hover:bg-orange-50/50'
                 : 'bg-stone-900/60 border-orange-900/40 hover:border-orange-500/60 hover:bg-stone-900/80'
             }`}
           >
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-400 border border-orange-500/30 font-bold">
+              <span className={`text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full border font-bold ${isLight ? 'bg-orange-100 text-orange-900 border-orange-300' : 'bg-orange-500/20 text-orange-400 border-orange-500/30'}`}>
                 1928 CE • 4K
               </span>
-              <Flame className="w-4 h-4 text-orange-400 group-hover:scale-110 transition-transform" />
+              <Flame className={`w-4 h-4 group-hover:scale-110 transition-transform ${isLight ? 'text-orange-600' : 'text-orange-400'}`} />
             </div>
-            <h4 className="text-xs sm:text-sm font-bold text-orange-400 line-clamp-1">
+            <h4 className={`text-xs sm:text-sm font-bold line-clamp-1 ${isLight ? 'text-orange-900' : 'text-orange-400'}`}>
               {isArabic ? 'متسلسلة تفاعلات بوين وتبلور الصهارة' : "Bowen's Reaction Series Studio"}
             </h4>
-            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            <p className={`text-[11px] line-clamp-1 mt-0.5 ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
               {isArabic ? 'الفرع المتصل وغير المتصل، محاكي التبريد وتصنيف الصخور' : 'Continuous/mafic series, chamber cooling & 4 rock tiers'}
             </p>
           </button>
@@ -1062,31 +1070,33 @@ export const GeologyEarthStudio: React.FC<Props> = ({
           {/* Card 4: Grand Canyon Unconformity */}
           <button
             onClick={() => setActiveMode('unconformity_stratigraphy')}
-            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-lg cursor-pointer ${
+            className={`p-3 rounded-xl border text-start transition-all duration-300 relative overflow-hidden group shadow-sm cursor-pointer ${
               activeMode === 'unconformity_stratigraphy'
-                ? 'bg-emerald-500/20 border-emerald-400 ring-2 ring-emerald-400/50'
+                ? isLight
+                  ? 'bg-emerald-50 border-emerald-500 ring-2 ring-emerald-400/40'
+                  : 'bg-emerald-500/20 border-emerald-400 ring-2 ring-emerald-400/50'
                 : isLight
-                ? 'bg-white/90 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50/50'
+                ? 'bg-white/95 border-emerald-200 hover:border-emerald-400 hover:bg-emerald-50/50'
                 : 'bg-stone-900/60 border-emerald-900/40 hover:border-emerald-500/60 hover:bg-stone-900/80'
             }`}
           >
             <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-bold">
+              <span className={`text-[10px] uppercase tracking-wider font-mono px-2 py-0.5 rounded-full border font-bold ${isLight ? 'bg-emerald-100 text-emerald-900 border-emerald-300' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'}`}>
                 1.7 Ga • 4K
               </span>
-              <Mountain className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
+              <Mountain className={`w-4 h-4 group-hover:scale-110 transition-transform ${isLight ? 'text-emerald-600' : 'text-emerald-400'}`} />
             </div>
-            <h4 className="text-xs sm:text-sm font-bold text-emerald-400 line-clamp-1">
+            <h4 className={`text-xs sm:text-sm font-bold line-clamp-1 ${isLight ? 'text-emerald-900' : 'text-emerald-400'}`}>
               {isArabic ? 'الأخدود العظيم وأسطح عدم التوافق' : 'Grand Canyon Unconformities'}
             </h4>
-            <p className="text-[11px] text-stone-400 line-clamp-1 mt-0.5">
+            <p className={`text-[11px] line-clamp-1 mt-0.5 ${isLight ? 'text-stone-600' : 'text-stone-400'}`}>
               {isArabic ? 'عدم التوافق الزاوي والمتباين والانقطاعي ومختبر التأريخ' : 'Angular, nonconformity, disconformity & relative dating lab'}
             </p>
           </button>
         </div>
 
         {/* Mode Selector Tabs */}
-        <div className={`flex flex-wrap gap-1.5 p-1 rounded-xl shrink-0 max-w-full ${isLight ? 'bg-stone-200/90 border border-stone-300' : 'bg-stone-900 border border-stone-800'}`}>
+        <div className={`flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl w-full max-w-full ${isLight ? 'bg-stone-200/90 border border-stone-300' : 'bg-stone-900 border border-stone-800'}`}>
           <button
             onClick={() => setActiveMode('crystals')}
             className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs md:text-sm font-bold transition-all cursor-pointer min-h-[44px] ${

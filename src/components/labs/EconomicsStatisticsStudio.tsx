@@ -290,15 +290,15 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
       isFullscreen ? 'fixed inset-0 z-50 overflow-y-auto rounded-none p-6' : 'p-4 sm:p-6'
     }`} data-fullscreen-lab={isFullscreen ? 'true' : undefined}>
       {/* Header Banner */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-5 border-b border-amber-500/20 mb-6">
-        <div className="flex items-center gap-3">
-          <div className="p-3 rounded-xl bg-gradient-to-tr from-amber-600 to-yellow-500 text-white shadow-lg shadow-amber-500/20">
+      <div className="flex flex-col gap-4 pb-5 border-b border-amber-500/20 mb-6 w-full min-w-0 max-w-full">
+        <div className="flex items-center gap-3 min-w-0">
+          <div className="p-3 rounded-xl bg-gradient-to-tr from-amber-600 to-yellow-500 text-white shadow-lg shadow-amber-500/20 shrink-0">
             <TrendingUp className="w-6 h-6" />
           </div>
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight flex items-center gap-2">
+          <div className="min-w-0 flex-1">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight flex flex-wrap items-center gap-2">
               <span>{isArabic ? 'استوديو الاقتصاد والإحصاء التطبيقي' : 'Economics & Applied Statistics Studio'}</span>
-              <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30 font-medium">
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30 font-medium shrink-0">
                 {isArabic ? 'معتمد رسمياً' : 'MoE Certified'}
               </span>
             </h2>
@@ -311,7 +311,7 @@ export const EconomicsStatisticsStudio: React.FC<Props> = ({
         </div>
 
         {/* Studio Mode Selector */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-slate-800/60 border border-amber-500/30 text-xs w-full md:w-auto overflow-x-auto">
+        <div className="flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl bg-slate-800/60 border border-amber-500/30 text-xs w-full max-w-full">
           {[
             { id: 'adam_smith_wealth', labelAr: 'آدم سميث 1776 (4K)', labelEn: 'Adam Smith 1776 (4K)', icon: Scale },
             { id: 'keynes_general_theory', labelAr: 'كينز والنظرية العامة (4K)', labelEn: 'Keynes Multiplier (4K)', icon: DollarSign },

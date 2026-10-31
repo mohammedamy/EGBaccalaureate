@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { MathRenderer } from './MathRenderer';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import type { Language } from '../i18n/translations';
 import {
@@ -1436,10 +1437,18 @@ ${currentPedigree.individuals
 
                   {/* Pedagogical Hint */}
                   <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-[11px] text-slate-400 space-y-1">
-                    <span className="font-bold text-amber-300 flex items-center gap-1 text-[10px]">
-                      <HelpCircle className="w-3 h-3" />
-                      <span>{isAr ? 'دليل الاستنتاج الوراثي:' : 'Genetic Clue:'}</span>
-                    </span>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-bold text-amber-300 flex items-center gap-1 text-[10px]">
+                        <HelpCircle className="w-3 h-3" />
+                        <span>{isAr ? 'دليل الاستنتاج الوراثي:' : 'Genetic Clue:'}</span>
+                      </span>
+                      <SpeechNarrationButton
+                        text={isAr ? activeMember.hintAr : activeMember.hintEn}
+                        lang={isAr ? 'ar' : 'en'}
+                        context="hint"
+                        compact
+                      />
+                    </div>
                     <p className="leading-relaxed">
                       {isAr ? activeMember.hintAr : activeMember.hintEn}
                     </p>

@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { EgyptFlag } from '../EgyptFlag';
 import { MathRenderer } from '../MathRenderer';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import { toHindiDigits } from '../../utils/arabicNumerals';
 import type { LabDiscipline } from '../../services/labReportService';
 import {
@@ -421,9 +422,16 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
                     {/* Rationale & KaTeX Explanation (After Submission) */}
                     {evaluationResult && (
                       <div className="mt-4 p-3.5 rounded-xl bg-slate-900 border border-indigo-500/20 text-xs sm:text-sm space-y-1.5 animate-in fade-in duration-150">
-                        <span className="font-bold text-amber-400 block">
-                          {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
-                        </span>
+                        <div className="flex items-center justify-between gap-2 flex-wrap">
+                          <span className="font-bold text-amber-400 block">
+                            {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
+                          </span>
+                          <SpeechNarrationButton
+                            text={isAr ? q.explanationAr : q.explanationEn}
+                            lang={lang}
+                            context="explanation"
+                          />
+                        </div>
                         <p className="text-slate-300 leading-relaxed">
                           <MathRenderer text={isAr ? q.explanationAr : q.explanationEn} inline={true} lang={lang} />
                         </p>
@@ -558,9 +566,17 @@ export const PostLabAssessmentModal: React.FC<PostLabAssessmentModalProps> = ({
                     {/* Rationale & KaTeX Explanation (After Submission) */}
                     {evaluationResult && (
                       <div className="mt-3 p-3 rounded-xl bg-slate-900 border border-indigo-500/20 text-xs space-y-1 animate-in fade-in duration-150">
-                        <span className="font-bold text-amber-400 block">
-                          {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
-                        </span>
+                        <div className="flex items-center justify-between gap-2 flex-wrap">
+                          <span className="font-bold text-amber-400 block">
+                            {isAr ? 'التفسير العلمي والقانون الرياضي:' : 'Scientific & Mathematical Rationale:'}
+                          </span>
+                          <SpeechNarrationButton
+                            text={isAr ? q.explanationAr : q.explanationEn}
+                            lang={lang}
+                            context="explanation"
+                            compact
+                          />
+                        </div>
                         <p className="text-slate-300 leading-relaxed">
                           <MathRenderer text={isAr ? q.explanationAr : q.explanationEn} inline={true} lang={lang} />
                         </p>

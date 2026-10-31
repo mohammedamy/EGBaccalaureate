@@ -17,6 +17,7 @@ import {
 import type { DMMReading } from '../../core/instruments/DigitalMultimeter';
 import type { WaveformSignal } from '../../core/instruments/DualTraceOscilloscope';
 import type { POEPrompt } from '../../core/pedagogy/POEController';
+import { SpeechNarrationButton } from '../SpeechNarrationButton';
 import {
   Flame,
   Layers,
@@ -3885,9 +3886,16 @@ export const OrganicChemistryLab: React.FC<Props> = ({ lang = 'ar', theme = 'dar
             {params.showExplanation && (
               <div className="mt-4 p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
                 <div className="text-xs text-slate-300 leading-relaxed">
-                  <span className="font-bold text-emerald-400 block mb-1">
-                    {isArabic ? '💡 التفسير وقواعد الأيوباك:' : '💡 Explanation & IUPAC Rules:'}
-                  </span>
+                  <div className="flex items-center justify-between gap-2 flex-wrap mb-1">
+                    <span className="font-bold text-emerald-400 block">
+                      {isArabic ? '💡 التفسير وقواعد الأيوباك:' : '💡 Explanation & IUPAC Rules:'}
+                    </span>
+                    <SpeechNarrationButton
+                      text={isArabic ? currentQuizItem.explanationAr : currentQuizItem.explanationEn}
+                      lang={isArabic ? 'ar' : 'en'}
+                      context="explanation"
+                    />
+                  </div>
                   {isArabic ? currentQuizItem.explanationAr : currentQuizItem.explanationEn}
                 </div>
 

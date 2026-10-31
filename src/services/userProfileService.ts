@@ -1,19 +1,19 @@
-import { 
-  signInWithPopup, 
-  signOut, 
-  onAuthStateChanged, 
-  type User 
-} from 'firebase/auth';
-import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { auth, googleProvider, db } from './firebase';
-import type { 
-  UserProfile, 
-  LocalDeviceDataSummary, 
-  LocalDataExportPackage 
+import type { AuthUser } from '@supabase/supabase-js';
+import {
+  supabase,
+  isSupabaseConfigured,
+  type ProfileInsert,
+  type ProfileRow,
+} from './supabaseClient';
+import { buildOAuthRedirectUrl } from './supabaseAuthContext';
+import type {
+  UserProfile,
+  LocalDeviceDataSummary,
+  LocalDataExportPackage,
 } from '../types/userProfile';
-import { 
-  getUserGovernorate, 
-  setUserGovernorate 
+import {
+  getUserGovernorate,
+  setUserGovernorate,
 } from './governorateAnalyticsService';
 import { STUDENT_ANALYTICS_STORAGE_KEY } from './studentAnalyticsService';
 import { MISTAKE_NOTEBOOK_STORAGE_KEY } from './mistakeNotebookService';
@@ -22,6 +22,109 @@ import { OFFLINE_PACKS_STORAGE_KEY } from './downloadManagerService';
 
 export const USER_PROFILE_STORAGE_KEY = 'egbac_user_profile_v1';
 export const USER_PROFILE_EVENT = 'egbac_user_profile_changed';
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+export const PROFILE_SELECT_COLUMNS = [
+  'id',
+  'email',
+  'display_name',
+  'photo_url',
+  'avatar_icon',
+  'profile_role',
+  'teacher_subject',
+  'teacher_school',
+  'teacher_bio',
+  'academic_track',
+  'dream_college',
+  'target_percentage',
+  'second_language',
+  'governorate',
+  'daily_practice_goal',
+  'study_minutes_goal',
+  'sound_effects_enabled',
+  'last_sync_at',
+].join(',');
+
+let pendingCloudSyncTimer: ReturnType<typeof setTimeout> | null = null;
+
+function scheduleDebouncedCloudSync(profile: UserProfile): void {
+  if (pendingCloudSyncTimer !== null) {
+    clearTimeout(pendingCloudSyncTimer);
+  }
+  pendingCloudSyncTimer = setTimeout(() => {
+    pendingCloudSyncTimer = null;
+    syncProfileToCloud(profile).catch(() => {
+      // Silently ignore cloud sync failures in offline or restricted environments
+    });
+  }, 300);
+}
+
+/**
+ * Determines whether hydrating an OAuth session actually requires a write back
+ * to `public.profiles`, eliminating redundant `UPSERT` dead-tuple churn on
+ * unchanged sessions (`monitor-vacuum-analyze.md` & `data-upsert.md`).
+ */
+export function shouldWriteHydratedProfileToCloud(
+  cloudData: Partial<UserProfile> | null,
+  merged: UserProfile
+): boolean {
+  if (!cloudData) return true;
+  return (
+    (cloudData.email ?? undefined) !== (merged.email ?? undefined) ||
+    (cloudData.photoURL ?? undefined) !== (merged.photoURL ?? undefined) ||
+    cloudData.displayName !== merged.displayName
+  );
+}
+
+export function mapProfileRowToUserProfile(row: ProfileRow): Partial<UserProfile> {
+  return {
+    uid: row.id,
+    email: row.email ?? undefined,
+    displayName: row.display_name,
+    photoURL: row.photo_url ?? undefined,
+    avatarIcon: row.avatar_icon,
+    role: row.profile_role,
+    teacherSubject: row.teacher_subject ?? undefined,
+    teacherSchool: row.teacher_school ?? undefined,
+    teacherBio: row.teacher_bio ?? undefined,
+    academicTrack: row.academic_track,
+    dreamCollege: row.dream_college,
+    targetPercentage: Number(row.target_percentage),
+    secondLanguage: row.second_language,
+    governorate: row.governorate,
+    dailyPracticeGoal: row.daily_practice_goal,
+    studyMinutesGoal: row.study_minutes_goal,
+    soundEffectsEnabled: row.sound_effects_enabled,
+    lastSyncTimestamp: row.last_sync_at ? Date.parse(row.last_sync_at) : Date.now(),
+  };
+}
+
+export function mapUserProfileToProfileInsert(
+  profile: UserProfile,
+  uid: string
+): ProfileInsert {
+  return {
+    id: uid,
+    email: profile.email ?? null,
+    display_name: profile.displayName || 'طالب الثانوية العامة',
+    photo_url: profile.photoURL ?? null,
+    avatar_icon: profile.avatarIcon || '🎓',
+    profile_role: profile.role === 'teacher' ? 'teacher' : 'student',
+    teacher_subject: profile.teacherSubject ?? null,
+    teacher_school: profile.teacherSchool ?? null,
+    teacher_bio: profile.teacherBio ?? null,
+    academic_track: profile.academicTrack || 'scientific_science',
+    dream_college: profile.dreamCollege || 'كلية الطب البشري',
+    target_percentage: Math.min(100, Math.max(0, Number(profile.targetPercentage ?? 95))),
+    second_language: profile.secondLanguage || 'french',
+    governorate: profile.governorate || 'cairo',
+    daily_practice_goal: Math.min(500, Math.max(1, Math.round(profile.dailyPracticeGoal || 15))),
+    study_minutes_goal: Math.min(1440, Math.max(1, Math.round(profile.studyMinutesGoal || 30))),
+    sound_effects_enabled: profile.soundEffectsEnabled ?? true,
+    last_sync_at: new Date().toISOString(),
+  };
+}
 
 /**
  * Returns the default profile for a new guest student.
@@ -79,11 +182,18 @@ export function loadLocalUserProfile(): UserProfile {
   }
 }
 
+export interface SaveProfileOptions {
+  skipCloudSync?: boolean;
+}
+
 /**
  * Saves user profile updates to local device storage immediately (offline-first),
  * syncs linked services (such as governorate), and notifies active UI listeners.
  */
-export function saveLocalUserProfile(updates: Partial<UserProfile>): UserProfile {
+export function saveLocalUserProfile(
+  updates: Partial<UserProfile>,
+  options?: SaveProfileOptions
+): UserProfile {
   if (typeof window === 'undefined' || !window.localStorage) {
     const current = getDefaultUserProfile();
     return { ...current, ...updates, updatedAt: Date.now() };
@@ -109,11 +219,16 @@ export function saveLocalUserProfile(updates: Partial<UserProfile>): UserProfile
       window.dispatchEvent(new CustomEvent(USER_PROFILE_EVENT, { detail: updated }));
     }
 
-    // If the user has a Google UID and is online, attempt optional cloud backup
-    if (updated.uid && updated.isGoogleUser && navigator.onLine) {
-      syncProfileToCloud(updated).catch(() => {
-        // Silently ignore cloud sync failures in offline or restricted environments
-      });
+    // If authenticated with Supabase Auth and online, coalesce rapid UI edits into a single UPSERT
+    const isOnline = typeof navigator === 'undefined' ? true : navigator.onLine;
+    if (
+      !options?.skipCloudSync &&
+      updated.uid &&
+      UUID_REGEX.test(updated.uid) &&
+      updated.isGoogleUser &&
+      isOnline
+    ) {
+      scheduleDebouncedCloudSync(updated);
     }
   } catch (err) {
     console.error('Failed to save user profile to localStorage:', err);
@@ -123,34 +238,50 @@ export function saveLocalUserProfile(updates: Partial<UserProfile>): UserProfile
 }
 
 /**
- * Synchronizes the user profile document to Cloud Firestore (`users/{uid}`)
- * for cloud backup when logged in.
+ * Synchronizes the user profile document to Supabase Postgres (`public.profiles`)
+ * using RLS-protected `upsert` (`(select auth.uid()) = id`).
  */
 export async function syncProfileToCloud(profile: UserProfile): Promise<void> {
-  if (!profile.uid || !db) return;
+  if (!profile.uid || !UUID_REGEX.test(profile.uid) || !isSupabaseConfigured || !supabase) {
+    return;
+  }
 
   try {
-    const userDocRef = doc(db, 'users', profile.uid);
-    await setDoc(userDocRef, {
-      ...profile,
-      cloudSyncedAt: serverTimestamp(),
-    }, { merge: true });
+    const payload = mapUserProfileToProfileInsert(profile, profile.uid);
+    const { error } = await supabase
+      .from('profiles')
+      .upsert(payload, { onConflict: 'id' });
+
+    if (error) {
+      console.warn('Optional Supabase profile sync warning:', error.message);
+    }
   } catch (err) {
-    console.warn('Optional Firestore profile sync failed (offline or restricted permissions):', err);
+    console.warn('Optional Supabase profile sync failed (offline or restricted permissions):', err);
   }
 }
 
 /**
- * Attempts to fetch user profile from Cloud Firestore and merge into local device.
+ * Fetches the authenticated user's profile from Supabase `public.profiles`.
  */
 export async function fetchProfileFromCloud(uid: string): Promise<Partial<UserProfile> | null> {
-  if (!uid || !db) return null;
+  if (!uid || !UUID_REGEX.test(uid) || !isSupabaseConfigured || !supabase) {
+    return null;
+  }
 
   try {
-    const userDocRef = doc(db, 'users', uid);
-    const snap = await getDoc(userDocRef);
-    if (snap.exists()) {
-      return snap.data() as Partial<UserProfile>;
+    const { data, error } = await supabase
+      .from('profiles')
+      .select(PROFILE_SELECT_COLUMNS)
+      .eq('id', uid)
+      .maybeSingle();
+
+    if (error) {
+      console.warn('Could not fetch Supabase cloud profile:', error.message);
+      return null;
+    }
+
+    if (data) {
+      return mapProfileRowToUserProfile(data as unknown as ProfileRow);
     }
   } catch (err) {
     console.warn('Could not fetch cloud profile:', err);
@@ -159,113 +290,188 @@ export async function fetchProfileFromCloud(uid: string): Promise<Partial<UserPr
 }
 
 /**
- * Initiates Google Sign-In using Firebase Authentication popup.
- * Merges Google credentials into the device profile and saves locally.
+ * Hydrates and merges a verified Supabase Google OAuth `AuthUser` with both
+ * `public.profiles` and the local device profile cache.
  */
-export async function signInWithGoogle(): Promise<{ success: boolean; profile?: UserProfile; error?: string }> {
-  try {
-    const result = await signInWithPopup(auth, googleProvider);
-    const user: User = result.user;
+export async function hydrateProfileFromSupabaseUser(user: AuthUser): Promise<UserProfile> {
+  const local = loadLocalUserProfile();
+  const meta = (user.user_metadata ?? {}) as Record<string, unknown>;
+  const oauthName =
+    (typeof meta.full_name === 'string' && meta.full_name.trim()) ||
+    (typeof meta.name === 'string' && meta.name.trim()) ||
+    undefined;
+  const oauthAvatar =
+    (typeof meta.avatar_url === 'string' && meta.avatar_url.trim()) ||
+    (typeof meta.picture === 'string' && meta.picture.trim()) ||
+    undefined;
 
-    const currentProfile = loadLocalUserProfile();
-    
-    // Check if cloud profile already exists for this Google UID
-    let cloudData: Partial<UserProfile> | null = null;
-    if (navigator.onLine) {
-      cloudData = await fetchProfileFromCloud(user.uid);
-    }
+  const isOnline = typeof navigator === 'undefined' ? true : navigator.onLine;
+  const cloudData = isOnline ? await fetchProfileFromCloud(user.id) : null;
 
-    const updatedProfile = saveLocalUserProfile({
-      uid: user.uid,
-      email: user.email || currentProfile.email,
-      displayName: user.displayName || currentProfile.displayName,
-      photoURL: user.photoURL || currentProfile.photoURL,
+  const resolvedDisplayName =
+    (cloudData?.displayName && cloudData.displayName !== 'طالب الثانوية العامة'
+      ? cloudData.displayName
+      : undefined) ||
+    (local.displayName && local.displayName !== 'طالب الثانوية العامة'
+      ? local.displayName
+      : undefined) ||
+    oauthName ||
+    cloudData?.displayName ||
+    local.displayName;
+
+  const merged = saveLocalUserProfile(
+    {
+      ...(cloudData ?? {}),
+      uid: user.id,
+      email: user.email || cloudData?.email || local.email,
+      displayName: resolvedDisplayName,
+      photoURL: oauthAvatar || cloudData?.photoURL || local.photoURL,
       isGoogleUser: true,
-      ...(cloudData || {}),
       lastSyncTimestamp: Date.now(),
+    },
+    { skipCloudSync: true }
+  );
+
+  if (isOnline && shouldWriteHydratedProfileToCloud(cloudData, merged)) {
+    await syncProfileToCloud(merged);
+  }
+
+  return merged;
+}
+
+/**
+ * Initiates Google OAuth Sign-In via Supabase Auth (`supabase.auth.signInWithOAuth`).
+ * Preserves the current route URL so the user returns directly to their requested tab.
+ */
+export async function signInWithGoogle(
+  redirectToUrl?: string
+): Promise<{ success: boolean; profile?: UserProfile; error?: string }> {
+  if (!isSupabaseConfigured || !supabase) {
+    return {
+      success: false,
+      error:
+        'supabase/not-configured: يرجى إعداد متغيرات البيئة VITE_SUPABASE_URL و VITE_SUPABASE_PUBLISHABLE_KEY في ملف .env.local وتفعيل موفر Google في لوحة تحكم Supabase Authentication.',
+    };
+  }
+
+  try {
+    const redirectTo =
+      redirectToUrl ||
+      (typeof window !== 'undefined' && window.location?.href
+        ? buildOAuthRedirectUrl(window.location.href)
+        : undefined);
+
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+      options: {
+        redirectTo,
+        queryParams: {
+          access_type: 'offline',
+          prompt: 'select_account',
+        },
+      },
     });
 
-    return { success: true, profile: updatedProfile };
-  } catch (err: unknown) {
-    const errorMsg = err instanceof Error ? err.message : String(err);
-    console.warn('Google sign-in encountered an error:', errorMsg);
-
-    let friendlyError = errorMsg;
-    if (errorMsg.includes('auth/configuration-not-found')) {
-      friendlyError = 'auth/configuration-not-found: خدمة تسجيل الدخول بـ Google غير مفعّلة بعد في لوحة تحكم Firebase Console. يرجى تفعيل موفر Google في صفحة Authentication ➔ Sign-in method.';
-    } else if (errorMsg.includes('auth/unauthorized-domain')) {
-      friendlyError = 'auth/unauthorized-domain: هذا النطاق غير مصرح له في Firebase. يرجى إضافة هذا الدومين في Firebase Console ➔ Authentication ➔ Settings ➔ Authorized domains.';
-    } else if (errorMsg.includes('auth/popup-closed-by-user')) {
-      friendlyError = 'auth/popup-closed-by-user: تم إغلاق نافذة تسجيل الدخول قبل إتمام العملية.';
-    } else if (errorMsg.includes('auth/cancelled-popup-request')) {
-      friendlyError = 'auth/cancelled-popup-request: تم إلغاء طلب تسجيل الدخول المتزامن.';
-    } else if (errorMsg.includes('auth/network-request-failed')) {
-      friendlyError = 'auth/network-request-failed: تعذر الاتصال بالإنترنت للتحقق من حساب Google.';
+    if (error) {
+      return {
+        success: false,
+        error: error.message,
+      };
     }
 
-    return { success: false, error: friendlyError };
+    return {
+      success: true,
+      profile: loadLocalUserProfile(),
+    };
+  } catch (err: unknown) {
+    const errorMsg = err instanceof Error ? err.message : String(err);
+    console.warn('Supabase Google OAuth sign-in encountered an error:', errorMsg);
+    return { success: false, error: errorMsg };
   }
 }
 
 /**
- * Signs out from Firebase Authentication, but retains the student's study data
- * safely stored locally on their device.
+ * Signs out from Supabase Auth while preserving local device study progress.
  */
 export async function signOutGoogleUser(): Promise<void> {
-  try {
-    await signOut(auth);
-  } catch (err) {
-    console.warn('Error during Firebase signOut:', err);
+  if (isSupabaseConfigured && supabase) {
+    try {
+      await supabase.auth.signOut();
+    } catch (err) {
+      console.warn('Error during Supabase signOut:', err);
+    }
   }
 
-  // Update profile status locally while keeping all study progress intact
-  saveLocalUserProfile({
-    isGoogleUser: false,
-  });
+  saveLocalUserProfile(
+    {
+      uid: undefined,
+      isGoogleUser: false,
+    },
+    { skipCloudSync: true }
+  );
 }
 
 /**
- * Subscribes to real-time changes of the user profile and auth state.
+ * Subscribes to real-time changes of the local user profile and Supabase Auth state.
  */
 export function subscribeToUserProfile(
-  callback: (profile: UserProfile, firebaseUser: User | null) => void
+  callback: (profile: UserProfile, authUser: AuthUser | null) => void
 ): () => void {
-  let currentUser: User | null = null;
+  let currentUser: AuthUser | null = null;
 
   const handleProfileChange = () => {
     callback(loadLocalUserProfile(), currentUser);
   };
 
-  // Listen to custom profile update events
   if (typeof window !== 'undefined' && typeof window.addEventListener === 'function') {
     window.addEventListener(USER_PROFILE_EVENT, handleProfileChange);
     window.addEventListener('storage', handleProfileChange);
   }
 
-  // Listen to Firebase Auth state
-  const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
-    currentUser = user;
-    if (user) {
-      const local = loadLocalUserProfile();
-      if (!local.isGoogleUser || local.uid !== user.uid) {
-        saveLocalUserProfile({
-          uid: user.uid,
-          email: user.email || local.email,
-          displayName: user.displayName || local.displayName,
-          photoURL: user.photoURL || local.photoURL,
-          isGoogleUser: true,
-        });
+  let unsubscribeSupabase: (() => void) | null = null;
+  if (isSupabaseConfigured && supabase) {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      currentUser = session?.user ?? null;
+      if (session?.user && (event === 'INITIAL_SESSION' || event === 'SIGNED_IN')) {
+        const userSnapshot = session.user;
+        // Defer async Supabase DB calls outside the synchronous auth lock callback
+        setTimeout(() => {
+          hydrateProfileFromSupabaseUser(userSnapshot).catch(() => {});
+        }, 0);
+      } else if (session?.user && event === 'TOKEN_REFRESHED') {
+        // Skip redundant DB SELECT/UPSERT on background hourly JWT refreshes
+        // when the local profile is already bound to the same authenticated user.
+        const local = loadLocalUserProfile();
+        if (!local.isGoogleUser || local.uid !== session.user.id) {
+          const userSnapshot = session.user;
+          setTimeout(() => {
+            hydrateProfileFromSupabaseUser(userSnapshot).catch(() => {});
+          }, 0);
+        } else {
+          handleProfileChange();
+        }
+      } else if (event === 'SIGNED_OUT') {
+        const local = loadLocalUserProfile();
+        if (local.isGoogleUser) {
+          saveLocalUserProfile({ uid: undefined, isGoogleUser: false }, { skipCloudSync: true });
+        } else {
+          handleProfileChange();
+        }
+      } else {
+        handleProfileChange();
       }
-    }
-    handleProfileChange();
-  });
+    });
+    unsubscribeSupabase = () => subscription.unsubscribe();
+  }
 
   return () => {
     if (typeof window !== 'undefined' && typeof window.removeEventListener === 'function') {
       window.removeEventListener(USER_PROFILE_EVENT, handleProfileChange);
       window.removeEventListener('storage', handleProfileChange);
     }
-    unsubscribeAuth();
+    unsubscribeSupabase?.();
   };
 }
 
@@ -342,7 +548,7 @@ export function exportLocalDataBackup(): void {
   if (typeof window === 'undefined' || !window.localStorage) return;
 
   const profile = loadLocalUserProfile();
-  
+
   const getParsedItem = (key: string) => {
     try {
       const raw = localStorage.getItem(key);
@@ -365,7 +571,8 @@ export function exportLocalDataBackup(): void {
     governorate: getUserGovernorate(),
   };
 
-  const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backupPackage, null, 2));
+  const dataStr =
+    'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(backupPackage, null, 2));
   const dateFormatted = new Date().toISOString().slice(0, 10);
   const downloadAnchor = document.createElement('a');
   downloadAnchor.setAttribute('href', dataStr);
@@ -413,14 +620,15 @@ export function importLocalDataBackup(jsonString: string): { success: boolean; m
       window.dispatchEvent(new CustomEvent(USER_PROFILE_EVENT, { detail: loadLocalUserProfile() }));
     }
 
-    return { 
-      success: true, 
-      message: 'تم استعادة بياناتك بنجاح محلياً على هذا الجهاز! / Successfully restored data on this device.' 
+    return {
+      success: true,
+      message:
+        'تم استعادة بياناتك بنجاح محلياً على هذا الجهاز! / Successfully restored data on this device.',
     };
   } catch (err) {
-    return { 
-      success: false, 
-      message: err instanceof Error ? err.message : 'خطأ في قراءة ملف النسخة الاحتياطية' 
+    return {
+      success: false,
+      message: err instanceof Error ? err.message : 'خطأ في قراءة ملف النسخة الاحتياطية',
     };
   }
 }
@@ -440,5 +648,5 @@ export function resetLocalDeviceData(): void {
   } catch {}
 
   const defaultProfile = getDefaultUserProfile();
-  saveLocalUserProfile(defaultProfile);
+  saveLocalUserProfile(defaultProfile, { skipCloudSync: true });
 }

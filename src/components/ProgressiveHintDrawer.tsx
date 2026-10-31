@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Lightbulb, ChevronDown, ChevronUp, Lock, ShieldAlert, Sparkles, BookOpen, ArrowRight } from 'lucide-react';
 import { MathRenderer } from './MathRenderer';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { type ProgressiveHint } from '../services/aiStudyHintService';
 
 interface ProgressiveHintDrawerProps {
@@ -116,19 +117,27 @@ export const ProgressiveHintDrawer: React.FC<ProgressiveHintDrawerProps> = ({
                   : 'bg-amber-950/20 border-amber-500/30'
               }`}
             >
-              <div className="flex items-center gap-2 font-bold">
-                {getTierIcon(hint.tier)}
-                <span
-                  className={
-                    hint.tier === 1
-                      ? 'text-cyan-300'
-                      : hint.tier === 2
-                      ? 'text-indigo-300'
-                      : 'text-amber-300'
-                  }
-                >
-                  {isAr ? hint.titleAr : hint.titleEn}
-                </span>
+              <div className="flex items-center justify-between gap-2 font-bold">
+                <div className="flex items-center gap-2">
+                  {getTierIcon(hint.tier)}
+                  <span
+                    className={
+                      hint.tier === 1
+                        ? 'text-cyan-300'
+                        : hint.tier === 2
+                        ? 'text-indigo-300'
+                        : 'text-amber-300'
+                    }
+                  >
+                    {isAr ? hint.titleAr : hint.titleEn}
+                  </span>
+                </div>
+                <SpeechNarrationButton
+                  text={isAr ? [hint.titleAr, hint.contentAr] : [hint.titleEn, hint.contentEn]}
+                  lang={lang}
+                  context="hint"
+                  compact
+                />
               </div>
               <div className="text-slate-200 pl-5 rtl:pr-5 rtl:pl-0">
                 <MathRenderer math={isAr ? hint.contentAr : hint.contentEn} lang={lang} />

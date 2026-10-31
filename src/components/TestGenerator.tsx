@@ -95,6 +95,7 @@ import {
   getDistinctionTierFromPct,
 } from '../services/certificateRegistryService';
 import { ProgressiveHintDrawer } from './ProgressiveHintDrawer';
+import { SpeechNarrationButton } from './SpeechNarrationButton';
 import { DiagnosticDrillModal } from './DiagnosticDrillModal';
 import { MinisterialExamSimulationModal } from './MinisterialExamSimulationModal';
 import {
@@ -4793,18 +4794,25 @@ export const TestGenerator: React.FC<Props> = ({
                       {/* Step-by-Step KaTeX Solution Breakdown on Submission */}
                       {isSubmitted && (
                         <div className="mt-4 pt-4 border-t border-slate-800/80 space-y-3 text-xs bg-slate-900/80 p-4 rounded-xl border border-slate-800">
-                          <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                          <div className="flex items-center justify-between gap-2 flex-wrap border-b border-slate-800 pb-2">
                             <div className="flex items-center gap-2">
                               <Sparkles className="w-4 h-4 text-amber-400" />
                               <span className="font-extrabold text-amber-400 uppercase tracking-wider text-xs">
                                 {t.stepByStepSolution}
                               </span>
                             </div>
-                            <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
-                              {lang === 'ar'
-                                ? `الاختيار المعتمد: (${['أ', 'ب', 'ج', 'د'][q.correctIndex]})`
-                                : `Correct: (${String.fromCharCode(65 + q.correctIndex)})`}
-                            </span>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <SpeechNarrationButton
+                                text={lang === 'ar' ? q.explanationAr : q.explanationEn}
+                                lang={lang}
+                                context="explanation"
+                              />
+                              <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">
+                                {lang === 'ar'
+                                  ? `الاختيار المعتمد: (${['أ', 'ب', 'ج', 'د'][q.correctIndex]})`
+                                  : `Correct: (${String.fromCharCode(65 + q.correctIndex)})`}
+                              </span>
+                            </div>
                           </div>
 
                           <div className="space-y-2 pt-1">
