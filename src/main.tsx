@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import { SupabaseAuthProvider } from './components/SupabaseAuthProvider.tsx'
+import { FirebaseAuthProvider } from './components/FirebaseAuthProvider.tsx'
 
 // Register Service Worker for offline PWA capabilities
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
@@ -20,8 +20,8 @@ if ('serviceWorker' in navigator && import.meta.env.PROD) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <SupabaseAuthProvider>
+    <FirebaseAuthProvider>
       <App />
-    </SupabaseAuthProvider>
+    </FirebaseAuthProvider>
   </StrictMode>,
 )

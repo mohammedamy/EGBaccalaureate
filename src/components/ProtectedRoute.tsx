@@ -18,11 +18,10 @@ import type { Language } from '../i18n/translations';
 import type { ThemeMode } from '../types/curriculum';
 import type { ProfileRole } from '../types/userProfile';
 import {
-  buildOAuthRedirectUrl,
   evaluateProtectedRouteAccess,
   extractVerifiedAppRole,
-  useSupabaseAuth,
-} from '../services/supabaseAuthContext';
+  useFirebaseAuth,
+} from '../services/firebaseAuthContext';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -65,12 +64,11 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     isAuthenticated,
     isLoading,
     isConfigured,
-    hasForbiddenSecretKey,
-    oauthCallbackUrl,
+    authDomain,
     authError,
     signInWithGoogle,
     clearAuthError,
-  } = useSupabaseAuth();
+  } = useFirebaseAuth();
 
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
@@ -84,7 +82,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     isLoading,
     isConfigured,
     isAuthenticated,
-    hasVerifiedClaims: Boolean(claims?.sub && user?.id && claims.sub === user.id),
+    hasVerifiedClaims: Boolean(claims?.sub && user?.uid && claims.sub === user.uid),
     requiredRole,
     verifiedRole,
   });
@@ -93,12 +91,15 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     return <>{children}</>;
   }
 
-  const currentOrigin =
-    typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5173';
-  const returnDestinationUrl =
-    typeof window !== 'undefined'
-      ? buildOAuthRedirectUrl(window.location.href)
-      : currentOrigin;
+  const currentHostname =
+    typeof window !== 'undefined' ? window.location.hostname : 'localhost';
+  const needsFirebaseSetup =
+    !isConfigured ||
+    Boolean(
+      authError &&
+        (authError.includes('auth/unauthorized-domain') ||
+          authError.includes('auth/operation-not-allowed'))
+    );
 
   const handleCopyText = (key: string, value: string) => {
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
@@ -111,7 +112,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   const handleGoogleLogin = async () => {
     clearAuthError();
     setIsRedirecting(true);
-    const result = await signInWithGoogle(returnDestinationUrl);
+    const result = await signInWithGoogle();
     if (!result.success) {
       setIsRedirecting(false);
     }
@@ -141,13 +142,13 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
           <div className="w-12 h-12 mx-auto rounded-2xl border-2 border-indigo-500/30 border-t-indigo-500 animate-spin" />
           <h2 className="text-base font-black">
             {isArabic
-              ? 'جاري التحقق من جلسة الدخول عبر Supabase Auth...'
-              : 'Verifying your Supabase Auth session...'}
+              ? 'جاري التحقق من جلسة الدخول عبر Firebase Authentication...'
+              : 'Verifying your Firebase Authentication session...'}
           </h2>
           <p className={`text-xs ${isLight ? 'text-slate-500' : 'text-slate-400'}`}>
             {isArabic
-              ? 'يتم فحص التوقيع الرقمي لرمز الدخول (JWT Claims) وتأمين مسارك الدراسي.'
-              : 'Validating cryptographic JWT claims and securing your academic workspace.'}
+              ? 'يتم فحص التوقيع الرقمي لرمز الدخول (Firebase ID Token) وتأمين مسارك الدراسي.'
+              : 'Validating your signed Firebase ID token claims and securing your academic workspace.'}
           </p>
         </div>
       </div>
@@ -183,8 +184,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
           </h2>
           <p className={`text-xs leading-relaxed ${isLight ? 'text-slate-600' : 'text-slate-400'}`}>
             {isArabic
-              ? 'يتطلب هذا المسار صلاحية معلم معتمدة في رموز الجلسة (app_metadata.role) لحماية بيانات الفصول والتصحيح.'
-              : 'This route requires a server-verified educator claim (app_metadata.role) to protect classroom and grading records.'}
+              ? 'يتطلب هذا المسار صلاحية معلم معتمدة في رمز الدخول (Firebase custom claim: role) لحماية بيانات الفصول والتصحيح.'
+              : 'This route requires a server-verified educator custom claim (Firebase `role` claim) to protect classroom and grading records.'}
           </p>
           {onReturnToDefaultTab && (
             <button
@@ -321,8 +322,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
               <Lock className="w-3.5 h-3.5" />
               <span>
                 {isArabic
-                  ? 'بوابة الدخول الموحدة والمحمية عبر Supabase Auth'
-                  : 'Protected Academic Workspace • Supabase Auth'}
+                  ? 'بوابة الدخول الموحدة والمحمية عبر Firebase Authentication'
+                  : 'Protected Academic Workspace • Firebase Authentication'}
               </span>
             </div>
 
@@ -338,8 +339,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
               }`}
             >
               {isArabic
-                ? 'جميع مسارات الـ ٣٦ مادة، المعامل ثلاثية الأبعاد، محطة الاختبارات، ولوحة التحليلات محمية بحسابك في Google عبر Supabase مع مزامنة سحابية آمنة (RLS).'
-                : 'All 36 accredited subjects, 3D virtual laboratories, OMR exam workstations, and analytics routes are protected with Google OAuth via Supabase and Row-Level Security.'}
+                ? 'جميع مسارات الـ ٣٦ مادة، المعامل ثلاثية الأبعاد، محطة الاختبارات، ولوحة التحليلات محمية بحسابك في Google عبر Firebase مع مزامنة سحابية آمنة (Firestore Security Rules).'
+                : 'All 36 accredited subjects, 3D virtual laboratories, OMR exam workstations, and analytics routes are protected with Google Sign-In via Firebase Authentication and Firestore Security Rules.'}
             </p>
 
             {targetTabMeta && requestedTab !== 'overview' && (
@@ -398,8 +399,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
               <span>
                 {isRedirecting
                   ? isArabic
-                    ? 'جاري تحويلك بأمان إلى Google...'
-                    : 'Redirecting securely to Google...'
+                    ? 'جاري الاتصال بأمان بـ Google...'
+                    : 'Connecting securely to Google...'
                   : isArabic
                   ? 'تسجيل الدخول باستخدام حساب Google'
                   : 'Continue with Google'}
@@ -407,27 +408,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
             </button>
           </div>
 
-          {/* Forbidden Secret Key Guard Alert */}
-          {hasForbiddenSecretKey && (
-            <div className="p-4 rounded-2xl border border-red-500/50 bg-red-500/10 text-red-400 text-xs space-y-1.5">
-              <div className="flex items-center gap-2 font-black text-red-300">
-                <ShieldAlert className="w-4 h-4 shrink-0" />
-                <span>
-                  {isArabic
-                    ? 'تنبيه أمني حرج: تم رصد مفتاح سري (service_role / sb_secret) في متغيرات الواجهة!'
-                    : 'Critical Security Guard: Secret / service_role key detected in client env!'}
-                </span>
-              </div>
-              <p className="leading-relaxed">
-                {isArabic
-                  ? 'تم إيقاف عميل المتصفح تلقائياً لحماية قاعدة بياناتك. استبدل المفتاح بـ VITE_SUPABASE_PUBLISHABLE_KEY فقط.'
-                  : 'Browser client initialization was blocked to protect your database. Replace it with VITE_SUPABASE_PUBLISHABLE_KEY only.'}
-              </p>
-            </div>
-          )}
-
-          {/* Setup Guide Card when `.env.local` is not yet populated */}
-          {!isConfigured && !hasForbiddenSecretKey && (
+          {/* Firebase Console setup guide (shown when the provider/domain is not yet configured) */}
+          {needsFirebaseSetup && (
             <div
               className={`p-4 rounded-2xl border text-xs space-y-3 ${
                 isContrast
@@ -441,48 +423,42 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
                 <AlertCircle className="w-4 h-4 shrink-0 text-amber-400" />
                 <span>
                   {isArabic
-                    ? 'إعداد مشروع Supabase لتفعيل بوابة الدخول بـ Google'
-                    : 'Configure Supabase Environment Keys to Enable Sign-In'}
+                    ? 'إعداد مشروع Firebase لتفعيل بوابة الدخول بـ Google'
+                    : 'Configure Firebase Authentication to Enable Google Sign-In'}
                 </span>
               </div>
               <ol className="list-decimal list-inside space-y-2 leading-relaxed opacity-95">
                 <li>
                   {isArabic
-                    ? 'أنشئ ملف .env.local في جذر المشروع وأضف متغيرات VITE_SUPABASE_URL و VITE_SUPABASE_PUBLISHABLE_KEY.'
-                    : 'Create `.env.local` in the project root with `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`.'}
+                    ? 'في Firebase Console ← Authentication ← Sign-in method، فعّل موفر Google.'
+                    : 'In Firebase Console → Authentication → Sign-in method, enable the Google provider.'}
                 </li>
                 <li>
                   {isArabic
-                    ? 'في لوحة تحكم Google Cloud (Authorized redirect URIs)، أضف رابط Callback الخاص بمشروعك في Supabase:'
-                    : 'In Google Cloud Console (Authorized redirect URIs), add your Supabase OAuth callback URL:'}
+                    ? 'في Authentication ← Settings ← Authorized domains، أضف نطاق التطبيق الحالي:'
+                    : 'In Authentication → Settings → Authorized domains, add this app domain:'}
                   <div className="mt-1.5 flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg font-mono text-[11px] bg-black/20 border border-white/10">
-                    <span className="truncate">{oauthCallbackUrl}</span>
+                    <span className="truncate">{currentHostname}</span>
                     <button
                       type="button"
-                      onClick={() => handleCopyText('callback', oauthCallbackUrl)}
+                      onClick={() => handleCopyText('domain', currentHostname)}
                       className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-[10px] font-sans font-bold shrink-0 cursor-pointer"
                     >
                       <Copy className="w-3 h-3" />
-                      <span>{copiedKey === 'callback' ? 'Copied' : 'Copy'}</span>
+                      <span>{copiedKey === 'domain' ? 'Copied' : 'Copy'}</span>
                     </button>
                   </div>
                 </li>
-                <li>
-                  {isArabic
-                    ? 'في لوحة تحكم Supabase (Authentication -> URL Configuration -> Redirect URLs)، أضف رابط التطبيق الحالي:'
-                    : 'In Supabase Dashboard (Authentication -> URL Configuration -> Redirect URLs), allow this app origin:'}
-                  <div className="mt-1.5 flex items-center justify-between gap-2 px-2.5 py-1.5 rounded-lg font-mono text-[11px] bg-black/20 border border-white/10">
-                    <span className="truncate">{`${currentOrigin}/**`}</span>
-                    <button
-                      type="button"
-                      onClick={() => handleCopyText('origin', `${currentOrigin}/**`)}
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-[10px] font-sans font-bold shrink-0 cursor-pointer"
-                    >
-                      <Copy className="w-3 h-3" />
-                      <span>{copiedKey === 'origin' ? 'Copied' : 'Copy'}</span>
-                    </button>
-                  </div>
-                </li>
+                {authDomain && (
+                  <li>
+                    {isArabic
+                      ? 'نطاق معالجة تسجيل الدخول (Auth domain) الخاص بمشروعك:'
+                      : 'Your project OAuth handler (auth domain):'}
+                    <div className="mt-1.5 px-2.5 py-1.5 rounded-lg font-mono text-[11px] bg-black/20 border border-white/10 truncate">
+                      {`https://${authDomain}/__/auth/handler`}
+                    </div>
+                  </li>
+                )}
               </ol>
             </div>
           )}
@@ -503,13 +479,6 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
                   {isArabic ? 'إخفاء' : 'Dismiss'}
                 </button>
               </div>
-              {authError.toLowerCase().includes('provider is not enabled') && (
-                <p className="text-[11px] text-amber-300 pt-1 border-t border-red-500/20">
-                  {isArabic
-                    ? '💡 فعّل موفر Google من لوحة تحكم Supabase: Authentication -> Sign In / Providers -> Google.'
-                    : '💡 Enable the Google provider in Supabase Dashboard: Authentication -> Sign In / Providers -> Google.'}
-                </p>
-              )}
             </div>
           )}
 
@@ -524,13 +493,13 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
               <span>
-                {isArabic ? 'تحقق رقمي عبر JWT Claims' : 'Verified JWT Claims'}
+                {isArabic ? 'تحقق رقمي عبر Firebase ID Token' : 'Verified ID Token Claims'}
               </span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
               <span>
-                {isArabic ? 'عزل بيانات كامل بـ Postgres RLS' : 'Postgres RLS Isolation'}
+                {isArabic ? 'عزل بيانات كامل بـ Firestore Rules' : 'Firestore Rules Isolation'}
               </span>
             </div>
             <div className="flex items-center gap-1.5">

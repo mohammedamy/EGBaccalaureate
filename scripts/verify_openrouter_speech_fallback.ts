@@ -1,6 +1,6 @@
 /**
  * Verification Suite: OpenRouter `fish-audio/s2.1-pro-free:free` Speech Narration
- * + Supabase Secret Proxy + Seamless Native Web Speech Fallback
+ * + Firebase Cloud Function Secret Proxy + Seamless Native Web Speech Fallback
  */
 
 import fs from 'node:fs';
@@ -9,7 +9,7 @@ import {
   aiVoiceEngine,
   OPENROUTER_FISH_AUDIO_MODEL,
   formatMathAndMarkdownForSpeech,
-  resolveSupabaseTtsConfig,
+  resolveTtsProxyConfig,
   type SpeechProviderSource,
 } from '../src/services/aiVoiceEngine';
 
@@ -53,21 +53,26 @@ async function runTests() {
     `English KaTeX formula verbalizes cleanly: "${enSpoken}"`
   );
 
-  // 2. Security & Supabase Edge Function checks
+  // 2. Security & Firebase Cloud Function checks
   const rootDir = process.cwd();
-  const edgeFnPath = path.join(rootDir, 'supabase/functions/openrouter-tts/index.ts');
-  assert(fs.existsSync(edgeFnPath), 'Supabase Edge Function supabase/functions/openrouter-tts/index.ts exists');
+  const cloudFnPath = path.join(rootDir, 'functions/src/index.ts');
+  assert(fs.existsSync(cloudFnPath), 'Firebase Cloud Function functions/src/index.ts exists');
 
-  const edgeFnCode = fs.readFileSync(edgeFnPath, 'utf8');
+  const cloudFnCode = fs.readFileSync(cloudFnPath, 'utf8');
   assert(
-    edgeFnCode.includes("Deno.env.get('OPENROUTER_API_KEY')"),
-    'Edge Function reads OPENROUTER_API_KEY strictly from Supabase Secrets (Deno.env)'
+    cloudFnCode.includes("defineSecret('OPENROUTER_API_KEY')") &&
+      cloudFnCode.includes('secrets: [OPENROUTER_API_KEY]'),
+    'Cloud Function reads OPENROUTER_API_KEY strictly from Firebase Secret Manager (defineSecret)'
   );
   assert(
-    edgeFnCode.includes("'fish-audio/s2.1-pro-free:free'") &&
-      edgeFnCode.includes('https://openrouter.ai/api/v1/audio/speech') &&
-      edgeFnCode.includes("response_format: 'mp3'"),
-    'Edge Function targets OpenRouter /api/v1/audio/speech with fish-audio/s2.1-pro-free:free and mp3 format'
+    cloudFnCode.includes('verifyIdToken('),
+    'Cloud Function requires a verified Firebase ID token before spending OpenRouter quota'
+  );
+  assert(
+    cloudFnCode.includes("'fish-audio/s2.1-pro-free:free'") &&
+      cloudFnCode.includes('https://openrouter.ai/api/v1/audio/speech') &&
+      cloudFnCode.includes("response_format: 'mp3'"),
+    'Cloud Function targets OpenRouter /api/v1/audio/speech with fish-audio/s2.1-pro-free:free and mp3 format'
   );
 
   const gitignore = fs.readFileSync(path.join(rootDir, '.gitignore'), 'utf8');
@@ -85,8 +90,8 @@ async function runTests() {
 
   // 3. Fallback simulation when API is unconfigured or returns 429 rate-limit
   assert(
-    resolveSupabaseTtsConfig() === null,
-    'resolveSupabaseTtsConfig() returns null safely when env vars are unset'
+    resolveTtsProxyConfig() === null,
+    'resolveTtsProxyConfig() returns null safely when VITE_FIREBASE_TTS_FUNCTION_URL is unset'
   );
 
   let nativeFallbackCalledCount = 0;
@@ -113,7 +118,7 @@ async function runTests() {
 
   assert(
     nativeFallbackCalledCount === 1 && lastResolvedSource === 'native_fallback',
-    'Unconfigured Supabase endpoint immediately falls back to native Web Speech voice engine'
+    'Unconfigured Cloud Function endpoint immediately falls back to native Web Speech voice engine'
   );
 
   // Restore original method

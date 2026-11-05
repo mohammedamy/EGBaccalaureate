@@ -14,8 +14,10 @@ dist-ssr
 .env
 .env.*
 !.env.example
-supabase/.temp
-supabase/.branches
+.firebase/
+firebase-debug.log*
+firestore-debug.log*
+functions/lib/
 
 # Editor directories and files
 .vscode/*

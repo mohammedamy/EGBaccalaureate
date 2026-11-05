@@ -36,8 +36,7 @@ jobs:
 
       - name: Build project
         env:
-          VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL || secrets.VITE_SUPABASE_URL || 'https://drhrrhvdeizusjzjjhos.supabase.co' }}
-          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ vars.VITE_SUPABASE_PUBLISHABLE_KEY || secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
+          VITE_FIREBASE_TTS_FUNCTION_URL: ${{ vars.VITE_FIREBASE_TTS_FUNCTION_URL }}
         run: npm run build
 
       - name: Setup Pages

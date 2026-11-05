@@ -17,7 +17,8 @@ import {
   importLocalDataBackup, 
   resetLocalDeviceData 
 } from '../services/userProfileService';
-import { useSupabaseAuth } from '../services/supabaseAuthContext';
+import { useFirebaseAuth } from '../services/firebaseAuthContext';
+import { firebaseConfig } from '../services/firebase';
 import { getAllGovernorates } from '../services/governorateAnalyticsService';
 import { toHindiDigits } from '../utils/arabicNumerals';
 import { 
@@ -93,7 +94,7 @@ export const UserProfileModal: React.FC<Props> = ({
   const isArabic = lang === 'ar';
   const isLight = theme === 'light';
   const isContrast = theme === 'high-contrast';
-  const { isAuthenticated, signOut: supabaseSignOut } = useSupabaseAuth();
+  const { isAuthenticated, signOut: firebaseSignOut } = useFirebaseAuth();
 
   const [activeTab, setActiveTab] = useState<'profile' | 'goals' | 'storage'>('profile');
   const [profile, setProfile] = useState<UserProfile>(loadLocalUserProfile);
@@ -142,7 +143,7 @@ export const UserProfileModal: React.FC<Props> = ({
   };
 
   const handleGoogleSignOut = async () => {
-    await supabaseSignOut();
+    await firebaseSignOut();
     await signOutGoogleUser();
     const updated = loadLocalUserProfile();
     setProfile(updated);
@@ -336,7 +337,7 @@ export const UserProfileModal: React.FC<Props> = ({
                           <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                             isLight ? 'bg-emerald-100 text-emerald-800 border-emerald-300' : 'bg-emerald-900/50 text-emerald-300 border-emerald-700/60'
                           }`}>
-                            ✓ {isArabic ? 'حساب Google موثق عبر Supabase' : 'Verified Google • Supabase'}
+                            ✓ {isArabic ? 'حساب Google موثق عبر Firebase' : 'Verified Google • Firebase'}
                           </span>
                         )}
                       </div>
@@ -409,23 +410,24 @@ export const UserProfileModal: React.FC<Props> = ({
                       <span className="font-semibold leading-relaxed">{signInError}</span>
                     </div>
 
-                    {(signInError.includes('supabase/not-configured') ||
-                      signInError.toLowerCase().includes('provider is not enabled')) && (
+                    {(signInError.includes('firebase/not-configured') ||
+                      signInError.includes('auth/operation-not-allowed') ||
+                      signInError.includes('auth/unauthorized-domain')) && (
                       <div className="pt-2 border-t border-red-500/20 text-[11px] leading-relaxed text-red-300 space-y-1.5">
                         <p>
                           {isArabic
-                            ? '💡 الحل السريع: فعّل موفر Google في لوحة تحكم Supabase (Authentication ➔ Sign In / Providers ➔ Google) وتأكد من ضبط VITE_SUPABASE_URL و VITE_SUPABASE_PUBLISHABLE_KEY في ملف .env.local.'
-                            : '💡 Quick Fix: Enable Google in Supabase Dashboard (Authentication ➔ Sign In / Providers ➔ Google) and set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY in .env.local.'}
+                            ? '💡 الحل السريع: فعّل موفر Google في Firebase Console (Authentication ➔ Sign-in method ➔ Google) وأضف نطاق التطبيق إلى Authentication ➔ Settings ➔ Authorized domains.'
+                            : '💡 Quick Fix: Enable Google in Firebase Console (Authentication ➔ Sign-in method ➔ Google) and add this app domain under Authentication ➔ Settings ➔ Authorized domains.'}
                         </p>
                         <a
-                          href="https://supabase.com/dashboard/project/_/auth/providers?provider=Google"
+                          href={`https://console.firebase.google.com/project/${firebaseConfig.projectId}/authentication/providers`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 font-black text-amber-300 underline hover:text-amber-200 mt-1"
                         >
                           {isArabic
-                            ? 'فتح لوحة تحكم Supabase لتفعيل Google ↗'
-                            : 'Open Supabase Dashboard to enable Google ↗'}
+                            ? 'فتح Firebase Console لتفعيل Google ↗'
+                            : 'Open Firebase Console to enable Google ↗'}
                         </a>
                       </div>
                     )}

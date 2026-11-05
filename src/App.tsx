@@ -49,7 +49,7 @@ const UserProfileModal = lazy(() => import('./components/UserProfileModal').then
 import type { UserProfile, AcademicTrack } from './types/userProfile';
 import { loadLocalUserProfile, saveLocalUserProfile, subscribeToUserProfile } from './services/userProfileService';
 import { ProtectedRoute } from './components/ProtectedRoute';
-import { useSupabaseAuth } from './services/supabaseAuthContext';
+import { useFirebaseAuth } from './services/firebaseAuthContext';
 import type { Assignment } from './types/teacherAssignment';
 import type { TeacherModalTab } from './components/TeacherAssignmentModal';
 import type { PrescribedItem } from './types/adaptivePractice';
@@ -358,7 +358,7 @@ export const App: React.FC = () => {
     }
   }, []);
 
-  const { isAuthenticated } = useSupabaseAuth();
+  const { isAuthenticated } = useFirebaseAuth();
 
   // Auto-launch interactive navigation tour for first-time visitors once authenticated
   useEffect(() => {

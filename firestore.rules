@@ -1,0 +1,88 @@
+rules_version = '2';
+
+// ============================================================================
+// EGBaccalaureate — Cloud Firestore Security Rules
+// Deploy with:  npx firebase-tools deploy --only firestore:rules
+//
+// NOTE: Deploying this file REPLACES the project's entire ruleset, so every
+// collection the app uses must be covered here. Anything unmatched is denied.
+// ============================================================================
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    // Validates the full post-write `profiles/{uid}` document (merge writes included).
+    function isValidProfile(uid) {
+      let d = request.resource.data;
+      return d.id == uid
+        && d.display_name is string && d.display_name.size() <= 200
+        && d.avatar_icon is string && d.avatar_icon.size() <= 32
+        && (d.email == null || d.email is string)
+        && (d.photo_url == null || (d.photo_url is string && d.photo_url.size() <= 2048))
+        && d.profile_role in ['student', 'teacher']
+        && d.academic_track in ['scientific_science', 'scientific_math', 'literary', 'stem', 'general']
+        && d.second_language in ['french', 'german', 'italian', 'spanish', 'chinese', 'none']
+        && d.governorate is string && d.governorate.size() <= 64
+        && d.dream_college is string && d.dream_college.size() <= 200
+        && d.target_percentage is number && d.target_percentage >= 0 && d.target_percentage <= 100
+        && d.daily_practice_goal is int && d.daily_practice_goal >= 1 && d.daily_practice_goal <= 500
+        && d.study_minutes_goal is int && d.study_minutes_goal >= 1 && d.study_minutes_goal <= 1440
+        && d.sound_effects_enabled is bool
+        && (d.teacher_subject == null || (d.teacher_subject is string && d.teacher_subject.size() <= 200))
+        && (d.teacher_school == null || (d.teacher_school is string && d.teacher_school.size() <= 200))
+        && (d.teacher_bio == null || (d.teacher_bio is string && d.teacher_bio.size() <= 2000));
+    }
+
+    // ------------------------------------------------------------------------
+    // User profiles — one document per Firebase Auth UID, owner-only access.
+    // `profile_role` here is a user-editable UI preference; authorization for
+    // teacher-only routes uses the Firebase custom claim `role` instead.
+    // ------------------------------------------------------------------------
+    match /profiles/{uid} {
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid) && isValidProfile(uid);
+      allow delete: if false;
+    }
+
+    // ------------------------------------------------------------------------
+    // Global visitor counter (VisitorCounter.tsx)
+    // ------------------------------------------------------------------------
+    match /platform_stats/global_visitors {
+      allow read: if true;
+      allow create, update: if request.resource.data.keys().hasOnly(
+        ['totalVisits', 'todayVisits', 'todayDate', 'lastVisitedAt', 'initializedAt']
+      );
+      allow delete: if false;
+    }
+
+    // ------------------------------------------------------------------------
+    // Teacher assignments & student submissions (teacherAssignmentService.ts)
+    // ------------------------------------------------------------------------
+    match /assignments/{code} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.assignmentCode == code;
+      allow update, delete: if false;
+    }
+
+    match /assignment_submissions/{submissionId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.submissionId == submissionId;
+      allow update, delete: if false;
+    }
+
+    // ------------------------------------------------------------------------
+    // Question issue reports (QuestionIssueReportModal.tsx) — write-only inbox
+    // ------------------------------------------------------------------------
+    match /question_issue_reports/{reportId} {
+      allow create: if signedIn();
+      allow read, update, delete: if false;
+    }
+  }
+}

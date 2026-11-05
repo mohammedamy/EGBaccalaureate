@@ -2,8 +2,8 @@
  * AI Vocal Engine Service (محرك النطق الصوتي المتقدم بالذكاء الاصطناعي)
  *
  * Primary Cloud TTS for Hints & Explanations:
- * - OpenRouter `fish-audio/s2.1-pro-free:free` served securely via Supabase Edge Function (`openrouter-tts`)
- *   so `OPENROUTER_API_KEY` remains strictly in Supabase server secrets and never reaches client bundles.
+ * - OpenRouter `fish-audio/s2.1-pro-free:free` served securely via Firebase Cloud Function (`openrouterTts`)
+ *   so `OPENROUTER_API_KEY` remains strictly in Firebase Secret Manager and never reaches client bundles.
  * - Includes LaTeX/KaTeX mathematical & scientific speech verbalization (Arabic & English), LRU audio Blob caching,
  *   rate-limit cooldown protection, and automatic zero-interruption fallback to the local Neural Web Speech engine
  *   whenever the API is unconfigured, offline, fails, or exceeds rate/quota limits.
@@ -95,37 +95,43 @@ export type VoiceEngineSubscriber = (
 ) => void;
 
 // ---------------------------------------------------------------------------
-// Safe Supabase TTS Endpoint Discovery (Public URL + Anon/Publishable Key Only)
+// Firebase Cloud Function TTS Endpoint Discovery (public URL only — no secrets)
 // ---------------------------------------------------------------------------
-export interface SupabaseTtsEndpointConfig {
+export interface TtsProxyEndpointConfig {
   endpointUrl: string;
-  anonOrPublishableKey?: string;
 }
 
-export function resolveSupabaseTtsConfig(): SupabaseTtsEndpointConfig | null {
+/**
+ * Resolves the deployed `openrouterTts` Firebase Cloud Function URL from
+ * `VITE_FIREBASE_TTS_FUNCTION_URL`. Returns `null` when unset so the engine
+ * falls straight back to the built-in Web Speech voices.
+ */
+export function resolveTtsProxyConfig(): TtsProxyEndpointConfig | null {
   const env = (import.meta as unknown as { env?: Record<string, string | undefined> }).env;
-  const explicitFnUrl = env?.VITE_SUPABASE_TTS_FUNCTION_URL?.trim();
-  const supabaseUrl = env?.VITE_SUPABASE_URL?.trim();
-  const anonKey =
-    env?.VITE_SUPABASE_ANON_KEY?.trim() ||
-    env?.VITE_SUPABASE_PUBLISHABLE_KEY?.trim();
+  const explicitFnUrl = env?.VITE_FIREBASE_TTS_FUNCTION_URL?.trim();
 
-  if (explicitFnUrl && !explicitFnUrl.includes('your-project-ref')) {
-    return {
-      endpointUrl: explicitFnUrl,
-      anonOrPublishableKey: anonKey && !anonKey.includes('your-supabase-') ? anonKey : undefined,
-    };
-  }
-
-  if (supabaseUrl && !supabaseUrl.includes('your-project-ref')) {
-    const cleanBase = supabaseUrl.replace(/\/+$/, '');
-    return {
-      endpointUrl: `${cleanBase}/functions/v1/openrouter-tts`,
-      anonOrPublishableKey: anonKey && !anonKey.includes('your-supabase-') ? anonKey : undefined,
-    };
+  if (
+    explicitFnUrl &&
+    !explicitFnUrl.includes('your-project-id') &&
+    (explicitFnUrl.startsWith('https://') || explicitFnUrl.startsWith('http://localhost') || explicitFnUrl.startsWith('http://127.0.0.1'))
+  ) {
+    return { endpointUrl: explicitFnUrl };
   }
 
   return null;
+}
+
+/**
+ * Returns a fresh Firebase ID token for the signed-in user (verified by the
+ * Cloud Function so the OpenRouter key can't be abused anonymously).
+ */
+async function getFirebaseIdTokenForTts(): Promise<string | undefined> {
+  try {
+    const { auth } = await import('./firebase');
+    return (await auth.currentUser?.getIdToken()) ?? undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -785,7 +791,7 @@ class AiVoiceEngineCore {
   /**
    * Dedicated entry point for all Hints & Explanations:
    * 1. Converts KaTeX/LaTeX equations & symbols into clear spoken Arabic/English.
-   * 2. Synthesizes natural speech via OpenRouter `fish-audio/s2.1-pro-free:free` (Supabase Edge Function).
+   * 2. Synthesizes natural speech via OpenRouter `fish-audio/s2.1-pro-free:free` (Firebase Cloud Function).
    * 3. Seamlessly falls back to the current Web Speech neural voice method if the API fails, times out,
    *    is unconfigured, or exceeds rate/quota limits.
    */
@@ -881,7 +887,7 @@ class AiVoiceEngineCore {
   }
 
   /**
-   * Primary OpenRouter `fish-audio/s2.1-pro-free:free` synthesis via Supabase Edge Function
+   * Primary OpenRouter `fish-audio/s2.1-pro-free:free` synthesis via Firebase Cloud Function
    * with automatic fallback to `speakNative` on error, timeout, offline state, or rate limit.
    */
   private async speakWithOpenRouterOrFallback(
@@ -905,12 +911,12 @@ class AiVoiceEngineCore {
       }
     }
 
-    // 2. Check if Supabase Edge Function is configured, browser is online, and not in rate-limit cooldown
-    const supabaseCfg = resolveSupabaseTtsConfig();
+    // 2. Check if the Firebase TTS Cloud Function is configured, browser is online, and not in rate-limit cooldown
+    const ttsProxyCfg = resolveTtsProxyConfig();
     const isOnline = typeof navigator === 'undefined' || navigator.onLine !== false;
     const isCoolingDown = Date.now() < this.openRouterCooldownUntil;
 
-    if (!supabaseCfg || !isOnline || isCoolingDown) {
+    if (!ttsProxyCfg || !isOnline || isCoolingDown) {
       options.onLoadingChange?.(false);
       options.onSourceResolved?.('native_fallback');
       this.speakNative(cleanText, options);
@@ -938,12 +944,12 @@ class AiVoiceEngineCore {
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
       };
-      if (supabaseCfg.anonOrPublishableKey) {
-        headers.apikey = supabaseCfg.anonOrPublishableKey;
-        headers.Authorization = `Bearer ${supabaseCfg.anonOrPublishableKey}`;
+      const idToken = await getFirebaseIdTokenForTts();
+      if (idToken) {
+        headers.Authorization = `Bearer ${idToken}`;
       }
 
-      const response = await fetch(supabaseCfg.endpointUrl, {
+      const response = await fetch(ttsProxyCfg.endpointUrl, {
         method: 'POST',
         headers,
         body: JSON.stringify({

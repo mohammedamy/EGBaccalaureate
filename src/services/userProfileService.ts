@@ -1,11 +1,26 @@
-import type { AuthUser } from '@supabase/supabase-js';
 import {
-  supabase,
-  isSupabaseConfigured,
-  type ProfileInsert,
-  type ProfileRow,
-} from './supabaseClient';
-import { buildOAuthRedirectUrl } from './supabaseAuthContext';
+  getRedirectResult,
+  onAuthStateChanged,
+  signInWithPopup,
+  signInWithRedirect,
+  signOut as firebaseSignOut,
+  type User,
+} from 'firebase/auth';
+import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { auth, db, googleProvider, isFirebaseAuthConfigured } from './firebase';
+import {
+  PROFILES_COLLECTION,
+  isValidFirebaseUid,
+  timestampLikeToMillis,
+  type ProfileDocument,
+  type ProfileWrite,
+} from './firestoreProfiles';
+import {
+  BENIGN_FIREBASE_AUTH_ERROR_CODES,
+  REDIRECT_FALLBACK_FIREBASE_AUTH_ERROR_CODES,
+  describeFirebaseAuthError,
+  getFirebaseAuthErrorCode,
+} from './firebaseAuthContext';
 import type {
   UserProfile,
   LocalDeviceDataSummary,
@@ -23,29 +38,6 @@ import { OFFLINE_PACKS_STORAGE_KEY } from './downloadManagerService';
 export const USER_PROFILE_STORAGE_KEY = 'egbac_user_profile_v1';
 export const USER_PROFILE_EVENT = 'egbac_user_profile_changed';
 
-const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-
-export const PROFILE_SELECT_COLUMNS = [
-  'id',
-  'email',
-  'display_name',
-  'photo_url',
-  'avatar_icon',
-  'profile_role',
-  'teacher_subject',
-  'teacher_school',
-  'teacher_bio',
-  'academic_track',
-  'dream_college',
-  'target_percentage',
-  'second_language',
-  'governorate',
-  'daily_practice_goal',
-  'study_minutes_goal',
-  'sound_effects_enabled',
-  'last_sync_at',
-].join(',');
-
 let pendingCloudSyncTimer: ReturnType<typeof setTimeout> | null = null;
 
 function scheduleDebouncedCloudSync(profile: UserProfile): void {
@@ -61,9 +53,9 @@ function scheduleDebouncedCloudSync(profile: UserProfile): void {
 }
 
 /**
- * Determines whether hydrating an OAuth session actually requires a write back
- * to `public.profiles`, eliminating redundant `UPSERT` dead-tuple churn on
- * unchanged sessions (`monitor-vacuum-analyze.md` & `data-upsert.md`).
+ * Determines whether hydrating an authenticated session actually requires a
+ * write back to Firestore `profiles/{uid}`, avoiding a redundant billed
+ * document write on every page load when nothing changed.
  */
 export function shouldWriteHydratedProfileToCloud(
   cloudData: Partial<UserProfile> | null,
@@ -77,7 +69,7 @@ export function shouldWriteHydratedProfileToCloud(
   );
 }
 
-export function mapProfileRowToUserProfile(row: ProfileRow): Partial<UserProfile> {
+export function mapProfileDocumentToUserProfile(row: ProfileDocument): Partial<UserProfile> {
   return {
     uid: row.id,
     email: row.email ?? undefined,
@@ -96,14 +88,14 @@ export function mapProfileRowToUserProfile(row: ProfileRow): Partial<UserProfile
     dailyPracticeGoal: row.daily_practice_goal,
     studyMinutesGoal: row.study_minutes_goal,
     soundEffectsEnabled: row.sound_effects_enabled,
-    lastSyncTimestamp: row.last_sync_at ? Date.parse(row.last_sync_at) : Date.now(),
+    lastSyncTimestamp: timestampLikeToMillis(row.last_sync_at) ?? Date.now(),
   };
 }
 
-export function mapUserProfileToProfileInsert(
+export function mapUserProfileToProfileDocument(
   profile: UserProfile,
   uid: string
-): ProfileInsert {
+): ProfileWrite {
   return {
     id: uid,
     email: profile.email ?? null,
@@ -219,12 +211,11 @@ export function saveLocalUserProfile(
       window.dispatchEvent(new CustomEvent(USER_PROFILE_EVENT, { detail: updated }));
     }
 
-    // If authenticated with Supabase Auth and online, coalesce rapid UI edits into a single UPSERT
+    // If authenticated with Firebase Auth and online, coalesce rapid UI edits into a single write
     const isOnline = typeof navigator === 'undefined' ? true : navigator.onLine;
     if (
       !options?.skipCloudSync &&
-      updated.uid &&
-      UUID_REGEX.test(updated.uid) &&
+      isValidFirebaseUid(updated.uid) &&
       updated.isGoogleUser &&
       isOnline
     ) {
@@ -237,76 +228,92 @@ export function saveLocalUserProfile(
   return updated;
 }
 
+export interface SyncProfileOptions {
+  /** Set when no `profiles/{uid}` document exists yet so `created_at` is stamped once. */
+  isNewDocument?: boolean;
+}
+
 /**
- * Synchronizes the user profile document to Supabase Postgres (`public.profiles`)
- * using RLS-protected `upsert` (`(select auth.uid()) = id`).
+ * Synchronizes the user profile to Cloud Firestore (`profiles/{uid}`) using a
+ * merge write. `firestore.rules` restricts writes to the owning user.
  */
-export async function syncProfileToCloud(profile: UserProfile): Promise<void> {
-  if (!profile.uid || !UUID_REGEX.test(profile.uid) || !isSupabaseConfigured || !supabase) {
+export async function syncProfileToCloud(
+  profile: UserProfile,
+  options?: SyncProfileOptions
+): Promise<void> {
+  if (!isValidFirebaseUid(profile.uid) || !isFirebaseAuthConfigured) {
+    return;
+  }
+  // Only write when the signed-in Firebase user owns this profile
+  if (auth.currentUser?.uid !== profile.uid) {
     return;
   }
 
   try {
-    const payload = mapUserProfileToProfileInsert(profile, profile.uid);
-    const { error } = await supabase
-      .from('profiles')
-      .upsert(payload, { onConflict: 'id' });
-
-    if (error) {
-      console.warn('Optional Supabase profile sync warning:', error.message);
-    }
+    const payload = mapUserProfileToProfileDocument(profile, profile.uid);
+    await setDoc(
+      doc(db, PROFILES_COLLECTION, profile.uid),
+      {
+        ...payload,
+        updated_at: serverTimestamp(),
+        ...(options?.isNewDocument ? { created_at: serverTimestamp() } : {}),
+      },
+      { merge: true }
+    );
   } catch (err) {
-    console.warn('Optional Supabase profile sync failed (offline or restricted permissions):', err);
+    console.warn('Optional Firestore profile sync failed (offline or restricted permissions):', err);
   }
 }
 
 /**
- * Fetches the authenticated user's profile from Supabase `public.profiles`.
+ * Fetches the authenticated user's profile from Firestore `profiles/{uid}`.
  */
 export async function fetchProfileFromCloud(uid: string): Promise<Partial<UserProfile> | null> {
-  if (!uid || !UUID_REGEX.test(uid) || !isSupabaseConfigured || !supabase) {
+  if (!isValidFirebaseUid(uid) || !isFirebaseAuthConfigured) {
     return null;
   }
 
   try {
-    const { data, error } = await supabase
-      .from('profiles')
-      .select(PROFILE_SELECT_COLUMNS)
-      .eq('id', uid)
-      .maybeSingle();
-
-    if (error) {
-      console.warn('Could not fetch Supabase cloud profile:', error.message);
-      return null;
-    }
-
-    if (data) {
-      return mapProfileRowToUserProfile(data as unknown as ProfileRow);
+    const snap = await getDoc(doc(db, PROFILES_COLLECTION, uid));
+    if (snap.exists()) {
+      return mapProfileDocumentToUserProfile({ ...(snap.data() as ProfileDocument), id: uid });
     }
   } catch (err) {
-    console.warn('Could not fetch cloud profile:', err);
+    console.warn('Could not fetch Firestore cloud profile:', err);
   }
   return null;
 }
 
 /**
- * Hydrates and merges a verified Supabase Google OAuth `AuthUser` with both
- * `public.profiles` and the local device profile cache.
+ * Hydrates and merges a signed-in Firebase Google `User` with both Firestore
+ * `profiles/{uid}` and the local device profile cache.
+ *
+ * Concurrent calls for the same UID (e.g. popup sign-in result and the
+ * `onAuthStateChanged` listener firing together) share one in-flight request.
  */
-export async function hydrateProfileFromSupabaseUser(user: AuthUser): Promise<UserProfile> {
+let inflightHydration: { uid: string; promise: Promise<UserProfile> } | null = null;
+
+export function hydrateProfileFromFirebaseUser(user: User): Promise<UserProfile> {
+  if (inflightHydration && inflightHydration.uid === user.uid) {
+    return inflightHydration.promise;
+  }
+  const promise = performProfileHydration(user).finally(() => {
+    if (inflightHydration?.promise === promise) {
+      inflightHydration = null;
+    }
+  });
+  inflightHydration = { uid: user.uid, promise };
+  return promise;
+}
+
+async function performProfileHydration(user: User): Promise<UserProfile> {
   const local = loadLocalUserProfile();
-  const meta = (user.user_metadata ?? {}) as Record<string, unknown>;
-  const oauthName =
-    (typeof meta.full_name === 'string' && meta.full_name.trim()) ||
-    (typeof meta.name === 'string' && meta.name.trim()) ||
-    undefined;
-  const oauthAvatar =
-    (typeof meta.avatar_url === 'string' && meta.avatar_url.trim()) ||
-    (typeof meta.picture === 'string' && meta.picture.trim()) ||
-    undefined;
+  const googleInfo = user.providerData.find((p) => p.providerId === 'google.com');
+  const oauthName = (user.displayName || googleInfo?.displayName || '').trim() || undefined;
+  const oauthAvatar = (user.photoURL || googleInfo?.photoURL || '').trim() || undefined;
 
   const isOnline = typeof navigator === 'undefined' ? true : navigator.onLine;
-  const cloudData = isOnline ? await fetchProfileFromCloud(user.id) : null;
+  const cloudData = isOnline ? await fetchProfileFromCloud(user.uid) : null;
 
   const resolvedDisplayName =
     (cloudData?.displayName && cloudData.displayName !== 'طالب الثانوية العامة'
@@ -322,8 +329,8 @@ export async function hydrateProfileFromSupabaseUser(user: AuthUser): Promise<Us
   const merged = saveLocalUserProfile(
     {
       ...(cloudData ?? {}),
-      uid: user.id,
-      email: user.email || cloudData?.email || local.email,
+      uid: user.uid,
+      email: user.email || googleInfo?.email || cloudData?.email || local.email,
       displayName: resolvedDisplayName,
       photoURL: oauthAvatar || cloudData?.photoURL || local.photoURL,
       isGoogleUser: true,
@@ -333,72 +340,85 @@ export async function hydrateProfileFromSupabaseUser(user: AuthUser): Promise<Us
   );
 
   if (isOnline && shouldWriteHydratedProfileToCloud(cloudData, merged)) {
-    await syncProfileToCloud(merged);
+    await syncProfileToCloud(merged, { isNewDocument: !cloudData });
   }
 
   return merged;
 }
 
 /**
- * Initiates Google OAuth Sign-In via Supabase Auth (`supabase.auth.signInWithOAuth`).
- * Preserves the current route URL so the user returns directly to their requested tab.
+ * Initiates Google Sign-In via Firebase Authentication.
+ *
+ * Uses `signInWithPopup` (keeps the user on their current route/deep link) and
+ * falls back to `signInWithRedirect` when popups are blocked or unsupported.
  */
-export async function signInWithGoogle(
-  redirectToUrl?: string
-): Promise<{ success: boolean; profile?: UserProfile; error?: string }> {
-  if (!isSupabaseConfigured || !supabase) {
+export async function signInWithGoogle(): Promise<{
+  success: boolean;
+  profile?: UserProfile;
+  error?: string;
+}> {
+  if (!isFirebaseAuthConfigured) {
     return {
       success: false,
       error:
-        'supabase/not-configured: يرجى إعداد متغيرات البيئة VITE_SUPABASE_URL و VITE_SUPABASE_PUBLISHABLE_KEY في ملف .env.local وتفعيل موفر Google في لوحة تحكم Supabase Authentication.',
+        'firebase/not-configured: إعدادات Firebase غير مكتملة في src/services/firebase.ts / Firebase web config is incomplete in src/services/firebase.ts.',
     };
   }
 
   try {
-    const redirectTo =
-      redirectToUrl ||
-      (typeof window !== 'undefined' && window.location?.href
-        ? buildOAuthRedirectUrl(window.location.href)
-        : undefined);
+    const credential = await signInWithPopup(auth, googleProvider);
+    const profile = await hydrateProfileFromFirebaseUser(credential.user);
+    return { success: true, profile };
+  } catch (err: unknown) {
+    const code = getFirebaseAuthErrorCode(err);
 
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo,
-        queryParams: {
-          access_type: 'offline',
-          prompt: 'select_account',
-        },
-      },
-    });
-
-    if (error) {
-      return {
-        success: false,
-        error: error.message,
-      };
+    if (code && BENIGN_FIREBASE_AUTH_ERROR_CODES.has(code)) {
+      // User closed the popup — not an error worth surfacing
+      return { success: false };
     }
 
-    return {
-      success: true,
-      profile: loadLocalUserProfile(),
-    };
-  } catch (err: unknown) {
-    const errorMsg = err instanceof Error ? err.message : String(err);
-    console.warn('Supabase Google OAuth sign-in encountered an error:', errorMsg);
-    return { success: false, error: errorMsg };
+    if (code && REDIRECT_FALLBACK_FIREBASE_AUTH_ERROR_CODES.has(code)) {
+      try {
+        await signInWithRedirect(auth, googleProvider);
+        return { success: true, profile: loadLocalUserProfile() };
+      } catch (redirectErr) {
+        const message = describeFirebaseAuthError(redirectErr);
+        console.warn('Firebase Google redirect sign-in failed:', message);
+        return { success: false, error: message };
+      }
+    }
+
+    const message = describeFirebaseAuthError(err);
+    console.warn('Firebase Google sign-in encountered an error:', message);
+    return { success: false, error: message };
   }
 }
 
 /**
- * Signs out from Supabase Auth while preserving local device study progress.
+ * Completes a pending `signInWithRedirect` flow (if any) after the page reloads.
+ * Returns a user-facing error message when the redirect sign-in failed.
+ */
+export async function completeRedirectSignIn(): Promise<string | null> {
+  if (!isFirebaseAuthConfigured) return null;
+  try {
+    await getRedirectResult(auth);
+    return null;
+  } catch (err) {
+    const code = getFirebaseAuthErrorCode(err);
+    if (code && BENIGN_FIREBASE_AUTH_ERROR_CODES.has(code)) return null;
+    return describeFirebaseAuthError(err);
+  }
+}
+
+/**
+ * Signs out from Firebase Auth while preserving local device study progress.
  */
 export async function signOutGoogleUser(): Promise<void> {
-  if (isSupabaseConfigured && supabase) {
+  if (isFirebaseAuthConfigured) {
     try {
-      await supabase.auth.signOut();
+      await firebaseSignOut(auth);
     } catch (err) {
-      console.warn('Error during Supabase signOut:', err);
+      console.warn('Error during Firebase signOut:', err);
     }
   }
 
@@ -412,12 +432,12 @@ export async function signOutGoogleUser(): Promise<void> {
 }
 
 /**
- * Subscribes to real-time changes of the local user profile and Supabase Auth state.
+ * Subscribes to real-time changes of the local user profile and Firebase Auth state.
  */
 export function subscribeToUserProfile(
-  callback: (profile: UserProfile, authUser: AuthUser | null) => void
+  callback: (profile: UserProfile, authUser: User | null) => void
 ): () => void {
-  let currentUser: AuthUser | null = null;
+  let currentUser: User | null = null;
 
   const handleProfileChange = () => {
     callback(loadLocalUserProfile(), currentUser);
@@ -428,42 +448,23 @@ export function subscribeToUserProfile(
     window.addEventListener('storage', handleProfileChange);
   }
 
-  let unsubscribeSupabase: (() => void) | null = null;
-  if (isSupabaseConfigured && supabase) {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      currentUser = session?.user ?? null;
-      if (session?.user && (event === 'INITIAL_SESSION' || event === 'SIGNED_IN')) {
-        const userSnapshot = session.user;
-        // Defer async Supabase DB calls outside the synchronous auth lock callback
-        setTimeout(() => {
-          hydrateProfileFromSupabaseUser(userSnapshot).catch(() => {});
-        }, 0);
-      } else if (session?.user && event === 'TOKEN_REFRESHED') {
-        // Skip redundant DB SELECT/UPSERT on background hourly JWT refreshes
-        // when the local profile is already bound to the same authenticated user.
-        const local = loadLocalUserProfile();
-        if (!local.isGoogleUser || local.uid !== session.user.id) {
-          const userSnapshot = session.user;
-          setTimeout(() => {
-            hydrateProfileFromSupabaseUser(userSnapshot).catch(() => {});
-          }, 0);
-        } else {
-          handleProfileChange();
-        }
-      } else if (event === 'SIGNED_OUT') {
+  let unsubscribeAuth: (() => void) | null = null;
+  if (isFirebaseAuthConfigured && typeof window !== 'undefined') {
+    // `onAuthStateChanged` fires once on startup (restored session or null),
+    // then on every sign-in / sign-out — but NOT on hourly token refreshes.
+    unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+      currentUser = user;
+      if (user) {
+        hydrateProfileFromFirebaseUser(user).catch(() => {});
+      } else {
         const local = loadLocalUserProfile();
         if (local.isGoogleUser) {
           saveLocalUserProfile({ uid: undefined, isGoogleUser: false }, { skipCloudSync: true });
         } else {
           handleProfileChange();
         }
-      } else {
-        handleProfileChange();
       }
     });
-    unsubscribeSupabase = () => subscription.unsubscribe();
   }
 
   return () => {
@@ -471,7 +472,7 @@ export function subscribeToUserProfile(
       window.removeEventListener(USER_PROFILE_EVENT, handleProfileChange);
       window.removeEventListener('storage', handleProfileChange);
     }
-    unsubscribeSupabase?.();
+    unsubscribeAuth?.();
   };
 }
 

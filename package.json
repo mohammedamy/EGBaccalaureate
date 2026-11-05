@@ -52,10 +52,9 @@
     "test:coolidge": "npx tsx scripts/verify_coolidge_studio.ts",
     "generate:books": "npx tsx scripts/generate_all_official_books.ts",
     "test:renewable-studios": "npx tsx scripts/verify_renewable_studios.ts",
-    "test:supabase-auth": "npx tsx scripts/verify_supabase_auth_and_routes.ts"
+    "test:firebase-auth": "npx tsx scripts/verify_firebase_auth_and_routes.ts"
   },
   "dependencies": {
-    "@supabase/supabase-js": "2.118.0",
     "@tailwindcss/vite": "^4.3.3",
     "@types/canvas-confetti": "^1.9.0",
     "@types/katex": "^0.16.8",

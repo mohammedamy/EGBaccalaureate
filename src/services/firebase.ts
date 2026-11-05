@@ -44,6 +44,11 @@ export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: 'select_account' });
 
+/** True when the Firebase web config contains everything Google sign-in needs. */
+export const isFirebaseAuthConfigured: boolean = Boolean(
+  firebaseConfig.apiKey && firebaseConfig.authDomain && firebaseConfig.projectId
+);
+
 export const BASE_VISITOR_ANCHOR = 58490;
 
 export interface RealtimeStats {
